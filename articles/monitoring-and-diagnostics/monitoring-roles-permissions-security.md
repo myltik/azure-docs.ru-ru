@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor | Microsoft Docs
-description: Узнайте, как использовать встроенные роли и разрешения Azure Monitor для ограничения доступа к ресурсам мониторинга.
+title: "Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor | Документация Майкрософт"
+description: "Узнайте, как использовать встроенные роли и разрешения Azure Monitor для ограничения доступа к ресурсам мониторинга."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+
 
 ---
-# <a name="get-started-with-roles,-permissions,-and-security-with-azure-monitor"></a>Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor
+# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor
 Многим командам необходимо строго регулировать доступ к данным и параметрам мониторинга. Например, если какие-либо участники команды работают исключительно с мониторингом (инженеры службы поддержки, инженеры по разработке и операциям) или вы пользуетесь услугами поставщика управляемых служб, то может потребоваться предоставить им доступ только к данным мониторинга, ограничив возможности для создания, изменения или удаления ресурсов. В этой статье показано, как быстро применить к пользователю в Azure встроенные роли RBAC для мониторинга или создать собственную настраиваемую роль для пользователя, которому нужен ограниченный набор разрешений для мониторинга. Далее в статье рассматриваются вопросы безопасности ресурсов, связанных с Azure Monitor, и способы ограничения доступа к данным, которые они содержат.
 
 ## <a name="built-in-monitoring-roles"></a>Встроенные роли мониторинга
@@ -57,6 +61,7 @@ ms.author: johnkem
 * Включение или отключение пакетов интеллектуализации Log Analytics (OMS).
 * Создание и удаление сохраненных поисков Log Analytics (OMS).
 * Создание и удаление конфигурации хранилища Log Analytics (OMS).
+
 * Пользователю также должно быть отдельно предоставлено разрешение ListKeys для целевого ресурса (учетной записи хранения или пространства имен концентратора событий) для настройки профиля журнала или параметра диагностики.
 
 > [!NOTE]
@@ -165,6 +170,9 @@ New-AzureRmRoleDefinition -Role $role
 * [Прочитайте о RBAC и разрешениях в Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Прочитайте общие сведения о мониторинге в Azure](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

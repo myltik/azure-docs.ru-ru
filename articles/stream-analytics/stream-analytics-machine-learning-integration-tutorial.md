@@ -1,13 +1,13 @@
 ---
-title: Анализ тональности с помощью Azure Stream Analytics и Машинного обучения Azure | Microsoft Docs
-description: Использование определяемой пользователем функции и машинного обучения в задании Stream Analytics.
-keywords: ''
-documentationcenter: ''
+title: "Анализ тональности с помощью Azure Stream Analytics и Машинного обучения Azure | Документация Майкрософт"
+description: "Использование определяемой пользователем функции и машинного обучения в задании Stream Analytics."
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/04/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fd5d7e2bf8d9cf68f1c3e9fe98656a8cfe0d1f15
+
 
 ---
-# <a name="sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Анализ тональности с помощью Azure Stream Analytics и Машинного обучения Azure
+# <a name="sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Анализ тональности с помощью Azure Stream Analytics и Машинного обучения Azure
 С помощью этой статьи можно быстро создать простое задание Azure Stream Analytics, интегрированное с Машинным обучением Azure. Мы будем использовать модель машинного обучения для анализа тональности из коллекции Cortana Intelligence для анализа потока текстовых данных, а также определения оценки тональности в реальном времени. Информация в этой статье поможет вам изучить следующие сценарии: анализ тональности потока данных Twitter в реальном времени, анализ записей разговоров клиента со специалистами службы поддержки и оценка комментариев на форумах, в блогах и комментариев к видеозаписям. Кроме этого вы получите представление о многих других сценариях прогнозной оценки в реальном времени.
 
 В этой статье в качестве входных данных в хранилище BLOB-объектов Azure предлагается пример CSV-файла с текстом, показанный на следующем рисунке. Задание применяет модель анализа тональности как определяемую пользователем функцию к образцу текстовых данных из хранилища BLOB-объектов. Конечный результат сохраняется в другой CSV-файл в том же хранилище BLOB-объектов. 
@@ -67,7 +71,7 @@ ms.author: jeffstok
 
 ![Машинное обучение и Stream Analytics, данные анализа](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)  
 
-В столбце **Приложения** щелкните ссылку на **книгу Excel 2010 или более ранней версии**, чтобы получить ключ API и URL-адрес, которые потребуются позднее для настройки задания Stream Analytics. (Этот шаг необходим только для использования модели машинного обучения из рабочей области другой учетной записи Azure. В приведенном в этой статье сценарии рассматривается именно такой случай.)  
+В столбце **Приложения** щелкните ссылку на **книгу Excel 2010 или более ранней версии**, чтобы получить ключ API и URL-адрес, которые потребуются позднее для настройки задания Stream Analytics. (Этот шаг необходим только для использования модели машинного обучения из рабочей области другой учетной записи Azure. В приведенном в этой статье сценарии рассматривается именно такой случай.)  
 
 Обратите внимание на URL-адрес веб-службы и ключ доступа в скачанном файле Excel на рисунке ниже.  
 
@@ -96,7 +100,7 @@ ms.author: jeffstok
     
     ```
     WITH subquery AS (  
-        SELECT text, sentiment(text) as result from input  
+      SELECT text, sentiment(text) as result from input  
     )  
     
     Select text, result.[Scored Labels]  
@@ -127,6 +131,9 @@ ms.author: jeffstok
   
     ![Машинное обучение и Stream Analytics, просмотр монитора машинного обучения](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

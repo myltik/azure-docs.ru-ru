@@ -1,13 +1,13 @@
 ---
-title: Перенос ресурсов IaaS из классического развертывания в развертывание с помощью Azure Resource Manager с использованием Azure CLI | Microsoft Docs
-description: В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов из классической модели в модель Azure Resource Manager с помощью Azure CLI.
+title: "Перенос ресурсов IaaS из классического развертывания в развертывание с помощью Azure Resource Manager с использованием Azure CLI | Документация Майкрософт"
+description: "В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов из классической модели в модель Azure Resource Manager с помощью Azure CLI."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
+
 
 ---
-# Перенос ресурсов IaaS из классического развертывания в развертывание с помощью Azure Resource Manager с использованием Azure CLI
+# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Перенос ресурсов IaaS из классического развертывания в развертывание с помощью Azure Resource Manager с использованием Azure CLI
 Ниже последовательно описано, как использовать команды интерфейса командной строки Azure (CLI) для переноса ресурсов IaaS из классической модели развертывания в модель развертывания с помощью Azure Resource Manager. Для выполнения инструкций в этой статье требуется [Azure CLI](../xplat-cli-install.md).
 
 > [!NOTE]
@@ -25,13 +29,13 @@ ms.author: cynthn
 > 
 > 
 
-## Шаг 1. Подготовка к переносу
+## <a name="step-1-prepare-for-migration"></a>Шаг 1. Подготовка к переносу
 Ниже приведено несколько рекомендаций для оценки переноса ресурсов IaaS из классической модели в модель Resource Manager.
 
 * Прочитайте [список неподдерживаемых конфигураций и компонентов](virtual-machines-windows-migration-classic-resource-manager.md). Если у вас есть виртуальные машины, которые используют неподдерживаемые конфигурации или компоненты, мы рекомендуем отложить перенос до того момента, пока не будет заявлено об их поддержке. Также вы можете удалить такую функцию или вынести ее за пределы конфигурации, чтобы выполнить перенос.
 * Если у вас есть текущие автоматизированные сценарии, которые развертывают инфраструктуру и приложения, попробуйте создать аналогичную программу установки для миграции с помощью этих сценариев. Вы можете также настроить примеры среды с помощью портала Azure.
 
-## Шаг 2. Настройка подписки и регистрация поставщика
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Шаг 2. Настройка подписки и регистрация поставщика
 Для сценариев миграции следует настроить среду для классической модели и модели Resource Manager. [Установите интерфейс командной строки Azure](../xplat-cli-install.md) (Azure CLI) и [выберите подписку](../xplat-cli-connect.md).
 
 Выполните вход со своей учетной записью.
@@ -43,9 +47,9 @@ ms.author: cynthn
     azure account set "<azure-subscription-name>"
 
 > [!NOTE]
-> Регистрация — однократное действие, но, прежде чем выполнять миграцию, вам нужно зарегистрироваться. Если вы не зарегистрируетесь, отобразится такое сообщение об ошибке:
+> Регистрация — однократное действие, но, прежде чем выполнять миграцию, вам нужно зарегистрироваться. Если вы не зарегистрируетесь, отобразится такое сообщение об ошибке: 
 > 
-> *BadRequest : Subscription is not registered for migration.* 
+> *Неправильный запрос: Подписка не зарегистрирована для миграции.* 
 > 
 > 
 
@@ -53,7 +57,7 @@ ms.author: cynthn
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Подождите пять минут для завершения регистрации. Состояние утверждения регистрации можно проверить, выполнив следующую команду. Убедитесь, что RegistrationState имеет значение `Registered`, прежде чем продолжить.
+Подождите пять минут для завершения регистрации. Состояние утверждения регистрации можно проверить, выполнив следующую команду. Убедитесь, что RegistrationState имеет значение `Registered` , прежде чем продолжить.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
@@ -61,7 +65,7 @@ ms.author: cynthn
 
     azure config mode asm
 
-## Шаг 3. Проверка наличия достаточного числа ядер виртуальной машины Azure Resource Manager в регионе Azure текущего развертывания или виртуальной сети
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Шаг 3. Проверка наличия достаточного числа ядер виртуальной машины Azure Resource Manager в регионе Azure текущего развертывания или виртуальной сети
 Для этого шага необходимо будет переключиться в режим `arm`. Для этого воспользуйтесь следующей командой.
 
 ```
@@ -74,12 +78,12 @@ azure config mode arm
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-После завершения проверки на этом шаге можно переключиться обратно в режим `asm`.
+После завершения проверки на этом шаге можно переключиться обратно в режим `asm` .
 
     azure config mode asm
 
 
-## Шаг 4. Вариант 1: миграция виртуальных машин в облачной службе
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Шаг 4. Вариант 1: миграция виртуальных машин в облачной службе
 Получите список облачных служб, выполнив следующую команду, а затем выберите облачную службу для переноса. Обратите внимание: если виртуальные машины в облачной службе размещены в виртуальной сети или им назначены веб-роли или рабочие роли, вы получите сообщение об ошибке.
 
     azure service list
@@ -98,7 +102,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
 
-Когда операция подготовки успешно завершится, вы сможете просмотреть подробные выходные данные о состоянии миграции виртуальных машин, чтобы убедиться, что все они находятся в состоянии `Prepared`.
+Когда операция подготовки успешно завершится, вы сможете просмотреть подробные выходные данные о состоянии миграции виртуальных машин, чтобы убедиться, что все они находятся в состоянии `Prepared` .
 
     azure vm show <vmName> -vv
 
@@ -112,7 +116,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 
 
 
-## Шаг 4. Вариант 2: миграция виртуальных машин в виртуальной сети
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Шаг 4. Вариант 2: миграция виртуальных машин в виртуальной сети
 Выберите виртуальную сеть, в которую будете переносить ресурсы. Обратите внимание: если в виртуальной сети есть виртуальные машины, веб-роли или рабочие роли с неподдерживаемыми конфигурациями, вы получите сообщение об ошибке проверки.
 
 Выполните следующую команду, чтобы получить все виртуальные сети в подписке.
@@ -137,7 +141,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## Шаг 5. Перенос учетной записи хранения
+## <a name="step-5-migrate-a-storage-account"></a>Шаг 5. Перенос учетной записи хранения
 После переноса виртуальных машин рекомендуется перенести учетную запись хранения.
 
 Подготовьте учетную запись хранения к переносу, используя следующую команду:
@@ -152,8 +156,13 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 
     azure storage account commit-migration <storageAccountName>
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

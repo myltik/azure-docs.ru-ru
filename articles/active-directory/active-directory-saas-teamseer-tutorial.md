@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2016
+ms.date: 12/06/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d978744bfecddc43c0bf5e803f1fa6bc281ee79b
+ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
+ms.openlocfilehash: 75bd875a4ca7bbfd4d5a1cd9ac6bde302430136a
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: d978744bfecddc43c0bf5e803f1fa6bc281ee79b
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-teamseer-tutorial/IC789618.png "Scenario")
+![Сценарий](./media/active-directory-saas-teamseer-tutorial/IC789618.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-teamseer"></a>Включение интеграции приложений для TeamSeer
 В этом разделе показано, как включить интеграцию приложений для TeamSeer.
@@ -43,23 +43,29 @@ ms.openlocfilehash: d978744bfecddc43c0bf5e803f1fa6bc281ee79b
 ### <a name="to-enable-the-application-integration-for-teamseer-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для TeamSeer, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-teamseer-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-teamseer-tutorial/IC700993.png "Active Directory")
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-teamseer-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-teamseer-tutorial/IC700994.png "Приложения")
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-teamseer-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-teamseer-tutorial/IC749321.png "Добавление приложения")
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-teamseer-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-teamseer-tutorial/IC749322.png "Добавление приложения из коллекции")
+
 6. В **поле поиска** введите **TeamSeer**.
    
-   ![Коллекция приложений](./media/active-directory-saas-teamseer-tutorial/IC789619.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-teamseer-tutorial/IC789619.png "Коллекция приложений")
+
 7. В области результатов выберите **TeamSeer** и щелкните **Завершить**, чтобы добавить приложение.
    
-   ![TeamSeer](./media/active-directory-saas-teamseer-tutorial/IC789620.png "TeamSeer")
+    ![TeamSeer](./media/active-directory-saas-teamseer-tutorial/IC789620.png "TeamSeer")
 
 ## <a name="configuring-single-sign-on"></a>Настройка единого входа
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в TeamSeer с помощью своей учетной записи Azure AD, используя федерацию на основе протокола SAML.  
@@ -69,48 +75,62 @@ ms.openlocfilehash: d978744bfecddc43c0bf5e803f1fa6bc281ee79b
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **TeamSeer** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Настройка единого входа")
+
 2. На странице **Как пользователи будут входить в TeamSeer** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Настройка единого входа")
+
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в TeamSeer** введите свой URL-адрес в формате *http://www.teamseer.com/companyid*, а затем нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Настройка URL-адреса приложения")
+
 4. Чтобы скачать сертификат, на странице **Настройка единого входа в TeamSeer** щелкните **Скачать сертификат** и сохраните файл сертификата на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789630.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789630.png "Настройка единого входа")
+
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт TeamSeer в качестве администратора.
+
 6. Перейдите в раздел **Администратор отдела кадров**.
    
-   ![Администратор отдела кадров](./media/active-directory-saas-teamseer-tutorial/IC789634.png "HR Admin")
+    ![Администратор отдела кадров](./media/active-directory-saas-teamseer-tutorial/IC789634.png "Администратор отдела кадров")
+
 7. Щелкните **Настройка**.
    
-   ![Настройка](./media/active-directory-saas-teamseer-tutorial/IC789635.png "Setup")
+    ![Настройка](./media/active-directory-saas-teamseer-tutorial/IC789635.png "Настройка")
+
 8. Щелкните **Задать данные о поставщике SAML**.
    
-   ![Настройка SAML](./media/active-directory-saas-teamseer-tutorial/IC789636.png "SAML Settings")
+    ![Параметры SAML](./media/active-directory-saas-teamseer-tutorial/IC789636.png "Параметры SAML")
+
 9. В разделе сведений о поставщике SAML выполните следующие действия:
    
-   ![Настройка SAML](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")
+    ![Параметры SAML](./media/active-directory-saas-teamseer-tutorial/IC789637.png "Параметры SAML")
    
-   1. На странице диалогового окна **Настройка единого входа в TeamSeer** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **URL-адрес**.
-   2. Создайте файл **в кодировке Base-64** из скачанного сертификата.  
+    а. На странице диалогового окна **Настройка единого входа в TeamSeer** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **URL-адрес**.
+   
+    b. Создайте файл **в кодировке Base-64** из скачанного сертификата.  
       
-      > [!TIP]
-      > Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
-   3. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Общий сертификат IdP** .
+    > [!TIP]
+    > Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
+    > 
+    > 
+   
+    c. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Общий сертификат IdP** .
+
 10. Чтобы завершить настройку поставщика SAML, выполните следующие действия:
     
-    ![Настройка SAML](./media/active-directory-saas-teamseer-tutorial/IC789638.png "SAML Settings")
+    ![Параметры SAML](./media/active-directory-saas-teamseer-tutorial/IC789638.png "Параметры SAML")
     
-    1. В разделе **Тестовые адреса электронной почты**введите адрес электронной почты для тестового пользователя.
-    2. В текстовом поле **Издатель** введите URL-адрес издателя поставщика услуг.
-    3. Щелкните **Сохранить**.
+    а. В разделе **Тестовые адреса электронной почты**введите адрес электронной почты для тестового пользователя.
+    
+    b. В текстовом поле **Издатель** введите URL-адрес издателя поставщика услуг.
+    
+    c. Щелкните **Сохранить**.
+
 11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789639.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-teamseer-tutorial/IC789639.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнить вход в TeamSeer, они должны быть подготовлены в ShiftPlanning.  
@@ -118,18 +138,23 @@ ms.openlocfilehash: d978744bfecddc43c0bf5e803f1fa6bc281ee79b
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
 1. Войдите на веб-сайт **TeamSeer** вашей компании в качестве администратора.
+
 2. Выполните следующие действия:
    
-   ![Администратор отдела кадров](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")
+    ![Администратор отдела кадров](./media/active-directory-saas-teamseer-tutorial/IC789640.png "Администратор отдела кадров")
    
-   1. Выберите **HR Admin (Администратор отдела кадров) \> Users (Пользователи)**.
-   2. Щелкните **Запустить мастер нового пользователя**.
+    а. Выберите **HR Admin (Администратор отдела кадров) \> Users (Пользователи)**.
+   
+    b. Щелкните **Запустить мастер нового пользователя**.
+
 3. В разделе **Сведения о пользователе** сделайте следующее:
    
-   ![Сведения о пользователе](./media/active-directory-saas-teamseer-tutorial/IC789641.png "User Details")
+   ![Сведения о пользователе](./media/active-directory-saas-teamseer-tutorial/IC789641.png "Сведения о пользователе")
    
-   1. Введите в текстовые поля **First Name** (Имя), **Surname** (Фамилия), **User name (Email address)** (Имя пользователя (адрес электронной почты)) соответствующие данные действующей учетной записи AAD, которую нужно подготовить.
-   2. Нажмите кнопку **Далее**.
+    а. Введите в текстовые поля **First Name** (Имя), **Surname** (Фамилия), **User name (Email address)** (Имя пользователя (адрес электронной почты)) соответствующие данные действующей учетной записи AAD, которую нужно подготовить.
+  
+    b. Нажмите кнопку **Далее**.
+
 4. Чтобы добавить нового пользователя, следуйте указаниям на экране и нажмите кнопку **Готово**.
 
 > [!NOTE]
@@ -142,18 +167,20 @@ ms.openlocfilehash: d978744bfecddc43c0bf5e803f1fa6bc281ee79b
 
 ### <a name="to-assign-users-to-teamseer-perform-the-following-steps"></a>Чтобы назначить пользователей TeamSeer, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
+
 2. На странице интеграции с приложением **TeamSeer** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-teamseer-tutorial/IC789642.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-teamseer-tutorial/IC789642.png "Назначение пользователей")
+
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

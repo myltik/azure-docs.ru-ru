@@ -1,13 +1,13 @@
 ---
-title: Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET | Microsoft Docs
-description: Узнайте, как отправлять задания Hadoop в Azure HDInsight Hadoop с помощью пакета SDK HDInsight для .NET.
+title: "Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET | Документация Майкрософт"
+description: "Узнайте, как отправлять задания Hadoop в Azure HDInsight Hadoop с помощью пакета SDK HDInsight для .NET."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
-
+ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
+
 
 ---
-# Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET
+# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 Узнайте, как отправлять запросы Hive с помощью пакета SDK HDInsight для .NET.
@@ -27,14 +31,14 @@ ms.author: jgao
 > 
 > 
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Кластер Hadoop в HDInsight**. См. раздел [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **Кластер Hadoop в HDInsight**. См. статью [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 * **Visual Studio 2012, Visual Studio 2013 или Visual Studio 2015**.
 
-## Отправка запросов Hive с помощью пакета SDK HDInsight для .NET
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
+## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Отправка запросов Hive с помощью пакета SDK HDInsight для .NET
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. 
 
 **Отправка заданий**
 
@@ -43,7 +47,8 @@ ms.author: jgao
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Используйте следующий код:
-   
+
+    ```csharp
         using System.Collections.Generic;
         using System.IO;
         using System.Text;
@@ -124,13 +129,14 @@ ms.author: jgao
                 }
             }
         }
+    ```
 4. Нажмите клавишу **F5** для запуска приложения.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Приступая к работе с Azure HDInsight][hdinsight-get-started]
-* [Создание кластеров Hadoop в HDInsight][hdinsight-provision]
+* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
+* [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision]
 * [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-management-portal.md)
 * [Справочник по пакетам SDK HDInsight для .NET](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
@@ -140,4 +146,10 @@ ms.author: jgao
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

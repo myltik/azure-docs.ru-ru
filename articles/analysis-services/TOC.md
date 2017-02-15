@@ -1,19 +1,24 @@
 # Обзор
 ##[Что такое службы Azure Analysis Services?](analysis-services-overview.md)
-# Приступая к работе
+# Начало работы
 ##[Создание сервера](analysis-services-create-server.md)
 
 # Практическое руководство 
-## [Развертывание](analysis-services-deploy.md)
-## Управление
-###[Подключение к серверу](analysis-services-connect.md)
-###[Управление сервером](analysis-services-manage.md)
-## Интеграция
-###[Локальный шлюз данных](analysis-services-gateway.md)
+##[Развертывание на сервере](analysis-services-deploy.md)
+##[Подключение из клиента](analysis-services-connect.md)
+##[Управление сервером](analysis-services-manage.md)
+##[Управление пользователями](analysis-services-manage-users.md)
+##[Интеграция локального шлюза данных](analysis-services-gateway.md)
 
-# Ссылки
+# Справочные материалы
+##[PowerShell](analysis-services-powershell.md)
+##[REST](/rest/api/analysisservices)
+
+# Ресурсы
 ##[Подключения к источникам данных](analysis-services-datasource.md)
+##[Поставщики данных](analysis-services-data-providers.md) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

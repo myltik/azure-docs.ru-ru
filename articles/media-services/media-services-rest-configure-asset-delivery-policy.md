@@ -1,12 +1,12 @@
 ---
-title: Настройка политик доставки ресурсов-контейнеров с помощью REST API служб мультимедиа | Microsoft Docs
-description: В этой статье демонстрируется настройка различных политик доставки ресурсов-контейнеров с помощью REST API служб мультимедиа.
+title: "Настройка политик доставки ресурсов-контейнеров с помощью REST API служб мультимедиа | Документация Майкрософт"
+description: "В этой статье демонстрируется настройка различных политик доставки ресурсов-контейнеров с помощью REST API служб мультимедиа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: edb4ba7a855583cd00051cb4f4edae3a13cdd496
+
 
 ---
-# Настройка политик доставки ресурсов-контейнеров
+# <a name="configuring-asset-delivery-policies"></a>Настройка политик доставки ресурсов-контейнеров
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Если вы планируете динамически шифровать доставляемые ресурсы-контейнеры, вам следует настроить политику доставки таких ресурсов (один из этапов рабочего процесса доставки содержимого в службах мультимедиа). Политика доставки ресурсов сообщает службам мультимедиа способ доставки ресурса: какие протоколы передачи следует использовать для динамической упаковки ресурса (например, MPEG DASH, HLS, Smooth Streaming или все), следует ли использовать динамическое шифрование и как (конвертное или общее шифрование).
@@ -24,7 +28,7 @@ ms.author: juliako
 В этом разделе рассматриваются причины и способы создания и настройки политик доставки ресурсов-контейнеров.
 
 > [!NOTE]
-> Чтобы применять динамическую упаковку и динамическое шифрование, у вас должна быть хотя бы одна единица шифрования (которая также называется единицей потоковой передачи). Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+> Чтобы применять динамическую упаковку и динамическое шифрование, у вас должна быть хотя бы одна единица шифрования (которая также называется единицей потоковой передачи). Чтобы узнать больше, ознакомьтесь с [масштабированием службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 > 
 > Кроме того, ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью.
 > 
@@ -34,9 +38,9 @@ ms.author: juliako
 
 Если необходимо доставить зашифрованный в хранилище ресурс-контейнер, необходимо настроить его политику доставки. Перед выполнением потоковой передачи ресурса сервер потоковой передачи удаляет шифрование хранилища и осуществляет потоковую передачу содержимого с помощью указанной политики доставки. Например, для доставки ресурса, зашифрованного с помощью ключа шифрования конвертного типа для AES, задайте для типа политики значение **DynamicEnvelopeEncryption**. Чтобы удалить шифрование хранилища и выполнить потоковую передачу ресурса в незашифрованном виде, задайте для типа политики значение **NoDynamicEncryption**. Далее приведены примеры, показывающие, как настроить эти типы политики.
 
-В зависимости от способа настройки политики доставки ресурсов вы можете выполнить динамическую упаковку, динамическое шифрование и потоковую передачу с помощью следующих протоколов потоковой передачи: Smooth Streaming, HLS, MPEG DASH и HDS.
+В зависимости от способа настройки политики доставки ресурсов вы можете выполнить динамическую упаковку, динамическое шифрование и потоковую передачу с помощью следующих протоколов потоковой передачи: Smooth Streaming, HLS и MPEG-DASH.
 
-В следующем списке приведены форматы, которые используются для потоковой передачи ресурсов в формате Smooth, HLS, DASH и HDS.
+В следующем списке приведены форматы, которые используются для потоковой передачи ресурсов в формате Smooth Streaming, HLS и DASH.
 
 Smooth Streaming:
 
@@ -50,32 +54,29 @@ MPEG DASH
 
 {имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=mpd-time-csf)
 
-HDS
-
-{имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=f4m-f4f)
 
 Указания по публикации ресурса и созданию URL-адреса потоковой передачи см. в статье [Создание URL-адреса потоковой передачи](media-services-deliver-streaming-content.md).
 
-## Рекомендации
+## <a name="considerations"></a>Рекомендации
 * Невозможно удалить политику доставки ресурсов-контейнеров (AssetDeliveryPolicy), связанную с ресурсом-контейнером, пока существует указатель OnDemand (потоковой передачи) для этого ресурса-контейнера. Рекомендуется удалить политику из ресурса-контейнера перед удалением политики.
-* Если политика доставки ресурсов-контейнеров не задана, создать указатель потоковой передачи в зашифрованном ресурсе-контейнере хранилища. Если ресурс-контейнер хранилища не зашифрован, система позволит создать указатель и выполнить потоковую передачу ресурса-контейнера в незашифрованном виде без политики доставки ресурса-контейнера.
-* С одним ресурсом-контейнером можно связать несколько политик доставки ресурсов-контейнеров, но можно указать только один способ обработки заданного протокола доставки ресурса-контейнера (AssetDeliveryProtocol). То есть при попытке связать две политики доставки, определяющие протокол AssetDeliveryProtocol.SmoothStreaming, появится ошибка, поскольку система не знает, какую из них необходимо применить, когда клиент выполняет запрос Smooth Streaming.
-* При наличии ресурса-контейнера с существующим указателем потоковой передачи новую политику привязать к ресурсу-контейнеру нельзя (можно либо разорвать связь ресурса-контейнера с существующей политикой, либо обновить политику доставки, связанную с ресурсом-контейнером). Необходимо сначала удалить указатель потоковой передачи, затем настроить политики и повторно создать указатель потоковой передачи. При повторном создании указателя потоковой передачи вы можете использовать тот же идентификатор указателя (locatorId), но необходимо убедиться, что это не приведет к проблемам для клиентов, так как кэширование содержимого с помощью исходного или нисходящего CDN выполнить нельзя.
+* Если политика доставки ресурсов-контейнеров не задана, создать указатель потоковой передачи в зашифрованном ресурсе-контейнере хранилища.  Если ресурс-контейнер хранилища не зашифрован, система позволит создать указатель и выполнить потоковую передачу ресурса-контейнера в незашифрованном виде без политики доставки ресурса-контейнера.
+* С одним ресурсом-контейнером можно связать несколько политик доставки ресурсов-контейнеров, но можно указать только один способ обработки заданного протокола доставки ресурса-контейнера (AssetDeliveryProtocol).  То есть при попытке связать две политики доставки, определяющие протокол AssetDeliveryProtocol.SmoothStreaming, появится ошибка, поскольку система не знает, какую из них необходимо применить, когда клиент выполняет запрос Smooth Streaming.
+* При наличии ресурса-контейнера с существующим указателем потоковой передачи новую политику привязать к ресурсу-контейнеру нельзя (можно либо разорвать связь ресурса-контейнера с существующей политикой, либо обновить политику доставки, связанную с ресурсом-контейнером).  Необходимо сначала удалить указатель потоковой передачи, затем настроить политики и повторно создать указатель потоковой передачи.  При повторном создании указателя потоковой передачи вы можете использовать тот же идентификатор указателя (locatorId), но необходимо убедиться, что это не приведет к проблемам для клиентов, так как кэширование содержимого с помощью исходного или нисходящего CDN выполнить нельзя.
 
 > [!NOTE]
 > При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 > 
-> При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](media-services-rest-how-to-use.md).
+> При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
-> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
+> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
 > 
 > 
 
-## Политики доставки незашифрованных ресурсов
-### <a id="create_asset_delivery_policy"></a>Создание политики доставки активов
-Следующий запрос HTTP создает политику доставки ресурсов, указывающую, что не следует применять динамическое шифрование и осуществлять доставку с помощью потоковой передачи по любому из следующих протоколов: MPEG DASH, HLS и протоколы Smooth Streaming.
+## <a name="clear-asset-delivery-policy"></a>Политики доставки незашифрованных ресурсов
+### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Создание политики доставки активов
+Следующий HTTP-запрос создает политику доставки ресурсов-контейнеров, указывающую, что не следует применять динамическое шифрование, а доставку следует осуществлять с использованием потоковой передачи по одному из следующих протоколов: MPEG DASH, HLS или Smooth Streaming. 
 
-Информацию о том, какие значения можно задать при создании политики доставки ресурсов, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).
+Сведения о том, какие значения можно задать при создании политики доставки ресурсов-контейнеров, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).   
 
 Запрос:
 
@@ -121,7 +122,7 @@ HDS
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>Привязка ресурса к политике доставки ресурсов
+### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Привязка ресурса к политике доставки ресурсов
 Следующий запрос HTTP связывает указанный ресурс с политикой доставки ресурсов.
 
 Запрос:
@@ -144,11 +145,11 @@ HDS
     HTTP/1.1 204 No Content
 
 
-## Политика доставки ресурсов DynamicEnvelopeEncryption
-### Создание ключа содержимого типа EnvelopeEncryption и связывание его с ресурсом
-При определении политики доставки DynamicEnvelopeEncryption необходимо обязательно связать ресурс с ключом содержимого типа EnvelopeEncryption. Дополнительные сведения см. в разделе [Создание ключа содержимого](media-services-rest-create-contentkey.md)).
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Политика доставки ресурсов DynamicEnvelopeEncryption
+### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Создание ключа содержимого типа EnvelopeEncryption и связывание его с ресурсом
+При определении политики доставки DynamicEnvelopeEncryption необходимо обязательно связать ресурс с ключом содержимого типа EnvelopeEncryption. Дополнительные сведения см. в статье, посвященной [созданию ключей содержимого](media-services-rest-create-contentkey.md).
 
-### <a id="get_delivery_url"></a>Получение URL-адреса доставки
+### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>Получение URL-адреса доставки
 Получите URL-адрес доставки для указанного метода доставки ключа содержимого, созданного на предыдущем шаге. Клиент использует возвращенный URL-адрес для запроса ключа AES или лицензии PlayReady, чтобы воспроизвести защищенное содержимое.
 
 Укажите тип URL-адреса, который необходимо получить в тексте HTTP-запроса. Если необходимо обеспечить защиту содержимого с помощью PlayReady, запросите URL-адрес для получения лицензии PlayReady служб мультимедиа, используя для параметра keyDeliveryType значение 1: {"keyDeliveryType":1}. Если необходимо обеспечить защиту содержимого с помощью конвертного шифрования, запросите URL-адрес для получения ключа, указав для параметра keyDeliveryType значение 2: {"keyDeliveryType":2}.
@@ -186,10 +187,10 @@ HDS
     {"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### Создание политики доставки активов
-Следующий HTTP-запрос создает сущность **AssetDeliveryPolicy**, для которой настроено динамическое конвертное шифрование содержимого (**DynamicEnvelopeEncryption**), передаваемого по протоколу **HLS** (в этом примере потоковая передача по другим протоколам будет блокироваться).
+### <a name="create-asset-delivery-policy"></a>Создание политики доставки активов
+Следующий HTTP-запрос создает сущность **AssetDeliveryPolicy**, для которой настроено динамическое конвертное шифрование (**DynamicEnvelopeEncryption**) содержимого, передаваемого по протоколу **HLS** (в этом примере потоковая передача по другим протоколам будет блокироваться). 
 
-Информацию о том, какие значения можно задать при создании политики доставки ресурсов, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).
+Сведения о том, какие значения можно задать при создании политики доставки ресурсов-контейнеров, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).   
 
 Запрос:
 
@@ -205,7 +206,7 @@ HDS
     x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
     Host: media.windows.net
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]"}
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
 
 
 Ответ:
@@ -224,23 +225,23 @@ HDS
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Mon, 09 Feb 2015 05:24:38 GMT
 
-    {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+    {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### Привязка ресурса к политике доставки ресурсов
-См. в разделе [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy)
+### <a name="link-asset-with-asset-delivery-policy"></a>Привязка ресурса к политике доставки ресурсов
+См. раздел [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy).
 
-## Политика доставки ресурсов DynamicCommonEncryption
-### Создание ключа содержимого типа CommonEncryption и связывание его с ресурсом
-При определении политики доставки DynamicCommonEncryption необходимо обязательно связать ресурс с ключом содержимого типа CommonEncryption. Дополнительные сведения см. в разделе [Создание ключа содержимого](media-services-rest-create-contentkey.md)).
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Политика доставки ресурсов DynamicCommonEncryption
+### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Создание ключа содержимого типа CommonEncryption и связывание его с ресурсом
+При определении политики доставки DynamicCommonEncryption необходимо обязательно связать ресурс с ключом содержимого типа CommonEncryption. Дополнительные сведения см. в статье, посвященной [созданию ключей содержимого](media-services-rest-create-contentkey.md).
 
-### Получение URL-адреса доставки
-Получите URL-адрес доставки для метода доставки ключа содержимого PlayReady, созданного на предыдущем шаге. Клиент использует возвращенный URL-адрес для запроса лицензии PlayReady, чтобы воспроизвести защищенное содержимого. Дополнительную информацию см. в разделе [Получение URL-адреса доставки](#get_delivery_url).
+### <a name="get-delivery-url"></a>Получение URL-адреса доставки
+Получите URL-адрес доставки для метода доставки ключа содержимого PlayReady, созданного на предыдущем шаге. Клиент использует возвращенный URL-адрес для запроса лицензии PlayReady, чтобы воспроизвести защищенное содержимого. Дополнительные сведения см. в разделе [Получение URL-адреса доставки](#get_delivery_url).
 
-### Создание политики доставки активов
-Следующий HTTP-запрос создает сущность **AssetDeliveryPolicy**, для которой настроено динамическое общее шифрование содержимого (**DynamicCommonEncryption**), передаваемого по протоколу **Smooth Streaming** (в этом примере потоковая передача по другим протоколам будет блокироваться).
+### <a name="create-asset-delivery-policy"></a>Создание политики доставки активов
+Следующий HTTP-запрос создает сущность **AssetDeliveryPolicy**, для которой настроено динамическое общее шифрование (**DynamicCommonEncryption**) содержимого, передаваемого по протоколу **Smooth Streaming** (в этом примере потоковая передача по другим протоколам будет блокироваться). 
 
-Информацию о том, какие значения можно задать при создании политики доставки ресурсов, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).
+Сведения о том, какие значения можно задать при создании политики доставки ресурсов-контейнеров, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).   
 
 Запрос:
 
@@ -256,25 +257,25 @@ HDS
     x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
     Host: media.windows.net
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
 Если требуется защитить содержимое с помощью Widevine DRM, обновите значения AssetDeliveryConfiguration, чтобы использовать WidevineLicenseAcquisitionUrl (со значением 7), и укажите URL-адрес службы доставки лицензий. Вы можете использовать следующих партнеров AMS для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/).
 
-Например:
+Например: 
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":7,"Value":"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
 > При шифровании с помощью Widevine будет возможна только доставка посредством DASH. Обязательно укажите DASH (2) в протоколе доставки ресурсов-контейнеров.
 > 
 > 
 
-### Привязка ресурса к политике доставки ресурсов
-См. в разделе [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy)
+### <a name="link-asset-with-asset-delivery-policy"></a>Привязка ресурса к политике доставки ресурсов
+См. раздел [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy).
 
-## <a id="types"></a>Типы, используемые при определении AssetDeliveryPolicy
-### AssetDeliveryProtocol
+## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Типы, используемые при определении AssetDeliveryPolicy
+### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
     /// </summary>
@@ -302,17 +303,12 @@ HDS
         HLS = 0x4,
 
         /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
-
-        /// <summary>
         /// Include all protocols.
         /// </summary>
         All = 0xFFFF
     }
 
-### AssetDeliveryPolicyType
+### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
     /// <summary>
     /// Policy type for dynamic encryption of assets.
     /// </summary>
@@ -345,7 +341,7 @@ HDS
         DynamicCommonEncryption
         }
 
-### ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
     /// <summary>
     /// Delivery method of the content key to the client.
     ///
@@ -379,7 +375,7 @@ HDS
     }
 
 
-### AssetDeliveryPolicyConfigurationKey
+### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
     /// </summary>
@@ -428,10 +424,15 @@ HDS
     }
 
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

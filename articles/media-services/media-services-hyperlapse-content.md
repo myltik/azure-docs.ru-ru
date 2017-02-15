@@ -1,12 +1,12 @@
 ---
-title: Обработка файлов мультимедиа с помощью технологии Hyperlapse служб мультимедиа Azure | Microsoft Docs
-description: Azure Media Hyperlapse создает плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер. В этом разделе показано, как использовать индексатор мультимедийных данных.
+title: "Обработка файлов мультимедиа с помощью технологии Hyperlapse служб мультимедиа Azure | Документация Майкрософт"
+description: "Azure Media Hyperlapse создает плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер. В этом разделе показано, как использовать индексатор мультимедийных данных."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: asolanki
 manager: johndeu
-editor: ''
-
+editor: 
+ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,25 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: adsolank
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb99c9139c71221a75d5d4c7db0407a39a8fc39f
+
 
 ---
-# Файлы мультимедиа Hyperlapse с Azure Media Hyperlapse
-Azure Media Hyperlapse представляет собой обработчик мультимедиа, создающий плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер. Microsoft Hyperlapse для служб мультимедиа Azure, облачный аналог [настольной системы Hyperlapse Pro и телефонной системы Hyperlapse Mobile от Microsoft Research](http://aka.ms/hyperlapse), использует обширные возможности масштабирования платформы обработки мультимедиа служб мультимедиа Azure, чтобы реализовать горизонтальное масштабирование и параллелизовать массовую обработку Hyperlapse.
+# <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Файлы мультимедиа Hyperlapse с Azure Media Hyperlapse
+Azure Media Hyperlapse представляет собой обработчик мультимедиа, создающий плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер.  Microsoft Hyperlapse для служб мультимедиа Azure, облачный аналог [настольной системы Hyperlapse Pro и телефонной системы Hyperlapse Mobile от Microsoft Research](http://aka.ms/hyperlapse), использует обширные возможности масштабирования платформы обработки мультимедиа служб мультимедиа Azure, чтобы реализовать горизонтальное масштабирование и параллелизовать массовую обработку Hyperlapse.
 
 > [!IMPORTANT]
-> Продукт Microsoft Hyperlapse оптимально подходит для работы с содержимым от первого лица с перемещающейся камерой. Хотя материал с неподвижной камеры может обрабатываться, производительность и качество обработчика мультимедиа Azure Media Hyperlapse не позволяет гарантировать работу с другими типами содержимого. Чтобы получить дополнительные сведения о Microsoft Hyperlapse для служб мультимедиа Azure и увидеть некоторые видеоматериалы с примерами, ознакомьтесь с [вводной записью блога](http://aka.ms/azurehyperlapseblog) из общедоступной предварительной версии.
+> Продукт Microsoft Hyperlapse оптимально подходит для работы с содержимым от первого лица с перемещающейся камерой.  Хотя материал с неподвижной камеры может обрабатываться, производительность и качество обработчика мультимедиа Azure Media Hyperlapse не позволяет гарантировать работу с другими типами содержимого.  Чтобы получить дополнительные сведения о Microsoft Hyperlapse для служб мультимедиа Azure и увидеть некоторые видеоматериалы с примерами, ознакомьтесь с [вводной записью блога](http://aka.ms/azurehyperlapseblog) из общедоступной предварительной версии.
 > 
 > 
 
-Задание Azure Media Hyperlapse принимает в качестве входных данных файлы ресурсов MP4, MOV или WMV вместе с файлом конфигурации, который определяет, какие кадры видео должны быть замедлены и на какой скорости (например, первые 10 000 кадров на скорости 2x). Результатом является стабилизированное и замедленное представление входного видео.
+Задание Azure Media Hyperlapse принимает в качестве входных данных файлы ресурсов MP4, MOV или WMV вместе с файлом конфигурации, который определяет, какие кадры видео должны быть замедлены и на какой скорости (например, первые 10 000 кадров на скорости 2x).  Результатом является стабилизированное и замедленное представление входного видео.
 
 Последние новости о Azure Media Hyperlapse см. в [блогах служб мультимедиа](https://azure.microsoft.com/blog/topics/media-services/).
 
-## Использование Hyperlapse для обработки ресурса-контейнера
-Сначала необходимо загрузить требуемый входной файл для служб мультимедиа Azure. Дополнительные сведения об основных понятиях, связанных с загрузкой содержимого и управлением им, см. в статье [об управлении содержимым](media-services-portal-vod-get-started.md).
+## <a name="hyperlapse-an-asset"></a>Использование Hyperlapse для обработки ресурса-контейнера
+Сначала необходимо загрузить требуемый входной файл для служб мультимедиа Azure.  Дополнительные сведения об основных понятиях, связанных с загрузкой содержимого и управлением им, см. в статье [об управлении содержимым](media-services-portal-vod-get-started.md).
 
-### <a id="configuration"></a>Предустановка конфигурации для Hyperlapse
-После помещения содержимого в учетную запись служб мультимедиа необходимо создать предустановку вашей конфигурации. В следующей таблице описаны поля, задаваемые пользователем:
+### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Предустановка конфигурации для Hyperlapse
+После помещения содержимого в учетную запись служб мультимедиа необходимо создать предустановку вашей конфигурации.  В следующей таблице описаны поля, задаваемые пользователем:
 
 | Поле | Описание |
 | --- | --- |
@@ -70,11 +74,11 @@ Azure Media Hyperlapse представляет собой обработчик 
         }
     }
 
-### <a id="sample_code"></a> Microsoft Hyperlapse с пакетом AMS .NET SDK
+### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> Microsoft Hyperlapse с пакетом AMS .NET SDK
 Следующий метод передает файл мультимедиа как ресурс и создает задание с помощью обработчика мультимедиа Azure Media Hyperlapse.
 
 > [!NOTE]
-> Для работы этого кода в области с именем "context" уже должен находиться CloudMediaContext. Дополнительные сведения об этом см. в [статье об управлении содержимым](media-services-dotnet-get-started.md).
+> Для работы этого кода в области с именем "context" уже должен находиться CloudMediaContext.  Дополнительные сведения об этом см. в [статье об управлении содержимым](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
 > Строковый аргумент "hyperConfig" должен быть соответствующей предустановкой конфигурации для JSON или XML, как описано выше.
@@ -97,7 +101,7 @@ job.Submit();
 
 // Create progress printing and querying tasks Task progressPrintTask = new Task(() => {
 
-IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\\t{1}\\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
+IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\t{1}\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
 
             Task progressJobTask = job.GetExecutionProgressTask(
                                                  CancellationToken.None);
@@ -153,20 +157,25 @@ IJob jobQuery = null; do { var progressContext = context; jobQuery = progressCon
         return processor;
     }
 
-### <a id="file_types"></a>Поддерживаемые типы файлов
+### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>Поддерживаемые типы файлов
 * MP4
 * MOV
 * WMV
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Связанные ссылки
+## <a name="related-links"></a>Связанные ссылки
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

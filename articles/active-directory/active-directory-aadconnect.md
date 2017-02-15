@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 12/13/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: d5674c6b903aac74260f1dc0ca549ddcf87d183d
-ms.openlocfilehash: 0baacb37e4c5b21860bf9ec2fbbd2eb7c067beb6
+ms.sourcegitcommit: 1803478efefae69f21c485df94c3608bd24f2224
+ms.openlocfilehash: 3d0b4137560abb69ff0ca0f2bb7703750778fb7e
 
 
 ---
@@ -62,24 +62,24 @@ Azure Active Directory Connect состоит из трех основных к�
 [После установки](active-directory-aadconnect-whats-next.md) следует проверить правильность работы системы и назначить пользователям лицензии.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Следующие шаги по установке Azure AD Connect
-|Раздел | Ссылка 
-|--- | ---
-|Загрузка Azure AD Connect | [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-|Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)
-|Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)
-|Обновление из DirSync | [Azure AD Connect: обновление DirSync](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
-|После установки | [Проверка установки и назначение лицензий ](active-directory-aadconnect-whats-next.md)
+|Раздел |Ссылка|  
+| --- | --- |
+|Загрузка Azure AD Connect | [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)|
+|Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)|
+|Обновление из DirSync | [Azure AD Connect: обновление DirSync](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|После установки | [Проверка установки и назначение лицензий ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Дополнительные сведения об установке Azure AD Connect
 Также требуется подготовиться к [рабочим](active-directory-aadconnectsync-operations.md) вопросам. Может потребоваться наличие резервного сервера, на который можно будет легко перейти в случае [аварии](active-directory-aadconnectsync-operations.md#disaster-recovery). Если планируется часто изменять конфигурацию, следует предусмотреть сервер для [промежуточного режима](active-directory-aadconnectsync-operations.md#staging-mode) .
 
-Раздел |  
---------- | ---------
-Поддерживаемые топологии | [Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md)
-Принципы проектирования | [Принципы проектирования Azure AD Connect](active-directory-aadconnect-design-concepts.md)
-Учетные записи, используемые для установки | [Azure AD Connect: учетные записи и разрешения](./connect/active-directory-aadconnect-accounts-permissions.md)
-Операционное планирование | [Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
-Параметры входа пользователя | [Параметры входа в Azure AD Connect](active-directory-aadconnect-user-signin.md)
+|Раздел |Ссылка|  
+| --- | --- |
+|Поддерживаемые топологии | [Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md)|
+|Принципы проектирования | [Принципы проектирования Azure AD Connect](active-directory-aadconnect-design-concepts.md)|
+|Учетные записи, используемые для установки | [Azure AD Connect: учетные записи и разрешения](./connect/active-directory-aadconnect-accounts-permissions.md)|
+|Операционное планирование | [Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)|
+|Параметры входа пользователя | [Параметры входа в Azure AD Connect](active-directory-aadconnect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Настройка функций синхронизации
 Azure AD Connect поставляется с несколькими функциями, которые можно при необходимости включить или они включены по умолчанию. В некоторых сценариях и топологиях может потребоваться дополнительная конфигурация некоторых функций.
@@ -97,7 +97,14 @@ Azure AD Connect поставляется с несколькими функци
 [Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md) , которое включено по умолчанию для установок со стандартными параметрами, гарантирует использование последней версии Azure AD Connect.
 
 ### <a name="next-steps-to-configure-sync-features"></a>Дальнейшие действия по настройке функций синхронизации
-Настройка фильтрации | [Службы синхронизации Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md) Синхронизация паролей | [Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) Компонент обратной записи паролей | [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md) Обратная запись устройств | [Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md) Предотвращение случайного удаления | [Синхронизация Azure AD Connect: предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) Автоматическое обновление | [Azure AD Connect: автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)
+|Раздел |Ссылка|  
+| --- | --- |
+|Настройка фильтрации | [Синхронизация Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md)|
+|синхронизации паролей | [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Компонент обратной записи паролей | [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md)|
+|Обратная запись устройств | [Включение обратной записи устройств в службе Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
+|предотвращения случайного удаления | [Синхронизация Azure AD Connect: предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
+|Автоматическое обновление | [Azure AD Connect: автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Настройка синхронизации Azure AD Connect
 Синхронизация Azure AD Connect поставляется с конфигурацией по умолчанию, ориентированной на работу с большинством заказчиков и топологий. Тем не менее, возникают ситуации, когда конфигурация по умолчанию не будет работать и ее необходимо скорректировать. Поддерживается внесение изменений, документированных в этом разделе и связанных статьях.
@@ -109,14 +116,14 @@ Azure AD Connect поставляется с несколькими функци
 Модель конфигурации в синхронизации называется [декларативной подготовкой](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). Потоки дополнительных атрибутов используют [функции](active-directory-aadconnectsync-functions-reference.md) для выражения преобразований атрибутов. Всю конфигурацию можно просмотреть и изучить с помощью средств, поставляемых вместе с Azure AD Connect. Если в конфигурацию необходимо внести изменения, убедитесь, что вы придерживаетесь [рекомендаций](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) , упрощающих переход на новые выпуски.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Следующие действия по настройке синхронизации Azure AD Connect
-Раздел |  
---------- | ---------
-Все статьи о синхронизации Azure AD Connect | [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)
-технических концепциях | [Синхронизация Azure AD Connect: технические концепции](active-directory-aadconnectsync-technical-concepts.md)
-Общие сведения о конфигурации по умолчанию | [Службы синхронизации Azure AD Connect: общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md)
-Общее представление о пользователях и контактах | [Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md)
-декларативной подготовкой | [Azure AD Connect Sync: общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-Изменение конфигурации по умолчанию | [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+|Раздел |Ссылка|  
+| --- | --- |
+|Все статьи о синхронизации Azure AD Connect | [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)|
+|технических концепциях | [Синхронизация Azure AD Connect: технические концепции](active-directory-aadconnectsync-technical-concepts.md)|
+|Общие сведения о конфигурации по умолчанию | [Службы синхронизации Azure AD Connect: общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md)|
+|Общее представление о пользователях и контактах | [Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md)|
+|декларативной подготовкой | [Azure AD Connect Sync: общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)|
+|Изменение конфигурации по умолчанию | [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Настройка функций федерации
 В AD FS можно настроить поддержку [нескольких доменов](active-directory-aadconnect-multiple-domains.md). Например, у вас может быть несколько доменов верхнего уровня, которые необходимо использовать для федерации.
@@ -124,24 +131,22 @@ Azure AD Connect поставляется с несколькими функци
 Если на сервере AD FS не настроено автоматическое обновление сертификатов из Azure AD или используется решение, отличное от AD FS, при необходимости [обновления сертификатов](active-directory-aadconnect-o365-certs.md)появится соответствующее уведомление.
 
 ### <a name="next-steps-to-configure-federation-features"></a>Дальнейшие действия по настройке функций федерации
-
-Раздел |  
---------- | ---------
-Все статьи, посвященные AD FS | [Azure AD Connect и федерация](active-directory-aadconnectfed-whatis.md)
-Настройка служб AD FS с поддоменами | [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md)
-Управление фермой AD FS | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)
-Обновление сертификатов федерации вручную | [Обновление сертификатов федерации для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
+|Раздел |Ссылка|  
+| --- | --- |
+|Все статьи, посвященные AD FS | [Azure AD Connect и федерация](active-directory-aadconnectfed-whatis.md)|
+|Настройка служб AD FS с поддоменами | [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md)|
+|Управление фермой AD FS | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)|
+|Обновление сертификатов федерации вручную | [Обновление сертификатов федерации для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)|
 
 ## <a name="more-information-and-references"></a>Дополнительные сведения и ссылки
-
-Раздел |  
---------- | ---------
-Журнал версий | [Журнал версий](active-directory-aadconnect-version-history.md)
-Сравнение DirSync, Azure ADSync и Azure AD Connect | [Сравнение инструментов интеграции каталогов](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
-Список совместимости решений, отличных от AD FS, для Azure AD | [Список совместимости с федерацией Azure AD](active-directory-aadconnect-federation-compatibility.md)
-Синхронизированные атрибуты | [Синхронизированные атрибуты](active-directory-aadconnectsync-attributes-synchronized.md)
-Мониторинг с помощью Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md)
-Часто задаваемые вопросы | [Azure AD Connect: вопросы и ответы](active-directory-aadconnect-faq.md)
+|Раздел |Ссылка|  
+| --- | --- |
+|Журнал версий | [Журнал версий](active-directory-aadconnect-version-history.md)|
+|Сравнение DirSync, Azure ADSync и Azure AD Connect | [Сравнение инструментов интеграции каталогов](active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
+|Список совместимости решений, отличных от AD FS, для Azure AD | [Список совместимости с федерацией Azure AD](active-directory-aadconnect-federation-compatibility.md)|
+|Синхронизированные атрибуты | [Синхронизированные атрибуты](active-directory-aadconnectsync-attributes-synchronized.md)|
+|Мониторинг с помощью Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md)|
+|Часто задаваемые вопросы | [Azure AD Connect: вопросы и ответы](active-directory-aadconnect-faq.md)|
 
 **Дополнительные ресурсы**
 

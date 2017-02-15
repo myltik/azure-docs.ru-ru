@@ -1,11 +1,11 @@
 ---
-title: Пошаговое руководство. Экспорт телеметрии в базу данных SQL из Application Insights
-description: Осуществляйте непрерывный экспорт данных Application Insights в SQL с использованием Stream Analytics.
+title: "Пошаговое руководство. Экспорт телеметрии в базу данных SQL из Application Insights"
+description: "Осуществляйте непрерывный экспорт данных Application Insights в SQL с использованием Stream Analytics."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: noamben
 manager: douge
-
+ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,10 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+
 
 ---
-# Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
-В этой статье показано, как переместить данные телеметрии из [Visual Studio Application Insights][start] в базу данных SQL Azure, используя [непрерывный экспорт][export] и [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
+В этой статье показано, как переместить данные телеметрии из [Azure Application Insights][start] в базу данных SQL Azure, используя [непрерывный экспорт][export] и [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Непрерывный экспорт позволяет переместить данные телеметрии в службу хранилища Azure в формате JSON. Мы выполним анализ объектов JSON, используя Azure Stream Analytics, и создадим строки в таблице базы данных.
 
@@ -24,17 +28,17 @@ ms.author: awills
 
 Для начала предположим, что у вас уже есть приложение, мониторинг которого нужно выполнить.
 
-В этом примере мы используем данные просмотров страницы, но этот же шаблон можно легко использовать и для других типов данных, таких как пользовательские события и исключения.
+В этом примере мы используем данные просмотров страницы, но этот же шаблон можно легко использовать и для других типов данных, таких как пользовательские события и исключения. 
 
-## Добавление Application Insights в приложение
+## <a name="add-application-insights-to-your-application"></a>Добавление Application Insights в приложение
 Чтобы начать работу:
 
 1. [Настройте Application Insights для веб-страниц](app-insights-javascript.md). 
    
-    (В этом примере мы сосредоточимся на обработке данных просмотра страниц из клиентских браузеров. Но вы также можете настроить Application Insights для серверной части своего приложения [Java](app-insights-java-get-started.md) или [ASP.NET](app-insights-asp-net.md) и обрабатывать данные телеметрии запросов, зависимостей и другие данные телеметрии сервера.)
+    (В этом примере мы сосредоточимся на обработке данных просмотра страниц из клиентских браузеров. Но вы также можете настроить Application Insights для серверной части своего приложения [Java](app-insights-java-get-started.md) или [ASP.NET](app-insights-asp-net.md) и обрабатывать данные запросов, зависимостей и другие данные телеметрии сервера.)
 2. Опубликуйте свое приложение и просмотрите данные телеметрии, появившиеся в ресурсе Application Insights.
 
-## Создание хранилища в Azure
+## <a name="create-storage-in-azure"></a>Создание хранилища в Azure
 В результате непрерывного экспорта происходит передача данных в учетную запись хранилища Azure, поэтому необходимо сначала создать хранилище.
 
 1. Создайте учетную запись хранения в подписке на [портале Azure][portal].
@@ -42,20 +46,20 @@ ms.author: awills
     ![На портале Azure выберите «Создать», «Данные», «Хранилище». Выберите «Классический» и щелкните «Создать». Введите имя хранилища.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 2. Создание контейнера
    
-    ![В новом хранилище выберите «Контейнеры», щелкните элемент «Контейнеры», а затем — «Добавить».](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![В новом хранилище выберите "Контейнеры", щелкните элемент "Контейнеры", а затем — "Добавить".](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 3. Скопируйте ключ доступа к хранилищу.
    
     Он вскоре потребуется для настройки входных данных для службы Stream Analytics.
    
-    ![В хранилище откройте «Параметры», «Ключи» и сделайте копию первичного ключа доступа.](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![В хранилище откройте "Параметры", "Ключи" и сделайте копию первичного ключа доступа.](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Запуск непрерывного экспорта в службе хранилища Azure
+## <a name="start-continuous-export-to-azure-storage"></a>Запуск непрерывного экспорта в службе хранилища Azure
 1. На портале Azure перейдите к ресурсу Application Insights, созданному для приложения.
    
-    ![Выберите «Обзор», «Application Insights», а затем выберите свое приложение.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+    ![Выберите "Обзор", Application Insights, а затем выберите свое приложение.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 2. Создайте непрерывный экспорт.
    
-    ![Выберите «Параметры», «Непрерывный экспорт», «Добавить».](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
+    ![Выберите "Параметры", "Непрерывный экспорт", "Добавить".](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
     Выберите учетную запись хранения, созданную ранее:
 
@@ -66,19 +70,19 @@ ms.author: awills
     ![Выберите типы событий.](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Пусть данные накопятся. Предоставьте пользователям возможность поработать с приложением на протяжении некоторого времени. После получения данных телеметрии в [обозревателе метрик](app-insights-metrics-explorer.md) отобразятся статистические диаграммы, а в разделе [Поиск по журналу диагностики](app-insights-diagnostic-search.md) – отдельные события.
+1. Пусть данные накопятся. Предоставьте пользователям возможность поработать с приложением на протяжении некоторого времени. После получения данных телеметрии в [обозревателе метрик](app-insights-metrics-explorer.md) отобразятся статистические диаграммы, а в разделе [поиска по журналу диагностики](app-insights-diagnostic-search.md) — отдельные события. 
    
-    Данные также будут экспортированы в хранилище.
-2. Проверьте экспортированные данные на портале (нажмите **Обзор**, выберите учетную запись хранения и щелкните **Контейнеры**) или в Visual Studio. В Visual Studio откройте меню **"Вид" или "Обозреватель облаков"** и выберите элемент "Azure" или "Служба хранилища". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно "Создание проекта", разверните узел "Visual C#/облако" и выберите "Получить Microsoft Azure SDK для .NET".)
+    Данные также будут экспортированы в хранилище. 
+2. Проверьте экспортированные данные на портале (щелкните **Обзор**, выберите учетную запись хранения и щелкните **Контейнеры**) или в Visual Studio. В Visual Studio откройте меню **"Вид" или "Обозреватель облака"**и выберите элемент "Azure" или "Хранилище". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
    
     ![В Visual Studio откройте "Обозреватель сервера", "Azure", "Хранилище".](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    Запишите общую часть имени пути, которое образовано от имени приложения и ключа инструментирования.
+    Запишите общую часть имени пути, которое образовано от имени приложения и ключа инструментирования. 
 
 События записываются в JSON-файлы больших двоичных объектов. Каждый файл может содержать одно или несколько событий. Поэтому нам нужна возможность считывать данные событий и отфильтровывать необходимые поля. С данными можно выполнять любые действия, но сейчас мы будем использовать Stream Analytics для перемещения данных в базу данных SQL. Это облегчит выполнение многих любопытных запросов.
 
-## Создание базы данных SQL Azure
-И снова начнем с использованием вашей подписки на [портале Azure][portal]. Создайте базу данных (и новый сервер, если его еще нет), куда будут записываться данные.
+## <a name="create-an-azure-sql-database"></a>Создание базы данных SQL Azure
+В своей подписке на [портале Azure][portal] создайте базу данных (и сервер, если у вас его еще нет), куда будут записываться данные.
 
 !["Создать", "Данные", SQL.](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -86,7 +90,7 @@ ms.author: awills
 
 !["Обзор", "Серверы", ваш сервер, "Параметры", "Брандмауэр", "Разрешить доступ к Azure".](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## Создание таблицы в базе данных SQL Azure
+## <a name="create-a-table-in-azure-sql-db"></a>Создание таблицы в базе данных SQL Azure
 Подключитесь к базе данных, созданной в предыдущем разделе, с помощью желаемого инструмента управления. В этом пошаговом руководстве мы используем [инструменты управления SQL Server](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
@@ -135,8 +139,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 В этом примере мы используем данные из представлений страниц. Для просмотра других доступных данных проверьте выходные данные JSON и ознакомьтесь с разделом [Экспорт модели данных](app-insights-export-data-model.md).
 
-## Создание экземпляра Azure Stream Analytics
-В [классическом портале Azure](https://manage.windowsazure.com/) выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
+## <a name="create-an-azure-stream-analytics-instance"></a>Создание экземпляра Azure Stream Analytics
+В [классическом портале Azure](https://manage.windowsazure.com/)выберите службу Azure Stream Analytics и создайте новое задание Stream Analytics:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
 
@@ -146,7 +150,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
 
-#### Установка расположения большого двоичного объекта
+#### <a name="set-blob-location"></a>Установка расположения большого двоичного объекта
 Задайте расположение для приема входных данных из большого двоичного объекта непрерывного экспорта:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
@@ -155,7 +159,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
 
-#### Установка шаблона префикса пути
+#### <a name="set-path-prefix-pattern"></a>Установка шаблона префикса пути
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
 Задайте в поле "Формат даты" значение в формате **ГГГГ-ММ-ДД** (с **дефисами**).
@@ -166,14 +170,14 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 В данном примере:
 
-* `webapplication27` — имя ресурса Application Insights (**только строчные буквы**). 
+* `webapplication27` — имя ресурса Application Insights ( **только строчные буквы**). 
 * `1234...` — ключ инструментирования ресурса Application Insights с **удаленными дефисами**. 
 * `PageViews` – тип данных, которые необходимо проанализировать. Доступные типы зависят от фильтра, установленного в функции непрерывного экспорта. Изучите экспортированные данные, чтобы увидеть другие доступные типы, а также ознакомьтесь с [моделью экспорта данных](app-insights-export-data-model.md).
 * `/{date}/{time}` – шаблон, записанный буквально.
 
 Чтобы получить имя и ключ инструментирования Application Insights, откройте раздел "Основные компоненты" на странице обзора или вкладку "Параметры".
 
-#### Завершение начальной настройки
+#### <a name="finish-initial-setup"></a>Завершение начальной настройки
 Подтвердите формат сериализации:
 
 ![Подтвердите выбор и закройте мастер.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
@@ -185,7 +189,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 > 
 > 
 
-## Настройка запроса
+## <a name="set-query"></a>Настройка запроса
 Откройте раздел запроса:
 
 ![В Stream Analytics выберите "Запрос".](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
@@ -228,9 +232,9 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-Обратите внимание, что первые несколько свойств соответствуют данным просмотров страницы. При экспорте телеметрии других типов будут получены другие свойства. См. [Подробный справочник по модели данных типов и значений свойств.](app-insights-export-data-model.md)
+Обратите внимание, что первые несколько свойств соответствуют данным просмотров страницы. При экспорте телеметрии других типов будут получены другие свойства. См. [значения и типы свойств в подробном руководстве по модели данных](app-insights-export-data-model.md).
 
-## Настройка выходных данных в базе данных
+## <a name="set-up-output-to-database"></a>Настройка выходных данных в базе данных
 Выберите SQL в качестве типа выходных данных.
 
 ![В Stream Analytics выберите "Выходные данные".](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
@@ -241,14 +245,14 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 Закройте окно мастера и дождитесь появления уведомления о том, что выходные данные были настроены.
 
-## Начало обработки
+## <a name="start-processing"></a>Начало обработки
 Запустите задание на панели действий:
 
-![В Stream Analytics щелкните "Запустить".](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![В Stream Analytics щелкните "Запуск".](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
 
 Вы можете выбрать тип обработки данных – обработка текущих данных или данных, полученных ранее. Последний вариант удобен, если непрерывный экспорт уже выполняется в течение некоторого времени.
 
-![В Stream Analytics щелкните "Запустить".](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
+![В Stream Analytics щелкните "Запуск".](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Через несколько минут вернитесь к инструментам управления SQL Server и просмотрите передачу данных. Например, используйте запрос наподобие этого:
 
@@ -256,7 +260,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
     FROM [dbo].[PageViewsTable]
 
 
-## Связанные статьи
+## <a name="related-articles"></a>Связанные статьи
 * [Экспорт в SQL с использованием рабочей роли](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Экспорт в Power BI с использованием Stream Analytics](app-insights-export-power-bi.md)
 * [Подробный справочник по модели данных типов и значений свойств.](app-insights-export-data-model.md)
@@ -273,4 +277,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 
 
-<!---HONumber=AcomDC_0309_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

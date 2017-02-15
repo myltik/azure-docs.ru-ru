@@ -1,37 +1,41 @@
 ---
-title: Отслеживание заданий Stream Analytics программным способом | Microsoft Docs
-description: Узнайте, как отслеживать задания Stream Analytics, созданные с помощью API REST, пакета SDK для Azure или PowerShell.
-keywords: монитор .net, монитор заданий, мониторинг приложения
+title: "Отслеживание заданий Stream Analytics программным способом | Документация Майкрософт"
+description: "Узнайте, как отслеживать задания Stream Analytics, созданные с помощью API REST, пакета SDK для Azure или PowerShell."
+keywords: "монитор .net, монитор заданий, мониторинг приложения"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 183cc2025bd909ea4450564bc3598c2694b1c0db
+
 
 ---
-# Создание монитора заданий Stream Analytics программным способом
- В этой статье рассказывается, как включить функцию отслеживания задания Stream Analytics. Отслеживание заданий Stream Analytics, созданных с помощью интерфейсов API REST, пакета SDK для Azure и оболочки PowerShell, по умолчанию отключено. Вы можете вручную включить отслеживание на портале Azure. Для этого перейдите на страницу "Отслеживание" задания и нажмите кнопку "Включить". Этот процесс также можно автоматизировать, выполнив описанные в этой статье действия. Данные отслеживания будут отображаться на вкладке "Отслеживание" на портале Azure для задания Stream Analytics.
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Создание монитора заданий Stream Analytics программным способом
+ В этой статье рассказывается, как включить функцию отслеживания задания Stream Analytics. Отслеживание заданий Stream Analytics, созданных с помощью интерфейсов API REST, пакета SDK для Azure и оболочки PowerShell, по умолчанию отключено.  Вы можете вручную включить отслеживание на портале Azure. Для этого перейдите на страницу "Отслеживание" задания и нажмите кнопку "Включить". Этот процесс также можно автоматизировать, выполнив описанные в этой статье действия. Данные отслеживания будут отображаться на вкладке "Отслеживание" на портале Azure для задания Stream Analytics.
 
 ![Вкладка "Задания" монитора заданий](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 * Visual Studio 2012 или 2013.
 * Скачанный и установленный [пакет SDK для Azure .NET](https://azure.microsoft.com/downloads/).
 * Существующее задание Stream Analytics, отслеживание которого нужно включить.
 
-## Настройка проекта
+## <a name="setup-a-project"></a>Настройка проекта
 1. Создайте консольное приложение Visual Studio C# .NET.
-2. В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый — пакет SDK для .NET для управления Azure Stream Analytics. Второй — пакет SDK Azure Insights, который будет использоваться для включения отслеживания. Последний — клиент Azure Active Directory, который будет использоваться для проверки подлинности.
+2. В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый — пакет SDK для .NET для управления Azure Stream Analytics. Второй — пакет SDK для Azure Monitor, который будет использоваться для включения отслеживания. Последний — клиент Azure Active Directory, который будет использоваться для проверки подлинности.
    
    ```
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -112,7 +116,7 @@ ms.author: jeffstok
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-## Создание клиентов управления
+## <a name="create-management-clients"></a>Создание клиентов управления
 С помощью следующего кода можно настроить необходимые переменные и клиенты управления.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -133,7 +137,7 @@ ms.author: jeffstok
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-## Включение отслеживания существующего задания Stream Analytics
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Включение отслеживания существующего задания Stream Analytics
 С помощью следующего кода можно включить отслеживание **существующего** задания Stream Analytics. В первой части кода в службу Stream Analytics отправляется запрос GET, что позволяет получить сведения о конкретном задании Stream Analytics. Во второй части кода, где запрос PUT отправляется в службу Insights для включения отслеживания задания Stream Analytics, свойство Id (полученное в результате выполнения запроса GET) используется в качестве параметра метода Put.
 
 > [!WARNING]
@@ -166,14 +170,19 @@ ms.author: jeffstok
 
 
 
-## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
+## <a name="get-support"></a>Получение поддержки
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

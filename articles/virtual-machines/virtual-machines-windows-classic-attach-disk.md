@@ -1,13 +1,13 @@
 ---
-title: Подключение диска к виртуальной машине | Microsoft Docs
-description: Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания, и его инициализация.
+title: "Подключение диска к виртуальной машине | Документация Майкрософт"
+description: "Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания, и его инициализация."
 services: virtual-machines-windows, storage
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: be4e3e74-05bc-4527-969f-84f10a1d66a7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,21 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 0e0dc3c764928aae2186aa87fcf4208f37685c8c
+
 
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Если вы собираетесь использовать новый портал, см. статью [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md).
+Если вы собираетесь использовать новый портал, см. статью [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Если требуется дополнительный диск с данными, вы можете подключить к виртуальной машине пустой диск или существующий диск с данными. В обоих случаях диски — это VHD-файлы, которые размещаются в вашей учетной записи хранения Azure. Если применяется новый диск, после подключения диска также необходимо инициализировать его, чтобы он был готов для использования в виртуальной машине Windows.
 
-Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-windows-about-disks-vhds.md).
+Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
 ## <a name="initialize-the-disk"></a>Инициализировать диск
-1. Подключитесь к виртуальной машине. Указания см. в разделе [Как войти в виртуальную машину под управлением Windows Server][Вход в систему].
+1. Подключитесь к виртуальной машине. Указания см. в разделе [Как войти в виртуальную машину под управлением Windows Server][вход в систему].
 2. После входа в систему на виртуальной машине откройте **Диспетчер сервера**. В области слева выберите **Файловые службы и службы хранилища**.
    
     ![Откройте диспетчер сервера.](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
@@ -41,19 +45,19 @@ ms.author: cynthn
    ![Том успешно инициализирован](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [!NOTE]
-> Размер виртуальной машины определяет количество дисков, которые можно к ней подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
+> Размер виртуальной машины определяет количество дисков, которые можно к ней подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-[Отключение диска от виртуальной машины Windows](virtual-machines-windows-classic-detach-disk.md)
+[Отключение диска от виртуальной машины Windows](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md)
+[О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [вход в систему]: virtual-machines-windows-classic-connect-logon.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

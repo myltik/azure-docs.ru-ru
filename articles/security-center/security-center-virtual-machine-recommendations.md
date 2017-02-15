@@ -1,19 +1,23 @@
 ---
-title: Защита виртуальных машин в центре безопасности Azure | Microsoft Docs
-description: В этом документе рассматриваются рекомендации из центра безопасности Azure, которые помогают защитить ваши виртуальные машины и обеспечить соответствие политикам безопасности.
+title: "Защита виртуальных машин в центре безопасности Azure | Документация Майкрософт"
+description: "В этом документе рассматриваются рекомендации из центра безопасности Azure, которые помогают защитить ваши виртуальные машины и обеспечить соответствие политикам безопасности."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 01/07/2017
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c048263ab1ae453a10f0471ae33a122e21151d94
+
 
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Защита виртуальных машин в центре безопасности Azure.
@@ -49,6 +53,9 @@ ms.author: terrylan
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

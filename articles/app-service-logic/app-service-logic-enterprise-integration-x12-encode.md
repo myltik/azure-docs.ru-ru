@@ -1,12 +1,12 @@
 ---
-title: Сведения о соединителе кодирования сообщений X12 из пакета интеграции Enterprise | Microsoft Docs
-description: Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики.
+title: "Сведения о соединителе шифрования сообщений X12 из Пакета интеграции Enterprise | Документация Майкрософт"
+description: "Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,25 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: padmavc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 54626bdb7b07a91e5a2b1d16fed10be6cccacc74
+
 
 ---
-# Начало работы с соединителем кодирования сообщений X12
+# <a name="get-started-with-encode-x12-message"></a>Начало работы с соединителем кодирования сообщений X12
 Проверяет EDI и свойства для конкретного партнера, преобразует XML-кодированные сообщения в наборы транзакций EDI в операции обмена и запрашивает техническое и (или) функциональное подтверждение
 
-## Создание подключения
-### Предварительные требования
+## <a name="create-the-connection"></a>Создание подключения
+### <a name="prerequisites"></a>Предварительные требования
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 * Для работы с соединителем кодирования сообщений x12 потребуется учетная запись интеграции. Подробнее о создании [учетной записи интеграции](app-service-logic-enterprise-integration-create-integration-account.md), [партнеров](app-service-logic-enterprise-integration-partners.md) и [соглашений X12](app-service-logic-enterprise-integration-x12.md).
 
-### Действия для подключения к соединителю кодирования сообщений X12.
+### <a name="connect-to-encode-x12-message-using-the-following-steps"></a>Действия для подключения к соединителю кодирования сообщений X12.
 1. Пример см. в статье о [создании приложения логики](app-service-logic-create-a-logic-app.md).
-2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса. В конструкторе приложений логики добавьте триггер, а затем действие. В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "x12". Выберите пункт "Encode X12 Message by agreement name" (Кодирование сообщений X12 по названию соглашения) или "Encode to X12 message by identities" (Кодирование в сообщение X12 по идентификаторам).
+2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "x12".  Выберите пункт "Encode X12 Message by agreement name" (Кодирование сообщений X12 по названию соглашения) или "Encode to X12 message by identities" (Кодирование в сообщение X12 по идентификаторам).  
    
-    ![поиск x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)
+    ![поиск x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png) 
 3. Если до этого вы не создавали подключения к учетной записи интеграции, вам будет предложено ввести сведения о подключении.
    
-    ![подключение к учетной записи интеграции](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage1.png)
-4. Введите данные учетной записи интеграции. Свойства, отмеченные звездочкой, являются обязательными.
+    ![подключение к учетной записи интеграции](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage1.png) 
+4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными.
    
    | Свойство | Сведения |
    | --- | --- |
@@ -41,23 +45,23 @@ ms.author: padmavc
    
     Введенные сведения о подключении будут выглядеть так:
    
-    ![создано подключение к учетной записи интеграции](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage2.png)
-5. Нажмите кнопку **Создать**.
+    ![создано подключение к учетной записи интеграции](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage2.png) 
+5. Нажмите кнопку **Создать**
 6. Обратите внимание, что было создано подключение.
    
-    ![сведения о подключении к учетной записи интеграции](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage3.png)
+    ![сведения о подключении к учетной записи интеграции](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage3.png) 
 
-#### Кодирование сообщений X12 по названию соглашения
+#### <a name="x12---encode-x12-message-by-agreement-name"></a>Кодирование сообщений X12 по названию соглашения
 1. Выберите соглашение X12 из раскрывающегося списка и XML-сообщение для кодирования.
    
-    ![заполнение обязательных полей](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png)
+    ![заполнение обязательных полей](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png) 
 
-#### Кодирование сообщения X12 по идентификаторам
-1. Укажите идентификатор отправителя, квалификатор отправителя, идентификатор получателя и квалификатор получателя, как указано в соглашении X12. Выберите XML-сообщение для кодирования.
+#### <a name="x12---encode-x12-message-by-identities"></a>Кодирование сообщения X12 по идентификаторам
+1. Укажите идентификатор отправителя, квалификатор отправителя, идентификатор получателя и квалификатор получателя, как указано в соглашении X12.  Выберите XML-сообщение для кодирования.
    
-   ![заполнение обязательных полей](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png)
+   ![заполнение обязательных полей](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png) 
 
-## Кодирование X12 выполняет следующие действия.
+## <a name="x12-encode-does-following"></a>Кодирование X12 выполняет следующие действия.
 * Определяет соглашение путем сопоставления свойств контекста отправителя и получателя.
 * Сериализует обмен EDI путем преобразования сообщения в кодировке XML в набор транзакций EDI.
 * Генерирует сегменты заголовков и окончаний для наборов транзакций.
@@ -71,7 +75,12 @@ ms.author: padmavc
   * Техническое подтверждение создается по результатам проверки заголовков. Техническое подтверждение сообщает о состоянии обработки получателем заголовка и окончания обмена.
   * Функциональное подтверждение создается по результатам проверки тела сообщения. Функциональное подтверждение сообщает обо всех ошибках, зарегистрированных при обработке полученного документа.
 
-## Дальнейшие действия
-[Узнайте больше о пакете интеграции Enterprise.](app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
+## <a name="next-steps"></a>Дальнейшие действия
+[Обзор пакета интеграции Enterprise](app-service-logic-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Azure and Linux VM Storage | Microsoft Docs
-description: Describes Azure Standard and Premium Storage with Linux virtual machines.
+title: "Azure и Linux: хранилища виртуальных машин | Документация Майкрософт"
+description: "Здесь описываются хранилища Azure уровней &quot;Стандартный&quot; и &quot;Премиум&quot; для виртуальных машин Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d364c69e-0bd1-4f80-9838-bbc0a95af48c
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/04/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+
 
 ---
-# <a name="azure-and-linux-vm-storage"></a>Azure and Linux VM storage
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
+# <a name="azure-and-linux-vm-storage"></a>Azure и Linux: хранилища виртуальных машин
+Хранилище Azure — это облачное решение для хранения современных приложений, обеспечивающее устойчивость, доступность и масштабируемость для удовлетворения потребностей клиентов.  Служба хранилища Azure не только позволяет разработчикам создавать масштабные приложения для поддержки новых сценариев, но и предоставляет основу хранилища для виртуальных машин Azure.
 
-## <a name="azure-storage:-standard-and-premium"></a>Azure Storage: Standard and Premium
-Azure VM's can be built upon standard storage disks or premium storage disks.  When using the Portal to choose your VM you must toggle a dropdown on the Basics screen to view both standard and premium disks.  The screenshot below highlights that toggle menu.  When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard storage enabled VMs backed spinning disk drives will be shown, along with premium storage VMs backed by SSD.
+## <a name="azure-storage-standard-and-premium"></a>Хранилище Azure: уровни "Стандартный" и "Премиум"
+Виртуальные машины Azure могут создаваться на основе дисков хранилища уровня "Стандартный" или "Премиум".  При использовании портала для выбора виртуальной машины в меню "Основные" необходимо открыть раскрывающийся список, чтобы отображались диски обоих уровней — "Стандартный" и "Премиум".  Это меню с возможностью переключения показано на снимке экрана ниже.  Если выбрать SSD, то будут отображаться только виртуальные машины, основанные на хранилище уровня "Премиум" с твердотельными накопителями (SSD).  Если выбрать HDD, то будут отображаться виртуальные машины, основанные на хранилище уровня "Стандартный" с вращающимися жесткими дисками, а также виртуальные машины на базе хранилища уровня "Премиум" с поддержкой SSD.
 
-  ![screen1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+  ![экран_1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
 
-When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
+При создании виртуальной машины с использованием `azure-cli` можно выбрать уровень "Стандартный" или "Премиум", когда с помощью флага `-z` или `--vm-size` указывается размер виртуальной машины.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Create a VM with standard storage VM on the cli
-The cli flag `-z` chooses Standard_A1 with A1 being a standard storage based Linux VM.
+### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Создание виртуальной машины с хранилищем уровня "Стандартный" с помощью интерфейса командной строки
+Флаг `-z` выбирает Standard_A1, где A1 — это виртуальная машина Linux на основе хранилища уровня "Стандартный".
 
 ```bash
 azure vm quick-create -g rbg \
@@ -40,8 +44,8 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Create a VM with premium storage on the cli
-The cli flag `-z` chooses Standard_DS1 with DS1 being a premium storage based Linux VM.
+### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Создание виртуальной машины с хранилищем уровня "Премиум" с помощью интерфейса командной строки
+Флаг `-z` выбирает Standard_DS1, где DS1 — это виртуальная машина Linux на основе хранилища уровня "Премиум".
 
 ```bash
 azure vm quick-create -g rbg \
@@ -54,131 +58,134 @@ exampleVMname \
 -z Standard_DS1
 ```
 
-## <a name="standard-storage"></a>Standard storage
-Azure Standard Storage is the default type of storage.  Standard storage is cost effective while still being performant.  
+## <a name="standard-storage"></a>Хранилище уровня "Стандартный"
+Хранилище Azure уровня "Стандартный" — это тип хранилища по умолчанию.  Хранилище уровня "Стандартный" экономически эффективно и сохраняет высокий уровень производительности.  
 
-## <a name="premium-storage"></a>Premium storage
-Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
+## <a name="premium-storage"></a>Хранилище уровня "Премиум"
+Хранилище Azure Premium обеспечивает поддержку дисков с высокой производительностью и малой задержкой для виртуальных машин с интенсивной рабочей нагрузкой ввода-вывода. Диски виртуальной машины, использующие хранилище класса Premium, хранят данные на твердотельных накопителях. Диски виртуальной машины приложения можно перенести в хранилище Azure класса Premium, чтобы использовать их быстродействие и производительность.
 
-Premium storage features:
+Возможности хранилища уровня "Премиум":
 
-* Premium Storage Disks: Azure Premium Storage supports VM disks that can be attached to DS, DSv2, or GS series Azure VMs.
-* Premium Page Blob: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs).
-* Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
-* [Premium Storage](../storage/storage-premium-storage.md)
+* Диски хранилища уровня "Премиум". Хранилище Azure уровня "Премиум" поддерживает диски виртуальных машин, которые можно подключить к виртуальным машинам Azure серии DS, DSv2 или GS.
+* Страничный BLOB-объект уровня "Премиум". Хранилище уровня "Премиум" поддерживает страничные BLOB-объекты Azure, используемые для хранения постоянных дисков для виртуальных машин Azure.
+* Локально избыточное хранилище уровня "Премиум". Учетная запись хранения уровня "Премиум" в качестве параметра репликации поддерживает только локально избыточное хранилище (LRS) и хранит три копии данных в пределах одного региона.
+* [Хранилище уровня "Премиум"](../storage/storage-premium-storage.md).
 
-## <a name="premium-storage-supported-vms"></a>Premium Storage supported VMs
-Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series, which are not Premium Storage compatible.
+## <a name="premium-storage-supported-vms"></a>Виртуальные машины, поддерживаемые хранилищем уровня "Премиум"
+Хранилище уровня "Премиум" поддерживает виртуальные машины серий DS, DSv2, GS и Fs. В этих виртуальных машинах можно использовать диски хранилищ уровня "Стандартный" и "Премиум". Но нельзя использовать диски хранилища уровня "Премиум" с серией виртуальных машин, не совместимой с хранилищем уровня "Премиум".
 
-Following are the Linux Distributions that we validated with Premium Storage.
+Ниже перечислены дистрибутивы Linux, проверенные на предмет работоспособности с хранилищем Premium.
 
-| Distribution | Version | Supported Kernel |
+| Дистрибутив | Версия | Поддерживаемое ядро |
 | --- | --- | --- |
-| Ubuntu |12.04 |3.2.0-75.110+ |
-| Ubuntu |14.04 |3.13.0-44.73+ |
-| Debian |7.x, 8.x |3.16.7-ckt4-1+ |
-| SLES |SLES 12 |3.12.36-38.1+ |
-| SLES |SLES 11 SP4 |3.0.101-0.63.1+ |
-| CoreOS |584.0.0+ |3.18.4+ |
-| Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
-| RHEL |6.8+, 7.2+ | |
+| Ubuntu |12.04 |3.2.0-75.110 или более поздней версии |
+| Ubuntu |14.04 |3.13.0-44.73 или более поздней версии |
+| Debian |7.x, 8.x |3.16.7-ckt4-1 или более поздней версии |
+| SLES |SLES 12 |3.12.36-38.1 или более поздней версии |
+| SLES |SLES 11 SP4 или более поздней версии |3.0.101-0.63.1 или более поздней версии |
+| CoreOS |584.0.0 или более поздней версии |3.18.4 или более поздней версии |
+| CentOS |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7 или более поздней версии |
+| RHEL |6.8 или более поздней версии, 7.2 или более поздней версии | |
 
-## <a name="file-storage"></a>File storage
-Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.  Because file shares are SMB shares, you can access them via standard file system APIs.
+## <a name="file-storage"></a>Хранилище файлов
+Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Благодаря хранилищу файлов Azure можно переносить корпоративные приложения с файловых серверов в Azure. Приложения, работающие в Azure, могут легко подключать общие папки из виртуальных машин Azure под управлением Linux. Кроме того, новая версия хранилища файлов позволяет подключить общую папку из локального приложения, которое поддерживает протокол SMB 3.0.  Так как эти общие папки используют протокол SMB, вы можете обращаться к ним с помощью стандартных интерфейсов API файловой системы.
 
-File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
+Хранилище файлов Azure основано на той же технологии, что и хранилища BLOB-объектов, таблиц и очередей, поэтому оно предлагает все средства обеспечения доступности, надежности, масштабируемости и геоизбыточности, встроенные в платформу службы хранения Azure. Дополнительные сведения о целевых показателях производительности и ограничениях хранилища файлов см. в статье "Целевые показатели масштабируемости и производительности службы хранилища Azure".
 
-* [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md)
+* [Использование хранилища файлов Azure в Linux](../storage/storage-how-to-use-files-linux.md)
 
-## <a name="hot-storage"></a>Hot Storage
-The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
+## <a name="hot-storage"></a>"Горячее" хранилище
+"Горячий" уровень хранилища Azure оптимизирован для хранения часто используемых данных.  "Горячее" хранилище — это тип хранилища по умолчанию для хранения больших двоичных объектов.
 
-## <a name="cool-storage"></a>Cool Storage
-The Azure cool storage tier is optimized for storing data that is infrequently accessed and long-lived. Example use cases for cool storage include backups, media content, scientific data, compliance, and archival data. In general, any data that is seldom accessed is a perfect candidate for cool storage.
+## <a name="cool-storage"></a>"Холодное" хранилище
+"Холодный" уровень хранилища Azure оптимизирован для хранения данных, которые используют редко и долго хранят. К вариантам использования "холодного" хранилища относятся резервные копии, мультимедийное содержимое, данные научных исследований, сведения о соответствии требованиям и архивные данные. Как правило, любые данные, которые редко используются, являются идеальными кандидатами для "холодного" хранилища.
 
-|  | Hot storage tier | Cool storage tier |
+|  | "Горячий" уровень хранилища | "Холодный" уровень хранилища |
 |:--- |:---:|:---:|
-| Availability |99.9% |99% |
-| Availability (RA-GRS reads) |99.99% |99.9% |
-| Usage charges |Higher storage costs |Lower storage costs |
-| Lower access |Higher access | |
-| and transaction costs |and transaction costs | |
+| Доступность |99,9 % |99 % |
+| Доступность (операции чтения RA-GRS) |99,99 % |99,9 % |
+| Плата за использование |Больше затрат на хранение |Меньше затрат на хранение |
+| Меньше затрат на доступ |Больше затрат на доступ | |
+| и транзакции |и транзакции | |
 
-## <a name="redundancy"></a>Redundancy
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures.
+## <a name="redundancy"></a>Избыточность
+Данные в учетной записи хранения Microsoft Azure всегда реплицируются, обеспечивая устойчивость, высокий уровень доступности и соответствие соглашению об уровне обслуживания для службы хранилища Azure даже при временных сбоях оборудования.
 
-When you create a storage account, you must select one of the following replication options:
+При создании учетной записи хранения необходимо выбрать один из следующих вариантов репликации:
 
-* Locally redundant storage (LRS)
-* Zone-redundant storage (ZRS)
-* Geo-redundant storage (GRS)
-* Read-access geo-redundant storage (RA-GRS)
+* Локально избыточное хранилище (LRS)
+* Хранилище, избыточное в пределах зоны (ZRS)
+* Геоизбыточное хранилище (GRS)
+* Геоизбыточное хранилище с доступом для чтения (RA-GRS)
 
-### <a name="locally-redundant-storage"></a>Locally redundant storage
-Locally redundant storage (LRS) replicates your data within the region in which you created your storage account. To maximize durability, every request made against data in your storage account is replicated three times. These three replicas each reside in separate fault domains and upgrade domains.  A request returns successfully only once it has been written to all three replicas.
+### <a name="locally-redundant-storage"></a>Локально избыточное хранилище
+Локально избыточное хранилище (LRS) реплицирует ваши данные в регионе, в котором создана учетная запись хранения. Для максимальной устойчивости каждый запрос данных в учетной записи хранения реплицируется три раза. Эти три реплики хранятся в отдельных доменах сбоя и доменах обновления.  Запрос возвращается только после того, как его записывают во все три реплики.
 
-### <a name="zone-redundant-storage"></a>Zone-redundant storage
-Zone-redundant storage (ZRS) replicates your data across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. If your storage account has ZRS enabled, then your data is durable even in the case of failure at one of the facilities.
+### <a name="zone-redundant-storage"></a>Хранилище, избыточное в пределах зоны
+Хранилище, избыточное в пределах зоны (ZRS), реплицирует данные в двух-трех помещениях в одном или двух регионах, предоставляя более высокую доступность по сравнению с LRS. Если в вашей учетной записи хранения включена репликация ZRS, данные будут устойчивы даже в случае сбоя в одном из помещений.
 
-### <a name="geo-redundant-storage"></a>Geo-redundant storage
-Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
+### <a name="geo-redundant-storage"></a>Геоизбыточное хранилище
+Геоизбыточное хранилище (GRS) реплицирует данные во вторичный регион, который находится в сотнях километров от первичного региона. Если в учетной записи хранения включена репликация GRS, данные будут устойчивы даже в случае отключения электричества во всем регионе или аварии, при которой первичный регион не может быть восстановлен.
 
-### <a name="read-access-geo-redundant-storage"></a>Read-access geo-redundant storage
-Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. In the event that data becomes unavailable in the primary region, your application can read data from the secondary region.
+### <a name="read-access-geo-redundant-storage"></a>Геоизбыточное хранилище с доступом для чтения
+Геоизбыточное хранилище с доступом для чтения (RA-GRS) максимально увеличивает доступность для учетной записи хранения, обеспечивая доступ только для чтения к данным во вторичном местоположении в дополнение к репликации в двух регионах, предоставленной в GRS. В случае недоступности данных в первичном регионе ваше приложение может считывать данные из вторичного региона.
 
-For a deep dive into Azure storage redundancy see:
+Подробный обзор избыточности хранилища Azure см. в следующей статье:
 
-* [Azure Storage replication](../storage/storage-redundancy.md)
+* [Репликация службы хранилища Azure](../storage/storage-redundancy.md)
 
-## <a name="scalability"></a>Scalability
-Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
+## <a name="scalability"></a>Масштабируемость
+Хранилище Azure обладает высокой степенью масштабируемости, позволяя хранить и обрабатывать сотни терабайт данных для поддержки сценариев с данными большого размера, которые необходимы для исследовательских, аналитических финансовых и мультимедийных приложений. Можно также хранить небольшие объемы данных, необходимые для веб-сайта компании малого бизнеса. Когда ваши потребности снижаются, вы оплачиваете только те данные, которые храните. В настоящее время в хранилище Azure хранятся десятки триллионов уникальных клиентских объектов и обрабатываются в среднем миллионы запросов в секунду.
 
-For standard storage accounts: A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
+Для учетных записей хранения уровня "Стандартный": учетная запись хранения уровня "Стандартный" имеет ограничение по частоте запросов в 20 000 операций ввода-вывода. Общее число операций ввода-вывода для всех дисков виртуальной машины в стандартной учетной записи хранения не должно превышать это ограничение.
 
-For premium storage accounts: A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
+Для учетных записей хранения уровня "Премиум": учетная запись хранения уровня "Премиум" имеет максимальную общую пропускную способность в 50 Гбит/с. Общая пропускная способность для всех дисков виртуальной машины не должна превышать это ограничение.
 
-## <a name="availability"></a>Availability
-We guarantee that at least 99.99% (99.9% for Cool Access Tier) of the time, we will successfully process requests to read data from Read Access-Geo Redundant Storage (RA-GRS) Accounts, provided that failed attempts to read data from the primary region are retried on the secondary region.
+## <a name="availability"></a>Доступность
+Мы гарантируем, что по крайней мере 99,99 % времени (99,9 % для "холодного" уровня доступа) мы будем успешно обрабатывать запросы на чтение данных из учетных записей геоизбыточного хранилища с доступом на чтение (RA-GRS), но при условии, что, если данные будут недоступны в основном регионе,то будет предпринята попытка их чтения из дополнительного региона.
 
-We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to read data from Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts.
+Мы гарантируем, что по крайней мере 99,9 % времени (99% для "холодного" уровня доступа) мы будем успешно обрабатывать запросы на чтение данных из учетных записей локально избыточного хранилища (LRS), хранилища, избыточного в пределах зоны (ZRS), и геоизбыточного хранилища (GRS).
 
-We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to write data to Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts and Read Access-Geo Redundant Storage (RA-GRS) Accounts.
+Мы гарантируем, что по крайней мере 99,9 % времени (99 % для "холодного" уровня доступа) мы будем успешно обрабатывать запросы на запись данных из учетных записей локально избыточного хранилища (LRS), хранилища, избыточного в пределах зоны (ZRS), геоизбыточного хранилища (GRS) и геоизбыточного хранилища с доступом только на чтение (RA-GRS).
 
-* [Azure SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_1/)
+* [Соглашение об уровне обслуживания Azure для службы хранилища](https://azure.microsoft.com/support/legal/sla/storage/v1_1/)
 
-## <a name="regions"></a>Regions
-Azure is generally available in 30 regions around the world, and has announced plans for 4 additional regions. Geographic expansion is a priority for Azure because it enables our customers to achieve higher performance and it support their requirements and preferences regarding data location.  Azures latest region to launch is in Germany.
+## <a name="regions"></a>регионы
+Службы Azure доступны в 30 регионах по всему миру. В ближайшее время запланировано обеспечение доступности в 4 дополнительных регионах. Расширение географии деятельности является приоритетной задачей для Azure, поскольку это позволяет нашим клиентам добиться более высокой производительности. Это также соответствует их требованиям и предпочтениям относительно расположения данных.  Последний регион, в котором запущена поддержка Azure, — это Германия.
 
-The Microsoft Cloud Germany provides a differentiated option to the Microsoft Cloud services already available across Europe, creating increased opportunities for innovation and economic growth for highly regulated partners and customers in Germany, the European Union (EU) and the European Free Trade Association (EFTA).
+Microsoft Cloud Germany обеспечивает дифференцированный подход к поддержке облачных служб (Майкрософт), которые уже доступны по всей Европе. Созданы дополнительные возможности для инноваций и экономического роста, доступные для наших партнеров и клиентов, работающих в жестко регламентированных сферах, в Германии, Европейском Союзе (ЕС) и Европейской ассоциации свободной торговли (ЕАСТ).
 
-Customer data in these new datacenters, in Magdeburg and Frankfurt, is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. Microsoft’s commercial cloud services in these datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.
+В новых центрах обработки данных, в Магдебурге и Франкфурте, обработка данных пользователей осуществляется под контролем управителя данными. В роли такого управителя выступает T-Systems International, независимая немецкая компания, являющаяся подразделением компании Deutsche Telekom. Поддержка коммерческих облачных служб корпорации Майкрософт в этих центрах обработки данных регулируется немецкими нормами обработки данных. Наши клиенты получили дополнительные возможности выбора, позволяющие указать способ и место обработки данных.
 
-* [Azure regions map](https://azure.microsoft.com/regions/)
+* [Карта регионов Azure](https://azure.microsoft.com/regions/)
 
-## <a name="security"></a>Security
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption (SSE). OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption. Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
+## <a name="security"></a>Безопасность
+Служба хранилища Azure предоставляет полный набор возможностей обеспечения безопасности, которые в совокупности позволяют разработчикам создавать защищенные приложения. Учетную запись хранения можно защитить с помощью управления доступом на основе ролей и Azure Active Directory. Защитить данные, передаваемые между приложением и Azure, можно с помощью шифрования на стороне клиента, HTTPS или SMB 3.0. Вы можете настроить автоматическое шифрование данных при записи в службу хранилища Azure с помощью шифрования службы хранилища (SSE). Для дисков ОС и данных, используемых виртуальными машинами, можно настроить шифрование дисков Azure. Делегированный доступ к объектам данных в службе хранилища Azure можно предоставлять с помощью подписанных URL-адресов.
 
-### <a name="management-plane-security"></a>Management Plane Security
-The management plane consists of the resources used to manage your storage account. In this section, we’ll talk about the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. We will also talk about managing your storage account keys and how to regenerate them.
+### <a name="management-plane-security"></a>Безопасность плоскости управления
+Плоскость управления состоит из ресурсов, используемых для управления учетной записью хранения. В этом разделе мы рассмотрим модель развертывания с помощью Azure Resource Manager и использование управления доступом на основе ролей (RBAC) для контроля доступа к учетным записям хранения. Мы также поговорим об управлении ключами учетной записи хранения и их повторном создании.
 
-### <a name="data-plane-security"></a>Data Plane Security
-In this section, we’ll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We’ll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+### <a name="data-plane-security"></a>Безопасность плоскости данных
+В этом разделе рассказывается о предоставлении доступа к объектам данных в учетной записи хранения, таким как BLOB-объекты, файлы, очереди и таблицы, с помощью подписанных URL-адресов и хранимых политик доступа. Будут рассмотрены подписанные URL-адреса как уровня службы, так и уровня учетной записи. Вы также узнаете, как ограничить доступ к определенному IP-адресу (или диапазону IP-адресов), как запретить использование любых протоколов, кроме HTTPS, и как отозвать подписанный URL-адрес, не дожидаясь истечения срока его действия.
 
-## <a name="encryption-in-transit"></a>Encryption in Transit
-This section discusses how to secure data when you transfer it into or out of Azure Storage. We’ll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File Shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
+## <a name="encryption-in-transit"></a>Шифрование при передаче
+В этом разделе рассматривается, как можно защитить данные при передаче в службу хранилища Azure или из нее. Мы поговорим о рекомендуемых способах применения протокола HTTPS и методах шифрования, используемых протоколом SMB 3.0 для общих папок Azure. Мы также рассмотрим функцию шифрования на стороне клиента, которая позволяет шифровать данные в клиентском приложении перед их передачей в хранилище и расшифровывать данные после их получения из хранилища.
 
-## <a name="encryption-at-rest"></a>Encryption at Rest
-We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+## <a name="encryption-at-rest"></a>Шифрование при хранении
+Мы рассмотрим функцию шифрования службы хранилища и ее включение для учетной записи хранения для автоматического шифрования блочных, страничных и добавочных BLOB-объектов при их записи в службу хранилища Azure. Мы также расскажем, как применять шифрование дисков Azure, объясним основные различия между шифрованием дисков, шифрованием службы хранилища и шифрованием на стороне клиента, а также приведем сценарии использования каждого из этих вариантов. Вкратце будут рассмотрены вопросы обеспечения соответствия FIPS на компьютерах, используемых в государственных учреждениях США.
 
-* [Azure Storage security guide](../storage/storage-security-guide.md)
+* [Руководство по безопасности службы хранилища Azure](../storage/storage-security-guide.md)
 
-## <a name="cost-savings"></a>Cost savings
-* [Storage cost](https://azure.microsoft.com/pricing/details/storage/)
-* [Storage cost calculator](https://azure.microsoft.com/pricing/calculator/?service=storage)
+## <a name="cost-savings"></a>Экономия денежных средств
+* [Стоимость хранения](https://azure.microsoft.com/pricing/details/storage/)
+* [Калькулятор стоимости хранения](https://azure.microsoft.com/pricing/calculator/?service=storage)
 
-## <a name="storage-limits"></a>Storage limits
-* [Storage Service limits](../azure-subscription-service-limits.md#storage-limits)
+## <a name="storage-limits"></a>Ограничения хранилища
+* [Ограничения службы хранилища](../azure-subscription-service-limits.md#storage-limits)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

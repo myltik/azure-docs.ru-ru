@@ -1,13 +1,13 @@
 ---
-title: SendGrid | Microsoft Docs
-description: Создание приложений логики с помощью службы приложений Azure. Поставщик подключений SendGrid позволяет отправлять электронную почту и управлять списками получателей.
+title: "SendGrid | Документация Майкрософт"
+description: "Создание приложений логики с помощью службы приложений Azure. Поставщик подключений SendGrid позволяет отправлять электронную почту и управлять списками получателей."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ad35f6590a39972ec9be7168059738b6daae0574
+
 
 ---
-# Начало работы с соединителем SendGrid
+# <a name="get-started-with-the-sendgrid-connector"></a>Начало работы с соединителем SendGrid
 Поставщик подключений SendGrid позволяет отправлять электронную почту и управлять списками получателей.
 
 > [!NOTE]
-> Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+> Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview. 
 > 
 > 
 
-Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Триггеры и действия
-Соединитель SendGrid можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
+## <a name="triggers-and-actions"></a>Триггеры и действия
+Соединитель SendGrid можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML. 
 
  Соединитель SendGrid поддерживает описанные ниже действия. Триггеры отсутствуют.
 
-### Действия SendGrid
+### <a name="sendgrid-actions"></a>Действия SendGrid
 Вы можете выполнять перечисленные ниже действия:
 
 | Действие | Описание |
@@ -40,14 +44,14 @@ ms.author: deonhe
 | [SendEmail](connectors-create-api-sendgrid.md#sendemail) |Отправляет сообщение электронной почты с помощью интерфейса API SendGrid (максимум 10 000 получателей) |
 | [AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist) |Добавление отдельного получателя в список получателей |
 
-## Создание подключения к SendGrid
-Для создания приложений логики с помощью SendGrid необходимо создать **подключение**, а затем указать данные для следующих свойств:
+## <a name="create-a-connection-to-sendgrid"></a>Создание подключения к SendGrid
+Для создания приложений логики с помощью SendGrid необходимо создать **подключение**, а затем указать данные для приведенных ниже свойств. 
 
 | Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
 | ApiKey |Да |Укажите ключ API SendGrid |
 
-> [!INCLUDE [Шаги по созданию подключения к SendGrid](../../includes/connectors-create-api-sendgrid.md)]
+> [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 > 
 > [!TIP]
 > Это подключение можно использовать в других приложениях логики.
@@ -56,19 +60,19 @@ ms.author: deonhe
 
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 
-## Справочник по SendGrid
+## <a name="reference-for-sendgrid"></a>Справочник по SendGrid
 Относится к версии 1.0.
 
-## SendEmail
-Отправка электронной почты: отправляет сообщение электронной почты с помощью интерфейса API SendGrid (максимум 10 000 получателей)
+## <a name="sendemail"></a>SendEmail
+Отправка электронной почты: отправляет сообщение электронной почты с помощью интерфейса API SendGrid (максимум 10 000 получателей) 
 
-```POST: /api/mail.send.json```
+```POST: /api/mail.send.json``` 
 
-| Name (Имя) | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
 | запрос | |Да |текст |Нет |Отправляемое сообщение |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -80,17 +84,17 @@ ms.author: deonhe
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## AddRecipientToList
-Добавление получателя в список: добавление отдельного получателя в список получателей
+## <a name="addrecipienttolist"></a>AddRecipientToList
+Добавление получателя в список: добавление отдельного получателя в список получателей 
 
-```POST: /v3/contactdb/lists/{listId}/recipients/{recipientId}```
+```POST: /v3/contactdb/lists/{listId}/recipients/{recipientId}``` 
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
 | listId |string |Да |path |Нет |Уникальный идентификатор списка получателей |
 | recipientId |string |Да |path |Нет |Уникальный идентификатор получателя |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -101,11 +105,11 @@ ms.author: deonhe
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## Определения объектов
-### EmailRequest
+## <a name="object-definitions"></a>Определения объектов
+### <a name="emailrequest"></a>EmailRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| from |string |Да |
+| Из |string |Да |
 | fromname |string |Нет |
 | значение |string |Да |
 | toname |string |Нет |
@@ -122,37 +126,42 @@ ms.author: deonhe
 | файлов |array |Нет |
 | filenames |array |Нет |
 
-### EmailResponse
+### <a name="emailresponse"></a>EmailResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | message |string |Нет |
 
-### RecipientLists
+### <a name="recipientlists"></a>RecipientLists
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | lists |array |Нет |
 
-### RecipientList
+### <a name="recipientlist"></a>RecipientList
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | id |целое число |Нет |
 | name |string |Нет |
-| recipient\_count |целое число |Нет |
+| recipient_count |целое число |Нет |
 
-### Recipients
+### <a name="recipients"></a>Recipients
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | recipients |array |Нет |
 
-### Recipient
+### <a name="recipient"></a>Recipient
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | email |string |Нет |
-| last\_name |string |Нет |
-| first\_name |string |Нет |
+| last_name |string |Нет |
+| first_name |string |Нет |
 | id |string |Нет |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

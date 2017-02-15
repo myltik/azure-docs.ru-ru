@@ -205,7 +205,7 @@ ms.openlocfilehash: 1b325a849cc3d7f97a1b2b3f4612e2cbc72ad06b
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk в Ubuntu </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 сетевых карты) </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 сетевых карты) </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (существующая виртуальная сеть с 4 сетевыми картами) </a> |
+| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (существующая виртуальная сеть с&4; сетевыми картами) </a> |
 
 ### <a name="step-2"></a>Шаг 2
 В верхней части области файла сведений запустите шаблон, нажав кнопку "Deploy to Azure Government" (Развернуть в Azure для государственных организаций).

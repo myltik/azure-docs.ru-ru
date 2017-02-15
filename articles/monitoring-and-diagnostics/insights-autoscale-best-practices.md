@@ -1,130 +1,158 @@
 ---
-title: 'Azure Insights: Best practices for Azure Insights autoscaling. | Microsoft Docs'
-description: Learn principles to effectively use autoscaling in Azure Insights.
+title: "Рекомендации по автомасштабированию в Azure Monitor | Документация Майкрософт"
+description: "Изучите принципы эффективного использования автомасштабирования в Azure Monitor."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2016
+ms.date: 10/20/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+
 
 ---
-# <a name="best-practices-for-azure-insights-autoscaling"></a>Best practices for Azure Insights autoscaling
-The following sections in this document will help you understand the best practices for Autoscale in Azure Insights. After reviewing this information, you'll be better able to effectively use Autoscale in your Azure infrastructure.
+# <a name="best-practices-for-azure-monitor-autoscaling"></a>Рекомендации по автомасштабированию в Azure Monitor
+Информация, приведенная в разделах этого документа, поможет вам понять рекомендации по автомасштабированию в Azure. После просмотра этой информации вы сможете эффективнее использовать автомасштабирование в инфраструктуре Azure.
 
-## <a name="autoscale-concepts"></a>Autoscale concepts
-* A resource can have only *one* autoscale setting
-* An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
-* An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
-  An autoscale setting has a maximum, minimum, and default value of instances.
-* An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md).
-* All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale out when the average CPU across all instances is greater than 80%.
-* You will always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource will receive email. You will also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
-* You can opt-in to receive a successful scale action notification via email and webhooks.
+## <a name="autoscale-concepts"></a>Основные понятия автомасштабирования
+* У ресурса может быть только *один* параметр автомасштабирования.
+* У параметра автомасштабирования может быть один или несколько профилей, и каждый профиль может содержать одно или несколько правил автомасштабирования.
+* Параметр автомасштабирования обеспечивает горизонтальное масштабирование экземпляров, то есть *развертывает* их, увеличивая количество экземпляров, или *свертывает*, уменьшая их количество.
+  Параметр автомасштабирования определяет максимальное, минимальное и используемое по умолчанию число экземпляров.
+* Задание автомасштабирования всегда считывает связанную метрику для масштабирования по ней, проверяя, превышено ли пороговое значение для развертывания или свертывания. Список метрик для автомасштабирования можно просмотреть в статье, посвященной [общим метрикам автомасштабирования Azure Monitor](insights-autoscale-common-metrics.md).
+* Все пороговые значения вычисляются на уровне экземпляров. Например, инструкция "развернуть еще один экземпляр, если средняя загрузка ЦП > 80 % и количество экземпляров равно 2" означает, что развертывание выполняется, когда средняя загрузка ЦП во всех экземплярах превышает 80 %.
+* Уведомления о сбоях всегда приходят по электронной почте. В частности, их получают владелец, участник и читатели электронной почты целевого ресурса. Кроме того, вы всегда получаете сообщение о *восстановлении*, когда работа службы автомасштабирования восстанавливается после сбоя и она начинает нормально функционировать.
+* Вы может согласиться на получение уведомлений об успешных операциях масштабирования по электронной почте и через веб-перехватчики.
 
-## <a name="autoscale-best-practices"></a>Autoscale best practices
-Use the following best practices as you use Autoscale.
+## <a name="autoscale-best-practices"></a>Рекомендации по автомасштабированию
+Используйте следующие рекомендации для автомасштабирования.
 
-### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Ensure the maximum and minimum values are different and have an adequate margin between them
-If you have a setting that has maximum=2, minimum=2 and the current instance count is 2, no scale action can occur. A recommended setting is to keep an adequate margin between the maximum and minimum instance counts. Autoscale will always scale between these limits, which is inclusive. However, assume that you decide to manually scale (update) the instance count to a value above the maximum. The next time an autoscale job runs, it checks if the current instance count is greater than maximum - if so, it scales in to the maximum, regardless of the threshold set on the rules. Similarly, if you manually arrive at a current instance count less than the minimum, the next time an autoscale job runs, it scales out to the minimum number of instances.
+### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Обязательно используйте разные минимальное и максимальное значения с соответствующим интервалом между ними
+Если у вас есть параметр, у которого максимальное и минимальное значения равны 2, и текущее количество экземпляров равно 2, масштабирование будет невозможно. Обеспечьте достаточный интервал между минимальным и максимальным количеством экземпляров, включая их предельное количество. Служба автомасштабирования всегда масштабирует экземпляры в этих границах.
 
-### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Always use a scale out and scale in rule combination that performs an increase and decrease
-If you use only one part of the combination, autoscale will scale in that single out, or in, until the maximum, or minimum, is reached.
+### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Параметры масштабирования вручную будут сброшены заданными для автомасштабирования минимальным и максимальным значениями.
+Если вы вручную обновляете количество экземпляров и устанавливаете значение, которое превышает или не превышает максимальное, параметр автомасштабирования автоматически масштабирует значение до минимального (если оно было меньше) или до максимального (если оно было больше). Например, вы задаете диапазон от 3 до 6. При наличии одного запущенного экземпляра при следующем запуске параметр автомасштабирования развернет количество экземпляров до 3 . Точно так же он свернет заданное количество с 8 до 6 при следующем запуске.  Масштабирование вручную — очень временное, если только не сбросить также правила автомасштабирования.
 
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage Autoscale settings. For Virtual Machine Scale Sets use PoSH, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the Autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
+### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Всегда используйте сочетание правил развертывания и свертывания, которые обеспечивают увеличение и уменьшение количества экземпляров.
+Если использовать только одну часть сочетания, то служба автомасштабирования будет свертывать (или развертывать) экземпляры, пока не достигнет максимального (или минимального) количества.
 
-### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Choose the appropriate statistic for your diagnostics metric
-For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
+### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Не переключайтесь между порталом Azure и классическим порталом Azure при управлении автомасштабированием
+Для облачных служб и служб приложений (веб-приложений) используйте портал Azure (portal.azure.com), чтобы создавать параметры автомасштабирования и управлять ими. Для наборов масштабирования виртуальных машин используйте PoSH, CLI или REST API, чтобы создавать параметры автомасштабирования и управлять ими. Не переключайтесь между классическим порталом Azure (manage.windowsazure.com) и порталом Azure (portal.azure.com) при управлении конфигурациями автомасштабирования. У классического портала Azure и его серверной базы есть ограничения. Перейдите на портал Azure, чтобы управлять автомасштабированием с помощью графического пользовательского интерфейса. Вы можете использовать автомасштабирование с помощью PowerShell, интерфейса командной строки или REST API (через обозреватель ресурсов Azure).
 
-### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Choose the thresholds carefully for all metric types
-We recommend carefully choosing different thresholds for scale out and scale in based on practical situations.
+### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Выберите соответствующий статистический показатель для диагностической метрики
+Для диагностических метрик можно выбрать одно из следующих опорных значений для масштабирования: *Средний*, *Минимальный*, *Максимальный* и *Общий*. Наиболее распространенные статистический показатель — *Средний*.
 
-We *do not recommend* autoscale settings like the examples below with the same or very similar threshold values for out and in conditions:
+### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Внимательно выберите пороговые значения для всех типов метрик
+Рекомендуется тщательно выбирать различные пороговые значения для развертывания и свертывания в зависимости от практических ситуаций.
 
-* Increase instances by 1 count when Thread Count <= 600
-* Decrease instances by 1 count when Thread Count >= 600
+Мы *не рекомендуем* приведенные ниже примеры автомасштабирования с одинаковыми или достаточно близкими пороговыми значениями в условиях разворачивания и сворачивания.
 
-Let's look at an example of what can lead to a behavior that may seem confusing. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625. Autoscale scales out adding a 3rd instance. Next, assume that the average thread count across instance falls to 575. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means Autoscale will have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop. To avoid this *flappy* situation, Autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
+* Увеличение числа экземпляров на 1, если число потоков ≤ 600
+* Уменьшение числа экземпляров на 1, если число потоков ≥ 600
 
-This estimation behavior during a scale in is intended to avoid a flappy situation. You should keep this behavior in mind when you choose the same thresholds for scale out and in.
+Рассмотрим пример того, что может привести к противоречивому поведению. Рассмотрим следующую последовательность.
 
-We recommend choosing an adequate margin between the scale out and in thresholds. As an example, consider the following better rule combination.
+1. Предположим, что сначала было два экземпляра, и затем среднее число потоков на один экземпляр увеличилось до 625.
+2. Служба автомасштабирования разворачивает третий экземпляр.
+3. Затем предположим, что среднее число потоков на экземпляр уменьшилось до 575.
+4. Перед уменьшением масштаба служба автомасштабирования пытается оценить, какое конечное состояние будет после сворачивания. Например, 575 x 3 (текущее количество экземпляров) = 1725 / 2 (итоговое количество экземпляров после уменьшения масштаба) = 862,5 потока. Это означает, что если среднее количество потоков не меняется или даже немного уменьшается, службе автомасштабирования сразу после свертывания придется опять развертывать новый экземпляр. Однако после повторного разворачивания весь опять процесс повторится, что приведет к бесконечному циклу.
+5. Чтобы избежать такой нестабильности, параметр автомасштабирования вообще не уменьшает масштаб. Вместо этого она пропускает, а затем повторно оценивает условие при следующем выполнении задания службы. Это многих может сбить с толку, ведь все выглядело так, будто автомасштабирование не работало, когда среднее число потоков было равно 575.
 
-* Increase instances by 1 count when CPU%  >= 80
-* Decrease instances by 1 count when CPU% <= 60
+Оценка во время свертывания направлена на то, чтобы избежать описанной выше нестабильности. Следует помнить об этом механизме, выбирая одинаковые пороговые значения для развертывания и свертывания.
 
-Let's review how this example works. Assume there are 2 instances to start with. If the average CPU% across instances goes to 80, autoscale scales out adding a 3rd instance. Now assume that over time the CPU% falls to 60. Autoscale's scale in rule estimates the final state if it were to scale in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So Autoscale does not scale in because it would have to scale out again immediately. Instead, it skips scaling down. Next, assume that the next time it checks, the CPU continues to fall to 50, then it estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale out threshold of 80, so it scales in successfully to 2 instances.
+Рекомендуется выбирать достаточный интервал между пороговыми значениями для развертывания и свертывания. Например, рассмотрим более удачное сочетание правил.
 
-### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerations for scaling threshold values for special metrics
- For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the choose the threshold value for this metric.
+* Увеличивать количество экземпляров на 1, если загрузка ЦП ≥ 80.
+* Уменьшение числа экземпляров на 1, если загрузка ЦП ≤ 60
 
-Let's illustrate it with an example to ensure you understand the behavior better.
+В данном случае:  
 
-* Increase instances by 1 count when Storage Queue message count >= 50
-* Decrease instances by 1 count when Storage Queue message count <= 10
+1. Предположим, что с самого начала существуют два экземпляра.
+2. Если средняя загрузка ЦП во всех экземплярах достигает 80 %, то служба автомасштабирования добавляет третий экземпляр.
+3. Теперь предположим, что со временем загрузка ЦП снижается до 60 %.
+4. Правило свертывания службы автомасштабирования оценивает конечное состояние, которое будет после свертывания. Например, 60 x 3 (текущее число экземпляров) = 180 / 2 (итоговое число экземпляров после уменьшения масштаба) = 90. Поэтому служба автомасштабирования не свертывает экземпляр, так как после этого ей пришлось бы тут же развернуть его. Вместо этого она пропускает уменьшение масштаба.
+5. При следующей проверке автомасштабирования нагрузка ЦП продолжает снижаться до 50. Служба снова оценивает ее: 50 х 3 экземпляра = 150 / 2 экземпляра = 75. Это значение меньше порогового значения развертывания, равного 80, поэтому служба успешно свертывает масштабирование до 2 экземпляров.
 
-Assume there are 2 instances to start with. Next, assume that messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale out action. However, note that it is still 50/2 = 25 messages per instance. So, scale out does not occur. For the first scale out to happen, the total message count in the storage queue should be 100. Next, assume that the total message count reaches 100. A 3rd instance is added due to a scale out action. The next scale out action will not happen until the total message count in the queue reaches 150. Let's look at the scale in action. Assume that the number of instances is 3. The first scale in action happens when the total messages in the queue reaches 30, making it 30/3 = 10 messages per instance, which is the scale in threshold.
+### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Рекомендации по пороговым значениям масштабирования для специальных метрик
+ Для специальных метрик, таких как метрика длины очереди хранилища или длины очереди служебной шины, пороговое значение — это среднее число сообщений, доступных для текущего числа экземпляров. Тщательно выбирайте пороговое значение этой метрики.
 
-### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Considerations for scaling when multiple profiles are configured in an autoscale setting
-In an autoscale setting, you can choose a default profile, which is always applied without any dependency on schedule or time, or you can choose a recurring profile or a profile for a fixed period with a date and time range.
+Проиллюстрируем пример, чтобы вы лучше поняли, как это работает.
 
-When Autoscale service processes them, it always checks in the following order:
+* Увеличение числа экземпляров на 1, когда число сообщений в очереди хранилища ≥ 50
+* Уменьшение числа экземпляров на 1, когда число сообщений в очереди хранилища ≤ 10
 
-1. Fixed Date profile
-2. Recurring profile
-3. Default ("Always") profile
+Рассмотрим следующую последовательность:
 
-If a profile condition is met, autoscale does not check the next profile condition below it. Autoscale only processes one profile at a time. This means if you want to also include a processing condition from a lower-tier profile, you must include those rules as well in the current profile.
+1. Существует 2 экземпляра очереди хранилища.
+2. Сообщения продолжают поступать, и когда вы просматриваете очередь хранилища, их общее количество достигает 50. Вы можете предположить, что служба автомасштабирования должна начать развертывание. Однако обратите внимание, что число сообщений для каждого экземпляра по-прежнему 50 / 2 = 25. Поэтому развертывание не происходит. Чтобы произошло первое развертывание, общее количество сообщений в очереди хранилища должно достичь 100.
+3. Далее предположим, что общее количество сообщений достигло 100.
+4. После развертывания добавляется третий экземпляр очереди хранилища.  Следующее развертывание не будет выполнено, пока общее количество сообщений в очереди не достигнет 150, так как 150/3 = 50.
+5. Теперь количество сообщений в очереди уменьшится. С тремя экземплярами первое свертывание происходит, когда общее количество сообщений во всех очередях достигает 30, так как 30/3 = 10 сообщений на экземпляр. А это и есть пороговое значение свертывания.
 
-Let's review this using an example:
+### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Рекомендации по масштабированию при настройке нескольких профилей в параметре автомасштабирования
+В параметре автомасштабирования можно выбрать профиль по умолчанию, который применяется всегда, вне зависимости от расписания или времени. Также можно выбрать профиль повторения или профиль для фиксированного периода с диапазоном дат и времени.
 
-The image below shows an autoscale setting with a default profile of minimum instances = 2 and maximum instances = 10. In this example, rules are configured to scale out when the message count in the queue is greater than 10 and scale in when the message count in the queue is less than 3. So now the resource can scale between 2 and 10 instances.
+При их обработке служба автомасштабирования всегда выполняет проверку в следующем порядке:
 
-In addition, there is a recurring profile set for Monday. It is set for minimum instances = 2 and maximum instances = 12. This means on Monday, the first time Autoscale checks for this condition, if the instance count was 2, it will scale it to the new minimum of 3. As long as autoscale continues to find this profile condition matched (Monday), it will only process the CPU based scale out/in rules configured for this profile. At this time, it will not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile. 
+1. профиль с фиксированной датой;
+2. профиль повторения;
+3. профиль по умолчанию ("Всегда").
 
-Similarly, when Autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
+Если соблюдено какое-либо условие профиля, служба автомасштабирования не проверяет следующее за ним условие профиля. Служба автомасштабирования обрабатывает только один профиль за раз. Это означает, что если требуется добавить условие обработки из профиля нижнего уровня, то необходимо включить соответствующие правила в текущий профиль.
 
-![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+Рассмотрим это на примере.
 
-### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerations for scaling when multiple rules are configured in a profile
-There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
+На следующем рисунке показан параметр автомасштабирования с профилем по умолчанию с минимальным числом экземпляров, равным 2, и максимальным числом экземпляров, равным 10. В этом примере настроены правила для развертывания в случае, когда количество сообщений в очереди превышает 10, и свертывания, когда это количество меньше 3. Итак, теперь ресурс может масштабироваться в пределах 2–10 экземпляров.
 
-On *scale out*, Autoscale will run if any rule is met.
-On *scale in*, Autoscale require all rules to be met.
+Кроме того, имеется профиль повторения, настроенный на "Понедельник". В нем задано минимальное число экземпляров, равное 2, и максимальное число экземпляров, равное 12. Это означает, что в понедельник, когда служба автомасштабирования впервые проверит это условие при количестве экземпляров 2, она масштабирует их до нового минимального значения, т. е. до 3. Пока служба автомасштабирования продолжает считать, что это условие профиля соблюдено (для понедельника), она обрабатывает только настроенные для этого профиля правила развертывания и свертывания на основе использования ресурсов ЦП. На данный момент она не проверяет длину очереди. Тем не менее, если также требуется проверять условие длины очереди, необходимо добавить эти правила из профиля по умолчанию в профиль для понедельника.
 
-To illustrate, assume that you have the following 4 autoscale rules:
+Аналогичным образом, когда служба автомасштабирования переключится обратно на профиль по умолчанию, сначала она проверит, соблюдены ли условия минимального и максимального количества экземпляров. Если на тот момент число экземпляров будет равно 12, служба свернет два из них, оставив 10, т. е. максимальное число для профиля по умолчанию.
 
-* If CPU < 30 %, scale in by 1
-* If Memory < 50%, scale in by 1
-* If CPU > 75%, scale out by 1
-* If Memory > 75%, scale out by 1
+![Параметры автомасштабирования](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
 
-Then the follow will occur: 
+### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Рекомендации по масштабированию при настройке нескольких правил в профиле
+Бывают случаи, когда требуется задать несколько правил в профиле. Ниже приведен набор правил автомасштабирования, используемых при настройке нескольких правил.
 
-* If CPU is 76% and Memory is 50%, we will scale out.
-* If CPU is 50% and Memory is 76% we will scale out.
+Для запуска *развертывания* службе автомасштабирования достаточно, чтобы выполнялось любое из правил.
+Для запуска *свертывания* службе автомасштабирования требуется, чтобы выполнялись все правила.
 
-On the other hand, if CPU is 25% and memory is 51% autoscale will **not** scale in. In order to scale in, CPU must be 29% and Memory 49%.
+Чтобы проиллюстрировать это, предположим, что заданы следующие 4 правила автомасштабирования:
 
-### <a name="always-select-a-safe-default-instance-count"></a>Always select a safe default instance count
-The default instance count is important because it the instance count that Autoscale scales your service to when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
+* если загрузка ЦП < 30 %, свернуть 1 экземпляр;
+* если объем используемой памяти < 50 %, свернуть 1 экземпляр;
+* если загрузка ЦП > 75 %, развернуть 1 экземпляр;
+* если объем используемой памяти > 75 %, развернуть 1 экземпляр.
 
-### <a name="configure-autoscale-notifications"></a>Configure autoscale notifications
-Autoscale notifies the administrators and contributors of the resource by email if any of the following conditions occur:
+Затем происходит следующее.
 
-* Autoscale service fails to take an action.
-* Metrics are not available for autoscale service to make a scale decision.
-* Metrics are available (recovery) again to make a scale decision.
-  In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
+* Если ресурсы ЦП загружены на 76 % и занято 50 % памяти, будет выполнено развертывание.
+* Если ресурсы ЦП загружены на 50 % и занято 76 % памяти, будет выполнено развертывание.
 
-<!--HONumber=Oct16_HO2-->
+С другой стороны, если нагрузка ЦП составляет 25 %, а память занята на 51 %, автомасштабирование **не** выполняет развертывание. Для этого ресурсы ЦП должны быть загружены на 29 %, а память занята на 49 %.
+
+### <a name="always-select-a-safe-default-instance-count"></a>Всегда выбирайте безопасное число экземпляров по умолчанию
+Количество экземпляров по умолчанию важно, так как оно устанавливается службой автомасштабирования, когда метрики недоступны. Поэтому выберите число экземпляров по умолчанию, являющееся безопасным для рабочих нагрузок.
+
+### <a name="configure-autoscale-notifications"></a>Настройка уведомлений об автомасштабировании
+Служба автомасштабирования уведомляет администраторов и участников по электронной почте при возникновении любого из следующих условий:
+
+* Службе автомасштабирования не удается выполнить действие.
+* Службе автомасштабирования не доступны метрики для принятия решения по масштабированию.
+* Метрики для принятия решения по масштабированию стали доступны (восстановились).
+  Помимо приведенных условий можно настроить уведомления по электронной почте или через веб-перехватчики, чтобы узнавать об успешных действиях масштабирования.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

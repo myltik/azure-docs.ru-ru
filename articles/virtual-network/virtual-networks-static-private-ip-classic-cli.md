@@ -1,13 +1,13 @@
 ---
-title: Настройка статического частного IP-адреса в классическом режиме с помощью интерфейса командной строки | Microsoft Docs
-description: Основные сведения о статических частных IP-адресах (DIP) и об управлении ими в классическом режиме с помощью интерфейса командной строки
+title: "Как настроить статический частный IP-адрес в классическом режиме с помощью интерфейса командной строки | Документация Майкрософт"
+description: "Основные сведения о статических частных IP-адресах (DIP) и об управлении ими в классическом режиме с помощью интерфейса командной строки"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
+
 
 ---
-# Как задать статический частный IP-адрес (классический) в Azure CLI
+# <a name="how-to-set-a-static-private-ip-address-classic-in-azure-cli"></a>Как задать статический частный IP-адрес (классический) в Azure CLI
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -26,12 +30,12 @@ ms.author: jdial
 
 В этой статье рассматривается классическая модель развертывания. Кроме того, вы можете [управлять статическим частным IP-адресом в модели развертывания для диспетчера ресурсов](virtual-networks-static-private-ip-arm-cli.md).
 
-Для выполнения приведенных ниже примеров команд Azure CLI требуется созданная простая среда. Для выполнения команд в том виде, в каком они представлены в данном документе, сначала постройте тестовую среду, описанную в разделе [Создание виртуальной сети](virtual-networks-create-vnet-classic-cli.md).
+Для выполнения приведенных ниже примеров команд Azure CLI требуется созданная простая среда. Для выполнения команд в том виде, в каком они представлены в данном документе, сначала постройте тестовую среду, описанную в разделе [Создание виртуальной сети](virtual-networks-create-vnet-classic-cli.md).
 
-## Как указать статический частный IP-адрес при создании виртуальной машины
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Указание статического частного IP-адреса при создании виртуальной машины
 Чтобы создать новую виртуальную машину *DNS01* в новой облачной службе *TestService* согласно приведенному ранее сценарию, выполните следующее:
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure service create** для создания облачной службы.
    
         azure service create TestService --location uscentral
@@ -63,14 +67,14 @@ ms.author: jdial
    
    * **-l (или --location)**. Регион Azure для создания виртуальной машины. В данном сценарии это *centralus*.
    * **-n (или --vm-name)**. Имя создаваемой виртуальной машины.
-   * **-w (или --virtual-network-name)**. Имя виртуальной сети, в которой будет создана виртуальная машина.
+   * **-w (или --virtual-network-name)**. Имя виртуальной сети, в которой будет создана виртуальная машина. 
    * **-S (или --static-ip)**. Статический частный IP-адрес для виртуальной машины.
    * **TestService**. Имя облачной службы, в которой будет создана виртуальная машина.
-   * **bd507d3a70934695bc2128e3e5a255ba\_\_RightImage-Windows-2012R2-x64-v14.2**. Образ, используемый для создания виртуальной машины.
+   * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2.** Образ, используемый для создания виртуальной машины.
    * **adminuser**. Локальный администратор виртуальной машины Windows.
    * **AdminP@ssw0rd**. Пароль локального администратора виртуальной машины Windows.
 
-## Получение сведений о статическом частном IP-адресе виртуальной машины
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Получение сведений о статическом частном IP-адресе виртуальной машины
 Чтобы просмотреть информацию о статическом частном IP-адресе виртуальной машины, созданной с помощью приведенного выше сценария, выполните следующую команду Azure CLI и обратите внимание на значение *Network StaticIP*:
 
     azure vm static-ip show DNS01
@@ -82,7 +86,7 @@ ms.author: jdial
     data:    Network StaticIP "192.168.1.101"
     info:    vm static-ip show command OK
 
-## Как удалить статический частный IP-адрес виртуальной машины
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Как удалить статический частный IP-адрес виртуальной машины
 Чтобы удалить статический частный IP-адрес, добавленный на виртуальную машину в приведенном выше сценарии, выполните следующую команду Azure CLI:
 
     azure vm static-ip remove DNS01
@@ -95,7 +99,7 @@ ms.author: jdial
     info:    Updating network configuration
     info:    vm static-ip remove command OK
 
-## Как добавить статический частный IP-адрес для существующей виртуальной машины
+## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>Как добавить статический частный IP-адрес для существующей виртуальной машины
 Чтобы добавить статический внутренний IP-адрес для виртуальной машины, созданной с помощью приведенного выше сценария, выполните следующую команду:
 
     azure vm static-ip set DNS01 192.168.1.101
@@ -109,9 +113,14 @@ ms.author: jdial
     info:    Updating network configuration
     info:    vm static-ip set command OK
 
-## Дальнейшие действия
-* Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
-* Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
-* Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+## <a name="next-steps"></a>Дальнейшие действия
+* Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .
+* Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) .
+* Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

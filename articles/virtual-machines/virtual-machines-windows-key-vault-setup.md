@@ -1,13 +1,13 @@
 ---
-title: Настройка хранилища ключей для виртуальных машин в Azure Resource Manager | Microsoft Docs
-description: Узнайте, как настроить хранилище ключей для использования с виртуальной машиной Azure Resource Manager.
+title: "Настройка хранилища ключей для виртуальных машин в Azure Resource Manager | Документация Майкрософт"
+description: "Узнайте, как настроить хранилище ключей для использования с виртуальной машиной Azure Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: singhkay
+translationtype: Human Translation
+ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
+ms.openlocfilehash: cf928d43851e7b3d38742387bce136de5f547fa6
+
 
 ---
-# Настройка хранилища ключей для виртуальных машин в Azure Resource Manager
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Настройка хранилища ключей для виртуальных машин в Azure Resource Manager
 
-Классическая модель развертывания
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 В стеке Azure Resource Manager секреты или сертификаты моделируются как ресурсы, которые предоставляются поставщиком ресурсов хранилища ключей. Чтобы больше узнать о хранилище ключей, ознакомьтесь с разделом [Что такое хранилище ключей Azure?](../key-vault/key-vault-whatis.md)
 
@@ -30,7 +33,7 @@ ms.author: singhkay
 > 
 > 
 
-## Использование PowerShell для настройки хранилища ключей
+## <a name="use-powershell-to-set-up-key-vault"></a>Использование PowerShell для настройки хранилища ключей
 Сведения о создании хранилища ключей с помощью PowerShell см. в разделе [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md#vault).
 
 Для новых хранилищ ключей можно использовать этот командлет PowerShell:
@@ -41,14 +44,14 @@ ms.author: singhkay
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
-## Использование интерфейса командной строки для настройки хранилища ключей
+## <a name="us-cli-to-set-up-key-vault"></a>Использование интерфейса командной строки для настройки хранилища ключей
 Сведения об использовании интерфейса командной строки (CLI) для создания хранилища ключей см. в статье [Управление хранилищем ключей с помощью CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
 Чтобы использовать интерфейс командной строки, необходимо сначала создать хранилище ключей, а затем назначить политику развертывания. Это можно сделать с помощью следующей команды:
 
     azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## Использование шаблонов для настройки хранилища ключей
+## <a name="use-templates-to-set-up-key-vault"></a>Использование шаблонов для настройки хранилища ключей
 При использовании шаблона свойству `enabledForDeployment` ресурса хранилища ключей нужно присвоить значение `true`.
 
     {
@@ -63,6 +66,11 @@ ms.author: singhkay
       }
     }
 
-Сведения о других параметрах, которые можно настроить при создании хранилища ключей с помощью шаблонов, см. в разделе [Создание хранилища ключей](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Сведения о других параметрах, которые можно настроить при создании хранилища ключей с помощью шаблонов, см. в статье [Создание хранилища ключей](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

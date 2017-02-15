@@ -174,6 +174,6 @@ Microsoft Azure информирует о каждом случае прерыв
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

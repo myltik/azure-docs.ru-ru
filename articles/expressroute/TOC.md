@@ -45,27 +45,27 @@
 ### [Асимметричная маршрутизация](expressroute-asymmetric-routing.md)
 
 ## Устранение неполадок
+### [Проверка подключения ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Получение таблиц ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Получение таблиц ARP (классическая модель)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Справочные материалы
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Сопутствующие материалы
 ## [Виртуальная сеть](/azure/virtual-network/)
 ## [VPN-шлюз](/azure/vpn-gateway/)
 ## [Виртуальные машины](/azure/virtual-machines/)
-## [Балансировщик нагрузки](/azure/load-balancer/)
+## [Подсистема балансировки нагрузки](/azure/load-balancer/)
 ## [Диспетчер трафика](/azure/traffic-manager/)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Блог о сетях](https://azure.microsoft.com/blog/topics/networking/)
 ## [Примеры использования](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
+## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Создание канала ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
@@ -80,6 +80,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

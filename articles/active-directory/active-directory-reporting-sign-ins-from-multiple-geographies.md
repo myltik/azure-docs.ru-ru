@@ -1,12 +1,12 @@
 ---
-title: Операции входа из нескольких географических регионов
-description: В этом отчете содержится информация о пользователях, от имени которых были совершены две попытки входа из разных регионов, причем времени между этими попытками было недостаточно, чтобы пользователь мог добраться из одного региона в другой.
+title: "Операции входа из нескольких географических регионов"
+description: "В этом отчете содержится информация о пользователях, от имени которых были совершены две попытки входа из разных регионов, причем времени между этими попытками было недостаточно, чтобы пользователь мог добраться из одного региона в другой."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: gchander
-editor: ''
-
+editor: 
+ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
+
 
 ---
-# "Операции входа из нескольких географических регионов".
+# <a name="sign-ins-from-multiple-geographies"></a>"Операции входа из нескольких географических регионов".
 В этом отчете содержится информация об успешных попытках входа пользователя, от имени которого были совершены две попытки входа из разных регионов, причем времени между этими попытками было недостаточно, чтобы пользователь мог добраться из одного региона в другой. Возможные причины:
 
 * пользователь использует пароль совместно с другими пользователями;
@@ -29,4 +33,9 @@ ms.author: saah;kenhoff
 
 ![Операции входа из нескольких географических регионов](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

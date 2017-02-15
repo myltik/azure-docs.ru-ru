@@ -3,8 +3,8 @@ layout: LandingPage
 +toc_rel: breadcrumb.json
 description: "Узнайте, как использовать виртуальную сеть в облаке. Документация, в которой показано, как развертывать виртуальную сеть, а также использовать ее для запуска ресурсов и интеграции с локальной сетью."
 translationtype: Human Translation
-ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
-ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Документация по виртуальной сети
@@ -116,7 +116,7 @@ ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
                         <h3>Командная строка</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
                         <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (классическая модель)</a></p>
-                        <p><a href="/cli/azure">Инфраструктура CLI Azure</a></p>
+                        <p><a href="/cli/azure">Интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -149,13 +149,7 @@ ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по виртуальной сети </div>
-    </a>
-</div>
+
 
 
 

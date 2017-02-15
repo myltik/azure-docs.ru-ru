@@ -1,7 +1,5 @@
-# Начало работы
-## [Создание бесплатной учетной записи](https://azure.microsoft.com/free/)
+# [Приступая к работе](billing-getting-started.md)
 ## [Регистрация с помощью учетной записи Office 365](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Цены на подписку](https://azure.microsoft.com/pricing/)
 ## [Поддерживаемые страны и валюты](../billing-countries-and-currencies.md)
 ## [Ограничения и квоты](../azure-subscription-service-limits.md)
 ## [Часто задаваемые вопросы](../billing-subscription-faq.md)
@@ -17,12 +15,12 @@
 ### [Передача прав владения подпиской](../billing-subscription-transfer.md)
 ### [Повторная активация отключенной подписки](../billing-subscription-become-disable.md)
 ### [Обновление бесплатной подписки](../billing-upgrade-azure-subscription.md)
-### [Переключение на другую подписку](../billing-how-to-switch-azure-offer.md)
+### [Переключение подписки на другое предложение](../billing-how-to-switch-azure-offer.md)
 ### [Отмена подписки](../billing-how-to-cancel-azure-subscription.md)
 ## Управление учетной записью
 ### [Изменение профиля](../billing-how-to-change-azure-account-profile.md)
 ### [Обновление платежной информации](../billing-how-to-change-credit-card.md)
-### [Привязывание клиента Office 365](../billing-add-office-365-tenant-to-azure-subscription.md)
+### [Привязывание клиента Office 365](../billing-add-office-365-tenant-to-azure-subscription.md)
 ## Устранение неполадок
 ### [Проблемы при регистрации](../billing-troubleshoot-azure-sign-up-issues.md)
 ### [Карта не принимается](../billing-credit-card-fails-during-azure-sign-up.md)
@@ -37,6 +35,6 @@
 # Ресурсы
 ## [Обратитесь в службу поддержки.](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

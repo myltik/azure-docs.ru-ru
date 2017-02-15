@@ -1,13 +1,13 @@
 ---
-title: Настройка MySQL на виртуальной машине Linux | Microsoft Docs
-description: Узнайте, как установить стек MySQL на виртуальной машине Linux (из семейства ОС Ubuntu или RedHat) в Azure.
+title: "Настройка MySQL на виртуальной машине Linux | Документация Майкрософт"
+description: "Узнайте, как установить стек MySQL на виртуальной машине Linux (из семейства ОС Ubuntu или RedHat) в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: SuperScottz
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 153bae7c-897b-46b3-bd86-192a6efb94fa
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,26 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: d75d1541671fac02e6373ae880137b76f15ec7ae
+
 
 ---
-# Как установить MySQL в Azure
+# <a name="how-to-install-mysql-on-azure"></a>Как установить MySQL в Azure
 Из этой статьи вы узнаете, как установить и настроить СУБД MySQL на виртуальной машине Azure под управлением Linux.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Установка MySQL в виртуальной машине
+## <a name="install-mysql-on-your-virtual-machine"></a>Установка MySQL в виртуальной машине
 > [!NOTE]
-> Для выполнения инструкций учебника у вас уже должна быть виртуальная машина Microsoft Azure под управлением Linux. Прежде чем продолжить, создайте и настройте виртуальную машину под управлением Linux с `mysqlnode` в качестве имени виртуальной машины и `azureuser` в качестве пользователя, используя сведения, приведенные в [учебнике по виртуальным машинам Azure под управлением Linux](virtual-machines-linux-quick-create-cli.md).
+> Для выполнения инструкций учебника у вас уже должна быть виртуальная машина Microsoft Azure под управлением Linux. Прежде чем продолжить, создайте и настройте виртуальную машину под управлением Linux с `mysqlnode` в качестве имени виртуальной машины и `azureuser` в качестве пользователя, используя сведения, приведенные в [руководстве по виртуальным машинам Azure под управлением Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-(В качестве порта MySQL используйте порт 3306.)
+(В качестве порта MySQL используйте порт 3306.)  
 
-Подключитесь к виртуальной машине под управлением Linux, используя утилиту PuTTY. Если вы выполняете такое подключение впервые, ознакомьтесь с информацией о подключении с помощью утилиты PuTTY [здесь](virtual-machines-linux-mac-create-ssh-keys.md).
+Подключитесь к виртуальной машине под управлением Linux, используя утилиту PuTTY. Если вы выполняете такое подключение впервые, ознакомьтесь с информацией о подключении с помощью утилиты PuTTY [здесь](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-В качестве примера в этой статье для установки MySQL5.6 мы будем использовать пакет из репозитория. В настоящее время MySQL5.6 имеет улучшенную производительность по сравнению с MySQL5.5. Дополнительные сведения см. [здесь](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
+В качестве примера в этой статье для установки MySQL5.6 мы будем использовать пакет из репозитория. В настоящее время MySQL5.6 имеет улучшенную производительность по сравнению с MySQL5.5.  Дополнительные сведения см. [здесь](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
-### Установка MySQL5.6 в Ubuntu
+### <a name="how-to-install-mysql56-on-ubuntu"></a>Установка MySQL5.6 в Ubuntu
 Здесь мы будем использовать виртуальную машину Linux на базе Ubuntu от Azure.
 
 * Шаг 1. Установка MySQL Server 5.6. Переключитесь на пользователя `root`:
@@ -56,7 +60,8 @@ ms.author: mingzhan
 
 * Шаг 2. Вход на MySQL Server
   
-    После завершения установки MySQL Server служба MySQL запустится автоматически. Вы можете войти на MySQL Server как пользователь `root`. Для входа и ввода пароля используйте представленную ниже команду.
+    После завершения установки MySQL Server служба MySQL запустится автоматически. Вы можете войти на MySQL Server как пользователь `root` .
+    Для входа и ввода пароля используйте представленную ниже команду.
   
              #[root@mysqlnode ~]# mysql -uroot -p
 * Шаг 3: Управление работающей службой MySQL
@@ -77,7 +82,7 @@ ms.author: mingzhan
   
              #[root@mysqlnode ~]# service mysql restart
 
-### Установка MySQL в ОС семейства Red Hat, например CentOS, Oracle Linux
+### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Установка MySQL в ОС семейства Red Hat, например CentOS, Oracle Linux
 Здесь мы будем использовать виртуальную машину Linux с CentOS или Oracle Linux.
 
 * Шаг 1. Добавление репозитория MySQL Yum. Переключитесь на пользователя `root`:
@@ -94,7 +99,7 @@ ms.author: mingzhan
   
     Обновите каждое значение этого файла на значения, указанные ниже:
   
-        # *Enable to use MySQL 5.6*
+        \# *Enable to use MySQL 5.6*
   
         [mysql56-community]
         name=MySQL 5.6 Community Server
@@ -117,7 +122,7 @@ ms.author: mingzhan
   
            #[root@mysqlnode ~]#service mysqld status
   
-    (б) Для проверки работы порта сервера MySQL по умолчанию выполните следующую команду:
+    б) для проверки работы порта сервера MySQL по умолчанию выполните следующую команду:
   
            #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
 
@@ -134,12 +139,12 @@ ms.author: mingzhan
            #[root@mysqlnode ~]#chkconfig mysqld on
 
 
-### Установка MySQL в SUSE Linux
+### <a name="how-to-install-mysql-on-suse-linux"></a>Установка MySQL в SUSE Linux
 Здесь мы будем использовать виртуальную машину Linux с OpenSUSE.
 
 * Шаг 1. Скачивание и установка MySQL Server
   
-    Переключитесь на пользователя `root` с помощью следующей команды:
+    Переключитесь на пользователя `root` с помощью следующей команды:  
   
            #sudo su -
   
@@ -170,7 +175,12 @@ ms.author: mingzhan
 
            #[root@mysqlnode ~]# insserv mysql
 
-### Дальнейшее действие
-Дополнительную информацию и сведения об использовании MySQL см. [здесь](https://www.mysql.com/).
+### <a name="next-step"></a>Дальнейшее действие
+Дополнительные сведения и сведения об использовании MySQL см. [здесь](https://www.mysql.com/).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,20 +1,24 @@
 ---
-title: Использование клиента Office 365 с подпиской Azure | Microsoft Docs
-description: Узнайте, как добавить каталог (клиент) Office 365 в подписку Azure для создания взаимосвязи.
-services: ''
-documentationcenter: ''
+title: "Использование клиента Office 365 с подпиской Azure | Документация Майкрософт"
+description: "Узнайте, как добавить каталог (клиент) Office 365 в подписку Azure для создания взаимосвязи."
+services: 
+documentationcenter: 
 author: JiangChen79
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing,top-support-issue
-
+ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/16/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36cd9eac7be2d99971d8d2e227cd4b761df82d08
+
 
 ---
 # <a name="associate-an-office-365-tenant-with-an-azure-subscription"></a>Связывание клиента Office 365 с подпиской Azure
@@ -161,6 +165,9 @@ ms.author: cjiang
 
 Сведения о способах выполнения этих задач см. в статье [Использование существующей учетной записи Office 365 с подпиской Azure или наоборот](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

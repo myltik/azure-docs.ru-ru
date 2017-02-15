@@ -1,13 +1,13 @@
 ---
-title: Создание, настройка и развертывание веб-приложения PHP в Azure
-description: В этом руководстве описывается, как запустить веб-приложение PHP (Laravel) в службе приложений Azure. Узнайте, как настроить службу приложений Azure в соответствии с требованиями выбранной платформы PHP.
+title: "Создание, настройка и развертывание веб-приложения PHP в Azure"
+description: "В этом руководстве описывается, как запустить веб-приложение PHP (Laravel) в службе приложений Azure. Узнайте, как настроить службу приложений Azure в соответствии с требованиями выбранной платформы PHP."
 services: app-service\web
 documentationcenter: php
 author: cephalin
 manager: wpickett
-editor: ''
+editor: 
 tags: mysql
-
+ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/03/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aafd6378709ec584bc1bfa0aeb8a1593c103dacb
+
 
 ---
-# <a name="create,-configure,-and-deploy-a-php-web-app-to-azure"></a>Создание, настройка и развертывание веб-приложения PHP в Azure
+# <a name="create-configure-and-deploy-a-php-web-app-to-azure"></a>Создание, настройка и развертывание веб-приложения PHP в Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 В этом руководстве описывается, как создать, настроить и развернуть веб-приложение PHP в Azure, а также как настроить службу приложений Azure в соответствии с требованиями веб-приложения PHP. По окончании изучения этого руководства у вас будет работающее веб-приложение [Laravel](https://www.laravel.com/), запущенное в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) в режиме реального времени.
@@ -48,7 +52,7 @@ ms.author: cephalin
 > 
 > 
 
-## <a name="create-a-php-(laravel)-app-on-your-dev-machine"></a>Создание приложения PHP (Laravel) на компьютере разработки
+## <a name="create-a-php-laravel-app-on-your-dev-machine"></a>Создание приложения PHP (Laravel) на компьютере разработки
 1. Откройте новое окно командной строки Windows, окно PowerShell, оболочку Linux или терминал OS X. Чтобы проверить, правильно ли установлены требуемые инструменты на компьютере, выполните следующие команды. 
    
         php --version
@@ -114,7 +118,8 @@ ms.author: cephalin
 * Настройте PHP версии 5.5.9 или более поздней. Полный список требований к серверу см. в разделе [Latest Laravel 5.2 Server Requirements](https://laravel.com/docs/5.2#server-requirements) (Требования к серверу для приложения Laravel версии 5.2). В остальной части списка содержатся расширения, которые включены при установке PHP в Azure. 
 * Укажите переменные среды, необходимые для приложения. Чтобы легко задать переменные среды, в приложении Laravel используется файл `.env`. Но так как он не должен фиксироваться в системе управления версиями (см. раздел о [настройке среды для приложения Laravel](https://laravel.com/docs/5.2/configuration#environment-configuration)), вместо этого вы можете настроить параметры для веб-приложения Azure.
 * Сначала загрузите точку входа приложения Laravel `public/index.php`. Ознакомьтесь с [обзором жизненного цикла Laravel](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview). Другими словами, необходимо задать корневой URL-адрес веб-приложения, указывающий на каталог `public`.
-* Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push`Composer будет контролировать получение требуемых пакетов. Так удобнее. Если автоматизация Composer не включена, необходимо просто удалить `/vendor` из файла `.gitignore`, чтобы Git включал ("не игнорировал") все содержимое каталога `vendor` во время выполнения и развертывания кода.
+* Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push`Composer будет контролировать получение требуемых пакетов. Так удобнее. 
+  Если автоматизация Composer не включена, необходимо просто удалить `/vendor` из файла `.gitignore`, чтобы Git включал ("не игнорировал") все содержимое каталога `vendor` во время выполнения и развертывания кода.
 
 Давайте последовательно выполним эти задачи.
 
@@ -134,13 +139,11 @@ ms.author: cephalin
     Теперь переменные среды указаны.
    
    > [!NOTE]
-   > Давайте не будем торопиться и разберемся, что конкретно выполняется в Laravel и Azure. Приложение Laravel использует файл `.env` в корневом каталоге, чтобы предоставить приложению переменные среды. В этом файле содержится строка `APP_DEBUG=true` (а также `APP_KEY=...`). К этой переменной в `config/app.php` обращается код     `'debug' => env('APP_DEBUG', false),`. [env()](https://laravel.com/docs/5.2/helpers#method-env) — это вспомогательный метод Laravel, в котором используется [getenv()](http://php.net/manual/en/function.getenv.php) PHP.
+   > Давайте не будем торопиться и разберемся, что конкретно выполняется в Laravel и Azure. Приложение Laravel использует файл `.env` в корневом каталоге, чтобы предоставить приложению переменные среды. В этом файле содержится строка `APP_DEBUG=true` (а также `APP_KEY=...`). К этой переменной в `config/app.php` обращается код `'debug' => env('APP_DEBUG', false),`. [env()](https://laravel.com/docs/5.2/helpers#method-env) — это вспомогательный метод Laravel, в котором используется [getenv()](http://php.net/manual/en/function.getenv.php) PHP.
    > 
-   > Но `.env` игнорируется Git, так как он вызывается с помощью файла `.gitignore` в корневом каталоге. Проще говоря, `.env` 
-   > в локальном репозитории Git не отправляется в Azure вместе с остальными файлами. Конечно, можно просто удалить эту строку из `.gitignore`, но мы уже выяснили, что этот файл не должен фиксироваться в системе управления версиями. Тем не менее по-прежнему нужен метод, чтобы задать эти переменные среды в Azure. 
+   > Но `.env` игнорируется Git, так как он вызывается с помощью файла `.gitignore` в корневом каталоге. Проще говоря, `.env` в локальном репозитории Git не отправляется в Azure вместе с остальными файлами. Конечно, можно просто удалить эту строку из `.gitignore`, но мы уже выяснили, что этот файл не должен фиксироваться в системе управления версиями. Тем не менее по-прежнему нужен метод, чтобы задать эти переменные среды в Azure. 
    > 
-   > Хорошо, что параметры приложения в службе приложений Azure поддерживают [getenv()](http://php.net/manual/en/function.getenv.php) 
-   > в PHP. Чтобы вручную отправить файл `.env` в Azure, можно использовать протокол FTP или другие средства. Вы все также можете просто указать необходимые переменные для параметров приложения Azure, не используя файл `.env` в Azure. Кроме того, если переменная указана и в файле `.env`, и в параметрах приложения Azure, параметры приложения Azure являются приоритетными.     
+   > Хорошо, что параметры приложения в службе приложений Azure поддерживают [getenv()](http://php.net/manual/en/function.getenv.php) в PHP. Чтобы вручную отправить файл `.env` в Azure, можно использовать протокол FTP или другие средства. Вы все также можете просто указать необходимые переменные для параметров приложения Azure, не используя файл `.env` в Azure. Кроме того, если переменная указана и в файле `.env`, и в параметрах приложения Azure, параметры приложения Azure являются приоритетными.     
    > 
    > 
 4. Для последних двух заданий (настройка виртуального каталога и включение Composer) нужно войти на [портал Azure](https://portal.azure.com) с помощью учетной записи [портала](https://portal.azure.com) Azure.
@@ -149,8 +152,7 @@ ms.author: cephalin
     ![Включите Composer для приложения PHP (Laravel) в Azure](./media/app-service-web-php-get-started/configure-composer-tools.png)
    
    > [!TIP]
-   > Щелкнув **Параметры** вместо **Инструменты**, можно получить доступ к колонке **Параметры приложения** 
-   > , где можно настроить версии PHP, параметры приложения и виртуальные каталоги. 
+   > Щелкнув **Параметры** вместо **Инструменты**, можно получить доступ к колонке **Параметры приложения**, где можно настроить версии PHP, параметры приложения и виртуальные каталоги. 
    > 
    > 
 6. Выберите пункты **Composer** > **Добавить** , чтобы добавить расширение.
@@ -181,7 +183,7 @@ ms.author: cephalin
     
      Теперь виртуальный каталог настроен. 
 
-## <a name="deploy-your-web-app-with-git-(and-setting-environment-variables)"></a>Развертывание веб-приложения с помощью Git (и указание переменных среды)
+## <a name="deploy-your-web-app-with-git-and-setting-environment-variables"></a>Развертывание веб-приложения с помощью Git (и указание переменных среды)
 Теперь все готово к развертыванию кода. Для этого необходимо снова открыть командную строку или терминал.
 
 1. Сохраните все изменения и разверните код в веб-приложении Azure, так же как в любом репозитории Git:
@@ -211,7 +213,7 @@ ms.author: cephalin
 
 <a name="clierror"></a>
 
-### <a name="azure-cli-shows-"'site'-is-not-an-azure-command""></a>В интерфейсе командной строки Azure отображается сообщение 'site' is not an azure command
+### <a name="azure-cli-shows-site-is-not-an-azure-command"></a>В интерфейсе командной строки Azure отображается сообщение 'site' is not an azure command
 При выполнении `azure site *` в терминале командной строки отобразится ошибка `error:   'site' is not an azure command. See 'azure help'.` 
 
 Обычно это является результатом переключения в режим Azure Resource Manager (ARM). Чтобы устранить эту проблему, переключитесь обратно в режим управления службами Azure (ASM), выполнив команду `azure config mode asm`.
@@ -225,14 +227,14 @@ ms.author: cephalin
 
 <a name="whoops"></a>
 
-### <a name="web-app-shows-"whoops,-looks-like-something-went-wrong.""></a>В веб-приложении отображается сообщение Whoops, looks like something went wrong
+### <a name="web-app-shows-whoops-looks-like-something-went-wrong"></a>В веб-приложении отображается сообщение Whoops, looks like something went wrong
 Вы успешно развернули веб-приложение в Azure, но при его просмотре появляется зашифрованное сообщение `Whoops, looks like something went wrong.`
 
 Чтобы получить сообщение об ошибке с подробным описанием, включите отладку Laravel, установив для переменной среды `APP_DEBUG` значение `true` (см. раздел [Настройка веб-приложения Azure](#configure)).
 
 <a name="encryptor"></a>
 
-### <a name="web-app-shows-"no-supported-encryptor-found.""></a>В веб-приложении отображается сообщение No supported encryptor found
+### <a name="web-app-shows-no-supported-encryptor-found"></a>В веб-приложении отображается сообщение No supported encryptor found
 Вы успешно развернули веб-приложение в Azure, но при его просмотре появляется следующее сообщение об ошибке:
 
 ![Параметр APP_KEY отсутствует в приложении PHP (Laravel) в Azure](./media/app-service-web-php-get-started/laravel-error-APP_KEY.png)
@@ -248,6 +250,9 @@ ms.author: cephalin
 * [Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure](web-sites-php-convert-wordpress-multisite.md)
 * [Сайт WordPress корпоративного класса в службе приложений Azure](web-sites-php-enterprise-wordpress.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

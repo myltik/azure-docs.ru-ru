@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: a8fb8f7d338fa2f33b8fe6565f119e0be6419f41
 
 
 ---
@@ -46,7 +46,7 @@ ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
 Ниже представлены некоторые ключевые функции службы приложений, которые применяются к веб-приложениям.
 
 * **Поддержка нескольких языков и платформ.** Служба приложений превосходно поддерживает ASP.NET, Node.js, Java, PHP и Python. Кроме того, вы можете запустить [PowerShell и другие скрипты или исполняемые файлы](web-sites-create-web-jobs.md) в виртуальных машинах службы приложений.
-* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](web-sites-staged-publishing.md). Выполняйте [тестирование A/B](app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](../powershell-install-configure.md) или [кроссплатформенного интерфейса командной строки (CLI)](../xplat-cli-install.md).
+* **Оптимизация DevOps.** Настраивайте [непрерывную интеграцию и развертывание](app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](web-sites-staged-publishing.md). Выполняйте [тестирование A/B](app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [кроссплатформенного интерфейса командной строки (CLI)](../xplat-cli-install.md).
 * **Высокодоступное глобальное масштабирование.** [Увеличивайте](web-sites-scale.md) либо [уменьшайте](../monitoring-and-diagnostics/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
 * **Подключение к платформам SaaS и локальным данным.** На выбор доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP, Siebel и Oracle), служб SaaS (например, Salesforce и Office 365) и популярных интернет-служб (например, Facebook и Twitter). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](web-sites-integrate-with-vnet.md).
 * **Безопасность и соответствие требованиям.** Служба приложений совместима со стандартами [ISO, SOC и PCI](https://www.microsoft.com/TrustCenter/).
@@ -58,13 +58,25 @@ ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
 Помимо веб-приложений в службе приложений, Azure предлагает и другие службы, которые можно использовать для размещения веб-сайтов и веб-приложений. В большинстве случаев оптимальным вариантом являются веб-приложения.  Сведения об архитектуре микрослужб см. в статье о [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), а если вам нужен дополнительный контроль над виртуальными машинами, на которых выполняется код, см. статью о [виртуальных машинах Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Дополнительные сведения о выборе между этими службами Azure см. в статье [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Приступая к работе
-Инструкции по развертыванию примера кода для нового веб-приложения в службе приложений см. в руководстве [Развертывание первого веб-приложения в Azure за пять минут](app-service-web-get-started.md). Вам понадобится бесплатная учетная запись Azure
+Инструкции по развертыванию примера кода для нового веб-приложения в службе приложений см. в одном из руководств из приведенного ниже раскрывающегося списка. Вам понадобится бесплатная учетная запись Azure
 
-Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> [!div class="op_single_selector"]
+> * [Развертывание первого HTML-сайта в Azure за пять минут](app-service-web-get-started-html-cli-nodejs.md)
+> * [Развертывание первого веб-приложения ASP.NET в Azure за пять минут](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Развертывание первого веб-приложения PHP в Azure за пять минут](app-service-web-get-started-php-cli-nodejs.md)
+> * [Развертывание первого веб-приложения Node.js в Azure за пять минут](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Развертывание первого веб-приложения Python в Azure за пять минут](app-service-web-get-started-python-cli-nodejs.md)
+> * [Развертывание первого веб-приложения Java в Azure за пять минут](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> 
+> 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

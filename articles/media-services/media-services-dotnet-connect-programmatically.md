@@ -1,12 +1,12 @@
 ---
-title: Подключение к учетной записи служб мультимедиа с помощью .NET
-description: В этом разделе показано, как подключиться к службам мультимедиа с помощью .NET.
+title: "Подключение к учетной записи служб мультимедиа с помощью .NET"
+description: "В этом разделе показано, как подключиться к службам мультимедиа с помощью .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a8412a29-59dc-44a0-ace0-be79a97dab63
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 72e94aeae9e210b25b8f22dd02feb0b98a5ddfeb
+
 
 ---
-# <a name="connecting-to-media-services-account-using-media-services-sdk-for-.net"></a>Подключение к учетной записи служб мультимедиа с помощью пакета SDK служб мультимедиа для .NET
+# <a name="connecting-to-media-services-account-using-media-services-sdk-for-net"></a>Подключение к учетной записи служб мультимедиа с помощью пакета SDK служб мультимедиа для .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-connect-programmatically.md)
 > * [.NET](media-services-dotnet-connect-programmatically.md)
@@ -182,6 +186,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

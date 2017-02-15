@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с SCC LifeCycle | Microsoft Docs
-description: Узнайте, как использовать SCC LifeCycle с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого.
+title: "Руководство по интеграции Azure Active Directory с SCC LifeCycle | Документация Майкрософт"
+description: "Узнайте, как использовать SCC LifeCycle с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47c9be0aef918eee322245164458cfffa95b8551
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-scc-lifecycle"></a>Учебник. Интеграция Azure Active Directory с SCC LifeCycle
+# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Учебник. Интеграция Azure Active Directory с SCC LifeCycle
 Цель данного учебника — показать интеграцию Azure и SCC LifeCycle.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-scc-lifecycle"></a>Включение интеграции приложений для SCC LifeCycle
 В этом разделе показано, как включить интеграцию приложений для SCC LifeCycle.
 
-### <a name="to-enable-the-application-integration-for-scc-lifecycle,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для SCC LifeCycle, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-scc-lifecycle-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для SCC LifeCycle, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-scc-lifecycle-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ ms.author: jeedes
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в SCC LifeCycle со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **SCC LifeCycle** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Configure Single Sign-On")
@@ -99,7 +103,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-scc-lifecycle,-perform-the-following-steps:"></a>Чтобы назначить пользователей SCC LifeCycle, выполните следующие действия:
+### <a name="to-assign-users-to-scc-lifecycle-perform-the-following-steps"></a>Чтобы назначить пользователей SCC LifeCycle, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **SCC LifeCycle** щелкните **Назначить пользователей**.
    
@@ -110,6 +114,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

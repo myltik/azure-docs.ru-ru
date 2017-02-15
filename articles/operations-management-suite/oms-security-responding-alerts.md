@@ -1,51 +1,30 @@
 ---
-title: 'Мониторинг и реагирование на оповещения безопасности в решении '
-безопасность: ''
-и: ''
-аудит": ''
-operations: ''
-management: ''
-suite: ''
-'|': ''
-microsoft: ''
-azure": ''
-description: 'В этом документе описывается функция '
-анализ: ''
-угроз",: ''
-доступная: ''
-в: ''
-решении: ''
-oms: ''
-"\"безопасность": ''
-аудит",: ''
-которая: ''
-позволяет: ''
-отслеживать: ''
-оповещения: ''
-системы: ''
-безопасности: ''
-реагировать: ''
-на: ''
-них.": ''
+title: "Мониторинг и реагирование на оповещения безопасности в решении &quot;Безопасность и аудит&quot; Operations Management Suite | Документация Майкрософт"
+description: "В этом документе описывается функция &quot;Анализ угроз&quot;, доступная в решении OMS &quot;Безопасность и аудит&quot;, которая позволяет отслеживать оповещения системы безопасности и реагировать на них."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+
 
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite
 В этом документе описывается функция "Анализ угроз", доступная в решении OMS "Безопасность и аудит", которая позволяет отслеживать оповещения системы безопасности и реагировать на них.
 
-## <a name="what-is-oms?"></a>Что такое OMS?
+## <a name="what-is-oms"></a>Что такое OMS?
 Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. Дополнительные сведения об OMS см. в статье [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="threat-intelligence"></a>Анализ угроз
@@ -100,6 +79,11 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 ![Карта анализа угроз](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
+> [!NOTE]
+> Как использовать эту возможность в процессе реагирования на инциденты демонстрируется в презентации [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) (Устранение угроз для центра обработки данных посредством управляемого исследования с помощью Operations Management Suite) от Microsoft Ignite.
+> 
+> 
+
 ## <a name="see-also"></a>Дополнительные материалы
 В этом документе вы ознакомились с функцией **Анализ угроз** в решении OMS "Безопасность и аудит", которая позволяет реагировать на оповещения системы безопасности. Дополнительные сведения о функциях безопасности OMS см. в следующих статьях.
 
@@ -107,6 +91,9 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Приступая к работе с решением "Безопасность и аудит" Operations Management Suite](oms-security-getting-started.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

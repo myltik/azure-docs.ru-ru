@@ -1,100 +1,115 @@
 ---
-title: Задание и получение свойств и метаданных для объектов в службе хранилища Azure | Microsoft Docs
-description: Хранение пользовательских метаданных для объектов в службе хранилища Azure, а также задание и получение свойств системы.
+title: "Задание и получение свойств и метаданных для объектов в службе хранилища Azure | Документация Майкрософт"
+description: "Хранение пользовательских метаданных для объектов в службе хранилища Azure, а также задание и получение свойств системы."
 services: storage
-documentationcenter: ''
-author: tamram
-manager: carmonm
+documentationcenter: 
+author: mmacy
+manager: timlt
 editor: tysonn
-
+ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
-ms.author: dineshm;tamram
+ms.date: 12/08/2016
+ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6e89921509bb273d6d97f829d4867eded20c82bc
+
 
 ---
-# Задание и получение свойств и метаданных
-## Обзор
+# <a name="set-and-retrieve-properties-and-metadata"></a>Задание и получение свойств и метаданных
+## <a name="overview"></a>Обзор
 Помимо данных, которые они содержат, объекты в службе хранилища Azure поддерживают свойства системы и пользовательские метаданные.
 
-* **Свойства системы.** Свойства системы есть у каждого ресурса хранилища. Некоторые из них можно считать или задать, некоторые — только считать. На самом деле, некоторые свойства системы соответствуют определенным стандартным заголовкам HTTP. Они хранятся в клиентской библиотеке службы хранилища Azure.
-* **Определяемые пользователем метаданные.** Определяемые пользователем метаданные — это метаданные, которые можно указать для определенного ресурса в виде пары "имя-значение". Вы можете использовать метаданные для хранения дополнительных значений для ресурса хранилища. Эти значения являются пользовательскими и не влияют на поведение ресурса.
+* **Свойства системы.**  Свойства системы есть у каждого ресурса хранилища. Некоторые из них можно считать или задать, некоторые — только считать. На самом деле, некоторые свойства системы соответствуют определенным стандартным заголовкам HTTP. Они хранятся в клиентской библиотеке службы хранилища Azure.
+* **Определяемые пользователем метаданные.** Определяемые пользователем метаданные — это метаданные, которые можно указать для определенного ресурса в виде пары "имя-значение". Вы можете использовать метаданные для хранения дополнительных значений для ресурса хранилища. Эти значения являются пользовательскими и не влияют на поведение ресурса.
 
-Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем считывать эти значения, необходимо получить их, вызвав метод **FetchAttributes**.
+Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем считывать эти значения, необходимо получить их, вызвав метод **FetchAttributes** .
 
 > [!IMPORTANT]
-> Значения свойств и метаданных для ресурса хранилища заполняются только при вызове одного из методов **FetchAttributes**.
-> 
-> 
+> Значения свойств и метаданных для ресурса хранилища заполняются только при вызове одного из методов **FetchAttributes** .
+>
+>
 
-## Установка и получение свойств
+## <a name="setting-and-retrieving-properties"></a>Установка и получение свойств
 Чтобы получить значения свойств, вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, а затем считайте значения.
 
-Чтобы задать свойства объекта, укажите значение свойства, а затем вызовите метод **SetProperties**.
+Чтобы задать свойства объекта, укажите значение свойства, а затем вызовите метод **SetProperties** .
 
 В следующем примере кода будет создан контейнер, а значения некоторых свойств будут выведены в окно консоли.
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
-    //Create the service client object for credentialed access to the Blob service.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+//Create the service client object for credentialed access to the Blob service.
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve a reference to a container. 
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+// Retrieve a reference to a container.
+CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-    // Create the container if it does not already exist.
-    container.CreateIfNotExists();
+// Create the container if it does not already exist.
+container.CreateIfNotExists();
 
-    // Fetch container properties and write out their values.
-    container.FetchAttributes();
-    Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
-    Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
-    Console.WriteLine("ETag: {0}", container.Properties.ETag);
-    Console.WriteLine();
+// Fetch container properties and write out their values.
+container.FetchAttributes();
+Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
+Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
+Console.WriteLine("ETag: {0}", container.Properties.ETag);
+Console.WriteLine();
+```
 
-## Установка и получение метаданных
-Метаданные можно указать как одну или несколько пар "имя-значение" для BLOB-ресурса или ресурса контейнера. Чтобы задать метаданные, добавьте пары "имя-значение" в коллекцию **метаданные** для ресурса, затем вызовите метод **SetMetadata** для сохранения значений в службу.
+## <a name="setting-and-retrieving-metadata"></a>Установка и получение метаданных
+Метаданные можно указать как одну или несколько пар "имя-значение" для BLOB-ресурса или ресурса контейнера. Чтобы задать метаданные, добавьте пары "имя — значение" в коллекцию **Metadata** ресурса, а затем вызовите метод **SetMetadata**, чтобы сохранить значения в службе.
 
 > [!NOTE]
 > Имя метаданных должно соответствовать соглашениям об именовании идентификаторов C#.
-> 
-> 
+>
+>
 
-В следующем примере кода задаются метаданные для контейнера. Одно значение задается с помощью метода коллекции **Add**. Другое значение задается с помощью неявного синтаксиса «ключ/значение». Можно использовать любой из способов.
+В следующем примере кода задаются метаданные для контейнера. Одно значение задается с помощью метода коллекции **Add** . Другое значение задается с помощью неявного синтаксиса «ключ/значение». Можно использовать любой из способов.
 
-    public static void AddContainerMetadata(CloudBlobContainer container)
+```csharp
+public static void AddContainerMetadata(CloudBlobContainer container)
+{
+    //Add some metadata to the container.
+    container.Metadata.Add("docType", "textDocuments");
+    container.Metadata["category"] = "guidance";
+
+    //Set the container's metadata.
+    container.SetMetadata();
+}
+```
+
+Чтобы получить метаданные, вызовите метод **FetchAttributes** для BLOB-объекта или контейнера (для заполнения коллекции **Metadata**), а затем считайте значения, как показано в примере ниже.
+
+```csharp
+public static void ListContainerMetadata(CloudBlobContainer container)
+{
+    //Fetch container attributes in order to populate the container's properties and metadata.
+    container.FetchAttributes();
+
+    //Enumerate the container's metadata.
+    Console.WriteLine("Container metadata:");
+    foreach (var metadataItem in container.Metadata)
     {
-        //Add some metadata to the container.
-        container.Metadata.Add("docType", "textDocuments");
-        container.Metadata["category"] = "guidance";
-
-        //Set the container's metadata.
-        container.SetMetadata();
+        Console.WriteLine("\tKey: {0}", metadataItem.Key);
+        Console.WriteLine("\tValue: {0}", metadataItem.Value);
     }
+}
+```
 
-Для получения метаданных вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, чтобы заполнить **метаданные** коллекции, затем считайте значения, как показано в приведенном примере.
-
-    public static void ListContainerMetadata(CloudBlobContainer container)
-    {
-        //Fetch container attributes in order to populate the container's properties and metadata.
-        container.FetchAttributes();
-
-        //Enumerate the container's metadata.
-        Console.WriteLine("Container metadata:");
-        foreach (var metadataItem in container.Metadata)
-        {
-            Console.WriteLine("\tKey: {0}", metadataItem.Key);
-            Console.WriteLine("\tValue: {0}", metadataItem.Value);
-        }
-    }
-
-## См. также
+## <a name="see-also"></a>См. также
 * [Справочные материалы клиентской библиотеки хранилища Azure для .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Настройка кластера Service Fabric с помощью Visual Studio | Microsoft Docs
-description: Описание настройки кластера Service Fabric с помощью шаблона Azure Resource Manager, созданного с использованием проекта группы ресурсов Azure в Visual Studio
+title: "Настройка кластера Service Fabric с помощью Visual Studio | Документация Майкрософт"
+description: "Описание настройки кластера Service Fabric с помощью шаблона Azure Resource Manager, созданного с использованием проекта группы ресурсов Azure в Visual Studio"
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
 manager: adegeo
-editor: ''
-
+editor: 
+ms.assetid: bd2c0511-36c9-4828-8dc3-69e4b6a70567
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2016
 ms.author: karolz@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01498faf6d150cb0a96af150d6c9ce1ed62c26dd
+
 
 ---
 # <a name="set-up-a-service-fabric-cluster-by-using-visual-studio"></a>Настройка кластера Service Fabric с помощью Visual Studio
@@ -49,12 +53,12 @@ ms.author: karolz@microsoft.com
 
 Шаблон диспетчера ресурсов Service Fabric Visual Studio создает безопасный кластер, защищенный с помощью сертификата. Этот сертификат определяется по трем последним параметрам шаблона (`certificateThumbprint`, `sourceVaultValue` и `certificateUrlValue`) и должен находиться в **хранилище ключей Azure**. Дополнительные сведения о создании сертификата безопасности кластера см. в статье [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric).
 
-## <a name="optional:-change-the-cluster-name"></a>Изменение имени кластера (необязательно)
+## <a name="optional-change-the-cluster-name"></a>Изменение имени кластера (необязательно)
 У каждого кластера Service Fabric есть имя. При создании кластера Fabric в Azure имя кластера (вместе с регионом Azure) определяет имя системы доменных имен (DNS) для кластера. Например, если имя кластера — `myBigCluster`, а группа ресурсов, в которой будет размещаться новый кластер, находится в регионе Azure "Восточная часть США", то DNS-имя кластера будет `myBigCluster.eastus.cloudapp.azure.com`.
 
 По умолчанию имя кластера создается автоматически, и для того, чтобы оно было уникальным, к префиксу "cluster" добавляется случайный суффикс. Это позволяет легко использовать шаблон в системе **непрерывной интеграции** (CI). Если вы хотите использовать определенное осмысленное имя для кластера, задайте его в переменной `clusterName` в файле шаблона Resource Manager (`ServiceFabricCluster.json`). Это первая переменная, определенная в этом файле.
 
-## <a name="optional:-add-public-application-ports"></a>Добавление общедоступных портов приложения (необязательно)
+## <a name="optional-add-public-application-ports"></a>Добавление общедоступных портов приложения (необязательно)
 Также можно изменить открытые порты приложений кластера перед его развертыванием. По умолчанию в шаблоне открыты только два TCP-порта (80 и 8081). Если вашим приложениям необходимо больше открытых портов, измените определение балансировщика нагрузки Azure в шаблоне. Определение хранится в файле основного шаблона (`ServiceFabricCluster.json`). Откройте этот файл и выполните поиск `loadBalancedAppPort`. Каждый порт связан с тремя артефактами.
 
 1. Переменная шаблона, который определяет значение TCP-порта для порта:
@@ -142,6 +146,6 @@ ms.author: karolz@microsoft.com
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

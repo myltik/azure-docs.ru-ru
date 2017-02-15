@@ -1,43 +1,47 @@
 ---
-title: Управление виртуальными машинами с помощью Azure Resource Manager и языка C# | Microsoft Docs
-description: Управление виртуальными машинами с помощью Azure Resource Manager и языка C#
+title: "Управление виртуальными машинами с помощью Azure Resource Manager и языка C# | Документация Майкрософт"
+description: "Управление виртуальными машинами с помощью Azure Resource Manager и языка C#"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 93898bad-b861-4359-9a4b-348e1d491822
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2016
+ms.date: 09/27/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
+
 
 ---
-# Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C
-Этой статье показаны задачи управления виртуальными машинами, в том числе как запуск, остановка и обновление.
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C
+Этой статье показаны задачи управления виртуальными машинами, в том числе как запуск, остановка и обновление. Чтобы выполнить задачи в этой статье, виртуальная машина должна существовать в группе ресурсов.
 
 Для выполнения задач из этой статьи необходимо следующее:
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * [Токен проверки подлинности](../resource-group-authenticate-service-principal.md)
 
-## Создание проекта Visual Studio и установка пакетов
-Для установки библиотек, которые необходимы для выполнения задач в этой статье, проще всего воспользоваться пакетами NuGet. Вам необходимо установить библиотеку проверки подлинности Azure Active Directory и библиотеку поставщика вычислительных ресурсов. Чтобы добавить эти библиотеки в Visual Studio, выполните следующие действия.
+## <a name="create-a-visual-studio-project-and-install-packages"></a>Создание проекта Visual Studio и установка пакетов
+Для установки библиотек, которые необходимы для выполнения задач в этой статье, проще всего воспользоваться пакетами NuGet. Для этой статьи вам потребуется установить библиотеку управления ресурсами Azure, библиотеку аутентификации Azure Active Directory и библиотеку поставщика ресурсов компьютера. Чтобы добавить эти библиотеки в Visual Studio, сделайте следующее:
 
-1. Последовательно выберите пункты **Файл**, **Создать** и **Проект**.
+1. Выберите **Файл** > **Создать** > **Проект**.
 2. В разделе **Шаблоны** > **Visual C#** выберите пункт **Консольное приложение**, введите имя и расположение проекта, а затем нажмите кнопку **OK**.
 3. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**.
-4. В поле поиска введите текст *Active Directory*, нажмите кнопку **Установить** для пакета библиотеки аутентификации Active Directory, а затем следуйте указаниям по установке пакета.
-5. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.Management.Compute*, нажмите кнопку **Установить**, чтобы установить библиотеки Compute для .NET, а затем следуйте инструкциям по установке пакета.
+4. В поле поиска введите текст *Active Directory* , нажмите кнопку **Установить** для пакета библиотеки аутентификации Active Directory, а затем следуйте указаниям по установке пакета.
+5. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.Management.Compute* , нажмите кнопку **Установить** , чтобы установить библиотеки Compute для .NET, а затем следуйте инструкциям по установке пакета.
 
 Теперь эти библиотеки можно использовать для управления виртуальными машинами.
 
-## Настройка проекта
-Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к диспетчеру ресурсов Azure.
+## <a name="set-up-the-project"></a>Настройка проекта
+Создав приложение и установив библиотеки, создайте маркер, используя сведения о приложении. Он используется для аутентификации запросов к Azure Resource Manager.
 
 1. Откройте файл Program.cs для созданного проекта и добавьте в начало файла следующие операторы using:
    
@@ -46,26 +50,25 @@ ms.author: davidmu
         using Microsoft.Azure.Management.Compute;
         using Microsoft.Azure.Management.Compute.Models;
         using Microsoft.Rest;
-2. Добавьте в метод Main класса Program переменные для указания имен ресурсов, которыми вы хотите управлять, расположения ресурсов (например "Центральная часть США") и идентификатора подписки:
+2. Добавьте в метод Main класса Program переменные для указания имени группы ресурсов и имени виртуальной машины, а также идентификатора подписки.
    
         var groupName = "resource group name";
         var vmName = "virtual machine name";  
-        var location = "location name";
         var subscriptionId = "subsciption id";
    
-    Замените все значения переменных именами и идентификаторами, которые вы хотите использовать. Чтобы узнать идентификатор подписки, выполните команду Get-AzureRmSubscription.
-3. Добавьте этот метод в класс Program, чтобы получить маркер, необходимый для создания учетных данных.
+    Чтобы узнать идентификатор подписки, выполните команду Get-AzureRmSubscription.
+3. Добавьте этот метод в класс Program, чтобы получить маркер, необходимый для создания учетных данных:
    
         private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
-          return result;
+          return token;
         }
    
     Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
@@ -75,7 +78,7 @@ ms.author: davidmu
         var credential = new TokenCredentials(token.Result.AccessToken);
 5. Сохраните файл Program.cs.
 
-## Отображение информации о виртуальной машине
+## <a name="display-information-about-a-virtual-machine"></a>Отображение информации о виртуальной машине
 1. Добавьте следующий метод в класс Program в созданном ранее проекте:
    
         public static async void GetVirtualMachineAsync(
@@ -162,7 +165,7 @@ ms.author: davidmu
           }
    
         }
-2. Для вызова только что добавленного метода добавьте этот код в метод Main:
+2. Для вызова только что добавленного метода добавьте этот код в метод Main.
    
         GetVirtualMachineAsync(
           credential,
@@ -174,7 +177,7 @@ ms.author: davidmu
 3. Сохраните файл Program.cs.
 4. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
    
-    При выполнении этого метода вы увидите результат, подобный следующему:
+    Выполнив этот метод, вы получите примерно следующий результат:
    
         Getting information about the virtual machine...
         hardwareProfile
@@ -237,7 +240,42 @@ ms.author: davidmu
               level: Info
               displayStatus: VM running
 
-## запуск виртуальной машины
+## <a name="stop-a-virtual-machine"></a>Остановка виртуальной машины
+Остановить виртуальную машину можно двумя способами. Вы можете остановить виртуальную машину, сохранив все ее настройки (при этом за нее будет продолжать взиматься плата) или остановить ее и отменить ее распределение. При этом освобождаются все ресурсы, связанные с ней, а также прекращается выставление счетов за эту виртуальную машину.
+
+1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
+2. Добавьте следующий метод в класс Program:
+   
+        public static async void StopVirtualMachineAsync(
+          TokenCredentials credential, 
+          string groupName, 
+          string vmName, 
+          string subscriptionId)
+        {
+          Console.WriteLine("Stopping the virtual machine...");
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
+        }
+   
+    Если вы хотите отменить распределение виртуальной машины, измените вызов PowerOff на следующий код:
+   
+        computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
+3. Для вызова только что добавленного метода добавьте этот код в метод Main.
+   
+        StopVirtualMachineAsync(
+          credential,
+          groupName,
+          vmName,
+          subscriptionId);
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+4. Сохраните файл Program.cs.
+5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
+   
+    Вы должны увидеть, что состояние виртуальной машины изменилось на "Остановлена". Если вы выполнили метод для освобождения, виртуальная машина будет иметь состояние "Остановлена (освобождена)".
+
+## <a name="start-a-virtual-machine"></a>запуск виртуальной машины
 1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
 2. Добавьте следующий метод в класс Program:
    
@@ -252,7 +290,7 @@ ms.author: davidmu
             { SubscriptionId = subscriptionId };
           await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
         }
-3. Для вызова только что добавленного метода добавьте этот код в метод Main:
+3. Для вызова только что добавленного метода добавьте этот код в метод Main.
    
         StartVirtualMachineAsync(
           credential,
@@ -266,42 +304,7 @@ ms.author: davidmu
    
     Вы должны увидеть, что состояние виртуальной машины изменилось на "Работает".
 
-## Остановка виртуальной машины
-Остановить виртуальную машину можно двумя способами. Можно остановить виртуальную машину, сохранив все ее настройки (при этом за нее будет продолжать взиматься плата) или освободив ее и все связанные с ней ресурсы (при этом выставление счетов за эту виртуальную машину прекращается).
-
-1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
-2. Добавьте следующий метод в класс Program:
-   
-        public static void StopVirtualMachineAsync(
-          TokenCredentials credential, 
-          string groupName, 
-          string vmName, 
-          string subscriptionId)
-        {
-          Console.WriteLine("Stopping the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential)
-            { SubscriptionId = subscriptionId };
-          await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
-        }
-   
-    Если вы хотите освободить виртуальную машину, измените вызов PowerOff на следующий:
-   
-        computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
-3. Для вызова только что добавленного метода добавьте этот код в метод Main:
-   
-        StopVirtualMachineAsync(
-          credential,
-          groupName,
-          vmName,
-          subscriptionId);
-        Console.WriteLine("\nPress enter to continue...");
-        Console.ReadLine();
-4. Сохраните файл Program.cs.
-5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
-   
-    Вы должны увидеть, что состояние виртуальной машины изменилось на "Остановлена". Если вы выполнили метод для освобождения, виртуальная машина будет иметь состояние "Остановлена (освобождена)".
-
-## Перезапуск работающей виртуальной машины
+## <a name="restart-a-running-virtual-machine"></a>Перезапуск работающей виртуальной машины
 1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
 2. Добавьте следующий метод в класс Program:
    
@@ -316,7 +319,7 @@ ms.author: davidmu
             { SubscriptionId = subscriptionId };
           await computeManagementClient.VirtualMachines.RestartAsync(groupName, vmName);
         }
-3. Для вызова только что добавленного метода добавьте этот код в метод Main:
+3. Для вызова только что добавленного метода добавьте этот код в метод Main.
    
         RestartVirtualMachineAsync(
           credential,
@@ -328,34 +331,7 @@ ms.author: davidmu
 4. Сохраните файл Program.cs.
 5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
 
-## удаление виртуальной машины
-1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
-2. Добавьте следующий метод в класс Program:
-   
-        public static async void DeleteVirtualMachineAsync(
-          TokenCredentials credential, 
-          string groupName, 
-          string vmName, 
-          string subscriptionId)
-        {
-          Console.WriteLine("Deleting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential)
-            { SubscriptionId = subscriptionId };
-          await computeManagementClient.VirtualMachines.DeleteAsync(groupName, vmName);
-        }
-3. Для вызова только что добавленного метода добавьте этот код в метод Main:
-   
-        DeleteVirtualMachineAsync(
-          credential,
-          groupName,
-          vmName,
-          subscriptionId);
-        Console.WriteLine("\nPress enter to continue...");
-        Console.ReadLine();
-4. Сохраните файл Program.cs.
-5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
-
-## Обновление виртуальной машины
+## <a name="resize-a-virtual-machine"></a>Изменение размера виртуальной машины
 В этом примере показано, как изменить размер работающей виртуальной машины.
 
 1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
@@ -374,7 +350,7 @@ ms.author: davidmu
           vmResult.HardwareProfile.VmSize = "Standard_A1";
           await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
         }
-3. Для вызова только что добавленного метода добавьте этот код в метод Main:
+3. Для вызова только что добавленного метода добавьте этот код в метод Main.
    
         UpdateVirtualMachineAsync(
           credential,
@@ -386,9 +362,84 @@ ms.author: davidmu
 4. Сохраните файл Program.cs.
 5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
    
-    Вы должны увидеть, что размер виртуальной машины изменился на Standard\_A1.
+    Вы должны увидеть, что размер виртуальной машины изменился на Standard_A1.
 
-## Дальнейшие действия
-При наличии проблем с развертыванием ознакомьтесь с [устранением неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+## <a name="add-a-data-disk-to-a-virtual-machine"></a>Добавление диска данных в виртуальную машину
+В этом примере показано, как добавить диск данных на запущенную виртуальную машину.
 
-<!---HONumber=AcomDC_0720_2016-->
+1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
+2. Добавьте следующий метод в класс Program:
+   
+        public static async void AddDataDiskAsync(
+          TokenCredentials credential, 
+          string groupName, 
+          string vmName, 
+          string subscriptionId)
+        {
+          Console.WriteLine("Adding the disk to the virtual machine...");
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+          vmResult.StorageProfile.DataDisks.Add(
+            new DataDisk
+              {
+                Lun = 0,
+                Name = "mydatadisk1",
+                Vhd = new VirtualHardDisk
+                  {
+                    Uri = "https://mystorage1.blob.core.windows.net/vhds/mydatadisk1.vhd"
+                  },
+                CreateOption = DiskCreateOptionTypes.Empty,
+                DiskSizeGB = 2,
+                Caching = CachingTypes.ReadWrite
+              });
+          await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+        }
+3. Для вызова только что добавленного метода добавьте этот код в метод Main.
+   
+        AddDataDiskAsync(
+          credential,
+          groupName,
+          vmName,
+          subscriptionId);
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+4. Сохраните файл Program.cs.
+5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
+
+## <a name="delete-a-virtual-machine"></a>удаление виртуальной машины
+1. Закомментируйте код, ранее добавленный в метод Main, за исключением кода для получения учетных данных.
+2. Добавьте следующий метод в класс Program:
+   
+        public static async void DeleteVirtualMachineAsync(
+          TokenCredentials credential, 
+          string groupName, 
+          string vmName, 
+          string subscriptionId)
+        {
+          Console.WriteLine("Deleting the virtual machine...");
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.DeleteAsync(groupName, vmName);
+        }
+3. Для вызова только что добавленного метода добавьте этот код в метод Main.
+   
+        DeleteVirtualMachineAsync(
+          credential,
+          groupName,
+          vmName,
+          subscriptionId);
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+4. Сохраните файл Program.cs.
+5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
+
+## <a name="next-steps"></a>Дальнейшие действия
+При наличии проблем с развертыванием ознакомьтесь со статьей [об устранении неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

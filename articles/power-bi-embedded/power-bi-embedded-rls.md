@@ -1,13 +1,13 @@
 ---
-title: Безопасность на уровне строк в Power BI Embedded
-description: Сведения о безопасности на уровне строк в Power BI Embedded
+title: "Безопасность на уровне строк в Power BI Embedded"
+description: "Сведения о безопасности на уровне строк в Power BI Embedded"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7936ade5-2c75-435b-8314-ea7ca815867a
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Безопасность на уровне строк в Power BI Embedded
 Безопасность на уровне строк можно использовать для ограничения доступа пользователей к определенным данным отчета или набора данных. При этом несколько различных пользователей могут работать в одном и том же отчете, но видеть разные данные. В Power BI Embedded теперь поддерживаются наборы данных, для которых настроена безопасность на уровне строк.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-flow-1.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
 
 Чтобы воспользоваться преимуществами безопасности на уровне строк, важно понять суть трех основных понятий: "Пользователи", "Роли" и "Правила". Давайте подробнее рассмотрим каждое из них.
 
@@ -33,13 +37,13 @@ ms.author: asaxton
 ### <a name="example"></a>Пример
 Далее в этой статье представлен пример настройки безопасности на уровне строк, а затем ее применения во встроенном приложении. В нашем примере используется PBIX-файл с [примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-scenario-2.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
 
 В нашем примере анализа данных о продажах показаны продажи для всех розничных магазинов определенной сети. Если не использовать безопасность на уровне строк, все региональные менеджеры, которые входят в систему и просматривают отчет, будут видеть одни и те же данные. Руководство решило, что каждый региональный менеджер должен видеть данные по продажам только тех магазинов, которыми он управляет. Для этого мы используем безопасность на уровне строк.
 
 Безопасность на уровне строк настраивается в Power BI Desktop. После открытия набора данных и отчета можно перейти на представление схемы.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-3.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-3.png)
 
 Ниже приведены некоторые примечания по этой схеме.
 
@@ -48,34 +52,34 @@ ms.author: asaxton
 * Стрелки на линиях связей указывают, каким образом фильтры могут передаваться из одной таблицы в другую. Например, если фильтр размещен в таблице **Время [Дата]**, на текущей схеме он будет отфильтровывать только значения в таблице **Продажи**. Так как все стрелки на линиях связей указывают на таблицу "Продажи", этот фильтр не будет влиять на остальные таблицы.
 * В таблице **Район** указаны менеджеры по каждому району.
   
-  ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-district-table-4.png)
+  ![](media/power-bi-embedded-rls/pbi-embedded-rls-district-table-4.png)
 
 Если в рамках этой схемы к столбцу **Региональный менеджер** в таблице "Район" применить фильтр, соответствующий пользователю, просматривающему отчет, таблицы **Хранилище** и **Продажи** будут также отфильтрованы. В результате отобразятся данные только для этого конкретного регионального менеджера.
 
 Этот процесс описывается далее.
 
 1. На вкладке "Моделирование" щелкните **Управление ролями**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-modeling-tab-5.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-modeling-tab-5.png)
 2. Создайте роль с именем **Менеджер**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-6.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-6.png)
 3. В таблице **Район** введите следующее выражение DAX: **[Региональный менеджер] = USERNAME()**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-7.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-7.png)
 4. Чтобы убедиться, что правила работают, на вкладке **Моделирование** щелкните **Просмотреть как роли**, а затем введите следующую команду:  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-view-as-roles-8.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-view-as-roles-8.png)
    
    Теперь данные в отчетах будут отображаться таким образом, как будто вы вошли под именем **Эндрю Ma**.
 
 В случае применения такого фильтра будут отфильтрованы все записи в таблицах **Район**, **Хранилище** и **Продажи**. Однако из-за направления фильтра на линиях связей между таблицами **Продажи** и **Время**, **Продажи** и **Позиция**, а также **Позиция** и **Время** эти таблицы не будут отфильтрованы.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-9.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-9.png)
 
 В нашем примере это приемлемый вариант, но если нужно, чтобы менеджеры не видели позиции не своих продаж, можно включить двунаправленную перекрестную фильтрацию для связи и направить фильтр безопасности в обоих направлениях. Для этого нужно изменить связи между таблицами **Продажи** и **Позиция** следующим образом:
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-edit-relationship-10.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-edit-relationship-10.png)
 
 Теперь фильтры могут также направляться из таблицы "Продажи" в таблицу **Позиция** .
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-11.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
 **Примечание**. При использовании режима DirectQuery для данных необходимо включить двунаправленную перекрестную фильтрацию, выбрав два следующих параметра:
 
@@ -93,15 +97,18 @@ ms.author: asaxton
 
 Весь маркер приложения будет выглядеть примерно так:
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-app-token-string-12.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-app-token-string-12.png)
 
 Теперь вся работа проделана, и если пользователь войдет в наше приложение, чтобы просмотреть этот отчет, он увидит только те данные, к которым ему предоставлен доступ, как определено в безопасности на уровне строк.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-dashboard-13.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Безопасность на уровне строк (RLS) в Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

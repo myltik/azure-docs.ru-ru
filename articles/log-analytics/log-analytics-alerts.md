@@ -1,19 +1,23 @@
 ---
-title: Журналы в Log Analytics | Microsoft Docs
-description: Оповещения в Log Analytics идентифицируют важную информацию в репозитории OMS и могут заранее уведомлять вас о возникших проблемах или выполнять действия в попытке устранить их.  Эта статья описывает создание правила генерации оповещений и сведения о различных действиях, которые оно может выполнить.
+title: "Оповещения в Log Analytics | Документация Майкрософт"
+description: "Оповещения в Log Analytics идентифицируют важную информацию в репозитории OMS и могут заранее уведомлять вас о возникших проблемах или выполнять действия в попытке устранить их.  Эта статья описывает создание правила генерации оповещений и сведения о различных действиях, которые оно может выполнить."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+
 
 ---
 # <a name="alerts-in-log-analytics"></a>Оповещения в Log Analytics
@@ -205,6 +209,9 @@ ms.author: bwren
 * Вы можете выполнить пошаговое руководство по [настройке webook](log-analytics-alerts-webhooks.md) с использованием правила генерации оповещений.  
 * Вы можете научиться писать [модули Runbook в службе автоматизации Azure](https://azure.microsoft.com/documentation/services/automation) для устранения проблем, обозначенных в оповещениях.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

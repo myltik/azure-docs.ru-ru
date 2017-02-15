@@ -1,12 +1,12 @@
 ---
-title: Использование Azure Media Video Thumbnail для формирования сводных данных видео | Microsoft Docs
-description: Формирование сводных данных видео помогает создавать краткие видеоролики длинных видеозаписей путем автоматического выбора интересных фрагментов из исходного видеоматериала. Используйте эту функцию, чтобы представить краткий обзор длинной видеозаписи.
+title: "Использование Azure Media Video Thumbnails для формирования сводных данных видео | Документация Майкрософт"
+description: "Формирование сводных данных видео помогает создавать краткие видеоролики длинных видеозаписей путем автоматического выбора интересных фрагментов из исходного видеоматериала. Используйте эту функцию, чтобы представить краткий обзор длинной видеозаписи."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Использование Azure Media Video Thumbnail для формирования сводных данных видео
@@ -33,7 +37,7 @@ ms.author: milanga;juliako;
 ### <a name="video-thumbnail-result"></a>Результат — эскиз видео
 [Результат — эскиз видео](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-(preset)"></a>Конфигурация задачи (предустановка)
+## <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании эскиза видео с помощью **Azure Media Video Thumbnails**необходимо указать предустановку конфигурации. Пример эскиза, приведенный выше, создан с помощью следующей базовой конфигурации JSON:
 
     {"version":"1.0"}
@@ -70,7 +74,7 @@ ms.author: milanga;juliako;
 1. Создать ресурс-контейнера и отправить в него файл мультимедиа.
 2. Создать задание с задачей создания эскиза видео на основе файла конфигурации, содержащего следующую предустановку JSON. 
    
-        {               
+        {                
             "version": "1.0",
             "options": {
                 "outputAudio": "true",
@@ -80,7 +84,7 @@ ms.author: milanga;juliako;
         }
 3. Загрузить выходные файлы. 
 
-### <a name=".net-code"></a>Код .NET
+### <a name="net-code"></a>Код .NET
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +263,9 @@ ms.author: milanga;juliako;
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

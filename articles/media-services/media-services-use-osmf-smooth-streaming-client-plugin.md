@@ -1,12 +1,12 @@
 ---
-title: Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework
-description: Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework.
+title: "Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework"
+description: "Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 32b530e5234610363b1a160e22921f1b0ce8bdc0
+
 
 ---
-# Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework
-## Обзор
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework
+## <a name="overview"></a>Обзор
 Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework 2.0 (SS для OSMF) расширяет возможности OSMF по умолчанию и добавляет возможности воспроизведения контента Smooth Streaming для новых и существующих проигрывателей OSMF. Подключаемый модуль также добавляет возможность воспроизведения Smooth Streaming в SMP.
 
 SS для OSMF включает в себя две версии подключаемого модуля:
@@ -27,7 +31,7 @@ SS для OSMF включает в себя две версии подключа
 
 В настоящем документе предполагается, что читатель имеет общие знания о работе с OSMF и подключаемыми модулями OSMF. Дополнительные сведения об OSMF см. в документации на [официальном сайте OSMF](http://osmf.org/).
 
-### Подключаемый модуль Smooth Streaming для OSMF 2.0
+### <a name="smooth-streaming-plugin-for-osmf-20"></a>Подключаемый модуль Smooth Streaming для OSMF 2.0
 Подключаемый модуль поддерживает загрузку и воспроизведение контента Smooth Streaming по запросу со следующими возможностями:
 
 * воспроизведение Smooth Streaming по запросу (воспроизведение, пауза, поиск, остановка);
@@ -38,13 +42,13 @@ SS для OSMF включает в себя две версии подключа
 * поддержка нескольких языков аудио с помощью встроенных API-интерфейсов OSMF;
 * выбор качества воспроизведения с помощью встроенных API-интерфейсов OSMF;
 * боковые субтитры с использованием подключаемого модуля субтитров OSMF;
-* Проигрыватель Adobe&reg; Flash&reg; 11.4 или более поздней версии.
+* Adobe&reg; Flash&reg; Player 11.4 или более поздней версии.
 * Эта версия поддерживает только OSMF 2.0.
 
-## Поддерживаемые функции и известные проблемы
-Полный список поддерживаемых функций, неподдерживаемых функций и известных проблем см. в [этом документе](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+## <a name="supported-features-and-known-issues"></a>Поддерживаемые функции и известные проблемы
+Полный список поддерживаемых и неподдерживаемых функций, а также известных проблем см. в [этом документе](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
-## Загрузка подключаемого модуля
+## <a name="loading-the-plugin"></a>Загрузка подключаемого модуля
 Подключаемые модули OSMF можно загружать статически (во время компиляции) или динамически (во время выполнения). Подключаемый модуль Smooth Streaming для OSMF содержит динамическую и статическую версию.
 
 * Статическая загрузка: для статической загрузки требуется файл статической библиотеки (SWC). Статические подключаемые модули добавляются как ссылки на проекты и объединяются с окончательным выходным файлом во время компиляции.
@@ -52,7 +56,7 @@ SS для OSMF включает в себя две версии подключа
 
 Дополнительные сведения о статической и динамической загрузке см. на официальной [странице подключаемого модуля OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
-### Динамическая загрузка SS для OSMF
+### <a name="ss-for-osmf-static-loading"></a>Динамическая загрузка SS для OSMF
 В следующем фрагменте кода показано, как загрузить подключаемый модуль SS для OSMF статически и воспроизвести простое видео с помощью класса MediaFactory OSMF. Перед добавлением кода SS для OSMF убедитесь, что ссылка на проект включает статический подключаемый модуль "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
 
 ```
@@ -188,7 +192,7 @@ package
 ```
 
 
-### Динамическая загрузка SS для OSMF
+### <a name="ss-for-osmf-dynamic-loading"></a>Динамическая загрузка SS для OSMF
 В следующем фрагменте кода показано, как загрузить подключаемый модуль SS для OSMF динамически и воспроизвести простое видео с помощью класса MediaFactory OSMF. Перед включением кода SS для OSMF скопируйте динамический модуль "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" в папку проекта, если загрузка будет выполняться с помощью протокола FILE, или скопируйте его на веб-сервер для загрузки с помощью протокола HTTP. Нет необходимости включать "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" в ссылки проекта.
 
 пакет {
@@ -322,14 +326,14 @@ package
     }
 }
 
-## Воспроизведение Strobe Media с помощью динамического подключаемого модуля SS ODMF
+## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Воспроизведение Strobe Media с помощью динамического подключаемого модуля SS ODMF
 Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
 
-1. Откройте [страницу настройки Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html).
-2. Задайте src в качестве значения для источника Smooth Streaming (например, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest).
+1. Откройте [страницу настройки Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
+2. Задайте src в качестве значения для источника Smooth Streaming, (например, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Внесите требуемые изменения и нажмите кнопку "Предварительный просмотр и обновление".
    
-   **Примечание.** На веб-сервере должен размещаться допустимый файл crossdomain.xml.
+   **Примечание.** На веб-сервере должен размещаться допустимый файл crossdomain.xml. 
 4. Скопируйте и вставьте код на простую HTML-страницу, используя предпочитаемый текстовый редактор, как в следующем примере:
 
         <html>
@@ -375,18 +379,23 @@ package
         </embed>
         </object>
         </html>
-2. Сохраните HTML-страницу и опубликуйте ее на веб-сервере. Перейдите к опубликованной веб-странице в предпочитаемом браузере с поддержкой проигрывателя Flash&reg; (Internet Explorer, Chrome, Firefox и т. д.).
-3. Наслаждайтесь просмотром контента Smooth Streaming в проигрывателе Adobe&reg; Flash&reg;.
+2. Сохраните HTML-страницу и опубликуйте ее на веб-сервере. Перейдите к опубликованной веб-странице в предпочитаемом браузере с поддержкой проигрывателя Flash&reg; Player (Internet Explorer, Chrome, Firefox и т. п.).
+3. Наслаждайтесь просмотром содержимого Smooth Streaming в проигрывателе Adobe&reg; Flash&reg; Player.
 
 Дополнительные сведения об общей процедуре разработки для OSMF см. на официальной [странице разработки OSMF](http://osmf.org/resources.html).
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## См. также
-[Адаптивный подключаемый модуль Майкрософт для потоковой передачи для обновления OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+## <a name="see-also"></a>См. также
+[Адаптивный подключаемый модуль Майкрософт для потоковой передачи для обновления OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a3604b95179d1a88f832ed45d9a6b85931187b1
+ms.sourcegitcommit: b3a8cdab9e609994b1c4c4d50e9571718e8091de
+ms.openlocfilehash: 8043f0d5a4c9fbd301e7565e7d62be09dd77abd8
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Связывание виртуальной сети с каналом ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Подключение виртуальной сети к каналу ExpressRoute
 > [!div class="op_single_selector"]
-> * [Портал Azure — Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell — Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell — классическая модель](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Классическая модель: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
-> 
+>  
 
 В этой статье содержатся сведения о связывании виртуальных сетей с каналами Azure ExpressRoute с помощью модели развертывания Resource Manager и портала Azure. Виртуальные сети могут быть в той же или другой подписке.
 
@@ -77,6 +78,6 @@ ms.openlocfilehash: 6a3604b95179d1a88f832ed45d9a6b85931187b1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,14 +1,14 @@
 ---
-title: Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure | Microsoft Docs
-description: В статье описывается развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure.
+title: "Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure | Документация Майкрософт"
+description: "В статье описывается развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,12 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 75e2508aa942067fb84d34cf00f3f9f953f1573e
+
 
 ---
-# Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure
+# <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-microsoft-azure"></a>Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure
 В этой статье описывается, как развернуть SAP IDES с SQL Server и Windows в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0. На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений из списка выполняется аналогичным образом. Нужно только выбрать другое решение.
 
-Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 Далее на снимках экрана показана пошаговая инструкция по развертыванию SAP IDES в Microsoft Azure. Процесс развертывания других решений аналогичен описанному ниже.
 
@@ -43,7 +47,8 @@ ms.author: hermannd
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic7.jpg)
 
-Выберите одну из подписок, а затем щелкните "Сертификаты управления". Это новая концепция использования субъектов-служб для новой модели Azure Resource Manager. Продукт SAP CAL еще не адаптирован под эту модель, поэтому запрашивает классическую модель и прежнюю версию портала Azure для работы с сертификатами управления.
+Выберите одну из подписок, а затем щелкните "Сертификаты управления". Это новая концепция использования субъектов-служб для новой модели Azure Resource Manager.
+Продукт SAP CAL еще не адаптирован под эту модель, поэтому запрашивает классическую модель и прежнюю версию портала Azure для работы с сертификатами управления.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic4.jpg)
 
@@ -63,7 +68,8 @@ ms.author: hermannd
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic10.jpg)
 
-После настройки учетной записи выберите решение, которое необходимо развернуть, и создайте экземпляр. В базовом режиме сделать это совсем несложно. Введите имя экземпляра, выберите регион Azure и определите основной пароль для доступа к решению.
+После настройки учетной записи выберите решение, которое необходимо развернуть, и создайте экземпляр.
+В базовом режиме сделать это совсем несложно. Введите имя экземпляра, выберите регион Azure и определите основной пароль для доступа к решению.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic11.jpg)
 
@@ -79,10 +85,16 @@ ms.author: hermannd
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14.jpg)
 
-Теперь можно подключиться к решению с помощью кнопки "Connect" (Подключиться) на портале SAP CAL. В небольшом диалоговом окне содержится ссылка на руководство пользователя, в котором представлены все учетные данные по умолчанию, необходимые для работы с решением. [Вот](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf) ссылка на руководство по решению IDES.
+Теперь можно подключиться к решению с помощью кнопки "Connect" (Подключиться) на портале SAP CAL. В небольшом диалоговом окне содержится ссылка на руководство пользователя, в котором представлены все учетные данные по умолчанию, необходимые для работы с решением.
+[Вот](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf) ссылка на руководство по решению IDES.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
 Другой вариант — войти на виртуальную машину Windows и запустить, например, предварительно настроенный графический пользовательский интерфейс SAP.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

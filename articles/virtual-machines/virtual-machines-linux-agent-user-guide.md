@@ -1,13 +1,13 @@
 ---
-title: Руководство пользователя агента Linux | Microsoft Docs
-description: Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller.
+title: "Руководство пользователя агента Linux | Документация Майкрософт"
+description: "Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+
 
 ---
 # <a name="azure-linux-agent-user-guide"></a>Руководство пользователя агента Linux для Azure
@@ -98,7 +102,7 @@ ms.author: szark
 * Поддержка ядра для монтирования файловых систем UDF.
 
 ## <a name="installation"></a>Установка
-Установка с помощью пакета RPM или DEB из репозитория пакета дистрибутива является предпочтительным способом установки и обновления агента Linux для Azure. Все [поставщики поддерживаемых дистрибутивов](virtual-machines-linux-endorsed-distros.md) встраивают пакет агента Linux для Azure в свои образы и репозитории.
+Установка с помощью пакета RPM или DEB из репозитория пакета дистрибутива является предпочтительным способом установки и обновления агента Linux для Azure. Все [поставщики поддерживаемых дистрибутивов](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) встраивают пакет агента Linux для Azure в свои образы и репозитории.
 
 Дополнительные варианты установки, например установка из источника или установка в пользовательские расположения или префиксы, описаны в документации в [репозитории агента Linux для Azure на Github](https://github.com/Azure/WALinuxAgent).
 
@@ -300,8 +304,11 @@ ms.author: szark
 * См. следующие ресурсы, если вам нужно настроить точку подключения диска ресурсов и пространство подкачки в образах облаков Ubuntu во время подготовки.
   
   * [Вики-сайт по Ubuntu: настройка разделов подкачки](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md)
+  * [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

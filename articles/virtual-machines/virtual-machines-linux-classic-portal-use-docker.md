@@ -1,13 +1,13 @@
 ---
-title: Использование расширения виртуальных машин Docker для Linux | Microsoft Docs
-description: Описывает расширения виртуальных машин Azure и Docker, а также создание виртуальных машин Azure, являющихся узлами Docker, с помощью Azure CLI в классической модели развертывания.
+title: "Использование расширения виртуальных машин Docker для Linux | Документация Майкрософт"
+description: "Описывает расширения виртуальных машин Azure и Docker, а также создание виртуальных машин Azure, являющихся узлами Docker, с помощью Azure CLI в классической модели развертывания."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,32 +15,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51490fa46a1d9c23d73d4071fb900a97327425a8
+
 
 ---
-# Использование расширения виртуальных машин Docker на классическом портале Azure
+# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Использование расширения виртуальных машин Docker на классическом портале Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Вы можете использовать расширение виртуальных машин Docker, управляемое [агентом Linux для Azure], чтобы создать виртуальную машину Docker, в которой будет размещено любое количество контейнеров с приложениями в Azure.
+[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Вы можете использовать расширение виртуальных машин Docker, управляемое [агентом Linux для Azure] , чтобы создать виртуальную машину Docker, в которой будет размещено любое количество контейнеров с приложениями в Azure.
 
 > [!NOTE]
-> В этом разделе описывается создание виртуальной машины Docker на классическом портале Azure. Информацию о создании виртуальной машины Docker с помощью командной строки см. в статье [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)]. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> В этом разделе описывается создание виртуальной машины Docker на классическом портале Azure. Сведения о создании виртуальной машины Docker с помощью командной строки см. в статье [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)]. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
-## Создание новой виртуальной машины в коллекции образов
-На первом этапе необходима виртуальная машина Azure на основе образа Linux, который поддерживает расширение виртуальных машин Docker. Пример образа сервера из коллекции образов — Ubuntu 14.04 LTS, пример образа клиента — Ubuntu 14.04. На портале в нижнем левом углу нажмите кнопку **+ Создать**, чтобы создать новый экземпляр виртуальной машины, и выберите образ Ubuntu 14.04 LTS из доступных вариантов или из полной коллекции образов, как показано ниже.
+## <a name="create-a-new-vm-from-the-image-gallery"></a>Создание новой виртуальной машины в коллекции образов
+На первом этапе необходима виртуальная машина Azure на основе образа Linux, который поддерживает расширение виртуальных машин Docker. Пример образа сервера из коллекции образов — Ubuntu 14.04 LTS, пример образа клиента — Ubuntu 14.04. На портале в нижнем левом углу нажмите кнопку **+ Создать**, чтобы создать экземпляр виртуальной машины, и выберите образ Ubuntu 14.04 LTS из доступных вариантов или из полной коллекции образов, как показано ниже.
 
 > [!NOTE]
-> В настоящее время расширение виртуальных машин Docker поддерживается только в образах Ubuntu 14.04 LTS, созданных позже июля 2014 г.
+> В настоящее время расширение виртуальных машин Docker поддерживается только в образах Ubuntu 14.04 LTS, созданных позже июля 2014 г.
 > 
 > 
 
 ![Создание нового образа Ubuntu](./media/virtual-machines-linux-classic-portal-use-docker/ChooseUbuntu.png)
 
-## Создание сертификатов Docker
-После создания виртуальной машины убедитесь, что Docker установлен на клиентском компьютере. (Подробную информацию см. в разделе [Инструкции по установке Docker](https://docs.docker.com/installation/#installation).)
+## <a name="create-docker-certificates"></a>Создание сертификатов Docker
+После создания виртуальной машины убедитесь, что Docker установлен на клиентском компьютере. (Подробные инструкции по установке Docker см. по [этой ссылке](https://docs.docker.com/installation/#installation)).
 
-Создайте файлы сертификата и ключа для соединения Docker (см. раздел [Работа Docker с https]) и поместите их в каталог **`~/.docker`** на клиентском компьютере.
+Создайте файлы сертификата и ключа для соединения Docker (сведения о запуске Docker с использованием https см. по [этой ссылке]) и поместите их в каталог **`~/.docker`** на клиентском компьютере.
 
 > [!NOTE]
 > В настоящее время для расширения виртуальных машин Docker на портале необходимы учетные данные с кодировкой base64.
@@ -60,7 +64,7 @@ ms.author: rasquill
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## Добавление расширения виртуальных машин Docker
+## <a name="add-the-docker-vm-extension"></a>Добавление расширения виртуальных машин Docker
 Для добавления расширения виртуальных машин Docker найдите созданный экземпляр виртуальной машины и щелкните **Расширения**, чтобы открыть расширения виртуальных машин (см. ниже).
 
 > [!NOTE]
@@ -70,19 +74,19 @@ ms.author: rasquill
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ClickExtensions.png)
 
-### Добавление расширения
-Щелкните **+ Добавить**, чтобы просмотреть расширения, которые можно добавить к этой виртуальной машине.
+### <a name="add-an-extension"></a>Добавление расширения
+Щелкните **+ Добавить** , чтобы просмотреть расширения, которые можно добавить к этой виртуальной машине.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ClickAdd.png)
 
-### Выбор расширения виртуальных машин Docker
+### <a name="select-the-docker-vm-extension"></a>Выбор расширения виртуальных машин Docker
 Выберите расширение виртуальных машин Docker, которое обеспечит описание Docker и важные ссылки, и нажмите кнопку **Создать** внизу, чтобы начать процедуру установки.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ChooseDockerExtension.png)
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/CreateButtonFocus.png)
 
-### Добавление файлов сертификатов и ключей.
+### <a name="add-your-certificate-and-key-files"></a>Добавление файлов сертификатов и ключей.
 В полях формы введите версии сертификата ЦС, сертификата сервера и ключа сервера в кодировке base64, как показано на следующем графике.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddExtensionFormFilled.png)
@@ -92,8 +96,8 @@ ms.author: rasquill
 > 
 > 
 
-## Добавление конечной точки соединения Docker
-При просмотре созданной группы ресурсов выберите группу безопасности сети, связанную с вашей виртуальной машиной, и щелкните **Правила безопасности для входящего трафика**, чтобы просмотреть правила, как показано ниже.
+## <a name="add-the-docker-communication-endpoint"></a>Добавление конечной точки соединения Docker
+При просмотре созданной группы ресурсов выберите группу безопасности сети, связанную с вашей виртуальной машиной, и щелкните **Правила безопасности для входящего трафика** , чтобы просмотреть правила, как показано ниже.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
@@ -101,7 +105,7 @@ ms.author: rasquill
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
-## Тестирование клиента Docker и узла Docker в Azure
+## <a name="test-your-docker-client-and-azure-docker-host"></a>Тестирование клиента Docker и узла Docker в Azure
 Найдите и скопируйте имя домена виртуальной машины, затем в командной строке клиентского компьютера введите `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (замените *dockerextension* поддоменом виртуальной машины).
 
 Результат должен выглядеть следующим образом:
@@ -128,15 +132,15 @@ WARNING: No swap limit support
 После завершения описанных выше действий вы получаете полнофункциональный узел Docker, выполняемый в виртуальной машине Azure и настроенный на удаленное подключение с других клиентов.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Дальнейшие действия
-Переходите к [Руководству пользователя Docker] и использованию виртуальной машины Docker. Если нужно автоматизировать создание узлов Docker на виртуальных машинах Azure через интерфейс командной строки, см. статью [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)].
+## <a name="next-steps"></a>Дальнейшие действия
+Переходите к [руководству пользователя Docker] и использованию виртуальной машины Docker. Если нужно автоматизировать создание узлов Docker на виртуальных машинах Azure через интерфейс командной строки, см. статью [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)].
 
 <!--Anchors-->
-[Create a new VM from the Image Gallery]: #createvm
-[Create Docker Certificates]: #dockercerts
-[Add the Docker VM Extension]: #adddockerextension
-[Test Docker Client and Azure Docker Host]: #testclientandserver
-[Next steps]: #next-steps
+[Создание новой виртуальной машины в коллекции образов]: #createvm
+[Создание сертификатов Docker]: #dockercerts
+[Добавление расширения виртуальных машин Docker]: #adddockerextension
+[Тестирование клиента Docker и узла Docker в Azure]: #testclientandserver
+[Дальнейшие действия]: #next-steps
 
 <!--Image references-->
 [StartingPoint]: ./media/StartingPoint.png
@@ -154,9 +158,13 @@ WARNING: No swap limit support
 <!--Link references-->
 [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [агентом Linux для Azure]: virtual-machines-linux-agent-user-guide.md
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[Ссылка 3 на другой раздел документации на сайте azure.microsoft.com]: ../storage-whatis-account.md
 
-[Работа Docker с https]: http://docs.docker.com/articles/https/
-[Руководству пользователя Docker]: https://docs.docker.com/userguide/
+[этой ссылке]: http://docs.docker.com/articles/https/
+[руководству пользователя Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

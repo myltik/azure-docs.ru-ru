@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
    
     В примере API предоставляются две конечные точки: запрос Get к `/contacts` возвращает список имен и адресов электронной почты в формате JSON, а `/contacts/{id}` — только выбранный контакт.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Формирование (автоматическое) шаблона кода Node.js на основе метаданных Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Формирование (автоматическое) шаблона кода Node.js на основе метаданных Swagger
 [Swagger](http://swagger.io/) — это формат файла для метаданных, описывающих API RESTful. В службу приложений Azure [встроена поддержка метаданных Swagger](app-service-api-metadata.md). В этом разделе руководства моделируется рабочий процесс разработки API, в котором сначала создаются метаданные Swagger, а затем они используются при формировании (автоматическом создании) серверного кода для API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

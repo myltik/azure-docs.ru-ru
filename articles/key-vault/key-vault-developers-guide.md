@@ -1,12 +1,12 @@
 ---
-title: Руководство разработчика хранилища ключей | Microsoft Docs
-description: 'Разработчики могут использовать хранилище ключей Azure для управления криптографическими ключами в среде Microsoft Azure. '
+title: "Руководство разработчика хранилища ключей | Документация Майкрософт"
+description: "Разработчики могут использовать хранилище ключей Azure для управления криптографическими ключами в среде Microsoft Azure. "
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
-
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2016
 ms.author: bruceper
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b4664cdfebad63307c0e964527fc5ecf6500348
+
 
 ---
-# <a name="azure-key-vault-developer's-guide"></a>Руководство разработчика хранилища ключей Azure
+# <a name="azure-key-vault-developers-guide"></a>Руководство разработчика хранилища ключей Azure
 С помощью хранилища ключей можно выполнять безопасный доступ к конфиденциальной информации из приложений и обеспечивать при этом выполнение следующих условий:
 
 * Ключи и секреты будут защищены без необходимости написания кода. Вы сможете легко использовать их в своих приложениях.
@@ -102,6 +106,9 @@ ms.author: bruceper
 * [Блог хранилища ключей](http://aka.ms/kvblog)
 * [Форум хранилища ключей](http://aka.ms/kvforum)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

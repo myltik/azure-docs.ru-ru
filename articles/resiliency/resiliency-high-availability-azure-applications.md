@@ -1,12 +1,12 @@
 ---
-title: Обеспечение высокой доступности для приложений на платформе Azure | Microsoft Docs
-description: Технический обзор и подробные сведения о проектировании и разработке приложений c высоким уровнем доступности на платформе Microsoft Azure.
-services: ''
+title: "Обеспечение высокой доступности для приложений Azure | Документация Майкрософт"
+description: "Технический обзор и подробные сведения о проектировании и разработке приложений c высоким уровнем доступности на платформе Microsoft Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7289c969184b518a6ff836cbb9ed7e20841206b
+
 
 ---
 # <a name="high-availability-for-applications-built-on-microsoft-azure"></a>Обеспечение высокой доступности для приложений на платформе Microsoft Azure
@@ -134,6 +138,9 @@ Transient Fault Handling Application Block предоставляет легки
 ## <a name="next-steps"></a>Дальнейшие действия
 Эта статья входит в серию статей, посвященных [аварийному восстановлению и высокой доступности для приложений на платформе Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). Следующая статья в этой серии — [Аварийное восстановление для приложений на платформе Microsoft Azure](resiliency-disaster-recovery-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

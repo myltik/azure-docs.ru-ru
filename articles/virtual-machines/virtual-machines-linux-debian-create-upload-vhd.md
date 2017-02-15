@@ -1,13 +1,13 @@
 ---
-title: Подготовка виртуального жесткого диска Debian Linux | Microsoft Docs
-description: Дополнительные сведения о создании VHD-файлов Debian 7 и 8 для развертывания в Azure.
+title: "Подготовка виртуального жесткого диска Debian Linux | Документация Майкрософт"
+description: "Дополнительные сведения о создании VHD-файлов Debian 7 и 8 для развертывания в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: e96a2beccf48c8bfd08d0c7ae111219fd4269fcc
+
 
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Подготовка виртуального жесткого диска Debian для Azure
@@ -24,12 +28,12 @@ ms.author: szark
 ## <a name="installation-notes"></a>Замечания по установке
 * Дополнительные сведения о подготовке Linux для Azure см. в разделе [Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes).
 * Более новый формат VHDX не поддерживается в Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета **convert-vhd** .
-* При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. Для дисков данных можно использовать [LVM](virtual-machines-linux-configure-lvm.md) или [RAID](virtual-machines-linux-configure-raid.md).
+* При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. Для дисков данных можно использовать [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для Azure для создания файла подкачки на временном диске ресурсов. Дополнительные сведения описаны далее.
 * Все VHD-диски должны иметь размер, кратный 1 МБ.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Создание виртуальных жестких дисков Debian с помощью Azure-Manage
-Создавать виртуальные жесткие диски Debian для Azure можно с помощью сценариев [azure-manage](https://github.com/credativ/azure-manage) от компании [credativ](http://www.credativ.com/). Рекомендуется использовать их, а не создавать образ с нуля. Например, чтобы создать виртуальный жесткий диск Debian 8, выполните следующие команды для скачивания azure-manage (и зависимостей) и выполнения скрипта azure_build_image:
+Создавать виртуальные жесткие диски Debian для Azure можно с помощью сценариев [azure-manage](https://github.com/credativ/azure-manage) от компании [credativ](http://www.credativ.com/). Рекомендуется использовать их, а не создавать образ с нуля. Например, чтобы создать виртуальный жесткий диск Debian 8, выполните следующие команды для скачивания azure-manage (и зависимостей) и выполнения скрипта azure_build_image:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap
@@ -53,16 +57,16 @@ ms.author: szark
 5. Перестройте grub и выполните команду:
    
         # sudo update-grub
-6. Добавьте репозитории Azure Debian в файл /etc/apt/sources.list для Debian 7 или 8.
+6. Добавьте репозитории Azure Debian в файл /etc/apt/sources.list для Debian 7 или 8.
    
-    **Debian 7.x "Wheezy"**
+    **Debian 7.x "Wheezy"**
    
         deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
         deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
         deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
         deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
-    **Debian 8.x "Jessie"**
+    **Debian 8.x "Jessie"**
 
         deb http://debian-archive.trafficmanager.net/debian jessie-backports main
         deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
@@ -74,7 +78,7 @@ ms.author: szark
    
         # sudo apt-get update
         # sudo apt-get install waagent
-2. Для Debian 7 необходимо запустить ядро на основе версии 3.16 из репозитория wheezy-backports. Сначала создайте файл с именем /etc/apt/preferences.d/linux.pref со следующим содержимым:
+2. Для Debian 7 необходимо запустить ядро на основе версии 3.16 из репозитория wheezy-backports. Сначала создайте файл с именем /etc/apt/preferences.d/linux.pref со следующим содержимым:
    
         Package: linux-image-amd64 initramfs-tools
         Pin: release n=wheezy-backports
@@ -89,8 +93,11 @@ ms.author: szark
 4. В диспетчере Hyper-V выберите **Действие** -> Завершение работы. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы загружаете VHD-файл в Azure впервые, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы загружаете VHD-файл в Azure впервые, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,192 +1,208 @@
 ---
-title: Запись образа виртуальной машины Linux для его использования в качестве шаблона | Microsoft Docs
-description: Узнайте, как записать и подготовить образ виртуальной машины Azure под управлением Linux, созданной посредством модели развертывания с помощью Azure Resource Manager.
+title: "Запись образа виртуальной машины Linux для его использования в качестве шаблона | Документация Майкрософт"
+description: "Узнайте, как записать и подготовить образ виртуальной машины Azure под управлением Linux, созданной посредством модели развертывания с помощью Azure Resource Manager."
 services: virtual-machines-linux
-documentationcenter: ''
-author: dlepow
+documentationcenter: 
+author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: danlep
+ms.date: 10/25/2016
+ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 93119596f5a9fb3b6cf405f6de5d2ecccd45f298
+
 
 ---
-# Как записать образ виртуальной машины Linux для его использования в качестве шаблона диспетчера ресурсов
-Используйте интерфейс командной строки Azure (Azure CLI) для записи и подготовке к использованию виртуальной машины Azure под управлением Linux. После этого ее можно будет использовать как шаблон Azure Resource Manager, чтобы создавать другие виртуальные машины. В шаблоне указаны диск операционной системы и диски с данными, присоединенные к виртуальной машине. Он не включает в себя ресурсы виртуальной сети, необходимые для создания виртуальной машины Azure Resource Manager. Поэтому обычно их нужно настраивать отдельно перед созданием очередной виртуальной машины, которая использует шаблон.
+# <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Запись виртуальной машины Linux, работающей в Azure
+Выполните инструкции в этой статье, чтобы подготовить и записать образ виртуального компьютера Linux для Azure в рамках модели развертывания с помощью Resource Manager. При подготовке к использованию виртуальной машины удаляются личные сведения учетных записей и виртуальная машина подготавливается к использованию в качестве образа. После этого можно записать универсальный образ виртуального жесткого диска (VHD) для операционной системы, виртуальные жесткие диски для подключенных дисков данных и [шаблон Resource Manager](../azure-resource-manager/resource-group-overview.md) для развертывания новой виртуальной машины. 
+
+Для создания виртуальных машин с помощью образа следует настроить сетевые ресурсы для каждой новой виртуальной машины и развернуть ее посредством записанных образов VHD, воспользовавшись шаблоном (файлом нотаций объектов JavaScript, т. е. JSON-файлом). Таким образом можно реплицировать виртуальную машину и ее текущую конфигурацию программного обеспечения точно так же, как вы используете образы из Azure Marketplace.
 
 > [!TIP]
-> Если вы заинтересованы в создании пользовательского образа виртуальной машины Linux и его передаче в Azure для последующего создания виртуальных машин, ознакомьтесь с разделом [Передача пользовательского образа диска и создание виртуальной машины на его основе](virtual-machines-linux-upload-vhd.md).
-> 
-> 
+> Если вы хотите создать копию существующей виртуальной машины Linux в конкретном состоянии в целях архивации или отладки, ознакомьтесь с разделом [Создание копии виртуальной машины Linux, работающей в Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). А если вам требуется передать виртуальный жесткий диск Linux локальной виртуальной машины, ознакомьтесь с разделом [Передача пользовательского образа диска и создание виртуальной машины Linux на его основе](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## Перед началом работы
-Эти инструкции предполагают, что вы уже создали виртуальную машину Azure в модели развертывания Resource Manager и настроили операционную систему, в частности, подключили диски данных и установили приложения. Настроить виртуальную машину можно сделать несколькими способами, в том числе с помощью Azure CLI. Если это еще не сделано, см. инструкции по использованию Azure CLI в режиме диспетчера ресурсов Azure:
+## <a name="before-you-begin"></a>Перед началом работы
+Необходимо выполнить следующие условия.
 
-* [Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки](virtual-machines-linux-quick-create-cli.md)
-* [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md)
+* **Виртуальная машина Azure, созданная в рамках модели развертывания с помощью Resource Manager**. Если вы еще не создали виртуальную машину Linux, для этого можно использовать [портал](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [интерфейс командной строки Azure (Azure CLI)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [шаблоны Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+  
+    Настройте виртуальную машину согласно своим требованиям. Например, [добавьте диски данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), примените обновления и установите приложения. 
+* **Azure CLI**. Установите [Azure CLI](../xplat-cli-install.md) на локальном компьютере.
 
-Например, создайте в центральной части США группу ресурсов с именем *MyResourceGroup*. Затем с помощью команды **azure vm quick-create** разверните в этой группе виртуальную машину под управлением Ubuntu 14.04 LTS.
+## <a name="step-1-remove-the-azure-linux-agent"></a>Шаг 1. Удалите агент Linux для Azure
+Сначала на виртуальной машине Linux выполните команду **waagent** с параметром **deprovision**. Эта команда удаляет файлы и данные перед подготовкой виртуальной машины к использованию. Дополнительные сведения см. в [руководстве пользователя агента Linux для Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-     azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
-
-Когда подготовленная виртуальная машина запустится, может потребоваться [присоединить и подключить диск данных](virtual-machines-linux-add-disk.md).
-
-## Запись образа виртуальной машины
-1. Чтобы записать образ виртуальной машины, подключитесь к ней с помощью SSH-клиента.
-2. В окне SSH введите следующую команду. Выходные данные служебной программы **waagent** могут незначительно различаться в зависимости от ее версии.
+1. Подключитесь к виртуальной машине Linux c помощью клиента SSH.
+2. В окне сеанса SSH введите следующую команду.
    
-    `sudo waagent -deprovision+user`
-   
-    Эта команда пытается очистить систему и сделать ее пригодной для повторной подготовки. В ходе операции выполняются такие задачи:
-   
-   * удаляются ключи узла SSH (если в файле конфигурации для Provisioning.RegenerateSshHostKeyPair указано значение «y»);
-   * очищается конфигурация имени сервера в /etc/resolvconf;
-   * удаляется пароль пользователя `root` из /etc/shadow (если в файле конфигурации для Provisioning.DeleteRootPassword указано значение «y»);
-   * удаляются кэшированные аренды DHCP-клиентов.
-   * возвращается имя узла localhost.localdomain;
-   * удаляется последняя подготовленная учетная запись пользователя (полученная из /var/lib/waagent) и связанные с ней данные.
-     
-     > [!NOTE]
-     > Процедура отзыва приводит к удалению файлов и данных, так как образ подготавливается к использованию. Эту команду следует выполнять только на той виртуальной машине, образ которой вы хотите записать. Отзыв не гарантирует, что из образа будет удалена вся конфиденциальная информация и что он будет готов к повторному распространению третьим сторонам.
-     > 
-     > 
-3. Чтобы продолжить, введите **y**. Чтобы запрос на подтверждение не появлялся, добавьте параметр **-force**.
-4. Введите **exit**, чтобы закрыть SSH-клиент.
-   
+    ```bash
+    sudo waagent -deprovision+user
+    ```
    > [!NOTE]
-   > Далее предполагается, что вы уже [установили Azure CLI](../xplat-cli-install.md) на клиентском компьютере.
-   > 
-   > 
-5. На клиентском компьютере откройте Azure CLI и войдите в свою подписку Azure. Дополнительные сведения см. в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure](../xplat-cli-connect.md).
-6. Активируйте режим диспетчера ресурсов:
+   > Эту команду следует выполнять только на той виртуальной машине, образ которой вы хотите записать. Она не гарантирует, что из образа будет удалена вся конфиденциальная информация и что он будет готов к повторному распространению.
+ 
+3. Чтобы продолжить, введите **y** . Чтобы запрос на подтверждение не появлялся, добавьте параметр **-force** .
+4. После выполнения команды введите **exit**. Клиент SSH будет закрыт.
+
+## <a name="step-2-capture-the-vm"></a>Шаг 2. Запись виртуальной машины
+Используйте Azure CLI для подготовки и записи виртуальной машины. В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: **myResourceGroup**, **myVnet** и **myVM**.
+
+1. На локальном компьютере откройте Azure CLI и [войдите в свою подписку Azure](../xplat-cli-connect.md). 
+2. Убедитесь, что режим Resource Manager включен.
    
-    .`azure config mode arm`
-7. Остановите отозванную виртуальную машину с помощью следующей команды.
+    ```azurecli
+    azure config mode arm
+    ```
+3. Завершите работу отозванной виртуальной машины с помощью следующей команды.
    
-    .`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
-8. Обобщите виртуальную машину:
+    ```azurecli
+    azure vm deallocate -g myResourceGroup -n myVM
+    ```
+4. Обобщите виртуальную машину:
    
-    `azure vm generalize -g <your-resource-group-name> -n <your-virtual-machine-name>`
-9. Теперь запишите образ и шаблон локального файла:
+    ```azurecli
+    azure vm generalize -g myResourceGroup -n myVM
+    ```
+5. Теперь выполните команду **azure vm capture**, которая записывает виртуальную машину. В следующем примере виртуальные жесткие диски образа записываются с именами, которые начинаются с **MyVHDNamePrefix**, а параметр **-t** указывает путь к шаблону **MyTemplate.json**. 
    
-    `azure vm capture <your-resource-group-name>  <your-virtual-machine-name> <your-vhd-name-prefix> -t <path-to-your-template-file-name.json>`
+    ```azurecli
+    azure vm capture -g myResourceGroup -n myVM -p myVHDNamePrefix -t myTemplate.json
+    ```
    
-    Эта команда создает обобщенный образ операционной системы, используя префикс имени VHD, указанный для дисков виртуальной машины. По умолчанию VHD-файлы образа создаются в учетной записи хранения, которую использует исходная виртуальная машина. (Виртуальные жесткие диски создаваемых из образа виртуальных машин будут храниться в той же учетной записи.) Параметр **-t** создает локальный шаблона JSON-файла, с помощью которого из образа можно создать новую виртуальную машину.
+   > [!IMPORTANT]
+   > По умолчанию VHD-файлы образа создаются в учетной записи хранения, которую использует исходная виртуальная машина. Для хранения виртуальных жестких дисков для любых новых виртуальных машин, создаваемых из образа, используйте ту же *учетную запись хранения*. 
 
-> [!TIP]
-> Чтобы найти расположение образа, откройте шаблон JSON-файла. В разделе **storageProfile** в контейнере **system** найдите **URI** **образа**. Например, URI для образа диска ОС может выглядеть так: `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-vhd-name-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
-> 
-> 
+6. Чтобы найти расположение записанного образа, откройте шаблон JSON в текстовом редакторе. В разделе **storageProfile** в контейнере **system** найдите **универсальный код ресурса (URI)** **образа**. Например, универсальный код ресурса (URI) для образа диска ОС может выглядеть так: `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
-## Развертывание новой виртуальной машины из записанного образа
-Теперь с помощью образа и шаблона мы создадим виртуальную машину под управлением Linux. Мы покажем, как можно создать виртуальную машину в новой виртуальной сети, используя Azure CLI и шаблон JSON-файла, созданного с помощью команды `azure vm capture`.
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Шаг 3. Создание виртуальной машины из записанного образа
+Теперь с помощью образа и шаблона мы создадим виртуальную машину под управлением Linux. Ниже описывается, как можно создать виртуальную машину в новой виртуальной сети, используя Azure CLI и записанный JSON-файл шаблона.
 
-### Создание сетевых ресурсов
-Чтобы использовать шаблон, для новой виртуальной машины сначала необходимо настроить виртуальную сеть и сетевую карту. Мы рекомендуем создать новую группу ресурсов для этих ресурсов в расположении, в котором хранится образ виртуальной машины. Выполните приведенные ниже команды, подставив нужные имена ресурсов и указав соответствующий регион Azure (вместе centralus).
+### <a name="create-network-resources"></a>Создание сетевых ресурсов
+Чтобы использовать шаблон, для новой виртуальной машины сначала необходимо настроить виртуальную сеть и сетевую карту. Мы рекомендуем создать группу ресурсов для этих ресурсов в расположении, в котором хранится образ виртуальной машины. Выполните приведенные ниже команды, подставив нужные имена ресурсов и указав соответствующий регион Azure (вместе centralus).
 
-    azure group create <your-new-resource-group-name> -l "centralus"
+```azurecli
+azure group create myResourceGroup1 -l "centralus"
 
-    azure network vnet create <your-new-resource-group-name> <your-vnet-name> -l "centralus"
+azure network vnet create myResourceGroup1 myVnet -l "centralus"
 
-    azure network vnet subnet create <your-new-resource-group-name> <your-vnet-name> <your-subnet-name>
+azure network vnet subnet create myResourceGroup1 myVnet mySubnet
 
-    azure network public-ip create <your-new-resource-group-name> <your-ip-name> -l "centralus"
+azure network public-ip create myResourceGroup1 myPublicIP -l "centralus"
 
-    azure network nic create <your-new-resource-group-name> <your-nic-name> -k <your-subnetname> -m <your-vnet-name> -p <your-ip-name> -l "centralus"
+azure network nic create myResourceGroup1 myNIC -k mySubnet -m myVnet -p myPublicIP -l "centralus"
+```
 
-Чтобы развернуть виртуальную машину из образа, используя JSON-файл, который был сохранен во время записи образа, вам потребуется идентификатор сетевого адаптера. Получить идентификатор можно с помощью следующей команды:
+### <a name="get-the-id-of-the-nic"></a>Получение идентификатора сетевой карты
+Чтобы развернуть виртуальную машину из образа, используя JSON-файл, который был сохранен во время записи образа, требуется идентификатор сетевой карты. Получить идентификатор можно с помощью следующей команды.
 
-    azure network nic show <your-new-resource-group-name> <your-nic-name>
+```azurecli
+azure network nic show myResourceGroup1 myNIC
+```
 
-В выходных данных **идентификатор** будет строкой следующего вида.
+Значение **Id** в выходных данных имеет следующий вид: `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`.
 
-    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/Microsoft.Network/networkInterfaces/<your-nic-name>
+### <a name="create-a-vm"></a>Создание виртуальной машины
+Теперь из записанного образа создайте виртуальную машину. Для этого выполните следующую команду. Используйте параметр **-f**, чтобы указать путь к сохраненному JSON-файлу шаблона.
 
+```azurecli
+azure group deployment create myResourceGroup1 MyDeployment -f MyTemplate.json
+```
 
+После вывода результатов команды вам будет предложено указать имя виртуальной машины, имя и пароль администратора, а также идентификатор созданной ранее сетевой карты.
 
-### Создание развертывания
-Теперь из образа и сохраненного шаблона JSON-файла создайте виртуальную машину. Для этого выполните следующую команду:
+```bash
+info:    Executing command group deployment create
+info:    Supply values for the following parameters
+vmName: myNewVM
+adminUserName: myAdminuser
+adminPassword: ********
+networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
+```
 
-    azure group deployment create <your-new-resource-group-name> <your-new-deployment-name> -f <path-to-your-template-file-name.json>
+Ниже приведен пример вывода на экран при успешном развертывании.
 
-Вам будет предложено указать имя виртуальной машины, имя и пароль администратора, а также идентификатор созданного ранее сетевого адаптера.
+```bash
++ Initializing template configurations and parameters
++ Creating a deployment
+info:    Created template deployment xxxxxxx
++ Waiting for deployment to complete
+data:    DeploymentName     : MyDeployment
+data:    ResourceGroupName  : MyResourceGroup1
+data:    ProvisioningState  : Succeeded
+data:    Timestamp          : xxxxxxx
+data:    Mode               : Incremental
+data:    Name                Type          Value
 
-    info:    Executing command group deployment create
-    info:    Supply values for the following parameters
-    vmName: mynewvm
-    adminUserName: myadminuser
-    adminPassword: ********
-    networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
+data:    ------------------  ------------  -------------------------------------
 
-Если развертывание пройдет успешно, вы увидите примерно такой результат:
+data:    vmName              String        myNewVM
 
-    + Initializing template configurations and parameters
-    + Creating a deployment
-    info:    Created template deployment "dlnewdeploy"
-    + Waiting for deployment to complete
-    data:    DeploymentName     : mynewdeploy
-    data:    ResourceGroupName  : mynewrg
-    data:    ProvisioningState  : Succeeded
-    data:    Timestamp          : 2015-10-29T16:35:47.3419991Z
-    data:    Mode               : Incremental
-    data:    Name                Type          Value
+data:    vmSize              String        Standard_D1
 
+data:    adminUserName       String        myAdminuser
 
-    data:    ------------------  ------------  -------------------------------------
+data:    adminPassword       SecureString  undefined
 
-    data:    vmName              String        mynewvm
+data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
+info:    group deployment create command OK
+```
 
-
-    data:    vmSize              String        Standard_D1
-
-
-    data:    adminUserName       String        myadminuser
-
-
-    data:    adminPassword       SecureString  undefined
-
-
-    data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
-    info:    group deployment create command OK
-
-### Проверка развертывания
+### <a name="verify-the-deployment"></a>Проверка развертывания
 Чтобы проверить развертывание и начать использовать новую виртуальную машину, подключитесь к ней с помощью SSH-клиента. Для этого сначала определите IP-адрес созданной виртуальной машины:
 
-    azure network public-ip show <your-new-resource-group-name> <your-ip-name>
+```azurecli
+azure network public-ip show myResourceGroup1 myPublicIP
+```
 
 Команда возвращает общедоступный IP-адрес. По умолчанию подключение к виртуальной машине Linux по протоколу SSH выполняется через порт 22.
 
-## Создание дополнительных виртуальных машин с помощью шаблона
-Развертывание дополнительных виртуальных машин с использованием записанного образа и шаблона выполняется так же, как описано в предыдущем разделе.
+## <a name="create-additional-vms"></a>Создание дополнительных виртуальных машин
+Развертывание дополнительных виртуальных машин с использованием записанного образа и шаблона выполняется так же, как описано в предыдущем разделе. Кроме того, для создания виртуальных машин из образа можно использовать шаблон быстрого запуска или команду **azure vm create**.
 
-* Образ виртуальной машины должен храниться в той же учетной записи хранения, в которой будет размещен виртуальный жесткий диск виртуальной машины.
-* Скопируйте шаблон JSON-файла и введите уникальное значение для **URI** каждого виртуального жесткого диска виртуальной машины.
+### <a name="use-the-captured-template"></a>Использование записанного шаблона
+Чтобы использовать записанные образ и шаблон, выполните приведенные ниже действия (которые подробно описаны в предыдущем разделе).
+
+* Убедитесь, что образ виртуальной машины хранится в той же учетной записи хранения, в которой размещен виртуальный жесткий диск виртуальной машины.
+* Скопируйте JSON-файл шаблона и укажите уникальное имя для виртуального жесткого диска (или дисков) ОС новой виртуальной машины. Например, в разделе **storageProfile** в подразделе **vhd** в элементе **uri** укажите уникальное имя виртуального жесткого диска **osDisk**. Пример: `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 * Создайте сетевую карту в той же или другой виртуальной сети.
-* С помощью измененного шаблона JSON-файла создайте развертывание в группе ресурсов, в которой вы настраиваете виртуальную сеть.
+* С помощью измененного JSON-файла шаблона создайте развертывание в группе ресурсов, в которой вы настраиваете виртуальную сеть.
 
-Если вы хотите, чтобы сеть настроилась автоматически при создании виртуальной машины из образа, используйте [шаблон 101-vm-from-user-image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) с сайта GitHub. Этот шаблон создает не только виртуальную машину из пользовательского образа, но и необходимую виртуальную сеть, общедоступный IP-адрес и сетевые ресурсы. Пошаговые инструкции по использованию шаблона на портале Azure см. в статье [How to create a virtual machine from a custom image using a ARM template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/) (Как создать виртуальную машину из пользовательского образа с помощью шаблона ARM).
+### <a name="use-a-quickstart-template"></a>Использование шаблона быстрого запуска
+Если вы хотите, чтобы параметры сети настроились автоматически при создании виртуальной машины из образа, то можете указать ее ресурсы в шаблоне. Для примера можно ознакомиться с шаблоном [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) с сайта GitHub. Этот шаблон создает не только виртуальную машину из пользовательского образа, но и необходимую виртуальную сеть, общедоступный IP-адрес и сетевые ресурсы. Пошаговые инструкции по использованию шаблона на портале Azure см. в статье [How to create a virtual machine from a custom image using a ARM template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/) (Как создать виртуальную машину из пользовательского образа с помощью шаблона ARM).
 
-## Команда azure vm create
-Обычно шаблон диспетчера ресурсов используют для создания виртуальной машины из образа. Однако виртуальную машину можно создать и *принудительно* — с помощью команды **azure vm create** с параметром **-Q** (**--image-urn**). В случае использования данного метода также передается параметр **-d** (**--os-disk-vhd**), чтобы указать расположение VHD-файла операционной системы для новой виртуальной машины. Он должен находиться в контейнере виртуальных жестких дисков учетной записи хранения, где хранится VHD-файл образа. Эта команда автоматически копирует VHD для новой виртуальной машины в контейнер виртуальных жестких дисков.
+### <a name="use-the-azure-vm-create-command"></a>Команда azure vm create
+Обычно для создания виртуальной машины из образа проще всего использовать шаблон Resource Manager. Однако виртуальную машину можно создать и *по запросу* — с помощью команды **azure vm create** с параметром **-Q** (**--image-urn**). В случае использования данного метода также передается параметр **-d** (**--os-disk-vhd**), чтобы указать расположение VHD-файла операционной системы для новой виртуальной машины. Этот файл должен находиться в контейнере виртуальных жестких дисков учетной записи хранения, где хранится VHD-файл образа. Эта команда автоматически копирует виртуальный жесткий диск для новой виртуальной машины в контейнер **vhds**.
 
-Прежде чем пытаться создать виртуальную машину из образа с помощью команды **azure vm create**, сделайте вот что:
+Прежде чем создать виртуальную машину из образа с помощью команды **azure vm create**, выполните следующее.
 
 1. Создайте для развертывания группу ресурсов или укажите существующую.
-2. Создайте для новой виртуальной машины общедоступный IP-адрес и сетевой адаптер. Процедура создания виртуальной сети, общедоступного IP-адреса и сетевого адаптера с помощью интерфейса командной строки описана выше в этой статье. (Команда **azure vm create** может создать также и сетевую карту, но для этого потребуется указать дополнительные параметры виртуальной сети и подсети.)
+2. Создайте для новой виртуальной машины общедоступный IP-адрес и сетевой адаптер. Процедура создания виртуальной сети, общедоступного IP-адреса и сетевого адаптера с помощью интерфейса командной строки описана выше в этой статье. (Команда**azure vm create** может также создать и сетевую карту, но для этого потребуется указать дополнительные параметры виртуальной сети и подсети.)
 
-Затем выполните команду, подобную указанной далее, передав URI в новый VHD-файл операционной системы и в существующий образ.
+Затем выполните команду, которая передает универсальный код ресурса (URI) в новый VHD-файл операционной системы и в существующий образ. В этом примере создается виртуальная машина размера Standard_A1 в региона "восточная часть США".
 
-    azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
+```azurecli
+azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
+-z Standard_A1 -u myAdminname -p myPassword -f myNIC \
+-d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix.vhd" \
+-Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.vhd"
+```
 
 Чтобы получить информацию о дополнительных параметрах команды, выполните команду `azure help vm create`.
 
-## Дальнейшие действия
-Сведения об управлении виртуальными машинами с помощью интерфейса командной строки см. в статье [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Для управления виртуальными машинами с помощью интерфейса командной строки ознакомьтесь с задачами, описанными в статье [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

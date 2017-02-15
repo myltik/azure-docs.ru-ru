@@ -1,12 +1,12 @@
 ---
-title: Создание веб-приложения Hello World для Azure в Eclipse | Microsoft Docs
-description: В этом учебнике показано, как с помощью набора средств Azure для Eclipse создать веб-приложение Hello World для Azure.
+title: "Создание веб-приложения Hello World для Azure в Eclipse | Документация Майкрософт"
+description: "В этом учебнике показано, как с помощью набора средств Azure для Eclipse создать веб-приложение Hello World для Azure."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+
 
 ---
 # <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Создание веб-приложения Hello World для Azure в Eclipse
@@ -33,7 +37,7 @@ ms.author: robmcm
 ## <a name="to-create-a-hello-world-application"></a>Создание приложения Hello World
 Сначала необходимо создать проект Java.
 
-1. Запустите Eclipse и в меню **Файл** щелкните **Создать**, а затем — **Dynamic Web Project** (Динамический веб-проект). (Если элемента **Динамический веб-проект** нет в списке доступных проектов после выбора пунктов **Файл** и **Создать**, сделайте следующее: последовательно щелкните **Файл**, **Создать**, **Проект...**, разверните узел **Интернет**, щелкните **Dynamic Web Project** (Динамический веб-проект) и нажмите кнопку **Далее**.)
+1. Запустите Eclipse и в меню **Файл** щелкните **Создать**, а затем — **Dynamic Web Project** (Динамический веб-проект). (Если элемента **Динамический веб-проект** нет в списке доступных проектов после выбора пунктов **Файл** и **Создать**, сделайте следующее: последовательно щелкните **Файл**, **Создать**, **Проект...**, разверните узел **Интернет**, щелкните **Dynamic Web Project** (Динамический веб-проект) и нажмите кнопку **Далее**.)
 2. Для целей данного учебника присвойте проекту имя **MyWebApp**. Экран будет выглядеть следующим образом:
    
     ![Создание динамического веб-проекта][02]
@@ -161,7 +165,7 @@ ms.author: robmcm
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
-* [Набор средств Azure для Eclipse]
+* [средств Azure для Eclipse]
   * [Установка набора средств Azure для Eclipse]
   * *Создание веб-приложения Hello World для Azure в Eclipse (в этой статье)*
   * [Новые возможности набора средств Azure для Eclipse]
@@ -178,7 +182,7 @@ ms.author: robmcm
 
 <!-- URL List -->
 
-[Набор средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
+[средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
 [Набор средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
@@ -211,6 +215,6 @@ ms.author: robmcm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

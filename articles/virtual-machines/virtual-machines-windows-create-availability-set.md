@@ -1,14 +1,14 @@
 ---
-title: Создание группы доступности виртуальных машин | Microsoft Docs
-description: Узнайте, как создать группу доступности для виртуальных машин, используя портал Azure или PowerShell с использованием модели развертывания с помощью Resource Manager.
-keywords: группа доступности
+title: "Создание группы доступности виртуальных машин | Документация Майкрософт"
+description: "Узнайте, как создать группу доступности для виртуальных машин, используя портал Azure или PowerShell с использованием модели развертывания с помощью Resource Manager."
+keywords: "группа доступности"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a3db8659-ace8-4e78-8b8c-1e75c04c042c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+
 
 ---
 # <a name="create-an-availability-set"></a>"Создать группу доступности"
 Если при работе на портале вы хотите, чтобы виртуальная машина входила в группу доступности, сначала создайте группу доступности.
 
-Дополнительную сведения о создании и использовании групп доступности см. в статье [Управление доступностью виртуальных машин](virtual-machines-windows-manage-availability.md).
+Дополнительную сведения о создании и использовании групп доступности см. в статье [Управление доступностью виртуальных машин](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>Создание группы доступности с помощью портала перед созданием виртуальных машин
 1. В главном меню щелкните **Обзор** и выберите **Группы доступности**.
@@ -61,8 +65,11 @@ ms.author: cynthn
 * Если при создании виртуальной машины необходимая вам группа доступности отсутствует в раскрывающемся списке на портале, возможно, она была создана в другой группе ресурсов. Если вы не знаете, к какой группе ресурсов относится группа доступности, перейдите в главное меню и щелкните "Обзор" > "Группы доступности", чтобы просмотреть список групп доступности и соответствующие им группы ресурсов.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](virtual-machines-windows-attach-disk-portal.md).
+Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

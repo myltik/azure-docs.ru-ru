@@ -1,101 +1,108 @@
 ---
-title: Service Bus messaging samples overview | Microsoft Docs
-description: Categorizes and describes Service Bus messaging samples with links to each.
-services: service-bus
+title: "Обзор примеров обмена сообщениями с помощью служебной шины | Документация Майкрософт"
+description: "Классификация и описание примеров обмена сообщениями с помощью служебной шины со ссылками."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 719403ca2ef90cdcf5f76fe15f7a33095e71a74c
+
 
 ---
-# <a name="service-bus-messaging-samples"></a>Service Bus messaging samples
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
+# <a name="service-bus-messaging-samples"></a>Примеры обмена сообщениями с помощью служебной шины
+В этих примерах демонстрируются ключевые возможности [обмена сообщениями с помощью служебной шины](https://azure.microsoft.com/services/service-bus/) (облачной службы) и [служебной шины для Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). В этой статье приведены категории примеров с описаниями и ссылками.
 
 > [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Примеры служебной шины не устанавливаются вместе с пакетом SDK. Примеры доступны на [странице примеров пакета SDK для Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Additionally, there is an updated set of Service Bus messaging samples [here](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (as of this writing, they are not described in this article).  
+> Обновленный набор примеров обмена сообщениями с помощью служебной шины см. [здесь](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (на момент написания этой статьи они в ней не описаны).  
 > 
 > 
 
-For relay samples, see [Service Bus relay samples](../service-bus-relay/service-bus-relay-samples.md).
+Примеры ретранслятора служебной шины см. [в этой статье](../service-bus-relay/service-bus-relay-samples.md).
 
-## <a name="service-bus-messaging"></a>Service Bus messaging
-The following samples illustrate how to write applications that use Service Bus messaging.
+## <a name="service-bus-messaging"></a>Обмен сообщениями через служебную шину
+В следующем примере показывается, как писать приложения, использующие обмен сообщениями через служебную шину.
 
-Note that the messaging samples require a connection string to access your Service Bus namespace.
+Обратите внимание, что для примеров обмена сообщениями необходима строка подключения для доступа к пространству имен служебной шины.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>To obtain a connection string for Azure Service Bus
-1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
-4. In the namespace blade, click **Shared access policies**.
-5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
-6. Copy the connection string to the clipboard.
+### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Получение строки подключения для служебной шины Azure
+1. Войдите на [портал Azure](http://portal.azure.com).
+2. В столбце слева щелкните **Служебная шина**.
+3. В списке щелкните имя пространства имен.
+4. В колонке пространства имен щелкните **Политики общего доступа**.
+5. В колонке **Политики общего доступа** щелкните **RootManageSharedAccessKey**.
+6. Скопируйте строку подключения в буфер обмена.
 
-### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>To obtain a connection string for Service Bus for Windows Server
-1. Run the following PowerShell cmdlet:
+### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Получение строки подключения для служебной шины Windows Server
+1. Выполните такой командлет PowerShell:
    
     ```
     get-sbClientConfiguration
     ```
-2. Paste the connection string into the App.config file for the sample.
+2. Вставьте строку подключения в файл App.config примера.
 
-### <a name="getting-started-samples"></a>Getting started samples
-These samples describe basic messaging functionality.
+### <a name="getting-started-samples"></a>Приступая к работе: примеры
+В этих примерах описываются основные функции обмена сообщениями.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Имя примера | Описание | Минимальная версия пакета SDK | Доступность |
 | --- | --- | --- | --- |
-| [Getting Started: Messaging with Queues](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Getting Started: Messaging With Topics](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a topic with multiple subscriptions. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
+| [Приступая к работе: обмен сообщениями с помощью очередей](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3) |Демонстрирует использование служебной шины Microsoft Azure для отправки и получения сообщений из очереди. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Getting Started: Messaging With Topics](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5) |Демонстрирует, как использовать служебную шину Microsoft Azure для отправки и получения сообщений из раздела с несколькими подписками. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
 
-### <a name="exploring-features"></a>Exploring features
-The following samples demonstrate various features of Service Bus.
+### <a name="exploring-features"></a>Обзор функций
+Следующие примеры демонстрируют разные функции служебной шины.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Имя примера | Описание | Минимальная версия пакета SDK | Доступность |
 | --- | --- | --- | --- |
-| [HTTP Token Providers](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5) |Demonstrates the different ways of authenticating an HTTP/REST client with Service Bus. |2.1 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Service Bus HTTP Client](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a) |Demonstrates how to send messages to and receive messages from Service Bus via HTTP/REST. |2.3 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Service Bus Autoforwarding](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b) |Demonstrates how to automatically forward messages from a queue, subscription, or deadletter queue into another queue or topic. It also demonstrates how to send a message into a queue or topic via a transfer queue. |2.3 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: WCF Channel Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451) |Demonstrates how to use Microsoft Azure Service Bus using Windows Communication Foundation (WCF) channels. The sample shows the use of WCF channels to send and receive messages via a Service Bus queue. The sample shows both session and non-session communication over the Service Bus. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Transactions](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e) |Demonstrates how to use the Microsoft Azure Service Bus messaging features within a transaction scope in order to ensure batches of messaging operations are committed atomically. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Management Operations Using REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88) |Demonstrates how to perform management operations on Service Bus using REST. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Resource Provider REST APIs](http://code.msdn.microsoft.com/Service-Bus-Resource-5d887203) |Demonstrates how to use the new Service Bus RDFE REST APIs to manage namespaces and messaging entities. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: WCF Service Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-db4262c2) |Demonstrates how to use Microsoft Azure Service Bus using the WCF service model. The sample shows the use of the WCF service model to accomplish session-based communication via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) |Demonstrates how to use the Microsoft Azure Service Bus and the request/response functionality. The sample shows simple clients and servers communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Dead Letter Queue](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8) |Demonstrates how to use Microsoft Azure Service Bus and the messaging "dead letter queue" functionality. The sample shows a simple sender and receiver communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Deferred Messages](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879) |Demonstrates how to use the message deferral feature of Microsoft Azure Service Bus. The sample shows a simple sender and receiver communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Session Messages](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4) |Demonstrates how to use Microsoft Azure Service Bus and the Messaging Session functionality. The sample shows simple senders and receivers communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response Topic](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e) |Demonstrates how to implement the request/response pattern using Microsoft Azure Service Bus topics and subscriptions. The sample shows simple clients and servers communicating via a Service Bus topic. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response Queue](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) |Demonstrates how to use Microsoft Azure Service Bus and the request/response functionality. The sample shows simple clients and servers communicating via two Service Bus queues. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Duplicate Detection](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25) |Demonstrates how to use Microsoft Azure Service Bus duplicate message detection with queues. It creates two queues, one with duplicate detection enabled and other one without duplicate detection. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Async Messaging](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages asynchronously from a queue. The queue provides decoupled, asynchronous communication between a sender and any number of receivers (here, a single receiver). |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) |Demonstrates how to use Microsoft Azure Service Bus publish/subscribe advanced filters. It creates a topic and 3 subscriptions with different filter definitions, sends messages to the topic, and receives all messages from subscriptions. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Messages Prefetch](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d) |Demonstrates how to use the Microsoft Azure Service Bus messages prefetch feature. It demonstrates how to use the messages prefetch feature upon receive. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
+| [Поставщики маркеров HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5) |Демонстрирует разные способы проверки подлинности клиента HTTP/REST с помощью служебной шины. |2,1 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [HTTP-клиент служебной шины](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a) |Демонстрирует отправку сообщений в служебную шину и их получение оттуда через HTTP/REST. |2.3 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Автоматическая переадресация в служебной шине](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b) |Демонстрирует, как автоматически пересылать сообщения из очереди, подписки или очереди недоставленных сообщений в другую очередь или раздел. Также рассказывается, как отправить сообщение в очередь или раздел через очередь передачи. |2.3 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: пример сеанса канала WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451) |Демонстрирует использование служебной шины Microsoft Azure с помощью каналов Windows Communication Foundation (WCF). В этом примере показано использование каналов WCF для отправки и получения сообщений через очередь служебной шины. В этом примере показывается использование служебной шины для связи в рамках сеанса и вне сеанса. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: транзакции](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e) |Демонстрирует использование возможностей служебной шины Microsoft Azure для обмена сообщениями в области транзакции, что обеспечивает атомарную фиксацию операций обмена сообщениями. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: операции управления с помощью REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88) |Демонстрирует выполнение операций управления в служебной шине с помощью REST. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [REST API поставщика ресурсов](http://code.msdn.microsoft.com/Service-Bus-Resource-5d887203) |Демонстрирует использование новых интерфейсов REST API RDFE, предоставляемых служебной шиной для управления пространствами имен и сущностями обмена сообщениями. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: пример сеанса службы WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-db4262c2) |Демонстрирует использование служебной шины Microsoft Azure с помощью модели службы WCF. В примере показано использование модели службы WCF для установления связи через очередь служебной шины на основе сеансов. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: функция типа «запрос — ответ»](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) |Демонстрирует использование служебной шины Microsoft Azure и возможностей типа «запрос — ответ». В этом примере показывается простой обмен данными между клиентами и серверами через очередь служебной шины. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: очередь недоставленных сообщений](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8) |Демонстрирует использование служебной шины Microsoft Azure и возможностей обработки недоставленных сообщений. В этом примере показывается простой обмен данными между отправителем и получателем через очередь служебной шины. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: отложенные сообщения](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879) |Демонстрирует использование функции отложенных сообщений в служебной шине Microsoft Azure. В этом примере показывается простой обмен данными между отправителем и получателем через очередь служебной шины. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: сообщения в рамках сеанса](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4) |Демонстрирует использование служебной шины Microsoft Azure и возможностей сеанса обмена сообщениями. В этом примере показывается простой обмен данными между отправителями и получателями через очередь служебной шины. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Brokered Messaging: Request Response Topic](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e) |Демонстрирует, как реализовать схему "запрос — ответ" с использованием разделов и подписок служебной шины Microsoft Azure. В примере показывается простой обмен данными между клиентами и серверами через раздел служебной шины. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: очередь типа «запрос — ответ»](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) |Демонстрирует использование служебной шины Microsoft Azure и возможностей схемы «запрос — ответ». В этом примере показывается простой обмен данными между клиентами и серверами через две очереди служебной шины. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: обнаружение дубликатов](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25) |Демонстрирует использование функции обнаружения дубликатов в служебной шине Microsoft Azure с помощью очередей. В примере создается две очереди: в одной используется функция обнаружения дубликатов, а во второй — нет. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: асинхронный обмен сообщениями](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74) |Демонстрирует использование служебной шины Microsoft Azure для асинхронной отправки и получения сообщений из очереди. Очередь обеспечивает несвязанный и асинхронный обмен данными между отправителем и любым количеством получателей (в данном примере имеется один получатель). |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: расширенные фильтры](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) |Демонстрирует использование расширенных фильтров публикации/подписки в служебной шине Microsoft Azure. Этот пример создает раздел и три подписки с разными определениями фильтров, отправляет сообщения в раздел и получает все сообщения из подписок. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Обмен сообщениями через посредника: предварительный выбор сообщений](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d) |Демонстрирует использование функции предварительного выбора сообщений в служебной шине Microsoft Azure. В этом примере показывается, как использовать функцию предварительного выбора при получении сообщений. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
 
-## <a name="service-bus-reference-tools"></a>Service Bus reference tools
-The following samples demonstrate various other features of the service.
+## <a name="service-bus-reference-tools"></a>Справочные материалы по служебной шине
+Следующие примеры демонстрируют другие возможности этой службы.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Имя примера | Описание | Минимальная версия пакета SDK | Доступность |
 | --- | --- | --- | --- |
-| [Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a) |The Service Bus Explorer allows users to connect to a Service Bus service namespace and manage messaging entities in an easy manner. The tool provides advanced features such as import/export functionality, and the ability to test messaging entities and relay services. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Authorization: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |This sample demonstrates how to create and manage service identities in Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) for use with Service Bus. |N/A |Microsoft Azure Service Bus |
+| [Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a) |Обозреватель служебной шины позволяет пользователям без усилий подключаться к пространству имен служебной шины и управлять сущностями обмена сообщениями. Это средство предоставляет такие дополнительные возможности, как импорт и экспорт, а также тестирование сущностей обмена сообщениями и служб ретрансляции. |1.8 |Служебная шина Microsoft Azure; служебная шина для Windows Server |
+| [Авторизация: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |В этом примере показано, как создавать удостоверения служб при помощи службы контроля доступа Microsoft Azure Active Directory (ACS) для использования со служебной шиной, а также управлять ими. |Недоступно |Служебная шина Microsoft Azure |
 
-## <a name="next-steps"></a>Next steps
-See the following topics for conceptual overviews of Service Bus.
+## <a name="next-steps"></a>Дальнейшие действия
+Принципиальные сведения о служебной шине см. в следующих статьях:
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](../service-bus/service-bus-architecture.md)
-* [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
+* [Архитектура служебной шины](service-bus-architecture.md)
+* [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -3,8 +3,8 @@ title: "Приступая к работе с хранилищем таблиц 
 description: "Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
-ms.openlocfilehash: c4a8e4eee864dab592baf1797d69778160ab456e
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
 
 
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Обзор
 Хранилище таблиц Azure — это служба в облаке, в которой хранятся структурированные данные NoSQL. Хранилище таблиц — это хранилище ключей и атрибутов, реализованное в виде бессхемной конструкции. Такая конструкция хранилища таблиц позволяет легко адаптировать данные по мере расширения приложения. Быстрый и экономичный доступ к данным предоставляется приложениям всех видов. Табличное хранилище обычно значительно дешевле, чем традиционная база данных SQL для тех же объемов данных.
@@ -33,7 +33,7 @@ ms.openlocfilehash: c4a8e4eee864dab592baf1797d69778160ab456e
 ### <a name="about-this-tutorial"></a>О данном учебнике
 В этом руководстве показано, как написать код .NET для некоторых распространенных сценариев использования хранилища таблиц Azure, включая создание и удаление таблиц, а также вставку, обновление, удаление и создание запросов к данным таблиц.
 
-**Предварительные требования**
+**Предварительные требования:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 * [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -259,9 +259,13 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 
 // Print the phone number of the result.
 if (retrievedResult.Result != null)
+{
     Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+}
 else
+{
     Console.WriteLine("The phone number could not be retrieved.");
+}
 ```
 
 ## <a name="replace-an-entity"></a>Замена сущности
@@ -301,7 +305,9 @@ if (updateEntity != null)
     Console.WriteLine("Entity updated.");
 }
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Вставка или замена сущности
@@ -341,13 +347,14 @@ if (updateEntity != null)
 
     Console.WriteLine("Entity was updated.");
 }
-
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Запрос подмножества свойств сущности
-Запрос к таблице может получить лишь несколько свойств сущности, а не все свойства. Этот метод, который называется "проекцией", снижает потребление пропускной способности и может повысить производительность запросов, особенно для крупных сущностей. Запрос в следующем коде возвращает только электронные адреса сущностей в таблице. Это делается с помощью запроса **DynamicTableEntity**, а также **EntityResolver**. Дополнительные сведения о проекции см. в записи блога [Введение в Upsert и проекции в запросах][Введение в Upsert и проекции в запросах]. Обратите внимание, что проекция не поддерживается в локальном эмуляторе хранения, поэтому этот код выполняется только при использовании учетной записи хранения в службе таблиц.
+Запрос к таблице может получить лишь несколько свойств сущности, а не все свойства. Этот метод, который называется "проекцией", снижает потребление пропускной способности и может повысить производительность запросов, особенно для крупных сущностей. Запрос в следующем коде возвращает только электронные адреса сущностей в таблице. Это делается с помощью запроса **DynamicTableEntity**, а также **EntityResolver**. Дополнительные сведения о проекции см. в записи блога [Windows Azure Tables: Introducing Upsert and Query Projection][Introducing Upsert and Query Projection blog post] (Таблицы Microsoft Azure: введение в Upsert и проекции в запросах). Обратите внимание, что проекция не поддерживается в локальном эмуляторе хранения, поэтому этот код выполняется только при использовании учетной записи хранения в службе таблиц.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -405,9 +412,10 @@ if (deleteEntity != null)
 
     Console.WriteLine("Entity deleted.");
 }
-
 else
+{
     Console.WriteLine("Could not retrieve the entity.");
+}
 ```
 
 ## <a name="delete-a-table"></a>Удаление таблицы
@@ -467,8 +475,8 @@ do
   * [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md) .
   * Информацию о хранении реляционных данных см. в статье [Подключение к базе данных SQL с помощью .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md).
 
-Скачайте и установите [пакет SDK для Azure для .NET]: /develop/net/.
-[Создание проекта Azure в Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Download and install the Azure SDK for .NET]: /develop/net/
+[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
 [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
 [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
@@ -476,17 +484,17 @@ do
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[Введение в Upsert и проекции в запросах]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[Справочник по клиентской библиотеке .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Настройка строк подключения службы хранилища Azure]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-[Программный доступ к хранилищу таблиц]: #tablestorage
+[How to: Programmatically access Table storage]: #tablestorage
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

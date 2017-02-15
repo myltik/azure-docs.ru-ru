@@ -1,21 +1,25 @@
 ---
-title: Использование приложений App-V в Azure RemoteApp | Microsoft Docs
-description: Узнайте, как использовать приложения App-V в Azure RemoteApp.
+title: "Использование приложений App-V в Azure RemoteApp | Документация Майкрософт"
+description: "Узнайте, как использовать приложения App-V в Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: ericorman
 manager: mbaldwin
-
+ms.assetid: e2292cb2-5c89-4b2b-ab11-74dbacd07c31
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+
 
 ---
-# Работа с приложением App-V в Azure RemoteApp
+# <a name="using-app-v-apps-in-azure-remoteapp"></a>Работа с приложением App-V в Azure RemoteApp
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -23,9 +27,9 @@ ms.author: elizapo
 
 Приложения App-V можно использовать в гибридной коллекции Azure RemoteApp, которая требует присоединения к домену.
 
-Перед началом работы необходимо установить клиент App-V 5.1 с последними обновлениями и создать [пользовательский образ](remoteapp-create-custom-image.md), включающий клиент App-V.
+Перед началом работы необходимо установить клиент App-V 5.1 с последними обновлениями и создать [пользовательский образ](remoteapp-create-custom-image.md), включающий клиент App-V.  
 
-Использовать существующую инфраструктуру App-V в Azure RemoteApp очень просто. Поскольку гибридная коллекция разворачивается в виртуальной сети Azure, имеющей доступ к контроллеру домена, а виртуальные машины присоединены к домену, вы легко можете разместить приложение App-V в Azure RemoteApp, используя доступную вам инфраструктуру App-V и методы развертывания. При этом необходимо учитывать следующие факторы, связанные с типом вашего текущего развертывания App-V:
+Использовать существующую инфраструктуру App-V в Azure RemoteApp очень просто. Поскольку гибридная коллекция разворачивается в виртуальной сети Azure, имеющей доступ к контроллеру домена, а виртуальные машины присоединены к домену, вы легко можете разместить приложение App-V в Azure RemoteApp, используя доступную вам инфраструктуру App-V и методы развертывания. При этом необходимо учитывать следующие факторы, связанные с   типом вашего текущего развертывания App-V:
 
 | Варианты настройки |  | Positive | Negative |
 | --- | --- | --- | --- |
@@ -38,4 +42,9 @@ ms.author: elizapo
 
  Создав пользовательский образ и гибридную коллекцию, опубликуйте приложение, назначьте пользователей — и можете пользоваться своими приложениями App-V, размещенными в Azure RemoteApp, где угодно и на любом устройстве.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

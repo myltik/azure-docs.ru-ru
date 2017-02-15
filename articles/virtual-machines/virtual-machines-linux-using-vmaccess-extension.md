@@ -1,28 +1,34 @@
 ---
-title: Сброс доступа в виртуальных машинах Linux в Azure с помощью расширения VMAccess | Microsoft Docs
-description: Узнайте, как сбросить доступ в виртуальных машинах Linux в Azure с помощью расширения VMAccess.
+title: "Сброс настроек доступа на виртуальных машинах Linux в Azure с помощью расширения VMAccess | Документация Майкрософт"
+description: "Узнайте, как сбросить доступ в виртуальных машинах Linux в Azure с помощью расширения VMAccess."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: vlivech
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 10/25/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 1225e6e3910d12921208a619c7052521071c55be
+
 
 ---
-# Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess
-В этой статье показано, как использовать расширение Azure VMAcesss для проверки или восстановления диска, сброса разрешений пользователей на доступ, управления учетными записями пользователей или сброса конфигурации SSHD в Linux.
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension"></a>Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess
+В этой статье показано, как использовать расширение Azure VMAcesss для проверки или восстановления диска, сброса разрешений пользователей на доступ, управления учетными записями пользователей или сброса конфигурации SSHD в Linux. Для работы с этой статьей потребуется:
 
-Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md) и интерфейс командной строки Azure (Azure CLI), установленный и переведенный в режим Resource Manager с помощью `azure config mode arm`.
+* Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
+* [Интерфейс командной строки Azure](../xplat-cli-install.md) с выполненным входом (с помощью команды `azure login`).
+* Интерфейс командной строки Azure *нужно* переключить в режим Azure Resource Manager`azure config mode arm`.
 
-## Быстрые команды
+## <a name="quick-commands"></a>Быстрые команды
 Использовать расширение VMAccess для виртуальных машин Linux можно двумя способами.
 
 * С помощью командной строки Azure и необходимых параметров.
@@ -30,64 +36,83 @@ ms.author: v-livech
 
 В разделе с кратким описанием команд будет использоваться метод `azure vm reset-access` Azure CLI. В примерах команд ниже замените значения, содержащие example, значениями, соответствующими вашей среде.
 
-## Создание группы ресурсов и виртуальной машины Linux
+## <a name="create-a-resource-group-and-linux-vm"></a>Создание группы ресурсов и виртуальной машины Linux
 ```bash
-azure group create resourcegroupexample westus
+azure group create myResourceGroup westus
 ```
 
-```bash
+## <a name="create-a-debian-vm"></a>Создание виртуальной машины Debian
+```azurecli
 azure vm quick-create \
--M ~/.ssh/id_rsa.pub \
--u userexample \
--g resourcegroupexample \
--l westus \
--y Linux \
--n debianexamplevm \
--Q Debian
+  -M ~/.ssh/id_rsa.pub \
+  -u myAdminUser \
+  -g myResourceGroup \
+  -l westus \
+  -y Linux \
+  -n myVM \
+  -Q Debian
 ```
 
-## Сброс пароля пользователя root
+## <a name="reset-root-password"></a>Сброс пароля пользователя root
 Чтобы сбросить пароль пользователя root, выполните следующую команду:
 
-```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
+```azurecli
+azure vm reset-access \
+  -g myResourceGroup \
+  -n myVM \
+  -u root \
+  -p myNewPassword
 ```
 
-## Сброс ключа SSH
+## <a name="ssh-key-reset"></a>Сброс ключа SSH
 Чтобы сбросить ключ SSH для пользователя, отличного от root, выполните следующую команду:
 
-```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
+```azurecli
+azure vm reset-access \
+  -g myResourceGroup \
+  -n myVM \
+  -u myAdminUser \
+  -M ~/.ssh/id_rsa.pub
 ```
 
-## Создание пользователя
+## <a name="create-a-user"></a>Создание пользователя
 Чтобы создать пользователя, выполните следующую команду:
 
-```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
+```azurecli
+azure vm reset-access \
+  -g myResourceGroup \
+  -n myVM \
+  -u myAdminUser \
+  -p myAdminUserPassword
 ```
 
-## Удаление пользователя
-```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
+## <a name="remove-a-user"></a>Удаление пользователя
+```azurecli
+azure vm reset-access \
+  -g myResourceGroup \
+  -n myVM \
+  -R myRemovedUser
 ```
 
-## Сброс SSHD
+## <a name="reset-sshd"></a>Сброс SSHD
 Чтобы сбросить конфигурацию SSHD, выполните следующую команду:
 
-```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
+```azurecli
+azure vm reset-access \
+  -g myResourceGroup \
+  -n myVM
+  -r
 ```
 
 
-## Подробное пошаговое руководство
-### Определение VMAccess
+## <a name="detailed-walkthrough"></a>Подробное пошаговое руководство
+### <a name="vmaccess-defined"></a>Определение VMAccess
 На диске в виртуальной машине Linux имеются ошибки. Вы каким-то образом сбросили пароль пользователя root для виртуальной машины Linux или случайно удалили закрытый ключ SSH. Если бы такое случилось раньше, вам пришлось бы ехать в центр данных и открывать KVM-консоль для доступа к серверу. Расширение Azure VMAccess можно представить как KVM-коммутатор, который позволяет открывать консоль для сброса разрешений на доступ к Linux или обслуживания дисков.
 
-В подробном пошаговом руководстве мы будем использовать полную форму VMAccess, которая использует необработанные файлы JSON. Эти файлы JSON VMAccess также можно вызывать из шаблонов Azure.
+В подробном пошаговом руководстве мы будем использовать полную форму VMAccess, которая использует необработанные файлы JSON.  Эти файлы JSON VMAccess также можно вызывать из шаблонов Azure.
 
-### Использование VMAccess для проверки или восстановления диска виртуальной машины Linux
-С помощью VMAccess можно выполнить проверку fsck для диска в виртуальной машине Linux. Также можно выполнить проверку и восстановление диска с помощью VMAccess.
+### <a name="using-vmaccess-to-check-or-repair-the-disk-of-a-linux-vm"></a>Использование VMAccess для проверки или восстановления диска виртуальной машины Linux
+С помощью VMAccess можно выполнить проверку fsck для диска в виртуальной машине Linux.  Также можно выполнить проверку и восстановление диска с помощью VMAccess.
 
 Для проверки и последующего восстановления диска используйте следующий сценарий VMAccess:
 
@@ -102,13 +127,16 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 
 Выполните сценарий VMAccess с помощью следующей команды:
 
-```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path disk_check_repair.json
+```azurecli
+azure vm extension set \
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path disk_check_repair.json
 ```
 
-### Использование VMAccess для сброса доступа пользователя к Linux
+### <a name="using-vmaccess-to-reset-user-access-to-linux"></a>Использование VMAccess для сброса доступа пользователя к Linux
 Если вы потеряли доступ к учетной записи root на виртуальной машине Linux, то можете выполнить сценарий VMAccess, чтобы сбросить пароль пользователя root.
 
 Чтобы сбросить пароль пользователя root, используйте следующий сценарий VMAccess:
@@ -118,16 +146,19 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```json
 {
   "username":"root",
-  "password":"exampleNewPassword",   
+  "password":"myNewPassword",   
 }
 ```
 
 Выполните сценарий VMAccess с помощью следующей команды:
 
-```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path reset_root_password.json
+```azurecli
+azure vm extension set \
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path reset_root_password.json
 ```
 
 Чтобы сбросить ключ SSH пользователя, отличного от root, используйте следующий сценарий VMAccess:
@@ -136,20 +167,23 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ```json
 {
-  "username":"exampleUser",
-  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",   
+  "username":"myAdminUser",
+  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== myAdminUser@myVM",   
 }
 ```
 
 Выполните сценарий VMAccess с помощью следующей команды:
 
-```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path reset_ssh_key.json
+```azurecli
+azure vm extension set \
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path reset_ssh_key.json
 ```
 
-### Использование VMAccess для управления учетными записями пользователей в Linux
+### <a name="using-vmaccess-to-manage-user-accounts-on-linux"></a>Использование VMAccess для управления учетными записями пользователей в Linux
 VMAccess — это сценарий Python, который можно применять для управления пользователями в виртуальной машине Linux, не выполняя вход и не используя учетную запись sudo или root.
 
 Чтобы создать пользователя, используйте следующий сценарий VMAccess:
@@ -158,40 +192,46 @@ VMAccess — это сценарий Python, который можно прим�
 
 ```json
 {
-"username":"exampleNewUserName",
-"ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",
-"password":"examplePassword",
+"username":"myNewUser",
+"ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== myNewUser@myVM",
+"password":"myNewUserPassword",
 }
 ```
 
 Выполните сценарий VMAccess с помощью следующей команды:
 
-```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path create_new_user.json
+```azurecli
+azure vm extension set \
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path create_new_user.json
 ```
 
-Чтобы создать пользователя, выполните следующую команду:
+Чтобы удалить пользователя, используйте следующий сценарий VMAccess:
 
 `remove_user.json`
 
 ```json
 {
-"remove_user":"exampleUser",
+"remove_user":"myDeletedUser",
 }
 ```
 
 Выполните сценарий VMAccess с помощью следующей команды:
 
-```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path remove_user.json
+```azurecli
+azure vm extension set \
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path remove_user.json
 ```
 
-### Использование VMAccess для сброса конфигурации SSHD
-Если вы внесли изменения в конфигурацию SSHD для виртуальных машин Linux и закрыли подключение SSH, не проверив изменения, то последующий вход по SSH может оказаться невозможным. VMAccess можно использовать для сброса конфигурации SSHD в известное исправное состояние, не выполняя вход с помощью SSH.
+### <a name="using-vmaccess-to-reset-the-sshd-configuration"></a>Использование VMAccess для сброса конфигурации SSHD
+Если вы внесли изменения в конфигурацию SSHD для виртуальных машин Linux и закрыли подключение SSH, не проверив изменения, то последующий вход по SSH может оказаться невозможным.  VMAccess можно использовать для сброса конфигурации SSHD в известное исправное состояние, не выполняя вход с помощью SSH.
 
 Чтобы сбросить конфигурацию SSHD, используйте следующий сценарий VMAccess:
 
@@ -205,19 +245,27 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 Выполните сценарий VMAccess с помощью следующей команды:
 
-```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path reset_sshd.json
+```azurecli
+azure vm extension set \
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path reset_sshd.json
 ```
 
-## Дальнейшие действия
-Обновление Linux с помощью расширения Azure VMAccess — это один из методов внесения изменений на работающей виртуальной машине Linux. Для изменения виртуальной машины Linux при загрузке также можно использовать инструменты, такие как cloud-init или шаблоны Azure.
+## <a name="next-steps"></a>Дальнейшие действия
+Обновление Linux с помощью расширения Azure VMAccess — это один из методов внесения изменений на работающей виртуальной машине Linux.  Для изменения виртуальной машины Linux при загрузке также можно использовать инструменты, такие как cloud-init или шаблоны Azure.
 
-[Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md)
+[Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Разработка шаблонов Azure Resource Manager с расширениями виртуальной машины Linux](virtual-machines-linux-extensions-authoring-templates.md)
+[Разработка шаблонов Azure Resource Manager с расширениями виртуальной машины Linux](virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Настройка виртуальной машины Linux во время создания с помощь cloud-init](virtual-machines-linux-using-cloud-init.md)
+[Настройка виртуальной машины Linux во время создания с помощь cloud-init](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

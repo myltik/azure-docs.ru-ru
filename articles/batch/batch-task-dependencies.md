@@ -3,7 +3,7 @@ title: "Зависимости задач в пакетной службе Azure
 description: "Создание задач, которые зависят от успешного выполнения других задач обработки по модели MapReduce и аналогичных рабочих нагрузок данных большого размера в пакетной службе Azure."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/28/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 5883417c6f7a0ce45c9c34ac2d37e5c1bea95ab1
 
 
 ---
@@ -32,10 +32,10 @@ ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
 Можно создавать задачи, которые зависят от других задач по схеме "один к одному" или "один ко многим". Можно даже создать зависимость от диапазона, при которой задача зависит от успешного завершения группы задач, идентификаторы которых находятся в пределах определенного диапазона. Вы можете объединить эти три основные сценария, чтобы создать связь "многие ко многим".
 
 ## <a name="task-dependencies-with-batch-net"></a>Зависимости задач .NET пакетной службы
-В этой статье рассматривается настройка зависимостей задачи с помощью библиотеки [Batch .NET][net_msdn]. Сначала в этой статье описывается, как [включить зависимость задачи](#enable-task-dependencies) в заданиях, а потом рассматривается, как [настроить задачу с зависимостями](#create-dependent-tasks). Напоследок рассматриваются поддерживаемые пакетной службой [сценарии использования зависимостей](#dependency-scenarios) .
+В этой статье рассматривается настройка зависимостей задач с помощью библиотеки [.NET пакетной службы][net_msdn]. Сначала в этой статье описывается, как [включить зависимость задачи](#enable-task-dependencies) в заданиях, а потом рассматривается, как [настроить задачу с зависимостями](#create-dependent-tasks). Напоследок рассматриваются поддерживаемые пакетной службой [сценарии использования зависимостей](#dependency-scenarios) .
 
 ## <a name="enable-task-dependencies"></a>Включение зависимостей задач
-Чтобы использовать зависимости задачи в приложении пакетной службы, сначала необходимо сообщить пакетной службе об использовании в задании зависимостей задач. В библиотеке Batch .NET включите зависимости задач в классе [CloudJob][net_cloudjob], задав для свойства [UsesTaskDependencies][net_usestaskdependencies] значение `true`.
+Чтобы использовать зависимости задачи в приложении пакетной службы, сначала необходимо сообщить пакетной службе об использовании в задании зависимостей задач. В .NET пакетной службы включите зависимости задач в классе [CloudJob][net_cloudjob], задав для свойства [UsesTaskDependencies][net_usestaskdependencies] значение `true`.
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -48,7 +48,7 @@ unboundJob.UsesTaskDependencies = true;
 Приведенный выше фрагмент кода batchClient представляет собой экземпляр класса [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Создание зависимости задач
-Чтобы создать задачу, зависящую от успешного выполнения одной или нескольких других задач, сообщите пакетной службе, что задача "зависит" от других задач. В библиотеке Batch .NET укажите для свойства [CloudTask][net_cloudtask].[DependsOn][net_dependson] экземпляр класса [TaskDependencies][net_taskdependencies].
+Чтобы создать задачу, зависящую от успешного выполнения одной или нескольких других задач, сообщите пакетной службе, что задача "зависит" от других задач. В .NET пакетной службы укажите свойство [CloudTask][net_cloudtask].[DependsOn][net_dependson] с помощью экземпляра класса [TaskDependencies][net_taskdependencies].
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -62,7 +62,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Этот фрагмент кода создает задачу с идентификатором "Цветы", запланированную для выполнения на вычислительном узле только после успешного выполнения задач с идентификатором "Дождь" и "Солнце".
 
 > [!NOTE]
-> Задача считается выполненной, когда она находится в состоянии **Выполнено** и ее **код выхода** равен `0`. В Batch .NET это означает, что значение свойства [CloudTask][net_cloudtask].[State][net_taskstate] — `Completed`, а значение свойства [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] класса CloudTask равно `0`.
+> Задача считается выполненной, когда она находится в состоянии **Выполнено** и ее **код выхода** равен `0`. В .NET пакетной службы это означает, что значение свойства [CloudTask][net_cloudtask].[State][net_taskstate] — `Completed`, а значение свойства [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] класса CloudTask — `0`.
 > 
 > 
 
@@ -81,7 +81,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 > 
 
 ### <a name="one-to-one"></a>Один к одному
-Чтобы создать задачу, зависящую от успешного выполнения одной из других задач, укажите идентификатор одной задачи для статического метода [TaskDependencies][net_taskdependencies].[OnId][net_onid], когда заполняете свойство [DependsOn][net_dependson] класса [CloudTask][net_cloudtask].
+Чтобы создать задачу, зависящую от успешного выполнения какой-либо другой задачи, укажите идентификатор одной задачи для статического метода [TaskDependencies][net_taskdependencies].[OnId][net_onid], когда заполните свойство [DependsOn][net_dependson] класса [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -95,7 +95,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Один ко многим
-Чтобы создать задачу, зависящую от успешного выполнения нескольких других задач, укажите набор идентификаторов этих задач для статического метода [TaskDependencies][net_taskdependencies].[OnIds][net_onids], когда заполняете свойство [DependsOn][net_dependson] класса [CloudTask][net_cloudtask].
+Чтобы создать задачу, зависящую от успешного выполнения нескольких задач, укажите набор идентификаторов задач для статического метода [TaskDependencies][net_taskdependencies].[OnIds][net_onids], когда заполните свойство [DependsOn][net_dependson] класса [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -111,7 +111,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ```
 
 ### <a name="task-id-range"></a>Диапазон идентификаторов задач
-Чтобы создать задачу, зависящую от успешного выполнения группы задач, идентификаторы которых находятся в диапазоне, укажите первый и последний идентификаторы задач в диапазоне для статического метода [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange], когда заполняете свойство [DependsOn][net_dependson] класса [CloudTask][net_cloudtask].
+Чтобы создать задачу, зависящую от успешного выполнения группы задач, идентификаторы которых находятся в диапазоне, укажите первый и последний идентификаторы задач в диапазоне для статического метода [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange], когда заполните свойство [DependsOn][net_dependson] класса [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > Если вы используете диапазоны идентификаторов задач для зависимостей, то идентификаторы задач в диапазоне *должны* быть строковыми представлениями целых чисел. Кроме того, каждая задача в диапазоне должна завершиться успешно, чтобы сделать возможным планирование выполнения зависимой задачи.
@@ -169,6 +169,6 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

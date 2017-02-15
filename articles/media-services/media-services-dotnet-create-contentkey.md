@@ -1,12 +1,12 @@
 ---
-title: Создание ContentKey с использованием .NET
-description: Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам.
+title: "Создание ContentKey с использованием .NET"
+description: "Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c547afd9535eb4764caf6b37d4e38a22f6e88186
+
 
 ---
-# <a name="create-contentkeys-with-.net"></a>Создание ContentKey с использованием .NET
+# <a name="create-contentkeys-with-net"></a>Создание ContentKey с использованием .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -63,7 +67,7 @@ ms.author: juliako
         EnvelopeEncryption = 4
     }
 
-## <a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Создание ContentKey конвертного типа
+## <a name="a-idenvelopecontentkeyacreate-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Создание ContentKey конвертного типа
 В следующем фрагменте кода создается ключ содержимого конвертного типа шифрования. Затем ключ связывается с указанным ресурсом.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -100,7 +104,7 @@ ms.author: juliako
 
 
 
-## <a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Создание ContentKey общего типа
+## <a name="a-idcommoncontentkeyacreate-common-type-contentkey"></a><a id="common_contentkey"></a>Создание ContentKey общего типа
 В следующем фрагменте кода создается ключ содержимого общего типа шифрования. Затем ключ связывается с указанным ресурсом.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -144,6 +148,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

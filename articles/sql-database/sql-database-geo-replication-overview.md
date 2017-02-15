@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sashan;carlrab
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 521bdc1bc13451210ccc3f5eefcfa903166031bc
-ms.openlocfilehash: ad5172865becf203cc42d84805ecaf40b046bd98
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 
 
 ---
@@ -149,6 +149,6 @@ ms.openlocfilehash: ad5172865becf203cc42d84805ecaf40b046bd98
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -66,7 +66,7 @@ ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
 | Open Systems AG |Шлюз безопасности Mission Control |Недоступно |[Руководство по установке](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Руководство по установке](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Ожидается в ближайшее время) |Не совместимо |
 | Palo Alto Networks |Все устройства под управлением PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 или более поздней версии<br>PolicyBased: 7.0.5 или более поздней версии |[Инструкции по настройке](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Инструкции по настройке](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| WatchGuard |Все |Fireware XTM<br> PolicyBased: 11.11.x<br>RouteBased: 11.12.x |[Инструкции по настройке](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Инструкции по настройке](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |Все |Fireware XTM<br> PolicyBased:&11;.11.x<br>RouteBased:&11;.12.x |[Инструкции по настройке](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Инструкции по настройке](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 * Маршрутизаторы ISR серии 7200 поддерживают только VPN типа PolicyBased.
 
@@ -109,7 +109,7 @@ ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
 | Метод проверки подлинности |Общий ключ |Общий ключ |
 | Алгоритмы шифрования |AES256 AES128 3DES |AES256 3DES |
 | Алгоритм хэширования |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Время существования сопоставления безопасности первого этапа (время) |28 800 сек |10 800 секунд |
+| Время существования сопоставления безопасности первого этапа (время) |28&800; сек |10&800; секунд |
 
 ### <a name="ike-phase-2-setup"></a>Настройка этапа 2 IKE
 | **Свойство** | **PolicyBased** | **VPN-шлюз типа RouteBased и стандартный или высокопроизводительный VPN-шлюз** |
@@ -117,7 +117,7 @@ ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
 | Версия IKE |IKEv1 |IKEv2 |
 | Алгоритм хэширования |SHA1(SHA128) |SHA1(SHA128) |
 | Время существования сопоставления безопасности второго этапа (время) |3600 секунд |3600 секунд |
-| Время существования сопоставления безопасности второго этапа (пропускная способность) |102 400 000 КБ |- |
+| Время существования сопоставления безопасности второго этапа (пропускная способность) |102&400;&000; КБ |- |
 | Предложения для шифрования и аутентификации IPsec SA (в порядке предпочтения) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Недоступно |См. раздел *Предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов* (ниже) |
 | Полная безопасность пересылки (PFS) |Нет |Нет* |
 | Обнаружение неиспользуемых одноранговых узлов |Не поддерживается |Поддерживаются |

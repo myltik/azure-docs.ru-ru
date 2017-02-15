@@ -1,12 +1,12 @@
 ---
-title: Azure Service Endpoints
-description: Describes the Azure Service Endpoint settings in the Azure Toolkit for Eclipse.
-services: ''
+title: "Конечные точки службы Azure"
+description: "Описываются параметры конечных точек службы Azure в наборе средств Azure для Eclipse."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9c6125ec-7278-461e-b69c-ed56e844f742
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,44 +14,48 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c6e67ba61732beba96831e6c3b0fd89bb8097972
+
 
 ---
-# <a name="azure-service-endpoints"></a>Azure Service Endpoints
-Azure service endpoints determine whether your application is deployed to and managed by the global Azure platform, Azure operated by 21Vianet in China, or a private Azure platform. The **Service Endpoints** dialog allows you to specify which service endpoints you want to use. To open the **Service Endpoints** dialog, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Service Endpoints**. Setting the **Active Set** field determines which Azure service endpoints will be used for the Azure projects in your current workspace.
+# <a name="azure-service-endpoints"></a>Конечные точки службы Azure
+Конечные точки службы определяют, где будет развернуто приложение и где будет управляться: на глобальной платформе Azure, на Azure под управлением 21Vianet в Китае или на частной платформе Azure. Диалоговое окно **Конечные точки службы** позволяет указать, какие конечные точки службы вы хотите использовать. Чтобы открыть диалоговое окно **Конечные точки службы** в Eclipse, щелкните **Окно**, **Настройки**, разверните **Azure** и выберите **Конечные точки службы**. Указав значение в поле **Active Set** (Активный набор), можно определить, какие конечные точки службы Azure будут использоваться для проектов Azure в текущей рабочей области.
 
-The following shows the **Service Endpoints** dialog.
+Ниже приведено диалоговое окно **Конечные точки службы** .
 
 ![][ic719493]
 
-## <a name="to-set-the-service-endpoints"></a>To set the service endpoints
-In the **Service Endpoints** dialog, take one of the following actions:
+## <a name="to-set-the-service-endpoints"></a>Задание конечных точек службы
+В диалоговом окне **Конечные точки службы** выполните одно из следующих действий.
 
-* If you want to use the global Azure platform, from the **Active Set** dropdown list, select **windowsazure.com** and click **OK**.
-* If you want to use Azure operated by 21Vianet in China, from the **Active Set** dropdown list, select **windowsazure.cn (China)** and click **OK**.
-* If you want to use a private Azure platform:
-  1. Click **Edit**.
-  2. A dialog box opens, informing you that the **Service Endpoints** dialog will be closed, and the preference sets file will be opened. Click **OK**.
-  3. In the preferencesets.xml file, create a new `preferenceset` element. For this new element, create `name`, `blob`, `management`, `portalURL` and `publishsettings` attributes, and add values for them that correspond to your private Azure platform. You can use the values provided for the existing `preferenceset` elements as templates. **Note**: The value used for the `blob` attribute must contain the text "blob" in the URL.
-  4. Save and close preferencesets.xml.
-  5. Reopen the **Service Endpoints** dialog.
-  6. From the **Active Set** dropdown list, select the active set that you created and click **OK**.
-  7. Once you've created your private Azure platform `preferenceset` element, you can change the values assigned to it by clicking the **Edit** button in the **Services Endpoint** dialog. You can also create multiple private Azure platform `preferenceset` elements, if you desire.
+* Если вы хотите использовать глобальную платформу Azure, в раскрывающемся списке **Active Set** (Активный набор) выберите **windowsazure.com** и нажмите кнопку **ОК**.
+* Если вы хотите использовать платформу Azure под управлением 21Vianet в Китае, в раскрывающемся списке **Active Set** (Активный набор) выберите **windowsazure.cn (China)** и нажмите кнопку **ОК**.
+* Если вы хотите использовать частную платформу Azure:
+  1. Нажмите кнопку **Изменить**.
+  2. Открывается диалоговое окно с информацией о том, что диалоговое окно **Конечные точки службы** будет закрыто и будет открыт файл наборов настроек. Нажмите кнопку **ОК**.
+  3. В файле preferencesets.xml создайте новый элемент `preferenceset`. Для этого нового элемента создайте атрибуты `name`, `blob`, `management`, `portalURL` и `publishsettings` и добавьте для них значения, соответствующие вашей частной платформе Azure. Вы можете использовать значения, предоставленные для существующих элементов `preferenceset`, в качестве шаблона. **Примечание.** Используемое для атрибута `blob` значение должно содержать текст blob в URL-адресе.
+  4. Сохраните и закройте файл preferencesets.xml.
+  5. Снова откройте диалоговое окно **Конечные точки службы** .
+  6. В раскрывающемся списке **Active Set** (Активный набор) выберите созданный активный набор и нажмите кнопку **ОК**.
+  7. После создания элемента `preferenceset` частной платформы Azure можно изменить назначенные ему значения, нажав кнопку **Изменить** в диалоговом окне **Конечные точки службы**. Кроме того, при необходимости вы можете создать несколько элементов `preferenceset` частной платформы Azure.
 
-## <a name="see-also"></a>See Also
-[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
+## <a name="see-also"></a>См. также
+[Набор средств Azure для Eclipse][Набор средств Azure для Eclipse]
 
-[Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Установка набора средств Azure для Eclipse][Установка набора средств Azure для Eclipse] 
 
-[Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
+[Создание приложения Hello World для Azure в Eclipse][Создание приложения Hello World для Azure в Eclipse]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].
+Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][Центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -61,6 +65,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

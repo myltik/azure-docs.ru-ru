@@ -1,14 +1,14 @@
 ---
-title: Изменение группы доступности виртуальных машин | Microsoft Docs
-description: Узнайте, как изменить группу доступности для виртуальных машин, используя Azure PowerShell и модель развертывания с помощью Resource Manager.
-keywords: ''
+title: "Изменение группы доступности виртуальных машин | Документация Майкрософт"
+description: "Узнайте, как изменить группу доступности для виртуальных машин, используя Azure PowerShell и модель развертывания с помощью Resource Manager."
+keywords: 
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: Drewm3
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 947369fe8d93cb5a7ecf2624a0192d8aa1ea8524
+
 
 ---
-# Изменение группы доступности для виртуальной машины Windows
-Ниже приведены инструкции по изменению группы доступности виртуальной машины с помощью Azure PowerShell. Виртуальную машину можно добавить в группу доступности только при ее создании. Чтобы изменить группу доступности, необходимо удалить и повторно создать виртуальную машину.
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Изменение группы доступности для виртуальной машины Windows
+Ниже приведены инструкции по изменению группы доступности виртуальной машины с помощью Azure PowerShell. Виртуальную машину можно добавить в группу доступности только при ее создании. Чтобы изменить группу доступности, необходимо удалить и повторно создать виртуальную машину. 
 
-## Изменение группы доступности с помощью PowerShell
+## <a name="change-the-availability-set-using-powershell"></a>Изменение группы доступности с помощью PowerShell
 1. Запишите следующие важные сведения о виртуальной машине, которую нужно.
    
     Имя виртуальной машины.
@@ -51,14 +55,14 @@ ms.author: drewm
     $vm.StorageProfile.OsDisk.Vhd.Uri
     ```
    
-    Профили всех дисков данных.
+    Профили всех дисков данных. 
    
     ```powershell
     $vm.StorageProfile.DataDisks[<index>].Lun
     $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
     ```
    
-    Установленные расширения виртуальной машины.
+    Установленные расширения виртуальной машины. 
    
     ```powershell
     $vm.Extensions
@@ -84,9 +88,9 @@ ms.author: drewm
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Добавьте в нее диски данных и расширения. Дополнительные сведения см. в разделах [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md) и [Примеры конфигурации расширения виртуальной машины Microsoft Azure](virtual-machines-windows-extensions-configuration-samples.md). Диски данных и расширения можно добавить в виртуальную машину с помощью PowerShell или интерфейса командной строки Azure.
+5. Добавьте в нее диски данных и расширения. Дополнительные сведения см. в статьях [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Примеры конфигурации расширения виртуальной машины Microsoft Azure](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Диски данных и расширения можно добавить в виртуальную машину с помощью PowerShell или интерфейса командной строки Azure.
 
-## Пример сценария
+## <a name="example-script"></a>Пример сценария
 Следующий сценарий иллюстрирует сбор необходимых сведений, удаление исходной виртуальной машины и ее повторное создание в новой группе доступности.
 
 ```powershell
@@ -150,7 +154,12 @@ ms.author: drewm
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
-## Дальнейшие действия
-Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](virtual-machines-windows-attach-disk-portal.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

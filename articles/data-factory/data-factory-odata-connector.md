@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/07/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 5e6a61011e201dad2220d2851212ac04bed1342c
+ms.sourcegitcommit: 4521a236bfc13e6aca7e13e7400c11d353bc3a66
+ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 
 
 ---
@@ -49,7 +49,7 @@ ms.openlocfilehash: 5e6a61011e201dad2220d2851212ac04bed1342c
 
 В примере данные из запросов к источнику OData каждый час копируются в BLOB-объект Azure. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-**Связанная служба OData**. В этом примере используется обычная проверка подлинности. Сведения о различных типах проверки подлинности, которые можно использовать, см. в разделе [Свойства связанной службы OData](#odata-linked-service-properties).
+**Связанная служба OData**. В этом примере используется анонимный доступ. Сведения о различных типах проверки подлинности, которые можно использовать, см. в разделе [Свойства связанной службы OData](#odata-linked-service-properties).
 
     {
         "name": "ODataLinkedService",
@@ -332,6 +332,6 @@ ms.openlocfilehash: 5e6a61011e201dad2220d2851212ac04bed1342c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

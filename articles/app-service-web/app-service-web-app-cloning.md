@@ -1,31 +1,35 @@
 ---
-title: Клонирование веб-приложения с помощью PowerShell
-description: Узнайте, как клонировать веб-приложения, создавая новые веб-приложения, с помощью PowerShell.
+title: "Клонирование веб-приложения с помощью PowerShell"
+description: "Узнайте, как клонировать веб-приложения, создавая новые веб-приложения, с помощью PowerShell."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: ahmedelnably
 manager: stefsch
-editor: ''
-
+editor: 
+ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
-ms.author: ahmedelnably
+ms.author: aelnably
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
+
 
 ---
-# Клонирование приложений службы приложений Azure с помощью PowerShell
+# <a name="azure-app-service-app-cloning-using-powershell"></a>Клонирование приложений службы приложений Azure с помощью PowerShell
 С выходом Microsoft Azure PowerShell версии 1.1.0 в командлет New-AzureRMWebApp был добавлен новый параметр, позволяющий пользователю клонировать существующее веб-приложение во вновь созданное приложение, размещенное в том же или в другом регионе. Так пользователи смогут легко и быстро развернуть целый ряд приложений в различных регионах.
 
-В настоящее время клонирование приложений поддерживается только в планах службы приложений уровня Premium. В новой функции действуют те же ограничения, что и в функции резервного копирования веб-приложений (см. статью [Резервное копирование веб-приложений в службе приложений Azure](web-sites-backup.md)).
+В настоящее время клонирование приложений поддерживается только в планах службы приложений уровня Premium. В новой функции действуют те же ограничения, что и в функции архивации веб-приложений (см. статью [Резервное копирование веб-приложений в службе приложений Azure](web-sites-backup.md)).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-См. дополнительные сведения об использовании [командлетов Azure PowerShell на основе Azure Resource Manager для управления веб-приложениями](app-service-web-app-azure-resource-manager-powershell.md).
+Дополнительные сведения об использовании командлетов Azure PowerShell на основе Azure Resource Manager для управления веб-приложениями см. [здесь](app-service-web-app-azure-resource-manager-powershell.md).
 
-## Клонирование существующего приложения
+## <a name="cloning-an-existing-app"></a>Клонирование существующего приложения
 Сценарий: существует веб-приложение в южно-центральном регионе США; пользователь хотел бы клонировать его содержимое в новое веб-приложение в северо-центральном регионе США. Эту задачу можно решить с помощью командлета PowerShell на основе Azure Resource Manager для создания веб-приложения с параметром SourceWebApp.
 
 Зная имя группы ресурсов, содержащей исходное веб-приложение, мы можем выполнить следующую команду PowerShell для получения данных исходного веб-приложения (в данном случае оно называется source-webapp):
@@ -48,7 +52,7 @@ ms.author: ahmedelnably
 
     $destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 
-## Клонирование существующего приложения в среду службы приложений
+## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Клонирование существующего приложения в среду службы приложений
 Сценарий: существует веб-приложение в южно-центральном регионе США; пользователь хотел бы клонировать его содержимое в новое веб-приложение в существующую среду службы приложений (ASE).
 
 Зная имя группы ресурсов, содержащей исходное веб-приложение, мы можем выполнить следующую команду PowerShell для получения данных исходного веб-приложения (в данном случае оно называется source-webapp):
@@ -59,9 +63,9 @@ ms.author: ahmedelnably
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 
-В связи с обратной совместимостью параметр Location является обязательным, однако при создании приложения в ASE он игнорируется.
+В связи с обратной совместимостью параметр Location является обязательным, однако при создании приложения в ASE он игнорируется. 
 
-## Клонирование существующего слота приложения
+## <a name="cloning-an-existing-app-slot"></a>Клонирование существующего слота приложения
 Сценарий: пользователь хочет клонировать существующий слот веб-приложения в новое веб-приложение или в новый слот веб-приложения. Новое веб-приложение может размещаться в том же регионе, что и исходный слот, или в другом.
 
 Зная имя группы ресурсов, содержащей исходное веб-приложение, мы можем выполнить следующую команду PowerShell для получения данных исходного слота веб-приложения (в данном случае оно называется source-webappslot), привязанного к веб-приложению source-webappslot:
@@ -72,15 +76,15 @@ ms.author: ahmedelnably
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 
-## Настройка диспетчера трафика при клонировании приложения
-Создание мультирегиональных веб-приложений и настройка в диспетчере трафика Azure маршрутизации трафика ко всем этим веб-приложениям — это важный сценарий, обеспечивающий высокую доступность приложений клиентов. Клонируя существующее веб-приложение, вы можете подключить оба веб-приложения к новому или существующему профилю диспетчера трафика. Обратите внимание, что поддерживается только версия диспетчера трафика на основе Azure Resource Manager.
+## <a name="configuring-traffic-manager-while-cloning-a-app"></a>Настройка диспетчера трафика при клонировании приложения
+Создание мультирегиональных веб-приложений и настройка в диспетчере трафика Azure маршрутизации трафика ко всем этим веб-приложениям — это важный сценарий, обеспечивающий высокую доступность приложений клиентов. Клонируя существующее веб-приложение, вы можете подключить оба веб-приложения к новому или существующему профилю диспетчера трафика. Обратите внимание, что поддерживается только версия диспетчера трафика на основе Azure Resource Manager.
 
-### Создание нового профиля диспетчера трафика при клонировании приложения
+### <a name="creating-a-new-traffic-manager-profile-while-cloning-a-app"></a>Создание нового профиля диспетчера трафика при клонировании приложения
 Сценарий: пользователь хочет клонировать веб-приложение в другой регион и настроить профиль диспетчера трафика Azure Resource Manager так, чтобы он включал оба веб-приложения. Следующая команда демонстрирует создание точной копии исходного веб-приложения в новом веб-приложении с настройкой нового профиля диспетчера трафика:
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 
-### Добавление клонированного веб-приложения в существующий профиль диспетчера трафика
+### <a name="adding-new-cloned-web-app-to-an-existing-traffic-manager-profile"></a>Добавление клонированного веб-приложения в существующий профиль диспетчера трафика
 Сценарий: у пользователя уже есть профиль диспетчера трафика Azure Resource Manager, и он хотел бы добавить оба веб-приложения в качестве конечных точек. Для этого нужно знать идентификатор профиля диспетчера трафика, идентификатор подписки, имя группы ресурсов и имя существующего профиля диспетчера трафика.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
@@ -89,7 +93,7 @@ ms.author: ahmedelnably
 
     $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 
-## Существующие ограничения
+## <a name="current-restrictions"></a>Существующие ограничения
 В настоящее время эта функция доступна в режиме предварительной версии, и со временем ее возможности будут расширены. В текущей версии функции клонирования приложений существуют следующие ограничения:
 
 * Параметры автоматического масштабирования не клонируются
@@ -101,7 +105,7 @@ ms.author: ahmedelnably
 * Правила TiP не клонируются
 * Содержимое базы данных не клонируется.
 
-### Ссылки
+### <a name="references"></a>Ссылки
 * [Команды Azure PowerShell на основе Azure Resource Manager для веб-приложений Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Клонирование веб-приложения с помощью портала Azure](app-service-web-app-cloning-portal.md)
 * [Резервное копирование веб-приложений в службе приложений Azure](web-sites-backup.md)
@@ -109,4 +113,9 @@ ms.author: ahmedelnably
 * [Введение в среду службы приложения](app-service-app-service-environment-intro.md)
 * [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

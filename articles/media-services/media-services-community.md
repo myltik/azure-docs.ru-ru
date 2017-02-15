@@ -1,12 +1,12 @@
 ---
-title: Обзор сообщества служб мультимедиа Azure | Microsoft Docs
-description: 'На этой странице сообщества служб мультимедиа Azure (AMS) описаны различные возможности для получения новых сведений об AMS, ознакомления с новыми видеороликами и подкастами, а также для обратной связи, с помощью которой вы можете задавать вопросы и отправлять отзывы. '
+title: "Обзор сообщества служб мультимедиа Azure | Документация Майкрософт"
+description: "На этой странице сообщества служб мультимедиа Azure (AMS) описаны различные возможности для получения новых сведений об AMS, ознакомления с новыми видеороликами и подкастами, а также для обратной связи, с помощью которой вы можете задавать вопросы и отправлять отзывы. "
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
+
 
 ---
 # <a name="azure-media-services-community"></a>Сообщество служб мультимедиа Azure
@@ -56,6 +60,9 @@ ms.author: juliako
 | Обозреватель мультимедиа Azure |amse@microsoft.com |
 | Конструктор рабочих процессов |mepd@microsoft.com |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

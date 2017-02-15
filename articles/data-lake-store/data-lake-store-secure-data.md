@@ -141,7 +141,7 @@ ms.openlocfilehash: 372e289911bfbb9bf04ddf1bc59307e33866024a
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
-* [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
+* [Копирование данных из больших двоичных объектов службы хранилища Azure в Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)

@@ -1,12 +1,12 @@
 ---
-title: Отслеживание приложений логики в службе приложений Azure | Microsoft Docs
-description: Просмотр результатов действий приложений логики
+title: "Отслеживание приложений логики в службе приложений Azure | Документация Майкрософт"
+description: "Просмотр результатов действий приложений логики"
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cc73caf6ffdc47199369112a5310a3f4dd0cc9bf
+
 
 ---
 # <a name="monitor-your-logic-apps"></a>Мониторинг приложений логики
@@ -134,6 +138,9 @@ ms.author: jehollan
 * [Создание шаблона развертывания приложения логики](app-service-logic-create-deploy-template.md)
 * [Возможности интеграции Enterprise](app-service-logic-enterprise-integration-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

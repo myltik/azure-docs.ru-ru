@@ -64,6 +64,6 @@ Azure Service Fabric — это надежная и гибкая платфор
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

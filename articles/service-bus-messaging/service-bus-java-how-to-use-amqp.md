@@ -1,22 +1,26 @@
 ---
-title: Использование AMQP 1.0 с API служебной шины для Java | Microsoft Docs
-description: Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP.
-services: service-bus
+title: "Использование AMQP 1.0 с API служебной шины для Java | Документация Майкрософт"
+description: "Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e53d42e6-aa85-4fff-b685-3c6129af65f1
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f6a5c1073d1bcea725e1e4be9dec13fea4112751
+
 
 ---
-# <a name="how-to-use-the-java-message-service-(jms)-api-with-service-bus-and-amqp-1.0"></a>Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
+# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
 AMQP 1.0 — это эффективный и надежный протокол обмена сообщениями на уровне соединения, который можно использовать для создания надежных кроссплатформенных приложений для обмена сообщениями. Поддержка AMQP 1.0 была добавлена в Azure Service Bus в октябре 2012 г. и перешла к общей доступности (GA) в мае 2013 г.
 
 Добавление AMQP 1.0 означает, что теперь возможно использовать функции очереди и сообщений с публикацией/подпиской у брокера, относящиеся к служебной шине, на целом ряде платформ с применением эффективного двоичного протокола. Кроме того, можно создавать приложения, содержащие компоненты, созданные с использованием разнообразных языков, платформ и операционных систем.
@@ -24,9 +28,9 @@ AMQP 1.0 — это эффективный и надежный протокол 
 В этом практическом руководстве описывается использование компонентов обмена сообщениями через служебную шину (очередей и разделов публикации/подписки) из приложений Java, использующих популярный стандарт API JMS.
 
 ## <a name="get-started-with-service-bus"></a>Приступая к работе со служебной шиной
-В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем **queue1**. Если это не так, можно [создать пространство имен и очередь](../service-bus/service-bus-create-namespace-portal.md), используя [портал Azure](https://portal.azure.com). Дополнительные сведения о создании пространства имен и очередей служебной шины см. в статье [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md).
+В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем **queue1**. Если это не так, можно [создать пространство имен и очередь](service-bus-create-namespace-portal.md), используя [портал Azure](https://portal.azure.com). Дополнительные сведения о создании пространства имен и очередей служебной шины см. в статье [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md).
 
-### <a name="downloading-the-amqp-1.0-jms-client-library"></a>Загрузка клиентской библиотеки AMQP 1.0 JMS
+### <a name="downloading-the-amqp-10-jms-client-library"></a>Загрузка клиентской библиотеки AMQP 1.0 JMS
 Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 При построении и запуске приложений JMS с использованием служебной шины необходимо добавить следующие 4 JAR-файла из архива распространения Apache Qpid JMS AMQP 1.0 в Java CLASSPATH:
@@ -37,7 +41,7 @@ AMQP 1.0 — это эффективный и надежный протокол 
 * qpid-amqp-1-0-common-[version].jar
 
 ## <a name="coding-java-applications"></a>Создание приложений Java
-### <a name="java-naming-and-directory-interface-(jndi)"></a>Интерфейс JNDI
+### <a name="java-naming-and-directory-interface-jndi"></a>Интерфейс JNDI
 JMS использует интерфейс JNDI для разделения логических и физических имен. С помощью JNDI разрешаются два типа объектов JMS: ConnectionFactory и Destination. JNDI использует модель поставщика, к которой можно подключить различные службы каталогов для обработки заданий разрешения имен. Библиотека Apache Qpid JMS AMQP 1.0 поставляется с простым файловым поставщиком JNDI, настроенным с помощью файла свойств в следующем формате:
 
 ```
@@ -214,7 +218,7 @@ public class SimpleSenderReceiver implements MessageListener {
             e.printStackTrace();
         }
     }
-}   
+}    
 ```
 
 ### <a name="run-the-application"></a>Выполнение приложения
@@ -235,14 +239,14 @@ Received message with JMSMessageID = ID:956102171969368961
 exit
 ```
 
-## <a name="cross-platform-messaging-between-jms-and-.net"></a>Межплатформенный обмен сообщениями между JMS и .NET
+## <a name="cross-platform-messaging-between-jms-and-net"></a>Межплатформенный обмен сообщениями между JMS и .NET
 В этом руководстве мы рассмотрели, как отправлять и получать сообщения Service Bus с помощью JMS. Однако одно из основных преимуществ использования AMQP 1.0 состоит в том, что этот протокол позволяет приложениям, созданным из компонентов, написанных на разных языках, надежно и точно обмениваться сообщениями.
 
 Используя приведенный выше пример приложения JMS и аналогичное приложение .NET, взятое из связанного руководства [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md), можно организовать обмен сообщениями между .NET и Java. 
 
 Дополнительные сведения о межплатформенном обмене сообщениями с помощью служебной шины и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md).
 
-### <a name="jms-to-.net"></a>Из JMS в .NET
+### <a name="jms-to-net"></a>Из JMS в .NET
 Для демонстрации отправки сообщении из JMS в .NET выполните следующее:
 
 * Запустите пример приложения .NET без параметров командной строки.
@@ -260,9 +264,9 @@ Sent message with JMSMessageID = ID:1565011046230456854
 exit
 ```
 
-#### <a name="output-from-.net-application"></a>Вывод приложения .NET
+#### <a name="output-from-net-application"></a>Вывод приложения .NET
 ```
-> SimpleSenderReceiver.exe  
+> SimpleSenderReceiver.exe    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
@@ -270,7 +274,7 @@ Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### <a name=".net-to-jms"></a>Из .NET в JMS
+### <a name="net-to-jms"></a>Из .NET в JMS
 Для демонстрации отправки сообщений из .NET в JMS выполните следующее:
 
 * Запустите пример приложения .NET с параметром командной строки sendonly. В этом режиме приложение не будет получать сообщения из очереди, оно будет только отправлять сообщения.
@@ -278,11 +282,11 @@ exit
 * В консоли приложения .NET несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
 * Эти сообщения принимаются приложением Java.
 
-#### <a name="output-from-.net-application"></a>Вывод приложения .NET
+#### <a name="output-from-net-application"></a>Вывод приложения .NET
 ```
 > SimpleSenderReceiver.exe sendonly
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3    
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
 exit
@@ -290,7 +294,7 @@ exit
 
 #### <a name="output-from-jms-application"></a>Вывод приложения JMS
 ```
-> java SimpleSenderReceiver 
+> java SimpleSenderReceiver    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
@@ -318,6 +322,9 @@ exit
 * [Руководство разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md)
 * [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

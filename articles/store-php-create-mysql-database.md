@@ -1,20 +1,24 @@
 ---
-title: Создание базы данных MySQL и подключение к ней в Azure
-description: Из этой статьи вы узнаете, как с помощью портала Azure создать базу данных MySQL и подключиться к ней из веб-приложения PHP в Azure.
+title: "Создание базы данных MySQL и подключение к ней в Azure"
+description: "Из этой статьи вы узнаете, как с помощью портала Azure создать базу данных MySQL и подключиться к ней из веб-приложения PHP в Azure."
 documentationcenter: php
 services: app-service\web
 author: cephalin
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 55465a9a-7e65-4fd9-8a65-dd83ee41f3e5
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/22/2016
 ms.author: robmcm;cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b5f828f90c73f5fd0356fde4e71c11d4d27ec794
+
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Создание базы данных MySQL и подключение к ней в Azure
@@ -37,7 +41,7 @@ ms.author: robmcm;cephalin
    * **Имя базы данных**: введите уникальное имя.
    * **Подписка**: выберите подписку, которую нужно использовать.
    * **Тип базы данных**: выберите **Общий** для недорогих или бесплатных категорий или **Выделенный** для получения выделенных ресурсов. 
-   * **Группа ресурсов**: добавьте базу данных MySQL в существующую или новую [группу ресурсов](resource-group-overview.md) . Ресурсами, которые находятся в одной группе, легко управлять.
+   * **Группа ресурсов**: добавьте базу данных MySQL в существующую или новую [группу ресурсов](azure-resource-manager/resource-group-overview.md) . Ресурсами, которые находятся в одной группе, легко управлять.
    * **Расположение**: выберите близкое к вам расположение. При добавлении элементов в существующую группу ресурсов вам автоматически назначается расположение этой группы.
    * **Ценовая категория**: щелкните **Ценовая категория**, затем выберите один из вариантов (категория **Меркурий** бесплатная) и щелкните **Выбрать**. 
    * **Юридические условия**: щелкните **Юридические условия**, просмотрите сведения о покупке и нажмите кнопку **Приобрести**.
@@ -64,7 +68,7 @@ ms.author: robmcm;cephalin
 
 Теперь эти сведения о подключении вы можете использовать в любом веб-приложении. [Здесь](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)доступен пример того, как использовать сведения о подключении в простом приложении PHP.
 
-## <a name="connect-a-laravel-web-app-(from-the-php-get-started-tutorial)"></a>Подключение веб-приложения Laravel (из руководства по началу работы с PHP)
+## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Подключение веб-приложения Laravel (из руководства по началу работы с PHP)
 Предположим, что вы уже изучили учебник [Создание, настройка и развертывание веб-приложения PHP в Azure](app-service-web/app-service-web-php-get-started.md), а в Azure запущено веб-приложение [Laravel](https://www.laravel.com/). Вы легко можете добавить возможности базы данных в это приложение. Просто сделайте следующее:
 
 > [!NOTE]
@@ -82,12 +86,13 @@ ms.author: robmcm;cephalin
         DB_PASSWORD=<PASSWORD_from_properties_blade>
    
    > [!NOTE]
-   > В колонке **Свойства** имя базы данных MySQL может совпадать с именем, отображаемым в поле **Имя базы данных** (а может и не совпадать). Лучше проверить параметр "База данных" в поле **Строка подключения** . 
+   > В колонке **Свойства** имя базы данных MySQL может совпадать с именем, отображаемым в поле **Имя базы данных** (а может и не совпадать). Лучше проверить параметр "База данных" в поле **Строка подключения** .    
    > 
    > ![Создание базы данных MySQL на портале Azure — выполнение](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
    > 
    > 
-2. Быстро проверить, есть ли у вас доступ к MySQL, можно с помощью [стандартного формирования шаблонов проверки подлинности Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). В терминале командной строки выполните из корневого каталога приложения Laravel такие команды:
+2. Быстро проверить, есть ли у вас доступ к MySQL, можно с помощью [стандартного формирования шаблонов проверки подлинности Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). 
+   В терминале командной строки выполните из корневого каталога приложения Laravel такие команды:
    
          php artisan migrate
          php artisan make:auth
@@ -136,6 +141,9 @@ ms.author: robmcm;cephalin
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

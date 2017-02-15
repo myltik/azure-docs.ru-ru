@@ -1,12 +1,12 @@
 ---
-title: Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью медиа-аналитики Azure | Microsoft Docs
-description: Функция OCR (оптическое распознавание символов) медиа-аналитики Azure позволяет преобразовывать текстовое содержимое в видеофайлах в редактируемый и доступный для поиска цифровой текст.  Это позволяет автоматически извлекать значимые метаданные из видеосигнала файлов мультимедиа.
+title: "Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью аналитики мультимедиа Azure | Документация Майкрософт"
+description: "Функция OCR (оптическое распознавание символов) медиа-аналитики Azure позволяет преобразовывать текстовое содержимое в видеофайлах в редактируемый и доступный для поиска цифровой текст.  Это позволяет автоматически извлекать значимые метаданные из видеосигнала файлов мультимедиа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+
 
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью медиа-аналитики Azure
@@ -335,6 +339,9 @@ ms.author: juliako
 ## <a name="related-links"></a>Связанные ссылки
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

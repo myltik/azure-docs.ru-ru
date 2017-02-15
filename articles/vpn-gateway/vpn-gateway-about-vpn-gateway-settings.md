@@ -1,20 +1,24 @@
 ---
-title: Сведения о параметрах VPN-шлюза для шлюзов виртуальной сети | Microsoft Docs
-description: Узнайте о параметрах VPN-шлюза для виртуальной сети Azure.
+title: "Сведения о параметрах VPN-шлюза для шлюзов виртуальной сети | Документация Майкрософт"
+description: "Узнайте о параметрах VPN-шлюза для виртуальной сети Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 10/18/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fc3c8469657b50e4e09a1849d9c63f4ef1e0c414
+
 
 ---
 # <a name="about-vpn-gateway-settings"></a>Сведения о параметрах VPN-шлюза
@@ -22,7 +26,7 @@ ms.author: cherylmc
 
 В разделах этой статьи рассматриваются ресурсы и параметры, относящиеся к VPN-шлюзу в модели развертывания с помощью **Resource Manager** . Возможно, вы захотите рассмотреть доступные конфигурации на примере схем топологий подключений. Описание и схему топологии для каждого варианта подключения можно найти в статье [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md) . 
 
-## <a name="<a-name="gwtype"></a>gateway-types"></a><a name="gwtype"></a>Типы шлюзов
+## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Типы шлюзов
 У каждой виртуальной сети может быть только один шлюз виртуальной сети каждого типа. При создании шлюза виртуальной сети необходимо убедиться, что в конфигурации указан правильный тип шлюза.
 
 Для -GatewayType доступны приведенные ниже значения. 
@@ -39,9 +43,10 @@ ms.author: cherylmc
     -VpnType RouteBased
 
 
-## <a name="<a-name="gwsku"></a>gateway-skus"></a><a name="gwsku"></a>SKU шлюзов
+## <a name="a-namegwskuagateway-skus"></a><a name="gwsku"></a>SKU шлюзов
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
+### <a name="configuring-the-gateway-sku"></a>Настройка SKU шлюза
 **Указание SKU шлюза на портале Azure**
 
 Если для создания шлюза виртуальной сети Resource Manager используется портал Azure, выбрать SKU шлюза можно в раскрывающемся списке. Представленные параметры соответствуют выбранным типу шлюза и типу VPN.
@@ -65,12 +70,10 @@ ms.author: cherylmc
     $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
     Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-<br>
- В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
-
+### <a name="estimated-aggregate-throughput-by-gateway-sku-and-type"></a>Расчетная суммарная пропускная способность в зависимости от SKU и типа шлюза
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-## <a name="<a-name="connectiontype"></a>connection-types"></a><a name="connectiontype"></a>Типы подключения
+## <a name="a-nameconnectiontypeaconnection-types"></a><a name="connectiontype"></a>Типы подключения
 В модели развертывания с помощью Resource Manager каждой конфигурации необходим определенный тип подключения шлюза виртуальной сети. Для `-ConnectionType` в PowerShell можно указать такие значения (развертывание Resource Manager):
 
 * IPsec
@@ -85,7 +88,7 @@ ms.author: cherylmc
     -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
-## <a name="<a-name="vpntype"></a>vpn-types"></a><a name="vpntype"></a>Типы VPN
+## <a name="a-namevpntypeavpn-types"></a><a name="vpntype"></a>Типы VPN
 При создании шлюза виртуальной сети для конфигурации VPN-шлюза необходимо указать тип VPN. Выбор типа VPN зависит от топологии подключений, которую вы хотите создать. Например, для подключения типа "точка — сеть" требуется тип VPN на основе маршрутов. Тип VPN может также зависеть от оборудования, которое будет использоваться. Для конфигураций "сеть — сеть" требуется VPN-устройство. Некоторые VPN-устройства поддерживают только определенный тип VPN.
 
 Выбранный тип VPN должен удовлетворять всем требованиям к подключению решения, которое вы хотите создать. Например, если вы хотите создать подключение VPN-шлюза типа "сеть — сеть" и подключение VPN-шлюза типа "точка — сеть" для одной и той же виртуальной сети, то вам следует использовать тип VPN *RouteBased* , так как он необходим для подключения типа "точка — сеть". Необходимо также проверить, поддерживает ли ваше VPN-устройство VPN-подключение на основе маршрутов. 
@@ -100,10 +103,10 @@ ms.author: cherylmc
     -Location 'West US' -IpConfigurations $gwipconfig `
     -GatewayType Vpn -VpnType RouteBased
 
-## <a name="<a-name="requirements"></a>gateway-requirements"></a><a name="requirements"></a>Требования к шлюзу
+## <a name="a-namerequirementsagateway-requirements"></a><a name="requirements"></a>Требования к шлюзу
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="<a-name="gwsub"></a>gateway-subnet"></a><a name="gwsub"></a>Подсеть шлюза
+## <a name="a-namegwsubagateway-subnet"></a><a name="gwsub"></a>Подсеть шлюза
 Чтобы настроить шлюз виртуальной сети, сначала нужно создать подсеть шлюза для виртуальной сети. Чтобы подсети шлюзов работали правильно, каждую подсеть нужно назвать *GatewaySubnet* . Это имя указывает Azure, что данную подсеть следует использовать для шлюза.
 
 Минимальный размер подсети шлюза зависит исключительно от того, какую конфигурацию вы хотите создать. Хотя можно создать подсеть шлюза всего лишь с размером /29, мы рекомендуем создавать подсети с размером /28 или больше (/28, /27, /26 и т. д.). 
@@ -116,7 +119,7 @@ ms.author: cherylmc
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="<a-name="lng"></a>local-network-gateways"></a><a name="lng"></a>Локальные сетевые шлюзы
+## <a name="a-namelngalocal-network-gateways"></a><a name="lng"></a>Локальные сетевые шлюзы
 При создании конфигурации VPN-шлюза нередко шлюз локальной сети представляет ваше локальное расположение. В классической модели развертывания шлюз локальной сети называется "локальным сайтом". 
 
 Для локального сетевого шлюза следует задать имя и общий IP-адрес локального VPN-устройства, а также указать префиксы адресов, принадлежащие к локальному расположению. Azure проверяет наличие сетевого трафика по префиксам адресов назначения, учитывает конфигурацию, указанную для локального сетевого шлюза, и соответствующим образом направляет пакеты. Можно также указать шлюзы локальной сети для конфигураций типа "виртуальная сеть — виртуальная сеть", использующих подключение к VPN-шлюзу.
@@ -128,7 +131,7 @@ ms.author: cherylmc
 
 Иногда возникает необходимость изменить параметры локального сетевого шлюза. Например, при добавлении или изменении диапазона адресов, либо при изменении IP-адреса VPN-устройства. Для классической виртуальной сети эти параметры можно изменить на классическом портале, на странице "Локальные сети". В случае использования Resource Manager ознакомьтесь с разделом [Изменение параметров шлюза локальной сети с помощью PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="<a-name="resources"></a>rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>Интерфейсы REST API и командлеты PowerShell
+## <a name="a-nameresourcesarest-apis-and-powershell-cmdlets"></a><a name="resources"></a>Интерфейсы REST API и командлеты PowerShell
 Дополнительные технические материалы и специальные требования к синтаксису, действующие при использовании интерфейсов REST API и командлетов PowerShell для настройки конфигураций VPN-шлюзов, доступны на приведенных ниже страницах.
 
 | **Классический** | **Диспетчер ресурсов** |
@@ -139,6 +142,9 @@ ms.author: cherylmc
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о доступных конфигурациях подключений см. в статье [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

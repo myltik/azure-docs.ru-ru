@@ -1,13 +1,13 @@
 ---
-title: Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Spark в HDInsight | Microsoft Docs
-description: Узнайте, как установить записную книжку Jupyter на компьютере локально и как подключить ее к кластеру Apache Spark в Azure HDInsight.
+title: "Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Spark в HDInsight | Документация Майкрософт"
+description: "Узнайте, как установить записную книжку Jupyter на компьютере локально и как подключить ее к кластеру Apache Spark в Azure HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a5008302306f6024d69ea82c537990ef4360495d
+
 
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight-linux"></a>Установка записной книжки Jupyter на компьютер и подключение к кластеру Apache Spark в HDInsight на платформе Linux
@@ -99,7 +103,7 @@ ms.author: nitinme
 
     >[AZURE.TIP] Если вы хотите обновить конфигурацию записной книжки для подключения к другому кластеру, измените файл config.json, указав новый набор значений, как показано на шаге 3. 
 
-## <a name="why-should-i-install-jupyter-on-my-computer?"></a>Зачем устанавливать Jupyter на моем компьютере?
+## <a name="why-should-i-install-jupyter-on-my-computer"></a>Зачем устанавливать Jupyter на моем компьютере?
 Может быть несколько причин, по которым вам потребуется установить на компьютер Jupyter и подключить его к кластеру Spark в HDInsight.
 
 * Хотя записные книжки Jupyter уже доступны в кластере Spark в Azure HDInsight, после их установки на компьютер вы сможете создавать записные книжки локально, тестировать приложения на работающем кластере и отправлять записные книжки в кластер. Для отправки записных книжек в кластер можно отправить их с помощью записной книжки Jupyter, которая запущена на кластере, или сохранить их в папке /HdiNotebooks в учетной записи хранения, связанной с кластером. Дополнительные сведения о хранении записных книжек в кластере см. в разделе [Где хранятся записные книжки](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored).
@@ -113,7 +117,7 @@ ms.author: nitinme
 > 
 > 
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>Дополнительные материалы
+## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Сценарии
@@ -138,6 +142,9 @@ ms.author: nitinme
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

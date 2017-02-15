@@ -1,12 +1,12 @@
 ---
-title: Disable Stretch Database and bring back remote data | Microsoft Docs
-description: Learn how to disable Stretch Database for a table and optionally bring back remote data.
+title: "Отключение базы данных Stretch и возврат удаленных данных | Документация Майкрософт"
+description: "Узнайте, как отключить растяжение базы данных для таблицы и при необходимости вернуть удаленные данные."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 08291748-0dfd-4a7d-a6a4-a5618e9c248d
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,49 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a140e89058f6a246e80b71248b82d0f6767337cb
+
 
 ---
-# <a name="disable-stretch-database-and-bring-back-remote-data"></a>Disable Stretch Database and bring back remote data
-To disable Stretch Database for a table, select **Stretch** for a table in SQL Server Management Studio. Then select one of the following options.
+# <a name="disable-stretch-database-and-bring-back-remote-data"></a>Отключение растяжения базы данных и возвращение удаленных данных
+Для отключения растяжения базы данных для таблицы выберите **Перенос** для таблицы в SQL Server Management Studio. Затем выберите один из следующих вариантов.
 
-* **Disable | Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This operation incurs data transfer costs, and it can't be canceled.
-* **Disable | Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+* **Отключить | Вернуть данные из Azure**. Скопируйте удаленные данные для таблицы из Azure обратно на SQL Server, затем отключите растяжение базы данных для таблицы. Эта операция включает расходы, связанные с передачей данных, и не может быть отменена.
+* **Отключить | Оставить данные в Azure**. Отключите растяжение базы данных для таблицы.  Оставьте удаленные данные для таблицы в Azure.
 
-You can also use Transact\-SQL to disable Stretch Database for a table or for a database.
+Чтобы отключить базу данных Stretch для таблицы или базы данных, также можно использовать Transact\-SQL.
 
-After you disable Stretch Database for a table, data migration stops and query results no longer include results from the remote table.
+После отключения растяжения базы данных для таблицы миграция данных останавливается и результаты запроса больше не включают результаты из удаленной таблицы.
 
-If you simply want to pause data migration, see [Pause and resume Stretch Database](sql-server-stretch-database-pause.md).
+Сведения о приостановке переноса данных см. в статье [Приостановка и возобновление переноса данных (база данных Stretch)](sql-server-stretch-database-pause.md).
 
 > [!NOTE]
-> Disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+> Отключение базы данных Stretch для таблицы или базы данных не приводит к удалению удаленного объекта. Если вы хотите удалить удаленную таблицу или базу данных, ее необходимо удалить с помощью портала управления Azure. За хранение удаленных объектов в Azure по-прежнему будет взиматься плата, пока вы не удалите их. Дополнительные сведения о ценах на использование базы данных SQL Server Stretch см. на [этой странице](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 > 
 > 
 
-## <a name="disable-stretch-database-for-a-table"></a>Disable Stretch Database for a table
-### <a name="use-sql-server-management-studio-to-disable-stretch-database-for-a-table"></a>Use SQL Server Management Studio to disable Stretch Database for a table
-1. In SQL Server Management Studio, in Object Explorer, select the table for which you want to disable Stretch Database.
-2. Right\-click and select **Stretch**, and then select one of the following options.
+## <a name="disable-stretch-database-for-a-table"></a>Отключение растяжения базы данных для таблицы
+### <a name="use-sql-server-management-studio-to-disable-stretch-database-for-a-table"></a>Отключение растяжения базы данных для таблицы с помощью SQL Server Management Studio
+1. В среде SQL Server Management Studio в обозревателе объектов выберите таблицу, для которой необходимо отключить растяжение базы данных.
+2. Щелкните эту таблицу правой кнопкой мыши, выберите пункт **Stretch**, а затем — один из следующих параметров:
    
-   * **Disable | Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This command can't be canceled.
+   * **Отключить | Вернуть данные из Azure**. Скопируйте удаленные данные для таблицы из Azure обратно на SQL Server, затем отключите растяжение базы данных для таблицы. Эта операция не может быть отменена.
      
      > [!NOTE]
-     > Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+     > При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. на странице [Сведения о стоимости пропускной способности](https://azure.microsoft.com/pricing/details/data-transfers/).
      > 
      > 
      
-     After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
-   * **Disable | Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+     После копирования всех удаленных данных из Azure обратно на SQL Server растяжение для таблицы отключается.
+   * **Отключить | Оставить данные в Azure**. Отключите растяжение базы данных для таблицы.  Оставьте удаленные данные для таблицы в Azure.
    
    > [!NOTE]
-   > Disabling Stretch Database for a table does not delete the remote data or the remote table. If you want to delete the remote table, you have to drop it by using the Azure management portal. The remote table continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+   > Отключение базы данных Stretch для таблицы не приводит к удалению удаленных данных или удаленной таблицы. Если вы хотите удалить удаленную таблицу, ее необходимо удалить с помощью портала управления Azure. За хранение удаленной таблицы в Azure по-прежнему будет взиматься плата, пока вы не удалите ее. Дополнительные сведения о ценах на использование базы данных SQL Server Stretch см. на [этой странице](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
    > 
    > 
 
-### <a name="use-transact\-sql-to-disable-stretch-database-for-a-table"></a>Use Transact\-SQL to disable Stretch Database for a table
-* To disable Stretch for a table and copy the remote data for the table from Azure back to SQL Server, run the following command. After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
+### <a name="use-transact-sql-to-disable-stretch-database-for-a-table"></a>Отключение базы данных Stretch для таблицы с помощью Transact-SQL
+* Чтобы отключить Stretch для таблицы и скопировать удаленные данные для таблицы из Azure обратно в SQL Server, выполните следующую команду. После копирования всех удаленных данных из Azure обратно на SQL Server растяжение для таблицы отключается.
   
-  This command can't be canceled.
+  Эта операция не может быть отменена.
   
   ```tsql
   USE <Stretch-enabled database name>;
@@ -66,10 +70,10 @@ If you simply want to pause data migration, see [Pause and resume Stretch Databa
   GO
   ```
   > [!NOTE]
-  > Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+  > При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. на странице [Сведения о стоимости пропускной способности](https://azure.microsoft.com/pricing/details/data-transfers/).
   > 
   > 
-* To disable Stretch for a table and abandon the remote data, run the following command.
+* Чтобы отключить растяжение для таблицы и оставить удаленные данные в Azure, выполните следующую команду.
   
   ```tsql
   ALTER TABLE <table_name>
@@ -77,24 +81,24 @@ If you simply want to pause data migration, see [Pause and resume Stretch Databa
   ```
 
 > [!NOTE]
-> Disabling Stretch Database for a table does not delete the remote data or the remote table. If you want to delete the remote table, you have to drop it by using the Azure management portal. The remote table continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+> Отключение базы данных Stretch для таблицы не приводит к удалению удаленных данных или удаленной таблицы. Если вы хотите удалить удаленную таблицу, ее необходимо удалить с помощью портала управления Azure. За хранение удаленной таблицы в Azure по-прежнему будет взиматься плата, пока вы не удалите ее. Дополнительные сведения о ценах на использование базы данных SQL Server Stretch см. на [этой странице](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 > 
 > 
 
-## <a name="disable-stretch-database-for-a-database"></a>Disable Stretch Database for a database
-Before you can disable Stretch Database for a database, you have to disable Stretch Database on the individual Stretch\-enabled tables in the database.
+## <a name="disable-stretch-database-for-a-database"></a>Отключение растяжения базы данных для базы данных
+Перед отключением базы данных Stretch для базы данных необходимо отключить ее для отдельных таблиц с поддержкой Stretch.
 
-### <a name="use-sql-server-management-studio-to-disable-stretch-database-for-a-database"></a>Use SQL Server Management Studio to disable Stretch Database for a database
-1. In SQL Server Management Studio, in Object Explorer, select the database for which you want to disable Stretch Database.
-2. Right\-click and select **Tasks**, and then select **Stretch**, and then select **Disable**.
+### <a name="use-sql-server-management-studio-to-disable-stretch-database-for-a-database"></a>Отключение растяжения базы данных для базы данных с помощью SQL Server Management Studio
+1. В среде SQL Server Management Studio в обозревателе объектов выберите базу данных, для которой необходимо отключить растяжение базы данных.
+2. Щелкните эту базу данных правой кнопкой мыши и выберите \-Задачи**, **Stretch** и **Отключить**.
 
 > [!NOTE]
-> Disabling Stretch Database for a database does not delete the remote database. If you want to delete the remote database, you have to drop it by using the Azure management portal. The remote database continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+> Отключение базы данных Stretch для базы данных не приводит к удалению удаленной базы данных. Если вы хотите удалить удаленную базу данных, ее необходимо удалить с помощью портала управления Azure. За хранение удаленной базы данных в Azure по-прежнему будет взиматься плата, пока вы не удалите ее. Дополнительные сведения о ценах на использование базы данных SQL Server Stretch см. на [этой странице](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 > 
 > 
 
-### <a name="use-transact\-sql-to-disable-stretch-database-for-a-database"></a>Use Transact\-SQL to disable Stretch Database for a database
-Run the following command.
+### <a name="use-transact-sql-to-disable-stretch-database-for-a-database"></a>Отключение базы данных Stretch для базы данных с помощью Transact-SQL
+Выполните следующую команду:
 
 ```tsql
 ALTER DATABASE <database name>
@@ -102,15 +106,18 @@ ALTER DATABASE <database name>
 ```
 
 > [!NOTE]
-> Disabling Stretch Database for a database does not delete the remote database. If you want to delete the remote database, you have to drop it by using the Azure management portal. The remote database continues to incur Azure costs until you delete it. For more info, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+> Отключение базы данных Stretch для базы данных не приводит к удалению удаленной базы данных. Если вы хотите удалить удаленную базу данных, ее необходимо удалить с помощью портала управления Azure. За хранение удаленной базы данных в Azure по-прежнему будет взиматься плата, пока вы не удалите ее. Дополнительные сведения о ценах на использование базы данных SQL Server Stretch см. на [этой странице](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 > 
 > 
 
-## <a name="see-also"></a>See also
-[ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+## <a name="see-also"></a>Дополнительные материалы
+[Параметры ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-[Pause and resume Stretch Database](sql-server-stretch-database-pause.md)
+[Приостановите и возобновите растяжение баз данных](sql-server-stretch-database-pause.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

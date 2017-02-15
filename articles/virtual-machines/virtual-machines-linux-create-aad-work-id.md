@@ -1,13 +1,13 @@
 ---
-title: Создание рабочего или учебного удостоверения в Azure Active Directory | Microsoft Docs
-description: Сведения о создании рабочих или учебных удостоверений в Azure Active Directory для использования с виртуальными машинами Linux.
+title: "Создание рабочего или учебного удостоверения в Azure Active Directory | Документация Майкрософт"
+description: "Сведения о создании рабочих или учебных удостоверений в Azure Active Directory для использования с виртуальными машинами Linux."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: b0f86d77-c669-4aa1-a095-c2aa4d9105fe
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 9332e089a7bafe0acc9f136795926c1290413448
+
 
 ---
-# Создание рабочего или учебного удостоверения в Azure Active Directory для использования с виртуальными машинами Linux
-Если вы создали личную учетную запись Azure или имеете подписку на MSDN и создали учетную запись Azure для получения преимуществ кредитов MSDN Azure — при ее создании вы использовали удостоверение *учетной записи Майкрософт*. Для работы многих полезных функций Azure — одним из примеров являются [шаблоны групп ресурсов](../resource-group-overview.md) — требуется рабочая или школьная учетная запись (удостоверение, управляемое Azure Active Directory). Чтобы создать рабочую или учебную учетную запись, вы можете следовать инструкциям ниже. К счастью, одна из лучших особенностей личной учетной записи Azure в том, что она поставляется с доменом Azure Active Directory по умолчанию, который позволяет создать новую рабочую или школьную учетную запись и использовать ее с функциями Azure, которые ее требуют.
+# <a name="creating-a-work-or-school-identity-in-azure-active-directory-to-use-with-linux-vms"></a>Создание рабочего или учебного удостоверения в Azure Active Directory для использования с виртуальными машинами Linux
+Если вы создали личную учетную запись Azure или имеете подписку на MSDN и создали учетную запись Azure для получения преимуществ кредитов MSDN Azure — при ее создании вы использовали удостоверение *учетной записи Майкрософт*. Для работы многих полезных функций Azure — одним из примеров являются [шаблоны групп ресурсов](../azure-resource-manager/resource-group-overview.md) — требуется рабочая или учебная учетная запись (удостоверение, управляемое Azure Active Directory). Чтобы создать рабочую или учебную учетную запись, вы можете следовать инструкциям ниже. К счастью, одна из лучших особенностей личной учетной записи Azure в том, что она поставляется с доменом Azure Active Directory по умолчанию, который позволяет создать новую рабочую или школьную учетную запись и использовать ее с функциями Azure, которые ее требуют.
 
-Однако последние изменения делают возможным управление подпиской с любым типом учетной записи Azure с помощью метода интерактивного входа `azure login`, который описан [здесь](../xplat-cli-connect.md). Вы можете использовать этот механизм или воспользоваться инструкциями, приведенными ниже. Вы также можете [создать рабочее или учебное удостоверение в Azure Active Directory для использования с виртуальными машинами Windows](virtual-machines-windows-create-aad-work-id.md).
+Однако последние изменения делают возможным управление подпиской с любым типом учетной записи Azure с помощью метода интерактивного входа `azure login` , который описан [здесь](../xplat-cli-connect.md). Вы можете использовать этот механизм или воспользоваться инструкциями, приведенными ниже. Вы также можете [создать рабочее или учебное удостоверение в Azure Active Directory для использования с виртуальными машинами Windows](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [!INCLUDE [virtual-machines-common-create-aad-work-id](../../includes/virtual-machines-common-create-aad-work-id.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

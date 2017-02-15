@@ -1,19 +1,23 @@
 ---
-title: Обнаружение лиц и определение эмоций с помощью медиа-аналитики Azure | Microsoft Docs
-description: В этом разделе содержатся сведения об обнаружении лиц и определении эмоций с помощью медиа-аналитики Azure.
+title: "Обнаружение лиц и определение эмоций с помощью медиа-аналитики Azure | Документация Майкрософт"
+description: "В этом разделе содержатся сведения об обнаружении лиц и определении эмоций с помощью медиа-аналитики Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
+ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Обнаружение лиц и определение эмоций с помощью медиа-аналитики Azure
@@ -44,7 +48,7 @@ API обнаружения и отслеживания лиц обеспечив
 
 Обнаруженные и отслеживаемые лица возвращаются с указанием координат (слева, вверху, ширина и высота), которые обозначают расположение лиц на изображении в пикселях, а также с идентификационным номером лица, означающим отслеживание этого человека. Если лицо в анфас теряется или перекрывается в кадре, его идентификационный номер может быть сброшен, в результате чего нескольким людям назначаются несколько идентификаторов.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Элементы выходного JSON-файла
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Элементы выходного JSON-файла
 Выходной результат операции обнаружения и отслеживания лиц содержит метаданные по лицам в заданном JSON-файле.
 
 В JSON-файл обнаружения и отслеживания лиц входят следующие атрибуты:
@@ -70,18 +74,11 @@ API обнаружения и отслеживания лиц обеспечив
 * начало/шкала времени = 2,1 секунды
 * секунды x (частота кадров/шкала времени) = 63 кадра
 
-Ниже приведен простой пример извлечения JSON-файла в формат кадра для обнаружения и отслеживания лиц.
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
-
 ## <a name="face-detection-input-and-output-example"></a>Пример входных и выходных данных обнаружения лиц
 ### <a name="input-video"></a>Входные видеоданные
 [Входные видеоданные](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Конфигурация задачи (предустановка)
+### <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании задачи с помощью **Azure Media Face Detector**необходимо указать предустановку конфигурации. Следующая предустановка конфигурации предназначена только для обнаружения лиц.
 
     {"version":"1.0"}
@@ -140,7 +137,7 @@ API обнаружения и отслеживания лиц обеспечив
 ### <a name="input-video"></a>Входные видеоданные
 [Входные видеоданные](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Конфигурация задачи (предустановка)
+### <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании задачи с помощью **Azure Media Face Detector**необходимо указать предустановку конфигурации. Следующая предустановка конфигурации используется для создания JSON на основе определения эмоций.
 
     {
@@ -514,6 +511,9 @@ API обнаружения и отслеживания лиц обеспечив
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

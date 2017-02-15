@@ -1,12 +1,12 @@
 ---
-title: Использование службы электронной почты SendGrid (Java) | Microsoft Docs
-description: Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на Java.
-services: ''
+title: "Как использовать службу электронной почты SendGrid (Java) | Документация Майкрософт"
+description: "Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на Java."
+services: 
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
 editor: mollybos
-
+ms.assetid: cc75c43e-ede9-492b-98c2-9147fcb92c21
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
+ms.openlocfilehash: 721cd52b37826c1880a94d8f95a0c70302c8f0b5
+
 
 ---
-# Как отправлять электронную почту с помощью SendGrid из Java
-В этом руководстве показано, как выполнять типовые задачи программирования для службы электронной почты SendGrid в Azure. Примеры кода написаны на Java. Описываемые здесь сценарии включают в себя **создание сообщения электронной почты**, **отправку сообщения электронной почты**, **добавление вложений**, **использование фильтров** и **обновление свойств**. Дополнительные сведения о SendGrid и отправке электронной почты см. в разделе [Дальнейшие действия](#next-steps).
+# <a name="how-to-send-email-using-sendgrid-from-java"></a>Как отправлять электронную почту с помощью SendGrid из Java
+В этом руководстве показано, как выполнять типовые задачи программирования для службы электронной почты SendGrid в Azure. Примеры кода написаны на Java. Описываемые здесь сценарии включают в себя **создание электронного сообщения**, **отправку электронного сообщения**, **добавление вложений**, **использование фильтров** и **обновление свойств**. Дополнительные сведения о SendGrid и отправке электронной почты см. в разделе [Дальнейшие действия](#next-steps).
 
-## Что такое служба электронной почты SendGrid?
-SendGrid — это [облачная служба электронной почты], которая предоставляет надежные возможности [доставки электронной почты], масштабируемости и аналитики в режиме реального времени наряду с гибкими интерфейсами API, которые облегчают пользовательскую интеграцию. Ниже перечислены наиболее распространенные сценарии использования SendGrid.
+## <a name="what-is-the-sendgrid-email-service"></a>Что такое служба электронной почты SendGrid?
+SendGrid — это [облачная служба электронной почты], которая обеспечивает надежную [доставку электронной почты], предоставляет возможности масштабирования и аналитики в реальном времени, а также предоставляет гибкие интерфейсы API для пользовательской интеграции. Ниже перечислены наиболее распространенные сценарии использования SendGrid.
 
 * Автоматическая отправка уведомлений о получении клиентам
 * Администрирование списков рассылки для ежемесячной отправки клиентам электронных листовок и специальных предложений
@@ -31,11 +35,11 @@ SendGrid — это [облачная служба электронной поч
 
 Дополнительные сведения см. на веб-сайте <http://sendgrid.com>.
 
-## Создание учетной записи SendGrid
+## <a name="create-a-sendgrid-account"></a>Создание учетной записи SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## Практическое руководство. Использование библиотек javax.mail
-Получите библиотеки javax.mail (например, по адресу <http://www.oracle.com/technetwork/java/javamail>) и импортируйте их в свой код. В общих чертах отправка сообщений электронной почты с помощью SMTP с использованием библиотеки javax.mail выглядит следующим образом.
+## <a name="how-to-use-the-javaxmail-libraries"></a>Практическое руководство. Использование библиотек javax.mail
+Получите библиотеки javax.mail, например, по адресу <http://www.oracle.com/technetwork/java/javamai>, и импортируйте их в свой код. В общих чертах отправка сообщений электронной почты с помощью SMTP с использованием библиотеки javax.mail выглядит следующим образом.
 
 1. Укажите значения SMTP, включая SMTP-сервер, для которого SendGrid имеет значение smtp.sendgrid.net.
 
@@ -65,21 +69,21 @@ SendGrid — это [облачная служба электронной поч
 ```
 
 1. Расширьте класс *javax.mail.Authenticator*, а затем в реализации метода *getPasswordAuthentication* возвратите имя пользователя и пароль SendGrid.  
-   
+
        private class SMTPAuthenticator extends javax.mail.Authenticator {
        public PasswordAuthentication getPasswordAuthentication() {
           String username = SMTP_AUTH_USER;
           String password = SMTP_AUTH_PWD;
           return new PasswordAuthentication(username, password);
        }
-2. Создайте сеанс электронной почты, прошедший проверку подлинности, с помощью объекта *javax.mail.Session*.
-   
+2. Создайте сеанс электронной почты, прошедший проверку подлинности, с помощью объекта *javax.mail.Session* .  
+
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. Создайте сообщение и назначьте значения **Кому**, **От**, **Тема** и содержимое. Это показано в разделе [Практическое руководство. Создание сообщения электронной почты](#bkmk_HowToCreateEmail).
+3. Создайте сообщение и назначьте значения полей **Кому**, **От**, **Тема** и содержимое. Это описано в разделе [Практическое руководство. Создание сообщения электронной почты](#how-to-create-an-email).
 4. Отправьте сообщение через объект *javax.mail.Transport*. Это показано в разделе [Практическое руководство. Отправка сообщения электронной почты].
 
-## Практическое руководство. Создание сообщения эл. почты
+## <a name="how-to-create-an-email"></a>Практическое руководство. Создание сообщения электронной почты
 Ниже показано, как задать значения для сообщения электронной почты.
 
     MimeMessage message = new MimeMessage(mailSession);
@@ -100,7 +104,7 @@ SendGrid — это [облачная служба электронной поч
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## Практическое руководство. Отправка сообщения эл. почты
+## <a name="how-to-send-an-email"></a>Практическое руководство. Отправка сообщения эл. почты
 Ниже показано, как отправить сообщение электронной почты.
 
     Transport transport = mailSession.getTransport();
@@ -111,12 +115,12 @@ SendGrid — это [облачная служба электронной поч
     // Close the connection.
     transport.close();
 
-## Практическое руководство. Добавление вложения
+## <a name="how-to-add-an-attachment"></a>Практическое руководство. Добавление вложения
 В следующем коде показано, как добавить вложение.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\"; 
+    String attachmentPath = "c:\\myfiles\\";
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -126,58 +130,58 @@ SendGrid — это [облачная служба электронной поч
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## Практическое руководство. Использование фильтров для включения нижних колонтитулов, отслеживания и аналитики
-SendGrid поддерживает дополнительные функциональные возможности электронной почты благодаря использованию *фильтров*. Это параметры, которые можно добавить в сообщение электронной почты для включения определенных функций, например активации отслеживания щелчков, аналитики Google, отслеживания подписок и т. д. Полный список фильтров см. в разделе [Параметры фильтров][Параметры фильтров].
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Практическое руководство. Использование фильтров для включения нижних колонтитулов, отслеживания и аналитики
+SendGrid поддерживает дополнительные функциональные возможности электронной почты благодаря использованию *фильтров*. Это параметры, которые могут быть добавлены в сообщение электронной почты для включения определенных функций, например включения отслеживания щелчков, аналитики Google, отслеживания подписок и т. д. Полный список фильтров см. в разделе [Параметры фильтра][Параметры фильтра].
 
 * Ниже показано, как вставить фильтр нижнего колонтитула, который выводит HTML-текст, отображаемый в нижней части отправляемого сообщения электронной почты.
-  
-      message.addHeader("X-SMTPAPI", 
-          "{"filters": 
-          {"footer": 
-          {"settings": 
-          {"enable":1,"text/html": 
-          "<html><b>Thank you</b> for your business.</html>"}}}}");
+
+      message.addHeader("X-SMTPAPI",
+          "{\"filters\":
+          {\"footer\":
+          {\"settings\":
+          {\"enable\":1,\"text/html\":
+          \"<html><b>Thank you</b> for your business.</html>\"}}}}");
 * Еще одним примером фильтра является отслеживание щелчков. Предположим, что текст вашего сообщения электронной почты содержит гиперссылку, похожую на приведенную ниже, и вы хотите отследить частоту переходов по ней.
-  
+
       messagePart.setContent(
           "Hello,
-          <p>This is the body of the message. Visit 
+          <p>This is the body of the message. Visit
           <a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
-          Thank you.", 
+          Thank you.",
           "text/html");
 * Чтобы включить отслеживание щелчков, используйте следующий код:
-  
-      message.addHeader("X-SMTPAPI", 
-          "{"filters": 
-          {"clicktrack": 
-          {"settings": 
-          {"enable":1}}}}");
 
-## Практическое руководство. Обновление свойств электронной почты
-Некоторые свойства электронной почты можно перезаписать с помощью оператора **set*Property*** или добавить с помощью оператора **add*Property***.
+      message.addHeader("X-SMTPAPI",
+          "{\"filters\":
+          {\"clicktrack\":
+          {\"settings\":
+          {\"enable\":1}}}}");
+
+## <a name="how-to-update-email-properties"></a>Практическое руководство. Обновление свойств электронной почты
+Некоторые свойства электронной почты могут быть перезаписаны с помощью оператора **set*Свойство*** или добавлены с помощью оператора **add*Свойство***.
 
 Например, для указания адреса **ReplyTo** используйте следующий код:
 
-    InternetAddress addresses[] = 
+    InternetAddress addresses[] =
         { new InternetAddress("john@contoso.com"),
           new InternetAddress("wendy@contoso.com") };
 
     message.setReplyTo(addresses);
 
-Чтобы добавить получателя **СК**, используйте следующий код:
+Чтобы добавить получателя **СК** , используйте следующий код:
 
-    message.addRecipient(Message.RecipientType.CC, new 
+    message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
-## Практическое руководство. Использование дополнительных служб SendGrid
-SendGrid поддерживает различные веб-интерфейсы API, с помощью которых вы можете использовать дополнительные функции SendGrid, доступные в приложении Azure. Дополнительные сведения см. в [документации по интерфейсу API SendGrid][документации по интерфейсу API SendGrid].
+## <a name="how-to-use-additional-sendgrid-services"></a>Практическое руководство. Использование дополнительных служб SendGrid
+SendGrid поддерживает различные веб-интерфейсы API, с помощью которых вы можете использовать дополнительные функции SendGrid, доступные в приложении Azure. Дополнительные сведения см. в [документации по интерфейсу API SendGrid][Документация по API SendGrid].
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Вы получили основные сведения о службе доставки электронной почты SendGrid. Дополнительные сведения можно получить по следующим ссылкам.
 
 * Пример, демонстрирующий использование SendGrid в развертывании Azure: [Практическое руководство. Отправка сообщения электронной почты из Java с помощью SendGrid в развертывании Azure](store-sendgrid-java-how-to-send-email-example.md)
-* Пакет SDK SendGrid Java: <https://sendgrid.com/docs/Code_Examples/java.html>
-* Документация по интерфейсу API SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
+* Пакет SDK SendGrid для Java: <https://sendgrid.com/docs/Code_Examples/java.html>
+* Документация по API SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Специальное предложение SendGrid для клиентов Azure: <https://sendgrid.com/windowsazure.html>
 
 [http://sendgrid.com]: https://sendgrid.com
@@ -185,10 +189,14 @@ SendGrid поддерживает различные веб-интерфейсы
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
 [http://sendgrid.com/features]: https://sendgrid.com/features
 [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
-[Параметры фильтров]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-[документации по интерфейсу API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
+[Параметры фильтра]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+[Документация по API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [облачная служба электронной почты]: https://sendgrid.com/email-solutions
-[доставки электронной почты]: https://sendgrid.com/transactional-email
+[доставку электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,12 +12,12 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
+ms.topic: get-started-article
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5adb83a7b8e19ca78dd4d837b497e1ceb4444f86
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
 
 
 ---
@@ -37,7 +37,7 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) предст
 >  
 
 ## <a name="powershell"></a>PowerShell
-Для управления базами данных и пулами эластичных баз данных, а также для автоматизации развертывания ресурсов Azure можно PowerShell. Мы рекомендуем использовать это средство для управления большим количеством баз данных и автоматизации развертывания и изменения ресурсов в рабочей среде.
+Для управления базами данных и пулами эластичных баз данных, а также для автоматизации развертывания ресурсов Azure можно использовать PowerShell. Мы рекомендуем использовать это средство для управления большим количеством баз данных и автоматизации развертывания и изменения ресурсов в рабочей среде.
 
 Дополнительные сведения см. в разделе [Управление базой данных SQL Azure с помощью PowerShell](sql-database-manage-powershell.md).
 
@@ -56,6 +56,6 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) предст
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

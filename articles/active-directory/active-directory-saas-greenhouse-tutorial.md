@@ -1,22 +1,27 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Greenhouse | Microsoft Docs
-description: Узнайте, как использовать Greenhouse вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Учебник. Интеграция Azure Active Directory с Greenhouse | Документация Майкрософт"
+description: "Узнайте, как использовать Greenhouse вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2016
+ms.date: 09/29/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 55a9a01414d930b40f60119318f5c023172141e1
+
 
 ---
-# Руководство. Интеграция Azure Active Directory с Greenhouse
-Цель данного учебника — показать интеграцию Azure и Greenhouse. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Руководство. Интеграция Azure Active Directory с Greenhouse
+Цель данного учебника — показать интеграцию Azure и Greenhouse.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * Действующая подписка на Azure
 * Подписка с поддержкой единого входа Greenhouse
@@ -30,49 +35,49 @@ ms.author: jeedes
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-greenhouse-tutorial/IC790783.png "Сценарий")
+![Сценарий](./media/active-directory-saas-greenhouse-tutorial/IC790783.png "Scenario")
 
-## Включение интеграции приложений для Greenhouse
+## <a name="enabling-the-application-integration-for-greenhouse"></a>Включение интеграции приложений для Greenhouse
 В этом разделе показано, как включить интеграцию приложений для Greenhouse.
 
-### Чтобы включить интеграцию приложений для Greenhouse, выполните следующие действия.
+### <a name="to-enable-the-application-integration-for-greenhouse-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Greenhouse, выполните следующие действия.
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-greenhouse-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-greenhouse-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить**.
+   ![Приложения](./media/active-directory-saas-greenhouse-tutorial/IC700994.png "Applications")
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавление приложения](./media/active-directory-saas-greenhouse-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+   ![Добавить приложение](./media/active-directory-saas-greenhouse-tutorial/IC749321.png "Add application")
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-greenhouse-tutorial/IC749322.png "Добавить приложение из коллекции")
+   ![Добавить приложение из коллекции](./media/active-directory-saas-greenhouse-tutorial/IC749322.png "Add an application from gallerry")
 6. В **поле поиска** введите **greenhouse**.
    
-   ![Коллекция приложений](./media/active-directory-saas-greenhouse-tutorial/IC790784.png "Коллекция приложений")
+   ![Коллекция приложений](./media/active-directory-saas-greenhouse-tutorial/IC790784.png "Application Gallery")
 7. В области результатов выберите **Greenhouse** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-   ![Greenhouse](./media/active-directory-saas-greenhouse-tutorial/IC790785.png "Greenhouse")
+   ![greenhouse](./media/active-directory-saas-greenhouse-tutorial/IC790785.png "Greenhouse")
    
-   ## Настройка единого входа
+   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Greenhouse со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Greenhouse** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configure single sign-on")
 2. На странице **Как пользователи должны входить в Greenhouse?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа** введите свой URL-адрес в формате "*https://company.greenhouse.io*", а затем нажмите кнопку **Далее**.
+   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Configure single sign-on")
+3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа** введите свой URL-адрес в формате *https://компания.greenhouse.io* и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в Greenhouse** нажмите кнопку **Загрузить метаданные**, а затем сохраните файл метаданных на локальном компьютере.
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configure App URL")
+4. На странице **Настройка единого входа в Greenhouse** нажмите кнопку **Скачать метаданные**, а затем сохраните файл метаданных на локальном компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Configure single sign-on")
 5. Передайте этот файл метаданных в службу поддержки Greenhouse.
    
    > [!NOTE]
@@ -81,23 +86,24 @@ ms.author: jeedes
    > 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configure single sign-on")
    
-   ## Настройка подготовки учетных записей пользователей
+   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
-Чтобы пользователи Azure AD могли выполнять вход в Greenhouse, они должны быть подготовлены для Greenhouse. В случае с Greenhouse подготовка выполняется вручную.
+Чтобы пользователи Azure AD могли выполнять вход в Greenhouse, они должны быть подготовлены для Greenhouse.  
+В случае с Greenhouse подготовка выполняется вручную.
 
-### Чтобы подготовить учетные записи пользователей, выполните следующие действия.
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия.
 1. Выполните вход на веб-сайт компании **Greenhouse** в качестве администратора.
-2. На панели инструментов в верхней части экрана нажмите элемент **Настройка**, а затем элемент **Пользователи**.
+2. В меню вверху щелкните **Configure** (Настройка) и выберите **Users** (Пользователи).
    
-   ![Пользователи](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Пользователи")
+   ![Пользователи](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Users")
 3. Нажмите кнопку **Новые пользователи**.
    
-   ![Новый пользователь](./media/active-directory-saas-greenhouse-tutorial/IC790792.png "Новый пользователь")
+   ![Новый пользователь](./media/active-directory-saas-greenhouse-tutorial/IC790792.png "New User")
 4. В разделе **Добавить нового пользователя** выполните следующие действия.
    
-   ![Добавить нового пользователя](./media/active-directory-saas-greenhouse-tutorial/IC790793.png "Добавить нового пользователя")
+   ![Добавить нового пользователя](./media/active-directory-saas-greenhouse-tutorial/IC790793.png "Add New User")
    
    1. В текстовом поле **Введите адреса электронной почты пользователей** укажите адрес электронной почты действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
    2. Щелкните **Сохранить**.
@@ -112,18 +118,23 @@ ms.author: jeedes
 > 
 > 
 
-## Назначение пользователей
+## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### Чтобы назначить пользователей Greenhouse, выполните следующие действия.
+### <a name="to-assign-users-to-greenhouse-perform-the-following-steps"></a>Чтобы назначить пользователей Greenhouse, выполните следующие действия.
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Greenhouse** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Назначить пользователей")
+   ![Назначить пользователей](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Assign users")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Да")
+   ![Да](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Yes")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

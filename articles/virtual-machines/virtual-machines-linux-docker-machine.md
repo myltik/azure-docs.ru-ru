@@ -1,12 +1,12 @@
 ---
-title: Создание узлов Docker в Azure с помощью машины Docker | Microsoft Docs
-description: Описывается использование машины Docker для создания узлов Docker в Azure.
+title: "Создание узлов Docker в Azure с помощью виртуальной машины Docker | Документация Майкрософт"
+description: "Описывается использование машины Docker для создания узлов Docker в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
 editor: tysonn
-
+ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+
 
 ---
-# Использование машины Docker с драйвером Azure
-[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий контейнеры Linux вместо виртуальных машин как способ изоляции данных приложения и вычислений при использовании общих ресурсов. В этом разделе описывается, когда и как использовать [машину Docker](https://docs.docker.com/machine/) (команду `docker-machine`) для создания виртуальных машин Linux в Azure, включенных как узлы Docker для контейнеров Linux.
+# <a name="use-docker-machine-with-the-azure-driver"></a>Использование машины Docker с драйвером Azure
+[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий контейнеры Linux вместо виртуальных машин как способ изоляции данных приложения и вычислений при использовании общих ресурсов. В этой статье описывается, когда и как использовать [виртуальную машину Docker](https://docs.docker.com/machine/) (команду `docker-machine`) для создания виртуальных машин Linux в Azure, настроенных в качестве узла Docker для контейнеров Linux.
 
-## Создание виртуальных машин с помощью машины Docker
-Создайте виртуальные машины в Azure в качестве узла Docker с помощью команды `docker-machine create`, используя аргумент драйвера `azure` для параметра драйвера (`-d`), а также другие аргументы.
+## <a name="create-vms-with-docker-machine"></a>Создание виртуальных машин с помощью машины Docker
+Создайте виртуальные машины в Azure в качестве узла Docker с помощью команды `docker-machine create`, используя аргумент драйвера `azure` для параметра драйвера (`-d`), а также другие аргументы. 
 
-В приведенном ниже примере используются значения по умолчанию, но в нем не открывается порт 80 в виртуальной машине для доступа к Интернету с целью проведения проверки с помощью контейнера nginx, `ops` устанавливается пользователем входа для SSH и вызывается `machine` новой виртуальной машины.
+В приведенном ниже примере используются значения по умолчанию, но в нем не открывается порт 80 на виртуальной машине для доступа к Интернету с целью проведения проверки с помощью контейнера nginx, `ops` устанавливается пользователем входа для SSH и вызывается `machine` новой виртуальной машины. 
 
 Чтобы просмотреть параметры и их значения по умолчанию, введите `docker-machine create --driver azure`. Также можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/). (Имейте в виду, что если включена двухфакторная аутентификация, вам будет необходимо пройти аутентификацию с использованием второго фактора.)
 
@@ -36,7 +40,7 @@ docker-machine create -d azure \
 
 Результаты должны выглядеть примерно так, как показано ниже, в зависимости от того, настроена ли в вашей учетной записи двухфакторная аутентификация.
 
-```
+```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
@@ -67,8 +71,8 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env machine
 ```
 
-## Настройка оболочки Docker
-Теперь введите `docker-machine env <VM name>`, чтобы узнать, что нужно сделать для настройки оболочки.
+## <a name="configure-your-docker-shell"></a>Настройка оболочки Docker
+Теперь введите `docker-machine env <VM name>` , чтобы узнать, что нужно сделать для настройки оболочки. 
 
 ```bash
 docker-machine env machine
@@ -76,7 +80,7 @@ docker-machine env machine
 
 Будет выведена информация о среде наподобие приведенной ниже. Обратите внимание на то, что был назначен IP-адрес, который понадобится для тестирования виртуальной машины.
 
-```
+```bash
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://191.237.46.90:2376"
 export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
@@ -85,10 +89,10 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env machine)
 ```
 
-Вы можете либо выполнить предлагаемую команду настройки, либо задать переменные среды самостоятельно.
+Вы можете либо выполнить предлагаемую команду настройки, либо задать переменные среды самостоятельно. 
 
-## Запуск контейнера
-Теперь вы можете запустить простой веб-сервер, чтобы протестировать правильную работу всех компонентов. В этом примере мы используем стандартный образ nginx, указываем, что он должен прослушивать порт 80 и что при перезапуске виртуальной машины контейнер также должен перезапускаться (`--restart=always`).
+## <a name="run-a-container"></a>Запуск контейнера
+Теперь вы можете запустить простой веб-сервер, чтобы протестировать правильную работу всех компонентов. В этом примере мы используем стандартный образ nginx, указываем, что он должен прослушивать порт 80 и что при перезапуске виртуальной машины контейнер также должен перезапускаться (`--restart=always`). 
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -96,7 +100,7 @@ docker run -d -p 80:80 --restart=always nginx
 
 Результаты должны быть примерно следующими:
 
-```
+```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
@@ -108,7 +112,7 @@ Status: Downloaded newer image for nginx:latest
 25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
 ```
 
-## Проверка контейнера
+## <a name="test-the-container"></a>Проверка контейнера
 Проверьте запущенные контейнеры с помощью `docker ps`:
 
 ```bash
@@ -120,9 +124,14 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 
 ![Запущенный контейнер nginx](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
-## Дальнейшие действия
-При желании вы можете попробовать воспользоваться [расширением виртуальных машин Docker](virtual-machines-linux-dockerextension.md) в Azure для выполнения этой же операции с помощью интерфейса командной строки Azure или шаблонов Azure Resource Manager.
+## <a name="next-steps"></a>Дальнейшие действия
+При желании вы можете попробовать воспользоваться [расширением виртуальных машин Docker](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в Azure для выполнения этой же операции с помощью интерфейса командной строки Azure или шаблонов Azure Resource Manager. 
 
-Дополнительные примеры работы с Docker см. в статье [Работа с Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные примеры из демонстрационного проекта HealthClinic.biz см. на странице [Примеры использования средств разработчика Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+Дополнительные примеры работы с Docker см. в статье [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Работа с Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

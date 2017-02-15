@@ -1,31 +1,35 @@
 ---
-title: Создание моментального снимка большого двоичного объекта только для чтения | Microsoft Docs
-description: Узнайте, как создать моментальный снимок большого двоичного объекта для резервного копирования данных BLOB-объектов в конкретный момент времени. Узнайте, как выставляются счета за моментальные снимки и как их можно использовать для сокращения расходов емкости.
+title: "Создание моментального снимка большого двоичного объекта только для чтения | Документация Майкрософт"
+description: "Узнайте, как создать моментальный снимок большого двоичного объекта для резервного копирования данных BLOB-объектов в конкретный момент времени. Узнайте, как выставляются счета за моментальные снимки и как их можно использовать для сокращения расходов емкости."
 services: storage
-documentationcenter: ''
-author: tamram
-manager: carmonm
+documentationcenter: 
+author: mmacy
+manager: timlt
 editor: tysonn
-
+ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/07/2016
+ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
+ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
+
 
 ---
 # <a name="create-a-blob-snapshot"></a>Создание моментального снимка BLOB-объекта
 ## <a name="overview"></a>Обзор
 Моментальный снимок — это версия BLOB-объекта только для чтения, сделанная в определенный момент времени. Моментальные снимки полезны для архивации BLOB-объектов. После создания моментального снимка его можно прочитать, скопировать или удалить, но вы не можете изменять его.
 
-Моментальный снимок большого двоичного объекта идентичен объекту, на основе которого он создан. Единственное исключение: к URI большого двоичного объекта добавляется значение **DateTime**, которое указывает время создания снимка. Например, если страничный BLOB-объект имеет URI `http://storagesample.core.blob.windows.net/mydrives/myvhd`, то URI снимка будет иметь такой вид: `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. 
+Моментальный снимок большого двоичного объекта идентичен объекту, на основе которого он создан. Единственное исключение: к URI большого двоичного объекта добавляется значение **DateTime**, которое указывает время создания снимка. Например, если страничный BLOB-объект имеет URI `http://storagesample.core.blob.windows.net/mydrives/myvhd`, то URI снимка будет иметь такой вид: `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
 > Все моментальные снимки имеют одинаковый URI базового большого двоичного объекта. Большой двоичный объект и его моментальный снимок отличаются только добавлением значения **DateTime** .
-> 
-> 
+>
+>
 
 Большой двоичный объект может иметь любое количество моментальных снимков. Моментальные снимки хранятся до тех пор, пока не будут явно удалены. При удалении исходного BLOB-объекта моментальный снимок будет также удален. Чтобы было удобнее контролировать моментальные снимки большого двоичного объекта, их можно пронумеровать.
 
@@ -36,37 +40,38 @@ ms.author: tamram
 ## <a name="create-a-snapshot"></a>Создание моментального снимка
 В следующем примере кода показано создание моментального снимка в .NET. В этом примере мы указываем отдельные метаданные для моментального снимка при его создании.
 
-    private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+```csharp
+private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+{
+    // Create a new block blob in the container.
+    CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+
+    // Add blob metadata.
+    baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+
+    try
     {
-        // Create a new block blob in the container.
-        CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+        // Upload the blob to create it, with its metadata.
+        await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
 
-        // Add blob metadata.
-        baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+        // Sleep 5 seconds.
+        System.Threading.Thread.Sleep(5000);
 
-        try
-        {
-            // Upload the blob to create it, with its metadata.
-            await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
-
-            // Sleep 5 seconds.
-            System.Threading.Thread.Sleep(5000);
-
-            // Create a snapshot of the base blob.
-            // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
-            // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
-            Dictionary<string, string> metadata = new Dictionary<string, string>();
-            metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
-            await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
-        }
-        catch (StorageException e)
-        {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
-            throw;
-        }
+        // Create a snapshot of the base blob.
+        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
+        // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+        Dictionary<string, string> metadata = new Dictionary<string, string>();
+        metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
+        await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
     }
-
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
 
 ## <a name="copy-snapshots"></a>Копирование моментальных снимков
 Операции копирования больших двоичных объектов и моментальных снимков подчиняются следующим правилам.
@@ -84,36 +89,39 @@ ms.author: tamram
 
 В следующем коде показан пример удаления большого двоичного объекта и его моментальных снимков в .NET, где `blockBlob` является переменной типа **CloudBlockBlob**:
 
-    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```csharp
+await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```
 
 ## <a name="snapshots-with-azure-premium-storage"></a>Моментальные снимки и хранилище Azure Premium
 Использование моментальных снимков с помощью хранилища Premium подчиняется следующим правилам.
 
 * Учетная запись хранения класса Premium поддерживает до 100 моментальных снимков на каждый страничный BLOB-объект. При превышении этого предела операция Snapshot Blob возвращает код ошибки 409 (**SnapshotCountExceeded**).
 * При использовании учетной записи хранения класса Premium каждые десять минут можно создавать один моментальный снимок страничного BLOB-объекта. При превышении этого значения операция Snapshot Blob возвращает код ошибки 409 (**SnaphotOperationRateExceeded**).
-* При использовании учетной записи хранения класса Premium чтение моментальных снимков страничного BLOB-объекта с помощью операции Get Blob не поддерживается. Вызов Get Blob для моментального снимка в учетной записи хранения класса Premium возвращает код ошибки 400 (**InvalidOperation**). Однако в учетной записи хранения класса Premium для моментального снимка можно вызывать операции Get Blob Properties и Get Blob Metadata.
 * Для чтения моментального снимка вы можете воспользоваться операцией Copy Blob, чтобы скопировать его в другой страничный BLOB-объект в пределах учетной записи. При этом в целевом большом двоичном объекте, выбранном для копирования, не должно быть других моментальных снимков. Если у целевого большого двоичного объекта есть моментальные снимки, операция Copy Blob возвращает код ошибки 409 (**SnapshotsPresent**).
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Возврат абсолютного URI для моментального снимка
 Этот пример кода C# создает новый моментальный снимок и записывает абсолютный URI для первичного расположения.
 
-    //Create the blob service client object.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+```csharp
+//Create the blob service client object.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    //Get a reference to a container.
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-    container.CreateIfNotExists();
+//Get a reference to a container.
+CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+container.CreateIfNotExists();
 
-    //Get a reference to a blob.
-    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
-    blob.UploadText("This is a blob.");
+//Get a reference to a blob.
+CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+blob.UploadText("This is a blob.");
 
-    //Create a snapshot of the blob and write out its primary URI.
-    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
-    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+//Create a snapshot of the blob and write out its primary URI.
+CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>Общая информация о том, как моментальные снимки увеличивают плату
 Создание моментальных снимков, представляющих собой копии больших двоичных объектов с доступом только для чтения, может привести к дополнительной плате за хранение данных в вашей учетной записи. При проектировании приложения важно учитывать, как эта плата может накапливаться, чтобы минимизировать ненужные затраты.
@@ -121,18 +129,18 @@ ms.author: tamram
 ### <a name="important-billing-considerations"></a>Важные вопросы о выставлении счетов
 Следующий список включает ключевые пункты, которые следует рассмотреть при создании моментального снимка.
 
-* Плата взимается за уникальные блоки и страницы независимо от того, где они находятся: в большом двоичном объекте или в моментальном снимке. Ваша учетная запись не влечет за собой дополнительных затрат на моментальные снимки, связанные с большим двоичным объектом, пока большой двоичный объект, на котором они основаны, не будет обновлен. После изменения базового большого двоичного объекта он начнет отличаться от своих моментальных снимков. Теперь вы будете оплачивать все уникальные блоки и страницы в каждом большом двоичном объекте или моментальном снимке.
+* Плата взимается за уникальные блоки и страницы независимо от того, где они находятся: в большом двоичном объекте или моментальном снимке. Ваша учетная запись не влечет за собой дополнительных затрат на моментальные снимки, связанные с большим двоичным объектом, пока большой двоичный объект, на котором они основаны, не будет обновлен. После изменения базового большого двоичного объекта он начнет отличаться от своих моментальных снимков. Теперь вы будете оплачивать все уникальные блоки и страницы в каждом большом двоичном объекте или моментальном снимке.
 * Когда вы заменяете блок в блочном большом двоичном объекте, за этот блок начинает взиматься плата как за уникальный. Это произойдет, даже если у блока тот же идентификатор блока и те же данные, что и в моментальном снимке. Как только блок фиксируется заново, он расходится со всеми своими дубликатами во всех моментальных снимках и вы будете оплачивать его данные. Это же происходит и для страницы в страничном большом двоичном объекте, обновляемом идентичными данными.
 * При замещении блочного BLOB-объекта путем вызова метода **UploadFile**, **UploadText**, **UploadStream** или **UploadByteArray** заменяются все блоки в этом большом двоичном объекте. Если с этим большим двоичным объектом связаны моментальные снимки, все блоки в базовом большом двоичном объекте перестанут совпадать с блоками в моментальном снимке, и вы будете оплачивать хранение всех блоков в обоих больших двоичных объектах. Это произойдет, даже если данные базового большого двоичного объекта и моментального снимка останутся идентичными.
 * В службе BLOB-объектов Azure нет средств, позволяющих определить, содержат ли два блока идентичные данные. Каждый блок, который был загружен и зафиксирован, обрабатывается как уникальный, даже если он содержит те же данные и имеет тот же идентификатор блока. Так как плата добавляется за уникальные блоки, важно иметь в виду, что обновление большого двоичного объекта, содержащего моментальные снимки, приведет к появлению дополнительных уникальных блоков и дополнительным расходам.
 
 > [!NOTE]
 > Рекомендуется управлять моментальными снимками осторожно, чтобы избежать наценок. Мы рекомендуем управлять моментальными снимками описанным образом.
-> 
+>
 > * Удаляйте и повторно создавайте моментальные снимки, связанные с большим двоичным объектом, при обновлении этого объекта, даже если вы обновляете его идентичными данными, если только структура вашего приложения не требует сохранения моментальных снимков. За счет удаления и повторного создания моментальных снимков больших двоичных объектов можно исключить расхождение большого двоичного объекта с моментальными снимками.
 > * Если необходимо хранить моментальные снимки для больших двоичных объектов, не вызывайте для их обновления методы **UploadFile**, **UploadText**, **UploadStream** или **UploadByteArray**. Эти методы заменяют все блоки в большом двоичном объекте, и после этого базовый большой двоичный объект начинает значительно отличаться от своих моментальных снимков. Вместо этого обновляйте наименьшее возможное количество блоков с помощью методов **PutBlock** и **PutBlockList**.
-> 
-> 
+>
+>
 
 ### <a name="snapshot-billing-scenarios"></a>Сценарии выставления счетов за моментальные снимки
 В следующих сценариях показано, как добавляется плата за большой двоичный объект и его моментальные снимки.
@@ -154,8 +162,11 @@ ms.author: tamram
 ![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные примеры использования хранилища BLOB-объектов см. на странице с [примерами кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub. 
+Дополнительные примеры использования хранилища BLOB-объектов см. на странице с [примерами кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

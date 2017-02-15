@@ -1,13 +1,13 @@
 ---
-title: Основная информация о расходах на внешние службы в Azure | Microsoft Docs
-description: Узнайте больше о выставлении счетов за использование внешних служб, ранее известных как Marketplace, в Azure.
-services: ''
-documentationcenter: ''
+title: "Основная информация о расходах на внешние службы в Azure | Документация Майкрософт"
+description: "Узнайте больше о выставлении счетов за использование внешних служб, ранее известных как Marketplace, в Azure."
+services: 
+documentationcenter: 
 author: adpick
-manager: felixwu
-editor: ''
+manager: ruchic
+editor: 
 tags: billing
-
+ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: adpick
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45e0d553179b63de2d0664314271472f1151d73f
+
 
 ---
 # <a name="understand-your-azure-external-service-charges"></a>Основная информация о расходах на внешние службы в Azure
@@ -25,7 +29,7 @@ ms.author: adpick
 * Просмотр и отслеживание всех затрат, начисляемых за использование внешних служб.
 * Управление заказами внешних служб и способом их оплаты.
 
-## <a name="what-are-azure-external-services?"></a>Что такое внешние службы в Azure?
+## <a name="what-are-azure-external-services"></a>Что такое внешние службы в Azure?
 Ранее внешние службы назывались заказами Azure Marketplace. Обычно это службы, опубликованные сторонними производителями для использования в Azure. Например, ClearDB и SendGrid — это внешние службы, которые можно приобрести в Azure, но которые не опубликованы корпорацией Майкрософт.
 
 ### <a name="identify-external-services"></a>Определение внешних служб
@@ -44,21 +48,19 @@ ms.author: adpick
 ### <a name="each-external-service-has-a-different-billing-model"></a>У каждой внешней службы своя модель выставления счетов
 Одни службы используют модель с оплатой по мере использования, другие — модель с ежемесячными платежами. Для оплаты внешних служб Azure нужна кредитная карта, их нельзя приобрести посредством оплаты счета.
 
-### <a name="you-can't-use-monthly-free-credits-for-external-services"></a>Для оплаты внешних служб невозможно использовать бесплатные ежемесячные деньги на счете
+### <a name="you-cant-use-monthly-free-credits-for-external-services"></a>Для оплаты внешних служб невозможно использовать бесплатные ежемесячные деньги на счете
 Если вы используете подписку Azure, которая включает в себя [бесплатные деньги на счете](https://azure.microsoft.com/pricing/spending-limits/), то ими невозможно оплачивать счета за внешние службы. Для покупки внешних служб используйте кредитную карту.
 
 ## <a name="view-external-service-spending-and-history"></a>Просмотр расходов на внешние службы и журнала
 Можно просмотреть список внешних служб для каждой подписки на [портале Azure](https://portal.azure.com/). 
 
-1. Войдите на [портал Azure](https://portal.azure.com/) и [перейдите в колонку **Выставление счетов**](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
+1. Войдите на [портал Azure](https://portal.azure.com/) в качестве администратора учетной записи.
+2. В главном меню выберите **Подписки**.
    
-    ![Выберите "Выставление счетов" в главном меню.](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
-2. В разделе **Затраты на подписку** выберите подписку, сведения о которой необходимо просмотреть. 
+    ![Выбор пункта "Подписки" в главном меню](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
+3. В колонке **Подписки** выберите подписку, которую нужно просмотреть, а затем щелкните **Внешние службы**.
    
-    ![Выберите подписку в колонке "Выставление счетов".](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
-3. Щелкните **Внешние службы**.
-   
-    ![В колонке подписки щелкните "Внешние службы".](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
+    ![Выберите подписку в колонке "Выставление счетов".](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
 4. Должны отобразиться все заказы внешних служб, включая имя издателя, приобретенный уровень служб, имя, присвоенное ресурсу, и текущее состояние заказа. Выберите внешнюю службу, чтобы просмотреть предыдущие счета.
    
     ![Выберите внешнюю службу.](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
@@ -92,9 +94,12 @@ ms.author: adpick
 
 ![Удалите ресурс.](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help?-contact-support."></a>Требуется помощь? Обратитесь в службу поддержки.
+## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , которая поможет быстро устранить проблему.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

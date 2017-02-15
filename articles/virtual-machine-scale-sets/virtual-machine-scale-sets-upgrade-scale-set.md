@@ -1,13 +1,13 @@
 ---
-title: Развертывание приложения в наборах масштабирования виртуальных машин | Microsoft Docs
-description: Развертывание приложения в наборах масштабирования виртуальных машин
+title: "Развертывание приложения в масштабируемых наборах виртуальных машин | Документация Майкрософт"
+description: "Развертывание приложения в наборах масштабирования виртуальных машин"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
+
 
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Обновление набора масштабирования виртуальных машин
@@ -39,7 +43,7 @@ ms.author: guybo
 
 Давайте с учетом этих сведений рассмотрим, как проходит обновление версии для набора масштабирования с использованием PowerShell и REST API. В статье приведены примеры для образа платформы, но она содержит достаточно информации, чтобы адаптировать этот процесс для пользовательского образа.
 
-## <a name="powershell##"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 В этом примере набор масштабирования виртуальных машин Windows обновляется до версии "4.0.20160229". После обновления модели поочередно обновляются все экземпляры виртуальной машины.
 
 ```powershell
@@ -90,6 +94,9 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 
 ![Отображение процесса обновления в Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

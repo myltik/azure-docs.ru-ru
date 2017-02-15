@@ -1,6 +1,6 @@
 # Обзор
 ## [Интеграция с Azure AD](active-directory-how-to-integrate.md)
-## [Сценарии аутентификации](../active-directory-authentication-scenarios.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
+## [Сценарии проверки подлинности](../active-directory-authentication-scenarios.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Graph API](../active-directory-graph-api.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Библиотеки аутентификации](../active-directory-authentication-libraries.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Протоколы аутентификации](../active-directory-authentication-protocols.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
@@ -50,9 +50,9 @@
 ## [Использование смены ключей подписывания](../active-directory-signing-key-rollover.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 
 
-## Использование конечной точки версии 2
+## Использование конечной точки версии&2;
 ### [Обзор](../active-directory-appmodel-v2-overview.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
-### [В чем отличия версии 2?](../active-directory-v2-compare.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
+### [В чем отличия версии&2;?](../active-directory-v2-compare.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [Библиотеки аутентификации](../active-directory-v2-libraries.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [Типы приложений](../active-directory-v2-flows.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ### [Ограничения](../active-directory-v2-limitations.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
@@ -101,6 +101,6 @@
 ## [Маркеры и утверждения](../active-directory-token-and-claims.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

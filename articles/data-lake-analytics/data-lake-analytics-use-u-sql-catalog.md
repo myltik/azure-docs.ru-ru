@@ -1,12 +1,12 @@
 ---
-title: Вводные сведения о каталоге U-SQL аналитики озера данных Azure | Microsoft Docs
-description: Вводные сведения о каталоге U-SQL аналитики озера данных Azure
+title: "Вводные сведения о каталоге U-SQL Azure Data Lake Analytics | Документация Майкрософт"
+description: "Вводные сведения о каталоге U-SQL аналитики озера данных Azure"
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 55fef96f-e941-4d09-af5e-dd7c88c502b2
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
+
 
 ---
-# Использование каталога U-SQL
+# <a name="use-u-sql-catalog"></a>Использование каталога U-SQL
 Каталог U-SQL используется для структурирования данных и кода, чтобы их могли совместно использовать сценарии U-SQL. Каталог обеспечивает максимальную производительность, возможную с данными в озере данных Azure.
 
 Каждая учетная запись аналитики озера данных Azure имеет ровно один связанный с ней каталог U-SQL. Невозможно удалить каталог U-SQL. В настоящее время каталоги U-SQL не могут совместно использоваться учетными записями хранилища озера данных.
 
-Каждый каталог U-SQL содержит базу данных с названием **Master**. Базу данных Master удалить невозможно. Каждый каталог U-SQL может содержать несколько дополнительных баз данных.
+Каждый каталог U-SQL содержит базу данных с названием **Master**. Базу данных Master удалить невозможно.  Каждый каталог U-SQL может содержать несколько дополнительных баз данных.
 
 База данных U-SQL содержит следующее.
 
@@ -30,20 +34,20 @@ ms.author: edmaca
 * Таблицы: для совместного использования данных между скриптами U-SQL.
 * Схемы: для совместного использования табличных схем между скриптами U-SQL.
 
-## Управление каталогами
+## <a name="manage-catalogs"></a>Управление каталогами
 Каждая учетная запись аналитики озера данных Azure имеет связанную с ней учетную запись хранилища озера данных Azure по умолчанию. Эта учетная запись хранилища озера данных называется учетной записью хранения озера данных по умолчанию. Каталог U-SQL хранится в учетной записи хранилища озера данных по умолчанию в папке /catalog. Не удаляйте файлы из папки /catalog.
 
-### Использование портала Azure.
-См. раздел [Управление аналитикой озера данных с помощью портала](data-lake-analytics-use-portal.md#view-u-sql-catalog).
+### <a name="use-azure-portal"></a>Использование портала Azure
+См. раздел [Управление аналитикой озера данных с помощью портала](data-lake-analytics-manage-use-portal.md#view-u-sql-catalog).
 
-### Использование средств озера данных для Visual Studio.
-Можно воспользоваться средствами озера данных для Visual Studio, чтобы управлять каталогом. Дополнительные сведения об инструментах см. в разделе [Использование средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+### <a name="use-data-lake-tools-for-visual-studio"></a>Использование средств озера данных для Visual Studio.
+Можно воспользоваться средствами озера данных для Visual Studio, чтобы управлять каталогом.  Дополнительные сведения об инструментах см. в разделе [Using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) (Использование Data Lake Tools для Visual Studio).
 
 **Управление каталогом**
 
-1. Откройте Visual Studio и подключитесь к Azure. См. инструкции в разделе [Подключение к Azure](data-lake-analytics-data-lake-tools-get-started.md#connect-to-azure).
-2. Откройте **обозреватель серверов**, нажав **CTRL + ALT + S**.
-3. В **обозревателе серверов** разверните узел **Azure**, затем **Аналитика озера данных**, разверните учетную запись аналитики озера данных, а затем последовательно откройте **Базы данных** и **master**.
+1. Откройте Visual Studio и подключитесь к Azure. Инструкции см. в разделе [Подключение к Azure](data-lake-analytics-data-lake-tools-get-started.md#connect-to-azure).
+2. Откройте **обозреватель сервера**, нажав клавиши**CTRL+ALT+S**.
+3. В **обозревателе сервера** разверните узлы **Azure**, **Data Lake Analytics**, разверните учетную запись Data Lake Analytics, а затем последовательно разверните узлы **Базы данных** и **мастер**.
 
     - Чтобы добавить новую базу данных, щелкните правой кнопкой мыши **База данных** и нажмите кнопку **Создать базу данных**.
     - Чтобы добавить новую сборку, щелкните правой кнопкой мыши **Сборки**, а затем нажмите кнопку **Зарегистрировать сборку**.
@@ -54,7 +58,7 @@ ms.author: edmaca
 
 ![Обзор каталогов U-SQL Visual Studio](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * Приступая к работе
   
   * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
@@ -65,16 +69,21 @@ ms.author: edmaca
 * U-SQL и разработка
   
   * [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
-  * [Использование функций окна U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-  * [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-Analytics-u-sql-user-defined-operators.md)
+  * [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
+  * [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * управления
   
-  * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
-  * [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-use-powershell.md)
-  * [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+  * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
+  * [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+  * [Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 * Полный учебник
   
   * [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
   * [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

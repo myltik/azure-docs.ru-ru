@@ -1,14 +1,14 @@
 ---
-title: Добавление диска к виртуальной машине Linux | Microsoft Docs
-description: Узнайте, как добавить постоянный диск к виртуальной машине Linux.
-keywords: виртуальная машина Linux, добавление диска ресурсов
+title: "Добавление диска к виртуальной машине Linux | Документация Майкрософт"
+description: "Узнайте, как добавить постоянный диск к виртуальной машине Linux."
+keywords: "виртуальная машина Linux, добавление диска ресурсов"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: rickstercdn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
@@ -16,55 +16,59 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 09/06/2016
 ms.author: rclaus
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+
 
 ---
-# Добавление диска к виртуальной машине Linux
-Из этой статьи вы узнаете, как добавить в виртуальную машину постоянный диск, на котором можно хранить данные. Эти данные сохранятся даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). Для добавления диска вам потребуется использовать [интерфейс командной строки Azure](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
+# <a name="add-a-disk-to-a-linux-vm"></a>Добавление диска к виртуальной машине Linux
+Из этой статьи вы узнаете, как добавить в виртуальную машину постоянный диск, на котором можно хранить данные. Эти данные сохранятся даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). Для добавления диска вам потребуется использовать [интерфейс командной строки Azure](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).  
 
-## Быстрые команды
-В примерах команд ниже замените значения между &lt; и &gt; значениями, соответствующими вашей среде.
+## <a name="quick-commands"></a>Быстрые команды
+В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
-```bash
-azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```azurecli
+azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## Добавление диска
-Присоединение нового диска не займет много времени. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, введите `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`. Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. Это выглядит примерно так:
+## <a name="attach-a-disk"></a>Добавление диска
+Присоединение нового диска не займет много времени. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, введите `azure vm disk attach-new myResourceGroup myVM sizeInGB` . Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
-```bash
-azure vm disk attach-new myuniquegroupname myuniquevmname 5
+```azurecli
+azure vm disk attach-new myResourceGroup myVM 50
 ```
 
 Выходные данные
 
-```bash
+```azurecli
 info:    Executing command vm disk attach-new
-+ Looking up the VM "myuniquevmname"
-info:    New data disk location: https://cliexxx.blob.core.windows.net/vhds/myuniquevmname-20150526-0xxxxxxx43.vhd
-+ Updating VM "myuniquevmname"
++ Looking up the VM "myVM"
+info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
++ Updating VM "myVM"
 info:    vm disk attach-new command OK
 ```
 
-## Подключение к виртуальной машине Linux для подключения нового диска
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Подключение к виртуальной машине Linux для подключения нового диска
 > [!NOTE]
-> В этом разделе для подключения к виртуальной машине используются имена пользователей и пароли. Чтобы использовать пары открытых и закрытых ключей для взаимодействия с виртуальной машиной, см. статью [Использование SSH с Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md). Вы можете изменить подключение **SSH** виртуальных машин, созданных с помощью команды `azure vm quick-create`, используя команду `azure vm reset-access` для полного сброса доступа **SSH**, добавления или удаления пользователей или добавления файлов открытого ключа для обеспечения безопасного доступа.
+> В этом разделе для подключения к виртуальной машине используются имена пользователей и пароли. Чтобы использовать пары открытых и закрытых ключей для взаимодействия с виртуальной машиной, см. статью [об использовании ключей SSH для Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Вы можете изменить подключение **SSH** виртуальных машин, созданных с помощью команды `azure vm quick-create`, используя команду `azure vm reset-access` для полного сброса доступа **SSH**, добавления или удаления пользователей или добавления файлов открытого ключа для обеспечения безопасного доступа.
 > 
 > 
 
 Чтобы разбить диск на разделы, отформатировать и подключить его к виртуальной машине Linux, к ВМ Azure нужно подключиться по протоколу SSH. Если вы не знакомы с подключением по протоколу **ssh**, команда имеет вид `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`. В конечном итоге она выглядит вот так:
 
 ```bash
-ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
+ssh ops@mypublicdns.westus.cloudapp.azure.com -p 22
 ```
 
 Выходные данные
 
 ```bash
-The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
+The authenticity of host 'mypublicdns.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
 ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
-ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com's password:
+Warning: Permanently added 'mypublicdns.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
+ops@mypublicdns.westus.cloudapp.azure.com's password:
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
 
 * Documentation:  https://help.ubuntu.com/
@@ -90,10 +94,10 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-ops@myuniquevmname:~$
+ops@myVM:~$
 ```
 
-После того как вы подключились к своей виртуальной машине, вы можете присоединить диск. Сначала найдите диск, используя `dmesg | grep SCSI` (для обнаружения нового диска можно использовать и другой способ). В этом случае отобразится примерно следующее:
+После того как вы подключились к своей виртуальной машине, вы можете присоединить диск.  Сначала найдите диск, используя `dmesg | grep SCSI` (для обнаружения нового диска можно использовать и другой способ). В этом случае отобразится примерно следующее:
 
 ```bash
 dmesg | grep SCSI
@@ -137,7 +141,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Создайте раздел, введя в командной строке `p`:
+Создайте раздел, введя в командной строке `p` :
 
 ```bash
 Command (m for help): p
@@ -159,7 +163,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Запишите файловую систему на раздел с помощью команды **mkfs**, указав тип вашей файловой системы и имя устройства. В этом разделе мы будем использовать указанные `ext4` и `/dev/sdc1`:
+Запишите файловую систему на раздел с помощью команды **mkfs** , указав тип вашей файловой системы и имя устройства. В этом разделе мы будем использовать указанные `ext4` и `/dev/sdc1`:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -215,7 +219,7 @@ bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-Чтобы обеспечить автоматическое повторное подключение диска после перезагрузки, его необходимо добавить в файл /etc/fstab. Кроме того, для ссылки на диск настоятельно рекомендуется использовать в файле /etc/fstab идентификатор UUID (глобальный уникальный идентификатор), а не просто имя устройства (например, `/dev/sdc1`). Если операционная система обнаруживает ошибку диска во время загрузки, использование UUID позволяет избежать подключения ошибочного диска в это расположение. Остальные диски с данными затем получают те же идентификаторы устройств. Чтобы найти UUID нового диска, используйте программу **blkid**:
+Чтобы обеспечить автоматическое повторное подключение диска после перезагрузки, его необходимо добавить в файл /etc/fstab. Кроме того, для ссылки на диск настоятельно рекомендуется использовать в файле /etc/fstab идентификатор UUID (глобальный уникальный идентификатор), а не просто имя устройства (например, `/dev/sdc1`). Если операционная система обнаруживает ошибку диска во время загрузки, использование UUID позволяет избежать подключения ошибочного диска в это расположение. Остальные диски с данными затем получают те же идентификаторы устройств. Чтобы найти UUID нового диска, используйте программу **blkid** :
 
 ```bash
 sudo -i blkid
@@ -240,43 +244,54 @@ sudo -i blkid
 sudo vi /etc/fstab
 ```
 
-В этом примере мы используем значение UUID для нового устройства **/dev/sdc1**, созданного на предыдущих шагах, и точку подключения **/datadrive**. Добавьте следующую строку в конец файла **/etc/fstab**:
+В этом примере мы используем значение UUID для нового устройства **/dev/sdc1**, созданного на предыдущих шагах, и точку подключения **/datadrive**. Добавьте следующую строку в конец файла **/etc/fstab** :
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
 > Если вы позднее удалите диск данных без редактирования файла fstab, виртуальная машина может не загрузиться. Большинство дистрибутивов содержат `nofail` или `nobootwait` параметры fstab. Эти параметры позволяют системе загружаться, даже если диск не подключится во время загрузки. Дополнительные сведения об этих параметрах см. в документации дистрибутива.
 > 
-> 
+> Параметр **nofail** обеспечивает запуск виртуальной машины даже в том случае, если файловая система повреждена или отсутствует диск во время загрузки. Без этого параметра может возникнуть ситуация, описанная в записи блога [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Не удается подключиться к виртуальной машине Linux по протоколу SSH из-за ошибок FSTAB).
 
-### Поддержка операций TRIM и UNMAP для Linux в Azure
+### <a name="trimunmap-support-for-linux-in-azure"></a>Поддержка операций TRIM и UNMAP для Linux в Azure
 Некоторые ядра Linux поддерживают операции TRIM и UNMAP для отмены неиспользуемых блоков на диске. Это особенно удобно использовать в хранилище уровня "Стандартный", чтобы сообщать Azure о том, что удаленные страницы больше не действительны и могут быть удалены. Это позволит сократить затраты, если вы создаете большие файлы, а затем удаляете их.
 
 Существует два способа включить поддержку операций TRIM в виртуальной машине Linux. Как обычно, обратитесь к документации дистрибутива, чтобы выбрать рекомендуемый метод.
 
 * Используйте параметр подключения `discard` в `/etc/fstab`. Ниже приведен пример.
-  
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+    ```bash
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    ```
 * Кроме того, вы можете вручную выполнить команду `fstrim` из командной строки или добавить ее в crontab для регулярного выполнения.
   
     **Ubuntu**
   
-        # sudo apt-get install util-linux
-        # sudo fstrim /datadrive
+    ```bash
+    sudo apt-get install util-linux
+    sudo fstrim /datadrive
+    ```
   
     **RHEL или CentOS**
-  
-        # sudo yum install util-linux
-        # sudo fstrim /datadrive
 
-## Устранение неполадок
+    ```bash
+    sudo yum install util-linux
+    sudo fstrim /datadrive
+    ```
+
+## <a name="troubleshooting"></a>Устранение неполадок
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
-## Дальнейшие действия
-* Помните, для того чтобы после перезапуска виртуальная машина получила доступ к новому диску, информацию о нем необходимо прописать в файле [fstab](http://en.wikipedia.org/wiki/Fstab).
-* Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](virtual-machines-linux-optimization.md), чтобы правильно настроить виртуальную машину Linux.
-* Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте RAID](virtual-machines-linux-configure-raid.md) для повышения производительности.
+## <a name="next-steps"></a>Дальнейшие действия
+* Помните, для того чтобы после перезапуска виртуальная машина получила доступ к новому диску, информацию о нем необходимо прописать в файле [fstab](http://en.wikipedia.org/wiki/Fstab) .
+* Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , чтобы правильно настроить виртуальную машину Linux.
+* Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для повышения производительности.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

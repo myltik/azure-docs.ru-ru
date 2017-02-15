@@ -1,22 +1,26 @@
 ---
-title: Использование меток для инструментирования запросов в хранилище данных SQL | Microsoft Docs
-description: Рекомендации по использованию меток для инструментирования запросов в хранилище данных SQL Azure для разработки решений.
+title: "Использование меток для инструментирования запросов в хранилище данных SQL | Документация Майкрософт"
+description: "Рекомендации по использованию меток для инструментирования запросов в хранилище данных SQL Azure для разработки решений."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c72cd2c80d9fcee3d9340c23a629451c54c9156
+
 
 ---
-# Использование меток для инструментирования запросов в хранилище данных SQL
+# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Использование меток для инструментирования запросов в хранилище данных SQL
 Хранилище данных SQL поддерживает концепцию так называемых меток. Прежде чем углубляться в это понятие, рассмотрим следующий пример.
 
 ```sql
@@ -44,16 +48,20 @@ WHERE   r.[label] = 'My Query Label'
 > 
 > 
 
-## Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Общие сведения о разработке][Общие сведения о разработке].
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные советы по разработке см. в статье [общие сведения о разработке][общие сведения о разработке].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

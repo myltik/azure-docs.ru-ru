@@ -1,12 +1,12 @@
 ---
-title: Форматы и кодеки стандартного кодировщика служб мультимедиа
-description: В этом разделе приведен обзор кодеков и форматов стандартного кодировщика мультимедиа.
+title: "Форматы и кодеки стандартного кодировщика служб мультимедиа"
+description: "В этом разделе приведен обзор кодеков и форматов стандартного кодировщика мультимедиа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
+
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Форматы и кодеки стандартного кодировщика служб мультимедиа
 Этот документ содержит список наиболее распространенных форматов для импорта и экспорта файлов, которые можно использовать со стандартным кодировщиком служб мультимедиа.
 
-## <a name="input-container/file-formats"></a>Контейнер ввода/ форматы файлов
+## <a name="input-containerfile-formats"></a>Контейнер ввода/ форматы файлов
 | Форматы файлов (расширения файлов) | Поддерживаются |
 | --- | --- | --- | --- |
 | FLV (с кодеками H.264 и AAC) (.flv) |Да |
@@ -108,6 +112,9 @@ ms.author: juliako;anilmur
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

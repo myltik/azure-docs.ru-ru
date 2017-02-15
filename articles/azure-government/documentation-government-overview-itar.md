@@ -1,39 +1,45 @@
 ---
-title: Azure Governmnet documentation | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+title: "Обзор правил международной торговли оружием в Azure для государственных организаций | Документация Майкрософт"
+description: "Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure."
+services: azure-government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: kydeeds
 manager: zakramer
-editor: ''
-
-ms.service: multiple
+ms.assetid: e8c2c89e-d397-46f2-9b86-fd22049ffabf
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/05/2016
+ms.date: 11/14/2016
 ms.author: kydeeds
+translationtype: Human Translation
+ms.sourcegitcommit: 8a690fd5fd960053f2f4df6b4014643932a422a8
+ms.openlocfilehash: f27ae49d1598e5aca0af7a65be46cfcc90f7bfea
+
 
 ---
-# <a name="itar-overview-for-azure-government"></a>ITAR Overview for Azure Government
-## <a name="overview"></a>Overview
-This information is intended for Azure Government customers with obligations under the International Traffic in Arms Regulations (ITAR) who intend to use Azure Government services to store, process, or transmit regulated information. The information provided describes the capabilities of Microsoft Azure Government services, and provides general guidance applicable to ITAR customers. Before including ITAR-controlled data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
+# <a name="itar-overview-for-azure-government"></a>Общие сведения о правилах международной торговли оружием для Azure для государственных учреждений
+## <a name="overview"></a>Обзор
+Сведения предназначены для клиентов Azure для государственных организаций — пользователей, у которых есть обязательства согласно правилам международной торговли оружием (ITAR) и которые с помощью служб Azure для государственных организаций планируют обрабатывать, хранить или передавать информацию, подлежащую регулированию. На этом сайте описываются возможности служб Microsoft Azure для государственных организаций и предоставляются общие рекомендации, применимые для пользователей ITAR. Перед добавлением данных, подлежащих контролю согласно ITAR, в подписку Azure для государственных организаций, следует ознакомиться с возможностями Azure для государственных организаций. Если у вас возникнут вопросы, обратитесь в службу поддержки учетных записей.
 
-You should refer to the <a href="http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx/"> Microsoft Azure Trust Center Compliance Page </a> for current information on the Azure Government services covered under ITAR. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding ITAR compliance.
+Актуальные сведения о службах Azure для государственных организаций, соответствующих нормам и нормативам ITAR, см. на <a href="http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx/">странице нормативных требований центра управления безопасностью Microsoft Azure</a>. Кроме того, могут быть доступны дополнительные службы Майкрософт, но они не входят в число служб Azure для государственных организаций. Службы Azure для государственных организаций также позволяют использовать различные дополнительные ресурсы, приложения или службы, предоставляемые сторонними разработчиками или корпорацией Майкрософт на основании отдельных условий использования и политик конфиденциальности. Вы несете ответственность за проверку условий дополнительных предложений (например, предложений Marketplace) на предмет того, что они удовлетворяют требованиям по соответствию нормам ITAR.
 
-<a href="https://azure.microsoft.com/en-us/features/gov/"> Azure Government </a> is available to entities that handle data that is subject to certain government regulations and requirements, such as ITAR, where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility. Validation of eligibility by Microsoft will include confirmation that you are a manufacturer, exporter, or broker of defense articles under the ITAR—as shown by your registration with the US Department of State—or through a sponsorship agreement with a government entity that has specific requirements for the handling of data.
+<a href="https://azure.microsoft.com/en-us/features/gov/"> Служба Azure </a> для государственных организаций доступна компаниям, занимающимся обработкой данных, к которым применяются государственные нормы и требования, например ITAR (если использование этой службы требуется для соблюдения норм). Клиенты Azure для государственных организаций проходят проверку на соответствие требованиям. Эта проверка включает в себя подтверждение того, что вы являетесь производителем, экспортером или посредником в торговле предметами военного снабжения согласно ITAR. Для этого нужна регистрация в Государственном департаменте США или спонсорский договор с государственным учреждением, которое предъявляет определенные требования к обработке данных.
 
-Entities with questions about eligibility for Azure Government should consult their account team.
+Если у вас есть вопросы о требованиях служб Azure для государственных организаций, вам следует обратиться к своей службе поддержки учетных записей.
 
-## <a name="next-steps"></a>Next steps
-<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
+## <a name="next-steps"></a>Дальнейшие действия
+<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar">Microsoft Trust Center — ITAR web page</a> (Центр управления безопасностью Майкрософт — веб-страница ITAR)
 
-<a href="http://download.microsoft.com/download/5/1/6/516B50FE-4FF6-4DF6-B61B-90432D07DDF3/Using_Azure_Government_with_ITAR_June_2016.pdf"> Using Azure Government with ITAR Controlled Data </a>
+<a href="http://download.microsoft.com/download/5/1/6/516B50FE-4FF6-4DF6-B61B-90432D07DDF3/Using_Azure_Government_with_ITAR_June_2016.pdf">Using Azure Government with ITAR Controlled Data</a> (Использование Azure для государственных организаций с данными, подлежащими контролю согласно ITAR)
 
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+<a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

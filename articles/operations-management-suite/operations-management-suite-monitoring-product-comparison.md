@@ -1,12 +1,12 @@
 ---
-title: Сравнение продуктов Майкрософт для мониторинга | Microsoft Docs
-description: Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье определяются различные службы в составе OMS и приводятся ссылки на подробные сведения об этих службах.
+title: "Сравнение продуктов Майкрософт для мониторинга | Документация Майкрософт"
+description: "Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье определяются различные службы в составе OMS и приводятся ссылки на подробные сведения об этих службах."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: a63ca0ad-61f8-425d-a48c-d87ba518c104
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7325b0bb900dcaf789c01e1a9b534d7f72c8c43
+
 
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Сравнение продуктов Майкрософт для мониторинга
@@ -168,6 +172,9 @@ Log Analytics включает [язык запросов](https://technet.micro
 * Выполните развертывание [System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh205987.aspx).
 * Зарегистрируйтесь в службе [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

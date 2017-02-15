@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с 8x8 Virtual Office | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и 8x8 Virtual Office.
+title: "Руководство по интеграции Azure Active Directory с 8x8 Virtual Office | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и 8x8 Virtual Office."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-8x8-virtual-office"></a>Руководство. Интеграция Azure Active Directory с 8x8 Virtual Office
+# <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Руководство. Интеграция Azure Active Directory с 8x8 Virtual Office
 Цель этого руководства — показать, как интегрировать приложение 8x8 Virtual Office с Azure Active Directory (Azure AD).
 
 Интеграция 8x8 Virtual Office с Azure AD обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к 8x8 Virtual Office.
 * Вы можете включить автоматический вход пользователей в 8x8 Virtual Office (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с 8x8 Virtual Office, вам потребуется:
@@ -141,10 +145,10 @@ ms.author: jeedes
 13. Нажмите кнопку **Сохранить** .
 14. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
     
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 15. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -256,6 +260,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
