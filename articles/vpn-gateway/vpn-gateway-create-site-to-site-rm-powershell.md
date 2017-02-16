@@ -205,6 +205,6 @@ VPN-шлюз Azure для модели развертывания, в котор
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 
