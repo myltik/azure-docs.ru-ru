@@ -1,6 +1,6 @@
 ---
-title: "Запуск кластера MariaDB (MySQL) в Azure"
-description: "Создание кластеров MariaDB + Galera MySQL в виртуальных машинах Azure"
+title: "Запуск кластера MariaDB (MySQL) в Azure | Документация Майкрософт"
+description: "Создание кластеров MariaDB + Galera (MySQL) на виртуальных машинах Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: sabbour
@@ -14,211 +14,232 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
-ms.author: v-ahsab
+ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
+ms.sourcegitcommit: 91090ad383d6a03e6d978376d8dd45dc05eac7e8
+ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
 
 
 ---
-# <a name="mariadb-mysql-cluster---azure-tutorial"></a>Кластер MariaDB (MySQL) — учебник по Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+# <a name="mariadb-mysql-cluster-azure-tutorial"></a>Кластер MariaDB (MySQL) — руководство по Azure
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) и классическая модель. В этой статье рассматривается классическая модель развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель Azure Resource Manager.
 
 > [!NOTE]
-> Кластер MariaDB Enterprise теперь доступен в Azure Marketplace.  Новое предложение автоматически разворачивает кластер MariaDB Galera на ARM. Воспользуйтесь новым предложением от https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/ 
-> 
-> 
+> Кластер MariaDB Enterprise теперь доступен в Azure Marketplace. Новое предложение автоматически развертывает кластер MariaDB Galera в Azure Resource Manager. Воспользуйтесь новым предложением от [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
+>
+>
 
-Мы создаем кластер [Galera](http://galeracluster.com/products/) с несколькими базами данных master [MariaDB](https://mariadb.org/en/about/) — надежную и масштабируемую замену для MySQL для работы в высокодоступной среде на виртуальных машинах Azure.
+В этой статье показано, как создать кластер [Galera](http://galeracluster.com/products/) с несколькими базами данных master [MariaDB](https://mariadb.org/en/about/) — надежную масштабируемую замену MySQL для работы в высокодоступной среде на виртуальных машинах Azure.
 
 ## <a name="architecture-overview"></a>Общие сведения об архитектуре
-В этом разделе выполняются следующие действия.
+В этой статье объясняется, как выполнить следующие действия:
 
-1. Создается кластер из 3 узлов.
-2. Диски данных отделяются от диска операционной системы.
-3. Диски данных создаются при установленном параметре RAID-0/striped для увеличения количества операций ввода-вывода в секунду.
-4. Подсистема балансировки нагрузки Azure используется для балансировки нагрузки для 3 узлов.
-5. Чтобы свести к минимуму выполнение повторяющихся задач, создайте образ виртуальной машины, содержащий MariaDB + Galera, и используйте его для создания других виртуальных машин кластера.
+- Создать кластер с тремя узлами.
+- Отделить диски данных от диска операционной системы.
+- Создать диски данных при установленном параметре RAID-0/striped для увеличения количества операций ввода-вывода в секунду.
+- Использовать Azure Load Balancer для балансировки нагрузки на трех узлах.
+- Чтобы свести к минимуму выполнение повторяющихся задач, создайте образ виртуальной машины, содержащий MariaDB + Galera, и используйте его для создания других виртуальных машин кластера.
 
-![Архитектура](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
+![Архитектура системы](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> В этом разделе используются инструменты [интерфейса командной строки Azure](../xplat-cli-install.md), поэтому обязательно скачайте и подключите их к своей подписке Azure в соответствии с инструкциями. Если вам нужна справка по командам, доступным в Azure CLI, то перейдите по этой ссылке и ознакомьтесь со статьей [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md). Также потребуется [создать ключ SSH для проверки подлинности] и записать **расположение PEM-файла**.
-> 
-> 
+> В этом разделе используются инструменты [интерфейса командной строки Azure](../xplat-cli-install.md), поэтому обязательно скачайте и подключите их к своей подписке Azure в соответствии с инструкциями. Если вам нужна справка по командам, доступным в интерфейсе командной строки Azure (Azure CLI), ознакомьтесь со [справочником по командам Azure CLI](../virtual-machines-command-line-tools.md). Также вам потребуется [создать ключ SSH для проверки подлинности] и записать расположение PEM-файла.
+>
+>
 
-## <a name="creating-the-template"></a>Создание шаблона
+## <a name="create-the-template"></a>Создание шаблона
 ### <a name="infrastructure"></a>Инфраструктура
-1. Создание территориальной группы для хранения ресурсов в одном расположении
-   
+1. Создайте территориальную группу для централизованного хранения ресурсов.
+
         azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
-2. Создайте виртуальную сеть
-   
+2. Создайте виртуальную сеть.
+
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. Создайте учетную запись хранилища для размещения всех дисков. Обратите внимание, что в одной учетной записи хранилища не рекомендуется размещать более 40 интенсивно используемых дисков, чтобы избежать превышения ограничения в 20 000 операций ввода-вывода в секунду для учетной записи хранилища. В этом случае выполняется намного меньше операций, поэтому все данные будут храниться в одной учетной записи для упрощения описания.
-   
+3. Создайте учетную запись хранения для размещения всех дисков. В одной учетной записи хранения не рекомендуется размещать более 40 интенсивно используемых дисков, чтобы не превысить ограничение в 20 000 операций ввода-вывода в секунду для учетной записи хранения. В нашем случае выполняется намного меньше операций, поэтому все данные будут храниться в одной учетной записи для упрощения описания.
+
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
-4. Найдите имя образа виртуальной машины CentOS 7.
-   
+4. Найдите имя образа виртуальной машины CentOS 7.
+
         azure vm image list | findstr CentOS
-   При этом будет выведено примерно следующее: `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`. Используйте это имя на следующем шаге.
-5. Создайте шаблон виртуальной машины и замените адрес **/path/to/key.pem** на путь, по которому вы сохранили созданный ключ SSH в формате PEM.
-   
+   Результат будет выглядеть примерно так:`5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
+
+   Используйте это имя на следующем шаге.
+5. Создайте шаблон виртуальной машины и замените адрес /path/to/key.pem на путь к папке, в которой вы сохранили созданный ключ SSH в формате PEM.
+
         azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
-6. Присоедините 4 диска данных по 500 ГБ к виртуальной машине для использования в SSH конфигурации RAID
-   
+6. Присоедините четыре диска данных по 500 ГБ к виртуальной машине для использования в конфигурации RAID.
+
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
-7. в шаблоне виртуальной машины, созданной по адресу **mariadbhatemplate.cloudapp.net:22** , и подключитесь с помощью закрытого ключа.
+7. Используйте SSH для входа в шаблон виртуальной машины, созданной по адресу mariadbhatemplate.cloudapp.net:22, и подключитесь с помощью закрытого ключа.
 
 ### <a name="software"></a>Программное обеспечение
-1. Получение пароля root
-   
+1. Получите права привилегированного пользователя.
+
         sudo su
+
 2. Установка поддержки RAID:
-   
-   * Установите mdadm.
-     
+
+    а. Установите mdadm.
+
               yum install mdadm
-   * Создайте конфигурацию RAID0/stripe для файловой системы EXT4.
-     
+
+    b. Создайте конфигурацию RAID0/stripe для файловой системы EXT4.
+
               mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
               mdadm --detail --scan >> /etc/mdadm.conf
               mkfs -t ext4 /dev/md0
-   * Создайте каталог точек подключения.
-     
+    c. Создайте каталог точек подключения.
+
               mkdir /mnt/data
-   * Извлеките UUID созданного RAID-устройства.
-     
+    d. Извлеките UUID созданного RAID-устройства.
+
               blkid | grep /dev/md0
-   * Измените файл /etc/fstab.
-     
+    д. Измените файл /etc/fstab.
+
               vi /etc/fstab
-   * Добавьте устройство, чтобы включить автоматическое подключение при перезагрузке, заменив UUID значением, полученным в результате выполнения команды **blkid** .
-     
+    Е. Добавьте устройство, чтобы включить автоматическое подключение при перезагрузке, заменив UUID значением, полученным ранее в результате выполнения команды **blkid**.
+
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
-   * Подключите новый раздел.
-     
+    g. Подключите новый раздел.
+
               mount /mnt/data
-3. Установка MariaDB:
-   
-   * Создайте файл MariaDB.repo.
-     
+
+3. Установите MariaDB.
+
+    а. Создайте файл MariaDB.repo.
+
                 vi /etc/yum.repos.d/MariaDB.repo
-   * Заполните его содержимым, приведенным ниже.
-     
+
+    b. Заполните REPO-файл следующим содержимым.
+
               [mariadb]
               name = MariaDB
               baseurl = http://yum.mariadb.org/10.0/centos7-amd64
               gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
               gpgcheck=1
-   * Удалите существующие элементы postfix и mariadb-libs, чтобы избежать конфликтов.
-     
-          yum remove postfix mariadb-libs-*
-   * Установите MariaDB с Galera.
-     
-          yum install MariaDB-Galera-server MariaDB-client galera
+    c. Чтобы избежать конфликтов, удалите существующие элементы postfix и mariadb-libs.
+
+           yum remove postfix mariadb-libs-*
+    d. Установите MariaDB с Galera.
+
+           yum install MariaDB-Galera-server MariaDB-client galera
+
 4. Переместите каталог данных MySQL в блочное устройство RAID.
-   
-   * Скопируйте текущий каталог MySQL в новое место и удалите старый каталог.
-     
-          cp -avr /var/lib/mysql /mnt/data  
-          rm -rf /var/lib/mysql
-   * Задайте разрешения на новый каталог соответствующим образом.
-     
-          chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/  
-   * Создайте символическую ссылку, указывающую на старый каталог в новом месте раздела RAID.
-     
-          ln -s /mnt/data/mysql /var/lib/mysql
-5. Так как средство [SELinux будет препятствовать выполнению операций](http://galeracluster.com/documentation-webpages/configuration.html#selinux)в кластере, необходимо отключить его во время текущего сеанса (до появления совместимой версии). Измените `/etc/selinux/config` , чтобы отключить его на случай последующих перезагрузок.
-   
+
+    а. Скопируйте текущий каталог MySQL в новое расположение и удалите старый каталог.
+
+           cp -avr /var/lib/mysql /mnt/data  
+           rm -rf /var/lib/mysql
+    b. Задайте разрешения для нового каталога соответствующим образом.
+
+           chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
+
+    В. Создайте символьную ссылку, указывающую на старый каталог в новом расположении раздела RAID.
+
+           ln -s /mnt/data/mysql /var/lib/mysql
+
+5. Так как средство [SELinux будет препятствовать выполнению операций в кластере](http://galeracluster.com/documentation-webpages/configuration.html#selinux), необходимо отключить его во время текущего сеанса. Измените файл `/etc/selinux/config`, чтобы отключить его на случай последующих перезапусков.
+
             setenforce 0
-   
-       then editing `/etc/selinux/config` to set `SELINUX=permissive`
+
+            then editing `/etc/selinux/config` to set `SELINUX=permissive`
 6. Убедитесь, что MySQL работает.
-   
-   * Запустите MySQL.
-     
+
+   а. Запустите MySQL.
+
            service mysql start
-   * Дождитесь завершения установки MySQL, задайте корневой пароль и удалите анонимных пользователей, отключив удаленный корневой вход и тестовую базу данных.
-     
+   b. Дождитесь завершения установки MySQL, задайте пароль привилегированного пользователя и удалите анонимных пользователей, чтобы отключить удаленный вход привилегированных пользователей. Также удалите тестовую базу данных.
+
            mysql_secure_installation
-   * Создайте пользователя в базе данных, чтобы выполнять операции с кластером и по желанию со своими приложениями:
-     
+   В. Создайте пользователя в базе данных, чтобы выполнять операции с кластером и по желанию со своими приложениями.
+
            mysql -u root -p
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
            exit
-   
-   * Остановите работу MySQL.
-     
+
+   d. Остановите работу MySQL.
+
             service mysql stop
-7. Создание заполнителя конфигурации
-   
-   * Измените конфигурацию MySQL, чтобы создать заполнитель для параметров кластера. Не заменяйте элемент **`<Vairables>`** или раскомментируйте его сейчас. Это произойдет после создания виртуальной машины из этого шаблона.
-     
-           vi /etc/my.cnf.d/server.cnf
-   * Измените раздел **[galera]** и очистите его.
-   * Измените раздел **[mariadb]** .
-     
+7. Создайте заполнитель конфигурации.
+
+   а. Измените конфигурацию MySQL, чтобы создать заполнитель для параметров кластера. Не заменяйте элемент **`<Variables>`** или раскомментируйте его сейчас. Это произойдет после создания виртуальной машины из этого шаблона.
+
+            vi /etc/my.cnf.d/server.cnf
+   b. Измените раздел **[galera]** и очистите его.
+
+   c. Измените раздел **[mariadb]**.
+
            wsrep_provider=/usr/lib64/galera/libgalera_smm.so
            binlog_format=ROW
            wsrep_sst_method=rsync
            bind-address=0.0.0.0 # When set to 0.0.0.0, the server listens to remote connections
            default_storage_engine=InnoDB
            innodb_autoinc_lock_mode=2
-     
+
            wsrep_sst_auth=cluster:p@ssw0rd # CHANGE: Username and password you created for the SST cluster MySQL user
            #wsrep_cluster_name='mariadbcluster' # CHANGE: Uncomment and set your desired cluster name
            #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
            #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
-8. Откройте необходимые порты на брандмауэре (с помощью FirewallD CentOS 7).
-   
+8. Откройте необходимые порты на брандмауэре с помощью FirewallD CentOS 7.
+
    * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
    * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
    * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
    * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
    * Перезагрузите брандмауэр: `firewall-cmd --reload`
-9. Оптимизируйте производительность системы. Дополнительные сведения см. в этой статье по [стратегии оптимизации производительности](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-   
-   * Снова измените файл конфигурации MySQL.
-     
-           vi /etc/my.cnf.d/server.cnf
-   * Внесите изменения в раздел **[mariadb]** и добавьте следующие данные.
-   
+
+9. Оптимизируйте производительность системы. Дополнительные сведения см. в статье [Оптимизация производительности MySQL в виртуальных машинах Azure Linux](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+
+   а. Снова измените файл конфигурации MySQL.
+
+            vi /etc/my.cnf.d/server.cnf
+   b. Внесите изменения в раздел **[mariadb]** и добавьте следующее содержимое.
+
    > [!NOTE]
-   > Мы рекомендуем, чтобы значение **innodb\_buffer\_pool_size** составляло 70 % от памяти виртуальной машины. Здесь задано значение 2,45 ГБ для виртуальной машины Azure средней емкости с 3,5 ГБ ОЗУ.
-   > 
-   > 
-   
-           innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
+   > Рекомендуемое значение innodb\_buffer\_pool_size составляет 70 % от памяти виртуальной машины. В этом примере для него задано значение 2,45 ГБ для виртуальных машин Azure среднего размера с 3,5 ГБ ОЗУ.
+   >
+   >
+
+           innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70 percent of physical memory.
            innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
            max_connections = 5000 # A larger value will give the server more time to recycle idled connections
            innodb_file_per_table = 1 # Speed up the table space transmission and optimize the debris management performance
            innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
            innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
            query_cache_size = 0
-10. Остановите MySQL, отключите выполнение службы MySQL при запуске, чтобы предотвратить вмешательство в работу кластера при добавлении нового узла, и отзовите машину.
-    
+10. Остановите MySQL, отключите выполнение службы MySQL при запуске, чтобы предотвратить вмешательство в работу кластера при добавлении узла, и отзовите машину.
+
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. Запишите виртуальную машину с помощью портала. (В настоящее время [проблема № 1268 со средствами CLI Azure] состоит в том, что в образы, созданные средствами CLI Azure, не записываются на подключенные диски данных.)
-    
-    * Завершите работу машины на портале.
-    * Нажмите кнопку "Записать" и укажите имя образа **mariadb-galera-image** и его описание, а также установите флажок "команда waagent -deprovision запущена на виртуальной машине".
-      ![Запись виртуальной машины](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
+11. Запишите виртуальную машину с помощью портала. (В настоящее время [проблема № 1268 со средствами Azure CLI ](https://github.com/Azure/azure-xplat-cli/issues/1268) состоит в том, что в образы, созданные средствами Azure CLI, не записываются на подключенные диски данных.)
+
+    а. Завершите работу машины на портале.
+
+    b. Щелкните **Запись** и укажите имя образа **mariadb-galera-image**. Введите описание и установите флажок "команда waagent -deprovision запущена на виртуальной машине".
+      
       ![Запись виртуальной машины](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
-## <a name="creating-the-cluster"></a>Создание кластера
-Создайте 3 виртуальные машины из недавно созданного шаблона, а затем настройте и запустите кластер.
+## <a name="create-the-cluster"></a>Создание кластера
+Создайте три виртуальные машины из созданного шаблона, а затем настройте и запустите кластер.
 
-1. Создайте первую виртуальную машину CentOS 7 из созданного образа **mariadb-galera-image**. При этом укажите имя виртуальной сети **mariadbvnet** и подсеть **mariadb**, задайте для размера машины значение **Средний**, установите имя облачной службы **mariadbha** (или другое имя, к которому вы хотите получить доступ по адресу mariadbha.cloudapp.net), задайте для этой машины имя **mariadb1** и имя пользователя **azureuser**, включите доступ по протоколу SSH и передайте PEM-файл сертификата SSH, заменив **/path/to/key.pem** на путь, по которому вы сохранили созданный ключ SSH в формате PEM.
-   
+1. Создайте первую виртуальную машину CentOS 7 на основе созданного образа mariadb-galera-image, указав следующую информацию:
+
+ - Имя виртуальной сети: mariadbvnet.
+ - Подсеть: mariadb.
+ - Размер машины: средний.
+ - Имя облачной службы: mariadbha (или любое имя для облачной службы, к которой вы хотите получить доступ по адресу mariadbha.cloudapp.net).
+ - Имя машины: mariadb1.
+ - Имя пользователя: azureuser.
+ - SSH-доступ: включен.
+ - Передайте PEM-файл сертификата SSH и замените адрес /path/to/key.pem на путь, по которому вы сохранили созданный ключ SSH в формате PEM.
+
    > [!NOTE]
-   > Следующие команды разделены на несколько строк для ясности, но следует вводить в одной строке.
-   > 
-   > 
-   
+   > Следующие команды разделены на несколько строк для ясности, но каждую из них следует вводить в одной строке.
+   >
+   >
         azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
@@ -229,8 +250,8 @@ ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
         --ssh 22
         --vm-name mariadb1
         mariadbha mariadb-galera-image azureuser
-2. Создайте 2 дополнительные виртуальные машины, *подключив* их к созданной облачной службе **mariadbha**, изменив **имя виртуальной машины**, а также **SSH-порт** на уникальный порт, который не конфликтует с другими виртуальными машинами в этой же облачной службе.
-   
+2. Создайте еще две виртуальные машины, подключив их к облачной службе mariadbha. Измените имя виртуальной машины, а также замените порт SSH на уникальный порт, не конфликтующий с другими виртуальными машинами в той же облачной службе.
+
         azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
@@ -241,8 +262,8 @@ ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
         --ssh 23
         --vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-   и для MariaDB3.
-   
+  Для MariaDB3:
+
         azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
@@ -254,49 +275,50 @@ ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
         --vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
 3. Для выполнения следующего шага потребуется получить внутренний IP-адрес каждой из трех виртуальных машин:
-   
+
     ![Получение IP-адреса](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
-4. Введите ключ SSH для 3 виртуальных машин, а затем измените файл конфигурации на каждой из них,
-   
+4. С помощью протокола SSH войдите на три виртуальные машины и измените файл конфигурации на каждой из них.
+
         sudo vi /etc/my.cnf.d/server.cnf
-   
-    раскомментировав строки **`wsrep_cluster_name`** и **`wsrep_cluster_address`** за счет удаления стоящего в начале знака **#** и убедившись, что это именно то, что вам нужно.
+
+    Раскомментируйте **`wsrep_cluster_name`** и **`wsrep_cluster_address`**, удалив **#** в начале строки.
     Кроме того, замените**`<ServerIP>`** в **`wsrep_node_address`** и **`<NodeName>`** в **`wsrep_node_name`** на IP-адрес и имя виртуальной машины соответственно, а также раскомментируйте эти строки.
 5. Запустите кластер в MariaDB1 и разрешите его выполнение при запуске.
-   
+
         sudo service mysql bootstrap
         chkconfig mysql on
-6. Запустите MySQL на MariaDB2 и MariaDB3 и разрешите его выполнение при запуске.
-   
+6. Запустите MySQL в MariaDB2 и MariaDB3 и разрешите его выполнение при запуске.
+
         sudo service mysql start
         chkconfig mysql on
 
-## <a name="load-balancing-the-cluster"></a>Балансировка нагрузки на кластере
-Когда вы создавали кластерные виртуальные машины, они добавлялись в группу доступности с именем **clusteravset** , чтобы они размещались в разных доменах сбоя и обновления, а служба Azure никогда не выполняла обслуживание на всех машинах одновременно. Эта конфигурация соответствует требованиям к поддержке, изложенным в соответствующем соглашении об уровне обслуживания (SLA).
+## <a name="load-balance-the-cluster"></a>Балансировка нагрузки в кластере
+При создании кластерных виртуальных машин вы добавляли их в группу доступности с именем clusteravset, чтобы они размещались в разных доменах сбоя и обновления, а служба Azure никогда не выполняла обслуживание на всех машинах одновременно. Эта конфигурация соответствует требованиям к поддержке, изложенным в соответствующем соглашении об уровне обслуживания (SLA).
 
-Теперь вы будете использовать подсистему балансировки нагрузки Azure, чтобы распределить запросы между нашими 3 узлами.
+Теперь распределите запросы между тремя узлами с помощью Azure Load Balancer.
 
-Выполните на машине следующие команды, используя CLI Azure.
+Выполните на машине следующие команды, используя Azure CLI.
+
 Структура параметров команды должна быть следующей: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb3 3306:3306:tcp:false:MySQL:tcp:3306
 
-Наконец, так как CLI устанавливает для интервала проверки подсистемы балансировки нагрузки значение «15 секунд» (которое может быть слишком длинным), измените его на портале в разделе **Конечные точки** для любых виртуальных машин.
+Интерфейс командной строки задает для интервала пробы подсистемы балансировки нагрузки значение 15 секунд, однако такой интервал может оказаться слишком длинным. Измените его на портале в разделе **Конечные точки** для любой из виртуальных машин.
 
 ![Редактирование конечной точки](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
 
-Затем щелкните «Перенастроить набор со сбалансированной нагрузкой» и нажмите кнопку «Далее».
+Установите флажок **Изменить настройку набора балансировки нагрузки**.
 
-![Перенастройка набора балансировки нагрузки](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
+![Изменить настройку набора балансировки нагрузки](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
 
-После этого измените интервал проверки на «5 секунд» и сохраните изменения.
+Измените значение **интервала пробы** на 5 секунд и сохраните изменения.
 
-![Интервал проверки изменений](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
+![Изменение интервала пробы](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
-## <a name="validating-the-cluster"></a>Проверка кластера
-Все самое сложное уже проделано. Теперь кластер должен быть доступен по адресу `mariadbha.cloudapp.net:3306` , попадающему в зону действия подсистемы балансировки нагрузки и обеспечивающему легкую и эффективную маршрутизацию запросов между тремя виртуальными машинами.
+## <a name="validate-the-cluster"></a>Проверка кластера
+Все самое сложное уже проделано. Теперь кластер должен быть доступен по адресу `mariadbha.cloudapp.net:3306`, попадающему в зону действия подсистемы балансировки нагрузки, и обеспечивать легкую и эффективную маршрутизацию запросов между тремя виртуальными машинами.
 
 Используйте избранный клиент MySQL для подключения или подключитесь с одной из виртуальных машин, чтобы проверить работоспособность кластера.
 
@@ -311,7 +333,7 @@ ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
     INSERT INTO TestTable (value)  VALUES ('Value2');
     SELECT * FROM TestTable;
 
-Будут получены результаты, показанные в следующей таблице.
+Созданная база данных возвращает следующую таблицу:
 
     +----+--------+
     | id | value  |
@@ -323,28 +345,28 @@ ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Дальнейшие действия
-В этой статье вы создали кластер высокой доступности из 3 узлов MariaDB + Galera на виртуальных машинах Azure под управлением CentOS 7. Балансировка нагрузки на виртуальных машинах выполняется с помощью подсистемы балансировки нагрузки Azure.
+В этой статье вы создали высокодоступный кластер MariaDB + Galera, состоящий из трех узлов, на виртуальных машинах Azure под управлением CentOS 7. Балансировка нагрузки на виртуальных машинах выполняется с помощью Azure Load Balancer.
 
-Возможно, вам следует ознакомиться с [другим способом кластеризации MySQL в ОС Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), а также методами [оптимизации и тестирования производительности MySQL на виртуальных машинах Azure Linux](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Возможно, вам следует ознакомиться с [другим способом кластеризации MySQL в ОС Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), а также с методами [оптимизации и тестирования производительности MySQL на виртуальных машинах Azure Linux](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Anchors-->
-[Общие сведения об архитектуре]: #architecture-overview
-[Создание шаблона]: #creating-the-template
-[Создание кластера]: #creating-the-cluster
-[Балансировка нагрузки на кластере]: #load-balancing-the-cluster
-[Проверка кластера]: #validating-the-cluster
-[Дальнейшие действия]: #next-steps
+[Architecture overview]: #architecture-overview
+[Creating the template]: #creating-the-template
+[Creating the cluster]: #creating-the-cluster
+[Load balancing the cluster]: #load-balancing-the-cluster
+[Validating the cluster]: #validating-the-cluster
+[Next steps]: #next-steps
 
 <!--Image references-->
 
 <!--Link references-->
 [Galera]: http://galeracluster.com/products/
-[MariaDB]: https://mariadb.org/en/about/
+[MariaDBs]: https://mariadb.org/en/about/
 [создать ключ SSH для проверки подлинности]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[проблема № 1268 со средствами CLI Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

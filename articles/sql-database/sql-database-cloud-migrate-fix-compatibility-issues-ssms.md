@@ -1,6 +1,7 @@
 ---
-title: "Устранение проблем совместимости базы данных SQL Server с помощью SQL Server Management Studio перед миграцией в базу данных SQL | Документация Майкрософт"
-description: "База данных SQL Microsoft Azure, миграция базы данных, совместимость, мастер миграции SQL Azure"
+title: "SSMS. Устранение проблем совместимости для миграции в базу данных SQL Azure | Документация Майкрософт"
+description: "В этой статье вы узнаете, как устранить проблемы совместимости базы данных SQL Server с помощью SQL Server Management Studio перед миграцией в базу данных SQL Azure."
+keywords: "База данных SQL Microsoft Azure, миграция базы данных, совместимость, мастер миграции SQL Azure"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,18 +17,17 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 355353fb15a00860573699cc652543b61c62c2c1
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 841c4d644c6b096251e1ecefac17a8254b5ca712
 
 
 ---
 # <a name="fix-sql-server-database-compatibility-issues-using-sql-server-management-studio-before-migration-to-sql-database"></a>Устранение проблем совместимости базы данных SQL Server с помощью SQL Server Management Studio перед миграцией в базу данных SQL
 > [!div class="op_single_selector"]
-> * С помощью [мастера миграции SQL Azure (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md)
+> * Использование [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > * Использование [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * Использование [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> 
-> 
+>  
 
 Опытные пользователи могут устранить проблемы совместимости базы данных SQL Server с помощью SQL Server Management Studio перед миграцией в базу данных SQL Azure.
 
@@ -52,6 +52,6 @@ ms.openlocfilehash: 355353fb15a00860573699cc652543b61c62c2c1
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

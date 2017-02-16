@@ -13,21 +13,22 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/27/2016
+ms.date: 11/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
+ms.sourcegitcommit: 09f5ba954dd712d71f41397b2243b6d3f3f0ca42
+ms.openlocfilehash: db829fb8e93b0a395cd70bd8eb71b2090d27c4c2
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio
+
 Информация о создании топологии Storm на C# с помощью средств HDInsight для Visual Studio. В этом учебнике приведены пошаговые инструкции по созданию нового проекта Storm в Visual Studio, его локальному тестированию и развертыванию в Apache Storm в кластере HDInsight.
 
 Вы также узнаете о том, как создавать гибридные топологии, использующие компоненты C# и Java.
 
 > [!IMPORTANT]
-> Хотя действия, описанные в этой статье, зависят от среды разработки Windows и Visual Studio, скомпилированный проект можно отправить в кластер HDInsight под управлением Windows или Linux. Топологии SCP.NET поддерживаются только теми кластерами под управлением Linux, которые созданы после 28 октября 2016 г.
+> Хотя действия, описанные в этой статье, зависят от среды разработки Windows и Visual Studio, скомпилированный проект можно отправить в кластер HDInsight под управлением Windows или Linux. __Топологии SCP.NET поддерживаются только теми кластерами под управлением Linux, которые созданы после 28 октября 2016 года.__
 > 
 > Обновите пакет NuGet Microsoft.SCP.Net.SDK, использующийся в проекте, до версии 0.10.0.6 или выше, чтобы использовать топологию C# с кластером под управлением Linux. Версия пакета также должна соответствовать основной версии Storm, установленной на HDInsight. Например, для Storm в HDInsight версии 3.3 и 3.4 используйте Storm версии 0.10.x, а HDInsight 3.5 использует Storm 1.0.x.
 > 
@@ -36,21 +37,29 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Одна из следующих версий Visual Studio
+
+* [Java](https://java.com) 1.7 или более поздняя версия в среде разработки. Java используется для упаковки топологии при отправке в кластер HDInsight.
+
+  * Переменная среды **JAVA_HOME** должна указывать на каталог, содержащий Java.
+  * В этом каталоге должен быть вложенный каталог **%JAVA_HOME%/bin**.
+
+* Одна из следующих версий Visual Studio:
   
   * Visual Studio 2012 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * Visual Studio 2015 или [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+
 * Пакет Azure SDK версии 2.9.5 или более поздней
+
 * Средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье[Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
   
   > [!NOTE]
   > Средства HDInsight для Visual Studio не поддерживаются в Visual Studio Express
-  > 
-  > 
+
 * Кластер Apache Storm в HDInsight. Инструкции по созданию кластера см. в статье [Начало работы с Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 ## <a name="templates"></a>Шаблоны
+
 Средства HDInsight для Visual Studio предоставляют следующие шаблоны.
 
 | Тип проекта | Что демонстрирует |
@@ -66,14 +75,21 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 | Пример Storm Hybrid |Использование компонентов Java |
 | Пример Storm |Базовая топология подсчета слов |
 
-> [!NOTE]
-> Примеры модулей чтения и записи HBase используют API REST HBase для взаимодействия с HBase в кластере HDInsight, а не API Java HBase.
-> 
-> 
-
 На данном этапе в этом документе используется базовый тип проекта приложения Storm для создания новой топологии.
 
+### <a name="hbase-templates-notes"></a>Заметки о шаблонах HBase
+
+Шаблоны модулей чтения и записи HBase для взаимодействия с HBase в кластере HDInsight используют REST API HBase, а не API Java HBase.
+
+### <a name="eventhub-templates-notes"></a>Заметки о шаблонах EventHub
+
+> [!IMPORTANT]
+> Компонент воронки EventHub на основе Java, входящий в состав шаблона EventHub Reader, не будет работать со Storm в HDInsight версии 3.5. Вместо этого используйте следующий компонент воронки EventHub: [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar).
+
+Пример топологии, которая использует этот компонент и работает со Storm в HDInsight 3.5, доступен здесь: [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
+
 ## <a name="create-a-c-topology"></a>Создание топологии на C#
+
 1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 2. Откройте Visual Studio, выберите **Файл** > **Создать**, а затем — **Проект**.
 3. В диалоговом окне **Новый проект** разверните **Установленные** > **Шаблоны** и выберите **HDInsight**. В списке шаблонов выберите **Приложение Storm**. В нижней части диалогового окна введите имя приложения **WordCount** .
@@ -382,22 +398,21 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 
 * **Воронка на Java** и **сито на C#** — определены в **HybridTopology_javaSpout_csharpBolt**
   
-  * Транзакционная версия определена в **HybridTopologyTx_javaSpout_csharpBolt**.
+    * Транзакционная версия определена в **HybridTopologyTx_javaSpout_csharpBolt**.
+
 * **Воронка на C#** и **сито на Java** — определены в **HybridTopology_csharpSpout_javaBolt**.
   
-  * Транзакционная версия определена в **HybridTopologyTx_csharpSpout_javaBolt**.
-    
-    > [!NOTE]
-    > В этой версии также демонстрируется использование кода Clojure из текстового файла в качестве компонента Java.
-    > 
-    > 
+    * Транзакционная версия определена в **HybridTopologyTx_csharpSpout_javaBolt**.
+  
+  > [!NOTE]
+  > В этой версии также демонстрируется использование кода Clojure из текстового файла в качестве компонента Java.
+
 
 Для переключения между топологией, используемой при отправке проекта, перед отправкой в кластер переместите оператор `[Active(true)]` в топологию, которую необходимо использовать.
 
 > [!NOTE]
 > Все необходимые файлы Java предоставляются в составе этого проекта и находятся в папке **JavaDependency** .
-> 
-> 
+
 
 При создании и отправке гибридной топологии, используются следующие компоненты:
 
@@ -463,7 +478,9 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 > 
 
 ## <a name="troubleshooting"></a>Устранение неполадок
+
 ### <a name="null-pointer-exceptions"></a>Исключение пустого указателя
+
 При использовании топологии C# с кластером HDInsight под управлением Linux сито и воронка, считающие параметры конфигурации с помощью ConfigurationManager во время выполнения, могут вернуть исключение пустого указателя. Это происходит потому, что конфигурация загруженного домена поступает не из содержащей проект сборки.
 
 Конфигурация проекта передается в топологию Storm как пара "ключ — значение" в контексте топологии. Ее можно получить из объекта словаря, который передается компонентам при их инициализации.
@@ -471,6 +488,7 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 В примере ниже показана загрузка значений конфигурации из контекста топологии. Подробные сведения см. в разделе этой статьи [ConfigurationManager](#configurationmanager).
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
+
 При использовании топологии C# с кластером HDInsight под управлением Linux может возникнуть такая ошибка:
 
     System.TypeLoadException: Failure has occurred while loading a type.
@@ -480,6 +498,7 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 Для кластеров HDInsight под управлением Linux в проекте должны использоваться только двоичные файлы, скомпилированные для .NET 4.5.
 
 ### <a name="test-a-topology-locally"></a>Локальная проверка топологии
+
 Хотя топологию легко развернуть в кластер, иногда ее необходимо проверять локально. Чтобы запустить и протестировать пример топологии, описанной в этой статье, локально в среде разработки, сделайте следующее.
 
 > [!WARNING]
@@ -612,6 +631,7 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 > 
 
 ### <a name="log-information"></a>Информация о журнале
+
 С помощью `Context.Logger`можно легко записывать информацию из компонентов топологии в журнал. Например, приведенный ниже код создаст информационную запись в журнале:
 
     Context.Logger.Info("Component started");
@@ -624,12 +644,21 @@ ms.openlocfilehash: fc7ba74717d6e6cae05c2f1f87591ae23e4db170
 > 
 
 ### <a name="view-error-information"></a>Просмотр информации об ошибке
+
 Чтобы просмотреть ошибки, произошедшие в работающей топологии, сделайте следующее.
 
 1. В **обозревателе сервера** щелкните правой кнопкой мыши Storm в кластере HDInsight и выберите **Просмотреть топологии Storm**.
 2. Для **воронок** и **сит** столбец **Последняя ошибка** будет содержать информацию о последней возникшей ошибке.
 3. Выберите **идентификатор воронки** или **идентификатор сита** для компонента с ошибкой. На отобразившейся странице подробностей в разделе **Ошибки** в нижней части страницы будет указана дополнительная информация об ошибке.
 4. Дополнительные сведения можно получить, выбрав **Порт** в разделе **Исполнители** на этой странице и просмотрев журнал рабочих процессов Storm за последние несколько минут.
+
+### <a name="errors-submitting-topologies"></a>Ошибки при отправке топологии
+
+Если при отправке топологии в HDInsight возникают ошибки, можно найти журналы для серверных компонентов, которые обрабатывают отправку топологии в кластер HDInsight. Чтобы получить эти журналы, выполните следующую команду в командной строке.
+
+    scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
+
+Замените __sshuser__ именем учетной записи пользователя SSH для кластера. Замените __clustername__ именем кластера HDInsight. Если для учетной записи SSH используется пароль, вам будет предложено его ввести. Команда скачает файл в каталог, из которого она выполнена.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы узнали, как разрабатывать и развертывать топологии Storm с помощью средств HDInsight для Visual Studio, вы можете изучить [обработку событий из концентратора событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).

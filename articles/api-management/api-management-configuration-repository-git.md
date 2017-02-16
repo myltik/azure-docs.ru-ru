@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 
 ---
@@ -109,42 +109,58 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 Откройте средство Git в нужной папке и выполните указанную ниже команду для клонирования репозитория git на локальный компьютер с помощью команды, предоставленной на портале издателя.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 При появлении запроса введите имя пользователя и пароль.
 
 При появлении ошибок попробуйте изменить команду `git clone` так, чтобы она включала в себя имя пользователя и пароль, как показано в следующем примере.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 Если ошибка возникнет и в этом случае, попробуйте использовать кодирование URL части пароля, содержащегося в команде. Чтобы быстро решить эту задачу, откройте Visual Studio и выполните следующую команду в **окне интерпретации**. Чтобы открыть **окно интерпретации**, откройте любое решение или проект в Visual Studio (или создайте пустое консольное приложение), а затем выберите **Окна** и **Интерпретация** в меню **Отладка**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Зашифрованный пароль вместе с именем пользователя и расположением репозитория можно использовать для создания команды git.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 После клонирования репозиторий доступен для просмотра и работы в локальной файловой системе. Дополнительные сведения см. в разделе [Справочные сведения по структуре файлов и папок локального репозитория Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Обновление локального репозитория самой последней конфигурацией экземпляра службы
 Перед обновлением локального репозитория с помощью последних изменений необходимо сохранить изменения, вносимые в экземпляр службы управления API, на портале издателя или с помощью REST API. Для этого нажмите кнопку **Сохранить конфигурацию в репозиторий** на вкладке **Репозиторий конфигурации** на портале издателя, а затем выполните следующую команду в локальном репозитории.
 
-    git pull
+```
+git pull
+```
 
 Перед выполнением `git pull` убедитесь, что выбрана папка локального хранилища. Если вы только что завершили команду `git clone` , необходимо изменить каталог на репозиторий, выполнив команду, аналогичную приведенной ниже.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Отправка изменений из локального репозитория в репозиторий сервера
 Чтобы отправить изменения из локального репозитория в репозиторий сервера, необходимо зафиксировать изменения и после этого отправить их в репозиторий сервера. Чтобы зафиксировать изменения, откройте командное средство Git, перейдите в каталог локального репозитория и выполните следующие команды.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 Для отправки всех фиксаций на сервер выполните следующую команду.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Развертывание изменений конфигурации службы в экземпляре службы управления API
 После фиксации и отправки локальных изменений в репозиторий сервера их можно развернуть в экземпляре службы управления API.
@@ -190,19 +206,21 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 ### <a name="root-api-management-folder"></a>Корневая папка api-management
 Корневая папка `api-management` содержит файл `configuration.json` со сведениями верхнего уровня об экземпляре службы в следующем формате.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 Первые четыре параметра (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` и `UserRegistrationTermsConsentRequired`) соответствуют указанным далее параметрам на вкладке **Удостоверения** в разделе **Безопасность**.
 
@@ -303,6 +321,6 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Создание правила авторизации служебной шины с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+title: "Создание правила авторизации служебной шины Azure с помощью шаблона | Документация Майкрософт"
 description: "Создание правила авторизации служебной шины для пространства имен и очереди с помощью шаблона диспетчера ресурсов Azure"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
 
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Создание правила авторизации служебной шины для пространства имен и очереди с помощью шаблона диспетчера ресурсов Azure
 В этой статье показывается, как использовать шаблон Azure Resource Manager, который создает [правило авторизации](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) для пространства имен и очереди служебной шины. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Создание шаблонов Azure Resource Manager].
+Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Полный шаблон правила проверки подлинности для служебной шины приведен [здесь][Шаблон правила проверки подлинности для служебной шины] в GitHub.
+Полный шаблон приведен в разделе [Service Bus auth rule template][Service Bus auth rule template] (Шаблон правила аутентификации для служебной шины) на сайте GitHub.
 
 > [!NOTE]
 > Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
@@ -35,7 +35,7 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 > * [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
 > * [Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][шаблонов быстрого запуска Azure] выполните поиск по запросу "служебная шина".
+> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][Azure Quickstart Templates] выполните поиск "Service Bus".
 > 
 > 
 
@@ -56,7 +56,7 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Имя создаваемого пространства имен служебной шины.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -65,7 +65,7 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
 Имя правила авторизации для пространства имен.
 
-```
+```json
 "namespaceAuthorizationRuleName ": {
 "type": "string"
 }
@@ -74,7 +74,7 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
 Имя очереди в пространстве имен служебной шины.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -83,7 +83,7 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 Версия API служебной шины для шаблона.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -92,7 +92,7 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
 Создает стандартное пространство имен служебной шины типа **Messaging**и правило авторизации служебной шины для пространства имен и сущности.
 
-```
+```json
 "resources": [
         {
             "apiVersion": "[variables('sbVersion')]",
@@ -147,12 +147,12 @@ ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
@@ -162,17 +162,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
 * [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
-* [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Аутентификация и авторизация в служебной шине](service-bus-authentication-and-authorization.md)
 
-[Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
-[шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Использование Azure PowerShell с Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure]: ../xplat-cli-azure-resource-manager.md
-[Шаблон правила проверки подлинности для служебной шины]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
 
 
 ---
@@ -37,10 +37,10 @@ ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
 
 Дополнительные рекомендации
 
-Службы мультимедиа используют значение свойства **IAssetFile.Name** при создании URL-адресов для потоковой передачи содержимого (например, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). По этой причине кодирование с помощью знака процента не допускается. Значение свойства Name не может содержать [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), а именно: !*'();:@&=+$,/?%#[]".. Кроме того, может использоваться только один символ точки (.). Кроме того, может использоваться только один символ "." для расширения имени файла.
+Службы мультимедиа используют значение свойства **IAssetFile.Name** при создании URL-адресов для потоковой передачи содержимого (например, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). По этой причине кодирование с помощью знака процента не допускается. Значение свойства Name не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
 ## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Подключение учетной записи хранения с помощью API REST управления службами Azure
-Сейчас единственным способом подключения нескольких учетных записей хранения является использование [API REST управления службами Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). В примере кода в разделе [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) (Как использовать API REST управления службами мультимедиа) описывается метод **AttachStorageAccountToMediaServiceAccount** , который подключает учетную запись хранения к указанной учетной записи служб мультимедиа. Код в том же разделе определяет метод **ListStorageAccountDetails** , который выводит все учетные записи хранения, подключенные к указанной учетной записи служб мультимедиа.
+Сейчас единственным способом подключения нескольких учетных записей хранения является использование [API REST управления службами Azure](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest). В примере кода в разделе [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) (Как использовать API REST управления службами мультимедиа) описывается метод **AttachStorageAccountToMediaServiceAccount** , который подключает учетную запись хранения к указанной учетной записи служб мультимедиа. Код в том же разделе определяет метод **ListStorageAccountDetails** , который выводит все учетные записи хранения, подключенные к указанной учетной записи служб мультимедиа.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Управление файлами служб мультимедиа в нескольких учетных записях хранения
 В приведенном ниже коде используется последняя версия пакета SDK служб мультимедиа для выполнения следующих задач.
@@ -257,6 +257,6 @@ ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,15 +1,13 @@
-
-
 ---
-title: Присоединение личного устройства к своей организации | Microsoft Docs
-description: Поясняет, как пользователи могут регистрировать свои персональные устройства Windows 10 в корпоративной сети, а также шаги по развертыванию для сценария BYOD.
+title: "Присоединение личного устройства к своей организации | Документация Майкрософт"
+description: "Поясняет, как пользователи могут регистрировать свои персональные устройства Windows 10 в корпоративной сети, а также шаги по развертыванию для сценария BYOD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 9f3d38f5-1cfd-43d4-97da-4fed1255a1ff
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -17,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: bf9f0ae5876af6f9e92f86f0d49315ccb5ff06cf
+ms.openlocfilehash: 5f25bee0d6cb4c6985a63073e19929f8d69de139
+
 
 ---
 # <a name="join-a-personal-device-to-your-organization"></a>Присоединение личного устройства к своей организации
@@ -32,13 +34,16 @@ ms.author: femila
 9. Если вы являетесь федеративным пользователем, то появится экран входа в Windows, где нужно будет ввести учетные данные.
 
 ## <a name="additional-information"></a>Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

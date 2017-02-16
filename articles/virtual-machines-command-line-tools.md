@@ -13,19 +13,25 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: cff4e05de2a9e2f0603fd4beebe26e44b4652dc8
-ms.openlocfilehash: d168c6e477eff07b8f499c1be869f85506c2fabc
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: c8cc44cf132bb82c217a81ab94f27ed391a4248d
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Команды Azure CLI в режиме управления службами Azure (ASM)
-> [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../articles/azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы можете также [прочитать обо всех командах модели Resource Manager](virtual-machines/azure-cli-arm-commands.md) и использовать интерфейс командной строки для [переноса ресурсов](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) из классической модели в модель Resource Manager.
+
 
 В этой статье приводится синтаксис и параметры команд Azure CLI, которые обычно используется для создания ресурсов Azure и управления ими в классической модели развертывания. Для доступа к этим командам следует запустить CLI в режиме управления службами Azure (ASM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. 
+
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../articles/azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы можете также [прочитать обо всех командах модели Resource Manager](virtual-machines/azure-cli-arm-commands.md) и использовать интерфейс командной строки для [переноса ресурсов](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) из классической модели в модель Resource Manager.
+>
+>Для работы в модели Resource Manager можно также использовать [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2), интерфейс командной строки нового поколения, поддерживающий различные платформы.
+>
+
 
 Чтобы начать работу, [установите интерфейс командной строки Azure](xplat-cli-install.md) и [подключитесь к своей подписке Azure](xplat-cli-connect.md).
 
@@ -2353,6 +2359,6 @@ info:   vm shutdown command OK
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

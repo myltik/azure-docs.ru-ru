@@ -1,5 +1,7 @@
 ---
-title: "Чтение сообщений, сохраненных в службе хранилища Azure | Документация Майкрософт"
+featureFlags:
+- usabilla
+title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Урок 3. Хранилище таблиц | Документация Майкрософт"
 description: "Отслеживайте сообщения, передаваемые с устройства в облако, по мере их записывания в хранилище таблиц Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: d741d9be27c17171a9161b7e0ea335a9f5fbafc0
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 0e35ffda2d5f6698c4e9d96f1991998b36a7f230
 
 
 ---
@@ -74,6 +76,6 @@ ms.openlocfilehash: d741d9be27c17171a9161b7e0ea335a9f5fbafc0
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

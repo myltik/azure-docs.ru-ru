@@ -1,10 +1,10 @@
 ---
-title: "Сообщения системного журнала в Log Analytics | Документация Майкрософт"
+title: "Сбор и анализ сообщений Syslog в OMS Log Analytics | Документация Майкрософт"
 description: "Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.   В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
 
 
 ---
@@ -182,6 +182,6 @@ ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов (Windows 7 или более поздние версии) | Документация Майкрософт"
+title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Урок 1. Получение инструментов (Windows) | Документация Майкрософт"
 description: "Скачайте и установите необходимые инструменты и программное обеспечение для работы с примером приложения на устройстве Pi под управлением Windows 7 и более поздних версий."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 63d4a4a5cbc0d7313c5b527e5ec417d1b968483a
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 73df1a85cbcf7ee54fe625b6a150f89366ea2c14
 
 
 ---
@@ -77,6 +77,6 @@ npm install -g device-discovery-cli gulp
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

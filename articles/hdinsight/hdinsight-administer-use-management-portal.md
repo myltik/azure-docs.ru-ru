@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
 
 
 ---
@@ -188,10 +188,10 @@ HDInsight работает со множеством компонентов Hado
 
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Перенастройте топологию mytopology с учетом 5 рабочих процессов,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>3 исполнителей для воронки blue-spout и
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>10 исполнителей для сита yellow-bolt.
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Масштабирование кластеров**
 
@@ -327,7 +327,7 @@ HDInsight работает со множеством компонентов Hado
 3. В верхнем меню щелкните **Параметры** и выберите пункт **Удаленный рабочий стол**.
 4. Заполните поля **Срок действия**, **Имя пользователя удаленного рабочего стола** и **Пароль удаленного рабочего стола**, а затем нажмите кнопку **Включить**.
 
-    ![hdinsight, включить, отключить, настроить, удаленный рабочий стол](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![Hdinsight, включить, отключить, настроить, удаленный рабочий стол](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     Для поля "Срок действия" значением по умолчанию является неделя.
 

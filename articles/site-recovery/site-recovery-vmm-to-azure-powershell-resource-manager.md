@@ -1,5 +1,5 @@
 ---
-title: "Репликация виртуальных машин Hyper-V из облаков VMM с помощью Azure Site Recovery и PowerShell (Resource Manager) | Документация Майкрософт"
+title: "Репликация виртуальных машин Hyper-V из VMM с помощью Azure Site Recovery и PowerShell (Resource Manager) | Документация Майкрософт"
 description: "Репликация виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery и PowerShell"
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 19/01/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 1dbde0b611aa79bf86430bb99c15363d560039fe
-ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
 
 
 ---
@@ -26,8 +26,8 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 > * [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Классический портал](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Обзор
 Служба Azure Site Recovery помогает реализовать стратегии непрерывности бизнеса и восстановления после сбоев (BCDR), управляя процессами репликации, отработки отказа и восстановления виртуальных машин в ряде сценариев развертывания. Полный список сценариев развертывания приведен в статье [Обзор Site Recovery](site-recovery-overview.md).
@@ -48,8 +48,8 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
-> 
-> 
+>
+>
 
 ## <a name="before-you-start"></a>Перед началом работы
 Убедитесь, что выполнены следующие предварительные требования.
@@ -57,13 +57,13 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 ### <a name="azure-prerequisites"></a>Предварительные требования Azure
 * Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/) . Если у вас ее нет, воспользуйтесь [бесплатной учетной записью](https://azure.microsoft.com/free). Вы также можете ознакомиться с [расценками на использование диспетчера восстановления Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Чтобы опробовать репликацию в подписку CSP, вам потребуется подписка CSP. Дополнительные сведения о программе CSP см. в статье [Как зарегистрироваться в программе CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-* Для хранения данных, реплицируемых в Azure, потребуется учетная запись хранения Azure версии 2 (Resource Manager). На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и служба Azure Site Recovery, и быть связана с той же подпиской или с подпиской CSP. Дополнительные сведения о настройке службы хранилища Azure см. в разделе [Введение в хранилище Microsoft Azure](../storage/storage-introduction.md).
+* Для хранения данных, реплицируемых в Azure, потребуется учетная запись хранения Azure версии&2; (Resource Manager). На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и служба Azure Site Recovery, и быть связана с той же подпиской или с подпиской CSP. Дополнительные сведения о настройке службы хранилища Azure см. в разделе [Введение в хранилище Microsoft Azure](../storage/storage-introduction.md).
 * Нужно убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 > [!NOTE]
 > В настоящее через Powershell доступны только операции уровня виртуальной машины. Скоро будет включена поддержка операций на уровне плана восстановления.  Сейчас отработка отказа ограничена уровнем "защищенных виртуальных машин", на уровне плана восстановления она недоступна.
-> 
-> 
+>
+>
 
 ### <a name="vmm-prerequisites"></a>Предварительные требования VMM
 * Вам потребуется сервер VMM под управлением System Center 2012 R2.
@@ -102,48 +102,49 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 * [Настройка и мониторинг виртуальных сетей в Azure](https://azure.microsoft.com/documentation/services/virtual-network/)
 
 ### <a name="powershell-prerequisites"></a>Необходимые компоненты PowerShell
-Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](https://msdn.microsoft.com/library/dn850420.aspx).
+Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Дополнительные сведения об использовании командлетов, например о типовой обработке значений параметров, входных и выходных параметров в Azure PowerShell, приведены в статье [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ## <a name="step-1-set-the-subscription"></a>Шаг 1. Настройка подписки
 1. В Azure Powershell войдите в свою учетную запись Azure с помощью следующих командлетов:
-   
+
         $UserName = "<user@live.com>"
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
         Login-AzureRmAccount #-Credential $Cred
 2. Получите список своих подписок. При этом также отобразится список идентификаторов subscriptionID для каждой подписки. Запишите идентификатор subscriptionID подписки, в которой хотите создать хранилище служб восстановления.
-   
+
         Get-AzureRmSubscription
 3. Задайте подписку, в которой будет создано хранилище служб восстановления, указав идентификатор подписки.
-   
+
         Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 ## <a name="step-2-create-a-recovery-services-vault"></a>Шаг 2. Создание хранилища служб восстановления
 1. Если у вас еще нет группы ресурсов в Azure Resource Manager, создайте ее.
-   
+
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Создайте новое хранилище служб восстановления и сохраните созданный объект хранилища ASR в переменной, которая будет использоваться далее. Объект хранилища ASR также можно получить после создания с помощью командлета Get-AzureRMRecoveryServicesVault:-
-   
+
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Шаг 3. Настройка контекста для хранилища служб восстановления
-1. Задайте контекст хранилища, выполнив указанную ниже команду.
+
+Задайте контекст хранилища, выполнив указанную ниже команду.
    
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="step-4-install-the-azure-site-recovery-provider"></a>Шаг 4. Установка поставщика Azure Site Recovery
 1. На компьютере с VMM создайте каталог, выполнив следующую команду:
-   
+
        New-Item c:\ASR -type directory
 2. Распакуйте файлы с помощью загруженного поставщика, выполнив следующую команду:
-   
+
        pushd C:\ASR\
        .\AzureSiteRecoveryProvider.exe /x:. /q
 3. Используйте следующую команду для установки провайдера:
-   
+
        .\SetupDr.exe /i
        $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
        do
@@ -154,16 +155,17 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
            $isNotInstalled = $false;
          }
        }While($isNotInstalled)
-   
+
    Дождитесь завершения процесса установки.
 4. Зарегистрируйте сервер в хранилище, используя следующую команду:
-   
+
        $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
        pushd $BinPath
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
 ## <a name="step-5-create-an-azure-storage-account"></a>Шаг 5. Создание учетной записи хранения Azure
-1. Если у вас нет учетной записи хранения Azure, создайте учетную запись с включенной георепликацией в том же регионе, что и хранилище, выполнив следующую команду:
+
+Если у вас нет учетной записи хранения Azure, создайте учетную запись с включенной георепликацией в том же регионе, что и хранилище, выполнив следующую команду:
    
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
@@ -175,7 +177,7 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 ## <a name="step-6-install-the-azure-recovery-services-agent"></a>Шаг 6. Установка агента служб восстановления Azure
 1. С портала [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) загрузите агент служб восстановления Azure и установите его на всех серверах узлов Hyper-V в облаках VMM, которые нужно защитить.
 2. Выполните следующую команду на всех узлах VMM:
-   
+
        marsagentinstaller.exe /q /nu
 
 ## <a name="step-7-configure-cloud-protection-settings"></a>Шаг 7. Настройка параметров защиты облачных систем
@@ -188,25 +190,25 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
         $policryresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider HyperVReplicaAzure -ReplicationFrequencyInSeconds $replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId "/subscriptions/q1345667/resourceGroups/test/providers/Microsoft.Storage/storageAccounts/teststorageacc1"
 
 1. Получите контейнер защиты, выполнив следующие команды:
-   
+
        $PrimaryCloud = "testcloud"
        $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 2. Извлеките сведения о политике в переменную с помощью созданного задания, указав понятное имя политики:
-   
+
        $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
 3. Свяжите контейнер защиты с политикой репликации:
-   
+
        $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $protectionContainer  
 4. После завершения задания выполните следующую команду:
-   
+
        $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
-   
+
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
          $isJobLeftForProcessing = $true;
        }
 5. После завершения обработки задания выполните следующую команду:
-   
+
        if($isJobLeftForProcessing)
        {
          Start-Sleep -Seconds 60
@@ -223,17 +225,17 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 Обратите внимание, что с одной сетью Azure можно сопоставить несколько сетей виртуальных машин. Если в целевой сети имеется несколько подсетей и одна из этих подсетей называется так же, как и подсеть, в которой размещается исходная виртуальная машина, то после отработки отказа реплика виртуальной машины будет подключаться к этой целевой подсети. Если целевой подсети с таким же именем нет, то виртуальная машина будет подключаться к первой подсети в сети.
 
 1. Первая команда возвращает серверы для текущего хранилища Azure Site Recovery. Команда сохраняет серверы Microsoft Azure Site Recovery в массиве $Servers.
-   
+
         $Servers = Get-AzureRmSiteRecoveryServer
 2. Вторая команда получает сеть восстановления сайта для первого сервера в массиве $Servers. Команда сохраняет сети в переменной $Networks.
 
         $Networks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
 
 1. Третья команда извлекает виртуальные сети Azure и затем сохраняет это значение в переменной $AzureVmNetworks.
-   
+
         $AzureVmNetworks =  Get-AzureRmVirtualNetwork
 2. Последний командлет создает сопоставление между основной сетью и сетью виртуальной машины Azure. Командлет устанавливает основную сеть в качестве первого элемента $Networks. Командлет делает сеть виртуальных машин первым элементом в $AzureVmNetworks.
-   
+
         New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureVMNetworkId $AzureVmNetworks[0]
 
 ## <a name="step-9-enable-protection-for-virtual-machines"></a>Шаг 9. Включение защиты для виртуальных машин
@@ -245,13 +247,13 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 * Чтобы включить защиту, необходимо задать соответствующие свойства операционной системы и диска с операционной системой для виртуальной машины. Данные свойства можно установить при создании виртуальной машины в VMM с помощью шаблона виртуальной машины. Эти свойства также можно задать для существующих виртуальных машин на вкладках **Общие** и **Конфигурация оборудования** свойств виртуальной машины. Если установка этих свойств в VMM не была выполнена, сделать это можно на портале Azure Site Recovery.
 
 1. Чтобы включить защиту, выполните следующую команду для получения контейнера защиты:
-   
+
           $ProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $CloudName
 2. Получите объект защиты (виртуальную машину), выполнив следующую команду:
-   
+
            $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $protectionContainer
 3. Включите аварийное восстановление для виртуальной машины, выполнив следующую команду:
-   
+
           $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable –Force -Policy $policy -RecoveryAzureStorageAccountId  $storageID "/subscriptions/217653172865hcvkchgvd/resourceGroups/rajanirgps/providers/Microsoft.Storage/storageAccounts/teststorageacc1
 
 ## <a name="test-your-deployment"></a>Выполните тестирование развертывания
@@ -264,23 +266,23 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 
 ### <a name="run-a-test-failover"></a>Запуск тестовой отработки отказа
 - Запустите тестовую обработку отказа с помощью следующей команды:
-   
+
        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ### <a name="run-a-planned-failover"></a>Запуск запланированной отработки отказа
 - Запустите запланированную обработку отказа с помощью следующей команды:
-   
+
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ### <a name="run-an-unplanned-failover"></a>Запуск незапланированной отработки отказа
 - Запустите внеплановую обработку отказа с помощью следующей команды:
-   
+
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Мониторинг активности
@@ -308,7 +310,6 @@ ms.openlocfilehash: 0d3c230bd2707af3ae52f638976919495131d2dd
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

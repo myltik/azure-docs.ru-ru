@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 11/18/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 6dd149808a89ccf7da2989751788e074d5340d5c
 
 
 ---
 # <a name="create-hbase-clusters-in-azure-virtual-network"></a>Создание кластеров HBase в виртуальной сети Azure
-Из этой статьи вы узнаете, как создавать кластеры Azure HDInsight HBase в [виртуальной сети Azure][1].
+Узнайте, как создавать кластеры Azure HDInsight HBase в [виртуальной сети Azure][1].
 
 Благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения. Это позволяет приложениям взаимодействовать с HBase непосредственно. К преимуществам относятся:
 
@@ -37,33 +37,33 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 * **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Создание кластера HBase в виртуальной сети
-В этом разделе мы создадим кластер HBase под управлением Linux с зависимой учетной записью службы хранилища Azure в виртуальной сети Azure. Для этих целей мы будем использовать [шаблона Azure Resource Manager](../resource-group-template-deploy.md). Сведения о других способах создания кластеров и их параметрах см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Дополнительные сведения о создании в HDInsight кластеров Hadoop с помощью шаблонов ARM см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
+В этом разделе мы создадим кластер HBase под управлением Linux с зависимой учетной записью службы хранилища Azure в виртуальной сети Azure c помощью [шаблона Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других способах создания кластеров и их параметрах см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Дополнительные сведения о создании в HDInsight кластеров Hadoop с помощью шаблонов ARM см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
 
 > [!NOTE]
-> Некоторые свойства жестко закодированы в шаблоне. Например:
+> Некоторые свойства жестко заданы в шаблоне. Например:
 >
 > * **Расположение**: восточный регион США 2.
 > * Версия кластера: 3.4.
 > * **Число рабочих узлов кластера**: 4.
-> * **Учетная запись хранения по умолчанию**: &lt;имя_кластера>store.
+> * **Учетная запись хранения по умолчанию**: уникальная строка
 > * **Имя виртуальной сети**: &lt;имя_кластера>-vnet.
 > * **Адресное пространство виртуальной сети**: 10.0.0.0/16.
-> * **Имя подсети**: по умолчанию.
+> * **Имя подсети**: subnet1
 > * **Диапазон адресов подсети**: 10.0.0.0/24.
 >
 > Заполнитель &lt;имя_кластера> будет заменен именем кластера, которое вы укажете при использовании шаблона.
 >
 >
 
-1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure. Шаблон хранится в общедоступном контейнере больших двоичных объектов.
+1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure. Шаблон находится в [шаблонах быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. В колонке **Настраиваемое развертывание** укажите следующее:
 
    * **Подписка**. Выберите подписку Azure, которая использовалась для создания кластера HDInsight, зависимой учетной записи хранения и виртуальной сети Azure.
    * **Группа ресурсов**.Щелкните **Создать** и укажите имя новой группы ресурсов.
    * **Расположение**. Выберите расположение группы ресурсов.
-   * **Имя кластера**: введите имя создаваемого кластера Hadoop.
+   * **Имя_кластера**. Введите имя создаваемого кластера Hadoop.
    * **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
    * **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**.  Это имя можно изменить.
    * **Я принимаю указанные выше условия**. Установите этот флажок.
@@ -74,17 +74,18 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 Чтобы начать работу с новым HBase кластером, можно использовать процедуры, которые представлены в разделе [Приступая к работе с HBase с Hadoop в HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>Подключитесь к кластеру HBase с помощью API-интерфейсов удаленного вызова процедур Java HBase
-1. Создайте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Инструкции по созданию виртуальной машины IaaS см. в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). При выполнении действий, описанных в этом документе, необходимо использовать следующую конфигурацию сети.
+1. Создайте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Инструкции по созданию виртуальной машины IaaS см. в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md). При выполнении действий, описанных в этом документе, необходимо использовать следующую конфигурацию сети.
 
    * **Виртуальная сеть**: &lt;имя_кластера>-vnet.
-   * **Подсеть**: по умолчанию.
+   * **Подсеть**: subnet1
 
    > [!IMPORTANT]
    > Замените &lt;имя_кластера> именем, использованным при создании кластера HDInsight на предыдущих шагах.
    >
    >
 
-   Благодаря этим значениям виртуальная машина будет настроена для использования той же виртуальной сети и подсети, что и кластер HDInsight. Это позволит им напрямую взаимодействовать друг с другом.
+   Благодаря этим значениям виртуальная машина будет размещена в той же виртуальной сети и подсети, что и кластер HDInsight. Эта конфигурация позволит им напрямую взаимодействовать друг с другом. Существует возможность создания кластера HDInsight с пустым граничным узлом. Граничный узел можно использовать для управления кластером.  Подробные сведения см. в статье [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md).
+
 2. При использовании Java-приложения для удаленного подключения к HBase необходимо использовать полное доменное имя (FQDN). Чтобы определить это, вам необходимо получить DNS-суффикс кластера HBase. Для этого используйте один из следующих методов.
 
    * С помощью веб-браузера сделайте вызов Ambari.
@@ -98,7 +99,7 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 
          curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-     В возвращенных данных JSON найдите запись «host_name». В ней указаны полные доменные имена узлов в кластере. Например: 
+     В возвращенных данных JSON найдите запись «host_name». В ней указаны полные доменные имена узлов в кластере. Например:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -206,7 +207,7 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
      В результате будет возвращен DNS-суффикс. Например, **yourclustername.b4.internal.cloudapp.net**.
    * Использование удаленного рабочего стола
 
-     Чтобы подключиться к кластеру HBase (вы будете подключены к головному узлу) и выполнить команду **ipconfig** в командной строке для получения DNS-суффикса, можно также использовать удаленный рабочий стол. Инструкции по включению протокола удаленного рабочего стола и подключению к кластеру с его помощью см. в разделе [Управление кластерами Hadoop в HDInsight с использованием портала Azure][hdinsight-admin-portal].
+     Чтобы подключиться к кластеру HBase (вы будете подключены к головному узлу) и выполнить команду **ipconfig** в командной строке для получения DNS-суффикса, можно также использовать удаленный рабочий стол. Инструкции по включению протокола удаленного рабочего стола и подключению к кластеру с его помощью см. в статье [Управление кластерами Hadoop в HDInsight с использованием портала Azure][hdinsight-admin-portal].
 
      ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -243,7 +244,8 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 В этом учебнике вы узнали, как создать кластер HBase. Дополнительные сведения см. на следующих ресурсах:
 
 * [Приступая к работе с HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
-* [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md)
+* [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md)
+* [Настройка репликации HBase в HDInsight](hdinsight-hbase-replication.md)
 * [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
 * [Приступая к работе с HBase с Hadoop в HDInsight](hdinsight-hbase-tutorial-get-started.md)
 * [Анализ мнений пользователей Twitter с использованием HBase в HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
@@ -274,7 +276,7 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
@@ -297,6 +299,6 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

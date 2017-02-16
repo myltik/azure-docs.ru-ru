@@ -1,5 +1,5 @@
 ---
-title: "Интерфейсы API и пакеты SDK Node.js для DocumentDB | Документация Майкрософт"
+title: "Ресурсы для API Node.js и пакетов SDK для Node.js (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения об API и пакете SDK для Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB Node.js."
 services: documentdb
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
 
 
 ---
@@ -50,10 +50,15 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 
 <tr><td>**Учебник по веб-приложениям**</td><td>[Создание веб-приложения Node.js с использованием DocumentDB](documentdb-nodejs-application.md)</td></tr>
 
-<tr><td>**Текущая поддерживаемая платформа**</td><td>[Node.js версии 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js версии 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js версии 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+<tr><td>**Текущая поддерживаемая платформа**</td><td>[Node.js версии&0;.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js версии&0;.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js версии&4;.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11011101a"></a><a name="1.10.1"/>1.10.1</a>
+* Отключение проверки SSL при использовании пакета SDK для emulator(hostname=localhost).
+* Добавлена поддержка включения ведения журнала сценариев во время выполнения хранимой процедуры.
+
 ### <a name="a-name11001100a"></a><a name="1.10.0"/>1.10.0</a>
 * Добавлена поддержка параллельных запросов между секциями.
 * Добавлена поддержка запросов TOP и ORDER BY для секционированных коллекций.
@@ -79,16 +84,16 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 * Исправлена ошибка метода resolveForRead() hashParitionResolver. Ранее вместо возврата списка всех зарегистрированных ссылок при отсутствии ключа раздела вызвалось исключение.
 
 ### <a name="a-name154154a"></a><a name="1.5.4"/>1.5.4</a>
-* Устранена проблема [№ 100](https://github.com/Azure/azure-documentdb-node/issues/100). Выделенный агент HTTPS: избегайте изменения глобального агента для DocumentDB. Используйте выделенный агент для всех запросов lib.
+* Устранена проблема [№&100;](https://github.com/Azure/azure-documentdb-node/issues/100). Выделенный агент HTTPS: избегайте изменения глобального агента для DocumentDB. Используйте выделенный агент для всех запросов lib.
 
 ### <a name="a-name153153a"></a><a name="1.5.3"/>1.5.3</a>
-* Устранена проблема [№ 81](https://github.com/Azure/azure-documentdb-node/issues/81). Правильная обработка тире в идентификаторах носителей.
+* Устранена проблема [№&81;](https://github.com/Azure/azure-documentdb-node/issues/81). Правильная обработка тире в идентификаторах носителей.
 
 ### <a name="a-name152152a"></a><a name="1.5.2"/>1.5.2</a>
-* Устранена проблема [№ 95](https://github.com/Azure/azure-documentdb-node/issues/95). Предупреждение об утечке данных прослушивателя EventEmitter.
+* Устранена проблема [№&95;](https://github.com/Azure/azure-documentdb-node/issues/95). Предупреждение об утечке данных прослушивателя EventEmitter.
 
 ### <a name="a-name151151a"></a><a name="1.5.1"/>1.5.1</a>
-* Устранена проблема [№ 92](https://github.com/Azure/azure-documentdb-node/issues/90). Переименование папки Hash в hash для систем с учетом регистра.
+* Устранена проблема [№&92;](https://github.com/Azure/azure-documentdb-node/issues/90). Переименование папки Hash в hash для систем с учетом регистра.
 
 ### <a name="a-name150150a"></a><a name="1.5.0"/>1.5.0</a>
 * Реализация поддержки сегментирования за счет добавления сопоставителей секций хэша и диапазона.
@@ -105,7 +110,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 
 ### <a name="a-name121121a"></a><a name="1.2.1"/>1.2.1</a>
 * Реализована маршрутизация на основе идентификатора.
-* Устранена проблема [№ 49](https://github.com/Azure/azure-documentdb-node/issues/49) : конфликт текущего свойства с методом current().
+* Устранена проблема [№&49;](https://github.com/Azure/azure-documentdb-node/issues/49) : конфликт текущего свойства с методом current().
 
 ### <a name="a-name120120a"></a><a name="1.2.0"/>1.2.0</a>
 * Добавлена поддержка геопространственного индекса.
@@ -113,13 +118,13 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 * Добавлен новый заголовок "ход выполнения преобразования индекса" в ResourceResponse.
 
 ### <a name="a-name110110a"></a><a name="1.1.0"/>1.1.0</a>
-* Реализована политика индексации версии 2.
+* Реализована политика индексации версии&2;.
 
 ### <a name="a-name103103a"></a><a name="1.0.3"/>1.0.3</a>
-* Устранена проблема [№ 40](https://github.com/Azure/azure-documentdb-node/issues/40). Реализованы конфигурации eslint и grunt в пакете SDK для ядра и обещаний.
+* Устранена проблема [№&40;](https://github.com/Azure/azure-documentdb-node/issues/40). Реализованы конфигурации eslint и grunt в пакете SDK для ядра и обещаний.
 
 ### <a name="a-name102102a"></a><a name="1.0.2"/>1.0.2</a>
-* Устранена проблема [№ 45](https://github.com/Azure/azure-documentdb-node/issues/45) — оболочка обещаний больше не включает заголовок с ошибкой.
+* Устранена проблема [№&45;](https://github.com/Azure/azure-documentdb-node/issues/45) — оболочка обещаний больше не включает заголовок с ошибкой.
 
 ### <a name="a-name101101a"></a><a name="1.0.1"/>1.0.1</a>
 * Реализована возможность запрашивать конфликты, добавляя методы readConflicts, readConflictAsync и queryConflicts.
@@ -129,22 +134,18 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 ### <a name="a-name100100a"></a><a name="1.0.0"/>1.0.0</a>
 * Пакет SDK общей доступности.
 
-## <a name="release-retirement-dates"></a>Даты выпуска и вывода
+## <a name="release--retirement-dates"></a>Даты выпуска и вывода
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии.
 
 Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
-> [!WARNING]
-> Поддержка всех версий пакета SDK Azure DocumentDB для Node.js версии ниже **1.0.0** будет прекращена **29 февраля 2016 года**.
-> 
-> 
-
 <br/>
 
-| Версия | Дата выпуска | Дата вывода |
+| Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.10.1](#1.10.1) |22 декабря 2016 г. |--- |
 | [1.10.0](#1.10.0) |3 октября 2016 г. |--- |
 | [1.9.0](#1.9.0) |7 июля 2016 г. |--- |
 | [1.8.0](#1.8.0) |14 июня 2016 г. |--- |
@@ -167,11 +168,6 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 | [1.0.2](#1.0.2) |23 мая, 2015 г. |--- |
 | [1.0.1](#1.0.1) |15 мая 2015 г. |--- |
 | [1.0.0](#1.0.0) |8 апреля 2015 г. |--- |
-| 0.9.4-prerelease |6 апреля 2015 г. |29 февраля 2016 г. |
-| 0.9.3-prerelease |14 января 2015 г. |29 февраля 2016 г. |
-| 0.9.2-prerelease |18 декабря 2014 г. |29 февраля 2016 г. |
-| 0.9.1-prerelease |22 августа 2014 г. |29 февраля 2016 г. |
-| 0.9.0-prerelease |21 августа 2014 г. |29 февраля 2016 г. |
 
 ## <a name="faq"></a>Часто задаваемые вопросы
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -182,6 +178,6 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f9bd4484a4cb9cbb01524b55d72524554cc6822
+ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
+ms.openlocfilehash: eb22b8e8c2d2b4a619e50b94321d4f819764bdaa
 
 
 ---
@@ -28,7 +28,7 @@ AMQP 1.0 — это эффективный и надежный протокол 
 В этой статье описывается использование функций обмена сообщениями через служебную шину (очередей и публикации разделов или подписки на них) из приложений Java, использующих популярный стандарт API JMS. В [связанной статье](service-bus-dotnet-advanced-message-queuing.md) объясняется, как выполнить те же действия, используя API .NET служебной шины. Эти два руководства можно использовать совместно для изучения обмена сообщениями между различными платформами с помощью AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Приступая к работе со служебной шиной
-В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем **queue1**. Если это не так, можно [создать пространство имен и очередь](service-bus-create-namespace-portal.md), используя [портал Azure](https://portal.azure.com). Дополнительные сведения о создании пространства имен и очередей служебной шины см. в статье [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md).
+В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем **queue1**. Если это не так, можно [создать пространство имен и очередь](service-bus-create-namespace-portal.md), используя [портал Azure](https://portal.azure.com). Дополнительные сведения о создании пространства имен и очередей служебной шины см. в статье [Приступая к работе с очередями служебной шины](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Секционированные очереди и разделы также поддерживают AMQP. Дополнительные сведения см. в статьях [Секционированные сущности обмена сообщениями](service-bus-partitioning.md) и [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -119,7 +119,7 @@ topic.[jndi_name] = [physical_name]
 #### <a name="configure-the-jndi-initialcontext"></a>Настройка исходного контекста JNDI
 Для настройки среды JNDI хэш-таблица со сведениями о конфигурации передаются в конструктор класса javax.naming.InitialContext. Два обязательных элемента в хэш-таблице — это имя класса фабрики исходного контекста и URL-адрес поставщика. В следующем примере кода показано, как настроить среду JNDI для использования поставщика JNDI на основе файла свойств Qpid с именем **servicebus.properties**.
 
-```
+```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
 env.put(Context.PROVIDER_URL, "servicebus.properties"); 
@@ -129,7 +129,7 @@ InitialContext context = new InitialContext(env);
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Простое приложение JMS, использующее очередь служебной шины
 Следующий пример программы отправляет текстовые сообщения JMS в очередь Service Bus с логическим JNDI-именем QUEUE и получает ответные сообщения.
 
-```
+```java
 // SimpleSenderReceiver.java
 
 import javax.jms.*;
@@ -325,12 +325,12 @@ exit
 * [Поддержка AMQP 1.0 в служебной шине](service-bus-amqp-overview.md)
 * [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md)
 * [Руководство разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md)
-* [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
-* [Центр разработчика Java](/develop/java/).
+* [Начало работы с очередями служебной шины](service-bus-dotnet-get-started-with-queues.md)
+* [Центр разработчиков Java](https://azure.microsoft.com/develop/java/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

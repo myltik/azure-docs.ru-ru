@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
+ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
+ms.openlocfilehash: ceb33327ec2ced7c1ffad89696e64538c7fd4a5d
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
 Узнайте, как использовать [Apache Phoenix](http://phoenix.apache.org/) в HDInsight, а также как использовать SQLLine. Дополнительные сведения о Phoenix см. в статье [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) (Phoenix за 15 минут или меньше). Информацию по грамматике Phoenix см. в разделе [Phoenix Grammar](http://phoenix.apache.org/language/index.html) (Грамматика Phoenix).
 
 > [!NOTE]
-> Информацию о версии Phoenix в HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?][hdinsight-versions]
+> Сведения о версии Phoenix в HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md).
 >
 >
 
@@ -35,7 +35,7 @@ ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
 Перед использованием SQLLine необходимо иметь следующее:
 
 * **Кластер HBase в HDInsight.** Сведения о подготовке кластера HBase см. в статье [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight][hdinsight-hbase-get-started].
-* **Подключение к кластеру с помощью протокола удаленного рабочего стола.** Для получения инструкций см. статью [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-manage-portal].
+* **Подключение к кластеру с помощью протокола удаленного рабочего стола.** Инструкции см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-manage-portal].
 
 При подключении к кластеру HBase необходимо подключиться к одному из Zookeeper. Каждый кластер HDInsight содержит 3 Zookeeper.
 
@@ -70,15 +70,14 @@ ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы изучили использование Apache Phoenix в HDInsight.  Дополнительные сведения см. на следующих ресурсах:
 
-* [Обзор HDInsight HBase][hdinsight-hbase-overview]: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
-* [Создание кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]: благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения, поэтому эти приложения могут напрямую обмениваться данными с HBase.
-* [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure.
-* [Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight][hbase-twitter-sentiment]: узнайте, как выполнять [анализ тональности](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных, используя HBase в кластере Hadoop в HDInsight.
+* [Что такое HBase в HDInsight][hdinsight-hbase-overview]. HBase — это база данных NoSQL с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и частично структурированных данных.
+* [Создание кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]. Благодаря интеграции виртуальной сети кластеры HBase можно развернуть в той же виртуальной сети, что и приложения, поэтому эти приложения могут напрямую обмениваться данными с HBase.
+* [Настройка репликации HBase в HDInsight](hdinsight-hbase-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure.
+* [Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight][hbase-twitter-sentiment]. Узнайте, как выполнять [анализ тональности](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных, используя HBase в кластере Hadoop в HDInsight.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
@@ -95,6 +94,6 @@ ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

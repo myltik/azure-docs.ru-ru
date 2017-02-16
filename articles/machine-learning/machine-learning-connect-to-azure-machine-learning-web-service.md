@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
 ## <a name="get-an-azure-machine-learning-authorization-key"></a>Получение ключа авторизации машинного обучения Azure
 При развертывании эксперимента создаются ключи API для веб-службы. Ключи можно извлечь из нескольких расположений.
 
-## <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Из портала веб-службы Машинного обучения Microsoft Azure
+### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Из портала веб-службы Машинного обучения Microsoft Azure
 Войдите на портал [веб-службы Машинного обучения Microsoft Azure](https://services.azureml.net).
 
 Чтобы получить ключ API для новой веб-службы машинного обучения, сделайте следующее:
@@ -62,14 +62,14 @@ ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
 4. В верхнем меню щелкните **Consume**(Использование).
 5. Скопируйте и сохраните **Primary Key**(Первичный ключ).
 
-## <a name="classic-web-service"></a>Классическая веб-служба
- Ключ для классической веб-службы можно также получить из Студии машинного обучения или на портале Azure.
+### <a name="classic-web-service"></a>Классическая веб-служба
+ Ключ для классической веб-службы можно также получить в Студии машинного обучения или на классическом портале Azure.
 
-### <a name="machine-learning-studio"></a>Студия машинного обучения
+#### <a name="machine-learning-studio"></a>Студия машинного обучения
 1. В студии машинного обучения щелкните **WEB SERVICES** (ВЕБ-СЛУЖБЫ) слева.
 2. Щелкните веб-службу. **Ключ API** указан на вкладке **Панель мониторинга**.
 
-### <a name="azure-portal"></a>портале Azure
+#### <a name="azure-classic-portal"></a>классическом портале Azure
 1. Щелкните **МАШИННОЕ ОБУЧЕНИЕ** слева.
 2. Щелкните рабочую область, в которой находится веб-служба.
 3. Щелкните **ВЕБ-СЛУЖБЫ**.
@@ -127,6 +127,6 @@ ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

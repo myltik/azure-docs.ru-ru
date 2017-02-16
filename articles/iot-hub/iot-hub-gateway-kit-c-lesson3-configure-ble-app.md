@@ -1,5 +1,5 @@
 ---
-title: "Запуск примера приложения для получения данных SensorTag и их отправки в Центр Интернета вещей Azure | Документация Майкрософт"
+title: "Приступая к работе с устройством SensorTag и шлюзом Azure IoT. Урок 3. Запуск примера приложения | Документация Майкрософт"
 description: "Запустите пример приложения BLE для получения данных из BLE SensorTag и Центра Интернета вещей."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: fab1eb0dc765ced95e3bec7c12c7dfa0ca91bb19
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
 
 
 ---
@@ -161,6 +161,6 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 [Чтение сообщений из Центра Интернета вещей](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

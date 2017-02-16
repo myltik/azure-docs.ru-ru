@@ -16,16 +16,14 @@
 ### [Гибридные подключения](integration-hybrid-connection-create-manage.md)
 ## Миграция
 ### [Перенос решений EDI сервера BizTalk Server в службы BizTalk](biztalk-migrating-to-edi-guide.md)
-## Монитор
+## Мониторинг
 ### [Задачи, которые зависят от состояния службы](biztalk-service-state-chart.md)
 ## Безопасность
 ### [Контроль доступа](biztalk-issuer-name-issuer-key.md)
 ## [Устранение неполадок](biztalk-troubleshoot-using-ops-logs.md)
 
-# Справочные материалы
-## [Заметки о выпуске](biztalk-release-notes.md)
-
 # Ресурсы
+## [Заметки о выпуске](biztalk-release-notes.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Цены](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
@@ -33,6 +31,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

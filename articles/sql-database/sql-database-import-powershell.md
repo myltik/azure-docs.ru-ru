@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 8d78da13-43fe-4447-92e0-0a41d0321fd4
 ms.service: sql-database
-ms.custom: migrate and move; how to
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.date: 08/31/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e1cf312cf8213cbeea84b4fb0ab605248800fcd
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
 
 
 ---
 # <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell
-**Отдельная база данных**
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-import.md)
+> * [портале Azure](sql-database-import.md)
 > * [PowerShell](sql-database-import-powershell.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -78,7 +77,7 @@ ms.openlocfilehash: 4e1cf312cf8213cbeea84b4fb0ab605248800fcd
 ## <a name="import-the-database"></a>Импорт базы данных
 Эта команда отправляет в службу запрос об импорте базы данных. Операция импорта может занять некоторое время в зависимости от размера базы данных.
 
-    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
+    $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -StorageKeytype $StorageKeyType -StorageKey $StorageKey -StorageUri $StorageUri -AdministratorLogin $credential.UserName -AdministratorLoginPassword $credential.Password -Edition Standard -ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
 
 ## <a name="monitor-the-progress-of-the-operation"></a>Отслеживание хода выполнения операции
@@ -100,7 +99,7 @@ ms.openlocfilehash: 4e1cf312cf8213cbeea84b4fb0ab605248800fcd
 
     $credential = Get-Credential
 
-    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
+    $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -StorageKeytype $StorageKeyType -StorageKey $StorageKey -StorageUri $StorageUri -AdministratorLogin $credential.UserName -AdministratorLoginPassword $credential.Password -Edition Standard -ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 
@@ -112,6 +111,6 @@ ms.openlocfilehash: 4e1cf312cf8213cbeea84b4fb0ab605248800fcd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

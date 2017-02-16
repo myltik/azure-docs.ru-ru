@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
 ## <a name="how-it-works"></a>Принцип работы
 В рамках распространенной модели SaaS каждому отдельному клиенту предоставляется собственная база данных. И каждый такой клиент (база данных) характеризуется непредсказуемым потреблением ресурсов памяти, ввода-вывода и ЦП. Так как же эффективно и экономно распределить ресурсы, зная о колебаниях потребности в них? Обычно используется два подхода: 1) подготовка избыточного количества ресурсов, соответствующего пиковой нагрузке (ведет к повышению затрат); 2) подготовка недостаточного количества ресурсов для экономии (ведет к снижению производительности и удовлетворенности клиентов во время пиковой нагрузки). Пулы эластичных БД решают эту проблему, обеспечивая базы данных необходимыми ресурсами производительности, когда они нужны. Они предоставляют простой механизм распределения ресурсов в рамках прогнозируемого бюджета. Дополнительные сведения о шаблонах разработки для приложений SaaS, использующих пулы эластичных БД, см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 В базе данных SQL относительная мера способности базы данных удовлетворять потребности в ресурсах выражается в единицах транзакций базы данных (DTU) для отдельных баз данных и эластичных DTU (eDTU) для баз данных в пулах эластичных БД. Дополнительные сведения о единицах DTU и eDTU см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md).
@@ -106,6 +106,6 @@ ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

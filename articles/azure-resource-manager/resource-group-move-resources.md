@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a8b41b598b21ba61db9bae82d467aed5a781a8b4
-ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
+ms.sourcegitcommit: 5718ca956680ac3c92f4eb479a5948d0296b8b21
+ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
 
 
 ---
@@ -106,6 +106,10 @@ ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
 * Виртуальные машины (классические) — см. раздел [Ограничения классического развертывания](#classic-deployment-limitations).
 * Виртуальные сети
 
+> [!NOTE] 
+> В настоящее время виртуальную сеть, содержащую VPN-шлюз, нельзя переместить, пока шлюз не будет временно удален. После удаления шлюза можно переместить виртуальную сеть и создать шлюз.
+>
+ 
 ## <a name="services-that-do-not-enable-move"></a>Службы, не поддерживающие перемещение
 Службы, которые в настоящее время не поддерживают перемещение ресурсов:
 
@@ -194,47 +198,62 @@ ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
 * Целевая подписка не должна содержать никаких других классических ресурсов.
 * Перемещение можно запросить только через отдельный интерфейс REST API для классических перемещений. Стандартные команды перемещения Resource Manager не работают, если перемещение классических ресурсов осуществляется в новую подписку.
 
-Для перемещения классических ресурсов в новую подписку необходимо использовать операции REST, предназначенные для классических ресурсов. Чтобы переместить классические ресурсы в новую подписку, выполните следующие действия.
+Для перемещения классических ресурсов в новую подписку используйте портал или операции REST, предназначенные для классических ресурсов. Дополнительные сведения о перемещении классических ресурсов с помощью портала см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](#use-portal). Чтобы воспользоваться REST, выполните следующие действия:
 
 1. Проверьте, может ли исходная подписка участвовать в перемещении между подписками. Выполните такую операцию:
-   
-         POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+
+  ```   
+  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+  ```
    
      Включите в текст запроса такой код:
-   
-         {
-           "role": "source"
-         }
-   
+
+  ``` 
+  {
+    "role": "source"
+  }
+  ```
+  
      Ответ на операцию проверки имеет следующий формат:
-   
-         {
-           "status": "{status}",
-           "reasons": [
-             "reason1",
-             "reason2"
-           ]
-         }
+
+  ``` 
+  {
+    "status": "{status}",
+    "reasons": [
+      "reason1",
+      "reason2"
+    ]
+  }
+  ```
+
 2. Проверьте, может ли целевая подписка участвовать в перемещении между подписками. Выполните такую операцию:
-   
-         POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-   
+
+  ``` 
+  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+  ```
+
      Включите в текст запроса такой код:
-   
-         {
-           "role": "target"
-         }
+
+  ``` 
+  {
+    "role": "target"
+  }
+  ```
    
      Ответ будет в том же формате, что и проверка исходной подписки.
 3. Если обе подписки пройдут проверку, переместите все классические ресурсы из одной подписки в другую, выполнив следующее действие:
-   
-         POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-   
+
+  ``` 
+  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+  ```
+
     Включите в текст запроса такой код:
-   
-         {
-           "target": "/subscriptions/{target-subscription-id}"
-         }
+
+  ``` 
+  {
+    "target": "/subscriptions/{target-subscription-id}"
+  }
+  ```
 
 Операция может занять несколько минут. 
 
@@ -264,59 +283,73 @@ ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
 
 В первом примере показано, как переместить один ресурс в новую группу ресурсов.
 
-    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```powershell
+$resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```
 
 Во втором примере показано, как переместить несколько ресурсов в новую группу ресурсов.
 
-    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```powershell
+$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```
 
 Чтобы переместить ресурс в новую подписку, добавьте значение параметра **DestinationSubscriptionId** .
 
 Появится запрос на подтверждение перемещения указанных ресурсов.
 
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+```powershell
+Confirm
+Are you sure you want to move these resources to the resource group
+'/subscriptions/{guid}/resourceGroups/newRG' the resources:
 
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+```
 
 ## <a name="use-azure-cli"></a>Использование интерфейса командной строки Azure
 Чтобы переместить существующие ресурсы в другую группу или подписку, используйте команду **azure resource move** . Укажите идентификаторы перемещаемых ресурсов. Чтобы получить идентификаторы ресурсов, воспользуйтесь следующей командой.
 
-    azure resource list -g sourceGroup --json
+```azurecli
+azure resource list -g sourceGroup --json
+```
 
 Она вернет ответ в следующем формате:
 
-    [
-      {
-        "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
-        "name": "storagedemo",
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "southcentralus",
-        "tags": {},
-        "kind": "Storage",
-        "sku": {
-          "name": "Standard_RAGRS",
-          "tier": "Standard"
-        }
-      }
-    ]
+```azurecli
+[
+  {
+    "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
+    "name": "storagedemo",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "southcentralus",
+    "tags": {},
+    "kind": "Storage",
+    "sku": {
+      "name": "Standard_RAGRS",
+      "tier": "Standard"
+    }
+  }
+]
+```
 
 В следующем примере показано, как переместить учетную запись хранения в новую группу ресурсов. В параметре **-i** укажите разделенный запятыми список идентификаторов ресурсов для перемещения.
 
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```azurecli
+azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```
 
 Появится запрос на подтверждение перемещения указанного ресурса.
 
 ## <a name="use-rest-api"></a>Использование REST API
 Чтобы переместить существующие ресурсы в другую группу ресурсов или подписку, выполните следующую команду:
 
-    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
 
 В тексте запроса укажите целевую группу ресурсов и ресурсы для перемещения. Дополнительные сведения об операции перемещения в REST см. в статье [Move resources](https://msdn.microsoft.com/library/azure/mt218710.aspx) (Перемещение ресурсов).
 
@@ -329,6 +362,6 @@ ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

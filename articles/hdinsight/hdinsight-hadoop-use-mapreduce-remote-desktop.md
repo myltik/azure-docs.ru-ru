@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: a79f10cfb0ca882b00eb4a969fbf1d397ebdcf2f
+ms.sourcegitcommit: dc8e9647d99b39cdee36ec11e144452326e2d968
+ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
 
 
 ---
@@ -25,6 +25,11 @@ ms.openlocfilehash: a79f10cfb0ca882b00eb4a969fbf1d397ebdcf2f
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 В этой статье вы узнаете, как подключиться к Hadoop в кластере HDInsight с помощью удаленного рабочего стола, а затем выполнить задания MapReduce с помощью команды Hadoop.
+
+> [!IMPORTANT]
+> Удаленный рабочий стол доступен только в кластерах HDInsight на платформе Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> При использовании HDInsight 3.4 или более поздней версии см. сведения о подключении к кластеру HDInsight и выполнении заданий MapReduce: [Использование MapReduce с Hadoop в HDInsight с помощью SSH](hdinsight-hadoop-use-mapreduce-ssh.md).
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
@@ -99,6 +104,6 @@ ms.openlocfilehash: a79f10cfb0ca882b00eb4a969fbf1d397ebdcf2f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Способы оптимизации памяти с помощью индексов columnstore в хранилище данных SQL Azure | Документация Майкрософт"
+title: "Повышение производительности индекса columnstore в SQL Azure | Документация Майкрософт"
 description: "Вы можете снизить требования к памяти (или увеличить объем доступной памяти), чтобы достичь максимально возможного числа строк, которые индекс columnstore сжимает в каждой группе строк."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 11/18/2016
 ms.author: shigu;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 4884813a8ea73fe1104dea0b7423420d20a6a743
-ms.openlocfilehash: 847dfe2d32c199cb4e55a8025f903111d87b9c68
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 966d353dd8de46946ff2cdcd1d9cac7cd3e09579
 
 
 ---
@@ -131,6 +131,6 @@ OPTION (MAXDOP 1);
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

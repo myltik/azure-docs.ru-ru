@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 06be4297bd805a77c2901296071bfa344d076c82
+ms.sourcegitcommit: 1832e584c599384948e7174b377552703ce8bbcd
+ms.openlocfilehash: 11a03d932fc70164640c30acb9808c08e3354de8
 
 
 ---
@@ -86,6 +86,13 @@ Site Recovery имеет сертификаты ISO 27001:2013, 27018, HIPAA, DP
 При репликации виртуальных машин и физических серверов между локальными сайтами поддерживается шифрование в процессе передачи. При репликации виртуальных машин и физических серверов в Azure поддерживается как шифрование при передаче, так и шифрование на месте (в Azure).
 
 ## <a name="replication"></a>Репликация
+
+### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>Можно выполнить репликацию через VPN-подключение типа "сеть — сеть" в Azure?
+Azure Site Recovery реплицирует данные в учетную запись хранения Azure через общедоступную конечную точку. Таким образом репликация будет не будет проходить через VPN-подключение типа "сеть — сеть". Можно создать VPN-подключение типа "сеть — сеть" с помощью виртуальной сети Azure, что не повлияет на репликацию Azure Site Recovery. 
+
+### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Можно ли использовать ExpressRoute для репликации виртуальных машин в Azure?
+Да, ExpressRoute можно использовать для репликации виртуальных машин в Azure. Azure Site Recovery реплицирует данные в учетную запись хранения Azure через общедоступную конечную точку. Чтобы использовать ExpressRoute для репликации Azure Site Recovery, потребуется настроить [общедоступный пиринг](../expressroute/expressroute-circuit-peerings.md#public-peering). После отработки отказа виртуальных машин в виртуальную сеть Azure доступ к можно получать с помощью [частного пиринга](../expressroute/expressroute-circuit-peerings.md#private-peering), настроенного в виртуальной сети Azure. 
+
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Существуют ли предварительные требования для репликации виртуальных машин в Azure?
 Виртуальные машины, которые необходимо реплицировать в Azure, должны соответствовать [требованиям Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
@@ -191,6 +198,6 @@ Site Recovery имеет сертификаты ISO 27001:2013, 27018, HIPAA, DP
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

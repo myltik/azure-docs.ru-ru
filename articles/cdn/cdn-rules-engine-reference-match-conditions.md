@@ -1,6 +1,6 @@
 ---
-title: "Условия соответствия для обработчика правил сети доставки содержимого Azure | Документация Майкрософт"
-description: "В этой статье описываются условия соответствия и функции обработчика правил"
+title: "Условия соответствия для обработчика правил Azure CDN | Документация Майкрософт"
+description: "Справочная документация по условиям соответствия и функциям обработчика правил Azure CDN."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: f96e977c777e4ecd007d6cd863054addb465489d
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
 
 
 ---
 
-#<a name="match-conditions-for-azure-content-delivery-network-cdn-rules-engine"></a>Условия соответствия для обработчика правил сети доставки содержимого (CDN) Azure
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Условия соответствия обработчика правил Azure CDN
 В этом разделе подробно описаны доступные условия соответствия для [обработчика правил](cdn-rules-engine.md) сети доставки содержимого (CDN) Azure.
 
 Вторая часть правила — это условие соответствия. Условие соответствия определяет различные типы запросов, для которых будет выполнен ряд функций.
@@ -128,6 +128,6 @@ IP-адрес клиента | Определяет запросы, поступ
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

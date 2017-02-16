@@ -1,5 +1,5 @@
 ---
-title: "Reliable Collections | Документация Майкрософт"
+title: "Сохранение состояния приложения в микрослужбах Azure | Документация Майкрософт"
 description: "Службы с отслеживанием состояния Service Fabric предоставляют надежные коллекции, которые позволяют создавать высокодоступные и масштабируемые облачные приложения с низкой задержкой."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d8be5bed137ae00dec4f66fc821a6415f269ea1
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
 
 
 ---
@@ -171,6 +171,6 @@ API надежных коллекций являются развитием API 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

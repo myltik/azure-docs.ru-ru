@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 95ae4f86cb95382eae103c454d209eba4d601adc
-ms.openlocfilehash: cdea2d2ea07c744535bb169e6fd8326a592d5856
+ms.sourcegitcommit: f06bf515accd8507189ecd5f1759f14f4f06fd33
+ms.openlocfilehash: faac9909993895b3e8a27b2cbaa7b62b3e508933
 
 ---
 
@@ -27,7 +27,10 @@ ms.openlocfilehash: cdea2d2ea07c744535bb169e6fd8326a592d5856
 
 Файл зоны DNS — текстовый файл, содержащий сведения о каждой записи службы доменных имен (DNS) в зоне. Он соответствует стандартному формату и позволяет передавать записи DNS в системы DNS. Использование файла зоны — это быстрый, надежный и удобный способ передачи зоны DNS в Azure DNS или в обратном направлении.
 
-Azure DNS поддерживает импорт и экспорт файлов зоны с помощью интерфейса командной строки Azure (CLI). Интерфейс командной строки Azure — это кроссплатформенная программа командной строки для управления службами Azure. Для платформ Windows, Mac и Linux ее можно скачать на [странице скачивания Azure](https://azure.microsoft.com/downloads/). Поддержка разных платформ особенно важна при экспорте и импорте файлов зоны, так как наиболее распространенное программное обеспечение сервера доменных имен ( [BIND](https://www.isc.org/downloads/bind/)) обычно выполняется в системе Linux.
+Azure DNS поддерживает импорт и экспорт файлов зоны с помощью интерфейса командной строки Azure (CLI). Импорт файла зоны с помощью Azure PowerShell или портала Azure в настоящее время **не** поддерживается.
+
+Интерфейс командной строки Azure — это кроссплатформенная программа командной строки для управления службами Azure. Для платформ Windows, Mac и Linux ее можно скачать на [странице скачивания Azure](https://azure.microsoft.com/downloads/). Поддержка разных платформ особенно важна при экспорте и импорте файлов зоны, так как наиболее распространенное программное обеспечение сервера доменных имен ( [BIND](https://www.isc.org/downloads/bind/)) обычно выполняется в системе Linux.
+
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Получение существующего файла зоны DNS
 
@@ -210,6 +213,6 @@ azure network dns zone import [options] <resource group> <zone name> <zone file 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

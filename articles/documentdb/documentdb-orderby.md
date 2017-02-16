@@ -1,24 +1,9 @@
 ---
-title: "Сортировка данных DocumentDB с помощью Order By | Документация Майкрософт"
-description: "Узнайте, как использовать предложение ORDER BY в запросах DocumentDB с LINQ и SQL и как задать политику индексации для запросов ORDER BY."
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: e55c1e42-a3be-45c1-8a3a-232ed847d925
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/03/2016
-ms.author: mimig
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 150dcb72f3e7295e1910506b85c06bb7023dcc7c
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
 
 
 ---
@@ -149,6 +134,6 @@ DocumentDB поддерживает сортировку по одиночном
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

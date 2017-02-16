@@ -1,6 +1,6 @@
 ---
-title: "Отслеживание сообщений B2B на портале Operations Management Suite с помощью запроса | Документация Майкрософт"
-description: "Сведения об отслеживании сообщений B2B на портале Operations Management Suite с помощью запроса."
+title: "Отслеживание сообщений AS2, X12 и EDIFACT с помощью запроса в Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте, как отслеживать сообщения типа &quot;бизнес —бизнес&quot; на портале Operations Management Suite с помощью запросов."
 author: padmavc
 manager: anneta
 editor: 
@@ -12,22 +12,22 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: df6beaaa5de45acfa850049721797fc43f4c9ed7
+ms.sourcegitcommit: 67313e4ff780e6c64dfc3d767ea49167c2a390f4
+ms.openlocfilehash: 701a3bbadb340c9390b486a5295eced056db70a0
 
 
 ---
 # <a name="track-b2b-messages-in-the-operations-management-suite-portal-by-using-a-query"></a>Отслеживание сообщений B2B на портале Operations Management Suite с помощью запроса
 Для отслеживания сообщений типа "бизнес — бизнес" (B2B) на портале Operations Management Suite можно создать запрос, который будет фильтровать данные для конкретного контрольного номера обмена.
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prereqs"></a>Предварительные требования
 
 Чтобы выполнять отладку и получать более подробные диагностические данные, включите диагностику в [учетной записи интеграции](logic-apps-monitor-b2b-message.md) для [приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) с соединителями X12. Затем выполните действия по [публикации диагностических данных](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) на портале Operations Management Suite.
 
-## <a name="to-create-a-query-to-search-for-a-specific-interchange-control-number"></a>Создание запроса для поиска конкретного контрольного номера обмена
+## <a name="search-for-an-interchange-control-number"></a>Поиск контрольного номера обмена
 
 1. На начальной странице выберите **Поиск по журналу**.  
 ![Выбор поиска в журналах](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
@@ -62,6 +62,6 @@ ms.openlocfilehash: df6beaaa5de45acfa850049721797fc43f4c9ed7
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/20/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93b77197d69d8c6261ea786aecb653c69129dc9d
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 2977404fb408ea5301c88caa7ce6767a906ca9c7
 
 
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Начало работы с соединителем SFTP
 Используйте соединитель SFTP, чтобы получить доступ к учетной записи SFTP для отправки и получения файлов. Вы можете выполнять различные операции, например создавать, обновлять, получать или удалять файлы.  
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-sftp"></a>Подключение к SFTP
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -35,7 +35,7 @@ ms.openlocfilehash: 93b77197d69d8c6261ea786aecb653c69129dc9d
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Использование триггера SFTP
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Из этого примера вы узнаете, как использовать триггер **SFTP - When a file is added or modified** (SFTP — при добавлении или изменении файла) для запуска рабочего процесса приложения логики при добавлении или изменении файла на SFTP-сервере. Из этого примера вы узнаете также, как добавить условие, которое проверяет содержимое нового или измененного файла, и принимает решение извлечь файл, если содержимое файла указывает, что он должен быть извлечен перед использованием содержимого. Наконец, вы узнаете, как добавить действие, которое извлекает содержимое файла и помещает извлеченное содержимое в папку на SFTP-сервере. 
 
@@ -51,7 +51,7 @@ ms.openlocfilehash: 93b77197d69d8c6261ea786aecb653c69129dc9d
 > 
 
 ## <a name="use-an-sftp-action"></a>Использование действия SFTP
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 
@@ -101,10 +101,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -127,10 +127,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -161,10 +161,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -206,10 +206,10 @@ BlobMetadata
 
 |  | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string | |
-| Имя |string | |
-| displayName |string | |
-| path |string | |
+| Идентификатор |string | |
+| Name (Имя) |string | |
+| DisplayName |string | |
+| Путь |string | |
 | LastModified |string | |
 | Размер |целое число | |
 | MediaType |string | |
@@ -233,10 +233,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -267,10 +267,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -288,10 +288,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -315,10 +315,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -341,11 +341,11 @@ BlobMetadata
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

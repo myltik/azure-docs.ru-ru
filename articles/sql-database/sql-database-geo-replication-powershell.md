@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: bc5e50e4-bbb2-4ce1-9ee5-9a632de6fa06
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -15,12 +16,12 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 1849e257240a45a6161db524ce53a83cbf29068d
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-powershell"></a>Настройка георепликации базы данных SQL Azure с помощью PowerShell
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-powershell"></a>Настройка активной георепликации для базы данных SQL Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Обзор](sql-database-geo-replication-overview.md)
 > * [Портал Azure](sql-database-geo-replication-portal.md)
@@ -34,7 +35,7 @@ ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
 Чтобы инициировать отработку отказа с помощью PowerShell, ознакомьтесь с разделом [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью PowerShell](sql-database-geo-replication-failover-powershell.md).
 
 > [!NOTE]
-> Активная георепликация (с доступными для чтения базами данных-получателями) теперь доступна для всех баз данных и всех уровней обслуживания. В апреле 2017 г. недоступные для чтения базы данных-получатели будут удалены, и существующие недоступные для чтения базы данных-получатели будут автоматически преобразованы в доступные для чтения.
+> Активная георепликация (с доступными для чтения базами данных-получателями) теперь доступна для всех баз данных и всех уровней обслуживания. В апреле 2017 года недоступные для чтения базы данных-получатели будут удалены, и имеющиеся недоступные для чтения базы данных будут автоматически преобразованы в доступные для чтения базы данных-получатели.
 > 
 > 
 
@@ -42,7 +43,7 @@ ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
 
 * Подписка Azure. 
 * База данных SQL Azure — база данных-источник, которую необходимо реплицировать.
-* Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="configure-your-credentials-and-select-your-subscription"></a>Настройка учетных данных и выбор подписки
 Для начала установите доступ к учетной записи Azure. Для этого запустите PowerShell и выполните указанный ниже командлет. На экране входа в систему укажите те же адрес электронной почты и пароль, которые используются для входа на портал Azure.
@@ -65,42 +66,42 @@ ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
 
 Чтобы добавить базу данных-получатель на сервере-партнере в локальную базу данных на сервере, к которому выполняется подключение (база данных-источник), используйте командлет **New-AzureRmSqlDatabaseSecondary** . 
 
-Этот командлет заменяет параметр **Start-AzureSqlDatabaseCopy** на **–IsContinuous**.  Он выдает объект **AzureRmSqlDatabaseSecondary** , который может использоваться другими командлетами для четкого определения конкретной связи репликации. Этот командлет возвращает результат после создания и полного заполнения базы данных-получателя. В зависимости от размера базы данных этот процесс может длиться от нескольких минут до нескольких часов.
+Этот командлет заменяет параметр **Start-AzureSqlDatabaseCopy** на **-IsContinuous**.  Он выдает объект **AzureRmSqlDatabaseSecondary** , который может использоваться другими командлетами для четкого определения конкретной связи репликации. Этот командлет возвращает результат после создания и полного заполнения базы данных-получателя. В зависимости от размера базы данных этот процесс может длиться от нескольких минут до нескольких часов.
 
-Реплицированная база данных на сервере-получателе будет иметь такое же имя, как и база данных на сервере-источнике, и по умолчанию тот же уровень службы. База данных-получатель может быть доступной или недоступной для чтения, отдельной или эластичной. Дополнительные сведения см. в статьях [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) и [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
-После создания и заполнения базы данных-получателя начинается репликация данных из базы данных-источника в новую базу-данных-получателя. Ниже описано, как выполнить эту задачу с помощью PowerShell, чтобы создать доступную или недоступную для чтения базу данных-получателя с отдельной или эластичной базой данных.
+Реплицированная база данных на сервере-получателе будет иметь такое же имя, как и база данных на сервере-источнике, и по умолчанию тот же уровень службы. База данных-получатель может быть доступной или недоступной для чтения, автономной или размещенной в эластичном пуле. Дополнительные сведения см. в статьях [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) и [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
+После создания и заполнения базы данных-получателя начинается репликация данных из базы данных-источника в новую базу-данных-получателя. Ниже описано, как выполнить эту задачу с помощью PowerShell, чтобы создать доступную или недоступную для чтения базу данных-получателя с автономной или эластичной базой данных.
 
 Если база данных-партнер уже создана (например, в результате прекращения предыдущей связи георепликации), выполнение команды завершится сбоем.
 
-### <a name="add-a-non-readable-secondary-single-database"></a>Добавление недоступной для чтения отдельной базы данных-получателя
+### <a name="add-a-non-readable-secondary-standalone-database"></a>Добавление недоступной для чтения автономной базы данных-получателя
 Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -AllowConnections "No"
 
 
 
-### <a name="add-readable-secondary-single-database"></a>Добавление доступной для чтения отдельной базы данных-получателя
+### <a name="add-readable-secondary-standalone-database"></a>Добавление доступной для чтения автономной базы данных-получателя
 Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -AllowConnections "All"
 
 
 
 
-### <a name="add-a-non-readable-secondary-elastic-database"></a>Добавление недоступной для чтения эластичной базы данных-получателя
-Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb в пуле эластичных баз данных ElasticPool1 сервера srv2 в группе ресурсов rg2:
+### <a name="add-a-non-readable-secondary-elastic-pool"></a>Добавление недоступной для чтения базы данных-получателя (в эластичном пуле)
+Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb в эластичном пуле ElasticPool1 сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
-### <a name="add-a-readable-secondary-elastic-database"></a>Добавление доступной для чтения эластичной базы данных-получателя
-Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb в пуле эластичных баз данных ElasticPool1 сервера srv2 в группе ресурсов rg2:
+### <a name="add-a-readable-secondary-elastic-pool"></a>Добавление доступной для чтения базы данных-получателя (в эластичном пуле)
+Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb в эластичном пуле ElasticPool1 сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
 
@@ -117,8 +118,8 @@ ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
 
 Следующие действия удаляют связь репликации между базой данных с именем mydb и сервером srv2 из группы ресурсов rg2. 
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -SecondaryResourceGroup "rg2" -PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
 
@@ -129,17 +130,17 @@ ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
 
 Следующая команда отображает состояние канала репликации между базой данных-источником mydb и базой данных-получателем на сервере srv2 из группы ресурсов rg2.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroup "rg2” -PartnerServerName "srv2”
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Чтобы больше узнать об активной георепликации, ознакомьтесь с разделом [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md)
+* Чтобы больше узнать об активной георепликации, прочитайте статью [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
 * Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

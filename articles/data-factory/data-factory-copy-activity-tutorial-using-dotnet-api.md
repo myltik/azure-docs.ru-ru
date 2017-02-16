@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/27/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 
 
 ---
@@ -50,58 +50,41 @@ ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
 1. Запустите **PowerShell**.
 2. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
 
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
+        Login-AzureRmAccount
 3. Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
 
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```
+        Get-AzureRmSubscription
 4. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените **&lt;NameOfAzureSubscription**&gt; именем своей подписки Azure.
 
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
    > [!IMPORTANT]
    > Запишите значения **SubscriptionId** и **TenantId**, указанные в выходных данных этой команды.
 
 5. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** , выполнив следующую команду в PowerShell.
 
-    ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Если группа ресурсов уже есть, укажите, требуется или не требуется ее обновить (Y или N соответственно).
 
     Если вы используете другую группу ресурсов, укажите ее имя вместо ADFTutorialResourceGroup.
 6. Создайте приложение Azure Active Directory.
 
-    ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
-    ```
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
 
     Если возникнет следующая ошибка, укажите другой URL-адрес и запустите команду еще раз.
-    
-    ```PowerShell
-    Another object with the same value for property identifierUris already exists.
-    ```
+
+        Another object with the same value for property identifierUris already exists.
 7. Создайте субъект-службу AD.
 
-    ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    ```
+        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 8. Назначьте субъекту-службе роль **Участник Data Factory** .
 
-    ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    ```
+        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 9. Получите идентификатор приложения.
 
-    ```PowerShell
-    $azureAdApplication 
-    ```
+        $azureAdApplication
+
     Запишите идентификатор приложения (**applicationID** в выходных данных).
 
 Вы должны получить следующие четыре значения:
@@ -491,10 +474,7 @@ ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
 16. Постройте консольное приложение. В меню щелкните **Собрать** и выберите **Собрать решение**.
 17. Убедитесь, что в контейнере **adftutorial** в хранилище BLOB-объектов Azure есть как минимум один файл. В противном случае создайте в блокноте файл **Emp.txt** со следующим содержимым, а затем отправьте его в контейнер adftutorial.
 
-    ```
-    John, Doe
-    Jane, Doe
-    ```
+       John, Doe    Jane, Doe
 18. Запустите пример, щелкнув **Отладка** -> **Начать отладку** в меню. При появлении сообщения **Getting run details of a data slice** (Получение сведений о выполнении для среза данных) подождите несколько минут и нажмите клавишу **ВВОД**.
 19. Перейдите на портал Azure и убедитесь, что фабрика данных **APITutorialFactory** создана с использованием следующих артефактов:
    * Связанная служба: **LinkedService_AzureStorage**.
@@ -509,6 +489,6 @@ ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

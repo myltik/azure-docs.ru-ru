@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/22/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
 
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Автоматическое включение параметров диагностики при создании ресурса из шаблона Resource Manager
-В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
+В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
 
 Для разных типов ресурсов журналы диагностики включаются с помощью шаблона Resource Manager по-разному.
 
@@ -33,7 +33,7 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
 Основные этапы:
 
 1. Создайте шаблон в виде файла JSON, который описывает, как создать ресурс и включить диагностику.
-2. [Разверните шаблон с помощью любого метода развертывания](../resource-group-template-deploy.md).
+2. [Разверните шаблон с помощью любого метода развертывания](../azure-resource-manager/resource-group-template-deploy.md).
 
 Ниже приведены примеры файла JSON шаблона для создания вычислительных и невычислительных ресурсов.
 
@@ -86,13 +86,23 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-Свойства большого двоичного объекта для параметров диагностики соответствуют [формату, который описан в этой статье](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Свойства большого двоичного объекта для параметров диагностики соответствуют [формату, который описан в этой статье](https://msdn.microsoft.com/library/azure/dn931931.aspx). Добавление свойства `metrics` позволит также передавать метрики ресурсов в эти же выходные данные.
 
 Ниже приведен полный пример, в котором создается группа безопасности сети, а также настраивается потоковая передача в концентраторы событий и хранение в учетной записи хранения.
 
@@ -166,6 +176,16 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
                   "enabled": false
                 }
               }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
             ]
           }
         }
@@ -198,6 +218,6 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

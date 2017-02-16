@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
 
 Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> [!ВИДЕО https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
 
 Теперь мы превратим эти данные в *точечную диаграмму*. Это отличный способ визуализации числовых наборов данных.
 
-Берем первую точку данных и проводим вертикальную линию от отметки 1,01 карата. Затем проводим горизонтальную линию от отметки 7366 долл. США. Там, где эти линии пересекаются, рисуем точку. Эта точка и представляет наш первый бриллиант.
+Берем первую точку данных и проводим вертикальную линию от отметки 1,01 карата. Затем проводим горизонтальную линию от отметки&7366; долл. США. Там, где эти линии пересекаются, рисуем точку. Эта точка и представляет наш первый бриллиант.
 
 Теперь мы пройдем по всем бриллиантам из нашего списка и сделаем то же самое. В результате мы получим следующую картину: множество точек, каждая из которых соответствует одному бриллианту.
 
@@ -136,6 +136,6 @@ ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 6187106a9aa98107d89e65fe4c7a0e8a27befa87
 
 
 ---
@@ -32,6 +32,10 @@ HDInsight использует для хранения данных хранил
   * Требуется Visual Studio версии 2013 или 2015.
   * Требуется Python версии 2.7 или более новой.
 * Кластер HDInsight под управлением Linux ИЛИ [Azure PowerShell][powershell]. Если у вас есть кластер под управлением Linux, можно добавить подписанный URL-адрес в кластер с помощью Ambari. Если нет, создайте новый кластер с помощью Azure PowerShell и добавьте подписанный URL-адрес в процессе создания кластера.
+
+    > [!IMPORTANT]
+    > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Примеры файлов взяты из статьи на странице [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Этот репозиторий содержит следующее:
   
   * Проект Visual Studio, способный создать контейнер хранилища, хранимую политику и SAS для использования с HDInsight.
@@ -127,7 +131,7 @@ HDInsight использует для хранения данных хранил
     Например, измените `'mycluster'` в имени кластера, который требуется создать. Значения SAS должны совпадать со значениями, которые использовались при создании учетной записи хранения и маркера SAS.
    
     Изменив значения, сохраните файл.
-2. Откройте командную строку Azure PowerShell. Если вы не знакомы с модулем Azure PowerShell или он у вас не установлен, изучите статью [Установка и настройка Azure PowerShell][powershell].
+2. Откройте командную строку Azure PowerShell. Если вы не знакомы с модулем Azure PowerShell или он у вас не установлен, см. статью [Установка и настройка служб Azure PowerShell][powershell].
 3. В командной строке выполните следующую команду для аутентификации в подписке Azure.
    
         Login-AzureRmAccount
@@ -249,10 +253,10 @@ HDInsight использует для хранения данных хранил
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-[powershell]: ../powershell-install-configure.md
+[powershell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

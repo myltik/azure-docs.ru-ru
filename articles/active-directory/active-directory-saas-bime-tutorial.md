@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-bime-tutorial/IC775552.png "Scenario")
+![Сценарий](./media/active-directory-saas-bime-tutorial/IC775552.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-bime"></a>Включение интеграции приложений для Bime
 В этом разделе показано, как включить интеграцию приложений для Bime.
@@ -47,16 +47,16 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-bime-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-bime-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-bime-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-bime-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-bime-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-bime-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Bime**.
    
-   ![Коллекция приложений](./media/active-directory-saas-bime-tutorial/IC775553.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-bime-tutorial/IC775553.png "Коллекция приложений")
 7. В области результатов выберите **Bime** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
@@ -70,23 +70,23 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Bime** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC771709.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Bime?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775555.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775555.png "Настройка единого входа")
 3. На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Bime** введите свой URL-адрес, используя следующий шаблон *https://\<имя-клиента\>.Bimeapp.com*, и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-bime-tutorial/IC775556.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-bime-tutorial/IC775556.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Bime** щелкните **Скачать сертификат**, а затем сохраните файл сертификата локально как **c:\\Bime.cer**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775557.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775557.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Bime в качестве администратора.
 6. На панели инструментов щелкните **Admin** (Администратор), а затем — **Account** (Учетная запись).
    
-   ![Администратор](./media/active-directory-saas-bime-tutorial/IC775558.png "Admin")
+   ![Администратор](./media/active-directory-saas-bime-tutorial/IC775558.png "Администратор")
 7. На странице конфигурации учетной записи выполните следующие действия.
    
-   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775559.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775559.png "Настройка единого входа")
    
    1. Установите флаг **Включить проверку подлинности SAML**.
    2. На диалоговой странице **Настройка единого входа в Bime** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес для входа**.
@@ -99,7 +99,7 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
    4. Щелкните **Сохранить**.
 8. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775560.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-bime-tutorial/IC775560.png "Настройка единого входа")
    
    ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -110,13 +110,13 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 1. Выполните вход в клиент **Bime** .
 2. На панели инструментов щелкните **Admin** (Администратор), а затем — **Users** (Пользователи).
    
-   ![Администратор](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
+   ![Администратор](./media/active-directory-saas-bime-tutorial/IC775561.png "Администратор")
 3. В разделе **Users List** (Список пользователей) щелкните **Add New User** (Добавить пользователя) ("+").
    
-   ![Пользователи](./media/active-directory-saas-bime-tutorial/IC775562.png "Users")
+   ![Пользователи](./media/active-directory-saas-bime-tutorial/IC775562.png "Пользователи")
 4. На странице диалогового окна **Сведения о пользователе** выполните следующие действия.
    
-   ![Сведения о пользователе](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
+   ![Сведения о пользователе](./media/active-directory-saas-bime-tutorial/IC775563.png "Сведения о пользователе")
    
    1. Заполните поля "Имя", "Фамилия" и "Адрес электронной почты" данными действующей учетной записи AAD, которую вы хотите подготовить.
    2. Щелкните Сохранить.
@@ -133,16 +133,16 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Bime** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-bime-tutorial/IC775564.png "Assign users")
+   ![Назначение пользователей](./media/active-directory-saas-bime-tutorial/IC775564.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-bime-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-bime-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

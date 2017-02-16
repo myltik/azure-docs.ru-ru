@@ -13,18 +13,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 
 
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Команды Azure CLI в режиме Resource Manager
 В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания с помощью Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](../azure-resource-manager/resource-group-overview.md).  
 
-Для начала [установите Azure CLI](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md) с помощью рабочей или учебной учетной записи либо учетной записи Майкрософт.
+> [!NOTE]
+> В этой статье представлены команды, используемые в режиме Resource Manager в Azure CLI (он иногда называется Azure CLI 1.0). Для работы в модели Resource Manager можно также использовать [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2), интерфейс командной строки нового поколения, поддерживающий различные платформы.
+>Узнайте больше о [старом и новом Azure CLI](/cli/azure/old-and-new-clis).
+>
+
+Чтобы начать работу, [установите интерфейс командной строки Azure](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md).
 
 Чтобы просмотреть текущий синтаксис и параметры команд в командной строке в режиме диспетчера ресурсов, введите `azure help`. Для получения справки по определенной команде введите `azure help [command]`. Вы также найдете примеры для командной строки в документации по созданию отдельных служб Azure и управлению ими.
 
@@ -1861,6 +1866,6 @@ ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

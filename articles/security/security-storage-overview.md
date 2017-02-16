@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о безопасности при использовании службы хранилища Azure | Документация Майкрософт"
-description: " Хранилище Azure — это облачное решение для хранения современных приложений, обеспечивающее устойчивость, доступность и масштабируемость для удовлетворения потребностей клиентов. В этой статье содержатся общие сведения о базовых функциях безопасности Azure, которые можно использовать в службе хранилища Azure. "
+title: "Функции безопасности, которые могут использоваться со службой хранилища Azure | Документация Майкрософт"
+description: " В этой статье содержатся общие сведения о базовых функциях безопасности Azure, которые можно использовать в службе хранилища Azure.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 488fe9c38d2e8ca26c1d0cf4d3f937e0c3faa902
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
 
 
 ---
@@ -56,7 +56,7 @@ ms.openlocfilehash: 488fe9c38d2e8ca26c1d0cf4d3f937e0c3faa902
 Подробнее.
 
 * [Основные сведения о модели SAS.](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Подписанные URL-адреса. Часть&2;: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Шифрование при передаче
 Шифрование при передаче — это механизм защиты данных, передаваемых по сетям. Служба хранилища Azure позволяет применять для защиты данных:
@@ -101,7 +101,6 @@ ms.openlocfilehash: 488fe9c38d2e8ca26c1d0cf4d3f937e0c3faa902
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

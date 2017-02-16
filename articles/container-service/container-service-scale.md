@@ -1,6 +1,6 @@
 ---
-title: "Масштабирование кластера ACS с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Инструкции по масштабированию кластера службы контейнеров Azure с помощью интерфейса командной строки Azure."
+title: "Масштабирование кластера службы контейнеров Azure | Документация Майкрософт"
+description: "Инструкции по масштабированию кластера службы контейнеров Azure с помощью интерфейса командной строки Azure или портала Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,130 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/10/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb
+ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
+ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
 
 
 ---
-# <a name="scale-an-azure-container-service"></a>Масштабирование службы контейнеров Azure
-С помощью инструмента интерфейса командной строки Azure можно масштабировать число узлов службы контейнеров Azure (ACS). При масштабировании с помощью интерфейса командной строки Azure инструмент возвращает новый файл конфигурации, содержащий изменения, заданные контейнеру.
+# <a name="scale-an-azure-container-service-cluster"></a>Масштабирование кластера службы контейнеров Azure
+После того как вы [развернете кластер службы контейнера Azure](container-service-deployment.md), может потребоваться изменить число узлов агента. Например, будут нужны дополнительные узлы агентов для запуска большего количества контейнеров или экземпляров приложения. 
 
-## <a name="about-the-command"></a>О команде
-Для взаимодействия с контейнерами Azure интерфейс командной строки Azure должен находиться в режиме Azure Resource Manager. Чтобы переключиться в режим Resource Manager, вызовите `azure config mode arm`. У команды `acs` есть дочерняя команда с именем `scale`, выполняющая все операции масштабирования для службы контейнеров. Чтобы получить справку о различных параметрах, используемых в команде scale, выполните команду `azure acs scale --help`. Вывод будет примерно следующим:
+Количество узлов агентов в кластере можно изменить с помощью портала Azure или Azure CLI 2.0 (Предварительная версия). Azure CLI 2.0 (предварительная версия) — это [интерфейс командной строки нового поколения](/cli/azure/old-and-new-clis) для модели развертывания Resource Manager.
+
+> [!NOTE]
+> В настоящее время не поддерживается масштабирование узлов агентов в кластере службы контейнеров Kubernetes.
+
+
+## <a name="scale-with-the-azure-portal"></a>Масштабирование с помощью портала Azure
+
+1. На [портале Azure](https://portal.azure.com) найдите **Службы контейнеров** и выберите службу контейнера, которую хотите изменить.
+2. В колонке **службы контейнеров** щелкните **Агенты**.
+3. В поле **Число виртуальных машин** введите нужное число узлов агентов.
+
+    ![Масштабирование кластера на портале](./media/container-service-scale/container-service-scale-portal.png)
+
+4. Чтобы сохранить конфигурацию, нажмите кнопку **Сохранить**.
+
+
+
+## <a name="scale-with-the-azure-cli-20-preview"></a>Масштабирование с помощью Azure CLI 2.0 (предварительная версия)
+
+Убедитесь, что у вас [установлена](/cli/azure/install-az-cli2) последняя версия Azure CLI 2.0 (предварительная версия) и войдите в учетную запись Azure с помощью команды `az login`.
+
+
+### <a name="see-the-current-agent-count"></a>Просмотр текущего числа агентов
+Чтобы просмотреть количество агентов, входящих в кластер на текущий момент, запустите команду `az acs show`. Эта команда показывает конфигурацию кластера. Например, следующая команда отображает конфигурацию службы контейнеров с именем `containerservice-myACSName` в группе ресурсов `myResourceGroup`:
 
 ```azurecli
-azure acs scale --help
-
-help:    The operation to scale a container service.
-help:
-help:    Usage: acs scale [options] <resource-group> <name> <new-agent-count>
-help:
-help:    Options:
-help:      -h, --help                               output usage information
-help:      -v, --verbose                            use verbose output
-help:      -vv                                      more verbose with debug output
-help:      --json                                   use json output
-help:      -g, --resource-group <resource-group>    resource-group
-help:      -n, --name <name>                        name
-help:      -o, --new-agent-count <new-agent-count>  New agent count
-help:      -s, --subscription <subscription>        The subscription identifier
-help:
-help:    Current Mode: arm (Azure Resource Management)
+az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-## <a name="use-the-command-to-scale"></a>Использование команды для масштабирования
-Для масштабирования службы контейнеров сначала необходимо определить **группу ресурсов** и **имя службы контейнеров Azure (ACS)**, а также задать новое число агентов. Используя меньшее или большее их количество, можно уменьшить или увеличить масштаб соответственно.
+Количество агентов содержится в параметре `Count` в разделе `AgentPoolProfiles`.
 
-Перед масштабированием нужно узнать текущее количество агентов для службы контейнеров. Используйте команду `azure acs show <resource group> <ACS name>`, чтобы возвратить конфигурацию ACS. Обратите внимание на результаты параметра <mark>Count</mark>.
 
-#### <a name="see-current-count"></a>Просмотр текущего количества
-```azurecli
-azure acs show containers-test containerservice-containers-test
+### <a name="use-the-az-acs-scale-command"></a>Использование команды az acs scale
+Чтобы изменить число узлов агента, запустите команду `az acs scale`, указав для нее **группу ресурсов**, **имя службы контейнеров** и требуемое **новое число агентов**. Используя меньшее или большее количество агентов, можно уменьшать или увеличивать масштаб соответственно.
 
-info:    Executing command acs show
-data:
-data:     Id                 : /subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test
-data:     Name               : containerservice-containers-test
-data:     Type               : Microsoft.ContainerService/ContainerServices
-data:     Location           : westus
-data:     ProvisioningState  : Succeeded
-data:     OrchestratorProfile
-data:       OrchestratorType : DCOS
-data:     MasterProfile
-data:       Count            : 1
-data:       DnsPrefix        : myprefixmgmt
-data:       Fqdn             : myprefixmgmt.westus.cloudapp.azure.com
-data:     AgentPoolProfiles
-data:       #0
-data:         Name           : agentpools
-data:         <mark>Count          : 1</mark>
-data:         VmSize         : Standard_D2
-data:         DnsPrefix      : myprefixagents
-data:         Fqdn           : myprefixagents.westus.cloudapp.azure.com
-data:     LinuxProfile
-data:       AdminUsername    : azureuser
-data:       Ssh
-data:         PublicKeys
-data:           #0
-data:             KeyData    : ssh-rsa <ENCODED VALUE>
-data:     DiagnosticsProfile
-data:       VmDiagnostics
-data:         Enabled        : true
-data:         StorageUri     : https://<storageid>.blob.core.windows.net/
-```  
-
-#### <a name="scale-to-new-count"></a>Масштабирование до нового количества
-Очевидно, что службу контейнеров можно масштабировать, вызвав команду `azure acs scale` и указав **группу ресурсов**, **имя ACS** и **число агентов**. При масштабировании службы контейнеров интерфейс командной строки Azure возвращает строку JSON, представляющую новую конфигурацию службы контейнеров, включая измененное количество агентов.
+Например, чтобы для кластера из предыдущего примера установить значение 10 в качестве количества агентов, введите следующую команду:
 
 ```azurecli
-azure acs scale containers-test containerservice-containers-test 10
+azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+```
 
-info:    Executing command acs scale
-data:    {
-data:        id: '/subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test',
-data:        name: 'containerservice-containers-test',
-data:        type: 'Microsoft.ContainerService/ContainerServices',
-data:        location: 'westus',
-data:        provisioningState: 'Succeeded',
-data:        orchestratorProfile: { orchestratorType: 'DCOS' },
-data:        masterProfile: {
-data:            count: 1,
-data:            dnsPrefix: 'myprefixmgmt',
-data:            fqdn: 'myprefixmgmt.westus.cloudapp.azure.com'
-data:        },
-data:        agentPoolProfiles: [
-data:            {
-data:                name: 'agentpools',
-data:                <mark>count: 10</mark>,
-data:                vmSize: 'Standard_D2',
-data:                dnsPrefix: 'myprefixagents',
-data:                fqdn: 'myprefixagents.westus.cloudapp.azure.com'
-data:            }
-data:        ],
-data:        linuxProfile: {
-data:            adminUsername: 'azureuser',
-data:            ssh: {
-data:                publicKeys: [
-data:                    { keyData: 'ssh-rsa <ENCODED VALUE>' }
-data:                ]
-data:            }
-data:        },
-data:        diagnosticsProfile: {
-data:            vmDiagnostics: { enabled: true, storageUri: 'https://<storageid>.blob.core.windows.net/' }
-data:        }
-data:    }
-info:    acs scale command OK
-``` 
+Интерфейс командной строки Azure 2.0 (предварительная версия) возвращает строку JSON, представляющую новую конфигурацию службы контейнеров, включая измененное количество агентов.
+
+Чтобы увидеть дополнительные параметры команды, запустите `az acs scale --help`.
+
+
+## <a name="scaling-considerations"></a>Рекомендации по масштабированию
+
+
+* Количество узлов агентов должно находиться в диапазоне от 1 до 100 включительно. 
+
+* Квота на использование ядер может налагать ограничения на количество узлов агентов в кластере.
+
+* Операции масштабирования узлов агентов применяются к масштабируемому набору виртуальных машин Azure, который содержит пул агентов. В кластере DC/OS операции масштабирования, описанные в этой статье, влияют только на число узлов агентов в закрытом пуле.
+
+* В зависимости от того, какой оркестратор развернут в кластере, можно отдельно масштабировать число экземпляров контейнера, работающих в кластере. Например, в кластере DC/OS [пользовательский интерфейс Marathon](container-service-mesos-marathon-ui.md) позволяет изменять число экземпляров для приложения контейнера.
+
+* В настоящее время не поддерживается автоматическое масштабирование узлов агентов в кластере службы контейнеров.
+
+
+
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Deploy a cluster](container-service-deployment.md) (Развертывание кластера)
+* Изучите [дополнительные примеры](container-service-create-acs-cluster-cli.md) использования команд Azure CLI 2.0 (предварительная версия) для работы со службой контейнеров Azure.
+* См. дополнительные сведения о [пулах агентов DC/OS](container-service-dcos-agents.md) в службе контейнеров Azure.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

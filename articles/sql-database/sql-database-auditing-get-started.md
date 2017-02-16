@@ -8,19 +8,20 @@ manager: jhubbard
 editor: 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
-ms.author: CarlRabeler; ronitr; giladm
+ms.author: ronitr; giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
-ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+ms.sourcegitcommit: 7b3c6d29ad7ded2ea65f378a1f807235c688d738
+ms.openlocfilehash: 9f51fcdb291021064dc02a71afdf849f1f4a3d85
 
 
 ---
-# <a name="get-started-with-sql-database-auditing"></a>Приступая к работе с аудитом базы данных SQL
+# <a name="get-started-with-sql-database--auditing"></a>Приступая к работе с аудитом базы данных SQL
 Аудит базы данных SQL Azure позволяет отслеживать события базы данных и записывать их в журнал аудита в учетной записи хранения Azure.
 
 Аудит может помочь вам соблюсти требования нормативов, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.
@@ -183,7 +184,7 @@ ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
 3. Вернитесь в колонку настройки аудита, измените значение параметра **Ключ доступа к хранилищу** с *Получатель* на *Источник* и нажмите кнопку **ОК** внизу. Затем щелкните **СОХРАНИТЬ** в верхней части колонки настройки аудита.
 4. Вернитесь в колонку настройки хранилища и **повторно создайте***ключ доступа получателя* (для подготовки к следующему циклу обновления ключей).
 
-## <a name="a-idsubheading-7aautomation-powershell-rest-api"></a><a id="subheading-7"></a>Автоматизация (PowerShell или REST API)
+## <a name="a-idsubheading-7aautomation-powershell--rest-api"></a><a id="subheading-7"></a>Автоматизация (PowerShell или REST API)
 Аудит в базе данных SQL Azure также можно настроить с помощью следующих средств автоматизации:
 
 1. **Командлеты PowerShell**
@@ -213,9 +214,9 @@ ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
 [Обзор аудита баз данных SQL Azure]: #subheading-1
 [Настройка аудита базы данных]: #subheading-2
 [Анализ журналов и отчетов аудита]: #subheading-3
-[Рекомендации по использованию в рабочей среде]: #subheading-5
-[Повторное создание ключа хранилища]: #subheading-6
-[Автоматизация (PowerShell или REST API)]: #subheading-7
+[Practices for usage in production]: #subheading-5
+[Storage Key Regeneration]: #subheading-6
+[Automation (PowerShell / REST API)]: #subheading-7
 
 
 <!--Image references-->
@@ -241,6 +242,6 @@ ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,12 +1,11 @@
 ---
 title: "Руководство по NoSQL: пакет SDK для .NET Core в DocumentDB | Документация Майкрософт"
 description: "Руководство по NoSQL, в котором создается оперативная база данных и консольное приложение C# с использованием пакета SDK для .NET Core для DocumentDB. DocumentDB — это база данных NoSQL для JSON."
-keywords: "руководство nosql, оперативная база данных, консольное приложение c#"
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
@@ -16,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
+ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
 
 
 ---
@@ -48,6 +47,9 @@ ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
 У вас нет времени? Не беспокойтесь! Полное решение доступно на [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Краткие инструкции см. в разделе [Получение полного решения NoSQL для этого руководства](#GetSolution).
 
 После этого используйте кнопки голосования в верхней или нижней части этой страницы, чтобы отправить нам отзыв. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
+
+> [!NOTE]
+> Пакет SDK для DocumentDB .NET Core, используемый в этом руководстве, не совместим с приложениями универсальной платформы Windows (UWP). Чтобы получить предварительную версию пакета SDK для .NET Core, которая поддерживает приложения UWP, отправьте сообщение по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 А теперь приступим к работе!
 
@@ -556,11 +558,10 @@ DocumentDB поддерживает удаление документов JSON.
 * Дополнительные сведения о модели программирования см. в разделе "Разработка" [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

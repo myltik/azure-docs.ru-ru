@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2016
-ms.author: msfussell
+ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 9c45513f7d2987a83026adab39257d298292b7a5
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 963ca79f83d9ae4b3c5a0e5da6c5fb7985e9ca77
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 9c45513f7d2987a83026adab39257d298292b7a5
 
 В этой статье подробно рассматривается создание контейнерных служб в контейнерах Docker в Linux.
 
-В Service Fabric реализовано несколько способов использования контейнеров для создания приложений, состоящих из контейнерных микрослужб. Они называются контейнерными службами,
+В Service Fabric реализовано несколько способов использования контейнеров для создания приложений, состоящих из контейнерных микрослужб. Эти службы называются контейнерными.
 
 которые включают следующие возможности:
 
@@ -49,7 +49,7 @@ ms.openlocfilehash: 9c45513f7d2987a83026adab39257d298292b7a5
 1. Введите в терминале **yo azuresfguest**.
 2. В качестве платформы выберите **контейнер**.
 3. Укажите имя приложения, например SimpleContainerApp.
-4. Укажите URL-адрес образа контейнера из репозитория DockerHub. Он имеет вид [репозиторий]/[имя_образа].
+4. Укажите URL-адрес образа контейнера из репозитория DockerHub. Параметр образа имеет вид [репозиторий]/[имя_образа].
 
 ![Генератор Service Fabric Yeoman для контейнеров][sf-yeoman]
 
@@ -74,6 +74,14 @@ ms.openlocfilehash: 9c45513f7d2987a83026adab39257d298292b7a5
     ./uninstall.sh
     ```
 
+## <a name="adding-more-services-to-an-existing-application"></a>Добавление дополнительных служб в существующее приложение
+
+Чтобы добавить службу контейнеров в приложение, созданное с использованием `yo`, выполните следующие действия: 
+1. Перейдите в корневой каталог существующего приложения.  Например, `cd ~/YeomanSamples/MyApplication`, если `MyApplication` является приложением, созданным с помощью Yeoman.
+2. Запустите `yo azuresfguest:AddService`
+
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Общие сведения о Service Fabric и контейнерах](service-fabric-containers-overview.md)
 * [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
@@ -83,6 +91,6 @@ ms.openlocfilehash: 9c45513f7d2987a83026adab39257d298292b7a5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

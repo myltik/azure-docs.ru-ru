@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f7735767b6655046b354d2a782b2730f117976
+ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
+ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
 
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Сценарии защиты кластера Service Fabric
-Кластер Service Fabric — это ресурс, владельцем которого являетесь вы. Кластеры всегда должны быть защищены для предотвращения подключения к ним неавторизованных пользователей, особенно в тех случаях, когда на кластере выполняются рабочие нагрузки в рабочей среде. Существует возможность создания незащищенного кластера, однако стоит учитывать, что это позволит любому анонимному пользователю подключаться к нему, если конечные точки управления кластером общедоступны через Интернет. 
+Кластер Service Fabric — это ресурс, владельцем которого являетесь вы. Кластеры должны быть защищены для предотвращения подключения к ним неавторизованных пользователей, особенно в тех случаях, когда на кластере выполняются рабочие нагрузки в рабочей среде. Существует возможность создания незащищенного кластера, однако стоит учитывать, что это позволит анонимным пользователям подключаться к нему, если конечные точки управления кластером общедоступны через Интернет. 
 
 Эта статья содержит обзор сценариев безопасности автономных или работающих в Azure кластеров. В ней также рассматриваются различные технологии, используемые для реализации этих сценариев. Сценарии обеспечения безопасности кластера:
 
@@ -109,14 +109,18 @@ Service Fabric использует сертификаты сервера X.509,
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этой статье содержатся общие сведения о безопасности кластера. Как следующий шаг, [создайте в Azure кластер с помощью шаблона Resource Manager](service-fabric-cluster-creation-via-arm.md) или с помощью [портала Azure](service-fabric-cluster-creation-via-portal.md).
+В этой статье содержатся общие сведения о безопасности кластера. Теперь вы можете создать в Azure кластер Service Fabric, используя
+
+
+1.  [шаблон Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) или 
+2.  [портал Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
-[Обмен данными между узлами]: ./media/service-fabric-cluster-security/node-to-node.png
-[Обмен данными между узлом и клиентом]: ./media/service-fabric-cluster-security/client-to-node.png
+[Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
+[Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

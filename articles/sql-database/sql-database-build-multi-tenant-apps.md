@@ -17,16 +17,20 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c17cedb24dacc6aeefa02a963b4dffcf22e246ec
-ms.openlocfilehash: db92ce021183b7006f2b9b060b3ac2c08fbcd200
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: fb62e82865ac39031f86daa329f93261ec4ffd7b
 
 
 ---
 # <a name="build-multi-tenant-apps-with-azure-sql-database-with-isolation-and-efficiency"></a>Создание изолированных и эффективных мультитенантных приложений с помощью Базы данных SQL Azure
 ## <a name="leverage-elastic-pools-and-build-more-efficient-multi-tenant-apps"></a>Использование пулов эластичных баз данных для создания более эффективных мультитенантных приложений
-Разработчикам мультитенантных приложений SaaS, которые обслуживают большое число пользователей, часто приходится жертвовать производительностью, безопасностью и удобством управления. Благодаря пулам эластичных баз данных SQL Azure вам больше не нужно идти на эти жертвы. Эти пулы помогут отслеживать мультитенантные приложения и управлять ими, а также использовать более удобную структуру с отдельной базой данных для каждого клиента. См. статью [Шаблоны разработки для мультитенантных приложений SaaS и Базы данных SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Разработчикам мультитенантных приложений SaaS, которые обслуживают большое число пользователей, часто приходится жертвовать производительностью, безопасностью и удобством управления. Благодаря эластичным пулам базы данных SQL Azure вам больше не нужно идти на эти жертвы. Эти пулы помогут отслеживать мультитенантные приложения и управлять ими, а также использовать более удобную структуру с отдельной базой данных для каждого клиента. См. статью [Шаблоны разработки для мультитенантных приложений SaaS и Базы данных SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+>
+>
 
 ## <a name="auto-scaling-you-control"></a>Управляемое автомасштабирование
 Пулы автоматически в режиме реального времени масштабируют производительность и емкость хранилища для эластичных баз данных. Вы можете контролировать ресурсы, назначенные для пула, по мере необходимости добавляя и удаляя эластичные базы данных, а также определять производительность эластичных баз данных, не меняя общие затраты на пул. Это означает, что вам не придется управлять использованием каждой базы данных отдельно.
@@ -69,6 +73,6 @@ ms.openlocfilehash: db92ce021183b7006f2b9b060b3ac2c08fbcd200
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

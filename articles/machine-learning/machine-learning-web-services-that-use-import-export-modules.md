@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b6a932fef8c2bf2223ae525ff765fc7e01c3f0a
+ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
+ms.openlocfilehash: f122153a97c3bbdb4416b97146cf9611b850b51e
 
 
 ---
@@ -106,13 +106,13 @@ ms.openlocfilehash: 2b6a932fef8c2bf2223ae525ff765fc7e01c3f0a
 8. Обновите значение переменной *apiKey* , заменив его на ключ API, сохраненный ранее.
 9. Найдите объявление запроса и обновите значения параметров веб-службы, которые передаются в модули *Импорт данных* и *Экспорт данных*. В этом случае будет использоваться исходный запрос, но определяться имя новой таблицы.
    
-     var request = new BatchExecutionRequest()   {    
-   
-         GlobalParameters = new Dictionary<string, string>() {
-         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-         { "Table", "dbo.ScoredTable2" },
-         }
-     };
+        var request = new BatchExecutionRequest() 
+        {           
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable2" },
+            }
+        };
 10. Запустите приложение. 
 
 По завершении выполнения новая таблица добавляется в базу данных, содержащую результаты оценки.
@@ -130,21 +130,21 @@ ms.openlocfilehash: 2b6a932fef8c2bf2223ae525ff765fc7e01c3f0a
 8. Обновите значение переменной *apiKey*, заменив его на **Первичный ключ**, указанный в разделе **Basic consumption info** (Основные сведения об использовании).
 9. Найдите объявление *scoreRequest* и обновите значения параметров веб-службы, которые передаются в модули *Импорт данных* и *Экспорт данных*. В этом случае будет использоваться исходный запрос, но определяться имя новой таблицы.
    
-     var scoreRequest = new   {
-   
-         Inputs = new Dictionary<string, StringTable>()
-         {
-         },
-         GlobalParameters = new Dictionary<string, string>() {
-              { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-             { "Table", "dbo.ScoredTable3" },
-         }
-     };
+        var scoreRequest = new
+        {       
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 10. Запустите приложение. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 67f6427ab8dec58778c75b9b3826853c84ab7fe6
 
 
 ---
@@ -314,6 +314,6 @@ ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

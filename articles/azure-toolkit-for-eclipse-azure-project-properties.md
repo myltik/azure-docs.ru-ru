@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f85c2079fb4d2ace43c2142e4c6c6926d4b56b26
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 480a0f1c15dda00d7335c8d0ff02143a4e37abaa
 
 
 ---
@@ -35,26 +35,26 @@ ms.openlocfilehash: f85c2079fb4d2ace43c2142e4c6c6926d4b56b26
 * **Целевая операционная система:** операционная система, используемая при развертывании проекта в Azure.
 
 ## <a name="see-also"></a>См. также
-[Набор средств Azure для Eclipse][Набор средств Azure для Eclipse]
+[Набор средств Azure для Eclipse][Azure Toolkit for Eclipse]
 
-[Установка набора средств Azure для Eclipse][Установка набора средств Azure для Eclipse] 
+[Установка набора средств Azure для Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Создание приложения Hello World для Azure в Eclipse][Создание приложения Hello World для Azure в Eclipse]
+[Создание приложения Hello World для Azure в Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Свойства роли Azure][Свойства роли Azure]
+[Свойства роли Azure][Azure Role Properties]
 
-[Список учетных записей хранения Azure][Список учетных записей хранения Azure]
+[Список учетных записей хранения Azure][Azure Storage Account List]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Свойства роли Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Список учетных записей хранения Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -64,6 +64,6 @@ ms.openlocfilehash: f85c2079fb4d2ace43c2142e4c6c6926d4b56b26
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 01/11/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f6e684b08ed481cdf84faf2b8426da72f98fc58c
-ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
+ms.sourcegitcommit: 4029b699b59bb12eaa9e24b487d2829b5fb26daf
+ms.openlocfilehash: 6780b422138fbe18adfe256e9f7aa279dfed1cd9
 
 
 ---
@@ -48,54 +48,70 @@ ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
 
 Например, приведенный ниже код **C#** извлекает значение заголовка из объекта **HttpWebResponse** с именем **response**.
 
-    response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```cs
+response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```
 
 В **PowerShell** извлечь значение заголовка можно с помощью операции Invoke-WebRequest.
 
-    $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
-    $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```powershell
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```
 
 Или, если требуется узнать количество оставшихся запросов для отладки, можно указать параметр **-Debug** в командлете **PowerShell**.
 
-    Get-AzureRmResourceGroup -Debug
+```powershell
+Get-AzureRmResourceGroup -Debug
+```
 
-Он возвращает массу информации, включая следующее значение ответа.
+Он возвращает массу значений, включая следующее значение ответа.
 
-    ...
-    DEBUG: ============================ HTTP RESPONSE ============================
+```powershell
+...
+DEBUG: ============================ HTTP RESPONSE ============================
 
-    Status Code:
-    OK
+Status Code:
+OK
 
-    Headers:
-    Pragma                        : no-cache
-    x-ms-ratelimit-remaining-subscription-reads: 14999
-    ...
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-reads: 14999
+...
+```
 
 В **интерфейсе командной строки Azure** извлечь значение заголовка можно с помощью параметра подробного вывода.
 
-    azure group list -vv --json
+```azurecli
+azure group list -vv --json
+```
 
-Он возвращает массу информации, включая следующий объект.
+Он возвращает массу значений, включая следующий объект.
 
+```azurecli
+...
+silly: returnObject
+{
+  "statusCode": 200,
+  "header": {
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "content-type": "application/json; charset=utf-8",
+    "expires": "-1",
+    "x-ms-ratelimit-remaining-subscription-reads": "14998",
     ...
-    silly: returnObject
-    {
-      "statusCode": 200,
-      "header": {
-        "cache-control": "no-cache",
-        "pragma": "no-cache",
-        "content-type": "application/json; charset=utf-8",
-        "expires": "-1",
-        "x-ms-ratelimit-remaining-subscription-reads": "14998",
-        ...
+```
 
 ## <a name="waiting-before-sending-next-request"></a>Ожидание перед отправкой следующего запроса
 По достижении предельного количества запросов Resource Manager возвращает в заголовке код состояния HTTP **429** и значение **Retry-After**. Значение **Retry-After** указывает период времени в секундах, в течение которого приложение ожидает (или находится в спящем режиме), прежде чем отправить следующий запрос. Если отправить запрос до истечения значения Retry-After, этот запрос не будет обработан, и будет возвращено новое значение Retry-After.
 
+## <a name="next-steps"></a>Дальнейшие действия
+
+* Дополнительные сведения об ограничениях и квотах см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
+* Сведения об обработке асинхронных запросов REST см. в статье [Track asynchronous Azure operations](resource-manager-async-operations.md) (Отслеживание асинхронных операций Azure).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

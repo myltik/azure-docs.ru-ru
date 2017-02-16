@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6770aa8387fe3d381fd9c566ca0c38c88a4b1e55
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 * формировать бизнес-процессы на основе данных, получаемых из Twilio; 
 * использовать действия для получения сообщений, вывода списка сообщений и выполнения многих других задач. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, новое полученное сообщение Twilio можно использовать в рабочем процессе служебной шины. 
 
-Сведения о добавлении операции в приложения логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о добавлении операции в приложения логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Триггеры и действия
 Соединитель Twilio позволяет выполнять следующие действия. Триггеры отсутствуют. 
@@ -72,7 +72,7 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| MessageId |строка |Да |path |None |Идентификатор сообщения |
+| MessageId |string |Да |path |Нет |Идентификатор сообщения |
 
 ### <a name="response"></a>Ответ
 | Имя | Описание |
@@ -89,9 +89,9 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| Кому |строка |Нет |запрос |None |На номер телефона |
-| Из |строка |Нет |запрос |None |С номера телефона |
-| DateSent |строка |Нет |запрос |None |Отображение только сообщений, отправленных в указанную дату (в формате GMT), заданную в виде ГГГГ-ММ-ДД. Пример: DateSent = 2009-07-06. Можно также указать неравенство, например DateSent < = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или до полуночи указанной даты, и DateSent > = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или после полуночи указанной даты. |
+| Кому |string |Нет |запрос |Нет |На номер телефона |
+| Из |string |Нет |запрос |Нет |С номера телефона |
+| DateSent |string |Нет |запрос |Нет |Отображение только сообщений, отправленных в указанную дату (в формате GMT), заданную в виде ГГГГ-ММ-ДД. Пример: DateSent =&2009;-07-06. Можно также указать неравенство, например DateSent < = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или до полуночи указанной даты, и DateSent > = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или после полуночи указанной даты. |
 | PageSize |целое число |Нет |запрос |50 |Количество ресурсов, возвращаемых на каждой странице списка. Значение по умолчанию — 50. |
 | Страница |целое число |Нет |запрос |0 |Номер страницы. Значение по умолчанию — 0. |
 
@@ -109,7 +109,7 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| sendMessageRequest | |Да |текст |None |Отправляемое сообщение |
+| sendMessageRequest | |Да |текст |Нет |Отправляемое сообщение |
 
 ### <a name="response"></a>Ответ
 | Имя | Описание |
@@ -123,9 +123,9 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 #### <a name="sendmessagerequest-request-model-for-send-message-operation"></a>SendMessageRequest: модель запроса для операции отправки сообщения
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| Из |строка |Да |
-| Кому |строка |Да |
-| текст |строка |Да |
+| from |string |Да |
+| значение |string |Да |
+| текст |string |Да |
 | media_url |array |Нет |
 | status_callback |string |Нет |
 | messaging_service_sid |string |Нет |
@@ -135,11 +135,11 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 #### <a name="message-model-for-message"></a>Message: модель для сообщения
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| текст |строка |Нет |
-| Из |строка |Нет |
-| Кому |строка |Нет |
-| status |строка |Нет |
-| sid |строка |Нет |
+| текст |string |Нет |
+| from |string |Нет |
+| значение |string |Нет |
+| status |string |Нет |
+| sid |string |Нет |
 | account_sid |string |Нет |
 | api_version |string |Нет |
 | num_segments |string |Нет |
@@ -147,12 +147,12 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 | date_created |string |Нет |
 | date_sent |string |Нет |
 | date_updated |string |Нет |
-| direction |строка |Нет |
+| direction |string |Нет |
 | error_code |string |Нет |
 | error_message |string |Нет |
-| price |строка |Нет |
+| price |string |Нет |
 | price_unit |string |Нет |
-| uri |строка |Нет |
+| uri |string |Нет |
 | subresource_uris |array |Нет |
 | messaging_service_sid |string |Нет |
 
@@ -160,10 +160,10 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | messages |array |Нет |
-| Страница |целое число |Нет |
+| page |целое число |Нет |
 | page_size |целое число |Нет |
 | num_pages |целое число |Нет |
-| uri |строка |Нет |
+| uri |string |Нет |
 | first_page_uri |string |Нет |
 | next_page_uri |string |Нет |
 | total |целое число |Нет |
@@ -173,26 +173,26 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | incoming_phone_numbers |array |Нет |
-| Страница |целое число |Нет |
+| page |целое число |Нет |
 | page_size |целое число |Нет |
 | num_pages |целое число |Нет |
-| uri |строка |Нет |
+| uri |string |Нет |
 | first_page_uri |string |Нет |
 | next_page_uri |string |Нет |
 
 #### <a name="addincomingphonenumberrequest-request-model-for-add-incoming-number-operation"></a>AddIncomingPhoneNumberRequest: модель запроса для операции добавления входящего номера
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| PhoneNumber |строка |Да |
-| AreaCode |строка |Нет |
-| FriendlyName |строка |Нет |
+| PhoneNumber |string |Да |
+| AreaCode |string |Нет |
+| FriendlyName |string |Нет |
 
 #### <a name="incomingphonenumber-incoming-phone-number"></a>IncomingPhoneNumber: входящий телефонный номер
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | phone_number |string |Нет |
 | friendly_name |string |Нет |
-| sid |строка |Нет |
+| sid |string |Нет |
 | account_sid |string |Нет |
 | date_created |string |Нет |
 | date_updated |string |Нет |
@@ -213,36 +213,36 @@ ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
 | --- | --- | --- |
 | phone_number |string |Нет |
 | friendly_name |string |Нет |
-| lata |строка |Нет |
-| latitude |строка |Нет |
-| longitude |строка |Нет |
+| lata |string |Нет |
+| latitude |string |Нет |
+| longitude |string |Нет |
 | postal_code |string |Нет |
 | rate_center |string |Нет |
-| region |строка |Нет |
-| mms |Логическое |Нет |
-| sms |Логическое |Нет |
+| region |string |Нет |
+| MMS |Логическое |Нет |
+| SMS |Логическое |Нет |
 | voice |Логическое |Нет |
 
 #### <a name="usagerecords-usage-records-class"></a>UsageRecords: класс записей об использовании
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| категория |строка |Нет |
-| usage |строка |Нет |
+| category |string |Нет |
+| usage |string |Нет |
 | usage_unit |string |Нет |
-| Описание |строка |Нет |
+| description |string |Нет |
 | price |number |Нет |
 | price_unit |string |Нет |
-| count |строка |Нет |
+| count |string |Нет |
 | count_unit |string |Нет |
 | start_date |string |Нет |
 | end_date |string |Нет |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

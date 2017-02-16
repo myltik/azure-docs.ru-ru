@@ -1,5 +1,5 @@
 ---
-title: "Общие сведения о защите HDInsight | Документация Майкрософт"
+title: "Безопасность Hadoop — присоединенные к домену кластеры HDInsight — Azure | Документация Майкрософт"
 description: "Дополнительные сведения"
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Введение в присоединенные к домену кластеры HDInsight (предварительная версия)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Основные сведения о безопасности Hadoop в присоединенных к домену кластерах HDInsight (предварительная версия)
+
 До сегодняшнего дня служба Azure HDInsight поддерживала локального администратора, работающего только с одним пользователем. Такой сценарий отлично подходил для небольших отделов по работе с приложениями. По мере набора популярности рабочих нагрузок Hadoop в корпоративном секторе увеличилась потребность в возможностях корпоративного уровня, таких как проверка подлинности на основе Active Directory, поддержка нескольких пользователей и управление доступом на основе ролей. С помощью присоединенных к домену кластеров HDInsight можно создать кластер HDInsight, присоединенный к домену Active Directory, настроить список сотрудников компании, которые могут пройти проверку подлинности в Azure Active Directory для входа в кластер HDInsight. Люди, которые не являются сотрудниками организации, не могут войти в кластер HDInsight или получить к нему доступ. Корпоративный администратор может настроить управление доступом на основе ролей для обеспечения защиты Hive с помощью [Apache Ranger](http://hortonworks.com/apache/ranger/) и ограничить доступ к данным до требуемого уровня. Наконец, администратор может провести аудит доступа к данным по сотрудникам, а также аудит любых изменений в политиках контроля доступа, обеспечивая высокий уровень контроля над корпоративными ресурсами.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,39 +1,43 @@
 ---
-title: Обзор API концентраторов событий Azure | Microsoft Docs
-description: Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий.
+title: "Обзор интерфейсов API концентраторов событий Azure | Документация Майкрософт"
+description: "Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/18/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: c68b5cfadc3e98e15c119b3717c8098887ca67d0
+ms.openlocfilehash: e8c97689f84d3bedb312ec4443427181a542e95b
+
 
 ---
-# Общие сведения об API концентраторов событий
+# <a name="event-hubs-api-overview"></a>Общие сведения об API концентраторов событий
 В этой статье перечислены некоторые ключевые клиентские API .NET концентраторов событий. Существуют две категории: API управления и API среды выполнения. API среды выполнения состоят из всех операций, необходимых для отправки и получения сообщения. Операции управления позволяют управлять состоянием сущности концентраторов событий путем создания, обновления и удаления сущностей.
 
-Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Служебная шина .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в руководстве по [служебной шине .NET](/dotnet/api) и [API EventProcessorHost](/dotnet/api).
 
-## API управления
+## <a name="management-apis"></a>API управления
 Для выполнения указанных ниже операций управления требуется разрешение на **управление** пространством имен концентраторов событий.
 
-### Создание
-```
+### <a name="create"></a>Создание
+```csharp
 // Create the Event Hub
 EventHubDescription ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 namespaceManager.CreateEventHubAsync(ehd).Wait();
 ```
 
-### Блокировка изменений
-```
+### <a name="update"></a>Блокировка изменений
+```csharp
 EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
 // Create a customer SAS rule with Manage permissions
@@ -44,20 +48,20 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
-### Удалить
-```
+### <a name="delete"></a>Удалить
+```csharp
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
-## Интерфейсы API среды выполнения
-### Создание издателя
-```
+## <a name="run-time-apis"></a>Интерфейсы API среды выполнения
+### <a name="create-publisher"></a>Создание издателя
+```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
 EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
-### Публикация сообщения
-```
+### <a name="publish-message"></a>Публикация сообщения
+```csharp
 // Create the device/temperature metric
 MetricEvent info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
 EventData data = new EventData(new byte[10]); // Byte array
@@ -74,8 +78,8 @@ data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
 await client.SendAsync(data);
 ```
 
-### Создание потребителя
-```
+### <a name="create-consumer"></a>Создание потребителя
+```csharp
 // Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
@@ -92,8 +96,8 @@ EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shard
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
 ```
 
-### Использование сообщения
-```
+### <a name="consume-message"></a>Использование сообщения
+```csharp
 var message = await consumer.ReceiveAsync();
 
 // Provide a serializer
@@ -104,10 +108,10 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## API узла обработчика событий
+## <a name="event-processor-host-apis"></a>API узла обработчика событий
 Эти API обеспечивают отказоустойчивость рабочих процессов, которые могут стать недоступными, и распределяют сегменты между всеми имеющимися исполнителями.
 
-```
+```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
@@ -122,9 +126,9 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-Интерфейс [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) определяется следующим образом:
+Интерфейс [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) определяется следующим образом.
 
-```
+```csharp
 public class SimpleEventProcessor : IEventProcessor
 {
     IDictionary<string, string> map;
@@ -165,7 +169,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о сценариях концентраторов событий см. в разделах, ссылки на которые указаны ниже.
 
 * [Что такое концентраторы событий Azure?](event-hubs-what-is-event-hubs.md)
@@ -175,7 +179,12 @@ public class SimpleEventProcessor : IEventProcessor
 
 Ссылки на API-интерфейсы .NET:
 
-* [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/mt419900.aspx)
-* [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/mt445521.aspx)
+* [Справочник по служебной шине и API .NET концентраторов событий](/dotnet/api)
+* [Справочник по API узла обработчика событий](/dotnet/api)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: "Управление учетными данными хранилища StorSimple для виртуальных массивов Microsoft Azure StorSimple | Документация Майкрософт"
-description: "В статье объясняется, как можно использовать страницу настройки в диспетчере StorSimple для добавления, изменения и удаления или смены ключей безопасности для учетных данных учетной записи хранения, связанной с виртуальным массивом StorSimple."
+title: "Управление учетными записями хранения виртуального массива StorSimple | Документация Майкрософт"
+description: "В статье объясняется, как можно использовать страницу настройки в диспетчере устройств StorSimple для добавления, изменения и удаления или чередования ключей безопасности для учетной записи хранения, связанной с виртуальным массивом StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: fe38d4239c26f81aff0108fe6110325a5230c12b
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 6df75f229b95de99fb7f97714336fdc857e672eb
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Управление учетными данными учетной записи хранения для виртуального массива StorSimple с помощью службы диспетчера устройств StorSimple
@@ -154,6 +154,6 @@ ms.openlocfilehash: fe38d4239c26f81aff0108fe6110325a5230c12b
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

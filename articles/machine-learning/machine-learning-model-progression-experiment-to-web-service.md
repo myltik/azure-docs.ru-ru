@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+ms.sourcegitcommit: b47aa6730aff534b796cfc5427e613defdf69926
+ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
 В этой статье описывается механизм развития модели машинного обучения от эксперимента по разработке до рабочей веб-службы.
 
 > [!NOTE]
-> Существуют и другие способы разработки и развертывания моделей машинного обучения, но в этой статье рассматривается использование студии машинного обучения. Описание того, как создать классическую прогнозную веб-службу, используя R, см. в записи блога [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Создание и развертывание прогнозных веб-приложений с помощью RStudio и машинного обучения Azure).
+> Существуют и другие способы разработки и развертывания моделей машинного обучения, но в этой статье рассматривается использование студии машинного обучения. Пример того, как создать классическую прогнозную веб-службу, используя R, см. в записи блога [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Создание и развертывание прогнозных веб-приложений с помощью RStudio и машинного обучения Azure).
 > 
 > 
 
@@ -122,6 +122,6 @@ ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Сборник тренировочных заданий для шаблона решения Cortana Intelligence для диагностического обслуживания в аэрокосмических и других компаниях | Документация Майкрософт"
+title: "Диагностическое обслуживание в авиакосмической отрасли с помощью Azure: шаблон решения Cortana Intelligence | Документация Майкрософт"
 description: "Шаблон решения с использованием Microsoft Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических, транспортных и обслуживающих компаниях."
 services: cortana-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
 
 
 ---
@@ -372,6 +372,6 @@ ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

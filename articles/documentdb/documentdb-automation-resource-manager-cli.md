@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
+ms.date: 1/11/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 480dc512e93f8ae64a73067aaee95190f525e780
-ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 686b26f082951a71ad21f653c8086061afa56b59
 
 
 ---
@@ -133,7 +133,7 @@ ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
 
 *Шаблоны Azure Resource Manager* позволяют развертывать различные ресурсы и управлять ими как единой логической единицей развертывания с помощью декларативного подхода. Вместо того чтобы прямо сообщать Azure о том, что необходимо развертывать, выполняя одну команду за другой, вы просто описываете все развертывание в JSON-файле, т. е. все ресурсы и соответствующие параметры конфигурации и развертывания, и сообщаете Azure о том, что эти ресурсы требуется развернуть как одну группу.
 
-Дополнительные сведения о группах ресурсов Azure и их возможностях см. в статье [Обзор Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Если вас интересует разработка шаблонов, ознакомьтесь со статьей [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
+Дополнительные сведения о группах ресурсов Azure и их возможностях см. в статье [Обзор Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Если вас интересует разработка шаблонов, ознакомьтесь со статьей [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="a-idquick-create-documentdb-accountatask-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>Задача: создание учетной записи DocumentDB с одним регионом
 Используйте указания в этом разделе, чтобы создать учетную запись DocumentDB с одним регионом. Это можно сделать с помощью Azure CLI с шаблонами Resource Manager или без них.
@@ -146,16 +146,17 @@ ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
 >
 >
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
 
 * `<resourcegroupname>` могут использоваться только буквы, цифры, точки, символы подчеркивания, символ «-» и скобки, и он не может заканчиваться точкой.
 * `<resourcegrouplocation>` — регион текущей группы ресурсов.
+* `<ip-range-filter>` — указывает набор IP-адресов или их диапазонов в нотации CIDR, которые добавляются в список разрешенных клиентских IP-адресов для указанной учетной записи базы данных. IP-адреса и их диапазоны должны быть разделены запятой без пробелов. Дополнительные сведения см. в статье [Поддержка брандмауэра DocumentDB](documentdb-firewall-support.md).
 * `<databaseaccountname>` могут использоваться только строчные буквы, цифры и символ «-», а его длина должна составлять от 3 до 50 символов.
 * В параметре `<databaseaccountlocation>` должен быть указан один из регионов, в которых служба DocumentDB является общедоступной. Текущий список регионов см. на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
 
 Пример входных данных:
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
 
 В результате будут возвращены следующие выходные данные после подготовки вашей новой учетной записи:
 
@@ -202,6 +203,7 @@ ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -212,6 +214,124 @@ ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
             }
         ]
     }
+
+Для параметра failoverPriority нужно задать значение 0, так как это учетная запись с одним регионом. Такая настройка указывает, что этот регион будет использоваться в качестве [региона для записи для учетной записи DocumentDB][scaling-globally].
+Вы можете ввести значение в командной строке или создать файл параметров для указания значения.
+
+Чтобы создать файл параметров, скопируйте следующее содержимое в новый файл и назовите файл azuredeploy.parameters.json. Если планируется указать имя учетной записи базы данных в командной строке, вы можете продолжить работу без создания этого файла.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "value": "samplearmacct"
+            },
+            "locationName1": {
+                "value": "westus"
+            }
+        }
+    }
+
+В файле azuredeploy.parameters.json измените поле значения `"samplearmacct"` на имя базы данных, которую вы хотите использовать, а затем сохраните файл. `"databaseAccountName"` могут использоваться только строчные буквы, цифры и символ «-», а его длина должна составлять от 3 до 50 символов. Измените поле значения `"locationName1"` на регион, в котором нужно создать учетную запись DocumentDB.
+
+Чтобы создать учетную запись DocumentDB в группе ресурсов, выполните следующую команду и укажите путь к файлу шаблона, путь к файлу параметра или значение параметра, имя группы ресурсов, в которой будет проводиться развертывание, и имя развертывания (-n является необязательным).
+
+Использование файла параметров:
+
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
+
+* `<PathToTemplate>` — путь к файлу azuredeploy.json, созданному на шаге 1. Если путь содержит пробелы, заключите этот параметр в двойные кавычки.
+* `<PathToParameterFile>` — путь к файлу azuredeploy.parameters.json, созданному на шаге 1. Если путь содержит пробелы, заключите этот параметр в двойные кавычки.
+* `<resourcegroupname>` — имя существующей группы ресурсов, в которую добавляется учетная запись базы данных DocumentDB.
+* `<deploymentname>` — необязательное имя развертывания.
+
+Пример входных данных:
+
+    azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
+
+ИЛИ, чтобы указать параметр имени учетной записи базы данных без файла параметров и получить значение, выполните следующую команду:
+
+    azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
+
+Вот пример, в котором показаны командная строка и запись для учетной записи базы данных с именем samplearmacct:
+
+    azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    databaseAccountName: samplearmacct
+
+По мере подготовки учетной записи вы получите следующие сведения:
+
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "azuredeploy"
+    + Waiting for deployment to complete
+    +
+    +
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    +
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
+    data:    DeploymentName     : azuredeploy
+    data:    ResourceGroupName  : new_res_group
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
+    data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
+    data:    Name                 Type    Value
+    data:    -------------------  ------  ------------------
+    data:    databaseAccountName  String  samplearmacct
+    data:    locationName1        String  westus
+    info:    group deployment create command OK
+
+При возникновении ошибок см. раздел [Устранение неполадок](#troubleshooting).  
+
+После возврата команды учетная запись несколько минут будет в состоянии **Создание**, потом состояние изменится на **В сети**. Это означает, что учетная запись готова к использованию. Проверить состояние учетной записи можно на [портале Azure](https://portal.azure.com) в колонке **Учетные записи DocumentDB**.
+
+## <a name="a-idquick-create-documentdb-with-mongodb-api-accountatask-create-a-single-region-documentdb-with-support-for-mongodb-account"></a><a id="quick-create-documentdb-with-mongodb-api-account"></a>Задача: создание базы данных DocumentDB с одним регионом с поддержкой учетной записи MongoDB
+Используйте инструкции, описанные в этом разделе, чтобы создать базу данных DocumentDB с одним регионом с поддержкой учетной записи MongoDB. Это можно сделать с помощью интерфейса командной строки Azure с шаблонами Resource Manager.
+
+### <a name="a-idcreate-single-documentdb-with-mongodb-api-account-cli-arma-create-a-single-region-documentdb-with-support-for-mongodb-account-using-azure-cli-with-resource-manager-templates"></a><a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Создание базы данных DocumentDB с одним регионом с поддержкой учетной записи MongoDB с помощью интерфейса командной строки Azure с шаблонами Resource Manager
+Инструкции, описанные в этом разделе, позволяют создать базу данных DocumentDB с поддержкой учетной записи MongoDB с помощью шаблона Azure Resource Manager и файла необязательных параметров, каждый из которых является JSON-файлом. Использование шаблона позволяет точно описать, что вы хотите, и повторить все без ошибок.
+
+Создайте локальный файл шаблона со следующим содержимым: Имя файла azuredeploy.json.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "type": "string"
+            },
+            "locationName1": {
+                "type": "string"
+            }
+        },
+        "variables": {},
+        "resources": [
+            {
+                "apiVersion": "2015-04-08",
+                "type": "Microsoft.DocumentDb/databaseAccounts",
+                "name": "[parameters('databaseAccountName')]",
+                "location": "[resourceGroup().location]",
+                "kind": "MongoDB",
+                "properties": {
+                    "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
+                    "locations": [
+                        {
+                            "failoverPriority": 0,
+                            "locationName": "[parameters('locationName1')]"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+
+Для свойства kind необходимо задать MongoDB, чтобы эта учетная запись поддерживала интерфейсы API MongoDB. Если для свойства kind не указано значение, по умолчанию будет использоваться собственная учетная запись DocumentDB.
 
 Для параметра failoverPriority нужно задать значение 0, так как это учетная запись с одним регионом. Такая настройка указывает, что этот регион будет использоваться в качестве [региона для записи для учетной записи DocumentDB][scaling-globally].
 Вы можете ввести значение в командной строке или создать файл параметров для указания значения.
@@ -299,16 +419,17 @@ DocumentDB обладает возможностью [глобального р�
 >
 >
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
 
 * `<resourcegroupname>` могут использоваться только буквы, цифры, точки, символы подчеркивания, символ «-» и скобки, и он не может заканчиваться точкой.
 * `<resourcegrouplocation>` — регион текущей группы ресурсов.
+* `<ip-range-filter>` — указывает набор IP-адресов или их диапазонов в нотации CIDR, которые добавляются в список разрешенных клиентских IP-адресов для указанной учетной записи базы данных. IP-адреса и их диапазоны должны быть разделены запятой без пробелов. Дополнительные сведения см. в статье [Поддержка брандмауэра DocumentDB](documentdb-firewall-support.md).
 * `<databaseaccountname>` могут использоваться только строчные буквы, цифры и символ «-», а его длина должна составлять от 3 до 50 символов.
 * В параметре `<databaseaccountlocation1>` и `<databaseaccountlocation2>` должны быть указаны регионы, в которых служба DocumentDB является общедоступной. Текущий список регионов см. на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
 
 Пример входных данных:
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
 В результате будут возвращены следующие выходные данные после подготовки вашей новой учетной записи:
 
@@ -358,6 +479,7 @@ DocumentDB обладает возможностью [глобального р�
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -470,7 +592,7 @@ DocumentDB обладает возможностью [глобального р�
 
         azure group log show new_res_group --last-deployment
 
-    Дополнительные сведения см. в статье [Устранение неполадок при развертывании групп ресурсов в Azure](../resource-manager-troubleshoot-deployments-cli.md).
+    Дополнительные сведения см. в статье [Устранение неполадок при развертывании групп ресурсов в Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Кроме того, сведения об ошибках доступны на портале Azure, как показано на следующем снимке экрана. Чтобы перейти к информации об ошибке: нажмите "Группа ресурсов" на навигационной панели, выберите группу ресурсов, в которой есть ошибка, затем в области Essentials в колонке группы ресурсов щелкните дату последнего развертывания, выберите неудачное развертывание в колонке журналов развертываний и щелкните сведения об операции с красным восклицательным знаком в колонке развертывания. В колонке сведений об операции отображается сообщение о состоянии неудачного развертывания.
 
     ![Снимок экрана портала Azure, демонстрирующий, как перейти к сообщению об ошибке развертывания](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
@@ -478,7 +600,7 @@ DocumentDB обладает возможностью [глобального р�
 ## <a name="next-steps"></a>Дальнейшие действия
 Следующий шаг после создания учетной записи DocumentDB — создание базы данных DocumentDB. Для создания базы данных можно использовать один из следующих вариантов:
 
-* портал Azure, как описано в статье [Как создать базу данных для DocumentDB](documentdb-create-database.md);
+* С помощью портала Azure, как описано в статье [Создание коллекции и базы данных DocumentDB на портале Azure](documentdb-create-collection.md).
 * примеры для C# .NET в проекте [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) в репозитории [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) на портале GitHub;
 * [Пакеты SDK для DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB содержит пакеты SDK для .NET, Java, Python, Node.js и JavaScript API.
 
@@ -499,6 +621,6 @@ DocumentDB обладает возможностью [глобального р�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

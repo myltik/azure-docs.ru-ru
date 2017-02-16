@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
+ms.openlocfilehash: 92e4094c5125d922a106c65d2cb3cd5b654856a5
 
 
 ---
@@ -283,7 +283,7 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
 
 1. Нажмите следующую кнопку, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. В колонке **Параметры** задайте следующие параметры.
    
     ![Параметры HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -499,6 +499,6 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с начальным набором для шлюза Azure IoT | Документация Майкрософт"
+title: "Приступая к работе с устройством SensorTag и шлюзом Azure IoT | Документация Майкрософт"
 description: "Приступая к работе с начальным набором для шлюза Azure IoT, создание Центра Интернета вещей Azure и подключение шлюза и SensorTag к Центру Интернета вещей"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
-ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
 
 
 ---
@@ -109,6 +109,6 @@ ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
 Дополнительные сведения см. на странице сообщества [Developer Zone комплекта Intel IoT Gateway](http://software.intel.com/iot/microsoft-azure).
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

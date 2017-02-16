@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
-ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 5d52b7609eb5ade1850e78868cbe0929c40c3c4f
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
 ![Портал издателя][api-management-management-console]
 
 > [!NOTE] 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 
 Щелкните **Уведомления** в расположенном слева меню **Управление API** для просмотра доступных уведомлений.
 
@@ -111,17 +111,17 @@ API Management предоставляет почтовые шаблоны для
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[Настройка уведомлений издателя]: #publisher-notifications
-[Настройка почтовых шаблонов]: #email-templates
+[Configure publisher notifications]: #publisher-notifications
+[Configure email templates]: #email-templates
 
-[Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API]: api-management-howto-create-groups.md
-[Связывание групп с разработчиками]: api-management-howto-create-groups.md#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

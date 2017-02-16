@@ -4,7 +4,7 @@ description: "В нем описан уникальный опыт Cloud Cruiser
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 09/08/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;sirishap;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: fc40c33c7ae28adcd2975e89c395db4cfde90a49
 
 
 ---
@@ -49,7 +49,7 @@ Cloud Cruiser может по-разному использовать сведе
 
 Для демонстрации данного варианта использования представьте себе рабочую нагрузку нескольких экземпляров, работающих в Microsoft Azure Pack (WAP). Целью является моделирование  той же самой рабочей нагрузки в Azure и оценка затрат на осуществление такой миграции. Чтобы обеспечить такое моделирование, необходимо выполнить две основные задачи:
 
-1. **Импорт и обработка информации о службе, полученной из API RateCard.**  Эта задача также выполняется с книгами, где извлеченные из API RateCard сведения преобразуются и публикуются в новом тарифном плане. Этот новый тарифный план будет использоваться при моделировании для оценки цен Azure.
+1. **Импорт и обработка информации о службе, полученной из API RateCard.** Эта задача также выполняется с книгами, где извлеченные из API RateCard сведения преобразуются и публикуются в новом тарифном плане. Этот новый тарифный план будет использоваться при моделировании для оценки цен Azure.
 2. **Нормализация служб WAP и служб Azure для IaaS.** По умолчанию службы WAP основаны на отдельных ресурсах (ЦП, объем памяти, размер диска и т. д.), а службы Azure основаны на размере экземпляра (A0, A1, A2 и т. д.). Первую задачу может выполнить ядро извлечения, преобразования и загрузки Cloud Cruiser, которое называется книгами, где эти ресурсы могут объединяться по размерам экземпляров, аналогично службам экземпляров Azure.
 
 ### <a name="import-data-from-the-ratecard-api"></a>Импорт данных из API RateCard
@@ -57,7 +57,7 @@ Cloud Cruiser может по-разному использовать сведе
 
 В каждой книге может быть одна или несколько коллекций. Это позволяет сопоставлять данные из разных источников для дополнения или расширения данных об использовании. На двух снимках экрана ниже показано создание новой *коллекции* в существующей книге и импорт данных из API RateCard в эту *коллекцию*.
 
-![Рис. 1. Создание новой коллекции][1]
+![Рис. 1. Создание коллекции][1]
 
 ![Рис. 2. Импорт данных из новой коллекции][2]
 
@@ -121,7 +121,7 @@ Cloud Cruiser может по-разному использовать интег
 
 Конечной целью является возможность создания таких отчетов, как приведенный ниже, и анализа затрат и потребления на основе структуры учетной записи, заполненной тегами.
 
-![Рис. 10 — отчет с разбивкой по тегам][10]
+![Рис. 10. Отчет с разбивкой по тегам][10]
 
 ### <a name="microsoft-azure-tags"></a>Теги Microsoft Azure
 Данные, доступные в API Usage Azure, включают не только сведения о потреблении, но и метаданные ресурсов, в том числе все теги, сопоставленные с ними. Теги предоставляют собой простой способ организации ресурсов. Чтобы они эффективно работали, должны быть соблюдены следующие условия.
@@ -140,7 +140,7 @@ Cloud Cruiser может по-разному использовать интег
 
 На снимке экрана ниже показан пример группы ресурсов с сопоставленными тегами.
 
-![Рис. 11 — группа ресурсов с сопоставленными тегами на портале Azure][11]
+![Рис. 11. Группа ресурсов с сопоставленными тегами на портале Azure][11]
 
 На следующем шаге мы извлечем информацию из API Usage в Cloud Cruiser. В настоящее время API Usage предоставляет ответы в формате JSON. Ниже приведен пример извлеченных данных:
 
@@ -172,7 +172,7 @@ Cloud Cruiser может по-разному использовать интег
 
 Каждая книга может иметь одну или несколько коллекций. Это позволяет сопоставлять данные из разных источников для дополнения или расширения данных об использовании. В этом примере мы создадим новый лист в книге шаблона Azure (*UsageAPI)* и зададим новую *коллекцию* для импорта данных из API Usage.
 
-![Рис. 3 — данные Usage API, импортированные на лист UsageAPI][12]
+![Рис. 3. Данные API использования, импортированные на лист UsageAPI][12]
 
 Обратите внимание, что в этой книге уже есть другие листы для импорта служб из Azure (*ImportServices*) и обработки сведений о потреблении из API Billing (*PublishData*).
 
@@ -181,7 +181,7 @@ Cloud Cruiser может по-разному использовать интег
 ### <a name="processing-the-tag-information-from-the-usage-api"></a>Обработка информации о тегах из API Usage
 После импорта данных в книгу мы создадим шаги преобразования на листе *UsageAPI* для обработки информации из API. Сначала мы используем обработчик "JSON split" для извлечения тегов из одного поля, после чего создадим поля для каждого из них (Department, Project, Owner и Environment).
 
-![Рис. 4 — создание новых полей для информации тега][13]
+![Рис. 4. Создание полей для сведений о тегах][13]
 
 Обратите внимание, служба Networking отсутствует в сведениях тега (желтый прямоугольник). Но, посмотрев на поле *ResourceGroupName*, мы можем убедиться, что эта служба входит в ту же группу ресурсов. Так как у нас есть теги для других ресурсов из этой группы ресурсов, мы используем эти сведения, чтобы применить отсутствующие теги к этому ресурсу позднее.
 
@@ -190,7 +190,7 @@ Cloud Cruiser может по-разному использовать интег
 ### <a name="adding-the-tag-information-to-the-consumption-data"></a>Добавление сведений о тегах в данные потребления
 Теперь перейдем на лист *PublishData* , который обрабатывает данные потребления из API Billing, и добавим поля, извлеченные из тегов. Это можно сделать путем поиска в таблице подстановки, созданной на предыдущем шаге, используя *ResourceGroupName* в качестве поискового запроса.
 
-![Рис. 5 — заполнение структуры учетной записи данными из результатов поиска][14]
+![Рис. 5. Заполнение структуры учетной записи данными из результатов поиска][14]
 
 Обратите внимание, для устранения проблемы отсутствующих тегов применены поля соответствующей структуры учетной записи для службы «Сети». Мы также заполнили поля структуры учетной записи для ресурсов нашей целевой группы значением Other (Другое), чтобы различать их в отчетах.
 
@@ -209,23 +209,23 @@ Cloud Cruiser может по-разному использовать интег
 
 <!--Image references-->
 
-[1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Рисунок 1. Создание новой коллекции"
-[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Рисунок 2. Импорт данных из новой коллекции"
-[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Рисунок 3. Действия преобразования для обработки данных, собранных из API RateCard"
-[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Рисунок 4. Публикация данных из API RateCard в качестве новых служб и тарифов"
-[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Рисунок 5. Проверка новых служб"
-[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Рисунок 6. Проверка нового тарифного плана и связанных с ним тарифов"
-[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Рисунок 7. Преобразование данных WAP для нормализации служб"
-[8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Рисунок 8. Планирование книги"
-[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Рисунок 9. Пример отчета для сценария сравнения стоимости рабочей нагрузки"
-[10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Рисунок 10. Отчет с разбивкой по тегам"
-[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Рисунок 11. Группа ресурсов с сопоставленными тегами на портале Azure"
-[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Рисунок 12. Данные Usage API, импортированные в лист UsageAPI"
-[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Рисунок 13. Создание новых полей для информации тега"
-[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Рисунок 14. Заполнение структуры учетной записи данными из результатов поиска"
+[1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Рис. 1. Создание коллекции"
+[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Рис. 2. Импорт данных из новой коллекции"
+[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Рис. 3. Действия преобразования для обработки данных, собранных из API RateCard"
+[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Рис. 4. Публикация данных из API RateCard в качестве новых служб и тарифов"
+[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Рис. 5. Проверка новых служб"
+[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Рис. 6. Проверка нового тарифного плана и связанных с ним тарифов"
+[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Рис. 7. Преобразование данных WAP для нормализации служб"
+[8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Рис. 8. Планирование книги"
+[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Рис. 9. Пример отчета для сценария сравнения стоимости рабочей нагрузки"
+[10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Рис. 10. Отчет с разбивкой по тегам"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Рис. 11. Группа ресурсов с сопоставленными тегами на портале Azure"
+[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Рис. 12. Данные API использования, импортированные на лист UsageAPI"
+[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Рис. 13. Создание полей для сведений о тегах"
+[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Рис. 14. Заполнение структуры учетной записи данными из результатов поиска"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

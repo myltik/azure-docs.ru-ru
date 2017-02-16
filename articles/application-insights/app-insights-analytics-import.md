@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 98ace6ab2bc2a55bc0101284f5c7675fb1bbed68
-ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
+ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
+ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
 
 
 ---
@@ -102,7 +102,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 2. [Создайте ключ подписанного URL-адреса для большого двоичного объекта](../storage/storage-dotnet-shared-access-signature-part-2.md). Ключ должен иметь срок действия один день и предоставлять доступ для чтения.
 3. Вызовите REST, чтобы уведомить Application Insights о данных, которые ожидают приема.
 
- * Конечная точка: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Конечная точка: `https://dc.services.visualstudio.com/v2/track`
  * Метод HTTP: POST
  * Полезные данные:
 
@@ -114,7 +114,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -128,7 +128,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 Заполнители:
 
 * `Blob URI with Shared Access Key` — вы получаете этот заполнитель во время создания ключа. Он относится к большому двоичному объекту.
-* `Data source name` — имя, которое вы присвоили источнику данных. Данные в большом двоичном объекте должны соответствовать схеме, определенной для этого источника.
+* `Schema ID` — идентификатор схемы, созданный для определенной схемы. Данные в большом двоичном объекте должны соответствовать схеме.
 * `DateTime` — время отправки запроса в формате UTC. Мы принимаем следующие форматы: ISO8601 (например, "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` для ресурса Application Insights.
 
@@ -249,7 +249,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -258,7 +258,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -274,7 +274,10 @@ namespace IngestionClient
             HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -285,11 +288,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 
@@ -332,6 +334,6 @@ namespace IngestionClient
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

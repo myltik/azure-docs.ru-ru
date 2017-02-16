@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
+ms.sourcegitcommit: 4ef2546b34461a8303c5ced22adec0d1e36dfa96
+ms.openlocfilehash: 47849e2700d5da391a5cc3b3f1dbf00dd8c8deea
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
 **Отправка заданий**
 
 1. Создайте в Visual Studio консольное приложение C#.
-2. Введите следующую команду в окне консоли диспетчера пакетов NuGet.
+2. Введите следующую команду в окне консоли диспетчера пакетов NuGet:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Используйте следующий код:
@@ -132,6 +132,10 @@ ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
     ```
 4. Нажмите клавишу **F5** для запуска приложения.
 
+Выходные данные приложения должны иметь следующий вид:
+
+![Выходные данные задания Hadoop Hive в HDInsight](./media/hdinsight-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
@@ -150,6 +154,6 @@ ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

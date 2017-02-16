@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 90207623273c3c8f959a07425e1bdf7324649067
+ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
+ms.openlocfilehash: 9c9ab36ac90c3e73a21c7e53a6715cc4503a8e99
 
 
 ---
@@ -44,13 +44,13 @@ ms.openlocfilehash: 90207623273c3c8f959a07425e1bdf7324649067
 4. Запустите консольное приложение **ProvisionSample** . В примере консольного приложения необходимо подготовить рабочую область и импортировать файл PBIX.
 5. Чтобы подготовить новую **рабочую область**, выберите вариант 5, **Provision a new workspace in an existing workspace collection** (Подготовить новую рабочую область в имеющейся коллекции рабочих областей).
 
-    ![](media\\powerbi-embedded-get-started-sample\\console-option-5.png)
+    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
 6. Введите имя **коллекции рабочих областей** и **ключ доступа**. Их можно получить на **портале Azure**. Дополнительные сведения о том, как получить **ключ доступа**, см. в разделе [Просмотр ключей доступа для вызова API Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) статьи "Начало работы с Microsoft Power BI Embedded".
 
-    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
+    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
 7. Скопируйте и сохраните созданный **идентификатор рабочей области** для дальнейшего использования в этой статье. После создания **идентификатора рабочей области** его можно найти на **портале Azure**.
 
-    ![](media\\powerbi-embedded-get-started-sample\\workspace-id.png)
+    ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
 8. Чтобы импортировать PBIX-файл в свою **рабочую область**, выберите вариант **6. Импорт файла PBIX рабочего стола в существующую рабочую область**. Если у вас нет PBIX-файла, то можете скачать [PBIX-файл примера анализа розничной торговли](http://go.microsoft.com/fwlink/?LinkID=780547).
 9. При появлении запроса укажите понятное имя для своего **набора данных**.
 
@@ -86,11 +86,11 @@ The web app sample is a sample dashboard that renders reports imported into your
 
 Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
-![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-sample-left-nav.png)
+![](media/powerbi-embedded-get-started-sample/power-bi-embedded-sample-left-nav.png)
 
 After you click a report, the **EmbedSample** web application should look something this:
 
-![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
+![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## Explore the sample code
 The **Microsoft Power BI Embedded** sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
@@ -222,7 +222,7 @@ Task<ActionResult> Report(string reportId)
 ### Integrate a report into your app
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Embedded** sample.
 
-![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-iframe-code.png)
+![](media/powerbi-embedded-get-started-sample/power-bi-embedded-iframe-code.png)
 
 ## Filter reports embedded in your application
 You can filter an embedded report using a URL syntax. To do this, you add a **$filter** query string parameter with an **eq** operator to your iFrame src url with the filter specified. Here is the filter query syntax:
@@ -244,6 +244,6 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

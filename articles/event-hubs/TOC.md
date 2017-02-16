@@ -7,7 +7,7 @@
 
 
 # Начало работы
-## [Приступая к работе с концентраторами событий](event-hubs-csharp-ephcs-getstarted.md)
+## [Начало работы с концентраторами событий](event-hubs-csharp-ephcs-getstarted.md)
 ## [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
 ## [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 
@@ -24,22 +24,22 @@
 ### [Активация архива концентраторов событий с помощью Python](event-hubs-archive-python.md)
 
 # Справочные материалы
-## [Квоты и ограничения](event-hubs-quotas.md)
-## [Исключения в обмене сообщениями](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST](/rest/api/eventhub)
 
 # Ресурсы
+## [Квоты и ограничения](event-hubs-quotas.md)
+## [Исключения в обмене сообщениями](event-hubs-messaging-exceptions.md)
+## [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [Цены](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Обозреватель служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

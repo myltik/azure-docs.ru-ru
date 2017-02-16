@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 04e6a43e478484d90478e4aa90d489ea4eb0cc68
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
 
 В этом руководстве предполагается, что у вас уже есть успешно созданное приложение, а сами вы знакомы с эмулятором вычислений и развертыванием в Azure.
 
-В качестве отправной точки в этой статье мы будем использовать приложение из [центра разработчиков Java][центра разработчиков Java]. Создайте такое приложение, прежде чем продолжить, если вы еще не сделали этого.
+В качестве отправной точки в этом разделе мы будем использовать приложение из [центра разработчиков Java][Using the Azure Service Runtime Library in JSP]. Создайте такое приложение, прежде чем продолжить, если вы еще не сделали этого.
 
 ## <a name="to-debug-your-application-while-running-in-azure"></a>Отладка приложения во время выполнения в Azure
 > [!WARNING]
@@ -39,7 +39,7 @@ ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
 2. Перестройте проект: в меню Eclipse выберите **Проект** и щелкните **Build All** (Собрать все).
 3. Разверните приложение в *промежуточной среде* в Azure.
     >[AZURE.IMPORTANT] Ранее уже упоминалось, что в большинстве случаев отладку настоятельно рекомендуется выполнять в эмуляторе вычислений, поэтому отладку в промежуточной среде следует выполнять только в том случае, когда требуется дополнительная отладка. Рекомендуется не выполнять отладку в рабочей среде.
-4. Когда развертывание в Azure будет готово, получите DNS-имя для развертывания на [портале управления Azure][портал управления Azure]. Промежуточное развертывание имеет DNS-имя в виде http://*&lt;guid&gt;*.cloudapp.net, где *&lt;guid&gt;* представляет собой значение GUID, назначенное службой Azure.
+4. Когда развертывание в Azure будет готово, получите для него DNS-имя с [портала управления Azure][Azure Management Portal]. Промежуточное развертывание имеет DNS-имя в виде http://*&lt;guid&gt;*.cloudapp.net, где *&lt;guid&gt;* представляет собой значение GUID, назначенное службой Azure.
 5. В обозревателе проектов Eclipse щелкните правой кнопкой мыши **WorkerRole1**, выберите пункт **Azure**, а затем щелкните **Отладка**.
 6. В диалоговом окне **Properties for WorkerRole1 Debugging** (Свойства для отладки WorkerRole1) выполните следующие действия.
    1. Установите флажок **Enable remote debugging for this role**
@@ -119,22 +119,22 @@ ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
 * Чтобы включить удаленную отладку в GlassFish, не используйте функцию конфигурации удаленной отладки из набора средств Azure для Eclipse. Вместо этого настройте GlassFish вручную. Из-за особенностей обработки GlassFish параметров Java, предварительно заданных в переменных среды, функция конфигурации удаленной отладки из набора средств работает с GlassFish неправильно. Если функция конфигурации удаленной отладки из набора средств включена, GlassFish может не запускаться.
 
 ## <a name="see-also"></a>См. также
-[Набор средств Azure для Eclipse][Набор средств Azure для Eclipse]
+[Набор средств Azure для Eclipse][Azure Toolkit for Eclipse]
 
-[Создание приложения Hello World для Azure в Eclipse][Создание приложения Hello World для Azure в Eclipse]
+[Создание приложения Hello World для Azure в Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Установка набора средств Azure для Eclipse][Установка набора средств Azure для Eclipse] 
+[Установка набора средств Azure для Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[портал управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[центра разработчиков Java]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
@@ -145,6 +145,6 @@ ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

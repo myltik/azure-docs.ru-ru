@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
 * Общие сведения о API защиты данных, главных ключах и сертификатах
 * Использование команд SQL для создания главного ключа и сертификатов, а также шифрования базы данных
 
-[Настройка безопасности в DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
+[Настройка безопасности в DevTest Labs](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
 Являясь владельцем лаборатории, вы можете защитить доступ к ней с помощью двух ролей: владельца и пользователя DevTest Labs. Лицо с ролью владельца имеет полный доступ к лабораторной среде, тогда как лицо с ролью пользователя DevTest Labs —лишь ограниченный. В этом видео мы покажем, как добавить в лабораторию пользователя с любой из этих ролей.
 
@@ -81,6 +81,6 @@ ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

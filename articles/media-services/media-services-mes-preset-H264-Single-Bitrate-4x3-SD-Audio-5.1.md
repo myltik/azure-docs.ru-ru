@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 7bf48559416f63b3e10d426ce13f1f64050192bf
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: eefd96f0e2280ad68a4524ffa8b66efa320a3743
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 7bf48559416f63b3e10d426ce13f1f64050192bf
   
  В этом разделе показана предустановка `H264 Single Bitrate 4x3 SD Audio 5.1` в форматах XML и JSON.  
   
- Данная предустановка создает отдельный MP4-файл со скоростью 18 000 Кбит/с и звуком в формате AAC 5.1. Чтобы получить дополнительные сведения о профиле, скорости, частоте выборки и т. п. данной предустановки, ознакомьтесь с кодом XML или JSON ниже. Описание каждого элемента и его допустимых значений см. в разделе [Схема Media Encoder Standard](media-services-mes-schema.md).  
+ Данная предустановка создает отдельный MP4-файл со скоростью 1800 Кбит/с и звуком в формате AAC 5.1. Чтобы получить дополнительные сведения о профиле, скорости, частоте выборки и т. п. данной предустановки, ознакомьтесь с кодом XML или JSON ниже. Описание каждого элемента и его допустимых значений см. в разделе [Схема Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -119,6 +119,7 @@ ms.openlocfilehash: 7bf48559416f63b3e10d426ce13f1f64050192bf
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

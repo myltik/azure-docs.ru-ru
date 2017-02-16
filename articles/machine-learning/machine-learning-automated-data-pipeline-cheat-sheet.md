@@ -29,7 +29,7 @@ ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Загрузить памятку по работе с автоматическим конвейером данных машинного обучения
 Загрузив памятку, распечатайте ее в формате А3 (27,94 x 43,18 см).
 
- **[Памятка по работе с автоматическим конвейером данных машинного обучения Microsoft Azure](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+**[Памятка по работе с автоматическим конвейером данных машинного обучения Microsoft Azure](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Обзор возможностей Студии машинного обучения Microsoft Azure][op-cheat-sheet]
 

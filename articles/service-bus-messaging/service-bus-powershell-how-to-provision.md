@@ -1,5 +1,5 @@
 ---
-title: "Управление служебной шиной с помощью PowerShell | Документация Майкрософт"
+title: "Управление служебной шиной Azure с помощью PowerShell | Документация Майкрософт"
 description: "Управление служебной шиной с помощью сценариев PowerShell"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 5b6c396d89816bb2804cc63beb860f4628333cb7
+ms.sourcegitcommit: 61f31c8ad0463776937f366d145595f04cc42d2e
+ms.openlocfilehash: 24dd8757942488aa8364cc6cf968cfc17299699f
 
 
 ---
@@ -43,17 +43,17 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 В сценарии PowerShell эти действия выполняются следующим образом:
 
-```
+```powershell
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
-    Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
+    Write-Host "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
     $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.ServiceBus.dll" -Recurse
     Add-Type -Path $assembly.FullName
 
-    Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
+    Write-Host "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
 }
 
 catch [System.Exception]
@@ -79,7 +79,7 @@ catch [System.Exception]
 2. Если пространство имен найдено, появляется сообщение о том, что именно нашел сценарий.
 3. Если пространство имен не найдено, сценарий создает его и возвращает созданное пространство.
    
-    ```
+    ```powershell
     $Namespace = "MyServiceBusNS"
     $Location = "West US"
    
@@ -89,12 +89,12 @@ catch [System.Exception]
     # Check if the namespace already exists or needs to be created
     if ($CurrentNamespace)
     {
-        Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
+        Write-Host "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
     }
     else
     {
         Write-Host "The [$Namespace] namespace does not exist."
-        Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
+        Write-Host "Creating the [$Namespace] namespace in the [$Location] region..."
         New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace $false -NamespaceType Messaging
         $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
         Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
@@ -104,16 +104,16 @@ catch [System.Exception]
 Чтобы подготовить другие сущности служебной шины к работе, создайте экземпляр класса [NamespaceManager][NamespaceManager] из пакета SDK.
 Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule]. Ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. В дальнейшем мы используем переменную `$NamespaceManager` в сценарии для подготовки к работе других сущностей.
 
-``` powershell
+```powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
 # Create the NamespaceManager object to create the event hub
-Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+Write-Host "Creating a NamespaceManager object for the [$Namespace] namespace..."
 $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+Write-Host "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Подготовка других сущностей Service Bus
-Чтобы подготовить к работе другие сущности, такие как очереди, разделы и концентраторы событий, используйте [API .NET для служебной шины][.NET API for Service Bus]. В этой статье рассматриваются только концентраторы событий, но действия для других сущностей выполняются таким же образом. Кроме того, в конце статьи приведены более подробные примеры, включая примеры с другими сущностями.
+Чтобы подготовить к работе другие сущности, такие как очереди, разделы и концентраторы событий, используйте [API .NET для служебной шины] [API .NET для служебной шины]. В этой статье рассматриваются только концентраторы событий, но действия для других сущностей выполняются таким же образом. Кроме того, в конце статьи приведены более подробные примеры, включая примеры с другими сущностями.
 
 В этой части сценария мы создадим четыре дополнительных локальных переменных, которые будут использоваться для создания экземпляра объекта `EventHubDescription`. Скрипт выполняет следующие задачи:
 
@@ -121,7 +121,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 2. Если он не существует, создает и передает `EventHubDescription` в класс `NamespaceManager` метода `CreateEventHubIfNotExists`.
 3. Когда концентратор событий становится доступен, сценарий создает группу потребителей с помощью `ConsumerGroupDescription` и `NamespaceManager`.
    
-    ```
+    ```powershell
     $Path  = "MyEventHub"
     $PartitionCount = 12
     $MessageRetentionInDays = 7
@@ -131,32 +131,32 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
     # Check to see if the Event Hub already exists
     if ($NamespaceManager.EventHubExists($Path))
     {
-        Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
+        Write-Host "The [$Path] event hub already exists in the [$Namespace] namespace."  
     }
     else
     {
-        Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
+        Write-Host "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
         $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
         $EventHubDescription.PartitionCount = $PartitionCount
         $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
         $EventHubDescription.UserMetadata = $UserMetadata
         $EventHubDescription.Path = $Path
-        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
-        Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
+        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription)
+        Write-Host "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
     }
    
     # Create the consumer group if it doesn't exist
-    Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
+    Write-Host "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
     $ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
     $ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
-    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
-    Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
+    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription)
+    Write-Host "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
     ```
 
 ## <a name="migrate-a-namespace-to-another-azure-subscription"></a>Перенос пространства имен в другую подписку Azure
 Следующая последовательность команд перемещает пространство имен из одной подписки Azure в другую. Для выполнения этой операции пространство имен уже должно быть активным, а пользователь, выполняющий команды PowerShell, должен обладать правами администратора в исходной и целевой подписках.
 
-```
+```powershell
 # Create a new resource group in target subscription
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -185,14 +185,13 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
-[Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
-[New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
-[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/Get-AzureSBNamespace
+[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/get-azuresbauthorizationrule
+[NamespaceManager]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

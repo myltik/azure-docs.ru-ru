@@ -1,6 +1,6 @@
 ---
-title: "Имитация устройства с помощью пакета SDK для шлюза Интернета вещей | Документация Майкрософт"
-description: "Пошаговое руководство по работе с пакетом SDK для шлюза Azure IoT под управлением Windows показывает, как отправлять данные телеметрии с имитации устройства, используя пакет SDK для шлюза Azure IoT."
+title: "Имитация устройства с помощью пакета SDK для шлюза Azure IoT (Windows) | Документация Майкрософт"
+description: "Использование пакета SDK для шлюза Azure IoT в Windows для создания имитации устройства, отправляющего данные телеметрии через шлюз в Центр Интернета вещей."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 432fa33d0b7340e075270f4959217978e89b8c69
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-app-using-windows"></a>Пакет SDK для шлюза Интернета вещей (бета-версия): отправка сообщений с устройства в облако через приложение имитации устройства с помощью Windows
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Использование пакета SDK для шлюза Azure IoT для отправки сообщений с устройства в облако с помощью имитации устройства (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Сборка и запуск примера
@@ -28,7 +28,7 @@ ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
 
 * [Настроить среду разработки][lnk-setupdevbox] для работы с пакетом SDK для Windows.
 * [Создать Центр Интернета вещей][lnk-create-hub] в подписке Azure (для выполнения указаний данного пошагового руководства необходимо имя центра). Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
-* Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Чтобы добавить устройства в Центр Интернета вещей, созданный на предыдущем шаге, и получить его ключи, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
+* Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Чтобы добавить устройства в Центр Интернета вещей, созданный на предыдущем шаге, и получить их ключи, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
 
 Сборка примера
 
@@ -152,7 +152,7 @@ ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Руководство разработчика][lnk-devguide]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -167,6 +167,6 @@ ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

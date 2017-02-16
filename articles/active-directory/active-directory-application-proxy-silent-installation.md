@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01c62e1e3074d7f9addd75ba51d6131921a4ecc7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fe96fb2159a7d0dba0ad391d25f38f79cf8aeeb3
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 01c62e1e3074d7f9addd75ba51d6131921a4ecc7
 ## <a name="enabling-access"></a>Включение доступа
 Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Но вместо этого с помощью Windows PowerShell можно создать объект учетных данных и указать сведения для регистрации в нем. Кроме того, вы можете создать собственный маркер и использовать его для ввода сведений о регистрации.
 
-## <a name="step-1-install-the-connector-without-registration"></a>Шаг 1. Установка соединителя без регистрации
+## <a name="step-1--install-the-connector-without-registration"></a>Шаг 1. Установка соединителя без регистрации
 Установите MSI-файлы соединителя без регистрации соединителя следующим образом.
 
 1. Откройте окно командной строки.
@@ -127,6 +127,6 @@ ms.openlocfilehash: 01c62e1e3074d7f9addd75ba51d6131921a4ecc7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

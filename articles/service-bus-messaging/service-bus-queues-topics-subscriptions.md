@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 12/20/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
+ms.sourcegitcommit: 60a914e4706414891863c5d1d07846898936815b
+ms.openlocfilehash: cd3b8b73db87a6b15b5a408609417ff2d2ca0a86
 
 
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Очереди, разделы и подписки служебной шины
 Служебная шина Microsoft Azure поддерживает набор облачных технологий промежуточного уровня, ориентированных на обработку сообщений. Эти технологии представлены надежными очередями сообщений, а также возможностями публикации и подписки в рамках обмена сообщениями. Эти возможности обмена сообщениями через посредника могут рассматриваться как разделенные функции обмена сообщениями, поддерживающие публикацию и подписку, временное разделение, а также сценарии балансировки нагрузки с использованием фабрики обмена сообщениями служебной шины. Разделенный обмен данными имеет множество преимуществ. Например, клиенты и серверы могут подключаться по необходимости, выполняя свои операции в асинхронном режиме.
 
-Сущности обмена сообщениями, образующие основные возможности обмена сообщениями через брокер в служебной шине, представлены очередями, разделами и подписками, а также правилами и действиями.
+Сущности обмена сообщениями, образующие основные возможности обмена сообщениями в служебной шине, представлены очередями, разделами и подписками, а также правилами и действиями.
 
 ## <a name="queues"></a>Очереди
-Очереди предлагают доставку сообщений конкурирующим потребителям FIFO. То есть обычно получатели принимают и обрабатывают сообщения в том порядке, в котором они были добавлены в очередь. При этом каждое сообщение принимается и обрабатывается только одним потребителем сообщений. Основное преимущество использования очередей — временное разделение компонентов приложений. Другими словами, производителям (отправителям) и потребителям (получателям) не приходится отправлять и получать сообщения в одно и то же время, поскольку сообщения надежно хранятся в очереди. Более того, производителю не нужно ждать ответ от потребителя, чтобы продолжить обработку и отправку дальнейших сообщений.
+Очереди предлагают доставку сообщений конкурирующим потребителям по типу *FIFO* (первым пришел, первым вышел). То есть обычно получатели принимают и обрабатывают сообщения в том порядке, в котором они были добавлены в очередь. При этом каждое сообщение принимается и обрабатывается только одним потребителем сообщений. Основное преимущество использования очередей — временное разделение компонентов приложений. Другими словами, производителям (отправителям) и потребителям (получателям) не приходится отправлять и получать сообщения в одно и то же время, поскольку сообщения надежно хранятся в очереди. Более того, производителю не нужно ждать ответ от потребителя, чтобы продолжить обработку и отправку дальнейших сообщений.
 
 Сопутствующее преимущество заключается в выравнивании нагрузки — оно позволяет производителям и потребителям отправлять и получать сообщения с разной скоростью. Во многих приложениях уровень системной нагрузки со временем меняется, однако длительность обработки каждой единицы работы, как правило, остается постоянной. Обмен сообщениями между производителем и потребителем с использованием очереди предусматривает подготовку потребляющего приложения к обработке средней, а не пиковой нагрузки. При колебаниях входящей нагрузки просто изменяется глубина очереди. Это позволяет существенно сократить расходы на инфраструктуру, необходимую для обработки нагрузки приложения. По мере возрастания нагрузки могут потребоваться дополнительные рабочие процессы для чтения из очереди. Каждое сообщение обрабатывается одним рабочим процессом. Кроме того, балансировка нагрузки по запросу обеспечивает оптимальное использование рабочих компьютеров с разной вычислительной мощностью, позволяя извлекать сообщения с максимально доступной скоростью. Такой подход часто называют моделью "конкурирующих потребителей".
 
@@ -34,16 +34,16 @@ ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
 
 Создание очереди является многоэтапным процессом. Выполнять операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов) можно с использованием класса [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс создается путем предоставления базового адреса пространства имен служебной шины и учетных данных пользователя. Класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Создав объект [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) на основе имени и ключа SAS, а также объект управления пространством имен службы, можно создать очередь, используя метод [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx). Например:
 
-```
+```csharp
 // Create management credentials
-TokenProvider credentials = TokenProvider. CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
+TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
 // Create namespace client
 NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
 ```
 
 Затем можно создать объект очереди и фабрику обмена сообщениями с помощью URI служебной шины в качестве аргумента. Например:
 
-```
+```csharp
 QueueDescription myQueue;
 myQueue = namespaceClient.CreateQueue("TestQueue");
 MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials); 
@@ -52,7 +52,7 @@ QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 
 После этого можно отправлять сообщения в очередь. Например, если имеется список сообщений, передаваемых через посредника, с именем `MessageList`, код будет выглядеть приблизительно так:
 
-```
+```csharp
 for (int count = 0; count < 6; count++)
 {
     var issue = MessageList[count];
@@ -61,9 +61,9 @@ for (int count = 0; count < 6; count++)
 }
 ```
 
-Можно затем получить сообщения из очереди, как показано ниже:
+Затем можно получить сообщения из очереди, как показано ниже:
 
-```
+```csharp
 while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, seconds: 5))) != null)
     {
         Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
@@ -74,13 +74,13 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
     }
 ```
 
-В режиме [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) получение является одиночной операцией. Это значит, что, когда служебная шина получает запрос, сообщение помечается как использованное и возвращается в приложение. Режим [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) представляет собой самую простую модель. Наиболее эффективен он в сценариях, когда приложение допускает отсутствие обработки сообщения в случае сбоя. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Служебная шина помечает сообщение как использованное. Следовательно, когда после перезапуска приложение снова начнет обрабатывать сообщения, оно пропустит сообщение, использованное до сбоя.
+В режиме [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) получение является одиночной операцией. Это значит, что, когда служебная шина получает запрос, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель. Наиболее эффективен он в сценариях, когда приложение допускает отсутствие обработки сообщения в случае сбоя. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Служебная шина помечает сообщение как использованное. Следовательно, когда после перезапуска приложение снова начнет обрабатывать сообщения, оно пропустит сообщение, использованное до сбоя.
 
-В режиме [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) процесс получения становится двухэтапной операцией. Это позволяет поддерживать приложения, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы другие потребители не могли его принять, а затем возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) для полученного сообщения. Когда служебная шина фиксирует вызов [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), сообщение помечается как использованное.
+В режиме [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) процесс получения становится двухэтапной операцией. Это позволяет поддерживать приложения, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы другие потребители не могли его принять, а затем возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина фиксирует вызов **Complete**, сообщение помечается как использованное.
 
-Если приложение по каким-либо причинам не может обработать сообщение, оно может вызвать для полученного сообщения метод [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) (вместо метода [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). После этого служебная шина разблокирует сообщение в очереди, сделав его доступным для приема тем же или другим конкурирующим потребителем. Кроме того, блокирование связано с определенным временем ожидания. Если приложение не сможет обработать сообщение до истечения времени ожидания (например, при сбое приложения), служебная шина автоматически разблокирует сообщение, сделав его снова доступным для получения (фактически выполняя операцию [прерывания](https://msdn.microsoft.com/library/azure/hh181837.aspx) по умолчанию).
+Если приложение по каким-либо причинам не может обработать сообщение, оно может вызвать для полученного сообщения метод [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) (вместо метода [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). После этого служебная шина разблокирует сообщение в очереди, сделав его доступным для приема тем же или другим конкурирующим потребителем. Кроме того, блокирование связано с определенным временем ожидания. Если приложение не сможет обработать сообщение до истечения времени ожидания (например, при сбое приложения), служебная шина автоматически разблокирует сообщение, сделав его снова доступным для получения (фактически выполняя операцию [прерывания](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) по умолчанию).
 
-Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), такое сообщение будет повторно доставлено в приложение после перезапуска. Такой подход предполагает принцип обработки сообщения *хотя бы один раз*. Тем не менее в некоторых случаях это же сообщение может быть доставлено повторно. Если сценарий не допускает повторную обработку, для обнаружения дубликатов требуется дополнительная логика в приложении. Это реализуется с помощью свойства сообщения **MessageId**, которое остается постоянным в ходе разных попыток доставки. Такой подход предполагает концепцию обработки *только один раз*.
+Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса **Complete**, такое сообщение будет повторно доставлено в приложение после перезапуска. Такой подход предполагает принцип обработки сообщения *хотя бы один раз*. Тем не менее в некоторых случаях это же сообщение может быть доставлено повторно. Если сценарий не допускает повторную обработку, для обнаружения дубликатов требуется дополнительная логика в приложении. Это реализуется с помощью свойства сообщения **MessageId**, которое остается постоянным в ходе разных попыток доставки. Такой подход предполагает концепцию обработки *только один раз*.
 
 Дополнительные сведения и рабочий пример создания и отправки сообщений в очередь и из нее см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине](service-bus-brokered-tutorial-dotnet.md).
 
@@ -89,29 +89,29 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 Продолжая сравнение, следует отметить, что при отправке из очереди сообщения распределяются непосредственно в раздел, а при извлечении — в подписку. Помимо прочего, это означает, что подписки также поддерживают схемы для очередей, описанные ранее в этом разделе, в том числе конкуренцию потребителей, временное разделение, а также выравнивание и балансировку нагрузки.
 
-Создание раздела аналогично созданию очереди, как показано в примере, приведенном в предыдущем разделе. Создайте URI службы, а затем с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) создайте клиент пространства имен. Затем с помощью метода [CreateTopic](https://msdn.microsoft.com/library/azure/hh293080.aspx) можно создать раздел. Например:
+Создание раздела аналогично созданию очереди, как показано в примере, приведенном в предыдущем разделе. Создайте URI службы, а затем с помощью класса [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) создайте клиент пространства имен. Затем с помощью метода [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) можно создать раздел. Например:
 
-```
+```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
 ```
 
 Затем добавьте необходимые подписки:
 
-```
+```csharp
 SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Inventory");
 SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
 ```
 
 После этого можно создать клиент раздела. Например:
 
-```
+```csharp
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
 TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
 ```
 
 С помощью отправителя сообщений можно отправлять сообщения в раздел и извлекать их из раздела, как описано выше. Например:
 
-```
+```csharp
 foreach (BrokeredMessage message in messageList)
 {
     myTopicClient.Send(message);
@@ -120,9 +120,9 @@ foreach (BrokeredMessage message in messageList)
 }
 ```
 
-Как и в случае с очередью, сообщения извлекаются из подписки с помощью объекта [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx), используемого вместо объекта [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Создайте клиент подписки, передав в качестве параметров имя раздела, имя подписки и (необязательно) режим получения. Пример с подпиской **Inventory**:
+Как и в случае с очередью, сообщения извлекаются из подписки с помощью объекта [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient), используемого вместо объекта [QueueClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient). Создайте клиент подписки, передав в качестве параметров имя раздела, имя подписки и (необязательно) режим получения. Пример с подпиской **Inventory**:
 
-```
+```csharp
 // Create the subscription client
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider); 
 
@@ -149,16 +149,16 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 
 Используя предыдущий пример, вы можете создать подписку Dashboard для фильтрации сообщений, приходящих только из хранилища **Store1**, как показано ниже.
 
-```
+```csharp
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
 ```
 
 Благодаря этому фильтру подписки в виртуальную очередь для подписки `Dashboard` копируются только сообщения со свойством `StoreName`, которому задано значение `Store1`.
 
-Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) и [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Ознакомьтесь также с примерами [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Фильтры разделов).
+Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) и [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Ознакомьтесь также с примерами [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Фильтры разделов).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения и примеры использования сущностей обмена сообщениями через брокер в служебной шине см. в следующих дополнительных статьях.
+Дополнительные сведения и примеры использования обмена сообщениями в служебной шине см. в следующих дополнительных статьях.
 
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
 * [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине](service-bus-brokered-tutorial-dotnet.md)
@@ -169,6 +169,6 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

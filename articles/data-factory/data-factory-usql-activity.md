@@ -1,6 +1,6 @@
 ---
-title: "Запуск скрипта U-SQL в аналитике озера данных Azure из фабрики данных Azure"
-description: "Узнайте, как обрабатывать данные с помощью скриптов U-SQL в службе вычислений аналитики озера данных Azure."
+title: "Преобразование данных с помощью сценария U-SQL в Azure | Документация Майкрософт"
+description: "Узнайте, как обрабатывать и преобразовывать данные с помощью сценариев U-SQL в службе вычислений Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: f2d7655f0e119b524b7fb9a32bee4cc874e265a5
+ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
+ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
 
 
 ---
-# <a name="run-u-sql-script-on-azure-data-lake-analytics-from-azure-data-factory"></a>Запуск скрипта U-SQL в аналитике озера данных Azure из фабрики данных Azure
+# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -303,6 +303,6 @@ OUTPUT @rs1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

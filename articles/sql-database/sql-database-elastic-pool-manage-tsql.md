@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,14 +16,14 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 17ec1ad8218824048179e32ae5059b6a6d77a367
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: 9688c3b402b7961675e06e804a68ff454126d5f3
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-transact-sql"></a>Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL
+# <a name="monitor-and-manage-an-elastic-pool-with-transact-sql"></a>Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-elastic-pool-manage-portal.md)
+> * [портале Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 > * [C#](sql-database-elastic-pool-manage-csharp.md)
 > * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
@@ -77,13 +77,13 @@ ms.openlocfilehash: 17ec1ad8218824048179e32ae5059b6a6d77a367
 Проанализировать статистику использования ресурсов базы данных в эластичном пуле можно в [представлении sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) или [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx). Этот процесс аналогичен отправке запроса на использование ресурсов для любой отдельной базы данных.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После создания эластичного пула вы можете управлять эластичными базами данных в пуле путем создания заданий обработки эластичных БД. Эластичные задания позволяют легко и быстро выполнять сценарии T-SQL в любом количестве баз данных в пуле. Дополнительные сведения можно узнать в статье [Обзор службы заданий эластичной базы данных](sql-database-elastic-jobs-overview.md). 
+После создания эластичного пула вы можете управлять его эластичными базами данных путем создания эластичных заданий. Эластичные задания позволяют легко и быстро выполнять сценарии T-SQL в любом количестве баз данных в пуле. Дополнительные сведения можно узнать в статье [Обзор службы заданий эластичной базы данных](sql-database-elastic-jobs-overview.md). 
 
 Ознакомьтесь с разделом [Масштабирование базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В нем описывается использование инструментов эластичной базы данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

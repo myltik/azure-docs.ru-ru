@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 Чтобы создать средство ведения журнала, выполните HTTP-запрос PUT, используя следующий шаблон URL-адреса.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Замените `{your service}` именем экземпляра службы управления API.
 * Замените `{new logger name}` требуемым именем нового средства ведения журнала. Вы укажете это имя при настройке политики [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) (регистрация в концентраторе событий).
@@ -66,14 +66,16 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 Укажите текст запроса, используя следующий шаблон.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * Для параметра `type` нужно задать значение `AzureEventHub`.
 * `description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
@@ -101,9 +103,11 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 ![Редактор политики][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 Замените `logger-id` именем средства ведения журнала службы управления API, настроенного на предыдущем этапе.
 
@@ -143,6 +147,6 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

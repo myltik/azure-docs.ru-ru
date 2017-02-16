@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2016
+ms.date: 01/13/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: cd28ec107c292c20cde11ed635950b42acd5d720
+ms.sourcegitcommit: 593f2d35730bcc03fb9d925be36c4c1423a31a49
+ms.openlocfilehash: 23b634a6acde9837308815d9973e5da80fcde767
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: cd28ec107c292c20cde11ed635950b42acd5d720
 > [!TIP]
 > Справку по отладке ошибок во время развертывания можно получить в следующих статьях.
 > 
-> * [Просмотр операций развертывания с помощью REST API Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
+> * Статья [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
 > * [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md) — руководство по устранению распространенных ошибок при развертывании.
 > 
 > 
@@ -91,16 +91,16 @@ ms.openlocfilehash: cd28ec107c292c20cde11ed635950b42acd5d720
 [!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* Сведения об обработке асинхронных операций REST см. в статье [Track asynchronous Azure operations](resource-manager-async-operations.md) (Отслеживание асинхронных операций Azure).
 * Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Сведения об определении параметров в шаблоне см. в разделе [Создание шаблонов](resource-group-authoring-templates.md#parameters).
 * Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
-* Дополнительные сведения об использовании ссылки на хранилище ключей для безопасной передачи значений см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 * Сведения об автоматизации развертывания см. в статье [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Автоматизация развертывания приложений на виртуальных машинах Azure), которая входит в цикл из четырех частей. Этот цикл охватывает такие аспекты, как архитектура приложения, доступ и безопасность, доступность и масштабирование, а также развертывание приложения.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

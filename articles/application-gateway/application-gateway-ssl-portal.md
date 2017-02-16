@@ -4,7 +4,7 @@ description: "На этой странице приводятся инструк
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0105c00b40143981c4f5dba621f91425b80f31cf
-ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
+ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
+ms.openlocfilehash: d5c3d2ef6fe8fe22552fe1b23f3a4690b166be8b
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
 > * [портал Azure](application-gateway-ssl-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-ssl-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 Шлюз приложений Azure можно настроить на завершение сеанса SSL в шлюзе, что позволит избежать выполнения дорогостоящей задачи SSL-шифрования на веб-ферме. Кроме того, разгрузка SSL упрощает процесс установки внешнего сервера и управления веб-приложением.
 
@@ -98,6 +96,6 @@ ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД | Документация Майкрософт"
+title: "SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию СУБД | Документация Майкрософт"
 description: "SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: 
@@ -17,66 +17,66 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 7b2beda1d7081da0dcc9b6de6745bec27ab45adc
-ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
+ms.sourcegitcommit: 7cbb85e3f6705770a3eab7cc5a0da5070f2a170e
+ms.openlocfilehash: 52506430dcaccca1a29878470abb86585593b5a7
 
 
 ---
-# <a name="sap-netweaver-on-windows-virtual-machines-vms--dbms-deployment-guide"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД
-[767598]:https://service.sap.com/sap/support/notes/767598
-[773830]:https://service.sap.com/sap/support/notes/773830
-[826037;]:https://service.sap.com/sap/support/notes/826037
-[965908]:https://service.sap.com/sap/support/notes/965908
-[1031096]:https://service.sap.com/sap/support/notes/1031096
-[1139904;]:https://service.sap.com/sap/support/notes/1139904
-[1173395.]:https://service.sap.com/sap/support/notes/1173395
-[1245200]:https://service.sap.com/sap/support/notes/1245200
-[1409604]:https://service.sap.com/sap/support/notes/1409604
-[1558958;]:https://service.sap.com/sap/support/notes/1558958
-[1585981.]:https://service.sap.com/sap/support/notes/1585981
-[1588316]:https://service.sap.com/sap/support/notes/1588316
-[1590719]:https://service.sap.com/sap/support/notes/1590719
-[1597355]:https://service.sap.com/sap/support/notes/1597355
-[1605680;]:https://service.sap.com/sap/support/notes/1605680
-[1619720]:https://service.sap.com/sap/support/notes/1619720
-[1619726]:https://service.sap.com/sap/support/notes/1619726
-[1619967;]:https://service.sap.com/sap/support/notes/1619967
-[1750510]:https://service.sap.com/sap/support/notes/1750510
-[1752266]:https://service.sap.com/sap/support/notes/1752266
-[1757924;]:https://service.sap.com/sap/support/notes/1757924
-[1757928]:https://service.sap.com/sap/support/notes/1757928
-[1758182]:https://service.sap.com/sap/support/notes/1758182
-[1758496;]:https://service.sap.com/sap/support/notes/1758496
-[1772688]:https://service.sap.com/sap/support/notes/1772688
-[1814258;]:https://service.sap.com/sap/support/notes/1814258
-[1882376.]:https://service.sap.com/sap/support/notes/1882376
-[1909114]:https://service.sap.com/sap/support/notes/1909114
-[1922555;]:https://service.sap.com/sap/support/notes/1922555
-[1928533]:https://service.sap.com/sap/support/notes/1928533
-[1941500]:https://service.sap.com/sap/support/notes/1941500
-[1956005.]:https://service.sap.com/sap/support/notes/1956005
-[1973241]:https://service.sap.com/sap/support/notes/1973241
-[1984787]:https://service.sap.com/sap/support/notes/1984787
-[1999351]:https://service.sap.com/sap/support/notes/1999351
-[2002167]:https://service.sap.com/sap/support/notes/2002167
-[2015553]:https://service.sap.com/sap/support/notes/2015553
-[2039619]:https://service.sap.com/sap/support/notes/2039619
-[2121797]:https://service.sap.com/sap/support/notes/2121797
-[2134316]:https://service.sap.com/sap/support/notes/2134316
-[2178632]:https://service.sap.com/sap/support/notes/2178632
-[2191498]:https://service.sap.com/sap/support/notes/2191498
-[2233094]:https://service.sap.com/sap/support/notes/2233094
-[2243692]:https://service.sap.com/sap/support/notes/2243692
+# <a name="sap-netweaver-on-azure-virtual-machines-vms--dbms-deployment-guide"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037;]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1139904;]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395.]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958;]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981.]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680;]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967;]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924;]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496;]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258;]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376.]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555;]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005.]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:virtual-machines-windows-sap-dbm[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Кэширование для виртуальных машин и виртуальных жестких дисков) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Программный RAID-массив) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Служба хранилища Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Структура развертывания реляционной СУБД) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Высокая доступность и аварийное восстановление с использованием виртуальных машин Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 4 (CU4) и последующие выпуски) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 3 (CU3) и более ранние выпуски) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Использование образов SQL Server из Microsoft Azure Marketplace) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Общая сводка по SQL Server для SAP в Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Особенности реляционных СУБД SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Конфигурация хранилища) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Архивация и восстановление) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Рекомендации по ускорению архивации и восстановления) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Прочее) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:virtual-machines-windows-sap-dbm[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию СУБД) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Кэширование для виртуальных машин и виртуальных жестких дисков) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Программный RAID-массив) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Служба хранилища Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Структура развертывания реляционной СУБД) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Высокая доступность и аварийное восстановление с использованием виртуальных машин Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 4 (CU4) и последующие выпуски) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 3 (CU3) и более ранние выпуски) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Использование образов SQL Server из Microsoft Azure Marketplace) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Общая сводка по SQL Server для SAP в Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Особенности реляционных СУБД SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Конфигурация хранилища) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Архивация и восстановление) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Рекомендации по ускорению архивации и восстановления) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Прочее) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -88,7 +88,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Материалы по SAP) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Развертывание виртуальной машины с помощью пользовательского образа) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Сценарий 1. Развертывание виртуальной машины для SAP из Azure Marketplace) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Сценарий 2. Развертывание виртуальной машины с помощью пользовательского образа для SAP) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Сценарий 3. Перемещение виртуальной машины из локальной среды с помощью специализированного виртуального жесткого диска Azure с SAP) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Сценарии развертывания виртуальных машин для SAP в Microsoft Azure) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Развертывание командлетов Azure PowerShell) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Скачивание и импорт соответствующих командлетов PowerShell для SAP) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Присоединение виртуальной машины к локальному домену (только для Windows)) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Скачивание, установка и включение агента виртуальной машины Azure) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Интерфейс командной строки Azure) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Расширенный мониторинг Azure для SAP: настройка расширения) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Расширенный мониторинг Azure для SAP: проверка готовности) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Конфигурация инфраструктуры мониторинга Azure: проверка работоспособности) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Инфраструктура мониторинга Azure для SAP: дальнейшее устранение неполадок)
+[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Материалы по SAP) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Развертывание виртуальной машины с помощью пользовательского образа) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Сценарий 1. Развертывание виртуальной машины для SAP из Azure Marketplace) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Сценарий 2. Развертывание виртуальной машины с помощью пользовательского образа для SAP) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Сценарий 3. Перемещение виртуальной машины из локальной среды с помощью специализированного виртуального жесткого диска Azure с SAP) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Сценарии развертывания виртуальных машин для SAP в Microsoft Azure) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Развертывание командлетов Azure PowerShell) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Скачивание и импорт соответствующих командлетов PowerShell для SAP) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Присоединение виртуальной машины к локальному домену (только для Windows)) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Скачивание, установка и включение агента виртуальной машины Azure) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Интерфейс командной строки Azure) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Расширенный мониторинг Azure для SAP: настройка расширения) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Расширенный мониторинг Azure для SAP: проверка готовности) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Конфигурация инфраструктуры мониторинга Azure: проверка работоспособности) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Инфраструктура мониторинга Azure для SAP: дальнейшее устранение неполадок)
 
 [deployment-guide-configure-monitoring-scenario-1]:virtual-machines-windows-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
 [deployment-guide-configure-proxy]:virtual-machines-windows-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
@@ -116,9 +116,9 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [deployment-guide-install-vm-agent-windows]:virtual-machines-windows-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:virtual-machines-windows-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
 
-[deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
-[deploy-template-powershell]:../resource-group-template-deploy.md#deploy-with-powershell
+[deploy-template-cli]:../azure-resource-manager/resource-group-template-deploy-cli.md
+[deploy-template-portal]:../azure-resource-manager/resource-group-template-deploy-portal.md
+[deploy-template-powershell]:../azure-resource-manager/resource-group-template-deploy.md
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -145,7 +145,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Материалы) [planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Высокая доступность и аварийное восстановление для SAP NetWeaver на виртуальных машинах Azure) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Высокая доступность серверов приложений SAP) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Использование автозапуска для экземпляров SAP) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Только облако. Развертывание виртуальных машин в Azure без зависимостей в локальной сети клиента) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Распределенная сеть. Развертывание одной или нескольких виртуальных машин SAP в Azure с необходимостью полной интеграции с локальной сетью) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Регионы Azure) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Домены сбоя) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Домены обновления) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Группы доступности Azure) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Концепция виртуальных машин Microsoft Azure) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Перемещение виртуальной машины из локальной среды в Azure с помощью специализированного диска) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Развертывание виртуальной машины с помощью пользовательского образа) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Подготовка виртуальной машины к перемещению из локальной среды в Azure с помощью специализированного диска) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Подготовка виртуальной машины к развертыванию с помощью пользовательского образа для SAP) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Подготовка виртуальных машин с SAP для Azure) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Разница между диском Azure и образом Azure)[planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Отправка VHD-диска из локальной среды в Azure) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Копирование дисков между учетными записями хранения Azure) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Структура виртуальной машины и VHD для развертываний SAP) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Настройка автоподключения для подключенных дисков) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Обучающий сценарий с демонстрацией одной виртуальной машины с SAP NetWeaver) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Концепция полностью облачного развертывания экземпляров SAP) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Решение мониторинга Azure для SAP) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium)
+[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver на виртуальных машинах Azure. Руководство по планированию и внедрению) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Материалы) [planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Высокая доступность и аварийное восстановление для SAP NetWeaver на виртуальных машинах Azure) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Высокая доступность серверов приложений SAP) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Использование автозапуска для экземпляров SAP) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Только облако. Развертывание виртуальных машин в Azure без зависимостей в локальной сети клиента) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Распределенная сеть. Развертывание одной или нескольких виртуальных машин SAP в Azure с необходимостью полной интеграции с локальной сетью) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Регионы Azure) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Домены сбоя) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Домены обновления) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Группы доступности Azure) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Концепция виртуальных машин Microsoft Azure) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Перемещение виртуальной машины из локальной среды в Azure с помощью специализированного диска) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Развертывание виртуальной машины с помощью пользовательского образа) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Подготовка виртуальной машины к перемещению из локальной среды в Azure с помощью специализированного диска) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Подготовка виртуальной машины к развертыванию с помощью пользовательского образа для SAP) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Подготовка виртуальных машин с SAP для Azure) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Разница между диском Azure и образом Azure)[planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Отправка VHD-диска из локальной среды в Azure) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Копирование дисков между учетными записями хранения Azure) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Структура виртуальной машины и VHD для развертываний SAP) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Настройка автоподключения для подключенных дисков) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Обучающий сценарий с демонстрацией одной виртуальной машины с SAP NetWeaver) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Концепция полностью облачного развертывания экземпляров SAP) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Решение мониторинга Azure для SAP) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium)
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -173,9 +173,9 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
-[resource-group-authoring-templates]:../resource-group-authoring-templates.md
-[resource-group-overview]:../resource-group-overview.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
+[resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -195,8 +195,8 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:virtual-machines-linux-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:../resource-manager-deployment-model.md
+[virtual-machines-azure-resource-manager-architecture]:../azure-resource-manager/resource-manager-deployment-model.md
+[virtual-machines-azurerm-versus-azuresm]:../azure-resource-manager/resource-manager-deployment-model.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
@@ -217,11 +217,11 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [virtual-machines-manage-availability]:virtual-machines-windows-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:virtual-machines-windows-sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -242,13 +242,11 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../xplat-cli-install.md
-[xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
+[xplat-cli-azure-resource-manager]:../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 Это руководство — часть документации по внедрению и развертыванию программного обеспечения SAP в Microsoft Azure. Перед ознакомлением с этим документом прочитайте статью [SAP NetWeaver на виртуальных машинах Azure. Руководство по планированию и реализации][planning-guide]. В руководстве рассматривается развертывание различных реляционных систем управления базами данных (РСУБД) и связанных продуктов в сочетании с SAP на виртуальных машинах Microsoft Azure с использованием возможностей инфраструктуры Azure как услуги (IaaS).
 
 Это руководство дополняет документацию по установке SAP и комментарии по SAP, которые являются основными ресурсами по установке и развертыванию SAP на упомянутых платформах.
-
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
 ## <a name="general-considerations"></a>Общие рекомендации
 В этой главе рассматриваются вопросы запуска связанных с SAP систем СУБД на виртуальных машинах Azure. Также здесь приводятся ссылки на конкретные СУБД. Конкретные СУБД рассматриваются в руководстве после этой главы.
@@ -264,7 +262,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 * Ландшафт SAP: термин обозначает все ресурсы SAP, доступные в клиентском ИТ-ландшафте. Ландшафт SAP включает все рабочие и нерабочие среды.
 * Система SAP: сочетание уровня СУБД и уровня приложений, например система разработки SAP ERP, тестовая система SAP BW, производственная система SAP CRM и т. д. В развертываниях Azure не поддерживается разделение этих двух уровней между локальной средой и Azure. Таким образом, система SAP должна быть развернута полностью в локальной среде или полностью в Azure. Но при этом вы можете развертывать разные системы ландшафта SAP как в Azure, так и локально. Например, системы разработки и тестирования SAP CRM можно развернуть в Azure, а производственную систему SAP CRM — в локальной среде.
 * Развертывание только в облаке: это развертывание, в котором подписка Azure не подключена к инфраструктуре локальной сети через подключение типа "сеть — сеть" или ExpressRoute. В документации Azure развертывания такого рода традиционно называются полностью облачными. Доступ к виртуальным машинам, развернутым с помощью этого метода, осуществляется через Интернет по общедоступным конечным точкам, которые назначаются виртуальным машинам в Azure. В этих типах развертываний Active Directory (AD) и DNS из локальной сети не расширяется в Azure. Таким образом, эти виртуальные машины не входят в локальный каталог Active Directory. Примечание. Развертывания только в облаке в этом документе определяются как полные ландшафты SAP, которые работают исключительно в Azure. Для них службы Active Directory и служба разрешения имен не распространяются из локальной сети в общедоступное облако. Полностью облачные конфигурации не поддерживаются для производственных систем SAP и конфигураций, в которых требуется наличие SAP STMS или других локальных ресурсов между размещенными в Azure системами SAP и локальными ресурсами.
-* Распределенное развертывание: описывает сценарии, при которых в подписке Azure развернуты виртуальные машины с подключениями типа "сеть — сеть" или ExpressRoute между локальными центрами обработки данных и Azure. В документации Azure развертывания такого рода также называются распределенными развертываниями. Такое подключение используется для расширения в Azure локальных доменов, локальной службы Active Directory и локальной службы DNS. Локальная среда распространяется на ресурсы Azure, входящие в подписку. При таком расширении виртуальные машины могут быть частью локального домена. Пользователи локального домена имеют доступ к серверам и могут запускать службы на этих виртуальных машинах (например, службы СУБД). Возможно взаимодействие и разрешение имен между виртуальными машинами, развернутыми в локальной сети и Azure. Ожидается, что это будет наиболее распространенным сценарием развертывания ресурсов SAP в Azure. Дополнительные сведения см. в [статье][vpn-gateway-cross-premises-options] и [статье][vpn-gateway-site-to-site-create].
+* Распределенное развертывание: описывает сценарии, при которых в подписке Azure развернуты виртуальные машины с подключениями типа "сеть — сеть" или ExpressRoute между локальными центрами обработки данных и Azure. В документации Azure развертывания такого рода также называются распределенными развертываниями. Такое подключение используется для расширения в Azure локальных доменов, локальной службы Active Directory и локальной службы DNS. Локальная среда распространяется на ресурсы Azure, входящие в подписку. При таком расширении виртуальные машины могут быть частью локального домена. Пользователи локального домена имеют доступ к серверам и могут запускать службы на этих виртуальных машинах (например, службы СУБД). Возможно взаимодействие и разрешение имен между виртуальными машинами, развернутыми в локальной сети и Azure. Ожидается, что это будет наиболее распространенным сценарием развертывания ресурсов SAP в Azure. Дополнительные сведения см. в [этой][vpn-gateway-cross-premises-options] и [этой][vpn-gateway-site-to-site-create] статьях.
 
 > [!NOTE]
 > Для производственных систем SAP поддерживаются распределенные развертывания систем SAP, в которых системы SAP выполняются на виртуальных машинах Azure, являющихся членами локального домена. Распределенная конфигурация предполагает развертывание в Azure полного ландшафта SAP или его частей. Даже если весь ландшафт SAP работает в Azure, эти виртуальные машины должны входить в локальный домен и каталог ADS. В прежних версиях этого документа мы говорили о гибридных сценариях ИТ-систем, где термин "гибридные" применялся на том основании, что между локальной сетью и Azure существует распределенное подключение. Кроме того, этот термин также обозначает, что развернутые в Azure виртуальные машины являются частью локальной системы Active Directory.
@@ -276,10 +274,10 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 ### <a name="resources"></a>Ресурсы
 По теме развертывания SAP в Azure доступны следующие руководства:
 
-* [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide]
-* [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию][deployment-guide]
-* [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД (этот документ)][dbms-guide]
-* [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию и обеспечению высокого уровня доступности ][ha-guide]
+* [SAP NetWeaver на виртуальных машинах Azure. Руководство по планированию и внедрению][planning-guide]
+* [SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию][deployment-guide]
+* [SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию СУБД (этот документ)][dbms-guide]
+* [SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию и обеспечению высокого уровня доступности][ha-guide]
 
 Следующие примечания по SAP актуальны для развертывания SAP в Azure.
 
@@ -322,7 +320,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 
 До марта 2015 г. виртуальные жесткие диски Azure, содержащие операционную систему, были ограничены размером 127 ГБ. Это ограничение было снято в марте 2015 года (дополнительные сведения см. по ссылке <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). Теперь виртуальные жесткие диски с операционной системой могут иметь такой же размер, как и любой другой виртуальный жесткий диск. Но мы все равно предпочитаем структуру развертывания, в которой операционная система, СУБД и конечные двоичные файлы SAP отделены от файлов базы данных. Следовательно, мы ожидаем, что в системах SAP, выполняемых на виртуальных машинах Azure, будут установлены операционная система, исполняемые файлы СУБД и исполняемые файлы SAP на базовой виртуальной машине (или виртуальном жестком диске). Файлы данных СУБД и журналов будут храниться в службе хранилища Azure (класса Standard или Premium) в отдельных файлах виртуальных жестких дисков и присоединяться в качестве логических дисков к исходной виртуальной машине с образом операционной системы Azure. 
 
-В зависимости от того, какой уровень хранилища Azure используется — "Стандартный" или "Премиум", (например, при использовании виртуальных машин серии DS или серии GS), в Azure предусмотрены другие квоты, описанные [здесь][virtual-machines-sizes]. При планировании виртуальных жестких дисков Azure вам нужно найти оптимальный баланс между следующими квотами:
+В зависимости от того, какой уровень хранилища Azure используется — "Стандартный" или "Премиум" (например, при использовании виртуальных машин серии DS или серии GS), в Azure предусмотрены другие квоты, описанные [здесь][virtual-machines-sizes]. При планировании виртуальных жестких дисков Azure вам нужно найти оптимальный баланс между следующими квотами:
 
 * Количество файлов данных.
 * Количество виртуальных жестких дисков, которые содержат файлы.
@@ -338,7 +336,7 @@ Azure будет обеспечивать квоту на количество �
 Расположение файлов баз данных и файлов журналов, а также тип используемой службы хранилища Azure должны определяться требованиями к операциям ввода-вывода, задержкам и пропускной способности. Чтобы получить достаточное количество операций ввода-вывода для журнала транзакций, иногда необходимо использовать несколько виртуальных жестких дисков для файла журнала транзакций или более крупный диск хранилища класса Premium. В этом случае можно просто создать программный RAID-массив (например, пул хранения Windows для Windows или MDADM и LVM (диспетчер логических томов) для Linux) с виртуальными жесткими дисками, которые будут содержать журнал транзакций.
 
 - - -
-> ![ Windows][Logo_Windows] Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > D:\ на виртуальной машине Azure — это несохраняемый диск, поддерживаемый некоторыми локальными дисками на вычислительном узле Azure. Несохраняемый означает, что любые изменения содержимого диска D:\ теряются при перезагрузке виртуальной машины. Под любыми изменениями подразумевается сохранение файлов, создание каталогов, установка приложений и т. д.
 > 
@@ -376,7 +374,7 @@ Azure будет обеспечивать квоту на количество �
 * Без кэширования
 * Кэширование чтения
 
-Для хранилища Azure уровня "Премиум" рекомендуется использовать параметр **Read caching for data files** (Кэширование чтения файлов данных) базы данных SAP и выбрать **No caching for the VHD(s) of log file(s)** (Без кэширования виртуальных жестких дисков файлов журнала).
+Для хранилища Azure класса Premium рекомендуется использовать параметр **Read caching for data files** (Кэширование чтения файлов данных) базы данных SAP и выбрать **No caching for the VHD(s) of log file(s)** (Без кэширования виртуальных жестких дисков файлов журнала).
 
 ### <a name="a-namec8e566f9-21b7-4457-9f7f-126036971a91asoftware-raid"></a><a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>Программный RAID-массив
 Как уже говорилось выше, вам потребуется сбалансировать настраиваемое количество операций ввода-вывода, необходимых для файлов базы данных, между виртуальными жесткими дисками. Также это нужно сделать в отношении максимального количества операций ввода-вывода, которое будет обеспечивать виртуальная машина Azure для каждого виртуального жесткого диска или типа диска в хранилище класса Premium. Самый простой способ справиться с нагрузкой операций ввода-вывода — создать программный RAID-массив для разных виртуальных жестких дисков. Затем следует поместить ряд файлов данных СУБД SAP в LUN, полученные из программного RAID-массива. В зависимости от требований иногда рекомендуется использовать хранилище класса Premium, так как два из трех разных дисков хранилища этого класса предоставляют более высокую квоту операций ввода-вывода, чем виртуальные жесткие диски в хранилище класса Standard. Кроме того, служба хранилища Azure класса Premium характеризуется улучшенной задержкой при операциях ввода-вывода. 
@@ -390,7 +388,7 @@ Azure будет обеспечивать квоту на количество �
 * Вы не знаете точную рабочую нагрузку ввода-вывода на каждый файл данных, и вы только примерно знаете общую рабочую нагрузку операций ввода-вывода для СУБД. Проще всего будет создать один LUN с помощью программного RAID-массива. После этого сумма квот для нескольких виртуальных жестких дисков, входящих в этот LUN, будет соответствовать известной скорости операций ввода-вывода.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > Использование дисковых пространств под управлением Windows Server 2012 и выше предпочтительнее, так как это более эффективно, чем функция Windows Striping из более ранних версий Windows. Следует учитывать, что при использовании операционной системы Windows Server 2012 иногда необходимо создавать пулы хранения и дисковые пространства Windows с помощью команд PowerShell. Команды PowerShell описаны здесь: <https://technet.microsoft.com/library/jj851254.aspx>.
 > 
@@ -399,7 +397,7 @@ Azure будет обеспечивать квоту на количество �
 > Для создания программного RAID-массива в Linux поддерживаются только MDADM и LVM (диспетчер логических томов). Дополнительные сведения см. в следующих статьях:
 > 
 > * [Настройка программного RAID-массива в Linux][virtual-machines-linux-configure-raid] (для MDADM)
-> * [Настройка LVM на виртуальной машине Linux в Azure][virtual-machines-linux-configure-lvm]
+> * [Настройка диспетчера логических томов на виртуальной машине Linux в Azure][virtual-machines-linux-configure-lvm]
 > 
 > 
 
@@ -419,10 +417,10 @@ Azure будет обеспечивать квоту на количество �
 
 Локальная репликация службы хранилища Azure (локально избыточная) обеспечивает такие уровни защиты от потери данных вследствие сбоя инфраструктуры, которые мало кто из клиентов может себе позволить развернуть. Как показано выше, существуют четыре варианта; также доступен пятый — как разновидность одного из первых трех. Различия состоят в следующем:
 
-* **Локально избыточное хранилище (LRS) уровня "Премиум"**. Хранилище Azure уровня "Премиум" обеспечивает поддержку высокопроизводительных дисков с низкой задержкой для виртуальных машин с интенсивной рабочей нагрузкой ввода-вывода. Предусматриваются три реплики данных в пределах одного и того же центра обработки данных Azure в том или ином регионе Azure. Копии будут располагаться в разных доменах сбоя и обновления (основные понятия см. в [этом][planning-guide-3.2] разделе [руководства по планированию][planning-guide]). В случае выхода из строя реплики данных из-за сбоя узла хранилища или диска автоматически создается новая реплика.
-* **Локально избыточное хранилище (LRS)**. В этом случае предусматриваются 3 реплики данных в одном и том же центре обработки данных Azure в регионе Azure. Копии будут располагаться в разных доменах сбоя и обновления (основные понятия см. в [этом][planning-guide-3.2] разделе [руководства по планированию][planning-guide]). В случае выхода из строя реплики данных из-за сбоя узла хранилища или диска автоматически создается новая реплика. 
-* **Геоизбыточное хранилище (GRS)**. В этом случае реализуется асинхронная репликация, которая обслуживает 3 дополнительные реплики данных в другом регионе Azure, который в большинстве случаев находится в том же географическом регионе (например, Северная Европа и Западная Европа). В результате получатся три дополнительные реплики, так что всего суммарно реплик будет шесть. Может быть вариант, когда данные в геореплицированном регионе Azure используются для чтения (геоизбыточность с доступом на чтение).
-* **Хранилище, избыточное в пределах зоны (ZRS)**. В этом случае 3 реплики данных хранятся в одном и том же регионе Azure. Как описано в [этом][planning-guide-3.1] разделе [руководства по планированию][planning-guide], в одном регионе Azure может быть несколько центров обработки данных, расположенных в непосредственной близости. В случае LRS реплики будут распределяться между разными центрами обработки данных, которые входят в один регион Azure.
+* **Локально избыточное хранилище (LRS) класса Premium.** Хранилище Azure класса Premium обеспечивает поддержку высокопроизводительных дисков с низкой задержкой для виртуальных машин с интенсивной рабочей нагрузкой ввода-вывода. Предусматриваются три реплики данных в пределах одного и того же центра обработки данных Azure в том или ином регионе Azure. Копии будут располагаться в разных доменах сбоя и обновления (основные понятия см. в [этом][planning-guide-3.2] разделе [руководства по планированию][planning-guide]). В случае выхода из строя реплики данных из-за сбоя узла хранилища или диска автоматически создается новая реплика.
+* **Локально избыточное хранилище (LRS).** В этом случае предусматриваются 3 реплики данных в одном и том же центре обработки данных Azure в регионе Azure. Копии будут располагаться в разных доменах сбоя и обновления (основные понятия см. в [этом][planning-guide-3.2] разделе [руководства по планированию][planning-guide]). В случае выхода из строя реплики данных из-за сбоя узла хранилища или диска автоматически создается новая реплика. 
+* **Геоизбыточное хранилище (GRS).** В этом случае реализуется асинхронная репликация, которая обслуживает 3 дополнительные реплики данных в другом регионе Azure, который в большинстве случаев находится в том же географическом регионе (например, Северная Европа и Западная Европа). В результате получатся три дополнительные реплики, так что всего суммарно реплик будет шесть. Может быть вариант, когда данные в геореплицированном регионе Azure используются для чтения (геоизбыточность с доступом на чтение).
+* **Хранилище, избыточное в пределах зоны (ZRS).** В этом случае 3 реплики данных хранятся в одном и том же регионе Azure. Как описано в [этом][planning-guide-3.1] разделе [руководства по планированию][planning-guide], в одном регионе Azure может быть несколько центров обработки данных, расположенных в непосредственной близости. В случае LRS реплики будут распределяться между разными центрами обработки данных, которые входят в один регион Azure.
 
 Дополнительные сведения см. [здесь][storage-redundancy].
 
@@ -442,7 +440,7 @@ Azure будет обеспечивать квоту на количество �
 #### <a name="mapping-vhds-into-azure-virtual-machine-service-storage-accounts"></a>Сопоставление виртуальных жестких дисков с учетными записями хранения службы виртуальных машин Azure
 Учетная запись хранения Azure является не только административной конструкцией, но и предметом ограничений. Ограничения отличаются для учетных записей службы хранилища Azure классов Standard и Premium. Точное описание возможностей и ограничений приведено [здесь][storage-scalability-targets].
 
-Поэтому для хранилища Azure уровня "Стандартный" важно отметить ограничение количества операций ввода-вывода для учетной записи хранения (см. строку "Частота запросов" в [этой статье][storage-scalability-targets]). Кроме того, существует изначальное ограничение в 100 учетных записей хранения на одну подписку Azure (начиная с июля 2015 г.). Таким образом, при использовании службы хранилища Azure класса Standard рекомендуется сбалансировать количество операций ввода-вывода для виртуальных машин между несколькими учетными записями хранения. При этом отдельная виртуальная машина в идеале использует по возможности одну учетную запись хранения. Поэтому, если говорить о развертываниях СУБД, где каждый виртуальный жесткий диск, размещенный в службе хранилища Azure класса Standard, может достичь предела квоты, следует развертывать не более 30–40 виртуальных жестких дисков на одну учетную запись службы хранилища Azure класса Standard. С другой стороны, если используется служба хранилища Azure класса Premium и есть необходимость хранить крупные тома базы данных, показатели операций ввода-вывода будут адекватными. Однако учетная запись службы хранилища Azure класса Premium накладывает существенно большие ограничения на объем данных, чем аналогичная учетная запись хранилища класса Standard. Поэтому в учетной записи службы хранилища Azure класса Premium можно развернуть только ограниченное количество виртуальных жестких дисков, прежде чем лимит объема данных будет исчерпан. В конечном итоге учетную запись службы хранилища Azure можно рассматривать как виртуальную сеть SAN с ограниченными возможностями в показателях операций ввода-вывода и (или) емкости. В результате остается та же задача, что и при локальном развертывании, — определить структуру виртуальных жестких дисков различных систем SAP для разных воображаемых устройств SAN или учетных записей службы хранилища Azure.
+Поэтому для службы хранилища Azure уровня "Стандартный" важно отметить ограничение количества операций ввода-вывода для учетной записи хранения (см. строку "Частота запросов" в [этой статье][storage-scalability-targets]). Кроме того, существует изначальное ограничение в 100 учетных записей хранения на одну подписку Azure (начиная с июля 2015 г.). Таким образом, при использовании службы хранилища Azure класса Standard рекомендуется сбалансировать количество операций ввода-вывода для виртуальных машин между несколькими учетными записями хранения. При этом отдельная виртуальная машина в идеале использует по возможности одну учетную запись хранения. Поэтому, если говорить о развертываниях СУБД, где каждый виртуальный жесткий диск, размещенный в службе хранилища Azure класса Standard, может достичь предела квоты, следует развертывать не более 30–40 виртуальных жестких дисков на одну учетную запись службы хранилища Azure класса Standard. С другой стороны, если используется служба хранилища Azure класса Premium и есть необходимость хранить крупные тома базы данных, показатели операций ввода-вывода будут адекватными. Однако учетная запись службы хранилища Azure класса Premium накладывает существенно большие ограничения на объем данных, чем аналогичная учетная запись хранилища класса Standard. Поэтому в учетной записи службы хранилища Azure класса Premium можно развернуть только ограниченное количество виртуальных жестких дисков, прежде чем лимит объема данных будет исчерпан. В конечном итоге учетную запись службы хранилища Azure можно рассматривать как виртуальную сеть SAN с ограниченными возможностями в показателях операций ввода-вывода и (или) емкости. В результате остается та же задача, что и при локальном развертывании, — определить структуру виртуальных жестких дисков различных систем SAP для разных воображаемых устройств SAN или учетных записей службы хранилища Azure.
 
 Для службы хранилища Azure класса Standard по возможности не рекомендуется предоставлять хранилище, состоящее из разных учетных записей хранения, одной виртуальной машине.
 
@@ -452,7 +450,7 @@ Azure будет обеспечивать квоту на количество �
 
 Как и в случае с локальными устройствами SAN, для совместного использования требуется определенный мониторинг, позволяющий своевременно обнаруживать проблемы, связанные с учетной записью службы хранилища Azure. Такие средства, как расширение мониторинга Azure для SAP и портал Azure, позволяют обнаруживать загруженные учетные записи хранения Azure, которые могут демонстрировать неоптимальную производительность ввода-вывода.  В таком случае рекомендуется переместить загруженные виртуальные машины в другую учетную запись службы хранилища Azure. Подробные сведения о том, как активировать возможности мониторинга узла SAP, см. в [руководстве по развертыванию][deployment-guide].
 
-Другую статью со сводкой практических рекомендаций по хранилищу Azure уровня "Стандартный" и связанным учетным записям см. здесь: <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>.
+Другую статью со сводкой практических рекомендаций по хранилищу Azure класса Standard и связанным учетным записям см. здесь: <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>.
 
 #### <a name="moving-deployed-dbms-vms-from-azure-standard-storage-to-azure-premium-storage"></a>Перемещение развернутых виртуальных машин СУБД из службы хранилища Azure класса Standard в службу хранилища Azure класса Premium
 Существует немало сценариев, когда заказчику необходимо переместить развернутую виртуальную машину между службами хранилища Azure разных классов (Standard и Premium). Это невозможно без физического перемещения данных. Это можно сделать несколькими способами.
@@ -484,7 +482,7 @@ Azure предоставляет следующие функции высоко�
 ### <a name="vms-deployed-on-azure-nodes"></a>Виртуальные машины, развернутые на узлах Azure
 Для развернутых виртуальных машин платформа Azure не предоставляет таких функций, как динамическая миграция. Это означает, что при необходимости в техническом обслуживании на серверном кластере, где развернута виртуальная машина, эту машину потребуется остановить и перезапустить. Техническое обслуживание в Azure выполняется с помощью так называемых доменов обновления в кластерах серверов. Одновременно поддерживается обслуживание только одного домена обновления. В ходе такой перезагрузки обслуживание будет прервано на время выключения виртуальной машины, выполнения технического обслуживания и перезапуска виртуальной машины. Однако большинство поставщиков СУБД предоставляют функциональные возможности высокой доступности и аварийного восстановления, которые позволяют быстро перезапустить службы СУБД на другом узле в случае недоступности основного узла. Платформа Azure предоставляет функциональные возможности для распределения виртуальных машин, службы хранилища и других служб Azure между доменами обновления, чтобы гарантировать, что плановое техническое обслуживание или сбой инфраструктуры повлияют только на небольшое подмножество виртуальных машин или служб.  Благодаря тщательному планированию можно добиться уровней доступности, сравнимых с локальными инфраструктурами.
 
-Группы доступности Microsoft Azure — это логические группы виртуальных машин или служб, которые обеспечивают их распределение по разным доменам сбоя и обновления в кластере таким образом, чтобы в любой момент времени происходило завершение работы только одного узла (дополнительные сведения см. в [этой][virtual-machines-manage-availability] статье).
+Группы доступности Microsoft Azure — это логические группы виртуальных машин или служб, которые обеспечивают их распределение по разным доменам сбоя и обновления в кластере таким образом, чтобы в любой момент времени могла быть завершена работа только одного узла (дополнительные сведения см. в [этой][virtual-machines-manage-availability] статье).
 
 Их необходимо настроить в соответствии с назначением при развертывании виртуальных машин, как показано ниже.
 
@@ -527,15 +525,15 @@ Azure предоставляет следующие функции высоко�
 > 
 > 
 
-Прежде чем продолжить, настоятельно рекомендуем просмотреть [эту][virtual-machines-sql-server-infrastructure-services] документацию.
+Прежде чем продолжить, настоятельно рекомендуем ознакомиться с [этой][virtual-machines-sql-server-infrastructure-services] документацией.
 
 В следующих разделах упоминаются различные фрагменты документации по указанной выше ссылке. Также упоминаются особенности, связанные с SAP. Некоторые основные понятия описаны более подробно. Однако настоятельно рекомендуем сначала поработать с упомянутой выше документацией, прежде чем приступать к чтению документации, касающейся SQL Server.
 
 Существуют некоторые специальные сведения об SQL Server в IaaS, которые следует знать перед продолжением:
 
-* **Соглашение об уровне обслуживания для виртуальных машин**. Существует соглашение об уровне обслуживания для виртуальных машин, работающих в Azure, которое можно найти здесь: <https://azure.microsoft.com/support/legal/sla/>.  
-* **Поддержка версий SQL**. Для клиентов SAP на виртуальной машине Microsoft Azure поддерживается SQL Server 2008 R2 и более поздних версий. Более ранние выпуски не поддерживаются. Дополнительные сведения см. в этом общем [заявлении о поддержке](https://support.microsoft.com/kb/956893). Обратите внимание, что в целом SQL Server 2008 также поддерживается корпорацией Майкрософт. Однако в SQL Server 2008 R2 были представлены важные функциональные возможности для SAP, поэтому SQL Server 2008 R2 является минимальной поддерживаемой версией для SAP. Помните, что в версиях SQL Server 2012 и 2014 были добавлены функции углубленной интеграции в сценарий IaaS (например, резервное копирование непосредственно в хранилище Azure). Поэтому в данном документе мы ограничиваемся версиями SQL Server 2012 и 2014 с последним уровнем исправления для Azure.
-* **Поддержка функций SQL**. Большинство функций SQL Server поддерживается на виртуальных машинах Microsoft Azure с некоторыми исключениями. **Создание отказоустойчивых кластеров SQL Server с использованием общих дисков не поддерживается**.  Распределенные технологии, такие как зеркальное отображение базы данных, группы доступности AlwaysOn, репликация, доставка журналов и Service Broker, поддерживаются в пределах одного региона Azure. SQL Server AlwaysOn также поддерживается между разными регионами Azure, как описано здесь: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Дополнительные сведения см. в [заявлении о поддержке](https://support.microsoft.com/kb/956893). Пример развертывания конфигурации AlwaysOn показан в [этой][virtual-machines-workload-template-sql-alwayson] статье. Кроме того, ознакомьтесь с практическими рекомендациями, описанными [здесь][virtual-machines-sql-server-infrastructure-services]. 
+* **Соглашение об уровне обслуживания для виртуальных машин.** Существует соглашение об уровне обслуживания для виртуальных машин, работающих в Azure, которое можно найти здесь: <https://azure.microsoft.com/support/legal/sla/>.  
+* **Поддержка версий SQL.** Для клиентов SAP на виртуальной машине Microsoft Azure поддерживается SQL Server 2008 R2 и более поздних версий. Более ранние выпуски не поддерживаются. Дополнительные сведения см. в этом общем [заявлении о поддержке](https://support.microsoft.com/kb/956893). Обратите внимание, что в целом SQL Server 2008 также поддерживается корпорацией Майкрософт. Однако в SQL Server 2008 R2 были представлены важные функциональные возможности для SAP, поэтому SQL Server 2008 R2 является минимальной поддерживаемой версией для SAP. Помните, что в версиях SQL Server 2012 и 2014 были добавлены функции углубленной интеграции в сценарий IaaS (например, резервное копирование непосредственно в хранилище Azure). Поэтому в данном документе мы ограничиваемся версиями SQL Server 2012 и 2014 с последним уровнем исправления для Azure.
+* **Поддержка функций SQL.** Большинство функций SQL Server поддерживается на виртуальных машинах Microsoft Azure с некоторыми исключениями. **Создание отказоустойчивых кластеров SQL Server с использованием общих дисков не поддерживается**.  Распределенные технологии, такие как зеркальное отображение базы данных, группы доступности AlwaysOn, репликация, доставка журналов и Service Broker, поддерживаются в пределах одного региона Azure. SQL Server AlwaysOn также поддерживается между разными регионами Azure, как описано здесь: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Дополнительные сведения см. в [заявлении о поддержке](https://support.microsoft.com/kb/956893). Пример развертывания конфигурации AlwaysOn показан в [этой][virtual-machines-workload-template-sql-alwayson] статье. Кроме того, ознакомьтесь с практическими рекомендациями, описанными [здесь][virtual-machines-sql-server-infrastructure-services]. 
 * **Производительность SQL.** Мы уверены, что размещенные в Microsoft Azure виртуальные машины будут работать очень хорошо по сравнению с другими общедоступными облачными предложениями виртуализации, но отдельные результаты могут отличаться. Ознакомьтесь с [этой][virtual-machines-sql-server-performance-best-practices] статьей.
 * **Использование образов из Azure Marketplace.** Самый быстрый способ развернуть новую виртуальную машину Microsoft Azure — использовать образ из Azure Marketplace. В Azure Marketplace имеются образы, содержащие SQL Server. Образы, в которых уже установлен SQL Server, нельзя сразу же использовать для приложений SAP NetWeaver. Причина в том, что в таких образах заданы параметры сортировки по умолчанию для SQL Server, которые отличаются от параметров, требующихся для систем SAP NetWeaver. Чтобы использовать такие образы, выполните действия, описанные в разделе [Использование образов SQL Server из Microsoft Azure Marketplace][dbms-guide-5.6]. 
 * Дополнительные сведения см. в статье [Сведения о ценах](https://azure.microsoft.com/pricing/). Важными материалами также являются [руководство по лицензированию SQL Server 2012](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) и [руководство по лицензированию SQL Server 2014](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf).
@@ -583,7 +581,7 @@ SQL Server 2014 открывает возможность хранить фай�
 
 Подробные сведения об этом типе развертывания приведены здесь: <https://msdn.microsoft.com/library/dn385720.aspx>.
 
-Для хранения файлов данных SQL Server непосредственно в хранилище Azure уровня "Премиум" необходима минимальная версия исправления SQL Server 2014, которая описана здесь: <https://support.microsoft.com/kb/3063054>. Хранение файлов данных SQL Server в хранилище Azure класса "Стандартный" работает с выпущенной версией SQL Server 2014. Однако те же пакеты исправлений содержат еще один ряд исправлений, которые делают прямое использование хранилища BLOB-объектов Azure для файлов данных и резервных копий SQL Server более надежным. Поэтому мы в целом рекомендуем использовать эти исправления.
+Для хранения файлов данных SQL Server непосредственно в хранилище Azure класса Premium необходима минимальная версия исправления SQL Server 2014, которая описана здесь: <https://support.microsoft.com/kb/3063054>. Хранение файлов данных SQL Server в хранилище Azure класса "Стандартный" работает с выпущенной версией SQL Server 2014. Однако те же пакеты исправлений содержат еще один ряд исправлений, которые делают прямое использование хранилища BLOB-объектов Azure для файлов данных и резервных копий SQL Server более надежным. Поэтому мы в целом рекомендуем использовать эти исправления.
 
 ### <a name="sql-server-2014-buffer-pool-extension"></a>Расширение буферного пула SQL Server 2014
 В SQL Server 2014 появилась новая функция, которая называется "Расширение буферного пула". Эта функция расширяет буферный пул SQL Server, который хранится в памяти, с помощью кэша второго уровня, поддерживаемого локальными твердотельными накопителями сервера или виртуальной машины. Это позволяет поддерживать в памяти рабочий набор данных большего размера. По сравнению с доступом к хранилищу Azure класса "Стандартный" доступ к расширению буферного пула, который хранится на локальных твердотельных накопителях виртуальной машины Azure, предоставляется во много раз быстрее.  Таким образом, использование локального диска D:\ таких типов виртуальных машин, которые обладают отличными показателями операций ввода-вывода и пропускной способности, может быть весьма разумным способом снизить нагрузку операций ввода-вывода на хранилище Azure и значительно улучшить время отклика на запросы. Это применимо особенно в том случае, если хранилище класса Premium не используется. В случае с хранилищем класса Premium и использованием кэша чтения Azure Premium на вычислительном узле (что рекомендуется для файлов данных) существенных различий быть не должно. Причина в том, что оба кэша (расширение буферного пула для SQL Server и кэш чтения хранилища класса Premium) используют локальные диски вычислительных узлов.
@@ -655,19 +653,19 @@ SQL Server 2014 открывает возможность хранить фай�
 
 Однако при использовании средства Microsoft SQL Server Backup to Microsoft Azure Tool в предыдущих версиях можно определить несколько целевых расположений для файлов. При наличии нескольких целевых папок резервное копирование можно масштабировать, а его пропускная способность увеличивается. В результате в учетной записи службы хранилища Azure также появится несколько файлов. В ходе тестирования оказалось, что использование нескольких целевых папок для файлов определенно позволяет достичь пропускной способности, которая достигается с помощью расширений резервного копирования, впервые реализованных в версии SQL Server 2012 с пакетом обновления 1 (SP1) и накопительным пакетом 4 (CU4). Также отсутствует ограничение в 1 ТБ, присущее встроенной функции резервного копирования Azure.
 
-При этом следует помнить, что пропускная способность также зависит от расположения учетной записи службы хранения Azure, которая используется для резервного копирования. Хорошей идеей будет использовать учетную запись хранения, расположенную не в том же регионе, в котором запущены виртуальные машины. Например:  виртуальная машина может быть расположена в Западной Европе, а учетная запись хранения, используемая для архивации, — в Северной Европе. Безусловно, это окажет влияние на пропускную способность резервного копирования: вам, скорее всего, не удастся достичь пропускной способности в 150 МБ/с, которая возможна, когда целевое хранилище и виртуальные машины работают в одном и том же региональном центре обработки данных.
+При этом следует помнить, что пропускная способность также зависит от расположения учетной записи службы хранения Azure, которая используется для резервного копирования. Хорошей идеей будет использовать учетную запись хранения, расположенную не в том же регионе, в котором запущены виртуальные машины. Например:  виртуальная машина может быть расположена в Западной Европе, а учетная запись хранения, используемая для резервного копирования, — в Северной Европе. Безусловно, это окажет влияние на пропускную способность резервного копирования: вам, скорее всего, не удастся достичь пропускной способности в 150 МБ/с, которая возможна, когда целевое хранилище и виртуальные машины работают в одном и том же региональном центре обработки данных.
 
 #### <a name="managing-backup-blobs"></a>Управление BLOB-объектами при резервном копировании
 Резервными копиями пользователь должен управлять самостоятельно. При частом резервном копировании журнала транзакций создается множество больших двоичных объектов, поэтому администрирование этих объектов может легко перегрузить портал Azure. Поэтому рекомендуется использовать обозреватель хранилищ Azure. Доступно несколько хороших обозревателей, которые помогают управлять учетной записью хранения Azure.
 
 * Microsoft Visual Studio с установленным пакетом SDK для Azure (<https://azure.microsoft.com/downloads/>).
-* Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>).
+* Обозреватель службы хранилища Microsoft Azure (<https://azure.microsoft.com/downloads/>).
 * Средства сторонних производителей
 
 [комментарий]: <> (еще не поддерживается на устройствах ARM)
-[комментарий]: <> (#### архивация виртуальной машины Azure)
-[комментарий]: <> (для других виртуальных машин в системе SAP можно выполнять архивацию с помощью функции архивации виртуальных машин Azure. Функция резервного копирования виртуальных машин Azure появилась в начале 2015 г.; сейчас это стандартный способ создания полных резервных копий виртуальных машин в Azure. Служба архивации Azure хранит резервные копии в Azure и позволяет восстанавливать состояние виртуальных машин.) 
-[комментарий]: <> (для виртуальных машин, на которых работают базы данных, можно также выполнять согласованную архивацию, если системы СУБД поддерживают Windows VSS (служба теневого копирования томов <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>). Например, в SQL Server эта служба поддерживается. Поэтому использование резервного копирования виртуальных машин Azure позволяет получить восстанавливаемую резервную копию базы данных SAP. При этом следует помнить, что восстановление баз данных до определенной точки во времени невозможно, если резервная копия была создана с помощью службы архивации виртуальных машин Azure. Поэтому мы рекомендуем выполнять архивацию баз данных средствами СУБД, а не использовать службу архивации виртуальных машин Azure). [комментарий]: <> (чтобы ознакомиться с архивацией виртуальных машин Azure, начните с этой страницы: <https://azure.microsoft.com/documentation/services/backup/>).
+[комментарий]: <> (#### резервная копия виртуальной машины Azure)
+[комментарий]: <> (для других виртуальных машин в системе SAP можно создавать резервные копии с помощью функции резервного копирования виртуальных машин Azure. Функция резервного копирования виртуальных машин Azure появилась в начале 2015 г.; сейчас это стандартный способ создания полных резервных копий виртуальных машин в Azure. Служба архивации Azure хранит резервные копии в Azure и позволяет восстанавливать состояние виртуальных машин.) 
+[комментарий]: <> (для виртуальных машин, на которых работают базы данных, можно также создавать согласованные резервные копии, если системы СУБД поддерживают Windows VSS (служба теневого копирования томов <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>). Например, в SQL Server эта служба поддерживается. Поэтому использование резервного копирования виртуальных машин Azure позволяет получить восстанавливаемую резервную копию базы данных SAP. При этом следует помнить, что восстановление баз данных до определенной точки во времени невозможно, если резервная копия была создана с помощью службы архивации виртуальных машин Azure. Поэтому мы рекомендуем создавать резервные копии баз данных средствами СУБД, а не использовать службу архивации виртуальных машин Azure). [комментарий]: <> (чтобы ознакомиться с архивацией виртуальных машин Azure, начните с этой страницы: <https://azure.microsoft.com/documentation/services/backup/>).
 
 ### <a name="a-name1b353e38-21b3-4310-aeb6-a77e7c8e81c8ausing-a-sql-server-images-out-of-the-microsoft-azure-marketplace"></a><a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Использование образов SQL Server из Microsoft Azure Marketplace
 Корпорация Майкрософт размещает в Azure Marketplace виртуальные машины, которые уже содержат версии SQL Server. Следовательно, клиенты SAP, которым нужны лицензии на SQL Server и Windows, могут удовлетворить потребность в лицензиях, развертывая виртуальные машины с уже установленной средой SQL Server. Чтобы использовать такие образы для SAP, необходимо учитывать следующие факторы.
@@ -736,14 +734,14 @@ SQL Server 2014 открывает возможность хранить фай�
 [комментарий]: <> (старый блог)
 [комментарий]: <> (подробные инструкции и необходимые условия для установки конфигурации AlwaysOn в Azure лучше всего выполнять после изучения руководства, которое доступно [здесь][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
 [комментарий]: <> (установка AlwaysOn с предварительной настройкой с помощью коллекции Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
-[комментарий]: <> (создание прослушивателя группы доступности лучше всего описано в [этом][virtual-machines-windows-classic-ps-sql-int-listener] учебнике)
+[комментарий]: <> (создание прослушивателя группы доступности лучше всего описанного в [этом][virtual-machines-windows-classic-ps-sql-int-listener] руководстве)
 [комментарий]: <> (защита сетевых конечных точек с помощью списков управления доступом лучше всего объясняется здесь:)
 [комментарий]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
 [комментарий]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
 [комментарий]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
 [комментарий]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
-Группу доступности AlwaysOn SQL Server можно также развернуть в разных регионах Azure. В этой функции будет задействовано подключение Azure между виртуальными сетями ([подробнее об этом][virtual-networks-configure-vnet-to-vnet-connection]).
+Группу доступности AlwaysOn SQL Server можно также развернуть в разных регионах Azure. В работе этой функции будет задействовано подключение Azure между виртуальными сетями ([подробнее об этом][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [комментарий]: <> (старый блог)
 [комментарий]: <> (настройка групп доступности AlwaysOn SQL Server при таком сценарии описана здесь: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
@@ -767,7 +765,7 @@ SQL Server 2014 открывает возможность хранить фай�
 ### <a name="a-name9053f720-6f3b-4483-904d-15dc54141e30ageneral-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Общие сведения об SQL Server для SAP в Azure
 Это руководство содержит много рекомендаций, и мы советуем прочитать его несколько раз перед планированием развертывания в Azure. В целом необходимо учитывать десять основных рекомендаций, касающихся СУБД в Azure.
 
-[комментарий]: <> (В 2,3 раза более высокая пропускная способность, чем что? Чем один виртуальный жесткий диск?)
+[комментарий]: <> (В 3 раза более высокая пропускная способность, чем что? Чем один виртуальный жесткий диск?)
 1. Используйте новейшую версию СУБД, например SQL Server 2014, которая обладает максимумом преимуществ в Azure. Для SQL Server это версия SQL Server 2012 SP1 CU4, включающая функцию резервного копирования в хранилище Azure. Однако в сочетании с SAP мы бы рекомендовали минимум SQL Server 2014 SP1 CU1 или SQL Server 2012 SP2 и новейший пакет CU.
 2. Тщательно планируйте ландшафт системы SAP в Azure, чтобы сбалансировать структуру файлов данных и ограничения Azure.
    * Не устанавливайте слишком много виртуальных жестких дисков, но обеспечьте достаточное количество для достижения необходимого числа операций ввода-вывода.
@@ -862,7 +860,7 @@ SAP в настоящее время поддерживает версию SAP A
 > 
 > 
 
-Дополнительные сведения о DNS-имени см. [здесь][virtual-machines-azurerm-versus-azuresm].
+Дополнительную информацию о DNS-имени см. [здесь][virtual-machines-azurerm-versus-azuresm].
 
 Если для параметра профиля SAP icm/host_name_full задать DNS-имя виртуальной машины Azure, ссылка может выглядеть так:
 
@@ -975,7 +973,7 @@ SAP в настоящее время поддерживает версию SAP A
 
 Эта конфигурация позволяет tempdb потреблять больше пространства, чем может предоставить системный диск. Для справки можно проверить размеры каталогов tempdb в существующих системах, работающих локально. Или же такая конфигурация обеспечит такие показатели операций ввода-вывода в tempdb, которые не могут быть предоставлены системным диском. Опять же, системы, работающие в локальной среде, можно использовать для мониторинга рабочей нагрузки ввода-вывода на базу данных tempdb.
 
-Никогда не помещайте каталоги SAP ASE в каталог /mnt или /mnt/resource виртуальной машины. Это правило также касается базы данных tempdb, даже если объекты, содержащиеся в tempdb, являются только временными, так как /mnt или /mnt/resource — это стандартное временное пространство виртуальной машины Azure, которое не сохраняется на постоянной основе. Дополнительные сведения о временном пространстве виртуальной машины Azure см. в [этой статье][virtual-machines-linux-how-to-attach-disk].
+Никогда не помещайте каталоги SAP ASE в каталог /mnt или /mnt/resource виртуальной машины. Это правило также касается базы данных tempdb, даже если объекты, содержащиеся в tempdb, являются только временными, так как /mnt или /mnt/resource — это стандартное временное пространство виртуальной машины Azure, которое не сохраняется на постоянной основе. Дополнительные сведения о временном пространстве виртуальной машины Azure можно найти в [этой статье][virtual-machines-linux-how-to-attach-disk].
 
 #### <a name="impact-of-database-compression"></a>Влияние сжатия базы данных
 В конфигурациях, в которых пропускная способность ввода-вывода может стать ограничивающим фактором, каждая мера, позволяющая сократить объем операций ввода-вывода, помогает растянуть рабочую нагрузку, которую можно запускать в сценарии IaaS, например Azure. Таким образом, настоятельно рекомендуется обязательно использовать сжатие SAP ASE перед отправкой существующей базы данных SAP в Azure.
@@ -1015,7 +1013,7 @@ SAP в настоящее время поддерживает версию SAP A
 > 
 > 
 
-Дополнительные сведения о DNS-имени см. [здесь][virtual-machines-azurerm-versus-azuresm].
+Дополнительную информацию о DNS-имени см. [здесь][virtual-machines-azurerm-versus-azuresm].
 
 Если для параметра профиля SAP icm/host_name_full задать DNS-имя виртуальной машины Azure, ссылка может выглядеть так:
 
@@ -1095,7 +1093,7 @@ SAP в настоящее время поддерживает версию SAP A
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Рекомендации по конфигурации Oracle для установки SAP на виртуальные машины Azure
 #### <a name="storage-configuration"></a>Конфигурация хранилища
-Поддерживается только один экземпляр Oracle, использующий диски, отформатированные в NTFS. Все файлы базы данных должны храниться на виртуальных жестких дисках (VHD) с файловой системой NTFS. Эти виртуальные жесткие диски должны быть подключены к виртуальной машине Azure и созданы на основе хранилища страничных BLOB-объектов Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). Любые сетевые диски и удаленные общие ресурсы, включая файловые службы Azure
+Поддерживается только один экземпляр Oracle, использующий диски, отформатированные в NTFS. Все файлы базы данных должны храниться на виртуальных жестких дисках (VHD) с файловой системой NTFS. Эти виртуальные жестки диски должны быть подключены к виртуальной машине Azure и созданы на основе хранилища страничных BLOB-объектов Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). Любые сетевые диски и удаленные общие ресурсы, включая файловые службы Azure
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -1104,7 +1102,7 @@ SAP в настоящее время поддерживает версию SAP A
 
 Если используются виртуальные жесткие диски, созданные на основе хранилища страничных BLOB-объектов Azure, то сведения, приведенные в этом документе в разделах [Кэширование для виртуальных машин и виртуальных жестких дисков][dbms-guide-2.1] и [Служба хранилища Microsoft Azure][dbms-guide-2.3], относятся также и к развертываниям с базой данных Oracle.
 
-Как упомянуто в общей части этого документа, для виртуальных жестких дисков Azure существуют квоты на количество операций ввода-вывода в секунду. Квоты зависят от типа используемой виртуальной машины. Список типов виртуальных машин с соответствующими квотами см. [здесь][virtual-machines-sizes].
+Как упомянуто в общей части этого документа, для виртуальных жестких дисков Azure существуют квоты на количество операций ввода-вывода в секунду. Квоты зависят от типа используемой виртуальной машины. Список типов виртуальных машин с соответствующими квотами приведен [здесь][virtual-machines-sizes].
 
 Чтобы определить поддерживаемые типы виртуальных машин Azure, ознакомьтесь с примечанием к SAP [1928533]
 
@@ -1117,7 +1115,7 @@ SAP в настоящее время поддерживает версию SAP A
 
 #### <a name="high-availability"></a>Высокая доступность
 [комментарий]: <> (ссылка указывает на ASM)
-Для обеспечения высокой доступности и аварийного восстановления можно использовать Oracle Data Guard. Дополнительные сведения см. в [этой][virtual-machines-windows-classic-configure-oracle-data-guard] документации.
+Для обеспечения высокой доступности и аварийного восстановления можно использовать Oracle Data Guard. Дополнительные сведения см. в [этой документации][virtual-machines-windows-classic-configure-oracle-data-guard].
 
 #### <a name="other"></a>Другие
 Все другие общие темы, такие как группы доступности Azure и мониторинг SAP, касаются также развертывания виртуальных машин с базой данных Oracle, как описано в первых трех разделах этого документа.
@@ -1130,7 +1128,7 @@ SAP в настоящее время поддерживает версию SAP A
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Поддерживаемые версии Microsoft Windows и типы виртуальных машин Azure для СУБД SAP MaxDB
 Сведения о поддерживаемых версиях Microsoft Windows для СУБД SAP MaxDB в Azure, см. по следующим ссылкам:
 
-* [SAP Product Availability Matrix (PAM)][sap-pam] (Матрица доступности продуктов SAP);
+* [матрица доступности продуктов SAP;][sap-pam]
 * примечание к SAP [1928533]
 
 Мы настоятельно рекомендуем использовать последнюю версию операционной системы Microsoft Windows — Microsoft Windows 2012 R2.
@@ -1151,7 +1149,7 @@ SAP в настоящее время поддерживает версию SAP A
 
 * Настройте учетную запись хранения Azure, в которой будут храниться тома (т. е. файлы) данных и журналов SAP MaxDB, в качестве **локально избыточного хранилища (LRS)**, как описано в разделе [Служба хранилища Microsoft Azure][dbms-guide-2.3].
 * Разделите пути ввода-вывода для томов (т. е. файлов) данных и томов журналов SAP MaxDB. Это означает, что тома (т. е. файлы) данных SAP MaxDB должны быть установлены на один логический диск, а тома (т. е. файлы) журналов SAP MaxDB — на другой логический диск.
-* Правильно настройте кэширование файлов для каждого большого двоичного объекта Azure. Настройки кэширования зависят от того, что будет храниться в большом двоичном объекте (тома (т. е. файлы) данных или журналов SAP MaxDB), а также от уровня хранилища Azure ("Стандартный" или "Премиум"), как описано в разделе [Кэширование для виртуальных машин и виртуальных жестких дисков][dbms-guide-2.1].
+* Правильно настройте кэширование файлов для каждого большого двоичного объекта Azure. Настройки кэширования зависят от того, что будет храниться в большом двоичном объекте (тома (т. е. файлы) данных или журналов SAP MaxDB), а также от класса хранилища Azure (Standard или Premium), как описано в разделе [Кэширование для виртуальных машин и виртуальных жестких дисков][dbms-guide-2.1].
 * Если текущего количества операций ввода-вывода в секунду для каждого диска достаточно, все тома данных можно хранить на одном подключенном виртуальном жестком диске Azure, а все тома журналов базы данных — на другом подключенном виртуальном жестком диске Azure.
 * Если требуется дополнительное пространство или большее количество операций ввода-вывода в секунду, настоятельно рекомендуем использовать пулы носителей Microsoft Window (доступны только в Microsoft Windows Server 2012 и более поздних версиях) или функцию чередования дисков (для Microsoft Windows 2008 R2). Таким образом из нескольких подключенных виртуальных жестких дисков вы сможете создать одно большое логическое устройство. Ознакомьтесь также с разделом [Программный RAID-массив][dbms-guide-2.2] в этом документе. Такой подход позволяет сократить административные расходы на управление дисковым пространством и избежать необходимости вручную распределять файлы между несколькими подключенными виртуальными жесткими дисками.
 * Если вам требуется максимальное количество операций ввода-вывода в секунду, используйте службу хранилища Azure класса Premium, доступную на виртуальных машинах серий DS и GS.
@@ -1196,7 +1194,7 @@ SAP в настоящее время поддерживает версию SAP A
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Поддерживаемые версии Microsoft Windows и типы виртуальных машин Azure для СУБД SAP liveCache
 Сведения о поддерживаемых версиях Microsoft Windows для СУБД SAP liveCache в Azure, см. по следующим ссылкам:
 
-* [SAP Product Availability Matrix (PAM)][sap-pam] (Матрица доступности продуктов SAP);
+* [матрица доступности продуктов SAP;][sap-pam]
 * примечание к SAP [1928533]
 
 Мы настоятельно рекомендуем использовать последнюю версию операционной системы Microsoft Windows — Microsoft Windows 2012 R2. 
@@ -1237,12 +1235,12 @@ SAP в настоящее время поддерживает версию SAP A
 
 Мы настоятельно рекомендуем использовать последнюю версию сервера содержимого SAP (**6.50 SP4**) на момент написания этого документа, а также самую последнюю версию **служб Microsoft IIS — 8.5**. 
 
-Узнать последние версии сервера содержимого SAP и служб Microsoft IIS можно в [матрице доступности продуктов SAP][sap-pam].
+Узнать последние версии SAP Content Server и служб Microsoft IIS можно в [матрице доступности продуктов SAP][sap-pam].
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Поддерживаемые версии Microsoft Windows и типы виртуальных машин Azure для сервера содержимого SAP
 Сведения о поддерживаемых версиях Microsoft Windows для сервера содержимого SAP в Azure см. по следующим ссылкам:
 
-* [SAP Product Availability Matrix (PAM)][sap-pam] (Матрица доступности продуктов SAP);
+* [матрица доступности продуктов SAP;][sap-pam]
 * примечание к SAP [1928533]
 
 Мы настоятельно рекомендуем использовать последнюю версию операционной системы Microsoft Windows, которой на момент написания этого документа является **Windows Server 2012 R2**.
@@ -1263,8 +1261,8 @@ SAP в настоящее время поддерживает версию SAP A
 
 В этом случае существует два варианта.
 
-1. **Клиентом выступает внутренняя система SAP**. Если во внутренней системе SAP настроен доступ к серверу содержимого SAP, то клиентом выступает система SAP. Так как система SAP и сервер содержимого SAP развернуты в одном и том же регионе Azure (в одном центре обработки данных Azure), они находятся физически близко друг к другу. В этом случае вам не нужен выделенный сервер кэширования SAP. Клиенты пользовательского интерфейса SAP (графического пользовательского интерфейса SAP или веб-браузера) обращаются к системе SAP напрямую, и система SAP извлекает документы с сервера содержимого SAP.
-2. **Клиентом выступает локальный веб-браузер**. Сервер содержимого SAP можно настроить так, чтобы к нему можно было обращаться напрямую из веб-браузера. В таком случае клиентом сервера содержимого SAP выступает локальный веб-браузер. Локальный центр обработки данных и центр обработки данных Azure физически расположены в разных местах (в идеальном случае вблизи друг от друга). Ваш локальный ЦОД соединен с Azure через канал ExpressRoute или VPN-подключение типа "сайт — сайт". Хотя оба варианта предлагают безопасное VPN-подключение к Azure, подключение типа "сайт — сайт" не обеспечивает высокую пропускную способность и низкие задержки для соединения между локальным ЦОД и ЦОД Azure. Ускорить доступ к документам можно двумя способами:
+1. **Клиентом выступает внутренняя система SAP.** Если во внутренней системе SAP настроен доступ к серверу содержимого SAP, то клиентом выступает система SAP. Так как система SAP и сервер содержимого SAP развернуты в одном и том же регионе Azure (в одном центре обработки данных Azure), они находятся физически близко друг к другу. В этом случае вам не нужен выделенный сервер кэширования SAP. Клиенты пользовательского интерфейса SAP (графического пользовательского интерфейса SAP или веб-браузера) обращаются к системе SAP напрямую, и система SAP извлекает документы с сервера содержимого SAP.
+2. **Клиентом выступает локальный веб-браузер.** Сервер содержимого SAP можно настроить так, чтобы к нему можно было обращаться напрямую из веб-браузера. В таком случае клиентом сервера содержимого SAP выступает локальный веб-браузер. Локальный центр обработки данных и центр обработки данных Azure физически расположены в разных местах (в идеальном случае вблизи друг от друга). Ваш локальный ЦОД соединен с Azure через канал ExpressRoute или VPN-подключение типа "сайт — сайт". Хотя оба варианта предлагают безопасное VPN-подключение к Azure, подключение типа "сайт — сайт" не обеспечивает высокую пропускную способность и низкие задержки для соединения между локальным ЦОД и ЦОД Azure. Ускорить доступ к документам можно двумя способами:
    1. установить сервер кэширования SAP локально, недалеко от локального веб-браузера (см. [рисунок][dbms-guide-900-sap-cache-server-on-premises] ниже);
    2. настроить канал Azure ExpressRoute, который обеспечивает выделенное высокоскоростное сетевое подключение с низкой задержкой между локальным ЦОД и ЦОД Azure.
 
@@ -1295,14 +1293,14 @@ SAP в IBM DB2 для LUW поддерживается в службах вир�
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Рекомендации по конфигурации IBM DB2 для Linux, UNIX и Windows для установки SAP на виртуальные машины Azure
 #### <a name="storage-configuration"></a>Конфигурация хранилища
-Все файлы базы данных должны храниться на виртуальных жестких дисках (VHD) с файловой системой NTFS. Эти виртуальные жесткие диски должны быть подключены к виртуальной машине Azure и созданы на основе хранилища страничных BLOB-объектов Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). Сетевые диски всех типов и удаленные общие ресурсы, включая следующие файловые службы Azure, **невозможно** использовать для хранения файлов базы данных. 
+Все файлы базы данных должны храниться на виртуальных жестких дисках (VHD) с файловой системой NTFS. Эти виртуальные жестки диски должны быть подключены к виртуальной машине Azure и созданы на основе хранилища страничных BLOB-объектов Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). Сетевые диски всех типов и удаленные общие ресурсы, включая следующие файловые службы Azure, **невозможно** использовать для хранения файлов базы данных. 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
 Если вы используете виртуальные жесткие диски, созданные на основе хранилища страничных BLOB-объектов Azure, то сведения, приведенные в этом документе в разделе [Структура развертывания реляционной СУБД][dbms-guide-2], относятся также к развертываниям с базой данных IBM DB2 для LUW. 
 
-Как упомянуто в общей части этого документа, для виртуальных жестких дисков Azure существуют квоты на количество операций ввода-вывода в секунду. Квоты зависят от типа используемой виртуальной машины. Список типов виртуальных машин с соответствующими квотами см. [здесь][virtual-machines-sizes].
+Как упомянуто в общей части этого документа, для виртуальных жестких дисков Azure существуют квоты на количество операций ввода-вывода в секунду. Квоты зависят от типа используемой виртуальной машины. Список типов виртуальных машин с соответствующими квотами приведен [здесь][virtual-machines-sizes].
 
 Если текущего количества операций ввода-вывода в секунду для каждого диска достаточно, все файлы базы данных можно хранить на одном подключенном виртуальном жестком диске Azure. 
 
@@ -1342,6 +1340,6 @@ Microsoft Cluster Server (MSCS) не поддерживается.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

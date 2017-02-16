@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
+ms.openlocfilehash: c58d2c68b6b95d7020e03333e36b281ad7d0f9f9
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
 3. Назначение роли пользователю
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790795.png "Scenario")
+![Сценарий](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790795.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Включение интеграции приложений для облачной платформы SAP HANA
 В этом разделе показано, как включить интеграцию приложений для облачной платформы SAP HANA.
@@ -48,101 +48,126 @@ ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
 ### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для облачной платформы SAP HANA, выполните следующие действия:
 1. На портале управления Azure в левой области навигации нажмите **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Приложения")
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Добавление приложения")
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "Добавление приложения из коллекции")
+
 6. В **поле поиска** введите **SAP HANA Cloud Platform**.
    
-   ![Коллекция приложений](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790796.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790796.png "Коллекция приложений")
+
 7. В области результатов выберите **SAP HANA Cloud Platform** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-   ![SAP Hana](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "SAP Hana")
+    ![SAP HANA](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "SAP HANA")
    
-   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configuring-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в облачной платформе SAP HANA со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
 В рамках этой процедуры потребуется отправить сертификат в кодировке Base-64 в клиент облачной платформы SAP HANA.  
 Если вы не знакомы с этой процедурой, просмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. На классическом портале Azure на странице интеграции с приложением **SAP HANA Cloud Platform** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1. На классическом портале Azure на странице интеграции с приложением **SAP HANA Cloud Platform** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Configure Single Sign On** (Настройка единого входа).
    
-   ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Настройка единого входа")
+
 2. На странице **Как пользователи должны входить на SAP HANA Cloud Platform?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Настройка единого входа")
+
 3. В другом окне веб-браузера войдите в панель SAP HANA Cloud Platform по адресу https://account.\<узел_среды\>.ondemand.com/cockpit (например, *https://account.hanatrial.ondemand.com/cockpit*).
+
 4. Щелкните вкладку **Доверие** .
    
-   ![Доверие](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790800.png "Trust")
+    ![Доверие](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790800.png "Доверие")
+
 5. В разделе управления доверием выполните следующие действия:
    
-   ![Получить метаданные](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793930.png "Get Metadata")
+    ![Получение метаданных](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793930.png "Получение метаданных")
    
-   1. Щелкните вкладку **Поставщик локальных служб** .
-   2. Чтобы скачать файл метаданных SAP HANA Cloud Platform, щелкните **Получить метаданные**.
+    1. Щелкните вкладку **Поставщик локальных служб** .
+    2. Чтобы скачать файл метаданных SAP HANA Cloud Platform, щелкните **Получить метаданные**.
+
 6. На странице **Настроить URL-адрес приложения** классического портала Azure выполните приведенные ниже действия, а затем нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Настройка URL-адреса приложения")
    
-   1. В текстовом поле **URL-адрес единого входа** введите URL-адрес, который пользователи используют для входа в приложение **SAP HANA Cloud Platform**. Это URL-адрес защищенного ресурса для конкретной учетной записи в приложении облачной платформы SAP HANA. URL-адрес составлен по следующей схеме: *https://\<имя_приложения\>\<имя_учетной_записи\>.\<узел_среды\>.ondemand.com/\<путь\_к\_защищенному\_ресурсу\>* (например: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*).
+    а. В текстовом поле **URL-адрес единого входа** введите URL-адрес, который пользователи используют для входа в приложение **SAP HANA Cloud Platform**. Это URL-адрес защищенного ресурса для конкретной учетной записи в приложении облачной платформы SAP HANA. URL-адрес составлен по следующей схеме: *https://\<имя_приложения\>\<имя_учетной_записи\>.\<узел_среды\>.ondemand.com/\<путь\_к\_защищенному\_ресурсу\>* (например: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*).
       
-      > [!NOTE]
-      > Это URL-адрес в приложении облачной платформы SAP HANA, запрашивающий аутентификацию пользователя.
-      > 
-      > 
-   2. Откройте скачанный файл метаданных облачной платформы SAP HANA, а затем найдите тег **ns3:AssertionConsumerService** .
-   3. Скопируйте значение атрибута **Location** и вставьте его в текстовое поле **URL-адрес ответа SAP HANA Cloud Platform**.
+    > [!NOTE]
+    > Это URL-адрес в приложении облачной платформы SAP HANA, запрашивающий аутентификацию пользователя.
+    > 
+    > 
+
+    b. Откройте скачанный файл метаданных облачной платформы SAP HANA, а затем найдите тег **ns3:AssertionConsumerService** .
+
+    c. Скопируйте значение атрибута **Location** и вставьте его в текстовое поле **URL-адрес ответа SAP HANA Cloud Platform**.
+
 7. На странице **Настройка единого входа в SAP HANA Cloud Platform** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл метаданных на своем компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Настройка единого входа")
+
 8. В разделе **Поставщик локальных служб** пульта управления SAP HANA Cloud Platform сделайте следующее:
    
-   ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Trust Management")
+    ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Управление доверием")
    
-   1. Нажмите кнопку **Изменить**.
-   2. Для параметра **Configuration Type** (Тип конфигурации) выберите значение **Custom** (Настраиваемая).
-   3. В поле **Имя поставщика локальных служб**оставьте значение по умолчанию.
-   4. Чтобы создать пару ключей **Signing Key** (Ключ подписывания) и **Signing Certificate** (Сертификат подписывания), щелкните **Generate Key Pair** (Создать пару ключей).
-   5. Для параметра **Principal Propagation** (Распространение субъектов) выберите значение **Disabled** (Отключено).
-   6. Для параметра **Force Authentication** (Принудительная аутентификация) выберите значение **Disabled** (Отключено).
-   7. Щелкните **Сохранить**.
+    1. Нажмите кнопку **Изменить**.
+
+    2. Для параметра **Configuration Type** (Тип конфигурации) выберите значение **Custom** (Настраиваемая).
+
+    3. В поле **Имя поставщика локальных служб**оставьте значение по умолчанию.
+
+    4. Чтобы создать пару ключей **Signing Key** (Ключ подписывания) и **Signing Certificate** (Сертификат подписывания), щелкните **Generate Key Pair** (Создать пару ключей).
+
+    5. Для параметра **Principal Propagation** (Распространение субъектов) выберите значение **Disabled** (Отключено).
+
+    6. Для параметра **Force Authentication** (Принудительная аутентификация) выберите значение **Disabled** (Отключено).
+
+    7. Щелкните **Сохранить**.
+
 9. Откройте вкладку **Trusted Identity Provider** (Доверенный поставщик удостоверений) и щелкните **Add Trusted Identity Provider** (Добавить доверенный поставщик удостоверений).
    
-   ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790802.png "Trust Management")
+    ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790802.png "Управление доверием")
    
-   > [!NOTE]
-   > Для управления списком доверенных поставщиков удостоверений необходимо выбрать тип конфигурации «Настраиваемая» в разделе «Поставщик локальных служб». В качестве типа конфигурации по умолчанию используется неизменяемое неявное доверие к службе SAP ID Service. Для значения «Нет» параметры доверия отсутствуют.
-   > 
-   > 
+    > [!NOTE]
+    > Для управления списком доверенных поставщиков удостоверений необходимо выбрать тип конфигурации «Настраиваемая» в разделе «Поставщик локальных служб». В качестве типа конфигурации по умолчанию используется неизменяемое неявное доверие к службе SAP ID Service. Для значения «Нет» параметры доверия отсутствуют.
+    > 
+    > 
+
 10. Откройте вкладку **General** (Общие) и нажмите кнопку **Browse** (Обзор), чтобы передать скачанный файл метаданных.
     
-    ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Trust Management")
+    ![Управление доверием](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Управление доверием")
     
     > [!NOTE]
     > После передачи файла метаданных поля **Single Sign-on URL** (URL-адрес единого входа), **Single Logout URL** (URL-адрес единого выхода) и **Signing Certificate** (Сертификат для подписи) заполняются автоматически.
     > 
     > 
+
 11. Перейдите на вкладку **Атрибуты** .
+
 12. На вкладке **Атрибуты** сделайте следующее:
     
-    ![Атрибуты](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Атрибуты")
     
-    1. Щелкните **Добавить атрибут на основе утверждений**и добавьте следующие атрибуты на основе утверждений:
+    - Щелкните **Add Assertion-Based Attribute** (Добавить атрибут на основе утверждений) и добавьте следующие атрибуты на основе утверждений:
        
-       | Атрибут утверждения | Атрибут субъекта |
-       | --- | --- |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |firstname |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |Lastname |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email |
+    | Атрибут утверждения | Атрибут субъекта |
+    | --- | --- |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |firstname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |Lastname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email |
     
     > [!NOTE]
     > Конфигурация атрибутов зависит от способа разработки приложений в HCP, т. е. какие атрибуты предполагается использовать в ответе SAML и какое имя (атрибут субъекта) используется для доступа к этому атрибуту в коде.
@@ -152,9 +177,11 @@ ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
     > b.  Имена и значения для **атрибута субъекта** , показанные на снимке экрана, зависят от способа разработки приложения. Возможно, приложению требуются другие сопоставления.
     > 
     > 
+
 13. На классическом портале Azure в диалоговом окне **Настройка единого входа в SAP HANA Cloud Platform** выберите подтверждение настройки единого входа и нажмите кнопку **Завершить**.
     
-    ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Настройка единого входа")
+
 
 При необходимости для поставщика удостоверений Azure Active Directory можно настроить группы на основе утверждений.
 
@@ -170,9 +197,10 @@ ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
 
 ### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>Чтобы назначить роль пользователю, выполните следующие действия:
 1. Войдите в пульт управления **SAP HANA Cloud Platform** .
+
 2. Выполните следующие действия:
    
-   ![Authorizations](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Authorizations")
+   ![Авторизации](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Авторизации")
    
    1. Щелкните **Авторизация**.
    2. Откройте вкладку **Пользователи** .
@@ -187,16 +215,16 @@ ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **SAP HANA Cloud Platform** щелкните **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

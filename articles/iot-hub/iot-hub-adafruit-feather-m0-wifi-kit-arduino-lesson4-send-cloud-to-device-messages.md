@@ -1,5 +1,5 @@
 ---
-title: "Запуск примера приложения для получения сообщений из облака на устройство из Центра Интернета вещей Azure | Документация Майкрософт"
+title: "Подключение Arduino (C) к Интернету вещей Azure. Урок 4. Передача из облака на устройство | Документация Майкрософт"
 description: "Пример приложения выполняется на устройстве Adafruit Feather M0 WiFi и отслеживает входящие сообщения от Центра Интернета вещей. Новая задача Gulp отправляет из Центра Интернета вещей сообщения на устройство Adafruit Feather M0 WiFi для управления состоянием индикатора."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 55eda75c1e3290cedda1c4433db67c3cf320df20
+ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
+ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
 
 
 ---
@@ -139,6 +139,6 @@ gulp run --listen
 [change-the-on-and-off-led-behavior]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

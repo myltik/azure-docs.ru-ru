@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Сбор журналов аудита
-Для устранения неполадок прежде всего соберите журналы аудита, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные инструкции.
+## <a name="collect-activity-logs"></a>Сбор журналов действий
+Для устранения неполадок прежде всего соберите журналы действий, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные инструкции.
 
-[Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Просмотр операций развертывания с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
+[Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -88,6 +88,6 @@ ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

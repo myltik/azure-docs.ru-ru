@@ -1,6 +1,6 @@
 ---
 title: "Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1 | Документация Майкрософт"
-description: " Шаги настройки групповой политики для автоматической регистрации присоединенных к домену устройств Windows 8.1 в Azure AD. "
+description: " Шаги настройки групповой политики для автоматической регистрации присоединенных к домену устройств Windows 8.1 в Azure AD. "
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 03585694b3934147f1f5d58615155ba8ae4d1bc0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2117267c409afed40094fadf546d53bf9f5d1ec3
 
 
 ---
@@ -54,7 +54,7 @@ ms.openlocfilehash: 03585694b3934147f1f5d58615155ba8ae4d1bc0
 
 Эта команда должна выполняться в контексте каждого пользователя домена, вошедшего в установленную на компьютере систему.
 
-## <a name="event-viewer-errors-for-windows-81-domain-joined-devices"></a>Просмотр событий и ошибок, связанных с присоединенными к домену устройствами Windows 8.1
+## <a name="event-viewer--errors-for-windows-81-domain-joined-devices"></a>Просмотр событий и ошибок, связанных с присоединенными к домену устройствами Windows 8.1
 На компьютере под управлением Windows 8.1 сообщения, связанные с регистрацией устройств, отображаются в журнале событий Windows. Здесь вы можете просмотреть все события, как успешные, так и завершившиеся сбоем. 
 
 Журнал событий можно найти в разделе "Просмотр событий" в меню "Журналы приложений и служб": **Журналы** > **Microsoft** > **Windows > Присоединение к рабочей области**.
@@ -70,6 +70,6 @@ ms.openlocfilehash: 03585694b3934147f1f5d58615155ba8ae4d1bc0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

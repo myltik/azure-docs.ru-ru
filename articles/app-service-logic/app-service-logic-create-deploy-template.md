@@ -15,13 +15,13 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: d0015760fe086b00a264aabd38cc2625f55f4926
 
 
 ---
 # <a name="create-a-logic-app-deployment-template"></a>Создание шаблона развертывания приложения логики
-После создания приложения логики на его основе можно создать шаблон Azure Resource Manager. Таким образом вы сможете легко развернуть приложение логики в любой среде или группе ресурсов, где это может потребоваться. Общие сведения о шаблонах Resource Manager см. в статьях [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](../resource-group-template-deploy.md).
+После создания приложения логики на его основе можно создать шаблон Azure Resource Manager. Таким образом вы сможете легко развернуть приложение логики в любой среде или группе ресурсов, где это может потребоваться. Общие сведения о шаблонах Resource Manager см. в статьях [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md) и [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Шаблон развертывания приложения логики
 Приложение логики состоит из трех основных компонентов:
@@ -41,8 +41,8 @@ ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
 
 > [!NOTE]
 > Подключения должны относиться к той же группе ресурсов, что и приложение логики.
-> 
-> 
+>
+>
 
 ### <a name="install-the-logic-app-template-powershell-module"></a>Установка модуля PowerShell для шаблона приложения логики
 Проще всего установить модуль через [коллекцию PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) с использованием команды `Install-Module -Name LogicAppTemplate`.  
@@ -65,7 +65,7 @@ ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
 После создания шаблона приложения логики можно добавлять или изменять любые дополнительные параметры. Например, если определение включает идентификатор ресурса в функции Azure или вложенном рабочем процессе, где планируется одно развертывание, можно добавить дополнительные ресурсы для шаблона и при необходимости параметризовать идентификаторы. То же касается и ссылок на пользовательские интерфейсы API или конечные точки Swagger, которые будут развернуты в каждой группе ресурсов.
 
 ## <a name="deploy-a-logic-app-template"></a>Развертывание шаблона приложения логики
-Шаблон можно развернуть, используя любое количество инструментов, включая PowerShell, REST API, управление выпусками Visual Studio или портал Azure. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](../resource-group-template-deploy.md). Рекомендуется также создать [файл параметров](../resource-group-template-deploy.md#parameter-file) для хранения их значений.
+Шаблон можно развернуть, используя любое количество инструментов, включая PowerShell, REST API, управление выпусками Visual Studio или портал Azure. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Рекомендуется также создать [файл параметров](../azure-resource-manager/resource-group-template-deploy.md#parameters) для хранения их значений.
 
 ### <a name="authorize-oauth-connections"></a>Авторизация подключений OAuth
 После развертывания приложение логики будет полноценно работать с допустимыми параметрами. Но чтобы создать допустимый маркер доступа, необходимо авторизовать подключения OAuth. Это можно сделать, открыв приложение логики в конструкторе и авторизовав подключения. Или, чтобы автоматизировать эту процедуру, можно использовать сценарий, предоставляющий разрешение на каждое подключение OAuth. На GitHub есть пример сценария в проекте [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
@@ -74,7 +74,7 @@ ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
 При развертывании среды и управлении ею часто используется управление выпусками Visual Studio и шаблон развертывания приложения логики. Служба Visual Studio Team Services содержит задачу [развертывания группы ресурсов Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup), которую можно добавить в любую сборку или конвейер выпуска. Для авторизации развертывания требуется [субъект-служба](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). При ее наличии можно создать определение выпуска.
 
 1. Для создания нового определения в управлении выпусками выберите пункт **Пусто**, чтобы открыть пустое определение.
-   
+
     ![Создание нового пустого определения][1]   
 2. Выберите все необходимые ресурсы. Это скорее всего будет шаблон приложения логики, созданный вручную или в процессе сборки.
 3. Добавьте задачу **развертывания группы ресурсов Azure** .
@@ -86,6 +86,6 @@ ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

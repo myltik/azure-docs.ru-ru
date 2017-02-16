@@ -1,6 +1,6 @@
 ---
-title: "Настраиваемая схема отслеживания | Документация Майкрософт"
-description: "Дополнительные сведения о настраиваемой схеме отслеживания"
+title: "Настраиваемые схемы отслеживания | Документация Майкрософт"
+description: "Дополнительные сведения о настраиваемых схемах отслеживания"
 author: padmavc
 manager: erikre
 editor: 
@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 63ba6e8fec8df1cdbc9928b011130f47c5facf89
-ms.openlocfilehash: f846f23bef61e8e772920196b9c81d059546d8a6
+ms.sourcegitcommit: d88fa57c2f343636d7529780dc1b27ccb604ee02
+ms.openlocfilehash: 0de8128b01f760340e85078b433707c566fa2e4f
 
 
 ---
-# <a name="custom-tracking-schema"></a>Настраиваемая схема отслеживания
-## <a name="supported-custom-tracking-schema"></a>Поддерживаемая настраиваемая схема отслеживания
+# <a name="custom-tracking-schemas"></a>Настраиваемые схемы отслеживания
+Настраиваемую схему отслеживания можно использовать в учетной записи интеграции Azure для мониторинга транзакций типа "бизнес-бизнес" (B2B).
+
+## <a name="custom-tracking-schema"></a>Настраиваемая схема отслеживания
 ````java
 
         {
             "sourceType": "",
-            "source": { 
+            "source": {
 
             "workflow": {
                 "systemId": ""
@@ -56,36 +58,35 @@ ms.openlocfilehash: f846f23bef61e8e772920196b9c81d059546d8a6
 
 ````
 
-| Свойство | Описание |
-| --- | --- |
-| sourceType |(Обязательный параметр.)  Указывает тип источника выполнения. Допустимые значения — Microsoft.Logic/workflows или custom. |
-| Источник |Обязательное. Если тип источника — Microsoft.Logic/workflows, то сведения источника должны следовать этой схеме. Если тип источника — custom, используется схема JToken.  |
-| systemId |Обязательное, строка.  Указывает идентификатор системы приложения логики. |
-| runId |Обязательное, строка.  Указывает идентификатор выполнения приложения логики. |
-| operationName |Обязательное, строка.  Указывает имя операции (например, действие или триггер). |
-| repeatItemScopeName |Обязательное, строка. Указывает имя повторяемого элемента, если действие входит в цикл foreach или Until. |
-| repeatItemIndex |Обязательное, целое число.  Если действие входит в цикл foreach или Until, свойство указывает индекс повторяющегося элемента.  |
-| trackingId |Необязательное, строка. Указывает идентификатор отслеживания для корреляции сообщений. |
-| correlationId |Необязательное, строка. Указывает идентификатор корреляции для корреляции сообщений. |
-| clientRequestId |Необязательное, строка.  Клиент может заполнить его для корреляции сообщений. |
-| eventLevel |(Обязательный параметр.) Указывает уровень события. |
-| eventTime |(Обязательный параметр.) Указывает время события в формате UTC (ГГГГ-ММ-ДДTЧЧ:ММ:СС.00000Z). |
-| recordType |Обязательное. Указывает тип записи отслеживания. Допустимое значение — Custom. |
-| record |(Обязательный параметр.)  Указывает тип пользовательской записи. Допустимый формат — JToken. |
-|  | |
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| sourceType |   | Тип источника выполнения. Допустимые значения — **Microsoft.Logic/workflows** или **custom**. (обязательный параметр) |
+| Источник |   | Если тип источника — **Microsoft.Logic/workflows**, то сведения источника должны следовать этой схеме. Если тип источника — **custom**, то используется схема JToken. (обязательный параметр) |
+| systemId | Строка | Системный идентификатор приложения логики. (обязательный параметр) |
+| runId | Строка | Идентификатор выполнения приложения логики. (обязательный параметр) |
+| operationName | Строка | Имя операции (например, действие или триггер). (обязательный параметр) |
+| repeatItemScopeName | string | Повторяет имя элемента, если действие находится внутри цикла `foreach`/ или `until`. (обязательный параметр) |
+| repeatItemIndex | Целое число  | Определяет, находится ли действие внутри цикла `foreach`/ или `until`. Указывает индекс повторяющегося элемента. (обязательный параметр) |
+| trackingId | Строка | Идентификатор отслеживания для корреляции сообщений. (необязательный параметр) |
+| correlationId | string | Идентификатор корреляции для корреляции сообщений. (необязательный параметр) |
+| clientRequestId | Строка | Клиент может включить его для корреляции сообщений. (необязательный параметр) |
+| eventLevel |   | Уровень события. (обязательный параметр) |
+| eventTime |   | Время события в формате UTC (ГГГГ-ММ-ДДTЧЧ:ММ:СС.00000Z). (обязательный параметр) |
+| recordType |   | Тип записи отслеживания. Допустимое значение — **custom**. (обязательный параметр) |
+| record |   | Настраиваемый тип записи. Разрешен формат JToken. (обязательный параметр) |
 
-## <a name="supported-b2b-protocol-tracking-schemas"></a>Поддерживаемые схемы отслеживания для протоколов B2B
-* [Схема отслеживания AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md)   
-* [Схема отслеживания X12](app-service-logic-track-integration-account-x12-tracking-shemas.md) 
+## <a name="b2b-protocol-tracking-schemas"></a>Схемы отслеживания для протоколов B2B
+Сведения о схемах отслеживания для протоколов B2B см. в следующих статьях:
+* [Схемы отслеживания AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md)   
+* [Схемы отслеживания X12](app-service-logic-track-integration-account-x12-tracking-shemas.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Мониторинг сообщений B2B](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
-[Отслеживание сообщений B2B на портале OMS](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")   
-[Обзор пакета интеграции Enterprise](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
+* Дополнительные сведения о [мониторинге сообщений B2B](app-service-logic-monitor-b2b-message.md).   
+* Дополнительные сведения об [отслеживании сообщений B2B на портале Operations Management Suite](app-service-logic-track-b2b-messages-omsportal.md).
+* Дополнительные сведения о [Пакете интеграции Enterprise](app-service-logic-enterprise-integration-overview.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

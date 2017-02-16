@@ -1,5 +1,5 @@
 ---
-title: "Развертывание виртуального массива Microsoft Azure StorSimple —подготовка в Hyper-V | Документация Майкрософт"
+title: "Подготовка виртуального массива StorSimple в Hyper-V | Документация Майкрософт"
 description: "Второе руководство по развертыванию виртуального массива StorSimple посвящено подготовке виртуального массива в Hyper-V."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V
@@ -217,6 +217,6 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

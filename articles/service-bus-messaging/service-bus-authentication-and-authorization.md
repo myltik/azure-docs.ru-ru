@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 96fa98dda9353a5c8047f872d2507ac1d94f666c
-ms.openlocfilehash: 676c66999b43fd2ada5b470dd48b1ba3a8c73202
+ms.sourcegitcommit: 2c1a1f3b73466526b13bcfeb4580335390506c23
+ms.openlocfilehash: 14dfe58f6296a4ec516845bace456ffd59fa608a
 
 
 ---
@@ -31,29 +31,29 @@ ms.openlocfilehash: 676c66999b43fd2ada5b470dd48b1ba3a8c73202
 
 Ключи для SAS можно настроить в пространстве имен служебной шины. Ключ применяется ко всем сущностям обмена сообщениями в этом пространстве имен. Также можно настроить ключи для очередей и разделов служебной шины. SAS также поддерживается в ретрансляторах служебной шины.
 
-Чтобы использовать SAS, в пространстве имен, очереди или разделе можно настроить объект [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), который состоит из следующих элементов:
+Чтобы использовать SAS, в пространстве имен, очереди или разделе можно настроить объект [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), который состоит из следующих элементов:
 
 * *KeyName* — определяет правило.
 * *PrimaryKey* — криптографический ключ, используемый для подписи и проверки маркеров SAS.
 * *SecondaryKey* — криптографический ключ, используемый для подписи и проверки маркеров SAS.
 * *Rights* — набор прав на прослушивание, отправку или управление.
 
-Правила авторизации, настроенные на уровне пространства имен, могут предоставлять доступ ко всем сущностям в пространстве имен для клиентов с маркерами, подписанными с использованием соответствующего ключа. В пространстве имен, очереди или разделе служебной шины можно настроить до 12 таких правил авторизации. По умолчанию правило [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) со всеми правами настраивается для каждого пространства имен в ходе первоначальной подготовки.
+Правила авторизации, настроенные на уровне пространства имен, могут предоставлять доступ ко всем сущностям в пространстве имен для клиентов с маркерами, подписанными с использованием соответствующего ключа. В пространстве имен, очереди или разделе служебной шины можно настроить до 12 таких правил авторизации. По умолчанию правило [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) со всеми правами настраивается для каждого пространства имен в ходе первоначальной подготовки.
 
-Чтобы получить доступ к сущности, клиенту требуется маркер SAS, созданный с помощью определенного правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Маркер SAS создается с помощью хэш-функции HMAC-SHA256 строки ресурса, состоящей из URI ресурса, к которому запрашивается доступ, и срока действия с криптографическим ключом, связанным с правилом авторизации.
+Чтобы получить доступ к сущности, клиенту требуется маркер SAS, созданный с помощью определенного правила [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Маркер SAS создается с помощью хэш-функции HMAC-SHA256 строки ресурса, состоящей из URI ресурса, к которому запрашивается доступ, и срока действия с криптографическим ключом, связанным с правилом авторизации.
 
-Поддержка проверки подлинности SAS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. SAS включает в себя поддержку правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения SAS.
+Поддержка проверки подлинности SAS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. SAS включает в себя поддержку правила [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения SAS.
 
 ## <a name="acs-authentication"></a>Проверка подлинности ACS
-Аутентификация в служебной шине с помощью ACS осуществляется с помощью сопутствующего пространства имен ACS (-sb). Вам может потребоваться создать сопутствующее пространство имен ACS для пространства имен служебной шины. При этом вы не сможете создать пространство имен служебной шины с помощью классического портала Azure. Это нужно сделать с помощью командлета PowerShell [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx). Например:
+Аутентификация в служебной шине с помощью ACS осуществляется с помощью сопутствующего пространства имен ACS (-sb). Вам может потребоваться создать сопутствующее пространство имен ACS для пространства имен служебной шины. При этом вы не сможете создать пространство имен служебной шины с помощью классического портала Azure. Это нужно сделать с помощью командлета PowerShell [New-AzureSBNamespace](https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace). Например:
 
-```
+```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
 ```
 
 Чтобы не создавать пространство имен ACS, выполните такую команду:
 
-```
+```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 ```
 
@@ -63,18 +63,15 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 
 Чтобы получить доступ к сущности, клиент запрашивает маркер SWT из ACS с соответствующими утверждениями, предоставляя свои учетные данные. Затем маркер SWT необходимо отправить в служебную шину как часть запроса. Это позволит авторизовать клиента для получения доступа к сущности.
 
-Поддержка проверки подлинности ACS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. Эта проверка подлинности включает поддержку [SharedSecretTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedsecrettokenprovider.aspx). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения ACS.
+Поддержка проверки подлинности ACS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. Эта проверка подлинности включает поддержку [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения ACS.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о SAS см. в статье [Проверка подлинности подписи при общем доступе с помощью служебной шины](service-bus-shared-access-signature-authentication.md).
 
 Более подробные сведения об использовании SAS в служебной шине см. в статье [Shared Access Signatures](service-bus-sas-overview.md) (Подписанные URL-адреса).
 
-Дополнительные сведения о маркерах ACS см. в статье [Запрос маркера от ACS с помощью протокола WRAP OAuth](https://msdn.microsoft.com/library/hh674475.aspx).
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

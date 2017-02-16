@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 11/16/2016
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
-ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: 4ba7d6c43a5e0893366669e7511d8e1cfe149b81
 
 
 ---
@@ -83,7 +83,7 @@ ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
 **Средства HDInsight** для Visual Studio теперь поддерживают HDInsight версии 3.3, включая показ графики Tez и другие языковые исправления.
 
 ## <a name="azure-resource-manager"></a>Диспетчер ресурсов Azure
-В этом выпуске добавлена поддержка [KeyVault](../resource-manager-keyvault-parameter.md) для шаблонов ARM.
+В этом выпуске добавлена поддержка [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) для шаблонов Resource Manager.
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Объявление о пакете SDK Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
@@ -91,6 +91,6 @@ ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

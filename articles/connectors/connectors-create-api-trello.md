@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d7a8111e299e846eb384f97bdef5a8c214214578
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 2616db980cb37c1c3759096ec3c05b98d687e047
 
 
 ---
@@ -29,7 +29,7 @@ Trello позволяет отслеживать все ваши проекты 
 > 
 > 
 
-Для начала можно создать приложение логики, как описано [здесь](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Триггеры и действия
 Соединитель Trello можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
@@ -62,9 +62,9 @@ Trello позволяет отслеживать все ваши проекты 
 ## <a name="create-a-connection-to-trello"></a>Создание подключения к Trello
 Для создания приложений логики с помощью Trello необходимо создать **подключение**, а затем указать данные для приведенных ниже свойств.
 
-| Свойство | Обязательно | Описание |
+| Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
-| токен |Да |Укажите учетные данные Trello |
+| Маркер |Да |Укажите учетные данные Trello |
 
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 
@@ -456,7 +456,7 @@ Trello позволяет отслеживать все ваши проекты 
 ### <a name="updatecard"></a>UpdateCard
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| Имя |string |Нет |
+| name |string |Нет |
 | desc |string |Нет |
 | closed |Логическое |Нет |
 | idMembers |string |Нет |
@@ -546,11 +546,11 @@ Trello позволяет отслеживать все ваши проекты 
 | board |не определено |Нет |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/18/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
-ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
+ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
+ms.openlocfilehash: e7a511efdf89d299ba309b9a812092411a55c08d
 
 
 ---
@@ -35,20 +35,21 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- |
-| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия, Монреаль+, Квебек+, Торонто |
+| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, западная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, западно-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия, Монреаль+, Квебек+, Торонто |
 | **Северная Америка** |Южная часть Бразилии |Сан-Паулу |
 | **Европа** |Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства |Амстердам, Дублин, Лондон, Ньюпорт (Уэльс), Париж |
 | **Азия** |Восточная Азия, Юго-Восточная Азия |Гонконг, Сингапур |
 | **Япония** |Западная Япония, Восточная Япония |Осака, Токио |
 | **Австралия** |Восточная Австралия, Юго-Восточная Австралия |Мельбурн, Сидней |
 | **Индия** |Западная Индия, Центральная Индия, Южная Индия |Ченнаи, Мумбаи |
+| **Южная Корея** | Центральная Корея, Южная Корея | Пусан, Сеул |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Регионы и геополитические границы для национальных облаков
 В таблице ниже содержатся сведения о регионах и геополитических границах для национальных облаков.
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- | --- |
-| **Облако правительства США** |Правительство штата Айова, США, Правительство штата Вирджиния, США |Чикаго, Даллас, Нью-Йорк, Вашингтон (округ Колумбия) |
+| **Облако правительства США** |Айова (для обслуживания государственных организаций США), Виргиния (для обслуживания государственных организаций США), Центральная часть США, МО+, Восток США, МО+  |Чикаго, Даллас, Нью-Йорк, Кремниевая долина+, Вашингтон (округ Колумбия) |
 | **Китай** |Северный Китай, Восточный Китай |Пекин, Шанхай |
 | **Германия** |Центральная Германия, восточная Германия |Берлин, Франкфурт |
 
@@ -71,11 +72,11 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Поддерживаются |Поддерживаются |Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия) |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Скоро |Скоро |Кремниевая долина |
 | **China Telecom Global** |Поддерживаются |Не поддерживается |Гонконг |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Поддерживаются |Поддерживаются |Даллас, Монреаль+, Торонто |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Поддерживаются |Поддерживаются |Даллас, Монреаль, Торонто |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Поддерживаются |Поддерживаются |Амстердам, Дублин, Лондон, Токио |
 | **Comcast** |Поддерживаются |Поддерживаются |Чикаго, Кремниевая долина, Вашингтон, округ Колумбия |
 | **Console**| Поддерживаются | Поддерживаются |Кремниевая долина |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Поддерживаются |Поддерживаются |Лос-Анджелес |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Поддерживаются |Поддерживаются |Лос-Анджелес, Нью-Йорк |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Поддерживаются |Амстердам, Атланта, Чикаго, Даллас, Гонконг, Лондон, Лос-Анджелес, Мельбурн, Нью-Йорк, Осака, Париж+, Сан-Пауло, Сиэтл, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия), Торонто |
 | **euNetworks** |Поддерживаются |Поддерживаются |Амстердам |
 | **GÉANT** |Поддерживаются |Поддерживаются |Амстердам |
@@ -84,7 +85,8 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Internet Solutions - Cloud Connect** |Поддерживаются |Поддерживаются |Амстердам, Лондон |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Поддерживаются |Поддерживаются |Амстердам, Лондон, Париж |
 | **Jisc** |Поддерживаются |Поддерживаются |Лондон |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Поддерживаются |Поддерживаются |Амстердам, Чикаго, Даллас, Лас-Вегас+, Лондон, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия) |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Поддерживаются | Поддерживаются | Амстердам | 
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Поддерживаются |Поддерживаются |Амстердам, Чикаго, Даллас, Лас-Вегас+, Лондон, Сиэтл, Кремниевая долина, Сингапур, Вашингтон (округ Колумбия) |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Поддерживаются |Поддерживаются |Даллас, Гонконг, Лас-Вегас, Лос-Анджелес, Мельбурн, Нью-Йорк, Сиэтл, Сингапур, Сидней, Торонто, Вашингтон (округ Колумбия) |
 | **MTN** |Поддерживаются |Поддерживаются |Лондон |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Поддерживаются |Поддерживаются |Ньюпорт (Уэльс) |
@@ -112,8 +114,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Поставщик услуг** | **Microsoft Azure** | **Office 365** | **Расположения** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Поддерживаются |Поддерживаются |Чикаго, Вашингтон (округ Колумбия) |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Поддерживаются |Чикаго, Даллас, Нью-Йорк, Вашингтон (округ Колумбия) |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Поддерживаются |Чикаго, Даллас, Нью-Йорк, Кремниевая долина+, Вашингтон (округ Колумбия) |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Поддерживаются |Поддерживаются |Чикаго, Нью-Йорк+, Вашингтон (округ Колумбия) |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Поддерживаются | Поддерживаются | Даллас |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Поддерживаются |Поддерживаются |Чикаго, Даллас, Нью-Йорк, Вашингтон (округ Колумбия) |
 
 ### <a name="china"></a>Китай
@@ -130,6 +133,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Не поддерживается |Франкфурт |
 | **e-shelter** |Поддерживаются |Не поддерживается |Берлин |
 | **Interxion** |Поддерживаются |Не поддерживается |Франкфурт |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Поддерживаются  | Не поддерживается | Берлин+ |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Подключение через других поставщиков услуг
 Вы можете создать подключение, даже если ваш поставщик услуг подключения не указан в предыдущих разделах.
@@ -171,15 +175,15 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Системный интегратор** | **Континент** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Азия, Европа, США |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Европа |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |США |
+| **[Avanade Inc.](http://www.avanade.com/)** | Азия, Европа, Северная Америка, Южная Америка |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Европа |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Северная Америка |
 | **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Австралия |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Европа (Германия) |
-| **[Nelite](http://nelite.com/)** |Европа |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Азия |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |США |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |США |
+| **[Nelite](http://nelite.com/)** | Европа |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Азия |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Северная Америка |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | Северная Америка |
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -191,6 +195,6 @@ ExpressRoute поддерживается во всех регионах и ра
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

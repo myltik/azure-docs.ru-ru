@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9dd4539122de38221e229ad5799961b62a4f648a
+ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
+ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
 
 
 ---
 # <a name="run-background-tasks-with-webjobs"></a>Выполнение фоновых задач с веб-заданиями
 ## <a name="overview"></a>Обзор
-Программы или скрипты можно выполнять в веб-заданиях в веб-приложении [службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) тремя способами: по запросу, непрерывно или по расписанию. Для использования веб-заданий дополнительные затраты не требуются.
+Программы или сценарии можно выполнять в веб-заданиях в веб-приложении [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) тремя способами: по запросу, непрерывно или по расписанию. Для использования веб-заданий дополнительные затраты не требуются.
 
 В данной статье показано, как развернуть веб-задания с помощью [портала Azure](https://portal.azure.com). Информацию о развертывании с помощью Visual Studio или процесса непрерывной доставки см. в разделе [Развертывание веб-заданий с помощью Visual Studio](websites-dotnet-deploy-webjobs.md).
 
 Пакет SDK веб-заданий Azure упрощает многие задачи программирования для веб-заданий. Дополнительные сведения см. в разделе [Информация о пакете SDK веб-заданий](websites-dotnet-webjobs-sdk.md).
 
- Программы и сценарии в службе приложений Azure также можно выполнять с помощью функций Azure (в настоящее время находятся в предварительной версии). Дополнительные сведения см. в статье [Обзор функций Azure](../azure-functions/functions-overview.md).
+ Функции Azure предоставляют еще один способ запуска программ и сценариев из безсерверной среды или приложения службы приложений. Дополнительные сведения см. в статье [Обзор функций Azure](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -207,6 +207,6 @@ ms.openlocfilehash: 9dd4539122de38221e229ad5799961b62a4f648a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

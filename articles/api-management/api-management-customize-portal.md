@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 
 Каждое правило представляет свойство стиля выбранного элемента. Например, для текста выбранного выше заголовка размер текста содержится в @font-size-h1, а имя шрифта с вариантами содержится в @headings-font-family.
 
-> Если вы знакомы с [начальной загрузкой][bootstrap], эти правила фактически являются [переменными LESS][переменным LESS] в теме начальной загрузки, используемой порталом разработчика.
+> Если вы знакомы [с начальной загрузкой][bootstrap], эти правила на самом деле подобны [переменным LESS][LESS variables] в теме начальной загрузки, используемой порталом разработчика.
 > 
 > 
 
@@ -87,12 +87,12 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 ## <a name="next-steps"> </a>Дальнейшие действия
 * Узнайте, как настроить содержимое страницы портала разработчика с помощью [шаблонов портала разработчиков](api-management-developer-portal-templates.md).
 
-[Изменение текста и логотипа заголовков страниц]: #change-page-headers
-[Изменение стилей заголовков]: #change-headers-styling
-[Редактирование содержимого страницы]: #edit-page-contents
-[Дальнейшие действия]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Классический портал Azure]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 
 
 [bootstrap]: http://getbootstrap.com/
-[переменным LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

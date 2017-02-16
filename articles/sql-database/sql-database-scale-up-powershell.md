@@ -1,6 +1,6 @@
 ---
-title: "Изменение уровня служб и уровня производительности базы данных SQL Azure с помощью PowerShell | Документация Майкрософт"
-description: "Измените уровень производительности и уровень обслуживания базы данных SQL Azure для масштабирования базы данных с помощью PowerShell. Изменение ценовой категории базы данных SQL Azure с помощью PowerShell."
+title: "PowerShell. Изменение ценовой категории базы данных SQL Azure | Документация Майкрософт"
+description: "Узнайте, как изменить уровень производительности и обслуживания базы данных SQL Azure, а также увеличить и уменьшить масштаб ее ресурсов и цен с помощью PowerShell."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aea3bcbd6ac73a05b00b7b79b2dc47bf06d67f6f
+ms.sourcegitcommit: 5b1a96149924c6170ea4561b9639f6b85b15ddd3
+ms.openlocfilehash: c45d9200dd25d18d45602c377c682875d04c64cb
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-with-powershell"></a>Изменение уровня обслуживания и уровня производительности (ценовой категории) базы данных SQL с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-scale-up.md)
-> * [**PowerShell**](sql-database-scale-up-powershell.md)
-> 
+> * [портале Azure](sql-database-scale-up.md)
+> * [**PowerShell**](sql-database-scale-up-powershell.md)> 
 > 
 
 Уровни службы и уровни производительности описывают функции и ресурсы, доступные для базы данных SQL. Их можно обновлять в соответствии с потребностями приложения. Дополнительные сведения см. в статье [Уровни служб](sql-database-service-tiers.md).
@@ -104,6 +103,6 @@ Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -Reso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

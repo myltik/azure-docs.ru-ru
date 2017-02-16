@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
+ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
+ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
 
 
 ---
@@ -76,7 +76,7 @@ ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
        ![Раздел краткого описания, в котором отображается URL-адрес][csurl]
      
        **OR**  
-   * Установите и настройте [Azure Powershell](../powershell-install-configure.md), а затем используйте следующую команду:
+   * Установите и настройте [Azure Powershell](/powershell/azureps-cmdlets-docs), а затем используйте следующую команду:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
        ![Раздел краткого описания, в котором отображается VIP-адрес][vip]
      
        **OR**  
-   * Установите и настройте [Azure Powershell](../powershell-install-configure.md), а затем используйте следующую команду:
+   * Установите и настройте [Azure Powershell](/powershell/azureps-cmdlets-docs), а затем используйте следующую команду:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -147,18 +147,18 @@ ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
 
-[Предоставление приложения на личном домене]: #access-app
+[Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
-[Предоставление данных на личном домене]: #access-data
-[Переключение виртуальных IP-адресов]: http://msdn.microsoft.com/library/ee517253.aspx
-[Создание записи CNAME, связывающей поддомен с учетной записью хранения]: #create-cname
+[Expose Your Data on a Custom Domain]: #access-data
+[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [классический портал Azure]: https://manage.windowsazure.com
-[Диалоговое окно "Проверка пользовательского домена"]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
-[виртуальный IP-адрес]: ./media/cloud-services-custom-domain-name/csvip.png
+[Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
+[vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

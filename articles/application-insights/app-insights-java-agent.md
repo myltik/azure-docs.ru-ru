@@ -1,6 +1,6 @@
 ---
-title: "Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java"
-description: "Расширенный мониторинг веб-сайта Java с помощью Application Insights"
+title: "Мониторинг производительности веб-приложений Java в Azure Application Insights | Документация Майкрософт"
+description: "Расширенный мониторинг производительности и использования веб-сайта Java с помощью Application Insights."
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
 * **Перехваченные исключения:** данные об исключениях, обработанных вашим кодом.
 * **Время выполнения метода:** данные о времени, которое потребовалось для выполнения определенных методов.
 
-Чтобы использовать агент для Java, его необходимо установить на сервере. Веб-приложения необходимо оснастить [пакетом SDK для Java Application Insights][java]. 
+Чтобы использовать агент для Java, его необходимо установить на сервере. Веб-приложения необходимо инструментировать [пакетом SDK для Java Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Установка агента Application Insights для Java
 1. [Скачайте агент](https://aka.ms/aijavasdk) на компьютер с сервером Java.
@@ -91,7 +91,7 @@ ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
 По умолчанию `reportExecutionTime` имеет значение true, а `reportCaughtExceptions` — значение false.
 
 ## <a name="view-the-data"></a>Просмотр данных
-В ресурсе Application Insights сводные данные по удаленным зависимостям и времени выполнения методов отображаются [под элементом производительности][metrics].
+В ресурсе Application Insights сводные данные по удаленным зависимостям и времени выполнения методов отображаются в [элементе "Производительность"][metrics].
 
 Для поиска отдельных экземпляров отчетов по зависимостям, исключениям и методам откройте [Поиск][diagnostic].
 
@@ -115,6 +115,6 @@ ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

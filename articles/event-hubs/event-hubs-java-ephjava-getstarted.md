@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с концентраторами событий в Java | Документация Майкрософт"
+title: "Отправка и получение событий с помощью концентраторов событий Azure на языке Java | Документация Майкрософт"
 description: "Следуйте указаниям этого руководства, чтобы приступить к использованию концентраторов событий Azure, отправке событий посредством Java и получению их с помощью EventProcessorHost."
 services: event-hubs
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/04/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f71c6f337efaab7ae497eb6c3334e33d9531ec57
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: c8950b09c412f1a709716e91d2a63edf047c5874
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: f71c6f337efaab7ae497eb6c3334e33d9531ec57
 ## <a name="introduction"></a>Введение
 Концентраторы событий — это высокомасштабируемая система приема, которая может принимать миллионы событий в секунду, позволяя приложениям обрабатывать и анализировать большие объемы данных, сформированных подключенными устройствами и приложениями. После сбора данных в концентраторах событий их можно преобразовать и сохранить с помощью любого поставщика аналитики в реальном времени или в кластере хранилища.
 
-Дополнительные сведения см. в статье [Обзор концентраторов событий][Обзор концентраторов событий].
+Дополнительные сведения см. в [обзоре концентраторов событий][Event Hubs overview].
 
 В этом руководстве описано, как вводить сообщения в концентратор событий, используя консольное приложение на Java, и как параллельно извлекать их, используя библиотеку Event Processor Host для Java.
 
@@ -54,8 +54,8 @@ ms.openlocfilehash: f71c6f337efaab7ae497eb6c3334e33d9531ec57
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы создали рабочее приложение, которое создает концентратор событий и отправляет и получает данные, можно перейти к следующим сценариям:
 
-* Полный [пример приложения, использующего концентраторы событий][пример приложения, использующего концентраторы событий].
-* Пример [масштабирования обработки событий с помощью концентраторов событий][развертывания обработки событий при помощи концентраторов событий].
+* полный [пример приложения, использующего концентраторы событий][sample application that uses Event Hubs];
+* пример [развертывания обработки событий с помощью концентраторов событий][Scale out Event Processing with Event Hubs];
 
 Дополнительную информацию см. в [Центре разработчиков Java](/develop/java/).
 
@@ -64,13 +64,12 @@ ms.openlocfilehash: f71c6f337efaab7ae497eb6c3334e33d9531ec57
 [22]: ./media/event-hubs-java-ephjava-getstarted/java-send.png
 
 <!-- Links -->
-[классический портал Azure]: https://manage.windowsazure.com/
-[Обзор концентраторов событий]: event-hubs-overview.md
-[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[развертывания обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

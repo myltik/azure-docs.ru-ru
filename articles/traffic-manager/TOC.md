@@ -13,7 +13,7 @@
 ## [Управление профилями](traffic-manager-manage-profiles.md)
 ## [Указание своего интернет-домена для диспетчера трафика](traffic-manager-point-internet-domain.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## [Настройка метода маршрутизации](traffic-manager-configure-routing-method.md)
 ## [Проверка настроек](traffic-manager-testing-settings.md)
 ## [Устранение неполадок, вызывающих ограничение возможностей конечной точки](traffic-manager-troubleshooting-degraded.md)
@@ -21,13 +21,18 @@
 ## [Использование сетевых ресурсов](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (классическая модель)](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
+## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [Предварительная версия Azure CLI 2.0](/cli/azure/network/traffic-manager)
+## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Сопутствующие материалы
 ## [Шлюз приложений](/azure/application-gateway/)
-## [Балансировщик нагрузки](/azure/load-balancer/)
+## [Подсистема балансировки нагрузки](/azure/load-balancer/)
 ## [Azure DNS](/azure/dns/)
 
 # Ресурсы
@@ -40,6 +45,6 @@
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9129eda8e4b3c3865878b8ceafb95a155ba02885
+ms.sourcegitcommit: d6dbbee1f977245cc16710ace3b25d6e167cbc7e
+ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
 
 
 ---
@@ -127,9 +127,10 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ![RBAC PowerShell — Remove-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Создание настраиваемой роли
-Чтобы создать настраиваемую роль, используйте команду `New-AzureRmRoleDefinition` .
+Чтобы создать настраиваемую роль, используйте команду `New-AzureRmRoleDefinition` . Существует два способа структурирования роли: с помощью PSRoleDefinitionObject и с помощью шаблона JSON. 
 
-При создании настраиваемой роли в PowerShell необходимо начать с одной из [встроенных ролей](role-based-access-built-in-roles.md). Измените атрибуты и добавьте необходимые действия *Actions*, *notActions* и области *scopes*, а затем сохраните изменения как новую роль.
+### <a name="create-role-with-psroledefinitionobject"></a>Создание роли с помощью PSRoleDefinitionObject
+При создании пользовательской роли с помощью PowerShell можно начать с нуля или использовать одну из [встроенных ролей](role-based-access-built-in-roles.md) в качестве отправной точки. В этом примере описан второй вариант. Измените атрибуты и добавьте необходимые действия *Actions*, *notActions* и области *scopes*, а затем сохраните изменения как новую роль.
 
 Следующий пример начинается с роли *Участник виртуальной машины*, с помощью которой создается настраиваемая роль *Оператор виртуальной машины*. Новая роль предоставляет доступ ко всем операциям чтения поставщиков ресурсов *Microsoft.Compute*, *Microsoft.Storage* и *Microsoft.Network*, а также доступ для запуска, перезапуска и мониторинга виртуальных машин. Настраиваемую роль можно использовать в двух подписках.
 
@@ -156,7 +157,37 @@ New-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
+### <a name="create-role-with-json-template"></a>Создание роли с помощью шаблона JSON
+Шаблон JSON может использоваться в качестве определения источника для пользовательской роли. В следующем примере создается пользовательская роль, которая разрешает доступ на чтение к хранилищу и вычислительным ресурсам, доступ для поддержки и добавляет эту роль к двум подпискам. Создайте файл `C:\CustomRoles\customrole1.json` со следующим содержимым. Обратите внимание, что при первичном создании роли идентификатору должно быть присвоено значение `null`, так как будет создан новый идентификатор. 
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+Чтобы добавить роль к подпискам, выполните следующую команду PowerShell.
+```
+New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
+
 ## <a name="modify-a-custom-role"></a>Изменение настраиваемой роли
+Аналогично созданию пользовательской роли вы можете изменить существующую пользовательскую роль с помощью PSRoleDefinitionObject или шаблона JSON.
+
+### <a name="modify-role-with-psroledefinitionobject"></a>Изменение роли с помощью PSRoleDefinitionObject
 Чтобы изменить настраиваемую роль, сначала используйте команду `Get-AzureRmRoleDefinition` для получения определения роли. Затем внесите необходимые изменения в определение роли. Наконец, с помощью команды `Set-AzureRmRoleDefinition` сохраните измененное определение роли.
 
 В следующем примере показано добавление операции `Microsoft.Insights/diagnosticSettings/*` к настраиваемой роли *Оператор виртуальной машины* .
@@ -175,11 +206,40 @@ Set-AzureRmRoleDefinition -Role $role
 Get-AzureRmSubscription - SubscriptionName Production3
 
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
-$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2"
-Set-AzureRmRoleDefinition -Role $role)
+$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2")
+Set-AzureRmRoleDefinition -Role $role
 ```
 
 ![RBAC PowerShell — Set-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
+
+### <a name="modify-role-with-json-template"></a>Изменение роли с помощью шаблона JSON
+С помощью предыдущего шаблона JSON можно легко изменить существующую пользовательскую роль, чтобы добавить или удалить действия. Обновите шаблон JSON и добавьте действие чтения для сетевых подключений, как показано ниже. Обратите внимание, что определения, перечисленные в шаблоне, не применяются все вместе к существующему определению. Это означает, что роль будет отображаться так, как указано в шаблоне. Кроме того, необходимо обновить идентификатор с помощью идентификатора роли. Если вы не уверены, каким является это значение, для получения этой информации можно использовать командлет `Get-AzureRmRoleDefinition`.
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": "acce7ded-2559-449d-bcd5-e9604e50bad1",
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+
+Чтобы обновить существующую роль, выполните следующую команду PowerShell.
+```
+Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
 
 ## <a name="delete-a-custom-role"></a>Удаление настраиваемой роли
 Чтобы удалить настраиваемую роль, используйте команду `Remove-AzureRmRoleDefinition` .
@@ -216,6 +276,6 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

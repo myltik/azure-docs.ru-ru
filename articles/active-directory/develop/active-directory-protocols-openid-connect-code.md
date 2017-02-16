@@ -1,5 +1,5 @@
 ---
-title: "Обзор протокола .NET Azure AD | Документация Майкрософт"
+title: "Общие сведения о потоке кода проверки подлинности OpenID Connect в Azure AD | Документация Майкрософт"
 description: "В этой статье описывается использование HTTP-сообщений для авторизации в клиенте доступа к веб-приложениям и веб-интерфейсам API с использованием Azure Active Directory и OpenID Connect."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 11eaa26aa93f59f96736ee50ede6102d7e7a03e8
+ms.sourcegitcommit: 312aff4d85b2ec8f1ef78704950311c19cb21cdf
+ms.openlocfilehash: 47d7534969773803d0f4809a1aca920b6bea8d81
 
 
 ---
@@ -203,6 +203,6 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

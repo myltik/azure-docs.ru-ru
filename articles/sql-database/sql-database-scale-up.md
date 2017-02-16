@@ -1,6 +1,6 @@
 ---
-title: "Изменение уровня обслуживания и уровня производительности базы данных SQL Azure | Документация Майкрософт"
-description: "Измените уровень производительности и уровень обслуживания базы данных SQL Azure для масштабирования базы данных. Изменение ценовой категории базы данных SQL Azure."
+title: "Портал Azure. Изменение ценовой категории базы данных SQL Azure | Документация Майкрософт"
+description: "Узнайте, как изменить уровень производительности и обслуживания базы данных SQL Azure, а также увеличить и уменьшить масштаб ее ресурсов и цен с помощью портала Azure."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: a4d68b4365c6c5865b19a0b2e9b78afdb7a04014
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 88104e0684281f77da497ef4dd608c6a0c64b274
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Изменение уровня обслуживания и уровня производительности (ценовой категории) базы данных SQL с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [**Портал Azure**](sql-database-scale-up.md)
-> * [PowerShell](sql-database-scale-up-powershell.md)
-> 
+> * [PowerShell](sql-database-scale-up-powershell.md)> 
 > 
 
 Уровни службы и уровни производительности описывают функции и ресурсы, доступные для базы данных SQL. Их можно обновлять в соответствии с потребностями приложения. Дополнительные сведения см. в статье [Уровни служб](sql-database-service-tiers.md).
@@ -89,6 +88,6 @@ ms.openlocfilehash: a4d68b4365c6c5865b19a0b2e9b78afdb7a04014
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

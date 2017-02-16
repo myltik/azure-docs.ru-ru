@@ -1,5 +1,5 @@
 ---
-title: "Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery | Документация Майкрософт"
+title: "Миграция виртуальных машин из AWS в Azure | Документация Майкрософт"
 description: "В этой статье описано, как перенести виртуальные машины, запущенные в Amazon Web Services (AWS), в Azure с помощью Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: c7238d677b315390bc5f53e54ab7dbded2871c5a
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 5cf068dd64084d39e353dab6629e832112e15843
 
 
 ---
@@ -34,12 +34,12 @@ ms.openlocfilehash: c7238d677b315390bc5f53e54ab7dbded2871c5a
 ## <a name="supported-operating-systems"></a>Поддерживаемые операционные системы
 Site Recovery можно использовать для переноса экземпляров EC2, работающих на любой из следующих операционных систем.
 
-### <a name="windows64-bit-only"></a>Windows (только 64-разрядная версия)
+### <a name="windows64-bit-only"></a>Windows (только&64;-разрядная версия)
 * Windows Server 2008 R2 с пакетом обновления 1 или более поздней версии (только драйверы Citrix PV или AWS PV). **Экземпляры с драйверами RedHat PV не поддерживаются.**
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (только 64-разрядная версия)
+### <a name="linux-64-bit-only"></a>Linux (только&64;-разрядная версия)
 * Red Hat Enterprise Linux 6.7 (только виртуализированные экземпляры HVM).
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -55,7 +55,7 @@ Site Recovery можно использовать для переноса экз
 2. [Выполните развертывание сервера конфигурации](site-recovery-vmware-to-azure.md#step-2-set-up-the-source-environment).
 3. После развертывания сервера конфигурации убедитесь, что он может обмениваться данными с виртуальными машинами, которые требуется перенести.
 4. [Настройте параметры репликации](site-recovery-vmware-to-azure.md#step-4-set-up-replication-settings). Создайте политику репликации и назначьте ее серверу конфигурации.
-5. [Установите службу Mobility Service.](site-recovery-vmware-to-azure.md#step-6-replicate-applications) На каждую виртуальную машину, которую вы планируете защитить, требуется установить службу Mobility Service. Эта служба отправляет данные на сервер обработки. Службу Mobility Service можно установить вручную или передать и установить автоматически с помощью сервера обработки после включения защиты для виртуальной машины. Правила брандмауэра на экземплярах EC2, которые требуется перенести, необходимо настроить таким образом, чтобы разрешить принудительную установку этой службы. Группа безопасности для экземпляров EC2 должна содержать следующие правила:
+5. [Установите службу Mobility Service](site-recovery-vmware-to-azure.md#step-6-replicate-applications). На каждую виртуальную машину, которую вы планируете защитить, требуется установить службу Mobility Service. Эта служба отправляет данные на сервер обработки. Службу Mobility Service можно установить вручную или передать и установить автоматически с помощью сервера обработки после включения защиты для виртуальной машины. Правила брандмауэра на экземплярах EC2, которые требуется перенести, необходимо настроить таким образом, чтобы разрешить принудительную установку этой службы. Группа безопасности для экземпляров EC2 должна содержать следующие правила:
 
     ![Правила брандмауэра](./media/site-recovery-migrate-aws-to-azure/migrate-firewall.png)
 6. [Включите репликацию](site-recovery-vmware-to-azure.md#enable-replication). Включите репликацию для виртуальных машин, которые требуется перенести. Вы можете просмотреть экземпляры EC2, используя их частные IP-адреса, сведения о которых доступны в консоли EC2.
@@ -66,6 +66,6 @@ Site Recovery можно использовать для переноса экз
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

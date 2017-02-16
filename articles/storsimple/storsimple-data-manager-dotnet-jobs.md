@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9bfc1a281bb63a9fd7528106d7bdbc808371c5fb
-ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
+ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
+ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
 
 ---
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
 
 Перед началом работы убедитесь, что у вас есть следующие компоненты:
 *   Система, в которой установлена среда Visual Studio 2012, 2013 или 2015.
-*   Установлена среда [Azure Powershell]. [Скачать Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Azure PowerShell установлен. [Скачать Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   Параметры конфигурации для инициализации задания преобразования данных (инструкции для получения этих параметров приведены в этой статье).
 *   Определение задания, которое правильно настроено в гибридном ресурсе данных в группе ресурсов.
 *   Все необходимые библиотеки DLL. Их можно скачать из [репозитория GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
@@ -62,27 +62,27 @@ ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
     5. В поле **Расположение** выберите **C:\DataTransformation**.
     6. Нажмите кнопку **ОК** , чтобы создать проект.
 
-3.  Теперь добавьте все библиотеки DLL из папки [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) в качестве **ссылочных** в созданный проект. Чтобы скачать DLL-файлы, сделайте следующее:
+4.  Теперь добавьте все библиотеки DLL из папки [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) в качестве **ссылочных** в созданный проект. Чтобы скачать DLL-файлы, сделайте следующее:
 
     1. В Visual Studio выберите **Просмотр > Обозреватель решений**.
     1. Щелкните стрелку слева от проекта приложения преобразования данных. Щелкните **Ссылки**, а затем щелкните этот элемент правой кнопкой мыши и выберите **Добавить ссылку**.
     2. Перейдите в расположение папки с пакетами, выберите все библиотеки DLL, щелкните **Добавить**, а затем нажмите кнопку **ОК**.
 
-4. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте.
+5. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте.
 
-    ````
+    ```
     using System;
     using System.Collections.Generic;
     using System.Threading;
     using Microsoft.Azure.Management.HybridData.Models;
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
-    ````
+    ```
 
 
-5. Представленный ниже код инициализирует экземпляр задания преобразования данных. Добавьте его в **метод Main**. Замените значения параметров конфигурации полученными ранее значениями. Добавьте значения **имени группы ресурсов** и **имени гибридного ресурса данных**. Это **имя группы ресурсов**, которая размещает гибридный ресурс данных, использованный для настройки определения задания.
+6. Представленный ниже код инициализирует экземпляр задания преобразования данных. Добавьте его в **метод Main**. Замените значения параметров конфигурации полученными ранее значениями. Добавьте значения **имени группы ресурсов** и **имени гибридного ресурса данных**. Это **имя группы ресурсов**, которая размещает гибридный ресурс данных, использованный для настройки определения задания.
 
-    ````
+    ```
     // Setup the configuration parameters.
     var configParams = new ConfigurationParams
     {
@@ -97,24 +97,23 @@ ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
 
-    ````
+    ```
 
-6. Укажите параметры, с которыми необходимо выполнить определение задания.
+7. Укажите параметры, с которыми необходимо выполнить определение задания.
 
-    ````
+    ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
 
-    ````
+    ```
 
     (ИЛИ)
 
     Если параметры определения задания нужно изменить во время выполнения, добавьте следующий код:
 
+    ```
     string jobDefinitionName = "job-definition-name";
-
-    ````
     // Must start with a '\'
     var rootDirectories = new List<string> {@"\root"};
 
@@ -136,23 +135,24 @@ ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    ````
+    
+    ```
 
-7. После инициализации добавьте следующий код, чтобы активировать задание преобразования данных в определении задания. Добавьте соответствующее **имя определения задания**.
+8. После инициализации добавьте следующий код, чтобы активировать задание преобразования данных в определении задания. Добавьте соответствующее **имя определения задания**.
 
-    ````
+    ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
 
-    ````
+    ```
 
-8. Это задание передает соответствующие файлы в корневом каталоге тома StorSimple в указанный контейнер. При отправке файла в очередь передается сообщение (в той же учетной записи хранения, что и контейнер) с тем же именем, что и у определения задания. Это сообщение можно использовать в качестве триггера для запуска дальнейшей обработки файла.
+9. Это задание передает соответствующие файлы в корневом каталоге тома StorSimple в указанный контейнер. При отправке файла в очередь передается сообщение (в той же учетной записи хранения, что и контейнер) с тем же именем, что и у определения задания. Это сообщение можно использовать в качестве триггера для запуска дальнейшей обработки файла.
 
-9. После активации задания добавьте следующий код для отслеживания завершения задания.
+10. После активации задания добавьте следующий код для отслеживания завершения задания.
 
-    ````
+    ```
     Job jobDetails = null;
 
     // Poll the job.
@@ -171,7 +171,7 @@ ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
     // To hold the console before exiting.
     Console.Read();
 
-    ````
+    ```
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -179,6 +179,7 @@ ms.openlocfilehash: 5791527b39a24643bcd6f7d0c0aa1dd169f2d1b7
 [Преобразуйте данные с помощью пользовательского интерфейса диспетчера данных StorSimple](storsimple-data-manager-ui.md).
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Публикация веб-службы машинного обучения в Azure Marketplace | Документация Майкрософт"
-description: "Публикация веб-службы машинного обучения Azure в Azure Marketplace"
+title: "Публикация веб-службы машинного обучения в Azure Marketplace (устаревшая версия) | Документация Майкрософт"
+description: "Сведения о публикации веб-службы машинного обучения Azure в Azure Marketplace (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
 author: BharathS
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/08/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24b131d3a9a17ce9a2daf349518873871c9d1019
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 2d62966f130f6778c9561393cc7fc338f8903f1e
 
 
 ---
-# <a name="publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>Публикация веб-службы Машинного обучения Azure в Azure Marketplace
+# <a name="deprecated-publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>Публикация веб-службы машинного обучения Azure в Azure Marketplace (устаревшая версия)
+
+> [!NOTE]
+> Работа DataMarket и служб данных прекращается. Начиная с 31 марта 2017 г. имеющиеся подписки выводятся из эксплуатации и будут отменены. Поэтому мы не рекомендуем использовать эту статью. 
+> 
+> В качестве альтернативы вы можете публиковать свои эксперименты машинного обучения в [коллекции Cortana Intelligence](https://gallery.cortanaintelligence.com/) и поделиться ими с сообществом, занимающимся анализом данных. Дополнительные сведения см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
 Azure Marketplace предоставляет возможность публикации веб-служб машинного обучения Azure как платных или бесплатных служб для внешних клиентов. В этой статье приводится обзор процесса публикации со ссылками на руководства для начала работы. С помощью этой процедуры можно разрешить другим разработчикам использовать веб-службы в их приложениях.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -89,6 +96,6 @@ Azure Marketplace предоставляет возможность публик
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

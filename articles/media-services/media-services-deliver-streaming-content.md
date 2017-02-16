@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
+ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
+ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
 
 
 ---
@@ -101,7 +101,7 @@ ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
 
 
 > [!NOTE]
-> Также по SSL-подключению можно выполнять потоковую передачу содержимого. Для этого убедитесь, что URL-адреса потоковой передачи начинаются с HTTPS. 
+> Также по SSL-подключению можно выполнять потоковую передачу содержимого. Для этого убедитесь, что URL-адреса потоковой передачи начинаются с HTTPS. Обратите внимание, что в настоящее время AMS не поддерживает SSL для личных доменов.  
 > 
 > 
 
@@ -177,6 +177,6 @@ ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 8761e32f22471e00e33605916fc145881c8fe378
-ms.openlocfilehash: fed40bd97114a2f4eafedc5587b4744d73b2a0ff
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 64234747b92379e50edb800d03353be346c4d319
 
 ---
 
@@ -45,7 +45,7 @@ ms.openlocfilehash: fed40bd97114a2f4eafedc5587b4744d73b2a0ff
 
 Выполните следующие действия, чтобы реализовать сценарий, описанный в этой статье.
 
-1. Установите Azure PowerShell. Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](../powershell-install-configure.md).
+1. Установите Azure PowerShell. Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Создайте группу ресурсов, указав приведенные ниже параметры.
 
     ```powershell
@@ -150,6 +150,6 @@ ms.openlocfilehash: fed40bd97114a2f4eafedc5587b4744d73b2a0ff
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

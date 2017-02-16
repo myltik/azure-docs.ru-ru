@@ -4,7 +4,7 @@ description: "Узнайте о том, как использовать набо
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
 ms.service: multiple
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
+ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
+ms.openlocfilehash: 1c60d3730aa2bbca63abf259727ec41ffc164b47
 
 
 ---
@@ -57,7 +57,7 @@ ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
 * [Развертывание крупных систем]
 * [Отладка в Eclipse веб-приложения Java, размещенного в Azure]
 * [Отладка приложения Azure в Eclipse]
-* [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для Eclipse][Подключаемый модуль средств HDInsight для Eclipse]
+* [Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark для кластера Spark в HDInsight на платформе Linux][HDInsight Tools Plugin for Eclipse]
 
 ## <a name="see-also"></a>См. также
 Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
@@ -71,11 +71,11 @@ ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
   * [Создание веб-приложения Hello World для Azure в IntelliJ]
   * [Новые возможности набора средств Azure для IntelliJ]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure см. в [центре разработчиков Java для Azure] и на странице [инструментов Java для Visual Studio Team Services].
 
 <!-- URL List -->
 
-[Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
@@ -84,7 +84,8 @@ ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+[инструментов Java для Visual Studio Team Services]: https://java.visualstudio.com/ (Инструменты Java для Visual Studio Team Services)
 
 [Свойства проекта Azure]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Свойства роли Azure]: ./azure-toolkit-for-eclipse-azure-role-properties.md
@@ -97,8 +98,8 @@ ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
 [Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Включение удаленного доступа для развертываний Azure в Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [Включение сходства сеанса]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
-[Подключаемый модуль средств HDInsight для Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
-[Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -110,6 +111,6 @@ ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

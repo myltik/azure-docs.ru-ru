@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
+ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
+ms.openlocfilehash: 3217399ee868707309e96234d4954548b063534a
 
 
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview-use-azure-powershell"></a>Настройка присоединенных к домену кластеров HDInsight (предварительная версия) с помощью Azure PowerShell
+# <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Настройка присоединенных к домену кластеров HDInsight (предварительная версия) с помощью Azure PowerShell
 Узнайте, как настроить кластер Azure HDInsight со службой Azure Active Directory (Azure AD) и платформой [Apache Ranger](http://hortonworks.com/apache/ranger/) с помощью Azure PowerShell. Предоставленный скрипт Azure PowerShell позволяет настроить конфигурацию быстро и без ошибок. Присоединенный к домену кластер HDInsight можно настроить только с помощью кластеров под управлением Linux. Дополнительные сведения см. в статье [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Введение в присоединенные к домену кластеры HDInsight).
 
 Ниже описано, как поэтапно настроить типичную конфигурацию кластера HDInsight, присоединенного к домену.
@@ -39,9 +39,9 @@ ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
 
 Пример итоговой топологии выглядит следующим образом:
 
-![Топология присоединенного к домену кластера HDInsight](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![Топология присоединенного к домену кластера HDInsight](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-Так как в настоящее время Azure AD поддерживает только классические виртуальные сети, а кластеры HDInsight под управлением Linux поддерживают только виртуальные сети на основе Azure Resource Manager, для интеграции HDInsight с Azure AD нужно создать две виртуальные сети и настроить пиринг между ними. Сравнительные сведения о двух моделях развертывания см. в статье [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](../resource-manager-deployment-model.md). Две виртуальные сети должны находиться в одном регионе с доменными службами Azure Active Directory.
+Так как в настоящее время Azure AD поддерживает только классические виртуальные сети, а кластеры HDInsight под управлением Linux поддерживают только виртуальные сети на основе Azure Resource Manager, для интеграции HDInsight с Azure AD нужно создать две виртуальные сети и настроить пиринг между ними. Сравнительные сведения о двух моделях развертывания см. в статье [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](../azure-resource-manager/resource-manager-deployment-model.md). Две виртуальные сети должны находиться в одном регионе с доменными службами Azure Active Directory.
 
 > [!NOTE]
 > В этом руководстве предполагается, что служба Azure AD не установлена. Если она установлена, можно пропустить часть инструкций на шаге 2.
@@ -54,7 +54,7 @@ ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
 * Ознакомьтесь с [доменными службами Azure AD](https://azure.microsoft.com/services/active-directory-ds/) и их [ценовой](https://azure.microsoft.com/pricing/details/active-directory-ds/) структурой.
 * Убедитесь, что ваша подписка внесена в список разрешенных подписок для этой общедоступной предварительной версии. Для этого можно отправить сообщение с идентификатором подписки по адресу hdipreview@microsoft.com.
 * SSL-сертификат, подписанный заверителем подписи для вашего домена. Сертификат требуется для настройки защищенного протокола LDAP. Нельзя использовать самозаверяющие сертификаты.
-* Установите Azure PowerShell.  См. руководство по [установке и настройке Azure PowerShell](../powershell-install-configure.md).
+* Установите Azure PowerShell.  См. руководство по [установке и настройке Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Создайте классическую виртуальную сеть Azure для Azure AD.
 Инструкции см. [здесь](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
@@ -105,7 +105,7 @@ ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
 При создании обратных зон DNS скрипт предложит указать идентификатор сети. Этот идентификатор должен соответствовать префиксу адреса виртуальной сети Resource Manager. Например, если адресное пространство подсети виртуальной сети Resource Manager — 10.2.0.0/24, при запросе в качестве идентификатора сети введите 10.2.0.0/24. 
 
 ## <a name="create-hdinsight-cluster"></a>Создание кластера HDInsight
-В этом разделе вы создадите в HDInsight кластер Hadoop под управлением Linux с помощью портала Azure или [шаблона Azure Resource Manager](../resource-group-template-deploy.md). Сведения о других способах создания кластеров и их параметрах см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Дополнительные сведения о создании в HDInsight кластеров Hadoop с помощью шаблонов Resource Manager см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
+В этом разделе вы создадите в HDInsight кластер Hadoop под управлением Linux с помощью портала Azure или [шаблона Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других способах создания кластеров и их параметрах см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Дополнительные сведения о создании в HDInsight кластеров Hadoop с помощью шаблонов Resource Manager см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
 
 **Создание присоединенного к домену кластера HDInsight с помощью портала Azure**
 
@@ -156,7 +156,7 @@ ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
 
 1. Щелкните следующее изображение, чтобы открыть шаблон Resource Manager на портале Azure. Шаблон Resource Manager хранится в общедоступном контейнере BLOB-объектов. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. В колонке **Параметры** задайте следующие значения:
    
    * **Подписка**. Выберите подписку Azure.
@@ -183,12 +183,13 @@ ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
 После завершения работы с этим руководством кластер можно удалить. В случае с HDInsight ваши данные хранятся в службе хранилища Azure, что позволяет безопасно удалить неиспользуемый кластер. Плата за кластеры HDInsight взимается, даже когда они не используются. Поскольку стоимость кластера во много раз превышает стоимость хранилища, экономически целесообразно удалять неиспользуемые кластеры. Инструкции по удалению кластера см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 * Сведения о настройке политик Hive и выполнении запросов Hive для присоединенного к домену кластера HDInsight см. [здесь](hdinsight-domain-joined-run-hive.md).
-* Сведения о выполнении запросов Hive с помощью SSH в присоединенных к домену кластерах HDInsight см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Сведения о подключении к присоединенным к домену кластерам HDInsight с использованием SSH см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

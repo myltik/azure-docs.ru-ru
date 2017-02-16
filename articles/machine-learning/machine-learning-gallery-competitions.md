@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
  На странице **[конкурсов](https://gallery.cortanaintelligence.com/competitions)**
  отобразится список наиболее популярных конкурсов.
 Щелкните **See all** (Показать все), чтобы просмотреть все конкурсы.
-На открывшейся странице можно просмотреть все конкурсы в коллекции. Здесь также можно воспользоваться фильтрами в левой части страницы или строкой поиска вверху, чтобы найти определенные конкурсы.
+На этой странице можно просмотреть все конкурсы в коллекции. Кроме того, для поиска можно задать условия фильтра в левой части страницы и ввести условия поиска вверху.
 
  Щелкнув любой конкурс, вы попадете на страницу с его описанием и дополнительными сведениями. На этой странице в разделе комментариев можно оставлять замечания, отзывы и задавать вопросы. Ссылку на страницу можно опубликовать в социальных сетях LinkedIn и Twitter для друзей и коллег. Кроме того, ссылку можно отправить по электронной почте, чтобы другие пользователи также могли просмотреть найденный вами конкурс.
 
@@ -47,7 +47,7 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
 
 ![Конкурс завершен](media/machine-learning-gallery-competitions/open-competition.png)
 
-Если конкурс завершен, на странице с его описанием будет указано состояние **Completed** (Завершился), а вместо кнопки **Enter Competition** (Принять участие в конкурсе) будет надпись **Finished** (Завершен).
+Если конкурс завершен, на странице с его описанием будет указано состояние **Выполнено**, а вместо кнопки **Enter Competition** (Принять участие) будет надпись **Готово**.
 
 ![Конкурс завершен](media/machine-learning-gallery-competitions/completed-competition.png)
 
@@ -58,6 +58,6 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

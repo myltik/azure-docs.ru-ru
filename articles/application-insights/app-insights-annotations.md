@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 97b81c9b5904dea8d43042fd5b6529580eb35e74
-ms.openlocfilehash: e83518c0cd41c101170de6598c3321543b2ccf53
+ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
+ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
 
 
 ---
@@ -68,7 +68,7 @@ ms.openlocfilehash: e83518c0cd41c101170de6598c3321543b2ccf53
    
     Вставьте ключ API в определение переменной ApiKey.
    
-    ![В окне Team Services перейдите на вкладку "Конфигурация" и щелкните "Добавить переменную". Задайте "ApiKey" в качестве имени и в поле "Значение" вставьте ключ, который был только что создан.](./media/app-insights-annotations/50.png)
+    ![В окне Team Services перейдите на вкладку "Конфигурация" и щелкните "Добавить переменную". Задайте "ApiKey" в качестве имени и в поле "Значение" вставьте ключ, который был только что создан, и щелкните значок замка.](./media/app-insights-annotations/50.png)
 7. Наконец, **сохраните** определение выпуска.
 
 
@@ -109,6 +109,6 @@ ms.openlocfilehash: e83518c0cd41c101170de6598c3321543b2ccf53
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

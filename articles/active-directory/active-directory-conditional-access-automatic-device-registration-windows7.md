@@ -1,5 +1,5 @@
 ---
-title: "# Настройка автоматической регистрации присоединенных к домену устройств Windows 7 | Документация Майкрософт"
+title: "# Настройка автоматической регистрации присоединенных к домену устройств Windows 7 | Документация Майкрософтcs"
 description: "Действия по настройке автоматической регистрации присоединенных к домену устройств Windows 7 в Azure AD, а также шаги развертывания программного пакета регистрации устройств на присоединенных к домену устройствах Windows 7 с помощью системы распространения программного обеспечения, например System Center Configuration Manager."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: MarkVi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2bc945283ca99dc91ae7e824606886a5389f20a6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e31a22237fb6b715c1d5c24d75f645edfbeb7c9e
 
 
 ---
@@ -75,6 +75,6 @@ ms.openlocfilehash: 2bc945283ca99dc91ae7e824606886a5389f20a6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

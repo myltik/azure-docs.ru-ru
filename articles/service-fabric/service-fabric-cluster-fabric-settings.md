@@ -1,13 +1,13 @@
 
 ---
-title: Настройка параметров кластера Service Fabric и политики обновления структур | Microsoft Docs
-description: В этой статье описываются параметры структуры и политики обновления структур, которые можно настраивать.
+title: "Изменение параметров кластера Azure Service Fabric | Документация Майкрософт"
+description: "В этой статье описываются параметры структуры и политики обновления структур, которые можно настраивать."
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -15,20 +15,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: 6e90ee1e139c219d5ff24be64f9010c55b36c82b
+
 
 ---
-# Настройка параметров кластера Service Fabric и политики обновления структур
-В этом документе описывается, как настроить различные параметры структуры и политику обновления структур для кластера Service Fabric. Их можно настроить на портале или с помощью шаблона Resource Manager.
+# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Настройка параметров кластера Service Fabric и политики обновления структур
+В этом документе описывается, как настроить различные параметры структуры и политику обновления структур для кластера Service Fabric. Их можно настроить на портале или с помощью шаблона Azure Resource Manager.
 
-## Параметры структуры, которые можно настраивать
+## <a name="fabric-settings-that-you-can-customize"></a>Параметры структуры, которые можно настраивать
 Ниже приведены параметры структуры, которые можно настраивать.
 
-### Имя раздела: Security
+### <a name="section-name-security"></a>Имя раздела: Security
 | **Параметр** | **Допустимые значения** | **Рекомендация или краткое описание** |
 | --- | --- | --- |
 | ClusterProtectionLevel |None или EncryptAndSign. |None (по умолчанию) для незащищенных кластеров, EncryptAndSign для защищенных кластеров. |
 
-### Имя раздела: Hosting
+### <a name="section-name-hosting"></a>Имя раздела: Hosting
 | **Параметр** | **Допустимые значения** | **Рекомендация или краткое описание** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Время в секундах, по умолчанию — 300. |Максимальное время, отводимое на регистрацию ServiceType в структуре. |
@@ -37,18 +41,18 @@ ms.author: chackdan
 | ActivationMaxRetryInterval |Время в секундах, по умолчанию — 300. |При каждом постоянном сбое активации система повторяет попытки активации, пока их число не достигнет значения ActivationMaxFailureCount. ActivationMaxRetryInterval задает интервал времени ожидания перед повторной попыткой, осуществляемой после каждого сбоя активации. |
 | ActivationMaxFailureCount |Целое число, по умолчанию — 10. |Количество неудачных попыток системы выполнить активацию, после которого их следует прекратить. |
 
-### Имя раздела: FailoverManager
+### <a name="section-name-failovermanager"></a>Имя раздела: FailoverManager
 | **Параметр** | **Допустимые значения** | **Рекомендация или краткое описание** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |Время в секундах, по умолчанию — 10. |Этот параметр определяет частоту проверки диспетчером отработки отказов наличия новых отчетов о нагрузке. |
 
-### Имя раздела: Federation
+### <a name="section-name-federation"></a>Имя раздела: Federation
 | **Параметр** | **Допустимые значения** | **Рекомендация или краткое описание** |
 | --- | --- | --- |
 | LeaseDuration |Время в секундах, по умолчанию — 30. |Длительность аренды между узлом и его соседями. |
 | LeaseDurationAcrossFaultDomain |Время в секундах, по умолчанию — 30. |Длительность аренды между узлом и его соседями в доменах сбоя. |
 
-### Имя раздела: ClusterManager
+### <a name="section-name-clustermanager"></a>Имя раздела: ClusterManager
 | **Параметр** | **Допустимые значения** | **Рекомендация или краткое описание** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |Время в секундах, по умолчанию — 60. |Частота опроса состояния обновления приложения. Это значение определяет частоту обновления любого вызова GetApplicationUpgradeProgress. |
@@ -56,9 +60,14 @@ ms.author: chackdan
 | FabricUpgradeStatusPollInterval |Время в секундах, по умолчанию — 60. |Частота опроса состояния обновления структуры. Это значение определяет частоту обновления любого вызова GetFabricUpgradeProgress. |
 | FabricUpgradeHealthCheckInterval |Время в секундах, по умолчанию — 60. |Частота проверок работоспособности во время обновления наблюдаемой структуры. |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об управлении кластерами доступны в следующих статьях.
 
-[Добавление, смена и удаление сертификатов в кластере Azure](service-fabric-cluster-security-update-certs-azure.md)
+[Добавление, смена и удаление сертификатов в кластере Azure ](service-fabric-cluster-security-update-certs-azure.md) 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Jan17_HO4-->
+
+

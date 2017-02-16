@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: c719a82e6c2ae46080811190f9ca7783414f38f4
+ms.sourcegitcommit: 3e9476f8edc4186af026495bc575b8203c35c619
+ms.openlocfilehash: b01de7724ec116e5e27369f7c0f852f82ab0348b
 
 
 ---
@@ -86,11 +86,11 @@ Application Insights — одна из многих служб, размещен
 
 Начать работу можно несколькими способами. Начните с того, который вам лучше подходит. Остальные можно использовать позже.
 
-* **Во время выполнения — инструментирование веб-приложения на сервере.**  Не допускает обновление кода. Требуется административный доступ на сервер.
+* **Во время выполнения — инструментирование веб-приложения на сервере.** Не допускает обновление кода. Требуется административный доступ на сервер.
   * [**Локальные или размещенные на виртуальной машине службы IIS**](app-insights-monitor-performance-live-website-now.md);
   * [**веб-приложения или виртуальные машины Azure**](app-insights-monitor-performance-live-website-now.md);
   * [**J2EE**](app-insights-java-live.md).
-* **Во время разработки — добавление Application Insights в код.**  Таким образом вы получаете возможность записывать пользовательскую телеметрию, а также инструментировать серверные и классические приложения.
+* **Во время разработки — добавление Application Insights в код.** Таким образом вы получаете возможность записывать пользовательскую телеметрию, а также инструментировать серверные и классические приложения.
   * [Visual Studio](app-insights-asp-net.md) 2013 с обновлением 2 или более поздняя версия.
   * Java в [Eclipse](app-insights-java-eclipse.md) или [другие средства](app-insights-java-get-started.md);
   * [Node.js](app-insights-nodejs.md)
@@ -264,7 +264,7 @@ Application Insights — одна из многих служб, размещен
 В отличие от обозревателя метрик, динамический поток метрик отображает фиксированный набор метрик. Данные сохраняются только на то время, пока они отображаются на диаграмме, а затем удаляются.
 
 ### <a name="annotations"></a>аннотации
-[Заметки к выпуску](app-insights-annotations.md) на диаграммах метрик показывают, где развернута новая сборка. С их помощью легко увидеть, повлияли ли ваши изменения на производительность приложения. Их может автоматически создавать [система сборки Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Кроме того, [их можно создать в PowerShell](#create-annotations-from-powershell).
+[Заметки к выпуску](app-insights-annotations.md) на диаграммах метрик показывают, где развернута новая сборка. С их помощью легко увидеть, повлияли ли ваши изменения на производительность приложения. Их может автоматически создавать [система сборки Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) и средства веб-развертывания из Visual Studio. Вы можете также [создавать их с помощью PowerShell](#create-annotations-from-powershell).
 
 ![Пример заметок с видимой корреляцией с временем ответа сервера](./media/app-insights-overview/00.png)
 
@@ -355,20 +355,20 @@ Application Insights предоставляет три типа оповещен
 
 [android]: https://github.com/Microsoft/ApplicationInsights-Android
 [azure]: ../insights-perf-analytics.md
-[клиент]: app-insights-javascript.md
+[client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
-[платформы]: app-insights-platforms.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

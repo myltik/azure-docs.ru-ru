@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по решениям для хранения данных | Документация Майкрософт"
+title: "Рекомендации по решениям службы хранилища Azure | Документация Майкрософт"
 description: "Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания решений для хранения данных в службах инфраструктуры Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ad01dd5585eab70404d476e234b8d2dcee93f2a9
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 8b4ee1634981a449d9968f9156df10a9d40baae9
 
 
 ---
-# <a name="storage-infrastructure-guidelines"></a>Рекомендации по инфраструктуре хранилища
+# <a name="azure-storage-infrastructure-guidelines"></a>Рекомендации по инфраструктуре службы хранилища Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Эта статья посвящена требованиям к хранилищу и вопросам проектирования, связанным с обеспечением оптимальной производительности виртуальных машин.
@@ -88,6 +88,6 @@ Azure накладывает ограничения на количество д
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

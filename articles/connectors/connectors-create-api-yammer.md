@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 274ddce2bd3586dfba9ee214055accdba52f3ba9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 104edc61f964f5e0b6c2144a39201283b71145a2
 
 
 ---
@@ -190,6 +190,6 @@ Yammer предоставляет следующие триггеры и дей�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

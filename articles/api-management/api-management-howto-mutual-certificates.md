@@ -12,28 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ad14ed8b36d6d0a2121c32fd9a54de97e8b02342
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: de47ff52eac40c4b4c57eef89763b71fd525ffa4
 
 
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
 Служба API Management дает возможность защищать доступ к фоновым службам API с помощью сертификатов клиента. В этом руководстве описывается, как управлять сертификатами на портале издателя API и как настроить использование сертификата в  API для доступа к фоновой службе.
 
-Дополнительные сведения об управлении сертификатами с помощью REST API управления API см. в разделе, посвященном [объекту сертификата REST API управления API Azure][Сущность сертификата REST API службы управления API Azure].
+Дополнительные сведения об управлении сертификатами с помощью REST API управления API см. в разделе, посвященном [объекту сертификата REST API управления API Azure][Azure API Management REST API Certificate entity].
 
 ## <a name="prerequisites"> </a>Предварительные требования
-В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этой статье, в серверной службе необходимо настроить проверку подлинности на основе сертификата клиента. [Настройка проверки подлинности сертификата в службе веб-сайтов Azure описана в этой статье.][Настройка проверки подлинности сертификата в службе веб-сайтов Azure описана в этой статье.]. Кроме того, нужен доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
+В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этой статье, во внутренней службе необходимо настроить аутентификацию на основе сертификата клиента. [Сведения о том, как настроить аутентификацию на основе сертификата на веб-сайтах Azure, см. в этой статье.][to configure certificate authentication in Azure WebSites refer to this article]. Кроме того, нужен доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
 
 ## <a name="step1"> </a>Отправка сертификата клиента
 Чтобы начать работу, щелкните **Publisher portal** (Портал издателя) на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя API][api-management-management-console]
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
@@ -61,7 +61,7 @@ ms.openlocfilehash: ad14ed8b36d6d0a2121c32fd9a54de97e8b02342
 
 ![Сертификат добавлен][api-management-certificate-uploaded]
 
-После добавления сертификат появляется на вкладке **Сертификаты клиента**. Если у вас несколько сертификатов, запишите субъект или последние четыре символа отпечатка. Эти данные используются для выбора сертификата при настройке API для применения сертификатов, как описано в разделе [Настройка API для проверки подлинности шлюза с помощью сертификата клиента][Настройка API для проверки подлинности шлюза с помощью сертификата клиента] ниже.
+После добавления сертификат появляется на вкладке **Сертификаты клиента**. Если у вас несколько сертификатов, запишите субъект или последние четыре знака отпечатка. Эти данные используются для выбора сертификата при настройке API для использования сертификатов, как описано в разделе [Настройка API для проверки подлинности шлюза с помощью сертификата клиента][Configure an API to use a client certificate for gateway authentication] ниже.
 
 > Чтобы отключить проверку цепочки сертификатов при использовании, например, самозаверяющего сертификата, выполните действия, описанные в [этом разделе](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) часто задаваемых вопросов.
 > 
@@ -130,32 +130,32 @@ ms.openlocfilehash: ad14ed8b36d6d0a2121c32fd9a54de97e8b02342
 
 
 
-[Как добавлять операции в API]: api-management-howto-add-operations.md
-[Как создать и опубликовать продукт]: api-management-howto-add-products.md
-[Мониторинг и аналитика]: ../api-management-monitoring.md
-[Добавление интерфейсов API к продукту]: api-management-howto-add-products.md#add-apis
-[Публикация продукта]: api-management-howto-add-products.md#publish-product
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Справочник по политикам службы управления API]: api-management-policy-reference.md
-[Политики кэширования]: api-management-policy-reference.md#caching-policies
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Сущность сертификата REST API службы управления API Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Настройка проверки подлинности сертификата в службе веб-сайтов Azure описана в этой статье.]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
-[Предварительные требования]: #prerequisites
-[Отправка сертификата клиента]: #step1
-[Удаление сертификата клиента]: #step1a
-[Настройка API для проверки подлинности шлюза с помощью сертификата клиента]: #step2
-[Проверка конфигурации с помощью вызова операции на портале разработчика]: #step3
-[Дальнейшие действия]: #next-steps
-
-
+[Prerequisites]: #prerequisites
+[Upload a client certificate]: #step1
+[Delete a client certificate]: #step1a
+[Configure an API to use a client certificate for gateway authentication]: #step2
+[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

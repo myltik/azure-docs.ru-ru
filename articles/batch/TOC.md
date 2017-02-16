@@ -6,7 +6,7 @@
 ## [Создание учетной записи пакетной службы](batch-account-create-portal.md)
 ## [Учебник по .NET для пакетной службы](batch-dotnet-get-started.md)
 ## [Учебник по Python для пакетной службы](batch-python-tutorial.md)
-# Практическое руководство:
+# Практическое руководство
 ## Разработка
 ### [Пакеты приложений](batch-application-packages.md)
 ### [Автомасштабирование вычислительных узлов](batch-automatic-scaling.md)
@@ -25,12 +25,12 @@
 ### [Журналы диагностики пакетной службы](batch-diagnostics.md)
 
 # Справочные материалы
-## [Командлеты PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [Java](https://docs.microsoft.com/java/api)
-## [API .NET](https://docs.microsoft.com/dotnet/api)
-## [Пакет SDK для Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Пакет SDK для Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [REST](/rest/api/batchservice)
 
 # Сопутствующие материалы
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ba4c04880913996b9744cdf2a3d19e9bedf36c16
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
 
 
 ---
@@ -119,7 +119,7 @@ Node.js включает минимальный набор функционал�
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию см. в [центре разработчиков Node.js](/develop/nodejs/).
 
-[Веб-приложение Node.js]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
@@ -127,6 +127,6 @@ Node.js включает минимальный набор функционал�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

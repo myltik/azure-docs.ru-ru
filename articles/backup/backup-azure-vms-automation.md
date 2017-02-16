@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/16/2017
 ms.author: markgal; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: f6a1346b84521806e5523e331b2aeb11648bbe6d
-ms.openlocfilehash: a7d2a73760cd015a5a67551f6f6ada8568ed75b8
+ms.sourcegitcommit: 3a560e836de9cf70bf448b30b091ad92372bce06
+ms.openlocfilehash: 909b16d2e8c72fa29f45e1bdfc778612e00ebbd8
 
 
 ---
@@ -199,6 +199,11 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
+> [!NOTE]
+> Если вы работаете в облаке Azure для государственных организаций, используйте значение ff281ffe-705c-4f53-9f37-a40e6f2c68f3 для параметра **-ServicePrincipalName** в командлете Set-AzureRmKeyVaultAccessPolicy.
+> 
+> 
+
 Для виртуальных машин на основе диспетчера служб Azure
 
 ```
@@ -230,7 +235,8 @@ WorkloadName     Operation            Status               StartTime            
 V2VM              Backup               InProgress            4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-> AZURE.NOTE. Часовой пояс для полей StartTime и EndTime, отображаемый в PowerShell, — UTC. Однако при отображении времени на портале Azure время меняется в соответствии с локальным часовым поясом.
+> [!NOTE]
+> Часовой пояс для полей StartTime и EndTime в PowerShell — UTC. Однако при отображении времени на портале Azure время меняется в соответствии с локальным часовым поясом.
 > 
 > 
 
@@ -323,8 +329,13 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 Восстановив диски, перейдите к следующему разделу, где вы найдете информацию о создании виртуальной машины.
 
-### <a name="create-a-vm-from-restored-disks"></a>Создание виртуальной машины с восстановленного диска
+## <a name="create-a-vm-from-restored-disks"></a>Создание виртуальной машины с восстановленного диска
 После восстановления дисков создайте и настройте виртуальную машину с диска, выполнив описанные ниже действия.
+
+> [!NOTE]
+> При создании зашифрованных виртуальных машин с помощью восстановленных дисков у роли должно быть разрешение на выполнение команды **Microsoft.KeyVault/vaults/deploy/action**. Если у роли нет этого разрешения, создайте пользовательскую роль с этим действием. Дополнительные сведения см. в статье [Пользовательские роли в Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> 
+> 
 
 1. Запросите свойства восстановленного диска для получения сведений о задании.
    
@@ -384,6 +395,6 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

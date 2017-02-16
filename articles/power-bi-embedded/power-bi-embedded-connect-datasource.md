@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+ms.sourcegitcommit: 5c4b5e09ac5e336504be32533ad011aad102af75
+ms.openlocfilehash: fdc0d76741d5078978e1bfeadd156e84cac3a48a
 
 
 ---
@@ -31,6 +31,19 @@ ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
 | Таблицы, столбцы и *данные* импортируются или копируются в набор данных отчета. Чтобы определить изменения в базовых данных, вам нужно повторно обновить или импортировать готовый текущий набор данных. |В набор данных отчета импортируются или копируются только *таблицы и столбцы* . Вы всегда просматриваете самые последние данные. |
 
 Благодаря Power BI Embedded в настоящее время можно использовать DirectQuery с облачными источниками данных, но не с локальными источниками данных.
+
+> [!NOTE]
+> В настоящее время Power BI Embedded не поддерживает локальный шлюз данных. Это означает, что нельзя использовать DirectQuery для локальных источников данных.
+
+## <a name="supported-data-sources"></a>Поддерживаемые источники данных
+
+**DirectQuery**
+* База данных SQL Azure
+* Хранилище данных SQL Azure
+
+**Импорт**
+
+Для импорта можно использовать все доступные источники данных в Power BI Desktop. Вы **не** сможете обновить эти данные в Power BI Embedded. Потребуется передать изменения в PBIX-файле в Power BI Embedded. Это вызвано тем, что шлюз недоступен. 
 
 ## <a name="benefits-of-using-directquery"></a>Преимущества использования DirectQuery
 Использование **DirectQuery**связано с такими преимуществами:
@@ -56,9 +69,11 @@ ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
 * [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

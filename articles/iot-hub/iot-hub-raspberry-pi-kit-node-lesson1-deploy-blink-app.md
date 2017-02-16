@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 09554b64f31c909e413f5a93dfd6d74186bf6e21
+ms.openlocfilehash: b9e49d3637b3e3aff1a89e57c125a59877544e01
 
 
 ---
@@ -124,7 +124,7 @@ npm install
 Поздравляем! Вы успешно создали первый пример приложения для платы Pi.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Развертывание и запуск примера приложения
-### <a name="install-nodejs-and--on-pi"></a>Установка Node.js и NPM на плату Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Установка Node.js и NPM на устройстве Pi
 Установите Node.js и NPM на плату Pi, выполнив следующую команду.
 
 ```bash
@@ -153,6 +153,6 @@ gulp deploy && gulp run
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

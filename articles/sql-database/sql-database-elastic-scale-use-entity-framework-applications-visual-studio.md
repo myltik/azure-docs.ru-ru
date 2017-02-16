@@ -8,6 +8,7 @@ author: torsteng
 editor: 
 ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ed3bceedd458e795524c6b1e29184eacf0672184
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
 
 
 ---
@@ -198,7 +199,7 @@ ms.openlocfilehash: ed3bceedd458e795524c6b1e29184eacf0672184
 Это приводит к подходу, где развертывание схемы с помощью миграций EF тесно связано с регистрацией новой базы данных в качестве сегмента в сопоставлении сегментов приложения. При этом подразумевается выполнение следующих условий: 
 
 * База данных уже создана. 
-* База данных пуста – в ней нет пользовательской схемы и данных.
+* База данных пуста — в ней нет пользовательской схемы и данных.
 * База данных еще недоступна для маршрутизации на основе данных через клиентский API-интерфейс эластичной базы данных. 
 
 При выполнении этих условий можно создать обычное неоткрытое подключение **SqlConnection** , чтобы запустить миграции EF для развертывания схемы. Этот подход показан в следующем примере кода. 
@@ -268,6 +269,6 @@ ms.openlocfilehash: ed3bceedd458e795524c6b1e29184eacf0672184
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

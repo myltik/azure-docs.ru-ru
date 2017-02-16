@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
 В следующем разделе описываются разные типы ошибок синхронизации, которые могут возникнуть при экспорте данных в Azure AD с помощью соединителя Azure AD. Этот соединитель можно определить по формату имени, например contoso.*onmicrosoft.com*.
 Ошибки во время экспорта данных в Azure AD указывают, что при попытке \(модуля синхронизации\) Azure AD Connect выполнить \(добавление, удаление, обновление и т. п.\) в Azure Active Directory произошел сбой.
 
-![Обзор ошибок экспорта](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Обзор ошибок экспорта](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>Ошибки несовпадения данных
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -114,7 +114,7 @@ ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
 * Администратор создал в Office 365 группу безопасности, поддерживающую почту. Он добавил в локальный каталог AD (пока не синхронизированный с Azure AD) нового пользователя или контакт с тем же значением атрибута proxyAddresses, что и у группы Office 365.
 
 #### <a name="example-case"></a>Примеры
-1. Администратор создал для налогового департамента в Office 365 группу безопасности, поддерживающую почту, а в качестве адреса электронной почты указал tax@contoso.com.. Таким образом он назначил этой группе атрибут proxyAddresses со значением **smtp:tax@contoso.com**.
+1. Администратор создал для налогового департамента в Office 365 группу безопасности, поддерживающую почту, а в качестве адреса электронной почты указал tax@contoso.com. Таким образом он назначил этой группе атрибут ProxyAddresses со значением **smtp:tax@contoso.com**.
 2. К домену contoso.com присоединился новый пользователь, для которого в локальном каталоге создана учетная запись с атрибутом proxyAddress. Значение этого атрибута — **smtp:tax@contoso.com**.
 3. Когда Azure AD Connect синхронизирует новую учетную запись пользователя, произойдет ошибка ObjectTypeMismatch.
 
@@ -195,7 +195,7 @@ b. Атрибут userPrincipalName не соответствует требуе
 #### <a name="how-to-fix"></a>Как устранить
 Если при переходе из домена bob@**contoso.com** в домен bob@**fabrikam.com** (домены **contoso.com** и **fabrikam.com** **федеративные**) суффикс атрибута userPrincipalName изменился, выполните шаги ниже, чтобы устранить ошибку синхронизации.
 
-1. В Azure AD измените значение bob@contoso.com атрибута userPrincipalName пользователя на bob@contoso.onmicrosoft.com.. Для этого можно выполнить следующую команду PowerShell с модулем PowerShell Azure AD: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`.
+1. Измените UserPrincipalName пользователя в Azure AD с bob@contoso.com на bob@contoso.onmicrosoft.com. Вы можете использовать следующую команду PowerShell в модуле Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Разрешите выполнить следующий цикл синхронизации. В этот раз синхронизация пройдет успешно, а для атрибута userPrincipalName Григория будет задано значение bob@fabrikam.com (как и ожидалось).
 
 ## <a name="largeobject"></a>LargeObject
@@ -209,7 +209,7 @@ b. Атрибут userPrincipalName не соответствует требуе
 ### <a name="possible-scenarios"></a>Возможные сценарии
 1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты.
 2. Атрибут thmubnailPhoto, заданный в AD, слишком большой для синхронизации в Azure AD.
-3. При автоматическом заполнении в AD объекту назначено более 500 атрибутов proxyAddresses.
+3. При автоматическом заполнении в AD объекту назначено более&500; атрибутов proxyAddresses.
 
 ### <a name="how-to-fix"></a>Как устранить
 1. Убедитесь, что атрибут, повлекший ошибку, не превысил установленное ограничение.
@@ -221,6 +221,6 @@ b. Атрибут userPrincipalName не соответствует требуе
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

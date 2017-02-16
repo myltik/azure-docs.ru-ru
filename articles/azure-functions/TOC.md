@@ -16,6 +16,7 @@
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [Работа с триггерами и привязками](functions-triggers-bindings.md)
+#### [Привязки DocumentDB](functions-bindings-documentdb.md)
 #### [Привязки концентратора событий](functions-bindings-event-hubs.md)
 #### [Привязки HTTP и webhook](functions-bindings-http-webhook.md)
 #### [Привязки мобильных приложений](functions-bindings-mobile-apps.md)
@@ -28,19 +29,19 @@
 #### [Триггер таймера](functions-bindings-timer.md)
 #### [Привязка к выходным данным Twilio](functions-bindings-twilio.md)
 ### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md)
-### [Testing Azure Functions](functions-test-a-function.md)
+### [Тестирование функций Azure](functions-test-a-function.md)
 ### [Локальная разработка и отладка](functions-run-local.md)
-### [Рекомендации по Функциям Azure](functions-best-practices.md)
+### [Рекомендации по функциям Azure](functions-best-practices.md)
 ### [Выполнение запланированной задачи очистки с помощью функций Azure](functions-scenario-database-table-cleanup.md)
 
 ## Управление
 ### [Настройка параметров для приложения-функции](functions-how-to-use-azure-function-app-settings.md)
 
 ## Развернуть
-### [Непрерывное развертывание для Функций Azure](functions-continuous-deployment.md)
+### [Непрерывное развертывание для функций Azure](functions-continuous-deployment.md)
 
-## Монитор
-### [Мониторинг Функций Azure](functions-monitoring.md)
+## Мониторинг
+### [Мониторинг функций Azure](functions-monitoring.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/functions/)  
@@ -49,6 +50,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

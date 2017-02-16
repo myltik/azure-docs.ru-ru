@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b87bfb70171e79b7a4cec537874a57dc0cce2899
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 63e51feb8c88c6c294fb7b712c3cede10e7253d8
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: b87bfb70171e79b7a4cec537874a57dc0cce2899
 > [!NOTE]
 >  При изменении значений `Width` и `Height` слоев убедитесь в сохранении пропорций. Например: 1920x1080, 1280x720, 1080x576, 640x360. Не следует использовать смешанные сочетания пропорций, например: 1280x720, 720x480, 640x360.  
   
- SML  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -235,6 +235,7 @@ ms.openlocfilehash: b87bfb70171e79b7a4cec537874a57dc0cce2899
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

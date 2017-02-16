@@ -12,19 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 1/4/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ac624ea4427edf03e4530e879df96fee950ff80
+ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
+ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>Service Fabric и контейнеры (предварительная версия)
 > [!NOTE]
-> Эта функция доступна в режиме предварительной версии для Linux и пока недоступна для Windows Server 2016. Предварительная версия для Windows Server будет доступна в следующем выпуске Azure Service Fabric после выпуска общедоступной версии Windows Server 2016. Она также будет поддерживаться в последующем выпуске.
-> 
-> 
+> Эта функция доступна в режиме предварительной версии для Windows Server 2016 и Linux. 
+>   
 
 ## <a name="introduction"></a>Введение
 Azure Service Fabric — это [оркестратор](service-fabric-cluster-resource-manager-introduction.md) служб в кластере виртуальных машин. Службы можно разрабатывать разными способами, начиная от использования [моделей программирования Service Fabric](service-fabric-choose-framework.md) и заканчивая развертыванием [гостевых исполняемых файлов](service-fabric-deploy-existing-app.md). По умолчанию Service Fabric развертывает и активирует эти службы как процессы. Процессы обеспечивают самую быструю активацию и максимальную плотность использования ресурсов в кластере. Service Fabric также позволяет развертывать службы в образах контейнеров. Главное, что вы можете объединять эти два подхода, используя в одном приложении службы с процессами и контейнерами. В зависимости от сценария вы получаете преимущества при использовании любого способа.
@@ -93,6 +92,6 @@ Windows Server 2016 поддерживает два типа контейнер
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

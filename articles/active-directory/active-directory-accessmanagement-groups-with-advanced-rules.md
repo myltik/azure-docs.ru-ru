@@ -1,20 +1,23 @@
-
 ---
-title: Использование атрибутов для создания расширенных правил | Microsoft Docs
-description: Указания по созданию дополнительных правил для группы и использованием поддерживаемых операторов и параметров выражений правила.
+title: "Использование атрибутов для создания расширенных правил | Документация Майкрософт"
+description: "Указания по созданию дополнительных правил для группы и использованием поддерживаемых операторов и параметров выражений правила."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
+ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+
 
 ---
 # <a name="using-attributes-to-create-advanced-rules"></a>Использование атрибутов для создания расширенных правил
@@ -34,7 +37,7 @@ ms.author: curtand
 * бинарный оператор;
 * константа в правой части.
 
-Полное расширенное правило выглядит примерно так: (параметр_слева бинарный_оператор "константа_справа"), где все двоичное выражение обязательно помещается между открывающей и закрывающей скобками, константа в правой части обязательно заключается в двойные кавычки, а синтаксис параметра в левой части — «пользователь.свойство». Расширенное правило может состоять из нескольких двоичных выражений, разделенных логическими операторами -and, -or, и -not.
+Полное расширенное правило выглядит примерно так: (параметр_слева бинарный_оператор "константа_справа"), где все двоичное выражение обязательно помещается между открывающей и закрывающей скобками, константа в правой части обязательно заключается в двойные кавычки, а синтаксис параметра в левой части — «пользователь.свойство». Расширенное правило может состоять из нескольких двоичных выражений, разделенных логическими операторами -and, -or, и -not.
 Ниже приведены примеры правильно составленных расширенных правил:
 
 * (user.department -eq "Sales") -or (user.department -eq "Marketing")
@@ -42,11 +45,18 @@ ms.author: curtand
 
 Полный список поддерживаемых параметров и операторов выражений правил см. в приведенных ниже разделах.
 
-Общая длина текста расширенного правила не должна превышать 2048 символов.
+Обратите внимание, что для свойства в качестве префикса должен быть указан правильный тип объекта: пользователь или устройство.
+Следующее правило не пройдет проверку: mail –ne null.
+
+Правильное правило будет выглядеть так: 
+
+user.mail –ne null.
+
+Общая длина текста расширенного правила не должна превышать 2048 символов.
 
 > [!NOTE]
-> В операциях со строками и регулярными выражениями учитывается регистр. Можно также выполнить проверку наличия значений Null, используя $null как константу, например: user.department - eq $null.
-> Строки, содержащие кавычки ("), следует экранировать с помощью знака '. Например: user.department -eq \`"Sales".
+> В операциях со строками и регулярными выражениями учитывается регистр. Строки, содержащие кавычки ("), следует экранировать с помощью знака '. Например: user.department -eq \`"Sales".
+> Используйте кавычки (только английская раскладка) только для строковых типов значений.
 > 
 > 
 
@@ -63,6 +73,20 @@ ms.author: curtand
 | Содержит |-contains |
 | Не соответствует |-notMatch |
 | Соответствует |-match |
+
+## <a name="operator-precedence"></a>Приоритет операторов
+
+Все операторы перечислены ниже в порядке приоритета. Операторы в одной строке имеют равный приоритет: -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch.
+ 
+Все операторы можно использовать с дефисом в качестве префикса и без него.
+
+Обратите внимание, что скобки не всегда нужны. Добавляйте их, только если порядок приоритета не удовлетворяет требованиям. Например, правило
+
+   user.department –eq "Marketing" –and user.country –eq "US" 
+   
+эквивалентно правилу 
+
+   (user.department –eq "Marketing") –and (user.country –eq "US").
 
 ## <a name="query-error-remediation"></a>Исправление ошибки запроса
 В следующей таблице перечислены потенциальные ошибки и способы их исправления, если они встречаются
@@ -138,10 +162,16 @@ ms.author: curtand
 | otherMails |Любое строковое значение. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="use-of-null-values"></a>Использование значений Null
+
+Чтобы указать значение Null в правиле, можно использовать null или $null. Пример: 
+
+   правило user.mail –ne null эквивалентно правилу user.mail –ne $null.
+
 ## <a name="extension-attributes-and-custom-attributes"></a>Атрибуты расширения и настраиваемые атрибуты
 Атрибуты расширения и настраиваемые атрибуты поддерживаются в правилах динамического членства.
 
-Атрибуты расширения синхронизируются из локального каталога Windows Server AD и принимают формат ExtensionAttributeX, где X равно 1–15.
+Атрибуты расширения синхронизируются из локального каталога Windows Server AD и принимают формат ExtensionAttributeX, где X равно 1–15.
 Пример правила, которое использует атрибут расширения:
 
 (user.extensionAttribute15 -eq "Marketing")
@@ -153,8 +183,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 Имя настраиваемого атрибута можно найти в каталоге, отправив запрос на атрибут пользователя с помощью обозревателя графов и выполнив поиск по имени атрибута.
 
+## <a name="support-for-multi-value-properties"></a>Поддержка многозначных свойств
+
+Чтобы включить в правило многозначное свойство, используйте оператор -any, как в правиле
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO".
+  
 ## <a name="direct-reports-rule"></a>Правило Direct Reports
-Теперь вы можете включать членов в группу на основе атрибута руководителя пользователя.
+Вы можете включать членов в группу на основе атрибута руководителя пользователя.
 
 **Настройка группы в качестве группы «Руководитель»**
 
@@ -178,16 +214,16 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | displayName |Любое строковое значение. |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |Любое строковое значение. |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Любое строковое значение. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true, false, null |(device.isDirSynced -eq "true") |
-| isManaged |true, false, null |(device.isManaged -eq "false") |
-| isCompliant |true, false, null |(device.isCompliant -eq "true") |
+| isDirSynced |true, false, null |(device.isDirSynced -eq true) |
+| isManaged |true, false, null |(device.isManaged -eq false) |
+| isCompliant |true, false, null |(device.isCompliant -eq true) |
 | deviceCategory |Любое строковое значение. |(device.deviceCategory -eq "") |
 | deviceManufacturer |Любое строковое значение. |(device.deviceManufacturer -eq "Microsoft") |
 | deviceModel |Любое строковое значение. |(device.deviceModel -eq "IPhone 7+") |
 | deviceOwnership |Любое строковое значение. |(device.deviceOwnership -eq "") |
 | domainName |Любое строковое значение. |(device.domainName -eq "contoso.com") |
 | enrollmentProfileName |Любое строковое значение. |(device.enrollmentProfileName -eq "") |
-| isRooted |true, false, null |(device.deviceOSType -eq "true") |
+| isRooted |true, false, null |(device.isRooted -eq true) |
 | managementType |Любое строковое значение. |(device.managementType -eq "") |
 | organizationalUnit |Любое строковое значение. |(device.organizationalUnit -eq "") |
 | deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
@@ -206,6 +242,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

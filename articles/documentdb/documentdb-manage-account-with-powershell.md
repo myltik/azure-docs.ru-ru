@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2016
+ms.date: 12/20/2016
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: d220b3b8189a22e6450897fd5e7a865725051a8f
-ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
+ms.sourcegitcommit: 7e10f4d051a484965c7d58de6351dd357aa64c0f
+ms.openlocfilehash: 0c0e682c79a6a25ac29760f649a832f22f39e8b5
 
 
 ---
@@ -43,12 +43,14 @@ ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
 Эта команда позволяет создать учетную запись базы данных DocumentDB. Настройте новую учетную запись для использования в одном или [нескольких регионах][scaling-globally] и добавьте определенную [политику согласованности](documentdb-consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
+    $iprangefilter = "<ip-range-filter>"
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name>  -Location "<resource-group-location>" -Name <database-account-name> -PropertyObject $DocumentDBProperties
     
 * `<write-region-location>` — имя расположения региона для записи учетной записи базы данных. Значение приоритета отработки отказа для этого расположения должно быть равно 0. Каждая учетная запись базы данных должна иметь только один регион для записи.
 * `<read-region-location>` — имя расположения региона для чтения учетной записи базы данных. Значение приоритета отработки отказа для этого расположения должно быть больше 0. Каждая учетная запись базы данных может иметь несколько регионов для чтения.
+* `<ip-range-filter>` — указывает набор IP-адресов или их диапазонов в нотации CIDR, которые добавляются в список разрешенных клиентских IP-адресов для указанной учетной записи базы данных. IP-адреса и их диапазоны должны быть разделены запятой без пробелов. Дополнительные сведения см. в статье [Поддержка брандмауэра DocumentDB](documentdb-firewall-support.md).
 * `<default-consistency-level>` — уровень согласованности по умолчанию учетной записи DocumentDB. Дополнительные сведения см. в статье [Уровни согласованности в DocumentDB](documentdb-consistency-levels.md).
 * `<max-interval>`. При использовании согласованности с ограниченным устареванием это значение указывает допустимое время устаревания (в секундах). Допустимый диапазон — 1–100.
 * `<max-staleness-prefix>`. При использовании согласованности с ограниченным устареванием это значение указывает допустимое количество устаревших запросов. Допустимый диапазон — 1–2 147 483 647.
@@ -59,8 +61,9 @@ ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
 Пример: 
 
     $locations = @(@{"locationName"="West US"; "failoverPriority"=0}, @{"locationName"="East US"; "failoverPriority"=1})
+    $iprangefilter = ""
     $consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; "maxIntervalInSeconds"=5; "maxStalenessPrefix"=100}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
 ### <a name="notes"></a>Примечания
@@ -75,13 +78,15 @@ ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
 > Кроме того, эта команда позволяет добавлять или удалять регионы, но не изменять приоритеты при отработке отказа. Сведения об изменении приоритетов при отработке отказа см. [ниже](#modify-failover-priority-powershell).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
+    $iprangefilter = "<ip-range-filter>"
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name> -Name <database-account-name> -PropertyObject $DocumentDBProperties
     
 * `<write-region-location>` — имя расположения региона для записи учетной записи базы данных. Значение приоритета отработки отказа для этого расположения должно быть равно 0. Каждая учетная запись базы данных должна иметь только один регион для записи.
 * `<read-region-location>` — имя расположения региона для чтения учетной записи базы данных. Значение приоритета отработки отказа для этого расположения должно быть больше 0. Каждая учетная запись базы данных может иметь несколько регионов для чтения.
 * `<default-consistency-level>` — уровень согласованности по умолчанию учетной записи DocumentDB. Дополнительные сведения см. в статье [Уровни согласованности в DocumentDB](documentdb-consistency-levels.md).
+* `<ip-range-filter>` — указывает набор IP-адресов или их диапазонов в нотации CIDR, которые добавляются в список разрешенных клиентских IP-адресов для указанной учетной записи базы данных. IP-адреса и их диапазоны должны быть разделены запятой без пробелов. Дополнительные сведения см. в статье [Поддержка брандмауэра DocumentDB](documentdb-firewall-support.md).
 * `<max-interval>`. При использовании согласованности с ограниченным устареванием это значение указывает допустимое время устаревания (в секундах). Допустимый диапазон — 1–100.
 * `<max-staleness-prefix>`. При использовании согласованности с ограниченным устареванием это значение указывает допустимое количество устаревших запросов. Допустимый диапазон — 1–2 147 483 647.
 * `<resource-group-name>` — имя [группы ресурсов Azure][azure-resource-groups], в которую входит новая учетная запись базы данных DocumentDB.
@@ -91,8 +96,9 @@ ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
 Пример: 
 
     $locations = @(@{"locationName"="West US"; "failoverPriority"=0}, @{"locationName"="East US"; "failoverPriority"=1})
+    $iprangefilter = ""
     $consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; "maxIntervalInSeconds"=5; "maxStalenessPrefix"=100}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
 ## <a name="a-iddelete-documentdb-account-powershella-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-powershell"></a> Удаление учетной записи базы данных DocumentDB
@@ -186,6 +192,6 @@ ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

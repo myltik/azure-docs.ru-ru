@@ -6,18 +6,17 @@ keywords: "защита удостоверений Azure Active Directory, Cloud
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
+ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
+ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
 
 
 ---
@@ -32,16 +31,16 @@ ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
 1. [Войдите](https://ms.portal.azure.com/) на портал Azure с правами глобального администратора. 
 2. На портале Azure щелкните **Marketplace**.
    
-    ![Создать](./media/active-directory-identityprotection-enable/01.png "Create")
+    ![Создание](./media/active-directory-identityprotection-enable/01.png "Создание")
 3. В списке приложений щелкните **Безопасность+идентификация**.
    
-    ![Создать](./media/active-directory-identityprotection-enable/02.png "Create")
+    ![Создание](./media/active-directory-identityprotection-enable/02.png "Создание")
 4. Щелкните **Azure AD Identity Protection**(Защита идентификации Azure AD).
    
-    ![Создание](./media/active-directory-identityprotection-enable/03.png "Create")
+    ![Создание](./media/active-directory-identityprotection-enable/03.png "Создание")
 5. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) щелкните **Создать**.
    
-    ![Создание](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![Создание](./media/active-directory-identityprotection-enable/04.png "Создание")
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
@@ -49,6 +48,6 @@ ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

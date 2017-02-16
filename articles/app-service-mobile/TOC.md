@@ -28,7 +28,7 @@
 ### [Приложение Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Практическое руководство:
+# Практическое руководство
 
 ## планирование и разработка
 ### [Проверка подлинности и авторизация в мобильных приложениях Azure](app-service-mobile-auth.md)
@@ -102,8 +102,8 @@
 
 ### Среда службы приложений
 #### [Создание веб-приложения в среде служб приложений](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Создание среды службы приложений с внутренним балансировщиком нагрузки с помощью шаблонов Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Создание внутреннего балансировщика нагрузки](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Создание среды службы приложений с внутренней подсистемой балансировки нагрузки с помощью шаблонов Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Создание внутренней подсистемы балансировки нагрузки](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Развертывание](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Развертывание в службу приложений](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -122,7 +122,7 @@
 
 ## Управление
 ### [Настройка](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### Пользовательские домены
+### Личные домены
 #### [Приобретение и настройка личных доменов](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Сопоставление личных доменов](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Настройка доменов GoDaddy](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -152,7 +152,7 @@
 
 ## [Безопасность](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Защита приложения в службе приложений Azure](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Проверка подлинности и авторизация](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Аутентификация и авторизация](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Аутентификация с помощью поставщиков удостоверений
 #### [Проверка подлинности Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 #### [Проверка подлинности Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
@@ -171,7 +171,7 @@
 #### [Реализация многоуровневой архитектуры безопасности](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Безопасное подключение к серверным ресурсам](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Архивация
+## Резервное копирование
 ### [Архивация приложения в Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Восстановление приложения в Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Использование REST для резервного копирования и восстановления приложений службы приложений](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -207,10 +207,12 @@
 ### [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Справочные материалы
-## [API .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Справочник службы приложений](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+
+# Сопутствующие материалы
 ## [Пакет SDK для веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Справочник по службе приложений](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
@@ -225,6 +227,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

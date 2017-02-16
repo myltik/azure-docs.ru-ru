@@ -1,5 +1,5 @@
 ---
-title: "Управление записями DNS с помощью портала Azure | Документация Майкрософт"
+title: "Управление записями DNS в службе DNS Azure с помощью Azure PowerShell | Документация Майкрософт"
 description: "Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды PowerShell для операций с наборами записей и записями."
 services: dns
 documentationcenter: na
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0244225f0194d35307ad039249ca6e29a860829f
-ms.openlocfilehash: 46549794394f54264c1fdcc4c8f54bec8ea080f8
+ms.sourcegitcommit: f8dcbdb573fb50d32dfdefbb52c7af71bdc1cb95
+ms.openlocfilehash: 2264acb9c78a162adb7b9937568838ab5ec2c720
 
 ---
 
-# <a name="manage-dns-records-and-record-sets-by-using-powershell"></a>Управление записями и наборами записей DNS с помощью PowerShell
+# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Управление записями DNS в службе DNS Azure с помощью Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [портале Azure](dns-operations-recordsets-portal.md)
+> * [Портал Azure](dns-operations-recordsets-portal.md)
 > * [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-В этой статье описывается, как управлять наборами записей и записями для зоны DNS с помощью Azure PowerShell. Записями DNS также можно управлять с помощью кроссплатформенного [интерфейса командной строки Azure](dns-operations-recordsets-cli.md) или [портала Azure](dns-operations-recordsets-portal.md).
+В этой статье описывается, как управлять записями DNS для зоны DNS с помощью Azure PowerShell. Записями DNS также можно управлять с помощью кроссплатформенного [интерфейса командной строки Azure](dns-operations-recordsets-cli.md) или [портала Azure](dns-operations-recordsets-portal.md).
 
-Для работы с руководством необходимо [установить Azure PowerShell, войти в учетную запись и создать зону DNS](dns-getstarted-create-dnszone.md).
+Для работы с руководством необходимо [установить Azure PowerShell, войти в учетную запись и создать зону DNS](dns-operations-dnszones.md).
 
 ## <a name="introduction"></a>Введение
 
@@ -49,7 +49,7 @@ ms.openlocfilehash: 46549794394f54264c1fdcc4c8f54bec8ea080f8
 
 Параметры для добавления записей в набор записей зависят от типа набора записей. Например, при использовании набора записей типа A вам нужно указать IP-адрес с использованием параметра `-IPv4Address`. Другие параметры используются для других типов записей (см. [примеры других типов записей](#additional-record-type-examples)).
 
-В следующем примере создается набор записей с относительным именем www в зоне DNS contoso.com. Полное доменное имя набора записей — www.contoso.com. Тип записи — A, а срок жизни составляет 3600 секунд. Каждый такой набор содержит одну запись с IP-адресом 1.2.3.4.
+В следующем примере создается набор записей с относительным именем www в зоне DNS contoso.com. Полное доменное имя набора записей — www.contoso.com. Тип записи — A, а срок жизни составляет 3600 секунд. Каждый такой набор содержит одну запись с IP-адресом&1;.2.3.4.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
@@ -61,7 +61,7 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
 ```
 
-Чтобы создать другой набор, содержащий несколько записей, сначала создайте локальный массив и добавьте записи, а затем передайте этот массив в `New-AzureRmDnsRecordSet`:
+Чтобы создать набор записей, содержащий несколько записей, сначала создайте локальный массив и добавьте записи, а затем передайте этот массив в `New-AzureRmDnsRecordSet`:
 
 ```powershell
 $aRecords = @()
@@ -70,7 +70,7 @@ $aRecords += New-AzureRmDnsRecordConfig -IPv4Address 2.3.4.5
 New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-[Метаданные набора записей](dns-zones-records.md#tags-and-metadata) используются для связывания данных приложения с каждым набором записей в виде пар "ключ-значение". В следующем примере показано, как создать набор с двумя записями метаданных: dept=finance и environment=production.
+[Метаданные набора записей](dns-zones-records.md#tags-and-metadata) используются для связывания данных приложения с каждым набором записей в виде пар "ключ — значение". В следующем примере показано, как создать набор с двумя записями метаданных: dept=finance и environment=production.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) -Metadata @{ dept="finance"; environment="production" } 
@@ -125,7 +125,7 @@ New-AzureRmDnsRecordSet -Name test-ns -RecordType NS -ZoneName contoso.com -Reso
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Создание набора записей типа PTR с одной записью
 
-В этом случае my-arpa-zone.com представляет зону ARPA вашего диапазона IP-адресов. Каждая запись PTR в этой зоне соответствует IP-адресу в этом диапазоне.
+В этом случае my-arpa-zone.com представляет зону ARPA вашего диапазона IP-адресов. Каждая запись PTR в этой зоне соответствует IP-адресу в этом диапазоне. Имя записи&10; — это последний октет IP-адреса в этом диапазоне IP-адресов, представленном данной записью.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName my-arpa-zone.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname myservice.contoso.com) 
@@ -145,7 +145,7 @@ New-AzureRmDnsRecordSet -Name _sip._tls -RecordType SRV -ZoneName contoso.com -R
 В следующем примере показано, как создать запись типа ТХТ. Дополнительные сведения о максимальной длине строки, поддерживаемой в записях типа TXT, см. в разделе [Записи типа TXT](dns-zones-records.md#txt-records).
 
 ```powershell
-New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record" 
+New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
 ```
 
 
@@ -313,7 +313,7 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="to-modify-record-set-metadata"></a>Изменение метаданных набора записей
 
-[Метаданные набора записей](dns-zones-records.md#tags-and-metadata) используются для связывания данных приложения с каждым набором записей в виде пар "ключ-значение".
+[Метаданные набора записей](dns-zones-records.md#tags-and-metadata) используются для связывания данных приложения с каждым набором записей в виде пар "ключ — значение".
 
 В примере ниже показано, как изменить метаданные существующего набора записей:
 
@@ -387,6 +387,6 @@ Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

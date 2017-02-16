@@ -1,5 +1,5 @@
 ---
-title: "Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью обозревателя хранилищ Azure | Документация Майкрософт"
+title: "Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью Azure Storage Explorer | Документация Майкрософт"
 description: "Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью обозревателя хранилищ Azure"
 services: machine-learning,storage
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
-ms.openlocfilehash: f0127adbebcc0f858239bc9a8aad8b657b1d167b
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
 
 
 ---
@@ -58,6 +58,6 @@ Azure Storage Explorer — это бесплатный инструмент от
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

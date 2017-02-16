@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 10/14/2016
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
+ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
+ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
 
 
 ---
@@ -31,14 +31,14 @@ ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
 
 Актуальный список служб см. в таблице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). 
 
-## <a name="computedocumentation-government-computemd"></a>[[Среда выполнения приложений](documentation-government-compute.md)](documentation-government-compute.md)
+## <a name="computedocumentation-government-computemd"></a>[Среда выполнения приложений](documentation-government-compute.md)
 * [Виртуальные машины Windows](documentation-government-compute.md#virtual-machines)
 * [Виртуальные машины Linux](documentation-government-compute.md#virtual-machines)
 * Облачные службы
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Сеть](documentation-government-networking.md)
 * Виртуальная сеть
-* Балансировщик нагрузки
+* Подсистема балансировки нагрузки
 * Шлюз приложений
 * VPN-шлюз
 * Диспетчер трафика
@@ -46,14 +46,22 @@ ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Хранилище](documentation-government-services-storage.md)
 * [Хранилище Azure](documentation-government-services-storage.md#azure-storage)
+* [Хранилище BLOB-объектов](documentation-government-services-storage.md#azure-storage)
+* [Хранилище таблиц](documentation-government-services-storage.md#azure-storage)
+* [Хранилище очередей](documentation-government-services-storage.md#azure-storage)
+* [Хранилище файлов](documentation-government-services-storage.md#azure-storage)
+* ["Горячий" и "холодный" уровни хранилища](documentation-government-services-storage.md#azure-storage)
+* [Шифрование службы хранения](documentation-government-services-storage.md#azure-storage)
+* [Хранилище уровня "Премиум"](documentation-government-services-storage.md#azure-storage).
+* [Служба импорта и экспорта Azure](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Архивация](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Импорт и экспорт
-* StorSimple
-* Архивация
-* Site Recovery
 
-## <a name="web--mobile"></a>Интернет и мобильные устройства
-* Веб-приложения
-* Службы носителей
+## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Интернет и мобильные устройства](documentation-government-services-webandmobile.md)
+* [Службы приложений](documentation-government-services-webandmobile.md#app-services)
+* Службы мультимедиа
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Базы данных](documentation-government-services-database.md)
 * [База данных SQL](documentation-government-services-database.md#sql-database)
@@ -65,8 +73,8 @@ ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
 * Центры уведомлений
 
 ## <a name="enterprise-integration"></a>Интеграция Enterprise
-* Service Bus
-* StorSimple
+* Служебная шина
+* [StorSimple](documentation-government-services-storage.md)
 * База данных SQL Server Stretch
 
 ## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Безопасность и идентификация](documentation-government-services-securityandidentity.md)
@@ -76,9 +84,9 @@ ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
 
 ## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Мониторинг и управление](documentation-government-services-monitoringandmanagement.md)
 * [Автоматизация](documentation-government-services-monitoringandmanagement.md#automation)
-* Архивация
+* [Архивация](documentation-government-services-backup.md) 
 * [Служба Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Планировщик
 * Диспетчер трафика
 * Мониторинг и диагностика
@@ -89,6 +97,6 @@ ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

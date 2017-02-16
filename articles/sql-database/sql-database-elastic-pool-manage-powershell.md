@@ -1,5 +1,5 @@
 ---
-title: "Управление пулом эластичных баз данных (PowerShell) | Документация Майкрософт"
+title: "PowerShell: управление пулом эластичных баз данных SQL Azure | Документация Майкрософт"
 description: "Узнайте, как управлять пулом эластичных баз данных с помощью PowerShell."
 services: sql-database
 documentationcenter: 
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,12 +16,12 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
+ms.sourcegitcommit: 9c6800c54f545d5ae70e9e8c2a3234cb3acecb83
+ms.openlocfilehash: 355baefc2ef50000ddb5a1241d9d28c201deffa1
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-powershell"></a>Мониторинг пула эластичных баз данных и управление им с помощью PowerShell
+# <a name="monitor-and-manage-an-elastic-pool-with-powershell"></a>Мониторинг пула эластичных баз данных и управление им с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -34,11 +34,10 @@ ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
-Значения для пулов можно найти в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Значения для пулов можно найти в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Azure PowerShell, начиная с версии 1.0. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Пулы эластичных баз данных доступны только при использовании серверов базы данных SQL версии 12. Если у вас используется сервер базы данных SQL версии 11, используйте [PowerShell, чтобы одним действием обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Перемещение базы данных в пул эластичных БД
 Вы можете переместить базу данных в пул и из него с помощью командлета [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
@@ -46,15 +45,15 @@ ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
     Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## <a name="change-performance-settings-of-a-pool"></a>Изменение параметров производительности пула
-Если производительность недостаточна, можно изменить параметры пула в соответствии с ростом нагрузки. Используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Присвойте параметру -Dtu значение eDTU, выделяемых на пул. Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).  
+Если производительность недостаточна, можно изменить параметры пула в соответствии с ростом нагрузки. Используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Присвойте параметру -Dtu значение eDTU, выделяемых на пул. Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).  
 
-    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50
+    Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
 
 
 ## <a name="get-the-status-of-pool-operations"></a>Получение состояния операций пула
 На создание пула может потребоваться время. Отслеживать состояние операций пула, включая создание и обновление, можно с помощью командлета [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx).
 
-    Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1”
+    Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
 
 
 ## <a name="get-the-status-of-moving-an-elastic-database-into-and-out-of-a-pool"></a>Получение состояния перемещения эластичной базы данных в пул и из него
@@ -92,7 +91,7 @@ ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 
 
 ## <a name="get-resource-usage-data-for-an-elastic-database"></a>Получение данных об использовании ресурсов в эластичной базе данных
-Эти интерфейсы API не отличаются от текущих API (версии 12), используемых для мониторинга использования ресурсов автономной базы данных, за исключением следующего семантического различия.
+Эти интерфейсы API не отличаются от текущих API (версии&12;), используемых для мониторинга использования ресурсов отдельной базы данных, за исключением следующего семантического различия.
 
 Для этого API полученные метрики выражаются в виде процента от максимального числа eDTU (или эквивалентного предельного значения для базовой метрики, например ЦП, ввод-вывод и т. д.), установленного для данного пула. Например, загрузка в 50 % для любого из этих показателей указывает, что потребление данного ресурса составляет 50 % от предельного значения потребления этого ресурса на одну базу данных для этого ресурса в родительском пуле.
 
@@ -252,11 +251,6 @@ ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 * Изменение минимального или максимального числа eDTU для базы данных обычно завершается за 5 минут.
 * Изменение числа eDTU на пул зависит от общей емкости, используемой всеми базами данных в пуле. Изменение занимает порядка 90 минут или меньше на каждые 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении числа eDTU для пула составит до 3 часов.
 
-## <a name="migrate-from-v11-to-v12-servers"></a>Переход с серверов версии 11 на серверы версии 12
-Командлеты PowerShell доступны для запуска, остановки и мониторинга обновления Базы данных SQL Azure версии 11 или другой более ранней версии до версии 12.
-
-* [Обновление до версии V12 Базы данных SQL с помощью PowerShell](sql-database-upgrade-server-powershell.md)
-
 Справочную документацию по этим командлетам PowerShell см. в таких разделах:
 
 * [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582\(v=azure.300\).aspx)
@@ -271,6 +265,6 @@ ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

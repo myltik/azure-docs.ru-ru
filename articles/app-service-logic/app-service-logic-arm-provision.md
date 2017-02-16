@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: dfe1cddd8a0d2558eecff8123cc5ce6ebaad97e8
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
 
 Примеры определения см. в статье [Создание определений приложений логики](app-service-logic-author-definitions.md). 
 
-Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
+Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Полный шаблон см. [здесь](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
@@ -113,6 +113,6 @@ ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

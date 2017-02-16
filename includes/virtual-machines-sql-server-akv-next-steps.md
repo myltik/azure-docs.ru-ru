@@ -1,20 +1,20 @@
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 После включения интеграции хранилища ключей Azure вы сможете включить шифрование SQL Server на своей виртуальной машине с SQL. Во-первых, необходимо создать асимметричный ключ в вашем хранилище ключей и симметричный ключ в SQL Server на виртуальной машине. После этого вы сможете выполнять инструкции T-SQL для включения шифрования базы данных и резервных копий.
 
 Существует несколько способов шифрования, преимуществами которых вы можете воспользоваться.
 
-* [Прозрачное шифрование данных \(TDE\)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Прозрачное шифрование данных (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Зашифрованные резервные копии](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Шифрование на уровне столбцов \(CLE\)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Шифрование на уровне столбцов (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
 Следующие сценарии Transact-SQL содержат примеры для каждого из этих вариантов.
 
 > [!NOTE]
-> Каждый пример основан на двух вещах: асимметричном ключе из хранилища ключей **CONTOSO\_KEY** и учетных данных, созданных интеграцией AKV, с именем **Azure\_EKM\_TDE\_cred**.
+> Каждый пример основан на двух компонентах: асимметричном ключе из хранилища ключей **CONTOSO_KEY** и учетных данных, созданных интеграцией AKV, с именем **Azure_EKM_TDE_cred**.
 > 
 > 
 
-### Прозрачное шифрование данных \(TDE\)
+### <a name="transparent-data-encryption-tde"></a>Прозрачное шифрование данных (TDE)
 1. Создайте имя входа SQL Server для использования компонентом Database Engine для прозрачного шифрования данных, а затем добавьте учетные данные.
    
         USE master;
@@ -45,7 +45,7 @@
         SET ENCRYPTION ON;
         GO
 
-### Зашифрованные резервные копии
+### <a name="encrypted-backups"></a>Зашифрованные резервные копии
 1. Создайте имя входа SQL Server для использования компонентом Database Engine для шифрования резервных копий, а затем добавьте учетные данные.
    
         USE master;
@@ -69,7 +69,7 @@
         ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
         GO
 
-### Шифрование на уровне столбцов \(CLE\)
+### <a name="column-level-encryption-cle"></a>Шифрование на уровне столбцов (CLE)
 Этот скрипт создает симметричный ключ, защищенный асимметричным ключом в хранилище ключей, и затем использует симметричный ключ для шифрования данных в базе данных.
 
     CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -91,9 +91,13 @@
     --Close the symmetric key
     CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
-## Дополнительные ресурсы
-Дополнительные сведения об использовании этих возможностей шифрования см. в разделе [Использование расширенного управления ключами с функциями шифрования SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+## <a name="additional-resources"></a>Дополнительные ресурсы
+Дополнительные сведения об использовании этих возможностей шифрования см. в статье [Использование расширенного управления ключами с функциями шифрования SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Обратите внимание, что действия, описанные в этой статье, предполагают, что у вас уже есть SQL Server на виртуальной машине Azure. Если нет, см. раздел [Подготовка виртуальной машины с SQL Server в Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md). Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
+Обратите внимание, что действия, описанные в этой статье, предполагают, что у вас уже есть SQL Server на виртуальной машине Azure. Если нет, см. статью [Подготовка виртуальной машины с SQL Server в Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Jan17_HO2-->
+
+

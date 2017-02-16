@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с доставкой содержимого по запросу с помощью Java | Документация Майкрософт"
-description: "Описание использования служб мультимедиа Azure для выполнения стандартных задач, включая кодирование, шифрование и потоковую передачу ресурсов."
+description: "В этом руководстве описано, как реализовать простую службу доставки видео по запросу (VOD) с помощью приложения служб мультимедиа Azure (AMS) и Java."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Приступая к работе с доставкой содержимого по запросу с помощью Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Настройка учетной записи Azure для служб мультимедиа
+В этом руководстве описано, как реализовать простую службу доставки видео по запросу (VOD) с помощью приложения служб мультимедиа Azure (AMS) и Java.
 
-Чтобы настроить учетную запись служб мультимедиа, перейдите на портал Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md). Создав учетную запись на портале, вы сможете приступить к настройке компьютера для разработки с использованием служб мультимедиа.
- 
-В этом разделе содержатся общие предварительные требования, необходимые для разработки с использованием пакета SDK служб носителей для Java.
+## <a name="prerequisites"></a>Предварительные требования
 
-### <a name="prerequisites"></a>Предварительные требования
-* Учетная запись служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
+Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
+
+* Учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Учетная запись служб мультимедиа. Инструкции по созданию учетной записи служб мультимедиа см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
 * Библиотеки Azure для Java, которые можно установить из [Центра разработчиков Azure Java][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Практическое руководство. Использование служб носителей с Java

@@ -1,19 +1,23 @@
 ---
-title: Функции Log Analytics для поставщиков служб | Microsoft Docs
-description: Log Analytics позволяет поставщикам управляемых служб (MSP), крупным предприятиям, независимым поставщикам программного обеспечения (ISV) и поставщикам услуг размещения управлять серверами, размещенными в локальной сети клиента или в облачной инфраструктуре, и осуществлять мониторинг таких серверов.
+title: "Функции Log Analytics для поставщиков служб | Документация Майкрософт"
+description: "Log Analytics позволяет поставщикам управляемых служб (MSP), крупным предприятиям, независимым поставщикам программного обеспечения (ISV) и поставщикам услуг размещения управлять серверами, размещенными в локальной сети клиента или в облачной инфраструктуре, и осуществлять мониторинг таких серверов."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/22/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
+ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
+
 
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Функции Log Analytics для поставщиков услуг
@@ -47,7 +51,7 @@ Log Analytics входит в число служб Azure, доступных в
 * Просматривать и использовать страницу управления пользователя в разделе параметров на портале OMS.
 
 > [!NOTE]
-> Решения резервного копирования и восстановления сайтов (Site Recovery) для Log Analytics не могут подключаться к хранилищу служб восстановления, поэтому их нельзя настроить в подписке CSP.
+> Включенные в комплект решения для архивации и восстановления сайта (Site Recovery) для Log Analytics не могут подключаться к хранилищу служб восстановления, поэтому их нельзя настроить в подписке CSP. 
 > 
 > 
 
@@ -61,7 +65,7 @@ Log Analytics входит в число служб Azure, доступных в
 
 Создав рабочую область для каждого клиента, вы сможете разделить данные разных клиентов и отслеживать использование службы каждым из них.
 
-Дополнительные сведения о возможных причинах создания нескольких рабочих областей см. в статье [об управлении доступом к Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
+Дополнительные сведения о том, когда и для чего следует создавать несколько рабочих областей, приведены в разделе [Управление доступом к Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
 Создание и настройку рабочих областей для клиентов можно автоматизировать с помощью [PowerShell](log-analytics-powershell-workspace-configuration.md), [шаблонов Resource Manager](log-analytics-template-workspace-configuration.md) или [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
 
@@ -69,14 +73,19 @@ Log Analytics входит в число служб Azure, доступных в
 
 При управлении несколькими рабочими областями Log Analytics мы рекомендуем интегрировать каждую рабочую область с существующей системой отправки запросов или консолью управления с помощью функции [оповещений](log-analytics-alerts.md). Интеграция с существующими системами позволит специалистам службы поддержки использовать уже знакомые рабочие процессы. Log Analytics регулярно проверяет каждую рабочую область на соответствие заданным вами условиям оповещений и создает оповещение, если требуется вмешательство.
 
-Чтобы объединять данные из нескольких рабочих областей для создания отчетов для высшего руководства, можно интегрировать Log Analytics с [Power BI](log-analytics-powerbi.md). Если потребуется интеграция с другой системой отчетности, вы можете применить API поиска (через PowerShell или [REST](log-analytics-log-search-api.md)) для отправки запросов и экспорта полученных результатов.
+Чтобы получить персонализированные представления данных, используйте [панели мониторинга](../azure-portal/azure-portal-dashboards.md) на портале Azure.  
+
+Чтобы объединять данные из нескольких рабочих областей для создания отчетов для высшего руководства, можно интегрировать Log Analytics с [Power BI](log-analytics-powerbi.md). Если потребуется интеграция с другой системой отчетности, вы можете применить API поиска (через PowerShell или [REST](log-analytics-log-search-api.md)) для отправки запросов и экспорта полученных результатов.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Автоматизация создания и настройки рабочих областей с помощью [шаблонов Resource Manager](log-analytics-template-workspace-configuration.md).
 * Автоматизация создания рабочих областей с помощью [PowerShell](log-analytics-powershell-workspace-configuration.md). 
 * Использование [оповещений](log-analytics-alerts.md) для интеграции с существующими системами.
-* Создание сводных отчетов с помощью [Power BI](log-analytics-powerbi.md).
+* Создание сводных отчетов с помощью [Power BI](log-analytics-powerbi.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 
