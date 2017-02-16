@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 34cacff4e8b13fa9d91387ca8762439908ed01fd
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
 
 ![Связь между конечными пользователями, Azure Active Directory и опубликованными приложениями](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-Для публикации таких приложений рекомендуется использовать библиотеку проверки подлинности Azure AD, которая автоматически выполняет проверку подлинности и поддерживает множество различных клиентских сред. Прокси приложения вписывается в [сценарий вызова веб-API собственным приложением](active-directory-authentication-scenarios.md#native-application-to-web-api). Чтобы этого добиться, выполните следующие действия.
+Для публикации таких приложений рекомендуется использовать библиотеку проверки подлинности Azure AD, которая автоматически выполняет проверку подлинности и поддерживает множество различных клиентских сред. Прокси приложения вписывается в [сценарий вызова веб-API собственным приложением](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Чтобы этого добиться, выполните следующие действия.
 
 ## <a name="step-1-publish-your-application"></a>Шаг 1. Публикация приложения
 Опубликуйте приложение прокси, как любое другое приложение, назначьте пользователей и предоставьте им лицензии категории «Премиум» или «Базовый». Дополнительные сведения см. в статье [Публикация приложений с помощью прокси приложения Azure AD](active-directory-application-proxy-publish.md).
@@ -74,7 +74,7 @@ ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
 
 ![Снимок экрана страницы настройки нового нативного приложения ](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-Дополнительные сведения о потоке собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](active-directory-authentication-scenarios.md#native-application-to-web-api).
+Дополнительные сведения о потоке собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
@@ -87,6 +87,6 @@ ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

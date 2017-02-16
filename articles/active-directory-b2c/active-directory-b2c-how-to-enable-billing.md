@@ -13,14 +13,12 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 0475c0f209cde80177df7dbf23eaf8dd17a44752
-ms.openlocfilehash: b5754a08e0683344cc97bdc664ed26ef9a9cf34d
+ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
+ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
 
 
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Связывание подписки Azure с клиентом Azure B2C для оплаты за использование
-> [!IMPORTANT]
-> Ожидается в ближайшее время. Эта функция недоступна для всех клиентов B2C.
 
 Счета за текущее использование Azure Active Directory B2C (или Azure AD B2C) выставляются в подписке Azure. Администратор клиента должен явным образом связать созданный клиент Azure AD B2C с подпиской Azure.  Для этого нужно создать ресурс Azure AD "Клиент B2C" в целевой подписке Azure. К одной подписке Azure можно привязать несколько клиентов B2C вместе с другими ресурсами Azure (например, виртуальные машины, хранилища данных, приложения логики).
 
@@ -69,6 +67,9 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ![Параметры ресурсов B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## <a name="known-issues"></a>Известные проблемы
+- Удаление клиента B2C. Если клиент B2C был создан, удален, а затем создан повторно с тем же доменным именем, то необходимо также удалить и повторно создать ресурс "Привязка" с тем же доменным именем.  Ресурс "Привязка" находится в разделе "Все ресурсы" в клиенте подписки на портале Azure.
+- Самоназначенные ограничения на региональное расположение ресурсов.  В редких случаях пользователь может установить региональное ограничение на создания ресурсов Azure.  Это ограничение может препятствовать созданию связи между подпиской Azure и клиентом B2C. Для устранения проблемы снимите это ограничение.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После того как вы выполните эти шаги для каждого клиента B2C, счета за подписку Azure будут выставляться в соответствии с вашим соглашением Azure Direct или Enterprise.
@@ -84,6 +85,6 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

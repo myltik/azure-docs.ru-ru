@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0ecbaaf030e5c87ff05228af852477b865329596
-ms.openlocfilehash: 3b06c7c32c6ec27659365ca4da6193457fff7162
+ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
+ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
 
 
 ---
@@ -159,18 +159,13 @@ Azure Active Directory применяет обе политики, и польз
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Работает ли условный доступ с Exchange Active Sync?
  
-Вы можете использовать Exchange Active Sync в политике условного доступа. Но поддержка этого сценария ограничена.  
-К политике, в которую включен протокол Exchange Active Sync, применяются следующие ограничения.
+Нет. На данном этапе можно использовать Exchange ActiveSync в политике условного доступа.
 
-- Для назначения **облачных приложений** вы можете выбрать только **Exchange Online**.
 
-- Если необходимо указать **элемент управления**, вы можете выбрать только параметр **Требовать соответствующее требованиям устройство**. 
- 
-    ![Предоставление доступа](./media/active-directory-conditional-access-azure-portal/22.png)
- 
-- Если необходимо настроить **условие**, вы можете настроить только **клиентские приложения**.   
+### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Что если мне требуется Многофакторная идентификация или совместимое устройство?
 
-    ![Условия](./media/active-directory-conditional-access-azure-portal/21.png)
+В настоящее время пользователю будет предложено пройти Многофакторную идентификацию вне зависимости от используемого устройства.
+
 
 
 ## <a name="common-scenarios"></a>Распространенные сценарии
@@ -201,6 +196,6 @@ Azure Active Directory применяет обе политики, и польз
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

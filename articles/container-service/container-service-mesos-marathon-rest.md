@@ -1,5 +1,5 @@
 ---
-title: "Управление контейнером службы контейнеров Azure через REST API | Документация Майкрософт"
+title: "Управление кластером DC/OS Azure с помощью REST API Marathon | Документация Майкрософт"
 description: "Развертывание контейнеров в кластере службы контейнеров Azure с помощью интерфейса REST API Marathon."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
-ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 0a5f75a085991f8e14d0949e2d13da1072ca6978
 
 
 ---
-# <a name="container-management-through-the-rest-api"></a>Управление контейнерами через REST API
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Управление контейнерами DC/OS с помощью REST API Marathon
 DC/OS — это среда для развертывания и масштабирования кластерных рабочих нагрузок, в которой используемое оборудование рассматривается абстрактно. На базе DC/OS работает платформа, которая управляет планированием и выполнением вычислительных рабочих нагрузок.
 
 Хотя платформы доступны для многих популярных рабочих нагрузок, в этом документе мы рассмотрим создание и масштабирование развертываний контейнеров с помощью Marathon. Для выполнения этих примеров вам потребуется кластер DC/OS, настроенный в службе контейнеров Azure. Необходимо также удаленное подключение к этому кластеру. Дополнительные сведения об этих компонентах см. в следующих статьях.
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

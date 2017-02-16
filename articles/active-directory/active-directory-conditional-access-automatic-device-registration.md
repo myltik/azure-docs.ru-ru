@@ -5,25 +5,25 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
 
 
 ---
 # <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
 ИТ-администраторы могут автоматически и без предупреждений зарегистрировать устройства Windows, присоединенные к домену, с помощью Azure Active Directory (Azure AD). Такую регистрацию удобно использовать, если вы настроили политики условного доступа на основе устройств для приложений Office 365 или приложений, которыми локально управляют службы федерации Active Directory (AD FS). Дополнительную информацию о сценариях регистрации устройств см. в разделе [Знакомство с регистрацией устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
-> AZURE.NOTE Дополнительные сведения о настройке автоматической регистрации устройств см. в разделе [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md).
+> [!NOTE]
+>  Дополнительные сведения о настройке автоматической регистрации устройств см. в разделе [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md).
 > 
 > 
 
@@ -31,7 +31,6 @@ ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
 
 Чтобы приступить к регистрации присоединенных к домену устройств Windows в Azure AD, выполните предварительные требования, указанные ниже. Выполнив эти предварительные требования, настройте автоматическую регистрацию для своих присоединенных к домену устройств Windows.
 
-## <a name="prerequisites-for-automatic-device-registration-of-domain-joined-windows-devices-with-azure-active-directory"></a>Предварительные требования для автоматической регистрации присоединенных к домену устройств Windows с помощью Azure AD
 ## <a name="deploy-ad-fs-and-connect-to-azure-active-directory-using-azure-active-directory-connect"></a>Развертывание AD FS и подключение к Azure Active Directory с помощью Azure Active Directory Connect
 1. С помощью Azure Active Directory Connect разверните AD FS, используя Windows Server 2012 R2, и настройте федеративные отношения с Azure AD.
 2. Настройка дополнительного правила для утверждений для отношений доверия с проверяющей стороной Azure AD
@@ -100,6 +99,6 @@ ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 
