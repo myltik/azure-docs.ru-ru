@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
+ms.sourcegitcommit: d58462cbd6578093e00c93c7e2753efc1493441d
+ms.openlocfilehash: 8f17399846eafcac8b86a9b7d7baa7a029005c8c
 
 
 ---
@@ -31,11 +31,11 @@ ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
 В службах мультимедиа цифровые файлы отправляются в актив. Сущность [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) может содержать видео, аудио, изображения, коллекции эскизов, текстовые дорожки и файлы скрытых субтитров (а также метаданные этих файлов).  После отправки этих файлов в ресурс содержимое сохраняется в безопасном расположении в облаке для дальнейшей обработки и потоковой передачи. 
 
 > [!NOTE]
-> При выборе имени файла ресурса-контейнера следует принимать во внимание следующие соображения:
+> Действительны следующие условия.
 > 
 > * Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак "." для расширения имени файла.
 > * Длина имени не должна превышать 260 знаков.
-> 
+> * Существует ограничение на максимальный размер файла, который могут обработать службы мультимедиа. Подробные сведения об этом см. [здесь](media-services-quotas-and-limitations.md).
 > 
 
 Основная процедура отправки ресурсов делится на следующие разделы:
@@ -506,11 +506,13 @@ IngestManifestFile фактически представляет собой бо
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 
+## <a name="next-steps"></a>Дальнейшие действия
 
+Теперь можно закодировать отправленные ресурсы. Дополнительную информацию см. в статье, посвященной [кодированию ресурсов](media-services-portal-encode.md).
 
-## <a name="next-step"></a>Дальнейшие действия
-Просмотрите схемы обучения работе со службами мультимедиа.
+Можно также использовать функции Azure для запуска задания кодирования на основе файла, поступающего в настроенный контейнер. Дополнительные сведения см. в [этом примере](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Отзывы
@@ -521,6 +523,6 @@ IngestManifestFile фактически представляет собой бо
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

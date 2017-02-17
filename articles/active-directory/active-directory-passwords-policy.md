@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
 
 > [!IMPORTANT]
 > **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Политики UserPrincipalName, которые применяются ко всем учетным записям пользователей
 Все учетные записи пользователей, используемые для входа в систему проверки подлинности Azure AD, должны иметь уникальное значение атрибута имени субъекта-пользователя (UPN), связанное с этой учетной записью. В следующей таблице описываются политики, которые применяются к локальным учетным записям пользователей из Active Directory (синхронизируются с облаком) и к учетным записям пользователей в облаке.
@@ -66,7 +66,6 @@ ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

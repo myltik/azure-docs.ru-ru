@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: f24024821f522bf89c0d9baf32a427af4636c890
-ms.openlocfilehash: a1dd2b1d7cda42be5ecd3a42f62e6794e15d0be2
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
 
 
 ---
@@ -64,7 +64,7 @@ ms.openlocfilehash: a1dd2b1d7cda42be5ecd3a42f62e6794e15d0be2
 
 ## <a name="connect-in-excel"></a>Подключение в Excel
 
-Подключиться к серверу служб Analysis Services Azure из Excel можно с использованием функции Get Data (в Excel 2016) или Power Query (в более ранних версиях). [Поставщик MSOLAP.7](https://aka.ms/msolap) является обязательным. Подключение с помощью мастера импорта таблиц в Power Pivot не поддерживается.
+Подключиться к серверу служб Analysis Services Azure из Excel можно с использованием функции Get Data (в Excel 2016) или Power Query (в более ранних версиях). [Поставщик MSOLAP.7](analysis-services-data-providers.md) является обязательным. Подключение с помощью мастера импорта таблиц в Power Pivot не поддерживается.
 
 1. В Excel 2016 на ленте **Данные** последовательно выберите **Получить внешние данные** > **Из других источников** > **Из служб Analysis Services**.
 2. В мастере подключения к данным вставьте имя сервера из буфера обмена в поле **Имя сервера**. Затем для параметра **Учетные данные** выберите значение **Использовать следующие имя пользователя и пароль**, введите имя пользователя, например nancy@adventureworks.com,, и пароль для него.
@@ -98,6 +98,6 @@ ms.openlocfilehash: a1dd2b1d7cda42be5ecd3a42f62e6794e15d0be2
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

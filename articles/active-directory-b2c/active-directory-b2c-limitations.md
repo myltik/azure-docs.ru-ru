@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 0f0805c8363226b6fab6463c668d750e8e7c9265
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ ms.openlocfilehash: 0f0805c8363226b6fab6463c668d750e8e7c9265
 Если во время [создания клиента Azure AD B2C](active-directory-b2c-get-started.md) у вас возникнут проблемы, см. статью [Создание клиента Azure Active Directory (Azure AD) или клиента Azure Active Directory B2C: проблемы и решения](active-directory-b2c-support-create-directory.md).
 
 Обратите внимание, что при удалении существующего клиента B2C и его повторном создании с тем же доменным именем могут возникнуть известные проблемы. Создавайте клиент B2C с другим доменным именем.
-
-## <a name="note-about-b2c-tenant-quotas"></a>Примечание о квотах клиента B2C
-По умолчанию предельное количество пользователей в клиенте B2C — 50 000. Если требуется увеличить квоту клиента B2C, следует обратиться в службу поддержки.
 
 ## <a name="branding-issues-on-verification-email"></a>Проблемы с фирменной символикой в проверочном письме
 Проверочное письмо по умолчанию содержит фирменную символику Microsoft. Она будет удалена в будущем. Сейчас ее можно удалить с помощью [функции фирменной символики](../active-directory/active-directory-add-company-branding.md).
@@ -133,6 +130,6 @@ Azure AD B2C поддерживает протоколы OpenID Connect и OAuth
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

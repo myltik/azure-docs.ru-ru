@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: bc4a892ce1745d54ee4424e04a79a52942650b49
-ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
 * Если вы подключаете новый диск, его не надо предварительно создавать. Azure создаст его при подключении.
 * Если вы подключаете существующий диск, его VHD-файл должен быть доступен в учетной записи хранения Azure. Можно использовать VHD, уже находящийся там, если он не подключен к другой виртуальной машине, или передать свой VHD-файл в учетную запись хранения.
 
-Вы также можете [присоединить диск данных с помощью Powershell](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine).
+Вы также можете [присоединить диск данных с помощью Powershell](virtual-machines-windows-attach-disk-ps.md).
 
 
 ## <a name="find-the-virtual-machine"></a>Поиск виртуальной машины
@@ -98,6 +98,6 @@ fsutil behavior set DisableDeleteNotify 0
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

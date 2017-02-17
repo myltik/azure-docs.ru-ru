@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: c796550f4e47793285ba7d97cbb866c3820f32cf
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 27f8d329c0dddd21cca7e3631594ab326f3610b2
 
 
 ---
@@ -27,6 +27,7 @@ ms.openlocfilehash: c796550f4e47793285ba7d97cbb866c3820f32cf
 
 **Я не вижу мгновенного изменения членства, когда добавляю или изменяю правило. Почему?**<br/>Специальная оценка членства выполняется периодически в асинхронном фоновом процессе. На длительность процесса влияют количество пользователей в каталоге и размер группы, созданной в результате оценки правила. Обычно каталоги с небольшим количеством пользователей выявят изменения членства в группах уже через несколько минут. В случае каталогов с большим числом пользователей заполнение может занять 30 минут или больше.
 
+### <a name="next-steps"></a>Дальнейшие действия
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
@@ -36,7 +37,6 @@ ms.openlocfilehash: c796550f4e47793285ba7d97cbb866c3820f32cf
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
