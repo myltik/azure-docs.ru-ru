@@ -23,7 +23,7 @@
 ### [Рекомендации по автомасштабированию](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Общие метрики автомасштабирования](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Автомасштабирование масштабируемых наборов ВМ с помощью шаблонов Resource Manager](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Автоматическое масштабирование виртуальных машин в масштабируемом наборе виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Автоматическое масштабирование виртуальных машин в масштабируемом наборе виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Настройка веб-перехватчиков webhook и уведомлений по электронной почте для автомасштабирования](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Использование журнала действий
 ### [Просмотр событий в журнале действий](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## Использование REST API
 ### [Пошаговое руководство по использованию REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Схема диагностики Azure](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Схема диагностики 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Схема диагностики 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Схема диагностики 1.3–1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # Ресурсы
 ## [Примеры для PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Примеры для Azure CLI 2.0 (предварительная версия)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Примеры Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Список поддерживаемых метрик](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

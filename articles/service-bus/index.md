@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по служебной шине Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как настроить обмен сообщениями между приложениями и службами в локальных и облачных средах.  Руководства, видео, справочники по API и другие документы."
+services: service-bus
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
+ms.sourcegitcommit: 3e94e98bde67db2e136420ada2a7c625ad5a0307
+ms.openlocfilehash: ac803aaa0cf4cbf69fdca9764923eaaf2d29efc0
 
 ---
 #<a name="service-bus-documentation"></a>Документация по служебной шине
@@ -239,6 +250,6 @@ ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

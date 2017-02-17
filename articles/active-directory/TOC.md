@@ -2,10 +2,10 @@
 ## [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 ## [Выбор выпуска](active-directory-editions.md)
 ## [Об управлении удостоверениями Azure](fundamentals-identity.md)
-## [Предварительное ознакомление с интерфейсом портала Azure](active-directory-preview-explainer.md)
+## [Предварительное ознакомление с интерфейсом портала Azure AD](active-directory-preview-explainer.md)
 
 
-# Начало работы
+# Приступая к работе
 ## [Получение клиента Azure AD](active-directory-howto-tenant.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
@@ -99,22 +99,6 @@
 ### [Регистрация персональных устройств](active-directory-azureadjoin-personal-device.md)
 ### [Регистрация устройств Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
-### [Условный доступ](active-directory-conditional-access.md)
-#### [Начало работы](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Поддерживаемые приложения](active-directory-conditional-access-supported-apps.md)
-#### [Регистрация устройств](active-directory-conditional-access-device-registration-overview.md)
-#### [Управление автоматической регистрацией](active-directory-conditional-access-automatic-device-registration.md)
-##### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Управление приложением для проверки подлинности](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
-#### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
-#### [Локальное развертывание](active-directory-conditional-access-on-premises-setup.md)
-#### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
-#### [Устранение неполадок](active-directory-conditional-access-device-remediation.md)
-#### [Справочные материалы](active-directory-conditional-access-technical-reference.md)
-
 ### [Присоединение к Azure AD](active-directory-azureadjoin-overview.md)
 #### [План](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
@@ -122,12 +106,13 @@
 #### [Развертывание](active-directory-azureadjoin-devices-group-policy.md)
 #### [Проверка подлинности без использования паролей](active-directory-azureadjoin-passport.md)
 #### [Включение Windows Hello для бизнеса](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Общие сведения об интеграции Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Использование устройств Windows 10](active-directory-azureadjoin-windows10-devices.md)
-
-### Аутентификация на основе сертификата
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [Часто задаваемые вопросы](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Устранение неполадок
+##### [Устранение неполадок в Windows 10 и Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Устранение неполадок для клиентов Windows нижнего уровня](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ## Управление приложениями
 ### [Обзор](active-directory-enable-sso-scenario.md)
@@ -139,25 +124,31 @@
 
 ### [Предоставление удаленного доступа к приложениям](active-directory-application-proxy-get-started.md)
 #### [Использование прокси приложения](active-directory-application-proxy-enable.md)
+#### [Общие сведения о соединителях](application-proxy-understand-connectors.md)
+
 #### Публикация приложений
 ##### [Портал Azure](application-proxy-publish-azure-portal.md)
 ##### [Классический портал.](active-directory-application-proxy-publish.md)
+#### [Безопасность](application-proxy-security-considerations.md)
+#### [Сети](application-proxy-network-topology-considerations.md)
+#### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Публикация в отдельных сетях
 ##### [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Классический портал.](active-directory-application-proxy-connectors.md)
+#### [Прокси-серверы](application-proxy-working-with-proxy-servers.md)
 #### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
+#### [Доступ к приложениям](active-directory-appssoaccess-whatis.md)
+##### [Портал Azure](application-proxy-sso-azure-portal.md)
 #### [Единый вход](active-directory-application-proxy-sso-using-kcd.md)
-##### [портале Azure](application-proxy-sso-azure-portal.md)
 #### [Приложения с поддержкой утверждений](active-directory-application-proxy-claims-aware-apps.md)
 #### [Приложения Native Client](active-directory-application-proxy-native-client.md)
+#### [Пользовательская домашняя страница](application-proxy-office365-app-launcher.md)
 #### [Условный доступ](active-directory-application-proxy-conditional-access.md)
 #### [Автоматическая установка](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
-### [Общие сведения о едином входе для приложений](active-directory-appssoaccess-whatis.md)
-
-### Интеграции приложений SaaS
-#### [Портал Azure](active-directory-enterprise-apps-manage-sso.md)
-#### [Классический портал](active-directory-sso-integrate-saas-apps.md)
 
 ### Управление корпоративными приложениями
 #### [Назначение пользователей](active-directory-coreapps-assign-user-azure-portal.md)
@@ -176,10 +167,10 @@
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
 #### [Сертификаты для единого входа](active-directory-sso-certs.md)
+#### [Ограничения клиента](active-directory-tenant-restrictions.md)
 
 ### [Использование SCIM подготовки пользователей](active-directory-scim-provisioning.md)
 ### [Библиотека документов](active-directory-apps-index.md)
-
 
 ## Управление каталогом
 ### Имена пользовательских доменов
@@ -206,15 +197,30 @@
 #### [Параметры Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Часто задаваемые вопросы](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Устранение неполадок](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Интеграция партнеров с помощью Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Обзор](active-directory-b2b-collaboration-overview.md)
-#### [Принцип работы](active-directory-b2b-how-it-works.md)
-#### [Сравнение возможностей](active-directory-b2b-compare-external-identities.md)
-#### [Пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
-#### [Ограничения](active-directory-b2b-current-preview-limitations.md)
-#### [Формат CSV-файла](active-directory-b2b-references-csv-file-format.md)
-#### [Пользовательские объекты](active-directory-b2b-references-external-user-object-attribute-changes.md)
-#### [Токены пользователя](active-directory-b2b-references-external-user-token-format.md)
+#### [Добавление пользователей B2B администраторами](active-directory-b2b-admin-add-users.md)
+#### [Добавление пользователей B2B информационными работниками](active-directory-b2b-iw-add-users.md)
+#### [Сообщение электронной почты с приглашением](active-directory-b2b-invitation-email.md)
+#### [Активация приглашения](active-directory-b2b-redemption-experience.md)
+#### [Свойства пользователя B2B](active-directory-b2b-user-properties.md)
+#### [Добавление роли гостевого пользователя](active-directory-b2b-add-guest-to-role.md)
+#### [API и настройка](active-directory-b2b-api.md)
+#### [Делегирование приглашений](active-directory-b2b-delegate-invitations.md)
+#### [Динамические группы и B2B](active-directory-b2b-dynamic-groups.md)
+#### [Многофакторная идентификация для B2B](active-directory-b2b-mfa-instructions.md)
+#### [Маркеры пользователя B2B](active-directory-b2b-user-token.md)
+#### [Сопоставление утверждений пользователя B2B](active-directory-b2b-claims-mapping.md)
+#### [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
+#### [Сравнение B2B и B2C](active-directory-b2b-compare-b2c.md)
+#### [Настройка приложений SaaS для B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Код и примеры PowerShell](active-directory-b2b-code-samples.md)
+#### [Текущие ограничения](active-directory-b2b-current-limitations.md)
+#### [Лицензирование](active-directory-b2b-licensing.md)
+#### [Устранение неполадок B2B](active-directory-b2b-troubleshooting.md)
+#### [Сравнение совместной работы B2B и B2C](active-directory-b2b-compare-b2c.md)
+#### [Получение технической поддержки для B2B](active-directory-b2b-support.md)
+#### [Часто задаваемые вопросы](active-directory-b2b-faq.md)
 ### [Интеграция локальных удостоверений с помощью Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
@@ -238,6 +244,22 @@
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
 
 ## Защита удостоверений
+### [Условный доступ](active-directory-conditional-access.md)
+#### [Начало работы](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Поддерживаемые приложения](active-directory-conditional-access-supported-apps.md)
+#### [Регистрация устройств](active-directory-conditional-access-device-registration-overview.md)
+#### [Управление автоматической регистрацией](active-directory-conditional-access-automatic-device-registration.md)
+##### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [Управление приложением для проверки подлинности](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
+#### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
+#### [Локальное развертывание](active-directory-conditional-access-on-premises-setup.md)
+#### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
+#### [Устранение неполадок](active-directory-conditional-access-device-remediation.md)
+#### [Справочные материалы](active-directory-conditional-access-technical-reference.md)
+### Аутентификация на основе сертификата
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Защита идентификации Azure AD](active-directory-identityprotection.md)
 #### [Включение](active-directory-identityprotection-enable.md)
 #### [Обнаружение уязвимостей](active-directory-identityprotection-vulnerabilities.md)
@@ -301,6 +323,6 @@
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,12 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по машинному обучению Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Документация, видеоролики и примеры моделей для машинного обучения, представляющего собой облачную службу для специалистов по обработке и анализу данных и разработчиков, использующих прогнозную аналитику в приложениях."
-author: garyericson
-ms.date: 01/18/2017
-ms.author: garye
+services: machine-learning
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: machine-learning
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
+ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
+ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Документация по машинному обучению Azure
@@ -123,7 +131,8 @@ ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">справочник по API REST</a></p>
+                        <p><a href="/rest/api/machinelearning">Справочник по REST API</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-web-service-error-codes">Коды ошибок веб-службы</a></p>
                     </div>
                 </div>
             </div>
@@ -135,6 +144,6 @@ ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

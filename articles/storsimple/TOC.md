@@ -26,7 +26,8 @@
 
 ## Практическое руководство
 ### [Управление через портал Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Установка последнего обновления](storsimple-virtual-array-install-update.md)
+#### [Установка последнего обновления](storsimple-virtual-array-install-update-04.md)
+##### [Установка обновления 0.3](storsimple-virtual-array-install-update.md)
 #### [Создание резервных копий и управление ими](storsimple-virtual-array-backup.md)
 #### [Клонирование из резервных копий](storsimple-virtual-array-clone.md)
 #### [Отработка отказа и аварийное восстановление данных](storsimple-virtual-array-failover-dr.md)
@@ -40,6 +41,8 @@
 #### [Управление заданиями](storsimple-virtual-array-manage-jobs.md)
 #### [Изменение пароля устройства](storsimple-virtual-array-change-device-admin-password.md)
 #### [Настройка MPIO на узле Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Диагностирование и устранение неполадок](storsimple-virtual-array-diagnose-problems.md)
+#### [Регистрация запроса на техническую поддержку](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Управление с помощью классического портала Azure](storsimple-ova-manager-service-administration.md)
 #### [Установка последнего обновления](storsimple-ova-install-update-01.md)
@@ -56,7 +59,8 @@
 ### [Настройка с помощью локального пользовательского веб-интерфейса](storsimple-ova-web-ui-admin.md)
 
 ## Заметки о выпуске
-### [Обновление 0.3 (текущая версия)](storsimple-ova-update-03-release-notes.md)
+### [Обновление 0.4 (текущая версия)](storsimple-virtual-array-update-04-release-notes.md)
+### [Обновление 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Обновление 0.2 и 0.1](storsimple-ova-update-01-release-notes.md)
 
 # Хранилище StorSimple серии 8000
@@ -78,7 +82,7 @@
 #### [Распаковка, установка в стойку, подключение кабелей 8100](storsimple-8100-hardware-installation.md)
 
 #### [Распаковка, установка в стойку, подключение кабелей 8600](storsimple-8600-hardware-installation.md)
-#### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Развернуть
 #### [Служба диспетчера StorSimple](storsimple-manage-service.md)
@@ -150,6 +154,7 @@
 ### Монитор
 #### [Использование панели мониторинга службы](storsimple-service-dashboard.md)
 #### [Использование панели мониторинга устройства](storsimple-device-dashboard.md)
+#### [Использование диаграмм мониторинга](storsimple-monitor-device.md)
 #### [Использование оповещений службы](storsimple-manage-alerts.md)
 #### [Использование состояния оборудования](storsimple-monitor-hardware-status.md)
 #### [Использование светодиодных индикаторов мониторинга](storsimple-monitoring-indicators.md)
@@ -172,6 +177,7 @@
 #### [С других запоминающих устройств](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Блокировка изменений
+#### [Установка обновления 4](storsimple-install-update-4.md)
 #### [Установка обновления 3](storsimple-install-update-3.md)
 #### [Установка обновления 2.2](storsimple-install-update-21.md)
 #### [Установка обновления 2](storsimple-install-update-2.md)
@@ -179,6 +185,7 @@
 #### [Обновление устройства](storsimple-update-device.md)
 
 ## Заметки о выпуске
+### [Обновление 4 (текущая версия)](storsimple-update4-release-notes.md)
 ### [Обновление 3 (текущая версия)](storsimple-update3-release-notes.md)
 ### [Обновление 2.2](storsimple-update21-release-notes.md)
 ### [Обновление 2](storsimple-update2-release-notes.md)
@@ -203,6 +210,18 @@
 ## Практическое руководство
 ### [Использование .NET для преобразования данных](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple для партнеров
+## Обзор
+### [Что из себя представляет это решение?](storsimple-partner-csp-overview.md)
+
+## Приступая к работе
+### [Развертывание виртуального массива для CSP](storsimple-partner-csp-deploy.md)
+
+## Заметки о выпуске
+### [Заметки о выпуске StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Заметки о выпуске CSP](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple для CSP: вопросы и ответы](storsimple-partner-csp-faq.md)
+
 # Сопутствующие материалы
 ## [Хранилище StorSimple серии 5000–7000](http://onlinehelp.storsimple.com)
 
@@ -220,6 +239,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

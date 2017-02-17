@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Документация по Azure Logic Apps. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как разрабатывать приложения логики для автоматизации и упрощения бизнес-процессов в локальной среде и в облаке. Руководства, шаблоны и справочники по API."
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Документация по службе Logic Apps
 
 Узнайте, как разрабатывать приложения логики, которые упрощают и интегрируют масштабируемые рабочие процессы в облаке. Руководства, шаблоны и справочники по API помогут вам создавать и развертывать автоматизированные бизнес-процессы в локальной среде и в облаке.
@@ -150,6 +162,6 @@ ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

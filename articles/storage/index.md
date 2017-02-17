@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по службе хранилища Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Сведения об использовании службы хранилища Azure — хранилища BLOB-объектов, таблиц, очередей, файлов и дисков виртуальных машин в облаке. Руководства, справочники по API и другие документы."
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -133,6 +144,7 @@ ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">BLOB-объекты, очереди, таблицы и файлы</a></p>
                         <p><a href="/rest/api/storagerp">Поставщик ресурсов</a></p>
                         <p><a href="/rest/api/storageimportexport">Импорт и экспорт</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Azure Storage Services REST API Reference</a> (Справочник по REST API службы хранилища Azure)</p>
                    </div>
                 </div>
             </div>
@@ -144,6 +156,6 @@ ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
