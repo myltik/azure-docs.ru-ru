@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: порты | Документация Майкрософт"
+title: "Порты и протоколы, необходимые для гибридной идентификации в Azure | Документация Майкрософт"
 description: "Эта страница является страницей технического справочника по портам, которые должны быть открыты для Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 
 
 ---
@@ -77,9 +77,9 @@ ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
 |Протокол|Номер порта|Описание
 | --- | --- | ---
 |HTTP|80|Разрешение исходящего трафика HTTP для проверки безопасности, например SSL.
-|HTTPS|443| Включение аутентификации пользователей в Azure AD.
-|HTTPS|10100–10120| Разрешение отправки ответов от соединителя в Azure AD. 
-|Служебная шина Azure|9352, 5671|  Включение связи между соединителем и службой Azure для входящих запросов.
+|HTTPS|443|    Включение аутентификации пользователей в Azure AD.
+|HTTPS|10100–10120|    Разрешение отправки ответов от соединителя в Azure AD. 
+|Служебная шина Azure|9352, 5671|    Включение связи между соединителем и службой Azure для входящих запросов.
 |HTTPS|9350|    Необязательно, позволяет повысить скорость обработки входящих запросов.
 |HTTPS|8080/443|    Включение последовательности начальной загрузки соединителя и автоматического обновления соединителя.
 |HTTPS|9090|    Регистрация соединителя (требуется только для процесса регистрации соединителя).
@@ -96,12 +96,12 @@ ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
 | HTTPS |443 (TCP или UDP) |Исходящие |
 | Azure Service Bus |5671 (TCP или UDP) |Исходящие |
 
-### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица 7б. Конечные точки для агента Azure AD Connect Health для AD FS и синхронизации и Azure AD
+### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица&7;б. Конечные точки для агента Azure AD Connect Health для AD FS и синхронизации и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
