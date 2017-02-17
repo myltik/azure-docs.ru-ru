@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
+ms.sourcegitcommit: 70f77fd155627ef1d06cf466d19768a0eaad6856
+ms.openlocfilehash: 4d3393b935d2ebd24bccd0fe040f1948402f6e5b
 
 
 ---
@@ -25,6 +25,7 @@ ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
 * **[Просмотрите видео с вводной информацией](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
 * **[Памятка для пользователей SQL](https://aka.ms/sql-analytics)** содержит сопоставление наиболее распространенных идиом.
+* **[Справочник по языку](app-insights-analytics-reference.md)** позволит научиться использовать все возможности языка запросов аналитики.
 
 ## <a name="queries-in-analytics"></a>Запросы в аналитике
 Типичный запрос содержит *исходную* таблицу и ряд *операторов*, разделенных `|`. 
@@ -80,6 +81,6 @@ ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51490fa46a1d9c23d73d4071fb900a97327425a8
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: a1742808be5df2a57e53bb6918f89df4953d0694
 
 
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Использование расширения виртуальных машин Docker на классическом портале Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 [Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Вы можете использовать расширение виртуальных машин Docker, управляемое [агентом Linux для Azure] , чтобы создать виртуальную машину Docker, в которой будет размещено любое количество контейнеров с приложениями в Azure.
 
@@ -136,11 +137,11 @@ WARNING: No swap limit support
 Переходите к [руководству пользователя Docker] и использованию виртуальной машины Docker. Если нужно автоматизировать создание узлов Docker на виртуальных машинах Azure через интерфейс командной строки, см. статью [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)].
 
 <!--Anchors-->
-[Создание новой виртуальной машины в коллекции образов]: #createvm
-[Создание сертификатов Docker]: #dockercerts
-[Добавление расширения виртуальных машин Docker]: #adddockerextension
-[Тестирование клиента Docker и узла Docker в Azure]: #testclientandserver
-[Дальнейшие действия]: #next-steps
+[Create a new VM from the Image Gallery]: #createvm
+[Create Docker Certificates]: #dockercerts
+[Add the Docker VM Extension]: #adddockerextension
+[Test Docker Client and Azure Docker Host]: #testclientandserver
+[Next steps]: #next-steps
 
 <!--Image references-->
 [StartingPoint]: ./media/StartingPoint.png
@@ -158,13 +159,13 @@ WARNING: No swap limit support
 <!--Link references-->
 [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [агентом Linux для Azure]: virtual-machines-linux-agent-user-guide.md
-[Ссылка 3 на другой раздел документации на сайте azure.microsoft.com]: ../storage-whatis-account.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
 [этой ссылке]: http://docs.docker.com/articles/https/
 [руководству пользователя Docker]: https://docs.docker.com/userguide/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

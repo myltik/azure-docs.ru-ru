@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 345db9b2e45937ea45329acf780601e4e0fbd504
+ms.sourcegitcommit: daa311fcfd1ef06cf36e9443150fc967f0f39708
+ms.openlocfilehash: 052505260c0998c8528146c4985400126d094f0d
 
 
 ---
@@ -38,6 +38,129 @@ ms.openlocfilehash: 345db9b2e45937ea45329acf780601e4e0fbd504
 | Миграция не поддерживается для развертывания {deployment-name} в размещенной службе {hosted-service-name}, так как она содержит виртуальные машины, которые не входят в группу доступности, но содержатся в размещенной службе. |В этом сценарии нужно переместить все виртуальные машины в одну группу доступности или удалить их из группы доступности в размещенной службе. |
 | Учетная запись хранения, размещенная служба или виртуальная сеть {virtual-network-name} переносится и поэтому ее невозможно изменить. |Эта ошибка возникает, после завершения операции подготовки к миграции для ресурса и инициации операции изменения ресурса. Так как плоскость управления блокируется после операции подготовки, любые изменения ресурса также блокируются. Чтобы разблокировать плоскость управления, можно запустить операцию фиксации миграции, чтобы завершить ее, или аварийного завершения, чтобы сделать откат операции подготовки. |
 | Миграция запрещена для размещенной службы {размещенных service-name}, так как она содержит виртуальную машину {vm-name} в состоянии RoleStateUnknown. Миграцию можно выполнить, только если виртуальная машина находится в одном из следующих состояний: Running, Stopped, Stopped Deallocated. |Возможно, состояние виртуальной машины меняется, что обычно происходит при операции обновления в размещенной службе, например перезагрузка, установка расширения и т. д. Перед попыткой выполнения миграции рекомендуется завершить операцию обновления в размещенной службе. |
+| Развертывание {deployment-name} в размещенной службе {hosted-service-name} содержит виртуальную машину {vm-name} с диском данных {data-disk-name}, у которого физический размер большого двоичного объекта {size-of-the-vhd-blob-backing-the-data-disk} в байтах не соответствует логическому размеру диска данных виртуальной машины {size-of-the-data-disk-specified-in-the-vm-api}. Миграция будет выполнена без указания размера диска данных для виртуальной машины Azure Resource Manager. Если вы хотите исправить размер диска данных, прежде чем продолжить миграцию, посетите страницу https://aka.ms/vmdiskresize. | Эта ошибка возникает, если изменить размер большого двоичного объекта VHD, не обновив размер в модели API виртуальной машины. Подробное описание шагов по устранению этой ошибки приводится [ниже](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
+
+## <a name="detailed-mitigations"></a>Подробные инструкции по устранению
+
+### <a name="vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes"></a>Виртуальная машина с диском данных, у которого физический размер большого двоичного объекта в байтах не соответствует логическому размеру диска данных виртуальной машины.
+
+Это может произойти, когда нарушается синхронизация логического размера диска данных с фактическим размером большого двоичного объекта VHD. Это можно легко проверить с помощью следующих команд:
+
+#### <a name="verifying-the-issue"></a>Проверка наличия проблемы
+
+```PowerShell
+# Store the VM details in the VM object
+$vm = Get-AzureVM -ServiceName $servicename -Name $vmname
+
+# Display the data disk properties
+# NOTE the data disk LogicalDiskSizeInGB below which is 11GB. Also note the MediaLink Uri of the VHD blob as we'll use this in the next step
+$vm.VM.DataVirtualHardDisks
+
+
+HostCaching         : None
+DiskLabel           : 
+DiskName            : coreosvm-coreosvm-0-201611230636240687
+Lun                 : 0
+LogicalDiskSizeInGB : 11
+MediaLink           : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+SourceMediaLink     : 
+IOType              : Standard
+ExtensionData       : 
+
+# Now get the properties of the blob backing the data disk above
+# NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
+$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+
+$blob
+
+ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudPageBlob
+BlobType          : PageBlob
+Length            : 16106127872
+ContentType       : application/octet-stream
+LastModified      : 11/23/2016 7:16:22 AM +00:00
+SnapshotTime      : 
+ContinuationToken : 
+Context           : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
+Name              : coreosvm-dd1.vhd
+```
+
+#### <a name="mitigating-the-issue"></a>Устранение проблемы
+
+```PowerShell
+# Convert the blob size in bytes to GB into a variable which we'll use later
+$newSize = [int]($blob.Length / 1GB)
+
+# See the calculated size in GB
+$newSize
+
+15
+
+# Store the disk name of the data disk as we'll use this to identify the disk to be updated
+$diskName = $vm.VM.DataVirtualHardDisks[0].DiskName
+
+# Identify the LUN of the data disk to remove
+$lunToRemove = $vm.VM.DataVirtualHardDisks[0].Lun
+
+# Now remove the data disk from the VM so that the disk isn't leased by the VM and it's size can be updated
+Remove-AzureDataDisk -LUN $lunToRemove -VM $vm | Update-AzureVm -Name $vmname -ServiceName $servicename
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       213xx1-b44b-1v6n-23gg-591f2a13cd16   Succeeded  
+
+# Verify we have the right disk that's going to be updated
+Get-AzureDisk -DiskName $diskName
+
+AffinityGroup        : 
+AttachedTo           : 
+IsCorrupted          : False
+Label                : 
+Location             : East US
+DiskSizeInGB         : 11
+MediaLink            : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+DiskName             : coreosvm-coreosvm-0-201611230636240687
+SourceImageName      : 
+OS                   : 
+IOType               : Standard
+OperationDescription : Get-AzureDisk
+OperationId          : 0c56a2b7-a325-123b-7043-74c27d5a61fd
+OperationStatus      : Succeeded
+
+# Now update the disk to the new size
+Update-AzureDisk -DiskName $diskName -ResizedSizeInGB $newSize -Label $diskName
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureDisk     cv134b65-1b6n-8908-abuo-ce9e395ac3e7 Succeeded 
+
+# Now verify that the "DiskSizeInGB" property of the disk matches the size of the blob 
+Get-AzureDisk -DiskName $diskName
+
+
+AffinityGroup        : 
+AttachedTo           : 
+IsCorrupted          : False
+Label                : coreosvm-coreosvm-0-201611230636240687
+Location             : East US
+DiskSizeInGB         : 15
+MediaLink            : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+DiskName             : coreosvm-coreosvm-0-201611230636240687
+SourceImageName      : 
+OS                   : 
+IOType               : Standard
+OperationDescription : Get-AzureDisk
+OperationId          : 1v53bde5-cv56-5621-9078-16b9c8a0bad2
+OperationStatus      : Succeeded
+
+# Now we'll add the disk back to the VM as a data disk. First we need to get an updated VM object
+$vm = Get-AzureVM -ServiceName $servicename -Name $vmname
+
+Add-AzureDataDisk -Import -DiskName $diskName -LUN 0 -VM $vm -HostCaching ReadWrite | Update-AzureVm -Name $vmname -ServiceName $servicename
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       b0ad3d4c-4v68-45vb-xxc1-134fd010d0f8 Succeeded      
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведен список статей по миграции, в которых объясняется этот процесс.
@@ -49,6 +172,6 @@ ms.openlocfilehash: 345db9b2e45937ea45329acf780601e4e0fbd504
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

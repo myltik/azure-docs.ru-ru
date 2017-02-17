@@ -323,6 +323,6 @@
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

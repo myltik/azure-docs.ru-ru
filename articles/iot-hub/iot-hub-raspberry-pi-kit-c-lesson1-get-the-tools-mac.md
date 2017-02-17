@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов (macOS 10.10) | Документация Майкрософт"
+title: "Подключение Raspberry Pi (C) к Интернету вещей Azure. Урок 1. Получение инструментов (macOS) | Документация Майкрософт"
 description: "Скачайте и установите необходимые инструменты и программное обеспечение для работы с примером приложения на устройстве Pi под управлением macOS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: bcb0b09468364cf13aff3987aeb7dd74e551cf9d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 20cf1fd57f37c84342ba08954a913c0eceba415f
 
 
 ---
@@ -89,6 +89,6 @@ sudo npm install -g device-discovery-cli gulp
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

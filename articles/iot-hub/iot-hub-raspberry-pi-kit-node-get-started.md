@@ -1,12 +1,14 @@
 ---
-title: "Приступая к работе с Raspberry Pi 3 | Документация Майкрософт"
-description: "Начните работу с Raspberry Pi 3, создайте свой Центр Интернета вещей Azure и подключите к нему устройство Pi."
+title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Приступая к работе | Документация Майкрософт"
+description: "Начните работу с устройством Raspberry Pi 3, создайте свой Центр Интернета вещей Azure и подключите устройство Pi к этому центру."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
 keywords: "Центр Интернета вещей Azure, приступая к работе с Интернетом вещей, инструментарий Интернета вещей"
+experimental: true
+experiment_id: xshi-happypathemu-20161202
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
 ms.devlang: node
@@ -16,12 +18,15 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e453ad240c7f537ef2d150564996827ebcb9474d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 358a2a4fd448660c3a8ef0d11d7d373dd7d9a569
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Приступая к работе с Raspberry Pi 3 (Node.JS)
+# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Приступая к работе с Raspberry Pi 3 (Node.js)
+> [!div class="op_single_selector"]
+> * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
+> * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 В этом учебнике описано, как начать работу с устройством Raspberry Pi 3 под управлением Raspbian. Также вы узнаете, как можно легко подключать устройства к облаку с помощью [Центра Интернета вещей Azure](iot-hub-what-is-iot-hub.md). Примеры для Windows 10 IoT Базовая представлены в [Центре разработки для Windows](http://www.windowsondevices.com/).
 
@@ -65,7 +70,7 @@ ms.openlocfilehash: e453ad240c7f537ef2d150564996827ebcb9474d
 
 *Предполагаемое время выполнения: 10 минут*
 
-Перейдите к статье [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).
+Перейдите к статье [Получение инструментов Azure (Windows&7; и более поздние версии)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).
 
 ### <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Создание Центра Интернета вещей и регистрация Raspberry Pi 3
 Создайте группу ресурсов, подготовьте Центр Интернета вещей Azure и добавьте в него первое устройство, используя интерфейс командной строки Azure.
@@ -129,6 +134,6 @@ ms.openlocfilehash: e453ad240c7f537ef2d150564996827ebcb9474d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

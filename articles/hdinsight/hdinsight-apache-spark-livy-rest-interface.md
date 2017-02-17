@@ -1,5 +1,5 @@
 ---
-title: "Удаленная отправка заданий Spark с помощью Livy | Документация Майкрософт"
+title: "Удаленная отправка заданий в кластер Spark в Azure HDInsight с помощью Livy | Документация Майкрософт"
 description: "Узнайте, как использовать Livy с кластерами HDInsight для удаленной отправки заданий Spark."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0866581d6feebc71ed82aa48f6e41a58068af900
-ms.openlocfilehash: 0b8c9f9395f034355c8f10574e750fcf40e870de
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-linux-using-livy"></a>Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy
+# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight с помощью Livy
+
 Кластер Apache Spark в Azure HDInsight включает Livy — интерфейс REST для удаленной отправки заданий в кластер Spark. Подробную документацию см. в статье о [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Вы можете использовать Livy для выполнения интерактивных оболочек Spark или отправки пакетных заданий для запуска в кластере Spark. В статье рассматривается использование Livy для отправки пакетных заданий. В представленном ниже синтаксисе используется Curl, позволяющий REST вызывать конечную точку Livy.
@@ -30,8 +31,8 @@ ms.openlocfilehash: 0b8c9f9395f034355c8f10574e750fcf40e870de
 
 Необходимо следующее:
 
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="submit-a-batch-job"></a>Отправка пакетного задания
 Перед отправкой пакетного задания необходимо загрузить JAR-файл приложения в хранилище кластеров, связанное с соответствующим кластером. Вы можете использовать для этого служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных вы можете использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
@@ -193,6 +194,6 @@ Livy обеспечивает высокую доступность задани
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

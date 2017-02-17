@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c8e448aaffbecb4d3ac83729710f352675913bb
+ms.sourcegitcommit: c3540d86a12935cea100248f7f6669df34ae2209
+ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 9c8e448aaffbecb4d3ac83729710f352675913bb
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Как включить диагностику в рабочей роли
 В этом пошаговом руководстве описывается, как реализовать рабочую роль Azure, которая передает данные телеметрии с помощью класса EventSource .NET. Система диагностики Azure используется для сбора данных телеметрии и хранения их в учетной записи хранения Azure. При создании рабочей роли Visual Studio автоматически включает систему диагностики 1.0 как часть решения в пакете SDK для Azure для .NET версии 2.4 и более поздней. В следующих указаниях описывается процесс создания рабочей роли, отключение системы диагностики 1.0 в решении и развертывание системы диагностики 1.2 или 1.3 в рабочей роли.
 
-### <a name="pre-requisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Предварительные требования
 В данной статье предполагается, что у вас есть подписка Azure и вы используете Visual Studio 2013 с пакетом SDK для Azure. Если у вас нет подписки Azure, можно зарегистрироваться для получения [бесплатной пробной версии][Free Trial]. Следует обязательно [установить и настроить Azure PowerShell версии 0.8.7 или более поздней][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Шаг 1. Создание рабочей роли
@@ -122,6 +122,9 @@ namespace WorkerRole1
 
 
 ### <a name="step-3-deploy-your-worker-role"></a>Шаг 3. Развертывание рабочей роли
+
+[!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
+
 1. Разверните свою рабочую роль в Azure из Visual Studio, выбрав проект **WadExample** в обозревателе решений, а затем выбрав команду **Опубликовать** в меню **Сборка**.
 2. Выберите свою подписку.
 3. В диалоговом окне **Параметры публикации Microsoft Azure** щелкните **Создать**.
@@ -132,12 +135,15 @@ namespace WorkerRole1
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Шаг 4. Создание файла конфигурации системы диагностики и установка расширения
 1. Скачайте общедоступное определение схемы файла конфигурации, выполнив следующую команду PowerShell:
-   2.
-     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+
+    ```powershell
+    (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+    ```
 2. Добавьте XML-файл к своему проекту **WorkerRole1**, щелкнув правой кнопкой мыши проект **WorkerRole1** и выбрав **Добавить** -> **Создать элемент…** -> **Элементы Visual C#** -> **Данные** -> **XML-файл**. Назовите файл «WadExample.xml».
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. Свяжите файл WadConfig.xsd с файлом конфигурации. Убедитесь, что окно редактора WadExample.xml активно. Нажмите клавишу **F4**, чтобы открыть окно **Свойства**. Щелкните свойство **Schemas** в окне **Свойства**. Щелкните **…** in the **Schemas** . Щелкните **Добавить…** , перейдите в расположение, где сохранен XSD-файл, и выберите файл WadConfig.xsd. Нажмите кнопку **ОК**.
+
 4. Замените содержимое файла настройки WadExample.xml приведенным кодом XML и сохраните файл. Этот файл конфигурации определяет пару счетчиков производительности: один — для использование ЦП, и один — для использования памяти. Затем конфигурация определяет четыре события, соответствующие методам в классе SampleEventSourceWriter.
 
 ```xml
@@ -180,7 +186,8 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>Шаг 6. Просмотр данных телеметрии
 В **обозревателе решений** Visual Studio перейдите к учетной записи хранения wadexample. После того как облачная служба проработает около 5 минут, следует просмотреть таблицы **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** и **WADSetOtherTable**. Дважды щелкните одну из таблиц, чтобы просмотреть собранную телеметрию.
-    ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+
+![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Схема файла конфигурации
 Файл конфигурации системы диагностики определяет значения, которые используются для инициализации параметров конфигурации диагностики, когда запускается агент диагностики. Допустимые значения и примеры см. в [последнем справочнике по схеме](https://msdn.microsoft.com/library/azure/mt634524.aspx).
@@ -200,6 +207,6 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

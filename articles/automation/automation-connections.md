@@ -109,6 +109,6 @@ ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
 - В статье [Модули интеграции службы автоматизации Azure](automation-integration-modules.md) описывается использование модулей PowerShell в службе автоматизации Azure и рекомендации по созданию модулей PowerShell в качестве модулей интеграции для службы автоматизации Azure.  
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 6f9580bd96007239eb5dc0276a87c63ec62804c5
+ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
+ms.openlocfilehash: bf2e34a27806ca79f88db9a9f8d052cd7bfcc94d
 
 
 ---
@@ -203,11 +203,20 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 Из этого учебника вы узнали, как легко упаковать два существующих приложения в одно приложение Service Fabric. Кроме того, вы узнали, как развернуть его в Service Fabric, так чтобы воспользоваться преимуществами некоторых функций Service Fabric, таких как высокая доступность и система контроля работоспособности.
 
+
+## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Добавление гостевых исполняемых файлов в существующее приложение с помощью Yeoman в Linux
+
+Чтобы добавить службу в приложение, созданное с использованием `yo`, сделайте следующее: 
+1. Перейдите в корневой каталог существующего приложения.  Например, `cd ~/YeomanSamples/MyApplication`, если `MyApplication` является приложением, созданным с помощью Yeoman.
+2. Выполните команду `yo azuresfguest:AddService`, чтобы предоставить необходимые сведения.
+
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о развертывании контейнеров в [обзоре Service Fabric и контейнеров](service-fabric-containers-overview.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,24 +1,10 @@
 ---
-title: "Как реализовать секционирование на стороне клиента с помощью пакетов SDK | Документация Майкрософт"
-description: "Узнайте, как использовать пакеты SDK Azure DocumentDB для .NET для секционирования (сегментирования) данных и маршрутизации запросов по нескольким коллекциям."
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: ab2a63f0-4601-42d8-b5e5-ba943319c1c8
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.author: mimig
+
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 5e7aa2ead3e9c5d55f7f4c372638c0ee9c485b98
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
 
 
 
@@ -173,6 +159,6 @@ foreach (UserProfile activeUser in query)
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -73,7 +73,7 @@ ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
     collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive = 90 * 60 * 24; // expire all documents after 90 days
+    collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
     
     DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
         "/dbs/salesdb",

@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о безопасности при использовании виртуальных машин Azure | Документация Майкрософт"
-description: " Виртуальные машины Azure обеспечивают гибкую виртуализацию без необходимости приобретать и обслуживать аппаратное оборудование, на котором работает виртуальная машина.  В этой статье содержатся общие сведения о базовых компонентах безопасности Azure, которые можно использовать при работе с виртуальными машинами Azure. "
+title: "Функции безопасности Azure, используемые для виртуальных машин Azure | Документация Майкрософт"
+description: " Общие сведения о базовых функциях безопасности Azure, которые можно использовать при работе с виртуальными машинами Azure. Виртуальные машины Azure предоставляют гибкие возможности виртуализации без необходимости приобретать и обслуживать физическое оборудование, на котором работает виртуальная машина.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 0be0500296ad9bed302f65da9ef8de63e0ed08f6
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
 
 
 ---
@@ -154,6 +154,6 @@ Site Recovery выполняет следующие задачи.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

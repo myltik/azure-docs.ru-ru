@@ -1,5 +1,5 @@
 ---
-title: "Удаленная отладка приложений Spark в кластерах HDInsight Spark с помощью средств HDInsight для набора средств Azure для IntelliJ | Документация Майкрософт"
+title: "Удаленная отладка приложений в кластерах Spark с помощью набора средств Azure для IntelliJ | Документация Майкрософт"
 description: "Узнайте, как использовать средства HDInsight в наборе средств Azure для IntelliJ для удаленной отладки приложений Spark в кластерах HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: faeb4568a0d9cd7b1991496ce167a481ef08e189
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-on-hdinsight-spark-linux-cluster"></a>Удаленная отладка приложений Spark в кластере HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ
+# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-on-hdinsight-spark-cluster"></a>Удаленная отладка приложений Spark в кластере HDInsight Spark с помощью средств HDInsight в наборе средств Azure для IntelliJ
 В этой статье приводятся пошаговые инструкции по использованию средств HDInsight в наборе средств Azure для IntelliJ для отправки задания Spark в кластер HDInsight Spark и его удаленной отладки с настольного компьютера. Для этого необходимо выполнить перечисленные ниже общие шаги.
 
 1. Создание виртуальной сети Azure типа "сеть — сеть" или "точка — сеть". В инструкциях в этом документе предполагается, что вы используете тип "сеть — сеть".
@@ -31,13 +31,13 @@ ms.openlocfilehash: faeb4568a0d9cd7b1991496ce167a481ef08e189
 5. Запуск и отладка приложения.
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IntelliJ IDEA. В этой статье используется версия 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
 * Средства HDInsight в наборе средств Azure для IntelliJ. Средства HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в статье [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
 * Войдите в подписку Azure из IntelliJ IDEA. Следуйте указаниям, приведенным [здесь](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
-* При запуске приложения Spark Scala для удаленной отладки на компьютере Windows может возникнуть исключение, описанное в [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы обойти эту ошибку, [скачайте этот исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например в папку **C:\WinUtils\bin**. После этого добавьте переменную среды **HADOOP_HOME** и присвойте ей значение **C\WinUtils**.
+* При запуске приложения Spark Scala для удаленной отладки на компьютере Windows может возникнуть исключение, описанное в [SPARK&2356;](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы обойти эту ошибку, [скачайте этот исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например в папку **C:\WinUtils\bin**. После этого добавьте переменную среды **HADOOP_HOME** и присвойте ей значение **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Шаг 1. Создание виртуальной сети Azure
 Следуйте инструкциям по созданию виртуальной сети Azure по ссылкам ниже. Затем проверьте сетевое подключение между своим компьютером и виртуальной сетью Azure.
@@ -283,6 +283,6 @@ ms.openlocfilehash: faeb4568a0d9cd7b1991496ce167a481ef08e189
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

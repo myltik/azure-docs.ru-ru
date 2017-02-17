@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 32e48964cb8b6dabac74d0f07e04a151ab444728
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
 
 
 ---
@@ -30,20 +30,10 @@ ms.openlocfilehash: 32e48964cb8b6dabac74d0f07e04a151ab444728
 > 
 > 
 
-Масштабирование производительности путем развертывания вычислительных ресурсов и памяти для удовлетворения меняющихся потребностей рабочих нагрузок. Снижение затрат путем свертывания ресурсов в периоды низкой загрузки или полной приостановки вычислений.
-
-Этот набор задач использует портал Azure:
-
-* Масштабирование вычислительных ресурсов
-* Приостановка работы вычислительных ресурсов
-* Возобновление работы вычислительных ресурсов
-
-Дополнительные сведения см. в статье [управлением вычислительной мощностью][управлением вычислительной мощностью].
-
 ## <a name="before-you-begin"></a>Перед началом работы
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Установка последней версии Azure PowerShell
 > [!NOTE]
-> Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или более поздней версии.  Чтобы узнать текущую версию, выполните команду **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][установщике веб-платформы Майкрософт].  Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
+> Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или более поздней версии.  Чтобы узнать текущую версию, выполните команду **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][Microsoft Web Platform Installer].  Дополнительные сведения см. в статье [Установка и настройка служб Azure PowerShell][How to install and configure Azure PowerShell].
 > 
 > 
 
@@ -101,7 +91,7 @@ $resultDatabase
 ## <a name="resume-compute"></a>Возобновление работы вычислительных ресурсов
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Чтобы приостановить работу базы данных, используйте командлет [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]. В приведенном ниже примере запускается база данных с именем Database02, размещенная на сервере с именем Server01. Сервер находится в группе ресурсов Azure с именем ResourceGroup1.
+Чтобы запустить базу данных, используйте командлет [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]. В приведенном ниже примере запускается база данных с именем Database02, размещенная на сервере с именем Server01. Сервер находится в группе ресурсов Azure с именем ResourceGroup1.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -120,15 +110,15 @@ $resultDatabase
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения о других задачах управления см. в статье [Управление базами данных в хранилище данных SQL Azure][Управление базами данных в хранилище данных SQL Azure].
+Сведения о других задачах управления см. в статье [Управление базами данных в хранилище данных SQL Azure][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Ограничения емкости службы]: ./sql-data-warehouse-service-capacity-limits.md
-[Управление базами данных в хранилище данных SQL Azure]: ./sql-data-warehouse-overview-manage.md
-[Установка и настройка Azure PowerShell]: ../powershell-install-configure.md
-[управлением вычислительной мощностью]: ./sql-data-warehouse-manage-compute-overview.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -136,11 +126,11 @@ $resultDatabase
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
 <!--Other Web references-->
-[установщике веб-платформы Майкрософт]: https://aka.ms/webpi-azps
-[Портал Azure]: http://portal.azure.com/
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

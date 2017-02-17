@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 58791f5362182596de8b792c408e392d8d6cbb95
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7dbb3ab55607e377abc3c91c7ee3e938248a676
 
 
 ---
 # <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>Создание веб-приложения PHP-SQL и развертывание в службе приложений App с помощью Git
-В этом учебном курсе рассматривается создание веб-приложения PHP в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) , которое подключается к базе данных Azure SQL, а также его развертывание с помощью Git. В этом руководстве подразумевается, что на вашем компьютере уже установлены компоненты [PHP][install-php], [SQL Server Express][install-SQLExpress], [драйверы Майкрософт для SQL Server для PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) и компонент [Git][install-git]. После завершения работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-SQL.
+В этом учебном курсе рассматривается создание веб-приложения PHP в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) , которое подключается к базе данных Azure SQL, а также его развертывание с помощью Git. В этом учебнике предполагается, что на компьютере установлены [PHP][install-php], [SQL Server Express][install-SQLExpress], [драйверы Microsoft SQL Server для PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) и [Git][install-git]. После завершения работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-SQL.
 
 > [!NOTE]
 > Для установки и настройки PHP, SQL Server Express и драйверов Майкрософт для SQL Server для PHP можно воспользоваться [Установщиком веб-платформы Майкрософт.](http://www.microsoft.com/web/downloads/platform.aspx)
@@ -40,7 +40,7 @@ ms.openlocfilehash: 58791f5362182596de8b792c408e392d8d6cbb95
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -89,7 +89,7 @@ ms.openlocfilehash: 58791f5362182596de8b792c408e392d8d6cbb95
 * **index.php**— вывод формы для регистрации и таблицы, содержащей сведения о зарегистрировавшихся пользователях.
 * **createtable.php**: создание таблицы базы данных SQL для приложения. Этот файл будет использоваться только один раз.
 
-Чтобы запустить приложение локально, выполните приведенные ниже действия. Обратите внимание, что предполагается наличие на локальном компьютере компонентов PHP и SQL Server Express, а также включенного [расширения PDO для SQL Server][pdo-sqlsrv].
+Чтобы запустить приложение локально, выполните приведенные ниже действия. Обратите внимание, что предполагается наличие на локальном компьютере PHP и SQL Server Express, а также включенного [расширения PDO для SQL Server][pdo-sqlsrv].
 
 1. Создайте базу данных SQL Server под названием `registration`. Это можно сделать в командной строке `sqlcmd` с помощью следующих команд:
    
@@ -280,6 +280,6 @@ ms.openlocfilehash: 58791f5362182596de8b792c408e392d8d6cbb95
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

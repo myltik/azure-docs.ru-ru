@@ -1,5 +1,5 @@
 ---
-title: "Как включить публикацию собственных клиентских приложений с использованием приложений прокси | Документация Майкрософт"
+title: "Публикация собственных клиентских приложений — Azure AD | Документация Майкрософт"
 description: "В этой статье описано, как включить собственные клиентские приложения для взаимодействия с соединителем прокси приложений Azure AD, чтобы обеспечить безопасный удаленный доступ к локальным приложениям."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 34cacff4e8b13fa9d91387ca8762439908ed01fd
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
 
 
 ---
@@ -86,7 +86,6 @@ ms.openlocfilehash: 34cacff4e8b13fa9d91387ca8762439908ed01fd
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

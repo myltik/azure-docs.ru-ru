@@ -257,6 +257,6 @@ HDInsight использует для хранения данных хранил
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

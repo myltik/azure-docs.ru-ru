@@ -1,5 +1,5 @@
 ---
-title: "Создание приложений Spark Scala с помощью средств HDInsight в наборе средств Azure для Eclipse | Документация Майкрософт"
+title: "Создание приложений Scala для Spark с помощью набора средств Azure для Eclipse | Документация Майкрософт"
 description: "Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-linux-cluster"></a>Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для Eclipse
+# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Создание приложений Spark для кластера HDInsight Spark с помощью средств HDInsight в наборе средств Azure для Eclipse
 В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и их отправке в кластер HDInsight Spark с помощью средств HDInsight в наборе средств Azure для Eclipse. Эти средства можно использовать различным образом:
 
 * Для разработки и отправки приложений Scala Spark в кластер HDInsight Spark.
@@ -34,8 +34,8 @@ ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Комплект SDK Java для Oracle версии 7 и 8. 
   
   * **Пакет SDK для Java 7** используется для компиляции проектов Spark в качестве кластеров HDInsight, поддерживающих Java версии 7. Вы можете скачать пакет SDK для Java 7 [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
@@ -84,7 +84,7 @@ ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
    * Введите имя проекта.
    * Убедитесь, что в поле **JRE** параметр **Use an execution environment JRE** (Использовать среду выполнения JRE) имеет значение **JavaSE 1.7**.
    * Убедитесь, что для пакета SDK для Spark задано расположение, в которое вы скачали этот пакет SDK. Ссылка для скачивания указана в разделе [Предварительные требования](#prerequisites) ранее в этой статье. Можно также скачать пакет SDK по ссылке в этом диалоговом окне, как показано на рисунке выше.     
-4. В следующем диалоговом окне щелкните вкладку **Libraries** (Библиотеки), а затем дважды щелкните **JRE System Library [JavaSE-1.7]** (Системная библиотека JRE [JavaSE 1.7]).
+4. В следующем диалоговом окне щелкните вкладку **Libraries** (Библиотеки), а затем дважды щелкните **JRE System Library [JavaSE-1.7]** (Системная библиотека JRE [JavaSE&1;.7]).
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
 5. В диалоговом окне **Изменить библиотеку** для параметра **Execution Environment** (Среда выполнения) установите значение **JavaSE-1.7(jdk1.7.0_79)**. Если этот параметр недоступен, то выполните следующие действия.
@@ -108,7 +108,7 @@ ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
    7. Добавленная среда JRE должна появиться в списке значений параметра **Execution Environment**(Среда выполнения). Нажмите кнопку **Готово**
       
             ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
-6. На вкладке **Libraries** (Библиотеки) дважды щелкните **Scala Library Container[2.11.8]** (Контейнер библиотек Scala [2.11.8]). В диалоговом окне **Edit Library** (Изменение библиотеки) выберите **Fixed Scala Library container:2.10.6** (Фиксированный контейнер библиотек Scala: 2.10.6). 
+6. На вкладке **Libraries** (Библиотеки) дважды щелкните **Scala Library Container[2.11.8]** (Контейнер библиотек Scala [2.11.8]). В диалоговом окне **Edit Library** (Изменение библиотеки) выберите **Fixed Scala Library container:2.10.6** (Фиксированный контейнер библиотек Scala:&2;.10.6). 
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
    
@@ -234,6 +234,6 @@ ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

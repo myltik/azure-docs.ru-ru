@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c34684760f8de856c64565e8859b31dc73554e00
+ms.sourcegitcommit: 6494f8bd610c26ceda718a38faf32d0346a063d7
+ms.openlocfilehash: 73187757207eef345f262dfc16780e7a6dbfb739
 
 
 ---
@@ -82,7 +82,7 @@ ms.openlocfilehash: c34684760f8de856c64565e8859b31dc73554e00
 > 
 
 ## <a name="status"></a>Состояние
-Одним из способов проверки того, что расширение установлено, является просмотр состояния агента на портале Azure. В колонке виртуальной машины выберите **Все параметры**, а затем щелкните **Расширения**. В списке будет указано расширение **SQLIaaSAgent** .
+Одним из способов проверки того, что расширение установлено, является просмотр состояния агента на портале Azure. Выберите виртуальную машину в соответствующей колонке и щелкните **Расширения**. В списке будет указано расширение **SQLIaaSAgent** .
 
 ![Расширение агента IaaS для SQL Server на портале Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
@@ -91,7 +91,7 @@ ms.openlocfilehash: c34684760f8de856c64565e8859b31dc73554e00
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## <a name="removal"></a>Удаление
-Чтобы удалить расширение на портале Azure, в колонке **Расширения** в свойствах виртуальной машины щелкните многоточие. Затем щелкните **Удалить**.
+Чтобы удалить расширение на портале Azure, в колонке **Расширения** в свойствах виртуальной машины щелкните многоточие. Щелкните **Удалить**.
 
 ![Удаление расширения агента IaaS для SQL Server на портале Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
@@ -107,6 +107,6 @@ ms.openlocfilehash: c34684760f8de856c64565e8859b31dc73554e00
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,12 +12,12 @@ ms.service: virtual-machines-linux
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: required
-ms.date: 09/20/2016
+ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 9268bc13c33893df624bd2311ba28f898e2fee90
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 846a403ea016e63838af3e6aad09942b6a836499
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 9268bc13c33893df624bd2311ba28f898e2fee90
 
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Версия для модели развертывания с помощью Resource Manager доступна [здесь](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Версия для модели развертывания с помощью Resource Manager доступна [здесь](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -86,6 +85,6 @@ ms.openlocfilehash: 9268bc13c33893df624bd2311ba28f898e2fee90
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

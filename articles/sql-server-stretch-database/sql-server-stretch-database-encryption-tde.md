@@ -1,5 +1,5 @@
 ---
-title: "Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure | Документация Майкрософт"
+title: "Включение прозрачного шифрования данных для базы данных Stretch в Azure | Документация Майкрософт"
 description: "Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure"
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: a8a2c05bb341869e6dd67a9d6872fba6a35ffabe
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: ceb355d2ba872ed5d3886c6dc82ca75b1854db0a
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: a8a2c05bb341869e6dd67a9d6872fba6a35ffabe
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
-> 
-> 
+>
+>
 
 Прозрачное шифрование данных (TDE) помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки базы данных, связанных резервных копий и файлов журналов транзакций при хранении в реальном времени, не внося изменения в само приложение.
 
@@ -61,6 +61,6 @@ ms.openlocfilehash: a8a2c05bb341869e6dd67a9d6872fba6a35ffabe
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

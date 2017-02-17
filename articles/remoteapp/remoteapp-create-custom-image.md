@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 550d46d4e280af2423a494857ffb808e6dffca37
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
 
 
 ---
@@ -55,7 +55,7 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 * [Зарегистрироваться](https://azure.microsoft.com/services/remoteapp/) в RemoteApp.
 * Создайте учетную запись пользователя в Active Directory для использования в качестве учетной записи службы RemoteApp. Ограничьте разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену. Дополнительные сведения см. в статье [Требования Azure AD + Active Directory для Azure RemoteApp](remoteapp-ad.md).
 * Соберите сведения о локальной сети, а именно получить информацию об IP-адресе и VPN-устройстве.
-* установить модуль [Azure PowerShell](../powershell-install-configure.md) .
+* установить модуль [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Соберите сведения о пользователях, которым нужно предоставить доступ. Это могут быть либо данные учетной записи Майкрософт, либо данные рабочей учетной записи Active Directory пользователя.
 
 ## <a name="create-a-template-image"></a>Создание образа шаблона
@@ -146,6 +146,6 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

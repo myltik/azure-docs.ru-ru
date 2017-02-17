@@ -1,5 +1,5 @@
 ---
-title: "Техническое руководство по шаблону решения Cortana Intelligence для диагностического обслуживания в аэрокосмических и других компаниях | Документация Майкрософт"
+title: "Диагностическое обслуживание в авиакосмической отрасли с помощью Azure. Техническое руководство по решению Cortana Intelligence | Документация Майкрософт"
 description: "Техническое руководство по шаблону решения с использованием Microsoft Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических, транспортных и обслуживающих компаниях."
 services: cortana-analytics
 documentationcenter: 
@@ -15,12 +15,16 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f4ad547656bb3675a8a636106b7e95e5392ab4c5
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
 
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Техническое руководство по шаблону решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
+
+## <a name="important"></a>**Важно!**
+Эта статья считается устаревшей. Содержащиеся в ней сведения по-прежнему актуальны для указанной темы, т. е. для диагностического обслуживания в авиакосмической отрасли, однако вы также можете найти последнюю версию статьи с обновленными сведениями [здесь](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). 
+
 ## <a name="acknowledgements"></a>**Благодарности**
 Авторами этой статьи являются специалисты по обработке и анализу данных Ян Цанг (Yan Zhang), Гаухер Шахин (Gauher Shaheen), Фидан Бойлу Юз (Fidan Boylu Uz) и инженер по программному обеспечению в корпорации Майкрософт Дэн Греко (Dan Grecoe).
 
@@ -235,6 +239,6 @@ PBIX-файл, поставляемый с загрузкой генератор
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

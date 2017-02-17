@@ -1,5 +1,5 @@
 ---
-title: "Использование Robomongo с учетной записью Azure DocumentDB с поддержкой протокола MongoDB | Документация Майкрософт"
+title: "Использование Robomongo для MongoDB с Azure DocumentDB | Документация Майкрософт"
 description: "Узнайте, как использовать Robomongo с учетной записью DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии."
 keywords: Robomongo
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a9d78597f708020eaec3fc03d8c8fc2652bddb50
-ms.openlocfilehash: 6a7fb7052700bdeed5a3ca43da85304bba4230d8
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 141154f9e8236e595f77bd4880c4f63d480da445
 
 
 ---
@@ -54,6 +54,6 @@ ms.openlocfilehash: 6a7fb7052700bdeed5a3ca43da85304bba4230d8
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

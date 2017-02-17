@@ -1,5 +1,5 @@
 ---
-title: "Создание шлюза приложений с брандмауэром веб-приложения с помощью портала | Документация Майкрософт"
+title: "Создание шлюза приложений Azure с брандмауэром веб-приложения | Документация Майкрософт"
 description: "Узнайте, как создать шлюз приложений с брандмауэром веб-приложения с помощью портала."
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
-ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
@@ -205,6 +205,6 @@ ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

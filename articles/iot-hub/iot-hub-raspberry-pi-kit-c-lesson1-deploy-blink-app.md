@@ -1,5 +1,5 @@
 ---
-title: "Создание и развертывание приложения для включения индикатора | Документация Майкрософт"
+title: "Подключение Raspberry Pi (C) к Интернету вещей Azure. Урок 1. Развертывание приложения | Документация Майкрософт"
 description: "Клонируйте пример приложения C из Github и разверните его с помощью инструмента Gulp на устройстве Raspberry Pi 3. Это приложение будет каждые две секунды включать и выключать светодиодный индикатор на компьютере."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 61a0ef0a262d4a81fd6c1012fcc2c96569a9dda4
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
 
 
 ---
@@ -153,6 +153,6 @@ gulp deploy && gulp run
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

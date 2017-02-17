@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
 
 
 ---
-# <a name="use-u-sql-catalog"></a>Использование каталога U-SQL
+# <a name="use-azure-data-lake-analytics-u-sql-catalog"></a>Использование каталога U-SQL Azure Data Lake Analytics
 Каталог U-SQL используется для структурирования данных и кода, чтобы их могли совместно использовать сценарии U-SQL. Каталог обеспечивает максимальную производительность, возможную с данными в озере данных Azure.
 
 Каждая учетная запись аналитики озера данных Azure имеет ровно один связанный с ней каталог U-SQL. Невозможно удалить каталог U-SQL. В настоящее время каталоги U-SQL не могут совместно использоваться учетными записями хранилища озера данных.
@@ -51,9 +51,9 @@ ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
 
     - Чтобы добавить новую базу данных, щелкните правой кнопкой мыши **База данных** и нажмите кнопку **Создать базу данных**.
     - Чтобы добавить новую сборку, щелкните правой кнопкой мыши **Сборки**, а затем нажмите кнопку **Зарегистрировать сборку**.
-    - Чтобы добавить новую схему, щелкните правой кнопкой мыши **Схемы**, а затем нажмите кнопку «Создать схему».
-    - Чтобы добавить новую таблицу, щелкните правой кнопкой мыши **Таблицы**, а затем нажмите кнопку «Создать таблицу».
-    - Сведения о добавлении новой функции табличных значений см. в разделе [Разработка определенных пользователем операторов U-SQL для заданий аналитики озера данных](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+    - Чтобы добавить новую схему, щелкните правой кнопкой мыши **Схемы**, а затем нажмите кнопку **Создать схему**.
+    - Чтобы добавить новую таблицу, щелкните правой кнопкой мыши **Таблицы**, а затем нажмите кнопку **Создать таблицу**.
+    - Сведения о добавлении новой функции табличных значений см. в статье [Разработка определяемых пользователем операторов U-SQL для заданий Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
 ![Обзор каталогов U-SQL Visual Studio](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
@@ -70,7 +70,7 @@ ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
   
   * [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
   * [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-  * [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Разработка определяемых пользователем операторов U-SQL для заданий Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * управления
   
   * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
@@ -84,6 +84,6 @@ ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

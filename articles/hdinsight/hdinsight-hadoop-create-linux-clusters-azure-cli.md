@@ -1,6 +1,6 @@
 ---
-title: "Создание кластеров Hadoop, HBase и Storm под управлением Linux в HDInsight с помощью кроссплатформенного интерфейса командной строки Azure | Документация Майкрософт"
-description: "Узнайте, как создать кластеры HDInsight под управлением Linux с помощью кроссплатформенного Azure CLI, шаблонов диспетчера ресурсов Azure и Azure REST API. Вы можете указать тип кластера (Hadoop, HBase или Storm) либо использовать сценарии для установки настраиваемых компонентов."
+title: "Создание кластеров Azure HDInsight (Hadoop) с помощью командной строки | Документация Майкрософт"
+description: "Узнайте, как создавать кластеры HDInsight с помощью кроссплатформенного интерфейса командной строки Azure, шаблонов Azure Resource Manager и Azure REST API. Вы можете указать тип кластера (Hadoop, HBase или Storm) либо использовать сценарии для установки настраиваемых компонентов."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
-ms.openlocfilehash: df8a5124b35ee00fcbe2c25a032443a1a55b7b1d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 777168c5d48cc589c54a12265bd54e87c4b64274
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Создание кластеров HDInsight с помощью интерфейса командной строки Azure
+
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure CLI представляет собой кроссплатформенную службу командной строки, с помощью которой можно управлять службами Azure. Она используется вместе с шаблонами Azure Resource Manager для создания кластера HDInsight, а также связанных учетных записей хранения и других служб.
 
@@ -31,11 +32,8 @@ Azure CLI представляет собой кроссплатформенну
 В этом документе описан поэтапный процесс создания нового кластера HDInsight с использованием шаблона и Azure CLI.
 
 > [!IMPORTANT]
-> При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании или масштабировании кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
-> 
-> Дополнительные сведения о размерах узлов и их стоимости см. на странице с [ценами на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-> 
-> 
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -50,9 +48,11 @@ Azure CLI представляет собой кроссплатформенну
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="log-in-to-your-azure-subscription"></a>Вход в подписку Azure
+
 Выполните действия, описанные в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md) , и подключитесь к подписке с помощью метода **login** .
 
 ## <a name="create-a-cluster"></a>Создание кластера
+
 После установки и настройки Azure CLI в командной строке, оболочке или сеансе терминала сделайте следующее.
 
 1. Выполните следующую команду для аутентификации в подписке Azure.
@@ -108,6 +108,11 @@ Azure CLI представляет собой кроссплатформенну
    * Для параметра `--defaultStorageContainer` используйте то же имя, что и для кластера.
    * Замените **admin** и **httppassword** именем пользователя и паролем, которые нужно использовать для доступа к кластеру по протоколу HTTPS.
    * Замените **sshuser** и **sshuserpassword** именем пользователя и паролем, которые нужно использовать для доступа к кластеру по протоколу SSH.
+   
+   > [!IMPORTANT]
+   > В примере выше создается кластер с 2 рабочими узлами. Если вы планируете использовать более 32 рабочих узлов (при создании или масштабировании кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ. Настроить размер головного узла можно с помощью параметра `--headNodeSize`.
+   > 
+   > Дополнительные сведения о размерах узлов и их стоимости см. на странице с [ценами на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
      
      Создание кластера требует времени, обычно около 15 минут.
 
@@ -131,6 +136,6 @@ Azure CLI представляет собой кроссплатформенну
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

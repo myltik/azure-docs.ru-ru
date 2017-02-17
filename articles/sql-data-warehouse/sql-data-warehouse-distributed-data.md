@@ -1,5 +1,5 @@
 ---
-title: "Параметры распределенных данных и распределенных таблиц для систем вычисления с массовым параллелизмом (MPP) хранилища данных SQL и хранилища Parallel Data Warehouse | Документация Майкрософт"
+title: "Как распределенные данные обрабатываются в хранилище данных SQL Azure | Документация Майкрософт"
 description: "Сведения о распределении данных для вычислений с массовым параллелизмом (MPP), а также о параметрах для распределения таблиц в хранилище данных SQL Azure и хранилище Parallel Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
 
 Существуют влияющие на производительность факторы, которые учитываются при выборе столбца распределения. Например, определенность, неравномерное смещение данных и типы запросов, выполняемых в системе.
 
-![Распределенная таблица](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![Распределенная таблица](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Распределенная таблица")  
 
 * Каждая строка относится к одному распределению.  
 * Детерминированный хэш-алгоритм присваивает каждую строку одному распределению.  
@@ -69,7 +69,7 @@ ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
 
 На схеме ниже показана реплицированная таблица, которая хранится на каждом вычислительном узле. Реплицированная таблица хранится на всех дисках, назначенных вычислительному узлу. Такая стратегия работы с дисками реализуется с помощью файловых групп SQL Server.  
 
-![Реплицированная таблица](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Реплицируемая таблица](media/sql-data-warehouse-distributed-data/replicated-table.png "Реплицируемая таблица") 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы эффективно использовать распределенные таблицы, см. инструкции в статье [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) (Распределение таблиц в хранилище данных SQL).  
@@ -77,6 +77,6 @@ ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d6d9834bca2a7248ebec0a614a6edfbb8657e895
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: e999970954d199fa75ad4a3e4d8916d4aea4048e
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: d6d9834bca2a7248ebec0a614a6edfbb8657e895
 
 ### <a name="before-you-begin"></a>Перед началом работы
 * Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Вам потребуется установить командлеты PowerShell диспетчера ресурсов Azure. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
+* Вам потребуется установить командлеты PowerShell диспетчера ресурсов Azure. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Шаг 1. Создание и настройка VNet1
 #### <a name="1-declare-your-variables"></a>1. Объявление переменных
@@ -275,6 +275,6 @@ ms.openlocfilehash: d6d9834bca2a7248ebec0a614a6edfbb8657e895
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

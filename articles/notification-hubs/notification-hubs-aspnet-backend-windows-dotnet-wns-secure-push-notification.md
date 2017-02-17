@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d297cb26afba6a38533d149b433a922d94ac2a79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
 
 
 ---
@@ -163,7 +163,7 @@ ms.openlocfilehash: d297cb26afba6a38533d149b433a922d94ac2a79
 1. В Visual Studio запустите приложение веб-API **AppBackend** . Отобразится веб-страница ASP.NET.
 2. В Visual Studio запустите приложение **NotifyUserWindowsPhone (Windows Phone 8.1)** для Windows Phone. Эмулятор Windows Phone запустится и автоматически загрузит приложение.
 3. В пользовательском интерфейсе приложения **NotifyUserWindowsPhone** введите имя пользователя и пароль. Это могут быть любые совпадающие строки.
-4. В пользовательском интерфейсе приложения **NotifyUserWindowsPhone** щелкните **Log in and register** (Вход и регистрация). Затем нажмите кнопку **Отправить push-уведомление**.
+4. В пользовательском интерфейсе приложения **NotifyUserWindowsPhone** щелкните **Log in and register** (Вход и регистрация). Затем нажмите **Отправить push-уведомление**.
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
@@ -171,6 +171,6 @@ ms.openlocfilehash: d297cb26afba6a38533d149b433a922d94ac2a79
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

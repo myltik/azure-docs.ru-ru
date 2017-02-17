@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
 Уменьшите операционные затраты и освободите ИТ-сотрудников и специалистов по разработке и операциям для работы над повышением бизнес-ценности ПО и автоматизации задач управления облаком в службе автоматизации Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-web-app"></a>Как служба автоматизации Azure помогает управлять веб-приложением Azure?
-Веб-приложением Azure можно управлять в службе автоматизации Azure, используя командлеты PowerShell, указанные в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Эти [командлеты PowerShell можно установить в службе автоматизации Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), чтобы выполнять все задачи управления веб-приложением, не выходя из службы. Кроме того, вы можете сопоставить эти командлеты в службе автоматизации Azure с командлетами для других служб Azure для автоматизации сложных задач в службах Azure и сторонних системах.
+Веб-приложением Azure можно управлять в службе автоматизации Azure, используя командлеты PowerShell, указанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). Эти [командлеты PowerShell можно установить в службе автоматизации Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), чтобы выполнять все задачи управления веб-приложением, не выходя из службы. Кроме того, вы можете сопоставить эти командлеты в службе автоматизации Azure с командлетами для других служб Azure для автоматизации сложных задач в службах Azure и сторонних системах.
 
 Ниже приведены некоторые примеры управления службами приложений с помощью средств службы автоматизации.
 
@@ -45,6 +45,6 @@ ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

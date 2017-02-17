@@ -1,5 +1,5 @@
 ---
-title: "Использование внешних пакетов Python с элементами Jupyter Notebook в кластерах Apache Spark в HDInsight | Документация Майкрософт"
+title: "Действие сценария: установка пакетов Python с записными книжками Jupyter в Azure HDInsight | Документация Майкрософт"
 description: "Пошаговые инструкции по настройке элементов Jupyter Notebook с кластерами Spark HDInsight для использования внешних пакетов Python."
 services: hdinsight
 documentationcenter: 
@@ -16,14 +16,24 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f782920ca8aeafa745e6588a71a3428a01676db3
-ms.openlocfilehash: 288474a8fbd4ca41adb8a2525f3c9ffe970580ea
+ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
+ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
 
 
 ---
-# <a name="use-external-python-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight-linux"></a>Использование внешних пакетов Python с элементами Jupyter Notebook в кластерах Apache Spark в HDInsight на платформе Linux
+# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Использование действия сценария для установки внешних пакетов Python для записных книжек Jupyter в кластерах Apache Spark в HDInsight
+> [!div class="op_single_selector"]
+> * [Использование волшебных команд](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Использование действия сценария](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
 Узнайте, как с помощью действий сценария настроить кластер Apache Spark в HDInsight (Linux) для использования внешних, предоставленных сообществом пакетов **Python**, которые не включены в готовую версию кластера.
+
+> [!NOTE]
+> Можно также настроить записную книжку Jupyter с помощью волшебной команды `%%configure`, чтобы использовать внешние пакеты. Дополнительные сведения см. в статье [Использование внешних пакетов с записными книжками Jupyter в кластерах Apache Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md).
+> 
+> 
 
 Полный список доступных пакетов можно найти в [указателе пакетов](https://pypi.python.org/pypi). Его также можно получить из других источников. Например, можно установить пакеты, предоставляемые посредством [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) или [conda-forge](https://conda-forge.github.io/feedstocks.html).
 
@@ -32,8 +42,8 @@ ms.openlocfilehash: 288474a8fbd4ca41adb8a2525f3c9ffe970580ea
 ## <a name="prerequisites"></a>Предварительные требования
 Необходимо следующее:
 
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
    > [!NOTE]
    > Если у вас еще нет кластера Spark в HDInsight на платформе Linux, можно выполнить действия сценария во время его создания. Обратитесь к документации по [использованию настраиваемых действий сценария](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
@@ -53,11 +63,11 @@ ms.openlocfilehash: 288474a8fbd4ca41adb8a2525f3c9ffe970580ea
 
 3. Открытие Jupyter Notebook PySpark
 
-    ![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "Create a new Jupyter notebook")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "Создание записной книжки Jupyter")
 
 4. Будет создана и открыта записная книжка с именем Untitled.pynb. Щелкните имя записной книжки в верхней части страницы сверху и введите понятное имя.
 
-    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Указание имени для записной книжки")
 
 5. Теперь будет выполнена команда `import tensorflow` и запущен пример hello world. 
 
@@ -70,7 +80,7 @@ ms.openlocfilehash: 288474a8fbd4ca41adb8a2525f3c9ffe970580ea
 
     Результат должен выглядеть так:
     
-    ![Выполнение кода TensorFlow](./media/hdinsight-apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+    ![Выполнение кода TensorFlow](./media/hdinsight-apache-spark-python-package-installation/execution.png "Выполнение кода TensorFlow")
 
 
 
@@ -102,6 +112,6 @@ ms.openlocfilehash: 288474a8fbd4ca41adb8a2525f3c9ffe970580ea
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
