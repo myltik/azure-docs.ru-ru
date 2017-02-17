@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 31632f9c88810d5cd26ad314dde2c28a4012dc75
+ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
+ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 31632f9c88810d5cd26ad314dde2c28a4012dc75
 
 * API Android 19–24 (от KitKat до Nougat);
 * iOS 8.0 и более поздних версий;
-* Windows Phone 8.0
-* Windows Phone 8.1
-* Универсальные приложения Windows
+* Windows Phone 8.1;
+* универсальная платформа Windows.
 
 ## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
 В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках. В этом руководстве также предполагается, что подключаемый модуль Apache Cordova уже добавлен в код.  Если это не так, добавьте подключаемый модуль Apache Cordova в проект через командную строку:
@@ -74,12 +73,12 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 5. В левой области навигации разверните узлы **config**, **authsettings** для сайта.
 6. Щелкните **Изменить**
 7. Найдите элемент "allowedExternalRedirectUrls".  Ему может быть присвоено значение NULL или массив значений.  Измените его значение на следующее:
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Замените URL-адреса на URL-адреса службы.  Примеры: "http://localhost:3000" (для примера службы Node.js) или "http://localhost:4400" (для службы Ripple).  Это только примеры URL-адресов. Ваша ситуация, включая упомянутые в приведенных примерах службы, может быть совершенно другой.
 8. В правом верхнем углу экрана нажмите кнопку **Чтение и запись** .
 9. Нажмите зеленую кнопку **PUT** .
@@ -139,11 +138,15 @@ pushHandler.on('error', function (error) {
 
 Для отправки push-уведомления с сервера используется пакет SDK для центров уведомлений.  Никогда не следует отправлять push-уведомления непосредственно из клиентов. Это может быть использовано для атак типа "отказ в обслуживании" на центры уведомлений или PNS.  PNS может заблокировать ваш трафик в результате таких атак.
 
+## <a name="more-information"></a>Дополнительные сведения
+
+Дополнительные сведения об API можно найти в нашей [документация по API](http://azure.github.io/azure-mobile-apps-js-client/).
+
 <!-- URLs. -->
 [портал Azure]: https://portal.azure.com
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [подключаемого модуля Apache Cordova для мобильных приложений Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [первого приложения Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -151,10 +154,10 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Документация по объекту Query]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
