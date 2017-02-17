@@ -13,8 +13,8 @@
 ## Разработка
 ### [Разработка приложений-функций](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Работа с триггерами и привязками](functions-triggers-bindings.md)
 #### [Привязки DocumentDB](functions-bindings-documentdb.md)
 #### [Привязки концентратора событий](functions-bindings-event-hubs.md)
@@ -28,7 +28,7 @@
 ##### [Привязки таблиц](functions-bindings-storage-table.md)
 #### [Триггер таймера](functions-bindings-timer.md)
 #### [Привязка к выходным данным Twilio](functions-bindings-twilio.md)
-### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md)
+### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md) 
 ### [Тестирование функций Azure](functions-test-a-function.md)
 ### [Локальная разработка и отладка](functions-run-local.md)
 ### [Рекомендации по функциям Azure](functions-best-practices.md)
@@ -39,6 +39,7 @@
 
 ## Развернуть
 ### [Непрерывное развертывание для функций Azure](functions-continuous-deployment.md)
+### [Развертывание функций с помощью подхода "инфраструктура как код"](functions-infrastructure-as-code.md)
 
 ## Мониторинг
 ### [Мониторинг функций Azure](functions-monitoring.md)
@@ -46,10 +47,11 @@
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Переполнение стека](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Репозиторий GitHub для Функций Azure](https://github.com/Azure/Azure-Functions/) 
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

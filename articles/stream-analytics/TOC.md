@@ -17,19 +17,22 @@
 
 ## Разработка
 ### [Стандартные шаблоны запросов](stream-analytics-stream-analytics-query-patterns.md)
+### [Инструменты для Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Формирование входных данных](stream-analytics-define-inputs.md)
 ### [Формирование выходных данных](stream-analytics-define-outputs.md)
 ### [Использование эталонных данных](stream-analytics-use-reference-data.md)
-### [Вывод в кэш Redis для Azure](stream-analytics-functions-redis.md)
+### [Вывод в функциях Azure](stream-analytics-functions-redis.md)
 ### [Вывод в Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Вывод в DocumentDB](stream-analytics-documentdb-output.md)
 ### [Анализ данных с помощью Power BI](stream-analytics-power-bi-dashboard.md)
+### [Интеграция определяемой пользователем функции JavaScript ](stream-analytics-javascript-user-defined-functions.md)
 ### [Интеграция машинного обучения и REST API](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Использование пакета SDK для .NET для управления](stream-analytics-dotnet-management-sdk.md)
 ### [Оконные функции](stream-analytics-window-functions.md)
 
 ## Управление
 ### [Мониторинг заданий](stream-analytics-monitoring.md)
+### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)
 ### [Программный мониторинг заданий](stream-analytics-monitor-jobs.md)
 ### [Мониторинг заданий с помощью PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Масштабирование для повышения пропускной способности](stream-analytics-scale-jobs.md)
@@ -58,6 +61,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
