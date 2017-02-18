@@ -1,6 +1,6 @@
 ---
-title: "Настройка Intel NUC в качестве шлюза Azure IoT | Документация Майкрософт"
-description: "Настройка Intel NUC в качестве шлюза Интернета вещей, который собирает данные от датчиков и передает их в центр Azure IoT."
+title: "Приступая к работе с имитацией устройства и шлюзом Azure IoT. Урок 1. Настройка NUC | Документация Майкрософт"
+description: "Настройка Intel NUC в качестве шлюза Интернета вещей, который собирает данные из датчиков и передает их в Центр Интернета вещей Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
 
 
 ---
@@ -25,14 +25,14 @@ ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
 
 ## <a name="what-you-will-do"></a>Выполняемая задача
 
-- Настройка Intel NUC в качестве шлюза Интернета вещей.
+- Настройте Intel NUC в качестве шлюза Интернета вещей.
 - Установите пакет SDK для шлюза Azure IoT на Intel NUC.
 - Запустите пример приложения hello_world на Intel NUC для проверки работоспособности шлюза.
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Новые знания
 
-Из этой статьи вы узнаете:
+Из этого урока вы узнаете:
 
 - как подключить периферийные устройства к Intel NUC;
 - как установить и обновить требуемые пакеты на Intel NUC с помощью Smart Package Manager;
@@ -46,7 +46,7 @@ ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
 - Кабель HDMI или VGA.
 - Монитор с портом HDMI или VGA.
 
-![Пакет для шлюза](media/iot-hub-gateway-kit-lessons/lesson1/kit_without_sensortag.png)
+![Комплект для шлюза](media/iot-hub-gateway-kit-lessons/lesson1/kit_without_sensortag.png)
 
 ## <a name="connect-intel-nuc-with-the-peripherals"></a>Подключение периферийных устройств к Intel NUC
 
@@ -61,7 +61,7 @@ ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
 
 ## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Подключение к системе Intel NUC с главного компьютера через Secure Shell (SSH)
 
-На этом этапе вам потребуются клавиатура и монитор, чтобы узнать IP-адрес устройства NUC. Если вы уже знаете IP-адрес, можете сразу перейти к шагу 3 в этом разделе.
+На этом этапе вам потребуются клавиатура и монитор, чтобы узнать IP-адрес устройства NUC. Если вы уже знаете IP-адрес, можете сразу перейти к шагу 3 в этом разделе.
 
 1. Включите Intel NUC, нажав кнопку питания, и войдите в систему.
 
@@ -108,15 +108,15 @@ ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
    smart install packagegroup-cloud-azure -y
    ```
 
-   Здесь `packagegroup-cloud-azure` — это имя пакета. Команда `smart install` используется для установки пакета.
+   Здесь `packagegroup-cloud-azure` — это имя пакета. Команда `smart install` используется для установки пакета.
 
    Когда установка пакета завершится, Intel NUC должен выполнять функции шлюза.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Запуск примера приложения hello_world из пакета SDK для шлюза Azure IoT
 
-Перейдите в каталог `azureiotgatewaysdk/samples` и запустите пример приложения hello_world. Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры SDK для шлюза Azure IoT, чтобы каждые 5 секунд записывать в журнал сообщение "hello world".
+Перейдите в каталог `azureiotgatewaysdk/samples` и запустите пример приложения hello_world. Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры SDK для шлюза Azure IoT, чтобы каждые 5 секунд записывать в журнал сообщение "hello world".
 
-Чтобы запустить пример приложения hello_world, выполните следующую команду.
+Чтобы запустить пример приложения hello_world, выполните следующую команду:
 
 ```bash
 cd /usr/share/azureiotgatewaysdk/samples/hello_world/
@@ -131,13 +131,13 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 
 ## <a name="summary"></a>Сводка
 
-Поздравляем! Итак, вы завершили настройку Intel NUC в качестве шлюза. Теперь можно переходить к следующему занятию, в котором вы настроите главный компьютер, настроите центр Azure IoT и зарегистрируете логическое устройство центра Azure IoT.
+Поздравляем! Итак, вы завершили настройку Intel NUC в качестве шлюза. Теперь можно переходить к следующему уроку, в котором вы настроите главный компьютер, настроите Центр Интернета вещей Azure и зарегистрируете логическое устройство Центра Интернета вещей Azure.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Подготовка главного компьютера и Центра Интернета вещей Azure](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг производительности мобильных веб-приложений с помощью аналитических средств для разработчиков | Документация Майкрософт"
-description: "Мониторинг производительности и использования приложения для разработчиков мобильных приложений. Использование HockeyApp и Application Insights для классических приложений, приложений веб-служб и внутренних приложений."
+title: "Мониторинг производительности мобильных приложений в Azure Application Insights | Документация Майкрософт"
+description: "Мониторинг производительности и использования приложения для разработчиков мобильных приложений. DevOps с использованием HockeyApp и Application Insights."
 author: alancameronwills
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: c4077aa88a401a1c75c0d3fbcd58186f7cb137c2
 
 
 ---
@@ -64,6 +64,6 @@ ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Локальный мониторинг и диагностика служб, созданных с помощью Azure Service Fabric | Документация Майкрософт"
+title: "Отладка микрослужб Azure в Linux | Документация Майкрософт"
 description: "Узнайте, как осуществлять мониторинг и диагностику состояния служб с использованием платформы Microsoft Azure Service Fabric на локальном компьютере для разработки."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
-ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
 
 Для приложений Java доступно [несколько платформ ведения журналов](http://en.wikipedia.org/wiki/Java_logging_framework) . Так как `java.util.logging` является параметром по умолчанию в среде JRE, он также используется для [примеров кода в GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Далее в этой статье описывается настройка платформы `java.util.logging` . 
  
-С помощью java.util.logging журналы приложения можно перенаправлять в память, потоки вывода, файлы консоли или сокеты. Для каждого из этих вариантов существуют обработчики по умолчанию, входящие в состав платформы. Чтобы настроить обработчик файлов для приложения, который будет перенаправлять все журналы в локальный файл, можно создать файл `app.properties` . 
+С помощью java.util.logging журналы приложения можно перенаправлять в память, потоки вывода, файлы консоли или сокеты. Для каждого из этих вариантов существуют обработчики по умолчанию, входящие в состав платформы. Чтобы настроить обработчик файлов для приложения, который будет перенаправлять все журналы в локальный файл, можно создать файл `app.properties`. 
 
 Пример конфигурации приведен в следующем фрагменте кода: 
 
@@ -143,6 +143,6 @@ public static TextWriter Out = Console.Out;
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

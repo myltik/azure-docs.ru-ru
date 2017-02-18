@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cb8d77588bbac30a67dab9a20e0e81d2537c977f
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
 
 
 ---
@@ -525,7 +525,7 @@ ms.openlocfilehash: cb8d77588bbac30a67dab9a20e0e81d2537c977f
 * [Портал управления Azure](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Если требуется приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), который поможет быстро создать кратковременное приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Если требуется приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), который поможет быстро создать кратковременное приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -557,6 +557,6 @@ ms.openlocfilehash: cb8d77588bbac30a67dab9a20e0e81d2537c977f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

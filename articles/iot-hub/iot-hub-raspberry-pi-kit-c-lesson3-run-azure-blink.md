@@ -1,5 +1,5 @@
 ---
-title: "Запуск примера приложения для отправки сообщений с устройства в облако | Документация Майкрософт"
+title: "Подключение Raspberry Pi (C) к Интернету вещей Azure. Урок 3. Запуск примера | Документация Майкрософт"
 description: "Развертывание и запуск на устройстве Raspberry Pi 3 примера приложения, которое отправляет сообщения в Центр Интернета вещей и заставляет светодиодный индикатор мигать."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 946e80b450fdda244a48e2c4d2aa87a7822be456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
 
 
 ---
@@ -112,6 +112,6 @@ gulp deploy && gulp run
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
-ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
+ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
+ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
 
 ---
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
 
 1. Создание источника данных
    * Задайте для параметра `type` значение `azuretable`.
-   * Передайте строку подключения учетной записи хранения как параметр `credentials.connectionString`. Строку подключения можно получить на портале Azure, перейдя в колонку учетной записи хранения и щелкнув **Параметры** > **Ключи** (для классических учетных записей хранения) или **Параметры** > **Ключи доступа** (для учетных записей хранения ARM). Обратите внимание, что Поиск Azure в настоящее время не поддерживает учетные данные на основе подписанного URL-адреса. Если вы хотите использовать SAS, проголосуйте за [это предложение на сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
+   * Передайте строку подключения учетной записи хранения как параметр `credentials.connectionString`. Дополнительные сведения см. в разделе [Как указать учетные данные](#Credentials) ниже.
    * Укажите имя таблицы с помощью параметра `container.name`.
    * При необходимости укажите запрос с помощью параметра `container.query`. По возможности используйте фильтр для PartitionKey для наилучшей производительности. Любой другой запрос приведет к полному сканированию таблицы, что может стать причиной снижения производительности для больших таблиц.
 2. Создание индекса службы поиска со схемой, соответствующей столбцам в таблице, которую необходимо проиндексировать.
@@ -53,6 +53,20 @@ ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
     }   
 
 Чтобы больше узнать об API создания источника данных, ознакомьтесь с [созданием источника данных](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+
+<a name="Credentials"></a>
+#### <a name="how-to-specify-credentials"></a>Как указать учетные данные ####
+
+Учетные данные для таблицы можно указать одним из описанных ниже способов. 
+
+- **Строка подключения учетной записи хранения с полным доступом**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Строку подключения можно получить на портале Azure, перейдя в колонку учетной записи хранения и щелкнув "Параметры" > "Ключи" (для классических учетных записей хранения) или "Параметры" > "Ключи доступа" (для учетных записей хранения Azure Resource Manager).
+- Строка подключения с **подписанным URL-адресом (SAS) учетной записи хранения**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для контейнеров (в данном случае — таблиц) и объектов (строк таблицы).
+-  **Подписанный URL-адрес таблицы**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для таблицы.
+
+Дополнительные сведения о подписанных URL-адресах см. в статье [Использование подписанных URL-адресов (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> Если используются учетные данные SAS, то необходимо периодически обновлять учетные данные источника данных с помощью обновленных подписей, чтобы не истек их срок действия. В случае истечения срока действия учетных данных SAS произойдет сбой индексатора и появится сообщение об ошибке примерно следующего содержания: `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### <a name="create-index"></a>Создание индекса
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
@@ -123,6 +137,6 @@ ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

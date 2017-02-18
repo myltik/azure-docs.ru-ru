@@ -1,10 +1,10 @@
 ---
-title: "Создание и настройка шлюза приложений с внутренней подсистемой балансировки нагрузки (ILB) с помощью Azure Resource Manager | Документация Майкрософт"
+title: "Использование шлюза приложения Azure с внутренней подсистемой балансировки нагрузки с помощью PowerShell | Документация Майкрософт"
 description: "На этой странице приводятся инструкции по созданию, настройке, запуску и удалению шлюза приложений Azure с внутренним балансировщиком нагрузки (ILB) с помощью диспетчера ресурсов Azure."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad7bf23b10f16fb2d9e9bc946d8d4e840428558
-ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
 > [!div class="op_single_selector"]
 > * [Классическая модель — Azure PowerShell](application-gateway-ilb.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-ilb-arm.md)
-> 
-> 
 
 Шлюз приложений Azure можно настроить на использование виртуального IP-адреса, доступного в Интернете, или внутренней конечной точки, недоступной в Интернете. Эта точка также называется конечной точкой внутреннего балансировщика нагрузки (ILB). Настройка шлюза с ILB подходит для внутренних бизнес-приложений, недоступных в Интернете. Кроме того, этот вариант конфигурации можно использовать для служб и уровней многоуровневого приложения, размещенного в периметре безопасности без доступа к Интернету, но требующего циклического перебора нагрузки, закрепления сеансов или завершения SSL-запросов.
 
@@ -76,11 +74,11 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-Вам будет предложено указать свои учетные данные для аутентификации.<BR>
+Вам будет предложено указать свои учетные данные для аутентификации.
 
 ### <a name="step-3"></a>Шаг 3.
 
-Выберите подписку Azure. <BR>
+Выберите подписку Azure.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -96,9 +94,9 @@ New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
-В приведенном выше примере мы создали группу ресурсов с именем appgw-RG и расположением West US (западная часть США).
+В приведенном выше примере мы создали группу ресурсов appgw-rg в расположении West US (западная часть США).
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Создание виртуальной сети и подсети для шлюза приложений.
+## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Создание виртуальной сети и подсети для шлюза приложений
 
 В следующем примере показано создание виртуальной сети с помощью диспетчера ресурсов.
 
@@ -108,7 +106,7 @@ New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-Назначение диапазона адресов 10.0.0.0/24 переменной подсети, которая будет использоваться для создания виртуальной сети.
+На этом шаге выполняется назначение диапазона адресов 10.0.0.0/24 переменной подсети, которая будет использоваться для создания виртуальной сети.
 
 ### <a name="step-2"></a>Шаг 2
 
@@ -116,7 +114,7 @@ $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPre
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-На этом шаге создается виртуальная сеть с именем appgwvnet в группе ресурсов appgw-rg для региона West US с помощью префикса 10.0.0.0/16 с подсетью 10.0.0.0/24.
+На этом шаге создается виртуальная сеть appgwvnet в группе ресурсов appgw-rg для региона West US с помощью префикса 10.0.0.0/16 с подсетью 10.0.0.0/24.
 
 ### <a name="step-3"></a>Шаг 3.
 
@@ -124,9 +122,9 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 $subnet = $vnet.subnets[0]
 ```
 
-Присвоение объекта подсети переменной $subnet для выполнения следующих действий.
+На этом шаге выполняется присвоение объекта подсети переменной $subnet для выполнения следующих действий.
 
-## <a name="create-an-application-gateway-configuration-object"></a>Создание объекта конфигурации шлюза приложений.
+## <a name="create-an-application-gateway-configuration-object"></a>Создание объекта конфигурации шлюза приложений
 
 ### <a name="step-1"></a>Шаг 1
 
@@ -134,7 +132,7 @@ $subnet = $vnet.subnets[0]
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-Создание конфигурации IP-адреса шлюза приложений с именем gatewayIP01. При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из пула внутренних IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
+На этом шаге создается конфигурация IP-адреса шлюза приложений с именем gatewayIP01. При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из внутреннего пула IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
 
 ### <a name="step-2"></a>Шаг 2
 
@@ -142,7 +140,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 ```
 
-Настройка пула внутренних IP-адресов с именем pool01 и IP-адресами 134.170.185.46, 134.170.188.221,134.170.185.50. Эти адреса будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Вам нужно заменить приведенные выше IP-адреса и добавить конечные точки IP-адресов своего приложения.
+На этом шаге выполняется настройка внутреннего пула IP-адресов pool01 с IP-адресами 134.170.185.46, 134.170.188.221,134.170.185.50. Эти адреса будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Замените приведенные выше IP-адреса и добавьте IP-адреса конечных точек своего приложения.
 
 ### <a name="step-3"></a>Шаг 3.
 
@@ -150,7 +148,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPA
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Настройка параметров шлюза приложений с именем poolsetting01 для балансировки нагрузки сетевого трафика в пуле серверной части.
+На этом шаге осуществляется настройка параметров шлюза приложений poolsetting01 для балансировки нагрузки сетевого трафика в пуле серверной части.
 
 ### <a name="step-4"></a>Шаг 4.
 
@@ -158,7 +156,7 @@ $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsettin
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
-Настройка внешнего IP-порта с именем frontendport01 для ILB.
+На этом шаге выполняется настройка внешнего IP-порта с именем frontendport01 для внутренней подсистемы балансировки нагрузки (ILB).
 
 ### <a name="step-5"></a>Шаг 5
 
@@ -166,7 +164,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-Создание конфигурации внешнего IP-адреса с именем fipconfig01 и ее связывание с частным IP-адресом из текущей подсети виртуальной сети.
+На этом шаге выполняется создание конфигурации внешнего IP-адреса с именем fipconfig01 и ее связывание с частным IP-адресом из текущей подсети виртуальной сети.
 
 ### <a name="step-6"></a>Шаг 6
 
@@ -174,7 +172,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Su
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-Создание прослушивателя с именем listener01 и связывание внешнего порта с конфигурацией внешнего IP-адреса.
+На этом шаге выполняется создание прослушивателя listener01 и связывание внешнего порта с конфигурацией внешнего IP-адреса.
 
 ### <a name="step-7"></a>Шаг 7
 
@@ -182,7 +180,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protoco
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Создание правила маршрутизации с именем rule01 для настройки поведения балансировщика нагрузки.
+На этом шаге выполняется создание правила маршрутизации rule01 для настройки поведения подсистемы балансировки нагрузки.
 
 ### <a name="step-8"></a>Шаг 8
 
@@ -190,27 +188,24 @@ $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType B
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-Настройка размера экземпляра шлюза приложений.
+На этом шаге выполняется настройка размера экземпляра шлюза приложений.
 
 > [!NOTE]
 > Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium (Средний). Можно выбрать Standard_Small, Standard_Medium или Standard_Large.
-> 
-> 
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Создание шлюза приложений с помощью командлета New-AzureApplicationGateway
 
-Создание шлюза приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется "appgwtest".
-
+Создайте шлюз приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется "appgwtest".
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-Будет создан шлюз приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется appgwtest.
+На этом шаге создается шлюз приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется appgwtest.
 
 ## <a name="delete-an-application-gateway"></a>Удаление шлюза приложений
 
-Чтобы удалить шлюз приложений, выполните указанные ниже действия.
+Чтобы удалить шлюз приложений, по порядку выполните указанные ниже действия.
 
 1. Остановите шлюз с помощью командлета `Stop-AzureRmApplicationGateway`.
 2. Удалите шлюз с помощью командлета `Remove-AzureRmApplicationGateway`.
@@ -256,8 +251,6 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 > [!NOTE]
 > Если указать параметр **-force** , запрос на подтверждение удаления не появится.
-> 
-> 
 
 Для проверки того, удалена ли служба, используйте командлет `Get-AzureRmApplicationGateway`. Этот шаг не является обязательным.
 
@@ -285,6 +278,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

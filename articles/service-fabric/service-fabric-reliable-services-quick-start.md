@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе со службами Reliable Services | Документация Майкрософт"
+title: "Создание первой надежной микрослужбы Azure на языке C# | Документация Майкрософт"
 description: "Вводные сведения о создании приложения Service Fabric Microsoft Azure со службами с отслеживанием состояния и без него."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 4b12d221b057161013aa3401e343ec41e4637f7c
-ms.openlocfilehash: ae77871a30e0768f6848056223cacf55b064bf1a
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 41823b962caf25e1826fc06bc49887fd99876fc4
 
 
 ---
@@ -231,6 +231,6 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

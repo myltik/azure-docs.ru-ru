@@ -1,5 +1,5 @@
 ---
-title: "Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных | Документация Майкрософт"
+title: "Создание конвейеров данных с помощью пакета SDK Azure для .NET | Документация Майкрософт"
 description: "Узнайте, как программным способом создавать, отслеживать и контролировать фабрики данных Azure с помощью пакета SDK фабрики данных."
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: d51c900f7cf69d3852a1699284a459b930eb735e
+ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
+ms.openlocfilehash: 4973a2218ec480fb239e3b32e8f34e3fb14454d0
 
 
 ---
-# <a name="create-monitor-and-manage-azure-data-factories-using-data-factory-net-sdk"></a>Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных Azure для .NET
 ## <a name="overview"></a>Обзор
 Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. Подробные сведения о пакете SDK для .NET фабрики данных см. в [справочнике по библиотеке классов фабрики данных](https://msdn.microsoft.com/library/mt415893.aspx).
 
@@ -481,6 +481,6 @@ Note down the **SubscriptionId** and **TenantId** values.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

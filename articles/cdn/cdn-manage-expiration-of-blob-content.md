@@ -1,9 +1,9 @@
 ---
-title: "Управление сроком действия содержимого больших двоичных объектов в службе хранилища Azure в Azure CDN | Документация Майкрософт"
+title: "Управление сроком действия больших двоичных объектов службы хранилища Azure в Azure CDN | Документация Майкрософт"
 description: "Сведения о возможностях контроля времени жизни BLOB-объектов в кэшировании Azure CDN."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
 
 
 ---
-# <a name="manage-expiration-of-azure-storage-blob-content-in-azure-cdn"></a>Управление сроком хранения содержимого BLOB-объекта в службе хранилища Azure в Azure CDN
+# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Управление сроком действия больших двоичных объектов службы хранилища Azure в Azure CDN
 > [!div class="op_single_selector"]
 > * [Веб-приложения и облачные службы Azure, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Служба BLOB-объектов в службе хранилища Azure](cdn-manage-expiration-of-blob-content.md)
@@ -100,7 +100,7 @@ class Program
 ## <a name="other-methods"></a>Другие методы
 * [Интерфейс командной строки Azure](../xplat-cli-install.md)
   
-    При отправке большого двоичного объекта определите свойство *cacheControl* с помощью параметра `-p`.  В этом примере устанавливается срок жизни 3600 секунд (1 час).
+    При отправке большого двоичного объекта определите свойство *cacheControl* с помощью параметра `-p`.  В этом примере устанавливается срок жизни&3600; секунд (1 час).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -122,6 +122,6 @@ class Program
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

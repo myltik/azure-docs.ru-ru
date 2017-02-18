@@ -1,5 +1,5 @@
 ---
-title: "Справочник по элементам конструктора представлений Log Analytics | Документация Майкрософт"
+title: "Справочник по элементу конструктора представлений в OMS Log Analytics | Документация Майкрософт"
 description: "Конструктор представлений Log Analytics позволяет создавать в консоли OMS пользовательские представления, содержащие различные визуализации данных репозитория OMS. В этой статье содержится справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
-ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 
 
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Справочник по плиткам конструктора представлений Log Analytics
+# <a name="log-analytics-view-designer-tile-reference"></a>Справочник по элементам конструктора представлений Log Analytics
 Конструктор представлений Log Analytics позволяет создавать в консоли OMS пользовательские представления, содержащие различные представления данных репозитория OMS. В этой статье содержится справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений.
 
 Ниже перечислены другие статьи о конструкторе представлений:
@@ -180,6 +180,6 @@ ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

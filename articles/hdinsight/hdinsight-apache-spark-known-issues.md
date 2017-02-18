@@ -1,6 +1,6 @@
 ---
-title: "Известные проблемы Apache Spark в HDInsight | Документация Майкрософт"
-description: "Известные проблемы Apache Spark в HDInsight."
+title: "Известные проблемы в работе кластера Apache Spark в Azure HDInsight | Документация Майкрософт"
+description: "Известные проблемы в работе кластеров Apache Spark в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 
 
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight-linux"></a>Известные проблемы в работе кластера Apache Spark в HDInsight на платформе Linux
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Известные проблемы в работе кластера Apache Spark в HDInsight
+
 В этом документе отслеживаются все известные проблемы с общедоступной предварительной версией Spark HDInsight.  
 
 ## <a name="livy-leaks-interactive-session"></a>Утечка интерактивного сеанса Livy
@@ -31,7 +32,7 @@ ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
 
 Для решения этой проблемы выполните указанные ниже действия.
 
-1. Подключитесь к головному узлу по протоколу SSH. 
+1. Подключитесь к головному узлу по протоколу SSH. Дополнительные сведения для клиентов Windows см. в статье [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а для клиентов Linux, Unix или OS X — в статье [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
 2. Выполните следующую команду, чтобы найти идентификаторы приложений для интерактивных заданий, запущенных из Livy: 
    
         yarn application –list
@@ -71,7 +72,9 @@ ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
 
 **Устранение.**
 
-Появление этой ошибки не означает, что данные повреждены или утрачены.  Записные книжки по-прежнему хранятся на диске в каталоге `/var/lib/jupyter`, и вы можете получить к ним доступ, подключившись к кластеру по протоколу SSH. Во избежание потери важных данных записные книжки можно скопировать из кластера на локальный компьютер (с помощью SCP или WinSCP), тем самым создав резервную копию. Затем вы сможете использовать туннель SSH к головному узлу через порт 8001, чтобы получить доступ к Jupyter без прохождения через шлюз.  В Jupyter можно очистить выходные данные записной книжки и повторно сохранить их, чтобы уменьшить ее размер.
+Появление этой ошибки не означает, что данные повреждены или утрачены.  Записные книжки по-прежнему хранятся на диске в каталоге `/var/lib/jupyter`, и вы можете получить к ним доступ, подключившись к кластеру по протоколу SSH. Дополнительные сведения для клиентов Windows см. в статье [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а для клиентов Linux, Unix или OS X — в статье [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+После подключения к кластеру с помощью SSH во избежание потери важных данных записные книжки можно скопировать из кластера на локальный компьютер (с помощью SCP или WinSCP), тем самым создав резервную копию. Затем вы сможете использовать туннель SSH к головному узлу через порт 8001, чтобы получить доступ к Jupyter без прохождения через шлюз.  В Jupyter можно очистить выходные данные записной книжки и повторно сохранить их, чтобы уменьшить ее размер.
 
 Чтобы избежать этой ошибки в будущем, необходимо следовать некоторым рекомендациям.
 
@@ -125,6 +128,6 @@ ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

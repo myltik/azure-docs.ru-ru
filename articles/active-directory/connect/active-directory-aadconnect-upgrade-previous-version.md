@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
+ms.sourcegitcommit: 1f7ec5d53512dcfbff17269802c8889eae0ad744
+ms.openlocfilehash: 5dd69a0b9357a601070765817a814dae3e7e5c05
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
 | [Обновление со сменой сервера](#swing-migration) |Если серверов два, можно установить новый выпуск на один из них (или внести изменения), а затем сменить активный сервер. |
 
 Разрешения, необходимые для обновления, см. [здесь](active-directory-aadconnect-accounts-permissions.md#upgrade).
+
+> [!NOTE]
+> Если вы уже используете новый сервер Azure AD Connect для запуска синхронизации изменений в Azure AD, то откат к использованию DirSync или Azure AD Sync уже невозможен. Обратный переход с Azure AD Connect к устаревшим клиентам, включая DirSync и Azure AD Sync, не поддерживается и может привести к проблемам, таким как потеря данных в Azure AD. 
+> 
+> 
 
 ## <a name="in-place-upgrade"></a>Обновление «на месте»
 Обновление на месте подходит для обновления Azure AD Sync или Azure AD Connect. Оно не подходит для DirSync и решений с FIM + соединитель Azure AD.
@@ -91,6 +96,6 @@ ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

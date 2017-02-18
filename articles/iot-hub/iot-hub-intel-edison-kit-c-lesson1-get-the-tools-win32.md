@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов для начального набора Интернета вещей Azure (Windows 7 или более поздние версии) | Документация Майкрософт"
+title: "Подключение Intel Edison (C) к Интернету вещей Azure. Урок 1. Получение инструментов (Windows) | Документация Майкрософт"
 description: "Скачайте и установите необходимые инструменты и программное обеспечение для работы с примером приложения на устройстве Edison под управлением Windows 7 и более поздних версий."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 111018da51823f928e7f2b815db8621ecda65025
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 79dcbe8cbefe4f607991359fbfc6948b5e90ace9
 
 
 ---
@@ -91,6 +91,6 @@ npm install -g gulp
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

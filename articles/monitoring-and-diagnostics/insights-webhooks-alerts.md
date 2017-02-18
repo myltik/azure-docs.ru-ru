@@ -2,7 +2,7 @@
 title: "Настройка webhook для оповещений на основе метрик Azure | Документация Майкрософт"
 description: "Перенаправление оповещений Azure в другие системы (не Azure)"
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/07/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
+ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
 Объект webhook может проходить проверку подлинности с помощью любого из этих методов:
 
 1. **Авторизация на основе маркера.** Универсальный код ресурса (URI) объекта webhook сохраняется вместе с идентификатором маркера, например `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Базовая авторизация.** Универсальный код ресурса (URI) объекта webhook сохраняется вместе с именем пользователя и паролем, например `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+2. **Авторизация на основе пароля**. Универсальный код ресурса (URI) объекта webhook сохраняется вместе с именем пользователя и паролем, например: `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Схема полезных данных
 Операция POST содержит следующие полезные данные и схему JSON для всех оповещений, связанных с метриками.
@@ -103,8 +103,8 @@ ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
 
 > [!NOTE]
 > Поле свойств можно определить с помощью [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об оповещениях Azure и объектах webhook см. в видео, посвященном [интеграции оповещений Azure с PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
@@ -115,7 +115,6 @@ ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Создание кластеров Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET | Документация Майкрософт"
-description: "Сведения о создании кластеров HDInsight для Azure HDInsight с помощью пакета SDK для .NET"
+description: "Узнайте, как создавать кластеры Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 4f597fad719637e66d64143c302334b1c62e226e
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-net-sdk"></a>Создание кластеров Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Научитесь создавать кластеры HDInsight с помощью пакета SDK для .NET. Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
+Узнайте, как создать кластер Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET. 
+
+Эта статья посвящена только кластерам HDInsight под управлением Windows. Сведения о создании кластеров под управлением Linux см. в статье [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+
+> [!IMPORTANT]
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Предварительные требования:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -163,7 +169,7 @@ ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
 * [Выполнение заданий Pig в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
-* [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation] — сведения о пакете SDK для HDInsight.
+* [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation] — узнайте больше о пакете SDK для HDInsight.
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -174,7 +180,7 @@ ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
 
 
 ## <a name="appx-a-create-dependent-components"></a>Приложение A. Создание зависимых компонентов
-С помощью следующего сценария Azure PowerShell можно создать зависимые компоненты, необходимые для приложения .NET в этом учебнике.
+С помощью следующего сценария Azure PowerShell можно создать зависимые компоненты, необходимые для приложения .NET в этом руководстве.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -245,6 +251,6 @@ ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

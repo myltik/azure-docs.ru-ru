@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6bbbf253b9735695e7ace0c27e4bc96df7a0c779
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: 6bbbf253b9735695e7ace0c27e4bc96df7a0c779
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Веб-приложение можно увидеть в действии. [Попробуйте службу приложений](http://go.microsoft.com/fwlink/?LinkId=523751) — в ней можно быстро создать кратковременное приложение начального уровня. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
+> Веб-приложение можно увидеть в действии. [Попробуйте службу приложений](https://azure.microsoft.com/try/app-service/) — в ней можно быстро создать кратковременное приложение начального уровня. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 > 
 > 
 
@@ -143,7 +143,7 @@ ms.openlocfilehash: 6bbbf253b9735695e7ace0c27e4bc96df7a0c779
 ## <a name="configure-the-azure-web-app"></a>Настройка веб-приложения Azure
 Чтобы приложение Laravel работало в Azure, необходимо обратить внимание на несколько моментов. Эти же действия можно выполнить для выбранной платформы PHP.
 
-* Настройте PHP версии 5.6.4 или более поздней. Полный список требований к серверу см. в разделе [Требования к серверу](https://laravel.com/docs/5.3#server-requirements). В остальной части списка содержатся расширения, которые включены при установке PHP в Azure. 
+* Настройте PHP версии 5.6.4 или более поздней. Ознакомьтесь с полным списком требований к серверу Laravel 5.3 в разделе [Server Requirements](https://laravel.com/docs/5.3#server-requirements) (Требования к серверу). В остальной части списка содержатся расширения, которые включены при установке PHP в Azure. 
 * Укажите переменные среды, необходимые для приложения. Чтобы легко задать переменные среды, в приложении Laravel используется файл `.env`. Но так как он не должен фиксироваться в системе управления версиями (см. раздел о [настройке среды для приложения Laravel](https://laravel.com/docs/5.3/configuration#environment-configuration)), вместо этого вы можете настроить параметры для веб-приложения Azure.
 * Сначала загрузите точку входа приложения Laravel `public/index.php`. Ознакомьтесь с [обзором жизненного цикла Laravel](https://laravel.com/docs/5.3/lifecycle#lifecycle-overview). Другими словами, необходимо задать корневой URL-адрес веб-приложения, указывающий на каталог `public`.
 * Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push`Composer будет контролировать получение требуемых пакетов. Так удобнее. 
@@ -278,6 +278,6 @@ ms.openlocfilehash: 6bbbf253b9735695e7ace0c27e4bc96df7a0c779
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

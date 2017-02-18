@@ -1,6 +1,6 @@
 ---
-title: "Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как создавать кластеры HDInsight по запросу с помощью фабрики данных Azure."
+title: "Создание кластеров Azure HDInsight (Hadoop) с помощью фабрики данных | Документация Майкрософт"
+description: "Узнайте, как создавать кластеры Hadoop в HDInsight по запросу с помощью фабрики данных Azure."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop в HDInsight по запросу с помощью фабрики данных Azure
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Фабрика данных Azure](../data-factory/data-factory-introduction.md) представляет собой облачную службу интеграции информации, которая организует и автоматизирует перемещение и преобразование данных. Из этой статьи вы узнаете, как создать [связанную службу Azure HDInsight по запросу](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) с помощью фабрики данных Azure и использовать кластер для выполнения задания Hive. В общих чертах процесс будет таким:
 
@@ -444,6 +444,6 @@ ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Развертывание приложения для включения индикатора в начальном наборе Интернета вещей Azure | Документация Майкрософт"
+title: "Подключение Intel Edison (Node) к Интернету вещей Azure. Урок 1. Развертывание приложения | Документация Майкрософт"
 description: "Клонируйте пример приложения C c GitHub и разверните его с помощью инструмента Gulp на плате Intel Edison. Это приложение будет каждые две секунды включать и выключать светодиодный индикатор на компьютере."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4184a56cc1dacb1868a5cc74d291341c07a0bb5c
-ms.openlocfilehash: 532ccc6f602b0bd66308af184b3e972edf4b735a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 182e63d40986b61a12885799b1b33bb570437a3c
 
 
 ---
@@ -119,6 +119,6 @@ gulp deploy && gulp run
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

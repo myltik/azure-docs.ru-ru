@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
 > [!NOTE]
 > Это обширное руководство. Если вас интересует краткое введение в службу приложений Azure и веб-проекты Visual Studio, см. статью [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](web-sites-dotnet-get-started.md). Сведения об устранении неполадок см. в разделе [Устранение неполадок](#troubleshooting).
 > 
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите на сайт с [пробной версией службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы сможете быстро создать в службе приложений базовое веб-приложение для кратковременного использования. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите на сайт с [пробной версией службы приложений](https://azure.microsoft.com/try/app-service/), где вы сможете быстро создать в службе приложений базовое веб-приложение для кратковременного использования. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -104,10 +104,10 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
     ![_Layout.cshtml в обозревателе решений][newapp004]
 2. Замените ActionLink в файле *Layout.cshtml* на следующий код.
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Убедитесь, что изменили третий параметр с "Home" на "Contacts". Приведенная выше разметка создаст ссылку "Contacts" на каждой странице в метод Index контроллера контактов. Измените имя приложения в верхнем и нижнем колонтитуле с "My ASP.NET Application" и "Application name" на "Contact Manager" и "CM Demo" соответственно. 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Убедитесь, что изменили третий параметр с "Home" на "Contacts". Приведенная выше разметка создаст ссылку "Contacts" на каждой странице в метод Index контроллера контактов. Измените имя приложения в верхнем и нижнем колонтитуле с "My ASP.NET Application" и "Application name" на "Contact Manager" и "CM Demo" соответственно. 
 
 ### <a name="run-the-application-locally"></a>Локальный запуск приложения
 1. Для запуска приложения нажмите сочетание клавиш CTRL+F5.
@@ -443,7 +443,7 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
           }
    
     Выполнив глобальный поиск атрибута *AllowAnonymous*, вы увидите, что он используется в методах входа и регистрации контроллера Account.
-3. В файле *CmController.cs* добавьте `[Authorize(Roles = "canEdit")]` к методам HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода. 
+3. В файле *ContactsController.cs* добавьте `[Authorize(Roles = "canEdit")]` в методы HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода. 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]
@@ -663,6 +663,6 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

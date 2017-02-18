@@ -1,6 +1,6 @@
 ---
-title: "Архитектура приложений в Azure | Документация Майкрософт"
-description: " Эта статья поможет вам разобраться в том, что такое архитектура приложений и служб в Azure, и упростит интеграцию решений по обеспечению безопасности в процессы разработки и реализации. "
+title: "Интеграция средств безопасности в проекты архитектуры Azure | Документация Майкрософт"
+description: " Эта статья поможет вам разобраться в том, что такое архитектура приложений и служб в Azure, и упростит интеграцию решений по обеспечению безопасности в процессы разработки и реализации.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5006e7dc237c53cd4b74ca08ea54ca6c999ebefe
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: e7ccc71f222d4af9a52cbf55bb6bb446f211e819
 
 
 ---
@@ -58,6 +58,6 @@ ms.openlocfilehash: 5006e7dc237c53cd4b74ca08ea54ca6c999ebefe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

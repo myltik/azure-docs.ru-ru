@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
-ms.openlocfilehash: ec71a4674e9281927cd20897476e0180256936da
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 067725ee5f303fc21baa3204509e8facd6f216fc
 
 
 ---
@@ -34,7 +34,11 @@ ms.openlocfilehash: ec71a4674e9281927cd20897476e0180256936da
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
+* Кластер Azure HDInsight (Hadoop в HDInsight).
+
+  > [!IMPORTANT]
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Одна из следующих версий Visual Studio:
   
     Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
@@ -155,6 +159,6 @@ ms.openlocfilehash: ec71a4674e9281927cd20897476e0180256936da
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

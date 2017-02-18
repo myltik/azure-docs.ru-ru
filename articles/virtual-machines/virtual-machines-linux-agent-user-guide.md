@@ -1,5 +1,5 @@
 ---
-title: "Руководство пользователя агента Linux | Документация Майкрософт"
+title: "Обзор агента виртуальной машины Linux в Azure | Документация Майкрософт"
 description: "Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
+ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
 
 
 ---
@@ -49,7 +49,7 @@ ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
   * Обеспечивает стабильность имени сетевого интерфейса
 * **Ядро**
   
-  * Настраивает виртуальную архитектуру NUMA (отключить для ядра версий ранее 2.6.37).
+  * Настраивает виртуальную архитектуру NUMA (отключить для ядра версий ранее&2;.6.37).
   * Использование энтропии Hyper-V для /dev/random
   * Настройка времени ожидания SCSI для корневого устройства (может быть удаленным)
 * **Диагностика**
@@ -210,7 +210,7 @@ ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
 
 **Provisioning.PasswordCryptId**  
 Тип: строка  
-По умолчанию: 6
+По умолчанию:&6;
 
 Алгоритм, используемый crypt при создании хеша пароля.  
  1 — MD5  
@@ -220,7 +220,7 @@ ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
 
 **Provisioning.PasswordCryptSaltLength**  
 Тип: строка  
-По умолчанию: 10
+По умолчанию:&10;
 
 Длина случайной соли, используемой при создании хеша пароля.
 
@@ -309,6 +309,6 @@ ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

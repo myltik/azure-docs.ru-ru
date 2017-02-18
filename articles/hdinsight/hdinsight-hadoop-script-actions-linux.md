@@ -12,11 +12,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4753f54d319475e8d1a87e5497ab9e03765f8546
-ms.openlocfilehash: b0e28cdc4ac8abd8dae7d9c08731664a03a44b2e
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 6eb692f7c3374f9073944b8c4c0f34af2ed35b3c
 
 
 ---
@@ -24,10 +24,8 @@ ms.openlocfilehash: b0e28cdc4ac8abd8dae7d9c08731664a03a44b2e
 
 Действия сценариев предназначены для настройки кластеров Azure HDInsight. Для этого либо задаются параметры конфигурации кластера, либо в кластере устанавливаются дополнительные службы, инструменты или другое программное обеспечение. Действия сценария можно использовать во время создания кластера или в работающем кластере.
 
-> [!NOTE]
-> Информация, приведенная в этом документе, относится только к кластерам HDInsight на платформе Linux. Сведения об использовании действий скриптов в кластерах на платформе Windows см. в статье [Разработка действий сценариев с помощью HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
-> 
-> 
+> [!IMPORTANT]
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="what-are-script-actions"></a>Что такое действия сценариев?
 
@@ -75,32 +73,34 @@ HDInsight под управлением Linux основан на дистриб
 
 Чтобы проверить версию операционной системы, используйте `lsb_release`. В следующих фрагментах кода из скрипта установки Hue показано, как определить версию Ubuntu (14 или 16), в которой выполняется скрипт:
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
-    ...
-    if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"
-        systemctl daemon-reload
-        systemctl stop webwasb.service    
-        systemctl start webwasb.service
-    else
-        echo "Using upstart configuration"
-        initctl reload-configuration
-        stop webwasb
-        start webwasb
-    fi
-    ...
-    if [[ $OS_VERSION == 14* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-    elif [[ $OS_VERSION == 16* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+...
+if [[ $OS_VERSION == 16* ]]; then
+    echo "Using systemd configuration"
+    systemctl daemon-reload
+    systemctl stop webwasb.service    
+    systemctl start webwasb.service
+else
+    echo "Using upstart configuration"
+    initctl reload-configuration
+    stop webwasb
+    start webwasb
+fi
+...
+if [[ $OS_VERSION == 14* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+elif [[ $OS_VERSION == 16* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+fi
+```
 
 Полный скрипт с этими фрагментами кода см. по адресу https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
@@ -142,7 +142,9 @@ HDInsight под управлением Linux основан на дистриб
 
 Пример ниже копирует файл giraph-examples.jar из локальной файловой системы в хранилище WASB.
 
-    hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```bash
+hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```
 
 ### <a name="a-namebps7awrite-information-to-stdout-and-stderr"></a><a name="bPS7"></a>Запись информации в STDOUT и STDERR
 
@@ -153,13 +155,17 @@ HDInsight под управлением Linux основан на дистриб
 
 Большинство программ и пакетов установки добавляют данные в STDOUT и STDERR по умолчанию, однако вам может потребоваться добавить дополнительные записи в журнал. Для отправки текста в STDOUT используйте `echo`. Например:
 
-    echo "Getting ready to install Foo"
+```bash
+echo "Getting ready to install Foo"
+```
 
 По умолчанию ключевое слово `echo` отправляет строку в STDOUT. Чтобы направить строку в STDERR, добавьте `>&2` перед `echo`. Например:
 
-    >&2 echo "An error occurred installing Foo"
+```bash
+>&2 echo "An error occurred installing Foo"
+```
 
-Эта команда перенаправляет данные из STDOUT (значение 1, которое является значением по умолчанию, поэтому не указано здесь) в STDERR (2). Дополнительные сведения о перенаправлении ввода-вывода см. на странице [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Эта команда перенаправляет данные из STDOUT (значение&1;, которое является значением по умолчанию, поэтому не указано здесь) в STDERR (2). Дополнительные сведения о перенаправлении ввода-вывода см. на странице [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Дополнительные сведения о просмотре журналов, созданных действиями скрипта, см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
@@ -167,8 +173,10 @@ HDInsight под управлением Linux основан на дистриб
 
 Сценарии Bash должны храниться в формате ASCII. Для завершения строк в этом файле используется символ LF. Если в файлах используется кодировка UTF-8, которая допускает наличие метки порядка байтов в начале файла и использование символа CRLF для завершения строки (зачастую эта кодировка используется редакторами Windows), то сценарий завершится с ошибками, аналогичными приведенным ниже.
 
-    $'\r': command not found
-    line 1: #!/usr/bin/env: No such file or directory
+```
+$'\r': command not found
+line 1: #!/usr/bin/env: No such file or directory
+```
 
 ### <a name="a-namebps9a-use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Использование логики повтора для восстановления после временных ошибок
 
@@ -176,40 +184,46 @@ HDInsight под управлением Linux основан на дистриб
 
 Чтобы сделать свой сценарий устойчивым к временным ошибкам, можно реализовать логику повтора. Ниже приведен пример функции, которая будет выполнять передаваемую в нее команду и (если команда завершается ошибкой) повторять ее до трех раз. Она будет ждать две секунды между попытками.
 
-    #retry
-    MAXATTEMPTS=3
+```bash
+#retry
+MAXATTEMPTS=3
 
-    retry() {
-        local -r CMD="$@"
-        local -i ATTMEPTNUM=1
-        local -i RETRYINTERVAL=2
+retry() {
+    local -r CMD="$@"
+    local -i ATTMEPTNUM=1
+    local -i RETRYINTERVAL=2
 
-        until $CMD
-        do
-            if (( ATTMEPTNUM == MAXATTEMPTS ))
-            then
-                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
-                    return 1
-            else
-                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
-                    sleep $(( RETRYINTERVAL ))
-                    ATTMEPTNUM=$ATTMEPTNUM+1
-            fi
-        done
-    }
+    until $CMD
+    do
+        if (( ATTMEPTNUM == MAXATTEMPTS ))
+        then
+                echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                return 1
+        else
+                echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                sleep $(( RETRYINTERVAL ))
+                ATTMEPTNUM=$ATTMEPTNUM+1
+        fi
+    done
+}
+```
 
 Ниже приведены примеры использования этой функции.
 
-    retry ls -ltr foo
+```bash
+retry ls -ltr foo
 
-    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+```
 
 ## <a name="a-namehelpermethodsahelper-methods-for-custom-scripts"></a><a name="helpermethods"></a>Вспомогательные методы для пользовательских сценариев
 
 Вспомогательные методы действий сценариев — это служебные программы, которые можно использовать при создании пользовательских скриптов. Их определение приведено на странице [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh). Эти методы можно добавить в скрипты с помощью следующей команды:
 
-    # Import the helper method module.
-    wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```bash
+# Import the helper method module.
+wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```
 
 Эта команда открывает доступ к следующим вспомогательным приложениям, доступным для использования в сценарии.
 
@@ -252,7 +266,9 @@ HDInsight под управлением Linux основан на дистриб
 
 Переменные среды, заданные в сценарии, существуют только в пределах области сценария. В некоторых случаях может потребоваться добавить переменные среды, которые значимы на уровне системы и значение которых сохранится после выполнения сценария. Обычно это нужно для того, чтобы пользователи, подключаемые к кластеру через SSH, могли использовать установленные сценарием компоненты. Системная переменная создается добавлением переменной среды в папку `/etc/environment`. Например, следующая конструкция добавляет переменную **HADOOP\_CONF\_DIR**:
 
-    echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```bash
+echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Доступ к расположениям, в которых хранятся пользовательские сценарии
 
@@ -282,14 +298,16 @@ HDInsight под управлением Linux основан на дистриб
 
 Чтобы проверить версию операционной системы, используйте `lsb_release`. Например, ниже показано, как создать ссылку на разные TAR-файлы в зависимости от версии операционной системы:
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
 
 ## <a name="a-namedeployscriptachecklist-for-deploying-a-script-action"></a><a name="deployScript"></a>Контрольный список для развертывания действия сценария
 
@@ -357,6 +375,6 @@ HDInsight под управлением Linux основан на дистриб
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
