@@ -1,5 +1,5 @@
 ---
-title: "Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery | Документация Майкрософт"
+title: "Репликация приложений с помощью SQL Server и Azure Site Recovery | Документация Майкрософт"
 description: "В этой статье рассматривается репликация SQL Server с помощью возможностей аварийного восстановления SQL Server и Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea2078722beb7c76c59f1f6cfe3bf82aac5e4a77
-ms.openlocfilehash: 20e64a0f9319596167c1f8d1a0b22c0fa8c514c7
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 2d55db297bcef2c5789cb33a8791cf2c787a0789
 
 
 ---
@@ -93,7 +93,7 @@ Site Recovery может интегрироваться с собственны�
 Site Recovery изначально поддерживает SQL AlwaysOn. Если вы создали группу доступности SQL и настроили виртуальную машину Azure как дополнительную, то для управления отработкой отказа в группах доступности можете использовать Site Recovery.
 
 > [!NOTE]
-> На данный момент эта функция находится на этапе предварительной версии и доступна, только если управление серверами узла Hyper-V в основном центре обработки данных осуществляется в облаках VMM и настройка VMware управляется [Сервером конфигурации](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Сейчас эта возможность недоступна на новом портале Azure. При использовании нового портала Azure следуйте указаниям в [этом разделе](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal). 
+> На данный момент эта функция находится на этапе предварительной версии и доступна, только если управление серверами узла Hyper-V в основном центре обработки данных осуществляется в облаках VMM и настройка VMware управляется [Сервером конфигурации](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Сейчас эта возможность недоступна на новом портале Azure. При использовании нового портала Azure следуйте указаниям в [этом разделе](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal).
 >
 >
 
@@ -205,15 +205,15 @@ Site Recovery изначально поддерживает SQL AlwaysOn. Есл
 
 
 1. **Тестирование отработки отказа**: в SQL AlwaysOn нет встроенной поддержки тестирования отработки отказа. Поэтому рекомендуется делать это следующим образом.
-    1. Установите [службу архивации Azure](../backup/backup-azure-vms.md) на виртуальной машине, на которой размещена реплика группы доступности в Azure. 
+    1. Установите [службу архивации Azure](../backup/backup-azure-vms.md) на виртуальной машине, на которой размещена реплика группы доступности в Azure.
     1. Прежде чем активировать тестовую отработку отказа для плана восстановления, восстановите виртуальную машину из резервной копии, полученной на шаге&1;.
     1. Выполните тестовую отработку отказа для плана восстановления.
 
 
 > [!NOTE]
 > Для приведенного ниже сценария предполагается, что группа доступности SQL размещена на классической виртуальной машине Azure, а на шаге&2; используется виртуальная машина SQLAzureVM-Test. Измените этот сценарий, указав имя восстановленной виртуальной машины.
-> 
-> 
+>
+>
 
 
      workflow SQLAvailabilityGroupFailover
@@ -241,7 +241,7 @@ Site Recovery изначально поддерживает SQL AlwaysOn. Есл
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
                     Write-output "tfo"
-                    
+
                     Write-Output "Creating ILB"
                     Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
                     Write-Output "ILB Created"
@@ -251,14 +251,14 @@ Site Recovery изначально поддерживает SQL AlwaysOn. Есл
                     Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
 
                     Write-Output "Added Endpoint"
-        
-                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
-                       
+
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test"
+
                     Write-Output "UnInstalling custom script extension"
-                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM
                     Write-Output "Installing custom script extension"
                     Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
-                    
+
                     Write-output "Starting AG Failover"
                     Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
                     Write-output "Completed AG Failover"
@@ -342,6 +342,6 @@ Site Recovery не поддерживает гостевой кластер пр
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

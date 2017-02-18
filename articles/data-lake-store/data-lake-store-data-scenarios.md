@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a7d0b98e1c582230c756d1c893d9cc549a5a2893
-ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
 
 * [Azure Stream Analytics.](../stream-analytics/stream-analytics-data-lake-output.md) События, принятые в концентраторы событий, могут записываться в Azure Data Lake с помощью выходных данных Azure Data Lake Store.
 * [Azure HDInsight Storm.](../hdinsight/hdinsight-storm-write-data-lake-store.md) Данные из кластера Storm можно напрямую записывать в Data Lake Store.
-* [EventProcessorHost.](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) Можно получать события из концентраторов событий, а затем записывать их в Data Lake Store с помощью [пакета SDK для .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost.](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) Можно получать события из концентраторов событий, а затем записывать их в Data Lake Store с помощью [пакета SDK для .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Реляционные данные
 Можно также извлекать данные из реляционных баз данных. В течение определенного периода времени реляционные базы данных собирают огромные объемы данных, которые после обработки с помощью конвейера больших данных могут предоставлять ценные сведения. Для перемещения таких данных в хранилище озера данных можно использовать следующие средства.
@@ -135,6 +135,6 @@ ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

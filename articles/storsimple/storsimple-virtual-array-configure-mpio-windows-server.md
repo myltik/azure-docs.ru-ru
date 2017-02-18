@@ -1,5 +1,5 @@
 ---
-title: "Настройка MPIO на узле виртуального массива Microsoft Azure StorSimple | Документация Майкрософт"
+title: "Настройка MPIO на узле, подключенном к виртуальному массиву StorSimple | Документация Майкрософт"
 description: "Сведения о настройке функции Multipath I/O (MPIO) для виртуального массива StorSimple, подключенного к узлу под управлением Windows Server 2012 R2."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 53308da656f46a43332a204d9d49e972d8c1799c
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Настройка MPIO на узле Windows Server для виртуального массива StorSimple
@@ -160,6 +160,6 @@ MPIO необходимо настроить для идентификации �
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

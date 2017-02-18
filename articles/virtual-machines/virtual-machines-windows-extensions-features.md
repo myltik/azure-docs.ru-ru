@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 259ad6e8481545c48865fbb108956b70251ade7c
-ms.openlocfilehash: 16d5b3347e01718a9976b6fa5e6d0b92c073da21
+ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
+ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 16d5b3347e01718a9976b6fa5e6d0b92c073da21
 ### <a name="azure-vm-agent"></a>Агент виртуальной машины Azure
 Агент виртуальной машины Azure управляет взаимодействием виртуальной машины с контроллером структуры Azure. Агент отвечает за многие функциональные аспекты развертывания виртуальных машин Azure и управления ими, включая запуск расширений ВМ. Агент виртуальной машины Azure предварительно установлен во всех образах Azure Marketplace. Также его можно установить в поддерживаемых операционных системах.
 
-Сведения о поддерживаемых операционных системах и инструкции по установке см. в статье [Обзор агента и расширений виртуальной машины](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Сведения о поддерживаемых операционных системах и инструкции по установке см. в статье [Обзор агента и расширений виртуальной машины](virtual-machines-windows-agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Поиск расширений ВМ
 Существует множество различных расширений ВМ, которые можно использовать с виртуальными машинами Azure. Чтобы увидеть полный список, выполните следующую команду в модуле PowerShell Azure Resource Manager. При выполнении этой команды обязательно укажите нужное расположение.
@@ -288,6 +288,6 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

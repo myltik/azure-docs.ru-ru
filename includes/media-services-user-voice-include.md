@@ -1,4 +1,4 @@
-На форуме [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) можно оставить свои отзывы о работе служб мультимедиа Azure или предложения по их улучшению. Вы также можете перейти непосредственно к одной из следующих категорий: 
+На форуме [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) можно оставить свои отзывы о работе служб мультимедиа Azure или предложения по их улучшению. Вы также можете перейти непосредственно к одной из следующих категорий:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [Клиентские библиотеки SDK](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
@@ -10,7 +10,6 @@
 * [Потоковая передача VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

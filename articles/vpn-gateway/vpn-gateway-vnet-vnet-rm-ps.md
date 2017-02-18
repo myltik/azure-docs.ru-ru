@@ -1,10 +1,10 @@
 ---
-title: "Подключение виртуальных сетей Azure с помощью VPN-шлюза и PowerShell | Документация Майкрософт"
+title: "Установка подключения между виртуальными сетями Azure с помощью PowerShell | Документация Майкрософт"
 description: "Эта статья описывает этапы настройки подключения между виртуальными сетями с помощью диспетчера ресурсов Azure и PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Настройка подключения между виртуальными сетями в развертывании Resource Manager с помощью PowerShell
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Настройка подключения между виртуальными сетями с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Модели и методы развертывания для подключений между виртуальными сетями
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-В следующей таблице показаны модели развертывания, доступные в настоящее время, и методы для конфигурации типа "сеть — сеть". Когда появится статья с руководством по конфигурации, мы разместим прямую ссылку на нее в этой таблице.
+В следующей таблице показаны модели развертывания, доступные в настоящее время, и методы для конфигурации типа "сеть — сеть". Когда появится статья с руководством по конфигурации, мы разместим прямую ссылку на нее в этой таблице. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
   
   * В одном регионе можно настроить многоуровневые приложения с несколькими виртуальными сетями, которые связаны друг с другом из-за требований к изоляции или административных требований.
 
-### <a name="vnet-to-vnet-faq"></a>Часто задаваемые вопросы о подключениях VNet-VNet
+### <a name="vnet-to-vnet-considerations"></a>Рекомендации по работе с подключением типа "виртуальная сеть — виртуальная сеть"
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Каким инструкциям следовать?
@@ -434,6 +434,6 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

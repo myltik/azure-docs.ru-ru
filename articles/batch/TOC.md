@@ -29,7 +29,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
-## [Пакет SDK для Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [Пакет SDK для Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 
 # Сопутствующие материалы
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

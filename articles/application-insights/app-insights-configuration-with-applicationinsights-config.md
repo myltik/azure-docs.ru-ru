@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 1a22ff8eff2a9b0f09b6209160ad5e44ff32358c
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 1a22ff8eff2a9b0f09b6209160ad5e44ff32358c
 ### <a name="dependency-tracking"></a>Отслеживание зависимостей
 [Dependency tracking](app-insights-asp-net-dependencies.md) собирает данные телеметрии о вызовах, выполняемых приложением к базам данных и внешним службам. Чтобы этот модуль работал на сервере IIS, [установите монитор состояний][redfield]. Чтобы использовать его в веб-приложениях или виртуальных машинах Azure, [выберите расширение Application Insights](app-insights-azure-web-apps.md).
 
-Можно также написать код отслеживания зависимостей, используя [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Можно также написать код отслеживания зависимостей, используя [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
@@ -264,6 +264,6 @@ ms.openlocfilehash: 1a22ff8eff2a9b0f09b6209160ad5e44ff32358c
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

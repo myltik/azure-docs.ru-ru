@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfbfccfe09e6f2b3826223a779a5ff478c1f804f
-ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
 
 
 ---
@@ -28,10 +28,14 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
->
->
 
-Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью [портала Azure](https://portal.azure.com/) .
+
+Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью [портала Azure](https://portal.azure.com/) . Чтобы выполнить приведенные здесь инструкции с помощью других средств или пакетов SDK, выберите в раскрывающемся списке один из доступных вариантов. 
+
+> [!NOTE]
+> В этом руководстве конвейер данных преобразовывает входные данные в выходные. Он не копирует данные из исходного хранилища данных в целевое. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> Можно объединить в цепочку два действия (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Подробные сведения см. в статье [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md). 
 
 ## <a name="prerequisites"></a>Предварительные требования
 1. Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
@@ -92,6 +96,7 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
     ![Кнопка «Развернуть»](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
    После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**.
+
     ![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Создание связанной службы Azure HDInsight
@@ -102,18 +107,20 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
     ![Новая служба вычислений](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Вставьте следующий фрагмент в окно **Draft-1** . Фрагмент JSON описывает свойства, которые будут использоваться для создания кластера HDInsight по требованию.
 
-        {
-          "name": "HDInsightOnDemandLinkedService",
-          "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-              "version": "3.2",
-              "clusterSize": 1,
-              "timeToLive": "00:30:00",
-              "linkedServiceName": "AzureStorageLinkedService"
-            }
-          }
+    ```JSON
+    {
+      "name": "HDInsightOnDemandLinkedService",
+      "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+          "version": "3.2",
+          "clusterSize": 1,
+          "timeToLive": "00:30:00",
+          "linkedServiceName": "AzureStorageLinkedService"
         }
+      }
+    }
+    ```
 
     В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
@@ -149,28 +156,29 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
     ![Новый набор данных](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. Вставьте следующий фрагмент в окно Draft-1. В фрагменте JSON создается набор данных с именем **AzureBlobInput** , представляющий входные данные для действия в конвейере. Кроме того, нужно указать, что входные данные размещаются в контейнере BLOB-объектов **adfgetstarted** и в папке **inputdata**.
 
-        {
-            "name": "AzureBlobInput",
-            "properties": {
-                "type": "AzureBlob",
-                "linkedServiceName": "AzureStorageLinkedService",
-                "typeProperties": {
-                    "fileName": "input.log",
-                    "folderPath": "adfgetstarted/inputdata",
-                    "format": {
-                        "type": "TextFormat",
-                        "columnDelimiter": ","
-                    }
-                },
-                "availability": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "external": true,
-                "policy": {}
-            }
+    ```JSON
+    {
+        "name": "AzureBlobInput",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "fileName": "input.log",
+                "folderPath": "adfgetstarted/inputdata",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {}
         }
-
+    }
+    ```
     В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
    | Свойство | Описание |
@@ -190,25 +198,26 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 1. В **редакторе фабрики данных** нажмите кнопку **... Еще** на панели команд, щелкните **Новый набор данных** и выберите **Хранилище больших двоичных объектов Azure**.  
 2. Вставьте следующий фрагмент в окно Draft-1. Этот фрагмент кода JSON создает набор данных с именем **AzureBlobOutput**и определяет структуру данных, получаемых с помощью скрипта Hive. Кроме того, нужно указать, что результаты будут храниться в контейнере больших двоичных объектов с именем **adfgetstarted** и в папке с именем **partitioneddata**. В разделе **availability** указывается частота, с которой будет создаваться выходной набор данных (ежемесячно).
 
-        {
-          "name": "AzureBlobOutput",
-          "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-              "folderPath": "adfgetstarted/partitioneddata",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "availability": {
-              "frequency": "Month",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+          "folderPath": "adfgetstarted/partitioneddata",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
           }
+        },
+        "availability": {
+          "frequency": "Month",
+          "interval": 1
         }
-
+      }
+    }
+    ```
     Описание этих свойств можно найти в разделе **Создание входного набора данных** . Значение свойства external для выходного набора данных не указывается, так как набор данных создается службой фабрики данных.
 3. На панели команд нажмите кнопку **Развернуть** , чтобы развернуть только что созданный набор данных.
 4. Убедитесь, что набор данных успешно создан.
@@ -228,48 +237,50 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
    >
    >
 
-        {
-            "name": "MyFirstPipeline",
-            "properties": {
-                "description": "My first Azure Data Factory pipeline",
-                "activities": [
-                    {
-                        "type": "HDInsightHive",
-                        "typeProperties": {
-                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                            "scriptLinkedService": "AzureStorageLinkedService",
-                            "defines": {
-                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                            }
-                        },
-                        "inputs": [
-                            {
-                                "name": "AzureBlobInput"
-                            }
-                        ],
-                        "outputs": [
-                            {
-                                "name": "AzureBlobOutput"
-                            }
-                        ],
-                        "policy": {
-                            "concurrency": 1,
-                            "retry": 3
-                        },
-                        "scheduler": {
-                            "frequency": "Month",
-                            "interval": 1
-                        },
-                        "name": "RunSampleHiveActivity",
-                        "linkedServiceName": "HDInsightOnDemandLinkedService"
-                    }
-                ],
-                "start": "2016-04-01T00:00:00Z",
-                "end": "2016-04-02T00:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "MyFirstPipeline",
+        "properties": {
+            "description": "My first Azure Data Factory pipeline",
+            "activities": [
+                {
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                        "scriptLinkedService": "AzureStorageLinkedService",
+                        "defines": {
+                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                    },
+                    "name": "RunSampleHiveActivity",
+                    "linkedServiceName": "HDInsightOnDemandLinkedService"
+                }
+            ],
+            "start": "2016-04-01T00:00:00Z",
+            "end": "2016-04-02T00:00:00Z",
+            "isPaused": false
         }
+    }
+    ```
 
     Этот фрагмент создает конвейер из одного действия, использующего Hive для обработки данных в кластере HDInsight.
 
@@ -356,6 +367,7 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 
     ![Приложение по мониторингу и управлению](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Выберите окно действия в списке **Activity Windows** (Окна действий), чтобы просмотреть сведения о нем.
+
     ![Сведения об окне действия](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
 ## <a name="summary"></a>Сводка
@@ -374,14 +386,13 @@ ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 ## <a name="see-also"></a>См. также
 | Раздел | Описание |
 |:--- |:--- |
-| [Действия по преобразованию данных](data-factory-data-transformation-activities.md) |В этой статье рассматриваются действия по преобразованию данных (например, преобразование HDInsight Hive, используемое в этом руководстве), поддерживаемые фабрикой данных Azure. |
-| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
+| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

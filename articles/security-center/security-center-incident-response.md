@@ -1,5 +1,5 @@
 ---
-title: "Использование центра безопасности Azure для реагирования на инциденты | Документация Майкрософт"
+title: "Реагирование на инциденты в центре безопасности Azure | Документация Майкрософт"
 description: "В этой статье объясняется, как с помощью центра безопасности Azure реагировать на инциденты."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -78,13 +78,13 @@ ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
 
 1. Щелкнула плитку **Оповещения системы безопасности** и открыла колонку **Оповещения системы безопасности**.
     ![Колонка оповещения системы безопасности](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > В нашем примере Марте нужно проанализировать оповещения о вредоносных действиях SQL, как видно на рисунке выше.
-   > 
-   > 
+   >
+   >
 2. Поэтому она щелкнула оповещение о **вредоносные действия SQL**, чтобы просмотреть атакованные ресурсы в колонке **вредоносных действий SQL** со  ![сведениями об инциденте](./media/security-center-incident-response/security-center-incident-response-fig5.png).
-   
+
     В этой колонке Марта может получить сведения об атакованных ресурсах, в частности узнать число попыток атаки и время их обнаружения.
 3. Щелкните **атакованный ресурс** , чтобы получить дополнительные сведения об этой атаке.
 
@@ -103,7 +103,6 @@ ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -207,11 +207,15 @@
 ### [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Справочные материалы
-## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Серверный пакет SDK для .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Серверный пакет SDK для Node.js](https://azure.github.io/azure-mobile-apps-node/)
+## [Клиентский пакет SDK для Android](https://azure.github.io/azure-mobile-apps-android-client/)
+## [Клиентский пакет SDK для iOS](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [Клиентский пакет SDK для JavaScript и Cordova](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Клиентский пакет SDK для Windows и Xamarin](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # Сопутствующие материалы
-## [Пакет SDK для веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Справочник по службе приложений](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Репозитории GitHub](https://github.com/Azure/azure-mobile-apps)
 ## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Ресурсы
@@ -219,6 +223,14 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## Примеры
+### [Специалист по эксплуатации](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [Синхронизация структурированных данных](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### Завершение краткого руководства
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [Сервер .NET](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Сервер Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Рекомендации по работе со службой приложений](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Список ресурсов веб-задания](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -227,6 +239,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

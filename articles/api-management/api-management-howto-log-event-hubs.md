@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
 
 
 ---
@@ -81,12 +81,12 @@ ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 * `description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
 * `credentials` содержит `name` и `connectionString` концентратора событий Azure.
 
-Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created` . 
+Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created` .
 
 > [!NOTE]
 > Другие возможные коды возврата и их причины см. в статье, посвященной [созданию средств ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Чтобы узнать, как выполнять другие операции, такие как перечисление, обновление и удаление, см. документацию [средствах ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx).
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Настройка политик регистрации в концентраторах событий
 Если средство ведения журналов в управлении API уже настроено, вы можете настроить политики регистрации в концентраторах событий для регистрации нужных событий. Политику регистрации в концентраторах событий можно использовать в разделе входящей или исходящей политики.
@@ -117,8 +117,8 @@ ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительная информация о концентраторах событий Azure
-  * [Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
 * Дополнительные сведения об интеграции службы управления API и концентраторов событий
   * [Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -127,8 +127,8 @@ ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 ## <a name="watch-a-video-walkthrough"></a>Просмотрите видеоруководство
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -141,12 +141,6 @@ ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 
 
-
-
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

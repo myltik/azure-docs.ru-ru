@@ -1,5 +1,5 @@
 ---
-title: "Решения Azure для Интернета вещей | Документация Майкрософт"
+title: "Решения Azure для Интернета вещей (IoT Suite) | Документация Майкрософт"
 description: "Общие сведения об архитектуре примера решения Интернета вещей и о том, как оно связано с устройствами, службой Центра Интернета вещей Azure, пакетами SDK для устройств Azure IoT, пакетами SDK для служб Интернета вещей Azure и другими службами Azure."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 36e4afb54485c12b39349124e241a2d74617702c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
 
 
 ---
@@ -49,6 +49,6 @@ ms.openlocfilehash: 36e4afb54485c12b39349124e241a2d74617702c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

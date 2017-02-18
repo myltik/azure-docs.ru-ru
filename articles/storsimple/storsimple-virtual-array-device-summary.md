@@ -1,5 +1,5 @@
 ---
-title: "Колонка сводных данных об устройстве в диспетчере устройств StorSimple — виртуальный массив Microsoft Azure StorSimple | Документация Майкрософт"
+title: "Колонка сводки устройства виртуального массива StorSimple | Документация Майкрософт"
 description: "Сведения о колонке сводных данных об устройстве в диспетчере устройств StorSimple и способах ее использования для мониторинга работоспособности виртуального массива StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 4bbd5270194e7c1c02b4a3d0f0865cee61a1c55c
-ms.openlocfilehash: 577f1a2a7833d4a64ca02aabd13a04901a2e3abd
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
 
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Использование колонки сводных данных об устройстве в диспетчере устройств StorSimple, подключенному к виртуальному массиву StorSimple
@@ -58,6 +58,6 @@ ms.openlocfilehash: 577f1a2a7833d4a64ca02aabd13a04901a2e3abd
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

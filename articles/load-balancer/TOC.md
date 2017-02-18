@@ -40,6 +40,7 @@
 ## [Настройка нескольких виртуальных IP-адресов для облачной службы](load-balancer-multivip.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Использование конфигураций с несколькими IP-адресами](load-balancer-multiple-ip.md)
+### [Использование конфигураций с несколькими IP-адресами (интерфейс командной строки)](load-balancer-multiple-ip-cli.md)
 ## [Log Analytics для Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Настройка DHCPv6 для виртуальных машин Linux](load-balancer-ipv6-for-linux.md)
 
@@ -67,6 +68,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

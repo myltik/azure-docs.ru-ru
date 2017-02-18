@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9ade7b48b16d79c23355a8dbd46e9367abe4abd6
-ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: cd09b7c5d45d07a3fbcc5d6f0c02400dcd36d61b
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
 * быстрые ответы — запросы, на которые приложение отвечает быстро;
 * имена определенных событий.
 
-> [!NOTE] 
+> [!NOTE]
 > Фильтры искажают значения метрик приложения. Например, вы можете задать фильтр для отклонения небольших значений времени ответа, чтобы диагностировать медленные ответы. Однако необходимо иметь в виду, что в этом случае среднее время ответа, отображаемое Application Insights, будет медленнее, а количество запросов — меньше, чем на самом деле.
 > Если это представляет собой проблему, то используйте [выборки](app-insights-sampling.md).
 
@@ -66,7 +66,7 @@ ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
 
            <!-- Exclude telemetry from availability tests and bots -->
            <Processor type="SyntheticSourceFilter">
-                <!-- Optional: specify which synthetic sources, 
+                <!-- Optional: specify which synthetic sources,
                      comma-separated
                      - default is all synthetics -->
                 <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
@@ -115,7 +115,7 @@ ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
            </Processor>
 ```
 
-* `DurationThresholdInMS` — длительность означает время, необходимое для загрузки страницы. Если он установлен, то страницы, которые загружаются быстрее, чем это значение, не учитываются. 
+* `DurationThresholdInMS` — длительность означает время, необходимое для загрузки страницы. Если он установлен, то страницы, которые загружаются быстрее, чем это значение, не учитываются.
 * `NotNeededNames` — разделенный запятыми список имен страниц.
 * `NotNeededUrls` — разделенный запятыми список фрагментов URL-адресов. Например, `"home"` отфильтровывает все страницы, которые содержат в URL-адресе слово "home".
 
@@ -160,7 +160,7 @@ ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
 
 ### <a name="telemetry-event-filter"></a>Фильтр телеметрии событий
 
-Фильтрует пользовательские события (добавленные в журнал с помощью [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)).
+Фильтрует пользовательские события (добавленные в журнал с помощью [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -176,7 +176,7 @@ ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
 
 ### <a name="trace-telemetry-filter"></a>Фильтр телеметрии трассировок
 
-Фильтрует трассировки журнала (добавленные в журнал с помощью [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) или [сборщика платформа ведения журналов](app-insights-java-trace-logs.md)).
+Фильтрует трассировки журнала (добавленные в журнал с помощью [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) или [сборщика платформа ведения журналов](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -194,14 +194,11 @@ ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
  *  CRITICAL — отфильтровывание всех уровней, кроме уровня CRITICAL.
 
 
-```
+## <a name="custom-filters"></a>Настраиваемые фильтры
 
+### <a name="1-code-your-filter"></a>1. Программирование фильтра
 
-## Custom filters
-
-### 1. Code your filter
-
-In your code, create a class that implements `TelemetryProcessor`:
+В коде создайте класс, реализующий `TelemetryProcessor`.
 
 ```Java
 
@@ -215,7 +212,7 @@ In your code, create a class that implements `TelemetryProcessor`:
        private final String successful;
 
        /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful) 
+       public void setNotNeeded(String successful)
        {
           this.successful = successful;
        }
@@ -269,7 +266,6 @@ In your code, create a class that implements `TelemetryProcessor`:
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

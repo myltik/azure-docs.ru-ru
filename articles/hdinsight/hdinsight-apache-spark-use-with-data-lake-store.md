@@ -1,6 +1,6 @@
 ---
-title: "Выполнение заданий Spark с данными, хранимыми в Azure Data Lake Store | Документация Майкрософт"
-description: "Выполнение заданий Spark с данными, хранимыми в Azure Data Lake Store"
+title: "Использование Apache Spark для анализа данных в Azure Data Lake Store | Документация Майкрософт"
+description: "Выполнение заданий Spark для анализа данных, сохраненных в Azure Data Lake Store"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
-ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: e9780d487043a86df5a627b92579b67154c59279
 
 
 ---
@@ -77,7 +77,7 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
-    ![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 
 4. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Для этого вставьте следующий фрагмент кода в ячейку и нажмите сочетание клавиш **SHIFT+ВВОД**.
 
@@ -85,7 +85,7 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
     При каждом запуске задания в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)** , а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания этот значок изменится на кружок без заливки.
 
-     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
+     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Состояние задания записной книжки Jupyter")
 
 5. Загрузите пример данных во временную таблицу с помощью файла **HVAC.csv** , скопированного в учетную запись Data Lake Store. Получить доступ к данным в учетной записи хранилища озера данных можно с помощью следующего шаблона URL-адреса.
 
@@ -114,18 +114,18 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
          # Register the data fram as a table to run queries against
          hvacdf.registerTempTable("hvac")
 
-6. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+6. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
          %%sql
          SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
 7. После успешного выполнения задания по умолчанию будет показаны следующие табличные данные.
 
-      ![Табличные выходные данные для результата запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Table output of query result")
+      ![Вывод результатов запроса в виде таблицы](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Вывод результатов запроса в виде таблицы")
 
      Результаты также можно просмотреть и в других визуализациях. Например, диаграмма областей для тех же выходных данных будет выглядеть следующим образом.
 
-     ![Диаграмма областей для результата запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Area graph of query result")
+     ![Диаграмма с областями, показывающая результат запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Диаграмма с областями, показывающая результат запроса")
 
 8. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 
@@ -138,6 +138,6 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

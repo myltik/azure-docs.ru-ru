@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92bf959c7d0e60aecc3cf559eeec02413dcc0619
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 9906aa7ac4296089fd2e41897323e757b181a022
 
 
 ---
@@ -56,7 +56,7 @@ ms.openlocfilehash: 92bf959c7d0e60aecc3cf559eeec02413dcc0619
 В связи с единым видом каталога такие операции, как перемещение ресурсов между подписками, могут усложняться. Чтобы выполнить перенос ресурсов, может потребоваться впервые использовать команду **Изменить каталог** на странице "Подписки" диалогового окна **Параметры**, чтобы привязать подписки к одному и тому же каталогу.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
+* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 * Дополнительные сведения о назначении ролей в Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
 
@@ -68,6 +68,6 @@ ms.openlocfilehash: 92bf959c7d0e60aecc3cf559eeec02413dcc0619
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

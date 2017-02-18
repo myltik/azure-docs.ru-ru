@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/21/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5565ba8795127ffbdecbe8b764d3aa7f4b93f784
-ms.openlocfilehash: f76734eb4081e08603d98b6a1be11cade3130b1d
+ms.sourcegitcommit: add228c8a24fbd36ab05f55570abf1374f519822
+ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
 
 
 ---
@@ -238,11 +238,11 @@ for (int i=0; i<5; i++)
 Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные очереди и разделы](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Как получать сообщения из подписки
-Чтобы получить сообщения из подписки, можно использовать объект [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Объекты **SubscriptionClient** могут работать в двух режимах —[*ReceiveAndDelete* и *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode).
+Чтобы получить сообщения из подписки, можно использовать объект [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Объекты **SubscriptionClient** могут работать в двух режимах —[*ReceiveAndDelete* и *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Значение по умолчанию — **PeekLock**.
 
 В режиме **ReceiveAndDelete** получение — это одиночная операция. Когда служебная шина получает запрос на чтение для сообщения в подписке, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель, которая лучше всего работает в ситуациях, когда приложение может не обрабатывать сообщение при сбое. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Так как служебная шина отметит сообщение как использованное, перезапущенное приложение, начав снова использовать сообщения, пропустит сообщение, использованное до аварийного завершения работы.
 
-В режиме **PeekLock** (режим по умолчанию) процесс получения проходит в два этапа. Это позволяет поддерживать приложения, которые не допускают пропуска сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина обнаруживает вызов метода **Complete**, сообщение помечается как использованное и удаляется из подписки.
+В режиме **PeekLock** (режим по умолчанию) процесс получения происходит в два этапа, обеспечивая поддержку приложений, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина обнаруживает вызов метода **Complete**, сообщение помечается как использованное и удаляется из подписки.
 
 В следующем примере показано, как получать и обрабатывать сообщения с помощью режима по умолчанию **PeekLock** . Чтобы задать другое значение [ReceiveMode](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), можно использовать другую перегрузку метода [CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). В этом примере используется обратный вызов [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) для обработки сообщений по мере их поступления в подписку **HighMessages**.
 
@@ -326,6 +326,6 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

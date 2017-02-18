@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: 91090ad383d6a03e6d978376d8dd45dc05eac7e8
-ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
 ![Архитектура системы](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> В этом разделе используются инструменты [интерфейса командной строки Azure](../xplat-cli-install.md), поэтому обязательно скачайте и подключите их к своей подписке Azure в соответствии с инструкциями. Если вам нужна справка по командам, доступным в интерфейсе командной строки Azure (Azure CLI), ознакомьтесь со [справочником по командам Azure CLI](../virtual-machines-command-line-tools.md). Также вам потребуется [создать ключ SSH для проверки подлинности] и записать расположение PEM-файла.
+> В этом разделе используются инструменты [интерфейса командной строки Azure](../xplat-cli-install.md), поэтому обязательно скачайте и подключите их к своей подписке Azure в соответствии с инструкциями. Если вам нужна справка по командам, доступным в интерфейсе командной строки Azure (Azure CLI), ознакомьтесь со [справочником по командам Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Также вам потребуется [создать ключ SSH для проверки подлинности] и записать расположение PEM-файла.
 >
 >
 
@@ -367,6 +367,6 @@ ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

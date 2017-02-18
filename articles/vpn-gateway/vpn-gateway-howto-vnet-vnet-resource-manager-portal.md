@@ -1,10 +1,10 @@
 ---
-title: "Подключение виртуальных сетей с использованием модели развертывания Resource Manager и портала Azure | Документация Майкрософт"
+title: "Подключение виртуальной сети Azure к другой виртуальной сети с помощью портала | Документация Майкрософт"
 description: "Создайте подключение VPN-шлюза между виртуальными сетями с использованием Resource Manager и портала Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
-ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 Можно даже комбинировать подключение виртуальных сетей с многосайтовыми конфигурациями. Это позволяет устанавливать топологии сети, совмещающие распределенные подключения с подключениями между виртуальными сетями, как показано на схеме ниже.
 
-![Сведения о подключениях](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![Сведения о подключениях](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Сведения о подключениях")
 
 ### <a name="why-connect-virtual-networks"></a>Что может дать связь между виртуальными сетями
 Вам может потребоваться подключить виртуальные сети по следующим причинам.
@@ -64,7 +64,7 @@ ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
   
   * В одном регионе можно настроить многоуровневые приложения с несколькими виртуальными сетями, которые связаны друг с другом из-за требований к изоляции или административных требований.
 
-Дополнительные сведения о подключениях типа "виртуальная сеть — виртуальная сеть" см. в разделе [Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"](#faq) в конце этой статьи.
+См. дополнительные сведения в разделе с [часто задаваемыми вопросами о подключениях типа "виртуальная сеть — виртуальная сеть"](#faq) в конце этой статьи.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Примеры настроек
 Выполняя эти шаги в качестве упражнения, используйте следующие значения. В качестве примера для каждой виртуальной сети используется несколько адресных пространств. Однако для конфигураций типа "сеть — сеть" несколько адресных пространств не требуется.
@@ -155,21 +155,21 @@ ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 1. Выберите **Все ресурсы**, а затем перейдите к шлюзу для своей виртуальной сети. Например, **TestVNet1GW**. Щелкните **TestVNet1GW**, чтобы открыть колонку шлюза виртуальной сети.
    
-    ![Колонка "Подключения"](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Колонка подключений](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Колонка подключений")
 2. Щелкните **Добавить**, чтобы открыть колонку **Добавление подключения**.
 3. В колонке **Добавление подключения** в поле имени введите имя подключения. Например, **TestVNet1toTestVNet4**.
    
-    ![Имя подключения](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Имя подключения](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Имя подключения")
 4. В раскрывающемся списке **Тип подключения** выберите **Виртуальная сеть — виртуальная сеть**.
 5. Так как это подключение создается с указанного шлюза виртуальной сети, поле **Шлюз первой виртуальной сети** заполняется автоматически.
 6. В поле **Шлюз второй виртуальной сети** укажите значение шлюза виртуальной сети, к которой нужно создать подключение. Щелкните **Выберите другой шлюз виртуальной сети**, чтобы открыть колонку **Выбор шлюза виртуальной сети**.
    
-    ![Добавление подключения](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Добавление подключения](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Добавление подключения")
 7. Просмотрите список шлюзов виртуальной сети в этой колонке. Обратите внимание, что отображаются только те шлюзы виртуальной сети, которые относятся к вашей подписке. Дополнительные сведения о подключении к шлюзу виртуальной сети, который не относится к вашей подписке, см. в статье [Настройка подключения между виртуальными сетями в развертывании Resource Manager с помощью PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Щелкните шлюз виртуальной сети, к которому нужно подключиться.
 9. В поле **Общий ключ** введите общий ключ для подключения. Этот ключ можно сгенерировать или создать самостоятельно. В подключении типа "сеть — сеть" один и тот же ключ используется и для локального устройства, и для подключения шлюза виртуальной сети. То же самое и здесь, но вместо подключения к VPN-устройству выполняется подключение к шлюзу виртуальной сети.
    
-    ![Общий ключ](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Общий ключ](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Общий ключ")
 10. В нижней части колонки нажмите кнопку **ОК**, чтобы сохранить изменения.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Настройка подключения TestVNet4
@@ -183,13 +183,13 @@ ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 Просмотрите подключения и проверьте их состояния. После создания подключения для параметра "Состояние" будут отображаться значения **Успешно** и **Подключено**.
 
-![Успешно](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Успешно](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Успешно")
 
 Чтобы просмотреть дополнительные сведения об отдельном подключении, дважды щелкните его.
 
-![Основные компоненты](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Основные компоненты](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Основные компоненты")
 
-## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Рекомендации по работе с подключением типа "виртуальная сеть — виртуальная сеть"
 Дополнительные сведения см. в ответах на часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть".
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
@@ -199,6 +199,6 @@ ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

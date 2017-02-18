@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 87755571f560f0b41baabac0dc2c437b2738e75f
-ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
+ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
+ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
 
 
 ---
@@ -115,10 +115,10 @@ ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
 
 ## <a name="view-and-analyze-logs"></a>Просмотр и анализ журналов
 
-Методы просмотра журнала действий описаны в [этой статье](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Методы просмотра журнала диагностики описаны в статье [Обзор журналов диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Если вы отправляете данные диагностики в Log Analytics, [Решение для анализа сетей Azure (предварительная версия) в Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) поможет получить более подробный анализ данных. 
+Методы просмотра журнала действий описаны в [этой статье](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Методы просмотра журнала диагностики описаны в статье [Обзор журналов диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Если вы отправляете данные диагностики в Log Analytics, то [Решение для анализа сетей Azure (предварительная версия) в Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) поможет получить более подробный анализ данных. 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

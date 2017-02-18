@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
+ms.sourcegitcommit: c002c4588869536810b969aed80da09e60b62525
+ms.openlocfilehash: 9b06b4a7f4b58c586b81d0ad4a40dfdc586dfe6e
 
 
 ---
@@ -268,7 +268,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 - - -
 > [!NOTE]
-> Веб-приложение можно увидеть в действии. [Попробуйте службу приложений](http://go.microsoft.com/fwlink/?LinkId=523751) — в ней можно быстро создать кратковременное приложение начального уровня. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
+> Веб-приложение можно увидеть в действии. [Попробуйте службу приложений](https://azure.microsoft.com/try/app-service/) — в ней можно быстро создать кратковременное приложение начального уровня. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 > 
 > 
 
@@ -295,6 +295,6 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

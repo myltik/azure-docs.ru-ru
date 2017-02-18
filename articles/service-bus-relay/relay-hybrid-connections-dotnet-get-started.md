@@ -1,35 +1,37 @@
 ---
-title: "Приступая к работе с гибридными подключениями к ретранслятору | Документация Майкрософт"
+title: "Приступая к работе с гибридными подключениями к ретранслятору Azure в .NET | Документация Майкрософт"
 description: "Как написать консольное приложение C# для гибридных подключений"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Приступая к работе с гибридными подключениями к ретранслятору
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-## <a name="what-will-be-accomplished"></a>Что будет выполнено
-Так как для гибридных подключений требуется компонент клиента и сервера, в этом руководстве мы создадим два консольных приложения. Для этого выполните следующие действия:
+В этом руководстве содержатся обзорные сведения о [гибридных подключениях ретранслятора Azure](relay-what-is-it.md#hybrid-connections) и показано, как создать клиентское приложение, которое отправляет сообщения соответствующему приложению прослушивателя. 
+
+## <a name="what-will-be-accomplished"></a>Наши задачи:
+Так как для гибридных подключений требуется компонент клиента и сервера, в этом руководстве мы создадим два консольных приложения. Необходимые действия:
 
 1. Создайте пространство имен ретранслятора с помощью портала Azure.
 2. Создайте гибридное подключение с помощью портала Azure.
-3. Создайте серверное консольное приложение для получения сообщений.
-4. Создайте клиентское консольное приложение для отправки сообщений.
+3. Создайте серверное консольное приложение (прослушиватель) для получения сообщений.
+4. Создайте клиентское консольное приложение (отправитель) для отправки сообщений.
 
 ## <a name="prerequisites"></a>Предварительные требования
 1. [Visual Studio 2013 или Visual Studio 2015](http://www.visualstudio.com). В описанных в этом руководстве примерах используется Visual Studio 2015.
@@ -74,6 +76,6 @@ ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

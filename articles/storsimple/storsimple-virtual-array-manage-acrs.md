@@ -1,5 +1,5 @@
 ---
-title: "Управление записями контроля доступа для виртуального массива Microsoft Azure StorSimple | Документация Майкрософт"
+title: "Управление записями контроля доступа для виртуального массива StorSimple | Документация Майкрософт"
 description: "В этой статье объясняется, как с помощью записей контроля доступа (ACR) определять, какие узлы могут подключаться к тому в виртуальном массиве StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: a0ba81faa20587d9559bf25cdc82dd6e20f42948
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 1a93ef9c3418da64302d251203fd195708437931
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Управление записями контроля доступа для виртуального массива StorSimple с помощью службы диспетчера устройств StorSimple
@@ -131,6 +131,6 @@ ms.openlocfilehash: a0ba81faa20587d9559bf25cdc82dd6e20f42948
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

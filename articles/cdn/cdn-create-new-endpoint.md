@@ -1,9 +1,9 @@
 ---
-title: "Использование Azure CDN | Документация Майкрософт"
-description: "В этом разделе показано, как включить сеть доставки содержимого (CDN) для Azure. В этом руководстве описано, как создать профиль CDN и конечную точку."
+title: "Начало работы с Azure CDN | Документация Майкрософт"
+description: "В статье описывается, как включить сеть доставки содержимого (CDN) в Azure. В этом руководстве описано, как создать профиль CDN и конечную точку."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
+ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 
 
 ---
-# <a name="using-azure-cdn"></a>Использование Azure CDN
+# <a name="getting-started-with-azure-cdn"></a>Начало работы с Azure CDN
 В этой статье объясняется, как включить Azure CDN, создав новый профиль и конечную точку CDN.
 
 > [!IMPORTANT]
@@ -106,6 +106,6 @@ ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

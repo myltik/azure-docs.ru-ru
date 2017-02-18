@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 73b5f05bf8b127a2fa5cc2aa26a7bd655569368c
-ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
+ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
+ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
 
 
 ---
@@ -132,23 +132,23 @@ ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
 
 Поскольку вы вошли в качестве администратора сервера, у вас есть разрешения на создание пользователей и имен для входа.
 
-2. Используя SSMS или другой клиент запросов, откройте новый запрос к базе данных **master**.
+1. Используя SSMS или другой клиент запросов, откройте новый запрос к базе данных **master**.
 
     ![Создание запроса к базе данных master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![Создание запроса к базе данных master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. В окне запроса выполните следующую команду T-SQL, чтобы создать имя для входа XLRCLOGIN и пользователя с именем Loading User. Это имя для входа позволяет подключаться к логическому серверу SQL.
+2. В окне запроса выполните следующую команду T-SQL, чтобы создать имя для входа MedRCLogin и пользователя с именем LoadingUser. Это имя для входа позволяет подключаться к логическому серверу SQL.
 
     ```sql
-    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Теперь, выполняя запрос к *базе данных хранилища данных SQL*, создайте пользователя базы данных с именем для входа, которое вы создали для доступа к базе данных и выполнения в ней операций.
 
     ```sql
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 4. Предоставьте пользователю базы данных разрешения на управление базой данных с именем NYT. 
@@ -160,13 +160,16 @@ ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
     > Если имя базы данных содержит дефисы, обязательно заключите его в квадратные скобки! 
     >
 
-### <a name="give-the-user-extra-large-resource-allocations"></a>Выделение для пользователя очень большого объема ресурсов
+### <a name="give-the-user-medium-resource-allocations"></a>Выделение для пользователя среднего объема ресурсов
 
-1. Выполните следующую команду T-SQL, чтобы сделать пользователя членом класса очень больших ресурсов, который называется xlargerc. 
+1. Выполните следующую команду T-SQL, чтобы сделать пользователя членом класса средних ресурсов, который называется mediumrc. 
 
     ```sql
-    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
+    > [!NOTE]
+    > Дополнительные сведения о параллелизме и классах ресурсов см. [здесь](sql-data-warehouse-develop-concurrency.md#resource-classes). 
+    >
 
 2. Подключитесь к логическому серверу с помощью новых учетных данных.
 
@@ -223,7 +226,8 @@ ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
     WITH ( 
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = ''DATE_FORMAT = '',
+            STRING_DELIMITER = '',
+        DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -352,7 +356,7 @@ ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
         LOCATION = 'Time',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value
+        REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
@@ -403,7 +407,7 @@ ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
     )
     WITH
     (
-        LOCATION = 'Weather2013'
+        LOCATION = 'Weather2013',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
@@ -670,6 +674,6 @@ savings by pausing and scaling to meet your business needs.
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

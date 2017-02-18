@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 
 
 ---
@@ -38,10 +38,10 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Получение ключа инструментирования Application Insights
 1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 2. Создайте ресурс Application Insights. Задайте тип приложения: веб-приложение Java.
-   
+
     ![Введите имя, выберите веб-приложение Java и нажмите кнопку "Создать"](./media/app-insights-java-get-started/02-create.png)
 3. Найдите ключ инструментирования нового ресурса. Далее будет необходимо вставить его в проект кода.
-   
+
     ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2) Добавление в проект пакета SDK Application Insights для Java
@@ -54,6 +54,8 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 Если проект уже настроен для сборки с использованием Maven, добавьте следующий код в файл pom.xml.
 
 Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
+
+```XML
 
     <repositories>
        <repository>
@@ -71,7 +73,7 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-
+```
 
 * *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Требуется обновить пакет SDK до новой версии?*  Обновите зависимости проекта.
@@ -81,6 +83,8 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
 
+```JSON
+
     repositories {
       mavenCentral()
     }
@@ -89,6 +93,7 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
+```
 
 * *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
@@ -102,11 +107,11 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 ### <a name="questions"></a>Вопросы
 * *Каковы отношения между компонентами `-core` и `-web` в ZIP-архиве?*
-  
+
   * `applicationinsights-core` предоставляет чистый API. Этот компонент требуется всегда.
   * Компонент `applicationinsights-web` предоставляет метрики для отслеживания количества запросов HTTP и значений времени ответа. Его можно опустить, если автоматический сбор данных телеметрии не требуется, например, если вы хотите написать собственный код сбора данных.
 * *Чтобы обновить пакет SDK после появления новой версии:*
-  
+
   * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://aka.ms/qqkaq6) и установите ее вместо более старых версий.
   * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -114,6 +119,8 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 Добавьте ApplicationInsights.xml в папку ресурсов проекта или проверьте, добавлен ли этот файл в путь класса развертывания проекта. Скопируйте в него следующий код XML.
 
 Замените ключ инструментирования на полученный в портале Azure.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -144,6 +151,7 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 
 * Ключ инструментирования пересылается вместе с каждым элементом телеметрии; служба Application Insights отобразит его в ресурсе.
@@ -160,8 +168,10 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 Вы также можете [задать его в коде](app-insights-api-custom-events-metrics.md#ikey):
 
-    telemetryClient.InstrumentationKey = "...";
+```Java
 
+    telemetryClient.InstrumentationKey = "...";
+```
 
 ## <a name="4-add-an-http-filter"></a>4. Добавление фильтра HTTP
 Последний шаг настройки позволяет компоненту HTTP-запросов выполнить протоколирование каждого веб-запроса. (Не обязательно, если используется только упрощенный интерфейс API.)
@@ -169,6 +179,8 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 Найдите и откройте файл web.xml в проекте, добавьте следующий фрагмент кода в узел web-app, где настраиваются фильтры вашего приложения.
 
 Для получения наиболее точных результатов этот фильтр должен применяться до всех остальных фильтров.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -180,9 +192,12 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Если вы используете Spring Web MVC 3.1 или более поздней версии
 Для включения пакета Application Insights измените следующие элементы в *-servlet.xml:
+
+```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -192,14 +207,18 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
 
 #### <a name="if-youre-using-struts-2"></a>Если вы используете Struts 2
 Добавьте в файл конфигурации Struts следующий элемент (обычно называется struts.xml или struts-default.xml):
+
+```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+```
 
 (При наличии перехватчиков, определенных в стандартном стеке, перехватчик можно просто добавить в стек.)
 
@@ -220,11 +239,11 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Служба Application Insights предполагает, что HTTP-запросы для приложений MVC имеют следующий формат: `VERB controller/action`. Например, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` и `GET Home/Product/sdf96vws` сгруппированы в `GET Home/Product`. Это позволяет осмысленно группировать запросы, получая, например, число запросов и среднее время выполнения запросов.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Данные экземпляров
-Щелкните тип запроса, чтобы просмотреть отдельные экземпляры. 
+Щелкните тип запроса, чтобы просмотреть отдельные экземпляры.
 
 В Application Insights отображаются два типа данных: 1) объединенные данные, хранимые и отображаемые как средние значения, количества и суммы; 2) данные экземпляров, например отдельные отчеты HTTP-запросов, исключения, число просмотров страниц или пользовательские события.
 
@@ -233,7 +252,7 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Аналитика: мощный язык запросов
-По мере увеличения объема накопленных данных вы сможете использовать запросы для объедения данных и поиска отдельных экземпляров. [Аналитика]() — это мощный инструмент, который не только позволяет изучать сведения о производительности и использовании, но и диагностировать возможные неполадки.
+По мере увеличения объема накопленных данных вы сможете использовать запросы для объедения данных и поиска отдельных экземпляров.  [Аналитика](app-insights-analytics.md) — это мощный инструмент, который не только позволяет изучать сведения о производительности и использовании, но и диагностировать возможные неполадки.
 
 ![Пример аналитики](./media/app-insights-java-get-started/025.png)
 
@@ -241,16 +260,16 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 Теперь опубликуйте приложение на сервере, откройте доступ для пользователей и изучайте телеметрию на портале.
 
 * Убедитесь, что брандмауэр позволяет приложению отправлять телеметрию на следующие порты:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* Если исходящий трафик должен проходить через брандмауэр, определите системные свойства `http.proxyHost` и `http.proxyPort`. 
+* Если исходящий трафик должен проходить через брандмауэр, определите системные свойства `http.proxyHost` и `http.proxyPort`.
 
 * На серверах Windows необходимо установить следующее:
-  
+
   * [распространяемые компоненты Microsoft Visual C++.](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (Сюда входят счетчики производительности).
 
 
@@ -261,7 +280,7 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 Для сбора данных по другим исключениям доступны два варианта:
 
-* [вставить в код вызовы функции trackException()][apiexceptions]; 
+* [вставить в код вызовы функции trackException()][apiexceptions];
 * [установить на сервере агент для Java](app-insights-java-agent.md). Необходимо указать методы, которые требуется отслеживать.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Мониторинг вызовов методов и внешних зависимостей.
@@ -275,20 +294,25 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 ### <a name="customize-performance-counter-collection"></a>Настройка сбора данных счетчиками производительности
 Чтобы отключить сбор данных стандартным набором счетчиков производительности, добавьте следующий фрагмент кода в корневой узел файла ApplicationInsights.xml:
 
+```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### <a name="collect-additional-performance-counters"></a>Сбор данных дополнительными счетчиками производительности
 Можно задать необходимость сбора данных дополнительными счетчиками производительности.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Счетчики JMX (предоставляются виртуальной машиной Java)
+
+```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` — имя, отображаемое в портале Application Insights.
 * `objectName` — имя объекта JMX.
@@ -301,12 +325,14 @@ ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 #### <a name="windows-performance-counters"></a>Счетчики производительности Windows
 Каждый [счетчик производительности Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) входит в состав категории (аналогично поле является членом класса). Категория может быть глобальной либо иметь пронумерованные или именованные экземпляры.
 
+```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName — имя, отображаемое в портале Application Insights.
 * categoryName — категория счетчика производительности (объект производительности), с которой связан этот счетчик производительности.
@@ -344,7 +370,7 @@ Application Insights может тестировать ваш веб-сайт ч
 
 ![Пример веб-теста](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Дополнительные сведения о веб-тестах для определения доступности.][availability] 
+[Дополнительные сведения о веб-тестах для определения доступности.][availability]
 
 ## <a name="questions-problems"></a>Вопросы? Проблемы?
 [Устранение неполадок Java](app-insights-java-troubleshoot.md)
@@ -361,7 +387,7 @@ Application Insights может тестировать ваш веб-сайт ч
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -371,6 +397,6 @@ Application Insights может тестировать ваш веб-сайт ч
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

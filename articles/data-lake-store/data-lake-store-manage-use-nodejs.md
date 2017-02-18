@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 968e4039b2c94d67560fafb245b6558c70b6d2e3
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 091ab246826c96b9d816c87b27014c1e54039429
 
 
 ---
@@ -31,6 +31,11 @@ ms.openlocfilehash: 968e4039b2c94d67560fafb245b6558c70b6d2e3
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
+> 
+
+> [!NOTE]
+> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы рекомендуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Их производительность выше, так как они используют несколько потоков для параллельной передачи данных.
+> 
 > 
 
 Узнайте, как с помощью пакета Azure SDK для Node.js создать учетную запись Azure Data Lake Store и выполнять базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в [обзоре Data Lake Store](data-lake-store-overview.md). В настоящее время пакет SDK поддерживает следующее:
@@ -146,6 +151,6 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
 
 
 ---
-# <a name="how-do-i-in-application-insights"></a>Как работать с Application Insights
+# <a name="how-do-i--in-application-insights"></a>Как работать с Application Insights
 ## <a name="get-an-email-when-"></a>Получать уведомление по электронной почте, если...
 ### <a name="email-if-my-site-goes-down"></a>Уведомлять меня по электронной почте, если сайт выходит из строя
 Настройте [веб-тест доступности](app-insights-monitor-web-app-availability.md).
@@ -40,7 +40,7 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 ### <a name="email-on-an-event-in-my-app"></a>Уведомлять меня по электронной почте о событиях в приложении
 Предположим, что вы хотите получать уведомления по электронной почте при возникновении определенных событий. Application Insights не предоставляет эту функцию напрямую, но позволяет [отправлять оповещение, если метрика превысит пороговое значение](app-insights-alerts.md).
 
-Оповещения можно настроить для [пользовательских метрик](app-insights-api-custom-events-metrics.md#track-metric), но не для пользовательских событий. Напишите код, который будет увеличивать метрику при возникновении соответствующего события:
+Оповещения можно настроить для [пользовательских метрик](app-insights-api-custom-events-metrics.md#trackmetric), но не для пользовательских событий. Напишите код, который будет увеличивать метрику при возникновении соответствующего события:
 
     telemetry.TrackMetric("Alarm", 10);
 
@@ -174,7 +174,7 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 * В файле [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)отключите все неиспользуемые модули, например сборщик данных счетчиков производительности.
 * Используйте [Выборка и фильтрация](app-insights-api-filtering-sampling.md) в пакете SDK.
 * На своих веб-страницах ограничьте число вызовов Ajax для каждого представления страницы. Во фрагменте сценария после `instrumentationKey:...` вставьте `,maxAjaxCallsPerView:3` (или другое подходящее число).
-* Если используется [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), вычисляйте агрегированное значение для пакетов значений метрики перед отправкой результата. Это можно сделать с помощью перегруженного метода TrackMetric().
+* Если используется [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric), вычисляйте агрегированное значение для пакетов значений метрики перед отправкой результата. Это можно сделать с помощью перегруженного метода TrackMetric().
 
 Подробнее о [расценках и квотах](app-insights-pricing.md).
 
@@ -208,6 +208,6 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

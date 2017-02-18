@@ -1,6 +1,6 @@
 ---
-title: "Репликация виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery и PowerShell | Документация Майкрософт"
-description: "Узнайте, как автоматизировать репликацию виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery и PowerShell."
+title: "Репликация виртуальных машин Hyper-V в Azure на классическом портале с помощью PowerShell | Документация Майкрософт"
+description: "Автоматизация репликации виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery и PowerShell на классическом портале."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,15 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 667f796ff6c411389847f5200ebdc28db1ee1973
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell---classic"></a>Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (классическая модель)
+# <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Репликация виртуальных машин Hyper-V в Azure на классическом портале с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал Azure](site-recovery-vmm-to-azure.md)
 > * [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -77,7 +77,7 @@ ms.openlocfilehash: 667f796ff6c411389847f5200ebdc28db1ee1973
 * [Узнайте больше](site-recovery-network-mapping.md) о сетевом сопоставлении.
 
 ### <a name="powershell-prerequisites"></a>Необходимые компоненты PowerShell
-Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](https://msdn.microsoft.com/library/dn850420.aspx).
+Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Дополнительные сведения об использовании командлетов, например о типичной обработке значений параметров, входных и выходных параметров в Azure PowerShell, приведены в статье [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -408,6 +408,6 @@ marsagentinstaller.exe /q /nu
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

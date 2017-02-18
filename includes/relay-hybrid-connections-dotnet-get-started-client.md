@@ -3,25 +3,29 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Добавление пакета ретранслятора NuGet
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
-2. Откройте вкладку **Обзор**, а затем выполните поиск по фразе "Ретранслятор Microsoft Azure" и выберите элемент **Ретранслятор Microsoft Azure**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
+2. Откройте вкладку **Обзор**, а затем выполните поиск по Microsoft.Azure.Relay и выберите элемент **Microsoft Azure Relay** (Ретранслятор Microsoft Azure). Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
 
 ### <a name="write-some-code-to-send-messages"></a>Написание кода для отправки сообщений
-1. Добавьте следующую инструкцию `using` в начало файла Program.cs.
+1. В начале файла Program.cs замените существующие операторы `using` следующими операторами.
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Добавьте константы в класс `Program`, чтобы получить сведения о подключении гибридного подключения. Замените заполнители в скобках соответствующими значениями, которые получены при создании гибридного подключения.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Добавьте новый метод в класс `Program`:
+3. Добавьте в класс `Program` следующий новый метод.
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -82,13 +86,13 @@
     ```
 4. В метод `Main` в классе `Program` добавьте следующую строку кода.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Вот как будет выглядеть файл Program.cs.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -172,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b16e7e221853f5d44248430cef2296301a09d497
-ms.openlocfilehash: 9ff8fec2daf9fc69377891b85b0a81e9e2a54536
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: a95e65db804f1c6cc2927901216ee7a287a911ee
 
 
 ---
@@ -37,15 +37,14 @@ ms.openlocfilehash: 9ff8fec2daf9fc69377891b85b0a81e9e2a54536
 
 Действие копирования перемещает данные в фабрике данных. Это действие выполняется с помощью глобально доступной службы, обеспечивающей безопасное, надежное и масштабируемое копирование данных между разными хранилищами. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).   
 
-> [!IMPORTANT]
-> Прежде чем начать работу с этим руководством, изучите [обзорную статью](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните все предварительные требования.
+> [!NOTE]
+> В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по этим командлетам см. в [справочнике](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories).
 >
-> В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по этим командлетам см. в [справочнике](https://msdn.microsoft.com/library/dn820234.aspx).
->
->
+> В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Он не преобразовывает входные данные в выходные. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Помимо выполнения предварительных требований, перечисленных в разделе "Обзор руководства", необходимо установить Azure PowerShell. Следуйте инструкциям по [установке и настройке Azure PowerShell](../powershell-install-configure.md).
+- Ознакомьтесь с [обзором руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
+- Установите Azure PowerShell. Следуйте инструкциям по [установке и настройке Azure PowerShell](../powershell-install-configure.md).
 
 ## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
 В таблице ниже перечислены шаги, которые выполняются в рамках этого руководства.
@@ -460,11 +459,10 @@ ms.openlocfilehash: 9ff8fec2daf9fc69377891b85b0a81e9e2a54536
 ## <a name="see-also"></a>Дополнительные материалы
 | Раздел | Описание |
 |:--- |:--- |
-| [Действия перемещения данных](data-factory-data-movement-activities.md) |В этой статье содержится информация о действии копирования, которое использовалось в этом руководстве. |
-| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных Azure. |
+| [Справочник по командлетам фабрики данных](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | В этой статье приведены сведения о командлетах фабрики данных. |
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья содержит сведения о конвейерах и действиях в фабрике данных Azure. |
 | [datasets](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
-| [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
+| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных Azure. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -484,6 +482,6 @@ ms.openlocfilehash: 9ff8fec2daf9fc69377891b85b0a81e9e2a54536
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

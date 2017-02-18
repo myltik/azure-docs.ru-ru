@@ -1,5 +1,5 @@
 ---
-title: "Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope"
+title: "Мониторинг интерфейсов API с помощью службы управления API Azure, концентраторов событий и Runscope | Документация Майкрософт"
 description: "Пример приложения, демонстрирующий политику регистрации в концентраторе событий путем подключения службы управления API Azure, концентраторов событий Azure и службы Runscope для регистрации и мониторинга HTTP-запросов"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
-ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope
@@ -275,8 +274,8 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительная информация о концентраторах событий Azure
-  * [Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
 * Дополнительные сведения об интеграции службы управления API и концентраторов событий
   * [Как регистрировать события в концентраторах событий Azure в службе управления Azure API](api-management-howto-log-event-hubs.md)
@@ -285,7 +284,6 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

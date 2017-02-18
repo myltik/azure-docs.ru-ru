@@ -1,23 +1,22 @@
 ---
 title: "Службы Azure для государственных организаций | Документация Майкрософт"
 description: "Содержит общие сведения о доступных службах в Azure для государственных организаций"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
-ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,12 +36,13 @@ ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
 * Облачные службы
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Сеть](documentation-government-networking.md)
-* Виртуальная сеть
-* Подсистема балансировки нагрузки
-* Шлюз приложений
-* VPN-шлюз
-* Диспетчер трафика
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [Поддержка сообществ BGP](documentation-government-networking.md#support-for-bgp-communities)
+* Виртуальная сеть
+* [Балансировщик нагрузки](documentation-government-networking.md#support-for-load-balancer)
+* Шлюз приложений
+* [Диспетчер трафика](documentation-government-networking.md#support-for-traffic-manger)
+* [VPN-шлюз](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Хранилище](documentation-government-services-storage.md)
 * [Хранилище Azure](documentation-government-services-storage.md#azure-storage)
@@ -88,7 +88,7 @@ ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
 * [Служба Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Планировщик
-* Диспетчер трафика
+* [Диспетчер трафика](documentation-government-networking.md#support-for-traffic-manger)
 * Мониторинг и диагностика
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -97,6 +97,6 @@ ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

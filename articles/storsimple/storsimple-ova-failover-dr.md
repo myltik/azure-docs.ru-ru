@@ -1,5 +1,5 @@
 ---
-title: "Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple"
+title: "Аварийное восстановление и отработка отказа для виртуального массива StorSimple | Документация Майкрософт"
 description: "Дополнительные сведения об отработке отказа виртуального массива StorSimple."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2017fcdc7a5c36c7c00d8bcef5be973ed60e3f82
 
 
 ---
@@ -125,7 +125,7 @@ ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
 
 В этом видео показано, как можно выполнить отработку отказа локального виртуального устройства StorSimple с переносом на другое виртуальное устройство.
 
-> [!ВИДЕО https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 
@@ -153,6 +153,6 @@ ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

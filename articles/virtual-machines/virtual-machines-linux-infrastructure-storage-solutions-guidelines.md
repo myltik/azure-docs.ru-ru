@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по решениям службы хранилища Azure | Документация Майкрософт"
+title: "Решения для хранения данных виртуальных машин Linux в Azure | Документация Майкрософт"
 description: "Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания решений для хранения данных в службах инфраструктуры Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 8b4ee1634981a449d9968f9156df10a9d40baae9
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 61bd36ff8b3bff0acb262f6d181ffe69e6b92d27
 
 
 ---
@@ -88,6 +88,6 @@ Azure накладывает ограничения на количество д
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

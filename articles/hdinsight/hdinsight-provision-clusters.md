@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: f014b92516879a0255dda3736bf5af6142555d92
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>Создание кластеров Hadoop под управлением Windows в HDInsight
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Кластер Hadoop включает в себя несколько виртуальных машин (узлов), которые используются для распределенной обработки задач в кластере. Azure абстрагирует сведения об установке и конфигурации отдельных узлов, поэтому вам нужно указать общие сведения о настройке. В этой статье вы изучите эти параметры конфигурации.
 
-> [!NOTE]
-> Информация, приведенная в этом документе, относится только к кластерам Azure HDInsight под управлением Windows. Сведения о кластерах под управлением Linux см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-> 
-> 
+> [!IMPORTANT]
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Информация, приведенная в этом документе, относится только к кластерам Azure HDInsight под управлением Windows. Сведения о кластерах под управлением Linux см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+
 
 ## <a name="access-control-requirements"></a>Требования к контролю доступа
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -48,10 +49,10 @@ ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
 
 | Тип | Узлы (число узлов) | Схема |
 | --- | --- | --- |
-| Hadoop |Головной узел (2), узел данных (от 1) |![Узлы кластера HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
-| HBase |Головной сервер (2), региональный сервер (от 1), основной узел или узел Zookeeper (3) |![Узлы кластера HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
-| Storm |Узел Nimbus (2), сервер супервизора (от 1), узел Zookeeper (3) |![Узлы кластера HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
-| Spark |Головной узел (2), рабочий узел (от 1), узел Zookeeper (3) (кат. "Бесплатный" для размера виртуальной машины Zookeeper A1) |![Узлы кластера HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
+| Hadoop |Головной узел (2), узел данных (от&1;) |![Узлы кластера HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
+| HBase |Головной сервер (2), региональный сервер (от&1;), основной узел или узел Zookeeper (3) |![Узлы кластера HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
+| Storm |Узел Nimbus (2), сервер супервизора (от&1;), узел Zookeeper (3) |![Узлы кластера HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
+| Spark |Головной узел (2), рабочий узел (от&1;), узел Zookeeper (3) (кат. "Бесплатный" для размера виртуальной машины Zookeeper A1) |![Узлы кластера HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
 
 > [!IMPORTANT]
 > Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
@@ -164,7 +165,7 @@ ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
 * Standard_A3 — "Крупный".
 * Standard_A4 — "Очень крупный".
 
-| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по 1023 ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
+| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по&1023; ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A3\"Крупный" |4 |7 ГБ |2 |Временный: 285 ГБ |8 |8x500 |
 | Standard_A4\"Очень крупный" |8 |14 ГБ |4 |Временный: 605 ГБ |16 |16x500 |
@@ -172,22 +173,22 @@ ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
 | Standard_A7 |8 |56 ГБ |4 |Временный: 605 ГБ |16 |16x500 |
 
 ### <a name="standard-tier-d-series"></a>Уровень Standard: серия D
-| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по 1023 ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
+| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по&1023; ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3 |4. |14 ГБ |4 |Временный (SSD): 200 ГБ |8 |8x500 |
-| Standard_D4 |8 |28 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
-| Standard_D12 |4. |28 ГБ |4 |Временный (SSD): 200 ГБ |8 |8x500 |
-| Standard_D13 |8 |56 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
-| Standard_D14 |16 |112 ГБ |8 |Временный (SSD): 800 ГБ |32 |32x500 |
+| Standard_D3 |4. |14 ГБ |4 |Временный (SSD):&200; ГБ |8 |8x500 |
+| Standard_D4 |8 |28 ГБ |8 |Временный (SSD):&400; ГБ |16 |16x500 |
+| Standard_D12 |4. |28 ГБ |4 |Временный (SSD):&200; ГБ |8 |8x500 |
+| Standard_D13 |8 |56 ГБ |8 |Временный (SSD):&400; ГБ |16 |16x500 |
+| Standard_D14 |16 |112 ГБ |8 |Временный (SSD):&800; ГБ |32 |32x500 |
 
 ### <a name="standard-tier-dv2-series"></a>Уровень Standard: серия Dv2
-| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по 1023 ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
+| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по&1023; ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4. |14 ГБ |4 |Временный (SSD): 200 ГБ |8 |8x500 |
-| Standard_D4_v2 |8 |28 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
-| Standard_D12_v2 |4. |28 ГБ |4 |Временный (SSD): 200 ГБ |8 |8x500 |
-| Standard_D13_v2 |8 |56 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
-| Standard_D14_v2 |16 |112 ГБ |8 |Временный (SSD): 800 ГБ |32 |32x500 |
+| Standard_D3_v2 |4. |14 ГБ |4 |Временный (SSD):&200; ГБ |8 |8x500 |
+| Standard_D4_v2 |8 |28 ГБ |8 |Временный (SSD):&400; ГБ |16 |16x500 |
+| Standard_D12_v2 |4. |28 ГБ |4 |Временный (SSD):&200; ГБ |8 |8x500 |
+| Standard_D13_v2 |8 |56 ГБ |8 |Временный (SSD):&400; ГБ |16 |16x500 |
+| Standard_D14_v2 |16 |112 ГБ |8 |Временный (SSD):&800; ГБ |32 |32x500 |
 
 Рекомендации по развертыванию, которые нужно учитывать, если планируется использовать эти ресурсы, приведены в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Сведения о ценах на разные размеры см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -198,13 +199,13 @@ ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
 
 Начисление оплаты начинается после создания кластера и прекращается только после его удаления. Дополнительные сведения о ценах см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по 1023 ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
+| Размер | Ядра ЦП | Память | Сетевые адаптеры (макс.) | Макс. размер диска | Макс. количество дисков данных (по&1023; ГБ) | Макс. количество операций ввода-вывода в секунду (500 на диск) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4. |14 ГБ |4 |Временный (SSD): 200 ГБ |8 |8x500 |
-| Standard_D4_v2 |8 |28 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
-| Standard_D12_v2 |4. |28 ГБ |4 |Временный (SSD): 200 ГБ |8 |8x500 |
-| Standard_D13_v2 |8 |56 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
-| Standard_D14_v2 |16 |112 ГБ |8 |Временный (SSD): 800 ГБ |32 |32x500 |
+| Standard_D3_v2 |4. |14 ГБ |4 |Временный (SSD):&200; ГБ |8 |8x500 |
+| Standard_D4_v2 |8 |28 ГБ |8 |Временный (SSD):&400; ГБ |16 |16x500 |
+| Standard_D12_v2 |4. |28 ГБ |4 |Временный (SSD):&200; ГБ |8 |8x500 |
+| Standard_D13_v2 |8 |56 ГБ |8 |Временный (SSD):&400; ГБ |16 |16x500 |
+| Standard_D14_v2 |16 |112 ГБ |8 |Временный (SSD):&800; ГБ |32 |32x500 |
 
 Рекомендации по развертыванию, которые нужно учитывать, если планируется использовать эти ресурсы, приведены в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Сведения о расценках на разные размеры см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight).  
 
@@ -297,6 +298,6 @@ ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

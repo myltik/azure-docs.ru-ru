@@ -1,5 +1,5 @@
 ---
-title: "Быстрое создание масштабируемых наборов с помощью интерфейса командной строки | Документация Майкрософт"
+title: "Быстрое создание масштабируемого набора в Azure с помощью интерфейса командной строки | Документация Майкрософт"
 description: "Вы можете развертывать наборы масштабирования с помощью функции быстрого создания в интерфейсе командной строки."
 keywords: "наборы масштабирования виртуальных машин"
 services: virtual-machine-scale-sets
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/23/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c99a461b243d9ca59752dc1590126727ec5bbb9
+ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
+ms.openlocfilehash: d89010dd5e6cdfe1ad427cdee1a5aad23155ace1
 
 
 ---
@@ -33,6 +33,6 @@ ms.openlocfilehash: 5c99a461b243d9ca59752dc1590126727ec5bbb9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

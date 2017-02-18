@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
 
 > [!NOTE]
 > Чтобы войти на классический портал Azure, учетная запись msmith@hotmail.com должна иметь подписку на Azure и принадлежать администратору службы или соадминистратору подписки.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
 
 > [!NOTE]
 > Эти действия может выполнить только пользователь, который входит в систему с помощью учетной записи Майкрософт. Если пользователь вошел в систему с помощью рабочей учетной записи, вариант **Использовать существующий каталог** будет недоступен, так как проверку подлинности рабочей учетной записи может выполнять только его домашний каталог (то есть каталог, где хранится рабочая учетная запись и которым владеет организация).
-> 
-> 
+>
+>
 
 1. Войдите на классический портал Azure с помощью учетной записи Майкрософт.
 2. Щелкните **Создать** > **Службы приложений** > **Active Directory** > **Каталог** > **Настраиваемое создание**.
@@ -116,7 +116,7 @@ ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
 7. Снова войдите на классический портал Azure с помощью учетной записи Майкрософт. Оба каталога появятся в расширении Active Directory.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
+* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 * Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
 * Дополнительные сведения о назначении ролей в Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
 * [Регистрация организации в Azure](sign-up-organization.md)
@@ -128,6 +128,6 @@ ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

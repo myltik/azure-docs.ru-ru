@@ -15,8 +15,8 @@ ms.workload: azure-government
 ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a7e53dcdbf3cecd8a00ad3424ffa0d62cc8fde43
-ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
 | [Хранилище BLOB-объектов "горячего" и "холодного" уровней] (../storage/storage-blob-storage-tiers.md) |Нет данных |Нет данных |
 | [Шифрование службы хранилища] (../storage/storage-service-encryption.md) |GA |GA |
 | [Хранилище класса Premium] (../storage/storage-premium-storage.md) |GA |Нет данных | Кроме того, доступны виртуальные машины серии DS. |
-| [Импорт и экспорт больших двоичных объектов] (../storage/storage-import-export-service.md) |GA |GA | Сейчас поддерживаются только классические учетные записи хранения. |
+| [Импорт и экспорт больших двоичных объектов] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>Варианты
@@ -85,6 +85,6 @@ URL-адреса для учетных записей хранения отли�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Переобучение новой веб-службы с помощью командлетов управления PowerShell для машинного обучения | Документация Майкрософт"
+title: "Повторное обучение новой веб-службы машинного обучения Azure с помощью PowerShell | Документация Майкрософт"
 description: "Узнайте, как с помощью командлетов управления PowerShell для машинного обучения осуществить программное переобучение модели и обновить веб-службу так, чтобы она использовала заново обученную модель в машинном обучении Azure."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
 
 
 ---
@@ -112,6 +112,6 @@ ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

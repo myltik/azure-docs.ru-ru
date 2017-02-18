@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: dc41ae217547fea45326cb146a59bc2888e1f44b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 55c349f19055e4e4d17f5c7290a2ee82d2d3d19d
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: dc41ae217547fea45326cb146a59bc2888e1f44b
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию] или [активируйте преимущества для подписчиков Visual Studio].
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -273,6 +273,6 @@ ms.openlocfilehash: dc41ae217547fea45326cb146a59bc2888e1f44b
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -6,18 +6,17 @@ keywords: "условный доступ на основе устройств, �
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
 ### <a name="device-is-not-registered"></a>Устройство не зарегистрировано
 Если устройство не зарегистрировано в Azure AD, а для защиты приложения используется политика на основе устройства, отобразится страница с одним из следующих сообщений об ошибке:
 
-![Сообщения об отказе в доступе для незарегистрированных устройств](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Сообщения об отказе в доступе для незарегистрированных устройств](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
 
 Если устройство присоединено к домену Active Directory организации, попробуйте выполнить следующее:
 
@@ -122,7 +121,7 @@ ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
 
 Отобразится страница, аналогичная показанной ниже.
 
-![Сообщение об отказе в доступе для неподдерживаемых браузеров](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Сообщения об отказе в доступе для неподдерживаемых браузеров](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
 
 В этом случае для получения доступа к приложению нужно использовать браузер, поддерживаемый платформой устройства.
 
@@ -132,6 +131,6 @@ ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

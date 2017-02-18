@@ -25,7 +25,7 @@
 
 # Практическое руководство
 ## Перемещение данных
-### [Мастер копирования фабрики данных](data-factory-copy-wizard.md)
+### [Мастер копирования фабрики данных](data-factory-azure-copy-wizard.md)
 #### [Загрузка 1 ТБ в течение 15 минут](data-factory-load-sql-data-warehouse.md)
 ### [Действие копирования](data-factory-data-movement-activities.md)
 #### [Руководство по настройке и производительности](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Справочник разработчика фабрики данных Azure](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Ресурсы
@@ -102,6 +101,6 @@
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

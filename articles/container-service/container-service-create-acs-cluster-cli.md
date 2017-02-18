@@ -1,5 +1,5 @@
 ---
-title: "Развертывание кластера Службы контейнеров Azure с помощью интерфейса командной строки | Документация Майкрософт"
+title: "Развертывание кластера контейнера Docker с помощью Azure CLI | Документация Майкрософт"
 description: "Развертывание кластера Службы контейнеров Azure с использованием предварительной версии интерфейса командной строки Azure 2.0"
 services: container-service
 documentationcenter: 
@@ -14,116 +14,137 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 855f0fe77bd55f6ec0dacad4bc28603ac1c6979c
-ms.openlocfilehash: c4a513686433e802f27f78de60e8b7fca21b4634
+ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
+ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
 
 
 ---
 # <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Использование предварительной версии интерфейса командной строки Azure 2.0 для создания кластера Службы контейнеров Azure
 
-Чтобы создать кластер Службы контейнеров Azure, вам понадобится:
-* Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
-* [интерфейс командной строки Azure 2.0 (предварительная версия)](https://github.com/Azure/azure-cli#installation), установленный на компьютере;
-* войти в учетную запись Azure (см. ниже).
+Чтобы создать кластер и управлять им в Службе контейнеров Azure, используйте команды `az acs` в предварительной версии интерфейса командной строки Azure 2.0. Вы также можете развернуть кластер Службы контейнеров Azure с помощью [портала Azure](container-service-deployment.md) или с помощью интерфейсов API Службы контейнеров Azure.
 
-## <a name="log-in-to-your-account"></a>Вход в учетную запись
+Чтобы получить справку по командам `az acs`, добавьте параметр `-h` в любую команду. Например, `az acs create -h`.
+
+
+
+## <a name="prerequisites"></a>Предварительные требования
+Чтобы создать кластер Службы контейнеров Azure с помощью предварительной версии интерфейса командной строки Azure 2.0, необходимо следующее:
+* учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/));
+* установленный и настроенный [Azure CLI версии 2.0 (предварительная версия)](/cli/azure/install-az-cli2).
+
+## <a name="get-started"></a>Начало работы 
+### <a name="log-in-to-your-account"></a>Вход в учетную запись
 ```azurecli
 az login 
 ```
-Чтобы пройти проверку подлинности с использованием кода устройства, предоставленного в интерфейсе командной строки, необходимо перейти по этой [ссылке](https://login.microsoftonline.com/common/oauth2/deviceauth).
 
-![ввод команды](media/container-service-create-acs-cluster-cli/login.png)
+Следуйте указаниям, чтобы выполнить вход в интерактивном режиме. Другие способы входа см. в статье [Get started with AzureCLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) (Начало работы с Azure CLI 2.0 (предварительная версия)).
 
-![браузер iPhone;](media/container-service-create-acs-cluster-cli/login-browser.png)
+### <a name="set-your-azure-subscription"></a>Настройка подписки Azure
+
+При наличии нескольких подписок Azure укажите подписку по умолчанию. Например:
+
+```
+az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
+```
 
 
-## <a name="create-a-resource-group"></a>Создание группы ресурсов
+### <a name="create-a-resource-group"></a>Создание группы ресурсов
+Мы рекомендуем создать группу ресурсов для каждого кластера. Укажите регион Azure, в котором [доступна](https://azure.microsoft.com/en-us/regions/services/) Служба контейнеров Azure. Например:
+
 ```azurecli
 az group create -n acsrg1 -l "westus"
 ```
+Результат аналогичен приведенному ниже:
 
-![Изображение создания группы ресурсов](media/container-service-create-acs-cluster-cli/rg-create.png)
+![Создание группы ресурсов](media/container-service-create-acs-cluster-cli/rg-create.png)
 
-## <a name="list-of-available-azure-container-service-cli-commands"></a>Список доступных команд интерфейса командной строки Службы контейнеров Azure
-
-```azurecli
-az acs -h
-```
-
-![Использование команды ACS](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
 ## <a name="create-an-azure-container-service-cluster"></a>Создание кластера Службы контейнеров Azure
 
-*Использование создания ACS в интерфейсе командной строки*
+Чтобы создать кластер, используйте команду `az acs create`.
+Имя кластера и имя группы ресурсов, созданной на предыдущем шаге, являются обязательными. 
 
-```azurecli
-az acs create -h
-```
-Имя службы контейнеров, группы ресурсов, созданной на предыдущем шаге, и уникальное DNS-имя являются обязательными. Для других входных данных устанавливаются значения по умолчанию (см. снимок экрана с моментальным снимком справки ниже), если они не переопределены с помощью соответствующих параметров.
-![Изображение справки по созданию ACS](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
+Для других входных данных устанавливаются значения по умолчанию (см. снимок экрана), если они не переопределены с помощью соответствующих параметров. Например, для orchestrator по умолчанию установлено значение DC/OS. Если префикс DNS-имени не указан, он будет создан на основе имени кластера.
 
-*Для быстрого создания ACS используются значения по умолчанию. Если у вас нет ключа SSH, используйте вторую команду. Эта команда create с параметром --generate-ssh-keys создаст его для вас.*
+![Использование az acs create](media/container-service-create-acs-cluster-cli/create-help.png)
+
+
+### <a name="quick-acs-create-using-defaults"></a>Быстрое выполнение `acs create` с использованием значений по умолчанию
+Если у вас есть файл открытого ключа SSH `id_rsa.pub` в расположении по умолчанию (или вы его создали для [OS X и Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), используйте следующую команду:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
 ```
+Если у вас нет открытого ключа SSH, используйте вторую команду. Эта команда с переключателем `--generate-ssh-keys` создается автоматически.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789 --generate-ssh-keys
 ```
 
-*Значение dns-prefix (параметр -d) должно быть уникальным. При возникновении ошибки повторите попытку, используя уникальную строку.*
-
-После введения предыдущей команды подождите около 10 минут, пока будет создан кластер.
+После введения команды подождите около 10 минут, пока будет создан кластер. Выходные данные команды содержат полные доменные имена (FQDN) главных узлов и узлов агентов и команду SSH для подключения к первому главному узлу. Ниже приведены сокращенные выходные данные.
 
 ![Изображение создания ACS](media/container-service-create-acs-cluster-cli/cluster-create.png)
 
-## <a name="list-acs-clusters"></a>Отображение списка кластеров ACS 
+> [!TIP]
+> В статье [Обработчик Службы контейнеров Microsoft Azure. Пошаговое руководство по использованию Kubernetes](container-service-kubernetes-walkthrough.md) показано, как использовать `az acs create` со значениями по умолчанию для создания кластера Kubernetes.
+>
 
-### <a name="under-a-subscription"></a>В подписке
+## <a name="manage-acs-clusters"></a>Управление кластерами ACS
+
+Для управления кластером используйте дополнительные команды `az acs`. Ниже приведены некоторые примеры.
+
+### <a name="list-clusters-under-a-subscription"></a>Получение списка кластеров в рамках подписки
 
 ```azurecli
 az acs list --output table
 ```
 
-### <a name="in-a-specific-resource-group"></a>В определенной группе ресурсов
+### <a name="list-clusters-in-a-resource-group"></a>Получение списка кластеров в группе ресурсов
 
 ```azurecli
 az acs list -g acsrg1 --output table
 ```
 
-![Изображение списка ACS](media/container-service-create-acs-cluster-cli/acs-list.png)
+![acs list](media/container-service-create-acs-cluster-cli/acs-list.png)
 
 
-## <a name="display-details-of-a-container-service-cluster"></a>Отображение сведений о кластере службы контейнеров
+### <a name="display-details-of-a-container-service-cluster"></a>Отображение сведений о кластере службы контейнеров
 
 ```azurecli
 az acs show -g acsrg1 -n acs-cluster --output list
 ```
 
-![Изображение списка ACS](media/container-service-create-acs-cluster-cli/acs-show.png)
+![acs show](media/container-service-create-acs-cluster-cli/acs-show.png)
 
 
-## <a name="scale-the-acs-cluster"></a>Масштабирование кластера ACS
-*Увеличение и уменьшение масштаба разрешено. Параметр new-agent-count представляет собой новое количество агентов в кластере ACS.*
+### <a name="scale-the-cluster"></a>Масштабирование кластера
+Увеличение и уменьшение масштабирования узлов агента разрешено. Параметр `new-agent-count` представляет собой новое количество агентов в кластере ACS.
 
 ```azurecli
 az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```
 
-![Изображение масштабирования ACS](media/container-service-create-acs-cluster-cli/acs-scale.png)
+![acs scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>Удаление кластера службы контейнеров
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-*Обратите внимание, что эта команда удаления не удаляет все ресурсы (сеть и хранилище), созданные при создании службы контейнеров. Чтобы удалить все ресурсы, мы рекомендуем создать один кластер ACS в каждой группе ресурсов, а затем, когда потребность в кластере отпадет, удалить саму группу ресурсов. Таким образом все связанные ресурсы будут удалены, и за них больше не будет взиматься плата.*
+Эта команда не удаляет все ресурсы (сеть и хранилище), созданные вместе со службой контейнеров. Чтобы легко удалить все ресурсы, рекомендуется развертывать каждый кластер в отдельной группе ресурсов. Если кластер больше не используется, группу ресурсов можно удалить.
+
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь, когда у вас есть работающий кластер, выберите ссылки ниже, чтобы узнать о возможностях подключения и управления.
+
+* [Подключение к кластеру службы контейнеров Azure](container-service-connect.md)
+* [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
+* [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
+* [Работа со службой контейнеров Azure и Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c36ad871c5b1cd14268cf8dc5a156884a5f67a77
-ms.openlocfilehash: 4403523bb3bd33b967ca3c212386db8ac5d75a68
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
 
 
 ---
@@ -115,7 +115,7 @@ ms.openlocfilehash: 4403523bb3bd33b967ca3c212386db8ac5d75a68
 7. После завершения нажмите кнопку **Сохранить**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
+* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 * Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 * [Управление пользователями](active-directory-create-users.md)
@@ -124,6 +124,6 @@ ms.openlocfilehash: 4403523bb3bd33b967ca3c212386db8ac5d75a68
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

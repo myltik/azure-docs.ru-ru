@@ -1,5 +1,5 @@
 ---
-title: "Создание и передача виртуального жесткого диска Linux | Документация Майкрософт"
+title: "Создание и передача виртуального жесткого диска Linux в Azure | Документация Майкрософт"
 description: "Создание и передача виртуального жесткого диска Azure, содержащего операционную систему Linux, с использованием классической модели развертывания."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,25 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 12a95742140fb1fdbbb15a042543fde52408b1f6
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: ebdd4df0bd990ee37cb173da8c1f38b60d203158
 
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Создание и передача виртуального жесткого диска с операционной системой Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Вы можете также [передать пользовательский образ с помощью Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы можете также [передать пользовательский образ с помощью Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 В этой статье показано, как создать и передать виртуальный жесткий диск (VHD-файл), чтобы использовать его в качестве образа для создания виртуальных машин в Azure. Узнайте, как подготовить операционную систему, чтобы использовать ее в качестве образа для создания нескольких виртуальных машин. 
 
-> [!NOTE]
-> Если у вас есть несколько минут, помогите нам улучшить качество документации по виртуальным машинам Linux в Azure, поделившись своими впечатлениями в этом [быстром опросе](https://aka.ms/linuxdocsurvey) . Каждый ваш ответ помогает нам совершенствовать средства, необходимые вам для работы.
-> 
-> 
 
 ## <a name="prerequisites"></a>Предварительные требования
 В данной статье предполагается, что у вас есть следующие элементы:
@@ -42,10 +37,8 @@ ms.openlocfilehash: 12a95742140fb1fdbbb15a042543fde52408b1f6
 
 > [!NOTE]
 > Более новый формат VHDX не поддерживается в Azure. При создании виртуальной машины укажите формат VHD. При необходимости можно преобразовать диски VHDX в диски VHD с помощью командлета PowerShell [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) или [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). Кроме того, Azure не поддерживает отправку динамических дисков VHD, поэтому перед отправкой необходимо преобразовать такие диски в статические диски VHD. Для преобразования динамических дисков во время передачи в Azure можно использовать [служебные программы Azure VHD для GO](https://github.com/Microsoft/azure-vhd-utils-for-go) .
-> 
-> 
 
-* **Интерфейс командной строки Azure**. Установите последнюю версию [интерфейса командной строки Azure](../virtual-machines-command-line-tools.md) для передачи VHD-файлов.
+* **Интерфейс командной строки Azure**. Установите последнюю версию [интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) для передачи VHD-файлов.
 
 <a id="prepimage"> </a>
 
@@ -72,7 +65,7 @@ Azure поддерживает различные дистрибутивы Linux
 ## <a name="step-2-prepare-the-connection-to-azure"></a>Шаг 2. Подготовка подключения к Azure
 Убедитесь, что вы используете интерфейс командной строки Azure в классической модели развертывания (`azure config mode asm`), а затем войдите со своей учетной записью.
 
-```
+```azurecli
 azure login
 ```
 
@@ -84,7 +77,7 @@ azure login
 
 Для передачи образа выполните следующую команду в командной строке Azure:
 
-```bash
+```azurecli
 azure vm image create <ImageName> `
     --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> `
     --os Linux <PathToVHDFile>
@@ -97,33 +90,33 @@ azure vm image create <ImageName> `
 * **VHDName** — метка, которая отображается на портале для идентификации виртуального жесткого диска.
 * **PathToVHDFile** — полный путь и имя VHD-файла на вашем компьютере.
 
-Ниже представлен полный пример.
+В следующей команде представлен полный пример:
 
-```bash
-azure vm image create UbuntuLTS `
-    --blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd `
-    --os Linux /home/ahmet/UbuntuLTS.vhd
+```azurecli
+azure vm image create myImage `
+    --blob-url https://mystorage.blob.core.windows.net/vhds/myimage.vhd `
+    --os Linux /home/ahmet/myimage.vhd
 ```
 
 ## <a name="step-4-create-a-vm-from-the-image"></a>Шаг 4. Создание виртуальной машины из образа
-Создайте обычную виртуальную машину с помощью команды `azure vm create`. Укажите имя, присвоенное образу на предыдущем шаге. В следующем примере мы используем имя образа **UbuntuLTS** , присвоенное на предыдущем шаге.
+Создайте обычную виртуальную машину с помощью команды `azure vm create`. Укажите имя, присвоенное образу на предыдущем шаге. В следующем примере мы используем имя образа **myImage**, присвоенное на предыдущем шаге:
 
-```bash
+```azurecli
 azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
-    --location "West US" "DeployedUbuntu" UbuntuLTS
+    --location "West US" "myDeployedVM" myImage
 ```
 
 Для создания виртуальной машины следует указать свои имя пользователя и пароль, расположение, DNS-имя и имя образа.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения см. в [справочнике по Azure CLI для классической модели развертывания Azure](../virtual-machines-command-line-tools.md).
+Дополнительные сведения см. в [справочнике по Azure CLI для классической модели развертывания Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-[Шаг 1. Подготовка образа для передачи]: #prepimage
-[Шаг 2. Подготовка подключения к Azure]: #connect
-[Шаг 3. Передача образа в Azure]: #upload
+[Step 1: Prepare the image to be uploaded]: #prepimage
+[Step 2: Prepare the connection to Azure]: #connect
+[Step 3: Upload the image to Azure]: #upload
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

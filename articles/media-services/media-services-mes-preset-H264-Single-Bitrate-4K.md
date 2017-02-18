@@ -1,5 +1,5 @@
 ---
-title: "H264 Single Bitrate 4K | Документация Майкрософт"
+title: "Предустановка Media Encoder Standard в Azure: H264 Single Bitrate 4K | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Single Bitrate 4K**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: f47a3baf4504307fce0baf726980d58ec10ba629
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 3efb26c819739cd980b278438f407bf1ec10dbc4
 
 
 ---
@@ -121,6 +121,6 @@ ms.openlocfilehash: f47a3baf4504307fce0baf726980d58ec10ba629
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

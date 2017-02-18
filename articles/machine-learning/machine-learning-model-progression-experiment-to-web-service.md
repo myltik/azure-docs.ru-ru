@@ -1,5 +1,5 @@
 ---
-title: "Развитие модели машинного обучения от эксперимента до рабочей веб-службы | Документация Майкрософт"
+title: "Как модель Машинного обучения Azure превращается в веб-службу | Документация Майкрософт"
 description: "Обзор процесса развития модели машинного обучения Azure от эксперимента по разработке до рабочей веб-службы."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: b47aa6730aff534b796cfc5427e613defdf69926
-ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
 
 
 ---
@@ -122,6 +122,6 @@ ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

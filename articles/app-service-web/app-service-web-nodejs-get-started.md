@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с веб-приложениями Node.js в службе приложений Azure | Документация Майкрософт"
+title: "Разработка веб-приложений Node.js для службы приложений Azure | Документация Майкрософт"
 description: "Сведения о развертывании приложения Node.js в веб-приложение в службе приложений Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
-ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Начало работы с веб-приложениями Node.js в службе приложений Azure
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Разработка веб-приложений Node.js для службы приложений Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 В этом руководстве показано, как создать простое приложение [Node.js] и развернуть его в [службе приложений Azure] из командной строки, например cmd.exe или Bash. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, в которой может работать Node.js.
@@ -45,7 +45,7 @@ ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию] или [активируйте преимущества для подписчиков Visual Studio].
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -303,6 +303,6 @@ ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

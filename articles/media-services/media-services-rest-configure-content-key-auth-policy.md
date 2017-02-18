@@ -1,5 +1,5 @@
 ---
-title: "Настройка политики авторизации ключей содержимого с помощью REST API служб мультимедиа | Документация Майкрософт"
+title: "Настройка политики авторизации ключей содержимого с помощью REST в Azure | Документация Майкрософт"
 description: "Узнайте, как настроить политику авторизации для ключа содержимого с помощью API REST служб мультимедиа."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 171a971411546d1421a48f3dceab98fb2b54b25f
 
 
 ---
@@ -36,14 +36,14 @@ ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
 
 Дополнительную информацию см. в разделе
 
-[Аутентификация по токенам JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[JWT token Authentication in Azure Media Services and Dynamic Encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/) (Аутентификация токена JWT в службах мультимедиа Azure и динамическое шифрование)
 
 [Интегрируйте приложение на основе OWIN MVC служб мультимедиа Azure с Azure Active Directory и ограничьте доставку ключей содержимого на основе утверждений JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Используйте Azure ACS для выдачи токенов](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Важные особенности
-* Чтобы использовать динамическую упаковку и динамическое шифрование, необходимо наличие по крайней мере одной зарезервированной единицы потоковой передачи. Чтобы узнать больше, ознакомьтесь с [масштабированием службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+* Чтобы использовать динамическую упаковку и динамическое шифрование, убедитесь, что конечная точка потоковой передачи, из которой нужно передавать содержимое потоком, находится в состоянии **Выполняется**.
 * Ресурс должен содержать набор MP4-файлов или файлов Smooth Streaming с переменной скоростью. Дополнительные сведения см. в статье о [кодировании ресурсов](media-services-encode-asset.md).
 * Отправляйте и кодируйте ресурсы с помощью параметра **AssetCreationOptions.StorageEncrypted** .
 * Если вы планируете использовать несколько ключей содержимого, для которых требуется одинаковая конфигурация политики, настоятельно рекомендуется создать единую политику авторизации и повторно использовать ее с несколькими ключами содержимого.
@@ -285,7 +285,7 @@ ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
 ## <a name="playready-dynamic-encryption"></a>Динамическое шифрование на основе PlayReady
 Службы мультимедиа позволяют настраивать права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое. 
 
-При защите содержимого с помощью PlayReady, среди прочего, в политике авторизации необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). 
+При защите содержимого с помощью PlayReady, среди прочего, в политике авторизации необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Ограничение "открытая"
 Ограничение открытого типа означает, что система будет доставлять ключ всем, кто его запросит. Это ограничение подходит для тестирования.
@@ -450,6 +450,6 @@ ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

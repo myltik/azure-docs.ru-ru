@@ -1,5 +1,5 @@
 ---
-title: "Внедрение пользовательских данных в виртуальные машины | Документация Майкрософт"
+title: "Вставка данных в виртуальные машины Linux в Azure | Документация Майкрософт"
 description: "В этом разделе описывается включение пользовательских данных в виртуальную машину Azure во время создания экземпляра, а также поиск пользовательских данных в Windows или Linux."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 7bc87fdfb0d47de223b6c1b389e1ba11df0cddfa
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: c342381d3d1052592c1b771cced104778fe7c84c
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: 7bc87fdfb0d47de223b6c1b389e1ba11df0cddfa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

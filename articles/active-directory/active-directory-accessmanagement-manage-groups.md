@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [Портал Azure](active-directory-groups-create-azure-portal.md)
 > * [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 Одной из функций управления пользователями в Azure Active Directory (Azure AD) является возможность создания групп пользователей. Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям. Кроме того, вы можете использовать группы для предоставления разрешений на доступ к:
 
@@ -73,13 +73,13 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 
 > [!NOTE]
 > Вы можете настроить правило динамического членства для групп безопасности или групп Office 365. Сейчас членство во вложенных группах не поддерживается для назначения приложений на основе групп.
-> 
+>
 > Для динамического членства в группах нужно, чтобы лицензия Azure AD Premium была назначена:
-> 
+>
 > * администратору, который управляет правилом в группе;
 > * всем участникам группы.
-> 
-> 
+>
+>
 
 **Включение динамического членства в группе**
 
@@ -103,7 +103,6 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

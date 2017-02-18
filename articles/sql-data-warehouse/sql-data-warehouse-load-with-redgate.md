@@ -1,5 +1,5 @@
 ---
-title: "Загрузка данных в хранилище данных SQL с помощью партнерского решения Redgate Data Platform Studio | Документация Майкрософт"
+title: "Загрузка данных в хранилище данных Azure с помощью Redgate | Документация Майкрософт"
 description: "Сведения об использовании партнерского решения Redgate Data Platform Studio в сценариях хранения данных."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
 
 
 ---
@@ -126,7 +126,7 @@ DPS запрашивает расположение для размещения 
 Дополнительные сведения о решении Redgate Data Platform Studio см. в следующих источниках:
 
 * [Домашняя страница DPS](http://www.dataplatformstudio.com/)
-* [Демонстрационное видео DPS на Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Демонстрационное видео DPS на Channel&9;](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Общие сведения о других способах переноса и отправки данных в хранилище данных SQL см. в следующих источниках:
 
@@ -154,6 +154,6 @@ DPS запрашивает расположение для размещения 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

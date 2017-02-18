@@ -1,5 +1,5 @@
 ---
-title: "Памятка по работе с автоматическим конвейером данных для создания прогнозов Машинного обучения Azure | Документация Майкрософт"
+title: "Памятка по работе с автоматическим конвейером данных Машинного обучения Azure | Документация Майкрософт"
 description: "Пригодная для печати памятка по настройке автоматического конвейера данных в веб-службу машинного обучения Azure в зависимости от того, хранятся ли данные на локальном компьютере, транслируются в режиме реального времени или находятся в Azure или в независимой облачной службе."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: mithal;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
 
 
 ---
@@ -46,6 +46,6 @@ ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Сравнение Центра Интернета вещей Azure и концентраторов событий Azure | Документация Майкрософт"
-description: "Сравнение центра IoT Azure и служб концентраторов событий Azure, в котором выделены функциональные различия и случаи использования."
+description: "Сравнение служб Центра Интернета вещей и концентраторов событий Azure, в котором выделены функциональные различия и случаи использования. Сравниваются поддерживаемые протоколы, функции мониторинга, управления устройствами и передачи файлов."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/31/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 2075c7a1b8f3393e100ab92ae7d497c56965f887
 
 
 ---
@@ -35,6 +35,7 @@ ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
 | Масштаб |Оптимизирован для поддержки миллионов одновременно подключенных устройств. |Поддерживает меньшее число одновременных подключений: до 5000 подключений AMQP (согласно [квотам служебной шины Azure][Azure Service Bus quotas]). С другой стороны, концентраторы событий позволяют пользователям указывать раздел для каждого отправляемого сообщения. |
 | Пакеты SDK для устройств |Предоставляет [пакеты SDK для устройств][Azure IoT SDKs] для разнообразных платформ и языков, помимо API MQTT, AMQP и HTTP. |Поддерживается в .NET, Java и языке C. Кроме того, предоставляет интерфейсы передачи AMQP и HTTP. |
 | Передача файла |Позволяет решениям IoT передавать файлы из устройств в облако. Включает в себя конечную точку уведомления о файлах для интеграции рабочих процессов и категорию мониторинга операций для поддержки отладки. | Не поддерживается. |
+| Маршрутизация сообщений в несколько конечных точек | Поддерживается до 10 пользовательских конечных точек. Правила определяют способ маршрутизации сообщений в пользовательские конечные точки. Дополнительные сведения см. в статье [Отправка и получение сообщений в Центре Интернета вещей][lnk-devguide-messaging]. | Для диспетчеризации сообщений требуется запись и размещение дополнительного кода. |
 
 В заключение скажем, что, даже если единственным вариантом использования является передача телеметрических данных от устройства в облако, Центр Интернета вещей предоставляет службу, разработанную для подключения устройств Интернета вещей. Для Центра Интернета вещей будут и дальше появляться новые возможности, ориентированные на такие сценарии. Концентраторы событий предназначены для приема огромных объемов событий как в контексте обмена данными между разными ЦОД, так и в пределах одного ЦОД.
 
@@ -45,8 +46,8 @@ ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Руководство для разработчиков][lnk-devguide]
-* [Пакет SDK для шлюза Интернета вещей (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
+* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -55,17 +56,18 @@ ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [раздел "Безопасность" руководства для разработчиков Центра Интернета вещей]: iot-hub-devguide-security.md.
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers
 [Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 
