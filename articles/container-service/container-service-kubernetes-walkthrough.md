@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Container Service cluster with Kubernetes | Microsoft Docs
-description: Deploy an Azure Container Service cluster with Kubernetes
+title: "Быстрый запуск кластера Kubernetes в Azure | Документация Майкрософт"
+description: "Развертывание кластера Kubernetes в службе контейнеров Azure и начало работы с ним."
 services: container-service
 documentationcenter: 
 author: anhowe
@@ -17,42 +17,42 @@ ms.workload: na
 ms.date: 11/15/2016
 ms.author: anhowe
 translationtype: Human Translation
-ms.sourcegitcommit: e25d1eed2983eb831d1c9976c71912db56bb4cf9
-ms.openlocfilehash: ea9832bf69904cfd9d9952afafbf837a919e3453
+ms.sourcegitcommit: 7ed8fb75f057d5a7cfde5436e72e8fec52d07156
+ms.openlocfilehash: f3b2fc301bf7083f192c0ec872c4e032472eef97
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---kubernetes-walkthrough"></a>Microsoft Azure Container Service Engine - Kubernetes Walkthrough
+# <a name="microsoft-azure-container-service-engine---kubernetes-walkthrough"></a>Обработчик службы контейнеров Microsoft Azure. Пошаговое руководство по использованию Kubernetes
 
-## <a name="prerequisites"></a>Prerequisites
-This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed and have created [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) at `~/.ssh/id_rsa.pub`.
+## <a name="prerequisites"></a>Предварительные требования
+В этом пошаговом руководстве предполагается, что вы установили [программу командной строки azure-cli](https://github.com/azure/azure-cli#installation) и создали [открытый ключ SSH](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) в `~/.ssh/id_rsa.pub`.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Обзор
 
-The instructions below will create a Kubernetes cluster with one master and two worker nodes.
-The master serves the Kubernetes REST API.  The worker nodes are grouped in an Azure availability set and run your containers. All VMs are in the same private VNET and are fully accessible to each other.
+В инструкциях ниже описывается создание кластера Kubernetes с одним главным и двумя рабочими узлами.
+Основной узел обслуживает REST API кластера Kubernetes.  Рабочие узлы группируются в группы доступности Azure. На них также запускаются контейнеры. Все виртуальные машины подключены к одной частной виртуальной сети и полностью доступны друг для друга.
 
 > [!NOTE]
-> Kubernetes support in Azure Container Service is currently in preview.
+> Поддержка Kubernetes в службе контейнеров Azure сейчас доступна в предварительной версии.
 >
 
-The following image shows the architecture of a container service cluster with one master, and two agents:
+На следующем рисунке показана архитектура кластера службы контейнеров с одним главным узлом и двумя агентами.
 
-![Image of Kubernetes cluster on azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
+![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
-## <a name="creating-your-kubernetes-cluster"></a>Creating your Kubernetes cluster
+## <a name="creating-your-kubernetes-cluster"></a>Создание кластера Kubernetes
 
-### <a name="create-a-resource-group"></a>Create a resource group
-To create your cluster, you first need to create a resource group in a specific location, you can do this with:
+### <a name="create-a-resource-group"></a>Создание группы ресурсов
+Чтобы создать кластер, необходимо сначала создать группу ресурсов в определенном расположении. Это можно сделать с помощью следующей команды.
 ```console
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
 az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
-### <a name="create-a-cluster"></a>Create a cluster
-Once you have a resource group, you can create a cluster in that group with:
+### <a name="create-a-cluster"></a>Создание кластера
+Создав группу ресурсов, можно приступить к созданию кластера в этой группе с помощью следующей команды.
 ```console
 DNS_PREFIX=some-unique-value
 SERVICE_NAME=any-acs-service-name
@@ -60,114 +60,114 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 ```
 
 > [!NOTE]
-> azure-cli will upload `~/.ssh/id_rsa.pub` to the Linux VMs.
+> Интерфейс командной строки Azure отправит файл `~/.ssh/id_rsa.pub` на виртуальные машины Linux.
 >
 
-Once that command is complete, you should have a working Kubernetes cluster.
+После выполнения этой команды появится рабочий кластер Kubernetes.
 
-### <a name="configure-kubectl"></a>Configure kubectl
-`kubectl` is the Kubernetes command line client.  If you don't already have it installed, you can install it with:
+### <a name="configure-kubectl"></a>Настройка kubectl
+`kubectl` — клиент командной строки Kubernetes.  Установите его с помощью команды ниже, если вы еще этого не сделали.
 
 ```console
 az acs kubernetes install-cli
 ```
 
-Once `kubectl` is installed, running the below command will download the master kubernetes cluster configuration to the ~/.kube/config file
+После установки `kubectl` запустите приведенную ниже команду, чтобы скачать конфигурацию главного кластера Kubernetes в файл ~/.kube/config.
 ```console
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
 ```
 
-At this point you should be ready to access your cluster from your machine, try running:
+На этом этапе все должно быть готово для доступа к кластеру с компьютера. Попробуйте запустить следующую команду.
 ```console
 kubectl get nodes
 ```
 
-And validate that you can see the machines in your cluster.
+Проверьте, отображаются ли компьютеры в кластере.
 
-## <a name="create-your-first-kubernetes-service"></a>Create your First Kubernetes Service
+## <a name="create-your-first-kubernetes-service"></a>Создание первой службы Kubernetes
 
-After completing this walkthrough, you will know how to:
- * deploy a Docker application and expose to the world,
- * use `kubectl exec` to run commands in a container, 
- * and access the Kubernetes dashboard.
+Выполнив инструкции из этого руководства, вы научитесь:
+ * развертывать приложение Docker и предоставлять к нему доступ;
+ * использовать `kubectl exec` для выполнения команд в контейнере; 
+ * получать доступ к панели мониторинга Kubernetes.
 
-### <a name="start-a-simple-container"></a>Start a simple container
-You can run a simple container (in this case the `nginx` web server) by running:
+### <a name="start-a-simple-container"></a>Запуск простого контейнера
+Чтобы запустить простой контейнер (в данном случае веб-сервер `nginx`), выполните команду ниже.
 
 ```console
 kubectl run nginx --image nginx
 ```
 
-This command starts the nginx Docker container in a pod on one of the nodes.
+Эта команда запускает контейнер Docker nginx в модуле на одном из узлов.
 
-You can run
+Можно запустить,
 ```console
 kubectl get pods
 ```
 
-to see the running container.
+чтобы просмотреть запущенный контейнер.
 
-### <a name="expose-the-service-to-the-world"></a>Expose the service to the world
-To expose the service to the world.  You create a Kubernetes `Service` of type `LoadBalancer`:
+### <a name="expose-the-service-to-the-world"></a>Предоставление доступа к службе
+Чтобы предоставить доступ к службе,  создайте службу Kubernetes `Service` типа `LoadBalancer`.
 
 ```console
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-This will now cause Kubernetes to create an Azure Load Balancer with a public IP. The change takes about 2-3 minutes to propagate to the load balancer.
+Таким образом Kubernetes создаст балансировщик Azure Load Balancer с общедоступным IP-адресом. Распространение изменений в подсистеме балансировки нагрузки занимает около 2–3 минут.
 
-To watch the service change from "pending" to an external ip type:
+Чтобы просмотреть изменение состояния службы с ожидания на использование внешнего IP-адреса, введите:
 ```console
 watch 'kubectl get svc'
 ```
 
-  ![Image of watching the transition from pending to external ip](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
+  ![Изображение выходных данных с переходом от ожидания к использованию внешнего IP-адреса](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
 
-Once you see the external IP, you can browse to it in your browser:
+Полученный внешний IP-адрес можно ввести в браузере:
 
-  ![Image of browsing to nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+  ![Изображение перехода на страницу nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
 
 
-### <a name="browse-the-kubernetes-ui"></a>Browse the Kubernetes UI
-To see the Kubernetes web interface, you can use:
+### <a name="browse-the-kubernetes-ui"></a>Обзор пользовательского интерфейса Kubernetes
+Чтобы просмотреть веб-интерфейс Kubernetes, можно использовать:
 
 ```console
 kubectl proxy
 ```
-This runs a simple authenticated proxy on localhost, which you can use to view the [kubernetes ui](http://localhost:8001/ui)
+Эта команда запускает простой проверенный прокси-сервер на локальном узле, который можно использовать для просмотра [пользовательского интерфейса Kubernetes](http://localhost:8001/ui).
 
-![Image of Kubernetes dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
+![Изображение панели мониторинга Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
-### <a name="remote-sessions-inside-your-containers"></a>Remote sessions inside your containers
-Kubernetes allows you to run commands in a remote Docker container running in your cluster.
+### <a name="remote-sessions-inside-your-containers"></a>Удаленные сеансы в контейнерах
+Kubernetes позволяет выполнять команды в удаленном контейнере Docker, запущенном в кластере.
 
 ```console
 # Get the name of your nginx pod
 kubectl get pods
 ```
 
-Using your pod name, you can run a remote command on your pod.  For example:
+Используя имя модуля, можно запустить удаленную команду в модуле.  Например:
 ```console
 kubectl exec nginx-701339712-retbj date
 ```
 
-You can also get a fully interactive session using the `-it` flags:
+Кроме того, можно получить полностью интерактивный сеанс с помощью флагов `-it`:
 
 ```console
 kubectl exec nginx-701339712-retbj -it bash
 ```
 
-![Image of curl to podIP](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
+![Изображение выполнения curl с IP-адресом модуля](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
 
 
-## <a name="details"></a>Details
-### <a name="installing-the-kubectl-configuration-file"></a>Installing the kubectl configuration file
-When you ran `az acs kubernetes get-credentials`, the kube config file for remote access was stored under the home directory ~/.kube/config.
+## <a name="details"></a>Сведения
+### <a name="installing-the-kubectl-configuration-file"></a>Установка файла конфигурации kubectl
+После запуска `az acs kubernetes get-credentials` файл конфигурации kube для удаленного доступа сохранился в корневом каталоге ~/.kube/config.
 
-If you ever need to download it directly, you can use `ssh` on Linux or OS X, or `Putty` on windows:
+Если вам когда-либо понадобится загрузить его напрямую, можете воспользоваться клиентом `ssh` в Linux или OS X либо `Putty` в Windows:
 
 #### <a name="windows"></a>Windows
-To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).  Ensure you have your certificate exposed through [pageant](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#key-management-and-agent-forwarding-with-windows-pageant):
+Чтобы воспользоваться средством pscp из [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html), сделайте следующее.  Проверьте, предоставлен ли сертификат, с помощью [pageant](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#key-management-and-agent-forwarding-with-windows-pageant):
   ```
   # MASTERFQDN is obtained in step1
   pscp azureuser@MASTERFQDN:.kube/config .
@@ -175,28 +175,28 @@ To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/downl
   kubectl get nodes
   ```
 
-#### <a name="os-x-or-linux"></a>OS X or Linux:
+#### <a name="os-x-or-linux"></a>В OS X или Linux:
   ```
   # MASTERFQDN is obtained in step1
   scp azureuser@MASTERFQDN:.kube/config .
   export KUBECONFIG=`pwd`/config
   kubectl get nodes
   ```
-## <a name="learning-more"></a>Learning More
+## <a name="learning-more"></a>Дополнительные сведения
 
-### <a name="azure-container-service"></a>Azure Container Service
+### <a name="azure-container-service"></a>Служба контейнеров Azure
 
-1. [Azure Container Service documentation](https://azure.microsoft.com/en-us/documentation/services/container-service/)
-2. [Azure Container Service Open Source Engine](https://github.com/azure/acs-engine)
+1. [Документация по службе контейнеров Azure](https://azure.microsoft.com/en-us/documentation/services/container-service/)
+2. [Azure Container Service Open Source Engine](https://github.com/azure/acs-engine) (Обработчик с открытым исходным кодом для Службы контейнеров Azure)
 
-### <a name="kubernetes-community-documentation"></a>Kubernetes Community Documentation
+### <a name="kubernetes-community-documentation"></a>Документация сообщества Kubernetes
 
-1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
-2. [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
-3. [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.
+1. В [учебном курсе по Kubernetes](https://katacoda.com/embed/kubernetes-bootcamp/1/) описано, как выполнять развертывание, масштабирование, обновление и отладку контейнерных приложений.
+2. В [руководстве по Kubernetes](http://kubernetes.io/docs/user-guide/) показано, как выполнять команды в существующем кластере Kubernetes.
+3. На странице с [примерами Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples) представлены примеры запуска реальных приложений с использованием Kubernetes.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
