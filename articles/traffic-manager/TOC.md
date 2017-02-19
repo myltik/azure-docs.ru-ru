@@ -16,9 +16,10 @@
 # Практическое руководство
 ## [Настройка метода маршрутизации](traffic-manager-configure-routing-method.md)
 ## [Проверка настроек](traffic-manager-testing-settings.md)
-## [Устранение неполадок, вызывающих ограничение возможностей конечной точки](traffic-manager-troubleshooting-degraded.md)
 ## [Комбинирование служб балансировки нагрузки](traffic-manager-load-balancing-azure.md)
 ## [Использование сетевых ресурсов](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Устранение неполадок
+### [Устранение неполадок, вызывающих ограничение возможностей конечной точки](traffic-manager-troubleshooting-degraded.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 
