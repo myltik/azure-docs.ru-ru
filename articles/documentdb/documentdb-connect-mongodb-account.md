@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/09/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
-ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
+ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
+ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Подключение приложения MongoDB к учетной записи DocumentDB с помощью строки подключения MongoDB
+# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>Подключение приложения MongoDB к учетной записи DocumentDB с помощью строки подключения MongoDB
 Здесь содержатся сведения о подключении приложения MongoDB к учетной записи Azure DocumentDB с помощью строки подключения MongoDB. Подключив приложение MongoDB к базе данных Azure DocumentDB, вы сможете использовать базу данных в качестве хранилища данных для приложения MongoDB. 
 
 В этом руководстве описаны два способа получения строки подключения.
@@ -86,6 +86,6 @@ ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
