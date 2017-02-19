@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Хранилище дисков 
+### [Создание виртуальной машины с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Подключение управляемого диска к виртуальной машине Windows с помощью PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # Практическое руководство
 ## [Создание учетной записи хранения](storage-create-storage-account.md)
 ## Использование больших двоичных объектов
@@ -62,13 +70,21 @@
 ### [Обзор](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Устранение неполадок файлов Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Примеры](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Использование дисков виртуальной машины
+## Использование дисков
+### [Диски и VHD для виртуальных машин Windows](storage-about-disks-and-vhds-windows.md)
+### [Диски и VHD для виртуальных машин Linux](storage-about-disks-and-vhds-linux.md)
+### [Обзор управляемых дисков Azure](storage-managed-disks-overview.md)
+### [Перенос виртуальных машин Azure на управляемые диски Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Перенос из AWS и других платформ на управляемые диски](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Часто задаваемые вопросы о дисках виртуальных машин Azure IaaS](storage-faq-for-disks.md)
 ### Хранилище класса Premium
-#### [Высокопроизводительное хранилище для рабочих нагрузок виртуальных машин](storage-premium-storage.md)
-#### [Переход на использование хранилища класса Premium](storage-migration-to-premium-storage.md)
+#### [Высокопроизводительное хранилище класса Premium для дисков виртуальных машин](storage-premium-storage.md)
 #### [Проектирование для обеспечения высокой производительности](storage-premium-storage-performance.md)
 ### Стандартное хранилище
-#### [Архивация дисков виртуальной машины с помощью добавочных моментальных снимков](storage-incremental-snapshots.md)
+#### [Экономичное хранилище класса Standard, управляемые и неуправляемые диски виртуальных машин](storage-standard-storage.md)
+### Использование неуправляемых дисков
+#### [Переход на использование хранилища класса Premium](storage-migration-to-premium-storage.md)
+#### [Архивация неуправляемых дисков виртуальной машины с помощью добавочных моментальных снимков](storage-incremental-snapshots.md)
 ## Планирование и проектирование
 ### [Репликация](storage-redundancy.md)
 ### [Целевые показатели масштабируемости и производительности](storage-scalability-targets.md)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

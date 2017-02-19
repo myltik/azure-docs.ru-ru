@@ -1,8 +1,20 @@
 ---
+title: "Документация по Azure для государственных организаций. Руководства и справочник по API | Документация Майкрософт"
+description: 
+services: Azure-government
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: Azure-government
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 93a2c8da64000d03538f73befc167368915c3dbb
+ms.sourcegitcommit: 651e65243a8f5d170b61352e0ab1d57d1a25ad1b
+ms.openlocfilehash: 1dc06fadc9c6b49ff314d5eab53ef1b0b1e91eda
 
 ---
 #<a name="azure-government-documentation"></a>Документация по Azure для государственных организаций
@@ -73,16 +85,10 @@ Microsoft Azure для государственных организаций п�
 </ul>
     
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по Azure для государственных организаций </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

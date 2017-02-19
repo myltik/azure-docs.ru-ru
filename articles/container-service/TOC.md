@@ -1,5 +1,6 @@
 # Обзор
-## [Что такое служба контейнеров Azure?](container-service-intro.md)
+## [Что такое Служба контейнеров Azure?](container-service-intro.md)
+## [Часто задаваемые вопросы](container-service-faq.md)
 # Начало работы
 ## [Развертывание кластера ACS](container-service-deployment.md)
 ## [Развертывание в ACS с помощью Azure CLI 2.0 предварительной версии](container-service-create-acs-cluster-cli.md)
@@ -43,6 +44,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

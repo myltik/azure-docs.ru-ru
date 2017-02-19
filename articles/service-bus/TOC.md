@@ -1,6 +1,6 @@
 # Обзор
-## [Обмен сообщениями](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Ретрансляция](../service-bus-relay/relay-what-is-it.md)
+## [Обмен сообщениями](/azure/service-bus-messaging)
+## [Ретрансляция](/azure/service-bus-relay)
 # Справочные материалы
 ## [Командлеты PowerShell (Resource Manager)](/powershell/resourcemanager)
 ## [Управляемый справочник по API служебной шины](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

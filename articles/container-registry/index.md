@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по реестру контейнеров Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как создавать и обслуживать реестры контейнеров для хранения образов развертывания с помощью управляемой службы реестра Docker. Руководства, справочники по API и другие документы."
+services: container-registry
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
-ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
+ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
+ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
 
 ---
 
@@ -90,7 +101,7 @@ ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/containerregistry">REST API</a></p>
+                        <p><a href="/rest/api/containerregistry">ИНТЕРФЕЙС REST API</a></p>
                      </div>
                 </div>
             </div>
@@ -100,6 +111,6 @@ ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

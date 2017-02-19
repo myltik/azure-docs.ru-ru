@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по Azure Application Insights. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать широкие возможности Application Insights по управлению производительностью приложений для обнаружения, рассмотрения и диагностики проблем в веб-приложениях и службах."
+services: application-insights
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f0fdb938519737e67849831a0751542f69c269d9
-ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Документация по Application Insights
@@ -144,7 +155,7 @@ ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://dev.applicationinsights.io/">REST API</a></p>
+                        <p><a href="https://dev.applicationinsights.io/">ИНТЕРФЕЙС REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -152,16 +163,10 @@ ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по Application Insights </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

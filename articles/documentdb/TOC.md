@@ -90,7 +90,7 @@
 ### [Интеграция с Поиском Azure](../search/search-howto-index-documentdb.md)
 ### [Перенос данных с помощью фабрики данных Azure](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Анализ данных в реальном времени с помощью Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Получение уведомлений с помощью Logic Apps](documentdb-change-notification.md)
+### [Получение измененной записи HL7 FHIR с помощью Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Обработка данных, поступающих от датчиков, в реальном времени](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Визуализация данных с помощью Power BI](documentdb-powerbi-visualize.md)
 ### [Визуализация данных с помощью драйвера ODBC](documentdb-nosql-odbc-driver.md)
