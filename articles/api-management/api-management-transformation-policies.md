@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
+ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
+ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
 
 ---
 # <a name="api-management-transformation-policies"></a>Политики преобразования службы управления API
@@ -472,11 +472,11 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
   
 > [!NOTE]
 >  Используя политику, можно добавлять только параметры строки запроса. Нельзя добавлять дополнительный параметр пути к шаблону в URL-адрес перезаписи.  
-  
+
 ### <a name="policy-statement"></a>Правило политики  
   
 ```xml  
-<rewrite-uri template="uri template" />  
+<rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
 ### <a name="example"></a>Пример  
@@ -492,7 +492,33 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
     </outbound>  
 </policies>  
 ```  
-  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put?c=d -->
+```  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" copy-unmatched-params="false" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put -->
+```
+
 ### <a name="elements"></a>Элементы  
   
 |Имя|Описание|Обязательно|  
@@ -503,7 +529,8 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
   
 |Атрибут|Описание|Обязательно|значение по умолчанию|  
 |---------------|-----------------|--------------|-------------|  
-|шаблон|Фактический URL-адрес веб-службы с любыми параметрами строки запроса.|Да|Недоступно|  
+|шаблон|Фактический URL-адрес веб-службы с любыми параметрами строки запроса. При использовании выражений все значение должно быть выражением.|Да|Недоступно|  
+|copy-unmatched-params|Указывает, добавляются ли в определяемый шаблоном перезаписи URL-адрес параметры запроса во входящем запросе, отсутствующие в исходном шаблоне URL-адреса.|Нет|Да|  
   
 ### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -580,6 +607,7 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

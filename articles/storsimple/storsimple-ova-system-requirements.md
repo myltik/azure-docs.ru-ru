@@ -4,7 +4,7 @@ description: "Дополнительные сведения о требован�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6a01ed44d08c06e35c66a842a27b46775ec97a3a
-ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Системные требования для виртуального массива StorSimple
@@ -46,7 +46,7 @@ ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
 | **Компонент** | **Требование** |
 | --- | --- |
 | Минимальное количество виртуальных процессоров (ядер) |4 |
-| Минимальный объем памяти (ОЗУ) |8 ГБ |
+| Минимальный объем памяти (ОЗУ) |8 ГБ <br> Для файловых серверов 8 ГБ для менее 2 млн файлов и 16 ГБ для 2–4 млн файлов|
 | Место на диске<sup>1</sup> |Диск ОС — 80 ГБ  <br></br>Диск данных — от 500 ГБ до 8 ТБ |
 | Минимальное количество сетевых интерфейсов |1 |
 | Минимальная пропускная способность подключения к Интернету<sup>2</sup> |5 Мбит/с |
@@ -131,6 +131,6 @@ ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/07/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
+ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
+ms.openlocfilehash: debc2a1671ed8fc2507408a887a7604ee02625f3
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
 В этой статье описывается, как загрузить модели машинного обучения, созданные с помощью Spark MLlib и сохраненные в хранилище BLOB-объектов Azure, а также как оценить их с помощью наборов данных, которые сохранены в этом же хранилище. Здесь также описано, как выполнить предварительную подготовку входных данных, преобразовать признаки с помощью функций индексирования и кодирования в наборе средств MLlib и как создать объекты данных с помеченной вершиной, которые можно использовать в качестве входных данных для оценки при помощи моделей машинного обучения. Для оценки будут использоваться такие модели, как линейная регрессия, логистическая регрессия, случайные леса и градиентный бустинг деревьев.
 
 ## <a name="prerequisites"></a>Предварительные требования
-1. Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. См. статью [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md) для получения инструкций по выполнению этих требований. В этой статье также содержится описание используемых здесь данных о поездках в такси по Нью-Йорку за 2013 г., и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark. Записная книжка **machine-learning-data-science-spark-data-model-consumption.ipynb** с примерами кода, которые используются в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+1. Для работы с этим пошаговым руководством требуется учетная запись Azure и кластер Spark 1.6 или Spark 2.0 HDInsight. См. статью [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md) для получения инструкций по выполнению этих требований. В этой статье также содержится описание используемых здесь данных о поездках в такси по Нью-Йорку за 2013 г., и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark. Записная книжка **machine-learning-data-science-spark-data-model-consumption.ipynb** с примерами кода, которые используются в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 2. Вам также необходимо создать модели машинного обучения, которые будут оцениваться. Для этого выполните действия, описанные в статье [Исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-data-exploration-modeling.md).   
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -583,6 +583,6 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

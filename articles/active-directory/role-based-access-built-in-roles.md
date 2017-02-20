@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
+ms.sourcegitcommit: becd7fbcfa094257408ed96eda0c62deefceb44d
+ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 
 
 ---
@@ -36,6 +36,9 @@ ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 | [Участник службы управления API](#api-management-service-contributor) |Может управлять службами управления API |
 | [Участник компонента Application Insights](#application-insights-component-contributor) |Может управлять компонентами Application Insights |
 | [Оператор службы автоматизации](#automation-operator) |Может запускать, останавливать, приостанавливать и возобновлять задания |
+| [Участник резервного копирования](#backup-contributor) | Может управлять резервным копированием в хранилище служб восстановления |
+| [Оператор резервного копирования](#backup-operator) | Может управлять резервным копированием в хранилище служб восстановления, но не может удалять резервные копии |
+| [Читатель резервных копий](#backup-reader) | Может просматривать все службы управления резервными копиями  |
 | [Участник BizTalk](#biztalk-contributor) |Может управлять службами BizTalk |
 | [Участник базы данных ClearDB MySQL](#cleardb-mysql-db-contributor) |Может создавать базы данных ClearDB MySQL |
 | [Участник](#contributor) |Может управлять всем, кроме доступа |
@@ -117,6 +120,98 @@ ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 | Microsoft.Resources/deployments/* |Создание развертываний группы ресурсов и управление ими |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="backup-contributor"></a>Участник резервного копирования
+Может управлять всеми операциями управления резервным копированием, за исключением создания хранилища служб восстановления и предоставления доступа другим пользователям.
+
+| **Действия** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Чтение виртуальных сетей |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Управление результатами операций управления резервным копированием |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Создание контейнеров резервных копий внутри структуры резервного копирования хранилища служб восстановления и управление этими контейнерами |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Создание заданий резервного копирования и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Экспорт заданий резервного копирования в Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Создание метаданных, связанных с управлением резервным копированием, и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Создание результатов операций управления резервным копированием и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | Создание политик резервного копирования и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Создание элементов, для которых можно создавать резервные копии, и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Создание элементов, включаемых в резервную копию, и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Создание контейнеров с элементами, включаемыми в резервную копию, и управление такими контейнерами |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Создание сертификатов, связанных с резервной копией в хранилище служб восстановления, и управление ими |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Создание расширенных сведений, связанных с хранилищем, и управление ими | 
+| Microsoft.RecoveryServices/Vaults/read | Чтение хранилищ служб восстановления |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Управление операциями обнаружения для получения новых контейнеров |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Создание зарегистрированных удостоверений и управление ими |
+| Microsoft.RecoveryServices/Vaults/usages/* | Создание хранилища служб восстановления и управление его использованием |
+| Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Storage/storageAccounts/read | Чтение учетных записей хранения |
+| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="backup-operator"></a>Оператор резервного копирования
+Может управлять всеми операциями управления резервным копированием, за исключением создания хранилища, удаления резервных копий и предоставления доступа другим пользователям
+
+| **Действия** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Чтение виртуальных сетей |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Чтение результатов операций управления резервным копированием |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Чтение результатов операций с контейнерами защиты |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Выполнение операции резервного копирования по запросу для элемента, включенного в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Чтение результата операции с элементом, включенным в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Чтение состояния операции с элементом, включенным в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Чтение элементов, включенных в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Чтение точки восстановления элемента, включенного в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Выполнение операции восстановления с помощью точки восстановления элемента, включенного в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Создание элемента, включенного в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Чтение контейнеров, содержащих элемент, включенный в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Создание заданий резервного копирования и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Экспорт заданий резервного копирования в Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Чтение метаданных, связанных с управлением резервным копированием |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Создание результатов операций управления резервным копированием и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Чтение результатов операций, выполняемых с политиками резервного копирования |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | Чтение политик резервного копирования |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Создание элементов, для которых можно создавать резервные копии, и управление ими |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Чтение элементов, включенных в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Чтение контейнеров, содержащих элементы резервного копирования |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Чтение расширенных сведений, связанных с хранилищем | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Запись расширенных сведений, связанных с хранилищем | 
+| Microsoft.RecoveryServices/Vaults/read | Чтение хранилищ служб восстановления |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Управление операциями обнаружения для получения новых контейнеров |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Чтение результатов операции, выполняемой для зарегистрированных элементов хранилища |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Чтение зарегистрированных элементов хранилища |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Запись зарегистрированных элементов хранилища |
+| Microsoft.RecoveryServices/Vaults/usages/read | Чтение данных об использовании хранилища служб восстановления |
+| Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Storage/storageAccounts/read | Чтение учетных записей хранения |
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+
+### <a name="backup-reader"></a>Читатель резервных копий
+Может отслеживать управление резервным копированием в хранилище служб восстановления
+
+| **Действия** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Чтение результатов операций управления резервным копированием |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Чтение результатов операций с контейнерами защиты |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Чтение результата операции с элементом, включенным в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Чтение состояния операции с элементом, включенным в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Чтение элементов, включенных в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Чтение контейнеров, содержащих элемент, включенный в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Чтение результатов выполнения заданий резервного копирования |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | Чтение заданий резервного копирования |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Экспорт заданий резервного копирования в Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Чтение метаданных, связанных с управлением резервным копированием |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Чтение результатов операции управления резервным копированием |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Чтение результатов операций, выполняемых с политиками резервного копирования |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Чтение политик резервного копирования |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Чтение элементов, включенных в резервную копию |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Чтение контейнеров, содержащих элементы резервного копирования |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Чтение расширенных сведений, связанных с хранилищем |
+| Microsoft.RecoveryServices/Vaults/read  | Чтение хранилищ служб восстановления |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Чтение результатов операции обнаружения для получения новых контейнеров |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Чтение результатов операции, выполняемой для зарегистрированных элементов хранилища |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Чтение зарегистрированных элементов хранилища |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Чтение данных об использовании хранилища служб восстановления |
 
 ### <a name="biztalk-contributor"></a>Участник BizTalk
 Может управлять службами BizTalk
@@ -555,6 +650,6 @@ ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
+ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
 
 
 ---
@@ -51,7 +51,9 @@ ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
 
     ![Портал Azure и ценовая категория][3]
 
-    Примечание: можно использовать существующую базу данных. Но в данном случае база данных не должна быть одним из сегментов, в которых вы хотите выполнять свои запросы. Эта база данных будет использоваться для создания объектов метаданных для запроса к эластичной базе данных.
+    > [!NOTE]
+    > Можно использовать существующую базу данных. Но в данном случае база данных не должна быть одним из сегментов, в которых вы хотите выполнять свои запросы. Эта база данных будет использоваться для создания объектов метаданных для запроса к эластичной базе данных.
+    >
 
 ## <a name="create-database-objects"></a>Создание объектов базы данных
 ### <a name="database-scoped-master-key-and-credentials"></a>Главный ключ и учетные данные для конкретной базы данных
@@ -139,6 +141,6 @@ ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,10 @@
 
 ---
 title: "Использование сертификатов с помощью Пакета интеграции Enterprise | Документация Майкрософт"
-description: "Узнайте, как использовать сертификаты с пакетом интеграции Enterprise и службой Logic Apps."
+description: "Узнайте, как использовать сертификаты с пакетом интеграции Enterprise | Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: padmavc
 manager: anneta
 editor: cgronlun
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-ms.author: deonhe
+ms.date: 02/03/2016
+ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: a1baafa9a2b4552ad711615e5e0abb0180a0d562
-ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
+ms.sourcegitcommit: c8cfe5fb933cf9056b971d3e524f3c9ebc910215
+ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
 
 
 ---
@@ -37,9 +37,9 @@ ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
 * для шифрования содержимого сообщений;
 * для добавления цифровых подписей в сообщения.  
 
-## <a name="how-do-you-upload-certificates"></a>Как можно передать сертификаты?
-### <a name="public-certificates"></a>Открытые сертификаты
-Чтобы использовать *открытый сертификат* в приложениях логики с возможностями "бизнес-бизнес", необходимо сначала передать его в учетную запись интеграции. Чтобы использовать *самозаверяющий сертификат*, его необходимо сначала передать в [хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей").
+## <a name="upload-a-public-certificate"></a>Передача общего сертификата
+
+Чтобы использовать *открытый сертификат* в приложениях логики с возможностями "бизнес-бизнес", необходимо сначала передать его в учетную запись интеграции.  
 
 После передачи сертификат можно будет использовать для защиты сообщений "бизнес-бизнес" при определении их свойств в создаваемых [соглашениях](logic-apps-enterprise-integration-agreements.md) .  
 
@@ -61,8 +61,9 @@ ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
 9. Выберите элемент **Сертификаты** . Вы увидите только что добавленный сертификат.  
 ![Просмотрите новый сертификат.](media/logic-apps-enterprise-integration-certificates/certificate-4.png)  
 
-### <a name="private-certificates"></a>Закрытые сертификаты
-Закрытые сертификаты можно передать в учетную запись интеграции, выполнив следующие действия.  
+## <a name="upload-a-private-certificate"></a>Передача закрытого сертификата
+
+Чтобы использовать *закрытый сертификат* в приложениях логики с использованием возможностей B2B, можно загрузить закрытый сертификат в учетную запись интеграции, выполнив следующие действия.
 
 1. [Передайте закрытый ключ в Key Vault](../key-vault/key-vault-get-started.md "Сведения о Key Vault") и введите **имя ключа**. 
    
@@ -100,6 +101,6 @@ ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

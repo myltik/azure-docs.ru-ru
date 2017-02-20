@@ -9,19 +9,21 @@ editor:
 tags: 
 ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
+ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
+ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
 
 
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Код целевого файла событий для расширенных событий в Базе данных SQL
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Вам нужен полный образец надежного кода для регистрации и сообщения сведений о расширенных событиях.
@@ -37,6 +39,7 @@ ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
   * создание и запуск сеанса событий и т. д.
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 * Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 * Любая база данных, позволяющая создать таблицу.
   
@@ -51,6 +54,7 @@ ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
   * Модули предоставляют такие команды, как **New-AzureStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Этап 1. Код PowerShell для контейнера хранилища Azure
+
 На первом этапе примера двухэтапного кода используется PowerShell.
 
 Сценарий начинается с команд, предназначенных для очистки данных после его предыдущего выполнения, и является многоразовым.
@@ -65,9 +69,10 @@ ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
 
 ![PowerShell ISE с установленным модулем Azure, готовый к выполнению сценария.][30_powershell_ise]
 
-&nbsp;
 
-```
+### <a name="powershell-code"></a>Код PowerShell
+
+```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
 
 #--------------- 1 -----------------------
@@ -238,11 +243,10 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 ```
 
 
-&nbsp;
-
 Обратите внимание на ряд именованных значений, которые выводятся на экран по завершении сценария PowerShell. Эти значения нужно будет внести в сценарий Transact-SQL, работа с которым составляет второй этап.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Этап 2. Код Transact-SQL, использующий контейнер хранилища Azure
+
 * На первом этапе работы с примером кода вы выполнили сценарий PowerShell, создающий контейнер службы хранилища Azure.
 * На втором этапе этот контейнер используется в сценарии Transact-SQL.
 
@@ -257,16 +261,14 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 5. Найти в сценарии все случаи использования параметра **TODO** и внесите соответствующие изменения.
 6. Сохраните и выполните сценарий.
 
-&nbsp;
 
 > [!WARNING]
 > Значение ключа SAS, созданное предыдущим сценарием PowerShell, может начинаться с вопросительного знака ("?"). При использовании ключа SAS в приведенном ниже сценарии T-SQL *этот вопросительный знак нужно удалить*. В противном случае система безопасности может заблокировать ваши действия.
-> 
-> 
 
-&nbsp;
 
-```
+### <a name="transact-sql-code"></a>Код Transact-SQL
+
+```tsql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -460,11 +462,9 @@ GO
 ```
 
 
-&nbsp;
-
 Если при выполнении сценария целевой объект не подхватывается, остановите и перезапустите сеанс события:
 
-```
+```tsql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;
@@ -472,16 +472,14 @@ GO
 ```
 
 
-&nbsp;
-
 ## <a name="output"></a>Выходные данные
+
 После того как сценарий Transact-SQL будет выполнен, щелкните ячейку под заголовком столбца **event_data_XML**. Один из отображенных элементов **<event>** содержит инструкцию UPDATE.
 
 Ниже приведен один из элементов **<event>** , сформированных в процессе тестирования.
 
-&nbsp;
 
-```
+```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
   <data name="state">
     <value>0</value>
@@ -520,7 +518,6 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
-&nbsp;
 
 В приведенном выше сценарии Transact-SQL для чтения event_file была использована следующая системная функция.
 
@@ -530,9 +527,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 * [Advanced Viewing of Target Data from Extended Events in SQL Server (Дополнительные параметры просмотра целевых данных из расширенных событий в SQL Server)](http://msdn.microsoft.com/library/mt752502.aspx)
 
-&nbsp;
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Преобразование примера кода для выполнения на SQL Server
+
 Предположим, что приведенный выше пример сценария Transact-SQL нужно выполнить на Microsoft SQL Server.
 
 * Проще всего будет полностью заменить контейнер службы хранилища Azure простым файлом, например **C:\myeventdata.xel**. Этот файл будет записан на локальный жесткий диск компьютера, где находится SQL Server.
@@ -542,6 +539,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
   * Учетная запись хранения Azure при этом не нужна.
 
 ## <a name="more-information"></a>Дополнительные сведения
+
 Дополнительные сведения об учетных записях и контейнерах в службе хранилища Azure см. в следующих статьях:
 
 * [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -559,6 +557,6 @@ Image references.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

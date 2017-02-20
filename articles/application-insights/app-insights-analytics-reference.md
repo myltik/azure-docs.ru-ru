@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
+ms.sourcegitcommit: f336058fd743b4dfec17eb301a3b28d035ca8d0f
+ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 ## <a name="index"></a>Индекс
 **Let** [let](#let-clause)
 
-**Запросы и операторы** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Запросы и операторы** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Статистические функции** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -94,6 +94,18 @@ ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Преобразование результата таблицы в скалярное выражение и его использование в запросе:
+
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
 Самосоединение:
 
@@ -157,6 +169,63 @@ requests // The request table starts this pipeline.
 ```AIQL
 requests | count
 ```
+
+### <a name="datatable-operator"></a>Оператор DataTable
+
+Определяет встроенную таблицу. Схема и значения определяются в самом запросе.
+
+Обратите внимание, что для этого оператора ввод конвейера не предусмотрен.
+
+**Синтаксис**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* — имя столбца.
+* *ColumnType* — [тип данных](#scalars). 
+* *ScalarValue* — значение соответствующего типа. Число значений должно быть кратно числу столбцов. 
+
+**Результаты**
+
+Таблица, содержащая указанные значения.
+
+**Пример**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### <a name="distinct-operator"></a>Оператор distinct
+
+Возвращает таблицу, которая содержит набор строк с разными комбинациями значений. При необходимости выполняет проекцию в подмножество столбцов перед операцией.
+
+**Синтаксис**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Пример**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Фрукт|Цена|
+|---|---|
+|Виноград|22|
+|Яблоки|14|
+|Яблоки|15|
+
 
 ### <a name="evaluate-operator"></a>Оператор evaluate
 Оператор `evaluate` — это механизм расширения, позволяющий добавлять в запросы специализированные алгоритмы.
@@ -571,32 +640,32 @@ traces
 Поддерживаются два режима развертывания контейнера свойств.
 
 * `bagexpansion=bag`— контейнеры свойств развертываются в контейнеры свойств с одной записью. Это значение по умолчанию.
-* `bagexpansion=array` — контейнеры свойств развертываются в структуры массива с двумя элементами `[`*key*`,`*value*`]`. Это позволяет единообразно обращаться к ключам и значениям (а также выполнять, например, подсчет разных значений в именах свойств). 
+* `bagexpansion=array` — контейнеры свойств развертываются в структуры массива с двумя элементами `[`*key*`,`*value*`]`. Это позволяет единообразно обращаться к ключам и значениям (а также выполнять, например, подсчет разных значений в именах свойств).
 
 **Примеры**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Разбивает запись исключения на строки для каждого элемента в поле подробных сведений.
 
 ### <a name="parse-operator"></a>Оператор parse
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Извлекает значения из строки. Можно использовать сопоставление простых или регулярных выражений.
 
 **Синтаксис**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Аргументы**
@@ -844,6 +913,50 @@ Render указывает уровню представления данных �
     restrict access to (e1, e2);
     union * |  take 10 
 
+### <a name="sample-operator"></a>Оператор sample
+
+Возвращает равномерно распределенные случайные строки из входной таблицы.
+
+
+**Синтаксис**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* — возвращаемое число строк в выборке.
+
+**Подсказка**
+
+Используйте `Take`, когда вам не требуется получить равномерно распределенную выборку.
+
+
+### <a name="sample-distinct-operator"></a>Оператор sample-distinct
+
+Возвращает один столбец, который содержит указанное число разных значений запрошенного столбца. Сейчас не возвращает распределенную выборку.
+
+**Синтаксис**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* — требуемая длина таблицы.
+* *ColumnName* — требуемый столбец.
+
+**Советы**
+
+Выборку заполнения удобно получить, поместив оператор sample-distinct в инструкцию let, а затем выполнив фильтрацию с помощью оператора in (см. пример).
+ 
+Если вам нужны максимальные значения, а не просто выборка, можно использовать оператор top-hitters.
+
+Если вам нужны строки данных, а не просто значения конкретного столбца, см. описание [оператора sample](#sample-operator).
+
+**Пример**
+
+Выполняет выборку заполнения и дальнейшие вычисления, учитывая то, что одна строка не может превысить ограничения запроса.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+
 ### <a name="sort-operator"></a>Оператор sort
     T | sort by country asc, price desc
 
@@ -853,7 +966,7 @@ Render указывает уровню представления данных �
 
 **Синтаксис**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Аргументы**
 
@@ -886,9 +999,9 @@ Traces
 **Синтаксис**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Аргументы**
 
@@ -919,7 +1032,7 @@ Traces
 
 **Синтаксис**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Аргументы**
 
@@ -933,11 +1046,11 @@ Traces
 Выражение `top 5 by name` внешне эквивалентно `sort by name | take 5`. Однако первое работает быстрее и, в отличие от `take` , всегда возвращает отсортированные результаты.
 
 ### <a name="top-nested-operator"></a>Вложенный оператор верхнего уровня
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Формирует иерархические результаты, где каждый следующий уровень детализирует предыдущий. Это позволяет, например, выделить пять основных запросов, для каждого из них определить три основных категории производительности и для каждой из этих категорий установить, из каких трех стран поступает большинство запросов.
 
@@ -1077,17 +1190,54 @@ traces
 
 **Синтаксис**
 
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
+    T | where col in (listExpression)
+    T | where col !in (listExpression)
 
 **Аргументы**
 
 * `col`: столбец в таблице.
-* `expr1`...: список скалярных выражений.
+* `listExpression`...: список скалярных выражений или выражение, которое возвращает список. 
+
+Вложенный массив сведен в один список (например, `where x in (dynamic([1,[2,3]]))` становится `where x in (1,2,3)`).
 
 `in` используется для включения только строк, в которых `col` равно одному из выражений `expr1...`.
 
 `!in` используется для включения только строк, в которых `col` не равно ни одному из выражений `expr1...`.  
+
+**Примеры**
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Вычисленный список:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Использование вызова функции как выражения списка:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ## <a name="aggregations"></a>Агрегаты
 Агрегаты — это функции, которые используются для объединения значений в группы, созданные в [операции суммирования](#summarize-operator). Например, в этом запросе dcount() является агрегатной функцией:
@@ -1160,10 +1310,10 @@ traces
 
 Результат:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1195,11 +1345,11 @@ traces
 
 Итоговая схема будет следующей:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 Схема указывает следующее:
@@ -1216,19 +1366,19 @@ traces
 Синтаксис возвращаемой схемы следующий:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 Они эквивалентны подмножеству аннотаций типов TypeScript, закодированному как динамическое значение. В Typescript пример схемы будет следующим:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1634,6 +1784,12 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     and 
     or 
 
+### <a name="convert-to-boolean"></a>Преобразование в логическое значение
+
+Если у вас есть строка `aStringBoolean`, которая содержит значение true или false, ее можно преобразовать в логическое значение:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## <a name="numbers"></a>Числа
@@ -1785,13 +1941,6 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
-### <a name="tolong"></a>tolong
-    tolong(20.7) == 20 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
-
 
 ### <a name="todouble"></a>todouble
     todouble(20) == 20.0 // conversion from long or int
@@ -1799,6 +1948,13 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### <a name="tolong"></a>tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## <a name="date-and-time"></a>Дата и время
@@ -2066,7 +2222,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Равно |Да |`"aBc" == "aBc"` |
 | `<>` `!=` |Не равно |Да |`"abc" <> "ABC"` |
-| `=~` |Равно |Нет |`"abc" =~ "ABC"` |
+| `=~` |Равно |Нет |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Не равно |Нет |`"aBc" !~ "xyz"` |
 | `has` |Правая часть представляет собой все слово в левой части |Нет |`"North America" has "america"` |
 | `!has` |Правая часть не является всем словом в левой части |Нет |`"North America" !has "amer"` |
@@ -2375,8 +2531,8 @@ substring("ABCD", 0, 2)       // AB
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Литералы** Используются для создания явного массива или объекта контейнера свойств, его записи в виде строки JSON и приведения типов:
@@ -2386,7 +2542,7 @@ substring("ABCD", 0, 2)       // AB
 
 **mvexpand:** чтобы извлечь свойства объекта в отдельные строки, используйте mvexpand:
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2394,8 +2550,8 @@ substring("ABCD", 0, 2)       // AB
 
 **treepath** используется для поиска всех путей в сложном объекте.
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2407,10 +2563,10 @@ substring("ABCD", 0, 2)       // AB
 
 Результат:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2436,7 +2592,7 @@ substring("ABCD", 0, 2)       // AB
 Чтобы создать динамический литерал, используйте `parsejson` (псевдоним `todynamic`) со строкой JSON в качестве аргумента:
 
 * `parsejson('[43, 21, 65]')` — массив чисел;
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` — одно значение динамического типа, содержащее число;
 * `parsejson('"21"')` — одно значение динамического типа, содержащее строку.
 
@@ -2681,6 +2837,6 @@ range(1, 8, 3)
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

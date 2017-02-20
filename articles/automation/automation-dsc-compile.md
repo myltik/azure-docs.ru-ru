@@ -1,6 +1,6 @@
 ---
 title: "Компиляция конфигураций в Azure Automation DSC | Документация Майкрософт"
-description: "Обзор двух способов, с помощью которых можно компилировать конфигурации требуемого состояния (DSC): на портале Azure или с помощью Windows PowerShell. "
+description: "В этой статье описывается, как компилировать конфигурации службы настройки требуемого состояния (DSC) для службы автоматизации Azure."
 services: automation
 documentationcenter: na
 author: eslesar
@@ -11,18 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 12/13/2016
-ms.author: eslesar
+ms.date: 02/07/2017
+ms.author: magoedte; eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 30c93d801c68e24b45f5fbc119724e0a18076a13
+ms.sourcegitcommit: 032747ffb7a603c54e8913c0d82edbc8e11b73c3
+ms.openlocfilehash: 0b808dd6bcf0a0d1f8e459927a4010dc1887ca60
 
 ---
+
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Компилирование конфигураций в Azure Automation DSC
 
-Вы можете компилировать конфигурации требуемого состояния (DSC) двумя способами: на портале Azure или с помощью Windows PowerShell. Нижеприведенная таблица поможет определить, когда и какой метод использовать с учетом характеристик каждого метода.
+Вы можете компилировать конфигурации службы настройки требуемого состояния (DSC) двумя способами: на портале Azure или с помощью PowerShell. Нижеприведенная таблица поможет определить, когда и какой метод использовать с учетом характеристик каждого метода.
 
-### <a name="azure-preview-portal"></a>Портал предварительной версии Azure
+### <a name="azure-portal"></a>Портал Azure
 
 * Простейший способ с интерактивным пользовательским интерфейсом.
 * Форма для предоставления значений простых параметров.
@@ -43,7 +44,7 @@ ms.openlocfilehash: 30c93d801c68e24b45f5fbc119724e0a18076a13
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Компилирование конфигурации DSC с помощью портала Azure
 
-1. В своей учетной записи автоматизации щелкните элемент **Конфигурации**.
+1. В учетной записи автоматизации щелкните **Конфигурации**.
 2. Щелкните конфигурацию, чтобы открыть ее колонку.
 3. Нажмите кнопку **Компилировать**.
 4. Если конфигурация не имеет параметров, нужно будет подтвердить ее компилирование. Если конфигурация имеет параметры, то отобразится колонка **Compile Configuration** (Компилирование конфигурации), в которой можно указать значения параметров. Дополнительные сведения о параметрах см. в разделе [**Базовые параметры**](#basic-parameters) ниже.
@@ -204,7 +205,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {
@@ -241,6 +242,6 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

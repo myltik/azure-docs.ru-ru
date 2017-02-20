@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 37114071cb9c3da187e8d96d7a49680ee828832a
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
 
 
 ---
@@ -127,7 +127,7 @@ ms.openlocfilehash: 37114071cb9c3da187e8d96d7a49680ee828832a
     }
 
 
-![hdinsight hadoop настройка кластера начальная загрузка шаблон azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop настройка кластер начальная загрузка шаблон Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Дополнительные материалы
 * В статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
@@ -258,6 +258,6 @@ ms.openlocfilehash: 37114071cb9c3da187e8d96d7a49680ee828832a
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Использование Apache Phoenix и SQuirreL в HDInsight | Документация Майкрософт"
+title: "Использование Apache Phoenix и SQuirreL c Azure HDInsight под управлением Windows | Документация Майкрософт"
 description: "Узнайте о том, как использовать Apache Phoenix в HDInsight, а также как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
 
 
 ---
@@ -26,9 +26,12 @@ ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
 > [!NOTE]
 > Сведения о версии Phoenix в HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md).
 >
-> Информация, приведенная в этом документе, относится только к кластерам HDInsight под управлением Windows. Сведения об использовании Phoenix в HDInsight под управлением Linux см. в статье [Использование Apache Phoenix с кластерами HBase под управлением Linux в HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+
+> [!IMPORTANT]
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Сведения об использовании Phoenix в HDInsight под управлением Linux см. в статье [Использование Apache Phoenix с кластерами HBase под управлением Linux в HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
->
+
+
 
 ## <a name="use-sqlline"></a>Использование SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) — это утилита командной строки для выполнения SQL.
@@ -56,7 +59,7 @@ ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     Команды, используемые в образце:
 
@@ -109,7 +112,7 @@ ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
 3. Щелкните созданную вами виртуальную сеть (ознакомьтесь со статьей [Создание кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]).
 4. Щелкните **НАСТРОИТЬ** в верхней части страницы.
 5. В разделе **Подключение типа "точка — сеть"** выберите **Настроить подключение типа "точка — сеть"**.
-6. Настройте **Начальный IP-адрес** и **CIDR** для указания диапазона IP-адресов, из которого клиенты VPN будут получать IP-адрес при подключении. Диапазон не может пересекаться с другими диапазонами, выделенными в локальной сети и виртуальной сети Azure, к которым будет выполняться подключение. Например, если выбран диапазон 10.0.0.0/20 для виртуальной сети, для пространства клиентских адресов можно выбрать 10.1.0.0/24. См. Дополнительные сведения см. на странице [Подключение "точка — сеть"][vnet-point-to-site-connectivity].
+6. Настройте **Начальный IP-адрес** и **CIDR** для указания диапазона IP-адресов, из которого клиенты VPN будут получать IP-адрес при подключении. Диапазон не может пересекаться с другими диапазонами, выделенными в локальной сети и виртуальной сети Azure, к которым будет выполняться подключение. Например, если выбран диапазон&10;.0.0.0/20 для виртуальной сети, для пространства клиентских адресов можно выбрать&10;.1.0.0/24. См. Дополнительные сведения см. на странице [Подключение "точка — сеть"][vnet-point-to-site-connectivity].
 7. В разделе пространств адресов виртуальной сети щелкните **Добавить подсеть шлюза**.
 8. В нижней части страницы нажмите **СОХРАНИТЬ** .
 9. Нажмите кнопку **ДА** для подтверждения изменения. Подождите, пока система завершит внесение изменений, прежде чем перейти к следующей процедуре.
@@ -203,7 +206,7 @@ ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
   > [!NOTE]
   > Папка установки по умолчанию — C:\Program Files\squirrel-sql-3.6.  Для записи в эту папку программе установки необходимо предоставить права администратора. Откройте командную строку от имени администратора, перейдите в папку bin Java, а затем выполните следующую команду:
   >
-  >     java.exe -jar [the path of the SQuirreL jar file]
+  >     java.exe -jar [путь к JAR-файлу SQuirreL]
 5. Нажмите **ОК** для подтверждения создания целевого каталога.
 6. Настройка по умолчанию — установка базового и стандартного пакетов.  Нажмите кнопку **Далее**.
 7. Нажмите кнопку **Далее** дважды, а затем нажмите **Готово**.
@@ -292,6 +295,6 @@ JAR-файл драйвера phoenix находится в кластере HBa
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

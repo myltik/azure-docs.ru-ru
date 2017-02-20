@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/07/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
+ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
+ms.openlocfilehash: da0f910e75fc74821bb08b2fd5b06ed08c386646
 
 
 
@@ -30,12 +30,12 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 [HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) представляет собой версию платформы Spark с открытым исходным кодом, размещенную в Azure. Она также поддерживает **записные книжки Jupyter PySpark** в кластере Spark, которые могут выполнять интерактивные запросы Spark SQL для преобразования, фильтрации и визуализации данных, хранящихся в больших двоичных объектах Azure (WASB). PySpark — это API Python для Spark. Здесь фрагменты кода, которые предоставляют решения и формируют соответствующие графики с целью визуализации данных, выполняются в записных книжках Jupyter, установленных в кластерах Spark. Этапы моделирования, описанные в этих разделах, содержат код, который демонстрирует способ обучения, анализа, сохранения и использования каждого типа модели. 
 
-Действия по настройке и код, указанные в этом пошаговом руководстве, предназначены для HDInsight 3.4 Spark 1.6. Однако код здесь и в записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark.
+Действия по настройке и код, указанные в этом пошаговом руководстве, применимы к HDInsight Spark 1.6. Но Jupyter Notebook предоставляются для кластеров HDInsight Spark 1.6 и Spark 2.0. Более того, код здесь и в связанных записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark.
 
 ## <a name="prerequisites"></a>Предварительные требования
 1. У вас должна быть подписка Azure. Если у вас ее нет, см. статью [о получении бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. Для выполнения инструкций этого руководства требуется кластер HDInsight 3.4 Spark 1.6. Создайте его, выполнив инструкции в статье [Начало работы: создание кластера Apache Spark в Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Тип и версию кластера можно указать с помощью меню **Выбор типа кластера** . 
+2. Для выполнения инструкций этого руководства требуется кластер Spark версии 1.6 или 2.0. Создайте его, выполнив инструкции в статье [Начало работы: создание кластера Apache Spark в Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Тип и версию кластера можно указать с помощью меню **Выбор типа кластера** . 
 
 ![Настройка кластера](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
@@ -101,7 +101,7 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 | tip_amount |Сумма чаевых |
 | tolls_amount |Дорожные пошлины |
 | total_amount |Общая сумма |
-| tipped |Чаевые (0 — нет, 1 — да) |
+| tipped |Чаевые (0 — нет,&1; — да) |
 | tip_class |Класс чаевых (0: 0 долларов, 1: 0–5 долларов, 2: 6–10 долларов, 3: 11–20 долларов, 4: >20 долларов) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Выполнение кода из записной книжки Jupyter в кластере Spark
@@ -115,11 +115,15 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 Выберите PySpark, чтобы открыть каталог, содержащий несколько примеров предварительно подготовленных записных книжек на основе API PySpark. Записные книжки с примерами кода для этой группы статьей о Spark доступны в репозитории [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-Записные книжки можно отправить непосредственно из Github на сервер записных книжек Jupyter в кластере Spark. На домашней странице записной книжки Jupyter нажмите кнопку **Отправить** в правой части экрана. Откроется окно проводника. Здесь вы можете вставить URL-адрес Github (необработанное содержимое) для записной книжки и нажать кнопку **Открыть**. Записные книжки PySpark доступны по следующим URL-адресам:
+Записные книжки можно отправить непосредственно из Github на сервер записных книжек Jupyter в кластере Spark. На домашней странице записной книжки Jupyter нажмите кнопку **Отправить** в правой части экрана. Откроется окно проводника. Здесь вы можете вставить URL-адрес Github (необработанное содержимое) для записной книжки и нажать кнопку **Открыть**. Записные книжки PySpark доступны по следующим URL-адресам: Для pySpark2 Spark1.6 кластеры HDInsight:
 
 1. [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)
 2. [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)
 3. [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
+
+Для pySpark3 Spark2.0 кластеры HDInsight:
+
+[pySpark3-Spark2.0-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark3-Spark2.0-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
 
 В списке файлов Jupyter отобразится имя файла с кнопкой **Отправить**. Нажмите кнопку **Отправить** . Записная книжка импортирована. Повторите эти действия для отправки остальных записных книжек из этого руководства.
 
@@ -154,6 +158,6 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

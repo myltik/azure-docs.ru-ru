@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
+ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
+ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Политики ограничения доступа в службе управления API
@@ -368,7 +368,8 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -491,7 +492,8 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
 |id|Атрибут `id` в элементе `key` позволяет указать строку, которая будет сопоставлена с утверждением `kid` в маркере (при наличии), чтобы найти подходящий ключ для проверки подписи.|Нет|Недоступно|  
 |match|Атрибут `match` в элементе `claim` указывает, должно ли присутствовать каждое значение утверждения политики в маркере для успешного завершения проверки. Возможные значения:<br /><br /> -                          `all` — каждое значение утверждения в политике должно присутствовать в маркере для успешного завершения проверки.<br /><br /> -                          `any` — в маркере должно присутствовать по крайней мере одно значение утверждения для успешного завершения проверки.|Нет|все|  
 |query-paremeter-name|Имя параметра запроса, содержащего маркер.|Необходимо указать один из двух атрибутов (`header-name` или `query-paremeter-name`), но не оба.|Недоступно|  
-|require-expiration-time|Логическое значение. Указывает, требуется ли утверждение истечения срока действия для маркера.|Нет|Да|  
+|require-expiration-time|Логическое значение. Указывает, требуется ли утверждение истечения срока действия для маркера.|Нет|Да|
+|require-scheme|Имя схемы маркера, например "Bearer". Когда задан этот атрибут, политики обеспечивают присутствие указанной схемы в значении заголовка Authorization.|Нет|Недоступно|
 |require-signed-tokens|Логическое значение. Указывает, должен ли быть подписан маркер.|Нет|Да|  
 |url|URL-адрес конечной точки конфигурации Open ID, по которому можно получить метаданные конфигурации Open ID. Для Azure Active Directory используйте URL-адрес `https://login.windows.net/{tenant-name}/.well-known/openid-configuration`, подставив необходимое имя клиента каталога, например `contoso.onmicrosoft.com`.|Да|Недоступно|  
   
@@ -506,6 +508,7 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

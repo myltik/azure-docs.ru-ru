@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 12/27/2016
 ms.author: magoedte;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: af96c2b6063f7200cdeb6b51e5c729aa4643127f
+ms.sourcegitcommit: 7fa1be008b5be0c912af14674ffb38d99dcf6bcc
+ms.openlocfilehash: 4042810a5ccfffba74ae9cffd82f194e8058ad83
 
 
 ---
@@ -91,8 +91,8 @@ ms.openlocfilehash: af96c2b6063f7200cdeb6b51e5c729aa4643127f
 | Cognitive Services |Да | [REST для Cognitive Services](/rest/api/cognitiveservices) |[Схема Cognitive Services](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) | |
 | Каталог данных |Да |[REST каталога данных](/rest/api/datacatalog) |[Схема каталога данных](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) | |
 | Фабрика данных |Да |[Интерфейс REST фабрики данных](/rest/api/datafactory) | |[Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Аналитика озера данных |Да | [REST для Data Lake](/rest/api/datalakeanalytics) |[Схема Data Lake](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
-| Хранилище озера данных |Да |[REST Data Lake Store](/rest/api/datalakestore) |[Схема Data Lake](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
+| Аналитика озера данных |Да | [REST для Data Lake](/rest/api/datalakeanalytics) |[Схема Data Lake Analytics](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
+| Хранилище озера данных |Да |[REST Data Lake Store](/rest/api/datalakestore) |[Схема Data Lake Store](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeStore.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
 | HDInsights |Да |[Интерфейс REST HDInsights](/rest/api/hdinsight) | |[Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Машинное обучение |Да |[REST машинного обучения](/rest/api/machinelearning) |[Схема машинного обучения](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) | |
 | Stream Analytics |Да |[Steam Analytics REST](/rest/api/streamanalytics) | | |
@@ -110,7 +110,7 @@ ms.openlocfilehash: af96c2b6063f7200cdeb6b51e5c729aa4643127f
 | служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
 | --- | --- | --- | --- | --- |
 | CDN |Да |[CDN REST](/rest/api/cdn) |[Схема CDN](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) |[Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| Служба мультимедиа |Да |[REST служб мультимедиа](/rest/api/media) |[Схема службы мультимедиа](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) | |
+| Служба мультимедиа |Да |[REST служб мультимедиа](/rest/api/media) |[Схема службы мультимедиа](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |[Microsoft.Media](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
 
 ## <a name="hybrid-integration"></a>Гибридная интеграция
 | служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
@@ -304,6 +304,6 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

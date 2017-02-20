@@ -1,6 +1,6 @@
 ---
-title: "Создание и передача пользовательского образа Linux | Документация Майкрософт"
-description: "Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux, использующим модель развертывания с помощью Resource Manager."
+title: "Отправка пользовательского образа Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия) | Документация Майкрософт"
+description: "Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux на основе модели развертывания Resource Manager с помощью Azure CLI 2.0 (предварительная версия)"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,69 +13,76 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 12/15/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: edab3b3058a2e28ce74e62434b85b1643f267493
+ms.sourcegitcommit: 24928d9457db46f6976f50227d81c97ff6c202d7
+ms.openlocfilehash: ef735c887c1ce42a160a868b6bcc56b32f10aa9e
 
 
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-image"></a>Передача пользовательского образа диска и создание виртуальной машины Linux на его основе
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-20-preview"></a>Отправка пользовательского образа диска и создание на его основе виртуальной машины Linux с помощью Azure CLI 2.0 (предварительная версия)
 В этой статье показано, как передать виртуальный жесткий диск (VHD-файл) в Azure с использованием модели развертывания с помощью Resource Manager и создавать на его основе виртуальные машины Linux. Эта функциональная возможность позволяет установить и настроить дистрибутив Linux в соответствии с требованиями, а затем использовать этот VHD для быстрого создания виртуальных машин Azure.
+
+
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+- [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- [Azure CLI 2.0 (предварительная версия)](#quick-commands) — интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
+
 
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для отправки виртуальной машины в Azure. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](#requirements).
 
-Войдите в [интерфейс командной строки Azure](../xplat-cli-install.md) и перейдите в режим Resource Manager:
-
-```bash
-azure config mode arm
-```
+Обязательно установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `myimages`.
 
-Сначала создайте группу ресурсов. В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `WestUs`:
+Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `WestUs`:
 
-```bash
-azure group create myResourceGroup --location "WestUS"
+```azurecli
+az group create --name myResourceGroup --location westus
 ```
 
-Создайте учетную запись хранения для размещения виртуальных дисков. В следующем примере создается учетная запись хранения с именем `mystorageaccount`:
+Создайте учетную запись хранения для размещения виртуальных дисков с помощью команды [az storage account create](/cli/azure/storage/account#create). В следующем примере создается учетная запись хранения с именем `mystorageaccount`:
 
-```bash
-azure storage account create mystorageaccount --resource-group myResourceGroup \
-    --location "WestUS" --kind Storage --sku-name PLRS
+```azurecli
+az storage account create --resource-group myResourceGroup --location westus \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Получите список ключей доступа для учетной записи хранения. Запишите `key1`:
+Отобразите список ключей доступа к своей учетной записи хранилища с помощью команды [az storage account keys list](/cli/azure/storage/account/keys#list). Запишите `key1`:
 
-```bash
-azure storage account keys list mystorageaccount --resource-group myResourceGroup
+```azurecli
+az storage account keys list --resource-group myResourceGroup --name mystorageaccount
 ```
 
-Создайте контейнер в своей учетной записи хранения с помощью полученного ключа к хранилищу данных. В следующем примере создается контейнер с именем `myimages` с использованием значения ключа к хранилищу данных из `key1`:
+Создайте контейнер в своей учетной записи хранения, используя ключ к хранилищу данных, полученный с помощью команды [az storage container create](/cli/azure/storage/container#create). В следующем примере создается контейнер с именем `myimages` с использованием значения ключа к хранилищу данных из `key1`:
 
-```bash
-azure storage container create --account-name mystorageaccount \
-    --account-key key1 --container myimages
+```azurecli
+az storage container create --account-name mystorageaccount \
+    --account-key key1 --name myimages
 ```
 
-Наконец, отправьте виртуальный жесткий диск в созданный контейнер. Укажите локальный путь к виртуальному жесткому диску в `/path/to/disk/mydisk.vhd`:
+Наконец, отправьте виртуальный жесткий диск в созданный контейнер, используя команду [az storage blob upload](/cli/azure/storage/blob#upload). Укажите локальный путь к виртуальному жесткому диску в `/path/to/disk/mydisk.vhd`:
 
-```bash
-azure storage blob upload --blobtype page --account-name mystorageaccount \
-    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
+```azurecli
+az storage blob upload --account-name mystorageaccount \
+    --account-key key1 --container-name myimages --type page \
+    --file /path/to/disk/mydisk.vhd --name myImage.vhd
 ```
 
-Теперь можно создать виртуальную машину из переданного виртуального диска [с помощью шаблона Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). Кроме того, можно указать универсальный код ресурса (URI) для диска в командной строке (`--image-urn`). В следующем примере создается виртуальная машина с именем `myVM` с помощью отправленного ранее виртуального диска:
+Теперь можно создать виртуальную машину из переданного виртуального диска [с помощью шаблона Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). Кроме того, можно указать универсальный код ресурса (URI) для диска в командной строке (`--image-urn`). В следующем примере создается виртуальная машина с именем `myVM` с помощью отправленного ранее виртуального диска:
 
-```bash
-azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://mystorageaccount.blob.core.windows.net/myimages/myImage.vhd
 ```
 
-Целевой должна быть учетная запись хранения, в которую был передан виртуальный диск. Кроме того, нужно задать или указать в запросах все дополнительные параметры, необходимые для команды `azure vm create`, а именно: виртуальную сеть, общедоступный IP-адрес, имя пользователя и ключи SSH. Дополнительные сведения о доступных параметрах Resource Manager для интерфейса командной строки см. [здесь](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+Целевой должна быть учетная запись хранения, в которую был передан виртуальный диск. Кроме того, нужно задать или указать в запросах все дополнительные параметры, необходимые для команды **az vm create**, включая виртуальную сеть, общедоступный IP-адрес, имя пользователя и ключи SSH. Дополнительные сведения о доступных параметрах Resource Manager для интерфейса командной строки см. [здесь](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ## <a name="requirements"></a>Требования
 Чтобы выполнить приведенные ниже действия, требуется:
@@ -93,11 +100,7 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
   * Создайте учетную запись хранения и контейнер для хранения пользовательского образа и созданных виртуальных машин.
   * После создания всех виртуальных машин можно спокойно удалить образ.
 
-Войдите в [интерфейс командной строки Azure](../xplat-cli-install.md) и перейдите в режим Resource Manager:
-
-```bash
-azure config mode arm
-```
+Обязательно установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `myimages`.
 
@@ -122,36 +125,36 @@ Azure поддерживает различные дистрибутивы Linux
 > 
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
-Группы ресурсов логически объединяют все ресурсы Azure для обеспечения работы виртуальных машин, в том числе виртуальные сети и хранилища. Узнайте больше о группах ресурсов Azure [здесь](../azure-resource-manager/resource-group-overview.md). Перед отправкой пользовательского образа и созданием виртуальных машин необходимо создать группу ресурсов. 
+Группы ресурсов логически объединяют все ресурсы Azure для обеспечения работы виртуальных машин, в том числе виртуальные сети и хранилища. См. дополнительные сведения о [группах ресурсов](../azure-resource-manager/resource-group-overview.md). Перед отправкой пользовательского образа и созданием виртуальных машин необходимо создать группу ресурсов с помощью команды [az group create](/cli/azure/group#create).
 
-В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `WestUS`:
+В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `westus`:
 
-```bash
-azure group create myResourceGroup --location "WestUS"
+```azurecli
+az group create --name myResourceGroup --location westus
 ```
 
 ## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
-Виртуальные машины хранятся в виде страничных BLOB-объектов в учетной записи хранения. Узнайте больше о хранилище BLOB-объектов Azure [здесь](../storage/storage-introduction.md#blob-storage). Следует создать учетную запись хранения для пользовательского образа диска и виртуальных машин. Все виртуальные машины, созданные на основе пользовательского образа диска, должны находиться в той же учетной записи хранения, что и этот образ.
+Виртуальные машины хранятся в виде страничных BLOB-объектов в учетной записи хранения. Узнайте больше о хранилище BLOB-объектов Azure [здесь](../storage/storage-introduction.md#blob-storage). Следует создать учетную запись хранения для пользовательского образа диска и виртуальных машин с помощью команды [az storage account create](/cli/azure/storage/account#create). Все виртуальные машины, созданные на основе пользовательского образа диска, должны находиться в той же учетной записи хранения, что и этот образ.
 
 В следующем примере создается учетная запись хранения с именем `mystorageaccount` в ранее созданной группе ресурсов:
 
-```bash
-azure storage account create mystorageaccount --resource-group myResourceGroup \
-    --location "WestUS" --kind Storage --sku-name PLRS
+```azurecli
+az storage account create --resource-group myResourceGroup --location westus \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
 ## <a name="list-storage-account-keys"></a>Вывод списка ключей учетной записи хранения
-Azure создает два 512-разрядных ключа доступа для каждой учетной записи хранения. Эти ключи используются при аутентификации в учетной записи хранения, например, для выполнения операций записи. Узнайте больше об управлении доступом к хранилищу [здесь](../storage/storage-create-storage-account.md#manage-your-storage-account). Просмотреть ключи доступа можно с помощью команды `azure storage account keys list` .
+Azure создает два 512-разрядных ключа доступа для каждой учетной записи хранения. Эти ключи используются при аутентификации в учетной записи хранения, например, для выполнения операций записи. Узнайте больше об управлении доступом к хранилищу [здесь](../storage/storage-create-storage-account.md#manage-your-storage-account). Просмотрите список ключей доступа с помощью команды [az storage account keys list](/cli/azure/storage/account/keys#list).
 
 Просмотрите ключи доступа для созданной учетной записи хранения.
 
-```bash
-azure storage account keys list mystorageaccount --resource-group myResourceGroup
+```azurecli
+az storage account keys list --resource-group myResourceGroup --name mystorageaccount
 ```
 
 Выходные данные должны быть следующего вида.
 
-```
+```azurecli
 info:    Executing command storage account keys list
 + Getting storage account keys
 data:    Name  Key                                                                                       Permissions
@@ -159,52 +162,54 @@ data:    ----  -----------------------------------------------------------------
 data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
-
 ```
 Запишите значение `key1` , так как оно будет использоваться для работы с учетной записью хранения на следующих шагах.
 
 ## <a name="create-a-storage-container"></a>Создание контейнера хранилища
-Точно так же, как вы создаете различные каталоги для логической организации локальной файловой системы, вы создаете контейнеры в учетной записи хранения, чтобы упорядочить виртуальные диски и образы. Учетная запись хранения может содержать любое количество контейнеров. 
+Точно так же, как вы создаете различные каталоги для логической организации локальной файловой системы, вы создаете контейнеры в учетной записи хранения, чтобы упорядочить виртуальные диски и образы. Учетная запись хранения может содержать любое количество контейнеров. Создайте контейнер с помощью команды [az storage container create](/cli/azure/storage/container#create).
 
 В следующем примере создается новый контейнер с именем `myimages` с ключом доступа, полученным на предыдущем шаге (`key1`):
 
-```bash
-azure storage container create --account-name mystorageaccount \
-    --account-key key1 --container myimages
+```azurecli
+az storage container create --account-name mystorageaccount \
+    --account-key key1 --name myimages
 ```
 
 ## <a name="upload-vhd"></a>Передача VHD
-Теперь можно передать ваш пользовательский образ диска. Как и любые виртуальные диски виртуальных машин, ваш пользовательский образ диска передается и сохраняется как страничный BLOB-объект.
+Теперь можно выполнить отправку пользовательского образа диска с помощью команды [az storage blob upload](/cli/azure/storage/blob#upload). Как и любые виртуальные диски виртуальных машин, ваш пользовательский образ диска передается и сохраняется как страничный BLOB-объект.
 
 Укажите ключ доступа к контейнеру, созданному на предыдущем шаге, и путь к пользовательскому образу диска на локальном компьютере.
 
-```bash
-azure storage blob upload --blobtype page --account-name mystorageaccount \
-    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
+```azurecli
+az storage blob upload --account-name mystorageaccount \
+    --account-key key1 --container-name myimages --type page \
+    --file /path/to/disk/mydisk.vhd --name myImage.vhd
 ```
 
 ## <a name="create-vm-from-custom-image"></a>Создание виртуальной машины на основе пользовательского образа
 При создании виртуальных машин из пользовательского образа диска следует указать универсальный код ресурса (URI) этого образа диска. Убедитесь, что целевая учетная запись хранения соответствует расположению, в котором хранится ваш пользовательский образ диска. Можно создать виртуальную машину с помощью Azure CLI или шаблона Resource Manager в формате JSON.
 
 ### <a name="create-a-vm-using-the-azure-cli"></a>Создание виртуальной машины с помощью Azure CLI
-Используйте параметр `--image-urn` в команде `azure vm create`, чтобы указать свой пользовательский образ. Убедитесь, что `--storage-account-name` соответствует учетной записи хранения, в которой находится пользовательский образ диска. Нет необходимости использовать контейнер, в котором расположен пользовательский образа, для хранения виртуальных машин. Вы можете создать любые дополнительные контейнеры так же, как перед передачей пользовательских образов дисков.
+Используйте параметр `--image` в команде [az vm create](/cli/azure/vm#create), чтобы указать свой пользовательский образ. Убедитесь, что `--storage-account` соответствует учетной записи хранения, в которой находится пользовательский образ диска. Нет необходимости использовать контейнер, в котором расположен пользовательский образа, для хранения виртуальных машин. Вы можете создать любые дополнительные контейнеры так же, как перед передачей пользовательских образов дисков.
 
 В следующем примере создается виртуальная машина с именем `myVM` из вашего пользовательского образа:
 
-```bash
-azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
-    --storage-account-name mystorageaccount
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://mystorageaccount.blob.core.windows.net/myimages/myImage.vhd
 ```
 
-Кроме того, нужно задать или указать в запросах все дополнительные параметры, необходимые для команды `azure vm create` , а именно: виртуальную сеть, общедоступный IP-адрес, имя пользователя и ключи SSH. Узнайте больше о доступных параметрах Resource Manager для интерфейса командной строки [здесь](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+Кроме того, нужно задать или указать в запросах все дополнительные параметры, необходимые для команды **az vm create**, включая имя пользователя и ключи SSH.
+
 
 ### <a name="create-a-vm-using-a-json-template"></a>Создание виртуальной машины с помощью шаблона JSON
 Шаблоны Azure Resource Manager — это JSON-файлы, определяющие среду, которую требуется создать. Шаблоны разделяются на различные поставщики ресурсов, например вычислительных ресурсов или сети ресурсов. Можно использовать существующие шаблоны или создать собственный. Узнайте больше об [использовании Resource Manager и шаблонов](../azure-resource-manager/resource-group-overview.md).
 
 В поставщике `Microsoft.Compute/virtualMachines` шаблона имеется узел `storageProfile`, который содержит сведения о конфигурации виртуальной машины. Два основных параметра, которые нужно изменить, это универсальные коды ресурса (URI) `image` и `vhd`, указывающие на пользовательский образ диска и виртуальный диск новой виртуальной машины. Ниже приведен пример JSON, в котором используется пользовательский образ диска.
 
-```bash
+```json
 "storageProfile": {
           "osDisk": {
             "name": "myVM",
@@ -220,20 +225,20 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
           }
 ```
 
-Можно использовать [этот существующий шаблон для создания виртуальной машины на основе пользовательского образа](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) или [создать собственные шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
+Можно использовать [этот существующий шаблон для создания виртуальной машины на основе пользовательского образа](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) или [создать собственные шаблоны Azure Resource Manager](../resource-group-authoring-templates.md). 
 
-После настройки шаблона можно создавать виртуальные машины с помощью команды `azure group deployment create` . Укажите универсальный код ресурса (URI) шаблона JSON с параметром `--template-uri` .
+Настроив шаблон, приступайте к созданию виртуальных машин с помощью команды [az group deployment create](/cli/azure/group/deployment#create) Укажите универсальный код ресурса (URI) шаблона JSON с параметром `--template-uri` .
 
-```bash
-azure group deployment create --resource-group myResourceGroup
-    --template-uri https://uri.to.template/mytemplate.json
+```azurecli
+az group deployment create --resource-group myNewResourceGroup \
+  --template-uri https://uri.to.template/mytemplate.json
 ```
 
 Если ваш JSON-файл хранится локально на компьютере, то вместо него можно использовать параметр `--template-file` .
 
-```bash
-azure group deployment create --resource-group myResourceGroup
-    --template-file /path/to/mytemplate.json
+```azurecli
+az group deployment create --resource-group myNewResourceGroup \
+  --template-file /path/to/mytemplate.json
 ```
 
 
@@ -243,6 +248,6 @@ azure group deployment create --resource-group myResourceGroup
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

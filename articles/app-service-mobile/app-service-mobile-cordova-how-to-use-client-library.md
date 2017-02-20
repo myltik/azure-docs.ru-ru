@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
-ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
 
 
 ---
-# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Использование клиентской библиотеки Apache Cordova для мобильных приложений Azure
+# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Как использовать клиентскую библиотеку Apache Cordova для мобильных приложений Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [подключаемого модуля Apache Cordova для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, изучите статью [Быстрый запуск мобильного приложения Azure] , чтобы создать серверную часть и таблицу, а также скачать предварительно собранный проект Apache Cordova. В данном руководстве мы сосредоточимся на клиентской части подключаемого модуля Apache Cordova.
 
 ## <a name="supported-platforms"></a>Поддерживаемые платформы
-Этот пакет SDK поддерживает Apache Cordova 6.0.0 и более поздних версий на устройствах iOS, Android и устройствах с Windows.  Ниже перечислены возможности, поддерживаемые платформой:
+Этот пакет SDK поддерживает Apache Cordova&6;.0.0 и более поздних версий на устройствах iOS, Android и устройствах с Windows.  Ниже перечислены возможности, поддерживаемые платформой:
 
 * API Android 19–24 (от KitKat до Nougat);
 * iOS 8.0 и более поздних версий;
@@ -41,6 +41,32 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
 Дополнительные сведения о создании [первого приложения Apache Cordova] см. в соответствующей документации.
+
+## <a name="a-nameionicasetting-up-an-ionic-v2-app"></a><a name="ionic"></a>Настройка приложения Ionic v2
+
+Чтобы правильно настроить проект Ionic v2, создать простое приложение и добавить подключаемый модуль Cordova, сделайте следующее.
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+Добавьте следующие строки в `app.component.ts`, чтобы создать клиентский объект:
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+Теперь можно создать и запустить проект в браузере.
+
+```
+ionic platform add browser
+ionic run browser
+```
+
+Подключаемый модуль Cordova для мобильных приложений Azure поддерживает обе версии приложения Ionic — v1 и v2.  Но в приложениях Ionic v2 требуется дополнительное объявление для объекта `WindowsAzure`.
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
@@ -158,6 +184,6 @@ pushHandler.on('error', function (error) {
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

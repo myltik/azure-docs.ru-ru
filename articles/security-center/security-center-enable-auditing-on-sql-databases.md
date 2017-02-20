@@ -1,6 +1,6 @@
 ---
 title: "Включение аудита для баз данных SQL в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по включению аудита для баз данных SQL."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по **включению аудита для баз данных SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
 
 
 ---
@@ -29,15 +29,18 @@ ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
 
 > [!NOTE]
 > В документе приводится обзор службы с помощью примера развертывания.  Он не является пошаговым руководством.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Выполнение рекомендаций
 1. В колонке **Рекомендации** выберите **Включить аудит для баз данных SQL**.  Откроется колонка **Включить аудит для баз данных SQL** .
-   ![Enable auditing on SQL databases][1]
+
+   ![Включение аудита для баз данных SQL][1]
 2. Выберите базу данных SQL для включения аудита. Откроется колонка **Аудит и обнаружение угроз**.
+
    ![Аудит и обнаружение угроз][2]
 3. В колонке **Аудит и обнаружение угроз** в разделе **Аудит** щелкните **Вкл.**
+
    ![Включение аудита и обнаружения угроз][3]
 4. Следуйте указаниям в разделе [Приступая к работе с системой обнаружения угроз базы данных SQL](../sql-database/sql-database-threat-detection-get-started.md) , чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться предупреждения системы безопасности при обнаружении аномальных действий.
 
@@ -63,6 +66,6 @@ ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
