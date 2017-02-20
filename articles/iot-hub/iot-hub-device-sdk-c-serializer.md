@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
 
 Все приведенные здесь инструкции основаны на примерах использования примеров **serializer** из пакета SDK. Чтобы перейти к выполнению действий, просмотрите приложения **simplesample\_amqp** и **simplesample\_http**, включенные в пакет SDK для устройств Azure IoT для C.
 
-[**Пакет SDK для устройств Интернета вещей Azure для C**](https://github.com/Azure/azure-iot-sdk-c) доступен в репозитории на сайте GitHub. Дополнительные сведения об API см. в [справочной документации по API для C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+[**Пакет SDK для устройств Интернета вещей Azure для C**](https://github.com/Azure/azure-iot-sdk-c) доступен в репозитории на сайте GitHub. Дополнительные сведения об API см. в [справочной документации по API для C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-modeling-language"></a>Язык моделирования
 В [вводной статье](iot-hub-device-sdk-c-intro.md) этого курса вы познакомились с языком моделирования **пакета SDK для устройств Azure IoT для C** на примере приложения **simplesample\_amqp**.
@@ -526,6 +526,13 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 Имя действия должно совпадать с именем, определенным в модели. Имена параметров должны совпадать. Также обратите внимание на чувствительность к регистру. Параметры **Name** и **Parameters** всегда пишутся с прописной буквы. Также следите за соответствием регистра в именах действий и параметров, определенных в модели. В этом примере действие называется SetAirResistance (не setairresistance).
 
+Два других действия **TurnFanOn** и **TurnFanOff** могут вызываться при отправке этих сообщений на устройство:
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 Вот и все, что вам нужно знать об отправке событий и получении сообщений с помощью библиотеки **serializer** . Прежде чем продолжить, давайте рассмотрим ряд изменяемых параметров, которые позволяют управлять размером модели.
 
 ## <a name="macro-configuration"></a>Конфигурация макросов
@@ -672,6 +679,6 @@ serializer_deinit();
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
