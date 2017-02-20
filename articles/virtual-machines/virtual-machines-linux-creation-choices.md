@@ -16,52 +16,53 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 44c46fff9ccf9c7dba9ee380faf5f8213b58e3c3
-ms.openlocfilehash: 4397d84ef4d97bdee387777a193ec0b969f2d5e1
+ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
+ms.openlocfilehash: 23862762fcf0939ce84859fdae0274421c0bb5fe
 
 
 ---
-# <a name="different-ways-to-create-a-linux-vm-including-azure-cli-20-preview"></a>Различные способы создания виртуальной машины Linux, в том числе с использованием Azure CLI 2.0 (предварительная версия)
+# <a name="different-ways-to-create-a-linux-vm-including-the-azure-cli-20-preview"></a>Различные способы создания виртуальной машины Linux, в том числе с использованием Azure CLI 2.0 (предварительная версия)
 Платформа Azure предоставляет гибкие решения по созданию виртуальных машин Linux. Здесь каждый пользователь найдет удобные для себя инструменты и рабочие процессы. В этой статье описаны разные решения и примеры создания виртуальных машин Linux.
 
-## <a name="azure-cli"></a>Инфраструктура CLI Azure
+## <a name="azure-cli"></a>Интерфейс командной строки Azure
+Виртуальные машины в Azure можно создавать с помощью одной из следующих версий интерфейса командной строки.
 
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+- [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- Azure CLI 2.0 (предварительная версия) — интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
 
-- Azure CLI 1.0 — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager
-- [Azure CLI 2.0 (предварительная версия)](../xplat-cli-install.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+[Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) доступен на разных платформах с использованием пакета npm, пакетов, предоставленных для дистрибутивов, или контейнера Docker. Установите оптимальную сборку для своей среды и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
-Azure CLI 2.0 (предварительная версия) доступен на разных платформах с использованием пакета npm, пакетов, предоставленных для дистрибутивов, или контейнера Docker. Вы должны войти с помощью **az login**.
-
-В приведенных ниже руководствах содержатся примеры использования Azure CLI 2.0 (предварительная версия). В каждой из этих статей подробно описана соответствующая команда.
+В следующих примерах используется Azure CLI 2.0 (предварительная версия). В каждой из этих статей подробно описана соответствующая команда. В них также можно найти другие варианты создания в Linux с помощью [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
 * [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * В этом примере создается группа ресурсов с именем myResourceGroup. 
+  * В этом примере с помощью команды [az group create](/cli/azure/group#create) создается группа ресурсов с именем `myResourceGroup`: 
     
     ```azurecli
-    az group create -n myResourceGroup -l westus
+    az group create --name myResourceGroup --location westus
     ```
-
-  * В этом примере создается виртуальная машина в новой группе ресурсов с использованием последнего образа Debian и открытого ключа с именем `id_rsa.pub`.
+    
+  * В этом примере с помощью команды [az vm create](/cli/azure/vm#create) создается виртуальная машина `myVM` с использованием открытого ключа `id_rsa.pub` и последнего образа Debian для управляемых дисков Azure:
 
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --public-ip-address-dns-name mydns \
+    --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
     ```
 
+    * Чтобы использовать неуправляемые диски, добавьте флаг `--use-unmanaged-disks` в предыдущую команду. Учетная запись хранения будет создана автоматически. Дополнительные сведения об управляемых дисках Azure см. в [этой статье](../storage/storage-managed-disks-overview.md).
+
 * [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * В следующем примере виртуальная машина создается на основе шаблона, который хранится на сайте GitHub.
+  * В следующем примере с помощью команды [az group deployment create](/cli/azure/group/deployment#create) создается виртуальная машина на основе шаблона, сохраненного в репозитории GitHub:
     
     ```azurecli
-    az group deployment create -g myResourceGroup \ 
+    az group deployment create --resource-group myResourceGroup \ 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
       --parameters @myparameters.json
     ```
@@ -72,11 +73,11 @@ Azure CLI 2.0 (предварительная версия) доступен н
 
 * [Добавление диска к виртуальной машине Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * В следующем примере показано, как добавить диск объемом 5 ГБ к существующей виртуальной машине с именем `myVM`.
-    
+  * В следующем примере с помощью команды [az vm disk attach-new](/cli/azure/vm/disk#attach-new) к существующей виртуальной машине с именем `myVM` добавляется неуправляемый диск на 5 ГБ с именем `myDataDisk.vhd`:
+  
     ```azurecli
     az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-      --disk-size 5 --vhd https://myStorage.blob.core.windows.net/vhds/myDataDisk1.vhd
+      --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
     ```
 
 ## <a name="azure-portal"></a>Портал Azure
@@ -89,35 +90,35 @@ Azure CLI 2.0 (предварительная версия) доступен н
 При создании виртуальной машины можно выбрать образ для операционной системы, которую необходимо запустить. Azure и партнеры предлагают множество образов, некоторые из которых содержат предустановленные приложения и средства. Вы также можете передать один из созданных вами образов (см. [следующий раздел](#use-your-own-image)).
 
 ### <a name="azure-images"></a>Образы Azure
-Чтобы просмотреть список доступных издателей, дистрибутивов и сборок, используйте команды интерфейса командной строки `az vm image` .
+Чтобы просмотреть список доступных издателей, дистрибутивов и сборок, используйте команды [az vm image](/cli/azure/vm/image).
 
 Отображение списка доступных издателей:
 
 ```azurecli
-az vm image list-publishers -l WestUS
+az vm image list-publishers --location WestUS
 ```
 
 Отображение списка доступных продуктов (предложений) нужного издателя:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical -l WestUS
+az vm image list-offers --publisher-name Canonical --location WestUS
 ```
 
 Отображение списка доступных номеров SKU (для дистрибутивов) требуемого предложения:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer -l WestUS
+az vm image list-skus --publisher-name Canonical --offer UbuntuServer --location WestUS
 ```
 
 Отображение списка всех доступных образов для определенного выпуска:
 
 ```azurecli
-az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS -l WestUS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location WestUS
 ```
 
 Дополнительные примеры просмотра и использования доступных образов см. в статье [Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Команда `az vm create` содержит псевдонимы, которые можно использовать для быстрого доступа к самым распространенным дистрибутивам и их последним выпускам. Как правило, использовать псевдоним быстрее, чем указывать издателя, предложение, номер SKU и версию каждый раз при создании виртуальной машины.
+Команда **az vm create** содержит псевдонимы, которые можно использовать для быстрого доступа к самым распространенным дистрибутивам и их последним выпускам. Как правило, использовать псевдоним быстрее, чем указывать издателя, предложение, номер SKU и версию каждый раз при создании виртуальной машины.
 
 | Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Версия |
 |:--- |:--- |:--- |:--- |:--- |
@@ -136,12 +137,12 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS -l
 * [Information for Non-Endorsed Distributions (Информация о нерекомендованных дистрибутивах)](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Как записать образ виртуальной машины Linux для его использования в качестве шаблона Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
-  * Примеры команд для быстрой записи существующей виртуальной машины.
+  * Примеры команд **az vm** для быстрой записи существующей виртуальной машины, использующей неуправляемые диски:
     
     ```azurecli
-    az vm deallocate -g myResourceGroup -n myVM
-    az vm generalize -g myResourceGroup -n myVM
-    az vm capture -g myResourceGroup -n myVM --vhd-name-prefix myCapturedVM
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm generalize --resource-group myResourceGroup --name myVM
+    az vm capture --resource-group myResourceGroup --name myVM --vhd-name-prefix myCapturedVM
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -151,7 +152,6 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS -l
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

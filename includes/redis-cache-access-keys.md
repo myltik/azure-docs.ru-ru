@@ -1,4 +1,4 @@
-Чтобы подключаться к кэшу Redis для Azure, клиентам кэша нужны имя узла, порты и ключи кэша. Некоторые клиенты могут ссылаться на эти элементы с помощью незначительно различающихся имен. Для получения этих элементов [просмотрите](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) кэш на [портале Azure](https://portal.azure.com) и выберите пункт **Параметры** или **Все параметры**. 
+Чтобы подключаться к кэшу Redis для Azure, клиентам кэша нужны имя узла, порты и ключи кэша. Некоторые клиенты могут ссылаться на эти элементы с помощью незначительно различающихся имен. Для получения этих элементов [просмотрите](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) кэш на [портале Azure](https://portal.azure.com) и выберите нужный элемент в **меню ресурсов**. 
 
 ![Параметры кэша Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

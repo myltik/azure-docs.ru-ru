@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
-ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -89,13 +89,16 @@ Azure AD Connect Health для AD DS обеспечивает монитори
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Скачивание и установка агента Azure AD Connect Health
-* Проверьте соответствие требованиям для Azure AD Connect Health.
-* Для начала работы с Azure AD Connect Health для AD FS [скачайте последнюю версию агента для этой службы.](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-* Чтобы начать использовать службу Azure AD Connect Health для синхронизации, скачайте и установите [последнюю версию Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  Агент Azure AD Connect Health будет установлен во время установки Azure AD Connect (версии 1.0.9125.0 или более поздней).  Azure AD Connect поддерживает локальное обновление с предыдущих версий.
-* Для начала работы с Azure AD Connect Health для AD DS [скачайте последнюю версию агента для этой службы.](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-
+* Обязательно [выполните требования] (active-directory-aadconnect-health-agent-install.md#requirements) для Azure AD Connect Health.
+* Приступая к работе с Azure AD Connect Health для AD FS
+    * [Скачайте агент Azure AD Connect Health для AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Ознакомьтесь с инструкциями по установке.](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Приступая к работе с Azure AD Connect Health для синхронизации
+    * [Скачайте и установите последнюю версию Azure AD Connect.](http://go.microsoft.com/fwlink/?linkid=615771) Агент Azure AD Connect Health для синхронизации будет установлен во время установки Azure AD Connect (версии 1.0.9125.0 или более поздней).
+* Приступая к работе с Azure AD Connect Health для AD DS
+    * [Скачайте агент Azure AD Connect Health для AD DS.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Ознакомьтесь с инструкциями по установке.](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health
 На портале Azure AD Connect Health можно просматривать оповещения и аналитические данные по использованию, а также отслеживать производительность. Страница https://aka.ms/aadconnecthealth перенаправит вас на главную колонку Azure AD Connect Health.  Ее можно считать окном. В главной колонке отображается элемент быстрого запуска, раздел со службами Azure AD Connect Health и дополнительные параметры конфигурации. На снимке экрана ниже приводится краткое описание каждого из них.  После развертывания агентов служба работоспособности автоматически определит службы, отслеживаемые в Azure AD Connect Health.
 
@@ -120,7 +123,6 @@ Azure AD Connect Health для AD DS обеспечивает монитори
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

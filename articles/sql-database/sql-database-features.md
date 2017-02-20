@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -41,13 +41,13 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 В следующих таблицах перечислены основные функции базы данных SQL Azure и SQL Server, представлены сведения о возможности их поддержки и указаны ссылки на дополнительные сведения об использовании функций на каждой платформе. Чтобы получить сведения о функциях Transact-SQL, перейдите по ссылке в таблице для категории функции. Дополнительные сведения о причинах отсутствия поддержки некоторых функций см. в статье [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).
 
-Мы продолжаем расширять функционал версии 12. Поэтому рекомендуем вам почаще посещать нашу веб-страницу с обновлениями служб Azure и при работе с ней пользоваться фильтрами.
+Мы продолжаем расширять функционал версии&12;. Поэтому рекомендуем вам почаще посещать нашу веб-страницу с обновлениями служб Azure и при работе с ней пользоваться фильтрами.
 
 * Фильтруйте обновления по [службе базы данных SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Фильтруйте обновления по [объявлениям об общедоступных версиях](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) функций базы данных SQL.
 
 > [!TIP]
-> Инструкции по тестированию баз данных на совместимость с базой данных SQL Azure см. в [этой статье](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Инструкции по тестированию баз данных на совместимость с базой данных SQL Azure см. в статье [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
 >
 
 | **Компонент** | **SQL Server** | **База данных SQL Azure;** | 
@@ -161,6 +161,6 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

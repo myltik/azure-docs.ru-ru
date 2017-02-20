@@ -1,6 +1,6 @@
 ---
-title: "Портал Azure: начало работы с базой данных SQL Azure | Документация Майкрософт"
-description: "Узнайте, как создать логический сервер базы данных SQL, правила брандмауэра на уровне сервера и базы данных с помощью портала Azure. Вы также научитесь отправлять запросы к базам данных с помощью SQL Server Management Studio."
+title: "Краткое руководство. Начало работы с базой данных SQL Azure | Документация Майкрософт"
+description: "Вы узнаете, как создать логический сервер базы данных SQL, правило брандмауэра на уровне сервера и базы данных на портале Azure, а также как использовать SQL Server Management Studio с помощью базы данных SQL Azure."
 keywords: "руководство по базам данных SQL, создание базы данных SQL"
 services: sql-database
 documentationcenter: 
@@ -14,38 +14,37 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/01/2017
+ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 6fd3c0ebe6d7b7e23550358ca1d93840ae8acaa1
-ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
-# <a name="tutorial-provision-and-access-an-azure-sql-database-using-the-azure-portal-and-sql-server-management-studio"></a>Руководство по подготовке базы данных SQL Azure и доступу к ней с помощью портала Azure и SQL Server Management Studio
+# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Краткое руководство. Начало работы с базой данных SQL Azure
 
-Из этого руководства вы узнаете, как с помощью портала Azure выполнять следующие операции.
+В этом кратком руководстве раскрываются следующие темы:
 
-* создадим группу ресурсов Azure;
-* создадим логический сервер SQL Azure;
-* просмотрим свойства логического сервера SQL Azure;
-* создадим правило брандмауэра на уровне сервера;
-* создадим пример отдельной базы данных Adventure Works LT;
-* просмотрим свойства примера базы данных Adventure Works LT в Azure.
+* [Создание нового логического сервера](sql-database-get-started.md#create-a-new-logical-sql-server) 
+* [Просмотр свойств логического сервера](sql-database-get-started.md#view-the-logical-server-properties) 
+* [Создание правила брандмауэра на уровне сервера](sql-database-get-started.md#create-a-server-level-firewall-rule) 
+* [Подключение к серверу с помощью SSMS](sql-database-get-started.md#connect-to-the-server-with-ssms) 
+* [Создание базы данных с примерами данных](sql-database-get-started.md#create-a-database-with-sample-data) 
+* [Просмотр свойств базы данных](sql-database-get-started.md#view-the-database-properties) 
+* [Запрос базы данных на портале Azure](sql-database-get-started.md#query-the-database-in-the-azure-portal) 
+* [Подключение к базе данных и выполнение запросов с помощью SSMS](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
+* [Создание пустой базы данных с помощью SSMS](sql-database-get-started.md#create-a-blank-database-with-ssms) 
+* [Устранение неполадок подключения](sql-database-get-started.md#troubleshoot-connectivity) 
+* [Удаление базы данных](sql-database-get-started.md#delete-a-single-database) 
 
-В этом руководстве мы также будем использовать последнюю версию SQL Server Management Studio. Этот продукт нам понадобится для:
 
-* подключения к логическому серверу и его базе данных master;
-* отправки запросов к базе данных master;
-* подключения к примеру базы данных;
-* отправки запросов к примеру базы данных.
+В этом кратком руководстве по началу работы вы создадите пример базы данных и пустую базу данных, работающую в группе ресурсов Azure и подключенную к логическому серверу. Вы также создадите два правила брандмауэра на уровне сервера, которые позволят субъекту уровня сервера входить на сервер из двух указанных IP-адресов. Наконец, вы узнаете, как запросить базу данных на портале Azure, а также как подключиться и сделать запрос с помощью SQL Server Management Studio. 
 
-После завершения работы с этим руководством у вас будет пример базы данных и пустая база данных, подключенные к логическому серверу и работающие в группе ресурсов Azure. У вас также будет правило брандмауэра на уровне сервера, которое будет разрешать субъектам уровня сервера входить на сервер из указанного IP-адреса (или диапазона IP-адресов). 
-
-**Оценка времени**. Для работы с этим руководством потребуется около 30 минут (при условии, что предварительные требования уже выполнены).
+**Оценка времени.** Для работы с этим руководством потребуется около 30 минут (при условии, что предварительные требования уже выполнены).
 
 > [!TIP]
-> Во время работы с руководством по началу работы эти же задачи можно выполнять с помощью [C#](sql-database-get-started-csharp.md) или [PowerShell](sql-database-get-started-powershell.md).
+> Эти же задачи можно выполнять с помощью [C#](sql-database-get-started-csharp.md) или [PowerShell](sql-database-get-started-powershell.md).
 >
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -55,12 +54,12 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 * У вас должна быть возможность подключиться к порталу Azure с помощью учетной записи, которой назначена роль владельца или участника подписки. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
-> Это руководство поможет вам освоить содержание следующих статей: [Логические серверы базы данных SQL Azure](sql-database-server-overview.md), [Общие сведения о базе данных SQL Azure](sql-database-overview.md) и [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
+> Это краткое руководство поможет вам освоить содержание следующих статей: [Логические серверы базы данных SQL Azure](sql-database-server-overview.md), [Общие сведения о базе данных SQL Azure](sql-database-overview.md) и [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
 >  
 
 
-### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Вход на портал Azure с помощью учетной записи Azure
-Используя [существующую подписку](https://account.windowsazure.com/Home/Index), выполните следующие действия, чтобы подключиться к порталу Azure.
+### <a name="sign-in-to-the-azure-portal-with-your-azure-account"></a>Вход на портал Azure с помощью учетной записи Azure
+Чтобы подключиться к порталу Azure с помощью [учетной записи Azure](https://account.windowsazure.com/Home/Index), сделайте следующее:
 
 1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/).
 2. Выполните вход на [портал Azure](https://portal.azure.com/).
@@ -71,7 +70,9 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Создание логического сервера SQL Server на портале Azure
+## <a name="create-a-new-logical-sql-server"></a>Создание нового логического сервера SQL
+
+Чтобы создать новый логический сервер с помощью портала Azure в любом регионе, сделайте следующее:
 
 1. Щелкните **Создать**, введите **sql server** и нажмите клавишу **ВВОД**.
 
@@ -87,7 +88,7 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
     ![Имя нового сервера](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > Полным именем нового сервера будет <имя_вашего_сервера>.database.windows.net.
+    > Полное имя для нового сервера будет выглядеть так: <имя_вашего_сервера>.database.windows.net.
     >
     
 4. В текстовом поле "Имя входа администратора сервера" укажите имя пользователя, которое будет использоваться сервером при проверке подлинности SQL Server. Это имя называется именем субъекта сервера. Зеленый флажок указывает, что выбрано допустимое имя.
@@ -115,7 +116,9 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![кнопка "Создать"](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Просмотр свойств логического сервера SQL Server на портале Azure
+## <a name="view-the-logical-server-properties"></a>Просмотр свойств логического сервера
+
+Выполните приведенные ниже действия, чтобы просмотреть свойства сервера с помощью портала Azure. Это имя вам потребуется для подключения к этому серверу в последующей процедуре. 
 
 1. На портале Azure щелкните **Больше служб**.
 
@@ -137,17 +140,15 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![Полное имя сервера SQL Server](./media/sql-database-get-started/sql-server-full-name.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Создание правила брандмауэра на уровне сервера с помощью портала Azure
+## <a name="create-a-server-level-firewall-rule"></a>создадим правило брандмауэра на уровне сервера;
+
+Приведенные здесь действия помогут вам создать новое правило брандмауэра на уровне сервера с помощью портала Azure, чтобы вы могли подключиться к серверу с помощью SQL Server Management Studio в следующей процедуре.
 
 1. В колонке сервера SQL Server в разделе "Параметры" щелкните **Брандмауэр**, чтобы открыть колонку брандмауэра для SQL Server.
 
     ![Брандмауэр SQL Server](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. Просмотрите IP-адрес клиента и убедитесь, что это именно ваш IP-адрес в Интернете. Для этого в любом браузере введите поисковый запрос "мой IP-адрес". Иногда адреса могут не совпадать по тем или иным причинам.
-
-    ![Ваш IP-адрес](./media/sql-database-get-started/your-ip-address.png)
-
-3. Для удобства предположим, что IP-адреса совпадают. Далее на панели инструментов нажмите кнопку **Добавить IP-адрес клиента**.
+2. Нажмите кнопку **Добавить IP-адрес клиента** на панели инструментов.
 
     ![Кнопка "Добавить IP-адрес клиента"](./media/sql-database-get-started/add-client-ip.png)
 
@@ -159,14 +160,16 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![Кнопка "Добавить IP-адрес клиента"](./media/sql-database-get-started/save-firewall-rule.png)
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Подключение к SQL Server с помощью SQL Server Management Studio (SSMS)
+## <a name="connect-to-the-server-with-ssms"></a>Подключение к серверу с помощью SSMS
+
+Чтобы подключиться к логическому серверу SQL с помощью SQL Server Management Studio, сделайте следующее:
 
 1. Сведения о том, как скачать и установить последнюю версию SSMS, см. в статье [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Когда новая версия становится доступной для скачивания, последняя версия SSMS выдает соответствующий запрос. Это позволяет всегда пользоваться обновленным ПО.
 
 2. После установки введите в поле поиска Windows текст **Microsoft SQL Server Management Studio** и нажмите клавишу **ВВОД**, чтобы запустить приложение.
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. В диалоговом окне подключения к серверу введите данные, необходимые для подключения к серверу SQL Server с использованием проверки подлинности SQL Server.
+3. В диалоговом окне "Подключение к серверу" введите необходимые данные, чтобы подключиться к серверу SQL Server, используя проверку подлинности SQL Server.
 
     ![Подключение к серверу](./media/sql-database-get-started/connect-to-server.png)
 4. Щелкните **Подключить**.
@@ -191,7 +194,9 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
     > Сведения о системе безопасности SQL см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-control-access-sql-authentication-get-started.md)
     >
 
-## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Создание базы данных на портале Azure с использованием примера Adventure Works LT
+## <a name="create-a-database-with-sample-data"></a>Создание базы данных с примерами данных
+
+Приведенные здесь действия помогут вам создать базу данных с примерами данных, используя портал Azure. Эта база данных будет подключена к логическому серверу, созданному ранее. Если уровень служб "Базовый" недоступен в регионе, в котором создан сервер, удалите сервер и создайте его повторно в другом регионе. Инструкции по удалению приведены в последнем разделе данного руководства.
 
 1. На портале Azure в колонке по умолчанию щелкните **Базы данных SQL**.
 
@@ -223,7 +228,9 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![кнопка "Создать"](./media/sql-database-get-started/create.png)
 
-## <a name="view-database-properties-in-the-azure-portal"></a>Просмотр свойств базы данных на портале Azure
+## <a name="view-the-database-properties"></a>Просмотр свойств базы данных
+
+Чтобы запросить базу данных с помощью портала Azure, сделайте следующее:
 
 1. В колонке "Базы данных SQL" щелкните имя новой базы данных, чтобы просмотреть ее свойства на портале Azure. Подробное описание параметров из этой колонки приведено в последующих руководствах. 
 
@@ -242,7 +249,41 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![Новый пример базы данных в области "Основное"](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
 
-## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Подключение к примеру базы данных и отправка к ней запросов с помощью SQL Server Management Studio
+## <a name="query-the-database-in-the-azure-portal"></a>Запрос базы данных на портале Azure
+
+Приведенные здесь действия помогут вам запросить базу данных с помощью редактора запросов на портале Azure. Запрос отображает объекты в базе данных.
+
+1. В колонке "Базы данных SQL" щелкните **Tools** (Инструменты) на панели инструментов.
+
+    ![средства](./media/sql-database-get-started/tools.png)
+2. В колонке Tools (Инструменты) щелкните **Редактор запросов (предварительная версия)**.
+
+    ![редактор запросов](./media/sql-database-get-started/query-editor.png)
+3. Установите флажок, чтобы подтвердить, что редактор запросов является компонентом предварительной версии, а затем нажмите кнопку **ОК**.
+4. В колонке **Редактор запросов** щелкните **Вход**.
+
+    ![колонка "Редактор запросов"](./media/sql-database-get-started/query-editor-blade.png)
+5. Проверьте значения в полях "Тип авторизации" и "Вход", а затем введите пароль для этого имени входа. 
+
+    ![имя входа редактора запросов](./media/sql-database-get-started/query-editor-login.png)
+6. Нажмите кнопку **ОК**, чтобы попытаться войти.
+7. Если появится окно ошибки входа с сообщением о том, что клиент не может войти, так как для используемого им IP-адреса отсутствует правило брандмауэра, скопируйте IP-адрес клиента в окне ошибки и в колонке сервера SQL Server для этой базы данных создайте правило брандмауэра на уровне сервера.
+
+    ![ошибка редактора запросов](./media/sql-database-get-started/query-editor-error.png)
+8. Повторите предыдущие 6 действий, чтобы войти в базу данных.
+9. После выполнения проверки подлинности в окне запросов введите следующий запрос:
+
+   ```select * from sys.objects```
+
+    ![запрос редактора запросов](./media/sql-database-get-started/query-editor-query.png)
+10.  Щелкните **Выполнить**.
+11. Просмотрите результаты запроса в области **Результаты**.
+
+    ![результаты редактора запросов](./media/sql-database-get-started/query-editor-results.png)
+
+## <a name="connect-and-query-the-database-with-ssms"></a>Подключение к базе данных и выполнение запросов с помощью SSMS
+
+Выполните следующие действия, чтобы подключиться к базе данных с помощью SQL Server Management Studio, а затем запросить примеры данных, чтобы просмотреть объекты в базе данных.
 
 1. Переключитесь в SQL Server Management Studio и в обозревателе объектов щелкните **Базы данных**. Затем на панели инструментов нажмите кнопку **Обновить**, чтобы просмотреть свой пример базы данных.
 
@@ -261,7 +302,9 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![Запрос на получение системных объектов из нового примера базы данных в SSMS](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Создание пустой базы данных с помощью SQL Server Management Studio
+## <a name="create-a-blank-database-with-ssms"></a>Создание пустой базы данных с помощью SSMS
+
+Чтобы создать новую базу данных в логическом сервере с помощью SQL Server Management Studio, сделайте следующее:
 
 1. В обозревателе объектов щелкните правой кнопкой мыши элемент **Базы данных** и выберите пункт **Новая база данных**.
 
@@ -288,8 +331,25 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
     ![Новая пустая база данных в обозревателе объектов](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
+## <a name="troubleshoot-connectivity"></a>Устранение неполадок подключения
+
+> [!IMPORTANT]
+> Сведения об устранении проблем с подключением см. в статье [Устранение неполадок подключения к базе данных SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
+> 
+
+## <a name="delete-a-single-database"></a>Удаление отдельной базы данных
+
+Чтобы удалить отдельную базу данных с помощью портала Azure, сделайте следующее:
+
+1. На портале Azure в колонке вашей базы данных SQL щелкните **Удалить**.
+
+    ![кнопка удаления базы данных](./media/sql-database-get-started/delete-database.png)
+2. Нажмите кнопку **Да**, чтобы подтвердить безвозвратное удаление этой базы данных.
+
+    ![подтверждение удаления базы данных](./media/sql-database-get-started/delete-database-yes.png)
+
 > [!TIP]
-> Чтобы сэкономить деньги во время обучения, удалите неиспользуемые базы данных. Базы данных выпуска "Базовый" можно восстановить в течение семи дней. Ни в коем случае не удаляйте сервер. Сделав это, вы не сможете восстановить ни сам север, ни его базы данных.
+> В течение периода хранения базы данных ее можно восстановить, используя автоматические резервные копии, создаваемые службой. Базы данных выпуска "Базовый" можно восстановить в течение семи дней. Ни в коем случае не удаляйте сервер. Сделав это, вы не сможете восстановить ни сам север, ни его базы данных. Дополнительные сведения о резервном копировании базы данных см. в статье [Подробнее о резервном копировании базы данных SQL](sql-database-automated-backups.md), а сведения о восстановлении базы данных из резервных копий см. в статье [Восстановление базы данных SQL Azure с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md). Сведения о восстановлении удаленной базы данных см. в статье [Восстановление удаленной базы данных SQL Azure на портале Azure](sql-database-restore-deleted-database-portal.md).
 >
 
 
@@ -302,7 +362,7 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 * Если вы знаете Excel, узнайте, как [подключиться к базе данных SQL в Azure с помощью Excel](sql-database-connect-excel.md).
 * Если вы готовы написать свой собственный код, выберите язык программирования в [библиотеках подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
 * Если вы хотите перенести локальные базы данных SQL Server в облако Azure, см. статью [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
-* Чтобы загрузить данные в новую таблицу из CSV-файла с помощью программы командной строки BCP, см. сведения в статье [Загрузка данных из CSV-файла в хранилище данных SQL Azure (неструктурированные файлы)](sql-database-load-from-csv-with-bcp.md).
+* Чтобы загрузить данные в новую таблицу из CSV-файла с помощью программы командной строки BCP, см. сведения в статье [Загрузка данных из CSV-файла в базу данных SQL Azure (неструктурированные файлы)](sql-database-load-from-csv-with-bcp.md).
 * Сведения о том, как создавать таблицы и другие объекты, см. в разделе "Создание таблицы" в статье [Создание таблицы (Учебник)](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
@@ -313,6 +373,6 @@ ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
