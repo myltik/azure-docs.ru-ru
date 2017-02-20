@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: da1a8c45a1753d617e0cb62f99bc47d22838a8e8
-ms.openlocfilehash: ac58f3f5498edbd6f7b19db647a9513a485d6dbf
+ms.sourcegitcommit: 617599c7df6284e6319a1b3331d1e894e5d4b2d1
+ms.openlocfilehash: 2ced7d0d4e2e653013c605932066c412c4202082
 
 
 ---
@@ -353,11 +353,15 @@ azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 Установщик создает в системе запланированную задачу, которая выполняется в контексте пользователя. Задача запускается в момент входа пользователя в систему Windows. Эта задача автоматически регистрирует устройство в Azure AD, используя учетные данные пользователя, после проверки подлинности с помощью IWA. Чтобы просмотреть запланированные задачи, выберите **Microsoft** > **Присоединение к рабочей области** и перейдите к библиотеке планировщика задач.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Условный доступ в Azure Active Directory](active-directory-conditional-access.md)
+
+- Если во время автоматической регистрации устройств произошла ошибка, ознакомьтесь с приведенными ниже разделами об устранении неполадок.
+    - [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для Windows 10 и Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+    - [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для клиентов Windows нижнего уровня](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+- Ответы на часто задаваемые вопросы доступны в разделе [Часто задаваемые вопросы об автоматической регистрации устройств](active-directory-conditional-access-automatic-device-registration-faq.md).
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

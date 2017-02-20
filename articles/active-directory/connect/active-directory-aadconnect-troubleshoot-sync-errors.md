@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
+ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
+ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
 
 
 ---
@@ -56,8 +56,8 @@ ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 > [!NOTE]
 > Функция [устойчивости повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) также внедряется в Azure Active Directory в рамках поведения по умолчанию.  Это позволит снизить количество ошибок синхронизации Azure AD Connect (и других клиентов синхронизации), за счет чего обработка повторяющихся в локальных средах Azure AD атрибутов proxyAddresses и userPrincipalName станет более устойчивой. Эта функция не исправляет ошибки дублирования, поэтому данные все равно необходимо исправлять. Но используя эту функцию, можно подготавливать новые объекты, подготовка которых запрещена из-за повторяющихся значений в Azure AD. Это также позволит снизить количество ошибок синхронизации, возвращаемых клиенту синхронизации.
 > После включения в клиенте функции устойчивости повторяющихся атрибутов при подготовке новых объектов не будет отображаться ошибка синхронизации InvalidSoftMatch.
-> 
-> 
+>
+>
 
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>Примеры сценариев для InvalidSoftMatch
 1. В локальном каталоге AD есть несколько объектов с одинаковым значением атрибута proxyAddresses. Azure AD подготовит только один объект.
@@ -86,7 +86,7 @@ ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 9. Во время синхронизации Azure AD Connect определит добавление Артема Кузнецова в локальный каталог AD и отправит запрос на изменение аналогичных настроек в Azure AD.
 10. Сначала Azure AD выполнит жесткое сопоставление. Другими словами, выполнит поиск объектов, у которых для атрибута immutableId задано значение abcdefghijkl0123456789==. Так как в Azure AD отсутствуют объекты с таким атрибутом immutableId, жесткое сопоставление завершится ошибкой.
 11. Затем Azure AD выполнит мягкое сопоставление объекта Артема Кузнецова. То есть Azure AD выполнит поиск объектов, у которых для атрибута proxyAddresses задано три значения, в том числе smtp:bob@contoso.com.
-12. Azure AD найдет объект Григория Авдеева, который соответствует условиям поиска. Но для атрибута immutableId этого объекта задано значение abcdefghijklmnopqrstuv==. Это значит, что этот объект синхронизирован из другого объекта локального каталога AD. Поэтому Azure AD не может выполнить мягкое сопоставление, что приведет к ошибке синхронизации **InvalidSoftMatch**.
+12. Azure AD найдет объект Григория Авдеева, который соответствует условиям поиска. Но для атрибута immutableId этого объекта задано значение abcdefghijklmnopqrstuv==. Это значит, что этот объект синхронизирован из другого объекта локального каталога AD. Поэтому Azure AD не может выполнить нестрогое сопоставление, что приведет к ошибке синхронизации **InvalidSoftMatch**.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Как устранить ошибку InvalidSoftMatch
 Чаще всего причина ошибки InvalidSoftMatch — наличие двух объектов с разными атрибутами sourceAnchor \(immutableId\), но одинаковым значением атрибутов proxyAddresses и/или userPrincipalName, которые используются при мягком сопоставлении в Azure AD. Чтобы устранить ошибку InvalidSoftMatch, выполните следующее:
@@ -100,8 +100,8 @@ ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 
 > [!NOTE]
 > По сути атрибут immutableId не должен изменяться в течение времени существования объекта. Если при настройке Azure AD Connect не учтены некоторые из сценариев выше, может возникнуть ситуация, когда Azure AD Connect вычисляет разное значение атрибута sourceAnchor, представляющего ту же сущность (пользователя, группу, контакт и т. п.), что и в имеющемся объекте Azure AD, который необходимо продолжать использовать.
-> 
-> 
+>
+>
 
 #### <a name="related-articles"></a>Связанные статьи
 * [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098) (Запрет синхронизации службы каталогов в Office 365 из-за повторяющихся или недопустимых атрибутов)
@@ -134,7 +134,7 @@ ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 * ProxyAddresses
 * UserPrincipalName
 
-Если Azure AD Connect пытается добавить новый объект или обновить атрибуты выше имеющегося объекта, добавив для них значения, назначенные другому объекту в Azure Active Directory, операция завершится ошибкой синхронизации AttributeValueMustBeUnique.
+Если Azure AD Connect пытается добавить новый объект или обновить указанные выше атрибуты имеющегося объекта, добавив для них значения, назначенные другому объекту в Azure Active Directory, то операция завершится ошибкой синхронизации AttributeValueMustBeUnique.
 
 #### <a name="possible-scenarios"></a>Возможные сценарии
 1. Повторяющееся значение назначено синхронизированному объекту, конфликтующему с другим синхронизированным объектом.
@@ -180,7 +180,7 @@ b. Атрибут userPrincipalName не соответствует требуе
 * [Подготовка пользователей к работе путем синхронизации каталогов с Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="datavalidationfailed"></a>DataValidationFailed
-#### <a name="description"></a>Description (Описание)
+#### <a name="description"></a>Описание
 Ошибка синхронизации **DataValidationFailed** возникает в конкретном случае, когда суффикс атрибута userPrincipalName пользователя изменяется при переходе из одного федеративного домена в другой.
 
 #### <a name="scenarios"></a>Сценарии
@@ -193,22 +193,25 @@ b. Атрибут userPrincipalName не соответствует требуе
 4. Атрибут userPrincipalName Григория не обновляется, поэтому возникла ошибка синхронизации DataValidationFailed.
 
 #### <a name="how-to-fix"></a>Как устранить
-Если при переходе из домена bob@**contoso.com** в домен bob@**fabrikam.com** (домены **contoso.com** и **fabrikam.com** **федеративные**) суффикс атрибута userPrincipalName изменился, выполните шаги ниже, чтобы устранить ошибку синхронизации.
+Если при переходе из домена bob@**contoso.com** в домен bob@**fabrikam.com** (домены **contoso.com** и **fabrikam.com** **федеративные**) суффикс атрибута userPrincipalName изменился, выполните приведенные ниже шаги, чтобы устранить ошибку синхронизации.
 
 1. Измените UserPrincipalName пользователя в Azure AD с bob@contoso.com на bob@contoso.onmicrosoft.com. Вы можете использовать следующую команду PowerShell в модуле Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Разрешите выполнить следующий цикл синхронизации. В этот раз синхронизация пройдет успешно, а для атрибута userPrincipalName Григория будет задано значение bob@fabrikam.com (как и ожидалось).
 
+#### <a name="related-articles"></a>Связанные статьи
+* [Изменения не синхронизируются с помощью инструмента синхронизации Azure Active Directory после изменения имени участника-пользователя или учетной записи пользователя для использования другого федеративного домена](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>Description (Описание)
-Если атрибут превышает установленное в схеме Azure AD значение размера, длины и количества, во время синхронизации отобразится ошибка **LargeObject** или **ExceededAllowedLength**. Как правило, эта ошибка возникает для следующих атрибутов:
+### <a name="description"></a>Описание
+Если атрибут превышает установленное в схеме Azure AD значение размера, длины и количества, то во время синхронизации возникнет ошибка **LargeObject** или **ExceededAllowedLength**. Как правило, эта ошибка возникает для следующих атрибутов:
 
 * userCertificate
 * thumbnailPhoto;
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Возможные сценарии
-1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты.
-2. Атрибут thmubnailPhoto, заданный в AD, слишком большой для синхронизации в Azure AD.
+1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жестким является ограничение в 50 сертификатов, но рекомендуется иметь меньше 25 сертификатов.
+2. Атрибут thmubnailPhoto, заданный в Active Directory, слишком большой для синхронизации в Azure AD.
 3. При автоматическом заполнении в AD объекту назначено более&500; атрибутов proxyAddresses.
 
 ### <a name="how-to-fix"></a>Как устранить
@@ -220,7 +223,6 @@ b. Атрибут userPrincipalName не соответствует требуе
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
