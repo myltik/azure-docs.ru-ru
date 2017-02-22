@@ -1,5 +1,5 @@
 ---
-title: "Развертывание архивации для Windows Server или клиента Windows и управление ею с помощью PowerShell | Документация Майкрософт"
+title: "Использование PowerShell для архивации Windows Server в Azure | Документация Майкрософт"
 description: "Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell"
 services: backup
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 87384588e9e2a77a5b545ce30db2776541223001
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Классический](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере Windows Server или клиенте Windows, а также для управления резервным копированием и восстановлением данных.
 
@@ -46,27 +46,27 @@ ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
 Чтобы создать хранилище служб восстановления, выполните описанные ниже действия. Хранилище служб восстановления отличается от хранилища службы архивации.
 
 1. Если вы используете службу архивации Azure впервые, выполните командлет **Register-AzureRMResourceProvider** , чтобы зарегистрировать поставщик служб восстановления Azure в своей подписке.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. Хранилище служб восстановления представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. Вы можете выбрать существующую группу ресурсов или создать новую. При создании группы ресурсов укажите ее имя и расположение.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. Выполните командлет **New-AzureRmRecoveryServicesVault** , чтобы создать хранилище. Разместите хранилище там же, где находится группа ресурсов.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Укажите необходимый тип избыточности хранилища: [локально избыточное (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) или [геоизбыточное (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). В следующем примере показано, что для параметра BackupStorageRedundancy для testVault задано значение GeoRedundant.
-   
+
    > [!TIP]
    > Для многих командлетов службы архивации Azure требуется объект хранилища служб восстановления в качестве входных данных. По этой причине объект хранилища служб восстановления резервных копий удобно хранить в переменной.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -149,8 +149,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Параметры сети
 Если подключение компьютера под управлением Windows к Интернету осуществляется через прокси-сервер, параметры этого прокси-сервера могут сообщаться агенту. В нашем случае прокси-сервер не используется, поэтому мы явным образом удаляем все данные прокси-сервера.
@@ -177,8 +177,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Резервное копирование файлов и папок
 Для управления всеми резервными копиями с серверов и рабочих станций Windows, которые имеются в службе резервного копирования Azure, применяется соответствующая политика. Политика состоит из трех частей:
@@ -633,7 +633,6 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6e39b13de1808ebb1d0571ab0c1c620261046d0d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
 
 
 ---
@@ -47,17 +47,17 @@ ms.openlocfilehash: 6e39b13de1808ebb1d0571ab0c1c620261046d0d
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения о добавлении тегов для ресурсов Azure см. в статьях [Общие сведения о диспетчере ресурсов Azure][Общие сведения об Azure Resource Manager] и [Использование тегов для организации ресурсов в Azure][Использование тегов для организации ресурсов в Azure]
-* Сведения о том, как теги могут помочь в управлении использованием ресурсов Azure, см. в статьях [Расшифровка счета за использование Microsoft Azure][Расшифровка счета за использование Microsoft Azure] и [Получение ценных сведений о потреблении ресурсов Microsoft Azure][Получение ценных сведений о потреблении ресурсов Microsoft Azure].
+* Дополнительные сведения о добавлении тегов для ресурсов Azure см. в статьях [Общие сведения об Azure Resource Manager][Azure Resource Manager Overview] и [Использование тегов для организации ресурсов в Azure][Using Tags to organize your Azure Resources].
+* Сведения о том, как теги могут помочь в управлении использованием ресурсов Azure, см. в статьях [Расшифровка счета за использование Microsoft Azure][Understanding your Azure Bill] и [Получение ценных сведений о потреблении ресурсов Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
 
-[Интерфейс командной строки Azure]: ./xplat-cli-azure-resource-manager.md
-[Общие сведения об Azure Resource Manager]: ../azure-resource-manager/resource-group-overview.md
-[Использование тегов для организации ресурсов в Azure]: ../resource-group-using-tags.md
-[Расшифровка счета за использование Microsoft Azure]: ../billing/billing-understand-your-bill.md
-[Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
+[Azure CLI environment]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

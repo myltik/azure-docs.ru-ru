@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>Перед развертыванием веб-приложения в рабочей среде
 ### <a name="choose-a-tier"></a>Выберите уровень.
-Служба приложений Azure доступна для 5 уровней: Free, Shared, Basic, Standard и Premium. Информацию о функциях и ценах для каждого уровня см. в разделе [Сведения о ценах](/pricing/details/app-service/). 
+Служба приложений Azure доступна для 5 уровней: Free, Shared, Basic, Standard и Premium. Информацию о функциях и ценах для каждого уровня см. в разделе [Сведения о ценах](https://azure.microsoft.com/pricing/details/app-service/). 
 
 * [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) позволяют группировать несколько веб-приложений на одном уровне.
 * Всегда можно [сменить уровень](web-sites-scale.md) после создания веб-приложения.
@@ -83,14 +83,14 @@ ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
 
 <!-- Anchors. -->
 
-[Перед развертыванием сайта в рабочей среде]: #before-you-deploy-your-site-to-production.
-[В ходе эксплуатации веб-сайта]: #while-your-website-is-running.
-[При обновлении веб-сайта]: #when-you-update-your-website.
+[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[While your website is running]: #while-your-website-is-running
+[When you update your website]: #when-you-update-your-website
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

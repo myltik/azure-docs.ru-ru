@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
 ![Веб-страница, показывающая пустой список задач][node-table-finished]
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -462,7 +462,7 @@ ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
 
 1. Введите следующую команду:
    
-        azure account download
+        azure login
    
     Эта команда запускает браузер и открывает страницу загрузки. Если появится соответствующий запрос, войдите с помощью учетной записи, которая связана с вашей подпиской Azure.
    
@@ -559,12 +559,12 @@ ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
 <!-- URLs -->
 
 [Начало работы с веб-приложениями Node.js в службе приложений Azure]: web-sites-nodejs-develop-deploy-mac.md
-[Центр разработчиков Azure]: /develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git.]: http://git-scm.com
 [Express]: http://expressjs.com
-[бесплатно]: http://windowsazure.com
+[for free]: http://windowsazure.com
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
 [интерфейс командной строки Azure]: ../xplat-cli-install.md
@@ -574,9 +574,9 @@ ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
 [nconf]: https://www.npmjs.com/package/nconf
 [async]: https://www.npmjs.com/package/async
 
-[портале Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-[Создание и развертывание приложения Node.js на веб-сайте Azure]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
 
 <!-- Image References -->
 
@@ -594,6 +594,6 @@ ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

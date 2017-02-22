@@ -42,12 +42,18 @@ docker run -it microsoft/azure-cli
 
 У вашей учетной записи может быть несколько подписок. Их можно указать, введя `azure account list`. Результат может выглядеть примерно следующим образом.
 
-```Сведения по команде azure account list в Azure CLI:    Выполнение команды account list data:    Имя                              Идентификатор                                    Идентификатор клиента                            Текущие данные:    --------------------------------  ------------------------------------  ------------------------------------  ------- данные:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
-данные:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
-данные:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
+```azurecli
+azure account list
+info:    Executing command account list
+data:    Name                              Id                                    Tenant Id                            Current
+data:    --------------------------------  ------------------------------------  ------------------------------------  -------
+data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true
+data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
+data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
+data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
+Вы можете настроить текущую подписку Azure, введя приведенную ниже команду. Используйте имя подписки или идентификатор объекта, который содержит ресурсы для управления.
 
 ```azurecli
 azure account set <subscription name or ID> true
@@ -1169,7 +1175,7 @@ info:    group delete command OK
 ```
 
 ## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Задача: отображение журнала для развертывания группы ресурсов
-Это одно из действий, которое довольно часто используется при создании или использовании шаблонов. Чтобы отобразить журналы развертывания для группы, следует вызвать команду `azure group log show <groupname>`. После ее выполнения будет выведен большой объем информации, необходимой для анализа выполненных или не выполненных операций. (Дополнительные сведения об устранении неполадок развертывания и о возможных проблемах см. в статье об [устранении неполадок при развертывании групп ресурсов в Azure](../articles/resource-manager-troubleshoot-deployments-cli.md).)
+Это одно из действий, которое довольно часто используется при создании или использовании шаблонов. Чтобы отобразить журналы развертывания для группы, следует вызвать команду `azure group log show <groupname>`. После ее выполнения будет выведен большой объем информации, необходимой для анализа выполненных или не выполненных операций. (Дополнительные сведения об устранении неполадок развертывания и о возможных проблемах см. в статье об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md)).
 
 Чтобы исправить конкретные сбои, вы можете использовать такие инструменты, как **jq**, для более точных запросов, например о том, какие отдельные сбои вам нужно исправить. В следующем примере используется **jq**. Это позволяет проанализировать журнал развертывания для **lbgroup** и выполнить поиск сбоев.
 
@@ -1302,6 +1308,6 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Развертывание популярных платформ приложений с помощью шаблонов Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

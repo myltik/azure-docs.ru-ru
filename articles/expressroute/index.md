@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Документация по Azure ExpressRoute. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как настроить и администрировать частное подключение ExpressRoute к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы."
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
+ms.sourcegitcommit: 6eb84236ff7814ab7dfade718693060d7e7383b9
+ms.openlocfilehash: a060970a2f2870a40d4925b8eeccf4fec4af1aa4
 
 ---
+
 #<a name="expressroute-documentation"></a>Документация по ExpressRoute
 
 Узнайте, как с помощью ExpressRoute настроить быстрое частное подключение к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы. Настроить канал ExpressRoute и управлять им вам помогут руководства, справочники по REST API и другая документация.
@@ -102,6 +114,6 @@ ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Маршрутизация, зависящая от данных | Документация Майкрософт"
-description: "Как использовать класс ShardMapManager в приложениях .NET для маршрутизации, зависящей от данных — функции эластичных баз данных для базы данных SQL Azure"
+title: "Маршрутизация, зависящая от данных, с использованием Базы данных SQL Azure | Документация Майкрософт"
+description: "Как использовать класс ShardMapManager в приложениях .NET для маршрутизации, зависящей от данных, — функции сегментированных баз данных для Базы данных SQL Azure."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
+ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
+ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
 
 
 ---
@@ -90,7 +90,7 @@ ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
 
 Обработка временных сбоев может естественным образом сосуществовать с шаблоном маршрутизации, управляемой данными. Основным требованием является повтор всего запроса доступа к данным, включая блок **using** , с которым осуществляется подключение с маршрутизацией, зависящей от данных. Приведенный выше пример можно переписать следующим образом (обратите внимание на выделенные изменения). 
 
-### <a name="example--data-dependent-routing-with-transient-fault-handling"></a>Пример: маршрутизация, управляемая данными, с обработкой временных сбоев
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Пример. Маршрутизация, зависящая от данных, с обработкой временных сбоев
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
@@ -130,6 +130,6 @@ int newPersonId = 4321;
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

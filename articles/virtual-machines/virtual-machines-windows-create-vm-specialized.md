@@ -1,6 +1,6 @@
 ---
-title: "Создание копии виртуальной машины Windows | Документация Майкрософт"
-description: "Узнайте, как создать копию специализированной виртуальной машины Azure под управлением Windows, используя модель развертывания Resource Manager."
+title: "Создание виртуальной машины на основе специализированного диска в Azure | Документация Майкрософт"
+description: "Создание новой виртуальной машины на основе подключенного специализированного управляемого или неуправляемого диска в модели развертывания с помощью Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a779f084e0ad6de71ad3e2de86a2fb85738b8fe6
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: cbe3d72bbd0d9cc425b1b26ad412e77b33f385b2
 
 
 ---
-# <a name="create-a-vm-from-a-specialized-vhd"></a>Создание виртуальной машины на основе специализированного VHD
-Создайте виртуальную машину, присоединив специализированный VHD в качестве диска операционной системы с помощью Powershell. На специализированном VHD сохраняются учетные записи пользователей, приложения и другие данные о состоянии исходной виртуальной машины. 
+# <a name="create-a-vm-from-a-specialized-disk"></a>Создание виртуальной машины из специализированного диска
 
-Если необходимо создать виртуальную машину на основе универсального VHD, см. [эту статью](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Создайте виртуальную машину, подключив специализированный диск в качестве диска ОС с помощью PowerShell. Специализированный диск — это копия виртуального жесткого диска виртуальной машины, в которой сохраняются учетные записи пользователей, приложения и другие данные о состоянии исходной виртуальной машины. Для создания виртуальной машины можно использовать специализированный [управляемый диск](../storage/storage-managed-disks-overview.md) или специализированный неуправляемый диск.
+
+## <a name="before-you-begin"></a>Перед началом работы
+Если вы используете PowerShell, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. Выполните следующую команду, чтобы установить ее.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
 
 ## <a name="create-the-subnet-and-vnet"></a>Создание виртуальной сети и подсети
+
 Создайте виртуальную сеть и подсеть [виртуальной сети](../virtual-network/virtual-networks-overview.md).
 
 1. Создайте подсеть. В этом примере создается подсеть с именем **mySubnet** в группе ресурсов **myResourceGroup** и задается префикс адреса подсети **10.0.0.0/24**.
@@ -59,8 +68,8 @@ ms.openlocfilehash: a779f084e0ad6de71ad3e2de86a2fb85738b8fe6
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Создание группы безопасности сети и правила RDP
@@ -78,45 +87,89 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
 
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+    
 ```
 
 Дополнительные сведения о конечных точках и правилах NSG см. в статье [Открытие портов для виртуальной машины в Azure с помощью PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="create-the-vm-configuration"></a>Создание конфигурации виртуальной машины
-Настройте конфигурацию виртуальной машины, чтобы присоединить скопированный VHD в качестве VHD ОС.
+## <a name="set-the-vm-name-and-size"></a>Задание имени и размера виртуальной машины
+
+В этом примере для имени виртуальной машины задается значение myVM, а для ее размера — Standard_A2.
 
 ```powershell
-# Set the URI for the VHD that you want to use. In this example, the VHD file named "myOsDisk.vhd" is kept 
-# in a storage account named "myStorageAccount" in a container named "myContainer".
-$osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-
-# Set the VM name and size. This example sets the VM name to "myVM" and the VM size to "Standard_A2".
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-
-# Add the NIC
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-# Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the 
-# term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this 
-# Windows-based VHD should be attached to the VM as the OS disk.
-$osDiskName = $vmName + "osDisk"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
 ```
 
+## <a name="add-the-nic"></a>Добавление сетевой карты
+    
+```powershell
+$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+```
+    
+    
+## <a name="configure-the-os-disk"></a>Настройка диска операционной системы
 
-Если есть диски с данными, которые нужно присоединить к виртуальной машине, добавьте следующее: 
+Специализированным диском ОС может быть виртуальный жесткий диск, [переданный в Azure](virtual-machines-windows-upload-image.md), или [копия виртуального жесткого диска из имеющейся виртуальной машины Azure](virtual-machines-windows-vhd-copy.md). 
+
+Вы можете выбрать один из вариантов:
+- **Вариант 1.** Создайте специализированный управляемый диск на основе специализированного виртуального жесткого диска в имеющейся учетной записи хранения, чтобы использовать его в качестве диска ОС.
+
+или 
+
+- **Вариант 2.** Используйте специализированный виртуальный жесткий диск, размещенный в вашей учетной записи хранения (неуправляемый диск). 
+
+### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>Вариант 1. Создание управляемого диска на основе специализированного неуправляемого диска
+
+1. Создайте управляемый диск на основе имеющегося специализированного виртуального жесткого диска в своей учетной записи хранения. В этом примере в качестве имени диска используется **myOSDisk1**, диск переносится в хранилище **StandardLRS**, а в качестве универсального кода ресурса (URI) для исходного виртуального жесткого диска используется **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd**.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
+    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
+    -ResourceGroupName $rgName
+    ```
+
+2. Добавьте в конфигурацию диск ОС. В этом примере для диска устанавливается размер **128 ГБ**, а управляемый диск подключается в качестве диска ОС **Windows**.
+    
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+(Необязательно.) Подключите дополнительные управляемые диски в качестве дисков данных. В этом случае предполагается, что управляемые диски данных созданы в соответствии с инструкциями, приведенными в статье [Создание управляемых дисков из неуправляемых дисков в учетной записи хранения](virtual-machines-windows-create-managed-disk-ps.md). 
 
 ```powershell
-# Optional: Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit 
-# Number (Lun).
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
+$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 ```
 
-URL-адреса дисков данных и дисков операционной системы выглядят так: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Их можно узнать на портале. Для этого найдите целевой контейнер хранилища, щелкните скопированный виртуальный жесткий диск операционной системы или данных, а затем скопируйте содержимое URL-адреса.
+
+### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>Вариант 2. Подключение виртуального жесткого диска, находящегося в имеющейся учетной записи хранения
+
+1. Задайте универсальный код ресурса (URI) виртуального жесткого диска, который необходимо использовать. В этом примере VHD-файл **myOsDisk.vhd** хранится в учетной записи **myStorageAccount** в контейнере **myContainer**.
+
+    ```powershell
+    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
+    ```
+2. Добавьте диск ОС с помощью URL-адреса скопированного виртуального жесткого диска ОС. В этом примере при создании диска ОС к имени виртуальной машины добавляется термин osDisk, формируя таким образом имя диска ОС. В этом примере также указывается, что этот виртуальный жесткий диск на платформе Windows должен быть подключен к виртуальной машине в качестве диска ОС.
+    
+    ```powershell
+    $osDiskName = $vmName + "osDisk"
+    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    ```
+
+(Необязательно.) При наличии дисков данных, которые необходимо подключить к виртуальной машине, добавьте их, используя URL-адреса виртуальных жестких дисков данных и соответствующий логический номер устройства (LUN).
+
+```powershell
+$dataDiskName = $vmName + "dataDisk"
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+```
+
+При использовании учетной записи хранения URL-адреса дисков данных и дисков ОС выглядят так: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Их можно узнать на портале. Для этого найдите целевой контейнер хранилища, щелкните скопированный виртуальный жесткий диск операционной системы или данных, а затем скопируйте содержимое URL-адреса.
+
 
 ## <a name="create-the-vm"></a>Создание виртуальной машины
+
 Создайте виртуальную машину, используя созданную конфигурацию.
 
 ```powershell
@@ -147,6 +200,6 @@ $vmList.Name
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

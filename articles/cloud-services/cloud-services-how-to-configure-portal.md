@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
+ms.sourcegitcommit: bb66627b170c9010414b24266fdae608e67f5c61
+ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 > [!div class="op_single_selector"]
 > * [Портал Azure](cloud-services-how-to-configure-portal.md)
 > * [Классический портал Azure](cloud-services-how-to-configure.md)
-> 
-> 
+>
+>
 
 Часто используемые параметры облачной службы можно настроить на портале Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 При наличии как минимум двух экземпляров для каждой роли в процессе обновления конфигурации Azure обеспечивается доступность службы в течение 99,95 % времени. Такая конфигурация позволяет обрабатывать запросы клиентов на одной виртуальной машине во время обновления другой. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="change-a-cloud-service"></a>Изменение облачной службы
-Откройте [портал Azure](https://portal.azure.com/)и перейдите к облачной службе. Здесь можно управлять множеством параметров. 
+Откройте [портал Azure](https://portal.azure.com/)и перейдите к облачной службе. Здесь можно управлять множеством параметров.
 
 ![Страница «Параметры»](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
@@ -42,13 +42,20 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 
 ![Колонка параметров облачной службы Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
-> [!NOTE]
-> Операционную систему, используемую для облачной службы, нельзя изменить на **портале Azure**, ее можно изменить только на [классической версии портала](http://manage.windowsazure.com/). Это подробно описано [здесь](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
-> 
-> 
+### <a name="manage-guest-os-version"></a>Управление версией гостевой ОС
+
+По умолчанию Azure периодически обновляет гостевые ОС до последнего поддерживаемого образа в семействе ОС, указанном в конфигурации службы (CSCFG-файл), например Windows Server 2016.
+
+Если требуется использовать конкретную версию ОС, ее можно задать в колонке **Конфигурация**.
+
+![Настройка версии ОС](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
+
+
+>[!IMPORTANT]
+> В случае выбора конкретной версии ОС автоматические обновления операционной системы отключаются, а ответственность за установку исправлений ложится на вас. Вы должны обеспечить установку обновлений в экземплярах роли, иначе система безопасности вашего приложения будет уязвима.
 
 ## <a name="monitoring"></a>Мониторинг
-Вы можете включить оповещения в облачной службе. Щелкните **Параметры** > **Правила оповещений** > **Добавить оповещение**. 
+Вы можете включить оповещения в облачной службе. Щелкните **Параметры** > **Правила оповещений** > **Добавить оповещение**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -58,7 +65,7 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 * Скорость записи на диск
 * Входящая скорость сети
 * Исходящая скорость сети
-* Процент использования ЦП 
+* Процент использования ЦП
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -70,7 +77,7 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 Здесь можно настроить диаграммы для этой плитки или добавить правило оповещения.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Перезагрузка, повторное создание образа и использование удаленного рабочего стола
-Сейчас на **портале Azure**нельзя настроить использование удаленного рабочего стола. Но вы можете настроить его с помощью [классического портала Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
+Сейчас на **портале Azure**нельзя настроить использование удаленного рабочего стола. Но вы можете настроить его с помощью [классического портала Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
 Щелкните экземпляр облачной службы.
 
@@ -84,17 +91,17 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 Иногда возникает потребность изменить настройки облачной службы, сохраненные в файле [конфигурации службы (CSCFG)](cloud-services-model-and-package.md#cscfg) . Для этого следует скачать CSCFG-файл, изменить его и отправить обратно.
 
 1. Щелкните значок **Параметры** или выберите **Все параметры**, чтобы открыть колонку **Параметры**.
-   
+
     ![Страница «Параметры»](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 2. Выберите элемент **Конфигурация** .
-   
+
     ![Колонка «Конфигурация»](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Нажмите кнопку **Загрузить** .
-   
+
     ![Загрузить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Чтобы применить обновления конфигурации, передайте новый файл в службу:
-   
-    ![Отправить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
+
+    ![Отправить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Выберите файл .cscfg и нажмите **ОК**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -105,7 +112,6 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

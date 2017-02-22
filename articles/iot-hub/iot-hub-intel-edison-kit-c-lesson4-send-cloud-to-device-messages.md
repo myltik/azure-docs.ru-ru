@@ -1,5 +1,5 @@
 ---
-title: "Запуск примера приложения для получения сообщений из облака на устройство из Центра Интернета вещей Azure | Документация Майкрософт"
+title: "Подключение Intel Edison (C) к Интернету вещей Azure. Урок 4. Получение сообщений | Документация Майкрософт"
 description: "Пример приложения выполняется на устройстве Edison и отслеживает входящие сообщения от Центра Интернета вещей. Новая задача Gulp отправляет сообщения из Центра Интернета вещей на устройство Edison для управления состоянием светодиодного индикатора."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d492fa295237f6ff333aefb2181975e8af948723
-ms.openlocfilehash: 48e5c46d53ce412384e8667904e84b9ebd454cff
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: b4d76eeb1bc0b406800c89c4952900350d8eafa8
 
 
 ---
@@ -99,6 +99,6 @@ gulp deploy && gulp run
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

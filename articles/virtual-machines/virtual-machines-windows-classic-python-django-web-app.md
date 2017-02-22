@@ -1,5 +1,5 @@
 ---
-title: "Веб-приложение Python на Django | Документация Майкрософт"
+title: "Сборка приложения Django на виртуальной машине Azure | Документация Майкрософт"
 description: "В этом учебнике изучается размещение веб-сайта, созданного на основе Django, в Azure с помощью виртуальной машины Windows Server 2012 R2 Datacenter и классической модели развертывания."
 services: virtual-machines-windows
 documentationcenter: python
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/04/2015
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
+ms.sourcegitcommit: 52967959e60ac64f5af2ae044803aa7443c5830b
+ms.openlocfilehash: 3691a00dd9ce64b30435be98b3429627113128e3
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
 
 <br>
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Шаблон Resource Manager для развертывания Django см. [здесь](https://azure.microsoft.com/documentation/templates/django-app/).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Шаблон Resource Manager для развертывания Django см. [здесь](https://azure.microsoft.com/documentation/templates/django-app/).
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Windows Server. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении работы с данным учебником у вас будет приложение на базе Django, выполняемое в облаке.
 
@@ -126,7 +125,7 @@ ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
     Python 3.4:
    
         c:\python34\scripts\wfastcgi-enable
-3. Создайте файл web.config в каталоге *C:\inetpub\wwwroot\helloworld*.  Значение атрибута `scriptProcessor` должно соответствовать выходным данным предыдущего шага.  Дополнительные сведения о настройках wfastcgi приведены на странице [wfastcgi][wfastcgi] в каталоге PyPI.
+3. Создайте файл web.config в каталоге *C:\inetpub\wwwroot\helloworld*.  Значение атрибута `scriptProcessor` должно соответствовать выходным данным предыдущего шага.  Дополнительные сведения о настройках wfastcgi приведены на странице [wfastcgi][wfastcgi] в pypi.
    
     Python 2.7:
    
@@ -171,12 +170,12 @@ ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
 
 [port80]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
 
-[Установщик веб-платформы]: http://www.microsoft.com/web/downloads/platform.aspx
+[Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

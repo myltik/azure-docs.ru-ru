@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 460d989a75edab35950089ccc2aac5347c5c1a48
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Как создать группу безопасности сети для подсети переднего плана
 Чтобы создать группу безопасности сети **NSG-FrontEnd** по описанному выше сценарию, выполните указанные ниже действия:
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) до этапа входа в Azure и выбора подписки.
 2. Создайте группу безопасности сети с именем **NSG-FrontEnd**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
@@ -208,6 +208,6 @@ ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

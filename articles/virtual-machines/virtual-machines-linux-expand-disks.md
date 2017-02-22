@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/22/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: c89ce056cb0fa84b2169df161660916d083bec3f
-ms.openlocfilehash: bcef9de167fa31001ee4086d7e5b85c2d8bc4613
+ms.sourcegitcommit: 2826f825b2d34005ce6e7142dd4371285a452ca8
+ms.openlocfilehash: bd1952281dde6f262848d1520995efdb131a3b38
 
 
 ---
 
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli"></a>Расширение дисков операционной системы на виртуальной машине Linux с помощью Azure CLI
-Как правило, размер виртуального жесткого диска по умолчанию для операционной системы на виртуальной машине Linux в Azure составляет 30 ГБ. Вы можете [добавить диски данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), чтобы предоставить дополнительное место для хранения, а также расширить диск операционной системы. В этой статье подробно описано, как расширить диск операционной системы для виртуальной машины Linux с помощью Azure CLI.
+Как правило, размер виртуального жесткого диска по умолчанию для операционной системы на виртуальной машине Linux в Azure составляет 30 ГБ. Вы можете [добавить диски данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), чтобы предоставить дополнительное место для хранения, а также расширить диск операционной системы. В этой статье подробно описано, как расширить диск ОС виртуальной машины Linux, использующей неуправляемые диски, с помощью Azure CLI.
 
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -46,7 +46,7 @@ azure config mode arm
     > [!NOTE]
     > Операция `azure vm stop` не освобождает вычислительные ресурсы. Чтобы освободить вычислительные ресурсы, используйте `azure vm deallocate`. Для расширения виртуального жесткого диска следует отменить распределение виртуальной машины.
 
-2. Обновите размер диска операционной системы, используя команду `azure vm set`. В следующем примере обновляется виртуальная машина `myVM` в группе ресурсов `myResourceGroup` и для нее устанавливается размер `50` ГБ:
+2. Обновите размер неуправляемого диска ОС, используя команду `azure vm set`. В следующем примере обновляется виртуальная машина `myVM` в группе ресурсов `myResourceGroup` и для нее устанавливается размер `50` ГБ:
 
     ```azurecli
     azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50
@@ -72,6 +72,6 @@ azure config mode arm
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

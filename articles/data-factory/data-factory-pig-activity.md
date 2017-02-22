@@ -1,5 +1,5 @@
 ---
-title: "Действие Pig"
+title: "Преобразование данных с помощью действия Pig в фабрике данных Azure | Документация Майкрософт"
 description: "Узнайте, как с помощью действия Pig в фабрике данных Azure выполнять запросы Pig к собственному кластеру HDInsight или к кластеру HDInsight по требованию."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ab5923ffeac5e86eaf643ba79c56fb57a34f9f87
-ms.openlocfilehash: 3ee61c0a1bb3ff72017768337773373df50ef927
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 1f9900218dc64b9a11e30335db234108859a2d2d
 
 
 ---
-# <a name="pig-activity"></a>Действие Pig
+# <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Преобразование данных с помощью действия Pig в фабрике данных Azure
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -218,6 +218,6 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

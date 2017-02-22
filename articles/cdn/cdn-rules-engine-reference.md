@@ -1,6 +1,6 @@
 ---
-title: "Справочные данные об обработчике правил сети доставки содержимого Azure | Документация Майкрософт"
-description: "В этой статье описываются условия соответствия и функции обработчика правил"
+title: "Справочник по обработчику правил Azure CDN | Документация Майкрософт"
+description: "Справочная документация по условиям соответствия и функциям обработчика правил Azure CDN."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 61a544f177ab820f1b13ca2bcd4afe623af597af
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
 
 
 ---
-# <a name="azure-content-delivery-network-rules-engine"></a>Обработчик правил сети доставки содержимого Azure
+# <a name="azure-cdn-rules-engine"></a>Обработчик правил Azure CDN
 В этом разделе приводятся подробные описания доступных условий соответствия и функций для [обработчика правил](cdn-rules-engine.md)сети доставки содержимого (CDN) Azure.
 
 Обработчик правил HTTP принимает решения о том, как CDN обрабатывает определенные типы запросов.
@@ -76,13 +76,13 @@ Character | Описание
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Match Conditions for Azure Content Delivery Network (CDN) Rules Engine](cdn-rules-engine-reference-match-conditions.md) (Условия соответствия для обработчика правил сети доставки содержимого (CDN) Azure)
-* [Conditional Expressions for Azure Content Delivery Network (CDN) Rules Engine](cdn-rules-engine-reference-conditional-expressions.md) (Условные выражения для обработчика правил сети доставки содержимого (CDN) Azure)
-* [Features for Azure Content Delivery Network (CDN) Rules Engine](cdn-rules-engine-reference-features.md) (Функции обработчика правил сети доставки содержимого (CDN) Azure)
+* [Условные выражения обработчика правил](cdn-rules-engine-reference-conditional-expressions.md)
+* [Функции обработчика правил](cdn-rules-engine-reference-features.md)
 * [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
 * [Обзор Azure CDN](cdn-overview.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

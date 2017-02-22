@@ -1,5 +1,5 @@
 ---
-title: "Удаленная отправка заданий Spark с помощью Livy | Документация Майкрософт"
+title: "Удаленная отправка заданий в кластер Spark в Azure HDInsight с помощью Livy | Документация Майкрософт"
 description: "Узнайте, как использовать Livy с кластерами HDInsight для удаленной отправки заданий Spark."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 564bd1f3095446edf839d0353b92e0df256e1007
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-linux-using-livy"></a>Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy
+# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight с помощью Livy
+
 Кластер Apache Spark в Azure HDInsight включает Livy — интерфейс REST для удаленной отправки заданий в кластер Spark. Подробную документацию см. в статье о [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Вы можете использовать Livy для выполнения интерактивных оболочек Spark или отправки пакетных заданий для запуска в кластере Spark. В статье рассматривается использование Livy для отправки пакетных заданий. В представленном ниже синтаксисе используется Curl, позволяющий REST вызывать конечную точку Livy.
@@ -30,10 +31,10 @@ ms.openlocfilehash: 564bd1f3095446edf839d0353b92e0df256e1007
 
 Необходимо следующее:
 
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="submit-a-batch-job-the-cluster"></a>Отправка пакетного задания в кластер
+## <a name="submit-a-batch-job"></a>Отправка пакетного задания
 Перед отправкой пакетного задания необходимо загрузить JAR-файл приложения в хранилище кластеров, связанное с соответствующим кластером. Вы можете использовать для этого служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных вы можете использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -154,6 +155,17 @@ Livy обеспечивает высокую доступность задани
    
     Последняя строка выходных данных показывает, что пакет удален. Если задание удаляется в процессе выполнения, оно фактически аннулируется. Если задание удаляется после завершения (независимо от успешности выполнения), удаляются все данные об этом задании.
 
+## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>Использование Livy в кластерах HDInsight 3.5 Spark
+
+Кластер HDInsight 3.5 по умолчанию запрещает использование локальных путей для доступа к примерам файлов данных или JAR-файлам. Мы рекомендуем использовать путь `wasb://` для доступа к JAR-файлам или примерам файлов данных из кластера. Если вы хотите использовать локальный путь, необходимо соответствующим образом обновить конфигурацию Ambari. Для этого выполните следующие действия:
+
+1. Перейдите на портал Ambari для кластера. Веб-интерфейс Ambari доступен по адресу https://CLUSTERNAME.azurehdidnsight.net, где **CLUSTERNAME** — это имя вашего кластера HDInsight.
+
+2. В левой области навигации щелкните **Livy**, а затем щелкните **Configs** (Конфигурации).
+
+3. В разделе **livy-default** добавьте имя свойства `livy.file.local-dir-whitelist` и присвойте ему значение **"/"**, если вы хотите разрешить полный доступ к файловой системе. Если вы хотите разрешить доступ только к конкретному каталогу, то в качестве значения свойства укажите путь к этому каталогу.
+
+
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
@@ -182,6 +194,6 @@ Livy обеспечивает высокую доступность задани
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

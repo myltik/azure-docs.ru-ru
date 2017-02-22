@@ -1,26 +1,31 @@
 ---
 title: "Публикация приложений с помощью прокси приложения Azure AD | Microsoft Azure"
-description: "Здесь описывается публикация локальных приложений в облаке с помощью прокси приложения Azure AD."
+description: "Здесь описывается публикация локальных приложений в облаке с помощью прокси приложения Azure AD на классическом портале."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.date: 11/30/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
+ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
+ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 
 
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Публикация приложений с помощью прокси приложения Azure AD
+
+> [!div class="op_single_selector"]
+> * [портале Azure](application-proxy-publish-azure-portal.md)
+> * [Классический портал Azure](active-directory-application-proxy-publish.md)
+
 Прокси приложения Azure AD обеспечивает поддержку удаленных рабочих ролей. Для этого необходимо опубликовать локальные приложения, чтобы к ним можно было получать доступ через Интернет. На этом этапе у вас уже должен быть [включен прокси приложения на классическом портале Azure](active-directory-application-proxy-enable.md). В этой статье описаны действия, которые необходимо выполнить для публикации приложений, которые работают в локальной сети, и предоставления к ним безопасного удаленного доступа из внешней сети. Ознакомившись с этой статьей, вы сможете указать для приложения личные сведения и настроить необходимые параметры безопасности.
 
 > [!NOTE]
@@ -101,6 +106,6 @@ ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

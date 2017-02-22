@@ -1,5 +1,5 @@
 ---
-title: "Настройка шлюза приложений для разгрузки SSL с помощью Azure Resource Manager | Документация Майкрософт"
+title: "Настройка разгрузки SSL для шлюза приложений Azure с помощью PowerShell | Документация Майкрософт"
 description: "На этой странице приводятся инструкции по созданию шлюза приложений с разгрузкой SSL с помощью диспетчера ресурсов Azure."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: a6100af0ba746ea244a2ccc6e1ddf843a8be416e
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 2982cf9154780166f1363ae6380702299c717236
 
 
 ---
@@ -266,6 +266,6 @@ DnsSettings              : {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

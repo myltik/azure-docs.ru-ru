@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/25/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
+ms.sourcegitcommit: 60d9284bd7deaeb5ba4078cfa889a516a7cf75e2
+ms.openlocfilehash: 1352e6f145a099dfd3ec7003132172dcbeb90d94
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 * SQL Server 2016
 * SQL Server 2014
 * SQL Server 2012
-* SQL Server 2008 R2;
+* SQL Server 2008 R2
 * SQL Server 2008
 * SQL Server 2005.
 
@@ -71,167 +71,170 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 Сначала настройте шлюз управления данными. Инструкции приведены в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) .
 
 **Связанная служба SQL Server**
-
-    {
-      "Name": "SqlServerLinkedService",
-      "properties": {
-        "type": "OnPremisesSqlServer",
-        "typeProperties": {
-          "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-          "gatewayName": "<gatewayname>"
-        }
-      }
+```JSON
+{
+  "Name": "SqlServerLinkedService",
+  "properties": {
+    "type": "OnPremisesSqlServer",
+    "typeProperties": {
+      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+      "gatewayName": "<gatewayname>"
     }
-
+  }
+}
+```
 **Связанная служба хранилища BLOB-объектов Azure**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Входной набор данных SQL Server**
 
 В примере предполагается, что вы уже создали таблицу MyTable в SQL Server и она содержит столбец с именем timestampcolumn для данных временного ряда. Можно выполнить запрос к нескольким таблицам в одной базе данных, используя один набор данных, но для typeProperty tableName набора данных нужно указать одну таблицу.
 
 Если для параметра external задать значение true, то фабрика данных воспримет этот набор данных как внешний, который создан не в результате какого-либо действия в этой службе.
 
-    {
-      "name": "SqlServerInput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlServerLinkedService",
-        "typeProperties": {
-          "tableName": "MyTable"
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
-        }
+```JSON
+{
+  "name": "SqlServerInput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlServerLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
-
+  }
+}
+```
 **Выходной набор данных BLOB-объекта Azure**
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке BLOB-объекта вычисляется динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
+```JSON
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
           }
         },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
         }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": "\t",
+        "rowDelimiter": "\n"
       }
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует эти входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **SqlSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **SqlReaderQuery** , выбирает для копирования данные за последний час.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "SqlServertoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "SqlServertoBlob",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": " SqlServerInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "SqlSource",
-                "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": " SqlServerInput"
           }
-         ]
-       }
-    }
-
-
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
 В этом примере для свойства SqlSource указано **sqlReaderQuery** . Действие копирования выполняет этот запрос к источнику базы данных SQL Server с целью получения данных. Кроме того, можно создать хранимую процедуру, указав **sqlReaderStoredProcedureName** и **storedProcedureParameters** (если хранимая процедура принимает параметры). Свойство sqlReaderQuery может ссылаться на несколько таблиц из базы данных, на которую ссылается входной набор данных. Он не ограничивается таблицей, заданной свойством typeProperty в качестве параметра tableName набора данных.
 
 Если не указать sqlReaderQuery или sqlReaderStoredProcedureName, то для построения запроса select к базе данных SQL Server будут использованы столбцы, определенные в разделе структуры. Если у определения набора данных нет структуры, выбираются все столбцы из таблицы.
@@ -251,164 +254,169 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 
 **Связанная служба SQL Server**
 
-    {
-      "Name": "SqlServerLinkedService",
-      "properties": {
-        "type": "OnPremisesSqlServer",
-        "typeProperties": {
-          "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-          "gatewayName": "<gatewayname>"
-        }
-      }
+```JSON
+{
+  "Name": "SqlServerLinkedService",
+  "properties": {
+    "type": "OnPremisesSqlServer",
+    "typeProperties": {
+      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+      "gatewayName": "<gatewayname>"
     }
-
+  }
+}
+```
 **Связанная служба хранилища BLOB-объектов Azure**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Входной набор данных BLOB-объекта Azure**
 
 Данные берутся из нового BLOB-объекта каждый час (frequency: hour, interval: 1). Путь к папке с BLOB-объектом и имя файла вычисляются динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц и день начала, а в имени файла — час начала. Когда для параметра external задано значение true, служба фабрики данных считает этот набор данных внешним по отношению к себе и не созданным в результате какого-либо действия в фабрике данных.
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
           }
         },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
         },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
           }
         }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": "\n"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
-
+  }
+}
+```
 **Выходной набор данных SQL Server**
 
 В этом примере данные копируются в таблицу MyTable, которая создана в базе данных SQL Server. Создайте в базе данных SQL Server таблицу с тем же количеством столбцов, которое должно быть в CSV-файле большого двоичного объекта. Новые строки добавляются в таблицу каждый час.
 
-    {
-      "name": "SqlServerOutput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlServerLinkedService",
-        "typeProperties": {
-          "tableName": "MyOutputTable"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```JSON
+{
+  "name": "SqlServerOutput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlServerLinkedService",
+    "typeProperties": {
+      "tableName": "MyOutputTable"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует эти входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **BlobSource**, а для типа **sink** — значение **SqlSink**.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "AzureBlobtoSQL",
+        "description": "Copy Activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "AzureBlobtoSQL",
-            "description": "Copy Activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": " SqlServerOutput "
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource",
-                "blobColumnSeparators": ","
-              },
-              "sink": {
-                "type": "SqlSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureBlobInput"
           }
-          ]
-       }
-    }
-
+        ],
+        "outputs": [
+          {
+            "name": " SqlServerOutput "
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource",
+            "blobColumnSeparators": ","
+          },
+          "sink": {
+            "type": "SqlSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
 ## <a name="sql-server-linked-service-properties"></a>Свойства связанной службы SQL Server
 В примерах использовалась связанная служба типа **OnPremisesSqlServer** , чтобы связать локальную базу данных SQL Server с фабрикой данных. В следующей таблице содержится описание элементов JSON, которые относятся к локальной связанной службе SQL Server.
 
@@ -424,41 +432,45 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 
 Вы можете зашифровать учетные данные с помощью командлета **New-AzureRmDataFactoryEncryptValue** и использовать их в строке подключения, как показано в следующем примере (свойство **EncryptedCredential**):  
 
-    "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```JSON
+"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```
 
 ### <a name="samples"></a>Примеры
 **JSON для использования проверки подлинности SQL**
 
+```JSON
+{
+    "name": "MyOnPremisesSQLDB",
+    "properties":
     {
-        "name": "MyOnPremisesSQLDB",
-        "properties":
-        {
-            "type": "OnPremisesSqlLinkedService",
-            "typeProperties": {
-                "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
-                "gatewayName": "<gateway name>"
-            }
+        "type": "OnPremisesSqlLinkedService",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
     }
-
+}
+```
 **JSON для использования проверки подлинности Windows**
 
 Если указаны имя пользователя и пароль, то шлюз использует их, чтобы действовать от имени соответствующей учетной записи пользователя для подключения к локальной базе данных SQL Server. В противном случае шлюз подключается к SQL Server напрямую с помощью контекста безопасности шлюза (его стартовая учетная запись).
 
-    {
-         "Name": " MyOnPremisesSQLDB",
-         "Properties":
-         {
-             "type": "OnPremisesSqlLinkedService",
-             "typeProperties": {
-                 "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
-                 "username": "<domain\\username>",
-                 "password": "<password>",
-                 "gatewayName": "<gateway name>"
-            }
-         }
-    }
-
+```JSON
+{
+     "Name": " MyOnPremisesSQLDB",
+     "Properties":
+     {
+         "type": "OnPremisesSqlLinkedService",
+         "typeProperties": {
+             "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+             "username": "<domain\\username>",
+             "password": "<password>",
+             "gatewayName": "<gateway name>"
+        }
+     }
+}
+```
 
 Дополнительные сведения о настройке учетных данных для источника данных SQL Server см. в разделе [Настройка учетных данных и безопасность](data-factory-data-management-gateway.md#encrypting-credentials).
 
@@ -521,12 +533,12 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 ## <a name="troubleshooting-connection-issues"></a>Устранение неполадок с подключением
 1. Настройте SQL Server для приема удаленных подключений. Запустите **SQL Server Management Studio**, щелкните правой кнопкой мыши свой **сервер** и выберите пункт **Свойства**. Выберите в списке пункт **Подключения** и установите флажок **Allow remote connections to the server** (Разрешить удаленные подключения к этому серверу).
 
-    ![Включение удаленных подключений](.\\media\\data-factory-sqlserver-connector\\AllowRemoteConnections.png)
+    ![Включение удаленных подключений](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
     Подробные инструкции см. в статье [Настройка параметра конфигурации сервера remote access](https://msdn.microsoft.com/library/ms191464.aspx).
 2. Запустите **диспетчер конфигурации SQL Server**. Разверните узел **Сетевая конфигурация SQL Server** для нужного экземпляра и выберите пункт **Protocols for MSSQLSERVER** (Протоколы для MSSQLSERVER). Вы должны увидеть протоколы на панели справа. Включите TCP/TP, щелкнув правой кнопкой мыши имя протокола **TCP/IP** и выбрав пункт **Включить**.
 
-    ![Включение TCP/IP](.\\media\\data-factory-sqlserver-connector\\EnableTCPProptocol.png)
+    ![Включение TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
     Подробные сведения и альтернативные способы включения протокола TCP/IP см. в статье [Включение или отключение сетевого протокола сервера](https://msdn.microsoft.com/library/ms191294.aspx).
 3. В этом же окне дважды щелкните **TCP/IP**, чтобы открыть окно **TCP/IP Properties** (Свойства TCP/IP).
@@ -548,68 +560,72 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 
 **Исходная таблица:**
 
-    create table dbo.SourceTbl
-    (
-           name varchar(100),
-           age int
-    )
-
+```SQL
+create table dbo.SourceTbl
+(
+       name varchar(100),
+       age int
+)
+```
 **Целевая таблица:**
 
-    create table dbo.TargetTbl
-    (
-           id int identity(1,1),
-           name varchar(100),
-           age int
-    )
-
+```SQL
+create table dbo.TargetTbl
+(
+       identifier int identity(1,1),
+       name varchar(100),
+       age int
+)
+```
 
 Обратите внимание, что в целевой таблице есть столбец идентификаторов.
 
 **Определение JSON исходного набора данных**
 
-    {
-        "name": "SampleSource",
-        "properties": {
-            "published": false,
-            "type": " SqlServerTable",
-            "linkedServiceName": "TestIdentitySQL",
-            "typeProperties": {
-                "tableName": "SourceTbl"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
-        }
+```JSON
+{
+    "name": "SampleSource",
+    "properties": {
+        "published": false,
+        "type": " SqlServerTable",
+        "linkedServiceName": "TestIdentitySQL",
+        "typeProperties": {
+            "tableName": "SourceTbl"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
     }
-
+}
+```
 **Определение JSON целевого набора данных**
 
-    {
-        "name": "SampleTarget",
-        "properties": {
-            "structure": [
-                { "name": "name" },
-                { "name": "age" }
-            ],
-            "published": false,
-            "type": "AzureSqlTable",
-            "linkedServiceName": "TestIdentitySQLSource",
-            "typeProperties": {
-                "tableName": "TargetTbl"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": false,
-            "policy": {}
-        }
+```JSON
+{
+    "name": "SampleTarget",
+    "properties": {
+        "structure": [
+            { "name": "name" },
+            { "name": "age" }
+        ],
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "TestIdentitySQLSource",
+        "typeProperties": {
+            "tableName": "TargetTbl"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": false,
+        "policy": {}
     }
-
+}
+```
 
 Обратите внимание, что у исходной и целевой таблиц разные схемы (в целевой есть дополнительный столбец с идентификаторами). В этом случае необходимо указать свойство **structure** в определении целевого набора данных, которое не включает в себя столбец идентификаторов.
 
@@ -621,7 +637,7 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### <a name="type-mapping-for-sql-server-azure-sql"></a>Сопоставление типов SQL Server и SQL Azure
+### <a name="type-mapping-for-sql-server--azure-sql"></a>Сопоставление типов SQL Server и SQL Azure
 Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
@@ -675,6 +691,6 @@ ms.openlocfilehash: b473a9e5bc70b9f2b100032b45a0114f8745ab46
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

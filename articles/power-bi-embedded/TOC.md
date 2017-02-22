@@ -2,13 +2,13 @@
 ## [Что такое Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
 ## [Новые возможности Power BI Embedded](power-bi-embedded-whats-new.md)
 
-# Приступая к работе
-## [Приступая к работе с Power BI Embedded](power-bi-embedded-get-started.md)
-## [Приступая к работе с примером](power-bi-embedded-get-started-sample.md)
+# Начало работы
+## [Начало работы с Power BI Embedded](power-bi-embedded-get-started.md)
+## [Начало работы с примером](power-bi-embedded-get-started-sample.md)
 ## [Часто задаваемые вопросы](power-bi-embedded-faq.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Распространенные сценарии](power-bi-embedded-scenarios.md)
 
 ## Управление
@@ -21,8 +21,8 @@
 ### [Безопасность уровня строк в Power BI Embedded](power-bi-embedded-rls.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Скачивание пакета SDK для .NET](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [REST](/rest/api/powerbiembedded/)
@@ -34,6 +34,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 03112e4bde1e5f986102083fc0e16cd51fc47504
-ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: a526610f5b09ce73a9c192ec45ae8aafab001401
 
 
 ---
 # <a name="media-encoder-standard-schema"></a>Схема Media Encoder Standard
-В этой статье описаны некоторые элементы и типы XML-схемы, лежащие в основе [предустановок Media Encoder Standard](https://msdn.microsoft.com/library/azure/mt269960.aspx). Также рассмотрены элементы и их допустимые значения. Полная схема будет опубликована в будущем.  
+В этой статье описаны некоторые элементы и типы XML-схемы, лежащие в основе [предустановок Media Encoder Standard](media-services-mes-presets-overview.md). Также рассмотрены элементы и их допустимые значения. Полная схема будет опубликована в будущем.  
 
 ## <a name="a-namepreseta-preset-root-element"></a><a name="Preset"></a> Предустановка (корневой элемент)
 Определяет предустановку кодирования.  
@@ -35,7 +35,7 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Версия**<br /><br /> Обязательно |**xs:decimal** |Версия предустановки. Применяются следующие ограничения: xs:fractionDigits value="1" и xs:minInclusive value="1". Например, **version="1.0"**. |
+| **Версия**<br/><br/> Обязательно |**xs:decimal** |Версия предустановки. Применяются следующие ограничения: xs:fractionDigits value="1" и xs:minInclusive value="1". Например, **version="1.0"**. |
 
 ## <a name="a-nameencodinga-encoding"></a><a name="Encoding"></a> Кодирование
 Содержит последовательность следующих элементов.  
@@ -53,18 +53,18 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **TwoPass**<br /><br /> minOccurs="0" |**xs:boolean** |Сейчас поддерживается только однопроходное кодирование. |
-| **KeyFrameInterval**<br /><br /> minOccurs="0"<br /><br /> **default="00:00:02"** |**xs:time** |Определяет расстояние между кадрами IDR (по умолчанию). |
-| **SceneChangeDetection**<br /><br /> minOccurs="0"<br /><br /> default=”false” |**xs:boolean** |Если задано значение true, кодировщик пытается обнаружить изменение сцены в видео и вставить кадр IDR. |
-| **Complexity**<br /><br /> minOccurs="0"<br /><br /> default="Balanced" |**xs:string** |Регулирует баланс между скоростью кодирования и качеством видео. Может принимать одно из следующих значений: **Speed**, **Balanced** и **Quality**.<br /><br /> Значение по умолчанию: **Balanced**. |
-| **SyncMode**<br /><br /> minOccurs="0" | |Функция будет доступна в будущих выпусках. |
-| **H264Layers**<br /><br /> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Коллекция уровней выходных видео. |
+| **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Сейчас поддерживается только однопроходное кодирование. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Определяет расстояние между кадрами IDR (по умолчанию). |
+| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs:boolean** |Если задано значение true, кодировщик пытается обнаружить изменение сцены в видео и вставить кадр IDR. |
+| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Регулирует баланс между скоростью кодирования и качеством видео. Может принимать одно из следующих значений: **Speed**, **Balanced** и **Quality**.<br/><br/> Значение по умолчанию: **Balanced**. |
+| **SyncMode**<br/><br/> minOccurs="0" | |Функция будет доступна в будущих выпусках. |
+| **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Коллекция уровней выходных видео. |
 
 ## <a name="a-nameh264layersa-h264layers"></a><a name="H264Layers"></a> H264Layers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **H264Layer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Коллекция уровней H264. |
+| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Коллекция уровней H264. |
 
 ## <a name="a-nameh264layera-h264layer"></a><a name="H264Layer"></a> H264Layer
 > [!NOTE]
@@ -75,19 +75,19 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Профиль**<br /><br /> minOccurs="0"<br /><br /> default=”Auto” |**xs:string** |Может иметь одно из следующих значений **xs:string**: **Auto**, **Baseline**, **Main**, **High**. |
-| **Level**<br /><br /> minOccurs="0"<br /><br /> default=”Auto” |**xs:string** | |
-| **Bitrate**<br /><br /> minOccurs="0" |**xs:int** |Скорость, используемая для этого уровня видео, указанная в Кбит/с. |
-| **MaxBitrate**<br /><br /> minOccurs="0" |**xs:int** |Максимальная скорость, используемая для этого уровня видео, указанная в Кбит/с. |
-| **BufferWindow**<br /><br /> minOccurs="0"<br /><br /> default="00:00:05" |**xs:time** |Длина буфера видео. |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** |Ширина кадра выходного видео в пикселях.<br /><br /> Обратите внимание, что сейчас необходимо указывать и ширину, и высоту. Значения ширины и высоты должны быть четными числами. |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** |Высота кадра выходного видео в пикселях.<br /><br /> Обратите внимание, что сейчас необходимо указывать и ширину, и высоту. Значения ширины и высоты должны быть четными числами.|
-| **BFrames**<br /><br /> minOccurs="0" |**xs:int** |Число кадров B между опорными кадрами. |
-| **ReferenceFrames**<br /><br /> minOccurs="0"<br /><br /> default=”3” |**xs:int** |Число опорных кадров в GOP. |
-| **EntropyMode**<br /><br /> minOccurs="0"<br /><br /> default=”Cabac” |**xs:string** |Может принимать одно из следующих значений: **Cabac** и **Cavlc**. |
-| **FrameRate**<br /><br /> minOccurs="0" |Рациональное число |Определяет частоту кадров выходного видео. Используйте стандартное значение 0/1, чтобы кодировщик использовал ту же частоту кадров, что и выходное видео. Допустимые значения должны быть стандартными для частоты кадров, как показано ниже. Но допустимо любое рациональное число. Например, значение 1/1 — это 1 кадр/с. Оно является допустимым.<br /><br /> - 12/1 (12 кадров/с)<br /><br /> - 15/1 (15 кадров/с)<br /><br /> - 24/1 (24 кадра/с)<br /><br /> - 24 000/1001 (23,976 кадра/с)<br /><br /> - 25/1 (25 кадров/с)<br /><br /> - 30/1 (30 кадров/с)<br /><br /> - 30 000/1001 (29,97 кадра/с) |
-| **AdaptiveBFrame**<br /><br /> minOccurs="0" |**xs:boolean** |Копия из кодировщика мультимедиа Azure |
-| **Slices**<br /><br /> minOccurs="0"<br /><br /> default="0" |**xs:int** |Определяет число фрагментов для разделенного кадра. Рекомендуется использовать значение по умолчанию. |
+| **Профиль**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** |Может иметь одно из следующих значений **xs:string**: **Auto**, **Baseline**, **Main**, **High**. |
+| **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** | |
+| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |Скорость, используемая для этого уровня видео, указанная в Кбит/с. |
+| **MaxBitrate**<br/><br/> minOccurs="0" |**xs:int** |Максимальная скорость, используемая для этого уровня видео, указанная в Кбит/с. |
+| **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs:time** |Длина буфера видео. |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** |Ширина кадра выходного видео в пикселях.<br/><br/> Обратите внимание, что сейчас необходимо указывать и ширину, и высоту. Значения ширины и высоты должны быть четными числами. |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** |Высота кадра выходного видео в пикселях.<br/><br/> Обратите внимание, что сейчас необходимо указывать и ширину, и высоту. Значения ширины и высоты должны быть четными числами.|
+| **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Число кадров B между опорными кадрами. |
+| **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Число опорных кадров в GOP. |
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Может принимать одно из следующих значений: **Cabac** и **Cavlc**. |
+| **FrameRate**<br/><br/> minOccurs="0" |Рациональное число |Определяет частоту кадров выходного видео. Используйте стандартное значение "0/1", чтобы кодировщик использовал ту же частоту кадров, что и выходное видео. Допустимые значения должны быть стандартными для частоты кадров, как показано ниже. Но допустимо любое рациональное число. Например, значение 1/1 — это 1 кадр/с. Оно является допустимым.<br/><br/> - 12/1 (12 кадров/с)<br/><br/> - 15/1 (15 кадров/с)<br/><br/> - 24/1 (24 кадра/с)<br/><br/> - 24 000/1001 (23,976 кадра/с)<br/><br/> - 25/1 (25 кадров/с)<br/><br/>  - 30/1 (30 кадров/с)<br/><br/> - 30 000/1001 (29,97 кадра/с) |
+| **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Копия из кодировщика мультимедиа Azure |
+| **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Определяет число фрагментов для разделенного кадра. Рекомендуется использовать значение по умолчанию. |
 
 ## <a name="a-nameaacaudioa-aacaudio"></a><a name="AACAudio"></a> AACAudio
  Содержит последовательность следующих элементов и групп.  
@@ -97,17 +97,17 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Профиль**<br /><br /> minOccurs="0 "<br /><br /> default="AACLC" |**xs:string** |Может принимать одно из следующих значений: **AACLC**, **HEAACV1** или **HEAACV2**. |
+| **Профиль**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs:string** |Может принимать одно из следующих значений: **AACLC**, **HEAACV1** или **HEAACV2**. |
 
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Condition** |**xs:string** |Чтобы заставить кодировщик создать ресурс, содержащий звуковую дорожку с тишиной, когда входные данные не содержат звука, укажите значение "InsertSilenceIfNoAudio".<br /><br /> По умолчанию при отправке кодировщику входных данных, которые содержат только видео и не содержат звука, выходной ресурс будет содержать файлы только с видеоданными. Некоторые проигрыватели не смогут обработать такие выходные потоки. Этот параметр можно использовать для принудительного добавления кодировщиком звуковой дорожки с тишиной к выходным данным в этом сценарии. |
+| **Condition** |**xs:string** |Чтобы заставить кодировщик создать ресурс, содержащий звуковую дорожку с тишиной, когда входные данные не содержат звука, укажите значение "InsertSilenceIfNoAudio".<br/><br/> По умолчанию при отправке кодировщику входных данных, которые содержат только видео и не содержат звука, выходной ресурс будет содержать файлы только с видеоданными. Некоторые проигрыватели не смогут обработать такие выходные потоки. Этот параметр можно использовать для принудительного добавления кодировщиком звуковой дорожки с тишиной к выходным данным в этом сценарии. |
 
 ### <a name="groups"></a>Группы
 | Справочные материалы | Описание |
 | --- | --- |
-| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br /><br /> minOccurs="0" |См. описание [AudioGroup](media-services-mes-schema.md#AudioGroup), чтобы узнать необходимое число каналов, частоту выборки и скорость потока, которые можно установить для каждого профиля. |
+| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |См. описание [AudioGroup](media-services-mes-schema.md#AudioGroup), чтобы узнать необходимое число каналов, частоту выборки и скорость потока, которые можно установить для каждого профиля. |
 
 ## <a name="a-nameaudiogroupa-audiogroup"></a><a name="AudioGroup"></a> AudioGroup
 Дополнительные сведения о допустимых значениях для каждого профиля см. в таблице "Сведения об аудиокодеке" ниже.  
@@ -115,16 +115,17 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Channels**<br /><br /> minOccurs="0" |**xs:int** |Число закодированных аудиоканалов. Допустимые значения: 1, 2, 5, 6, 8.<br /><br /> Значение по умолчанию: 2. |
-| **SamplingRate**<br /><br /> minOccurs="0" |**xs:int** |Частота дискретизации, указанная в Гц. |
-| **Bitrate**<br /><br /> minOccurs="0" |**xs:int** |Скорость кодировки аудио, указанная в Кбит/с. |
+| **Channels**<br/><br/> minOccurs="0" |**xs:int** |Число закодированных аудиоканалов. Допустимые значения: 1, 2, 5, 6, 8.<br/><br/> Значение по умолчанию: 2. |
+| **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |Частота дискретизации, указанная в Гц. |
+| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |Скорость кодировки аудио, указанная в Кбит/с. |
 
 ### <a name="audio-codec-details"></a>Сведения об аудиокодеке
-| Аудиокодек |
-| --- | --- |
-| **AACLC** |
-| **HEAACV1** |
-| **HEAACV2** |
+Аудиокодек|Сведения  
+-----------------|---  
+**AACLC**|1:<br/><br/> - 11 025 : 8 &lt;= скорость &lt; 16<br/><br/> - 12 000 : 8 &lt;= скорость &lt; 16<br/><br/> - 16 000 : 8 &lt;= скорость &lt;32<br/><br/>- 22 050 : 24 &lt;= скорость &lt; 32<br/><br/> - 24 000 : 24 &lt;= скорость &lt; 32<br/><br/> - 32 000 : 32 &lt;= скорость &lt; 192<br/><br/> - 44 100 : 56 &lt;= скорость &lt; 288<br/><br/> - 48 000 : 56 &lt;= скорость &lt;288<br/><br/> - 88 200 : 128 &lt;= скорость &lt; 288<br/><br/> - 96 000 : 128 &lt;= скорость &lt; 288<br/><br/> 2.<br/><br/> - 11 025 : 16 &lt;= скорость &lt; 24<br/><br/> - 12 000 : 16 &lt;= скорость &lt; 24<br/><br/> - 16 000 : 16 &lt;= скорость &lt; 40<br/><br/> - 22 050 : 32 &lt;= скорость &lt; 40<br/><br/> - 24 000 : 32 &lt;= скорость &lt; 40<br/><br/> - 32 000 : 40 &lt;= скорость &lt; 384<br/><br/> - 44 100 : 96 &lt;= скорость &lt; 576<br/><br/> - 48 000 : 96 &lt;= скорость &lt; 576<br/><br/> - 88 200 : 256 &lt;= скорость &lt; 576<br/><br/> - 96 000 : 256 &lt;= скорость &lt; 576<br/><br/> 5/6:<br/><br/> - 32 000 : 160 &lt;= скорость &lt; 896<br/><br/> - 44 100 : 240 &lt;= скорость &lt; 1024<br/><br/> - 48 000 : 240 &lt;= скорость &lt; 1024<br/><br/> - 88 200 : 640 &lt;= скорость &lt; 1024<br/><br/> - 96 000 : 640 &lt;= скорость &lt; 1024<br/><br/> 8:<br/><br/> - 32 000 : 224 &lt;= скорость &lt; 1024<br/><br/> - 44 100 : 384 &lt;= скорость &lt; 1024<br/><br/> - 48 000 : 384 &lt;= скорость &lt; 1024<br/><br/> - 88 200 : 896 &lt;= скорость &lt; 1024<br/><br/> - 96 000 : 896 &lt;= скорость &lt; 1024  
+**HEAACV1**|1:<br/><br/> - 22 050 : скорость = 8<br/><br/> - 24 000 : 8 &lt;= скорость &lt; 10<br/><br/> - 32 000 : 12 &lt;= скорость &lt; 64<br/><br/> - 44 100 : 20 &lt;= скорость &lt; 64<br/><br/> - 48 000 : 20 &lt;= скорость &lt; 64<br/><br/> - 88 200 : скорость = 64<br/><br/> 2.<br/><br/> - 32 000 : 16 &lt;= скорость &lt;= 128<br/><br/> - 44 100 : 16 &lt;= скорость &lt;= 128<br/><br/> - 48 000 : 16 &lt;= скорость &lt;= 128<br/><br/> - 88 200 : 96 &lt;= скорость &lt;= 128<br/><br/> - 96 000 : 96 &lt;= скорость &lt;= 128<br/><br/> 5/6:<br/><br/> - 32 000 : 64 &lt;= скорость &lt;= 320<br/><br/> - 44 100 : 64 &lt;= скорость &lt;= 320<br/><br/> - 48 000 : 64 &lt;= скорость &lt;= 320<br/><br/> - 88 200 : 256 &lt;= скорость &lt;= 320<br/><br/> - 96 000 : 256 &lt;= скорость &lt;= 320<br/><br/> 8:<br/><br/> - 32 000 : 96 &lt;= скорость &lt;= 448<br/><br/> - 44 100 : 96 &lt;= скорость &lt;= 448<br/><br/> - 48 000 : 96 &lt;= скорость &lt;= 448<br/><br/> - 88 200 : 384 &lt;= скорость &lt;= 448<br/><br/> - 96 000 : 384 &lt;= скорость &lt;= 448  
+**HEAACV2**|2.<br/><br/> - 22 050 : 8 &lt;= скорость &lt;= 10<br/><br/> - 24 000 : 8 &lt;= скорость &lt; 10<br/><br/> - 32 000 : 12 &lt;= скорость &lt; 64<br/><br/> - 44 100 : 20 &lt;= скорость &lt; 64<br/><br/> - 48 000 : 20 &lt;= скорость &lt; 64<br/><br/> - 88 200 : 64 &lt;= скорость &lt;= 64  
+  
 
 ## <a name="a-nameclipa-clip"></a><a name="Clip"></a> Клип
 ### <a name="attributes"></a>Атрибуты
@@ -137,12 +138,12 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Имя выходного файла.<br /><br /> Для создания имен выходных файлов можно использовать макросы, описанные в следующей таблице. Например:<br /><br /> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Имя выходного файла.<br/><br/> Для создания имен выходных файлов можно использовать макросы, описанные в следующей таблице. Например:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Макросы
 | Макрос | Описание |
 | --- | --- |
-| **{Basename}** |Если вы кодируете видео по запросу, макрос {Basename} представляет первые 32 символа свойства AssetFile.Name основного файла во входном ресурсе-контейнере.<br /><br /> Если входной ресурс-контейнер — это динамический архив, макрос {Basename} является производным от атрибутов trackName в манифесте сервера. Если вы отправляете задание субклипа с помощью TopBitrate, как в <VideoStream\>TopBitrate</VideoStream\>, и выходной файл содержит видео, макрос {Basename} представляет первые 32 символа trackName уровня видео с наивысшей скоростью.<br /><br /> Если вы отправляете задание субклипа с помощью входящей скорости, как в <VideoStream\>*</VideoStream\>, и выходной файл содержит видео, макрос {Basename} представляет первые 32 символа соответствующего уровня видео. |
+| **{Basename}** |Если вы кодируете видео по запросу, макрос {Basename} представляет первые 32 символа свойства AssetFile.Name основного файла во входном ресурсе-контейнере.<br/><br/> Если входной ресурс-контейнер — это динамический архив, макрос {Basename} является производным от атрибутов trackName в манифесте сервера. Если вы отправляете задание субклипа с помощью TopBitrate, как в <VideoStream\>TopBitrate</VideoStream\>, и выходной файл содержит видео, макрос {Basename} представляет первые 32 символа trackName уровня видео с наивысшей скоростью.<br/><br/> Если вы отправляете задание субклипа с помощью входящей скорости, как в <VideoStream\>*</VideoStream\>, и выходной файл содержит видео, макрос {Basename} представляет первые 32 символа соответствующего уровня видео. |
 | **{Codec}** |Соответствует формату H.264 для видео и AAC для аудио. |
 | **{Bitrate}** |Целевая скорость видео, если выходной файл содержит видео и аудио, или целевая скорость аудио, если выходной файл содержит только аудио. Используется значение скорости в Кбит/с. |
 | **{Channel}** |Счетчик аудиоканала, если файл содержит аудио. |
@@ -187,8 +188,8 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="element"></a>Элемент
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** | |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
@@ -199,8 +200,8 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="element"></a>Элемент
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** | |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
@@ -211,9 +212,9 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="element"></a>Элемент
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Quality**<br /><br /> minOccurs="0" |**xs:int** |Допустимые значения: 1–100 (от худшего качества до наилучшего) |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Quality**<br/><br/> minOccurs="0" |**xs:int** |Допустимые значения: 1–100 (от худшего качества до наилучшего) |
 
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
@@ -224,40 +225,40 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **PngLayer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
+| **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="a-namebmplayersa-bmplayers"></a><a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **BmpLayer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
+| **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="a-namejpglayersa-jpglayers"></a><a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **JpgLayer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
+| **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="a-namebmpimagea-bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage (сложный тип, который наследуется из видео)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **PngLayers**<br /><br /> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
 
 ## <a name="a-namejpgimagea-jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage (сложный тип, который наследуется из видео)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **PngLayers**<br /><br /> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
 
 ## <a name="a-namepngimagea-pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage (сложный тип, который наследуется из видео)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **PngLayers**<br /><br /> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
 
 ## <a name="examples"></a>Примеры
-Примеры предустановок XML, созданных на основе этой схемы, см. в документации по [предустановкам задач для MES (Media Encoder Standard)](https://msdn.microsoft.com/library/azure/mt269960.aspx).
+Примеры предустановок XML, созданных на основе этой схемы, см. в документации по [предустановкам задач для MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -268,6 +269,6 @@ ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

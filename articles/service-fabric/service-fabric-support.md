@@ -1,5 +1,5 @@
 ---
-title: "Варианты поддержки Azure Service Fabric | Документация Майкрософт"
+title: "Описание вариантов поддержки Azure Service Fabric | Документация Майкрософт"
 description: "Поддерживаемые версии кластера Service Fabric и ссылки для отправки запросов в службу поддержки."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2016
+ms.date: 02/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: d848bebea962e8ba883266188cd0bafe991dd804
-ms.openlocfilehash: 5d27e6622faeee7cf9f4cdb2911171ef29d94b5c
+ms.sourcegitcommit: 05e433b028762016759637b2afa8c741b04f31ff
+ms.openlocfilehash: a31a297f909ffb1c6da748623b0050415c43486b
 
 
 ---
@@ -79,11 +79,9 @@ ms.openlocfilehash: 5d27e6622faeee7cf9f4cdb2911171ef29d94b5c
 | **Кластер среды выполнения Service Fabric** | **Дата окончания поддержки** |
 | --- | --- |
 | Все версии кластера до 5.3.121 |20 января 2017 г. |
-| 5.3.121.* |24 февраля 2017 г. |
-| 5.3.204.* |24 февраля 2017 г. |
-| 5.3.301.* |24 февраля 2017 г. |
-| 5.3.311.* |24 февраля 2017 г. |
-| 5.4. *. * |Текущая версия, дата окончания поддержки не определена. |
+| 5.3.* |24 февраля 2017 г. |
+| 5.4.* |17 апреля 2017 г.     |
+| 5.5.* |Текущая версия, дата окончания поддержки не определена.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -100,6 +98,6 @@ ms.openlocfilehash: 5d27e6622faeee7cf9f4cdb2911171ef29d94b5c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

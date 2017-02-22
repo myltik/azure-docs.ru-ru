@@ -1,13 +1,25 @@
 ---
+title: "Документация по службе архивации Azure. Руководства и справочник по API | Документация Майкрософт"
+description: "Чтобы узнать, как выполнить резервное копирование в облако, см. документацию о службе архивации. Сведения о резервном копировании приложений, сервера Windows Server и виртуальных машин Azure см. в руководствах и видеороликах."
+services: backup
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Документация по службе архивации
 
-Служба архивации Azure — это облачная служба для резервного копирования (защиты) и восстановления данных в Microsoft Cloud.  Служба архивации Azure позволяет заменить существующее локальное или автономное решение для резервного копирования на надежное, безопасное и экономичное облачное решение.  
+Узнайте, как использовать службу архивации Azure в облаке для защиты данных, предназначенных для долгосрочного хранения и восстановления. В руководствах, видеороликах и другой документации описывается создание резервных копий данных, приложений, серверов Windows Server и виртуальных машин Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -132,16 +144,10 @@ ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по службе архивации Azure </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

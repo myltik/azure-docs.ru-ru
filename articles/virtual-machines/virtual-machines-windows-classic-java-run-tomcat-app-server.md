@@ -1,5 +1,5 @@
 ---
-title: "Tomcat на виртуальной машине | Документация Майкрософт"
+title: "Запуск сервера приложений Java на классической виртуальной машине Azure | Документация Майкрософт"
 description: "В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания, а также приведены инструкции по созданию виртуальной машины Windows и ее настройке для работы сервера приложений Apache Tomcat."
 services: virtual-machines-windows
 documentationcenter: java
@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/23/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
+ms.sourcegitcommit: 7b621733e09a1ba4e21152d7670a8936e3944521
+ms.openlocfilehash: 4503610eb8ef2e690e028667ebbf64e865af7134
 
 
 ---
@@ -78,7 +78,7 @@ ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
 Для целей данного учебника будет установлен сервер Tomcat.
 
 1. После входа в систему на виртуальной машине запустите сеанс браузера для сервера [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
-2. Дважды щелкните ссылку на **Установщик службы Windows 32-разрядной и 64-разрядной версии**. При использовании этого метода сервер Tomcat будет установлен в качестве службы Windows.
+2. Дважды щелкните ссылку на **Установщик службы Windows&32;-разрядной и&64;-разрядной версии**. При использовании этого метода сервер Tomcat будет установлен в качестве службы Windows.
 3. При появлении запроса выберите выполнение установщика.
 4. В мастере **Установка Apache Tomcat** следуйте указаниям по установке Tomcat. Для целей данного учебника можно принять значения по умолчанию. Когда отобразится диалоговое окно **Completing the Apache Tomcat Setup Wizard** (Завершение работы мастера установки Apache Tomcat), в нем можно установить флажок **Run Apache Tomcat** (Запустить Apache Tomcat), чтобы немедленно запустить сервер Tomcat. Для завершения процесса установки Tomcat нажмите кнопку **Готово** .
 
@@ -155,6 +155,6 @@ ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

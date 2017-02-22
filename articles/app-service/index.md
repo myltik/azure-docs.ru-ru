@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по службе приложений Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать службу приложений для создания веб-приложений и мобильных приложений для любой платформы или устройства, ознакомившись с руководствами, видеороликами, справочниками по API и другой документацией."
+services: app-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
-ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
+ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
+ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
 
 ---
 #<a name="app-service-documentation"></a>Документация по службе приложений
@@ -121,16 +132,10 @@ ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по службе приложений </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,12 +12,12 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 
 
 ---
@@ -32,6 +32,9 @@ ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
 Доступны примеры кода на разных языках программирования и для разных платформ. Ссылки на примеры кода вы найдете в следующих статьях: 
 
 * Дополнительные сведения: [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
+
+## <a name="tools"></a>Средства 
+Вы можете использовать инструменты с открытым кодом, такие как [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) и [VS Code](https://code.visualstudio.com/). Кроме того, база данных SQL Azure поддерживает инструменты Майкрософт, например [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) и [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Кроме того, портал управления Azure, PowerShell и интерфейсы REST API дополнительно упростят вам работу.
 
 ## <a name="resource-limitations"></a>Ограничения ресурсов
 База данных SQL Azure управляет ресурсами, доступными для базы данных, с использованием двух разных механизмов: управления ресурсами и принудительного применения ограничений.
@@ -61,8 +64,8 @@ ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
 
 ## <a name="network-considerations"></a>Сетевые аспекты
 * На компьютере с вашей клиентской программой убедитесь, что брандмауэр разрешает исходящие TCP-соединения через порт 1433.  More information: [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md)
-* Если клиентская программа подключается к базе данных SQL версии 12, а клиент работает на виртуальной машине Azure, необходимо открыть на ней определенные диапазоны портов. More information: [Порты кроме 1433 для ADO.NET 4.5 и базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Клиентские подключения к версии 12 Базы данных SQL Azure иногда обходят прокси-сервер и взаимодействуют непосредственно с базой данных. Порты, отличные от 1433, становятся важными. Дополнительные сведения см. в статье [Порты кроме 1433 для ADO.NET 4.5 и базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
+* Если клиентская программа подключается к базе данных SQL версии&12;, а клиент работает на виртуальной машине Azure, необходимо открыть на ней определенные диапазоны портов. More information: [Порты кроме 1433 для ADO.NET 4.5 и базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Клиентские подключения к версии&12; Базы данных SQL Azure иногда обходят прокси-сервер и взаимодействуют непосредственно с базой данных. Порты, отличные от 1433, становятся важными. Дополнительные сведения см. в статье [Порты кроме 1433 для ADO.NET 4.5 и базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## <a name="data-sharding-with-elastic-scale"></a>Сегментирование данных с помощью эластичного масштабирования
 Эластичное масштабирование упрощает горизонтальное масштабирование. 
@@ -72,11 +75,10 @@ ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
 * [Начало работы с эластичным масштабированием базы данных SQL Azure (предварительная версия)](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+Вы можете изучить все [возможности Базы данных SQL](sql-database-technical-overview.md)
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

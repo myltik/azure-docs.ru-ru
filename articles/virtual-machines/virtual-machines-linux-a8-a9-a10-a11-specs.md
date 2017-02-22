@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: e42736725bb3636115a6c81aea1f929612a351fe
+ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
+ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Виртуальные машины серии A (для ресурсоемких вычислений) и серии H
-Здесь приводятся общие сведения и некоторые рекомендации по использованию экземпляров виртуальных машин Azure новой серии H и более ранних размеров A8, A9, A10 и A11 (экземпляров для *ресурсоемких вычислений* ). Эта статья посвящена применению этих размеров на виртуальных машинах Linux. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Здесь приводятся общие сведения и некоторые рекомендации по использованию экземпляров виртуальных машин Azure новой серии H и более ранних размеров A8, A9, A10 и A11 (экземпляров для *ресурсоемких вычислений* ). Эта статья посвящена применению этих размеров на виртуальных машинах Linux. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+
+Основные характеристики, сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
@@ -49,7 +51,7 @@ ms.openlocfilehash: e42736725bb3636115a6c81aea1f929612a351fe
   * **Образ SLES 12 SP1 для HPC** — установите пакеты Intel MPI, размещенные на виртуальной машине, выполнив следующую команду:
     
           sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-  * **Образ SLES 12 для HPC** — пройдите дополнительную регистрацию, чтобы загрузить и установить Intel MPI. См. [руководство по установке библиотеки Intel MPI](https://software.intel.com/sites/default/files/managed/7c/2c/intelmpi-2017-installguide-linux.pdf).
+  * **Образ SLES 12 для HPC** — пройдите дополнительную регистрацию, чтобы загрузить и установить Intel MPI. Инструкции см. в [документации по библиотеке Intel MPI](https://software.intel.com/en-us/intel-mpi-library/documentation).
   * **Образы HPC на основе CentOS** — здесь уже установлена библиотека Intel MPI 5.1.  
     
     Потребуется дополнительная настройка системы для выполнения заданий MPI на кластеризованных виртуальных машинах. Например, следует установить доверительные отношения между вычислительными узлами в кластере виртуальных машин. Типичные примеры настройки можно найти в статье [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
@@ -130,6 +132,6 @@ done
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

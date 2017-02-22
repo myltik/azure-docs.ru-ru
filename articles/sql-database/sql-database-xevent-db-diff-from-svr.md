@@ -14,11 +14,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
 
 
 ---
@@ -27,59 +27,62 @@ ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
 
 В этом разделе объясняется, чем расширенные события в Базе данных SQL Azure отличается от расширенных событий в Microsoft SQL Server.
 
-* В Базе данных SQL версии 12 функция расширенных событий появилась во второй половине 2015 года.
-* SQL Server включает расширенные события с 2008 года.
-* Набор функций расширенных событий в Базе данных SQL представляет собой устойчивое подмножество функций SQL Server.
+- В Базе данных SQL версии 12 функция расширенных событий появилась во второй половине 2015 года.
+- SQL Server включает расширенные события с 2008 года.
+- Набор функций расширенных событий в Базе данных SQL представляет собой устойчивое подмножество функций SQL Server.
 
 *XEvents* — это неофициальное обозначение расширенных событий, которое встречается в блоках и других неофициальных источниках.
 
-> [!NOTE]
-> На октябрь 2015 года функция сеанса расширенных событий активирована в Базе данных SQL на уровне предварительной версии. Дата выхода общедоступной версии пока не установлена.
-> 
-> Сообщения о выходе общедоступных версий публикуются на странице [Обновления служб](https://azure.microsoft.com/updates/?service=sql-database) Azure.
-> 
-> 
-
 Дополнительные сведения о расширенных событиях для базы данных SQL Azure и Microsoft SQL Server доступны в следующих разделах.
 
-* [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-* [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 В данной статье предполагается, чтобы вы уже ознакомились со следующими компонентами:
 
-* [Служба Базы данных SQL Azure](https://azure.microsoft.com/services/sql-database/);
-* [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx) в Microsoft SQL Server.
-  
-  * Большинство документации о расширенных событиях относится и к SQL Server, и к Базе данных SQL.
+- [Служба Базы данных SQL Azure](https://azure.microsoft.com/services/sql-database/);
+- [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx) в Microsoft SQL Server.
+
+- Большинство документации о расширенных событиях относится и к SQL Server, и к Базе данных SQL.
 
 При выборе файла событий в качестве [целевого объекта](#AzureXEventsTargets)пригодится знание следующих компонентов:
 
-* [Служба хранилища Azure](https://azure.microsoft.com/services/storage/)
-* PowerShell
-  
-  * [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
+- [Служба хранилища Azure](https://azure.microsoft.com/services/storage/)
+
+
+- PowerShell
+    - [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
 
 ## <a name="code-samples"></a>Примеры кода
+
 Связанные разделы содержат два примера кода.
 
-* [Код целевого объекта "Кольцевой буфер" для расширенных событий в Базе данных SQL](sql-database-xevent-code-ring-buffer.md)
-  
-  * Простой короткий сценарий Transact-SQL.
-  * В этой статье с примером кода подчеркивается, что после завершения работы с целевым объектом "Кольцевой буфер" необходимо освободить задействованные им ресурсы с помощью инструкции изменения и удаления `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` . Впоследствии вы сможете добавить другой экземпляр кольцевого буфера с помощью оператора `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
-* [Код целевого объекта "Файл событий" для расширенных событий в Базе данных SQL](sql-database-xevent-code-event-file.md)
-  
-  * Этап 1. PowerShell: создание контейнера хранилища Azure в облаке.
-  * Этап 2. Transact-SQL: использование контейнера хранилища Azure.
+
+- [Код целевого объекта "Кольцевой буфер" для расширенных событий в Базе данных SQL](sql-database-xevent-code-ring-buffer.md)
+    - Простой короткий сценарий Transact-SQL.
+    - В этой статье с примером кода подчеркивается, что после завершения работы с целевым объектом "Кольцевой буфер" необходимо освободить задействованные им ресурсы с помощью инструкции изменения и удаления `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` . Впоследствии вы сможете добавить другой экземпляр кольцевого буфера с помощью оператора `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+
+
+- [Код целевого объекта "Файл событий" для расширенных событий в Базе данных SQL](sql-database-xevent-code-event-file.md)
+    - Этап 1. PowerShell: создание контейнера хранилища Azure в облаке.
+    - Этап 2. Transact-SQL: использование контейнера хранилища Azure.
 
 ## <a name="transact-sql-differences"></a>Отличия Transact-SQL
-* При выполнении команды [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) на сервере SQL Server используется предложение **ON SERVER** . В Базе данных SQL вместо него используется предложение **ON DATABASE** .
-* Предложение **ON DATABASE** применяется также в командах Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) и [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
-* Мы рекомендуем включать параметр сеанса событий **STARTUP_STATE = ON** в операторы **CREATE EVENT SESSION** и **ALTER EVENT SESSION**.
-  
-  * Значение **= ON** поддерживает автоматический перезапуск после перенастройки логической базы данных из-за сбоя.
+
+
+- При выполнении команды [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) на сервере SQL Server используется предложение **ON SERVER** . В Базе данных SQL вместо него используется предложение **ON DATABASE** .
+
+
+- Предложение **ON DATABASE** применяется также в командах Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) и [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
+
+
+- Мы рекомендуем включать параметр сеанса событий **STARTUP_STATE = ON** в операторы **CREATE EVENT SESSION** и **ALTER EVENT SESSION**.
+    - Значение **= ON** поддерживает автоматический перезапуск после перенастройки логической базы данных из-за сбоя.
 
 ## <a name="new-catalog-views"></a>Новые представления каталога
+
 Функцию расширенных событий поддерживают несколько [представлений каталога](http://msdn.microsoft.com/library/ms174365.aspx). Представления каталога сообщают *метаданные или определения* сеансов событий, созданных пользователями в текущей базе данных. Представления не возвращают сведения об экземплярах активных сеансов событий.
 
 | Имя<br/>представления каталога | Описание |
@@ -93,6 +96,7 @@ ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
 В Microsoft SQL Server аналогичные представления каталогов имеют имена, содержащие *.server\_* вместо *.database\_*. Шаблон имени выглядит как **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Новые динамические административные представления [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+
 База данных SQL Azure включает [динамические административные представления (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) , которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
 
 | Имя DMV | Описание |
@@ -105,22 +109,23 @@ ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
 
 В Microsoft SQL Server имена аналогичных представлений каталога не содержат указание *\_database* и выглядят следующим образом:
 
-* **sys.dm_xe_sessions** вместо имени<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions** вместо имени<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Общие DMV
 Для расширенных событий существуют дополнительные DMV, которые являются общими и для Базы данных SQL Azure, и для Microsoft SQL Server:
 
-* **sys.dm_xe_map_values**
-* **sys.dm_xe_object_columns**
-* **sys.dm_xe_objects**
-* **sys.dm_xe_packages**
+- **sys.dm_xe_map_values**
+- **sys.dm_xe_object_columns**
+- **sys.dm_xe_objects**
+- **sys.dm_xe_packages**
 
  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## <a name="find-the-available-extended-events-actions-and-targets"></a>Поиск доступных расширенных событий, действий и целевых объектов
+
 Для получения списка доступных событий, действий и целевых объектов можно выполнить простую SQL-команду **SELECT** .
 
-```
+```tsql
 SELECT
         o.object_type,
         p.name         AS [package_name],
@@ -141,57 +146,66 @@ SELECT
 ```
 
 
-
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>
-
-&nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Целевые объекты для сеансов событий в Базе данных SQL
+
 Результаты сеансов событий в Базе данных SQL можно фиксировать в следующих целевых объектах:
 
-* [Целевой объект "Кольцевой буфер"](http://msdn.microsoft.com/library/ff878182.aspx) — сохраняет данные события в памяти на недолгое время.
-* [Целевой объект "Счетчик событий"](http://msdn.microsoft.com/library/ff878025.aspx) — подсчитывает все события, произошедшие за время сеанса расширенных событий.
-* [Целевой объект "Файл событий"](http://msdn.microsoft.com/library/ff878115.aspx) — записывает все буферы в контейнер хранилища Azure.
+- [Целевой объект "Кольцевой буфер"](http://msdn.microsoft.com/library/ff878182.aspx) — сохраняет данные события в памяти на недолгое время.
+- [Целевой объект "Счетчик событий"](http://msdn.microsoft.com/library/ff878025.aspx) — подсчитывает все события, произошедшие за время сеанса расширенных событий.
+- [Целевой объект "Файл событий"](http://msdn.microsoft.com/library/ff878115.aspx) — записывает все буферы в контейнер хранилища Azure.
 
 API [трассировки событий для Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) недоступен для расширенных событий в Базе данных SQL.
 
 ## <a name="restrictions"></a>Ограничения
+
 В облачной среде Базы данных SQL имеется несколько отличий, связанных с обеспечением безопасности.
 
-* Функция расширенных событий основана на изоляционной модели с одним клиентом. Сеанс событий в одной базе данных не может получить доступ к данным или событиям в другой базе данных.
-* В контексте базы данных **master** оператор **CREATE EVENT SESSION** не вызывается.
+- Функция расширенных событий основана на изоляционной модели с одним клиентом. Сеанс событий в одной базе данных не может получить доступ к данным или событиям в другой базе данных.
+- В контексте базы данных **master** оператор **CREATE EVENT SESSION** не вызывается.
 
 ## <a name="permission-model"></a>Модель разрешений
+
 Чтобы вызвать оператор **CREATE EVENT SESSION**, требуется разрешение на **управление**. Владелец базы данных (dbo) имеет разрешение на **управление** .
 
 ### <a name="storage-container-authorizations"></a>Авторизации контейнера хранилища
+
 Маркер SAS, сформированный для вашего контейнера хранилища Azure, должен указывать **rwl** для разрешений. Значение **rwl** обеспечивает следующие разрешения:
 
-* чтение
-* запись
-* список
+- чтение
+- запись
+- список
 
 ## <a name="performance-considerations"></a>Рекомендации по производительности
+
 Существуют сценарии, в которых интенсивное использование расширенных событий может задействовать больше активной памяти, чем допустимо для сохранения работоспособности всей системы. В связи с этим система Базы данных SQL Azure динамически устанавливает и корректирует ограничения на объем активной памяти, который может использоваться сеансом событий. Динамические расчеты выполняются с учетом множества факторов.
 
 При появлении сообщения о превышении максимального объема памяти можно предпринять следующие коррекционные меры:
 
-* уменьшить количество одновременно запущенных сеансов событий;
-* уменьшить объем памяти, заданный в предложении **MAX\_MEMORY**, с помощью операторов **CREATE** и **ALTER**.
+- уменьшить количество одновременно запущенных сеансов событий;
+- уменьшить объем памяти, заданный в предложении **MAX\_MEMORY**, с помощью операторов **CREATE** и **ALTER**.
 
 ### <a name="network-latency"></a>Задержки сети
+
 Целевой объект **Файл событий** может столкнуться с медленной работой или отказами сети при сохранении данных в большие двоичные объекты хранилища Azure. Другие события в Базе данных SQL могут откладываться до установки подключения к сети. Такая задержка может замедлить вашу работу.
 
-* Чтобы уменьшить этот риск, старайтесь не указывать для параметра **EVENT_RETENTION_MODE** значение **NO_EVENT_LOSS** в определениях сеанса событий.
+- Чтобы уменьшить этот риск, старайтесь не указывать для параметра **EVENT_RETENTION_MODE** значение **NO_EVENT_LOSS** в определениях сеанса событий.
 
 ## <a name="related-links"></a>Связанные ссылки
-* [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md)
-* [Командлеты службы хранилища Azure](http://msdn.microsoft.com/library/dn806401.aspx)
-* [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
-* [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
-* [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-* [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
-* [Публикации в блоге Джонтана Кехайаса (Jonathan Kehayias) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+
+- [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md)
+- [Командлеты службы хранилища Azure](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
+- [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [Публикации в блоге Джонтана Кехайаса (Jonathan Kehayias) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+
+
+- Веб-страница с *обновлениями службы* Azure с ограничением по параметру базы данных SQL Azure:
+    - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
+
 
 Другие статьи с примерами кода для работы с расширенными событиями доступны по приведенным ниже ссылкам. Обязательно проверяйте, предназначен ли пример для Microsoft SQL Server или для базы данных SQL Azure. После этого вы сможете решить, какие поправки нужно внести в пример кода.
 
@@ -204,6 +218,6 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

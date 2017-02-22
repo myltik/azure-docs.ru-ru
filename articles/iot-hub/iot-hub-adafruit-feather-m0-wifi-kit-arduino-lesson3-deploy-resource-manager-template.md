@@ -1,5 +1,5 @@
 ---
-title: "Создание приложения-функции Azure и учетной записи хранения | Документация Майкрософт"
+title: "Подключение Arduino (C) к Интернету вещей Azure. Урок 3. Развертывание шаблона | Документация Майкрософт"
 description: "Приложение-функция Azure ожидает передачи событий Центра Интернета вещей Azure, обрабатывает входящие сообщения и записывает их в хранилище таблиц Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 18806dc515a9a8951134d580a2c0664ff503e17c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: cf666d17406a49036082a6a4dd15bad89c04aa8f
 
 
 ---
@@ -88,6 +88,6 @@ az group deployment create --template-file arm-template.json --parameters @arm-t
 [send-device-to-cloud-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

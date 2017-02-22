@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
+ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 
 
 ---
@@ -28,12 +28,72 @@ ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
 ## <a name="quick-commands"></a>Быстрые команды
 В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
+Использование управляемых дисков:
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+Использование неуправляемых дисков:
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## <a name="attach-a-disk"></a>Добавление диска
-Присоединение нового диска не займет много времени. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, введите `azure vm disk attach-new myResourceGroup myVM sizeInGB` . Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
+## <a name="attach-a-managed-disk"></a>Подключение управляемого диска
+
+Используя Управляемые диски, вы сможете сосредоточиться на виртуальных машинах и дисках, не беспокоясь об учетных записях хранения Azure. Вы можете быстро создать и подключить управляемый диск к виртуальной машине, используя одну и ту же группу ресурсов Azure, или создать диски в любом количестве, а затем подключить их.
+
+
+### <a name="attach-a-new-disk-to-a-vm"></a>Подключение нового диска к виртуальной машине
+
+Если вам просто нужен новый диск в виртуальной машине, можно использовать команду `az vm disk attach`.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### <a name="attach-an-existing-disk"></a>Подключение существующего диска 
+
+Во многих случаях подключаются созданные диски. Сначала нужно найти идентификатор диска и передать его в команду `az vm disk attach-disk`. В следующем коде используется диск, созданный с помощью команды `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+Результат выглядит примерно следующим образом (для форматирования результатов можно использовать параметр `-o table` для любой команды):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## <a name="attach-an-unmanaged-disk"></a>Подключение неуправляемого диска
+
+Вы можете очень быстро подключить новый диск, если у вас не вызывает проблем создание диска в той же учетной записи хранения, которая используется для виртуальной машины. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, введите `azure vm disk attach-new`. Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -265,7 +325,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Кроме того, вы можете вручную выполнить команду `fstrim` из командной строки или добавить ее в crontab для регулярного выполнения.
+* В некоторых случаях параметр `discard` может негативно влиять на производительность. Кроме того, вы можете вручную выполнить команду `fstrim` из командной строки или добавить ее в crontab для регулярного выполнения.
   
     **Ubuntu**
   
@@ -292,6 +352,6 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

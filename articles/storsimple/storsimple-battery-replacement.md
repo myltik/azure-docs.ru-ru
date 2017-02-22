@@ -1,5 +1,5 @@
 ---
-title: "Замена аккумулятора на устройстве StorSimple | Документация Майкрософт"
+title: "Замена аккумулятора на устройстве Microsoft Azure StorSimple | Документация Майкрософт"
 description: "Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59af78e188441979d9d5a177a1f7b31b8080a0b5
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
 
 
 ---
@@ -114,6 +114,6 @@ ms.openlocfilehash: 59af78e188441979d9d5a177a1f7b31b8080a0b5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

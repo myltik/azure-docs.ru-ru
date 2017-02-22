@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 6e3ac58188b4b3c27880770d4b2f0116f83d30dc
+ms.sourcegitcommit: 032d32be1719d4b459c88b13616bbef8d2d7be09
+ms.openlocfilehash: d5d6065aa2958ebb858d421ea7c3eb2a198b2a80
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 6e3ac58188b4b3c27880770d4b2f0116f83d30dc
 | Назначение | URL-адрес | IP-адрес | порты; |
 | --- | --- | --- | --- |
 | Телеметрия |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221 |443 |
-| Динамический поток метрик |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |Переменный |443 |
+| Динамический поток метрик |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Монитор состояния
 Настройка монитора состояния (требуется только для внесения изменений).
@@ -187,12 +187,12 @@ ms.openlocfilehash: 6e3ac58188b4b3c27880770d4b2f0116f83d30dc
 ## <a name="data-access-api"></a>API доступа к данным
 | Назначение | URI | IP-адрес | порты; |
 | --- | --- | --- | --- |
-| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80, 443 |
-| Документация по API |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80, 443 |
+| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,&443; |
+| Документация по API |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,&443; |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

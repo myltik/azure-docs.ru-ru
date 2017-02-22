@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: d71bbf32196bd249bdefb94e0e760847cc6ec5e0
-ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
 * Пошаговое руководство по развертыванию веб-службы см. в статье [Развертывание веб-службы машинного обучения Azure](machine-learning-publish-a-machine-learning-web-service.md).
 * Полное пошаговое руководство по созданию и развертыванию веб-службы см. в статье [Шаг 1. Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md).
 * Конкретные примеры развертывания веб-службы см. в следующих статьях:
-  
+
   * [Шаг 5. Развертывание веб-службы машинного обучения Azure](machine-learning-walkthrough-5-publish-web-service.md)
   * [Развертывание веб-службы в нескольких регионах](machine-learning-how-to-deploy-to-multiple-regions.md)
 
@@ -48,7 +48,7 @@ ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
 ### <a name="with-powershell-cmdlets"></a>С помощью командлетов PowerShell
 Поставщик ресурсов Машинного обучения Azure для веб-служб позволяет развертывать веб-службы и управлять ими с помощью командлетов PowerShell.
 
-Для использования командлетов необходимо сначала войти в учетную запись Azure в среде PowerShell с помощью командлета [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx). Если вы не знакомы с вызовом команд PowerShell на основе Resource Manager, см. статью [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+Для использования командлетов необходимо сначала войти в учетную запись Azure в среде PowerShell с помощью командлета [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx). Если вы не знакомы с вызовом команд PowerShell на основе Resource Manager, см. статью [Использование Azure PowerShell с Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
 
 Чтобы экспортировать прогнозный эксперимент, используйте [этот пример кода](https://github.com/ritwik20/AzureML-WebServices). После создания EXE-файла из кода можно ввести следующую команду:
 
@@ -57,10 +57,10 @@ ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
 При запуске приложения создается шаблон JSON веб-службы. Чтобы использовать шаблон для развертывания веб-службы, необходимо добавить следующие сведения:
 
 * Имя и ключ учетной записи хранения.
-  
+
     Их можно получить на [портале Azure](https://portal.azure.com/) или на [классическом портале Azure](http://manage.windowsazure.com/).
 * Идентификатор плана предложения.
-  
+
     Идентификатор плана можно получить на портале [веб-служб машинного обучения Azure](https://services.azureml.net). Для этого необходимо войти на портал и щелкнуть имя плана.
 
 Добавьте их в шаблон JSON в качестве дочерних элементов узла *Properties* на том же уровне, где находится узел *MachineLearningWorkspace*.
@@ -99,7 +99,6 @@ ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

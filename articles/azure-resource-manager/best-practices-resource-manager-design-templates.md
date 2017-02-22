@@ -1,6 +1,6 @@
 ---
-title: "Рекомендации для шаблонов Resource Manager | Документация Майкрософт"
-description: "Просмотр шаблонов разработки для диспетчера ресурсов Azure"
+title: "Проектирование шаблонов Azure для сложных решений | Документация Майкрософт"
+description: "Содержит советы и рекомендации по разработке шаблонов Azure Resource Manager для сложных сценариев."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c38d7120de7d31f1079dd84bcc073eb2f9618775
-ms.openlocfilehash: c66032ef65a523528e2610f7a2e13595a47d9587
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
 
 
 ---
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Рекомендации по разработке шаблонов Azure Resource Manager
+# <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Приемы разработки шаблонов Azure Resource Manager при развертывании сложных решений
 Гибкий подход, основывающийся на использовании шаблонов Azure Resource Manager, позволяет быстро и согласованно развертывать сложные топологии. Эти развертывания можно с легкостью адаптировать по мере развития основных предложений. Кроме того, можно работать с вариантами для сценариев выбросов или клиентов.
 
 Данная тема является частью другого технического документа. Чтобы ознакомиться с полным текстом этого документа, скачайте файл [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Рекомендации по работе с шаблонами Azure Resource Manager мирового класса).
@@ -351,6 +351,6 @@ Redis использует только один тип узла, поэтому
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

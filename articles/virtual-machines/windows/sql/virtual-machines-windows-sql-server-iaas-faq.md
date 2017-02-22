@@ -16,8 +16,8 @@ ms.workload: iaas-sql-server
 ms.date: 02/07/2017
 ms.author: v-shysun
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: a7d1878931ccf45e8e3192d5d03a4292c5291366
+ms.sourcegitcommit: 42b3e222f24e9b5c1bb26f7e1e36b1e11c2f48b8
+ms.openlocfilehash: 7a8d1451fc1b5ace2996faec22090b1f872bf547
 
 
 ---
@@ -49,6 +49,10 @@ ms.openlocfilehash: a7d1878931ccf45e8e3192d5d03a4292c5291366
 
     Нет. Невозможно перейти с лицензирования с поминутной оплатой на свою собственную лицензию. Создайте виртуальную машину Azure, используя один из [образов BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), а затем перенесите базы данных на новый сервер с помощью стандартных [методов переноса данных](virtual-machines-windows-migrate-sql.md).
 
+7. **Поддерживаются ли экземпляры отказоустойчивого кластера SQL Server на виртуальных машинах Azure?**
+
+   Да. Вы можете [создать отказоустойчивый кластер Windows Server \(WSFC\) в Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) и использовать локальные дисковые пространства (S2D) для хранилища кластера. Кроме того, можно использовать сторонние решения кластеризации или хранения, как описано в статье [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+
 7. **Нужно ли платить за лицензирование SQL Server на виртуальной машине Azure, если она используется только для резервирования или отработки отказа?**
    
     Вам не нужно платить за лицензию на один сервер SQL Server, участвующий в качестве пассивной вторичной реплики в развертывании с высоким уровнем доступности, если у вас имеется Software Assurance и вы используете перемещение лицензий, как описано в разделе [Виртуальные машины — вопросы и ответы по лицензированию](http://azure.microsoft.com/pricing/licensing-faq/).
@@ -77,6 +81,6 @@ ms.openlocfilehash: a7d1878931ccf45e8e3192d5d03a4292c5291366
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Предварительные требования к использованию ExpressRoute | Документация Майкрософт"
+title: "Предварительные требования к использованию Azure ExpressRoute | Документация Майкрософт"
 description: "На этой странице приведен список требований, которые необходимо выполнить, прежде чем заказать канал ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f408e65abcb92308a19a37816c206d822e932f24
-ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: c38e324c68d382f74a6140952b7900afd509d319
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
 * [Маршрутизация с помощью ExpressRoute для Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
 * [URL-адреса и диапазоны IP-адресов Office 365](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 * [Сетевое планирование и настройка производительности для Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
-* [Планирование сети и миграции при переходе на Office 365](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
+* [Планирование сети и миграции при переходе на Office&365;](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Интеграция Office 365 с локальными средами](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Расширенные учебные видеоматериалы об использовании ExpressRoute в Office 365](https://channel9.msdn.com/series/aer/)
 
@@ -68,6 +68,6 @@ ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
 
 
 ---
@@ -127,12 +127,12 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
     }
 
 
-![hdinsight hadoop настройка кластера начальная загрузка шаблон azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop настройка кластер начальная загрузка шаблон Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] — инструкции по созданию кластера HDInsight с использованием других настраиваемых параметров.
+* В статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
 * [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
-* [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark][hdinsight-install-spark]
+* [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]
 * [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r]
 * [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 * [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
@@ -141,7 +141,7 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы создания кластера"
@@ -258,6 +258,6 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

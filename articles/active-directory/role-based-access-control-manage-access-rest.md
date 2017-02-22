@@ -1,5 +1,5 @@
 ---
-title: "Управление доступом на основе ролей с помощью интерфейса REST API"
+title: "Управление доступом на основе ролей с помощью REST в Azure AD | Документация Майкрософт"
 description: "Управление доступом на основе ролей с помощью интерфейса REST API"
 services: active-directory
 documentationcenter: na
@@ -12,21 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 
 
 ---
-# <a name="managing-role-based-access-control-with-the-rest-api"></a>Управление доступом на основе ролей с помощью интерфейса REST API
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>Управление доступом на основе ролей с помощью REST API
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager помогает очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
@@ -43,13 +41,13 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список назначений ролей. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Замените *{api-version}* значением 2015-07-01.
 3. Замените *{filter}* условием, по которому требуется отфильтровать список назначений ролей.
-   
+
    * Вывод списка назначений ролей только для определенной области без учета внутренних областей: `atScope()`    
    * Вывод списка назначений ролей для определенного пользователя, группы или приложения: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Вывод списка назначений ролей для определенного пользователя, включая роли, унаследованные от групп | `assignedTo('{objectId of user}')`
@@ -93,7 +91,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список назначений ролей. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -134,7 +132,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется создать назначения ролей. При создании назначения роли в родительской области все дочерние области также его наследуют. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1   
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -192,7 +190,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется создать назначения ролей. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -233,13 +231,13 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список ролей. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Замените *{api-version}* значением 2015-07-01.
 3. Замените *{filter}* условием, по которому требуется отфильтровать список ролей.
-   
+
    * Вывод списка ролей, доступных для назначения в указанной области и любой из ее дочерних областей: `atScopeAndBelow()`
    * Поиск с помощью точного отображаемого имени роли: `roleName%20eq%20'{role-display-name}'` Используйте точное отображаемое имя роли в формате URL-адреса. Например, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -316,7 +314,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список назначений ролей. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -396,7 +394,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* первой областью *AssignableScope* для настраиваемой роли. В следующих примерах показано, как указать область для различных уровней.
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -499,7 +497,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* первой областью *AssignableScope* для настраиваемой роли. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -602,7 +600,7 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, в которой требуется удалить определение роли. В следующих примерах показано, как указать область для различных уровней:
-   
+
    * Subscription: /subscriptions/{ИД_подписки}  
    * Группа ресурсов: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1  
    * Ресурс: /subscriptions/{ИД_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -649,12 +647,12 @@ ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
 
 ```
 
+## <a name="next-steps"></a>Дальнейшие действия
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

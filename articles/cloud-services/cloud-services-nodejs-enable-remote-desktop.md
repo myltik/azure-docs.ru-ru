@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Установите и настройте [Azure PowerShell](../powershell-install-configure.md).
+* Установите и настройте [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Развертывание приложения Node.js в облачной службе Azure. Дополнительные сведения см. в разделе [Построение и развертывание приложения Node.js в облачной службе Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 ## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>Шаг 1. Использование Azure PowerShell для настройки в службе доступа к удаленному рабочему столу
@@ -106,6 +106,6 @@ ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

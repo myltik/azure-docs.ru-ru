@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 
 
 ---
@@ -30,7 +30,10 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
 * Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
 
 ## <a name="overview"></a>Обзор
-**Примечание.** В отличие от горизонтального секционирования эти инструкции DDL не требуют определения уровня данных с помощью карты сегментов через клиентскую библиотеку эластичной базы данных.
+
+> [!NOTE]
+> В отличие от горизонтального секционирования эти инструкции DDL не зависят от определения уровня данных с помощью карты сегментов через клиентскую библиотеку эластичной базы данных.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +48,9 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
     SECRET = '<password>'
     [;]
 
-**Примечание.** Убедитесь, что значение *<username>* не содержит суффикс *"@servername"*. 
+> [!NOTE]
+> Убедитесь, что значение `<username>` не содержит суффикс **"@servername"**. 
+>
 
 ## <a name="create-external-data-sources"></a>Создание внешних источников данных
 Синтаксис:
@@ -58,7 +63,9 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Важно.** Параметру TYPE должно быть присвоено значение **RDBMS**. 
+> [!IMPORTANT]
+> Параметру TYPE должно быть присвоено значение **RDBMS**. 
+>
 
 ### <a name="example"></a>Пример
 В следующем примере демонстрируется использование инструкции CREATE для внешних источников данных. 
@@ -185,6 +192,6 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc3ee1f4d3205b40397d5f82959a78316def5f45
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
 
 
 ---
@@ -81,7 +81,7 @@ ms.openlocfilehash: dc3ee1f4d3205b40397d5f82959a78316def5f45
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -91,6 +91,6 @@ ms.openlocfilehash: dc3ee1f4d3205b40397d5f82959a78316def5f45
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

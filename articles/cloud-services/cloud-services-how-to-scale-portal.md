@@ -1,5 +1,5 @@
 ---
-title: "Автомасштабирование облачной службы на портале | Документация Майкрософт"
+title: "Автомасштабирование облачной службы на портале (классический портал) | Документация Майкрософт"
 description: "Узнайте, как с помощью портала настроить правила автомасштабирования для веб-роли или рабочей роли облачной службы в Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 087346d82c78bb315d8c35cfdcb2258e44b02205
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
 
 
 ---
@@ -114,6 +114,6 @@ ms.openlocfilehash: 087346d82c78bb315d8c35cfdcb2258e44b02205
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

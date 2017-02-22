@@ -23,6 +23,7 @@
 ### [Приложения логики как вызываемые конечные точки](logic-apps-http-endpoint.md)
 ### [Циклы, области действия и индивидуальная обработка](logic-apps-loops-and-scopes.md)
 ### [Использование своего настраиваемого API](logic-apps-custom-hosted-api.md)
+### [Использование оператора switch](logic-apps-switch-case.md)
 ### [Обработка исключений](logic-apps-exception-handling.md)
 ### [Сценарий обработки исключений](logic-apps-scenario-error-and-exception-handling.md)
 ### [Обработка типов содержимого](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

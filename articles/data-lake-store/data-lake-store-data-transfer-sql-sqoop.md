@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
+ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
+ms.openlocfilehash: d536ba2bd44941d036a00a74243cb37b8ae69abb
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. Ознакомьтесь с [инструкциями](data-lake-store-get-started-portal.md). 
+* **Учетная запись Azure Data Lake Store.** Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 * **Кластер Azure HDInsight** с доступом к учетной записи Data Lake Store. См. статью [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](data-lake-store-hdinsight-hadoop-use-portal.md). В этой статье предполагается, что у вас есть кластер HDInsight на платформе Linux с доступом к хранилищу озера данных.
 * **База данных SQL Azure**. Инструкции по созданию базы данных см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md).
 
@@ -75,7 +75,7 @@ ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-store"></a>Использование Sqoop из кластера Azure HDInsight с доступом к хранилищу озера данных
 В кластере HDInsight уже имеются доступные пакеты Sqoop. Если кластер HDInsight настроен для использования хранилища озера данных в качестве дополнительного хранилища, можно использовать Sqoop (без изменения конфигурации) для импорта и экспорта данных между реляционной базой данных (в данном примере это база данных SQL Azure) и учетной записью хранилища озера данных.
 
-1. В этом учебнике предполагается, что вы создали кластер Linux, поэтому для подключения к нему следует использовать SSH. См. раздел [Подключение к кластеру HDInsight на основе Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
+1. В этом учебнике предполагается, что вы создали кластер Linux, поэтому для подключения к нему следует использовать SSH. См. раздел [Подключение к кластеру HDInsight на основе Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect).
 2. Проверьте, доступна ли учетная запись хранилища озера данных из кластера. Выполните следующую команду из командной строки SSH:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
@@ -134,6 +134,10 @@ ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
         3    Erna    Myers
         4    Annette    Simpson
 
+## <a name="performance-considerations-while-using-sqoop"></a>Рекомендации по производительности при использовании Sqoop
+
+Сведения о настройке производительности задания Sqoop для копирования данных в Data Lake Store см. в записи блога, посвященной [производительности Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
+
 ## <a name="see-also"></a>Дополнительные материалы
 * [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
@@ -142,6 +146,6 @@ ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

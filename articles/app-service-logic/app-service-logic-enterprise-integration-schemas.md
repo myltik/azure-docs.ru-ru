@@ -1,98 +1,13 @@
 ---
-title: "Обзор схем и Пакета интеграции Enterprise | Документация Майкрософт"
-description: "Узнайте, как использовать схемы с пакетом интеграции Enterprise и приложениями логики"
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: cgronlun
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/29/2016
-ms.author: deonhe
+redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-schemas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e0419c46e9380eb7e1848524a99501b4961d35c
-
+ms.sourcegitcommit: 85595d4a67a7ccd16d8a00ad65c8cc7f5eea5b99
+ms.openlocfilehash: 4c9fd2daa73368340c23c11d0709d94a8d2ed1fb
 
 ---
-# <a name="learn-about-schemas-and-the-enterprise-integration-pack"></a>Сведения о схемах и пакете интеграции Enterprise
-## <a name="why-use-a-schema"></a>Для чего используется схема
-Схемы используются для подтверждения того, что получаемые документы XML являются допустимыми, то есть содержат ожидаемые данные в предопределенном формате. Схемы используются для проверки сообщений, которые передаются в рамках сценария "бизнес-бизнес".
-
-## <a name="add-a-schema"></a>Добавление схемы
-На портале Azure выполните следующие действия.  
-
-1. Выберите **Больше служб**.  
-   ![Снимок экрана: портал Azure с выделенным пунктом меню "Больше служб"](./media/app-service-logic-enterprise-integration-overview/overview-11.png)    
-2. Введите **интеграции** в поле фильтра поиска и выберите **Учетные записи интеграции** в списке результатов.     
-   ![Снимок экрана: поле фильтра поиска](./media/app-service-logic-enterprise-integration-overview/overview-21.png)  
-3. Выберите **учетную запись интеграции**, в которую необходимо добавить схему.    
-   ![Снимок экрана: список учетных записей интеграции](./media/app-service-logic-enterprise-integration-overview/overview-31.png)  
-4. Щелкните плитку **Схемы**.  
-   ![Снимок экрана: учетная запись интеграции IEP с выделенным элементом "Схемы"](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)  
-
-### <a name="add-a-schema-file-less-than-2-mb"></a>Добавление файла схемы, размер которого меньше 2 МБ
-1. В открывшейся колонке **Схемы** (описанной выше) выберите **Добавить**.  
-   ![Снимок экрана: колонка "Схемы" с выделенной кнопкой "Добавить"](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)  
-2. Введите имя для схемы. Чтобы передать файл схемы, выберите значок папки рядом с текстовым полем **Схемы**. После завершения передачи нажмите кнопку **ОК**.    
-   ![Снимок экрана: колонка "Добавление схемы" с выделенным элементом "Мелкий файл"](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
-
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-a-maximum-of-8-mb"></a>Добавление файла схемы, размер которого больше 2 МБ (максимум 8 МБ)
-Эта процедура зависит от уровня доступа к контейнеру больших двоичных объектов: **Общедоступный** или **Без анонимного доступа**. Чтобы определить этот уровень, в **обозревателе хранилищ Azure** в разделе **Контейнеры больших двоичных объектов** выберите необходимый контейнер. Выберите **Безопасность**, а затем щелкните вкладку **Уровень доступа**.
-
-1. Если для контейнера больших двоичных объектов определен уровень доступа **Общедоступный**, выполните следующие действия.  
-   ![Снимок экрана: обозреватель хранилищ Azure с выделенными элементами "Контейнеры больших двоичных объектов", "Безопасность" и "Общедоступный"](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
-   
-    а. Передайте схему в хранилище и скопируйте универсальный код ресурса (URI).  
-    ![Снимок экрана: учетная запись хранилища с выделенным URI](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
-   
-    b. В колонке **Добавление схемы** выберите **Большой файл** и укажите универсальный код ресурса (URI) в текстовом поле **URI контента**.  
-    ![Снимок экрана: страница "Схемы" с выделенными кнопкой "Добавить" и параметром "Большой файл"](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
-2. Если для контейнера больших двоичных объектов определен уровень доступа **Без анонимного доступа**, выполните следующие действия.  
-   ![Снимок экрана: обозреватель хранилищ Azure с выделенными элементами "Контейнеры больших двоичных объектов", "Безопасность", и "Без анонимного доступа"](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
-   
-    а. Передайте схему в хранилище.  
-    ![Снимок экрана: учетная запись хранения](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
-   
-    b. Создайте подписанный URL-адрес для схемы.  
-    ![Снимок экрана: учетная запись хранения с выделенной вкладкой подписанных URL-адресов](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
-   
-    c. В колонке **Добавление схемы** выберите **Большой файл** и укажите URI подписанного URL-адреса в текстовом поле **URI содержимого**.  
-    ![Снимок экрана: страница "Схемы" с выделенными кнопкой "Добавить" и параметром "Большой файл"](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
-3. В колонке **Схемы** учетной записи интеграции EIP теперь должна быть видна добавленная схема.  
-   ![Снимок экрана: учетная запись интеграции EIP с выделенными плиткой "Схемы" и новой схемой](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
-
-## <a name="edit-schemas"></a>Изменение схем
-1. Щелкните плитку **Схемы**.  
-2. В открывшейся колонке **Схемы** выберите схему, которую вы хотите изменить.
-3. В колонке **Схемы** выберите **Изменить**.  
-   ![Снимок экрана: колонка "Схемы"](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)    
-4. Выберите файл схемы, который следует изменить, используя открывшееся диалоговое окно выбора файлов.
-5. Нажмите кнопку **Открыть** в средстве выбора файлов.  
-   ![Снимок экрана: средство выбора файлов](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
-6. Вы получите уведомление об успешном выполнении передачи.  
-
-## <a name="delete-schemas"></a>Удаление схем
-1. Щелкните плитку **Схемы**.  
-2. В открывшейся колонке **Схемы** выберите схему, которую вы хотите удалить.  
-3. В колонке **Схемы** выберите **Удалить**.
-   ![Снимок экрана: колонка "Схемы"](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
-4. Чтобы подтвердить выбор, нажмите кнопку **Да**.  
-   ![Снимок экрана: сообщение с подтверждением "Удаление схемы"](./media/app-service-logic-enterprise-integration-schemas/delete-21.png)  
-5. Наконец, обратите внимание на то, что список схем в колонке **Схемы** обновился и схема, которую вы удалили, больше не отображается.  
-   ![Снимок экрана: учетная запись интеграции EIP с выделенной плиткой "Схемы"](./media/app-service-logic-enterprise-integration-schemas/delete-31.png)    
-
-## <a name="next-steps"></a>Дальнейшие действия
-* [Узнайте больше о пакете интеграции Enterprise.](app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise").  
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

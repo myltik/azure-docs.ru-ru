@@ -1,14 +1,26 @@
 ---
+title: "Документация по реестру контейнеров Azure. Руководства и справочник по API | Документация Майкрософт"
+description: "Узнайте, как создавать и обслуживать реестры контейнеров для хранения образов развертывания с помощью управляемой службы реестра Docker. Руководства, справочники по API и другие документы."
+services: container-registry
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
+ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Документация по реестру контейнеров Azure
 
-Реестр контейнеров Azure (предварительная версия) — это частный реестр для размещения образов контейнеров. С помощью реестра контейнеров Azure можно сохранить образы в формате Docker для всех типов развертывания контейнеров. Реестр контейнеров Azure поддерживает интеграцию с оркестраторами, размещенными в службе контейнеров Azure, включая Docker Swarm, DC/OS и Kubernetes. 
+Узнайте, как использовать реестр контейнеров для хранения и администрирования образов для всех типов развертываний контейнеров. Руководства, справочник по REST API и другая документация, в которой показано, как создавать и обслуживать реестры контейнеров с помощью управляемой службы реестра Docker.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,7 +101,7 @@ ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/containerregistry">REST API</a></p>
+                        <p><a href="/rest/api/containerregistry">ИНТЕРФЕЙС REST API</a></p>
                      </div>
                 </div>
             </div>
@@ -98,6 +110,7 @@ ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "H264 Multiple Bitrate 720p | Документация Майкрософт"
+title: "Предустановка Media Encoder Standard в Azure: H264 Multiple Bitrate 720p | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Multiple Bitrate 720p**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 9396b00371459d768c05385ceccd34668f15cfb8
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: ac5794c190097f05a94d9ab39a8191a508b28703
 
 
 ---
@@ -264,6 +264,6 @@ ms.openlocfilehash: 9396b00371459d768c05385ceccd34668f15cfb8
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

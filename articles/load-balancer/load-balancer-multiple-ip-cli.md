@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 64748a540b20bbd4b354f0b4e1d7de4a969381c6
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: f52a86b01e45a32315b017c2605f7caebb68b006
 
 
 ---
@@ -38,8 +38,27 @@ ms.openlocfilehash: 64748a540b20bbd4b354f0b4e1d7de4a969381c6
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Чтобы зарегистрироваться для получения предварительной версии, отправьте сообщение электронной почты с темой [Несколько IP-адресов](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) , указав идентификатор подписки и описание предполагаемого использования.
+Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
 
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
+        
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+        
+>[!NOTE] 
+>Это может занять несколько минут.
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Инструкции по балансировке нагрузки в конфигурациях с несколькими IP-адресами
 
@@ -135,6 +154,6 @@ ms.openlocfilehash: 64748a540b20bbd4b354f0b4e1d7de4a969381c6
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

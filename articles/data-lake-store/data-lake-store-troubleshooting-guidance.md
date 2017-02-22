@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
-ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
+ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
+ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 Хотя за счет автоматических реплик Azure Data Lake Store и обеспечивает устойчивость данных, они по-прежнему не защищены от повреждения или случайного удаления в приложении (а также разработчиками или пользователями).
 
 #### <a name="best-practices"></a>Рекомендации
-Чтобы предотвратить случайное удаление данных, для начала мы рекомендуем настроить для своей учетной записи Data Lake Store правильные политики доступа с помощью [компонентов обеспечения безопасности Data Lake Store](data-lake-store-security-overview.md). Кроме того, мы советуем регулярно создавать копии важных данных в других учетных записях Data Lake Store, папках и подписках Azure с помощью [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) или [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md).  Таким образом вы сможете восстановить данные после повреждения или случайного удаления. Фабрика данных Azure — это полезная служба для создания и развертывания конвейеров перемещения данных на регулярной основе.
+Чтобы предотвратить случайное удаление данных, для начала мы рекомендуем настроить для своей учетной записи Data Lake Store правильные политики доступа,  в том числе применение [блокировок ресурсов Azure](../azure-resource-manager/resource-group-lock-resources.md) для блокировки важных ресурсов, а также контроль доступа на уровне учетной записи и файлов с помощью [компонентов обеспечения безопасности Data Lake Store](data-lake-store-security-overview.md). Кроме того, мы советуем регулярно создавать копии важных данных в других учетных записях Data Lake Store, папках и подписках Azure с помощью [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) или [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md).  Таким образом вы сможете восстановить данные после повреждения или случайного удаления. Фабрика данных Azure — это полезная служба для создания и развертывания конвейеров перемещения данных на регулярной основе.
 
 Организации могут также включить [ведение журнала диагностики](data-lake-store-diagnostic-logs.md) для своих учетных записей Azure Data Lake Store. Это позволит собирать журналы аудита доступа к данным, содержащие сведения о пользователях, которые могли удалить или обновить файл.
 
@@ -52,6 +52,6 @@ ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

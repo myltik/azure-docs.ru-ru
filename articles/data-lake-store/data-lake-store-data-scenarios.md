@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
 ## <a name="ingest-data-into-data-lake-store"></a>Прием данных в хранилище озера данных
 В этом разделе описываются различные источники данных и способы поступления этих данных в учетную запись хранения озера данных.
 
-![Прием данных в хранилище озера данных](./media/data-lake-store-data-scenarios/ingest-data.png "Ingest data into Data Lake Store")
+![Прием данных в Data Lake Store](./media/data-lake-store-data-scenarios/ingest-data.png "прием данных в Data Lake Store")
 
 ### <a name="ad-hoc-data"></a>Специальные данные
 Это небольшие наборы данных, которые используются для создания прототипов приложений для работы с большими данными. В зависимости от источника данных применяются разные способы приема специальных данных.
@@ -50,7 +50,7 @@ ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
 
 * [Azure Stream Analytics.](../stream-analytics/stream-analytics-data-lake-output.md) События, принятые в концентраторы событий, могут записываться в Azure Data Lake с помощью выходных данных Azure Data Lake Store.
 * [Azure HDInsight Storm.](../hdinsight/hdinsight-storm-write-data-lake-store.md) Данные из кластера Storm можно напрямую записывать в Data Lake Store.
-* [EventProcessorHost.](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) Можно получать события из концентраторов событий, а затем записывать их в Data Lake Store с помощью [пакета SDK для .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost.](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) Можно получать события из концентраторов событий, а затем записывать их в Data Lake Store с помощью [пакета SDK для .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Реляционные данные
 Можно также извлекать данные из реляционных баз данных. В течение определенного периода времени реляционные базы данных собирают огромные объемы данных, которые после обработки с помощью конвейера больших данных могут предоставлять ценные сведения. Для перемещения таких данных в хранилище озера данных можно использовать следующие средства.
@@ -91,14 +91,14 @@ ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
 * **Автономная передача данных**. Если по какой-то причине использовать Azure ExpressRoute нельзя, используйте [службу импорта и экспорта Azure](../storage/storage-import-export-service.md) для доставки жестких дисков с данными в центр обработки данных Azure. Данные сначала будут отправлены в хранилище BLOB-объектов Azure. Затем с помощью [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) или [инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) можно скопировать данные из больших двоичных объектов хранилища Azure в Data Lake Store.
 
   > [!NOTE]
-  > При использовании службы импорта и экспорта размеры файлов на дисках, отправляемых в ЦОД Azure, не должны превышать 200 ГБ.
+  > При использовании службы импорта и экспорта размеры файлов на дисках, отправляемых в центр обработки данных Azure, не должны превышать 195 ГБ.
   >
   >
 
 ## <a name="process-data-stored-in-data-lake-store"></a>Обработка данных, хранящихся в хранилище озера данных 
 Данные, доступные в хранилище озера данных, можно проанализировать с помощью поддерживаемых приложений для работы с большими данными. В настоящее время для запуска заданий анализа для данных, хранящихся в хранилище озера данных, можно использовать Azure HDInsight и аналитику озера данных Azure.
 
-![Анализ данных в хранилище озера данных](./media/data-lake-store-data-scenarios/analyze-data.png "Analyze data in Data Lake Store")
+![Анализ данных в Data Lake Store](./media/data-lake-store-data-scenarios/analyze-data.png "Анализ данных в Data Lake Store")
 
 Рассмотрите следующие примеры.
 
@@ -111,7 +111,7 @@ ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
 * Перемещение данных в другие репозитории для взаимодействия с существующими конвейерами обработки данных. Например, можно переместить данные из хранилища озера данных в базу данных SQL Azure или на локальный сервер SQL Server.
 * Загрузка данных на локальный компьютер для обработки в средах IDE при создании прототипов приложений.
 
-![Вывод данных из хранилища озера данных](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Store")
+![Вывод данных из Data Lake Store](./media/data-lake-store-data-scenarios/egress-data.png "вывод данных из Data Lake Store")
 
 В таких ситуациях можно использовать любой из следующих вариантов:
 
@@ -128,13 +128,13 @@ ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
 ## <a name="visualize-data-in-data-lake-store"></a>Визуализация данных в хранилище озера данных
 Для создания визуальных представлений данных, хранящихся в хранилище озера данных, можно использовать сочетание служб.
 
-![Визуализация данных в хранилище озера данных](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
+![Визуализация данных в Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "визуализация данных в Data Lake Store")
 
 * Сначала с помощью [фабрики данных Azure переместите данные из Data Lake Store в хранилище данных SQL Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 * После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

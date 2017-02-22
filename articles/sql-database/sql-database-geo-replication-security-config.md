@@ -1,9 +1,9 @@
 ---
-title: "Как управлять безопасностью после восстановления базы данных на новый сервер или отработки отказа базы данных в копию базы данных-получателя | Документация Майкрософт"
-description: "В этом разделе рассматриваются вопросы безопасности при управлении безопасностью после восстановления или отработки отказа базы данных."
+title: "Настройка безопасности Базы данных SQL Azure для аварийного восстановления | Документация Майкрософт"
+description: "В этой статье рассматриваются вопросы безопасности при настройке и управлении безопасностью после восстановления или отработки отказа базы данных при ее переходе на сервер-получатель в случае сбоя центра обработки данных или других аварийных ситуаций."
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 editor: monicar
 ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3c8a05cb86522253bbbf85da2d29ba38f114120b
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
 
 
 ---
-# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>Как управлять безопасностью базы данных SQL после аварийного восстановления
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Настройка безопасности Базы данных SQL Azure и управление ею для геовосстановления или отработки отказа 
 > [!NOTE]
 > [Активная георепликация](sql-database-geo-replication-overview.md) теперь доступна для всех баз данных и всех уровней обслуживания.
-> 
-> 
+>  
 
 ## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Обзор требований к проверке подлинности для аварийного восстановления
 В этой статье описываются требования к проверке подлинности для настройки [активной георепликации](sql-database-geo-replication-overview.md) и управления ею, а также приведены действия, необходимые для настройки доступа пользователей к базе данных-получателю. Здесь также описано, как включить доступ к восстановленной базе данных после [геовосстановления](sql-database-recovery-using-backups.md#geo-restore). Дополнительные сведения о вариантах восстановления см. в статье [Обзор обеспечения непрерывности бизнес-процессов с помощью базы данных SQL Azure](sql-database-business-continuity.md).
@@ -103,10 +102,9 @@ ms.openlocfilehash: 3c8a05cb86522253bbbf85da2d29ba38f114120b
 * Сведения об использовании и настройке активной георепликации см. в статье [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
 * Сведения об использовании геовосстановления см. в разделе [Геовосстановление](sql-database-recovery-using-backups.md#geo-restore).
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

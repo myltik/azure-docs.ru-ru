@@ -1,5 +1,5 @@
 ---
-title: "Транзакции служебной шины | Документация Майкрософт"
+title: "Обзор обработки транзакций в служебной шине Azure | Документация Майкрософт"
 description: "Общие сведения об атомарных транзакциях служебной шины Azure"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/02/2017
 ms.author: clemensv;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
+ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
 
 
 ---
@@ -33,10 +33,10 @@ ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
 ## <a name="operations-within-a-transaction-scope"></a>Операции в области транзакций
 Далее приведены операции, которые могут выполняться в области транзакций.
 
-* **[QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx), [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender), [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-Операции получения не указаны, так как предполагается, что приложение получает сообщения с помощью режима [ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), внутри некоторого цикла получения или с помощью с обратного вызова [OnMessage](https://msdn.microsoft.com/library/azure/dn369601.aspx) и только затем открывает область транзакций для обработки сообщения.
+Операции получения не указаны, так как предполагается, что приложение получает сообщения с помощью режима [ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode), внутри некоторого цикла получения или с помощью с обратного вызова [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) и только затем открывает область транзакций для обработки сообщения.
 
 Обработка сообщения (выполнено, прервано, отложено, не доставлено) происходит в пределах области и зависит от общего результата транзакции.
 
@@ -48,14 +48,14 @@ ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
 ### <a name="see-it-in-code"></a>Пример кода
 Для настройки таких передач вы создаете отправитель сообщений, сориентированный на очередь назначения через очередь передачи. Также имеется получатель, который извлекает сообщения из той же очереди. Например:
 
-```
+```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
 Тогда простая транзакция использует эти элементы, как показано в следующем примере.
 
-```
+```csharp
 var msg = receiver.Receive();
 
 using (scope = new TransactionScope())
@@ -72,6 +72,7 @@ using (scope = new TransactionScope())
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Дополнительные сведения об очередях служебной шины см. в следующих статьях:
 
 * [Объединение в цепочки сущностей служебной шины с помощью автоматической переадресации](service-bus-auto-forwarding.md)
@@ -83,6 +84,6 @@ using (scope = new TransactionScope())
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

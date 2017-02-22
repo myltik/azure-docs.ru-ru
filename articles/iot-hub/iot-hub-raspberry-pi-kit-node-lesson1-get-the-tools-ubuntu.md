@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов (Ubuntu 16.04) | Документация Майкрософт"
+title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Урок 1. Получение инструментов (Ubuntu) | Документация Майкрософт"
 description: "Скачайте и установите необходимые инструменты и программное обеспечение для работы с примером приложения на устройстве Pi под управлением Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 31b5ac4e60eaafcc134ee702a4d47c4ea735df39
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a43690c4fd35a701472b9a1c747e969d1d3a2ea4
 
 
 ---
@@ -81,6 +81,6 @@ sudo npm install -g device-discovery-cli gulp
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

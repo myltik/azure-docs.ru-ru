@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
+ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
 
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Автоматическое включение параметров диагностики при создании ресурса из шаблона Resource Manager
-В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
+В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
 
 Для разных типов ресурсов журналы диагностики включаются с помощью шаблона Resource Manager по-разному.
 
@@ -33,7 +33,7 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
 Основные этапы:
 
 1. Создайте шаблон в виде файла JSON, который описывает, как создать ресурс и включить диагностику.
-2. [Разверните шаблон с помощью любого метода развертывания](../resource-group-template-deploy.md).
+2. [Разверните шаблон с помощью любого метода развертывания](../azure-resource-manager/resource-group-template-deploy.md).
 
 Ниже приведены примеры файла JSON шаблона для создания вычислительных и невычислительных ресурсов.
 
@@ -86,15 +86,25 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-Свойства большого двоичного объекта для параметров диагностики соответствуют [формату, который описан в этой статье](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Свойства большого двоичного объекта для параметров диагностики соответствуют [формату, который описан в этой статье](https://msdn.microsoft.com/library/azure/dn931931.aspx). Добавление свойства `metrics` позволит также передавать метрики ресурса в эти же выходные данные, если [этот ресурс поддерживает метрики Azure Monitor](monitoring-supported-metrics.md).
 
-Ниже приведен полный пример, в котором создается группа безопасности сети, а также настраивается потоковая передача в концентраторы событий и хранение в учетной записи хранения.
+Ниже приведен полный пример, в котором создается приложение логики, а также включается потоковая передача в концентраторы событий и хранение в учетной записи хранения.
 
 ```json
 
@@ -102,11 +112,15 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "nsgName": {
+    "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the NSG that will be created."
+        "description": "Name of the Logic App that will be created."
       }
+    },
+    "testUri": {
+      "type": "string",
+      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
     "storageAccountName": {
       "type": "string",
@@ -130,19 +144,49 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('nsgName')]",
-      "apiVersion": "2016-03-30",
-      "location": "westus",
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('logicAppName')]",
+      "apiVersion": "2016-06-01",
+      "location": "[resourceGroup().location]",
       "properties": {
-        "securityRules": []
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
       },
       "resources": [
         {
           "type": "providers/diagnosticSettings",
           "name": "Microsoft.Insights/service",
           "dependsOn": [
-            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+            "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
           "apiVersion": "2015-07-01",
           "properties": {
@@ -151,19 +195,21 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {
-                "category": "NetworkSecurityGroupEvent",
+                "category": "WorkflowRuntime",
                 "enabled": true,
                 "retentionPolicy": {
                   "days": 0,
                   "enabled": false
                 }
-              },
+              }
+            ],
+            "metrics": [
               {
-                "category": "NetworkSecurityGroupRuleCounter",
+                "timeGrain": "PT1M",
                 "enabled": true,
                 "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
+                  "enabled": false,
+                  "days": 0
                 }
               }
             ]
@@ -198,6 +244,6 @@ ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

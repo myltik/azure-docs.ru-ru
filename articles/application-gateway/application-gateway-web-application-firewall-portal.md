@@ -1,10 +1,10 @@
 ---
-title: "Создание шлюза приложений с брандмауэром веб-приложения с помощью портала | Документация Майкрософт"
+title: "Создание шлюза приложений Azure с брандмауэром веб-приложения | Документация Майкрософт"
 description: "Узнайте, как создать шлюз приложений с брандмауэром веб-приложения с помощью портала."
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Создание шлюза приложений с брандмауэром веб-приложения с помощью портала
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Брандмауэр веб-приложения (WAF) в шлюзе приложений Azure защищает веб-приложения от таких распространенных сетевых атак, как атаки путем внедрения кода SQL, атаки межсайтовых сценариев и захваты сеанса. Веб-приложение обеспечивает защиту от многих распространенных сетевых уязвимостей в рамках проекта OWASP.
 
@@ -47,8 +46,6 @@ ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
 
 > [!NOTE]
 > Дополнительная настройка шлюза приложений, включая пользовательские пробы работоспособности, серверный пул адресов и дополнительные правила, осуществляется после настройки шлюза приложений, а не во время первоначального развертывания.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -79,8 +76,6 @@ ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
 
 > [!NOTE]
 > Чтобы иметь возможность просматривать журналы брандмауэра веб-приложения, необходимо включить систему диагностики и выбрать параметр ApplicationGatewayFirewallLog. Для тестирования можно выбрать число экземпляров, равное 1. Важно знать, что если указать число экземпляров менее двух, то развертывание не попадает под действие соглашения об уровне обслуживания, и поэтому это не рекомендуется. При использовании брандмауэра веб-приложения шлюзы уровня "Мелкий" недоступны.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>создание шлюза приложений с брандмауэром веб-приложения
 
@@ -114,8 +109,6 @@ ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
 
 > [!NOTE]
 > Для тестирования можно выбрать число экземпляров, равное 1. Важно знать, что если указать число экземпляров менее двух, то развертывание не попадает под действие соглашения об уровне обслуживания, и поэтому это не рекомендуется. Шлюзы уровня "Мелкий" не поддерживаются для сценариев с использованием брандмауэра веб-приложения.
-> 
-> 
 
 ### <a name="step-3"></a>Шаг 3.
 
@@ -212,6 +205,6 @@ ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

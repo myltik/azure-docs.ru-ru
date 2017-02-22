@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/18/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
+ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
+ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
 
 
 ---
 # <a name="change-tracking-solution-in-log-analytics"></a>Решение "Отслеживание изменений" в Log Analytics
-В этой статье приведены сведения о настройке в Log Analytics решения для отслеживания изменений конфигурации, позволяющего обнаружить изменения в своей среде. Это решение отслеживает изменения в программном обеспечении, службах Windows, управляющих программах и пакетах Linux, что, в свою очередь, позволяет точно определять проблемы с работоспособностью. В решении также можно настроить отслеживание изменений в определенных файлах Windows.
+В этой статье приведены сведения о настройке в Log Analytics решения Change Tracking, позволяющего легко обнаруживать изменения в своей среде. Это решение отслеживает изменения в программном обеспечении Windows и Linux, файлах Windows, службах Windows и управляющих программах Linux, что, в свою очередь, позволяет точно определять проблемы с работоспособностью.
 
-Решение устанавливается для обновления установленного типа агента. На наблюдаемых серверах выполняется считывание информации об изменениях установленного ПО, служб Windows и управляющих программ Linux, после чего данные отправляются в службу Log Analytics в облаке для обработки. К полученным данным применяется логика и облачная служба записывает данные. При обнаружении изменений серверы с изменениями отображаются на панели мониторинга «Отслеживание изменений». С помощью сведений на панели мониторинга «Отслеживание изменений» можно без труда обнаружить изменения, внесенные в инфраструктуру серверов.
+Решение устанавливается для обновления установленного типа агента. На наблюдаемых серверах выполняется считывание информации об изменениях установленного ПО, служб Windows и управляющих программ Linux, после чего данные отправляются в службу Log Analytics в облаке для обработки. К полученным данным применяется логика и облачная служба записывает данные. С помощью сведений на панели мониторинга «Отслеживание изменений» можно без труда обнаружить изменения, внесенные в инфраструктуру серверов.
 
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
@@ -53,7 +53,7 @@ ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
 
 * в текущей версии столбец и значения **Максимальный размер файла** не используются;
 * при сборе более 2500 файлов в течение тридцатиминутного цикла производительность решения может снизиться;
-* при интенсивном сетевом трафике изменение записей может занять до 6 часов;
+* при интенсивном сетевом трафике изменение записей может занять до&6; часов;
 * если изменение конфигурации выполняется на отключенном компьютере, в файлы могут быть внесены изменения, относящиеся к предыдущей конфигурации.
 
 ## <a name="change-tracking-data-collection-details"></a>Сведения о сборе данных отслеживания изменений.
@@ -63,12 +63,12 @@ ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
 
 | платформа | Direct Agent | Агент SCOM | Агент Linux | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows и Linux |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |ежечасно |
+| Windows и Linux |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) | От 15 минут до 1 часа, в зависимости от типа изменения. |
 
 ## <a name="use-change-tracking"></a>Использование функции отслеживания изменений
 После установки решения сводку изменений для отслеживаемых серверов можно просмотреть в OMS на странице **Обзор** с помощью плитки **Отслеживание изменений**.
 
-![image of Change Tracking tile](./media/log-analytics-change-tracking/oms-changetracking-tile.png)
+![image of Change Tracking tile](./media/log-analytics-change-tracking/change-tracking-tile.png)
 
 Можно просмотреть изменения инфраструктуры, а затем более подробно рассмотреть следующие категории:
 
@@ -79,9 +79,9 @@ ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
 * изменения служб Windows для отдельных серверов.
 * Изменения в управляющих программах Linux
 
-![image of Change Tracking dashboard](./media/log-analytics-change-tracking/oms-changetracking01.png)
+![image of Change Tracking dashboard](./media/log-analytics-change-tracking/change-tracking-dash01.png)
 
-![image of Change Tracking dashboard](./media/log-analytics-change-tracking/oms-changetracking02.png)
+![image of Change Tracking dashboard](./media/log-analytics-change-tracking/change-tracking-dash02.png)
 
 ### <a name="to-view-changes-for-any-change-type"></a>Просмотр изменений для любого типа изменений
 1. На странице **Обзор** щелкните плитку **Отслеживание изменений**.
@@ -93,6 +93,6 @@ ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

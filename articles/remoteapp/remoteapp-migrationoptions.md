@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
+ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
+ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
 
 Предложение IaaS с самостоятельным обслуживанием — это управляемое, эксплуатируемое и принадлежащее вам решение, развернутое непосредственно на виртуальных машинах (ВМ) или физических системах. Альтернативное предложение PaaS или SaaS с полным управлением — это в некоторой степени аналог Azure RemoteApp. Партнер предоставляет уровень службы на основе удаленного решения, которое обрабатывает рабочие данные и обеспечивает обслуживание, в то время как клиент (вы) управляет образами и приложениями.
 
-Дополнительные сведения, включая примеры разных вариантов размещения, представлены ниже.    
+[Просмотрите вебинары об Azure RemoteApp, посвященные параметрам миграции](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp), или ознакомьтесь с дополнительными сведениями, включая примеры разных вариантов размещения.
 
 ## <a name="self-managed-iaas-solutions"></a>Самостоятельно управляемые решения (IaaS)
 ### <a name="rds-on-iaas"></a>**RDS в IaaS**
@@ -212,6 +212,6 @@ ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

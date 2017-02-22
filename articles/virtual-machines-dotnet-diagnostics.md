@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8824001526565e64f398b8f1e520d82d29d2f58
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4480366f620ccd8397aa4264ab7f0cc1c5b37c7d
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: d8824001526565e64f398b8f1e520d82d29d2f58
 Основные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](azure-diagnostics.md).
 
 ## <a name="how-to-enable-diagnostics-in-a-virtual-machine"></a>Как включить диагностику в виртуальной машине
-Мы рассмотрим, как удаленно установить систему диагностики на виртуальной машине Azure с компьютера разработчика. Также вы узнаете, как реализовать приложение, которое выполняется на виртуальной машине Azure и отправляет данные телеметрии через класс .NET [EventSource][EventSource]. Система диагностики Azure используется для сбора телеметрии и хранения ее в учетной записи хранения Azure.
+Мы рассмотрим, как удаленно установить систему диагностики на виртуальной машине Azure с компьютера разработчика. Также вы узнаете, как реализовать приложение, которое выполняется на виртуальной машине Azure и отправляет данные телеметрии через класс .NET [EventSource][EventSource Class]. Система диагностики Azure используется для сбора телеметрии и хранения ее в учетной записи хранения Azure.
 
 ### <a name="pre-requisites"></a>Предварительные требования
-В этом пошаговом учебнике предполагается, что у вас есть подписка Azure и вы используете Visual Studio 2013 с пакетом SDK для Azure. Если у вас нет подписки Azure, то можно зарегистрироваться для получения [бесплатной пробной версии][бесплатной пробной версии]. Установите и настройте Azure PowerShell 0.8.7 или более поздней версии, как описано в статье [Установка и настройка Azure PowerShell][установить и настроить Azure PowerShell версии 0.8.7 или более поздней].
+В этом пошаговом учебнике предполагается, что у вас есть подписка Azure и вы используете Visual Studio 2013 с пакетом SDK для Azure. Если у вас нет подписки Azure, можно зарегистрироваться для получения [бесплатной пробной версии][Free Trial]. Следует обязательно [установить и настроить Azure PowerShell версии 0.8.7 или более поздней][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-virtual-machine"></a>Шаг 1. Создание виртуальной машины
 1. На компьютере разработчика запустите Visual Studio 2013.
@@ -160,15 +160,15 @@ ms.openlocfilehash: d8824001526565e64f398b8f1e520d82d29d2f58
 ## <a name="next-steps"></a>Дальнейшие действия
 [См. перечень статей о системе диагностики Azure, связанных с виртуальными машинами](azure-diagnostics.md#virtual-machines-using-azure-diagnostics) , чтобы изменить данные, которые собираются, устранить неполадки или больше узнать о диагностике в целом.
 
-[EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Отладка приложения Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Сбор данных журнала с помощью системы диагностики Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[бесплатной пробной версии]: http://azure.microsoft.com/pricing/free-trial/
-[установить и настроить Azure PowerShell версии 0.8.7 или более поздней]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

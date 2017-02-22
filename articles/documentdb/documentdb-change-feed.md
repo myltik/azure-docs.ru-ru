@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/13/2016
-ms.author: b-hoedid
+ms.date: 01/25/2017
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: b22e75264345bc9d155bd1abc1fdb6e978dfad04
-ms.openlocfilehash: bafc50750381616ecf30c4e41090f342d82007f9
+ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
+ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: bafc50750381616ecf30c4e41090f342d82007f9
 
 ![Лямбда-конвейер для приема и запроса на основе Azure DocumentDB](./media/documentdb-change-feed/lambda.png)
 
-DocumentDB можно использовать для получения и хранения данных о событиях с устройств, датчиков, инфраструктуры и приложений и обрабатывать эти события в реальном времени с помощью [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) или [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+DocumentDB можно использовать для получения и хранения данных о событиях с устройств, датчиков, инфраструктуры и приложений и обрабатывать эти события в реальном времени с помощью [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) или [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 В веб-приложениях и мобильных приложениях вы можете отслеживать события, такие как изменения в профиле клиента, настройках или расположении, чтобы активировать определенные действия, например отправку push-уведомлений на устройства, с помощью [Функций Azure](../azure-functions/functions-bindings-documentdb.md) или [служб приложений](https://azure.microsoft.com/services/app-service/). При использовании DocumentDB для создания игр веб-канал изменений можно использовать, например, для создания списков лидеров в режиме реального времени на основе очков в завершенных играх.
 
@@ -74,7 +74,7 @@ DocumentDB предоставляет эластичные контейнеры 
 ### <a name="readdocumentfeed-api"></a>Интерфейс API ReadDocumentFeed
 Давайте рассмотрим, как работает ReadDocumentFeed. DocumentDB поддерживает чтение веб-канала документов в коллекции через интерфейс API `ReadDocumentFeed`. Например, следующий запрос возвращает страницу документов внутри коллекции `serverlogs`. 
 
-    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
     x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
     authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
     Cache-Control: no-cache
@@ -172,20 +172,24 @@ DocumentDB предоставляет эластичные контейнеры 
     <tr>
         <td>minInclusive</td>
         <td>Минимальное значение хэша ключа раздела для диапазона ключей разделов. Для внутреннего использования.</td>
-    </tr>       
+    </tr>        
 </table>
 
 Это можно сделать с помощью одного из поддерживаемых [пакетов SDK для DocumentDB](documentdb-sdk-dotnet.md). Например, в следующем фрагменте кода показано, как получить диапазон ключей разделов в .NET.
 
+    string pkRangesResponseContinuation = null;
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-    FeedResponse<PartitionKeyRange> response;
 
     do
     {
-        response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-        partitionKeyRanges.AddRange(response);
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     }
-    while (response.ResponseContinuation != null);
+    while (pkRangesResponseContinuation != null);
 
 DocumentDB поддерживает получение документов в диапазоне ключей разделов путем задания необязательного заголовка `x-ms-documentdb-partitionkeyrangeid`. 
 
@@ -254,24 +258,31 @@ ReadDocumentFeed поддерживает следующие сценарии и
     Accept: application/json
     Host: mydocumentdb.documents.azure.com
 
-Изменения упорядочиваются по времени в каждом значении ключа раздела в пределах диапазона ключа раздела. В значениях ключа раздела нет установленного порядка. Если результатов больше, чем может поместиться на одной странице, можно прочитать следующую страницу результатов, повторно отправив запрос с заголовком `If-None-Match` со значением, равным `etag` из предыдущего ответа. Если несколько документов обновлены транзакционно в хранимой процедуре или триггере, все они будут возвращены на одной странице ответа.
+Изменения упорядочиваются по времени в каждом значении ключа раздела в пределах диапазона ключа раздела. В значениях ключа раздела нет установленного порядка. Если результатов больше, чем может поместиться на одной странице, можно прочитать следующую страницу результатов, повторно отправив запрос с заголовком `If-None-Match` со значением, равным `etag` из предыдущего ответа. Если несколько документов вставлены или обновлены транзакционно в хранимой процедуре или триггере, все они будут возвращены на одной странице ответа.
 
-Пакет SDK для .NET предоставляет вспомогательные классы `CreateDocumentChangeFeedQuery` и `ChangeFeedOptions` для доступа к изменениям, внесенным в коллекцию. В следующем фрагменте кода показано, как получить все изменения с самого начала с использованием пакета SDK для .NET из одного клиента.
+> [!NOTE]
+> С помощью веб-канала изменений можно получать на странице результатов больше элементов, чем указано в `x-ms-max-item-count`, если несколько документов были вставлены или обновлены транзакционно в хранимых процедурах или триггерах. 
+
+Пакет SDK для .NET предоставляет вспомогательные классы [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) и [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) для доступа к изменениям, внесенным в коллекцию. В следующем фрагменте кода показано, как получить все изменения с самого начала с использованием пакета SDK для .NET из одного клиента.
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
         string collection,
         Dictionary<string, string> checkpoints)
     {
+        string pkRangesResponseContinuation = null;
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+                collectionUri, 
+                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
             partitionKeyRanges.AddRange(pkRangesResponse);
+            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
         }
-        while (pkRangesResponse.ResponseContinuation != null);
+        while (pkRangesResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
@@ -334,6 +345,7 @@ ReadDocumentFeed поддерживает следующие сценарии и
 * Приступите к созданию кода с помощью [пакетов SDK](documentdb-sdk-dotnet.md) или [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) DocumentDB.
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4f2b61e7c97beb7556bffca89c3608aaee831ddc
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Настройка командлетов Azure для работы с подпиской
 - - -
-С помощью [этого руководства](../powershell-install-configure.md) вы сможете сделать так, чтобы командлеты можно было использовать с вашей подпиской Azure.
+С помощью [этого руководства](/powershell/azureps-cmdlets-docs) вы сможете сделать так, чтобы командлеты можно было использовать с вашей подпиской Azure.
 
 Чтобы быстро приступить к работе:
 
@@ -118,6 +118,6 @@ ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

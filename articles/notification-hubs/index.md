@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Документация по Центрам уведомлений Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как отправлять push-уведомления из любого серверного компонента на любое мобильное устройство с помощью центров уведомлений. Руководства, справочники по API и другие документы."
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Документация по центрам уведомлений
 
 Узнайте, как использовать центры уведомлений — масштабируемую мультиплатформенную подсистему push-уведомлений, позволяющую быстро отправлять миллионы сообщений. В руководствах, справочниках по API и другой документации показано, как настраивать и отправлять push-уведомления из любого серверного компонента на любое мобильное устройство. 
@@ -205,6 +217,6 @@ ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

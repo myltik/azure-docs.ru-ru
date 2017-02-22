@@ -13,23 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 12/19/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
+ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
+ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
 
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
-## <a name="overview"></a>Обзор
-Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. На текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
+В этом документе указаны некоторые из наиболее распространенных ограничений Microsoft Azure, которые иногда называются квотами. Этот документ на текущий момент охватывает не все службы Azure. Со временем список будет расширен и обновлен, чтобы охватить больше платформ.
 
 Дополнительную информацию о ценах Azure см. на странице [Цены Azure](https://azure.microsoft.com/pricing/). Там вы сможете оценить затраты с помощью [калькулятора цен](https://azure.microsoft.com/pricing/calculator/) или просмотрев страницу сведений о ценах для службы (например, для [виртуальных машин Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
 
 > [!NOTE]
-> Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение** в таблицах ниже. Если столбца **Максимальное ограничение** нет, то указанный ресурс не имеет настраиваемого ограничения.
+> Если ограничение или квоту требуется сделать выше значения **Ограничение по умолчанию**, [бесплатно отправьте запрос в службу поддержки клиентов](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение**, как показано в таблицах ниже. Если столбца **Максимальное ограничение** нет, то ресурс не имеет настраиваемого ограничения. 
 > 
+> Бесплатная пробная версия подписки не предусматривает возможность увеличения ограничения и квоты. При наличии бесплатной пробной подписки ее можно обновить до подписки [с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/). Дополнительные сведения см. в статье [Upgrade your free Azure subscription to Pay-As-You-Go](billing-upgrade-azure-subscription.md) (Обновление бесплатной пробной версии Azure до версии с оплатой по мере использования).
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Ограничения и диспетчер ресурсов Azure
@@ -170,9 +170,7 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="documentdb-limits"></a>Ограничения DocumentDB
-[!INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
-
-Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](documentdb/documentdb-increase-limits.md).
+DocumentDB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Ограничения привлечения пользователей мобильных устройств
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -276,6 +274,6 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

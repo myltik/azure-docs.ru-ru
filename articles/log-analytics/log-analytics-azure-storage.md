@@ -4,7 +4,7 @@ description: "Настройте диагностику ресурсов Azure �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-omanager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/1/2016
+ms.date: 02/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 75a0e93b17cf2bf5476803bcea47a09ee224ef56
-ms.openlocfilehash: fa0a442c6c1349d8d25ac76d3cae379afe1b13e3
+ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
+ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
 
 
 ---
@@ -30,42 +30,39 @@ ms.openlocfilehash: fa0a442c6c1349d8d25ac76d3cae379afe1b13e3
 4. Сценарии для сбора и публикации данных в Log Analytics (не указано в следующей таблице, а также для служб, которые не указаны).
 
 
-| служба | Тип ресурса | Журналы | Метрики | Решение |
+| служба                 | Тип ресурса                           | Журналы        | Метрики     | Решение |
 | --- | --- | --- | --- | --- |
-| Шлюзы приложений    | Microsoft.Network/applicationGateways   | Диагностика | Диагностика | Анализ сетевой активности (предварительная версия) |
-| Управление API          | Microsoft.ApiManagement/service         |             | Диагностика | |
-| Application Insights    |                                         | Соединитель   | Соединитель   | Соединитель Application Insights (предварительная версия) |
-| Учетные записи службы автоматизации     | Microsoft.Automation/AutomationAccounts | Диагностика |             | |
+| Шлюзы приложений    | Microsoft.Network/applicationGateways   | Диагностика | Диагностика | [Анализ шлюзов приложений Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Application Insights    |                                         | Соединитель   | Соединитель   | [Соединитель Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (предварительная версия) |
+| Учетные записи службы автоматизации     | Microsoft.Automation/AutomationAccounts | Диагностика |             | [Дополнительные сведения](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Учетные записи пакетной службы          | Microsoft.Batch/batchAccounts           | Диагностика | Диагностика | |
-| Классические облачные службы  |                                         | Хранилище     |             | |
+| Классические облачные службы  |                                         | Хранилище     |             | [Дополнительные сведения](log-analytics-azure-storage-iis-table.md) |
 | Cognitive Services      | Microsoft.CognitiveServices/accounts    |             | Диагностика | |
 | Data Lake Analytics     | Microsoft.DataLakeAnalytics/accounts    | Диагностика |             | |
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Диагностика |             | |
 | пространство имен концентратора событий;     | Microsoft.EventHub/namespaces           | Диагностика | Диагностика | |
 | Центры Интернета вещей;                | Microsoft.Devices/IotHubs               |             | Диагностика | |
-| хранилище ключей;               | Microsoft.KeyVault/vaults               | Диагностика |             | Анализ хранилища ключей (предварительная версия) |
+| хранилище ключей;               | Microsoft.KeyVault/vaults               | Диагностика |             | [Анализ Key Vault](log-analytics-azure-key-vault.md) |
 | Балансировщики нагрузки          | Microsoft.Network/loadBalancers         | Диагностика |             |  |
 | Приложения логики              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Диагностика | Диагностика | |
-| группы сетевой безопасности; | Microsoft.Network/networksecuritygroups | Диагностика |             | Анализ сетевой активности (предварительная версия) |
-| Кэш Redis             | Microsoft.Cache/redis                   |             | Диагностика | |
+| группы сетевой безопасности; | Microsoft.Network/networksecuritygroups | Диагностика |             | [Анализ групп безопасности сети Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Службы поиска         | Microsoft.Search/searchServices         | Диагностика | Диагностика | |
 | Пространство имен служебной шины   | Microsoft.ServiceBus/namespaces         | Диагностика | Диагностика | |
-| Service Fabric          |                                         | Хранилище     |             | Анализ Service Fabric (предварительная версия) |
-| SQL (версия 12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Диагностика | |
-| Анализ потока        | Microsoft.StreamAnalytics/streamingjobs | Диагностика | Диагностика | |
+| Service Fabric          |                                         | Хранилище     |             | [Анализ Service Fabric (предварительная версия)](log-analytics-service-fabric.md) |
+| SQL (версия&12;)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Диагностика | |
 | Виртуальные машины        | Microsoft.Compute/virtualMachines       | Добавочный номер   | Добавочный номер <br> Диагностика  | |
 | Масштабируемые наборы виртуальных машин | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Диагностика | |
 | Фермы веб-серверов        | Microsoft.Web/serverfarms               |             | Диагностика | |
-| Веб-сайты               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Диагностика | |
+| Веб-сайты               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Диагностика | [Дополнительные сведения](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring) |
 
 
 > [!NOTE]
-> Для мониторинга виртуальных машин Azure (Linux и Windows) рекомендуется установить [расширение виртуальной машины Analytics журнала](log-analytics-azure-vm-extension.md). Агент предоставляет сведения, собранные в виртуальных машинах. Вы можете также использовать расширение для масштабируемых наборов виртуальных машин. 
-> 
-> 
+> Для мониторинга виртуальных машин Azure (Linux и Windows) рекомендуется установить [расширение виртуальной машины Analytics журнала](log-analytics-azure-vm-extension.md). Агент предоставляет сведения, собранные в виртуальных машинах. Вы можете также использовать расширение для масштабируемых наборов виртуальных машин.
+>
+>
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Направление диагностики Azure в Log Analytics
-Множество ресурсов Azure могут записывать журналы диагностики и метрики напрямую в Log Analytics. Это предпочтительный способ сбора данных для анализа. При использовании диагностики Azure данные сразу записываются в Log Analytics, поэтому их не нужно сначала записывать в хранилище. 
+Множество ресурсов Azure могут записывать журналы диагностики и метрики напрямую в Log Analytics. Это предпочтительный способ сбора данных для анализа. При использовании диагностики Azure данные сразу записываются в Log Analytics, поэтому их не нужно сначала записывать в хранилище.
 
 Ресурсы Azure с поддержкой [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) могут отправлять свои журналы и метрики напрямую в Log Analytics.
 
@@ -73,13 +70,14 @@ ms.openlocfilehash: fa0a442c6c1349d8d25ac76d3cae379afe1b13e3
 * Дополнительные сведения о доступных журналах см. в разделе [Поддерживаемые службы и схемы для журналов диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Включение диагностики с помощью PowerShell
+Вам потребуется выпуск за ноябрь 2016 года (версия 2.3.0) и более поздний выпуск [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-В следующем примере PowerShell показано, как включить диагностику в группе безопасности сети с использованием [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting). Тот же подход работает для всех поддерживаемых ресурсов. Просто задайте для параметра `$resourceId` идентификатор ресурса, для которого нужно включить диагностику.
+В следующем примере PowerShell показано, как включить диагностику в группе безопасности сети с использованием [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting). Тот же подход работает для всех поддерживаемых ресурсов. Задайте для параметра `$resourceId` идентификатор ресурса, для которого нужно включить диагностику.
 
-```
+```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
 Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
@@ -88,7 +86,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 Чтобы включить диагностику при создании ресурса и отправлять ее в рабочую область Log Analytics, можно использовать шаблон, аналогичный приведенному ниже. Этот пример предназначен для учетной записи службы автоматизации, но он также подходит для всех поддерживаемых типов ресурсов.
 
-```
+```json
         {
             "type": "Microsoft.Automation/automationAccounts/providers/diagnosticSettings",
             "name": "[concat(parameters('omsAutomationAccountName'), '/', 'Microsoft.Insights/service')]",
@@ -113,6 +111,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Отправка диагностики Azure в хранилище и в Log Analytics
 
@@ -122,14 +121,14 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 | Ресурс | Журналы |
 | --- | --- |
-| Service Fabric |Событие трассировки событий Windows <br> Операционное событие <br> Событие субъектов Reliable Actors <br> Событие надежных служб | 
+| Service Fabric |Событие трассировки событий Windows <br> Операционное событие <br> Событие субъектов Reliable Actors <br> Событие надежных служб |
 | Виртуальные машины |Системный журнал Linux <br> Событие Windows <br> Журнал IIS <br> Событие трассировки событий Windows |
 | веб-роли; <br> Рабочие роли |Системный журнал Linux <br> Событие Windows <br> Журнал IIS <br> Событие трассировки событий Windows |
 
 > [!NOTE]
 > За хранение и выполнение операций взимается стандартная плата Azure, если вы отправляете данные диагностики в учетную запись хранения, и служба Log Analytics считывает данные из вашей учетной записи хранения.
-> 
-> 
+>
+>
 
 Дополнительные сведения о сборе этих журналов в Log Analytics см. в статье [Использование хранилища BLOB-объектов для IIS и хранилища таблиц для событий](log-analytics-azure-storage-iis-table.md).
 
@@ -144,7 +143,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 Для служб Azure, в которых не предусмотрена отправка журналов и метрик в Log Analytics напрямую, можно использовать сценарий автоматизации Azure для сбора журналов и метрик. Сценарий может отправить данные в Log Analytics с помощью [API сборщика данных](log-analytics-data-collector-api.md).
 
 В коллекции шаблонов Azure есть [примеры использования службы автоматизации Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) для сбора данных из служб и их отправки в Log Analytics.
- 
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Используйте хранилище BLOB-объектов для IIS и хранилище таблиц для событий](log-analytics-azure-storage-iis-table.md), чтобы считывать журналы служб Azure, которые записывают диагностические данные в табличное хранилище, или журналы IIS, записанные в хранилище BLOB-объектов.
@@ -153,7 +152,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Добавление модулей Runbook службы автоматизации Azure в планы восстановления | Документация Майкрософт"
+title: "Добавление модулей Runbook службы автоматизации Azure в планы восстановления на классическом портале | Документация Майкрософт"
 description: "В этой статье описывается, как Azure Site Recovery позволяет расширить планы восстановления с помощью службы автоматизации Azure для выполнения сложных задач во время восстановления в Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/23/2016
+ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 946719d1cef70c841c119c49df8d17482f1e9b98
+ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
+ms.openlocfilehash: b4105e98323b5161a22fa65707d376a7155611d6
 
 
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans---classic"></a>Добавление модулей Runbook службы автоматизации Azure в планы восстановления (классическая модель)
+# <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-portal"></a>Добавление модулей Runbook службы автоматизации Azure в планы восстановления на классическом портале
 В этом руководстве описывается, как Azure Site Recovery интегрируется со службой автоматизации Azure для обеспечения расширяемости для планов восстановления. Планы восстановления позволяют управлять восстановлением виртуальных машин, защищенных с помощью Azure Site Recovery, как для репликации в дополнительное облако, так и для репликации в сценарии Azure. Они также помогают реализовать **точное**, **воспроизводимое** и **автоматическое** восстановление. Если выполняется отработка отказа с переносом виртуальных машин в Azure, интеграция со службой автоматизации Azure позволяет расширить планы восстановления и предоставляет возможность выполнять Runbook, а это, в свою очередь, позволяет значительно облегчить выполнение задач автоматизации.
 
 Если вы еще не знакомы со службой автоматизации Azure, зарегистрируйтесь [здесь](https://azure.microsoft.com/services/automation/) и скачайте примеры сценариев [здесь](https://azure.microsoft.com/documentation/scripts/). Дополнительные сведения об [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) и о том, как управлять восстановлением в Azure с помощью планов восстановления, см. [здесь](https://azure.microsoft.com/blog/?p=166264).
@@ -67,10 +67,10 @@ ms.openlocfilehash: 946719d1cef70c841c119c49df8d17482f1e9b98
 1. Добавьте новый параметр ![](media/site-recovery-runbook-automation/04.png) в разделе ресурсов службы автоматизации Azure и нажмите ![](media/site-recovery-runbook-automation/05.png).
 2. В качестве типа переменной выберите **Строка**
 3. В качестве имени переменной укажите **AzureSubscriptionName**
-   
+
    ![](media/site-recovery-runbook-automation/06.png)
 4. В качестве значения переменной укажите фактическое имя подписки Azure.
-   
+
    ![](media/site-recovery-runbook-automation/07_1.png)
 
 Имя подписки указано на странице параметров учетной записи на портале Azure.
@@ -82,7 +82,7 @@ ms.openlocfilehash: 946719d1cef70c841c119c49df8d17482f1e9b98
 1. Добавьте новый параметр ![](media/site-recovery-runbook-automation/04.png) в разделе ресурсов службы автоматизации Azure и нажмите ![](media/site-recovery-runbook-automation/09.png).
 2. Для параметра "Тип учетных данных" выберите **Учетные данные Windows PowerShell**
 3. Укажите имя **AzureCredential**
-   
+
    ![](media/site-recovery-runbook-automation/10.png)
 4. Укажите имя пользователя и пароль для входа.
 
@@ -90,7 +90,7 @@ ms.openlocfilehash: 946719d1cef70c841c119c49df8d17482f1e9b98
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Дополнительные сведения о подключении к подписке через PowerShell см. [здесь](../powershell-install-configure.md).
+Дополнительные сведения о подключении к подписке через PowerShell см. [здесь](/powershell/azureps-cmdlets-docs).
 
 Затем создадим в службе автоматизации Azure модуль Runbook, который может добавить конечную точку для интерфейсной виртуальной машины после отработки отказа.
 
@@ -139,31 +139,31 @@ ASR передает в модуль Runbook переменную контекс
 Теперь создадим модуль Runbook для открытия порта 80 на интерфейсной виртуальной машине.
 
 1. Создайте новый модуль Runbook в учетной записи службы автоматизации Azure и присвойте ему имя **OpenPort80**
-   
+
    ![](media/site-recovery-runbook-automation/14.png)
 2. Перейдите в представление создания модуля Runbook и войдите в режиме черновика.
 3. Сначала укажите переменную, которая будет использоваться в качестве контекста плана восстановления.
-   
+
    ```
        param (
            [Object]$RecoveryPlanContext
        )
-   
+
    ```
 4. Затем подключитесь к подписке, указав учетные данные и имя подписки.
-   
+
    ```
        $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-   
+
        # Connect to Azure
        $AzureAccount = Add-AzureAccount -Credential $Cred
        $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
    ```
-   
+
    Обратите внимание, что здесь используются ресурсы **AzureCredential** и **AzureSubscriptionName**.
 5. Теперь укажите сведения о конечной точке и идентификатор GUID виртуальной машины, для которой требуется предоставить конечную точку. В данном случае это интерфейсная виртуальная машина.
-   
+
    ```
        # Specify the parameters to be used by the script
        $AEProtocol = "TCP"
@@ -172,22 +172,22 @@ ASR передает в модуль Runbook переменную контекс
        $AEName = "Port 80 for HTTP"
        $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
    ```
-   
+
    Эти сведения включают протокол конечной точки Azure, локальный порт на виртуальной машине и сопоставленный ему открытый порт. Эти переменные выступают в качестве параметров, необходимых для выполнения команд Azure по добавлению конечных точек для виртуальных машин. VMGUID содержит идентификатор GUID виртуальной машины, с которой необходимо выполнить требуемые операции.
 6. Теперь этот сценарий позволит извлечь контекст для заданного идентификатора VMGUID и создать конечную точку на виртуальной машине, на которую указывает этот идентификатор.
-   
+
    ```
        #Read the VM GUID from the context
        $VM = $RecoveryPlanContext.VmMap.$VMGUID
-   
+
        if ($VM -ne $null)
        {
            # Invoke pipeline commands within an InlineScript
-   
+
            $EndpointStatus = InlineScript {
                # Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
                # Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
-   
+
                $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
                    Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
                    Update-AzureVM
@@ -262,10 +262,10 @@ ASR передает в модуль Runbook переменную контекс
 
 1. Выберите план восстановления и запустите тестовую отработку отказа.
 2. Во время выполнения плана можно просмотреть, был ли выполнен модуль или нет, обратившись к сведениям о его состоянии.
-   
+
    ![](media/site-recovery-runbook-automation/17.png)
 3. Кроме того, можно перейти на страницу заданий службы автоматизации Azure для модуля, чтобы ознакомиться с подробными сведениями о состоянии выполнении модуля Runbook.
-   
+
    ![](media/site-recovery-runbook-automation/18.png)
 4. После завершения отработки отказа, помимо результатов выполнения модуля Runbook, можно просмотреть сведения о том, было ли выполнение успешным. Для этого посетите страницу виртуальной машины Azure и обратитесь к сведениям о конечных точках.
 
@@ -281,7 +281,6 @@ ASR передает в модуль Runbook переменную контекс
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

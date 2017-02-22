@@ -1,5 +1,5 @@
 ---
-title: "Использование внешних пакетов с записными книжками Jupyter в кластерах Apache Spark в HDInsight | Документация Майкрософт"
+title: "Использование пользовательских пакетов Maven с записными книжками Jupyter в кластерах Spark в Azure | Документация Майкрософт"
 description: "Пошаговые инструкции по настройке записных книжек Jupyter с кластерами Spark HDInsight для использования внешних пакетов Spark."
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 53753790b63d783a284aa0db39841c4bd6a8a0aa
-ms.openlocfilehash: 11bcf7f4f51d105f6693545669a2f17af196bf57
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
 
 
 ---
-# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight-linux"></a>Использование внешних пакетов с записными книжками Jupyter в кластерах Apache Spark в HDInsight на платформе Linux
+# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Использование внешних пакетов с записными книжками Jupyter в кластерах Apache Spark в HDInsight
+> [!div class="op_single_selector"]
+> * [Использование волшебных команд](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Использование действия сценария](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
-Узнайте, как настроить Jupyter Notebook в кластере Apache Spark в HDInsight (Linux) для использования внешних, предоставленных сообществом пакетов **Maven**, которые не включены в готовую версию кластера. 
+Узнайте, как настроить записную книжку Jupyter в кластере Apache Spark в HDInsight для использования внешних, предоставленных сообществом пакетов **Maven**, которые не включены в готовую версию кластера. 
 
 Полный список доступных пакетов можно найти в [репозитории Maven](http://search.maven.org/) . Его также можно получить из других источников. Например, полный список предоставленных сообществом пакетов можно найти в разделе [Пакеты Spark](http://spark-packages.org/).
 
@@ -34,28 +39,28 @@ ms.openlocfilehash: 11bcf7f4f51d105f6693545669a2f17af196bf57
 ## <a name="prerequisites"></a>Предварительные требования
 Необходимо следующее:
 
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Использование внешних пакетов с записными книжками Jupyter
 1. На начальной панели [портала Azure](https://portal.azure.com/)щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, последовательно щелкнув **Просмотреть все** > **Кластеры HDInsight**.   
 2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
 
-   
-   > [!NOTE]
-   > Также можно открыть Jupyter Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените **CLUSTERNAME** именем кластера:
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
+    > [!NOTE]
+    > Также можно открыть Jupyter Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените **CLUSTERNAME** именем кластера:
+    > 
+    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+    > 
 
+   
 
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **Spark**.
    
-    ![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 
 4. Будет создана и открыта записная книжка с именем Untitled.pynb. Щелкните имя записной книжки в верхней части страницы сверху и введите понятное имя.
    
-    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Указание имени для записной книжки")
 
 5. Используйте волшебную команду `%%configure` , чтобы настроить записную книжку для использования внешнего пакета. В записных книжках, которые используют внешние пакеты, следует вызывать волшебную команду `%%configure` в первой ячейке кода. Она настраивает ядро для использования пакета до начала сеанса.
 
@@ -73,7 +78,7 @@ ms.openlocfilehash: 11bcf7f4f51d105f6693545669a2f17af196bf57
    
     b. В репозитории найдите значения для параметров **GroupId**, **ArtifactId** и **Version**.
    
-    ![Использование внешних пакетов с записной книжкой Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use external packages with Jupyter notebook")
+    ![Использование внешних пакетов с записными книжками Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Использование внешних пакетов с записными книжками Jupyter")
    
     c. Объедините три значения, разделив их двоеточием (**:**).
    
@@ -122,6 +127,6 @@ ms.openlocfilehash: 11bcf7f4f51d105f6693545669a2f17af196bf57
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

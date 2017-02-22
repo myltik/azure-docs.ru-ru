@@ -6,7 +6,7 @@
 2. Откройте вкладку **Обзор**, а затем выполните поиск по Microsoft.Azure.Relay и выберите элемент **Microsoft Azure Relay** (Ретранслятор Microsoft Azure). Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
 
 ### <a name="write-some-code-to-receive-messages"></a>Написание кода для получения сообщений
-1. Добавьте следующие операторы `using` в начало файла program.cs.
+1. В начале файла Program.cs замените существующие операторы `using` следующими операторами.
    
     ```csharp
     using System;
@@ -23,7 +23,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Добавьте новый метод с именем `ProcessMessagesOnConnection` в класс `Program`:
+3. Добавьте в класс `Program` следующий новый метод с именем `ProcessMessagesOnConnection`.
    
     ```csharp
     // Method is used to initiate connection
@@ -74,7 +74,7 @@
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Добавьте другой новый метод с именем `RunAsync` в класс `Program`:
+4. Добавьте другой новый метод с именем `RunAsync` в класс `Program`.
    
     ```csharp
     private static async Task RunAsync()
@@ -242,6 +242,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

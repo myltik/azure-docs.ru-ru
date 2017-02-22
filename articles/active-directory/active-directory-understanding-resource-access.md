@@ -5,18 +5,17 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 04c89fb831036af37ba381d13d45526327125540
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 9906aa7ac4296089fd2e41897323e757b181a022
 
 
 ---
@@ -57,7 +56,7 @@ ms.openlocfilehash: 04c89fb831036af37ba381d13d45526327125540
 В связи с единым видом каталога такие операции, как перемещение ресурсов между подписками, могут усложняться. Чтобы выполнить перенос ресурсов, может потребоваться впервые использовать команду **Изменить каталог** на странице "Подписки" диалогового окна **Параметры**, чтобы привязать подписки к одному и тому же каталогу.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
+* Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 * Дополнительные сведения о назначении ролей в Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
 
@@ -69,6 +68,6 @@ ms.openlocfilehash: 04c89fb831036af37ba381d13d45526327125540
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
 ## <a name="authenticate-with-azure-active-directory"></a>Проверка подлинности с помощью Azure Active Directory
 Существует два метода проверки подлинности с помощью Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Проверка подлинности пользователя (интерактивная)
+### <a name="end-user-authentication-interactive"></a>Проверка подлинности пользователя (интерактивная)
 Если используется этот метод, в приложении пользователю предлагается войти в систему, и все операции выполняются в контексте пользователя. 
 
 Выполните приведенные ниже действия, чтобы использовать интерактивную проверку подлинности.
@@ -76,7 +76,7 @@ ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
 
 Дополнительные сведения об интерактивной проверке подлинности пользователей см. в статье [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Проверка подлинности с взаимодействием между службами (неинтерактивная)
+### <a name="service-to-service-authentication-non-interactive"></a>Проверка подлинности с взаимодействием между службами (неинтерактивная)
 Если используется этот метод, приложение предоставляет свои собственные учетные данные для выполнения операций. В этом случае необходимо отправить запрос POST, аналогичный показанному ниже. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
         ]
     }
 
-## <a name="submit-usql-jobs"></a>Отправка заданий U-SQL
+## <a name="submit-u-sql-jobs"></a>Отправка заданий U-SQL
 Чтобы отправить задание U-SQL, используйте следующую команду cURL:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
     }
 
 
-## <a name="list-usql-jobs"></a>Получение списка заданий U-SQL
+## <a name="list-u-sql-jobs"></a>Получение списка заданий U-SQL
 Чтобы получить список заданий U-SQL, используйте следующую команду cURL:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

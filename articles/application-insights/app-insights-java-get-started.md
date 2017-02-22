@@ -38,10 +38,10 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Получение ключа инструментирования Application Insights
 1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 2. Создайте ресурс Application Insights. Задайте тип приложения: веб-приложение Java.
-   
+
     ![Введите имя, выберите веб-приложение Java и нажмите кнопку "Создать"](./media/app-insights-java-get-started/02-create.png)
 3. Найдите ключ инструментирования нового ресурса. Далее будет необходимо вставить его в проект кода.
-   
+
     ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2) Добавление в проект пакета SDK Application Insights для Java
@@ -107,11 +107,11 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 
 ### <a name="questions"></a>Вопросы
 * *Каковы отношения между компонентами `-core` и `-web` в ZIP-архиве?*
-  
+
   * `applicationinsights-core` предоставляет чистый API. Этот компонент требуется всегда.
   * Компонент `applicationinsights-web` предоставляет метрики для отслеживания количества запросов HTTP и значений времени ответа. Его можно опустить, если автоматический сбор данных телеметрии не требуется, например, если вы хотите написать собственный код сбора данных.
 * *Чтобы обновить пакет SDK после появления новой версии:*
-  
+
   * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://aka.ms/qqkaq6) и установите ее вместо более старых версий.
   * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -239,11 +239,11 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Служба Application Insights предполагает, что HTTP-запросы для приложений MVC имеют следующий формат: `VERB controller/action`. Например, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` и `GET Home/Product/sdf96vws` сгруппированы в `GET Home/Product`. Это позволяет осмысленно группировать запросы, получая, например, число запросов и среднее время выполнения запросов.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Данные экземпляров
-Щелкните тип запроса, чтобы просмотреть отдельные экземпляры. 
+Щелкните тип запроса, чтобы просмотреть отдельные экземпляры.
 
 В Application Insights отображаются два типа данных: 1) объединенные данные, хранимые и отображаемые как средние значения, количества и суммы; 2) данные экземпляров, например отдельные отчеты HTTP-запросов, исключения, число просмотров страниц или пользовательские события.
 
@@ -260,16 +260,16 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 Теперь опубликуйте приложение на сервере, откройте доступ для пользователей и изучайте телеметрию на портале.
 
 * Убедитесь, что брандмауэр позволяет приложению отправлять телеметрию на следующие порты:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* Если исходящий трафик должен проходить через брандмауэр, определите системные свойства `http.proxyHost` и `http.proxyPort`. 
+* Если исходящий трафик должен проходить через брандмауэр, определите системные свойства `http.proxyHost` и `http.proxyPort`.
 
 * На серверах Windows необходимо установить следующее:
-  
+
   * [распространяемые компоненты Microsoft Visual C++.](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (Сюда входят счетчики производительности).
 
 
@@ -280,7 +280,7 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 
 Для сбора данных по другим исключениям доступны два варианта:
 
-* [вставить в код вызовы функции trackException()][apiexceptions]; 
+* [вставить в код вызовы функции trackException()][apiexceptions];
 * [установить на сервере агент для Java](app-insights-java-agent.md). Необходимо указать методы, которые требуется отслеживать.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Мониторинг вызовов методов и внешних зависимостей.
@@ -370,7 +370,7 @@ Application Insights может тестировать ваш веб-сайт ч
 
 ![Пример веб-теста](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Дополнительные сведения о веб-тестах для определения доступности.][availability] 
+[Дополнительные сведения о веб-тестах для определения доступности.][availability]
 
 ## <a name="questions-problems"></a>Вопросы? Проблемы?
 [Устранение неполадок Java](app-insights-java-troubleshoot.md)
@@ -387,7 +387,7 @@ Application Insights может тестировать ваш веб-сайт ч
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md

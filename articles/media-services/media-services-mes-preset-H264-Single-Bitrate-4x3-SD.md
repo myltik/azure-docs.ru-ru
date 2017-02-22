@@ -1,5 +1,5 @@
 ---
-title: "H264 Single Bitrate 4x3 SD | Документация Майкрософт"
+title: "Предустановка Media Encoder Standard в Azure: H264 Single Bitrate 4x3 SD | Документация Майкрософт"
 description: "Этот раздел содержит общие сведения о предустановке задачи **H264 Single Bitrate 4x3 SD**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: da0670e4ad623902557eab53394cf2a98a8b45bf
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
   
  В этом разделе показана предустановка `H264 Single Bitrate 4x3 SD` в форматах XML и JSON.  
   
- Данная предустановка создает отдельный MP4-файл со скоростью 18 000 Кбит/с и стереофоническим звуком в формате AAC. Чтобы получить дополнительные сведения о профиле, скорости, частоте выборки и т. п. данной предустановки, ознакомьтесь с кодом XML или JSON ниже. Описание каждого элемента в этих предустановках и его допустимых значений см. в разделе [Схема Media Encoder Standard](media-services-mes-schema.md).  
+ Данная предустановка создает отдельный MP4-файл со скоростью 1800 Кбит/с и стереофоническим звуком в формате AAC. Чтобы получить дополнительные сведения о профиле, скорости, частоте выборки и т. п. данной предустановки, ознакомьтесь с кодом XML или JSON ниже. Описание каждого элемента в этих предустановках и его допустимых значений см. в разделе [Схема Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -118,6 +118,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO4-->
 
 

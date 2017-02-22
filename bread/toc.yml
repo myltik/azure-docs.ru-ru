@@ -178,7 +178,7 @@
   - name: "Мониторинг и диагностика"
     tocHref: /azure/monitoring-and-diagnostics/
     topicHref: /azure/monitoring-and-diagnostics/../azure-portal/monitoring-get-started
-  - name: "Multi-Factor Authentication"
+  - name: "Многофакторная идентификация"
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/multi-factor-authentication
     items:
@@ -261,7 +261,7 @@
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
     items:
-      - name: " Linux"
+      - name: "Linux"
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/virtual-machines-linux-azure-overview
         items:

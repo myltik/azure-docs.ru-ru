@@ -1,3 +1,4 @@
+
 # Обзор
 ## [Что такое DocumentDB?](documentdb-introduction.md)
 ## [Ключевые понятия](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Секционирование и масштабирование](documentdb-partition-data.md)
 ### [Целостность](documentdb-consistency-levels.md)
 ### [Базы данных NoSQL и SQL](documentdb-nosql-vs-sql.md)
+### [Экономичные операции чтения и записи](documentdb-key-value-store-cost.md)
 
 ## Управление
 ### [Импорт данных](documentdb-import-data.md)
@@ -40,14 +42,13 @@
 ### [Настройка индексов](documentdb-indexing-policies.md)
 ### [Безопасный доступ к данным](documentdb-secure-access-to-data.md)
 ### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
-### [Уровни производительности](documentdb-performance-levels.md)
+### [Снятие с учета S1, S2, S3](documentdb-performance-levels.md)
 ### [Единиц запросов](documentdb-request-units.md)
 ### Инфраструктура CLI Azure
 #### [Создание учетной записи](documentdb-automation-resource-manager-cli.md)
 #### [Добавление и удаление регионов](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Поддерживаемые брандмауэры](documentdb-firewall-support.md)
-### [Расширение возможностей учетной записи](documentdb-supercharge-your-account.md)
 
 ## Разработка
 ### [SQL query](documentdb-sql-query.md)
@@ -71,6 +72,7 @@
 ## Использование портала
 ### [Создание учетной записи базы данных](documentdb-create-account.md)
 ### [Создание коллекции](documentdb-create-collection.md)
+### [Настройка пропускной способности](documentdb-set-throughput.md)
 ### [Добавление глобальной репликации](documentdb-portal-global-replication.md)
 ### [Добавление и редактирование документов](documentdb-view-json-document-explorer.md)
 ### [Запрос документов](documentdb-query-collections-query-explorer.md)
@@ -88,9 +90,10 @@
 ### [Интеграция с Поиском Azure](../search/search-howto-index-documentdb.md)
 ### [Перенос данных с помощью фабрики данных Azure](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Анализ данных в реальном времени с помощью Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Получение уведомлений с помощью Logic Apps](documentdb-change-notification.md)
+### [Получение измененной записи HL7 FHIR с помощью Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Обработка данных, поступающих от датчиков, в реальном времени](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Визуализация данных с помощью Power BI](documentdb-powerbi-visualize.md)
+### [Визуализация данных с помощью драйвера ODBC](documentdb-nosql-odbc-driver.md)
 
 
 # Справочные материалы
@@ -123,6 +126,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

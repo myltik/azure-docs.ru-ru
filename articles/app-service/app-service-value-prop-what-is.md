@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -49,7 +49,7 @@ ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
 * [**Веб-приложения**](../app-service-web/app-service-web-overview.md) — для размещения веб-сайтов и веб-приложений.
 * [**Мобильные приложения**](../app-service-mobile/app-service-mobile-value-prop.md) — для размещения серверной части мобильных приложений.
 * [**Приложения API**](../app-service-api/app-service-api-apps-why-best-platform.md) — для размещения API RESTful.
-* [**Приложения Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) — для автоматизации бизнес-процессов и интеграции систем и данных в облаках без необходимости создавать код.
+* [**Приложения Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) — для автоматизации бизнес-процессов и интеграции систем и данных в облаках без необходимости создавать код.
 
 Здесь под *приложением* подразумеваются ресурсы размещения, выделенные для запуска рабочей нагрузки. Большинство пользователей думают, что для функционирования веб-приложения в браузере требуются вычислительные ресурсы и код приложения. В службе приложений *веб-приложение* — это вычислительные ресурсы, предоставляемые средой Azure для размещения кода приложения. 
 
@@ -82,18 +82,18 @@ ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
 См. дополнительные сведения о [расценках на службу приложений](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Оцените возможности службы приложений
-[Создайте пример приложения логики, мобильного или веб-приложения](http://go.microsoft.com/fwlink/?LinkId=523751) и поэкспериментируйте с ним в течение часа бесплатно: без кредитных карт, обязательств и проблем.
+[Создайте пример приложения логики, мобильного или веб-приложения](https://azure.microsoft.com/try/app-service/) и поэкспериментируйте с ним в течение часа бесплатно: без кредитных карт, обязательств и проблем.
 
 Или создайте [бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/)и ознакомьтесь с одним из руководств по началу работы:
 
 * [Создание веб-приложения](../app-service-web/app-service-web-get-started.md)
 * [Создание мобильного приложения](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Создание приложения API](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

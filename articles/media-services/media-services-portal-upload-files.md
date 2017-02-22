@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/28/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: d1174ca4fcf8188fbeb6b676bdbf5ca8c191fffd
-ms.openlocfilehash: 3c174dbe743c18cd013e50a1c10e6e97b3e28a38
+ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
+ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 
 ---
@@ -61,6 +61,8 @@ ms.openlocfilehash: 3c174dbe743c18cd013e50a1c10e6e97b3e28a38
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь можно закодировать отправленные ресурсы. Дополнительную информацию см. в статье, посвященной [кодированию ресурсов](media-services-portal-encode.md).
 
+Можно также использовать функции Azure для запуска задания кодирования на основе файла, поступающего в настроенный контейнер. Дополнительные сведения см. в [этом примере](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -70,6 +72,6 @@ ms.openlocfilehash: 3c174dbe743c18cd013e50a1c10e6e97b3e28a38
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 01/11/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
+ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
 
 
 ---
@@ -39,10 +39,10 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 ### <a name="access-payout-reports-in-dev-center"></a>Доступ к отчетам выплатах в Центре разработчиков
 1. Перейдите в Центр разработки по адресу https://dev.windows.com/ru-ru.
 2. Нажмите на кнопку **Панель мониторинга**.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. Щелкните **Сводка о выплатах**.
-   
+
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Просмотр отчетов о выплатах в Центре разработчиков
@@ -52,10 +52,10 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 * Щелкните ссылки **Просмотр сведений** в разделах "Предстоящий платеж" и "Последний платеж" для просмотра примечания об этих выплатах.
 * Щелкните раздел **Платежные ведомости** для просмотра сведений о платежах, обрабатываемых с помощью приложения или продукта.
 * Щелкните ссылку **Просмотр** для просмотра отдельных ведомостей.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * Используйте фильтр **Разобрать платежи** в нижней части отдельной ведомости для просмотра нескольких приложений и продуктов, если их несколько.
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>Просмотр отчетов о выплатах в портале публикации
@@ -64,7 +64,7 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 1. Перейдите на портал публикации по адресу https://publish.windowsazure.com.
 2. В разделе **Издатели** щелкните **Payout Reports** (Отчеты о выплатах).
 3. Щелкните раскрывающийся список, чтобы отобразить все доступные квартальные отчеты о выплатах.
-   
+
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>Чтение отчетов о выплатах
@@ -110,6 +110,6 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

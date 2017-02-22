@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2084bce2529aaf65194f69b463cb0a1b480e5769
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83328eb874485d4541ff2131f736a30f350a0eb6
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: 2084bce2529aaf65194f69b463cb0a1b480e5769
 
 > [!NOTE]
 > В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Выполнение рекомендаций
 1. В колонке **Рекомендации** выберите **Включить агент виртуальной машины**.
@@ -53,6 +53,6 @@ ms.openlocfilehash: 2084bce2529aaf65194f69b463cb0a1b480e5769
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

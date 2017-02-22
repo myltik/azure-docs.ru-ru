@@ -1,6 +1,6 @@
 ---
-title: "Сведения о соединителе расшифровки сообщений EDIFACT из Пакета интеграции Enterprise | Документация Майкрософт"
-description: "Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики."
+title: "Декодирование сообщений EDIFACT в Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте, как использовать декодер EDIFACT, входящий в пакет интеграции Enterprise в приложениях логики."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,49 +12,51 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 8bf5fe5527e3de6f2e0950b3ee494b88cd1063a1
-ms.openlocfilehash: 96dbedf2dc072795712e4b0a41c424e633263220
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: 430a3add46053b5969597aa625df899f4d2e83f6
 
 
 ---
-# <a name="get-started-with-decode-edifact-message"></a>Начало работы с расшифровкой сообщений EDIFACT
-Проверка свойств партнера и EDI, создание XML-документа для каждого набора транзакций и создание подтверждения для обработанных транзакций.
 
-## <a name="create-the-connection"></a>Создание подключения
-### <a name="prerequisites"></a>Предварительные требования
+# <a name="get-started-with-decode-edifact-message"></a>Начало работы с декодированием сообщений EDIFACT
+Соединитель для декодирования сообщений EDIFACT проверяет свойства партнера и EDI, создает XML-документ для каждого набора транзакций, а также создает подтверждения для обработанных транзакций.
+
+## <a name="prereqs"></a>Предварительные требования
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
-* Для работы с соединителем расшифровки сообщений EDIFACT требуется учетная запись интеграции. См. подробные сведения о создании [учетной записи интеграции](logic-apps-enterprise-integration-create-integration-account.md), [партнеров](logic-apps-enterprise-integration-partners.md) и [соглашений EDIFACT](logic-apps-enterprise-integration-edifact.md).
+* Для работы с соединителем расшифровки сообщений EDIFACT требуется учетная запись интеграции. Ознакомьтесь с подробными сведениями о создании [учетной записи интеграции](logic-apps-enterprise-integration-create-integration-account.md), [партнеров](logic-apps-enterprise-integration-partners.md) и [соглашений EDIFACT](logic-apps-enterprise-integration-edifact.md).
 
-### <a name="connect-to-decode-edifact-message-using-the-following-steps"></a>Этапы подключения к соединителю расшифровки сообщений EDIFACT.
-1. Пример см. в статье о [создании приложения логики](logic-apps-create-a-logic-app.md).
-2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "EDIFACT".  Выбор расшифровки сообщений EDIFACT
+## <a name="decode-edifact-messages"></a>Декодирование сообщений EDIFACT
+1. [Создайте приложение логики](logic-apps-create-a-logic-app.md).
+2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "EDIFACT".  Выберите Decode EDIFACT message (Декодирование сообщения EDIFACT):
    
-    ![Поиск EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
-3. Если до этого вы не создавали подключения к учетной записи интеграции, вам будет предложено ввести сведения о подключении.
+    ![поиск EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
+3. Если до этого вы не создавали подключений к учетной записи интеграции, то вам будет предложено ввести сведения о подключении:
    
     ![Создание учетной записи интеграции](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)  
-4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными.
+4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными:
    
    | Свойство | Сведения |
    | --- | --- |
    | Имя подключения* |Введите имя подключения. |
    | Учетная запись интеграции* |Введите имя учетной записи интеграции. Убедитесь, что учетная запись интеграции и приложение логики находятся в одном расположении Azure. |
    
-    Введенные сведения о подключении будут выглядеть так:
+    После завершения сведения о подключении будут выглядеть следующим образом:
    
     ![Учетная запись интеграции создана](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
-5. Нажмите кнопку **Создать**
-6. Подключение создано.
+5. Нажмите кнопку **Создать**.
+6. Обратите внимание, что было создано подключение:
    
-    ![Сведения о подключении к учетной записи интеграции](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
-7. Выберите неструктурированный файл с сообщением EDIFACT, которое нужно расшифровать.
+    ![сведения о подключении к учетной записи интеграции](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+7. Выберите неструктурированный файл сообщения EDIFACT, который нужно декодировать:
    
     ![заполнение обязательных полей](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
-## <a name="edifact-decode-does-following"></a>Декодирование EDIFACT выполняет следующие действия.
+## <a name="edifact-decoder-details"></a>Сведения о декодере EDIFACT
+Соединитель для декодирования EDIFACT выполняет следующие функции: 
+
 * Определяет соглашение, сопоставляя квалификатор и идентификатор отправителя с квалификатором и идентификатором получателя.
 * Разделяет несколько обменов, включенных в одно сообщение.
 * Проверяет конверт на соответствие соглашению с торговым партнером.
@@ -84,6 +86,6 @@ ms.openlocfilehash: 96dbedf2dc072795712e4b0a41c424e633263220
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

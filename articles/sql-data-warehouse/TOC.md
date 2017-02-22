@@ -6,15 +6,12 @@
 
 # Начало работы
 
-## Создание хранилища данных SQL
-### [Портал Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Руководство для начинающих](sql-data-warehouse-get-started-tutorial.md)
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
 ## [Получение поддержки](sql-data-warehouse-get-started-create-support-ticket.md)
 
-# Практическое руководство:
+# Практическое руководство
 
 ## Архивация и восстановление
 
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Установка Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Создание
+### [Портал Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Разработка
 
@@ -78,6 +80,7 @@
 
 ### [Обзор](sql-data-warehouse-overview-load.md)
 ### [Пример данных](sql-data-warehouse-load-sample-databases.md)
+### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP из SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
@@ -103,7 +106,7 @@
 ### [Обзор](sql-data-warehouse-manage-compute-overview.md)
 ### [Портал Azure](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [ИНТЕРФЕЙС REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 
 ## Производительность
@@ -145,6 +148,6 @@
 ### [Управление данными](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -2,7 +2,7 @@
   * [Веб-приложение](../articles/app-service-web/app-service-web-overview.md)
   * [Мобильное приложение](../articles/app-service-mobile/app-service-mobile-value-prop.md)
   * [Приложение API](../articles/app-service-api/app-service-api-apps-why-best-platform.md)
-  * [приложение логики;](../articles/app-service-logic/app-service-logic-what-are-logic-apps.md)
+  * [приложение логики;](../articles/logic-apps/logic-apps-what-are-logic-apps.md)
 * [Windows Azure Web Sites - Things they don’t teach kids in school](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
 * [Сравнение службы приложений, облачных служб и виртуальных машин Azure](../articles/app-service-web/choose-web-site-cloud-service-vm.md)
 * [Подробный обзор планов службы приложений Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -15,6 +15,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

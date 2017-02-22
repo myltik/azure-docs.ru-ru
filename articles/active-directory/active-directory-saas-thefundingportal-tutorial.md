@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba7486f76710095a35d602805876cae0cde8694e
+ms.sourcegitcommit: 82e5a947d48f8a289deb2f6e85bbb47990a9fcd7
+ms.openlocfilehash: 76d52c52489cb3cc85223066fb5821b1b9915b96
 
 
 ---
@@ -128,7 +128,7 @@ ms.openlocfilehash: ba7486f76710095a35d602805876cae0cde8694e
    
     ![Настройка единого входа](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_07.png)
 
-    а. В текстовое поле "URL-адрес для входа" введите URL-адрес в следующем формате: `https://<subdomain>.regenteducation.net/`.
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.regenteducation.net/`.
 
     b. Нажмите кнопку **Далее**.
 
@@ -171,17 +171,18 @@ ms.openlocfilehash: ba7486f76710095a35d602805876cae0cde8694e
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_07.png) 
@@ -249,6 +250,6 @@ ms.openlocfilehash: ba7486f76710095a35d602805876cae0cde8694e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

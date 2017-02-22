@@ -12,32 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
+ms.sourcegitcommit: 8929a1697bf88da82fc027520d0126eaef872840
+ms.openlocfilehash: 488212ad1b43d5e35bf46a334bc7ac8e1acabebc
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Администрирование кэша Redis для Azure
-В этом разделе описывается выполнение задач администрирования, таких как перезагрузка и планирование обновлений для экземпляров кэша Redis для Azure.
+В этом разделе описывается выполнение задач администрирования, таких как [перезагрузка](#reboot) и [планирование обновлений](#schedule-updates) для экземпляров кэша Redis для Azure.
 
 > [!IMPORTANT]
 > Параметры и функции, описанные в этой статье, доступны только для кэшей уровня "Премиум".
 > 
 > 
 
-## <a name="administration-settings"></a>Параметры администрирования
-Параметры в разделе **Администрирование** кэша Redis для Azure позволяют выполнить следующие задачи администрирования для кэша уровня "Премиум". Чтобы получить доступ к параметрам администрирования, щелкните **Параметры** или **Все параметры** в колонке кэша Redis и перейдите к разделу **Администрирование** в колонке **Параметры**.
-
-![Администрирование](./media/cache-administration/redis-cache-administration.png)
-
-* [Reboot](#reboot)
-* [Планирование обновлений](#schedule-updates)
-
 ## <a name="reboot"></a>Reboot
 Колонка **Перезагрузка** позволяет перезагрузить один или несколько узлов кэша. Это дает возможность протестировать приложение на устойчивость в случае сбоя.
+
+![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+
+Выберите узлы, которые нужно перезагрузить, и щелкните **Перезагрузить**.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
@@ -52,7 +48,7 @@ ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
 * **Главный** : при перезагрузке главного узла кэш Redis для Azure выполняет отработку отказа на узел реплики, а затем повышает его уровень до главного узла. Во время этой отработки отказа может возникать короткий интервал, когда попытки подключения к кэшу заканчиваются сбоем.
 * **Подчиненный** : перезагрузка подчиненного узла обычно не оказывает никакого воздействия на клиенты кэша.
 * **Главный и подчиненный**: при перезагрузке обоих узлов кэша все данные в нем теряются. Подключения к кэшу завершаются сбоем, пока первичный узел снова не станет доступным. Если вы настроили [сохраняемость данных](cache-how-to-premium-persistence.md), то последняя резервная копия восстанавливается, когда кэш снова становится доступным. Обратите внимание, что все записи в кэше, выполненные после сохранения последней резервной копии, будут утеряны.
-* **Узлы кэша уровня "Премиум" с включенной кластеризацией** : при перезагрузке узлов кэша уровня "Премиум" с включенной кластеризацией процедура восстановления такая же, как при перезагрузке узлов некластеризованного кэша.
+* **Узлы кэша уровня "Премиум" с включенной кластеризацией.** При перезагрузке узлов кэша уровня "Премиум" с включенной кластеризацией процедура восстановления выбранных узлов такая же, как при перезагрузке узлов некластеризованного кэша.
 
 > [!IMPORTANT]
 > Функция перезагрузки доступна только для кэшей уровня "Премиум".
@@ -80,7 +76,7 @@ ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Сохранятся ли данные кэша после перезагрузки?
 Если перезагрузить и **главный**, и **подчиненный** узлы, то все данные в кэше (или в отдельном сегменте при использовании кэша уровня "Премиум" с включенной кластеризацией) будут утеряны. Если вы настроили [сохраняемость данных](cache-how-to-premium-persistence.md), последняя резервная копия будет восстановлена, когда кэш снова станет доступным. Обратите внимание, что все записи в кэше, выполненные после сохранения последней резервной копии, будут утеряны.
 
-Если перезагрузить только один из узлов, то, как правило, данные не теряются, но это все же может произойти. Например, если перезагрузить главный узел в то время, когда выполняется запись в кэш, то данные кэша будут потеряны. Данные также могут быть утеряны, если вы перезагрузите один узел, а другой узел случайно выйдет из строя в то же время. Дополнительные сведения о возможных причинах потери данных см. в разделе [Что произошло с моими данными в Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md).
+Если перезагрузить только один из узлов, то, как правило, данные не теряются, но это все же может произойти. Например, если перезагрузить главный узел в то время, когда выполняется запись в кэш, то данные кэша будут потеряны. Данные также могут быть утеряны, если вы перезагрузите один узел, а другой узел случайно выйдет из строя в то же время. Дополнительные сведения о возможных причинах потери данных см. в статье [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (Что произошло с моими данными в Redis?).
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Можно ли перезагрузить кэш с помощью PowerShell, интерфейса командной строки или других средств управления?
 Да, инструкции по использованию PowerShell см. в разделе, посвященном [перезагрузке кэша Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
@@ -96,7 +92,7 @@ ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
 Чтобы задать период обслуживания, отметьте необходимые дни и укажите, когда будет начинаться период обслуживания в каждый из дней, а затем нажмите кнопку **ОК**. Обратите внимание, что время периода обслуживания указывается в формате UTC. 
 
 > [!NOTE]
-> Период обслуживания по умолчанию для обновлений — 5 часов. Это значение можно настроить на портале Azure, а также в PowerShell с помощью параметра `MaintenanceWindow` командлета [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx). Дополнительные сведения см. в разделе [Можно ли управлять запланированными обновлениями с помощью PowerShell, интерфейса командной строки или других средств управления?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+> Период обслуживания по умолчанию для обновлений — 5 часов. Это значение можно настроить на портале Azure, а также в PowerShell с помощью параметра `MaintenanceWindow` командлета [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry). Дополнительные сведения см. в разделе [Можно ли управлять запланированными обновлениями с помощью PowerShell, интерфейса командной строки или других инструментов управления?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 > 
 > 
 
@@ -115,10 +111,10 @@ ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Можно ли управлять запланированными обновлениями с помощью PowerShell, интерфейса командной строки или других средств управления?
 Да, управлять запланированными обновлениями можно с помощью следующих командлетов PowerShell:
 
-* [Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
-* [New-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763834.aspx)
-* [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
-* [Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
+* [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/get-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry)
+* [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Для каких ценовых категорий доступна функция планирования обновлений?
 Функция планирования обновлений доступна только в ценовой категории "Премиум".
@@ -129,6 +125,6 @@ ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

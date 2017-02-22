@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1bfb0841ce6ad151d863d4635cb10d3ef1b1e06b
+ms.sourcegitcommit: cca4d126a5c5f012af6afb9a31d0aedc0f7eb155
+ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
 
 
 ---
@@ -59,27 +59,29 @@ SSL-шифрование — это наиболее распространен
 
 1. В среде разработки откройте файл определения службы (CSDEF), добавьте раздел **Certificates** внутри раздела **WebRole** и добавьте следующие сведения о сертификате (и промежуточных сертификатах).
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                            storeLocation="LocalMachine" 
-                            storeName="My"
-                            permissionLevel="limitedOrElevated" />
-               <!-- IMPORTANT! Unless your certificate is either
-               self-signed or signed directly by the CA root, you
-               must include all the intermediate certificates
-               here. You must list them here, even if they are
-               not bound to any endpoints. Failing to list any of
-               the intermediate certificates may cause hard-to-reproduce
-               interoperability problems on some clients.-->
-               <Certificate name="CAForSampleCertificate"
-                            storeLocation="LocalMachine"
-                            storeName="CA"
-                            permissionLevel="limitedOrElevated" />
-           </Certificates>
-       ...
-       </WebRole>
+    ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                        storeLocation="LocalMachine" 
+                        storeName="My"
+                        permissionLevel="limitedOrElevated" />
+            <!-- IMPORTANT! Unless your certificate is either
+            self-signed or signed directly by the CA root, you
+            must include all the intermediate certificates
+            here. You must list them here, even if they are
+            not bound to any endpoints. Failing to list any of
+            the intermediate certificates may cause hard-to-reproduce
+            interoperability problems on some clients.-->
+            <Certificate name="CAForSampleCertificate"
+                        storeLocation="LocalMachine"
+                        storeName="CA"
+                        permissionLevel="limitedOrElevated" />
+        </Certificates>
+    ...
+    </WebRole>
+    ```
    
    В разделе **Certificates** определяется имя сертификата, его расположение и имя хранилища, в котором он находится.
    
@@ -91,43 +93,50 @@ SSL-шифрование — это наиболее распространен
    | elevated |Доступ к закрытому ключу могут получить только процессы повышенного уровня. |
 2. В файле определения службы добавьте элемент **InputEndpoint** в раздел **Endpoints**, чтобы включить протокол HTTPS.
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Endpoints>
-               <InputEndpoint name="HttpsIn" protocol="https" port="443" 
-                   certificate="SampleCertificate" />
-           </Endpoints>
-       ...
-       </WebRole>
+    ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Endpoints>
+            <InputEndpoint name="HttpsIn" protocol="https" port="443" 
+                certificate="SampleCertificate" />
+        </Endpoints>
+    ...
+    </WebRole>
+    ```
+
 3. В файле определения службы добавьте элемент **Binding** в раздел **Sites**. Этот раздел добавляет привязку HTTPS для сопоставления конечной точки с вашим сайтом.
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Sites>
-               <Site name="Web">
-                   <Bindings>
-                       <Binding name="HttpsIn" endpointName="HttpsIn" />
-                   </Bindings>
-               </Site>
-           </Sites>
-       ...
-       </WebRole>
+    ```xml   
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Sites>
+            <Site name="Web">
+                <Bindings>
+                    <Binding name="HttpsIn" endpointName="HttpsIn" />
+                </Bindings>
+            </Site>
+        </Sites>
+    ...
+    </WebRole>
+    ```
    
    Все необходимые изменения внесены в файл определения службы, но еще нужно добавить сведения о сертификате в сам файл конфигурации службы.
 4. В файле конфигурации службы (CSCFG), ServiceConfiguration.Cloud.cscfg, добавьте раздел **Certificates** в раздел **Role**, заменив приведенный ниже пример значения отпечатка сертификата значением отпечатка своего сертификата.
    
-       <Role name="Deployment">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                   thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
-                   thumbprintAlgorithm="sha1" />
-               <Certificate name="CAForSampleCertificate"
-                   thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
-                   thumbprintAlgorithm="sha1" />
-           </Certificates>
-       ...
-       </Role>
+    ```xml   
+    <Role name="Deployment">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                thumbprintAlgorithm="sha1" />
+            <Certificate name="CAForSampleCertificate"
+                thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                thumbprintAlgorithm="sha1" />
+        </Certificates>
+    ...
+    </Role>
+    ```
 
 (В предыдущем примере для алгоритма отпечатка используется обозначение **sha1**.) Укажите соответствующее значение для алгоритма отпечатка своего сертификата.)
 
@@ -136,15 +145,17 @@ SSL-шифрование — это наиболее распространен
 ## <a name="step-3-upload-a-certificate"></a>Шаг 3. Отправка сертификата
 Ваш пакет развертывания был обновлен для использования сертификата, и была добавлена конечная точка HTTPS. Теперь можно передать пакет и сертификат в Azure через классический портал Azure.
 
-1. Войдите на [классическом портале Azure][классическом портале Azure]. 
+1. Войдите на [классический портал Azure][Azure classic portal]. 
 2. Выберите **Облачные службы** на панели навигации слева.
 3. Выберите необходимую облачную службу.
 4. Перейдите на вкладку **Сертификаты**.
    
     ![Перейдите на вкладку «Сертификаты»](./media/cloud-services-configure-ssl-certificate/click-cert.png)
+
 5. Нажмите кнопку **Отправить** .
    
     ![Передать](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
 6. Укажите **файл**, **пароль**, а затем щелкните галочку **Готово**.
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Шаг 4. Подключение к экземпляру роли с использованием HTTPS
@@ -168,9 +179,9 @@ SSL-шифрование — это наиболее распространен
 * [Общая настройка облачной службы](cloud-services-how-to-configure.md).
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
-* [Управление облачной службой](cloud-services-how-to-manage.md).
+* [Управляйте облачной службой](cloud-services-how-to-manage.md).
 
-[классическом портале Azure]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
 [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
 [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
@@ -179,6 +190,6 @@ SSL-шифрование — это наиболее распространен
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

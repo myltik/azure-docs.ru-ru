@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: b8a66308c4f4f1df610cdacd092ef133bd605665
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 * использовать триггер при получении новой публикации;
 * использовать действия, оставляющие публикации в хронике, получающие канал страниц и выполняющие другие действия. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно настроить трансляцию всех публикаций, которые появляются в хронике, в Twitter. 
 
-Сведения о добавлении операции в приложения логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о добавлении операции в приложения логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Триггеры и действия
 Соединитель Facebook предоставляет следующие триггеры и действия. 
@@ -66,10 +66,10 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 Получает веб-канал из хроники вошедшего в систему пользователя.  
 ```GET: /me/feed```
 
-| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Description (Описание) |
 | --- | --- | --- | --- | --- | --- |
 | fields |string |Нет |запрос |Нет |Укажите поля, которые необходимо вернуть. Пример (идентификатор, имя, фото). |
-| ограничение |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
+| limit |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
 | на |string |Нет |запрос |Нет |Ограничение списка публикаций только теми, в которых указано местонахождение. |
 | фильтр |string |Нет |запрос |Нет |Получение только тех публикаций, которые соответствуют определенному фильтру потока. |
 
@@ -136,8 +136,8 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| userId |строка |Да |path |Нет |Идентификатор пользователя, хронику которого нужно извлечь. |
-| ограничение |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
+| userId |string |Да |path |Нет |Идентификатор пользователя, хронику которого нужно извлечь. |
+| limit |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
 | на |string |Нет |запрос |Нет |Ограничение списка публикаций только теми, в которых указано местонахождение. |
 | фильтр |string |Нет |запрос |Нет |Получение только тех публикаций, которые соответствуют определенному фильтру потока. |
 | fields |string |Нет |запрос |Нет |Укажите поля, которые необходимо вернуть. Пример (идентификатор, имя, фото). |
@@ -183,11 +183,11 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Нет |
+| id |string |Нет |
 | admin_creator |array |Нет |
 | caption |string |Нет |
 | created_time |string |Нет |
-| Описание |строка |Нет |
+| description |string |Нет |
 | feed_targeting |не определено |Нет |
 | from |не определено |Нет |
 | icon |string |Нет |
@@ -195,18 +195,18 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 | is_published |Логическое |Нет |
 | link |string |Нет |
 | message |string |Нет |
-| Имя |строка |Нет |
+| name |string |Нет |
 | object_id |string |Нет |
 | picture |string |Нет |
 | place |не определено |Нет |
 | privacy |не определено |Нет |
 | properties |array |Нет |
-| источник |строка |Нет |
+| источник |string |Нет |
 | status_type |string |Нет |
 | story |string |Нет |
 | targeting |не определено |Нет |
 | значение |array |Нет |
-| type |строка |Нет |
+| type |string |Нет |
 | updated_time |string |Нет |
 | with_tags |не определено |Нет |
 
@@ -215,22 +215,22 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Нет |
+| id |string |Нет |
 | created_time |string |Нет |
 | from |не определено |Нет |
 | message |string |Нет |
-| type |строка |Нет |
+| type |string |Нет |
 
 #### <a name="adminitem"></a>AdminItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Нет |
+| id |string |Нет |
 | link |string |Нет |
 
 #### <a name="propertyitem"></a>PropertyItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| Имя |строка |Нет |
+| name |string |Нет |
 | text |string |Нет |
 | href |string |Нет |
 
@@ -240,9 +240,9 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 | message |string |Да |
 | link |string |Нет |
 | picture |string |Нет |
-| Имя |строка |Нет |
+| name |string |Нет |
 | caption |string |Нет |
-| Описание |строка |Нет |
+| description |string |Нет |
 | place |string |Нет |
 | tags |string |Нет |
 | privacy |не определено |Нет |
@@ -254,10 +254,10 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 | message |string |Да |
 | link |string |Нет |
 | picture |string |Нет |
-| Имя |строка |Нет |
+| name |string |Нет |
 | caption |string |Нет |
-| Описание |строка |Нет |
-| Действия |array |Нет |
+| description |string |Нет |
+| actions |array |Нет |
 | place |string |Нет |
 | tags |string |Нет |
 | object_attachment |string |Нет |
@@ -273,7 +273,7 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 #### <a name="postfeedresponse"></a>PostFeedResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Нет |
+| id |string |Нет |
 
 #### <a name="profilecollection"></a>ProfileCollection
 | Имя свойства | Тип данных | Обязательно |
@@ -283,17 +283,17 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 #### <a name="useritem"></a>UserItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Нет |
+| id |string |Нет |
 | first_name |string |Нет |
 | last_name |string |Нет |
-| Имя |строка |Нет |
+| name |string |Нет |
 | gender |string |Нет |
 | about |string |Нет |
 
 #### <a name="actionitem"></a>ActionItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| Имя |строка |Нет |
+| name |string |Нет |
 | link |string |Нет |
 
 #### <a name="targetitem"></a>TargetItem
@@ -326,8 +326,8 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 #### <a name="placeitem"></a>PlaceItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Нет |
-| Имя |строка |Нет |
+| id |string |Нет |
+| name |string |Нет |
 | overall_rating |number |Нет |
 | location |не определено |Нет |
 
@@ -339,8 +339,8 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 | latitude |number |Нет |
 | located_in |string |Нет |
 | longitude |number |Нет |
-| Имя |строка |Нет |
-| region |строка |Нет |
+| name |string |Нет |
+| region |string |Нет |
 | state |string |Нет |
 | street |string |Нет |
 | zip |string |Нет |
@@ -348,7 +348,7 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 #### <a name="privacyitem"></a>PrivacyItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| Описание |строка |Нет |
+| description |string |Нет |
 | value |string |Да |
 | allow |string |Нет |
 | deny |string |Нет |
@@ -360,8 +360,8 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 | link |string |Нет |
 | picture |string |Нет |
 | image_hash |string |Нет |
-| Имя |строка |Нет |
-| Описание |строка |Нет |
+| name |string |Нет |
+| description |string |Нет |
 
 #### <a name="postphotorequest"></a>PostPhotoRequest
 | Имя свойства | Тип данных | Обязательно |
@@ -372,14 +372,14 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 #### <a name="postphotoresponse"></a>PostPhotoResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Да |
+| id |string |Да |
 | post_id |string |Да |
 
 #### <a name="postvideorequest"></a>PostVideoRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | videoData |string |Да |
-| Описание |string |Да |
+| description |string |Да |
 | title |string |Да |
 | uploadedVideoName |string |Нет |
 
@@ -404,22 +404,22 @@ ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
 #### <a name="geteventresponseitem"></a>GetEventResponseItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |строка |Да |
-| Имя |string |Да |
+| id |string |Да |
+| name |string |Да |
 | start_time |string |Нет |
 | end_time |string |Нет |
 | timezone |string |Нет |
 | location |string |Нет |
-| Описание |строка |Нет |
+| description |string |Нет |
 | ticket_uri |string |Нет |
 | rsvp_status |string |Да |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

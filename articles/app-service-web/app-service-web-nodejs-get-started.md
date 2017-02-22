@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с веб-приложениями Node.js в службе приложений Azure | Документация Майкрософт"
+title: "Разработка веб-приложений Node.js для службы приложений Azure | Документация Майкрософт"
 description: "Сведения о развертывании приложения Node.js в веб-приложение в службе приложений Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Начало работы с веб-приложениями Node.js в службе приложений Azure
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Разработка веб-приложений Node.js для службы приложений Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 В этом руководстве показано, как создать простое приложение [Node.js] и развернуть его в [службе приложений Azure] из командной строки, например cmd.exe или Bash. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, в которой может работать Node.js.
@@ -34,7 +34,7 @@ ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-nodejs-get-started.md) —следующее поколение интерфейса командной строки для модели развертывания Resource Manager.
+- [Azure CLI 2.0 (предварительная версия)](app-service-web-nodejs-get-started.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Node.js]
@@ -45,7 +45,7 @@ ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию] или [активируйте преимущества для подписчиков Visual Studio].
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -114,13 +114,13 @@ ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). В рамках этой версии руководства для PHP вам не обязательно знать, что это такое.
+3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). В рамках этой версии руководства для node.js вам не обязательно знать, что это такое.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     Чтобы увидеть доступные значения для `<location>`, используйте команду `az appservice list-locations` интерфейса командной строки.
 
-3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". В рамках этой версии руководства для PHP вам достаточно знать, что этот план не предусматривает выставление счетов за веб-приложения.
+3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". В рамках этой версии руководства для node.js вам достаточно знать, что этот план не предусматривает выставление счетов за веб-приложения.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

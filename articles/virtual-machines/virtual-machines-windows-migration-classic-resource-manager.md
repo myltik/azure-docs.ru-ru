@@ -1,5 +1,5 @@
 ---
-title: "Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager | Документация Майкрософт"
+title: "Обзор переноса классических ресурсов в развертывание с помощью Azure Resource Manager | Документация Майкрософт"
 description: "В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов из классической модели в модель Azure Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
+ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
+ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
 
 
 ---
@@ -138,6 +138,8 @@ Resource Manager позволяет развертывать сложные пр
 
 * Если ресурс невозможно перенести, то платформа Azure укажет все соответствующие причины.
 
+При проверке служб хранилища вы найдете перенесенную учетную запись в группе ресурсов с именем вашей учетной записи хранения, к которому добавлен суффикс "-Migrated".  Например, если ваша учетная запись хранения — mystorage, то вы найдете ресурс с поддержкой ARM в группе ресурсов mystorage-Migrated, и она будет содержать учетную запись хранения mystorage.
+
 ### <a name="prepare"></a>Подготовка.
 Операция подготовки — это второй шаг в процессе переноса. На этом этапе моделируется преобразование классических ресурсов IaaS в ресурсы Resource Manager, после чего на экране рядом отображаются ресурсы до и после преобразования для наглядности.
 
@@ -250,6 +252,6 @@ Resource Manager позволяет развертывать сложные пр
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

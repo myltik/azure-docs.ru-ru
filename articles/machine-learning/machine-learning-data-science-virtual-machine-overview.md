@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/01/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
+ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
 
 
 ---
@@ -50,18 +50,23 @@ ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
 В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft R Server или SQL Server 2016. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
 
 | **Выпуск для Windows** | **Выпуск для Linux** |
-| --- | --- |
-| Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Jupyter Notebook Server (R, Python) |JupyterHub: многопользовательские приложения Jupyter Notebook (R, Python, Julia) |
-| SQL Server 2016 Developer Edition: масштабируемое аналитическое решение в базе данных со службами R |Postgres, SQuirreL SQL (средство управления базой данных), драйверы SQL Server и командная строка (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> — Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools; </br> — Средства Node.js, Python и R для Visual Studio. |Интегрированные среды разработки и редакторы </br> — подключаемый модуль набора средств для Eclipse с Azure; </br> — Emacs (с ESS, AUCTeX), gedit. |
+| -- | --|
+| Microsoft R Open с предустановленными популярными пакетами | Microsoft R Open с предустановленными популярными пакетами |
+| Microsoft R Server Developer Edition с алгоритмами MicrosoftML и Microsoft R Operationalization  |Microsoft R Server Developer Edition |
+| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 с предустановленными популярными пакетами|
+| JuliaPro с предварительно установленными популярными пакетами | JuliaPro с предварительно установленными популярными пакетами |
+| Jupyter Notebook Server (R, Python) |JupyterHub: многопользовательские приложения Jupyter Notebook (R, Python, Julia, PySpark) |
+| SQL Server 2016 SP1 Developer Edition: масштабируемое аналитическое решение в базе данных со службами R |PostgreSQL, SQuirreL SQL (средство управления базой данных), драйверы SQL Server и командная строка (bcp, sqlcmd) |
+|Выпуск Visual Studio Community Edition 2015 (IDE) </br> — Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools; </br> Средства Node.js, Python и R для Visual Studio (RTVS 0.5) </br>R Studio Desktop|Интегрированные среды разработки и редакторы </br> — подключаемый модуль набора средств для Eclipse с Azure; </br> — Emacs (с ESS, AUCTeX), gedit. </br> IntelliJ IDEA</br> PyCharm</br> Atom</br> Visual Studio Code|
 | Power BI Desktop; |-- |
-| Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> — CNTK (глубокое обучение/AI); </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных); </br> — MXNet (глубокое обучение/AI). |Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> — CNTK (глубокое обучение/AI); </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных). |
+| Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> Microsoft Cognitive Toolkit (CNTK 2.0) глубокое обучение и ИИ </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных); </br> — MXNet (глубокое обучение/AI). </br> Tensorflow  |Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> — CNTK (глубокое обучение/AI); </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных). </br> MXNet (глубокое обучение и ИИ)|
 | Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence |Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence |
 | Средства для перемещения данных и управления ресурсами Azure и большими данными: обозреватель службы хранилища Azure, интерфейс командной строки, PowerShell, AdlCopy (Azure Data Lake), AzCopy, DTUI (для DocumentDB), шлюз управления данными Майкрософт |Средства для перемещения данных и управления ресурсами Azure и большими данными: обозреватель службы хранилища Azure, интерфейс командной строки |
 | Git, подключаемый модуль Visual Studio Team Services |Git |
 | Порт Windows самых популярных служебных программ командной строки для Linux и Unix, доступный через GitBash или командную строку |-- |
+| Weka | Weka |
+| Drill | Drill |
+| --| Spark в локальном режиме |
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Как приступить к работе с виртуальной машиной Windows для обработки и анализа данных
 * Создайте экземпляр виртуальной машины под управлением Windows. Для этого перейдите на [эту страницу](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) и нажмите зеленую кнопку **Создание виртуальной машины**.
@@ -86,6 +91,6 @@ ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

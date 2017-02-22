@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/14/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
+ms.sourcegitcommit: d1b5f52bb57f6d963db4bdb6249c3b9a3fd118cd
+ms.openlocfilehash: 4abcbfc8e1abfa1278307d97e366e0d0ae846d05
 
 
 
@@ -24,18 +24,48 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-В этой группе статей рассказывается, как использовать HDInsight Spark для выполнения общих задач обработки и анализа данных, таких как прием данных, проектирование функций, моделирование и оценка моделей. В качестве данных используется пример с числом поездок и тарифами нью-йоркского такси за 2013 год. В моделях используются логистическая и линейная регрессия, случайные леса и градиентный бустинг деревьев. Кроме того, в этих статьях рассказывается, как хранить эти модели в хранилище BLOB-объектов Azure (WASB), а также оценивать и анализировать прогнозируемую производительность. В более расширенных разделах рассматриваются способы обучения моделей с помощью перекрестной проверки и перебора гиперпараметров. В этой обзорной статье также описывается процедура настройки кластера Spark, который вам потребуется для выполнения действий, описанных в трех предоставленных руководствах. 
+В этой группе статей рассказывается, как использовать HDInsight Spark для выполнения общих задач обработки и анализа данных, таких как прием данных, проектирование функций, моделирование и оценка моделей. В качестве данных используется пример с числом поездок и тарифами нью-йоркского такси за 2013 год. В моделях используются логистическая и линейная регрессия, случайные леса и градиентный бустинг деревьев. Кроме того, в этих статьях рассказывается, как хранить эти модели в хранилище BLOB-объектов Azure (WASB), а также оценивать и анализировать прогнозируемую производительность. В более расширенных разделах рассматриваются способы обучения моделей с помощью перекрестной проверки и перебора гиперпараметров. В этой обзорной статье также упоминаются разделы, посвященные настройке кластера Spark, который вам потребуется для выполнения действий, описанных в предоставленных руководствах. 
 
-[Spark](http://spark.apache.org/) — это платформа параллельной обработки с открытым исходным кодом, которая поддерживает обработку в памяти, повышая производительность приложений для анализа больших данных. Подсистема обработки Spark призвана ускорить разработку, повысить удобство использования и реализовать сложную аналитику. Возможности распределенного вычисления в памяти Spark отлично подходят для итеративных алгоритмов в машинном обучении и графовых вычислениях. [MLlib](http://spark.apache.org/mllib/) — это масштабируемая библиотека машинного обучения Spark, которая предоставляет возможности моделирования для этой распределенной среды. 
+## <a name="spark-and-mllib"></a>Spark и MLlib
+[Spark](http://spark.apache.org/) — это платформа параллельной обработки с открытым исходным кодом, которая поддерживает обработку в памяти, повышая производительность приложений для анализа больших данных. Подсистема обработки Spark призвана ускорить разработку, повысить удобство использования и реализовать сложную аналитику. Возможности распределенного вычисления в памяти Spark отлично подходят для итеративных алгоритмов, используемых в машинном обучении и графовых вычислениях. [MLlib](http://spark.apache.org/mllib/) — это масштабируемая библиотека машинного обучения Spark, которая предоставляет возможности алгоритмического моделирования для этой распределенной среды. 
 
+## <a name="hdinsight-spark"></a>HDInsight Spark
 [HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) представляет собой версию платформы Spark с открытым исходным кодом, размещенную в Azure. Она также поддерживает **записные книжки Jupyter PySpark** в кластере Spark, которые могут выполнять интерактивные запросы Spark SQL для преобразования, фильтрации и визуализации данных, хранящихся в больших двоичных объектах Azure (WASB). PySpark — это API Python для Spark. Здесь фрагменты кода, которые предоставляют решения и формируют соответствующие графики с целью визуализации данных, выполняются в записных книжках Jupyter, установленных в кластерах Spark. Этапы моделирования, описанные в этих разделах, содержат код, который демонстрирует способ обучения, анализа, сохранения и использования каждого типа модели. 
 
-Действия по настройке и код, указанные в этом пошаговом руководстве, предназначены для HDInsight 3.4 Spark 1.6. Однако код здесь и в записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark.
+## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Настройка кластеров Spark и записных книжек Jupyter
+Действия по настройке и код, указанные в этом пошаговом руководстве, применимы к использованию для HDInsight Spark 1.6. Но записные книжки Jupyter можно использовать для кластеров HDInsight Spark 1.6 и Spark 2.0. Описание записных книжек и ссылки на них вы можете найти в файле [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) для репозитория GitHub с записными книжками. Более того, код здесь и в связанных записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark. Для удобства мы приводим ссылки на записные книжки Jupyter для Spark 1.6 и 2.0, которые можно выполнять в ядре pyspark на сервере Jupyter Notebook.
 
-## <a name="prerequisites"></a>Предварительные требования
+### <a name="spark-16-notebooks"></a>Записные книжки для Spark 1.6
+
+- [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку с использованием нескольких различных алгоритмов.
+- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Содержит разделы в записной книжке №1 и варианты моделей с использованием настройки гиперпараметров и перекрестной проверки.
+- [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb). Показывает, как применять сохраненную модель в кластерах HDInsight с помощью Python.
+
+### <a name="spark-20-notebooks"></a>Записные книжки для Spark 2.0
+
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку в кластерах Spark 2.0.
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере набора данных о расстояниях и ценах на такси в Нью-Йорке, который описан [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере известного набора данных о расписании вылетов авиакомпании за 2011 и 2012 гг. До моделирования мы дополнили набор данных об авиарейсах набором данных о погоде в аэропортах (скорость ветра, температура, высота над уровнем моря и т. д.), чтобы включить в модель эту информацию о погоде.
+
+<!-- -->
+
+> [!NOTE]
+> В записные книжки для Spark 2.0 был добавлен набор данных об авиарейсах, который лучше иллюстрирует использование алгоритмов классификации. Следующие ссылки помогут получить информацию о наборах данных о расписании вылетов авиакомпании и о погоде.
+
+>- Данные о расписании вылетов авиакомпании: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+
+>- Данные о погоде в аэропортах: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+> 
+> 
+
+<!-- -->
+
+Руководство по применению модели Spark 2.0 и использованию моделей для оценки вы найдете в [этом документе для Spark 1.6](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb), который содержит пример с описанием выполняемых шагов. Чтобы использовать этот пример в Spark 2.0, замените файл кода Python [этим файлом](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
+
+### <a name="prerequisites"></a>Предварительные требования
 1. У вас должна быть подписка Azure. Если у вас ее нет, см. статью [о получении бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. Для выполнения инструкций этого руководства требуется кластер HDInsight 3.4 Spark 1.6. Создайте его, выполнив инструкции в статье [Начало работы: создание кластера Apache Spark в Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Тип и версию кластера можно указать с помощью меню **Выбор типа кластера** . 
+2. Для выполнения инструкций этого руководства требуется кластер Spark версии 1.6 или 2.0. Создайте его, выполнив инструкции в статье [Начало работы: создание кластера Apache Spark в Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Тип и версию кластера можно указать с помощью меню **Выбор типа кластера** . 
 
 ![Настройка кластера](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
@@ -101,7 +131,7 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 | tip_amount |Сумма чаевых |
 | tolls_amount |Дорожные пошлины |
 | total_amount |Общая сумма |
-| tipped |Чаевые (0 — нет, 1 — да) |
+| tipped |Чаевые (0 — нет,&1; — да) |
 | tip_class |Класс чаевых (0: 0 долларов, 1: 0–5 долларов, 2: 6–10 долларов, 3: 11–20 долларов, 4: >20 долларов) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Выполнение кода из записной книжки Jupyter в кластере Spark
@@ -115,11 +145,7 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 Выберите PySpark, чтобы открыть каталог, содержащий несколько примеров предварительно подготовленных записных книжек на основе API PySpark. Записные книжки с примерами кода для этой группы статьей о Spark доступны в репозитории [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-Записные книжки можно отправить непосредственно из Github на сервер записных книжек Jupyter в кластере Spark. На домашней странице записной книжки Jupyter нажмите кнопку **Отправить** в правой части экрана. Откроется окно проводника. Здесь вы можете вставить URL-адрес Github (необработанное содержимое) для записной книжки и нажать кнопку **Открыть**. Записные книжки PySpark доступны по следующим URL-адресам:
-
-1. [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)
-2. [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)
-3. [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
+Записные книжки можно непосредственно из [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) отправить на сервер Jupyter Notebook в кластере Spark. На домашней странице записной книжки Jupyter нажмите кнопку **Отправить** в правой части экрана. Откроется окно проводника. Здесь вы можете вставить URL-адрес Github (необработанное содержимое) для записной книжки и нажать кнопку **Открыть**. 
 
 В списке файлов Jupyter отобразится имя файла с кнопкой **Отправить**. Нажмите кнопку **Отправить** . Записная книжка импортирована. Повторите эти действия для отправки остальных записных книжек из этого руководства.
 
@@ -154,6 +180,6 @@ ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

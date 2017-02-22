@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
 
 
 ---
@@ -36,9 +36,9 @@ ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 В этом руководстве рассматривается создание и мониторинг фабрики данных Azure с помощью REST API. Конвейер в фабрике данных копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью действия копирования.
 
 > [!NOTE]
-> В этой статье рассматриваются не все REST API фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по REST API фабрики данных](https://msdn.microsoft.com/library/azure/dn906738.aspx).
+> В этой статье рассматриваются не все REST API фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по REST API фабрики данных](/rest/api/datafactory/).
 > 
-> 
+> В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Он не преобразовывает входные данные в выходные. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
@@ -512,7 +512,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Write-Host $results
     ```
 
-**Поздравляем!**  Фабрика данных Azure с конвейером, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure, успешно создана.
+**Поздравляем!** Фабрика данных Azure с конвейером, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure, успешно создана.
 
 ## <a name="monitor-pipeline"></a>Отслеживание конвейера
 На этом шаге используется REST API фабрики данных, чтобы отслеживать срезы, созданные конвейером.
@@ -564,8 +564,6 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
-[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
@@ -578,6 +576,6 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

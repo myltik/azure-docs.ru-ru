@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/13/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a681699c081422e5ea0da34ca56e17e786c221d1
+ms.sourcegitcommit: 5e6bab265b2b6eabd1a878492588c4eb39d1b332
+ms.openlocfilehash: 89dfabb8feafffee2ed8143c372b53d02033d582
 
 
 ---
@@ -58,6 +58,9 @@ ms.openlocfilehash: a681699c081422e5ea0da34ca56e17e786c221d1
 #### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-domains-provided-by-azure-ad-domain-services"></a>Можно ли изменить членство в группах с помощью LDAP или других средств администрирования AD для доменов, предоставляемых доменными службами Azure AD?
 Нет. В доменах, поддерживаемых доменными службами Azure AD, членство в группах изменить нельзя. То же касается и атрибутов пользователей. Однако членство в группах или атрибуты пользователей можно изменить в Azure AD или в локальном домене. Такие изменения автоматически синхронизируются с доменными службами Azure AD.
 
+#### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Через какое время изменения в каталоге Azure AD будут отображаться в управляемом домене?
+Изменения, внесенные в каталог Azure AD с помощью пользовательского интерфейса Azure AD или PowerShell, синхронизируются с управляемым доменом. Процесс синхронизации происходит в фоновом режиме. После однократной начальной синхронизации каталога обычно необходимо около 20 минут, чтобы внесенные в Azure AD изменения отобразились в управляемом домене.
+
 #### <a name="can-i-extend-the-schema-of-the-domain-provided-by-azure-ad-domain-services"></a>Могу ли я расширить схему доменом, предоставляемым доменными службами Azure AD?
 Нет. Схемой управляемого домена управляет корпорация Майкрософт. Расширения схемы не поддерживаются в доменных службах Azure AD.
 
@@ -71,16 +74,14 @@ ms.openlocfilehash: a681699c081422e5ea0da34ca56e17e786c221d1
 #### <a name="is-there-a-free-trial-for-the-service"></a>Существует ли бесплатная пробная версия для службы?
 Эта служба включена в бесплатную пробную версию Azure. Вы можете зарегистрировать [бесплатную пробную версию Azure на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
-#### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems"></a>Можно ли получить доменные службы Azure AD в составе Enterprise Mobility Suite (EMS)?
-#### <a name="do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Требуется ли Azure AD Premium для использования доменных служб Azure AD?
-Нет. Доменные службы Azure — это служба Azure с оплатой по мере использования, не входящая в предложение EMS. Доменные службы Azure AD доступны для всех выпусков Azure AD ("Бесплатный", "Базовый" и "Премиум") и оплачиваются на почасовой основе в зависимости от использования.
+#### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Можно ли получить доменные службы Azure AD в составе Enterprise Mobility Suite (EMS)? Требуется ли Azure AD Premium для использования доменных служб Azure AD?
+Нет. Доменные службы Azure — это служба Azure с оплатой по мере использования, не входящая в предложение EMS. Доменные службы Azure AD можно использовать со всеми выпусками Azure AD ("Бесплатный", "Базовый" и "Премиум"). Счет выставляется каждый час в зависимости от использования.
 
 #### <a name="what-azure-regions-is-the-service-available-in"></a>В каких регионах Azure доступна служба?
 Перейдите на страницу [служб Azure по регионам](https://azure.microsoft.com/regions/#services/), чтобы просмотреть список регионов Azure, в которых доступны доменные службы Azure AD.
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

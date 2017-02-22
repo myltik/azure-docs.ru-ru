@@ -16,7 +16,7 @@
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace для партнеров](documentation-government-manage-marketplace-partners.md)
 ### [Диспетчер ресурсов](documentation-government-manage-azure-resource-manager.md)
-### [Operations Management Suite](documentation-government-manage-oms.md)
+### [Operations Management Suite](documentation-government-manage-oms.md).
 ### [Подписка](documentation-government-manage-subscriptions.md)
 ## Развернуть
 ### Интернет и мобильные устройства
@@ -39,6 +39,6 @@
 ## [Веб-сайт Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

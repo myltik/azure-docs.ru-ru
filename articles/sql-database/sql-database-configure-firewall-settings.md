@@ -12,23 +12,16 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5834558d761784239813afc6bbb3e77cebcf1fa
-ms.openlocfilehash: fcdd0b855d64eb4b04ef1ea6d7752e9c664557a6
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Создание и управление правилами брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-firewall-configure.md)
-> * [Портал Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
-> 
 
 Правила брандмауэра уровня сервера позволяют администраторам получить доступ к серверу базы данных SQL по указанному IP-адресу или диапазону IP-адресов. Правила брандмауэра серверного уровня можно также использовать для пользователей, если у вас много баз данных с одинаковыми требованиями доступа и вы не хотите тратить время на настройку каждой базы данных по отдельности. Корпорация Майкрософт рекомендует использовать правила брандмауэра уровня базы данных всегда, когда это возможно, чтобы повысить уровень безопасности и сделать базу данных более портативной. Общие сведения о брандмауэрах базы данных SQL см. в статье [Обзор правил брандмауэра базы данных SQL](sql-database-firewall-configure.md).
 
@@ -64,6 +57,6 @@ ms.openlocfilehash: fcdd0b855d64eb4b04ef1ea6d7752e9c664557a6
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

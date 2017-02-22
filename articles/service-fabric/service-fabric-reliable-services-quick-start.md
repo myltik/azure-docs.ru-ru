@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе со службами Reliable Services | Документация Майкрософт"
+title: "Создание первой надежной микрослужбы Azure на языке C# | Документация Майкрософт"
 description: "Вводные сведения о создании приложения Service Fabric Microsoft Azure со службами с отслеживанием состояния и без него."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 41823b962caf25e1826fc06bc49887fd99876fc4
 
 
 ---
@@ -27,7 +27,9 @@ ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
 > 
 > 
 
-Приложение Azure Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве показано, как создавать приложения Service Fabric с отслеживанием состояния и без его учета с помощью служб [Reliable Services](service-fabric-reliable-services-introduction.md).
+Приложение Azure Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве показано, как создавать приложения Service Fabric с отслеживанием состояния и без его учета с помощью служб [Reliable Services](service-fabric-reliable-services-introduction.md).  В этом видеоролике от Академии Microsoft Virtual Academy также показано, как создать службу Reliable Services без отслеживания состояния: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="basic-concepts"></a>Основные понятия
 Чтобы приступить к работе с Reliable Services, необходимо ознакомиться только с несколькими основными понятиями.
@@ -229,6 +231,6 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

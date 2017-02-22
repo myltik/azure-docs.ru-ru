@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
-ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
+ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
 
 
 ---
@@ -33,6 +33,7 @@ ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
 * Node.js
 * PHP
 * .NET Core.
+* Ruby
 
 Чтобы развертывать собственные приложения, клиенты могут использовать следующее:
 
@@ -66,6 +67,8 @@ ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
 
 Веб-приложения Linux необходимо создавать в группе ресурсов, в которой отсутствуют веб-приложения под управлением других платформ в том же регионе.
 
+В веб-приложениях на платформе Linux пока не поддерживается развертывание приложений .NET Core из некомпилированного источника. Вам понадобится сначала опубликовать и скомпилировать приложение .NET Core локально, а затем передать байты опубликованного сайта в приложение.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Просмотрите следующие материалы, чтобы приступить к работе со службой приложений в Linux. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -73,9 +76,9 @@ ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
 * [Как применять пользовательские образы Docker в службе приложений на платформе Linux](app-service-linux-using-custom-docker-image.md)
 * [Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux](app-service-linux-using-nodejs-pm2.md)
 * [Использование .NET Core в веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-using-dotnetcore.md)
+* [Вопросы и ответы о веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 
 
-
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

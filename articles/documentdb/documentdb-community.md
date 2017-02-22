@@ -1,10 +1,10 @@
 ---
-title: "Новости сообщества DocumentDB | Документация Майкрософт"
+title: "Новости, события и сообщество Azure DocumentDB | Документация Майкрософт"
 description: "Присоединяйтесь к сообществу Azure DocumentDB: заводите знакомства, демонстрируйте свои проекты и оттачивайте навыки."
 services: documentdb
 documentationcenter: 
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
 ms.service: documentdb
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: bbf3b7b1d7e28bfd6bf0d6ca506963eff755e7a2
-ms.openlocfilehash: 615324a8ae0cd50e68286b467dfefce91628fb35
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
 
 
 ---
@@ -96,7 +96,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ### <a name="recent-and-upcoming-events"></a>Недавно прошедшие и предстоящие мероприятия
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | --- | --- | --- | --- | --- |
-| [Вебинар Wintellect: введение в Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|В сети|15 декабря 2016 г. в 13:00 по восточному стандартному времени (EST)|Недоступно|
+| [Вебинар Wintellect: введение в Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|В сети|12 января 2017 г., 13:00 (восточное поясное время)|Недоступно|
 
 *Вы являетесь докладчиком или организуете мероприятие? [Сообщите нам,](mailto:askdocdb@microsoft.com) чем мы можем помочь.*
 
@@ -131,7 +131,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [SQL Saturday № 444 — Канзас-Сити, 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) |Джефф Ренц (Jeff Renz) |Канзас-Сити, штат Миссури |3 октября 2015 г. |Недоступно |
 | [SQL Saturday № 429 — Порту, 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) |Леонард Лоубел (Leonard Lobel) |Порту, Португалия |3 октября 2015 г. |Недоступно |
 | [AzureCon](https://azure.microsoft.com/azurecon/) |Дэвид Мекоген (David Makogon), Райан Кроукур (Ryan Crawcour), Джон Макинтайр (John Macintyre) |Виртуальное мероприятие |29 сентября 2015 г. |[Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) (Платформы данных и аналитики Azure) [Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) (Работа с данными NoSQL в DocumentDB) |
-| [SQL Saturday № 434 — Нидерланды, 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Леонард Лоубел (Leonard Lobel) |Утрехт, Нидерланды |26 сентября 2015 г. |[Введение в Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [SQL Saturday № 434 — Нидерланды, 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Леонард Лоубел (Leonard Lobel) |Утрехт, Нидерланды |26 сентября 2015 г. |[Введение в Azure DocumentDB](https://channel9.msdn.com/Blogs/Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [SQL Saturday № 441 — Денвер, 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) |Джефф Ренц (Jeff Renz) |Денвер, штат Колорадо |19 сентября, 2015 г. |Недоступно |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) |Эндрю Лю (Andrew Liu) |Сан-Франциско, Калифорния |15 сентября 2015 г. |Недоступно |
 | [Встреча группы пользователей Azure из Беларуси](https://www.facebook.com/events/786540124800276/) |Алекс Зил (Alex Zyl) |Минск, Беларусь |9 сентября 2015 г. |[Общее введение в концепцию DocumentDB, уровни соответствия, стратегии сегментирования](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
@@ -184,7 +184,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ### <a name="online-classes"></a>Онлайн-курсы
 | Партнер по обучению | Описание |
 | --- | --- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) |[**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) |[**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) обеспечивает серьезную техническую подготовку по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
 
@@ -196,7 +196,6 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | Организатор форума | Описание |
 | --- | --- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |Сайт вопросов и ответов от программистов для программистов, работающих с любыми языками. Наш тег — [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) |Сайт со справочными материалами по компонентам и службам Microsoft Azure, таким как веб-сайты, DocumentDB и пр. |
 
 ## <a name="contact-the-team"></a>Связаться с командой
 ![Группа](./media/documentdb-community/documentdb-team.png)
@@ -239,6 +238,6 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

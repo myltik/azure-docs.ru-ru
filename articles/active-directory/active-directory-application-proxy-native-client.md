@@ -1,5 +1,5 @@
 ---
-title: "Как включить публикацию собственных клиентских приложений с использованием приложений прокси | Документация Майкрософт"
+title: "Публикация собственных клиентских приложений — Azure AD | Документация Майкрософт"
 description: "В этой статье описано, как включить собственные клиентские приложения для взаимодействия с соединителем прокси приложений Azure AD, чтобы обеспечить безопасный удаленный доступ к локальным приложениям."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
 
 ![Связь между конечными пользователями, Azure Active Directory и опубликованными приложениями](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-Для публикации таких приложений рекомендуется использовать библиотеку проверки подлинности Azure AD, которая автоматически выполняет проверку подлинности и поддерживает множество различных клиентских сред. Прокси приложения вписывается в [сценарий вызова веб-API собственным приложением](active-directory-authentication-scenarios.md#native-application-to-web-api). Чтобы этого добиться, выполните следующие действия.
+Для публикации таких приложений рекомендуется использовать библиотеку проверки подлинности Azure AD, которая автоматически выполняет проверку подлинности и поддерживает множество различных клиентских сред. Прокси приложения вписывается в [сценарий вызова веб-API собственным приложением](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Чтобы этого добиться, выполните следующие действия.
 
 ## <a name="step-1-publish-your-application"></a>Шаг 1. Публикация приложения
 Опубликуйте приложение прокси, как любое другое приложение, назначьте пользователей и предоставьте им лицензии категории «Премиум» или «Базовый». Дополнительные сведения см. в статье [Публикация приложений с помощью прокси приложения Azure AD](active-directory-application-proxy-publish.md).
@@ -74,7 +74,7 @@ ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
 
 ![Снимок экрана страницы настройки нового нативного приложения ](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-Дополнительные сведения о потоке собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](active-directory-authentication-scenarios.md#native-application-to-web-api).
+Дополнительные сведения о потоке собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
@@ -86,7 +86,6 @@ ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

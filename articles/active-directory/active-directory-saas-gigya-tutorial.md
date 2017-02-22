@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
+ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
+ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789512.png "Configure Single Sign-On")
+![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789512.png "Настройка единого входа")
 
 ## <a name="enabling-the-application-integration-for-gigya"></a>Включение интеграции приложений для Gigya
 В этом разделе показано, как включить интеграцию приложений для Gigya.
@@ -49,19 +49,19 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-gigya-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-gigya-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-gigya-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-gigya-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-gigya-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-gigya-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Gigya**.
    
-    ![Коллекция приложений](./media/active-directory-saas-gigya-tutorial/IC789513.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-gigya-tutorial/IC789513.png "Коллекция приложений")
 
 7. В области результатов выберите **Gigya** и щелкните **Завершить**, чтобы добавить приложение.
    
@@ -76,31 +76,31 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Gigya** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789528.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в Gigya?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789529.png "Настройка единого входа")
 
 3. На странице **Configure App URL** (Настройка URL-адреса приложения) в текстовом поле **URL-адрес входа в Gigya** введите свой URL-адрес в формате *http://company.gigya.com* и нажмите кнопку **Далее**.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-gigya-tutorial/IC789530.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в Gigya** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789531.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789531.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Gigya в качестве администратора.
 
 6. Последовательно выберите **Settings \> SAML Login** (Параметры > Вход SAML) и нажмите кнопку **Add** (Добавить).
    
-    ![Вход SAML](./media/active-directory-saas-gigya-tutorial/IC789532.png "SAML Login")
+    ![Вход SAML](./media/active-directory-saas-gigya-tutorial/IC789532.png "Вход SAML")
 
 7. В разделе **Вход SAML** выполните следующие действия.
    
-    ![Настройка SAML](./media/active-directory-saas-gigya-tutorial/IC789533.png "SAML Configuration")
+    ![Настройка SAML](./media/active-directory-saas-gigya-tutorial/IC789533.png "Настройка SAML")
    
-    А. В текстовом поле **Имя** введите имя конфигурации.
+    а. В текстовом поле **Имя** введите имя конфигурации.
    
     b. На странице диалогового окна **Настройка единого входа в Gigya** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовом поле **Издатель**.
    
@@ -121,7 +121,7 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 
 8. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789534.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-gigya-tutorial/IC789534.png "Настройка единого входа")
    
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -132,13 +132,13 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 1. Выполните вход на корпоративный веб-сайт **Gigya** в качестве администратора.
 2. Последовательно выберите **Admin \> Manage Users** (Администратор > Управление пользователями) и нажмите кнопку **Invite Users** (Пригласить пользователей).
    
-    ![Manage Users](./media/active-directory-saas-gigya-tutorial/IC789535.png "Manage Users")
+    ![Управление пользователями](./media/active-directory-saas-gigya-tutorial/IC789535.png "Управление пользователями")
 
 3. В диалоговом окне "Пригласить пользователей" выполните следующие действия.
    
-    ![Пригласить пользователей](./media/active-directory-saas-gigya-tutorial/IC789536.png "Invite Users")
+    ![Приглашение пользователей](./media/active-directory-saas-gigya-tutorial/IC789536.png "приглашение пользователей")
    
-    А. В текстовое поле **Электронная почта** введите адрес электронной почты действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
+    а. В текстовое поле **Электронная почта** введите адрес электронной почты действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
     
     b. Нажмите кнопку **Пригласить пользователя**.
       
@@ -156,17 +156,17 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Gigya** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-gigya-tutorial/IC789537.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-gigya-tutorial/IC789537.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-gigya-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-gigya-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

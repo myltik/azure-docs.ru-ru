@@ -1,5 +1,5 @@
 ---
-title: "Развертывание экземпляра службы управления Azure API в различных регионах Azure"
+title: "Развертывание служб управления API Azure в нескольких регионах Azure | Документация Майкрософт"
 description: "Дополнительные сведения о развертывании экземпляра службы управления Azure API в различных регионах Azure."
 services: api-management
 documentationcenter: 
@@ -12,27 +12,26 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
-ms.openlocfilehash: 98201867fd8b1b5f074aa6135e04b04faf384224
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 1c39fee739c2f5fd4b928e1e76e1ea57f072b5f8
 
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Развертывание экземпляра службы управления Azure API в различных регионах Azure
 Служба управления API поддерживает развертывание в нескольких регионах, что позволяет издателям API распространять единую службу управления API в любых требуемых регионах Azure. Это сокращает задержки, связанные с географической удаленностью потребителей API, а также повышает доступность службы, когда какой-либо из регионов переходит в автономный режим. 
 
-При создании службы управления API она содержит только одну [единицу][единицу] и располагается в одном регионе Azure, который считается основным. Однако через портал Azure можно легко добавить дополнительные регионы. В каждом регионе развертывается сервер шлюза управления API, и весь трафик вызовов направляется на ближайший из таких шлюзов. Если регион переходит в автономный режим, трафик автоматически перенаправляется к другому ближайшему шлюзу. 
+При создании службы управления API она содержит только одну [единицу][unit] и располагается в одном регионе Azure, который считается основным. Однако через портал Azure можно легко добавить дополнительные регионы. В каждом регионе развертывается сервер шлюза управления API, и весь трафик вызовов направляется на ближайший из таких шлюзов. Если регион переходит в автономный режим, трафик автоматически перенаправляется к другому ближайшему шлюзу. 
 
 > [!IMPORTANT]
-> Развертывание в нескольких регионах доступно только для уровня **[Премиальный][Премиальный]**.
+> Развертывание в нескольких регионах доступно только для уровня **[Премиум][Premium]**.
 > 
 > 
 
 ## <a name="add-region"> </a>Создание экземпляра службы управления API в новом регионе
 > [!NOTE]
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
@@ -70,18 +69,18 @@ ms.openlocfilehash: 98201867fd8b1b5f074aa6135e04b04faf384224
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
-[Приступая к работе со службой управления API]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Создание экземпляра службы управления API в новом регионе]: #add-region
-[Удаление экземпляра службы управления API из региона]: #remove-region
+[Deploy an API Management service instance to a new region]: #add-region
+[Delete an API Management service instance from a region]: #remove-region
 
-[единицу]: http://azure.microsoft.com/pricing/details/api-management/
-[Премиальный]: http://azure.microsoft.com/pricing/details/api-management/
-
-
+[unit]: http://azure.microsoft.com/pricing/details/api-management/
+[Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO5-->
 
 

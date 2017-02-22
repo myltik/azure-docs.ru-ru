@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ed3d5ddbbdff9ec568f513d15ecb1ea28ba8855
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
 
 
 ---
 # <a name="extend-your-experiment-with-r"></a>Расширение возможностей эксперимента с помощью R
-Вы можете расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль [Execute R Script][execute-r-script] (Выполнение скрипта R).
+Вы можете расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль [Выполнить сценарий R][execute-r-script].
 
-Этот модуль принимает несколько входных наборов данных и выдает один выходной набор данных. Скрипт R можно ввести в качестве значения параметра **R-скрипт** в модуле [Execute R Script][execute-r-script] (Выполнение скрипта R).
+Этот модуль принимает несколько входных наборов данных и выдает один выходной набор данных. Вы можете ввести сценарий R в качестве значения параметра **R-скрипт** в модуле [Выполнить сценарий R][execute-r-script].
 
 Для доступа к каждому входному порту модуля используется код, аналогичный приведенному ниже:
 
@@ -32,22 +32,22 @@ ms.openlocfilehash: 7ed3d5ddbbdff9ec568f513d15ecb1ea28ba8855
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="listing-all-currently-installed-packages"></a>Вывод списка всех установленных пакетов
-Список установленных пакетов может меняться. Чтобы получить полный актуальный список установленных пакетов, включая описание каждого пакета, введите следующий код в модуле [Execute R Script][execute-r-script] (Выполнение скрипта R):
+Список установленных пакетов может меняться. Чтобы получить полный актуальный список установленных пакетов, включая описание каждого пакета, введите следующий код в модуле [Выполнить сценарий R][execute-r-script]:
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
 
-При этом список пакетов будет отправлен в выходной порт модуля [Execute R Script][execute-r-script] (Выполнение скрипта R).
-Чтобы просмотреть список пакетов, подключите модуль преобразования, например [Convert to CSV][convert-to-csv] (Преобразование в CSV), к выходным данным модуля [Execute R Script][execute-r-script] (Выполнение скрипта R) слева, выполните эксперимент, а затем щелкните выходные данные модуля преобразования и выберите **Скачать**. 
+При этом список пакетов будет отправлен в порт вывода модуля [Выполнить сценарий R][execute-r-script].
+Чтобы просмотреть список пакетов, подключите модуль преобразования, например [Преобразовать в CSV][convert-to-csv], к выходным данным модуля [Выполнить сценарий R][execute-r-script] слева, выполните эксперимент, а затем щелкните выходные данные модуля преобразования и выберите **Скачать**. 
 
-![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+![Скачивание выходных данных модуля "Преобразовать в CSV"](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>Импорт пакетов
-Вы также можете импортировать пакеты, которые еще не установлены из промежуточного репозитория Студии машинного обучения Microsoft Azure, с помощью следующих команд в модуле [Execute R Script][execute-r-script] (Выполнение скрипта R) и ZIP-архива пакета.
+Вы также можете импортировать пакеты, которые еще не установлены из промежуточного репозитория Студии машинного обучения Microsoft Azure, с помощью следующих команд в модуле [Выполнить сценарий R][execute-r-script] и ZIP-архива пакета:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
@@ -514,6 +514,6 @@ To get the complete list of packages that are currently available, see the secti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

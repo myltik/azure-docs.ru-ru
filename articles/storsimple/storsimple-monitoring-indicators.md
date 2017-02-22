@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e31b6efa072bff41a0debfb2abfca66d68025326
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0b8efafadee9bb7636bb204b55758f18a86cf049
 
 
 ---
@@ -253,6 +253,6 @@ ms.openlocfilehash: e31b6efa072bff41a0debfb2abfca66d68025326
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

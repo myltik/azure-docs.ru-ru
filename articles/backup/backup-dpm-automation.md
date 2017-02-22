@@ -1,5 +1,5 @@
 ---
-title: "Служба архивации Azure: развертывание архивации для DPM и управление ею с помощью PowerShell | Документация Майкрософт"
+title: "Служба архивации Azure: использование PowerShell для архивации рабочих нагрузок DPM | Документация Майкрософт"
 description: "Узнайте о том, как развернуть службу архивации Azure для Data Protection Manager (DPM) и управлять ей с помощью PowerShell"
 services: backup
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: jimpark; anuragm;trinadhk;markgal
+ms.date: 1/23/2017
+ms.author: adigan;anuragm;trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c697d72223ea8bbb6b4dfee3955625d652f8e7dc
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 14c848b4740a0fc49a8ba20f119846892bc8ca22
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c697d72223ea8bbb6b4dfee3955625d652f8e7dc
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Классический](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере DPM и для управления резервным копированием и восстановлением данных.
 
@@ -69,27 +69,27 @@ PS C:\> Switch-AzureMode AzureResourceManager
 Чтобы создать хранилище служб восстановления, выполните описанные ниже действия. Хранилище служб восстановления отличается от хранилища службы архивации.
 
 1. Если вы используете службу архивации Azure впервые, выполните командлет **Register-AzureRMResourceProvider** , чтобы зарегистрировать поставщик служб восстановления Azure в своей подписке.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. Хранилище служб восстановления представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. Вы можете выбрать существующую группу ресурсов или создать новую. При создании группы ресурсов укажите ее имя и расположение.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. Выполните командлет **New-AzureRmRecoveryServicesVault** , чтобы создать хранилище. Разместите хранилище там же, где находится группа ресурсов.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Укажите необходимый тип избыточности хранилища: [локально избыточное (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) или [геоизбыточное (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). В следующем примере показано, что для параметра BackupStorageRedundancy для testVault задано значение GeoRedundant.
-   
+
    > [!TIP]
    > Для многих командлетов службы архивации Azure требуется объект хранилища служб восстановления в качестве входных данных. По этой причине объект хранилища служб восстановления резервных копий удобно хранить в переменной.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -219,8 +219,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
-> 
-> 
+>
+>
 
 На этом этапе следует внести все необходимые изменения в объект ```$setting``` . Не забудьте зафиксировать изменения.
 
@@ -328,7 +328,7 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica-recovery-point-volume"></a>Изменение размера реплики DPM и тома точек восстановления
+### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Изменение размера реплики DPM и тома точек восстановления
 Кроме того, можно изменить размер тома реплики DPM и тома теневых копий с помощью командлета [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , как показано в следующем примере: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb).
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Фиксация изменений в группу защиты
@@ -376,7 +376,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

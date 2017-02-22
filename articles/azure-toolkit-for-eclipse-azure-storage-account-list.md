@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
 
 
 ---
@@ -53,9 +53,9 @@ ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
 Создание вашей учетной записи хранения может занять несколько минут. После ее создания нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление учетной записи хранения**. Новая учетная запись хранения добавится в список доступных учетных записей хранения.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>Добавление существующей учетной записи хранения в список
-1. Если у вас еще нет учетной записи хранения Azure, создайте ее, выполнив действия, описанные в приведенном выше разделе **Создание учетной записи хранения** . (Кроме того, вы можете создать учетную запись хранения с помощью [портала управления Azure][портала управления Azure].)
+1. Если у вас еще нет учетной записи хранения Azure, создайте ее, выполнив действия, описанные в приведенном выше разделе **Создание учетной записи хранения** . (Кроме того, вы можете создать учетную запись хранения с помощью [портала управления Azure][Azure Management Portal].)
 2. В диалоговом окне **Учетные записи хранения** нажмите кнопку **Добавить**.
-3. В диалоговом окне **Добавление учетной записи хранения** введите значения для параметров **Имя** и **Ключ доступа**. Имя и ключ доступа должны относиться к существующей учетной записи хранения Azure. Используйте раздел **Хранилище** [портала управления Azure][портала управления Azure], чтобы просмотреть имена и ключи своих учетных записей хранения. Диалоговое окно **Добавление учетной записи хранения** будет выглядеть следующим образом.
+3. В диалоговом окне **Добавление учетной записи хранения** введите значения для параметров **Имя** и **Ключ доступа**. Имя и ключ доступа должны относиться к существующей учетной записи хранения Azure. Используйте раздел **Хранилище**[портала управления Azure][Azure Management Portal], чтобы просмотреть имена и ключи своих учетных записей хранения. Диалоговое окно **Добавление учетной записи хранения** будет выглядеть следующим образом.
    
     ![][ic719497]
 4. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление учетной записи хранения**.
@@ -75,22 +75,22 @@ ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
 > 
 
 ## <a name="see-also"></a>См. также
-[Набор средств Azure для Eclipse][Набор средств Azure для Eclipse]
+[Набор средств Azure для Eclipse][Azure Toolkit for Eclipse]
 
-[Установка набора средств Azure для Eclipse][Установка набора средств Azure для Eclipse] 
+[Установка набора средств Azure для Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Создание приложения Hello World для Azure в Eclipse][Создание приложения Hello World для Azure в Eclipse]
+[Создание приложения Hello World для Azure в Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[портала управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -101,6 +101,6 @@ ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

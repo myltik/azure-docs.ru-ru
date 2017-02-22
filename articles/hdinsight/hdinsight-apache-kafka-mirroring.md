@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e1c99bbe9d6317d83cc5e71ca4f79d862223aa0a
-ms.openlocfilehash: 6110432cba7703b95342c9e8bf3b71cb0a377ad0
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 1527896e4f512cdfa6a4e925bbdca88a1e6a8fe7
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>Создание реплики Kafka в кластере HDInsight с помощью MirrorMaker (предварительная версия)
@@ -44,7 +44,7 @@ Apache Kafka включает функцию зеркального отобра
 
 ![Схема процесса зеркального отображения](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
-Исходный и целевой кластеры могут содержать разное число узлов и разделов. Смещение элементов в разделах также может отличаться. Зеркальное отображение сохраняет значение ключа, который используется для секционирования, поэтому порядок записей сохраняется вместе с этими значениями.
+Исходный и целевой кластеры могут содержать разное количество узлов и разделов. Смещение в разделах также может отличаться. Зеркальное отображение сохраняет значение ключа, который используется для секционирования, поэтому порядок записей сохраняется вместе с этими значениями.
 
 ### <a name="mirroring-between-networks"></a>Зеркальное отображение между сетями
 
@@ -119,26 +119,32 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
    
     Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
    
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
    
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Выполните следующую команду, чтобы найти узлы Zookeeper, задать переменную `SOURCE_ZKHOSTS`, а затем создать несколько разделов с именем `testtopic`:
    
-        # Get a list of zookeeper hosts for the source cluster
-        SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-        # Create a topic on the source cluster
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
+    ```bash
+    # Get a list of zookeeper hosts for the source cluster
+    SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # Create a topic on the source cluster
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
+    ```
 
 3. С помощью этой команды проверьте, создан ли раздел:
    
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
+    ```
    
     Ответ содержит `testtopic`.
 
 4. Чтобы просмотреть сведения об узле Zookeeper для этого (**исходного**) кластера, выполните следующую команду:
    
-        echo $SOURCE_ZKHOSTS
+    ```bash
+    echo $SOURCE_ZKHOSTS
+    ```
    
     Эта команда возвращает следующую информацию:
    
@@ -148,7 +154,7 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
 ## <a name="configure-mirroring"></a>Настройка зеркального отображения
 
-1. Подключитесь к **целевому** кластеру с помощью SSH.
+1. Подключитесь к **целевому** кластеру с помощью другого сеанса SSH:
    
         ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
    
@@ -156,15 +162,17 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
    
     Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
    
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Выполните следующую команду, чтобы создать файл `consumer.config`, который настраивает обмен данными с **исходным** кластером:
+2. Выполните следующую команду, чтобы создать файл `consumer.properties`, который настраивает обмен данными с **исходным** кластером:
    
-        nano consumer.config
+    ```bash
+    nano consumer.properties
+    ```
    
-    Добавьте в файл `consumer.config` следующее содержимое:
+    Добавьте в файл `consumer.properties` следующее содержимое:
    
         zookeeper.connect=SOURCE_ZKHOSTS
         group.id=mirrorgroup
@@ -173,22 +181,30 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
    
     Этот файл включает сведения о получателе, которые используются при считывании данных из исходного кластера Kafka. Дополнительные сведения о конфигурации получателя см. в [этом разделе](https://kafka.apache.org/documentation#consumerconfigs) на сайте kafka.apache.org.
    
-    Нажмите клавиши **Ctrl+X**, а затем — **Y** и ВВОД, чтобы сохранить файл.
+    Нажмите клавиши **Ctrl+X**, затем — **Y** и ВВОД, чтобы сохранить файл.
 
 3. Прежде чем настраивать производитель, который обменивается данными с целевым кластером, найдите узлы брокера для **целевого** кластера. Чтобы получить эти сведения, выполните следующие команды:
    
-        # Install JQ for parsing JSON documents
-        sudo apt -y install jq
-        # Get the broker information for the destination cluster
-        DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-        # Display the information
-        echo $DEST_BROKERHOSTS
+    ```bash
+    # Install JQ for parsing JSON documents
+    sudo apt -y install jq
+    # Get the broker information for the destination cluster
+    DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    # Display the information
+    echo $DEST_BROKERHOSTS
+    ```
    
     Эта команда возвращает следующую информацию:
    
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. Выполните следующую команду, чтобы создать файл `producer.config`, который настраивает обмен данными с **целевым** кластером:
+4. Выполните следующую команду, чтобы создать файл `producer.properties`, который настраивает обмен данными с **целевым** кластером:
+
+    ```bash
+    nano producer.properties
+    ```
+
+    Добавьте в файл `producer.properties` следующее содержимое:
    
         bootstrap.servers=DEST_BROKERS
         compression.type=none
@@ -201,7 +217,9 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
 1. Чтобы запустить процесс MirrorMaker, выполните следующие команды в рамках SSH-подключения к **целевому** кластеру:
    
-        /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
+    ```
    
     В этом примере используются следующие параметры.
    
@@ -219,45 +237,49 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
     ```
 
 2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
-   
-        # Install JQ for working with JSON
-        sudo apt -y install jq
-        # Retrieve the Kafka brokers
-        SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-        # Start a producer
-        /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
-   
-    When you arrive at a blank line with a cursor, type in a few text messages. These are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
+    
+    ```bash
+    # Install JQ for working with JSON
+    sudo apt -y install jq
+    # Retrieve the Kafka brokers
+    SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    # Start a producer
+    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
+    ```
 
-3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. Then use the following commands to verify that the `testtopic` topic was created, and that data in the topic was replicated to this mirror:
-   
-        # Get a list of zookeeper hosts for the destination cluster
-        DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-        # List topics on destination
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
-        # Retrieve messages from the `testtopic`
-        /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
-   
-    The list of topics will now include `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
+    При переходе в пустую строку с курсором введите несколько текстовых сообщений. Они отправляются в раздел в **исходном** кластере. По завершении нажмите клавиши **Ctrl+C**, чтобы завершить процесс производителя.
 
-## Delete the cluster
+3. Чтобы завершить процесс MirrorMaker, нажмите клавиши **Ctrl+C** в рамках SSH-подключения к **целевому** кластеру. Затем используйте следующие команды, чтобы убедиться, что раздел `testtopic` создан и данные в нем реплицированы в это зеркало:
+    
+    ```bash
+    # Get a list of zookeeper hosts for the destination cluster
+    DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # List topics on destination
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
+    # Retrieve messages from the `testtopic`
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
+    ```
+    
+    Теперь в списке разделов есть раздел `testtopic`, который создается, когда MirrorMaster зеркально отражает раздел из исходного кластера в место назначения. Сообщения, полученные из раздела, совпадают с введенными в исходном кластере.
+
+## <a name="delete-the-cluster"></a>Удаление кластера
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the resource group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
+Выполнив описанные здесь инструкции, вы создадите два кластера в одной группе ресурсов Azure. Следовательно, вы можете удалить эту группу ресурсов на портале Azure. При этом будут удалены все созданные в рамках этого руководства и используемые в кластерах ресурсы, виртуальная сеть Azure и учетная запись хранения.
 
-## Next Steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-In this document, you learned how to use MirrorMaker to create a replica of a Kafka cluster. Use the following links to discover other ways to work with Kafka:
+В этом документе вы узнали, как создать реплику кластер Kafka с помощью MirrorMaker. Другие материалы, посвященные работе с Kafka, доступны по следующим ссылкам:
 
-* [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
-* [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
-
-
+* [Документация по Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) на сайте cwiki.apache.org.
+* [Get started with Apache Kafka on HDInsight (preview)](hdinsight-apache-kafka-get-started.md) (Приступая к работе с Apache Kafka в HDInsight (предварительная версия))
+* [Совместное использование Apache Spark и Kafka (предварительная версия) в HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight](hdinsight-apache-storm-with-kafka.md)
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

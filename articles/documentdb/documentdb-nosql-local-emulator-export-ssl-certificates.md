@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2016
+ms.date: 01/22/2017
 ms.author: tvoellm
 translationtype: Human Translation
-ms.sourcegitcommit: 638c6c5ac9ffac7e726d86a979e2c5dc7fab41f4
-ms.openlocfilehash: 32bebcbd724d577f78672cb623748fcf77cee20a
+ms.sourcegitcommit: 224897c09073fe36c7d4f9f8c965212c25297271
+ms.openlocfilehash: 3f89e192052bb633190610a4dffbefb930dbc01c
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 32bebcbd724d577f78672cb623748fcf77cee20a
 
 [**Скачать эмулятор**](https://aka.ms/documentdb-emulator)
 
-Эмулятор Azure DocumentDB предоставляет локальную среду, которая имитирует службу Azure DocumentDB, в том числе использование SSL-подключений, в целях разработки. В этой статье рассматривается, как экспортировать SSL-сертификаты для разработки на языках и в средах выполнения, не поддерживающих интеграцию с хранилищем сертификатов Windows, например в среде Java с собственным [хранилищем сертификатов](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) и в среде Python, использующей [оболочки сокетов](https://docs.python.org/2/library/ssl.html). Дополнительные сведения об эмуляторе см. в статье [Использование эмулятора Azure DocumentDB для разработки и тестирования](./documentdb-nosql-local-emulator.md).
+Эмулятор Azure DocumentDB предоставляет локальную среду, которая имитирует службу Azure DocumentDB, в том числе использование SSL-подключений, в целях разработки. В этой статье рассматривается, как экспортировать SSL-сертификаты для разработки на языках и в средах выполнения, не поддерживающих интеграцию с хранилищем сертификатов Windows, например в среде Java с собственным [хранилищем сертификатов](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), в среде Python, использующей [оболочки сокетов](https://docs.python.org/2/library/ssl.html), и в среде Node.js, использующей [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Дополнительные сведения об эмуляторе см. в статье [Использование эмулятора Azure DocumentDB для разработки и тестирования](./documentdb-nosql-local-emulator.md).
 
 ## <a name="certification-rotation"></a>Смена сертификатов
 
@@ -80,7 +80,11 @@ ms.openlocfilehash: 32bebcbd724d577f78672cb623748fcf77cee20a
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Как использовать сертификат в Python
 
-По умолчанию при подключении к локальному эмулятору пакет SDK Python для DocumentDB не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в документации по [оболочкам сокетов Python](https://docs.python.org/2/library/ssl.html).
+По умолчанию при подключении к локальному эмулятору [пакет SDK Python (версии 2.0.0 или выше)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-python) для DocumentDB не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в документации по [оболочкам сокетов Python](https://docs.python.org/2/library/ssl.html).
+
+## <a name="how-to-use-the-certificate-in-nodejs"></a>Как использовать сертификат в Node.js
+
+По умолчанию при подключении к локальному эмулятору [пакет SDK Node.js (версии 1.10.1 или выше)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-node) для DocumentDB не использует SSL-сертификат. Однако если вы хотите реализовать проверку SSL, используйте примеры, приведенные в [документации по Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о DocumentDB можно найти в статье [Знакомство с DocumentDB: база данных NoSQL JSON](documentdb-introduction.md).
@@ -88,6 +92,6 @@ ms.openlocfilehash: 32bebcbd724d577f78672cb623748fcf77cee20a
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

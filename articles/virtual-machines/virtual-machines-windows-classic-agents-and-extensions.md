@@ -1,5 +1,5 @@
 ---
-title: "Агент и расширения виртуальной машины Azure | Документация Майкрософт"
+title: "Агент и расширения виртуальной машины Windows в Azure | Документация Майкрософт"
 description: "Статья описывает агент, расширения, а также способы установки агента с помощью классической модели развертывания."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,21 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 15a3e7d1f287fb0aa910e3d7c1434034751eccc7
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 65f86586b86424794592857b9a090a88e8b191d5
 
 
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions"></a>Обзор агента и расширений виртуальной машины
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Дополнительные сведения об использовании агентов и расширений виртуальных машин с моделью Resource Manager см. [здесь](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании агентов и расширений виртуальных машин с моделью Resource Manager см. [здесь](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

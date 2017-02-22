@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
+ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
+ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Триггер большого двоичного объекта службы хранилища
-Триггер большого двоичного объекта службы хранилища Azure позволяет отслеживать появление новых и обновленных больших двоичных объектов в контейнере хранилища и реагировать на это. 
+Триггер большого двоичного объекта службы хранилища Azure позволяет отслеживать контейнер хранилища на наличие новых и обновленных больших двоичных объектов и выполнять код функции при обнаружении изменений. 
 
 Триггер большого двоичного объекта службы хранилища для функции использует следующий объект JSON в массиве `bindings` файла function.json:
 
@@ -108,7 +108,7 @@ ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
 * имя контейнера;
 * тип большого двоичного объекта (BlockBlob или PageBlob);
 * имя большого двоичного объекта;
-* ETag (идентификатор версии больших двоичных объектов, например 0x8D1DC6E70A277EF).
+* ETag (идентификатор версии больших двоичных объектов, например&0;x8D1DC6E70A277EF).
 
 Чтобы выполнить принудительную повторную обработку большого двоичного объекта, удалите уведомление о получении этого большого двоичного объекта из контейнера *azure-webjobs-hosts* вручную.
 
@@ -121,7 +121,7 @@ ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
 * BlobType (BlockBlob или PageBlob);
 * ContainerName;
 * BlobName
-* ETag (идентификатор версии BLOB-объектов, например 0x8D1DC6E70A277EF)
+* ETag (идентификатор версии BLOB-объектов, например&0;x8D1DC6E70A277EF)
 
 ### <a name="blob-polling-for-large-containers"></a>Опрос больших двоичных объектов для больших контейнеров
 Если контейнер больших двоичных объектов, который отслеживает привязка, содержит более 10 000 больших двоичных объектов, среда выполнения Функций проверяет файлы журналов, чтобы найти новые или измененные большие двоичные объекты. Это не происходит в режиме реального времени. После создания большого двоичного объекта функция может не вызываться несколько минут или даже дольше. Кроме того, [журналы службы хранилища создаются по принципу лучшего из возможного](https://msdn.microsoft.com/library/azure/hh343262.aspx), то есть не гарантируется регистрация всех событий. В некоторых случаях журналы могут пропускаться. Если ограниченная скорость и надежность триггеров больших двоичных объектов для больших контейнеров недопустимы для вашего приложения, для обработки большого двоичного объекта во время его создания рекомендуется создать [сообщение очереди](../storage/storage-dotnet-how-to-use-queues.md) и использовать [триггер очереди](functions-bindings-storage-queue.md) вместо триггера большого двоичного объекта.
@@ -328,9 +328,9 @@ module.exports = function(context) {
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
@@ -358,6 +358,8 @@ module.exports = function(context) {
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+* `ICollector<T>` (для вывода в несколько больших двоичных объектов).
+* `IAsyncCollector<T>` (асинхронная версия `ICollector<T>`).
 
 <a name="outputsample"></a>
 
@@ -370,6 +372,6 @@ module.exports = function(context) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

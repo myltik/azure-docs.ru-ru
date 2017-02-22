@@ -1,5 +1,5 @@
 ---
-title: "collectd: статистика производительности для Java на платформе Linux в Azure Application Insights | Документация Майкрософт"
+title: "Мониторинг производительности веб-приложения Java в Linux в среде Azure | Документация Майкрософт"
 description: "Расширенный мониторинг производительности приложений на веб-сайте Java с подключаемым модулем CollectD для Application Insights."
 services: application-insights
 documentationcenter: java
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Добавьте следующий фрагмент кода, используя ключ инструментирования из ресурса:
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -56,6 +56,8 @@ ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
 ```
 
 Пример файла конфигурации (фрагмент):
+
+```XML
 
     ...
     # collectd plugins
@@ -83,7 +85,8 @@ ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Настройте другие [подключаемые модули collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), которые могут собирать разные данные из разных источников.
 
@@ -137,6 +140,6 @@ ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

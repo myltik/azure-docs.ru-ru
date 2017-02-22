@@ -12,24 +12,22 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4dc2137ce42e3ed8e85d57dacc1acecc6de243e
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c5f1ab504bcb639260b2500d462a56ea30cab9aa
 
 
 ---
 # <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Управление базой данных SQL Azure с помощью SQL Server Management Studio
-> [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 SQL Server Management Studio (SSMS) можно использовать для администрирования серверов и баз данных Базы данных SQL Azure. В этом разделе описываются типичные задачи, выполняемые с помощью SSMS. Прежде чем начать, необходимо создать сервер и базу данных в Базе данных SQL Azure. Дополнительные сведения см. в статьях [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md) и [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
+
+> [!TIP]
+> Инструкции по созданию сервера, созданию брандмауэра на основе сервера, просмотру свойств сервера, подключению с помощью SQL Server Management Studio и отправке запросов к главной базе данных, созданию примера базы данных и пустой базы данных, запрашиванию свойств базы данных, подключению с помощью SQL Server Management Studio и отправке запросов к примеру базы данных см. в этом [руководстве по началу работы](sql-database-get-started.md).
+>
 
 Мы советуем использовать последнюю версию SSMS при работе с Базой данных SQL Azure. 
 
@@ -142,6 +140,6 @@ SQL Server Management Studio (SSMS) можно использовать для �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

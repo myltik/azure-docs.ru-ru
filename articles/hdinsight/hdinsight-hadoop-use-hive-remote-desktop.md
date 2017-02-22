@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 96779ca2f6719fd3e55f9be0fea716c46f662bf0
+ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
+ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 96779ca2f6719fd3e55f9be0fea716c46f662bf0
 
 В этой статье вы узнаете, как подключиться к кластеру HDInsight с помощью удаленного рабочего стола, а затем выполнить запросы Hive с помощью интерфейса командной строки Hive.
 
-> [!NOTE]
-> В этом документе не приводится подробное описание процессов, которые выполняют операторы HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md).
+> [!IMPORTANT]
+> Удаленный рабочий стол доступен только в кластерах HDInsight под управлением операционной системы Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 >
->
+> При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении запросов Hive непосредственно в кластере из командной строки: [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
@@ -145,6 +145,6 @@ ms.openlocfilehash: 96779ca2f6719fd3e55f9be0fea716c46f662bf0
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

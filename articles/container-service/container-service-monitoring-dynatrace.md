@@ -1,5 +1,5 @@
 ---
-title: "Мониторинг кластера DC/OS Службы контейнеров Azure с помощью Dynatrace | Документация Майкрософт"
+title: "Мониторинг кластера DC/OS Azure с помощью Dynatrace | Документация Майкрософт"
 description: "Мониторинг кластера DC/OS Службы контейнеров Azure с помощью Dynatrace. Развертывание Dynatrace OneAgent с помощью панели мониторинга DC/OS."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 96d35fbc4a8dfb620a2cfe67df449134d2f1e542
-ms.openlocfilehash: 48bb16972f2e846997e081e702ffbce57736c484
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 8878baa230bc8e91f814fd97fdc852c76b17e823
 
 
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-dynatrace-saasmanaged"></a>Мониторинг кластера Службы контейнеров Azure с помощью Dynatrace SaaS/Managed
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Мониторинг кластера DC/OS в Службе контейнеров Azure с помощью Dynatrace SaaS/Managed
 В этой статье мы покажем, как развернуть [Dynatrace](https://www.dynatrace.com/) OneAgent для отслеживания всех агентов узлов в кластере Службы контейнеров Azure. Для работы с этой конфигурацией вам понадобится учетная запись с Dynatrace SaaS/Managed. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed
@@ -63,6 +63,6 @@ DynaTrace — облачное решение для мониторинга, п�
 После установки пакета вернитесь к панели мониторинга Dynatrace. Вы можете просмотреть различные метрики использования контейнеров в кластере. 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

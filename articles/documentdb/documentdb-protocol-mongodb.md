@@ -1,37 +1,61 @@
 ---
-title: Поддержка протокола DocumentDB для MongoDB | Microsoft Docs
-description: Сведения о поддержке протокола DocumentDB для MongoDB, которая теперь общедоступна в предварительной версии.
-keywords: MongoDB
+title: "Что такое поддержка протокола DocumentDB для MongoDB? | Документация Майкрософт"
+description: "Что такое поддержка протокола DocumentDB для MongoDB? Этот протокол позволяет использовать управляемую облачную службу Azure DocumentDB в качестве хранилища данных для приложений, написанных для MongoDB."
+keywords: "что такое MongoDB"
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 01/16/2017
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2de367287a4bee05694070dbeeb4d4a458d47f11
+ms.openlocfilehash: 38d811a7a08a6f8a6dd07a29e9a49bb34810ee91
+
 
 ---
-# <a name="documentdb-protocol-support-for-mongodb"></a>Поддержка протокола DocumentDB для MongoDB
-## <a name="what-is-azure-documentdb?"></a>Что такое Azure DocumentDB?
-Azure DocumentDB — это полностью управляемая служба базы данных NoSQL, созданная для быстрой и прогнозируемой работы, высокой доступности, автоматического масштабирования и простоты разработки. Благодаря гибкой модели данных, согласованности и небольшой продолжительности задержек, а также широким возможностям запросов она прекрасно подходит для веб-приложений, мобильных приложений, игр, приложений IoT и многих других приложений, которым требуется эффективное масштабирование. Дополнительные сведения см. в статье [Введение DocumentDB: база данных NoSQL JSON](documentdb-introduction.md).
+# <a name="what-is-documentdb-protocol-support-for-mongodb"></a>Что такое поддержка протокола DocumentDB для MongoDB?
 
-## <a name="what-is-documentdb-protocol-support-for-mongodb?"></a>Что такое поддержка протокола DocumentDB для MongoDB?
-Теперь базы данных DocumentDB можно использовать как хранилище данных для приложений, написанных для MongoDB. Используя существующие [драйверы](https://docs.mongodb.org/ecosystem/drivers/) для MongoDB, приложения могут легко и прозрачно взаимодействовать с DocumentDB. Чаще всего это происходит при помощи простого изменения строки подключения.  С помощью функций предварительного просмотра пользователи могут легко создавать и запускать приложения в облаке Azure, используя полностью управляемые и масштабируемые базы данных NoSQL DocumentDB и продолжая применять знакомые навыки и средства для MongoDB.
+Теперь базы данных DocumentDB можно использовать как хранилище данных для приложений, написанных для MongoDB. Это означает, что используя имеющиеся [драйверы](https://docs.mongodb.org/ecosystem/drivers/) для баз данных MongoDB, приложение, написанное для MongoDB, теперь может взаимодействовать с DocumentDB и использовать базы данных DocumentDB вместо баз данных MongoDB. Чаще всего, чтобы перейти с использования MongoDB к DocumentDB, нужно просто изменить строку подключения. Эта возможность позволяет пользователям легко создавать и запускать приложения базы данных MongoDB в облаке Azure, используя полностью управляемые и масштабируемые базы данных NoSQL DocumentDB и продолжая применять знакомые навыки и средства для MongoDB.
 
-Поддержка протокола DocumentDB для MongoDB включает основные функции API MongoDB, позволяя создавать, читать, обновлять и удалять данные (выполнять с ними действия CRUD), а также выполнять запросы к базе данных. Приоритеты среди текущих внедряемых возможностей расставляются согласно потребностям наиболее распространенных платформ и средств, а также потребностям крупных пользователей MongoDB, рассматривающих Azure в качестве своей облачной платформы.
+## <a name="what-is-the-benefit-of-using-documentdb-protocol-support-for-mongodb"></a>Преимущества поддержки протокола DocumentDB для MongoDB
+**Отсутствие сервера управления.** DocumentDB — это полностью управляемая служба. Это означает, что вам не нужно самостоятельно управлять какой-либо инфраструктурой или виртуальными машинами. DocumentDB доступна в более 20 [регионах Azure](https://azure.microsoft.com/regions/services/).
+
+**Безграничные возможности масштабирования.** DocumentDB позволяет выполнять эластическое масштабирование пропускной способности и хранилища независимо друг от друга. Вы можете без труда добавить емкость, чтобы обрабатывать миллионы запросов в секунду.
+
+**Корпоративный класс.** DocumentDB поддерживает несколько локальных реплик, что гарантирует высокий уровень доступности (99,99 %) и защиту данных в случае локальных и региональных сбоев. Эта служба имеет [сертификаты соответствия требованиям](https://www.microsoft.com/trustcenter) и функции обеспечения безопасности корпоративного класса. 
+
+**Совместимость с MongoDB.** Поддержка протокола DocumentDB для MongoDB обеспечивает совместимость с MongoDB. Это позволяет использовать имеющийся код, приложения, драйверы и средства для работы с DocumentDB. 
+
+Узнайте больше в этом видео из цикла "Azure, пятница" от Скотта Хансельмана (Scott Hanselman) и главного технического руководителя DocumentDB, Кирилла Гаврилюка.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
+> 
+
+
+## <a name="how-to-get-started"></a>Как приступить к работе
+Создайте учетную запись DocumentDB с поддержкой протокола для MongoDB на [портале Azure](https://portal.azure.com) и подключитесь к новой учетной записи. 
+
+*Вот и все!*
+
+Подробные инструкции см. в документации по [созданию учетной записи](documentdb-create-mongodb-account.md) и [подключению к ней](documentdb-connect-mongodb-account.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Узнайте, как [создать](documentdb-create-mongodb-account.md) учетную запись DocumentDB с поддержкой протокола MongoDB.
-* Узнайте, как [подключиться](documentdb-connect-mongodb-account.md) к учетной записи DocumentDB с поддержкой протокола MongoDB.
-* Узнайте, как [использовать MongoChef](documentdb-mongodb-mongochef.md) с учетной записью DocumentDB с поддержкой протокола MongoDB.
+* Сведения о создании учетной записи DocumentDB с поддержкой протокола MongoDB см. в [этом руководстве](documentdb-create-mongodb-account.md).
+* Инструкции по получению сведений о строке подключения для учетной записи DocumentDB с поддержкой протокола MongoDB см. в [этом руководстве](documentdb-connect-mongodb-account.md).
+* Сведения о создании подключения между базой данных DocumentDB и приложением MongoDB в MongoChef см. в [этом руководстве](documentdb-mongodb-mongochef.md).
 * Изучите [примеры](documentdb-mongodb-samples.md)использования DocumentDB с поддержкой протокола MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

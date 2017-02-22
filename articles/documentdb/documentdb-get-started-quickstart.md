@@ -1,23 +1,10 @@
 ---
-title: "Руководство по NoSQL: пакет SDK для .NET в DocumentDB | Документация Майкрософт"
-description: "Руководство по NoSQL, в котором создается оперативная база данных и консольное приложение C# с помощью пакета SDK для .NET в DocumentDB. DocumentDB — это база данных NoSQL для JSON."
-keywords: "руководство nosql, оперативная база данных, консольное приложение c#"
-services: documentdb
-documentationcenter: .net
-author: AndrewHoh
-manager: jhubbard
-editor: monicar
-ms.assetid: 4c084dab-52a4-4b84-9952-6d36a3bbb731
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 09/01/2016
-ms.author: anhoh
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 55d76dd78a6bb702d3beeadd1961635e3d5bfbbc
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 23663ecbba3507bc0443a28e1a06e5c44769f085
+
 
 
 ---
@@ -599,12 +586,11 @@ DocumentDB поддерживает удаление документов JSON.
 * Дополнительные сведения о модели программирования см. в разделе "Разработка" [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

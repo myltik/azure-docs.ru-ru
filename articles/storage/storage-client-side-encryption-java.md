@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cdd68bccf7e876ecb12ce154ed9175066839cde
+ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
+ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
 
 
 ---
-# <a name="client-side-encryption-with-java-for-microsoft-azure-storage"></a>Шифрование на стороне клиента с помощью Java для службы хранилища Microsoft Azure
+# <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Шифрование на стороне клиента с помощью Java для службы хранилища Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Обзор
@@ -70,7 +70,9 @@ ms.openlocfilehash: 8cdd68bccf7e876ecb12ce154ed9175066839cde
 
 Во время шифрования клиентская библиотека создает случайный ключ IV размером 16 байт, случайный ключ CEK размером 32 байта и выполняет конвертное шифрование текста сообщения очереди, используя полученную информацию. Зашифрованный ключ CEK и дополнительные метаданные шифрования добавляются в зашифрованное сообщение очереди. Это измененное сообщение (показано ниже) сохраняется в службе.
 
-    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
+<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
 
 Во время расшифровки зашифрованный ключ извлекается из сообщения очереди и расшифровывается. Ключ IV также извлекается из сообщения очереди и используется вместе с расшифрованным ключом для расшифровки данных сообщения очереди. Обратите внимание, что размер метаданных шифрования очень мал (не более 500 байт), поэтому, хотя этот их размер учитывается при подсчете максимального размера в 64 КБ для сообщения очереди, этим размером данных можно пренебречь.
 
@@ -150,88 +152,97 @@ ms.openlocfilehash: 8cdd68bccf7e876ecb12ce154ed9175066839cde
 ### <a name="blob-service-encryption"></a>Шифрование службы BLOB-объектов
 Создайте объект **BlobEncryptionPolicy** и задайте его в параметрах запроса (для каждого API или на уровне клиента с помощью параметра **DefaultRequestOptions**). Все остальные задачи решаются клиентской библиотекой.
 
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-    // Set the encryption policy on the request options.
-    BlobRequestOptions options = new BlobRequestOptions();
-    options.setEncryptionPolicy(policy);
+// Set the encryption policy on the request options.
+BlobRequestOptions options = new BlobRequestOptions();
+options.setEncryptionPolicy(policy);
 
-    // Upload the encrypted contents to the blob.
-    blob.upload(stream, size, null, options, null);
+// Upload the encrypted contents to the blob.
+blob.upload(stream, size, null, options, null);
 
-    // Download and decrypt the encrypted contents from the blob.
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    blob.download(outputStream, null, options, null);
+// Download and decrypt the encrypted contents from the blob.
+ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+blob.download(outputStream, null, options, null);
+```
 
 ### <a name="queue-service-encryption"></a>Шифрование службы очередей
 Создайте объект **QueueEncryptionPolicy** и задайте его в параметрах запроса (для каждого API или на уровне клиента с помощью параметра **DefaultRequestOptions**). Все остальные задачи решаются клиентской библиотекой.
 
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
-    // Add message
-    QueueRequestOptions options = new QueueRequestOptions();
-    options.setEncryptionPolicy(policy);
+// Add message
+QueueRequestOptions options = new QueueRequestOptions();
+options.setEncryptionPolicy(policy);
 
-    queue.addMessage(message, 0, 0, options, null);
+queue.addMessage(message, 0, 0, options, null);
 
-    // Retrieve message
-    CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+// Retrieve message
+CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+```
 
 ### <a name="table-service-encryption"></a>Шифрование службы таблиц
 Помимо создания политики шифрования и настройки параметров запроса необходимо указать **EncryptionResolver** в **TableRequestOptions** или задать атрибут [Encrypt] для методов задания и считывания сущности.
 
 ### <a name="using-the-resolver"></a>Использование сопоставителя
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    TableRequestOptions options = new TableRequestOptions()
-    options.setEncryptionPolicy(policy);
-    options.setEncryptionResolver(new EncryptionResolver() {
-        public boolean encryptionResolver(String pk, String rk, String key) {
-            if (key == "foo")
-            {
-                return true;
-            }
-            return false;
+// Create the encryption policy to be used for upload and download.
+TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+
+TableRequestOptions options = new TableRequestOptions()
+options.setEncryptionPolicy(policy);
+options.setEncryptionResolver(new EncryptionResolver() {
+    public boolean encryptionResolver(String pk, String rk, String key) {
+        if (key == "foo")
+        {
+            return true;
         }
-    });
+        return false;
+    }
+});
 
-    // Insert Entity
-    currentTable.execute(TableOperation.insert(ent), options, null);
+// Insert Entity
+currentTable.execute(TableOperation.insert(ent), options, null);
 
-    // Retrieve Entity
-    // No need to specify an encryption resolver for retrieve
-    TableRequestOptions retrieveOptions = new TableRequestOptions()
-    retrieveOptions.setEncryptionPolicy(policy);
+// Retrieve Entity
+// No need to specify an encryption resolver for retrieve
+TableRequestOptions retrieveOptions = new TableRequestOptions()
+retrieveOptions.setEncryptionPolicy(policy);
 
-    TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
-    TableResult result = currentTable.execute(operation, retrieveOptions, null);
+TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
+TableResult result = currentTable.execute(operation, retrieveOptions, null);
+```
 
 ### <a name="using-attributes"></a>Использование атрибутов
 Как было показано выше, если сущность реализует TableEntity, методы задания и считывания свойства можно определить с помощью атрибута [Encrypt], а не с помощью **EncryptionResolver**.
 
-    private string encryptedProperty1;
+```java
+private string encryptedProperty1;
 
-    @Encrypt
-    public String getEncryptedProperty1 () {
-        return this.encryptedProperty1;
-    }
+@Encrypt
+public String getEncryptedProperty1 () {
+    return this.encryptedProperty1;
+}
 
-    @Encrypt
-    public void setEncryptedProperty1(final String encryptedProperty1) {
-        this.encryptedProperty1 = encryptedProperty1;
-    }
+@Encrypt
+public void setEncryptedProperty1(final String encryptedProperty1) {
+    this.encryptedProperty1 = encryptedProperty1;
+}
+```
 
 ## <a name="encryption-and-performance"></a>Шифрование и производительность
 Обратите внимание, что шифрование результатов анализа данных хранилища отрицательно влияет на производительность. Ключ содержимого и вектор инициализации необходимо создать, само содержимое — зашифровать, а дополнительные метаданные — отформатировать и передать. Эти издержки зависят от объема шифруемых данных. Мы рекомендуем клиентам всегда тестировать свои приложения для повышения производительности во время разработки.
@@ -242,11 +253,9 @@ ms.openlocfilehash: 8cdd68bccf7e876ecb12ce154ed9175066839cde
 * Скачайте библиотеку Maven хранилища ключей Azure для пакетов Maven Java.
   * [Основной](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) пакет.
   * [Клиентский](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) пакет.
-* Просмотрите [документацию по хранилищу ключей Azure](../key-vault/key-vault-whatis.md)  
+* Просмотрите [документацию по хранилищу ключей Azure](../key-vault/key-vault-whatis.md)
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

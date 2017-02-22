@@ -6,6 +6,7 @@ documentationcenter: nodejs
 author: stepro
 manager: dmitryr
 editor: 
+ROBOTS: NOINDEX, NOFOLLOW
 ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple
 ms.devlang: nodejs
@@ -261,6 +262,6 @@ Azure имеет хорошую поддержку вычислений с ис�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

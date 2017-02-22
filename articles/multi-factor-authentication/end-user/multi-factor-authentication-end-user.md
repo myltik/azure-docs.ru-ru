@@ -1,5 +1,5 @@
 ---
-title: "Что для меня означает Azure Multi-Factor Authentication"
+title: "Приступая к работе с двухфакторной проверкой подлинности | Документация Майкрософт"
 description: "Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 12/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da55d4adaf00277a303a53a2b807ca3a28d2dbe0
+ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
+ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
 
 
 ---
@@ -32,26 +32,24 @@ ms.openlocfilehash: da55d4adaf00277a303a53a2b807ca3a28d2dbe0
 * **Мобильное приложение с уведомлением или кодом подтверждения**. При использовании мобильного приложения выберите, какое уведомление будет использоваться — то, на которое нужно ответить, или код подтверждения.
 
 > [!NOTE]
-> Учтите, что ИТ-отдел может отключить некоторые из перечисленных выше параметров.  В таком случае они не будут доступны во время регистрации.
-> 
-> 
+> Учтите, что ИТ-отдел может отключить некоторые из перечисленных выше параметров.  В таком случае они не будут доступны во время регистрации.  
 
-Определившись с методом проверки, можно приступать к регистрации.  Перейдите по ссылке к [процедуре настройки](../multi-factor-authentication-end-user-first-time.md) с пошаговыми инструкциями по регистрации.
+Определившись с методом проверки, можно приступать к регистрации.  Перейдите по ссылке к [процедуре настройки](multi-factor-authentication-end-user-first-time.md) с пошаговыми инструкциями по регистрации.
 
 ## <a name="how-to-get-going-with-multi-factor-authentication"></a>Как работать с многофакторной проверкой подлинности
 Выберите один из приведенных ниже разделов, чтобы приступить к работе.
 
 | Раздел | Описание |
 |:--- |:--- |
-| [Процедура настройки](../multi-factor-authentication-end-user-first-time.md) |Описание процесса первоначальной настройки многофакторной проверки подлинности. |
-| [Процедура входа](../multi-factor-authentication-end-user-signin.md) |Описание входа в систему с помощью различных методов, включая использование телефона или приложения. |
-| [Изменение параметров](../multi-factor-authentication-end-user-manage-settings.md) |Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации. |
-| [Справка о паролях приложений](../multi-factor-authentication-end-user-app-passwords.md) |Информация о создании и использовании паролей приложений. |
-| [Использование мобильного приложения](../multi-factor-authentication-microsoft-authenticator.md) |Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Процедура настройки](multi-factor-authentication-end-user-first-time.md) |Описание процесса первоначальной настройки многофакторной проверки подлинности. |
+| [Процедура входа](multi-factor-authentication-end-user-signin.md) |Описание входа в систему с помощью различных методов, включая использование телефона или приложения. |
+| [Изменение параметров](multi-factor-authentication-end-user-manage-settings.md) |Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации. |
+| [Справка о паролях приложений](multi-factor-authentication-end-user-app-passwords.md) |Информация о создании и использовании паролей приложений. |
+| [Использование мобильного приложения](microsoft-authenticator-app-how-to.md) |Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

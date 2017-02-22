@@ -1,6 +1,6 @@
 ---
-title: "Решения для аварийного восстановления облака: активная георепликация базы данных SQL | Документация Майкрософт"
-description: "Узнайте, как разрабатывать решения аварийного восстановления облака для планирования непрерывности бизнес-процессов, используя георепликацию для резервного копирования данных приложения в базе данных SQL Azure."
+title: "Проектирование приложения для аварийного восстановления (База данных SQL Azure) | Документация Майкрософт"
+description: "Узнайте о том, как спроектировать приложение для аварийного восстановления с георепликацией в базе данных SQL."
 keywords: "аварийное восстановление облака, решения для аварийного восстановления, резервное копирование данных приложения, георепликация, планирование непрерывности бизнес-процессов"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: data-management
 ms.date: 07/20/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
+ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
+ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
 
 
 ---
-# <a name="design-an-application-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL
+# <a name="application-design-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Проектирование приложения для облачного аварийного восстановления с использованием активной георепликации в базе данных SQL
 > [!NOTE]
 > [Активная георепликация](sql-database-geo-replication-overview.md) теперь доступна для всех баз данных и всех уровней.
 >
@@ -187,6 +187,6 @@ ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 76706d1ab9b1c675167af8119b58dd7cb0cda4a3
-ms.openlocfilehash: 15270983b3c3299f85c7e2020c9e11e9b3c168f4
+ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
+ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 
 ---
 
@@ -76,7 +76,7 @@ ms.openlocfilehash: 15270983b3c3299f85c7e2020c9e11e9b3c168f4
 
 Для этого примера мы создали в Log Analytics два пользовательских поля, *SvcDisplayName_CF* и *SvcState_CF*, чтобы извлечь отображаемое имя службы и состояние службы (запущенное или остановленное) из события, записываемого в журнал системных событий.  Затем мы создаем правило генерации оповещений с помощью следующего поискового запроса: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"`. Это даст нам возможность определить, когда служба диспетчера очереди печати в системе Windows будет остановлена.  Это может быть любая интересующая вас служба, но в данном примере мы используем уже существующую службу, которая входит в состав ОС Windows.  Действие оповещения настраивается так, чтобы выполнить наш модуль Runbook, используемый в данном примере, и запустить его в гибридном компоненте Runbook Worker, который включен в целевых системах.   
 
-Действие кода Runbook **Получить имя службы из LA** преобразует строку формата JSON в объектный тип и выполнит фильтрацию по элементу *SvcDisplayName_CF, чтобы извлечь отображаемое имя службы Windows и передать его в следующее действие, которое проверит, остановлена ли служба, прежде чем попытаться ее перезапустить.  *SvcDisplayName_CF* — это [пользовательское поле](../log-analytics/log-analytics-custom-fields.md), созданное в Log Analytics для демонстрации данного примера.
+Действие кода Runbook **Получить имя службы из LA** преобразует строку формата JSON в объектный тип и выполнит фильтрацию по элементу *SvcDisplayName_CF*, чтобы извлечь отображаемое имя службы Windows и передать его в следующее действие, которое проверит, остановлена ли служба, прежде чем попытаться ее перезапустить.  *SvcDisplayName_CF* — это [пользовательское поле](../log-analytics/log-analytics-custom-fields.md), созданное в Log Analytics для демонстрации этого примера.
 
     $SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value
     $SearchResults.SvcDisplayName_CF  
@@ -92,6 +92,7 @@ ms.openlocfilehash: 15270983b3c3299f85c7e2020c9e11e9b3c168f4
 * Сведения о том, как запускать модули Runbook с помощью объекта Webhook, см. в статье [Объекты Webhook в службе автоматизации Azure](automation-webhooks.md).
 
 
-<!--HONumber=Jan17_HO5-->
+
+<!--HONumber=Feb17_HO2-->
 
 

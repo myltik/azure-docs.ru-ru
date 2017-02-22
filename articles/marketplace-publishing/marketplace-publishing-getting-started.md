@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 98840e0bc1565eab0e5936cb65b68852e1423450
-ms.openlocfilehash: fd71f55f636fa1b7918536d7e6b51fb6a2a05903
+ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
+ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
 
 
 ---
@@ -42,10 +42,12 @@ Azure Marketplace позволяет издателям Azure предлагат
 ![рисунок](media/marketplace-publishing-getting-started/img01.png)
 
 ### <a name="1-nominate-your-solution-for-pre-approval"></a>1. Предложите свое решение для предварительного утверждения
-> [!IMPORTANT]
-> Перед началом работы с Azure Marketplace вы должны получить [предварительное утверждение](http://azure.com/certified).
+- Заполните форму на предварительное утверждение решения для получения **сертификации Microsoft Azure для виртуальных машин** [здесь](https://createopportunity.azurewebsites.net).
 
-- [Подача запроса на предварительное утверждение, сертифицированное Microsoft Azure.](marketplace-publishing-azure-certification.md)
+>[!NOTE]
+> Если вы работаете с менеджером PAM или менеджером партнеров DX, попросите, чтобы они представили ваше решение к участию в программе сертификации Azure или перейдите на веб-страницу [Сертификация Microsoft Azure](http://createopportunity.azurewebsites.net), заполните форму приложения и в поле "Контактное лицо" введите электронную почту менеджера PAM или менеджера партнера DX.
+
+Если вы соответствуете основным требованиям [политик участия в Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) и ваше приложение утверждено, мы начнем с вами совместную работу по адаптации решения в Azure Marketplace.
 
 ### <a name="2-register-your-account-as-a-microsoft-seller"></a>2) Зарегистрируйте свою учетную запись в качестве продавец Майкрософт
 - [Зарегистрируйте свою учетную запись Майкрософт в качестве учетной записи разработчика Майкрософт](marketplace-publishing-accounts-creation-registration.md)
@@ -93,6 +95,6 @@ Azure Marketplace позволяет издателям Azure предлагат
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

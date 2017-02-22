@@ -1,5 +1,5 @@
 ---
-title: "Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell | Документация Майкрософт"
+title: "Использование Azure PowerShell для включения диагностики на виртуальной машине Windows | Документация Майкрософт"
 services: virtual-machines-windows
 documentationcenter: 
 description: "Описание процедуры включения системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell."
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 8c4bc48c6ddb9bc03198f0f6c630b05d987a4b43
+ms.sourcegitcommit: ee413eef16291f98f3d5b1bd54602f167ebe87f7
+ms.openlocfilehash: 795d70951452155ebc58100063c0720a055e1405
 
 
 ---
@@ -201,6 +201,6 @@ ms.openlocfilehash: 8c4bc48c6ddb9bc03198f0f6c630b05d987a4b43
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

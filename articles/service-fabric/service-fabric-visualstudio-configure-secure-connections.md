@@ -1,5 +1,5 @@
 ---
-title: "Настройка безопасных соединений, поддерживаемых кластером Service Fabric | Документация Майкрософт"
+title: "Настройка безопасных подключений кластера Azure Service Fabric | Документация Майкрософт"
 description: "Узнайте о том, как использовать Visual Studio для настройки безопасных подключений, поддерживаемых кластером Azure Service Fabric."
 services: service-fabric
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
 1. Убедитесь, что вам доступен один из клиентских сертификатов, которым доверяет целевой кластер. Сертификат обычно распространяется в виде файла обмена персональной информацией (.pfx). Руководство по настройке доступа клиента к серверу см. в статье [Создание кластера Service Fabric в Azure с помощью портала Azure](service-fabric-cluster-creation-via-portal.md).
 2. Установите доверенный сертификат. Для этого дважды щелкните PFX-файл или импортируйте сертификаты с помощью сценария PowerShell PfxCertificate. Установите сертификат в каталог **Cert:\LocalMachine\My**. При импорте сертификата можно принять все настройки по умолчанию.
 3. Выберите **Опубликовать** в контекстном меню проекта, чтобы открыть диалоговое окно **Опубликовать приложение Azure**, а затем выберите целевой кластер. Средство автоматически разрешает подключение и сохраняет параметры безопасного подключения в профиле публикации.
-4. [Необязательно.]: You can edit the publish profile to specify a secure cluster connection.
+4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
    
    Так как вы добавляете информацию о сертификате в XML-файл профиля публикации вручную, запишите имя хранилища сертификатов, расположение хранилища и отпечаток сертификата. Эти значения нужно будет указать в качестве имени и расположения хранилища сертификатов. Дополнительные сведения см. в статье [Практическое руководство. Извлечение отпечатка сертификата](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx).
    
@@ -53,7 +53,7 @@ ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
    
    Ниже приведен пример для безопасного подключения к кластеру на основе сертификатов x509:
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
@@ -74,6 +74,6 @@ ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

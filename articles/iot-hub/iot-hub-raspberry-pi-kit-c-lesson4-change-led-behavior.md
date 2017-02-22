@@ -1,5 +1,5 @@
 ---
-title: "Дополнительный раздел. Изменение режима включения и отключения светодиодного индикатора | Документация Майкрософт"
+title: "Подключение Raspberry Pi (C) к Интернету вещей Azure. Урок 4. Изменение приложения | Документация Майкрософт"
 description: "Настроив сообщения, вы сможете изменять режим включения и отключения светодиодного индикатора."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 7f836a47c7b4d9cc27009f9e96dbefdcc5ad9219
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: c1c999e40ecc92a1018067822be66f14b61a8c36
 
 
 ---
@@ -107,6 +107,6 @@ gulp deploy && gulp run
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

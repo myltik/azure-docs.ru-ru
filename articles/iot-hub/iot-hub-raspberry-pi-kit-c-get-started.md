@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с Raspberry Pi 3 | Документация Майкрософт"
+title: "Подключение Raspberry Pi (C) к Интернету вещей Azure. Приступая к работе | Документация Майкрософт"
 description: "Начните работу с Raspberry Pi 3, создайте свой Центр Интернета вещей Azure и подключите к нему устройство Pi."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9f7647d89a6cf3c962bd4a6986e521cade3fd838
-ms.openlocfilehash: da2f32eb91dc8a2e10a3d76741d892b3c355ea1e
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 58398a8963ca834ed04d50a4715b29cbd3200b53
 
 
 ---
@@ -66,7 +66,7 @@ ms.openlocfilehash: da2f32eb91dc8a2e10a3d76741d892b3c355ea1e
 
 *Предполагаемое время выполнения: 10 минут*
 
-Перейдите к статье [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md).
+Перейдите к статье [Получение инструментов Azure (Windows&7; и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md).
 
 ### <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Создание Центра Интернета вещей и регистрация Raspberry Pi 3
 Создайте группу ресурсов, подготовьте Центр Интернета вещей Azure и добавьте в него первое устройство, используя Azure CLI.
@@ -129,6 +129,6 @@ ms.openlocfilehash: da2f32eb91dc8a2e10a3d76741d892b3c355ea1e
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

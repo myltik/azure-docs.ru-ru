@@ -14,101 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2016
-ms.author: sashan;carlrab;barbkess
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
+ms.sourcegitcommit: 2a51e12d16795204b2ec68d66755b020ab6a6490
+ms.openlocfilehash: 10c70d478d638a4938b7978d9b2188617b7f61e9
 
 
 ---
 # <a name="learn-about-sql-database-backups"></a>Подробнее о резервном копировании базы данных SQL
-<!------------------
-This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
-
-Metadata guidelines
-
-pageTitle
-    60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Microsoft Azure site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
-
-TEMPLATE GUIDELINES for feature topics
-
-The Feature Topic is a one-pager (ok, sometimes longer) that explains a capability of the product or service. It explains what the capability is and characteristics of the capability.  
-
-It is a "learning" topic, not an action topic.
-
-DO explain this:
-    � Definition of the feature terminology.  i.e., What is a database backup?
-    � Characteristics and capabilities of the feature. (How the feature works)
-    � Common uses with links to overview topics that recommend when to use the feature.
-    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    � Next Steps with links to related overviews, features, and tasks.
-
-DON'T explain this:
-    � How to steps for using the feature (Tasks)
-    � How to solve business problems that incorporate the feature (Overviews)
-
-GUIDELINES for the H1 
-
-    The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
-
-    To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
-
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
-GUIDELINES for introduction
-
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
-
-    If the introduction is short enough, your article can pop to the top in Google Instant Answers.
-
-    In this example:
-
-Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-    SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
-
-Sentence #2 Explains why I should care about this.  
-    Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
-
--------------------->
 
 База данных SQL автоматически создает резервную копию базы данных и использует геоизбыточное хранилище Azure (RA-GRS) с доступом на чтение для обеспечения геоизбыточности. Эти резервные копии создаются автоматически и без дополнительной платы. Не нужно ничего делать для того, чтобы это происходило. Резервные копии базы данных являются важной частью любой стратегии непрерывности бизнес-процессов и аварийного восстановления, так как они защищают данные от случайного повреждения или удаления. Если вы хотите хранить резервные копии в собственном контейнере хранилища, можно настроить политику длительного периода удержания резервных копий. Дополнительные сведения см. в статье [Long-term retention](sql-database-long-term-retention.md) (Длительный период удержания).
 
-<!-- This image needs work, so not putting it in right now.
-
-This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
-
-![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
-
--->
-
-<!---------------
-GUIDELINES for the first ## H2.
-
-    The first ## describes what the feature encompasses and how it is used. It points to related task articles.
-
-    For consistency, being the heading with "What is ... "
------------------>
-
 ## <a name="what-is-a-sql-database-backup"></a>Что такое резервная копия Базы данных SQL?
-<!-- 
-    Explains what a SQL Database backup is and answers an important question that people want to know.
--->
-
-
-<!----------------- 
-    Explains first component of the backup feature
------------------->
 
 База данных SQL использует для создания [полных](https://msdn.microsoft.com/library/ms186289.aspx), [разностных](https://msdn.microsoft.com/library/ms175526.aspx) резервных копий и резервных копий [журналов транзакций](https://msdn.microsoft.com/library/ms191429.aspx) технологию SQL Server. Как правило, резервные копии журналов транзакций создаются каждые 5–10 минут. Периодичность архивации зависит от уровня производительности и числа действий, производимых с базой данных. Резервные копии журналов транзакций и полные, разностные резервные копии позволяют восстановить базу данных на определенный момент времени на том же сервере, на котором размещена база данных. При восстановлении базы данных служба сама определяет, какие резервные копии (полные, разностные или резервные копии журналов транзакций) следует восстановить.
 
-<!--------------- 
-    Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 Эти резервные копии позволяют выполнить следующие операции:
 
@@ -122,22 +42,12 @@ GUIDELINES for the first ## H2.
 > Руководство приведено в статье [Начало работы с резервным копированием и восстановлением для защиты и восстановления данных с помощью PowerShell](sql-database-get-started-backup-recovery.md).
 >
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 > [!NOTE]
 > В службе хранилища Azure термин *репликация* обозначает копирование файлов из одного расположения в другое. *Репликация базы данных SQL* означает хранение нескольких баз данных-получателей, синхронизированных с основной базой данных. 
 > 
 > 
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Сколько места для хранения резервных копий предоставляется бесплатно?
 База данных SQL бесплатно предоставляет хранилище для резервных копий размером до 200 % от максимального объема подготовленного хранилища базы данных. Например, если вы используете экземпляр базы данных уровня "Стандартный" с подготовленным размером базы данных 250 ГБ, вам будет предоставлено бесплатное хранилище службы архивации объемом 500 ГБ. Если база данных будет использовать больший объем хранилища, вы можете сократить период хранения, обратившись в службу поддержки Azure. Другой вариант — оплачивать превышение объема для хранения резервных копий по стандартной ставке для географически избыточного хранилища с доступом для чтения (RA-GRS). 
 
@@ -149,10 +59,6 @@ GUIDELINES for the first ## H2.
 ## <a name="how-long-do-you-keep-my-backups"></a>Как долго хранятся мои резервные копии?
 Каждая резервная копия Базы данных SQL имеет свой срок хранения, который определяется по [уровню служб](sql-database-service-tiers.md) базы данных. Сроки хранения для разных баз данных
 
-<!------------------
-
-    Using a list so the information is easy to find when scanning.
-------------------->
 
 * Уровень служб "Базовый" — 7 дней.
 * Уровень служб "Стандартный" — 35 дней.
@@ -162,7 +68,7 @@ GUIDELINES for the first ## H2.
 
 При переходе на более высокий уровень служб базы данных с уровня "Базовый" на "Стандартный" или "Премиум" База данных SQL сохраняет существующие резервные копии до 35 дней. Она хранит новые резервные копии в течение 35 дней.
 
-При удалении базы данных База данных SQL хранит резервные копии так же, как и для базы данных в Интернете. Например, предположим, что была удалена база данных уровня "Базовый", имеющая срок хранения 7 дней. Резервная копия, хранящаяся четыре дня, будет храниться еще три дня.
+При удалении базы данных База данных SQL хранит резервные копии так же, как и для базы данных в Интернете. Например, предположим, что была удалена база данных уровня "Базовый", имеющая срок хранения&7; дней. Резервная копия, хранящаяся четыре дня, будет храниться еще три дня.
 
 > [!IMPORTANT]
 > Если вы удаляете сервер SQL Azure, на котором размещены базы данных SQL, то все связанные с ним базы данных также будут удалены без возможности восстановления. Удаленный сервер восстановить невозможно.
@@ -170,56 +76,13 @@ GUIDELINES for the first ## H2.
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Как увеличить период удержания резервной копии?
-Если приложению требуется, чтобы резервные копии были доступны в течение более длительного периода времени, можно продлить встроенный период удержания, настроив политику длительного периода удержания резервных копий для отдельных баз данных. Это позволит увеличить встроенный период удержания с 35 дней до 10 лет. Дополнительные сведения см. в статье [Storing Azure SQL Database Backups for up to 10 years](sql-database-long-term-retention.md) (Хранение резервных копий баз данных SQL Azure до 10 лет).
+Если приложению требуется, чтобы резервные копии были доступны в течение более длительного периода времени, можно продлить встроенный период удержания, настроив политику длительного периода удержания резервных копий для отдельных баз данных. Это позволит увеличить встроенный период удержания с 35 дней до 10 лет. Дополнительные сведения см. в статье [Storing Azure SQL Database Backups for up to&10; years](sql-database-long-term-retention.md) (Хранение резервных копий баз данных SQL Azure до&10; лет).
 
-После добавления политики длительного периода удержания резервных копий в базу данных с помощью портала Azure или API еженедельные полные резервные копии базы данных будут автоматически скопированы в ваше хранилище службы архивации Azure. Если база данных зашифрована с использованием прозрачного шифрования, резервные копии будут автоматически шифроваться при хранении.  Хранилище служб будет автоматически удалять резервные копии с истекшим сроком действия с учетом меток времени и политики длительного периода удержания резервных копий.  Поэтому вам не нужно управлять расписанием архивации или беспокоиться об очистке от старых файлов. API восстановления поддерживает резервные копии, содержащиеся в хранилище, при условии, что хранилище находится в той же подписке, что и База данных SQL. Для доступа к этим резервным копиям можно воспользоваться порталом Azure или PowerShell.
+После добавления политики длительного периода удержания резервных копий в базу данных с помощью портала Azure или API еженедельные полные резервные копии базы данных будут автоматически скопированы в ваше хранилище службы архивации Azure. Если база данных зашифрована с использованием прозрачного шифрования, резервные копии будут автоматически шифроваться при хранении.  Хранилище служб будет автоматически удалять резервные копии с истекшим сроком действия с учетом меток времени и политики длительного периода удержания резервных копий.  Поэтому вам не нужно управлять расписанием резервного копирования или беспокоиться об очистке старых файлов. API восстановления поддерживает резервные копии, содержащиеся в хранилище, при условии, что хранилище находится в той же подписке, что и База данных SQL. Для доступа к этим резервным копиям можно воспользоваться порталом Azure или PowerShell.
 
 > [!TIP]
 > Руководство приведено в статье [Начало работы с резервным копированием и восстановлением для защиты и восстановления данных с помощью PowerShell](sql-database-get-started-backup-recovery.md).
 >
-
-<!-------------------
-OPTIONAL section
-## Best practices 
---------------------->
-
-<!-------------------
-OPTIONAL section
-## General remarks
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Limitations and restrictions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Metadata
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Performance
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Permissions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Security
---------------------->
-
-<!-------------------
-GUIDELINES for Next Steps
-
-    The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
-
-    You don't need to repeat links you have already given them.
---------------------->
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -230,6 +93,6 @@ GUIDELINES for Next Steps
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

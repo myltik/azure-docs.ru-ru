@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 388d733b52d32d77fa441c4045d4bce863c41866
-ms.openlocfilehash: 7558c41cbc9cde6748e1706a095598ea03e9ab6a
+ms.sourcegitcommit: 614038da2384b3efa48cd46ade347392ffef9d44
+ms.openlocfilehash: 2cb7b5aff47a81ae53d1ce68426b085eba4c96fc
 
 
 ---
@@ -533,7 +533,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="a-nameadalahow-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Практическое руководство. Проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
 Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Клиентский поток аутентификации с использованием пакета SDK поставщика удостоверений предпочтительнее использования метода `loginWithProvider:completion:` .  Клиентский поток аутентификации обеспечивает более удобный пользовательский интерфейс входа и позволяет выполнять дополнительную настройку.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в учебнике [Настройка приложения службы приложений для использования службы входа Azure Active Directory][7]. Обязательно выполните дополнительный этап регистрации собственного клиентского приложения. Для iOS мы рекомендуем использовать универсальный код ресурса (URI) перенаправления следующего вида: `<app-scheme>://<bundle-id>`. Чтобы узнать больше, ознакомьтесь с [кратким руководством по ADAL для iOS][8].
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory][7]. Обязательно выполните дополнительный этап регистрации собственного клиентского приложения. Для iOS мы рекомендуем использовать универсальный код ресурса (URI) перенаправления следующего вида: `<app-scheme>://<bundle-id>`. Чтобы узнать больше, ознакомьтесь с [кратким руководством по ADAL для iOS][8].
 2. Установите ADAL с помощью Cocoapods. Измените файл Podfile: добавьте в него следующее определение, заменив **YOUR-PROJECT** именем проекта Xcode.
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -615,7 +615,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="a-namefacebook-sdkahow-to-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>Практическое руководство: проверка подлинности пользователей с помощью пакета SDK Facebook для iOS
 Пакет SDK Facebook для iOS можно использовать для входа пользователей в приложение с помощью Facebook.  Использование клиентского потока аутентификации предпочтительнее использования метода `loginWithProvider:completion:` .  Клиентский поток аутентификации обеспечивает более удобный пользовательский интерфейс входа и позволяет выполнять дополнительную настройку.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью Facebook, следуя указаниям в учебнике [Как настроить приложение службы приложений для использования имени для входа Facebook][9].
+1. Настройте серверную часть мобильного приложения для входа с помощью Facebook, следуя указаниям в руководстве [Как настроить приложение службы приложений для использования имени для входа Facebook][9].
 2. Установите пакет SDK Facebook для iOS, как описано в документе [Facebook SDK for iOS - Getting Started][10] (Пакет SDK Facebook для iOS. Приступая к работе). Вместо создания приложения можно добавить платформу iOS в имеющуюся регистрацию.
 3. Документация Facebook содержит код Objective-C в делегате приложения. При использовании **Swift** можно использовать следующие переводы для AppDelegate.swift.
 
@@ -818,54 +818,54 @@ if (error.code == MSErrorPreconditionFailed) {
 
 <!-- Anchors. -->
 
-[Что такое мобильные службы]: #what-is
-[Основные понятия]: #concepts
-[Настройка и необходимые компоненты]: #Setup
-[Практическое руководство. Создание клиента мобильных служб]: #create-client
-[Практическое руководство. Создание ссылки на таблицу]: #table-reference
-[Практическое руководство. Запрос данных от мобильной службы]: #querying
-[Фильтрация возвращаемых данных]: #filtering
-[Сортировка возвращаемых данных]: #sorting
-[Возврат данных на страницах]: #paging
-[Выбор определенных столбцов]: #selecting
-[Привязка данных к пользовательскому интерфейсу]: #binding
-[Практическое руководство. Вставка данных в мобильную службу]: #inserting
-[Практическое руководство. Изменение данных в мобильной службе]: #modifying
-[Практическое руководство. Проверка подлинности пользователей]: #authentication
-[Кэширование маркеров аутентификации]: #caching-tokens
-[Практическое руководство. Передача образов и больших файлов]: #blobs
-[Практическое руководство. Обработка ошибок]: #errors
-[Практическое руководство. Разработка модульных тестов]: #unit-testing
-[Практическое руководство. Настройка клиента]: #customizing
-[Настройка заголовков запросов]: #custom-headers
-[Настройка сериализации типа данных]: #custom-serialization
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
-[Практическое руководство. Использование MSQuery]: #query-object
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-ios-get-started.md
 
-[Добавление мобильных служб в существующее приложение]: /develop/mobile/tutorials/get-started-data
-[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-ios
-[Проверка и изменение данных в мобильных службах с помощью серверных сценариев]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
-[Пакет SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Аутентификация]: /develop/mobile/tutorials/get-started-with-users-ios
-[пакета SDK iOS]: https://developer.apple.com/xcode
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[iOS SDK]: https://developer.apple.com/xcode
 
-[Обработка маркеров с истекшим сроком действия]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Разрешения]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[Авторизация на стороне службы]: mobile-services-javascript-backend-service-side-authorization.md
-[Авторизация пользователей с помощью сценариев]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [динамическая схема]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Практическое руководство. Доступ к настраиваемым параметрам]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Создание таблицы]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[Объект NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Интерфейс командной строки для управления таблицами мобильных служб]: ../virtual-machines-command-line-tools.md#Mobile_Tables
-[Обработчик конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [панели мониторинга структуры]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -882,6 +882,6 @@ if (error.code == MSErrorPreconditionFailed) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

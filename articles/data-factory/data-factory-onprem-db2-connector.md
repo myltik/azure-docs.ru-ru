@@ -1,5 +1,5 @@
 ---
-title: "Перемещение данных из DB2 | Документация Майкрософт"
+title: "Перемещение данных из DB2 с помощью фабрики данных Azure | Документация Майкрософт"
 description: "Узнайте, как перемещать данные из базы данных DB2 с использованием фабрики данных Azure"
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 78adfcb8431305a94982b11586fce5d183fe35ec
 
 
 ---
@@ -351,6 +351,6 @@ ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

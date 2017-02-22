@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 41b19d0ed2d77fc94ec7b3a7905b51e8e25e0585
 
 
 ---
@@ -101,7 +101,7 @@ HDInsight предоставляет доступ к распределенно�
 ### <a name="using-the-azure-portal"></a>Использование портала Azure
 При создании кластера HDInsight при помощи портала можно использовать существующую учетную запись хранения или создать новую.
 
-![источник данных для создания hadoop в hdinsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![источник данных для создания hadoop в HDInsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ### <a name="using-azure-cli"></a>Использование Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -219,7 +219,7 @@ HDInsight предоставляет доступ к распределенно�
 Ознакомьтесь со статьей [Отправка данных в HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Скачивание файлов
-В приведенном ниже сценарии BLOB-объект блочного типа загружается в текущую папку. Перед выполнением сценария измените каталог на папку, для которой у вас есть разрешения на запись.
+В приведенном ниже скрипте блочный BLOB-объект скачивается в текущую папку. Перед выполнением сценария измените каталог на папку, для которой у вас есть разрешения на запись.
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
@@ -305,6 +305,6 @@ $clusterName = "<HDInsightClusterName>"
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

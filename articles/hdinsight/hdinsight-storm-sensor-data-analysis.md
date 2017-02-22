@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+ms.sourcegitcommit: b19e8b8e6f90ad502799fafd70ad6838d6e6ba4d
+ms.openlocfilehash: 215698f2089934eac549e36644f0bfd4247fe2b9
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
 
 > [!NOTE]
 > Сведения в этом документе и приведенный пример были проверены на кластерах HDInsight версий 3.3 и 3.4 под управлением Linux.
-> 
-> 
+>
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -224,8 +224,7 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
    
    > [!NOTE]
    > В этом примере предполагается, что имя **sensordata** использовалось в качестве имени концентратора событий, а **devices** — в качестве имени политики с утверждением **Send** (Отправка).
-   > 
-   > 
+
 3. Для добавления новых записей в концентратор событий используйте следующую команду.
    
         node app.js
@@ -272,7 +271,7 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
 3. Убедившись, что все работает, остановите топологию, нажав клавиши CTRL+C. С помощью клавиш Ctrl+C можно также остановить локальный веб-сервер.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Создание кластеров Storm и HBase
-Чтобы запустить топологию в HDInsight и включить сито HBase, необходимо создать новые кластеры Storm и HBase. В действиях, описанных в этом разделе, используется [шаблон Azure Resource Manager](../resource-group-template-deploy.md) для создания новой виртуальной сети Azure и кластеров Storm и HBase в ней. Шаблон также создает веб-приложение Azure и развертывает в нем копию панели мониторинга.
+Чтобы запустить топологию в HDInsight и включить сито HBase, необходимо создать новые кластеры Storm и HBase. В действиях, описанных в этом разделе, используется [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) для создания новой виртуальной сети Azure и кластеров Storm и HBase в ней. Шаблон также создает веб-приложение Azure и развертывает в нем копию панели мониторинга.
 
 > [!NOTE]
 > Виртуальная сеть используется для того, чтобы топология, запущенная на кластере Storm, могла непосредственно обмениваться данными с кластером HBase с помощью API Java для HBase.
@@ -283,7 +282,7 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
 
 1. Нажмите следующую кнопку, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. В колонке **Параметры** задайте следующие параметры.
    
     ![Параметры HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -345,12 +344,11 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
         exit
 
 ## <a name="configure-the-hbase-bolt"></a>Настройка сита HBase
-Для записи данных в HBase из кластера Storm ситу HBase необходимо предоставить сведения о конфигурации кластера HBase. Для этого проще всего скачать файл **hbase site.xml** из кластера и добавить его в проект. Необходимо также раскомментировать несколько зависимостей в файле **pom.xml** , который загружает компонент storm-hbase и необходимые зависимости.
+
+Для записи данных в HBase из кластера Storm ситу HBase необходимо предоставить сведения о конфигурации кластера HBase. Для этого проще всего скачать файл **hbase site.xml** из кластера и добавить его в проект. 
 
 > [!IMPORTANT]
 > Кроме того, нужно скачать файл storm-hbase.jar, доступный в кластере Storm в HDInsight 3.3 или 3.4. Эта версия скомпилирована для работы с HBase версии 1.1.x, которая используется для кластеров HBase в HDInsight 3.3 и 3.4. Если использовать компонент storm-hbase из другого источника, то может оказаться, что он скомпилирован для более ранней версии HBase.
-> 
-> 
 
 ### <a name="download-the-hbase-sitexml"></a>Скачивание файла hbase-site.xml
 В командной строке используйте SCP, чтобы скачать файл **hbase-site.xml** из кластера. В следующем примере замените **USERNAME** именем пользователя SSH, указанным при создании кластера, а **BASENAME** — указанным ранее базовым именем. При появлении запроса введите пароль пользователя SSH. Замените `/path/to/TemperatureMonitor/resources/hbase-site.xml` путем к этому файлу в проекте TemperatureMonitor.
@@ -373,33 +371,18 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
    
         mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
-### <a name="enable-the-storm-hbase-component-in-the-project"></a>Добавление компонента storm-hbase в проект
-1. Откройте файл **TemperatureMonitor/pom.xml** и удалите следующие строки.
-   
-        <!-- uncomment this section to enable the hbase-bolt
-        end comment for hbase-bolt section -->
-   
-   > [!IMPORTANT]
-   > Удалите только эти две строки. Не удаляйте строки, находящиеся между ними.
-   > 
-   > 
-   
-    Это позволит добавить несколько компонентов, которые необходимы для обмена данными с HBase с помощью сита HBase.
-2. Найдите следующие строки и замените **####** номером версии скачанного ранее файла storm-hbase.
-   
+3. В файле __pom.xml__ найдите раздел зависимостей для __storm-hbase__. Раскомментируйте зависимость, удалив `<!--` и `-->` вокруг зависимости. Также необходимо изменить запись `<version></version>`, чтобы она соответствовала номеру версии (####), использованному на предыдущих шагах. Запись будет выглядеть примерно следующим образом:
+
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-hbase</artifactId>
-            <version>####</version>
+            <version>0.10.0.2.4.2.4-5</version>
         </dependency>
-   
-   > [!IMPORTANT]
-   > Номер версии должен соответствовать версии, использованной при установке компонента в локальный репозиторий Maven, так как Maven использует эту информацию для загрузки компонента при сборке проекта.
-   > 
-   > 
-3. Сохраните файл **pom.xml** .
+
+   После внесения изменений сохраните файл.
 
 ## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>Выполнение сборки, упаковка и развертывание решения в HDInsight
+
 Выполните приведенные действия в своей среде разработки, чтобы развернуть топологию Storm в кластере Storm.
 
 1. Из каталога **TemperatureMonitor** выполните следующую команду, чтобы выполнить сборку и создать новый пакет JAR из своего проекта.
@@ -409,7 +392,7 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
     Это создаст файл под именем **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **целевом** каталоге вашего проекта.
 2. Используйте scp, чтобы передать файл **TemperatureMonitor-1.0-SNAPSHOT.jar** в кластер Storm. В следующем примере замените **USERNAME** именем пользователя SSH, указанным при создании кластера, а **BASENAME** — указанным ранее базовым именем. При появлении запроса введите пароль пользователя SSH.
    
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
+        scp target/TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
    
    > [!NOTE]
    > Передача файла может занять несколько минут, так как его размер составит несколько мегабайтов.
@@ -499,6 +482,6 @@ ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

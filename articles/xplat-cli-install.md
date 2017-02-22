@@ -13,31 +13,31 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/21/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: a3b1b65ff1d61adfbbcc70bece938f71a83d0812
-ms.openlocfilehash: dce83b58c7127362232dce9af3a0a6f97044602a
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 08f0fe132858bf4629cadc53fbfc6c203592e3a7
 
 
 ---
 # <a name="install-the-azure-cli"></a>Установка Azure CLI
 > [!div class="op_single_selector"]
-> * [PowerShell](powershell-install-configure.md)
+> * [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 > * [Интерфейс командной строки Azure](xplat-cli-install.md)
 
-Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. Существует несколько вариантов установки этих кроссплатформенных инструментов на компьютер. 
+Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. Существует несколько вариантов установки этих кроссплатформенных инструментов на компьютер.
 
 * **Пакет npm**. Запустите npm (диспетчер пакетов для JavaScript), чтобы установить последнюю версию пакета для интерфейса командной строки Azure в дистрибутиве или ОС Linux. На компьютере должны быть установлены node.js и npm.
 * **Установщик**. Скачайте установщик, чтобы легко установить эти инструменты на компьютеры Mac или Windows.
 * **Контейнер Docker**. Приступите к использованию последней версии интерфейса командной строки из готового контейнера Docker. На компьютере требуется наличие узла Docker.
 
-Дополнительные сведения и варианты установки см. в репозитории проектов на сайте [GitHub](https://github.com/azure/azure-xplat-cli). 
+Дополнительные сведения и варианты установки см. в репозитории проектов на сайте [GitHub](https://github.com/azure/azure-xplat-cli).
 
 После установки интерфейса командной строки Azure вы сможете [подключить его к своей подписке Azure](xplat-cli-connect.md) и работать с ресурсами Azure c помощью команд **azure** из интерфейса командной строки (Bash, терминала, командной строки и т. д.).
 
 ## <a name="option-1-install-an-npm-package"></a>Вариант 1. Установка пакета npm
-Для установки интерфейса командной строки из пакета NPM в системе должна быть установлена [последняя версия Node.js и npm](https://nodejs.org/en/download/package-manager/). Затем запустите **npm install** для установки пакета azure-cli: 
+Для установки интерфейса командной строки из пакета NPM в системе должна быть установлена [последняя версия Node.js и npm](https://nodejs.org/en/download/package-manager/). Затем запустите **npm install** для установки пакета azure-cli:
 
 ```bash
 npm install -g azure-cli
@@ -50,9 +50,9 @@ sudo npm install -g azure-cli
 ```
 
 > [!NOTE]
-> Если необходимо установить или обновить Node.js и npm в дистрибутиве или ОС Linux, рекомендуется установить последнюю версию Node.js LTS (4.x). Если вы используете более раннюю версию, возможны ошибки при установке. 
+> Если необходимо установить или обновить Node.js и npm в дистрибутиве или ОС Linux, рекомендуется установить последнюю версию Node.js LTS (4.x). Если вы используете более раннюю версию, возможны ошибки при установке.
 
-При желании скачайте последнюю версию [TAR-файла][linux-installer] пакета npm для Linux на локальный компьютер. Затем установите скачанный пакет npm, как описано ниже (для дистрибутивов Linux может потребоваться использовать **sudo**).
+Если хотите, скачайте последнюю версию [TAR-файла][linux-installer] пакета npm для Linux на локальный компьютер. Затем установите скачанный пакет npm, как описано ниже (для дистрибутивов Linux может потребоваться использовать **sudo**).
 
 ```bash
 npm install -g <path to downloaded tar file>
@@ -62,10 +62,10 @@ npm install -g <path to downloaded tar file>
 При использовании компьютера Windows или Mac можно скачать следующие установщики интерфейса командной строки:
 
 * [Установщик Mac OS X][mac-installer]
-* [Файл MSI Windows][windows-installer] 
+* [MSI-файл Windows][windows-installer]
 
 > [!TIP]
-> В Windows для установки интерфейса командной строки можно также скачать [установщик веб-платформы](https://go.microsoft.com/?linkid=9828653) . Этот установщик дает возможность установить дополнительный пакет SDK для Azure и программы командной строки после установки интерфейса командной строки. 
+> В Windows для установки интерфейса командной строки можно также скачать [установщик веб-платформы](https://go.microsoft.com/?linkid=9828653) . Этот установщик дает возможность установить дополнительный пакет SDK для Azure и программы командной строки после установки интерфейса командной строки.
 
 ## <a name="option-3-use-a-docker-container"></a>Вариант 3. Использование контейнера Docker
 Если вы настроили компьютер в качестве узла [Docker](https://docs.docker.com/engine/understanding-docker/) , то можете запустить последнюю версию Azure CLI в контейнере Docker. Выполните следующую команду (в системах Linux для выполнения команды npm может потребоваться команда **sudo**):
@@ -132,11 +132,11 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]: virtual-machines-command-line-tools.md
+[cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

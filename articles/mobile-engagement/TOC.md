@@ -16,7 +16,7 @@
 ## [Xamarin.iOS](mobile-engagement-xamarin-ios-get-started.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Рекомендации по использованию хранилища данных SQL Azure](mobile-engagement-getting-started-best-practices.md)
 ### [Основные понятия](mobile-engagement-concepts.md)
 ### [Определение стратегии привлечения](mobile-engagement-define-your-mobile-engagement-strategy.md)
@@ -25,7 +25,7 @@
 #### [Игровое приложение](mobile-engagement-gaming-scenario.md)
 
 ## Разработка
-### [Создание приложения Служб мобильного взаимодействия](mobile-engagement-create.md)
+### [Создание приложения служб мобильного взаимодействия](mobile-engagement-create.md)
 
 ### [Android](mobile-engagement-android-sdk-overview.md)
 #### [Интеграция с приложением Android](mobile-engagement-android-integrate-engagement.md)
@@ -95,7 +95,7 @@
 ### [Аутентификация API](mobile-engagement-api-authentication.md)
 ### [Настройка аутентификации API вручную](mobile-engagement-api-authentication-manual.md)
 
-## Монитор
+## Мониторинг
 ### [Мониторинг данных в режиме реального времени](mobile-engagement-user-interface-monitor.md)
 
 ## Анализ
@@ -117,25 +117,28 @@
 
 # Справочные материалы
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Сопутствующие материалы
 ## Содержимое пакета SDK
 ### [Пакет SDK для Android](mobile-engagement-android-sdk-content.md)
 ### [пакета SDK iOS](mobile-engagement-ios-sdk-content.md)
 ### [Пакет SDK для универсальных приложений для Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [Пакет SDK для Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
+
+# Ресурсы
 ## Заметки о выпуске
 ### [Пакет SDK для Android](mobile-engagement-android-release-notes.md)
 ### [пакета SDK iOS](mobile-engagement-ios-release-notes.md)
 ### [Веб-пакет SDK](mobile-engagement-web-release-notes.md)
 ### [Пакет SDK для универсальных приложений для Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Пакет SDK для Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-
-
-# Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [Примеры демонстрационных приложений](mobile-engagement-demo-apps.md)
-## [Пример API .NET](mobile-engagement-dotnet-sdk-service-api.md)
+## [Пример API для .NET](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Видео и обновления](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Соглашение об уровне обслуживания (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 
 
 
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Использование средств бизнес-аналитики с Apache Spark в HDInsight | Документация Майкрософт"
+title: "Использование инструментов бизнес-аналитики с Apache Spark в Azure HDInsight | Документация Майкрософт"
 description: "Пошаговые инструкции по использованию записных книжек совместно с Apache Spark для создания схем на основе необработанных данных, сохранения их в виде таблиц Hive и последующего использования средств бизнес-аналитики для анализа данных в таблице Hive"
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 
 
 ---
-# <a name="use-bi-tools-with-apache-spark-cluster-on-hdinsight-linux"></a>Использование инструментов бизнес-аналитики с кластером Apache Spark в HDInsight на платформе Linux
+# <a name="use-bi-tools-with-apache-spark-cluster-on-azure-hdinsight"></a>Использование инструментов бизнес-аналитики с кластером Apache Spark в Azure HDInsight
+
 Узнайте о том, как использовать Apache Spark в Azure HDInsight для выполнения следующих задач:
 
 * использование необработанных демонстрационных данных и сохранение их как таблицу Hive;
 * использование средств бизнес-аналитики, таких как Power BI и Tableau, для анализа и визуализации данных.
-
-> [!NOTE]
-> Этот документ применим только для кластеров Spark 1.5.2, созданных в Azure HDInsight.
->
->
 
 Кроме того, это руководство доступно в виде записной книжки Jupyter в кластере Spark (на платформе Linux), созданном в HDInsight. Фрагменты кода Python можно выполнять непосредственно в записной книжке. Чтобы выполнить действия в руководстве из записной книжки, создайте кластер Spark, запустите записную книжку Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), а затем запустите записную книжку **Использование средств бизнес-аналитики с Apache Spark в HDInsight.ipynb** в папке **Python**.
 
@@ -38,8 +34,8 @@ ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
 
 Необходимо следующее:
 
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Компьютер с установленным драйвером ODBC Microsoft Spark (требуется для работы Spark в HDInsight с Tableau). Вы можете скачать драйвер [здесь](http://go.microsoft.com/fwlink/?LinkId=616229).
 * Средства бизнес-аналитики, такие как [Power BI](http://www.powerbi.com/) или [Tableau Desktop](http://www.tableau.com/products/desktop). Вы можете оформить подписку на бесплатную предварительную версию Power BI на сайте [http://www.powerbi.com/](http://www.powerbi.com/).
 
@@ -59,10 +55,10 @@ ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
    >
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
-    ![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 4. Будет создана и открыта записная книжка с именем Untitled.pynb. Щелкните имя записной книжки в верхней части страницы сверху и введите понятное имя.
 
-    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Указание имени для записной книжки")
 5. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Для этого наведите курсор на ячейку и нажмите клавиши **SHIFT+ВВОД**.
 
         from pyspark.sql import *
@@ -86,7 +82,7 @@ ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-1. Убедитесь, что таблица была успешно создана. Можно использовать волшебное слово `%%sql` для непосредственного выполнения запросов Hive. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+1. Убедитесь, что таблица была успешно создана. Можно использовать волшебное слово `%%sql` для непосредственного выполнения запросов Hive. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES
@@ -115,19 +111,19 @@ ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
 1. Войдите в [Power BI](http://www.powerbi.com/).
 2. На экране приветствия щелкните **Databases & More** (Базы данных и другое).
 
-    ![Получение данных в Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Get data into Power BI")
+    ![Получение данных в Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Получение данных в Power BI")
 3. На следующем экране выберите **Spark на Azure HDInsight**, а затем щелкните **Подключиться**. При появлении запроса введите URL-адрес кластера (`mysparkcluster.azurehdinsight.net`) и учетные данные для подключения к кластеру.
 
     После установления соединения Power BI начнет импорт данных из кластера Spark в HDInsight.
 4. Power BI импортирует данные и добавит новый набор данных Spark в раздел **Наборы данных** . Щелкните по набору данных, при этом откроется новый лист для визуализации данных. Кроме того, вы можете сохранить лист в виде отчета. Чтобы сохранить лист, выберите **Сохранить** в меню **Файл**.
 
-    ![Плитка Spark на панели мониторинга Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Spark tile on Power BI dashboard")
+    ![Элемент Spark на панели мониторинга Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Элемент Spark на панели мониторинга Power BI")
 5. Обратите внимание, что в списке **Поля** справа есть таблица **hvac**, которую мы создали ранее. Разверните таблицу, чтобы просмотреть все поля в таблице, как они были определены ранее в записной книжке.
 
-      ![Список таблиц Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "List Hive tables")
+      ![Список таблиц Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "Список таблиц Hive")
 6. Создайте визуализацию для отображения расхождений между целевой температурой и фактической температурой для каждого здания. Выберите **Область карты** (показана красным) для визуализации данных. Чтобы определить оси, перетащите поле **Код здания** в раздел **Ось**, а поля **ActualTemp**(Фактическая температура)/**TargetTemp** (Целевая температура) — в раздел **Значение**.
 
-    ![Создание визуализации](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Create visualizations")
+    ![Создание визуализации](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Создание визуализации")
 7. По умолчанию представление показывает сумму для **фактической температуры** и **целевой температуры**. Для обоих полей из раскрывающегося списка выберите **Среднее** для получения средней фактической и целевой температуры для обоих зданий.
 
     ![Создание визуализации](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
@@ -139,34 +135,40 @@ ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
    Для одного и того же набора данных можно добавить любое количество представлений с визуализацией и закреплять их на панели мониторинга для получения моментального снимка данных. Кроме того, кластеры Spark в HDInsight подключены к Power BI напрямую. Это означает, что Power BI всегда имеет доступ к актуальным данным из кластера, поэтому вам не требуется планировать обновления для набора данных.
 
 ## <a name="a-nametableauause-tableau-desktop-to-analyze-data-in-the-hive-table"></a><a name="tableau"></a>Использование Tableau Desktop для анализа данных в таблицах Hive
+
+> [!NOTE]
+> Этот раздел применим только для кластеров Spark 1.5.2, созданных в Azure HDInsight.
+>
+>
+
 1. Запустите Tableau Desktop. В левой области в списке сервера для подключения щелкните **Spark SQL**. Если Spark SQL по умолчанию не отображается в левой области, вы можете найти его, щелкнув **Другие серверы**.
 2. В диалоговом окне подключения Spark SQL укажите значения, приведенные ниже, и нажмите кнопку **ОК**.
 
-    ![Подключение к кластеру Spark](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Connect to a Spark cluster")
+    ![Подключение к кластеру Spark](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Подключение к кластеру Spark")
 
     Если вы установили на компьютер **драйвер Microsoft ODBC Spark** , в раскрывающемся списке проверки подлинности будет пункт [служба Microsoft Azure HDInsight](http://go.microsoft.com/fwlink/?LinkId=616229) .
 3. В следующем окне в раскрывающемся списке **Схема** щелкните значок **Найти**, а затем щелкните **по умолчанию**.
 
-    ![Поиск схемы](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "Find schema")
+    ![Поиск схемы](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "Поиск схемы")
 4. Для поля **Таблица** еще раз щелкните значок **Найти**, чтобы вывести список всех таблиц Hive, доступных в кластере. Вы должны увидеть таблицу **hvac** , созданную ранее с помощью записной книжки.
 
-    ![Поиск таблиц](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "Find tables")
+    ![Поиск таблиц](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "Поиск таблиц")
 5. Перетащите таблицу в поле в правом верхней части окна. Tableau импортирует данные и отображает схему (выделено красным прямоугольником).
 
-    ![Добавление таблиц в Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Add tables to Tableau")
+    ![Добавление таблиц в Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Добавление таблиц в Tableau")
 6. Щелкните вкладку **Лист1** слева внизу. Создайте визуализацию, на которой представлены средняя целевая температура фактическая температура для всех зданий для каждой даты. Перетащите поля **Дата** и **Код здания** в раздел **Столбцы**, а поля **Actual Temp**(Фактическая температура)/**Target Temp** (Целевая температура) — в раздел **Строки**. В разделе **Метки** в поле **Область** выберите область, которая будет использована для визуализации области карты.
 
-     ![Добавление полей для визуализации](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Add fields for visualization")
+     ![Добавление полей для визуализации](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Добавление полей для визуализации")
 7. По умолчанию значения полей температуры отображаются как статистическое выражение. Если необходимо отобразить среднюю температуру, это можно сделать из раскрывающегося списка, как показано ниже.
 
-    ![Получение средней температуры](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "Take average of temperature")
+    ![Получение средней температуры](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "Получение средней температуры")
 8. Можно также наложить одну карту температуры на другую, чтобы лучше понять разницу между целевой и фактической температурой. Перемещайте указатель мыши в угол нижней области карты, пока курсор не примет форму красного кружка. Перетащите карту на другую карту в верхней части и отпустите кнопку мыши, когда указатель мыши примет форму красного прямоугольника.
 
-    ![Слияние карт](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Merge maps")
+    ![Слияние карт](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Слияние карт")
 
      Визуализация данных должна измениться следующим образом:
 
-    ![Визуализация:](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Visualization")
+    ![Визуализация](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Визуализация")
 9. Щелкните **Сохранить** для сохранения рабочего листа. Можно создать панели мониторинга и добавить на них один или несколько листов.
 
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
@@ -207,6 +209,6 @@ ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

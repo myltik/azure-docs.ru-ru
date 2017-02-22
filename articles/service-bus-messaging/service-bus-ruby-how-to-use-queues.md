@@ -1,5 +1,5 @@
 ---
-title: "Использование очередей служебной шины (Ruby) | Документация Майкрософт"
+title: "Использование очередей служебной шины Azure с Ruby | Документация Майкрософт"
 description: "Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Ruby."
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
 
 
 ---
@@ -25,48 +25,12 @@ ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
 
 В этом руководстве показано, как использовать очереди служебной шины. Примеры написаны с помощью Ruby и используют пакет Azure. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**. Дополнительные сведения об очередях служебной шины см. в разделе [Дальнейшие действия](#next-steps).
 
-## <a name="what-are-service-bus-queues"></a>Что такое очереди служебной шины?
-Очереди служебной шины поддерживают модель *обмена сообщениями через брокер*. При использовании очередей компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через очередь, которая выступает в качестве посредника. Производитель (отправитель) передает сообщение в очередь, а затем продолжает его обработку.
-Потребитель сообщения (получатель) асинхронно извлекает сообщение из очереди и обрабатывает его. Поставщику не нужно ждать ответа от потребителя, чтобы продолжить обработку и отправку дальнейших сообщений. Очереди предлагают доставку сообщений конкурирующим потребителям по типу **FIFO** (первым пришел, первым вышел). То есть обычно получатели принимают и обрабатывают сообщения в том порядке, в котором они были добавлены в очередь, и каждое сообщение принимается и обрабатывается только одним потребителем сообщений.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-![QueueConcepts](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
-
-Очереди служебной шины — это технология общего назначения, которая может использоваться для разнообразных сценариев:
-
-* Взаимодействие между веб-ролями и рабочими ролями в [многоуровневом приложении Azure](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md).
-* Взаимодействие между локальными приложениями и приложениями, размещенными в Azure, в [гибридном решении](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
-* Связь между компонентами распределенного приложения, которое работает в другой организации или в другом подразделении данной организации.
-
-С помощью очередей можно лучше масштабировать приложения и придать вашей архитектуре большую устойчивость.
-
-## <a name="create-a-namespace"></a>Создание пространства имен
-Чтобы начать использовать очереди служебной шины в Azure, необходимо сначала создать пространство имен. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении. Так как портал Azure не создает пространство имен с помощью подключения ACS, необходимо создать пространство имен через интерфейс командной строки.
-
-Создание пространства имен службы:
-
-1. Откройте консоль Azure Powershell.
-2. Введите следующую команду, чтобы создать пространство имен служебной шины. Укажите собственное значение пространства имен и укажите ту же область, что и у приложения.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## <a name="obtain-management-credentials-for-the-namespace"></a>Получение учетных данных управления для пространства имен
-Для выполнения операций управления, таких как создание очереди в новом пространстве имен, необходимо получить учетные данные управления для пространства имен.
-
-Командлет PowerShell, выполненный с целью создания пространства имен служебной шины Azure, отображает ключ, который можно использовать для управления пространством имен. Скопируйте значение **DefaultKey**. Оно понадобится в коде дальше в этом учебнике.
-
-![Копирование ключа](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> Этот ключ можно также найти на [портале Azure](https://portal.azure.com/) в разделе сведений о подключении для пространства имен вашей служебной шины.
-> 
-> 
-
 ## <a name="create-a-ruby-application"></a>Создание приложения Ruby
-Создайте приложение Ruby. Инструкции см. в разделе [Создание приложения Ruby в Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Создайте приложение Ruby. Инструкции см. в разделе [Создание приложения Ruby в Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
 Для использования служебной шины Azure скачайте и используйте пакет Ruby Azure, который содержит набор библиотек, взаимодействующих со службами REST хранилища.
@@ -85,7 +49,7 @@ require "azure"
 ## <a name="set-up-an-azure-service-bus-connection"></a>Настройка подключения к служебной шине Azure
 Модуль Azure считывает переменные среды **AZURE\_SERVICEBUS\_NAMESPACE** и **AZURE\_SERVICEBUS\_ACCESS_KEY**, в которых содержатся сведения, необходимые для подключения к пространству имен служебной шины. Если эти переменные среды не заданы, необходимо указать сведения о пространстве имен перед использованием **Azure::ServiceBusService** с помощью следующего кода:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -95,7 +59,7 @@ Azure.config.sb_access_key = "<your azure service bus access key>"
 ## <a name="how-to-create-a-queue"></a>Как создать очередь
 Объект **Azure::ServiceBusService** позволяет работать с очередями. Чтобы создать очередь, используйте метод **create_queue()**. В следующем примере создается очередь или выводится ошибка, если она возникла.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
@@ -106,7 +70,7 @@ end
 
 Можно также передать объект **Azure::ServiceBus::Queue** с дополнительными параметрами, которые позволяют переопределить параметры очереди по умолчанию, например, срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди в 5 ГБ и срок жизни в 1 минуту.
 
-```
+```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
 queue.max_size_in_megabytes = 5120
 queue.default_message_time_to_live = "PT1M"
@@ -115,11 +79,11 @@ queue = azure_service_bus_service.create_queue(queue)
 ```
 
 ## <a name="how-to-send-messages-to-a-queue"></a>Как отправлять сообщения в очередь
-Чтобы отправить сообщение в очередь служебной шины, ваше приложение вызывает метод **send\_queue\_message()** для объекта **Azure::ServiceBusService**. Сообщения, отправленные (и полученные) из очередей служебной шины — это объекты **Azure::ServiceBus::BrokeredMessage**. У них есть набор стандартных свойств (например, **label** и **time\_to\_live**), словарь, используемый для хранения настраиваемых свойств приложения, и текст произвольных данных приложения. Приложение может задать текст сообщения, передав строковое значение как сообщение, а все необходимые стандартные свойства будут заполнены значениями по умолчанию.
+Чтобы отправить сообщение в очередь служебной шины, ваше приложение вызывает метод **send\_queue\_message()** для объекта **Azure::ServiceBusService**. Сообщения, отправленные (и полученные) из очередей служебной шины представляют собой объекты **Azure::ServiceBus::BrokeredMessage**. У них есть набор стандартных свойств (например, **label** и **time\_to\_live**), словарь, используемый для хранения настраиваемых свойств приложения, и текст произвольных данных приложения. Приложение может задать текст сообщения, передав строковое значение как сообщение, а все необходимые стандартные свойства будут заполнены значениями по умолчанию.
 
 В следующем примере показано, как отправить тестовое сообщение в очередь с именем "test-queue" с помощью **send\_queue\_message()**:
 
-```
+```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
 message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
@@ -136,7 +100,7 @@ azure_service_bus_service.send_queue_message("test-queue", message)
 
 В следующем примере показано, как получать и обрабатывать сообщения с помощью метода **receive\_queue\_message()**. Сначала пример получает и удаляет сообщение с помощью параметра **:peek\_lock**, для которого задано значение **false**, затем он получает другое сообщение и удаляет его с помощью метода **delete\_queue\_message()**:
 
-```
+```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
   { :peek_lock => false })
 message = azure_service_bus_service.receive_queue_message("test-queue")
@@ -161,6 +125,6 @@ azure_service_bus_service.delete_queue_message(message)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

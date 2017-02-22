@@ -16,14 +16,16 @@ ms.topic: article
 ms.date: 11/24/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 74f80f14a66fa61c19cb5d5fd758cea0ccdd43c5
-ms.openlocfilehash: bf72fa88f9444578dd0192e94c89c862273886b2
+ms.sourcegitcommit: 9b83a0878f45bf3a79d00ad77965308d95f33d28
+ms.openlocfilehash: 797ee3b1209e5abf545f0614c408d94391a29c8b
 
 
 ---
 
 # <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>Создание учетной записи DocumentDB для использования с приложениями MongoDB
 Теперь базы данных DocumentDB можно использовать как хранилище данных для приложений, написанных для MongoDB. Чтобы использовать эту возможность, требуются учетные записи Azure и DocumentDB. В этом руководстве описано, как создать учетную запись DocumentDB для использования с приложениями MongoDB. 
+
+Учетную запись DocumentDB с поддержкой учетной записи MongoDB можно создать с помощью портала Azure или интерфейса командной строки Azure с шаблонами Azure Resource Manager. Из этой статьи вы узнаете, как создать учетную запись DocumentDB с поддержкой учетной записи MongoDB с помощью портала Azure. Сведения о том, как создать учетную запись с помощью интерфейса командной строки Azure с Azure Resource Manager, см. в статье [Автоматизация создания учетной записи DocumentDB с помощью Azure CLI и шаблонов Azure Resource Manager](documentdb-automation-resource-manager-cli.md#quick-create-documentdb-with-mongodb-api-account).
 
 ## <a name="prerequisite"></a>Предварительные требования
 Учетная запись Azure. Если у вас нет учетной записи, вы можете создать [бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
@@ -72,6 +74,6 @@ ms.openlocfilehash: bf72fa88f9444578dd0192e94c89c862273886b2
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

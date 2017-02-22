@@ -3,7 +3,7 @@ title: "Активация или деактивация роли | Докуме
 description: "Сведения о том, как активировать роли для привилегированных пользователей с помощью приложения для управления привилегированными пользователями Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 67695e5715e83e2214b27a2abd76a3f68fb4a75a
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: f70fec829b273de97fc49e61ba42d511b6b141b3
 
 
 ---
@@ -53,7 +53,6 @@ ms.openlocfilehash: 67695e5715e83e2214b27a2abd76a3f68fb4a75a
 
 При необходимости роль можно отключить и раньше — вручную в приложении для управления привилегированными пользователями Azure AD.  Щелкните **Активация моих ролей**, выберите роль, которую больше не используете, и нажмите кнопку **Деактивировать**.  
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены ссылки на подробные сведения об управлении привилегированными пользователями Azure AD.
 
@@ -66,6 +65,6 @@ ms.openlocfilehash: 67695e5715e83e2214b27a2abd76a3f68fb4a75a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,58 +13,63 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 9dfc7107447a11c73fb14412c2d9ffba936564d7
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: e77bd4f37fbf7d71053132e69e81cc863560ac26
 
 
 ---
 # <a name="use-python-with-hive-and-pig-in-hdinsight"></a>Использование Python с Hive и Pig в HDInsight
+
 Hive и Pig отлично подходят для работы с данными в HDInsight, но в некоторых случаях вам может понадобиться язык программирования более общего назначения. Как Hive, так и Pig позволяют вам создавать пользовательские функции (UDF) с использованием различных языков программирования. В этой статье вы узнаете, как использовать пользовательские функции на Python из Hive и Pig.
 
 ## <a name="requirements"></a>Требования
-* Кластер HDInsight (под управлением Windows или Linux)
-* Текстовый редактор
-  
+
+* Кластер HDInsight.
+
   > [!IMPORTANT]
-  > Если вы используете сервер HDInsight под управлением Linux, но создаете файлы Python на клиенте Windows, следует использовать редактор, который использует символ LF в качестве конца строки. Если вы не уверены, использует ли редактор символы LF или CRLF, см. раздел [Устранение неполадок](#troubleshooting), в котором описано, как удалять знаки CR с помощью служебных программ в кластере HDInsight.
-  > 
-  > 
+  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+* Текстовый редактор
 
 ## <a name="a-namepythonapython-on-hdinsight"></a><a name="python"></a>Python в HDInsight
+
 По умолчанию на кластерах HDInsight 3.0 и более поздних версий установлен Python версии 2.7. Для обработки потоков Hive можно использовать с этой версией Python (данные передаются между Hive и Python с использованием STDOUT/STDIN).
 
 В состав HDInsight также входят Jython, который представляет собой реализацию Python, написанную на Java. Pig может взаимодействовать с Jython без необходимости прибегать к использованию потоков, поэтому предпочтительнее применять его с Pig. Тем не менее вы можете использовать обычный язык Python (CPython), а также Pig.
 
 ## <a name="a-namehivepythonahive-and-python"></a><a name="hivepython"></a>Hive и Python
+
 Скрипт Python можно использовать в виде UDF из Hive через HiveQL с помощью инструкции **TRANSFORM** . Так, следующий запрос HiveQL вызывает скрипт Python, хранящийся в файле **streaming.py** .
 
 **HDInsight под управлением Linux**
 
-    add file wasbs:///streaming.py;
+```hiveql
+add file wasbs:///streaming.py;
 
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-      USING 'python streaming.py' AS
-      (clientid string, phoneLable string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
+SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'python streaming.py' AS
+    (clientid string, phoneLable string, phoneHash string)
+FROM hivesampletable
+ORDER BY clientid LIMIT 50;
+```
 
 **HDInsight под управлением Windows**
 
-    add file wasbs:///streaming.py;
+```hiveql
+add file wasbs:///streaming.py;
 
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-      USING 'D:\Python27\python.exe streaming.py' AS
-      (clientid string, phoneLable string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
+SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'D:\Python27\python.exe streaming.py' AS
+    (clientid string, phoneLable string, phoneHash string)
+FROM hivesampletable
+ORDER BY clientid LIMIT 50;
+```
 
 > [!NOTE]
 > В кластерах HDInsight под управлением Windows оператор **USING** должен задавать полный путь к python.exe. Это всегда `D:\Python27\python.exe`.
-> 
-> 
 
 Вот что делает данный пример:
 
@@ -74,21 +79,22 @@ Hive и Pig отлично подходят для работы с данным�
 
 <a name="streamingpy"></a> Вот файл **streaming.py** , который используется в примере HiveQL.
 
-    #!/usr/bin/env python
+```python
+#!/usr/bin/env python
+import sys
+import string
+import hashlib
 
-    import sys
-    import string
-    import hashlib
-
-    while True:
-      line = sys.stdin.readline()
-      if not line:
+while True:
+    line = sys.stdin.readline()
+    if not line:
         break
 
-      line = string.strip(line, "\n ")
-      clientid, devicemake, devicemodel = string.split(line, "\t")
-      phone_label = devicemake + ' ' + devicemodel
-      print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
+    line = string.strip(line, "\n ")
+    clientid, devicemake, devicemodel = string.split(line, "\t")
+    phone_label = devicemake + ' ' + devicemodel
+    print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
+```
 
 Так как мы используем потоки, этот скрипт должен выполнить следующее:
 
@@ -114,15 +120,15 @@ Hive и Pig отлично подходят для работы с данным�
 
 > [!IMPORTANT]
 > При использовании Jython путь к файлу pig_jython может быть локальным путем или путем WASB://. Но при использовании CPython необходимо указать ссылку на файл в локальной файловой системе узла, который используется для отправки задания Pig.
-> 
-> 
 
 После регистрации язык Pig Latin будет одинаковым для обоих примеров:
 
-    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-    LOG = FILTER LOGS by LINE is not null;
-    DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
-    DUMP DETAILS;
+```pig
+LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+LOG = FILTER LOGS by LINE is not null;
+DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
+DUMP DETAILS;
+```
 
 Вот что делает данный пример:
 
@@ -135,20 +141,20 @@ Hive и Pig отлично подходят для работы с данным�
 
 <a name="streamingpy"></a>
 
-    # Uncomment the following if using C Python
-    #from pig_util import outputSchema
+```python
+# Uncomment the following if using C Python
+#from pig_util import outputSchema
 
-    @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
-    def create_structure(input):
+@outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
+def create_structure(input):
     if (input.startswith('java.lang.Exception')):
         input = input[21:len(input)] + ' - java.lang.Exception'
     date, time, classname, level, detail = input.split(' ', 4)
     return date, time, classname, level, detail
+```
 
 > [!NOTE]
 > Вам не нужно устанавливать pig_util. Эта служебная программа автоматически доступна для сценария.
-> 
-> 
 
 Помните, что ранее мы определили ввод **LINE** в виде массива строк только потому, что согласованная схема для ввода отсутствует? Сценарий Python выполняет преобразование данных в согласованную схему на выходе. Работает он так:
 
@@ -190,12 +196,14 @@ Hive и Pig отлично подходят для работы с данным�
 1. Используйте команду `hive` , чтобы запустить оболочку Hive. После загрузки оболочки вы увидите запрос `hive>` .
 2. В окне запроса `hive>` введите следующее.
    
-        add file wasbs:///streaming.py;
-        SELECT TRANSFORM (clientid, devicemake, devicemodel)
-          USING 'python streaming.py' AS
-          (clientid string, phoneLabel string, phoneHash string)
-        FROM hivesampletable
-        ORDER BY clientid LIMIT 50;
+   ```hive
+   add file wasbs:///streaming.py;
+   SELECT TRANSFORM (clientid, devicemake, devicemodel)
+       USING 'python streaming.py' AS
+       (clientid string, phoneLabel string, phoneHash string)
+   FROM hivesampletable
+   ORDER BY clientid LIMIT 50;
+   ```
 3. После ввода последней строки запустится задание. В итоге возвратятся выходные данные следующего вида:
    
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -205,14 +213,18 @@ Hive и Pig отлично подходят для работы с данным�
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
 #### <a name="pig"></a>Pig,
+
 1. Используйте команду `pig` , чтобы запустить оболочку. После загрузки оболочки вы увидите запрос `grunt>` .
 2. При появлении запроса `grunt>` введите следующие инструкции, чтобы запустить сценарий Python с помощью интерпретатора Jython.
    
-        Register wasbs:///pig_python.py using jython as myfuncs;
-        LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-        LOG = FILTER LOGS by LINE is not null;
-        DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-        DUMP DETAILS;
+   ```pig
+   Register wasbs:///pig_python.py using jython as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
+
 3. После ввода указанной строки должно запуститься задание. В итоге возвратятся выходные данные следующего вида:
    
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
@@ -223,22 +235,27 @@ Hive и Pig отлично подходят для работы с данным�
 4. Используйте `quit` для выхода из оболочки Grunt, а затем следующую команду для изменения файла pig_python.py в локальной файловой системе:
    
     nano pig_python.py
+
 5. Войдите в редактор и раскомментируйте следующую строку, удалив символ `#` в начале строки.
    
         #from pig_util import outputSchema
    
     Закончив вносить изменения, нажмите сочетание клавиш CTRL+X, чтобы выйти из редактора. Выберите Y и нажмите ВВОД, чтобы сохранить изменения.
+
 6. Используйте команду `pig` , чтобы снова запустить оболочку. При появлении запроса `grunt>` введите следующие инструкции, чтобы запустить сценарий Python с помощью интерпретатора CPython.
    
-        Register 'pig_python.py' using streaming_python as myfuncs;
-        LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-        LOG = FILTER LOGS by LINE is not null;
-        DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-        DUMP DETAILS;
+   ```pig
+   Register 'pig_python.py' using streaming_python as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
    
     Когда это задание будет выполнено, вы увидите такой же результат, как при запуске сценария с помощью Jython.
 
 ### <a name="powershell"></a>PowerShell
+
 Для этих действий используется Azure PowerShell. Если вы еще не установили и не настроили его на компьютере для разработки, см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) перед выполнением следующих действий.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -246,101 +263,102 @@ Hive и Pig отлично подходят для работы с данным�
 1. Создайте локальные копии файлов на компьютере для разработки, используя примеры Python [streaming.py](#streamingpy) и [pig_python.py](#jythonpy).
 2. Для передачи файлов **streaming.py** и **pig\_python.py** на сервер используйте следующий скрипт PowerShell. Подставьте имя своего кластера Azure HDInsight и путь к файлам **streaming.py** и **pig\_python.py** в первые три строки скрипта.
    
-        $clusterName = YourHDIClusterName
-        $pathToStreamingFile = "C:\path\to\streaming.py"
-        $pathToJythonFile = "C:\path\to\pig_python.py"
-   
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=(Get-AzureRmStorageAccountKey `
-            -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
-   
-        #Create a storage content and upload the file
-        $context = New-AzureStorageContext `
-            -StorageAccountName $storageAccountName `
-            -StorageAccountKey $storageAccountKey
-   
-        Set-AzureStorageBlobContent `
-            -File $pathToStreamingFile `
-            -Blob "streaming.py" `
-            -Container $container `
-            -Context $context
-   
-        Set-AzureStorageBlobContent `
-            -File $pathToJythonFile `
-            -Blob "pig_python.py" `
-            -Container $container `
-            -Context $context
-   
-    Этот скрипт получает информацию для кластера HDInsight, извлекает учетную запись и ключ для учетной записи хранения по умолчанию и загружает файлы в корневую папку контейнера.
-   
-   > [!NOTE]
-   > Другие способы передачи сценариев можно найти в документе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md) .
-   > 
-   > 
+   ```powershell
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
 
-После загрузки файлов используйте следующий скрипт PowerShell для запуска заданий. После завершения задания результат должен записаться в консоль PowerShell.
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $pathToStreamingFile = "C:\path\to\streaming.py"
+    $pathToJythonFile = "C:\path\to\pig_python.py"
 
-#### <a name="hive"></a>Hive
-Следующий скрипт запустит скрипт **streaming.py**. Перед запуском он предложит вам ввести сведения о HTTPS/учетной записи администратора для кластера HDInsight.
-
-    # Replace 'YourHDIClusterName' with the name of your cluster
-    $clusterName = YourHDIClusterName
-    $creds=Get-Credential
-    #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
     $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
+    -ResourceGroupName $resourceGroup)[0].Value
+
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
 
-    # If using a Windows-based HDInsight cluster, change the USING statement to:
-    # "USING 'D:\Python27\python.exe streaming.py' AS " +
-    $HiveQuery = "add file wasbs:///streaming.py;" +
-                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-                   "USING 'python streaming.py' AS " +
-                   "(clientid string, phoneLabel string, phoneHash string) " +
-                 "FROM hivesampletable " +
-                 "ORDER BY clientid LIMIT 50;"
+    Set-AzureStorageBlobContent `
+        -File $pathToStreamingFile `
+        -Blob "streaming.py" `
+        -Container $container `
+        -Context $context
 
-    $jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
-        -Query $HiveQuery
+    Set-AzureStorageBlobContent `
+        -File $pathToJythonFile `
+        -Blob "pig_python.py" `
+        -Container $container `
+        -Context $context
+   ```
 
-    $job = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $jobDefinition `
-        -HttpCredential $creds
-    Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -JobId $job.JobId `
-        -ClusterName $clusterName `
-        -HttpCredential $creds
-    # Uncomment the following to see stderr output
-    # Get-AzureRmHDInsightJobOutput `
-    #   -Clustername $clusterName `
-    #   -JobId $job.JobId `
-    #   -DefaultContainer $container `
-    #   -DefaultStorageAccountName $storageAccountName `
-    #   -DefaultStorageAccountKey $storageAccountKey `
-    #   -HttpCredential $creds `
-    #   -DisplayOutputType StandardError
-    Write-Host "Display the standard output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds
+    Этот скрипт получает информацию для кластера HDInsight, извлекает учетную запись и ключ для учетной записи хранения по умолчанию и загружает файлы в корневую папку контейнера.
+   
+   > [!NOTE]
+   > Другие способы передачи сценариев можно найти в документе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md) .
+
+После загрузки файлов используйте следующий скрипт PowerShell для запуска заданий. После завершения задания результат должен записаться в консоль PowerShell.
+
+#### <a name="hive"></a>Hive
+Следующий скрипт запустит скрипт **streaming.py**. Перед запуском он предложит вам ввести сведения о HTTPS/учетной записи администратора для кластера HDInsight.
+
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
+
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -Message "Enter the login for the cluster"
+
+# If using a Windows-based HDInsight cluster, change the USING statement to:
+# "USING 'D:\Python27\python.exe streaming.py' AS " +
+$HiveQuery = "add file wasbs:///streaming.py;" +
+                "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
+                "USING 'python streaming.py' AS " +
+                "(clientid string, phoneLabel string, phoneHash string) " +
+                "FROM hivesampletable " +
+                "ORDER BY clientid LIMIT 50;"
+
+$jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
+    -Query $HiveQuery
+
+$job = Start-AzureRmHDInsightJob `
+    -ClusterName $clusterName `
+    -JobDefinition $jobDefinition `
+    -HttpCredential $creds
+Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
+Wait-AzureRmHDInsightJob `
+    -JobId $job.JobId `
+    -ClusterName $clusterName `
+    -HttpCredential $creds
+# Uncomment the following to see stderr output
+# Get-AzureRmHDInsightJobOutput `
+#   -Clustername $clusterName `
+#   -JobId $job.JobId `
+#   -HttpCredential $creds `
+#   -DisplayOutputType StandardError
+Write-Host "Display the standard output ..." -ForegroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds
+```
 
 Результат выполнения задания **Hive** должен выглядеть аналогично следующему:
 
@@ -355,62 +373,50 @@ Hive и Pig отлично подходят для работы с данным�
 
 > [!NOTE]
 > При удаленной отправке задания с помощью PowerShell нельзя использовать CPython в качестве интерпретатора.
-> 
-> 
 
-    # Replace 'YourHDIClusterName' with the name of your cluster
-    $clusterName = YourHDIClusterName
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
 
-    $creds = Get-Credential
-    #Get the cluster info so we can get the resource group, storage, etc.
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -Message "Enter the login for the cluster"
 
-    #Create a storage content and upload the file
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
+$PigQuery = "Register wasbs:///pig_python.py using jython as myfuncs;" +
+            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
+            "LOG = FILTER LOGS by LINE is not null;" +
+            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
+            "DUMP DETAILS;"
 
-    $PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
-                "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
-                "LOG = FILTER LOGS by LINE is not null;" +
-                "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
-                "DUMP DETAILS;"
+$jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
 
-    $jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
+$job = Start-AzureRmHDInsightJob `
+    -ClusterName $clusterName `
+    -JobDefinition $jobDefinition `
+    -HttpCredential $creds
 
-    $job = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $jobDefinition `
-        -HttpCredential $creds
-
-    Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -Job $job.JobId `
-        -ClusterName $clusterName `
-        -HttpCredential $creds
-    # Uncomment the following to see stderr output
-    # Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
-    Write-Host "Display the standard output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds
+Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+Wait-AzureRmHDInsightJob `
+    -Job $job.JobId `
+    -ClusterName $clusterName `
+    -HttpCredential $creds
+# Uncomment the following to see stderr output
+# Get-AzureRmHDInsightJobOutput `
+#    -Clustername $clusterName `
+#    -JobId $job.JobId `
+#    -HttpCredential $creds `
+#    -DisplayOutputType StandardError
+Write-Host "Display the standard output ..." -ForegroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds
+```
 
 Результат выполнения задания **Pig** должен выглядеть аналогично следующему:
 
@@ -421,6 +427,7 @@ Hive и Pig отлично подходят для работы с данным�
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 ## <a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>Устранение неполадок
+
 ### <a name="errors-when-running-jobs"></a>Ошибки при выполнении заданий
 При выполнении задания hive может возникнуть ошибка, аналогичная приведенной ниже:
 
@@ -430,21 +437,22 @@ Hive и Pig отлично подходят для работы с данным�
 
 Если вы применяете редактор, который не может использовать символ LF в качестве конца строки, или не уверены в том, какой символ конца строки используется, используйте следующие команды PowerShell для удаления символов CR перед загрузкой файла в HDInsight:
 
-    $original_file ='c:\path\to\streaming.py'
-    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-    [IO.File]::WriteAllText($original_file, $text)
+```powershell
+$original_file ='c:\path\to\streaming.py'
+$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+[IO.File]::WriteAllText($original_file, $text)
+```
 
 ### <a name="powershell-scripts"></a>Сценарии PowerShell
 Оба примера скриптов PowerShell, используемых для запуска примеров, содержат закомментированную строку, которая отображает вывод ошибок для задания. Если вы не видите ожидаемых результатов задания, раскомментируйте следующую строку и просмотрите информацию об ошибках на предмет отображения проблемы.
 
-    # Get-AzureRmHDInsightJobOutput `
-            -Clustername $clusterName `
-            -JobId $job.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds `
-            -DisplayOutputType StandardError
+```powershell
+# Get-AzureRmHDInsightJobOutput `
+        -Clustername $clusterName `
+        -JobId $job.JobId `
+        -HttpCredential $creds `
+        -DisplayOutputType StandardError
+```
 
 Информация об ошибках (STDERR,) и результаты выполнения задания (STDOUT,) также записываются в контейнер больших двоичных объектов данных по умолчанию для ваших кластеров в следующих расположениях.
 
@@ -465,6 +473,6 @@ Hive и Pig отлично подходят для работы с данным�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

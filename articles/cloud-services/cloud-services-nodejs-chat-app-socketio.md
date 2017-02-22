@@ -1,5 +1,5 @@
 ---
-title: "Приложение node.js с использованием Socket.io | Документация Майкрософт"
+title: "Приложение Node.js с использованием Socket.io | Документация Майкрософт"
 description: "Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 226134e11a87f6bd847192661d3120b78ea6cf7c
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: ba6129382b6ec367428aa451ee74d5bceaa4ad35
 
 
 ---
@@ -138,35 +138,35 @@ Socket.IO обеспечивает связь в режиме реального
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом учебнике было рассмотрено создание базового приложения для разговора, размещаемого в облачной службе Azure. Чтобы узнать, как разместить это приложение на веб-сайте Azure, см. раздел [Build a Node.js Chat Application with Socket.IO on an Azure Web Site][chatwebsite] (Создание приложения для разговора Node.js с использованием Socket.IO на веб-сайте Azure).
+В этом учебнике было рассмотрено создание базового приложения для разговора, размещаемого в облачной службе Azure. Чтобы узнать, как разместить это приложение на веб-сайте Azure, см. статью [Создание приложения для разговора Node.js с Socket.IO на веб-сайте Azure][chatwebsite].
 
-Дополнительные сведения см. также в [Центре разработчика Node.js](/develop/nodejs/).
+Дополнительные сведения см. также в [центре по разработке для Node.js](/develop/nodejs/).
 
 [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
-[Соглашение об уровне обслуживания Azure]: http://www.windowsazure.com/support/sla/
-[Репозиторий GitHub для пакета SDK для Azure для Node.js]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-[Пакет Azure SDK для Node.js]: https://www.windowsazure.com/develop/nodejs/
-[Веб-приложение Node.js]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [репозитория GitHub Socket.IO]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[Рекомендации по Azure]: #windowsazureconsiderations
-[Размещение примера чата в рабочей роли]: #hostingthechatexampleinawebrole
-[Сводка и дальнейшие действия]: #summary
+[Azure Considerations]: #windowsazureconsiderations
+[Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
+[Summary and Next Steps]: #summary
 [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
 
-[Пример чата]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
+[chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
 [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
 
 
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
-[Вывод команды Publish-AzureService]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

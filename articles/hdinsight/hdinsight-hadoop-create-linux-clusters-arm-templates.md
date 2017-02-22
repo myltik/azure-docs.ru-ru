@@ -1,5 +1,5 @@
 ---
-title: "Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
+title: "Создание кластеров Azure HDInsight (Hadoop) с помощью шаблонов | Документация Майкрософт"
 description: "Узнайте о создании кластеров для Azure HDInsight с помощью шаблонов Azure Resource Manager."
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 1816b7f5bb95669197891315ca57f93fd779c5c3
 
 
 ---
-# <a name="create-linux-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов Azure Resource Manager
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Создание кластеров Hadoop в HDInsight с помощью шаблонов Azure Resource Manager
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Узнайте, как создавать кластеры HDInsight с помощью шаблонов диспетчера ресурсов Azure (ARM). Узнайте подробнее [о развертывании приложения с помощью шаблона диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
+Узнайте, как создавать кластеры HDInsight с помощью шаблонов Azure Resource Manager. Узнайте подробнее [о развертывании приложения с помощью шаблона диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## <a name="prerequisites"></a>Предварительные требования:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -59,9 +59,9 @@ ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
 
     Портал создаст шаблон Resource Manager на базе заданной конфигурации.
 
-   ## <a name="deploy-with-powershell"></a>Развертывание с помощью PowerShell
+## <a name="deploy-with-powershell"></a>Развертывание с помощью PowerShell
 
-В следующей процедуре создается кластер HDInsight под управлением Linux.
+В следующей процедуре создается кластер Hadoop в HDInsight:
 
 **Развертывание кластера с помощью шаблона Resource Manager**
 
@@ -151,7 +151,7 @@ ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
 * Список функций, которые можно использовать в шаблоне Azure Resource Manager, см. в статье [Функции шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appx-a-resource-manager-template"></a>Приложение A: шаблон Resource Manager
-Следующий шаблон диспетчера ресурсов Azure создает кластер Hadoop под управлением Linux с зависимой учетной записью хранения Azure.
+Следующий шаблон Azure Resource Manager создает кластер Hadoop под управлением Linux с зависимой учетной записью хранения Azure.
 
 > [!NOTE]
 > В примере содержатся сведения о конфигурации для метаданных Hive и Oozie.  Удалите раздел или настройте его перед использованием шаблона.
@@ -359,6 +359,6 @@ ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

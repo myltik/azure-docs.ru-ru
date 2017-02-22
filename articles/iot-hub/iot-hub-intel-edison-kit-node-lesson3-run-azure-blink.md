@@ -1,5 +1,5 @@
 ---
-title: "Запуск примера приложения для отправки сообщений с устройства в облако в Центр Интернета вещей Azure | Документация Майкрософт"
+title: "Подключение Intel Edison (Node) к Интернету вещей Azure. Урок 3. Отправка сообщений | Документация Майкрософт"
 description: "Развертывание и запуск на устройстве Intel Edison примера приложения, которое отправляет сообщения в Центр Интернета вещей и заставляет светодиодный индикатор мигать."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: b158dc91186496d9b8ebd0d4ce0478c7ae45935a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: ddc40f2e3467cb406a7336924f9577d52061c42e
 
 
 ---
@@ -111,6 +111,6 @@ gulp deploy && gulp run
 [read-messages-persisted-in-azure-storage]: iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

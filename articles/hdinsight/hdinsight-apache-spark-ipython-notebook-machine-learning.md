@@ -1,5 +1,5 @@
 ---
-title: "Создание приложений машинного обучения в HDInsight с помощью Apache Spark | Документация Майкрософт"
+title: "Создание приложений машинного обучения в Azure HDInsight с помощью Apache Spark | Документация Майкрософт"
 description: "Пошаговые инструкции по использованию записных книжек Apache Spark для создания приложений машинного обучения"
 services: hdinsight
 documentationcenter: 
@@ -13,30 +13,31 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
 
 
 ---
-# <a name="build-machine-learning-applications-to-run-on-apache-spark-clusters-on-hdinsight-linux"></a>Создание приложений машинного обучения для запуска в кластерах Apache Spark в HDInsight на платформе Linux
+# <a name="build-machine-learning-applications-to-run-on-apache-spark-clusters-on-hdinsight"></a>Создание приложений машинного обучения для запуска в кластерах Apache Spark в HDInsight
+
 Узнайте о том, как создать приложение машинного обучения приложение с помощью кластера Apache Spark в HDInsight. В этой статье показано, как использовать записную книжку Jupyter с кластером для создания и тестирования приложения. Приложение использует данные из примера файла HVAC.csv, который по умолчанию доступен на всех кластерах.
 
 **Предварительные требования:**
 
 Необходимо следующее:
 
-* Подписка Azure. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md). 
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>Отображение данных
 Прежде чем приступать к созданию приложения, рассмотрим структуру данных и тип анализа, который мы будем использовать в отношении данных. 
 
 В этой статье мы используем пример файла данных **HVAC.csv** , доступный в учетной записи хранения Azure, которую вы связали с кластером HDInsight. В этой учетной записи хранения файл находится в папке **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Скачайте и откройте CSV-файл, чтобы получить моментальный снимок данных.  
 
-![Моментальный снимок данных системы кондиционирования](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Snapshot of the HVAC data")
+![Моментальный снимок данных системы кондиционированияt](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Моментальный снимок данных системы кондиционирования")
 
 Это данные о целевой температуре и фактической температуре здания, в котором установлена система кондиционирования воздуха. Предположим, что в столбце **System** указан идентификатор системы, а в столбце **SystemAge** — срок эксплуатации системы кондиционирования в годах.
 
@@ -56,10 +57,10 @@ ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
    > 
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
    
-    ![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 4. Будет создана и открыта записная книжка с именем Untitled.pynb. Щелкните имя записной книжки в верхней части страницы сверху и введите понятное имя.
    
-    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Указание имени для записной книжки")
 5. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Вставьте следующий фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT + ВВОД**. 
    
         from pyspark.ml import Pipeline
@@ -78,7 +79,7 @@ ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
    
     Вставьте следующий фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT + ВВОД**.
 
-        # List the structure of data for better understanding. Becuase the data will be
+        # List the structure of data for better understanding. Because the data will be
         # loaded as an array, this structure makes it easy to understand what each element
         # in the array corresponds to
 
@@ -156,7 +157,7 @@ ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
 
     Вернитесь и проверьте выходные данные со сведениями в необработанном CSV-файле. Например, в первой строке CSV-файла содержатся следующие данные:
 
-    ![Моментальный снимок данных системы кондиционирования](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Snapshot of the HVAC data")
+    ![Моментальный снимок данных системы кондиционированияt](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Моментальный снимок данных системы кондиционирования")
 
     Обратите внимание на то, насколько фактическая температура меньше целевой, что свидетельствует о том, что здание холодное. В выходных данных обучения видно, что значение в первой строке столбца **label** составляет **0,0**. Это означает, что в здании не тепло.
 
@@ -189,7 +190,7 @@ ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
        Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
        Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
    
-   В первой строке прогноза видно, что при использовании системы кондиционирования с идентификатором 20 и возрастом 25 лет здание будет горячим (**прогноз = 1.0**). Первое значение параметра DenseVector (0,49999) соответствует прогнозу 0,0, а второе значение (0,5001) — прогнозу 1,0. В выходных данных видно, что, даже если второе значение лишь незначительно выше, модель показывает **прогноз = 1.0**.
+   В первой строке прогноза видно, что при использовании системы кондиционирования с идентификатором 20 и возрастом 25 лет здание будет горячим (**прогноз = 1.0**). Первое значение параметра DenseVector (0,49999) соответствует прогнозу 0,0, а второе значение (0,5001) — прогнозу 1,0. В выходных данных видно, что, даже если второе значение лишь незначительно выше, модель показывает **прогноз =&1;.0**.
 4. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 
 ## <a name="a-nameanacondaause-anaconda-scikit-learn-library-for-machine-learning"></a><a name="anaconda"></a>Использование библиотеки scikit-learn Anaconda для машинного обучения
@@ -235,6 +236,6 @@ ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

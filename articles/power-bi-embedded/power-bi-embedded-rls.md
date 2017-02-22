@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
+ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 
 
 ---
@@ -93,7 +93,15 @@ ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
 * **username** (необязательно) — используется с безопасностью на уровне строк. Это строка, с помощью которой можно идентифицировать пользователя при применении правил безопасности на уровне строк. См. статью Using Row Level Security with Power BI Embedded (Использование безопасности на уровне строк в Power BI Embedded).
 * **roles** — строка, содержащая роли, которые выбираются при применении правил безопасности на уровне строк. При выборе нескольких ролей их нужно передавать в виде массива строк.
 
-Если задано свойство username, необходимо также передать по крайней мере одно значение для свойства roles.
+Вы создадите маркер с помощью метода [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Если задано свойство username, необходимо также передать по крайней мере одно значение для свойства roles.
+
+Например, можно изменить EmbedSample. Строку 55 DashboardController можно изменить с
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+значение
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
 Весь маркер приложения будет выглядеть примерно так:
 
@@ -109,6 +117,6 @@ ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

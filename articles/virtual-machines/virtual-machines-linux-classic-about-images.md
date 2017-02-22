@@ -1,5 +1,5 @@
 ---
-title: "Об образах Linux для виртуальных машин | Документация Майкрософт"
+title: "О размерах образов виртуальных машин Linux в Azure | Документация Майкрософт"
 description: "Узнайте, как используются образы Linux для виртуальных машин в Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: a6c0a7cc820ed286b100708eae27f6a8ca678d75
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 480211dd13ddc6af348f4179a3c36fd62d7374fc
 
 
 ---
@@ -38,6 +38,6 @@ ms.openlocfilehash: a6c0a7cc820ed286b100708eae27f6a8ca678d75
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

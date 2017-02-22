@@ -1,5 +1,5 @@
 ---
-title: "Настройка локальных кодировщиков при использовании служб мультимедиа Azure для создания потоков с разными скоростями | Документация Майкрософт"
+title: "Настройка локальных кодировщиков при использовании служб мультимедиа Azure для создания потоков с несколькими скоростями | Документация Майкрософт"
 description: "В этом разделе перечислены локальные динамические кодировщики, которые можно использовать для захвата динамических событий и отправки односкоростного динамического потока в каналы AMS (с включенным кодированием в реальном времени) для дальнейшей обработки. Этот раздел содержит ссылки на учебники, в которых описывается, как настроить перечисленные кодировщики."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ae703cd1edcfca58aea40376e3b961e3e77d5ee
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0ebed14fe5a24f2b161c0bab0a0e1d36dadb6b5b
 
 
 ---
@@ -47,6 +47,6 @@ ms.openlocfilehash: 6ae703cd1edcfca58aea40376e3b961e3e77d5ee
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a4d871686a54465e12f93c1720a44985785b94ae
-ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
@@ -26,12 +26,9 @@ ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
 
 В этой статье показано, как создать функцию в службе функций Azure, прослушивающую сообщения в очереди службы хранилища Azure и копирующую их в строки таблицы в службе хранилища Azure. Функция, активируемая с помощью таймера, используется для загрузки сообщений в очередь. Вторая функция считывает из очереди и записывает сообщения в таблицу. Функции Azure создают очередь и таблицу автоматически на основе определений привязки. 
 
-Чтобы усложнить задачу, одна функция написана на языке JavaScript, а другая — с использованием скрипта C#. На этом примере показано, что приложение-функция может содержать функции на разных языках.
+Чтобы усложнить задачу, одна функция написана на языке JavaScript, а другая — с использованием скрипта C#. На этом примере показано, что приложение-функция может содержать функции на разных языках. 
 
-## <a name="watch-the-video"></a>Просмотреть видео
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Этот сценарий можно просмотреть в [видеоролике на сайте Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Создание функции, выполняющей запись в очередь
 
@@ -197,6 +194,6 @@ ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,73 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: d65505182267bec053fca0ab5045cbcae9381ac7
-ms.openlocfilehash: 245e49d36142ef8e927a5e494113e4dd7809fc16
+ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
+ms.openlocfilehash: 63e2509b92b4d97bfdc98629cc356816839b03b5
 
 
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Расширение виртуальной машины OMS для Windows
 
-## <a name="overview"></a>Обзор
-
 Operations Management Suite (OMS) предоставляет возможности мониторинга, оповещений и внесения исправлений в соответствии с оповещениями для облачных и локальных ресурсов. Расширение виртуальной машины агента OMS для Windows публикуется и поддерживается корпорацией Майкрософт. Это расширение устанавливает агент OMS на виртуальных машинах Azure и регистрирует виртуальные машины в существующей рабочей области OMS. В этом документе подробно описаны поддерживаемые платформы, конфигурации и параметры развертывания для расширения виртуальной машины OMS для Windows.
-
-Общие сведения о расширениях виртуальной машины Azure см. в статье [Обзор расширений и компонентов виртуальной машины](./virtual-machines-windows-extensions-features.md).
-
-Дополнительные сведения об Operations Management Suite см. на странице с [обзором Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-### <a name="operating-system"></a>Операционная система
+### <a name="operating-system"></a>операционная система
+Расширение агента OMS для Windows может выполняться для выпусков Windows Server 2008 R2, 2012, 2012 R2 и 2016.
 
-Расширение агента OMS для Windows может выполняться для выпусков Windows Server 2012, 2012 R2 и 2016.
-
-### <a name="connectivity"></a>Соединение
-
+### <a name="internet-connectivity"></a>Подключение к Интернету
 Для расширения агента OMS для Windows требуется, чтобы целевая виртуальная машина была подключена к Интернету. 
 
-## <a name="extension-configuration"></a>Конфигурация расширения
+## <a name="extension-schema"></a>Схема расширения
 
-Для расширения виртуальной машины агента OMS для Windows требуется идентификатор и ключ из целевой рабочей области OMS. Так как ключ рабочей области должен рассматриваться в качестве конфиденциальных данных, он хранится в защищенной конфигурации. Данные защищенной конфигурации расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине. Открытые и закрытые конфигурации задаются во время развертывания, что описывается в следующих разделах этого документа.
-
-### <a name="public-configuration"></a>Открытая конфигурация
-
-Схема для открытой конфигурации:
-
-- workspaceId: (требуется, строка) идентификатор рабочей области OMS, в которую внедряется виртуальная машина.
-
-```json
-{
-  "workspaceId": "myWorkspaceId"
-}
-```
-
-### <a name="private-configuration"></a>Закрытая конфигурация
-
-Схема для открытой конфигурации:
-
-- workspaceKey: (требуется, строка) общий первичный или вторичный ключ рабочей области.
-
-```json
-{
-  "workspaceKey": "myWorkSpaceKey"
-}
-```
-
-## <a name="template-deployment"></a>Развертывание шаблона
-
-Расширения виртуальной машины Azure можно развернуть с помощью шаблонов Azure Resource Manager. Шаблоны идеально подходят для развертывания одной или нескольких виртуальных машин, требующих настройки после развертывания, например внедрения в OMS. Пример шаблона Resource Manager, включающего в себя расширение виртуальной машины агента OMS, можно найти в [коллекции быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
-
-Этот пример можно развернуть из документа, используя эту кнопку:
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-windows-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-JSON-файл, используемый для развертывания расширения виртуальной машины агента OMS, выглядит следующим образом:
+В следующем объекте JSON показана схема для расширения агента OMS. Расширение требует идентификатор и ключ из целевой рабочей области OMS, которые находятся на портале OMS. Так как ключ рабочей области должен рассматриваться в качестве конфиденциальных данных, его следует хранить в защищенной конфигурации параметров. Данные защищенных параметров расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине.
 
 ```json
 {
@@ -96,14 +52,29 @@ JSON-файл, используемый для развертывания рас
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "workspaceId": "myWorkSpaceKey"
+            "workspaceId": "myWorkSpaceId"
         },
         "protectedSettings": {
-            "workspaceKey": "myWorkspaceId"
+            "workspaceKey": "myWorkspaceKey"
         }
     }
 }
 ```
+
+### <a name="property-values"></a>Значения свойств
+
+| Имя | Значение и пример |
+| ---- | ---- |
+| версия_API | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
+| typeHandlerVersion | 1.0 |
+| workspaceID (пример) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (пример) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+## <a name="template-deployment"></a>Развертывание шаблона
+
+Расширения виртуальной машины Azure можно развернуть с помощью шаблонов Azure Resource Manager. Для запуска расширения агента OMS во время развертывания шаблона Azure Resource Manager в нем можно использовать схему JSON, описанную в предыдущем разделе. Пример шаблона, включающего в себя расширение виртуальной машины агента OMS, можно найти в [коллекции быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 ## <a name="powershell-deployment"></a>Развертывание с помощью PowerShell
 
@@ -128,17 +99,17 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ### <a name="troubleshoot"></a>Устранение неполадок
 
-Данные о состоянии развертывания расширения можно получить на портале Azure, а также использовав Azure CLI. Чтобы просмотреть состояние развертывания расширений для определенной виртуальной машины, выполните следующую команду в Azure CLI.
+Данные о состоянии развертывания расширения можно получить на портале Azure, а также с помощью модуля Azure PowerShell. Чтобы просмотреть состояние развертывания расширений для определенной виртуальной машины, выполните следующую команду в модуле Azure PowerShell.
 
-```azurecli
+```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Выходные данные выполнения расширения регистрируются в файле, расположенном в следующем каталоге:
 
-`
+```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
-`
+```
 
 ### <a name="support"></a>Поддержка
 
@@ -146,6 +117,6 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

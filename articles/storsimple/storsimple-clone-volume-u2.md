@@ -1,5 +1,5 @@
 ---
-title: "Клонирование тома StorSimple | Документация Майкрософт"
+title: "Клонирование тома устройства StorSimple серии 8000 | Документация Майкрософт"
 description: "В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/27/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 024b6bceb9eb150e60f68edf916cebacd3552af2
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
 
 
 ---
@@ -115,6 +115,6 @@ ms.openlocfilehash: 024b6bceb9eb150e60f68edf916cebacd3552af2
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

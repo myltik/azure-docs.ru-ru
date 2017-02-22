@@ -332,6 +332,6 @@ HDInsight предоставляет несколько скриптов для 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

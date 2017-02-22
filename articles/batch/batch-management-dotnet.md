@@ -1,5 +1,5 @@
 ---
-title: "Управление ресурсами учетных записей с помощью библиотеки .NET для управления пакетной службой | Документация Майкрософт"
+title: "Управление ресурсами учетной записи пакетной службы с помощью клиентской библиотеки для .NET в Azure | Документация Майкрософт"
 description: "Создание, удаление и изменение ресурсов учетных записей пакетной службы Azure с помощью библиотеки .NET для управления пакетной службой."
 services: batch
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/19/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 0eff62c62bb256fead360423c20b98fd7f720a51
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 94d2de0d18863872510ed03a5701f4fc6d133659
 
 
 ---
@@ -158,7 +158,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ## <a name="sample-project-on-github"></a>Пример проекта на сайте GitHub
 Работу библиотеки .NET для управления пакетной службой можно посмотреть на примере проекта [AccountManagment][acct_mgmt_sample] на сайте GitHub. Это консольное приложение демонстрирует создание и использование [BatchManagementClient][net_mgmt_client] и [ResourceManagementClient][resman_client]. Оно также демонстрирует использование [библиотеки аутентификации Azure Active Directory][aad_adal] (ADAL), которая необходима для обоих клиентов.
 
-Для успешного запуска примера приложения вам потребуется зарегистрировать его в Azure AD с помощью портала Azure. Обратитесь к разделу [Добавление приложения](../active-directory/active-directory-integrating-applications.md#adding-an-application) статьи [Интеграция приложений с Azure Active Directory][aad_integrate] и следуйте указаниям, чтобы зарегистрировать пример приложения в каталоге по умолчанию для собственной учетной записи. Выберите в качестве типа приложения **Собственное клиентское приложение**. Вы также можете указать любой допустимый URI (например, `http://myaccountmanagementsample`) в параметре **URI перенаправления**. Реальную конечную точку указывать необязательно.
+Для успешного запуска примера приложения вам потребуется зарегистрировать его в Azure AD с помощью портала Azure. Обратитесь к разделу [Добавление приложения](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) статьи [Интеграция приложений с Azure Active Directory][aad_integrate] и следуйте указаниям, чтобы зарегистрировать пример приложения в каталоге по умолчанию для собственной учетной записи. Выберите в качестве типа приложения **Собственное клиентское приложение**. Вы также можете указать любой допустимый URI (например, `http://myaccountmanagementsample`) в параметре **URI перенаправления**. Реальную конечную точку указывать необязательно.
 
 После добавления приложения предоставьте разрешение **Доступ к управлению службами Azure в качестве организации** для приложения *API управления службами Microsoft Azure* в настройках приложения на портале.
 
@@ -228,6 +228,6 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

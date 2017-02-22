@@ -1,5 +1,5 @@
 ---
-title: "Назначение виртуальным машинам нескольких IP-адресов с помощью интерфейса командной строки Azure | Документация Майкрософт"
+title: "Назначение виртуальным машинам Azure нескольких IP-адресов с помощью Azure CLI | Документация Майкрософт"
 description: "Узнайте, как назначить виртуальной машине несколько IP-адресов с использованием интерфейса командной строки Azure."
 services: virtual-network
 documentationcenter: na
@@ -16,40 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 482e0d8084d84f9a3170180c2e5414ca77364da8
-ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli"></a>Назначение виртуальным машинам нескольких IP-адресов с помощью интерфейса командной строки Azure
 
-> [!div class="op_single_selector"]
-> * [Портал](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-multiple-ip-addresses-cli.md)
+[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-К виртуальной машине Azure можно подключить один или несколько сетевых адаптеров. Каждому такому адаптеру статически или динамически назначается один или несколько общедоступных или частных IP-адресов. Назначение нескольких IP-адресов виртуальной машине дает следующие возможности:
-
-* Возможность размещать на одном сервере несколько веб-сайтов или служб с разными IP-адресами и SSL-сертификатами.
-* возможность использовать виртуальную машину в качестве виртуального сетевого устройства, такого как брандмауэр или балансировщик нагрузки.
-* Возможность добавления любых частных IP-адресов любых сетевых карт во внутренний пул Azure Load Balancer. Раньше во внутренний пул можно было добавить только основной IP-адрес для основной сетевой карты. Дополнительные сведения о балансировке нагрузки в конфигурациях с несколькими IP-адресами см. в [этой статье](../load-balancer/load-balancer-multiple-ip.md).
-
-Каждому сетевому адаптеру, подключенному к виртуальной машине, присвоена одна или несколько конфигураций IP-адресов. Каждая конфигурация получает один статический или динамический частный IP-адрес. Также каждой конфигурации может быть присвоен один ресурс общедоступного IP-адреса. Ресурс общедоступного IP-адреса включает один динамический или статический IP-адрес. Дополнительные сведения об IP-адресах в Azure см. в статье [IP-адреса в Azure](virtual-network-ip-addresses-overview-arm.md).
-
-В этой статье объясняется, как с помощью PowerShell назначить несколько IP-адресов виртуальной машине, созданной по модели развертывания с помощью Azure Resource Manager. Для ресурсов, созданных с помощью классической модели развертывания, нельзя назначить несколько IP-адресов. Дополнительные сведения о моделях развертывания Azure см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
+В этой статье описывается создание виртуальной машины с помощью модели развертывания Azure Resource Manager с использованием Azure CLI. Для ресурсов, созданных с помощью классической модели развертывания, нельзя назначить несколько IP-адресов. Дополнительные сведения о моделях развертывания Azure см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## <a name="scenario"></a>Сценарий
-Создается виртуальная машина с одним сетевым адаптером. Она подключается к виртуальной сети. Виртуальной машине нужно присвоить три разных *частных* и два *общедоступных* IP-адреса. IP-адреса назначаются следующим IP-конфигурациям.
-
-* **IPConfig-1:** назначает *динамический* частный IP-адрес (по умолчанию) и *статический* общедоступный IP-адрес.
-* **IPConfig-2:** назначает *статический* частный IP-адрес и *статический* общедоступный IP-адрес.
-* **IPConfig-3:** назначает *динамический* частный IP-адрес и не назначает общедоступный IP-адрес.
-  
-    ![Несколько IP-адресов](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-Когда создается сетевой адаптер, с ним связываются IP-конфигурации. Когда создается виртуальная машина, к ней подключается сетевой адаптер. Типы IP-адресов в этом сценарии указаны только для примера. Вы можете использовать любые типы IP-адресов и назначений, какие вам потребуются.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
 
@@ -57,9 +37,26 @@ ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
 
 1. Установите и настройте интерфейс командной строки Azure, следуя инструкциям в [этой статье](../xplat-cli-install.md), а затем войдите в учетную запись Azure.
 
-2. Зарегистрируйтесь для получения предварительной версии, отправив с помощью [этой ссылки](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) сообщение электронной почты. Укажите в нем идентификатор своей подписки и опишите предполагаемое использование. Не переходите к следующим этапам, пока не будут выполнены следующие условия:
-    - вы получите по электронной почте уведомление о возможности использовать предварительную версию;
-    - вы выполните все инструкции, приведенные в этом сообщении электронной почты.
+2. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Это может занять несколько минут.
+
 3. [Создайте группу ресурсов](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations), а затем [виртуальную сеть и подсеть](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Измените значения ``` --address-prefixes ``` и ```--address-prefix``` ниже в соответствии со сценарием, описанным в статье:
 
     ```azurecli
@@ -159,10 +156,10 @@ ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
     Чтобы добавить общедоступный IP-адрес в новую IP-конфигурацию, необходимо добавить и частный IP-адрес, так как все IP-конфигурации должны иметь частный IP-адрес. В конфигурацию можно добавить имеющийся ресурс общедоступного IP-адреса или создать новый. Чтобы создать ресурс, выполните следующую команду:
     
     ```azurecli
-    azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 --domain-name-label mypublicdns3
+      azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 --domain-name-label mypublicdns3
     ```
 
-    Чтобы создать новую IP-конфигурацию с частным динамическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIP3*, выполните следующую команду:
+     Чтобы создать новую IP-конфигурацию с частным динамическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIP3*, выполните следующую команду:
 
     ```azurecli
     azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 --public-ip-name myPublicIP3
@@ -213,6 +210,7 @@ ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,15 +12,17 @@
 # Практическое руководство
 ## Настройка высокой доступности
 ### [Варианты высокой доступности](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Настройка группы доступности AlwaysOn](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Группы доступности AlwaysOn](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Автоматически — с помощью шаблона](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Вручную — предварительные требования](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Вручную — руководство](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Подсистема балансировки нагрузки — портал](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Подсистема балансировки нагрузки — PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Различные регионы](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Экземпляр отказоустойчивого кластера
+#### [Настройка](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
-## Управление
+## управление
 ### [Использование расширения агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Автоматическое исправление](virtual-machines-windows-sql-automated-patching.md)
 ### [Настройка интеграции с хранилищем ключей Azure](virtual-machines-windows-ps-sql-keyvault.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

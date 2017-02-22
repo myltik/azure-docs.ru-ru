@@ -1,9 +1,9 @@
 ---
-title: "Предоставление доступа к PIM | Документация Майкрософт"
+title: "Предоставление доступа к управлению привилегированными пользователями в Azure | Документация Майкрософт"
 description: "Узнайте, как назначать пользователям роли для управления PIM с помощью расширения для управления привилегированными пользователями Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: 81deb3b31a4483b8c0031cf3571e5c5752db39ac
 
 
 ---
-# <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Предоставление доступа к управлению привилегированными пользователями Azure AD
+# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Предоставление доступа к Azure AD Privileged Identity Management
 Глобальный администратор, который активирует в организации управление привилегированными пользователями (PIM) Azure AD, автоматически получает доступ к службе PIM и право назначать роли. Никто больше не получает доступ на запись по умолчанию, даже другие глобальные администраторы. Другие глобальные администраторы, администраторы безопасности и читатели безопасности имеют доступ только для чтения к PIM Azure AD. Чтобы предоставить доступ к PIM, первый пользователь может назначить другим пользователям роль **администратора привилегированных ролей** . Это назначение нужно выполнить в PIM, и его нельзя изменить с помощью PowerShell или на других порталах.
 
 > [!NOTE]
@@ -63,6 +63,6 @@ ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

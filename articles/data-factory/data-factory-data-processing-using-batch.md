@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
+ms.sourcegitcommit: bb4188bed4839aea6d19c49a8f0e6d154a343ec1
+ms.openlocfilehash: e0f77f88ee91b263c49a148197e418fdf64cca0b
 
 
 ---
@@ -133,11 +133,13 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
 Чтобы создать настраиваемое действие .NET, которое можно использовать в конвейере фабрики данных Azure, необходимо создать проект **библиотеки классов .NET** с классом, который реализует интерфейс **IDotNetActivity**. У этого интерфейса только один метод — **Execute**. Подпись метода выглядит следующим образом:
 
-    public IDictionary<string, string> Execute(
-                IEnumerable<LinkedService> linkedServices,
-                IEnumerable<Dataset> datasets,
-                Activity activity,
-                IActivityLogger logger)
+```csharp
+public IDictionary<string, string> Execute(
+            IEnumerable<LinkedService> linkedServices,
+            IEnumerable<Dataset> datasets,
+            Activity activity,
+            IActivityLogger logger)
+```
 
 У этого метода есть несколько ключевых компонентов, с которыми нужно разобраться.
 
@@ -162,186 +164,201 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 2. Щелкните **Инструменты**, наведите указатель мыши на **Диспетчер пакетов NuGet** и щелкните **Консоль диспетчера пакетов**.
 3. В **консоли диспетчера пакетов** выполните следующую команду, чтобы импортировать пакет **Microsoft.Azure.Management.DataFactories**.
 
-           Install-Package Microsoft.Azure.Management.DataFactories
+    ```powershell
+    Install-Package Microsoft.Azure.Management.DataFactories
+    ```
 4. Импортируйте пакет NuGet для **службы хранилища Azure** в проект. Он нужен, так как в данном примере используется API хранилища BLOB-объектов.
 
-       Install-Package Azure.Storage
+    ```powershell
+    Install-Package Azure.Storage
+    ```
 5. Добавьте следующие директивы с **using** в исходный файл в проекте.
 
-       using System.IO;
-       using System.Globalization;
-       using System.Diagnostics;
-       using System.Linq;
-
-       using Microsoft.Azure.Management.DataFactories.Models;
-       using Microsoft.Azure.Management.DataFactories.Runtime;
-
-       using Microsoft.WindowsAzure.Storage;
-       using Microsoft.WindowsAzure.Storage.Blob;
+    ```csharp
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
+    
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
+    
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    ```
 6. Измените имя **пространства имен** на **MyDotNetActivityNS**.
 
-       namespace MyDotNetActivityNS
+    ```csharp
+    namespace MyDotNetActivityNS
+    ```
 7. Измените имя класса на **MyDotNetActivity** и извлеките класс из интерфейса **IDotNetActivity**, как показано ниже.
 
-       public class MyDotNetActivity : IDotNetActivity
+    ```csharp
+    public class MyDotNetActivity : IDotNetActivity
+    ```
 8. Реализуйте (добавьте) метод **Execute** интерфейса **IDotNetActivity** для класса **MyDotNetActivity** и скопируйте следующий пример кода в этот метод. Объяснение логики, используемой в этом методе, см. в разделе [Метод Execute](#execute-method).
 
-       /// <summary>
-       /// Execute method is the only method of IDotNetActivity interface you must implement.
-       /// In this sample, the method invokes the Calculate method to perform the core logic.  
-       /// </summary>
-       public IDictionary<string, string> Execute(
-           IEnumerable<LinkedService> linkedServices,
-           IEnumerable<Dataset> datasets,
-           Activity activity,
-           IActivityLogger logger)
-       {
-
-           // declare types for input and output data stores
-           AzureStorageLinkedService inputLinkedService;
-
-           Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-
-           foreach (LinkedService ls in linkedServices)
-               logger.Write("linkedService.Name {0}", ls.Name);
-
-           // using First method instead of Single since we are using the same
-           // Azure Storage linked service for input and output.
-           inputLinkedService = linkedServices.First(
-               linkedService =>
-               linkedService.Name ==
-               inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
-               as AzureStorageLinkedService;
-
-           string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
-           string folderPath = GetFolderPath(inputDataset);
-           string output = string.Empty; // for use later.
-
-           // create storage client for input. Pass the connection string.
-           CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
-           CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
-
-           // initialize the continuation token before using it in the do-while loop.
-           BlobContinuationToken continuationToken = null;
-           do
-           {   // get the list of input blobs from the input storage client object.
-               BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-                                        true,
-                                        BlobListingDetails.Metadata,
-                                        null,
-                                        continuationToken,
-                                        null,
-                                        null);
-
-               // Calculate method returns the number of occurrences of
-               // the search term (“Microsoft”) in each blob associated
-               // with the data slice.
-               //
-               // definition of the method is shown in the next step.
-               output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-
-           } while (continuationToken != null);
-
-           // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-           Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-
-           folderPath = GetFolderPath(outputDataset);
-
-           logger.Write("Writing blob to the folder: {0}", folderPath);
-
-           // create a storage object for the output blob.
-           CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-           // write the name of the file.
-           Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-
-           logger.Write("output blob URI: {0}", outputBlobUri.ToString());
-           // create a blob and upload the output text.
-           CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-           logger.Write("Writing {0} to the output blob", output);
-           outputBlob.UploadText(output);
-
-           // The dictionary can be used to chain custom activities together in the future.
-           // This feature is not implemented yet, so just return an empty dictionary.
-           return new Dictionary<string, string>();
-       }
+    ```csharp
+    /// <summary>
+    /// Execute method is the only method of IDotNetActivity interface you must implement.
+    /// In this sample, the method invokes the Calculate method to perform the core logic.  
+    /// </summary>
+    public IDictionary<string, string> Execute(
+       IEnumerable<LinkedService> linkedServices,
+       IEnumerable<Dataset> datasets,
+       Activity activity,
+       IActivityLogger logger)
+    {
+    
+       // declare types for input and output data stores
+       AzureStorageLinkedService inputLinkedService;
+    
+       Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+    
+       foreach (LinkedService ls in linkedServices)
+           logger.Write("linkedService.Name {0}", ls.Name);
+    
+       // using First method instead of Single since we are using the same
+       // Azure Storage linked service for input and output.
+       inputLinkedService = linkedServices.First(
+           linkedService =>
+           linkedService.Name ==
+           inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
+           as AzureStorageLinkedService;
+    
+       string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
+       string folderPath = GetFolderPath(inputDataset);
+       string output = string.Empty; // for use later.
+    
+       // create storage client for input. Pass the connection string.
+       CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
+       CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
+    
+       // initialize the continuation token before using it in the do-while loop.
+       BlobContinuationToken continuationToken = null;
+       do
+       {   // get the list of input blobs from the input storage client object.
+           BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
+    
+           // Calculate method returns the number of occurrences of
+           // the search term (“Microsoft”) in each blob associated
+           // with the data slice.
+           //
+           // definition of the method is shown in the next step.
+           output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+    
+       } while (continuationToken != null);
+    
+       // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
+       Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    
+       folderPath = GetFolderPath(outputDataset);
+    
+       logger.Write("Writing blob to the folder: {0}", folderPath);
+    
+       // create a storage object for the output blob.
+       CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
+       // write the name of the file.
+       Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    
+       logger.Write("output blob URI: {0}", outputBlobUri.ToString());
+       // create a blob and upload the output text.
+       CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+       logger.Write("Writing {0} to the output blob", output);
+       outputBlob.UploadText(output);
+    
+       // The dictionary can be used to chain custom activities together in the future.
+       // This feature is not implemented yet, so just return an empty dictionary.
+       return new Dictionary<string, string>();
+    }
+    ```
 9. Добавьте в класс следующие вспомогательные методы. Их вызывает метод **Execute** . Самое главное, метод **Calculate** изолирует код, который выполняет итерацию каждого большого двоичного объекта.
 
-       /// <summary>
-       /// Gets the folderPath value from the input/output dataset.
-       /// </summary>
-       private static string GetFolderPath(Dataset dataArtifact)
+    ```csharp
+    /// <summary>
+    /// Gets the folderPath value from the input/output dataset.
+    /// </summary>
+    private static string GetFolderPath(Dataset dataArtifact)
+    {
+       if (dataArtifact == null || dataArtifact.Properties == null)
        {
-           if (dataArtifact == null || dataArtifact.Properties == null)
-           {
-               return null;
-           }
-
-           AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-           if (blobDataset == null)
-           {
-               return null;
-           }
-
-           return blobDataset.FolderPath;
+           return null;
        }
-
-       /// <summary>
-       /// Gets the fileName value from the input/output dataset.
-       /// </summary>
-
-       private static string GetFileName(Dataset dataArtifact)
+    
+       AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+       if (blobDataset == null)
        {
-           if (dataArtifact == null || dataArtifact.Properties == null)
-           {
-               return null;
-           }
-
-           AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-           if (blobDataset == null)
-           {
-               return null;
-           }
-
-           return blobDataset.FileName;
+           return null;
        }
-
-       /// <summary>
-       /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
-       /// and prepares the output text that is written to the output blob.
-       /// </summary>
-
-       public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
+    
+       return blobDataset.FolderPath;
+    }
+    
+    /// <summary>
+    /// Gets the fileName value from the input/output dataset.
+    /// </summary>
+    
+    private static string GetFileName(Dataset dataArtifact)
+    {
+       if (dataArtifact == null || dataArtifact.Properties == null)
        {
-           string output = string.Empty;
-           logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
-           foreach (IListBlobItem listBlobItem in Bresult.Results)
-           {
-               CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
-               if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
-               {
-                   string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
-                   logger.Write("input blob text: {0}", blobText);
-                   string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
-                   var matchQuery = from word in source
-                                    where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
-                                    select word;
-                   int wordCount = matchQuery.Count();
-                   output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-               }
-           }
-           return output;
+           return null;
        }
-
+    
+       AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+       if (blobDataset == null)
+       {
+           return null;
+       }
+    
+       return blobDataset.FileName;
+    }
+    
+    /// <summary>
+    /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+    /// and prepares the output text that is written to the output blob.
+    /// </summary>
+    
+    public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
+    {
+       string output = string.Empty;
+       logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
+       foreach (IListBlobItem listBlobItem in Bresult.Results)
+       {
+           CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
+           if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
+           {
+               string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
+               logger.Write("input blob text: {0}", blobText);
+               string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+               var matchQuery = from word in source
+                                where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
+                                select word;
+               int wordCount = matchQuery.Count();
+               output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+           }
+       }
+       return output;
+    }
+    ```
     Метод **GetFolderPath** возвращает путь к папке, на которую указывает набор данных, а метод **GetFileName** — имя большого двоичного объекта или файла, на который указывает набор данных.
 
-        "name": "InputDataset",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "fileName": "file.txt",
-                "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+    ```csharp
 
+    "name": "InputDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "fileName": "file.txt",
+            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+    ```
 
     Метод **Calculate** вычисляет количество экземпляров ключевого слова **Microsoft** во входных файлах (в больших двоичных объектах в папке). Условие поиска (Microsoft) жестко задано в коде.
 
@@ -357,54 +374,74 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
 1. Элементы для выполнения итерации входной коллекции находятся в пространстве имен [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). Для итерации коллекции больших двоичных объектов необходимо использовать класс **BlobContinuationToken**. В сущности, необходимо использовать цикл do-while и маркер в качестве механизма для выхода из цикла. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md). Базовый цикл выглядит так:
 
-     // Initialize the continuation token.
-     BlobContinuationToken continuationToken = null; do { // Get the list of input blobs from the input storage client object.
-     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+    ```csharp
+    // Initialize the continuation token.
+    BlobContinuationToken continuationToken = null;
+    do
+    {
+    // Get the list of input blobs from the input storage client object.
+    BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+    
+                         true,
+                                   BlobListingDetails.Metadata,
+                                   null,
+                                   continuationToken,
+                                   null,
+                                   null);
+    // Return a string derived from parsing each blob.
+    
+     output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+    
+    } while (continuationToken != null);
 
-                             true,
-                                       BlobListingDetails.Metadata,
-                                       null,
-                                       continuationToken,
-                                       null,
-                                       null);
-     // Return a string derived from parsing each blob.
-
-         output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-
-     } while (continuationToken != null);
-
+    ```
    Дополнительные сведения см. в документации по методу [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
 2. Код для работы с набором больших двоичных объектов логически находится в цикле do-while. В методе **Execute** цикл do-while передает список больших двоичных объектов в метод **Calculate**. Этот метод возвращает строковую переменную с именем **output** , которая является результатом итерации всех больших двоичных объектов в сегменте.
 
    Он возвращает число вхождений условия поиска (**Microsoft**) в большом двоичном объекте, переданном в метод **Calculate**.
 
-     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+    ```csharp
+    output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+    ```
 3. После завершения работы метода **Calculate** его результаты записываются в новый большой двоичный объект. Следовательно, для каждого обработанного набора больших двоичных объектов можно записать новый большой двоичный объект с результатами. Чтобы записать новый большой двоичный объект, сначала найдите выходной набор данных.
 
-     // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-     Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    ```csharp
+    // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
+    Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    ```
 4. Код также вызывает вспомогательный метод **GetFolderPath** , чтобы получить путь к папке (имя контейнера хранилища).
 
-     folderPath = GetFolderPath(outputDataset);
-
+    ```csharp
+    folderPath = GetFolderPath(outputDataset);
+    ```
    Метод **GetFolderPath** приводит объект DataSet к AzureBlobDataSet со свойством FolderPath.
 
-     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-
-     return blobDataset.FolderPath;
+    ```csharp
+    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+    
+    return blobDataset.FolderPath;
+    ```
 5. Код вызывает метод **GetFileName** , чтобы получить имя файла (имя большого двоичного объекта). Используемый код аналогичен приведенному выше коду, используемому для получения пути к папке.
 
-     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-
-     return blobDataset.FileName;
+    ```csharp
+    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+    
+    return blobDataset.FileName;
+    ```
 6. Чтобы записать имя файла, создается объект универсального кода ресурса (URI). Для возврата имени контейнера в конструкторе URI используется свойство **BlobEndpoint** . Для создания URI выходного большого двоичного объекта сочетаются путь к папке и имя файла.  
 
-     // Write the name of the file.
-     Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    ```csharp
+    // Write the name of the file.
+    Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    ```
 7. Имя файла записано, и теперь можно записать выводимую строку из метода **Calculate** в новый большой двоичный объект:
 
-     // Create a blob and upload the output text.
-     CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials); logger.Write("Writing {0} to the output blob", output); outputBlob.UploadText(output);
+    ```csharp
+    // Create a blob and upload the output text.
+    CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+    logger.Write("Writing {0} to the output blob", output);
+    outputBlob.UploadText(output);
+    ```
 
 ### <a name="create-the-data-factory"></a>Создание фабрики данных
 В разделе [Создание настраиваемого действия](#create-the-custom-activity) вы создали настраиваемое действие и отправили ZIP-файл с двоичными файлами и PDB-файлом в контейнер больших двоичных объектов Azure. В этом разделе вы создадите **фабрику данных** Azure с **конвейером**, использующим **настраиваемое действие**.
@@ -413,33 +450,40 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
 Перенесите в папки входных данных один или несколько файлов.
 
-    mycontainer -\> inputfolder
-        2015-11-16-00
-        2015-11-16-01
-        2015-11-16-02
-        2015-11-16-03
-        2015-11-16-04
+```
+mycontainer -\> inputfolder
+    2015-11-16-00
+    2015-11-16-01
+    2015-11-16-02
+    2015-11-16-03
+    2015-11-16-04
+```
 
 Например, перенесите один файл (file.txt) со следующим содержимым в каждую папку.
 
-    test custom activity Microsoft test custom activity Microsoft
+```
+test custom activity Microsoft test custom activity Microsoft
+```
 
 Каждая входная папка соответствует одному срезу в фабрике данных Azure, даже если она содержит 2 файла или более. При обработке каждого среза конвейером пользовательское действие выполняет итерацию всех больших двоичных объектов во входной папке для этого среза.
 
 Отображаются пять выходных файлов с одинаковым содержимым. Например, выходной файл, полученный в ходе обработки файла в папке 2015-11-16-00, включает в себя следующее содержимое.
 
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+```
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+```
 
 Если в папку входных данных перенести несколько файлов (file.txt, file2.txt, file3.txt) с одинаковым содержимым, то в выходном файле будет следующее содержимое. В этом примере каждая папка (2015-11-16-00 и т. д.) соответствует одному срезу, несмотря на то, что она содержит несколько входных файлов.
 
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file2.txt.
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file3.txt.
-
+```csharp
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file2.txt.
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file3.txt.
+```
 
 Теперь во входном файле появилось три строки, по одной на каждый входной файл (большой двоичный объект) в папке, связанный со срезом (2015-11-16-00).
 
-Такая задача создается для каждого запуска действия. В этом примере в конвейере есть только одно действие. При обработке среза конвейером в пакетной службе Azure выполняется настраиваемое действие для обработки среза. Так как имеется 5 срезов (каждому срезу может соответствовать несколько больших двоичных объектов или файлов), в пакетной службе Azure создано 5 задач. При запуске задачи в пакетной службе фактически выполняется настраиваемое действие.
+Такая задача создается для каждого запуска действия. В этом примере в конвейере есть только одно действие. При обработке среза конвейером в пакетной службе Azure выполняется настраиваемое действие для обработки среза. Так как имеется&5; срезов (каждому срезу может соответствовать несколько больших двоичных объектов или файлов), в пакетной службе Azure создано&5; задач. При запуске задачи в пакетной службе фактически выполняется настраиваемое действие.
 
 В следующем пошаговом руководстве содержатся дополнительные сведения.
 
@@ -481,11 +525,11 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
    1. Замените **account name** именем учетной записи пакетной службы Azure.
    2. Замените **access key** ключом доступа к учетной записи пакетной службы Azure.
-   3. Введите идентификатор пула для свойства **poolName** **.**  Для этого свойства можно задать имя пула или идентификатор пула.
+   3. Введите идентификатор пула для свойства **poolName** **.** Для этого свойства можно задать имя пула или идентификатор пула.
    4. Введите URI пакета для свойства JSON **batchUri** .
 
       > [!IMPORTANT]
-      > **URL-адрес** из **колонки учетной записи пакетной службы Azure** имеет следующий формат: \<имя_учетной_записи\>.\<регион\>.batch.azure.com. В свойстве **batchUri** в JSON требуется **удалить заполнитель accountname**  в URL-адресе. Пример: `"batchUri": "https://eastus.batch.azure.com"`.
+      > **URL-адрес** из **колонки учетной записи пакетной службы Azure** имеет следующий формат: \<имя_учетной_записи\>.\<регион\>.batch.azure.com. В свойстве **batchUri** в JSON требуется **удалить заполнитель accountname** в URL-адресе. Пример: `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -507,65 +551,67 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 1. В **редакторе** фабрики данных нажмите на панели инструментов кнопку **Новый набор данных** и выберите в раскрывающемся меню пункт **Хранилище BLOB-объектов Azure**.
 2. Замените код JSON в правой области на следующий фрагмент кода JSON:
 
-       {
-           "name": "InputDataset",
-           "properties": {
-               "type": "AzureBlob",
-               "linkedServiceName": "AzureStorageLinkedService",
-               "typeProperties": {
-                   "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
-                   "format": {
-                       "type": "TextFormat"
-                   },
-                   "partitionedBy": [
-                       {
-                           "name": "Year",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "yyyy"
-                           }
-                       },
-                       {
-                           "name": "Month",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "MM"
-                           }
-                       },
-                       {
-                           "name": "Day",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "dd"
-                           }
-                       },
-                       {
-                           "name": "Hour",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "HH"
-                           }
+    ```json
+    {
+       "name": "InputDataset",
+       "properties": {
+           "type": "AzureBlob",
+           "linkedServiceName": "AzureStorageLinkedService",
+           "typeProperties": {
+               "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+               "format": {
+                   "type": "TextFormat"
+               },
+               "partitionedBy": [
+                   {
+                       "name": "Year",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "yyyy"
                        }
-                   ]
-               },
-               "availability": {
-                   "frequency": "Hour",
-                   "interval": 1
-               },
-               "external": true,
-               "policy": {}
-           }
+                   },
+                   {
+                       "name": "Month",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "MM"
+                       }
+                   },
+                   {
+                       "name": "Day",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "dd"
+                       }
+                   },
+                   {
+                       "name": "Hour",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "HH"
+                       }
+                   }
+               ]
+           },
+           "availability": {
+               "frequency": "Hour",
+               "interval": 1
+           },
+           "external": true,
+           "policy": {}
        }
+    }
+    ```
 
-     Позже в этом пошаговом руководстве вы создадите конвейер со временем начала 2015-11-16T00:00:00Z и временем окончания 2015-11-16T05:00:00Z. Данные будут создаваться **почасово**, поэтому мы получим 5 входных и выходных срезов (между **00**:00:00 -\> **05**:00:00).
+    Позже в этом пошаговом руководстве вы создадите конвейер со временем начала 2015-11-16T00:00:00Z и временем окончания 2015-11-16T05:00:00Z. Данные будут создаваться **почасово**, поэтому мы получим 5 входных и выходных срезов (между **00**:00:00 -\> **05**:00:00).
 
-     Для параметров **frequency** и **interval** входного набора данных установлены значения **Hour** и **1**. Это означает, что входной срез данных будет создаваться каждый час.
+    Для параметров **frequency** и **interval** входного набора данных установлены значения **Hour** и **1**. Это означает, что входной срез данных будет создаваться каждый час.
 
-     Это значения времени начала для каждого среза, представленные системной переменной **SliceStart** в приведенном выше фрагменте кода JSON.
+    Это значения времени начала для каждого среза, представленные системной переменной **SliceStart** в приведенном выше фрагменте кода JSON.
 
     | **Срез** | **Время начала**          |
     |-----------|-------------------------|
@@ -575,7 +621,7 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
     | 4.         | 2015-11-16T**03**:00:00 |
     | 5         | 2015-11-16T**04**:00:00 |
 
-     Значение параметра **folderPath** вычисляется с использованием года, месяца, дня и часа значения времени начала среза (**SliceStart**). Именно так входная папка сопоставляется со срезом.
+    Значение параметра **folderPath** вычисляется с использованием года, месяца, дня и часа значения времени начала среза (**SliceStart**). Именно так входная папка сопоставляется со срезом.
 
     | **Срез** | **Время начала**          | **Входная папка**  |
     |-----------|-------------------------|-------------------|
@@ -593,34 +639,35 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 1. В **редакторе** фабрики данных нажмите на панели инструментов кнопку **Новый набор данных** и выберите в раскрывающемся меню пункт **Хранилище BLOB-объектов Azure**.
 2. Замените код JSON в правой области на следующий фрагмент кода JSON:
 
-       {
-           "name": "OutputDataset",
-           "properties": {
-               "type": "AzureBlob",
-               "linkedServiceName": "AzureStorageLinkedService",
-               "typeProperties": {
-                   "fileName": "{slice}.txt",
-                   "folderPath": "mycontainer/outputfolder",
-                   "partitionedBy": [
-                       {
-                           "name": "slice",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "yyyy-MM-dd-HH"
-                           }
+    ```json
+    {
+       "name": "OutputDataset",
+       "properties": {
+           "type": "AzureBlob",
+           "linkedServiceName": "AzureStorageLinkedService",
+           "typeProperties": {
+               "fileName": "{slice}.txt",
+               "folderPath": "mycontainer/outputfolder",
+               "partitionedBy": [
+                   {
+                       "name": "slice",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "yyyy-MM-dd-HH"
                        }
-                   ]
-               },
-               "availability": {
-                   "frequency": "Hour",
-                   "interval": 1
-               }
+                   }
+               ]
+           },
+           "availability": {
+               "frequency": "Hour",
+               "interval": 1
            }
        }
+    }
+    ```
 
-     Для каждого входного среза данных создается выходной большой двоичный объект или файл. Ниже в таблице приведены имена, которые даются выходным файлам для каждого среза. Все выходные файлы создаются в одной папке выходных данных: **mycontainer\\outputfolder**.
-
+    Для каждого входного среза данных создается выходной большой двоичный объект или файл. Ниже в таблице приведены имена, которые даются выходным файлам для каждого среза. Все выходные файлы создаются в одной папке выходных данных: **mycontainer\\outputfolder**.
 
     | **Срез** | **Время начала**          | **Выходной файл**       |
     |-----------|-------------------------|-----------------------|
@@ -630,7 +677,7 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
     | 4.         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
-     Помните, что все файлы во входной папке (например, 2015-11-16-00) являются частью среза со значениями времени начала (2015-11-16-00). Во время обработки этого среза пользовательское действие сканирует каждый файл и создает строку в выходном файле с количеством вхождений условия поиска (Microsoft). Если в папке 2015-11-16-00 есть три файла, то в выходном файле 2015-11-16-00.txt будет три строки.
+    Помните, что все файлы во входной папке (например, 2015-11-16-00) являются частью среза со значениями времени начала (2015-11-16-00). Во время обработки этого среза пользовательское действие сканирует каждый файл и создает строку в выходном файле с количеством вхождений условия поиска (Microsoft). Если в папке 2015-11-16-00 есть три файла, то в выходном файле 2015-11-16-00.txt будет три строки.
 
 1. На панели инструментов щелкните **Развернуть**, чтобы создать и развернуть **OutputDataset**.
 
@@ -645,48 +692,49 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 1. В редакторе фабрики данных, нажмите кнопку **Создать конвейер** на панели команд. Если команда не отображается, нажмите кнопку **... (многоточие)**, чтобы отобразить ее.
 2. Замените сценарий JSON в правой области приведенным ниже.
 
-       {
-           "name": "PipelineCustom",
-           "properties": {
-               "description": "Use custom activity",
-               "activities": [
-                   {
-                       "type": "DotNetActivity",
-                       "typeProperties": {
-                           "assemblyName": "MyDotNetActivity.dll",
-                           "entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-                           "packageLinkedService": "AzureStorageLinkedService",
-                           "packageFile": "customactivitycontainer/MyDotNetActivity.zip"
-                       },
-                       "inputs": [
-                           {
-                               "name": "InputDataset"
-                           }
-                       ],
-                       "outputs": [
-                           {
-                               "name": "OutputDataset"
-                           }
-                       ],
-                       "policy": {
-                           "timeout": "00:30:00",
-                           "concurrency": 5,
-                           "retry": 3
-                       },
-                       "scheduler": {
-                           "frequency": "Hour",
-                           "interval": 1
-                       },
-                       "name": "MyDotNetActivity",
-                       "linkedServiceName": "AzureBatchLinkedService"
-                   }
-               ],
-               "start": "2015-11-16T00:00:00Z",
-               "end": "2015-11-16T05:00:00Z",
-               "isPaused": false
-          }
-       }
-
+    ```json
+    {
+       "name": "PipelineCustom",
+       "properties": {
+           "description": "Use custom activity",
+           "activities": [
+               {
+                   "type": "DotNetActivity",
+                   "typeProperties": {
+                       "assemblyName": "MyDotNetActivity.dll",
+                       "entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+                       "packageLinkedService": "AzureStorageLinkedService",
+                       "packageFile": "customactivitycontainer/MyDotNetActivity.zip"
+                   },
+                   "inputs": [
+                       {
+                           "name": "InputDataset"
+                       }
+                   ],
+                   "outputs": [
+                       {
+                           "name": "OutputDataset"
+                       }
+                   ],
+                   "policy": {
+                       "timeout": "00:30:00",
+                       "concurrency": 5,
+                       "retry": 3
+                   },
+                   "scheduler": {
+                       "frequency": "Hour",
+                       "interval": 1
+                   },
+                   "name": "MyDotNetActivity",
+                   "linkedServiceName": "AzureBatchLinkedService"
+               }
+           ],
+           "start": "2015-11-16T00:00:00Z",
+           "end": "2015-11-16T05:00:00Z",
+           "isPaused": false
+      }
+    }
+    ```
    Обратите внимание на следующие моменты.
 
    * В конвейере содержится одно действие типа **DotNetActivity**.
@@ -728,8 +776,9 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
    Должно появиться пять выходных файлов, по одному на каждый входной срез. В каждом из выходных файлов должно быть содержимое, аналогичное приведенному ниже.
 
-       2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
-
+    ```
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+    ```
    На следующей схеме показано сопоставление срезов данных фабрики и задач в пакетной службе Azure. В этом примере срез запускался всего один раз.
 
    ![](./media/data-factory-data-processing-using-batch/image16.png)
@@ -740,11 +789,13 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
     ![](./media/data-factory-data-processing-using-batch/image17.png)
 11. Когда после запуска среза его состояние изменится на **Готов**, проверьте содержимое в выходном файле для этого среза (**2015-11-16-01.txt**) в папке **outputfolder** контейнера **mycontainer** в хранилище BLOB-объектов. В выходном файле каждому файлу среза должна соответствовать одна строка.
 
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
+    ```
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
+    ```
 
 > [!NOTE]
 > Если не удалить выходной файл 2015-11-16-01.txt перед использованием пяти входных файлов, появится одна строка из предыдущего запуска среза и пять строк из текущего. По умолчанию содержимое добавляется в выходной файл, если он уже существует.
@@ -784,13 +835,15 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
    Проверьте файл system-0.log на наличие любых системных сообщений об ошибках или исключений.
 
-       Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
-
-       Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
-
-       Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
-
-       Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
+    ```
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
+    
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
+    
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
+    
+    Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
+    ```
 3. Добавьте **PDB-файл** в ZIP-файл, чтобы в случае возникновения ошибки сведения об ошибке содержали, например, информацию о **стеке вызовов**.
 4. Все файлы в ZIP-файле для пользовательского действия должны находиться на **верхнем уровне** без вложенных папок.
 
@@ -817,14 +870,18 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 4. Создайте пул пакетной службы Azure с использованием функции **автомасштабирования** . Автоматическое масштабирование вычислительных узлов в пуле пакетной службы Azure представляет собой динамическую настройку вычислительной мощности, используемой вашим приложением. Например, можно создать пул пакетной службы Azure с нулем выделенных виртуальных машин и формулой автоматического масштабирования на основе числа ожидающих задач:
 
    По одной виртуальной машине на одну ожидающую задачу (например, пять ожидающих задач -> пять виртуальных машин).
-
-       pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-       $TargetDedicated = max(pendingTaskSampleVector);
+    
+    ```
+    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+    $TargetDedicated = max(pendingTaskSampleVector);
+    ```
 
    Максимум одна виртуальная машина за один раз независимо от количества ожидающих задач:
 
-       pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-       $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+    ```
+    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+    $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+    ```
 
    Дополнительные сведения см. в статье [Автоматическое масштабирование вычислительных узлов в пуле пакетной службы Azure](../batch/batch-automatic-scaling.md).
 
@@ -857,6 +914,6 @@ ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 6700ea97bea02d68329b923f8715d84e5df1de33
+ms.sourcegitcommit: 8062106872bd50cd265fc4e64bc6f4c0fb2dbb1d
+ms.openlocfilehash: b7458e13174dc03f2c4cab707c033d96a80628e6
 
 
 ---
@@ -44,7 +44,11 @@ ms.openlocfilehash: 6700ea97bea02d68329b923f8715d84e5df1de33
 - [сброс с помощью Azure PowerShell](#vmaccess-extension-and-powershell---classic).
 
 ## <a name="azure-portal---resource-manager"></a>Портал Azure — Resource Manager
-Выберите свою виртуальную машину, выбрав **Обзор** > **Виртуальные машины** > *ваша виртуальная машина Windows* > **Все параметры** > **Сбросить пароль**. Отобразится колонка сброса пароля.
+Чтобы развернуть меню портала, щелкните три полосы в левом верхнем углу и выберите **Виртуальные машины**.
+
+![Выбор виртуальной машины Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
+
+Выберите виртуальную машину Windows, а затем щелкните **Поддержка и устранение неполадок** > **Сбросить пароль**. Отобразится колонка сброса пароля.
 
 ![Страница "Сброс пароля"](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -100,11 +104,15 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" 
 
 
 ## <a name="azure-portal---classic"></a>Портал Azure — классическая модель
-Для сброса службы удаленных рабочих столов на виртуальных машинах, созданных с помощью классической модели развертывания, можно использовать [портал Azure](https://portal.azure.com) . Последовательно выберите **Обзор** > **Виртуальные машины (классические)** > *ваша виртуальная машина Windows* > **Сброс удаленного доступа**. Откроется следующая страница.
+Для сброса службы удаленных рабочих столов на виртуальных машинах, созданных с помощью классической модели развертывания, можно использовать [портал Azure](https://portal.azure.com) . Чтобы развернуть меню портала, щелкните три полосы в левом верхнем углу и выберите **Виртуальные машины (классика)**.
+
+![Выбор виртуальной машины Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
+
+Выберите виртуальную машину Windows и щелкните **Сброс удаленной конфигурации (новый портал)**. Отобразится диалоговое окно сброса конфигурации удаленного рабочего стола.
 
 ![Страница "Сброс конфигурации удаленного рабочего стола"](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
-Можно также попробовать сбросить имя и пароль учетной записи локального администратора. Последовательно выберите **Обзор** > **Виртуальные машины (классические)** > *ваша виртуальная машина Windows* > **Все параметры** > **Сбросить пароль**. Откроется следующая страница.
+Можно также сбросить имя и пароль учетной записи локального администратора. В виртуальной машине щелкните **Поддержка и устранение неполадок** > **Сбросить пароль**. Отобразится колонка сброса пароля.
 
 ![Страница "Сброс пароля"](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
@@ -174,6 +182,6 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

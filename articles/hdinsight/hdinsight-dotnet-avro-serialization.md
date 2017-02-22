@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2d3250eb1c0855d185228b0bca990b255f9aa9bd
 
 
 ---
@@ -359,7 +359,7 @@ ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
 
 Данные в этом примере сериализуются с помощью [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx), а десериализуются с помощью [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). Далее результат сравнивается с исходными экземплярами для подтверждения идентичности.
 
-Данные в файле контейнера объекта сжимаются с использованием кодека сжатия [**Deflate**][deflate-100] по умолчанию из платформы .NET Framework 4. См. <a href="#Scenario5"> пятый пример</a> в этом разделе, чтобы научиться использовать более новую и совершенную версию кодека сжатия [**Deflate**][deflate-110], доступную на платформе .NET Framework 4.5.
+Данные в файле контейнера объекта сжимаются с использованием кодека сжатия [**Deflate**][deflate-100] по умолчанию из платформы .NET Framework 4. Ознакомьтесь с <a href="#Scenario5">пятым примером</a> в этом разделе, чтобы научиться использовать более новую и совершенную версию кодека сжатия [**Deflate**][deflate-110], доступную на платформе .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -859,7 +859,7 @@ ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
 ### <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Пример 5. Сериализация с использованием файлов контейнеров объектов с помощью настраиваемого кодека сжатия
 В пятом примере показано, как использовать настраиваемый кодек сжатия для файлов контейнера объектов Avro. Образец с кодом для этого примера можно загрузить с сайта [Примеры кода Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) .
 
-[Спецификация Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) позволяет использовать дополнительные кодеки сжатия (помимо **Null** и **Deflate**, которые используются по умолчанию). В этом примере не реализуется абсолютно новый кодек, такой как Snappy (который упоминается как поддерживаемый дополнительный кодек в [спецификации Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Здесь показано, как использовать реализацию .NET Framework 4.5 кодека [**Deflate**][deflate-110], которая обеспечивает выполнение лучшего алгоритма сжатия на основе библиотеки сжатия [zlib](http://zlib.net/), чем используемая по умолчанию версия .NET Framework 4.
+[Спецификация Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) позволяет использовать дополнительные кодеки сжатия (помимо **Null** и **Deflate**, которые используются по умолчанию). В этом примере не реализуется абсолютно новый кодек, такой как Snappy (который упоминается как поддерживаемый дополнительный кодек в [спецификации Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Здесь показано, как использовать реализацию .NET Framework 4.5 кодека [**Deflate**][deflate-110], которая обеспечивает лучший алгоритм сжатия на основе библиотеки сжатия [zlib](http://zlib.net/), чем используемая по умолчанию версия .NET Framework 4.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1390,6 +1390,6 @@ ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

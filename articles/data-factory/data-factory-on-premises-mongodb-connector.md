@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
 Сейчас фабрика данных поддерживает перемещение данных из MongoDB в другие хранилища данных, но не наоборот.
 
 ## <a name="supported-versions"></a>Поддерживаемые версии
-Этот соединитель MongoDB поддерживает MongoDB версии 2.4 и выше.
+Этот соединитель MongoDB поддерживает MongoDB версии 2.4, 2.6, 3.0 и 3.2.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы служба фабрики данных Azure могла подключаться к локальной базе данных MongoDB, необходимо установить следующие компоненты.
@@ -358,6 +358,6 @@ ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

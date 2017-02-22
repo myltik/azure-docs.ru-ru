@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
+ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
+ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
 
 
 ---
@@ -133,7 +133,7 @@ ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
 | Toyota |2015-01-01T00:00:02.0000000Z |
 | Toyota |2015-01-01T00:00:03.0000000Z |
 
-**Выходные данные 1**:
+**Выходные данные&1;**:
 
 | Убедитесь, | Время |
 | --- | --- |
@@ -143,7 +143,7 @@ ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
 | Toyota |2015-01-01T00:00:02.0000000Z |
 | Toyota |2015-01-01T00:00:03.0000000Z |
 
-**Выходные данные 2**:
+**Выходные данные&2;**:
 
 | Убедитесь, | Время | Count |
 | --- | --- | --- |
@@ -212,27 +212,17 @@ ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
 
 **Решение.**
 
-    WITH Makes AS (
-        SELECT
-            Make,
-            COUNT(*) AS CountMake
-        FROM
-            Input TIMESTAMP BY Time
-        GROUP BY
-              Make,
-              TumblingWindow(second, 2)
-    )
-    SELECT
-        COUNT(*) AS Count,
-        System.TimeStamp AS Time
-    FROM
-        Makes
-    GROUP BY
-        TumblingWindow(second, 1)
+````
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+````
 
 
-**Объяснение:** мы выполняем начальный статистический анализ, чтобы получить число уникальных марок за окно.
-Затем мы выполним статистический анализ числа полученных марок — учитывая, что все уникальные значения в окне получают ту же отметку времени, а второе окно статистической обработки должно быть минимальным, чтобы не обрабатывать 2 окна из первого шага.
+**Объяснение.** COUNT(DISTINCT Make) возвращает количество уникальных значений в столбце "Марка" в течение определенного интервала.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Пример запроса: определение изменения значения
 **Описание.** Рассмотрите предыдущее значение, чтобы определить, отличается ли оно от текущего. Например, предыдущий автомобиль на платной дороге той же марки, что и текущий автомобиль?
@@ -524,6 +514,6 @@ ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

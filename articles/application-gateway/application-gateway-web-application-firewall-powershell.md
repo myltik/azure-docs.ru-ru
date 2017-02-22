@@ -1,5 +1,5 @@
 ---
-title: "Настройка брандмауэра веб-приложения на новом или существующем шлюзе приложений | Документация Майкрософт"
+title: "Настройка брандмауэра веб-приложения для шлюза приложений Azure | Документация Майкрософт"
 description: "Эта статья содержит рекомендации о том, как приступить к работе с брандмауэром веб-приложения на существующем или новом шлюзе приложений."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
 
 
 ---
@@ -336,6 +336,6 @@ DnsSettings              : {
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

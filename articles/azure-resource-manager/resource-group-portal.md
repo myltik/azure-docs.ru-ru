@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f1955e3e1618c6228bfa5439ca66155148ff1cb3
-ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
+ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
+ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
 
 
 ---
@@ -134,7 +134,7 @@ ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о просмотре журналов действий см. в статье [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
-* Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
+* Дополнительные сведения о развертывании см. в статье [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md).
 * Сведения о развертывании ресурсов через портал см. в статье [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
 * Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
@@ -142,6 +142,6 @@ ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

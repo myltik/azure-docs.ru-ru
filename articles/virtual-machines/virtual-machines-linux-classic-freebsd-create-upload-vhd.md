@@ -16,17 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d988b30457e1882a90ce6aac4efaf87a0d71c858
+ms.sourcegitcommit: 94afcefe2e6f2b51914993f7219f5e0fd2466ead
+ms.openlocfilehash: 321ea57a292bfcc74732d600c35703484bf6d23f
 
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Создание и отправка виртуального жесткого диска FreeBSD в Azure
 В этой статье описывается, как создать и передать виртуальный жесткий диск, содержащий операционную систему FreeBSD. После передачи его можно использовать как свой собственный образ для создания виртуальной машины в Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Дополнительные сведения о передаче виртуального жесткого диска с помощью модели Resource Manager см. [здесь](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения о передаче виртуального жесткого диска с помощью модели Resource Manager см. [здесь](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Предварительные требования
 В данной статье предполагается, что у вас есть следующие элементы:
@@ -177,7 +176,7 @@ ms.openlocfilehash: d988b30457e1882a90ce6aac4efaf87a0d71c858
 
    Дополнительные сведения см. в статье [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) (Начало работы с командлетами Azure).
 
-   Дополнительные сведения об установке и настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+   Дополнительные сведения об установке и настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Шаг 4. Загрузка файла VHD
 При передаче VHD-файла его можно поместить в любом месте внутри хранилища BLOB-объектов. Ниже приведены некоторые термины, которые будут использоваться при передаче файла.
@@ -215,6 +214,6 @@ ms.openlocfilehash: d988b30457e1882a90ce6aac4efaf87a0d71c858
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

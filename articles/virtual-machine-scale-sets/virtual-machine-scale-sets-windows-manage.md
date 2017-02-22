@@ -3,7 +3,7 @@ title: "Управление виртуальными машинами в мас
 description: "Узнайте, как управлять виртуальными машинами в наборе масштабирования виртуальных машин с помощью Azure PowerShell."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
 
 Для выполнения большинства задач, связанных с управлением виртуальной машиной в масштабируемом наборе, необходимо знать идентификатор экземпляра этой машины. Определить идентификатор экземпляра виртуальной машины в наборе масштабирования можно с помощью [обозревателя ресурсов Azure](https://resources.azure.com) . Обозреватель ресурсов также используется для проверки состояния выполненных задач.
 
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="display-information-about-a-scale-set"></a>Отображение информации о масштабируемом наборе
 Вы можете получить общие сведения о наборе масштабирования, которые также называются представлением экземпляра. Вы также можете получить более подробную информацию, например, о ресурсах в масштабируемом наборе.
@@ -207,13 +207,15 @@ ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
 ## <a name="change-the-capacity-of-a-scale-set"></a>Изменение емкости масштабируемого набора
 Можно добавлять или удалять виртуальные машины, изменяя емкость набора. Выберите масштабируемый набор, который необходимо изменить, задайте желаемое значение емкости, а затем обновите масштабируемый набор с новым значением емкости. В этих командах замените заключенные в кавычки значения именами группы ресурсов и масштабируемого набора.
 
-  $vmss = Get-AzureRmVmss -ResourceGroupName "имя группы ресурсов" -VMScaleSetName "имя масштабируемого набора" $vmss.sku.capacity = 5 Update-AzureRmVmss -ResourceGroupName "имя группы ресурсов" -Name "имя масштабируемого набора" -VirtualMachineScaleSet $vmss 
+    $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+    $vmss.sku.capacity = 5
+    Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 При удалении виртуальных машин из масштабируемого набора виртуальные машины с более высоким значениям идентификатора удаляются первыми.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: eaca6a05cdbc1dc5b9a62d8f60da689d06f315cc
+ms.sourcegitcommit: ab139ce55ba293526a3ccfb6bcd6cd5838b383f9
+ms.openlocfilehash: 0be5bb571f3d8fe6d5d9fcde2fe64e9147837445
 
 
 ---
@@ -45,8 +45,8 @@ ms.openlocfilehash: eaca6a05cdbc1dc5b9a62d8f60da689d06f315cc
 | Debian |Debian 7.9+, 8.2+ |В ядре |Пакет: в репозитории в разделе WAAgent  <br/>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |В ядре |Пакет: в репозитории в разделе WALinuxAgent  <br/>Исходный код: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux. |RHEL 6.7 или более поздней версии, 7.1 или более поздней версии |В ядре |Пакет: в репозитории в разделе WALinuxAgent  <br/>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ и <p> SLES для SAP 11 SP3+ |В ядре |Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем python-azure-agent <br/>Исходный код: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE 13.2 или более поздней версии. |В ядре |Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем python-azure-agent <br/>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ и <p> SLES для SAP |В ядре |Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем python-azure-agent <br/>Исходный код: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| openSUSE |openSUSE Leap 42.1+ |В ядре |Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем python-azure-agent <br/>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |В ядре |Пакет: в репозитории в разделе WALinuxAgent  <br/>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="partners"></a>Партнеры
@@ -92,6 +92,6 @@ SUSE Linux Enterprise Server в Azure — проверенная платфор�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
+ms.sourcegitcommit: f24227a33b2106955dc44defe8feb5a7d4dc655e
+ms.openlocfilehash: 6f6338d8c0e941b7fee4fb8c04315b26919716a3
 
 ---
 
@@ -148,18 +148,18 @@ ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
 }
 ```
 
-Если вы используете параметры шаблона, чтобы определить значения свойств, их следует создать. Создавая параметры шаблона для значений защищенной конфигурации, обязательно используйте тип параметра `SecureObject`, чтобы защитить конфиденциальные значения. Дополнительную информацию об использовании параметров см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Если вы используете параметры шаблона, чтобы определить значения свойств, их следует создать. Создавая параметры шаблона для значений защищенной конфигурации, обязательно используйте тип параметра `SecureString`, чтобы защитить конфиденциальные значения. Дополнительную информацию об использовании параметров см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Для расширения `IaasDiagnostic` будут создаваться следующие параметры в разделе параметров шаблона Resource Manager.
 
 ```json
 "storageAccountName": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 },
 "storageAccountKey": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 }
 ```
 
@@ -167,6 +167,6 @@ ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

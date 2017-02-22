@@ -1,5 +1,5 @@
 ---
-title: "Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+title: "Создание пространства имен, раздела и подписки служебной шины Azure с помощью шаблона | Документация Майкрософт"
 description: "Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 27ad541fc51c497528355cd1091cc48ae8fe1ee8
 
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager
 В этой статье показывается, как использовать шаблон Azure Resource Manager, создающий пространство имен служебной шины с разделом и подпиской. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
-Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Создание шаблонов Azure Resource Manager].
+Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Полный шаблон пространства имен служебной шины с разделом и подпиской приведен [здесь][Шаблон пространства имен служебной шины с разделом и подпиской].
+Полный шаблон пространства имен служебной шины с разделом и подпиской приведен [здесь][Service Bus namespace with topic and subscription].
 
 > [!NOTE]
 > Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
@@ -35,7 +35,7 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 > * [Создание пространства имен служебной шины с очередью и правилом авторизации](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][шаблонов быстрого запуска Azure] выполните поиск по запросу "служебная шина".
+> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][Azure Quickstart Templates] выполните поиск "Service Bus".
 > 
 > 
 
@@ -56,7 +56,7 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Имя создаваемого пространства имен служебной шины.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -65,7 +65,7 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 ### <a name="servicebustopicname"></a>serviceBusTopicName
 Имя раздела, создаваемого в пространстве имен служебной шины.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -74,7 +74,7 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
 Имя подписки, создаваемой в пространстве имен служебной шины.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -83,7 +83,7 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 Версия API служебной шины для шаблона.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -91,7 +91,7 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
 Создает стандартное пространство имен служебной шины типа **Messaging**с разделом и подпиской.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -129,12 +129,12 @@ ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
@@ -144,17 +144,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
 * [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
-* [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
-[шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Ознакомьтесь с дополнительными сведениями о разделах и подписках служебной шины]: service-bus-queues-topics-subscriptions.md
-[Использование Azure PowerShell с Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure]: ../xplat-cli-azure-resource-manager.md
-[Шаблон пространства имен служебной шины с разделом и подпиской]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по Azure Data Lake Analytics. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как выполнять анализ больших данных с помощью Data Lake Analytics. Руководства, в которых показано, как выполнять пакетный, оперативный и интерактивный анализ и как создавать запросы U-SQL."
+services: data-lake-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 003cc86e182c55621db9e41fa35d871f37245a91
-ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
+ms.sourcegitcommit: b6b6a217f6fa54928b2c05cf44c5b0b74aaf8ce6
+ms.openlocfilehash: 21b56baf3e17b7955e6baf4b996b02d67fe50b81
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Документация по Data Lake Analytics
@@ -230,7 +241,7 @@ ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakeanalytics/">REST API</a></p>
+                        <p><a href="/rest/api/datalakeanalytics/">ИНТЕРФЕЙС REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -238,18 +249,10 @@ ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по Data Lake Analytics </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

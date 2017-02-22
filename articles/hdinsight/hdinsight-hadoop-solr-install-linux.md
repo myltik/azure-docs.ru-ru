@@ -13,21 +13,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cf3df8eb82fa0aa7c5848ea5da91734226a62b3e
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
 
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Установка и использование Solr на кластерах HDInsight Hadoop
 В этой статье описано, как установить Solr в Azure HDInsight с помощью действия сценария. Solr представляет собой многофункциональную платформу поиска и предоставляет возможности поиска корпоративного уровня на основе данных, управляемых Hadoop. После установки Solr в кластере HDInsight вы также узнаете, как искать данные с помощью Solr.
 
-> [!NOTE]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Сведения об использовании Solr с кластером под управлением Windows см. в статье [Установка и использование Solr на кластерах HDInsight Hadoop](hdinsight-hadoop-solr-install.md).
-> 
-> 
+> [!IMPORTANT]
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Пример сценария, используемый в данном разделе, создает кластер Solr с определенной конфигурацией. Если вы хотите настроить кластер Solr на использование других коллекций, сегментов, схем, реплик и т. п., необходимо соответствующим образом изменить скрипт и двоичные файлы Solr.
 
@@ -312,6 +310,6 @@ ms.openlocfilehash: cf3df8eb82fa0aa7c5848ea5da91734226a62b3e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

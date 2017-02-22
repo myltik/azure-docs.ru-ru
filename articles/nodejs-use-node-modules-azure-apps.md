@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
+ms.sourcegitcommit: f9a216f3f76ef84e745ef29575d20da971e5eb61
+ms.openlocfilehash: 2ccd414e0eec04dbee7c412cef245e1ab0da2bff
 
 
 ---
@@ -46,6 +46,7 @@ ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
 Служба приложений Azure не поддерживает все собственные модули и может сообщать об ошибках при компиляции модулей с очень специфическими предварительными требованиями. Хотя у некоторых популярных модулей, например MongoDB, имеются дополнительные собственные зависимости, и они прекрасно работают без них, было найдено два обходных решения, подходящих почти для всех собственных модулей, доступных в настоящее:
 
 * Выполните **npm install** на компьютере под управлением Windows, на котором установлены все необходимые компоненты собственного модуля. Затем разверните созданную папку **node\_modules** как часть приложения в службе приложений Azure.
+  * Перед компиляцией убедитесь, что локальная установка Node.js имеет соответствующую архитектуру и версию, максимально близкую к той, которая используется в Azure (текущие значения можно проверить в среде выполнения из свойств **process.arch** и **process.version**).
 * Службу приложений Azure можно настроить для выполнения пользовательских сценариев Bash или сценариев оболочки во время развертывания, что дает возможность выполнять пользовательские команды и точно настроить способ выполнения **npm install** . Видео о том, как это сделать: [Пользовательские сценарии развертывания веб-сайтов с использованием Kudu].
 
 ### <a name="using-a-packagejson-file"></a>Использование файла package.json
@@ -85,13 +86,13 @@ ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
 
 [указать версию Node.js]: nodejs-specify-node-version-azure-apps.md
 [использовать интерфейс командной строки Azure для Mac и Linux]: xplat-cli-install.md
-[создание и развертывание веб-приложения Node.js]: web-sites-nodejs-develop-deploy-mac.md
-[Веб-приложение Node.js с хранилищем в MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Построение и развертывание приложения Node.js в облачной службе Azure]: cloud-services-nodejs-develop-deploy-app.md
+[build and deploy a Node.js web app]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Пользовательские сценарии развертывания веб-сайтов с использованием Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

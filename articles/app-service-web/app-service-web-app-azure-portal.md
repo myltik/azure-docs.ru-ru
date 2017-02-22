@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: jaime-espinosa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5b580977f0104cb45e8b304183abd0607a1342
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 00617f4d508c843000d69c02464a1bef36320a8e
 
 
 ---
@@ -74,11 +74,11 @@ ms.openlocfilehash: 4d5b580977f0104cb45e8b304183abd0607a1342
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
 ## <a name="more-resources"></a>Дополнительные ресурсы
-[Портал Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -88,6 +88,6 @@ ms.openlocfilehash: 4d5b580977f0104cb45e8b304183abd0607a1342
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

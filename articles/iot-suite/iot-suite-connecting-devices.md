@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
+ms.sourcegitcommit: ba7a47bf66c106c75565682a71f870aa561cd827
+ms.openlocfilehash: 61373e3cf9c1630747fc70ab289e125217f4af82
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient
    * Microsoft.Azure.IoTHub.HttpTransport
-6. В **обозревателе решений** щелкните правой кнопкой мыши проект **RMDevice**, а затем щелкните **Свойства**, чтобы открыть диалоговое окно **Страницы свойств** проекта. Дополнительные сведения см. в статье [Работа со свойствами проектов][lnk-c-project-properties]. 
+6. В **обозревателе решений** щелкните правой кнопкой мыши проект **RMDevice**, а затем щелкните **Свойства**, чтобы открыть диалоговое окно **Страницы свойств** проекта. Дополнительные сведения см. в статье [Setting Visual C++ Project Properties][lnk-c-project-properties] (Задание свойств проекта Visual C++). 
 7. Выберите папку **Компоновщик**, затем щелкните страницу свойств **Входные данные**.
 8. В свойство **Дополнительные зависимости** добавьте **crypt32.lib**. Нажмите кнопку **ОК**, а затем еще раз **ОК**, чтобы сохранить значения свойств проекта.
 
@@ -257,7 +257,7 @@ ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
                   thermostat->Commands = (char*)STRING_c_str(commandsMetadata);
    
                   /* Here is the actual send of the Device Info */
-                  if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != IOT_AGENT_OK)
+                  if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != CODEFIRST_OK)
                   {
                     (void)printf("Failed serializing\r\n");
                   }
@@ -283,7 +283,7 @@ ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
    
                 (void)printf("Sending sensor value Temperature = %d, Humidity = %d\r\n", thermostat->Temperature, thermostat->Humidity);
    
-                if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != IOT_AGENT_OK)
+                if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != CODEFIRST_OK)
                 {
                   (void)printf("Failed sending sensor value\r\n");
                 }
@@ -358,6 +358,6 @@ ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

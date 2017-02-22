@@ -1,8 +1,8 @@
 ---
-title: "Настройка webhook для оповещений журнала действий Azure | Документация Майкрософт"
-description: "Сведения об использовании оповещений журнала действий для вызова объектов webhook. "
+title: "Вызов webhook с помощью оповещений журнала действий Azure | Документация Майкрософт"
+description: "Можно перенаправлять события журнала действий в другие службы для выполнения пользовательских действий. Например, можно отправлять SMS, вести журнал ошибок или уведомлять команду через службу чата или обмена сообщениями."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
-ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Настройка объектов webhook для оповещений журнала действий Azure
-Объекты webhook позволяют направлять уведомления об оповещениях Azure в другие системы для постобработки или выполнения настраиваемых действий. Объект webhook можно использовать, чтобы направить оповещение к службам, которые отправляют SMS, ведут журналы об ошибках, уведомляют членов команды в чате или службах обмена сообщениями либо выполняют другие действия. В этой статье описывается, как настроить объект webhook для оповещений журнала действий Azure и как выглядят полезные данные запроса HTTP POST к webhook. Дополнительные сведения о настройке и схему оповещений, связанных с метриками Azure см. [здесь](insights-webhooks-alerts.md). Можно также настроить отправку сообщения электронной почты при активации оповещения журнала действий.
+# <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Вызов webhook для оповещений журнала действий Azure
+Объекты webhook позволяют направлять уведомления об оповещениях Azure в другие системы для постобработки или выполнения настраиваемых действий. Объект webhook можно использовать, чтобы направить оповещение к службам, которые отправляют SMS, ведут журналы об ошибках, уведомляют членов команды в чате или службах обмена сообщениями либо выполняют другие действия. В этой статье описывается, как настроить webhook, вызываемый при активации оповещения журнала действий Azure. В ней также показывается, как выглядят полезные данные HTTP POST для webhook. Дополнительные сведения о настройке и схему оповещений, связанных с метриками Azure см. [здесь](insights-webhooks-alerts.md). Можно также настроить отправку сообщения электронной почты при активации оповещения журнала действий.
 
 > [!NOTE]
 > Эта функция находится на этапе предварительной версии и в будущем будет удалена.
-> 
-> 
+>
+>
 
-Оповещение журнала действий можно настроить с помощью [командлетов Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [кроссплатформенного интерфейса командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Оповещение журнала действий можно настроить с помощью [командлетов Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [кроссплатформенного интерфейса командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). В настоящее время его невозможно настроить с помощью портала Azure.
 
 ## <a name="authenticating-the-webhook"></a>Проверка подлинности объекта webhook
 Объект webhook может проходить проверку подлинности с помощью любого из этих методов:
 
-1. **Авторизация на основе маркера.** Универсальный код ресурса (URI) объекта webhook сохраняется вместе с идентификатором маркера, например `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Базовая авторизация.** Универсальный код ресурса (URI) объекта webhook сохраняется вместе с именем пользователя и паролем, например `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+1. **Авторизация на основе маркера.** Универсальный код ресурса (URI) webhook сохраняется вместе с идентификатором маркера, например `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
+2. **Базовая авторизация.** Универсальный код ресурса (URI) webhook сохраняется вместе с именем пользователя и паролем, например `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`.
 
 ## <a name="payload-schema"></a>Схема полезных данных
 Операция POST содержит следующие полезные данные и схему JSON для всех оповещений, связанных с журналом действий. Эта схема аналогична той, которая используется оповещениями, связанными с метриками.
@@ -126,7 +126,6 @@ ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

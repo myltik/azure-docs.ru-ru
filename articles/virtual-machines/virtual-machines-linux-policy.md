@@ -1,5 +1,5 @@
 ---
-title: "Применение политик к виртуальным машинам Azure Resource Manager | Документация Майкрософт"
+title: "Обеспечение безопасности с помощью политик на виртуальных машинах Linux в Azure | Документация Майкрософт"
 description: "Как применить политику к виртуальной машине Azure Resource Manager на основе Linux"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Применение политик к виртуальным машинам Azure Resource Manager
+# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Применение параметров безопасности и политик к виртуальным машинам Linux с помощью Azure Resource Manager
 С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации. В этой статье мы расскажем, как определить требуемое поведение для виртуальных машин вашей организации с помощью политик Azure Resource Manager.
 
 Ниже представлены шаги для реализации вертикального масштабирования.
@@ -82,7 +82,7 @@ ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
 ```
 
 #### <a name="virtual-machine-property-fields"></a>Поля свойств виртуальной машины
-В следующей таблице описываются свойства виртуальной машины, которые можно использовать в качестве полей в определении политики. Дополнительные сведения о полях политик см. в статье [Применение политик для управления ресурсами и контроля доступа](../resource-manager-policy.md#fields).
+В следующей таблице описываются свойства виртуальной машины, которые можно использовать в качестве полей в определении политики. Дополнительные сведения о полях политик см. в статье [Применение политик для управления ресурсами и контроля доступа](../azure-resource-manager/resource-manager-policy.md#conditions).
 
 | Имя поля | Description (Описание) |
 | --- | --- |
@@ -92,13 +92,13 @@ ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
 | imageVersion |Указывает версию образа для выбранного номера SKU |
 
 ## <a name="create-the-policy"></a>Создание политики
-Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../resource-manager-policy.md#create-and-assign-a-policy).
+Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 ## <a name="apply-the-policy"></a>Применение политики
-После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../resource-manager-policy.md#create-and-assign-a-policy).
+После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
