@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3db5ba37844f6a77eece2f20bdce080d0ab8b7
-ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
+ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
+ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
 
 
 ---
@@ -98,9 +98,26 @@ ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
 
 Чтобы развернуть шаблон с помощью PowerShell, выполните следующие действия.
 
-1. Зарегистрируйтесь для получения предварительной версии, отправив с помощью [этой ссылки](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) сообщение электронной почты. Укажите в нем идентификатор своей подписки и опишите предполагаемое использование. Не переходите к следующим этапам, пока не будут выполнены следующие условия:
-    - вы получите по электронной почте уведомление о возможности использовать предварительную версию;
-    - вы выполните все инструкции, приведенные в этом сообщении электронной почты.
+1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Это может занять несколько минут.
+
 2. Разверните шаблон, выполнив действия, описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). В статье описывается несколько вариантов развертывания шаблона. Если требуется выполнить развертывание с помощью параметра `-TemplateUri parameter`, URI для этого шаблона будет выглядеть так: *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Если требуется выполнить развертывание с помощью параметра `-TemplateFile`, скопируйте содержимое [файла шаблона](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) из GitHub в новый файл на компьютере. При желании можно изменить содержимое шаблона. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Независимо от выбранного варианта развертывания шаблона вам нужно указать значения для параметров, перечисленных в разделе с описанием [параметров](#parameters). Если вы хотите указать параметры с помощью [файла параметров](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json), скопируйте его содержимое из GitHub в новый файл на компьютере. Измените значения в файле. Используйте созданный файл в качестве значения для параметра `-TemplateParameterFile`.
@@ -116,14 +133,31 @@ ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
 
 Чтобы развернуть шаблон с помощью Azure CLI 1.0, выполните следующие действия.
 
-1. Зарегистрируйтесь для получения предварительной версии, отправив с помощью [этой ссылки](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) сообщение электронной почты. Укажите в нем идентификатор своей подписки и опишите предполагаемое использование. Не переходите к следующим этапам, пока не будут выполнены следующие условия:
-    - вы получите по электронной почте уведомление о возможности использовать предварительную версию;
-    - вы выполните все инструкции, приведенные в этом сообщении электронной почты.
+1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Это может занять несколько минут.
+
 2. Разверните шаблон, выполнив действия, описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). В статье описывается несколько вариантов развертывания шаблона. Если требуется выполнить развертывание с помощью параметра `--template-uri` (-f), URI для этого шаблона будет выглядеть так: *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Если требуется выполнить развертывание с помощью параметра `--template-file` (-f) , скопируйте содержимое [файла шаблона](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) из GitHub в новый файл на компьютере. При желании можно изменить содержимое шаблона. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Независимо от выбранного варианта развертывания шаблона вам нужно указать значения для параметров, перечисленных в разделе с описанием [параметров](#parameters). Если вы хотите указать параметры с помощью [файла параметров](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json), скопируйте его содержимое из GitHub в новый файл на компьютере. Измените значения в файле. Используйте созданный файл в качестве значения для параметра `--parameters-file` (-e).
     
-    Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli).
+    Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10).
 
 3. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
 
@@ -131,6 +165,6 @@ ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

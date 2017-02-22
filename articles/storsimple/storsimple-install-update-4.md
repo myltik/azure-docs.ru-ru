@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9fe568a3b6632950cccbbd4ea3fe024e7aa68a
-ms.openlocfilehash: f0ac2d226f9df9eeae9c3b29674459ec330ae04b
+ms.sourcegitcommit: 988d859e2cc9cd723e23704193b6c3bbdce08379
+ms.openlocfilehash: 976aa382e34cdc417a79b513c0e8e063b30d9e01
 
 
 ---
@@ -75,7 +75,7 @@ ms.openlocfilehash: f0ac2d226f9df9eeae9c3b29674459ec330ae04b
 
 | Порядок | КБ | Описание | Тип обновления | Время установки |Установка в папку|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Обновление программного обеспечения &#42; |Регулярное,  <br></br>не нарушает работу |~ 25 мин |FirstOrderUpdate|
+| 1. |KB4011839 |Обновление программного обеспечения |Регулярное,  <br></br>не нарушает работу |~ 25 мин |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Обновления драйвера LSI и встроенного ПО <br> Обновление встроенного ПО USM (версия 3.38) |Регулярное,  <br></br>не нарушает работу |~ 3 часа <br> (включает 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Пакет обновлений безопасности ОС |Регулярное,  <br></br>не нарушает работу |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Пакет обновлений ОС |Регулярное,  <br></br>не нарушает работу |- |SecondOrderUpdate|
@@ -105,6 +105,6 @@ ms.openlocfilehash: f0ac2d226f9df9eeae9c3b29674459ec330ae04b
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

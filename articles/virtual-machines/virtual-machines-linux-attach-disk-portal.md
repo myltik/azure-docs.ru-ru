@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: de058c58764fc37a02df86ebd3a865d425e4b0a2
-ms.openlocfilehash: 3e2c73c3d4ddad3641dacf9caebf9b8f57c1139c
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 3e2c73c3d4ddad3641dacf9caebf9b8f57c1139c
 
 * Размер виртуальной машины определяет, сколько дисков данных к ней можно подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Для использования хранилища класса Premium вам необходимо будет использовать виртуальную машину серии DS или GS. Эти виртуальные машины позволяют использовать диски уровня "Премиум" и "Стандартный". Хранилище Premium доступно в определенных регионах. Дополнительные сведения см. в разделе [Хранилище класса Premium: высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* На самом деле диски, подключенные к виртуальным машинам, — это VHD-файлы, хранящиеся в Azure. Дополнительную информацию см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* На самом деле диски, подключенные к виртуальным машинам, — это VHD-файлы, хранящиеся в Azure. Дополнительную информацию см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="find-the-virtual-machine"></a>Поиск виртуальной машины
@@ -102,6 +102,6 @@ ms.openlocfilehash: 3e2c73c3d4ddad3641dacf9caebf9b8f57c1139c
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
