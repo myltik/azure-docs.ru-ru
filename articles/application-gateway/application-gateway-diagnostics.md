@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ca5291e00fcf4fbd9927fe3cadad01f62b235d10
-ms.openlocfilehash: c6829c94bb8e5de3bec155bf326ac61c300477cb
+ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
+ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
 
 
 ---
@@ -210,6 +210,9 @@ Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGr
 }
 ```
 
+> [!NOTE]
+> Задержка вычисляется с момента получения первого байта HTTP-запроса до момента отправки последнего байта HTTP-ответа. Это сумма времени обработки шлюза приложений, а также стоимость сети в серверной части, а также время, необходимое для обработки запроса в серверной части.
+
 ### <a name="firewall-log"></a>журнал брандмауэра.
 
 Этот журнал создается, только если он включен для конкретного шлюза приложений, как описано выше. Кроме того, на шлюзе приложений должен быть настроен брандмауэр веб-приложения. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. В журнал записываются следующие данные:
@@ -314,6 +317,6 @@ Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGr
 [10]: ./media/application-gateway-diagnostics/figure10.png
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

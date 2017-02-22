@@ -1,6 +1,6 @@
 ---
 
-title: "Использование виртуальной машины Linux для устранения неполадок с помощью портала | Документация Майкрософт"
+title: "Использование виртуальной машины Linux для устранения неполадок с помощью портала Azure | Документация Майкрософт"
 description: "Узнайте, как устранять неполадки с виртуальными машинами Linux, подключив диск операционной системы к виртуальной машине восстановления с помощью портала Azure."
 services: virtual-machines-linux
 documentationCenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
-ms.openlocfilehash: 4edfcbfb011c2296ad499d4ff62a07f0c388432a
+ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
+ms.openlocfilehash: c4ae1c80b854e84fe94a52e2872bec2c24b4580f
 
 
 ---
@@ -179,6 +179,6 @@ ms.openlocfilehash: 4edfcbfb011c2296ad499d4ff62a07f0c388432a
 Дополнительные сведения об использовании Resource Manager вы найдете в статье [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

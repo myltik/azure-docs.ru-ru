@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: efa4a720a306aaedcd2d5857d30d34394a76f5f6
-ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: ca09ac90dfcf125291bc0b312b16e28160a18527
 
 
 ---
@@ -27,6 +27,9 @@ ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
 Чтобы настроить это, потребуются [служба поиска Azure](search-create-service-portal.md), а также индекс, индексатор и источник данных. Можно создать эти объекты с помощью одного из таких методов: с помощью [портала](search-import-data-portal.md), [пакета SDK для .NET](/dotnet/api/microsoft.azure.search) или [REST API](/rest/api/searchservice/) для всех языков, отличных от .NET. 
 
 Если вы выбрали портал, [мастер импорта данных](search-import-data-portal.md) поможет создать все эти объекты. Как правило, создается индекс по умолчанию.
+
+> [!NOTE]
+> На панели мониторинга DocumentDB можно запустить мастер **импорта данных**, чтобы упростить индексирование для источника данных. Чтобы приступить к работе, в области навигации слева выберите **Коллекции** > **Add Azure Search** (Добавить поиск Azure).
 
 ## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Понятия индексатора в службе Поиск Azure
 Служба поиска Azure поддерживает создание и управление источниками данных (включая DocumentDB) и индексаторами, работающими в этих источниках данных.
@@ -291,6 +294,6 @@ ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
 * Дополнительные сведения о Поиске Azure см. на [странице документации по службе поиска](https://azure.microsoft.com/services/search/).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

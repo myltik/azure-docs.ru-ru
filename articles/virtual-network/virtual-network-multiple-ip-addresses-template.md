@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7d60b453fec2ce4c78179419362eee30ab7cb2
-ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
+ms.sourcegitcommit: 3c3db5ba37844f6a77eece2f20bdce080d0ab8b7
+ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
 
 |Имя|Описание|
 |---|---|
-|adminUsername|Имя пользователя администратора. Оно должно удовлетворять [соответствующим требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Имя пользователя администратора. Оно должно удовлетворять [соответствующим требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Пароль администратора. Он должен удовлетворять соответствующим [требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS-имя для PublicIPAddressName1. DNS-имя будет разрешено на один из общедоступных IP-адресов, назначенных виртуальной машине. Имя должно быть уникальным в пределах региона Azure (расположения), в котором создается виртуальная машина.|
 |dnsLabelPrefix1|DNS-имя для PublicIPAddressName2. DNS-имя будет разрешено на один из общедоступных IP-адресов, назначенных виртуальной машине. Имя должно быть уникальным в пределах региона Azure (расположения), в котором создается виртуальная машина.|
@@ -67,9 +67,26 @@ ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
 
 Чтобы развернуть шаблон с помощью портала Azure, выполните следующие действия.
 
-1. Зарегистрируйтесь для получения предварительной версии, отправив с помощью [этой ссылки](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) сообщение электронной почты. Укажите в нем идентификатор своей подписки и опишите предполагаемое использование. Не переходите к следующим этапам, пока не будут выполнены следующие условия:
-    - вы получите по электронной почте уведомление о возможности использовать предварительную версию;
-    - вы выполните все инструкции, приведенные в этом сообщении электронной почты. 
+1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Это может занять несколько минут.
+
 2. При желании шаблон можно изменить. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 3. Разверните шаблон одним из следующих способов.
     - **Выбрав шаблон на портале.** Выполните действия описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template). Выберите существующий шаблон с именем *101-vm-multiple-ipconfig*.
@@ -114,6 +131,6 @@ ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

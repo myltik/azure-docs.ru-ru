@@ -12,16 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 02/07/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
+ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
+ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
 
 
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Создание подразделения в управляемом домене доменных служб Azure AD
 Управляемые домены доменных служб Azure AD включают два встроенных контейнера: "Компьютеры AADDC" и "Пользователи AADDC". Контейнер "Компьютеры AADDC" включает объекты-компьютеры для всех компьютеров, присоединенных к управляемому домену. Контейнер "Пользователи AADDC" включает пользователей и группы в клиенте Azure AD. В некоторых случаях в управляемом домене может потребоваться создать учетные записи служб для развертывания рабочих нагрузок. Для этой цели можно создать в управляемом домене пользовательское подразделение, а затем создать учетные записи служб в рамках этого подразделения. В этой статье демонстрируется создание подразделения в управляемом домене.
+
+## <a name="before-you-begin"></a>Перед началом работы
+Чтобы выполнить задачи, описанные в этой статье, вам потребуется следующее:
+
+1. Действующая **подписка Azure**.
+2. **Каталог Azure AD** — синхронизированный с локальным каталогом или каталогом только для облака.
+3. **Доменные службы Azure AD** должны быть включены для каталога Azure AD. Если это еще не сделано, выполните все задачи, описанные в [руководстве по началу работы](active-directory-ds-getting-started.md).
+4. Виртуальная машина, присоединенная к домену, для администрирования домена, управляемого доменными службами Azure AD. Если у вас нет такой виртуальной машины, выполните все задачи, описанные в статье [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md).
+5. Чтобы создать в управляемом домене пользовательские подразделения, необходимы учетные данные **учетной записи пользователя, входящей в группу "Администраторы контроллера домена AAD"** в вашем каталоге.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Установка средств администрирования AD на виртуальной машине, присоединенной к домену, для удаленного администрирования
 Управляемыми доменами доменных служб Azure AD можно управлять удаленно с помощью привычных средств администрирования Active Directory, таких как центр администрирования Active Directory или AD PowerShell. Администраторы клиентов не могут подключаться к контроллерам доменов в управляемом домене с помощью удаленного рабочего стола. Для администрирования управляемого домена установите средства администрирования AD на виртуальной машине, присоединенной к управляемому домену. Инструкции см. в статье, посвященной [администрированию управляемого домена доменных служб Azure AD](active-directory-ds-admin-guide-administer-domain.md).
@@ -68,13 +77,14 @@ ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
 > 
 
 ## <a name="related-content"></a>Похожий контент
-* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
+* [Администрирование групповой политики в управляемом домене доменных служб Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Центр администрирования Active Directory: приступая к работе](https://technet.microsoft.com/library/dd560651.aspx)
 * [Пошаговое руководство по использованию учетных записей служб](https://technet.microsoft.com/library/dd548356.aspx)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

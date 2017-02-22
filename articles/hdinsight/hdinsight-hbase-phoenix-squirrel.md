@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
@@ -83,10 +83,6 @@ ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
 
 * Кластер HBase, развернутый в виртуальной сети Azure с виртуальной машиной DNS.  Инструкции см. в статье [Создание кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > Необходимо установить DNS-сервер в виртуальной сети. Для получения инструкций обратитесь к статье [Настройка DNS между двумя виртуальными сетями Azure](hdinsight-hbase-geo-replication-configure-dns.md).
-  >
-  >
 * Получить для кластера HBase DNS-суффикс, зависящий от подключения. Для этого войдите в кластер с помощью RDP и запустите команду IPConfig.  DNS-суффикс имеет следующий вид:
 
         myhbase.b7.internal.cloudapp.net
@@ -158,7 +154,7 @@ ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
 
     Корневой сертификат и сертификат клиента хранятся в хранилище личных сертификатов на компьютере. Используйте certmgr.msc для проверки.
 
-    ![Схема виртуальной сети Azure «точка-сайт»][img-certificate]
+    ![Схема виртуальной сети Azure "точка — сеть"][img-certificate]
 
     Сертификат клиента необходимо установить на каждый компьютер, который будет подключаться к виртуальной сети. Рекомендуем создавать уникальные сертификаты клиентов для всех компьютеров, которые будут подключаться к виртуальной сети. Для экспорта сертификатов клиента используйте команду certmgr.msc.
 
@@ -295,6 +291,6 @@ JAR-файл драйвера phoenix находится в кластере HBa
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

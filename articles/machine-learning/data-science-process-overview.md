@@ -1,6 +1,6 @@
 ---
 title: "Жизненный цикл процесса обработки и анализа данных группы | Документация Майкрософт"
-description: "Обзор ключевых компонентов жизненного цикла процесса обработки и анализа данных группы."
+description: "Этапы жизненного цикла и компоненты для структурирования проектов по обработке и анализу данных."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 725f6d4a209ada154eb9aa90a8226dcaa0859990
+ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
+ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
 
 
 ---
@@ -200,6 +200,6 @@ ms.openlocfilehash: 725f6d4a209ada154eb9aa90a8226dcaa0859990
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

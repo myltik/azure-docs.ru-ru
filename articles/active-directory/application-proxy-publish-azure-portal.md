@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
+ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
+ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
 
 ---
 
@@ -45,17 +45,13 @@ ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
 
   ![Добавление корпоративного приложения](./media/application-proxy-publish-azure-portal/add-app.png)
 
-3. На странице категорий выберите **Or add your own** (Добавить собственное).  
+3. На странице "Категории" выберите **Локальное приложение**.  
 
   ![Добавление собственного приложения](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. Выберите в раскрывающемся меню пункт **Deploying an existing application** (Развертывание существующего приложения).
-5. Укажите имя приложения и выберите **Добавить**. Вы увидите окно загрузки. Когда приложение будет добавлено, откроется колонка быстрого запуска.
-6. В колонке быстрого запуска выберите **Enable remote access for your on-premises application** (Включить удаленный доступ для локального приложения).
+4. Укажите следующие сведения о приложении:
 
-  ![Включение удаленного доступа к локальному приложению](./media/application-proxy-publish-azure-portal/enable-remote-access.png)
-
-7. Укажите следующие сведения о приложении:
+   - **Имя.** Имя приложения, которое будет отображаться на панели доступа. 
 
    - **Внутренний URL-адрес**— это адрес, используемый соединителем прокси приложения для доступа к приложению вне частной сети. Для публикации можно указать только конкретный адрес на внутреннем сервере; при этом другие адреса сервера не публикуются. Это позволяет публиковать на одном сервере разные сайты, назначая каждому из них отдельное имя и правила доступа.
 
@@ -72,9 +68,8 @@ ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
 
    ![Настройка приложения](./media/application-proxy-publish-azure-portal/configure-app.png)
 
-8. Щелкните **Сохранить**.
+8. Выберите **Добавить**.
 
-   ![Сохранение настроек прокси приложения](./media/application-proxy-publish-azure-portal/save-app-proxy.png)
 
 ## <a name="add-a-test-user"></a>Добавление тестового пользователя 
 
@@ -105,6 +100,6 @@ ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

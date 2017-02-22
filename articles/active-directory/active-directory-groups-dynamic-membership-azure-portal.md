@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: da120b0ea1bfa7a0afcb6eed864c4eadbd2bbec0
+ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
+ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 
 
 ---
 # <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Создание расширенных правил членства в группе с помощью атрибутов в предварительной версии Azure Active Directory
-Портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах предварительной версии Azure Active Directory (Azure AD) на основе атрибутов. [Что есть в предварительной версии?](active-directory-preview-explainer.md)  В этой статье подробно описываются атрибуты правил и синтаксис для создания этих расширенных правил.
+Портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах предварительной версии Azure Active Directory (Azure AD) на основе атрибутов. [Что есть в предварительной версии?](active-directory-preview-explainer.md) В этой статье подробно описываются атрибуты правил и синтаксис для создания этих расширенных правил.
 
 ## <a name="to-create-the-advanced-rule"></a>Создание расширенного правила
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -119,6 +119,7 @@ ms.openlocfilehash: da120b0ea1bfa7a0afcb6eed864c4eadbd2bbec0
 | --- | --- | --- |
 | city |Любое строковое значение или $null |(user.city -eq "value") |
 | country |Любое строковое значение или $null |(user.country -eq "value") |
+| CompanyName | Любое строковое значение или $null | (user.CompanyName -eq "value") |
 | department |Любое строковое значение или $null |(user.department -eq "value") |
 | displayName |Любое строковое значение. |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Любое строковое значение или $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -194,7 +195,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | isManaged |true, false, null |(device.isManaged -eq "false") |
 | isCompliant |true, false, null |(device.isCompliant -eq "true") |
 
-## <a name="additional-information"></a>Дополнительная информация
+## <a name="next-steps"></a>Дальнейшие действия
 В следующих статьях содержатся дополнительные сведения о группах в Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)
@@ -205,6 +206,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

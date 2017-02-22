@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d6dbbee1f977245cc16710ace3b25d6e167cbc7e
-ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
+ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
+ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
 
 
 ---
@@ -127,7 +127,14 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ![RBAC PowerShell — Remove-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Создание настраиваемой роли
-Чтобы создать настраиваемую роль, используйте команду `New-AzureRmRoleDefinition` . Существует два способа структурирования роли: с помощью PSRoleDefinitionObject и с помощью шаблона JSON. 
+Чтобы создать настраиваемую роль, используйте команду ```New-AzureRmRoleDefinition``` . Существует два способа структурирования роли: с помощью PSRoleDefinitionObject и с помощью шаблона JSON. 
+
+## <a name="get-actions-from-particular-resource-provider"></a>Получение действий определенного поставщика ресурсов
+При создании пользовательских ролей с нуля важно знать все возможные операции поставщиков ресурсов.
+Их можно узнать с помощью команды ```Get-AzureRMProviderOperation```. Например, если вы хотите проверить все доступные операции для виртуальной машины, команда будет иметь следующий вид.
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Создание роли с помощью PSRoleDefinitionObject
 При создании пользовательской роли с помощью PowerShell можно начать с нуля или использовать одну из [встроенных ролей](role-based-access-built-in-roles.md) в качестве отправной точки. В этом примере описан второй вариант. Измените атрибуты и добавьте необходимые действия *Actions*, *notActions* и области *scopes*, а затем сохраните изменения как новую роль.
@@ -276,6 +283,6 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

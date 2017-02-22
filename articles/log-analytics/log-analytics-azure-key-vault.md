@@ -12,22 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: a631b409fed14bcfce39ca4180b00a0d23d5caf2
-ms.openlocfilehash: 52cd04e34f17884a39979279798debbe8f018aa2
+ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
+ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
 
 
 ---
-# <a name="azure-key-vault-analytics-preview-solution-in-log-analytics"></a>Решение для анализа хранилища ключей Azure (предварительная версия) в Log Analytics
+# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Решение Azure Key Vault Analytics в Log Analytics
 
 Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы AuditEvent хранилища ключей Azure.
-
-> [!NOTE]
-> Решение для анализа хранилища ключей Azure доступно в [предварительной версии](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 Чтобы использовать решение, необходимо включить ведение журнала диагностики хранилища ключей Azure и направить диагностику в рабочую область Log Analytics. Необязательно записывать журналы в хранилище BLOB-объектов Azure.
 
@@ -150,12 +145,15 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 Данные, собранные до этого изменения, не отображаются в новом решении. Эти данные по-прежнему можно запрашивать с помощью старых имен типов и полей.
 
+## <a name="troubleshooting"></a>Устранение неполадок
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных о хранилище ключей Azure.
 
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

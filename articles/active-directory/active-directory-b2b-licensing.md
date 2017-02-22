@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6295d643207f9aef31a88515668b99b51c49de
-ms.openlocfilehash: 28abb802f0581e504e8d3eb729f0ea5fffac3d20
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 59a7fe2d1eea948f1452f21d2185e6bdf93dc41f
 
 
 ---
@@ -50,11 +50,19 @@ ms.openlocfilehash: 28abb802f0581e504e8d3eb729f0ea5fffac3d20
 Другие статьи о службе совместной работы Azure AD B2B:
 
 * [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
+* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
 * [Элементы сообщения с приглашением в службу совместной работы B2B](active-directory-b2b-invitation-email.md)
+* [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
+* [Устранение неполадок службы совместной работы Azure Active Directory B2B](active-directory-b2b-troubleshooting.md)
+* [Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B](active-directory-b2b-faq.md)
+* [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
+* [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
+* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

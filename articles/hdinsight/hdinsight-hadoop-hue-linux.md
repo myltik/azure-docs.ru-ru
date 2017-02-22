@@ -12,16 +12,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 008908824715eac788c56778309bca3b09587f78
+ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
+ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
 
 
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Установка и использование Hue на кластерах HDInsight Hadoop
-Узнайте, как установить Hue на кластер HDInsight на платформе Linux и задействовать туннелирование для направления запросов на Hue.
+
+Узнайте, как установить Hue на кластер HDInsight и задействовать туннелирование для направления запросов на Hue.
+
+> [!IMPORTANT]
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="what-is-hue"></a>Что такое Hue
 Hue — это набор веб-приложений, используемых для взаимодействия с кластером Hadoop. Hue позволяет просматривать хранилище, связанное с кластером Hadoop (WASB в случае кластеров HDInsight), выполнять задания Hive, сценарии Pig и т. д. Установив Hue на кластер HDInsight Hadoop, вы получите доступ к следующим компонентам:
@@ -41,8 +45,8 @@ Hue — это набор веб-приложений, используемых 
 >
 
 ## <a name="install-hue-using-script-actions"></a>Установка Hue с помощью действий сценария
-Следующее действие сценария может использоваться для установки Hue в кластере HDInsight под управлением Linux.
-https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+
+Сценарий для установки Hue в кластере HDInsight под управлением Linux доступен по адресу https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. С его помощью можно установить Hue в кластерах с Azure Storage Blob (WASB) или Azure Data Lake Store в качестве хранилища по умолчанию.
 
 Этот раздел содержит указания по использованию сценария при подготовке кластера с помощью портала Azure.
 
@@ -59,7 +63,7 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
    >
 2. В колонке **Необязательная настройка** выберите **Действия скрипта** и введите следующие сведения:
 
-    ![Предоставление параметров действий скриптов для Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Provide script action parameters for Hue")
+    ![Предоставление параметров действий сценария для Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Предоставление параметров действий сценария для Hue")
 
    * **ИМЯ**: введите понятное имя для действия сценария.
    * **Универсальный код ресурса скрипта** — https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh;
@@ -71,14 +75,21 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
 4. Продолжите подготовку кластера, как описано в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Использование Hue с кластерами HDInsight
+
 Единственным способом доступа Hue к запущенному кластеру является туннелирование SSH. Туннелирование через SSH позволяет перейти непосредственно к головному узлу кластера, на котором работает Hue. После завершения подготовки кластера выполните следующие действия, чтобы начать использовать Hue в кластере HDInsight на платформе Linux.
 
+> [!NOTE]
+> Для выполнения приведенных далее инструкций рекомендуется использовать веб-браузер Firefox.
+>
+>
+
 1. Изучив статью [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md) , создайте туннель SSH от своей клиентской системы к кластеру HDInsight, а затем настройте веб-браузер, чтобы он использовал этот туннель SSH в качестве прокси-сервера.
+
 2. После создания SSH-туннеля и настройки браузера для отправки трафика прокси-сервера через этот туннель, найдите имя основного головного узла. Для этого нужно подключиться к кластеру по SSH через порт 22. Например, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`, где **USERNAME** — это имя пользователя SSH, а **CLUSTERNAME** — имя кластера.
 
     Дополнительные сведения об использовании SSH см. в следующих документах:
 
-   * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
    * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. После подключения используйте следующую команду, чтобы получить полное доменное имя основного головного узла.
 
@@ -96,15 +107,15 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
    >
    >
 
-    ![Вход на портал Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specify credentials for Hue portal")
+    ![Вход на портал Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Ввод учетных данных на портале Hue")
 
 ### <a name="run-a-hive-query"></a>Выполнение запроса Hive
 1. На портале Hue щелкните **Query Editors** (Редакторы запросов), а затем выберите **Hive**, чтобы открыть редактор Hive.
 
-    ![Использование Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Use Hive")
+    ![Использование Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Использование Hive")
 2. На вкладке **Assist** (Помощь) в разделе **Database** (База данных) отобразится элемент **hivesampletable**. Это пример таблицы, входящей в состав всех кластеров Hadoop в HDInsight. В правой области введите запрос и просмотрите выходные данные на нижней вкладке **Results** (Результаты), как показано на приведенном снимке экрана.
 
-    ![Выполнение запросов Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Run Hive query")
+    ![Выполнение запросов Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Выполнение запросов Hive")
 
     Для визуального представления результатов вы можете использовать вкладку **Chart** (Диаграмма).
 
@@ -112,7 +123,7 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
 1. На портале Hue в правом верхнем углу панели меню выберите **File Browser** (Обозреватель файлов).
 2. По умолчанию обозреватель открывается в каталоге **/user/myuser** . Щелкните косую черту непосредственно перед каталогом пользователя, чтобы перейти в корневую папку контейнера хранилища Azure, связанного с кластером.
 
-    ![Использование обозревателя файлов](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Use file browser")
+    ![Использование браузера файлов](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Использование браузера файлов")
 3. Щелкните правой кнопкой мыши файл или папку, чтобы отобразились доступные операции. Отправить файлы в текущую папку можно с помощью кнопки **Upload** (Отправить) в правом углу. Для создания новых файлов и папок используйте кнопку **New** (Создать).
 
 > [!NOTE]
@@ -122,13 +133,15 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
 
 ## <a name="important-considerations"></a>Важные сведения
 1. Скрипт, который использовался для установки Hue, устанавливает его только на основной головной узел кластера.
+
 2. Во время установки некоторые службы Hadoop (HDFS, YARN, MR2, Oozie) перезапускаются для обновления конфигурации. После того как сценарий завершает установку Hue, для запуска прочих служб Hadoop иногда требуется некоторое время. Это может повлиять на первоначальную производительность Hue. После запуска всех служб набор Hue полностью готов к работе.
 3. Hue не может работать с заданиями Tez, которые по умолчанию используются в Hive. Если в качестве подсистемы выполнения в Hive вы хотите задействовать MapReduce, измените сценарий, добавив в него следующую команду.
 
-     set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
+
 4. Кластеры под управлением Linux можно настроить так, чтобы службы выполнялись на основном головном узле, а Resource Manager — на дополнительном. При таком сценарии попытка использования Hue для просмотра сведений о ЗАПУЩЕННЫХ заданиях на кластере может привести к ошибкам (показаны ниже). Тем не менее после завершения заданий вы можете просматривать сведения о них.
 
-   ![Ошибка портала Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")
+   ![Ошибка портала Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Ошибка портала Hue")
 
    Это известная проблема. В качестве обходного решения можно изменить Ambari, чтобы активный Resource Manager также запускался на основном головном узле.
 5. Hue понимает WebHDFS, а кластеры HDInsight используют службу хранилища Azure с приставкой `wasbs://`в начале пути. Таким образом, пользовательский сценарий, используемый со сценарием действия, устанавливает службу WebWasb, совместимую с WebHDFS и предназначенную для обмена данными с WASB. Поэтому несмотря на то, что в некоторых местах на портале Hue используется надпись HDFS (например, при наведении указателя мыши на **File Browser**(Обозреватель файлов)), ее следует читать как WASB.
@@ -144,6 +157,6 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

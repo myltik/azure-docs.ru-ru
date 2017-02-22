@@ -13,32 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/31/2016
+ms.date: 02/07/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
+ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
+ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
 
 
 ---
 # <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell
 
-> [!div class="op_single_selector"]
-> * [портале Azure](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> 
-> 
-
 В этой статье приведены указания о том, как создать базу данных SQL Azure, импортировав [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -файл с помощью PowerShell.
 
-База данных создается на основе BACPAC-файла, импортированного из контейнера больших двоичных объектов в службе хранилища Azure. Если в службе хранилища Azure нет BACPAC-файла, ознакомьтесь с разделом [Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell](sql-database-export-powershell.md). Если у вас уже есть BACPAC-файл, который находится не в службе хранилища Azure, то вы можете [легко передать его в свою учетную запись хранения Azure с помощью AzCopy](../storage/storage-use-azcopy.md#blob-upload).
-
-> [!NOTE]
-> База данных SQL Azure автоматически создает и обслуживает резервные копии для каждой пользовательской базы данных, которую можно восстановить. Дополнительные сведения см. в статье [Подробнее о резервном копировании базы данных SQL](sql-database-automated-backups.md).
-> 
-> 
+## <a name="prequisites"></a>Предварительные требования
 
 Чтобы импортировать базу данных SQL, необходимо следующее.
 
@@ -106,11 +93,14 @@ ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Чтобы научиться подключаться к импортированной базе данных SQL и отправлять к ней запросы, ознакомьтесь с разделом [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
+* Чтобы научиться подключаться к импортированной базе данных SQL и отправлять к ней запросы, ознакомьтесь со статьей [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
+* Сведения о миграции из SQL Server в базу данных SQL Azure с использованием BACPAC-файлов см. в [блоге группы консультирования клиентов SQL Server](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* Описание процесса миграции базы данных SQL Server в базу данных SQL Azure, включая рекомендации по его использованию, см. в [этой статье](sql-database-cloud-migrate.md).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

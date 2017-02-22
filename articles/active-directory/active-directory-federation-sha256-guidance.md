@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 4afdde65fe4c69d1944c0e1a3c5dd3300c5b970c
+ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
+ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
 
 
 ---
-# <a name="change-signature-hash-algorithm-for-office-365-replying-party-trust"></a>Изменение хэш-алгоритма подписи для отношения доверия с проверяющей стороной Office 365
+# <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Изменение хэш-алгоритма подписи для отношения доверия с проверяющей стороной Office 365
 ## <a name="overview"></a>Обзор
 Службы федерации Active Directory (AD FS) подписывают маркеры для Microsoft Azure Active Directory, чтобы защитить их от незаконного изменения. Подпись основывается на алгоритме SHA1 или SHA256. Теперь Azure Active Directory поддерживает маркеры, подписанные с помощью алгоритма SHA256. Мы рекомендуем выбирать этот алгоритм подписи маркера для обеспечения максимальной защиты. В этой статье описывается процедура замены алгоритма подписи маркера на алгоритм с более высоким уровнем защиты — SHA256.
 
@@ -49,6 +49,6 @@ ms.openlocfilehash: 4afdde65fe4c69d1944c0e1a3c5dd3300c5b970c
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

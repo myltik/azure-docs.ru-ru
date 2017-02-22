@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
+ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
+ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 
 
 ---
@@ -43,6 +43,10 @@ ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
 
 ## <a name="a-idrestversionhistoryarest-api-version-history"></a><a id="rest_version_history"></a>Журнал версий интерфейса API REST
 Сведения о журнале версий интерфейса REST API служб мультимедиа см. в [этом справочнике].
+
+## <a name="febuary-2017-release"></a>Выпуск: февраль 2017 г.
+
+Начиная с 1 апреля 2017 г. все записи задания в вашей учетной записи и связанные с ней записи задач старше 90 дней будут автоматически удалены, даже если общее число записей не превышает значение максимальной квоты. Если необходимо архивировать данные задания или задачи, можно использовать код, описанный [здесь](media-services-dotnet-manage-entities.md).
 
 ## <a name="january-2017-release"></a>Выпуск: январь 2017 г.
 
@@ -535,6 +539,6 @@ API REST служб мультимедиа обновлены до версии 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

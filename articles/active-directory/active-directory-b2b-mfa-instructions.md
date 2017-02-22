@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 049f8ecec38a518276c6deea6a285a59d1401de6
-ms.openlocfilehash: 318ec4a2b807aaed5c61272016d0957d6e6f5004
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
 
 
 ---
@@ -35,10 +35,10 @@ ms.openlocfilehash: 318ec4a2b807aaed5c61272016d0957d6e6f5004
 6. У компании А должны быть номера SKU Azure AD уровня "Премиум", поддерживающие MFA. Пользователь из компании Б будет использовать эту лицензию компании А.
 7. Таким образом, ответственность за применение MFA по отношению к пользователям службы совместной работы B2B из партнерской организации *всегда* лежит на приглашающем клиенте, а не на партнерской организации (даже если она имеет возможности применения MFA). В будущих выпусках будет реализована возможность для приглашающей организации "доверять" проверке MFA определенной партнерской организации вместо применения собственной проверки MFA.
 
-## <a name="setting-up-mfa-for-b2b-users"></a>Настройка MFA для пользователей службы B2B
+## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Настройка MFA для пользователей службы совместной работы B2B
 Чтобы узнать, как можно с легкостью настроить MFA для пользователей службы совместной работы B2B, просмотрите [этот видеоролик](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
 
-## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Прохождение MFA пользователями службы B2B при активации предложения
+## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Прохождение MFA пользователями службы совместной работы B2B при активации предложения
 В [этом видеоролике](https://channel9.msdn.com/Blogs/Azure/MFA-redemption) показано, как выглядит процедура активации.
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Сброс настроек MFA для пользователей службы совместной работы B2B
@@ -76,13 +76,14 @@ ms.openlocfilehash: 318ec4a2b807aaed5c61272016d0957d6e6f5004
 
 * [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
-* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-add-guest-to-role.md)
+* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
 * [Элементы сообщения с приглашением в службу совместной работы B2B](active-directory-b2b-invitation-email.md)
 * [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
 * [Руководство по лицензированию службы совместной работы Azure Active Directory B2B](active-directory-b2b-licensing.md)
 * [Устранение неполадок службы совместной работы Azure Active Directory B2B](active-directory-b2b-troubleshooting.md)
 * [Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B](active-directory-b2b-faq.md)
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
+* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 

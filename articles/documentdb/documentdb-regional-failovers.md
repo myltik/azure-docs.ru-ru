@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 888e88c3e8ede6b67b9cf26b426d73b86b2aff62
-ms.openlocfilehash: 17e9d5d8afe3b11ca5d3944158dcd6c9126ceeda
+ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
+ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
 
 
 ---
@@ -28,6 +28,10 @@ Azure DocumentDB поддерживает явную отработку отка
 * как работает ручная отработка отказа в DocumentDB;
 * как работает автоматическая отработка отказа в DocumentDB;
 * как использовать ручную отработку отказа в архитектурах приложений.
+
+Узнайте больше об отработке отказа между регионами в этом видео из цикла "Пятница с Azure" от Скотта Хенсельмана (Scott Hanselman) и главного технического руководителя Картика Рамана (Karthik Raman).
+
+>[!ВИДЕО https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Настройка приложений в нескольких регионах
 Прежде чем углубляться в режимы отработки отказа, рассмотрим, как настроить приложение, чтобы воспользоваться преимуществами доступности нескольких регионов и меньше зависеть от отработок отказа между регионами.
@@ -119,6 +123,6 @@ Azure DocumentDB поддерживает явную отработку отка
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

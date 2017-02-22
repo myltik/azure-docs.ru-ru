@@ -3,7 +3,7 @@ title: "Выходная привязка центра уведомлений д
 description: "Узнайте, как использовать привязки центра уведомлений Azure в функциях Azure."
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: 
 tags: 
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
+ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
+ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
 
 
 ---
@@ -76,8 +76,8 @@ ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
 
 1. В колонке **Приложение-функция** на портале Azure щелкните **Параметры приложения-функции > Перейти к параметрам службы приложений**.
 2. В колонке **Параметры** щелкните раздел **Параметры приложения**.
-3. Прокрутите страницу вниз до раздела **Строки подключения** и добавьте именованную запись в качестве значения *DefaultFullSharedAccessSignature* для центра уведомлений. Измените тип на **Пользовательский**.
-4. Укажите имя строки подключения в выходных привязках, Это имя должно быть аналогично строке **MyHubConnectionString**, использованной в приведенном выше примере.
+3. Прокрутите страницу вниз до раздела **Параметры приложения** и добавьте именованную запись в качестве значения *DefaultFullSharedAccessSignature* для центра уведомлений.
+4. Укажите имя строки параметров приложения в выходных привязках. Это имя должно быть аналогично строке **MyHubConnectionString**, использованной в приведенном выше примере.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>Использование собственных уведомлений APNs с триггерами очереди на языке C#
 В этом примере показано, как использовать типы, определенные в [библиотеке центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/), для отправки собственного уведомления APNs. 
@@ -298,6 +298,6 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

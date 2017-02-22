@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: 4f6c3713c6ca579d6ec24e8f208299f9984e0d00
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
 
 
 ---
@@ -62,14 +62,14 @@ ms.openlocfilehash: 4f6c3713c6ca579d6ec24e8f208299f9984e0d00
     ON d.database_id = slo.database_id
     WHERE elastic_pool_name = 'MyElasticPool'; 
 
-## <a name="get-resource-usage-data-for-an-elastic"></a>Получение данных об использовании ресурсов в эластичном пуле
+## <a name="get-resource-usage-data-for-an-elastic-pool"></a>Получение данных об использовании ресурсов в эластичном пуле
 Проанализировать статистику использования ресурсов в пуле эластичных БД на логическом сервере можно в [представлении sys.elastic\_pool \_resource\_stats](https://msdn.microsoft.com/library/mt280062.aspx). Войдите в базу данных master, чтобы отправить запрос на представление.
 
     SELECT * FROM sys.elastic_pool_resource_stats 
     WHERE elastic_pool_name = 'MyElasticPool'
     ORDER BY end_time DESC;
 
-## <a name="get-resource-usage-for-an-elastic-database"></a>Получение данных об использовании ресурсов в эластичной базе данных
+## <a name="get-resource-usage-for-a-pooled-database"></a>Получение данных об использовании ресурсов в базе данных, которая находится в пуле
 Проанализировать статистику использования ресурсов базы данных в эластичном пуле можно в [представлении sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) или [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx). Этот процесс аналогичен отправке запроса на использование ресурсов для любой отдельной базы данных.
 
 ## <a name="next-steps"></a>Дальнейшие действия

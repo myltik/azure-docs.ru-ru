@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 5acff25cca5d549541a8cd68f76e1736c1ed0cb0
+ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
+ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
 
 
 ---
 # <a name="azure-active-directory-code-samples"></a>Примеры кода Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Для добавления проверки подлинности и авторизации в веб-приложения и веб-интерфейсы API можно использовать Microsoft Azure Active Directory (Azure AD). Этот раздел перенаправит вас к примерам кода, в которых показано, как это можно сделать, и фрагментам кода, которые можно использовать в приложениях. На странице примеров кода приведены ссылки на статьи с подробными сведениями о требованиях, установке и настройке. Код указан с комментариями, чтобы можно было понять важные разделы.
+Для добавления проверки подлинности и авторизации в веб-приложения и веб-интерфейсы API можно использовать Microsoft Azure Active Directory (Azure AD). Этот раздел перенаправит вас к примерам, в которых показано, как это можно сделать, и фрагментам кода, которые можно использовать в приложениях. На странице примеров кода приведены ссылки на статьи с подробными сведениями о требованиях, установке и настройке. Код указан с комментариями, чтобы можно было понять важные разделы.
 
 Чтобы понять основной сценарий для каждого типа примера, см. раздел «Сценарии проверки подлинности в Azure AD».
 
-Поделитесь своими примерами на GitHub: [Примеры Microsoft Azure Active Directory и документация](https://github.com/Azure-Samples?query=active-directory).
+Поделитесь своими примерами на GitHub: [Примеры Microsoft Azure Active Directory и документация](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## <a name="web-browser-to-web-application"></a>Из веб-браузера в веб-приложение
 В этих примерах показано, как создать веб-приложение, которое направляет браузер пользователя для выполнения входа в Azure AD.
@@ -133,7 +133,6 @@ ms.openlocfilehash: 5acff25cca5d549541a8cd68f76e1736c1ed0cb0
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

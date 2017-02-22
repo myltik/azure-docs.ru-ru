@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о мониторинге Azure | Документация Майкрософт"
-description: "Общий обзор функций Azure Monitor в Microsoft Azure, в том числе предупреждений, объектов webhook, автомасштабирования и других компонентов."
+title: "Обзор Azure Monitor | Документация Майкрософт"
+description: "Azure Monitor собирает статистику, которую можно использовать для оповещений, объектов webhook, автомасштабирования и автоматизации. В статье также перечислены другие возможности мониторинга Майкрософт."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
+ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
+ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Обзор мониторинга в Microsoft Azure
+# <a name="overview-of-azure-monitor"></a>Обзор Azure Monitor
 В этой статье представлены общие сведения о мониторинге ресурсов Azure. Она содержит указатели на сведения для определенных типов ресурсов.  Общие сведения о мониторинге приложения не в контексте Azure можно найти в [руководстве по мониторингу и диагностике](../best-practices-monitoring.md).
 
 Видеоруководство по Azure Monitor доступно на странице  
@@ -134,7 +134,7 @@ ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
 
 * [Azure Monitor](http://aka.ms/azmondocs) предлагает возможности визуализации, создания запросов, маршрутизации, оповещения, автомасштабирования и автоматизации на основе данных инфраструктуры Azure (журнал действий) и каждого отдельного ресурса Azure (журналы диагностики). Эта статья является частью документации по Azure Monitor. Имя Azure Monitor впервые было озвучено на конференции Ignite 2016, которая состоялась 25 сентября.  Ранее это решение называлось Azure Insights.  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) предоставляет широкие возможности обнаружения и диагностики проблем на уровне приложения вашей службы и хорошо интегрируется с данными из службы мониторинга Azure. Это платформа диагностики по умолчанию для веб-приложений службы приложений.  Вы можете направлять ей данные из других служб.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) (входит в состав пакета [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) обеспечивает целостное решение для управления ИТ-инфраструктурой (как локальной, так и сторонней облачной, например AWS), а также для ресурсов Azure.  Данные из Azure Monitor могут направляться непосредственно в журнал аналитики, в результате чего метрики и журналы для всей среды будут отображаться в одном месте.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) (входит в состав пакета [Operations Management Suite](https://www.microsoft.com/oms/)) обеспечивает целостное решение для управления ИТ-инфраструктурой (как локальной, так и сторонней облачной, например AWS), а также для ресурсов Azure.  Данные из Azure Monitor могут направляться непосредственно в журнал аналитики, в результате чего метрики и журналы для всей среды будут отображаться в одном месте.     
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Кроме того, вы можете узнать больше о:
@@ -144,10 +144,10 @@ ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
 * [Системе диагностики Azure](../azure-diagnostics.md) , если вы пытаетесь диагностировать проблемы в работе облачной службы, виртуальной машины или приложения Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , если вы пытаетесь диагностировать проблемы в работе веб-приложения службы приложений.
 * [Устранении неполадок службы хранилища Azure](../storage/storage-e2e-troubleshooting.md) , если вы используете большие двоичные объекты, таблицы или очереди этой службы.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) и пакет [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) и пакет [Operations Management Suite](https://www.microsoft.com/oms/)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

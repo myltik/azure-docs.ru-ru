@@ -1,5 +1,5 @@
 ---
-title: "Создание полной среды Linux с помощью предварительной версии Azure CLI 2.0 | Microsoft Azure"
+title: "Создание среды Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
 description: "Узнайте, как с помощью с помощью предварительной версии Azure CLI 2.0 создать &quot;с нуля&quot; хранилище, виртуальную машину Linux, виртуальную сеть и подсеть, балансировщик нагрузки, сетевую карту, общедоступный IP-адрес и группу безопасности сети."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
+ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
+ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
 az group create --name myResourceGroup --location westeurope
 ```
 
-Создайте учетную запись хранения с помощью команды [az storage account create](/cli/azure/storage/account#create). В следующем примере создается учетная запись хранения с именем `mystorageaccount`. Имя учетной записи хранения должно быть уникальным, поэтому введите собственное уникальное имя.
+Следующий шаг не является обязательным. По умолчанию виртуальная машина, созданная с помощью Azure CLI 2.0 (предварительная версия), использует Управляемые диски Azure. Дополнительные сведения об Управляемых дисках Azure см. в [обзоре Управляемых дисков Azure](../storage/storage-managed-disks-overview.md). Если вместо этого вы хотите использовать неуправляемые диски, необходимо создать учетную запись хранения, выполнив команду [az storage account create](/cli/azure/storage/account#create). В следующем примере создается учетная запись хранения с именем `mystorageaccount`. Имя учетной записи хранения должно быть уникальным, поэтому введите собственное уникальное имя.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -167,7 +167,7 @@ az vm availability-set create --resource-group myResourceGroup --location westeu
   --name myAvailabilitySet
 ```
 
-Создайте первую виртуальную машину Linux с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина с именем `myVM1`.
+Создайте первую виртуальную машину Linux с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина `myVM1`, использующая Управляемые диски Azure. Если вы хотите использовать неуправляемые диски, прочитайте дополнительное примечание ниже.
 
 ```azurecli
 az vm create \
@@ -179,10 +179,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Если вы используете Управляемые диски Azure, пропустите этот шаг. Если вы хотите использовать неуправляемые диски и создали учетную запись хранения на предыдущих шагах, необходимо добавить следующие дополнительные параметры в приведенную команду. Добавьте указанные дополнительные параметры в команду, чтобы создать неуправляемые диски в учетной записи хранения `mystorageaccount`. 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Создайте вторую виртуальную машину Linux с помощью команды **az vm create**. В следующем примере создается виртуальная машина с именем `myVM2`.
@@ -197,11 +203,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Напомню, если вы не используете Управляемые диски Azure (используются по умолчанию), добавьте приведенные ниже дополнительные параметры в команду, чтобы создать неуправляемые диски в учетной записи хранения `mystorageaccount`.
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Проверьте, правильно ли созданы виртуальные машины, выполнив команду [az vm show](/cli/azure/vm#show).
 
@@ -245,7 +257,9 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
-Необходимы учетные записи хранения для дисков виртуальной машины и других дисков данных, которые вы захотите добавить. Учетные записи хранения создаются практически сразу после создания групп ресурсов.
+Следующий шаг не является обязательным. По умолчанию виртуальная машина, созданная с помощью Azure CLI 2.0 (предварительная версия), использует Управляемые диски Azure. Эти диски полностью контролируются платформой Azure и не требуют никакой подготовки или хранилища. Дополнительные сведения об Управляемых дисках Azure см. в [обзоре Управляемых дисков Azure](../storage/storage-managed-disks-overview.md). Перейдите к разделу [Создание виртуальной сети и подсети](#create-a-virtual-network-and-subnet), если вы хотите использовать Управляемые диски Azure. 
+
+Если необходимо использовать неуправляемые диски, нужно создать учетную запись хранения для дисков виртуальной машины и дополнительных дисков данных, которые вы захотите добавить.
 
 В этом случае мы используем команду [az storage account create](/cli/azure/storage/account#create) и с ее помощью передаем расположение учетной записи, имя группы ресурсов, которая ее контролирует, и необходимый тип поддержки хранилища. В следующем примере создается учетная запись хранения с именем `mystorageaccount`:
 
@@ -994,11 +1008,11 @@ az vm availability-set create --resource-group myResourceGroup --location westeu
 
 
 ## <a name="create-the-linux-vms"></a>Создание виртуальной машины Linux
-Вы создали ресурсы сети и хранилища для доступных через Интернет виртуальных машин. Теперь давайте создадим эти виртуальные машины и защитим их ключом SSH без пароля. В этом случае мы создадим виртуальную машину Ubuntu на базе последней версии LTS. Чтобы найти этот образ, мы воспользуемся командой [az vm image list](/cli/azure/vm/image#list), как описано в статье о [поиске образов виртуальных машин Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Вы создали ресурсы сети для доступных через Интернет виртуальных машин. Теперь давайте создадим эти виртуальные машины и защитим их ключом SSH без пароля. В этом случае мы создадим виртуальную машину Ubuntu на базе последней версии LTS. Чтобы найти этот образ, мы воспользуемся командой [az vm image list](/cli/azure/vm/image#list), как описано в статье о [поиске образов виртуальных машин Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Кроме того, мы укажем ключ SSH для аутентификации. Если у вас нет ключей SSH, [создайте их](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Кроме того, можно использовать метод `--admin-password` для проверки подлинности подключений по протоколу SSH после создания виртуальной машины. Обычно этот метод менее безопасен.
 
-С помощью команды [az vm create](/cli/azure/vm#create) мы создадим виртуальную машину, собрав воедино все наши ресурсы и информацию.
+С помощью команды [az vm create](/cli/azure/vm#create) мы создадим виртуальную машину, собрав воедино все наши ресурсы и информацию. В следующем примере создается виртуальная машина `myVM1`, использующая Управляемые диски Azure. Если вы хотите использовать неуправляемые диски, прочитайте дополнительное примечание ниже.
 
 ```azurecli
 az vm create \
@@ -1010,10 +1024,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Если вы используете Управляемые диски Azure, пропустите этот шаг. Если вы хотите использовать неуправляемые диски и создали учетную запись хранения на предыдущих шагах, необходимо добавить следующие дополнительные параметры в приведенную команду. Добавьте указанные дополнительные параметры в команду, чтобы создать неуправляемые диски в учетной записи хранения `mystorageaccount`. 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Выходные данные:
@@ -1069,11 +1089,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Напомню, если вы не используете Управляемые диски Azure (используются по умолчанию), добавьте приведенные ниже дополнительные параметры в команду, чтобы создать неуправляемые диски в учетной записи хранения `mystorageaccount`.
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 На данном этапе имеются работающие виртуальные машины Ubuntu, расположенные за балансировщиком нагрузки в Azure, входить на которые можно только с помощью пары ключей SSH (так как пароли отключены). Можно установить nginx или httpd, развернуть веб-приложение и посмотреть, как трафик проходит через балансировщик нагрузки на обе виртуальные машины.
 
@@ -1101,6 +1127,6 @@ az group deployment create --resource-group myNewResourceGroup \
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

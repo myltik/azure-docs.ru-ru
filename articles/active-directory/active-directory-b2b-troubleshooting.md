@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d48034fdefdfdb93d99d5524e3272fc53ce5b49f
-ms.openlocfilehash: 03ca49b31efe3a003b2f30dbfe27d65f90379d5c
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: f85c6bcc2abbd14c7879462f7013a97f550fdca5
 
 
 ---
@@ -80,17 +80,18 @@ ms.openlocfilehash: 03ca49b31efe3a003b2f30dbfe27d65f90379d5c
 
 * [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B?](active-directory-b2b-admin-add-users.md)
-* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-how-it-works.md)
+* [Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?](active-directory-b2b-iw-add-users.md)
 * [Элементы сообщения с приглашением в службу совместной работы B2B](active-directory-b2b-invitation-email.md)
 * [Активация приглашения службы совместной работы B2B](active-directory-b2b-redemption-experience.md)
 * [Руководство по лицензированию службы совместной работы Azure Active Directory B2B](active-directory-b2b-licensing.md)
 * [Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B](active-directory-b2b-faq.md)
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
+* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

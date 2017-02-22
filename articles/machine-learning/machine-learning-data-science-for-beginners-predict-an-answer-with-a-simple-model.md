@@ -1,5 +1,5 @@
 ---
-title: "Прогнозирование ответа с помощью простой модели — модель регрессии | Документация Майкрософт"
+title: "Прогнозирование ответа с помощью простой модели регрессии в Azure | Документация Майкрософт"
 description: "Создание простой модели регрессии для прогнозирования цены в видео 4 из цикла &quot;Обработка и анализ данных для начинающих&quot;. Содержит линейную регрессию с целевыми данными."
 keywords: "создание модели,простая модель,прогнозирование цены,простая модель регрессии"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 
 
 ---
@@ -28,8 +28,8 @@ ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
 
 > [!ВИДЕО https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Другие видео из этого цикла
 *Обработка и анализ данных для начинающих* — это пять коротких видеороликов с основными сведениями об обработке и анализе данных.
@@ -135,7 +135,6 @@ ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

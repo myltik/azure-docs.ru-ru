@@ -4,7 +4,7 @@ description: "Часто задаваемые вопросы об IoT Suite"
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: araguila
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 69d4439a20fec8caaabdb43444cabd81f7d1b7c8
-ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
 * Если удалить группу ресурсов на [портале Azure][lnk-azure-portal], будут удалены ресурсы в этой группе. Вам также придется удалить приложение Azure Active Directory, связанное с предварительно настроенным решением, на[ классическом портале Azure][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров центров IoT можно подготовить в рамках одной подписки?
-Десять. Вы можете направить [запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только 10 экземпляров Центра Интернета вещей, как описано в разделе об [ограничениях подписки Azure][link-azuresublimits]. Так как каждое предварительно настроенное решение подготавливает новый Центр Интернета вещей, в рамках одной подписки можно подготовить до 10 таких решений. 
+В рамках одной подписки можно подготовить 10 экземпляров Центра Интернета вещей. Вы можете направить [запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только 10 экземпляров Центра Интернета вещей, как описано в разделе об [ограничениях подписки Azure][link-azuresublimits]. Так как каждое предварительно настроенное решение подготавливает новый Центр Интернета вещей, в рамках одной подписки можно подготовить до 10 таких решений. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Сколько экземпляров DocumentDB можно подготовить в рамках одной подписки?
 Пятьдесят. Вы можете направить [запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только 50 экземпляров DocumentDB. 
@@ -80,6 +80,6 @@ ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

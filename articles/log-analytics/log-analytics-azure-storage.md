@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 23979aec895649d80aab21d729833a846c4aeb19
-ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
+ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
+ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
 
 
 ---
@@ -32,8 +32,7 @@ ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
 
 | служба                 | Тип ресурса                           | Журналы        | Метрики     | Решение |
 | --- | --- | --- | --- | --- |
-| Шлюзы приложений    | Microsoft.Network/applicationGateways   | Диагностика | Диагностика | [Анализ сетевой активности (предварительная версия)](log-analytics-azure-networking-analytics.md) |
-| Управление API          | Microsoft.ApiManagement/service         |             | Диагностика | |
+| Шлюзы приложений    | Microsoft.Network/applicationGateways   | Диагностика | Диагностика | [Анализ шлюзов приложений Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Соединитель   | Соединитель   | [Соединитель Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (предварительная версия) |
 | Учетные записи службы автоматизации     | Microsoft.Automation/AutomationAccounts | Диагностика |             | [Дополнительные сведения](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Учетные записи пакетной службы          | Microsoft.Batch/batchAccounts           | Диагностика | Диагностика | |
@@ -43,10 +42,10 @@ ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Диагностика |             | |
 | пространство имен концентратора событий;     | Microsoft.EventHub/namespaces           | Диагностика | Диагностика | |
 | Центры Интернета вещей;                | Microsoft.Devices/IotHubs               |             | Диагностика | |
-| хранилище ключей;               | Microsoft.KeyVault/vaults               | Диагностика |             | [Анализ Key Vault (предварительная версия)](log-analytics-azure-key-vault.md) |
+| хранилище ключей;               | Microsoft.KeyVault/vaults               | Диагностика |             | [Анализ Key Vault](log-analytics-azure-key-vault.md) |
 | Балансировщики нагрузки          | Microsoft.Network/loadBalancers         | Диагностика |             |  |
 | Приложения логики              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Диагностика | Диагностика | |
-| группы сетевой безопасности; | Microsoft.Network/networksecuritygroups | Диагностика |             | [Анализ сетевой активности (предварительная версия)](log-analytics-azure-networking-analytics.md) |
+| группы сетевой безопасности; | Microsoft.Network/networksecuritygroups | Диагностика |             | [Анализ групп безопасности сети Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Службы поиска         | Microsoft.Search/searchServices         | Диагностика | Диагностика | |
 | Пространство имен служебной шины   | Microsoft.ServiceBus/namespaces         | Диагностика | Диагностика | |
 | Service Fabric          |                                         | Хранилище     |             | [Анализ Service Fabric (предварительная версия)](log-analytics-service-fabric.md) |
@@ -112,6 +111,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Отправка диагностики Azure в хранилище и в Log Analytics
 
@@ -152,6 +152,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,12 +15,17 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 96c9425d8f58d3b617330615573a479429f12b11
-ms.openlocfilehash: 44a7cf18afdf6a523c5f7fb03ee49f72cdd22564
+ms.sourcegitcommit: f2eb1f67c5687ac9bd8b94f6480617e6dc87ac9f
+ms.openlocfilehash: ace35adc1cd2745ea11cb60429a1e7892d1f66d3
 
 
 ---
-# <a name="azure-active-directory-b2c-sign-in-for-single-page-apps-using-auth-20-implicit-flow"></a>Azure Active Directory B2C: вход для одностраничных приложений с помощью неявного потока Auth 2.0
+# <a name="azure-active-directory-b2c-sign-in-for-single-page-apps-using-oauth-20-implicit-flow"></a>Azure Active Directory B2C: вход для одностраничных приложений с помощью неявного потока OAuth 2.0
+
+> [!NOTE]
+> Пока что доступна только предварительная версия этой функции.
+> 
+
 Многие современные приложения содержат интерфейсное одностраничное приложение, созданное преимущественно на языке JavaScript. Часто они создаются с помощью таких платформ, как AngularJS, Ember.js или Durandal.js. Во время проверки подлинности одностраничные и другие приложения JavaScript, которые запускаются в основном в браузере, сталкиваются с некоторыми проблемами.
 
 * Характеристики безопасности этих приложений значительно отличаются от традиционных серверных веб-приложений.
@@ -285,6 +290,6 @@ p=b2c_1_sign_in
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

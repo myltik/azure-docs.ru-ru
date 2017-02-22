@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 8da7631d2dfc51e21269d05ace737760e3be61b8
 
 
 ---
@@ -28,7 +28,9 @@ ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
 Панель мониторинга и компоненты Storm в средствах HDInsight используют интерфейс REST API для Storm, с помощью которого можно создавать собственные решения для мониторинга и управления.
 
 > [!IMPORTANT]
-> Действия, описанные в этом документе, требуют наличия Storm под управлением Windows в кластере HDInsight. Дополнительные сведения об использовании кластера под управлением Linux можно найти в разделе [Развертывание и управление топологиями Apache Storm в HDInsight под управлением Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
+> Действия, описанные в этом документе, требуют наличия Storm в кластере HDInsight с операционной системой Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> Сведения о развертывании топологий Storm и управлении ими с помощью кластера HDInsight под управлением Linux см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -55,7 +57,7 @@ ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
 
 ### <a name="storm-ui"></a>Пользовательский интерфейс Storm
 
-На панели мониторинга Storm выберите ссылку **Storm UI** (Пользовательский интерфейс Storm). Отобразится информация о кластере, а также всех запущенных топологиях.
+На панели мониторинга Storm выберите ссылку **Storm UI** (Пользовательский интерфейс Storm). Отобразятся сведения о кластере, а также о всех запущенных топологиях.
 
 ![пользовательский интерфейс storm][storm-dashboard-ui]
 
@@ -174,7 +176,7 @@ ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
 
 ### <a name="return-values"></a>Возвращаемые значения
 
-Информацию, возвращаемую REST API, можно использовать только в пределах кластера или виртуальной машины в одной виртуальной сети Azure, выполняющей функцию кластера. Например, полное доменное имя (FQDN), возвращаемое для серверов Zookeeper, не будет доступно из Интернета.
+Информацию, возвращаемую REST API, можно использовать только в пределах кластера или виртуальной машины в одной виртуальной сети Azure, выполняющей функцию кластера. Например, полное доменное имя (FQDN), возвращаемое для серверов Zookeeper, недоступно из Интернета.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -192,6 +194,6 @@ ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

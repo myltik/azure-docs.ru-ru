@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d9ffd4176e87b6b5ada882ff09f507665bda7b1d
-ms.openlocfilehash: 6dfb795d711839efb6ab8e4e21d5bb162eff83b2
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
 
 
 ---
@@ -63,10 +63,11 @@ ms.openlocfilehash: 6dfb795d711839efb6ab8e4e21d5bb162eff83b2
 * [Часто задаваемые вопросы о службе совместной работы Azure Active Directory B2B](active-directory-b2b-faq.md)
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
+* [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

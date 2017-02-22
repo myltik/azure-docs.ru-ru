@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/11/2017
+ms.date: 02/09/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 5dfb2b4fbe4dbd74575b418257843bc2097b966b
-ms.openlocfilehash: 5ca2da0caff29244f43c162e3cd98d335fd23f23
+ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
+ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
 
 
 ---
@@ -65,7 +65,7 @@ ms.openlocfilehash: 5ca2da0caff29244f43c162e3cd98d335fd23f23
 | Количество DTU для каждого сервера |45000 |Для подготовки баз данных, эластичных пулов и хранилищ данных для каждого сервера версии 12 доступно&45; 000 DTU. |
 
 > [!IMPORTANT]
-> В настоящий момент служба Azure SQL Database Automated Export находится на этапе предварительной версии, и ее использование будет прекращено 1 марта 2017 года. Начиная с 1 декабря 2016 года завершается поддержка автоматического экспорта для всех баз данных SQL. Все существующие задания автоматического экспорта продолжат работать до 1 марта 2017 года. После 1 декабря 2016 года можно использовать [долгосрочное хранение резервных копий](sql-database-long-term-retention.md) или [службу автоматизации Azure](../automation/automation-intro.md), чтобы периодически архивировать базы данных SQL с помощью PowerShell согласно выбранному расписанию. Пример сценария можно скачать из [репозитория GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> В настоящий момент служба Azure SQL Database Automated Export находится на этапе предварительной версии, и ее использование будет прекращено 1 марта 2017 года. Начиная с 1 декабря 2016 года завершается поддержка автоматического экспорта для всех баз данных SQL. Все существующие задания автоматического экспорта продолжат работать до 1 марта 2017 года. После 1 декабря 2016 года можно использовать [долгосрочное хранение резервных копий](sql-database-long-term-retention.md) или [службу автоматизации Azure](../automation/automation-intro.md), чтобы периодически архивировать базы данных SQL с помощью PowerShell согласно выбранному расписанию. Пример сценария можно скачать из [репозитория GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
 >
 
 

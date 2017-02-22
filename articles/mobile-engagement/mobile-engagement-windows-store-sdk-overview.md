@@ -1,10 +1,10 @@
 ---
-title: "Интеграция пакета SDK универсальных приложений для Windows"
+title: "Интеграция пакета SDK универсальных приложений Windows для Служб мобильного взаимодействия Azure | Документация Майкрософт"
 description: "Интеграция универсальных приложений для Windows с пакетом SDK для Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: piyushjo;ricksal
+ms.date: 11/03/2016
+ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 В этом документе описываются все параметры интеграции и конфигурации, доступные для пакета SDK универсальных приложений для Windows для Azure Mobile Engagement.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Прежде чем приступить к этому учебнику, необходимо изучить [наш 15-минутный учебник](mobile-engagement-windows-store-dotnet-get-started.md).
+Прежде чем приступить к этому учебнику, необходимо изучить [наш&15;-минутный учебник](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Дополнительные функции
 ### <a name="reporting-features"></a>Функции отчетов
@@ -40,10 +40,9 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 [Как использовать API для расширенного добавления тегов Mobile Engagement в универсальном приложении для Windows](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Заметки о выпуске
-### <a name="340-04192016"></a>3.4.0 (19.04.2016)
-* Улучшения наложения Reach.
-* Добавлен API "TestLogLevel" для включения, отключения или фильтрации журналов консоли, созданных с помощью пакета SDK.
-* Исправлены уведомления в действиях, предназначенные для первого действия, которое не отображается при запуске приложения.
+### <a name="341-11032016"></a>3.4.1 (03.11.2016)
+
+* Улучшение стабильности.
 
 Сведения о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-windows-store-release-notes.md).
 
@@ -78,6 +77,6 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

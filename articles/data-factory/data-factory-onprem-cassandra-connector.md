@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
 В этой статье описывается, как переместить данные из локальной базы данных Cassandra в любое хранилище данных, указанное в разделе [Поддерживаемые хранилища данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (столбец "Приемники"), с использованием действия копирования в фабрике данных Azure. В этой статье мы продолжим тему о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
 Сейчас фабрика данных поддерживает только перемещение данных из базы данных Cassandra в другие [поддерживаемые хранилища-приемники](data-factory-data-movement-activities.md#supported-data-stores-and-formats), но не наоборот.
+
+## <a name="supported-versions"></a>Поддерживаемые версии
+Этот соединитель Cassandra поддерживает Cassandra версии 2.X.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы служба фабрики данных Azure могла подключаться к локальной базе данных Cassandra, необходимо установить следующие компоненты.
@@ -325,6 +328,6 @@ ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

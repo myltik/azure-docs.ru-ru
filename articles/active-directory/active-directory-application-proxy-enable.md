@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.topic: article
+ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
+ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
+ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
 
 
 ---
+
 # <a name="enable-application-proxy-in-the-azure-portal"></a>Включение прокси приложения на портале Azure
 В этой статье описывается процедура включения прокси приложения Microsoft Azure AD для облачного каталога в Azure AD.
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
 * [Подписка на Microsoft Azure AD Basic или Premium](active-directory-editions.md) , а также каталог Azure AD, для которого вы являетесь глобальным администратором.
 * Сервер под управлением Windows Server 2012 R2 или Windows 8.1 или более поздней версии, на котором можно установить соединитель прокси приложения. Сервер отправляет запросы в службы прокси приложения в облаке. У него должно быть подключение HTTP или HTTPS к приложениям, которые вы публикуете.
   
-  * Единый вход в опубликованные приложения возможен, если компьютер присоединен к домену в том же домене AD, что и публикуемые приложения.
+  * Единый вход в опубликованные приложения возможен, если компьютер присоединен к домену в том же домене AD, что и публикуемые приложения. Дополнительные сведения см. в статье [Единый вход с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md).
 * Если в сетевом пути используется брандмауэр, убедитесь, что он открыт для запросов HTTPS (TCP), поступающих из соединителя в прокси приложения. Соединитель использует эти порты и поддомены, которые являются частью доменов верхнего уровня: msappproxy.net и servicebus.windows.net. Обязательно откройте следующие порты для **исходящего** трафика:
   
   | Номер порта | Описание |
@@ -46,7 +46,7 @@ ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
   | 9091 |Включение автоматического обновления сертификатов доверия соединителя. |
   
     Если брандмауэр инициирует трафик в соответствии с отправляющими его пользователями, откройте эти порты для трафика, поступающего от служб Windows, которые работают как сетевая служба. Кроме того, не забудьте включить порт 8080 для NT AUTHORITY\SYSTEM.
-* Если ваша организация использует прокси-серверы для подключения к Интернету, см. сведения об их настройке в записи блога [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Работа с имеющимися локальными прокси-серверами).
+* Если ваша организация использует прокси-серверы для подключения к Интернету, изучите сведения об их настройке в записи блога [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Работа с имеющимися локальными прокси-серверами).
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Шаг 1. Включение прокси приложения в Azure AD
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/)как администратор.
@@ -77,6 +77,8 @@ ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
      ![Службы соединителей прокси приложения — снимок экрана](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Нажмите кнопку **Готово** в окне установки.
 
+Сведения о соединителях см. в статье [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) (Сведения о соединителях прокси приложения Azure AD). 
+
 Чтобы обеспечить высокий уровень доступности, разверните как минимум два соединителя. Чтобы развернуть дополнительные соединители, повторите шаги 2 и 3, описанные выше. Каждый соединитель необходимо зарегистрировать отдельно.
 
 Если вы хотите удалить соединитель, удалите службу соединителя и службу средства обновления. Перезагрузите компьютер, чтобы полностью удалить службу.
@@ -89,6 +91,6 @@ ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

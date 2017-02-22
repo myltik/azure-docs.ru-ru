@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: 8e5af99c6c0a8ce4d1b239b3271846f39bc387be
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 304ee87e82ce5acc4479fd16d3ac1aa340e42815
 
 
 ---
@@ -207,7 +207,7 @@ ms.openlocfilehash: 8e5af99c6c0a8ce4d1b239b3271846f39bc387be
 
 На следующем снимке экрана показан пример соответствующего диалогового окна в Azure AD.
 
-![Настройка подготовки пользователей](./media/active-directory-saas-jive-tutorial/IC698794.png "Configure User Provisioning")
+![Настроить подготовку учетных записей пользователей](./media/active-directory-saas-jive-tutorial/IC698794.png "Настроить подготовку учетных записей пользователей")
 
 #### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 1. На странице интеграции приложений **Jive** портала управления Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Configure user provisioning** (Настройка подготовки учетных записей пользователей).
@@ -283,6 +283,6 @@ ms.openlocfilehash: 8e5af99c6c0a8ce4d1b239b3271846f39bc387be
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

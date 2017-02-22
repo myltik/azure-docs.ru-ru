@@ -1,5 +1,5 @@
 ---
-title: "Создание веб-приложения в службе приложений на платформе Linux | Документация Майкрософт"
+title: "Создание веб-приложения Azure на платформе Linux | Документация Майкрософт"
 description: "Рабочий процесс создания веб-приложения для службы приложений в Linux."
 keywords: "служба приложений azure, веб-приложение, linux, oss"
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Создание веб-приложения в службе приложений на платформе Linux
+# <a name="create-an-azure-web-app-running-on-linux"></a>Создание веб-приложения Azure на платформе Linux
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Создание веб-приложения на портале Azure
 Чтобы приступить к созданию собственного веб-приложения в Linux на [портале Azure](https://portal.azure.com), выполните действия, как показано на следующем изображении.
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
 1. Присвойте веб-приложению имя.
 2. Выберите имеющуюся группу ресурсов или создайте новую. (Доступные регионы см. в [разделе с ограничениями](app-service-linux-intro.md).)
 3. Выберите имеющийся план службы приложений Azure или создайте новый. (Заметки о плане службы приложений см. в [разделе с ограничениями](app-service-linux-intro.md).)
-4. Выберите необходимый стек приложений. На выбор предоставляется несколько версий Node.js и PHP.
+4. Выберите необходимый стек приложений. На выбор предоставляется несколько версий Node.js, PHP, .NET Core и Ruby.
 
 После создания приложения стек можно изменить в настройках, как показано на следующем изображении.
 
@@ -59,6 +59,6 @@ ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

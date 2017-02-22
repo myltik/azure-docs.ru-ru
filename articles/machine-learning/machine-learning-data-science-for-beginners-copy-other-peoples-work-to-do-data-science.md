@@ -1,6 +1,6 @@
 ---
-title: "Копирование результатов обработки и анализа данных других пользователей — пример машинного обучения | Документация Майкрософт"
-description: "Секрет успешного процесса обработки и анализа данных: используйте работу других пользователей в своих целях. См. примеры в коллекции Cortana Analytics, такие как пример алгоритма кластеризации."
+title: "Копирование примеров обработки и анализа данных других пользователей в машинном обучении Azure | Документация Майкрософт"
+description: "Секрет успешного процесса обработки и анализа данных: используйте работу других пользователей в своих целях. Воспользуйтесь примерами машинного обучения из коллекции Cortana Analytics."
 keywords: "примеры обработки и анализа данных,пример машинного обучения,алгоритм кластеризации,пример алгоритма кластеризации"
 services: machine-learning
 documentationcenter: na
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
+ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
+ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
 
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Копирование работы других пользователей для обработки и анализа данных
 ## <a name="video-5-data-science-for-beginners-series"></a>Видео 5. Обработка и анализ данных для начинающих
-Одним из секретов успешного процесса обработки и анализа данных является умение использовать работу других пользователей в своих целях. Найдите пример алгоритма кластеризации для выполнения собственного эксперимента машинного обучения.
+Одним из секретов успешного процесса обработки и анализа данных является умение использовать работу других пользователей в своих целях. Найдите в коллекции Cortana Analytics пример алгоритма кластеризации для выполнения собственного эксперимента машинного обучения.
 
 Для получения оптимального результата просмотрите все видео. [Перейти к списку видео](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+> [!ВИДЕО https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Другие видео из этого цикла
 *Обработка и анализ данных для начинающих* — это пять коротких видеороликов с основными сведениями об обработке и анализе данных.
@@ -84,7 +84,7 @@ ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Поиск экспериментов, демонстрирующих методы машинного обучения
 В [коллекции Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) есть эксперименты, предназначенные для предоставления практических примеров для новичков в области обработки и анализа данных. Например, здесь есть эксперимент, который показывает, как обрабатывать отсутствующие значения ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)(Методы для обработки отсутствующих значений)). В нем содержится 15 разных методов подстановки пустых значений, а также описаны преимущества и особенности использования каждого из них.
 
-![Эксперимент из коллекции, открытый в студии машинного обучения — методы для пропущенных значений](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Эксперименты из коллекции, открытые в студии машинного обучения — методы для пропущенных значений](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Коллекция Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) — место для поиска рабочих экспериментов, которые можно использовать как отправную точку для разработки собственных решений.
 
@@ -96,7 +96,6 @@ ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
