@@ -1,6 +1,6 @@
 # Обзор
 ## [About Azure virtual machines (Сведения о виртуальных машинах Azure)](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Диски и виртуальные жесткие диски](../../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Диски и виртуальные жесткие диски](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Виртуальные сети](../../../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Часто задаваемые вопросы](../../virtual-machines-windows-classic-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](../../../app-service-web/choose-web-site-cloud-service-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -104,6 +104,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

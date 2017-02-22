@@ -69,6 +69,7 @@
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Ресурсы
 ## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -76,6 +77,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
