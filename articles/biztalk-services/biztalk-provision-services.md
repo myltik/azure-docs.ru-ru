@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Создание служб BizTalk с помощью портала Azure
-В этом руководстве мы создадим службы Azure BizTalk на портале Azure.
 
 > [!TIP]
 > Для входа на портал Azure требуются учетная запись и подписка Azure. Если учетной записи нет, можно создать бесплатную пробную учетную запись всего за несколько минут. См. страницу [Бесплатная пробная версия Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
 
 В зависимости от состояния службы BizTalk некоторые операции завершить невозможно. Список этих операций см. в статье [Диаграмма состояния службы BizTalk](biztalk-service-state-chart.md).
 
-## <a name="postprovisioning-steps"></a>Действия после подготовки
+## <a name="post-provisioning-steps"></a>Действия после подготовки
 * [Установка сертификата на локальном компьютере](#InstallCert)
 * [Добавление готового сертификата для рабочей среды](#AddCert)
 * [Извлечение пространства имен контроля доступа](#ACS)
@@ -131,7 +130,7 @@ ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
    ![Изменение SSL-сертификата][QuickGlance]
 5. Дважды щелкните кнопкой мыши по сертификату и выполните все инструкции мастера, чтобы завершить установку. Убедитесь, что сертификат устанавливается в **Хранилище корневых центров сертификации пользователей** .
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Добавление готового сертификата для рабочей среды
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Добавление готового сертификата для рабочей среды
 Самозаверяющий сертификат, созданный автоматически при создании служб BizTalk, предназначен исключительно для использования в среде разработки. Для выполнения рабочих сценариев замените его готовым сертификатом для рабочей среды.
 
 1. На вкладке **Панель мониторинга** выберите **Обновить SSL-сертификат**.
@@ -275,6 +274,6 @@ ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

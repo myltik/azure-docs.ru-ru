@@ -1,7 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-gov-u2.md)
-> * [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-gov.md)
+> * [Обновление 2](../articles/storsimple/storsimple-deployment-walkthrough-gov-u2.md)
+> * [Обновление 1](../articles/storsimple/storsimple-deployment-walkthrough-gov.md)
 > 
 > 
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
