@@ -15,7 +15,7 @@
 ## <a name="file-storage-concepts"></a>Основные понятия хранилища файлов
 Хранилище файлов состоит из следующих компонентов:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Учетная запись хранения**. Весь доступ к хранилищу Azure осуществляется с помощью учетной записи хранения. Сведения об емкости учетной записи хранения см. в статье [Целевые показатели масштабируемости и производительности службы хранилища Azure](../articles/storage/storage-scalability-targets.md).
 * **Общая папка** — общая папка хранилища файлов представляет собой общую папку с файлами в Azure, использующую протокол SMB. 
@@ -31,8 +31,7 @@
 
 Способ именования ресурсов, каталогов и файлов описан в статье о [присвоении имен и ссылок на совместно используемые ресурсы, каталоги, файлы и метаданные](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
