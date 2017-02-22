@@ -3,7 +3,7 @@ title: "Миграция виртуальных машин в Resource Manager �
 description: "В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов из классической модели в модель Azure Resource Manager с помощью Azure CLI."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: cynthn
+ms.date: 02/21/2017
+ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
 ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
