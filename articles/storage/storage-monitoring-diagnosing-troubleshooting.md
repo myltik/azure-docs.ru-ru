@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
+ms.sourcegitcommit: b0abc4df06849ef2a887a190a8ea306849d40b3d
+ms.openlocfilehash: e7613084c6a7f20913b49b1f3c33bb681897c118
 
 
 ---
@@ -228,7 +228,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 * [Fiddler](http://www.telerik.com/fiddler) — это бесплатный веб-прокси для отладки, с помощью которого можно проверять заголовки и полезные данные HTTP- и HTTPS-запросов, а также ответных сообщений. Дополнительные сведения см. в [приложении 1 "Отслеживание HTTP- и HTTPS-трафика с помощью Fiddler"](#appendix-1).
 * [Microsoft Network Monitor (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) и [Wireshark](http://www.wireshark.org/) — бесплатные средства для анализа сетевых протоколов, с помощью которых можно просматривать подробную информацию о пакетах для широкого спектра сетевых протоколов. Дополнительные сведения о Wireshark см. в [Приложение 2. Отслеживание сетевого трафика с помощью Wireshark](#appendix-2).
-* Microsoft Message Analyzer — это средство, предлагаемое корпорацией Майкрософт в качестве замены Netmon. Оно позволяет не только собирать данные о сетевых пакетах, но и просматривать, а также анализировать информацию из журналов, созданных с помощью других инструментов. Дополнительные сведения см. в [Приложение 3. Отслеживание сетевого трафика с помощью Microsoft Message Analyzer](#appendix-3).
+* Microsoft Message Analyzer — это средство, предлагаемое корпорацией Майкрософт в качестве замены Netmon. Оно позволяет не только собирать данные о сетевых пакетах, но и просматривать, а также анализировать информацию из журналов, созданных с помощью других инструментов. Дополнительные сведения см. в [приложении 3 "Отслеживание сетевого трафика с помощью Microsoft Message Analyzer"](#appendix-3).
 * Если вы хотите выполнить базовый тест подключения, чтобы проверить, может ли клиентская машина подключиться к службе хранилища Azure по сети, этого не удастся сделать с помощью стандартного инструмента **ping** на клиенте. Однако вы можете воспользоваться для проверки подключения инструментом [**tcping**](http://www.elifulkerson.com/projects/tcping.php).
 
 Во многих случаях данных журналов хранилища и клиентской библиотеки хранилища достаточно для диагностики проблемы, но иногда вам могут потребоваться более подробные сведения, чем способны предоставить эти инструменты. Например, используя Fiddler для просмотра сообщений HTTP и HTTPS, вы можете видеть заголовки и полезные данные, отправленные в службы хранилища и из них. Это позволяет проверить, как работает повтор операций хранилища в клиентском приложении. Средства для анализа протоколов, такие как Wireshark, работают на уровне пакетов, благодаря чему вы можете просматривать данные TCP и выявлять потерянные пакеты и проблемы с подключением. Message Analyzer может работать как на уровне HTTP, так и на уровне TCP.
@@ -267,36 +267,37 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 В приведенном ниже примере кода показано, как настроить пользовательское значение **ClientRequestId**, прикрепив объект **OperationContext** к запросу к службе хранилища. Кроме того, показано, как извлечь значение **ServerRequestId** из ответного сообщения.
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
-    OperationContext oc = new OperationContext();
-    oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
+// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
+OperationContext oc = new OperationContext();
+oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
-    try
+try
+{
+    CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
+    ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
+    var downloadToPath = string.Format("./{0}", blob.Name);
+    using (var fs = File.OpenWrite(downloadToPath))
     {
-        CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
-        ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
-        var downloadToPath = string.Format("./{0}", blob.Name);
-        using (var fs = File.OpenWrite(downloadToPath))
-        {
-            blob.DownloadToStream(fs, null, null, oc);
-            Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
-        }
+        blob.DownloadToStream(fs, null, null, oc);
+        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
     }
-    catch (StorageException storageException)
+}
+catch (StorageException storageException)
+{
+    Console.WriteLine("Storage exception {0} occurred", storageException.Message);
+    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
+    foreach (var result in oc.RequestResults)
     {
-        Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-        // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
-        foreach (var result in oc.RequestResults)
-        {
-                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
-        }
+            Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
     }
-
+}
+```
 
 ### <a name="a-nametimestampsatimestamps"></a><a name="timestamps"></a>Метки времени
 Для поиска связанных записей в журналах можно также использовать метки времени, однако при этом нужно учитывать возможное расхождение в значениях времени между клиентом и сервером. Поиск соответствующих записей на стороне сервера нужно выполнять в интервале, охватывающем по 15 минут до и после метки времени на клиенте. Помните, что метаданные BLOB-объектов, содержащих метрики, определяют для них временной диапазон. Это полезно, если у вас есть много BLOB-объектов с метриками, относящимися к одной минуте или часу.
@@ -364,11 +365,13 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Для служб таблиц и очередей алгоритм Нейгла также может приводить к высокому значению метрики **AverageE2ELatency** по сравнению с метрикой **AverageServerLatency**. Дополнительные сведения см. в записи блога [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (Алгоритм Нейгла не ориентирован на мелкие запросы). Вы можете отключить алгоритм Нейгла в коде с помощью класса **ServicePointManager** в пространстве имен **System.Net**. Это следует сделать до выполнения вызовов к службам таблиц или очередей в приложении, так как на открытые подключения это не распространяется. Приведенный ниже пример взят из метода **Application_Start** в рабочей роли.
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-    tableServicePoint.UseNagleAlgorithm = false;
-    ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
-    queueServicePoint.UseNagleAlgorithm = false;
+```csharp
+var storageAccount = CloudStorageAccount.Parse(connStr);
+ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
+tableServicePoint.UseNagleAlgorithm = false;
+ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
+queueServicePoint.UseNagleAlgorithm = false;
+```
 
 Вы должны просмотреть журналы на стороне клиента, чтобы понять, сколько запросов отправляет приложение, а также проверить общие узкие места, связанные с производительностью .NET, в приложении. К ним относятся использование процессора, сети и памяти, а также сборка мусора .NET. В качестве отправной точки для устранения неполадок в клиентских приложениях .NET используйте статью [Debugging, Tracing, and Profiling](http://msdn.microsoft.com/library/7fe0dd2y) (Отладка, трассировка и профилирование).
 
@@ -563,53 +566,29 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 В этой таблице показан пример сообщения журнала на стороне сервера из файла журнала хранилища:
 
-<table>
-  <tr>
-    <td>Request start time (Время начала запроса)</td>
-    <td>2014-05-30T06:17:48.4473697Z</td>
-  </tr>
-  <tr>
-    <td>Operation type (Тип операции)</td>
-    <td>GetBlobProperties</td>
-  </tr>
-  <tr>
-    <td>Request status (Состояние запроса)</td>
-    <td>SASAuthorizationError</td>
-  </tr>
-  <tr>
-    <td>HTTP status code (Код состояния HTTP)</td>
-    <td>404</td>
-  </tr>
-  <tr>
-    <td>Authentication type (Тип проверки подлинности)</td>
-    <td>SAS</td>
-  </tr>
-  <tr>
-    <td>Service type (Тип службы)</td>
-    <td>BLOB-объект</td>
-  </tr>
-  <tr>
-    <td>Request URL (URL-адрес запроса)</td>
-    <td>
-    https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;amp;sr=c&amp;amp;si=mypolicy&amp;amp;sig=XXXXX&amp;amp;api-version=2014-02-14&amp;amp;</td>
-  </tr>
-  <tr>
-    <td>Request ID header</td>
-    <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
-  </tr>
-  <tr>
-    <td>Идентификатор запроса клиента</td>
-    <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
-  </tr>
-</table>
+| Имя | Значение |
+| --- | --- |
+| Request start time (Время начала запроса) | 2014-05-30T06:17:48.4473697Z |
+| Operation type (Тип операции)     | GetBlobProperties            |
+| Request status (Состояние запроса)     | SASAuthorizationError        |
+| HTTP status code (Код состояния HTTP)   | 404                          |
+| Authentication type (Тип проверки подлинности)| SAS                          |
+| Service type (Тип службы)       | BLOB-объект                         |
+| Request URL (URL-адрес запроса)        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| Идентификатор запроса клиента  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+
 
 Вам нужно найти причину того, что клиентское приложение пытается выполнить операцию, для которой ему не предоставлены разрешения.
 
 #### <a name="a-namejavascript-code-does-not-have-permissionaclient-side-javascript-code-does-not-have-permission-to-access-the-object"></a><a name="JavaScript-code-does-not-have-permission"></a>У кода JavaScript на стороне клиента нет разрешения на доступ к объекту
 Если вы используете клиент JavaScript и служба хранилища возвращает сообщения HTTP 404, проверьте в браузере, нет ли следующих ошибок JavaScript:
 
-    SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
-    SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
+SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
+SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
 
 > [!NOTE]
 > При диагностике и устранении неполадок на стороне клиента JavaScript вы можете воспользоваться средствами разработчика F12 в Internet Explorer для трассировки сообщений, которыми обмениваются браузер и служба хранилища.
@@ -622,19 +601,21 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 В этом примере кода показано, как настроить службу BLOB-объектов, чтобы разрешить работу приложения JavaScript в домене Contoso для получения доступа к хранящемуся в ней BLOB-объекту:
 
-    CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-    // Set the service properties.
-    ServiceProperties sp = client.GetServiceProperties();
-    sp.DefaultServiceVersion = "2013-08-15";
-    CorsRule cr = new CorsRule();
-    cr.AllowedHeaders.Add("*");
-    cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
-    cr.AllowedOrigins.Add("http://www.contoso.com");
-    cr.ExposedHeaders.Add("x-ms-*");
-    cr.MaxAgeInSeconds = 5;
-    sp.Cors.CorsRules.Clear();
-    sp.Cors.CorsRules.Add(cr);
-    client.SetServiceProperties(sp);
+```csharp
+CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
+// Set the service properties.
+ServiceProperties sp = client.GetServiceProperties();
+sp.DefaultServiceVersion = "2013-08-15";
+CorsRule cr = new CorsRule();
+cr.AllowedHeaders.Add("*");
+cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
+cr.AllowedOrigins.Add("http://www.contoso.com");
+cr.ExposedHeaders.Add("x-ms-*");
+cr.MaxAgeInSeconds = 5;
+sp.Cors.CorsRules.Clear();
+sp.Cors.CorsRules.Add(cr);
+client.SetServiceProperties(sp);
+```
 
 #### <a name="a-namenetwork-failureanetwork-failure"></a><a name="network-failure"></a>Сбой сети
 В некоторых обстоятельствах потеря сетевых пакетов может привести к тому, что служба хранилища будет возвращать клиенту сообщения HTTP 404. Например, когда клиентское приложение удаляет субъект из службы таблиц, это вызывает исключение хранилища и вы увидите сообщение о состоянии HTTP 404 (не найдено) от службы таблиц. Если вы посмотрите на таблицу в службе таблиц, то поймете, что субъект удален в соответствии с запросом.
@@ -713,10 +694,12 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Причина заключается в проблемах с существующей установкой LocalDB. По умолчанию эмулятор хранения использует базу данных LocalDB для хранения данных при эмуляции служб хранилища Azure. Вы можете переустановить экземпляр LocalDB, прежде чем пытаться установить пакет SDK, выполнив указанные ниже команды в окне командной строки.
 
-    sqllocaldb stop v11.0
-    sqllocaldb delete v11.0
-    delete %USERPROFILE%\WAStorageEmulatorDb3*.*
-    sqllocaldb create v11.0
+```
+sqllocaldb stop v11.0
+sqllocaldb delete v11.0
+delete %USERPROFILE%\WAStorageEmulatorDb3*.*
+sqllocaldb create v11.0
+```
 
 Команда **delete** удаляет старые файлы базы данных, оставшиеся от предыдущих установок эмулятора хранения.
 
@@ -789,7 +772,9 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Настройка сеанса трассировки веб-трафика с помощью анализатора сообщений Майкрософт
 Чтобы настроить сеанс трассировки веб-трафика HTTP и HTTPS с помощью анализатора сообщений Майкрософт, запустите анализатор, а затем в меню **Файл** выберите пункт **Захват и трассировка**. В списке доступных сценариев трассировки выберите пункт **Web Proxy**(Веб-прокси). Затем на панели **Trace Scenario Configuration** (Конфигурация сценария трассировки) в текстовом поле **HostnameFilter** (Фильтр имен узлов) добавьте имена конечных точек хранилища (их можно узнать на [портале Azure](https://portal.azure.com)). Например, если ваша учетная запись хранения Azure имеет имя **contosodata**, добавьте в поле **Фильтр имен узлов** следующий текст.
 
-    contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
+contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
 
 > [!NOTE]
 > Имена узлов разделяются пробелом.
@@ -908,6 +893,6 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -11,7 +11,7 @@
 
 # Приступая к работе
 ## [Предварительные требования](active-directory-aadconnect-prerequisites.md)
-## [Установка Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Установка Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Стандартные параметры](active-directory-aadconnect-get-started-express.md)
 ### [Настраиваемые параметры](active-directory-aadconnect-get-started-custom.md)
 ### [Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -25,7 +25,7 @@
 ### [Специальные рекомендации для экземпляров](active-directory-aadconnect-instances.md)
 
 ## [Управление Azure AD Connect](active-directory-aadconnect-whats-next.md)
-### [Обновление сертификатов для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Обновление сертификатов для Office&365; и Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Включение обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md)
 ### [Параметры единого входа пользователей](active-directory-aadconnect-user-signin.md)
 ### [Поддержка нескольких доменов для федерации](active-directory-aadconnect-multiple-domains.md)
@@ -33,7 +33,6 @@
 
 
 ## Управление синхронизацией Azure AD Connect
-### [Универсальный соединитель SQL: пошаговое руководство](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Синхронизация паролей](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Учетная запись службы Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Справочные материалы
-## [Соединитель Windows PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-## [Универсальный соединитель SQL](active-directory-aadconnectsync-connector-genericsql.md)
-## [Универсальный соединитель LDAP](active-directory-aadconnectsync-connector-genericldap.md)
-## [Соединитель Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 ## [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Порты и протоколы, необходимые для гибридной идентификации](active-directory-aadconnect-ports.md)
 ## [Возможности предварительной версии](active-directory-aadconnect-feature-preview.md)
 ## [Журнал версий](active-directory-aadconnect-version-history.md)
+## [Учетные записи и разрешения](active-directory-aadconnect-accounts-permissions.md)
 
 ## Синхронизация Azure AD Connect
 ### [Атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[Нерекомендуемая версия DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

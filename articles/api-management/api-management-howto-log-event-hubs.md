@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 Чтобы создать средство ведения журнала, выполните HTTP-запрос PUT, используя следующий шаблон URL-адреса.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Замените `{your service}` именем экземпляра службы управления API.
 * Замените `{new logger name}` требуемым именем нового средства ведения журнала. Вы укажете это имя при настройке политики [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) (регистрация в концентраторе событий).
@@ -66,25 +66,27 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 Укажите текст запроса, используя следующий шаблон.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * Для параметра `type` нужно задать значение `AzureEventHub`.
 * `description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
 * `credentials` содержит `name` и `connectionString` концентратора событий Azure.
 
-Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created` . 
+Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created` .
 
 > [!NOTE]
 > Другие возможные коды возврата и их причины см. в статье, посвященной [созданию средств ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Чтобы узнать, как выполнять другие операции, такие как перечисление, обновление и удаление, см. документацию [средствах ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx).
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Настройка политик регистрации в концентраторах событий
 Если средство ведения журналов в управлении API уже настроено, вы можете настроить политики регистрации в концентраторах событий для регистрации нужных событий. Политику регистрации в концентраторах событий можно использовать в разделе входящей или исходящей политики.
@@ -101,9 +103,11 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 ![Редактор политики][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 Замените `logger-id` именем средства ведения журнала службы управления API, настроенного на предыдущем этапе.
 
@@ -113,8 +117,8 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительная информация о концентраторах событий Azure
-  * [Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
 * Дополнительные сведения об интеграции службы управления API и концентраторов событий
   * [Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -123,8 +127,8 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 ## <a name="watch-a-video-walkthrough"></a>Просмотрите видеоруководство
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -137,12 +141,6 @@ ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
 
 
 
-
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

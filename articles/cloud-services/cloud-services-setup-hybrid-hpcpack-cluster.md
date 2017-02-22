@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
+ms.sourcegitcommit: 0e74a1784f39fe934d36c0391de7d01bf7699868
+ms.openlocfilehash: b0c207190fcfb23cc75c4aaa661c76c561265ef8
 
 
 ---
@@ -177,7 +177,7 @@ ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
 1. В диспетчере кластеров HPC в разделе **Node Management** (Управление узлами) (в последних версиях пакета HPC он называется **Управление ресурсами**) в области **Действия** щелкните **Добавить узел**.
    
     ![Добавить узел][add_node1]
-2. В окне мастера добавления узла на странице **Выбор метода развертывания** нажмите кнопку **Добавить узлы Azure**, а затем **Далее**.
+2. В окне мастера добавления узла на странице **Select Deployment Method** (Выбор метода развертывания) установите переключатель **Add Windows Azure nodes** (Добавить узлы Windows Azure), а затем **Далее**.
    
     ![Добавление узла Azure][add_node1_1]
 3. На странице **Укажите новые узлы** выберите созданный ранее шаблон узла Azure (который по умолчанию называется **шаблоном узла Azure по умолчанию**). Затем укажите **2** **мелких** узла и нажмите кнопку **Далее**.
@@ -197,7 +197,7 @@ ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
 1. В диспетчере кластеров HPC в разделе **Node Management** (Управление узлами) (в последних версиях пакета HPC он называется **Управление ресурсами**) выберите один или оба узла, а затем в области **Действия** щелкните **Пуск**.
    
    ![Запуск узлов][add_node4]
-2. В диалоговом окне **Запуск узлов Azure** нажмите кнопку **Пуск**.
+2. В диалоговом окне **Stop Windows Azure nodes** (Остановка узлов Windows Azure) нажмите кнопку **Start** (Запустить).
    
     ![Запуск узлов][add_node5]
    
@@ -250,7 +250,7 @@ ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
 1. В диспетчере кластеров HPC в разделе **Node Management** (Управление узлами) (в последних версиях пакета HPC он называется **Управление ресурсами**) выберите оба узла Azure. Затем в области **действий** нажмите кнопку **Остановить**.
    
     ![Остановка узлов][stop_node1]
-2. В диалоговом окне **Остановка узлов Azure** нажмите кнопку **Остановить**.
+2. В диалоговом окне **Stop Windows Azure nodes** (Остановка узлов Windows Azure) нажмите кнопку **Stop** (Остановить).
    
     ![Остановка узлов][stop_node2]
 3. Узлы перейдут в состояние **Остановка** . Через несколько минут диспетчер кластеров HPC покажет, что узлы находятся в состоянии **Не развернуто**.
@@ -268,7 +268,7 @@ ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
 * Другие способы создания кластера пакета HPC в Azure, включая использование шаблонов Azure Resource Manager, см. в статье [Варианты создания в Azure кластера HPC под управлением Windows и управления им с помощью пакета HPC](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Дополнительные сведения о больших вычислениях и облачных решениях HPC в Azure см. в статье [Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений](../batch/big-compute-resources.md).
 
-[Обзор]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
+[Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
 [install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
 [install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
@@ -307,6 +307,6 @@ ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

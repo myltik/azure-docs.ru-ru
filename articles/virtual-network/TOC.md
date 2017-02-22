@@ -97,9 +97,10 @@
 ##### [Пример приложения](virtual-networks-sample-app.md)
 
 ## Настройка
-### Ускорение работы в сети
+### Ускорение работы в сети для виртуальных машин
 #### [Портал Azure](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Оптимизация пропускной способности сети](virtual-network-optimize-network-bandwidth.md)
 ### Доступ к спискам управления
 #### [Классический портал](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

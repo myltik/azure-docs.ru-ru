@@ -14,6 +14,7 @@
 ## Защита серверной части
 ### [Защита серверной части веб-API с помощью AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Подключение к виртуальной сети](api-management-using-with-vnet.md)
+### [Подключение к внутренней виртуальной сети](api-management-using-with-internal-vnet.md)
 ### [Взаимная аутентификация на основе сертификатов](api-management-howto-mutual-certificates.md)
 ## Настройка политик
 ### [Настраиваемое кэширование](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

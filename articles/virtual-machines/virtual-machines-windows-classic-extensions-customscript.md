@@ -3,7 +3,7 @@ title: "Расширение пользовательских сценариев
 description: "Автоматизируйте процесс настройки виртуальных машин Azure с помощью расширения Custom Script для выполнения сценариев PowerShell на удаленной виртуальной машине под управлением Windows"
 services: virtual-machines-windows
 documentationcenter: 
-author: kundanap
+author: neilpeterson
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,80 +13,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/06/2015
-ms.author: kundanap
+ms.date: 01/17/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 5a66b7a5454ae84c656e5e38e6e7072a5de49ef0
+ms.sourcegitcommit: b326ad93120715e4965524e7d6618c1a7fecafb6
+ms.openlocfilehash: bd44fd21c6150eac882d03dc946f573e34f6ad7b
 
 
 ---
-# <a name="custom-script-extension-for-windows-virtual-machines"></a>Расширение Custom Script для виртуальных машин под управлением Windows
-В этой статье представлен обзор использования расширения пользовательских сценариев на виртуальных машинах Windows с помощью командлетов Azure PowerShell и интерфейсов API управления службами Azure.
 
-Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Расширение пользовательских сценариев для Windows с помощью классической модели развертывания
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Расширение пользовательских сценариев загружает и запускает сценарии на виртуальных машинах Azure. Это расширение можно использовать для настройки после развертывания, установки программного обеспечения и других задач настройки или управления. Сценарии можно скачать из службы хранилища Azure или GitHub или передать на портал Azure во время выполнения расширения. Расширение пользовательских сценариев интегрируется с шаблонами Azure Resource Manager, а также его можно запустить с помощью интерфейса командной строки Azure, PowerShell, портала Azure или API REST виртуальной машины Azure.
 
-## <a name="custom-script-extension-overview"></a>Общие сведения о расширении Custom Script
-С помощью расширения пользовательских сценариев для Windows можно выполнять сценарии PowerShell на удаленной виртуальной машине без выполнения входа. Сценарии можно выполнить после подготовки виртуальной машины к работе или в любое другое время в течение ее жизненного цикла без необходимости открывать на этой виртуальной машине какие-либо дополнительные порты. Обычно расширение пользовательских сценариев используется для установки и настройки дополнительного программного обеспечения на виртуальной машине после ее подготовки к работе.
+В этом документе объясняется, как использовать расширение пользовательских сценариев с помощью модуля Azure PowerShell и шаблонов Azure Resource Manager, а также подробно описываются действия по устранению неполадок в системах Windows.
 
-### <a name="prerequisites-for-running-the-custom-script-extension"></a>Предварительные требования к выполнению расширения пользовательских сценариев
-1. Установите <a href="http://azure.microsoft.com/downloads" target="_blank">командлеты Azure PowerShell</a> 0.8.0 или более поздней версии.
-2. Если вы хотите выполнять сценарии на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если он не установлен, выполните следующие [действия](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Если виртуальная машина создана на портале Azure, то на ней по умолчанию установлен агент виртуальной машины.
-3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
-4. Сценарий должен быть создан таким образом, чтобы запущенный с помощью расширения первый сценарий запускал остальные сценарии.
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="custom-script-extension-scenarios"></a>Сценарии использования расширения Custom Script
-### <a name="upload-files-to-the-default-container"></a>Передача файлов в контейнер по умолчанию
-В приведенном ниже примере показано, как выполнить сценарии на виртуальной машине, если они находятся в контейнере хранилища учетной записи подписки по умолчанию. Сценарии передаются в контейнер ContainerName. Учетную запись хранения по умолчанию можно проверить с помощью команды **Get-AzureSubscription –Default** .
+### <a name="operating-system"></a>Операционная система
 
-Приведенный ниже пример создает виртуальную машину, однако этот же сценарий может выполняться и на существующей виртуальной машине.
+Расширение пользовательских сценариев для Windows может выполняться для выпусков Windows Server 2008 R2, 2012, 2012 R2 и 2016.
 
-    # Create a new VM in Azure.
-    $vm = New-AzureVMConfig -Name $name -InstanceSize Small -ImageName $imagename
-    $vm = Add-AzureProvisioningConfig -VM $vm -Windows -AdminUsername $username -Password $password
-    // Add Custom Script extension to the VM. The container name refers to the storage container that contains the file.
-    $vm = Set-AzureVMCustomScriptExtension -VM $vm -ContainerName $container -FileName 'start.ps1'
-    New-AzureVM -ServiceName $servicename -Location $location -VMs $vm
-    #  After the VM is created, the extension downloads the script from the storage location and executes it on the VM.
+### <a name="script-location"></a>Расположение сценария
 
-    # Viewing the  script execution output.
-    $vm = Get-AzureVM -ServiceName $servicename -Name $name
-    # Use the position of the extension in the output as index.
-    $vm.ResourceExtensionStatusList[i].ExtensionSettingStatus.SubStatusList
+Сценарий нужно хранить в службе хранилища Azure или любом другом месте, к которому можно получить доступ по допустимому URL-адресу.
 
-### <a name="upload-files-to-a-non-default-storage-container"></a>Передача файлов в контейнеры хранилища, не являющиеся контейнерами по умолчанию
-В этом сценарии показано, как использовать контейнер хранилища, не используемый по умолчанию и расположенный в той же или другой подписке, для передачи сценариев и файлов. В примере показана существующая виртуальная машина, но все описанные действия можно выполнить и при создании виртуальной машины.
+### <a name="internet-connectivity"></a>Подключение к Интернету
 
-        Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
+Для расширения пользовательских сценариев для Windows требуется, чтобы целевая виртуальная машина была подключена к Интернету. 
 
-### <a name="upload-scripts-to-multiple-containers-across-different-storage-accounts"></a>Передача сценариев в несколько контейнеров в разных учетных записях хранения
-  Если файлы сценариев хранятся в нескольких контейнерах, то для их выполнения необходимо указать полные подписанные URL-адреса (SAS) этих файлов.
+## <a name="extension-schema"></a>Схема расширения
 
-      Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
+В следующем объекте JSON показана схема для расширения пользовательских сценариев. Для расширения требуется расположение сценария (служба хранилища Azure или другое расположение с допустимым URL-адресом) и команда, которую следует выполнить. При использовании службы хранилища Azure в качестве источника сценария требуется ключ и имя учетной записи хранения Azure. Эти элементы следует рассматривать в качестве конфиденциальных данных. Их нужно задать в защищенной конфигурации параметров расширений. Данные защищенных параметров расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине.
+
+```json
+{
+    "name": "config-app",
+    "type": "Microsoft.ClassicCompute/virtualMachines/extensions",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "2015-06-01",
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "extension": "CustomScriptExtension",
+        "version": "1.8",
+        "parameters": {
+            "public": {
+                "fileUris": "[myScriptLocation]"
+            },
+            "private": {
+                "commandToExecute": "[myExecutionString]"
+            }
+        }
+    }
+}
+```
+
+### <a name="property-values"></a>Значения свойств
+
+| Имя | Значение и пример |
+| ---- | ---- |
+| версия_API | 2015-06-15 |
+| publisher | Microsoft.Compute; |
+| Расширение | CustomScriptExtension |
+| typeHandlerVersion | 1.8 |
+| fileUris (пример) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
+| commandToExecute (пример) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
+
+## <a name="template-deployment"></a>Развертывание шаблона
+
+Расширения виртуальной машины Azure можно развернуть с помощью шаблонов Azure Resource Manager. Для запуска расширения пользовательских сценариев во время развертывания шаблона Azure Resource Manager в нем можно использовать схему JSON, описанную в предыдущем разделе. Пример шаблона, который содержит расширение пользовательских сценариев, можно найти на сайте [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+
+## <a name="powershell-deployment"></a>Развертывание с помощью PowerShell
+
+Выполнив команду `Set-AzureVMCustomScriptExtension`, расширение пользовательских сценариев можно добавить на существующую виртуальную машину. Дополнительные сведения см. в статье о [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+
+```powershell
+# create vm object
+$vm = Get-AzureVM -Name 2016clas -ServiceName 2016clas1313
+
+# set extension
+Set-AzureVMCustomScriptExtension -VM $vm -FileUri myFileUri -Run 'create-file.ps1'
+
+# update vm
+$vm | Update-AzureVM
+```
+
+## <a name="troubleshoot-and-support"></a>Устранение неполадок и поддержка
+
+### <a name="troubleshoot"></a>Устранение неполадок
+
+Данные о состоянии развертывания расширения можно получить на портале Azure, а также с помощью модуля Azure PowerShell. Чтобы просмотреть состояние развертывания расширений для определенной виртуальной машины, выполните следующую команду.
+
+```powershell
+Get-AzureVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
+
+Выходные данные выполнения расширения регистрируются в файле, расположенном в следующем каталоге на целевой виртуальной машине.
+
+```cmd
+C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
+```
+
+Сам сценарий скачивается в следующий каталог на целевой виртуальной машине.
+
+```cmd
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+```
+
+### <a name="support"></a>Поддержка
+
+Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт поддержки Azure](https://azure.microsoft.com/en-us/support/options/) и щелкните "Получить поддержку". Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
 
 
-### <a name="add-the-custom-script-extension-from-the-azure-portal"></a>Добавление расширения пользовательских сценариев с портала Azure
-Перейдите к виртуальной машине на <a href="https://portal.azure.com/ " target="_blank">портале Azure </a> и добавьте расширение, указав файл выполняемого сценария.
-
-  ![Указание файл сценария][5]
-
-### <a name="uninstall-the-custom-script-extension"></a>Удаление расширения пользовательских сценариев
-Чтобы удалить расширение пользовательских сценариев с виртуальной машины, выполните указанную ниже команду.
-
-      get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
-
-### <a name="use-the-custom-script-extension-with-templates"></a>Использование расширения пользовательских сценариев с шаблонами
-Дополнительные сведения об использовании расширения пользовательских сценариев для виртуальных машин Windows с шаблонами Azure Resource Manager см. [здесь](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-<!--Image references-->
-[5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
-
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

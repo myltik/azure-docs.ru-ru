@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Документация по Azure Key Vault. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как использовать хранилище ключей для создания и обслуживания ключей, используемых для доступа к облачным ресурсам, приложениям и решениям, а также их шифрованию. Руководства, справочники по API и другие документы."
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: ea6717f8c5e04883d2feb83537c1c1f96bec2287
+ms.openlocfilehash: 70a89aad208ae71d5c0aab462b6078dafa8efcfc
 
 ---
+
 # <a name="key-vault-documentation"></a>Документация по хранилищу ключей
 
 Узнайте, как использовать хранилище ключей для защиты и администрирования криптографических ключей и секретов, используемых облачными приложениями и службами. Руководства, справочники по API и другая документация, в которой показано, как создавать и обслуживать ключи, используемые для доступа к ресурсам и решениям, а также их шифрования.
@@ -154,6 +166,6 @@ ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

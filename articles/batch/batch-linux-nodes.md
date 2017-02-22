@@ -1,5 +1,5 @@
 ---
-title: "Узлы Linux в пулах пакетной службы Azure | Документация Майкрософт"
+title: "Подготовка вычислительных узлов Linux в пулах с помощью пакетной службы Azure | Документация Майкрософт"
 description: "Узнайте, как обрабатывать параллельные вычислительные рабочие нагрузки в пулах виртуальных машин Linux в пакетной службе Azure."
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: eb041d3ee7e097a05bcaeb57f170e26652fa5551
-ms.openlocfilehash: 251c454b0502746817ad5c97f1b3367eba98ac92
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 85aa18c7eab56c390dc9a9f7865a3468a43739f2
 
 
 ---
@@ -213,15 +213,15 @@ ImageReference imageReference = new ImageReference(
 
 | **Издатель** | **ПРЕДЛОЖЕНИЕ** | **Номер SKU образа** | **Версия** | **Идентификатор SKU агента узла** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | последних | batch.node.ubuntu 14.04; |
+| Canonical | UbuntuServer | 14.04.5-LTS | последних | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 16.04.0-LTS | последних | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | последних | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | последних | batch.node.centos 7; |
-| OpenLogic | CentOS | 7.1. | последних | batch.node.centos 7; |
-| OpenLogic | CentOS-HPC | 7.1. | последних | batch.node.centos 7; |
-| OpenLogic | CentOS | 7,2 | последних | batch.node.centos 7; |
-| Oracle | Oracle-Linux | 7.0 | последних | batch.node.centos 7; |
-| Oracle | Oracle-Linux | 7,2 | последних | batch.node.centos 7; |
+| OpenLogic | CentOS | 7.0 | последних | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1. | последних | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1. | последних | batch.node.centos 7 |
+| OpenLogic | CentOS | 7,2 | последних | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | последних | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7,2 | последних | batch.node.centos 7 |
 | SUSE | openSUSE | 13.2 | последних | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42.1 | последних | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | последних | batch.node.opensuse 42.1 |
@@ -351,6 +351,6 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

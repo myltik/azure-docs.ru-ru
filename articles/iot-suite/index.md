@@ -1,10 +1,23 @@
 ---
+title: "Документация по Azure IoT Suite. Руководства и справочник по API | Документация Майкрософт"
+description: 
+services: iot-suite
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: iot-suite
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
+ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
+ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
 
 ---
+
 # <a name="iot-suite-documentation"></a>Документация по IoT Suite
 
 Быстрое начало работы с Microsoft Azure IoT Suite. Используйте решения с предварительно заданными параметрами и ускорьте разработку вашего решения для Интернета вещей. Добавляйте устройства и подключайте существующие устройства с помощью пакетов SDK для разных платформ, включая Linux, Windows и операционные системы, работающие в режиме реального времени. Легко масштабируйте систему &mdash; от нескольких датчиков до миллионов одновременно подключенных устройств — и будьте уверены в глобальной доступности Azure независимо от объема вашего проекта.
@@ -91,6 +104,6 @@ ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

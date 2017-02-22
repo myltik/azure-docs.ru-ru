@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
+ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
 
 
 ---
@@ -33,6 +33,7 @@ ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Подключение к Azure HDInsight
+
 Необходимо установить следующие пакеты Nuget:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -79,10 +80,6 @@ ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
             /// <summary>
             /// Authenticate to an Azure subscription and retrieve an authentication token
             /// </summary>
-            /// <param name="TenantId">The AAD tenant ID</param>
-            /// <param name="ClientId">The AAD client ID</param>
-            /// <param name="SubscriptionId">The Azure subscription ID</param>
-            /// <returns></returns>
             static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
@@ -167,14 +164,14 @@ ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
     
     В кластере HDInsight доступен веб-интерфейс Storm.
     
-    ![hdinsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight, Storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Перенастройте топологию mytopology с учетом 5 рабочих процессов,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>3 исполнителей для воронки blue-spout и
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>10 исполнителей для сита yellow-bolt.
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 В следующем фрагменте кода показано синхронное или асинхронное изменение размера кластера:
 
@@ -217,7 +214,7 @@ ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
 > 
 > 
 
-Это также можно сделать через портал. Дополнительные сведения см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal].
+Это также можно сделать через портал. Ознакомьтесь с разделом [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Обновление учетных данных пользователя HTTP
 Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его.  После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
@@ -254,14 +251,14 @@ ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
 См. статью [Использование Oozie с Hadoop для определения и выполнения рабочего процесса в HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Отправка данных в хранилище BLOB-объектов Azure
-См. статью [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data].
+Ознакомьтесь со статьей [Отправка данных в HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>См. также
 * [Справочная документация к пакету SDK для HDInsight .NET](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal]
-* [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure][hdinsight-admin-cli]
-* [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision]
-* [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data]
+* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Администрирование HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
+* [Создание кластеров Hadoop в HDInsight][hdinsight-provision]
+* [Отправка данных в HDInsight][hdinsight-upload-data]
 * [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -285,6 +282,6 @@ ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

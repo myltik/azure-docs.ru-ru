@@ -1,5 +1,5 @@
 ---
-title: "Руководство по преобразованию рабочих ролей и веб-ролей в службы без отслеживания состояния Service Fabric | Документация Майкрософт"
+title: "Преобразование приложений облачных служб Azure в микрослужбы | Документация Майкрософт"
 description: "В этом руководстве веб-роли и рабочие роли облачных служб сравниваются со службами без отслеживания состояния Service Fabric в плане переноса из облачных служб на платформу Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
 ## <a name="web-role-to-stateless-service"></a>Преобразование веб-роли в службу без отслеживания состояния
 Как и рабочая роль, веб-роль тоже является рабочей нагрузкой без отслеживания состояния. Поэтому и ее можно сопоставить со службой без отслеживания состояния Service Fabric. В отличие от веб-ролей, платформа Service Fabric не поддерживает IIS. Чтобы перенести веб-приложение из веб-роли в службу без отслеживания состояния, сначала следует переместить автономно размещаемую веб-платформу, которая не зависит от IIS или System.Web (например, ASP.NET Core 1).
 
-| **Приложения ** | **Поддерживаются** | **Путь перехода** |
+| **Приложения** | **Поддерживаются** | **Путь перехода** |
 | --- | --- | --- |
 | Веб-формы ASP.NET |Нет |Преобразование в ASP.NET Core 1 MVC |
 | ASP.NET MVC 3 |С переносом |Обновление до ASP.NET Core 1 MVC |
@@ -263,6 +263,6 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

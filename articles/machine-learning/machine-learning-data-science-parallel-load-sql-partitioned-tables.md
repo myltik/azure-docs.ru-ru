@@ -1,5 +1,5 @@
 ---
-title: "Параллельный массовый импорт данных с использованием таблиц секционирования SQL | Документация Майкрософт"
+title: "Создание и оптимизация таблиц для быстрого параллельного импорта данных в SQL Server на виртуальной машине Azure | Документация Майкрософт"
 description: "Параллельный массовый импорт данных с использованием таблиц секционирования SQL"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
-ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
 
 
 ---
@@ -24,10 +24,8 @@ ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 В этом документе описывается создание секционированных таблиц для быстрого параллельного массового импорта данных в Базу данных SQL Server. При загрузке и передаче больших данных в базу данных SQL с помощью *секционированных таблиц и представлений* можно оптимизировать импорт информации в эту базу, а также выполнение последующих запросов. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Создание новой базы данных и набора групп файлов
-* [Создайте базу данных](https://technet.microsoft.com/library/ms176061.aspx) (если она еще не существует).
-* Добавьте группы файлов базы данных в базу данных, которая будет содержать секционированные физические файлы.
-  
-  Это можно сделать с помощью команды [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (при создании базы) или команды [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (если база данных уже существует).
+* [Создайте базу данных](https://technet.microsoft.com/library/ms176061.aspx), если она еще не существует.
+* Добавьте группы файлов базы данных в базу данных, которая будет содержать секционированные физические файлы. Это можно сделать с помощью команды [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (при создании базы) или команды [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (если база данных уже существует).
 * При необходимости добавьте один или несколько файлов в каждую группу файлов базы данных.
   
   > [!NOTE]
@@ -185,6 +183,6 @@ ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

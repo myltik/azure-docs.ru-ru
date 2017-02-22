@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: dbc03f9951a5a76da98f4e3097c16cf373aaf146
-ms.openlocfilehash: b3fc83b83655f270be6bad08a99a99503aa14042
+ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
+ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 
 ---
@@ -131,7 +131,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 Получив шаблон для кластера, который вы хотите развернуть (из коллекции примеров или создав шаблон Resource Manager), вы можете включить в нем обратный прокси-сервера, выполнив следующие действия.
 
-1. Определите порт обратного прокси-сервера в разделе [Parameters](../resource-group-authoring-templates.md) шаблона.
+1. Определите порт обратного прокси-сервера в разделе [Parameters](../azure-resource-manager/resource-group-authoring-templates.md) шаблона.
    
     ```json
     "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         }
     },
     ```
-2. Укажите порт для каждого типа узлов в **разделе типов ресурсов** [Cluster](../resource-group-authoring-templates.md)
+2. Укажите порт для каждого типа узлов в **разделе типов ресурсов** [Cluster](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Порт для apiVersion версии до 2016-09-01 идентифицируется по имени параметра ***httpApplicationGatewayEndpointPort***.
    
@@ -229,7 +229,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         ]
     }
     ```
-4. Чтобы настроить SSL-сертификаты для порта обратного прокси-сервера, добавьте сертификат в свойство httpApplicationGatewayCertificate. Это свойство можно найти в разделе **типов ресурсов** в подразделе [Cluster](../resource-group-authoring-templates.md).
+4. Чтобы настроить SSL-сертификаты для порта обратного прокси-сервера, добавьте сертификат в свойство httpApplicationGatewayCertificate. Это свойство можно найти в разделе **типов ресурсов** в подразделе [Cluster](../azure-resource-manager/resource-group-authoring-templates.md).
    
     Сертификат для apiVersion версии до 2016-09-01 идентифицируется по имени параметра ***httpApplicationGatewayCertificate***.
    
@@ -287,6 +287,6 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

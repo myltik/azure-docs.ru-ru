@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: v-shysun
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a175572bf541f0be3936ad8934f52ea6b90dfa1
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 5b717afe388d9ad6d4d37fa07d351e55ac8dbbb8
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 1a175572bf541f0be3936ad8934f52ea6b90dfa1
 В этой статье вы найдете инструкции по быстрому предоставлению и отмене доступа к базе данных SQL Azure. Более подробную информацию см. в следующих статьях:
 
 * [Управление базами данных и именами входа в Базе данных SQL Azure](sql-database-manage-logins.md)
-* [Защита базы данных SQL](sql-database-security.md)
+* [Защита базы данных SQL](sql-database-security-overview.md)
 * [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -49,6 +49,6 @@ ms.openlocfilehash: 1a175572bf541f0be3936ad8934f52ea6b90dfa1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9a739af2c9f6adaec58bfd7b339c370fae113641
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 6b7c73576e09af3d1b3c886efa88044846e91494
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: 9a739af2c9f6adaec58bfd7b339c370fae113641
 > 
 > 
 
-Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../app-service-logic/app-service-logic-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../logic-apps/logic-apps-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Подключение к хранилищу BLOB-объектов Azure
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к учетной записи хранения, сначала нужно создать *подключение* к хранилищу BLOB-объектов. Для этого введите учетные данные, которые используются для доступа к требуемой службе. Точно так же, чтобы создать подключение к службе хранилища Azure, используйте данные учетной записи хранения. 
@@ -47,7 +47,7 @@ ms.openlocfilehash: 9a739af2c9f6adaec58bfd7b339c370fae113641
 > 
 
 ## <a name="use-a-trigger"></a>Использование триггера
-Этот соединитель не содержит триггеров. Чтобы запустить приложение логики, используйте другие триггеры, например триггер повторения, триггер веб-перехватчика HTTP, триггеры, доступные для других соединителей, и другие. Пример см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Этот соединитель не содержит триггеров. Чтобы запустить приложение логики, используйте другие триггеры, например триггер повторения, триггер веб-перехватчика HTTP, триггеры, доступные для других соединителей, и другие. Пример см. в статье о [создании приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-an-action"></a>Использование действий
 Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики.
@@ -107,10 +107,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -133,10 +133,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -170,10 +170,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -221,10 +221,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -248,10 +248,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -275,10 +275,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -301,11 +301,11 @@ BlobMetadata
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
+[Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

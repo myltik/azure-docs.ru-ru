@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
 ## <a name="prerequisites"></a>Предварительные требования
 Для начала работы с Центром безопасности необходима подписка Microsoft Azure. Уровень "Бесплатный" центра безопасности включен в вашей подписке. Дополнительные сведения об уровнях "Бесплатный" и "Стандартный" центра безопасности см. в разделе [Центр безопасности — цены](https://azure.microsoft.com/pricing/details/security-center/).
 
-Центр безопасности поддерживает доступ на основе ролей. Дополнительные сведения об управлении доступом на основе ролей (RBAC) в Azure см. в статье [Контроль доступа на основе ролей в Azure Active Directory](../active-directory/role-based-access-control-configure.md). Вопросы и ответы по центру безопасности позволят узнать об [управлении разрешениями в центре безопасности](security-center-faq.md#how-are-permissions-handled-in-azure-security-center).
+Центр безопасности поддерживает доступ на основе ролей. Дополнительные сведения об управлении доступом на основе ролей (RBAC) в Azure см. в статье [Контроль доступа на основе ролей в Azure Active Directory](../active-directory/role-based-access-control-configure.md). Вопросы и ответы по центру безопасности позволят узнать об [управлении разрешениями в центре безопасности](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Доступ к Центру безопасности
 Доступ к Центру безопасности осуществляется через [портал Azure](https://azure.microsoft.com/features/azure-portal/). [Войдите портал](https://portal.azure.com/) и выберите **Центр безопасности**.
@@ -118,6 +118,6 @@ ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

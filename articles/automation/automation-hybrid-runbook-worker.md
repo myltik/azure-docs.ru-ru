@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/12/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: f8d515c6a8b1332ccb338cb5ec2c16daa5725281
-ms.openlocfilehash: c8bdd686deff888c9029b88ceeb32c147398eca2
+ms.sourcegitcommit: 4b7912b48ef37eac3148582d1d635d8a4c4a4b44
+ms.openlocfilehash: 8ee5dfea961984bd01a24815b9d3c94f486a57d7
 
 
 ---
@@ -32,8 +32,8 @@ ms.openlocfilehash: c8bdd686deff888c9029b88ceeb32c147398eca2
 Для поддержки гибридных компонентов Runbook Worker отсутствуют требования к брандмауэру для входящих подключений. Агент на локальном компьютере инициирует весь обмен данными со службой автоматизации Azure в облаке. При запуске модуля Runbook служба автоматизации Azure создает инструкцию, которая извлекается агентом. После этого агент извлекает модуль Runbook и все сопутствующие параметры, применяемые перед запуском модуля.  Кроме того, из службы автоматизации Azure извлекаются все [средства](http://msdn.microsoft.com/library/dn939988.aspx) , которые используются в модуле Runbook.
 
 > [!NOTE]
-> В настоящее время гибридные рабочие роли Runbook не поддерживают [конфигурации DSC](automation-dsc-overview.md), примененные к компьютеру, на котором размещается эта роль.
-><br><br>
+> Для управления конфигурацией серверов, поддерживающих гибридную рабочую роль Runbook с настройкой требуемого состояния (DSC), необходимо добавить их в качестве узлов DSC.  Дополнительные сведения о развертывании этих узлов для управления с помощью DSC см. в статье [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md).           
+><br>
 >В настоящее время при включении [решения для управления обновлениями](../operations-management-suite/oms-solution-update-management.md) любой компьютер Windows, подключенный к рабочей области OMS, будет автоматически настроен в качестве гибридной рабочей роли Runbook для поддержки модулей Runbook, которые входят в это решение.  Однако оно не зарегистрировано в группах гибридных рабочих ролей, созданных в учетной записи автоматизации, и его невозможно добавить в группу гибридных рабочих ролей для выполнения собственных модулей Runbook.  Если компьютер Windows уже выделен в качестве гибридной рабочей роли Runbook и подключен к рабочей области OMS, прежде чем добавлять решение, его понадобится удалить из рабочей области OMS во избежание сбоя в работе модулей Runbook.  
 
 
@@ -136,7 +136,7 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 Откройте сеанс PowerShell с правами администратора и импортируйте модуль, выполнив указанные ниже команды.
 
     cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-    Import-Module .\HybridRegistration.psd1
+    Import-Module HybridRegistration.psd1
 
 После этого запустите командлет **Add-HybridRunbookWorker** , используя следующий синтаксис:
 
@@ -246,11 +246,11 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 * Служба автоматизации Azure обладает дополнительными функциями, такими как создание графических модулей Runbook, которые недоступны в SMA.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения о разных методах запуска модуля см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
+* Дополнительные сведения о разных методах запуска модуля см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).  
 * Описание разных методов работы с модулями Runbook PowerShell и рабочими процессами PowerShell в службе автоматизации Azure с использованием текстового редактора см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

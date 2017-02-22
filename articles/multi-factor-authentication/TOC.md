@@ -6,7 +6,7 @@
 ## [Выбор расположения для развертывания](multi-factor-authentication-get-started.md)
 ## [Многофакторная идентификация (MFA) в облаке](multi-factor-authentication-get-started-cloud.md)
 ## [Локальная Многофакторная идентификация (MFA)](multi-factor-authentication-get-started-server.md)
-## [Многофакторная идентификация (MFA) для пользователей Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [Многофакторная идентификация (MFA) для пользователей Office&365;](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 ## [Рекомендации по обеспечению безопасности](multi-factor-authentication-security-best-practices.md)
 
 # Практическое руководство
@@ -14,6 +14,7 @@
 ### [Создание поставщика аутентификации](multi-factor-authentication-get-started-auth-provider.md)
 ### [Настройка параметров](multi-factor-authentication-whats-next.md)
 ### [Отчеты в MFA](multi-factor-authentication-manage-reports.md)
+### [Использование существующих серверов политики сети](multi-factor-authentication-nps-extension.md)
 ### Локальная Многофакторная идентификация (MFA) Azure
 #### [Установка портала пользователей](multi-factor-authentication-get-started-portal.md)
 #### [Расширенные конфигурации VPN](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [Веб-приложения IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Шлюз удаленных рабочих столов](multi-factor-authentication-get-started-server-rdg.md)
 
-## Разработка 
+## Разработка
 ### [Создание пользовательских приложений (пакет SDK)](multi-factor-authentication-sdk.md)
 
 ## Устранение неполадок
@@ -46,6 +47,6 @@
 ### [Задать вопрос](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

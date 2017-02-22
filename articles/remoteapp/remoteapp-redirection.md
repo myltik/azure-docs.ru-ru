@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
 * USB-перенаправление — вы можете использовать USB-устройства, подключенные к локальному компьютеру, в удаленном сеансе.
 
 ## <a name="change-your-redirection-settings-in-remoteapp"></a>Изменение настроек перенаправления в удаленном приложении RemoteApp
-Вы можете изменить настройки перенаправления устройств для коллекции с помощью Microsoft Azure PowerShell с пакетом SDK. После установки новой среды PowerShell с пакетом SDK настройте ее для управления подпиской, как описано в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Вы можете изменить настройки перенаправления устройств для коллекции с помощью Microsoft Azure PowerShell с пакетом SDK. После установки новой среды PowerShell с пакетом SDK настройте ее для управления подпиской, как описано в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Затем используйте команду, похожую на эту, чтобы настроить свойства протокола удаленного рабочего стола:
 
@@ -119,6 +119,6 @@ ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Непрерывная интеграция и развертывание многоконтейнерных приложений с помощью Docker в службе контейнеров Azure | Microsoft Docs"
+title: "Непрерывные интеграция и доставка с использованием Службы контейнеров Azure и DC/OS | Документация Майкрософт"
 description: "Полная автоматизация создания и развертывания многоконтейнерного приложения с помощью Docker в кластере службы контейнеров Azure под управлением DC/OS."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 71fdc7b13fd3b42b136b4907c3d747887fde1a19
-ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
+ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
+ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
 
 
 ---
@@ -47,15 +47,18 @@ ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
 ## <a name="create-an-azure-container-service-cluster-configured-with-dcos"></a>Создание кластера DC/OS, настроенного в службе контейнеров Azure
 
 >[!IMPORTANT]
-> Чтобы создать защищенный кластер, передайте файл с открытым ключом SSH для передачи при вызове `az acs create`. Вы также можете создать ключи с помощью интерфейса командной строки Azure 2.0 и передать их, используя параметр `--generate-ssh-keys`. Или вы можете указать путь к ключам с помощью параметра `--ssh-key-value` (расположение по умолчанию в Linux `~/.ssh/id_rsa.pub` и Windows `%HOMEPATH%\.ssh\id_rsa.pub`, которое можно изменить). Чтобы создать открытый и закрытый ключ SSH в Linux, см. инструкции в статье [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). Чтобы создать открытый и закрытый ключ SSH в Windows, см. инструкции в статье [Использование SSH с Windows в Azure](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Чтобы создать защищенный кластер, передайте файл с открытым ключом SSH для передачи при вызове `az acs create`. Вы также можете создать ключи с помощью интерфейса командной строки Azure 2.0 и передать их, используя параметр `--generate-ssh-keys`. Или вы можете указать путь к ключам с помощью параметра `--ssh-key-value` (расположение по умолчанию в Linux `~/.ssh/id_rsa.pub` и Windows `%HOMEPATH%\.ssh\id_rsa.pub`, которое можно изменить).
+<!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
+> Чтобы создать открытый и закрытый ключ SSH в Linux, см. инструкции в статье [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Чтобы создать открытый и закрытый ключ SSH в Windows, см. инструкции в статье [Использование SSH с Windows в Azure](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. Сначала введите команду [az login](/cli/azure/#login) в окно терминала, чтобы войти в подписку Azure с помощью интерфейса командной строки Azure: 
 
     `az login`
 
-1. Выполнив команду [az resource group create](/cli/azure/resource/group#create), создайте группу ресурсов, в которой будет расположен кластер:
+1. Выполнив команду [az group create](/cli/azure/group#create), создайте группу ресурсов, в которой будет расположен кластер.
     
-    `az resource group create --name myacs-rg --location westus`
+    `az group create --name myacs-rg --location westus`
 
     Может потребоваться указать ближайший к вам [регион центра обработки данных Azure](https://azure.microsoft.com/regions). 
 
@@ -325,26 +328,26 @@ az container release list --resource-name myacs --resource-group myacs-rg
 1. Найдите группу ресурсов, которая содержит ваш кластер ACS.
 1. Откройте колонку группы ресурсов и выберите **Удалить** на панели команд колонки.
 
-Удаление реестра контейнеров Azure
-1. На портале Azure найдите реестр контейнеров Azure и удалите его. 
+Удалите реестр контейнеров Azure: на портале Azure найдите реестр контейнеров Azure и удалите его. 
 
 [Учетная запись Visual Studio Team Services предоставляет базовый уровень доступа бесплатно для первых пяти пользователей](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), но вы можете удалить определения сборки и выпуска.
-1. Удаление определения сборки VSTS
+
+Удаление определения сборки VSTS
         
-    * Откройте в браузере URL-адрес определения сборки, затем выберите ссылку **Определения сборок** (рядом с именем определения сборки, которая открыта в данный момент).
-    * Щелкните меню действий рядом с определением сборки, которое необходимо удалить, и выберите **Удалить определение**
+1. Откройте в браузере URL-адрес определения сборки, затем выберите ссылку **Определения сборок** (рядом с именем определения сборки, которая открыта в данный момент).
+2. Щелкните меню действий рядом с определением сборки, которое необходимо удалить, и выберите **Удалить определение**
 
-    ![Удаление определения сборки VSTS](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![Удаление определения сборки VSTS](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. Удаление определения выпуска VSTS
+Удаление определения выпуска VSTS
 
-    * Откройте в браузере URL-адрес определения выпуска.
-    * В списке определений выпуска в на панели слева щелкните раскрывающийся список рядом с определением выпуска, которое требуется удалить, и выберите **Удалить**.
+1. Откройте в браузере URL-адрес определения выпуска.
+2. В списке определений выпуска в на панели слева щелкните раскрывающийся список рядом с определением выпуска, которое требуется удалить, и выберите **Удалить**.
 
-    ![Удаление определения выпуска VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
+`![Удаление определения выпуска VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

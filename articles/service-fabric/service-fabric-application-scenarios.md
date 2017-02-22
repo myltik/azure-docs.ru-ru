@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: ef4d5bb9b8b25d940aca26117d759a4152639730
-ms.openlocfilehash: bc8009e0ba0b604c995ce24f883eb03d586d667b
+ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
+ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
 
 
 ---
@@ -52,6 +52,8 @@ Azure Service Fabric — это надежная и гибкая платфор
 ## <a name="next-steps"></a>Дальнейшие действия
 * Начните создавать службы с отслеживанием состояния и без него, используя модели программирования [Reliable Services](service-fabric-reliable-services-quick-start.md) и [Reliable Actors](service-fabric-reliable-actors-get-started.md), включенные в Service Fabric.
 * Дополнительные сведения о [шаблонах и сценариях](service-fabric-patterns-and-scenarios.md).
+* Изучите [примеры реальных клиентов](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+).
 * Также ознакомьтесь со следующими темами:
   * [Расскажите мне о микрослужбах](service-fabric-overview-microservices.md)
   * [Определение состояния службы и управление им](service-fabric-concepts-state.md)
@@ -64,6 +66,6 @@ Azure Service Fabric — это надежная и гибкая платфор
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

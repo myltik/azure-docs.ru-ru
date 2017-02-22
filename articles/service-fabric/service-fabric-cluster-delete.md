@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 12/09/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: badaba3fa8bfe458ff5efc6b618781e9fa2183d5
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: e73334373e9909069641cd4ad2c3280e51b5e2db
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: badaba3fa8bfe458ff5efc6b618781e9fa2183d5
 Это самый простой способ, который гарантирует удаление всех ресурсов, связанных с кластером, включая группу ресурсов. Группу ресурсов можно удалить с помощью PowerShell или через портал Azure. Если выбранная группа ресурсов содержит ресурсы, которые не относятся к кластеру Service Fabric, можно удалить отдельные ресурсы.
 
 ### <a name="delete-the-resource-group-using-azure-powershell"></a>Удаление группы ресурсов с помощью Azure PowerShell
-Группу ресурсов также можно удалить, выполнив следующие командлеты Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, выполните инструкции в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md)
+Группу ресурсов также можно удалить, выполнив следующие командлеты Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, выполните инструкции в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Откройте PowerShell и выполните следующие командлеты PowerShell:
 
@@ -77,7 +77,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
     ![Ресурсы с тегами][TaggedResources]
 
 ### <a name="delete-the-resources-using-azure-powershell"></a>Удаление ресурсов с помощью Azure PowerShell
-Отдельные ресурсы также можно удалить, выполнив следующие командлеты Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, выполните инструкции в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md)
+Отдельные ресурсы также можно удалить, выполнив следующие командлеты Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, выполните инструкции в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Откройте PowerShell и выполните следующие командлеты PowerShell:
 
@@ -111,6 +111,6 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

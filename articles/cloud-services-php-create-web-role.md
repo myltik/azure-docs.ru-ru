@@ -1,5 +1,5 @@
 ---
-title: "Веб-роли и рабочие роли PHP | Документация Майкрософт"
+title: "Создание веб-ролей и рабочих ролей Azure для PHP | Документация Майкрософт"
 description: "Руководство по настройке среды выполнения PHP и созданию веб-ролей и рабочих ролей PHP в облачной службе Azure."
 services: 
 documentationcenter: php
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: d3fc1370751065eb954abe249017ef204038bd07
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: b6b802092165926cdfeab67849df26167ad96ebf
 
 
 ---
@@ -216,6 +216,6 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

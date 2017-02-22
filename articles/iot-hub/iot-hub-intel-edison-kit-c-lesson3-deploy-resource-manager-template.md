@@ -1,5 +1,5 @@
 ---
-title: "Создание приложения-функции Azure и учетной записи хранения | Документация Майкрософт"
+title: "Подключение Intel Edison (C) к Интернету вещей Azure. Урок 3. Создание приложения-функции | Документация Майкрософт"
 description: "Приложение-функция Azure ожидает передачи событий Центра Интернета вещей Azure, обрабатывает входящие сообщения и записывает их в хранилище таблиц Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 95a0e124c166edb324e68026239b4fda4929bac3
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 2c2f540a0000851fc5ea50ef28f559d19fc8357f
 
 
 ---
@@ -84,6 +84,6 @@ az group deployment create --template-file arm-template.json --parameters @arm-t
 [send-device-to-cloud-messages]: iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

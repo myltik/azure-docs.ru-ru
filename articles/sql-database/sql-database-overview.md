@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о базе данных SQL Azure | Документация Майкрософт"
-description: "Здесь содержатся общие сведения о базах данных SQL Azure."
+title: "Сведения о базе данных SQL Azure | Документация Майкрософт"
+description: "В статье представлены общие сведения о базах данных SQL Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -10,14 +10,14 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: single databases
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
+ms.sourcegitcommit: 06639080dec485395d6821c371a4f792c7c02845
+ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 - **Брандмауэр базы данных SQL.** Для защиты данных брандмауэр базы данных SQL запрещает любой доступ к серверу базы данных или базам данных, пока не будут указаны компьютеры, которые имеют разрешение. Дополнительные сведения см. в статье о [брандмауэрах](sql-database-firewall-configure.md).
 
 ## <a name="what-collations-are-supported"></a>Поддерживаемые параметры сортировки
-Параметры сортировки базы данных по умолчанию, используемые базой данных SQL Microsoft Azure, — это **SQL_LATIN1_GENERAL_CP1_CI_AS**, где **LATIN1_GENERAL** — английский язык (США), **CP1** — кодовая страница 1252, **CI** выполняется без учета регистра, а **AS** означает, что учитываются диакритические знаки. Нельзя изменить параметры сортировки для баз данных версии 12. Дополнительные сведения о настройке параметров сортировки см. в статье [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+Параметры сортировки базы данных по умолчанию, используемые базой данных SQL Microsoft Azure, — это **SQL_LATIN1_GENERAL_CP1_CI_AS**, где **LATIN1_GENERAL** — английский язык (США), **CP1** — кодовая страница 1252, **CI** выполняется без учета регистра, а **AS** означает, что учитываются диакритические знаки. Нельзя изменить параметры сортировки для баз данных версии&12;. Дополнительные сведения о настройке параметров сортировки см. в статье [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Требования к именованию объектов базы данных
 
@@ -71,6 +71,6 @@ ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

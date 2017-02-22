@@ -45,7 +45,7 @@
 ## [Разработка с помощью Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Справочные материалы
-## [Командлеты PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Ресурсы 
@@ -54,6 +54,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

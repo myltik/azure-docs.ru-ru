@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
 
 
 ---
@@ -59,7 +59,7 @@ ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
 Сведения об изменениях этих ограничений будут публиковаться на [этой странице](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>Создание виртуальной машины Windows с повышением производительности сети
-1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) .
+1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Чтобы зарегистрироваться для получения предварительной версии, отправьте сообщение электронной почты с темой [Подписка на повышение производительности сети](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) , указав идентификатор подписки и описание предполагаемого использования. Не выполняйте оставшиеся действия до тех пор, пока не получите уведомление о возможности использовать предварительную версию.
 3. Зарегистрируйте функцию с помощью своей подписки, используя следующие команды:
    
@@ -129,6 +129,6 @@ ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

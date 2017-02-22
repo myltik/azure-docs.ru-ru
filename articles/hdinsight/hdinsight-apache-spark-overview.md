@@ -1,5 +1,5 @@
 ---
-title: "Обзор Apache Spark в HDInsight | Документация Майкрософт"
+title: "Обзор возможностей Apache Spark в Azure HDInsight | Документация Майкрософт"
 description: "Общие сведения о Spark в HDInsight и сценарии использования Spark в HDInsight в приложениях."
 services: hdinsight
 documentationcenter: 
@@ -16,22 +16,23 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
-ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
 
 
 ---
-# <a name="overview-apache-spark-on-hdinsight-linux"></a>Обзор. Apache Spark в HDInsight на платформе Linux
+# <a name="overview-apache-spark-on-hdinsight"></a>Обзор. Apache Spark в HDInsight
+
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> — это платформа параллельной обработки с открытым исходным кодом, которая поддерживает обработку в памяти, чтобы повысить производительность приложений для анализа данных большого размера. Подсистема обработки Spark призвана ускорить разработку, повысить удобство использования и реализовать сложную аналитику. Возможности вычисления в памяти Spark отлично подходят для итеративных алгоритмов в машинном обучении и графовых вычислениях. Spark также совместима с хранилищем больших двоичных объектов Azure (WASB), поэтому существующие данные, хранящиеся в Azure, можно с легкостью обрабатывать с помощью Spark.
 
 При создании кластера Spark в HDInsight создание вычислительных ресурсов Azure следует выполнять после установки и настройки Spark. Создание кластера Spark в HDInsight не займет больше десяти минут. Данные для обработки находятся в хранилище больших двоичных объектов Azure. Ознакомьтесь со статьей [Использование хранилище BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
 ![Apache Spark в Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark в Azure HDInsight")
 
-**Хотите начать работу с Apache Spark в Azure HDInsight?** Ознакомьтесь с [кратким руководством по созданию кластера Spark в HDInsight в Linux и запуску примеров приложений с помощью Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+**Хотите начать работу с Apache Spark в Azure HDInsight?** См. [краткое руководство по созданию кластера Spark в HDInsight в Linux и запуску примеров приложений с помощью Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> Список известных проблем и ограничения в текущем выпуске см. в статье, посвященной [известным проблемам Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+> См. [список известных проблем и ограничений Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 > 
 > 
 
@@ -115,6 +116,6 @@ Spark в HDInsight, кроме того, включает [драйвер ODBC](
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

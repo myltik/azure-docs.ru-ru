@@ -1,6 +1,6 @@
 ---
-title: "Рекомендации по обеспечению безопасности Интернета вещей | Документация Майкрософт"
-description: "Рекомендации по обеспечению безопасности инфраструктуры IoT"
+title: "Рекомендации по обеспечению безопасности Интернета вещей Azure | Документация Майкрософт"
+description: "Рекомендации по обеспечению безопасности инфраструктуры Интернета вещей. Содержит рекомендации для разработчиков решений, специалистов по развертыванию и операторов решений."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: b5c3257f6e2134a3e7e7eb9b4a12b95ebb70535e
 
 
 ---
@@ -39,6 +39,6 @@ ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

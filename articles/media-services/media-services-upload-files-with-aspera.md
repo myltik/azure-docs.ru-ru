@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/30/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: fc04923c6a6b4b870011a82fcd9688ca8e0c8a7e
-ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
+ms.sourcegitcommit: ff87afae1b468bef77947edd9806d330047f2ba6
+ms.openlocfilehash: 3b167db06ee30f7c3483eca30782437c61f8dcc8
 
 
 ---
@@ -119,9 +119,7 @@ ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь можно закодировать отправленные ресурсы. Дополнительную информацию см. в статье, посвященной [кодированию ресурсов](media-services-portal-encode.md).
-
-Можно также использовать функции Azure для запуска задания кодирования на основе файла, поступающего в настроенный контейнер. Дополнительные сведения см. в [этом примере](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ). 
+Теперь вы можете [копировать большие двоичные объекты из учетной записи хранения в учетную запись AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -132,6 +130,6 @@ ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

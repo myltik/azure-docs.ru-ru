@@ -1,6 +1,6 @@
 ---
-title: "Набор веб-служб нормального распределения | Документация Майкрософт"
-description: "Набор веб-служб нормального распределения"
+title: "Набор веб-служб нормального распределения Azure (устаревшая версия) | Документация Майкрософт"
+description: "Сведения о наборе веб-служб нормального распределения (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cd4f532d69f9380ac96675d403dbad1c83e89636
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: da7b70171d13c82e9269064069e69a35b9b2daaa
 
 
 ---
-# <a name="normal-distribution-suite"></a>Набор нормального распределения
+# <a name="deprecated-normal-distribution-suite"></a>Набор нормального распределения (устаревшая версия)
+
+> [!NOTE]
+> Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
+> 
+> Много полезных примеров экспериментов и API можно найти в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Дополнительные сведения о коллекции см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Набор веб-служб нормального распределения состоит из трех веб-служб ([Генератор](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Калькулятор квантилей](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Калькулятор вероятностей](https://datamarket.azure.com/dataset/aml_labs/ndp5)), предназначенных для создания нормальных распределений и работы с ними. С их помощью можно создать нормальное распределение любой длины, рассчитать квантили для любой заданной вероятности, а также вероятность — для заданного квантиля. Каждая служба выдает собственный набор выходных данных (см. описание ниже). В основе набора веб-служб нормального распределения лежит использование функций qnorm, rnorm и pnorm, которые входят в пакет статистических функций на языке R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,6 +276,6 @@ ms.openlocfilehash: cd4f532d69f9380ac96675d403dbad1c83e89636
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

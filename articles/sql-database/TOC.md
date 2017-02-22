@@ -6,12 +6,6 @@
 ### [Ограничения ресурсов](sql-database-resource-limits.md)
 ### [Функции](sql-database-features.md)
 ### [Часто задаваемые вопросы о базе данных SQL](sql-database-faq.md)
-## Преимущества
-### [Обучение и адаптация](sql-database-learn-and-adapt.md)
-### [Масштабирование "на лету"](sql-database-scale-on-the-fly.md)
-### [Создание мультитенантных приложений](sql-database-build-multi-tenant-apps.md)
-### [Защита и безопасность](sql-database-helps-secures-and-protects.md)
-### [Работа в вашей среде](sql-database-works-in-your-environment.md)
 ## Сравнение
 ### [Сравнение Базы данных SQL и SQL на виртуальной машине](sql-database-paas-vs-sql-server-iaas.md)
 ### [Отличия T-SQL](sql-database-transact-sql-information.md)
@@ -20,6 +14,7 @@
 ## [Учебники по Базе данных SQL](sql-database-explore-tutorials.md)
 ## [Решения для быстрого начала работы](sql-database-solution-quick-starts.md)
 ## Безопасность
+### [Обзор безопасности](sql-database-security-overview.md)
 ### [Центр безопасности Azure и База данных SQL Azure](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [Центр безопасности SQL](https://msdn.microsoft.com/library/azure/bb510589)
 # Начало работы
@@ -69,12 +64,12 @@
 #### [Копирование базы данных SQL](sql-database-copy.md)
 ## Правила брандмауэра, проверка подлинности и авторизация
 ### Изучение
-#### [Обзор](sql-database-security.md)
-#### [Рекомендации по безопасности](sql-database-security-guidelines.md)
+#### [Контроль доступа](sql-database-control-access.md)
 #### [Брандмауэр](sql-database-firewall-configure.md)
 #### [Управление именами для входа](sql-database-manage-logins.md)
 ### Рекомендации
-#### [Проверка подлинности и авторизация в SQL](sql-database-get-started-security.md)
+#### [Проверка подлинности и авторизация в SQL](sql-database-control-access-sql-authentication-get-started.md)
+#### [Проверка подлинности и авторизация в Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Защита и обеспечение безопасности данных
 ### Изучение
 #### Аудит
@@ -106,7 +101,8 @@
 #### [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 #### [Обзор активной георепликации](sql-database-geo-replication-overview.md)
 ### Рекомендации
-#### [Начало работы с резервным копированием и восстановлением базы данных SQL](sql-database-get-started-backup-recovery.md)
+#### [Портал Azure: резервное копирование и восстановление](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: резервное копирование и восстановление](sql-database-get-started-backup-recovery-powershell.md)
 ## Разработка приложений
 ### Изучение
 #### [Обзор разработки приложения базы данных](sql-database-develop-overview.md)
@@ -150,14 +146,14 @@
 #### [Отдельные базы данных](sql-database-single-database-monitor.md)
 #### [Обзор помощника по базам данных SQL](sql-database-advisor.md)
 #### [Руководство по отдельным базам данных](sql-database-performance-guidance.md)
-#### [Аналитика рабочих нагрузок на портале Azure](sql-database-performance.md)
+#### [Анализ производительности: портал Azure](sql-database-performance.md)
 #### [Использование пакетной обработки](sql-database-use-batching-to-improve-performance.md)
 #### [Расширенные события](sql-database-xevent-db-diff-from-svr.md)
-## База данных SQL версии 11
+## База данных SQL версии&11;
 ### [Прекращение использования Web и Business Edition](sql-database-web-business-sunset-faq.md)
 ### [Консультант по уровням служб](sql-database-service-tier-advisor.md)
 ### [Инструмент оценки пула эластичных баз данных](sql-database-elastic-pool-database-assessment-powershell.md)
-### [Обновление до версии 12](sql-database-v12-plan-prepare-upgrade.md)
+### [Обновление до версии&12;](sql-database-v12-plan-prepare-upgrade.md)
 #### [Обновление с помощью портала Azure](sql-database-upgrade-server-portal.md)
 #### [Обновление с помощью PowerShell](sql-database-upgrade-server-powershell.md)
 # Практическое руководство
@@ -253,15 +249,14 @@
 #### [Настройка долгосрочного хранения резервных копий](sql-database-configure-long-term-retention.md)
 #### [Просмотр резервных копий в хранилище служб восстановления](sql-database-view-backups-in-vault.md)
 #### [Восстановление после долгосрочного хранения резервных копий](sql-database-restore-from-long-term-retention.md)
+#### [Удаление резервных копий после долгосрочного хранения](sql-database-long-term-retention-delete.md)
 ### Восстановление удаленной базы данных
 #### [Восстановление удаленной базы данных с помощью портала Azure](sql-database-restore-deleted-database-portal.md)
 #### [Восстановление удаленной базы данных с помощью PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Восстановление до точки во времени
 #### [Восстановление до точки во времени](sql-database-point-in-time-restore.md)
 #### [Просмотр самой старой точки восстановления](sql-database-view-oldest-restore-point.md)
-### Геовосстановление
-#### [Геовосстановление с помощью портала Azure](sql-database-geo-restore-portal.md)
-#### [Геовосстановление с помощью PowerShell](sql-database-geo-restore-powershell.md)
+### [Восстановление из геоизбыточной резервной копии](sql-database-geo-restore.md)
 ## Активная георепликация
 ### [Настройка с помощью портала Azure](sql-database-geo-replication-portal.md)
 ### [Настройка с помощью PowerShell](sql-database-geo-replication-powershell.md)
@@ -309,6 +304,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

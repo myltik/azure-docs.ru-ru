@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
 
 
 ---
@@ -114,7 +114,7 @@ ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
 4. Во время развертывания задайте для параметров всех приложений API (и клиентов) значения конечных точек других приложений API. Это эффективно в шаблонах развертывания, так как теперь приложения API позволяют управлять URL-адресами.
 
 ## <a name="using-api-apps-with-logic-apps"></a>Использование приложений API с приложениями логики
-Новая модель приложений API хорошо работает с [версией схемы приложений логики от 01-08-2015](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+Новая модель приложений API хорошо работает с [версией схемы приложений логики от 01-08-2015](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию см. в статьях в [разделе документации по приложениям API](https://azure.microsoft.com/documentation/services/app-service/api/). В эти статьи уже добавлены сведения о новой модели для приложений API. Кроме того, используйте форумы, чтобы получить дополнительные сведения или рекомендации по миграции:
@@ -125,6 +125,6 @@ ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

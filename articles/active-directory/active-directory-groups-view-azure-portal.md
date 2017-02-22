@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8e1a35dfa6a571332c50e22f35ddcb2d6074ed6
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8fa5a0f08eeb1c1443a6c8adeabf27a66be597c5
 
 
 ---
 # <a name="view-all-existing-groups-in-azure-active-directory-preview"></a>Просмотр всех существующих групп в предварительной версии Azure Active Directory
-В этой статье объясняется, как просмотреть все группы в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md)  Одной из функций управления пользователями в Azure Active Directory (Azure AD) является возможность создания групп, которые можно заполнять пользователями. Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям.
+В этой статье объясняется, как просмотреть все группы в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Одной из функций управления пользователями в Azure Active Directory (Azure AD) является возможность создания групп, которые можно заполнять пользователями. Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Как можно просмотреть все группы?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-   
+
    ![Открытие страницы "Управление пользователями"](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Все группы**.
-   
+
    ![Открытие колонки группы](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. В колонке **Пользователи и группы — Все группы** можно добавить или удалить отображаемые столбцы, отфильтровать список для поиска группы или внести изменения в группы, для которых имеются необходимые разрешения на изменение.
 
-## <a name="additional-information"></a>Дополнительная информация
+## <a name="next-steps"></a>Дальнейшие действия
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)
@@ -45,7 +45,6 @@ ms.openlocfilehash: e8e1a35dfa6a571332c50e22f35ddcb2d6074ed6
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

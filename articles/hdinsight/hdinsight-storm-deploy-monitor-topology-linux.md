@@ -12,32 +12,39 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ca8f3ac0dd5301e1fd06abaf3a292872eb631f47
 
 
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-linux-based-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими
-С помощью этого документа вы познакомитесь с основами управления и мониторинга топологий Storm, работающих в Storm под управлением Linux в кластерах HDInsight.
+# <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight и управление ими
+
+С помощью этого документа вы ознакомитесь с основами управления и мониторинга топологий Storm, работающих в Storm в кластерах HDInsight.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этой статье, вам потребуется Storm под управлением Linux в кластере HDInsight. Сведения о развертывании и мониторинге топологий в HDInsight под управлением Windows см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими](hdinsight-storm-deploy-monitor-topology.md).
+> Для выполнения действий, описанных в этой статье, вам потребуется Storm под управлением Linux в кластере HDInsight. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 > 
-> 
+> Сведения о развертывании и мониторинге топологий в HDInsight под управлением Windows см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими](hdinsight-storm-deploy-monitor-topology.md).
+
 
 ## <a name="prerequisites"></a>Предварительные требования
 * **Storm под управлением Linux в кластере HDInsight.** Инструкции по созданию кластера см. в статье [Руководство по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter](hdinsight-apache-storm-tutorial-get-started-linux.md).
+
 * **Знание SSH и SCP.** Дополнительные сведения об использовании SSH и SCP с HDInsight см. в следующих статьях:
   
   * **Для клиентов Linux, Unix или OS X**: ознакомьтесь с разделом [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
   * **Для клиентов Windows**: ознакомьтесь с разделом [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
 * **Клиент SCP**— доступен во всех системах Linux, Unix и OS X. В клиентах Windows мы рекомендуем использовать PSCP-клиент, доступный для загрузки [на странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="start-a-storm-topology"></a>Запуск топологии Storm
+
 ### <a name="using-ssh-and-the-storm-command"></a>Использование команд Storm и SSH
+
 1. Подключитесь к кластеру HDInsight с помощью SSH. Замените **USERNAME** на имя пользователя SSH. Замените **CLUSTERNAME** именем кластера HDInsight.
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -45,10 +52,12 @@ ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
     Дополнительные сведения об использовании SSH для подключения к кластеру HDInsight см. в следующих документах:
    
    * **Для клиентов Linux, Unix или OS X**: ознакомьтесь с разделом [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
    * **Для клиентов Windows**: ознакомьтесь с разделом [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
 2. Запустите пример топологии, используя следующую команду:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
    
     Эта команда запустит пример топологии WordCount в кластере. Он будет случайным образом формировать предложения и подсчитывать количество появлений каждого слова в предложениях.
    
@@ -60,9 +69,11 @@ ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
    > 
 
 ### <a name="programmatically"></a>Программным образом
+
 Вы можете программно развернуть топологию в Storm в HDInsight, обмениваясь данными со службой Nimbus, размещенной в кластере. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) приведен пример приложения Java, в котором показано, как развернуть и запустить топологию с помощью службы Nimbus.
 
 ## <a name="monitor-and-manage-using-the-storm-command"></a>Мониторинг и управление с помощью команды storm
+
 Программа `storm` позволяет работать с запущенными топологиями из командной строки. Ниже приведен список часто используемых команд. Чтобы вывести полный список команд, воспользуйтесь `storm -h` .
 
 ### <a name="list-topologies"></a>Вывод списка топологий
@@ -179,6 +190,6 @@ ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

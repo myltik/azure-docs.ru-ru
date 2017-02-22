@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов для начального набора Интернета вещей Azure (Windows 7 или более поздние версии) | Документация Майкрософт"
+title: "Подключение Arduino к Интернету вещей Azure. Урок 1. Получение инструментов (Windows) | Документация Майкрософт"
 description: "Скачайте и установите необходимые инструменты и программное обеспечение для работы с первым примером приложения на плате Adafruit Feather M0 WiFi под управлением Windows 7 и более поздних версий."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 5720809e9f257218c8ee0801bfc7a06d286934f6
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: dbf4be49bf806415c7a7817acb37c7e33be6267d
 
 
 ---
@@ -93,6 +93,6 @@ npm install -g gulp device-discovery-cli
 [create-and-deploy-the-blink-sample-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

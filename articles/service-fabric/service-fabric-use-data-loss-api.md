@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8771556954be77543b0eaa21b7201f93ffa0ed70
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
 
 1. Она полностью выполнена.  При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Completed.
 2. При выполнении возникла неустранимая ошибка.  При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Faulted.
-3. Вы отменили команду с помощью API [CancelTestCommandAsync][cancel] или командлета PowerShell [Stop-ServiceFabricTestCommand][cancelps].  При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Cancelled или ForceCancelled, в зависимости от аргумента данного API.  Дополнительные сведения см. в документации по [CancelTestCommandAsync][cancel].
+3. Вы отменили команду с помощью API [CancelTestCommandAsync][cancel] или командлета PowerShell [Stop-ServiceFabricTestCommand][cancelps].  При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Cancelled или ForceCancelled, в зависимости от аргумента данного API.  Обратитесь к документации по [CancelTestCommandAsync][cancel] для получения дополнительных сведений.
 
 ## <a name="details-of-running-a-command"></a>Подробное описание выполнения команды
 Чтобы начать выполнение команды, вызовите API Start с ожидаемыми аргументами.  У всех API Start есть аргумент Guid, называемый operationId.  Данный аргумент нужно отслеживать, так как он используется для отслеживания хода выполнения этой команды.  Его нужно передать в API GetProgress, чтобы отслеживать ход выполнения команды.  Значение operationId должно быть уникальным.
@@ -237,6 +237,6 @@ ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

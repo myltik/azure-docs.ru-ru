@@ -4,7 +4,7 @@ description: "Памятка по алгоритмам Машинного обу
 keywords: "памятка по алгоритмам, памятка, алгоритм машинного обучения"
 services: machine-learning
 documentationcenter: 
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b7cbaec88b79cbc6f43fd32b85d104eada403da
 
 
 ---
@@ -42,8 +42,8 @@ ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
 
 ## <a name="more-help-with-algorithms"></a>Дополнительная помощь с алгоритмами
 * Более детальное обсуждение различных типов алгоритмов машинного обучения, их использования и выбора правильного алгоритма с использованием этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
-* Список всех категорий алгоритмов, доступных в Студии машинного обучения, см. в статье [Machine Learning / Initialize Model][initialize-model] (Машинное обучение / инициализация модели) в справке по алгоритмам и модулям Студии машинного обучения.
-* Полный список всех алгоритмов и модулей, доступных в Студии машинного обучения, см. в статье [Полный список модулей Студии машинного обучения][a-z-list] в справке по алгоритмам и модулям Студии машинного обучения.
+* Список всех категорий алгоритмов, доступных в Студии машинного обучения, см. в разделе [Инициализация модели][initialize-model] в справке по алгоритмам и модулям Студии машинного обучения.
+* Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения, см. в статье [A-Z list of Machine Learning Studio modules][a-z-list] (Полный список модулей Студии машинного обучения) в справке по алгоритмам и модулям Студии машинного обучения.
 * Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. [обзорную схему возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -90,6 +90,6 @@ ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

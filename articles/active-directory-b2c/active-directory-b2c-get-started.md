@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
 
 
 ---
@@ -67,6 +67,14 @@ ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
    > 
    > 
 
+## <a name="step-4-link-your-azure-ad-b2c-tenant-to-your-azure-subscription"></a>Шаг 4. Привязка клиента Azure AD B2C к подписке Azure
+Если вы планируете использовать клиент B2C для рабочих приложений, то необходимо связать клиент Azure AD B2C с подпиской Azure, чтобы взималась плата за использование. Чтобы узнать, как это сделать, ознакомьтесь с [этой статьей](active-directory-b2c-how-to-enable-billing.md).
+
+   > [!IMPORTANT]
+   > Если не связать клиент Azure AD B2C с подпиской Azure, то в колонке функций B2C на портале Azure отобразится предупреждение "No Subscription linked to this B2C tenant or the Subscription needs your attention" (С этим клиентом B2C не связана ни одна подписка, или подписка требует вашего внимания). Важно выполнить этот шаг, прежде чем переводить приложения в рабочую среду.
+   > 
+   > 
+
 ## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Быстрый доступ к колонке функций B2C на портале Azure
 Мы добавили ярлык колонки функций B2C на портале Azure, чтобы вы могли быстро ее найти.
 
@@ -82,6 +90,6 @@ ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,14 +1,15 @@
 # Обзор
 ## [Что такое ExpressRoute?](expressroute-introduction.md)
 ## [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md)
+## [Модели подключения](expressroute-connectivity-models.md)
 ## [Расположения и партнеры](expressroute-locations.md)
 ### [Поставщики по расположению](expressroute-locations-providers.md)
 ### [Расположения по поставщикам](expressroute-locations.md)
 
 # Начало работы
-## [Сведения о каналах и доменах маршрутизации](expressroute-circuit-peerings.md)
 ## [Рабочие процессы](expressroute-workflows.md)
 ## [Предварительные требования](expressroute-prerequisites.md)
+## [Сведения о каналах и доменах маршрутизации](expressroute-circuit-peerings.md)
 ## [Требования к маршрутизации](expressroute-routing.md)
 ## [Оптимизация маршрутизации](expressroute-optimize-routing.md)
 ## [Требования к NAT](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

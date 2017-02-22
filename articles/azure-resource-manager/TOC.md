@@ -43,19 +43,22 @@
 ### [Создание субъекта-службы с помощью интерфейса командной строки Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Создание субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
-### [Настройка политик управления](resource-manager-policy.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
 ### [Вопросы безопасности](best-practices-resource-manager-security.md)
+## Задание политик ресурсов
+### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
+### [Назначение политик и управление ими](resource-manager-policy-create-assign.md)
+### [Политики тегов ресурсов](resource-manager-policy-tags.md)
+### [Политики хранения](resource-manager-policy-storage.md)
+### [Политики виртуальных машин Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Политики виртуальных машин Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Аудит и устранение неполадок
 ### [Устранение стандартных ошибок развертывания](resource-manager-common-deployment-errors.md)
 ### [Просмотр журналов действий](resource-group-audit.md)
-### [Просмотр операций развертывания с помощью портала](resource-manager-troubleshoot-deployments-portal.md)
-### [Просмотр операций развертывания с помощью PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Просмотр операций развертывания с помощью интерфейса командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Просмотр операций развертывания с помощью REST API](resource-manager-troubleshoot-deployments-rest.md)
+### [Просмотр операций развертывания](resource-manager-deployment-operations.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure CLI 2.0 (предварительная версия)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -65,11 +68,12 @@
 
 # Ресурсы
 ## [Запросы на регулирование](resource-manager-request-limits.md)
+## [Отслеживание асинхронных операций](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

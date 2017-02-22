@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b7ef8386e974486c2d327d0b042eeabdb9701b7e
 
 
 ---
@@ -30,10 +30,10 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 Применение этих параметров масштаба занимает всего несколько секунд, но они влияют на все приложения в вашем [плане службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 Для этого не требуется вносить изменения в код или повторно развертывать приложение.
 
-Сведения о ценах и функциях отдельных планов службы приложений см. [здесь](/pricing/details/web-sites/).  
+Сведения о ценах и функциях отдельных планов службы приложений см. [здесь](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Прежде чем сменить уровень **Бесплатный** для плана службы приложений, следует снять имеющиеся [ограничения на расходы](/pricing/spending-limits/), установленные для вашей подписки Azure. Сведения о просмотре и изменении параметров подписки на службу приложений Microsoft Azure см. в разделе [Подписки Microsoft Azure][azuresubscriptions].
+> Прежде чем сменить уровень **Бесплатный** для плана службы приложений, следует снять имеющиеся [ограничения на расходы](https://azure.microsoft.com/pricing/spending-limits/), установленные для вашей подписки Azure. Просмотреть или изменить параметры подписки на службу приложений Microsoft Azure можно на странице [подписок Microsoft Azure][azuresubscriptions].
 > 
 > 
 
@@ -41,7 +41,7 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 <a name="scalingstandard"></a>
 
 ## <a name="scale-up-your-pricing-tier"></a>Увеличение масштаба ценовой категории
-1. Откройте в браузере [портал Azure][portal].
+1. В браузере откройте [портал Azure][portal].
 2. В колонке приложения щелкните **Все параметры**, а затем — **Увеличить масштаб**.
    
     ![Переход для увеличения масштаба приложения Azure][ChooseWHP]
@@ -86,32 +86,32 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 <a name="OtherFeatures"></a>
 
 ## <a name="learn-about-other-features"></a>Дополнительные возможности
-* Подробные сведения обо всех оставшихся функциях в планах службы приложений, включая цены и функции, интересующие всех пользователей (в том числе разработчиков), см. [здесь](/pricing/details/web-sites/).
+* Подробные сведения обо всех оставшихся функциях в планах службы приложений, включая цены и функции, интересующие всех пользователей (в том числе разработчиков), см. [здесь](https://azure.microsoft.com/pricing/details/web-sites/).
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) (Пробное использование службы приложений), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Try App Service](https://azure.microsoft.com/try/app-service/) (Пробное использование службы приложений), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
 > 
 > 
 
 <a name="Next Steps"></a>
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Чтобы начать работу с Azure, [создайте бесплатную пробную учетную запись Microsoft Azure](/pricing/free-trial/).
+* Чтобы начать работу с Azure, [создайте бесплатную пробную учетную запись Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Сведения о ценах, поддержке и соглашениях об уровне обслуживания см. по следующим ссылкам:
   
-    [Сведения о ценах — передача данных](/pricing/details/data-transfers/)
+    [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/)
   
-    [Планы поддержки Microsoft Azure](/support/plans/)
+    [Планы поддержки Microsoft Azure](https://azure.microsoft.com/support/plans/)
   
-    [Соглашения об уровне обслуживания](/support/legal/sla/)
+    [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
   
-    [Сведения о ценах — база данных SQL](/pricing/details/sql-database/)
+    [Сведения о ценах — база данных SQL](https://azure.microsoft.com/pricing/details/sql-database/)
   
     [Размеры виртуальных машин и облачных служб для Microsoft Azure][vmsizes]
   
-    [Сведения о ценах на службу приложений](/pricing/details/app-service/)
+    [Сведения о ценах на службу приложений](https://azure.microsoft.com/pricing/details/app-service/)
   
-    [Сведения о ценах на службу приложений — SSL-соединения](/pricing/details/web-sites/#ssl-connections)
+    [Сведения о ценах на службу приложений — SSL-соединения](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * Рекомендации по использованию службы приложений Azure, в том числе по созданию масштабируемой и устойчивой архитектуры, см. [здесь](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * Видео о масштабировании приложений службы приложений см. на следующих ресурсах:
   
@@ -143,6 +143,6 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

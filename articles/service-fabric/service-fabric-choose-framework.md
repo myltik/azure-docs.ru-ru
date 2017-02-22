@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 1/05/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 008ad40e93e5ce22e4c182114a940f4a5133a2f2
+ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
+ms.openlocfilehash: b56d75d49e0b95025dd1a0bae532f677958eac8d
 
 
 ---
@@ -43,10 +43,12 @@ Service Fabric предлагает несколько способов запи
 Поскольку надежные субъекты сами по себе являются платформой приложений, построенной на базе надежных служб, они полностью интегрируются с платформой Service Fabric и задействуют весь набор предлагаемых этой платформой функций.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Узнайте больше о надежных субъектах](service-fabric-reliable-actors-introduction.md) или начните с [написания первой службы надежного субъекта](service-fabric-reliable-actors-get-started.md).
+Дополнительные сведения см. в статьях [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md), [Приступая к работе с Reliable Actors](service-fabric-reliable-actors-get-started.md) и 
+[Предварительная версия: развертывание контейнера в Service Fabric](service-fabric-deploy-container.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO2-->
 
 

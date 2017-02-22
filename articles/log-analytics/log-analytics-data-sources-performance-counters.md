@@ -1,10 +1,10 @@
 ---
-title: "Счетчики производительности Windows и Linux в службе Log Analytics | Документация Майкрософт"
+title: "Сбор и анализ данных счетчиков производительности в Log Analytics | Документация Майкрософт"
 description: "Счетчики производительности собираются службой Log Analytics для анализа производительности в агентах Windows и Linux.  В этой статье описывается настройка коллекции счетчиков производительности для агентов Windows и Linux, сведения об этих счетчиках, которые хранятся в репозитории OMS, и их анализ на портале OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4d326064059b42cf2bf059184066c9acb4dcfd0
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
 
 
 ---
@@ -63,7 +63,7 @@ ms.openlocfilehash: b4d326064059b42cf2bf059184066c9acb4dcfd0
 | CounterValue |Числовое значение счетчика. |
 | InstanceName |Имя экземпляра события.  Если экземпляра нет, используется пустое значение. |
 | ObjectName |Имя объекта производительности. |
-| SourceSystem |Тип агента, из которого были получены данные. <br> OpsManager — агент Windows, подключенный напрямую или через SCOM <br> Linux — все агенты Linux  <br>  AzureStorage – диагностика Azure |
+| SourceSystem |Тип агента, из которого были получены данные. <br> OpsManager — агент Windows, подключенный напрямую или через SCOM <br> Linux — все агенты Linux  <br> AzureStorage – диагностика Azure |
 | TimeGenerated |Дата и время выборки данных. |
 
 ## <a name="sizing-estimates"></a>Оценки размера
@@ -105,6 +105,6 @@ ms.openlocfilehash: b4d326064059b42cf2bf059184066c9acb4dcfd0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

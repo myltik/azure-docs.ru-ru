@@ -1,71 +1,13 @@
 ---
-title: "Изменение сведений в профиле учетной записи Azure | Документация Майкрософт"
-description: "Действия по изменению профиля учетной записи Azure и ответы на распространенные вопросы, например о невозможности изменить страну в центре учетных записей Azure"
-services: 
-documentationcenter: 
-author: genlin
-manager: mbaldwin
-editor: 
-tags: billing
-ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
-ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2016
-ms.author: genli
+redirect_url: /azure/billing/billing-how-to-change-azure-account-profile
+redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1081ffe3aebbef101e83cf557877540b7d36bfd0
-
+ms.sourcegitcommit: b906eb2d929eb2068ea665af93b31918150550c0
+ms.openlocfilehash: 3df9de01ae405969989b09e5dcab1b74ea896f38
 
 ---
-# <a name="how-to-change-profile-information-of-your-azure-account-such-as-contact-email-address-and-phone-number"></a>Изменение сведений в профиле учетной записи Azure, например контактного адреса электронной почты, адреса и номера телефона
-## <a name="summary"></a>Сводка
-Пропустили важное сообщение от Azure? Хотите обновить другие контактные сведения в профиле? В этой статье мы затронем следующие вопросы:
-
-* [Изменение данных в профиле](#how-to-change-your-profile-information)
-* [Ответы на распространенные вопросы](#frequently-asked-questions)
-
-> [!NOTE]
-> Если в ходе работы с этой статьей вам потребуется дополнительная помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , которая поможет вам быстро устранить проблему.
-> 
-> 
-
-## <a name="important-information-about-your-profile-email-address"></a>Важные сведения об адресе электронной почты в профиле
-Корпорация Майкрософт использует адрес электронной почты в профиле администратора учетной записи для отправки уведомлений о важных обновлениях, связанных с выставлением счетов по подписке. Рекомендуется указать контактный адрес электронной почты, который будет регулярно проверяться.
-
-## <a name="how-to-change-your-profile-information"></a>Изменение данных в профиле
-1. Выполните вход в [центр учетных записей Azure](https://account.windowsazure.com/) в качестве администратора учетной записи и щелкните **Профиль**. Или перейдите по адресу https://account.windowsazure.com/Profile.
-2. Нажмите кнопку **Изменить сведения**, а затем обновите сведения в **профиле**.
-   
-   ![Профиль](./media/billing-how-to-change-azure-account-profile/profile.png)
-
-## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
-### <a name="can-i-change-the-account-administrator-email-address-in-my-profile"></a>Можно ли изменить в профиле адрес электронной почты администратора учетной записи?
-Да. Администратор учетной записи — это человек, который настраивает учетную запись Azure и получает электронные уведомлений обо всех подписках в учетной записи. Рекомендуется указать контактный адрес электронной почты для регулярной проверки администратором учетной записи.
-
-### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Обновление электронной почты в профиле приводит к обновлению адреса электронной почты для входа?
-Нет. При обновлении электронной почты в профиле адрес электронной почты для входа не обновляется. Чтобы изменить адрес электронной почты для входа, необходимо передать владение учетной записью.
-
-### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Обновление электронной почты в профиле приводит к обновлению адреса для выставления счетов по кредитной карте?
-Нет. Чтобы обновить адрес для выставления счетов, привязанный к кредитной карте, перейдите на [страницу подписки](https://account.windowsazure.com/subscriptions) в центре учетных записей Azure.
-
-### <a name="why-cant-i-update-the-country"></a>Почему не удается изменить страну?
-В связи с техническими ограничениями нельзя изменить страну существующей учетной записи. Однако вы можете создать учетную запись в нужной стране, а затем обратиться в службу поддержки Azure с просьбой о переносе служб в эту учетную запись.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Какой адрес электронной почты используется для функции предварительного просмотра предупреждений о выставлении счетов Azure?
-Если вы регистрируетесь для использования новой функции предварительного просмотра предупреждений о выставлении счетов Azure, вы будете получать предупреждения на указанный адрес электронной почты независимо от того, был ли изменен адрес электронной почты администратора учетной записи.
-
-> [!NOTE]
-> Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , которая поможет быстро устранить проблему.
-> 
-> 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

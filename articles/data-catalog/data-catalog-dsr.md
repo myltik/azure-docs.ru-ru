@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+ms.sourcegitcommit: 24143b6866c4393b18636669b5b4281a0d18c3d1
+ms.openlocfilehash: 64e8c8b284f21320601208c798d354df2496274c
 
 
 ---
@@ -419,12 +419,12 @@ ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
 ## <a name="data-source-reference-specification"></a>Спецификация ссылки на источник данных
 > [!NOTE]
 > Столбец "Структура DSL" в приведенной ниже таблице содержит только свойства подключения для контейнера свойств address, используемые каталогом данных Azure (т. е. контейнер свойств address может содержать другие свойства подключения источника данных, которые хранятся в каталоге данных Azure, но не используются).
-> 
+>
 > <table>
 > <tr>
 > <td><b>Тип источника</b></td>
 > <td><b>Тип ресурса</b></td>
-> <td><b>Типа объектов</b></td>
+> <td><b>Типы объектов</b></td>
 > <td><b>Структура DSL<b></td>
 > </tr>
 > <tr>
@@ -1169,11 +1169,10 @@ ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
 > <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table> 
+> </table>>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

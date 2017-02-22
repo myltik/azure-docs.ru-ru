@@ -3,7 +3,7 @@ title: "Использование средств Azure Data Lake для Visual 
 description: "Узнайте, как с помощью средств Azure Data Lake для Visual Studio Code создавать, тестировать и выполнять скрипты U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
+author: jejiang
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/22/2016
-ms.author: jgao
+ms.date: 11/30/2016
+ms.author: jejiang
 translationtype: Human Translation
-ms.sourcegitcommit: fe5ef9bba31abdf9b29ad7c817a376407309f289
-ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
+ms.sourcegitcommit: e79513590bb37570764f398e716182a11c74612a
+ms.openlocfilehash: 59cc35bc740625ed0582c1557fac9a04bf0cb8bc
 
 ---
 
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-code"></a>Использование средств Azure Data Lake для Visual Studio Code
 
-Узнайте, как с помощью средств Azure Data Lake для Visual Studio Code (VSCode) создавать, тестировать и выполнять скрипты U-SQL.
+Узнайте, как с помощью средств Azure Data Lake для Visual Studio Code (VSCode) создавать, тестировать и выполнять скрипты U-SQL.  Эти сведения также представлены в следующем видеоролике:
 
+<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -187,7 +188,7 @@ ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
 2. Откройте палитру команд, нажав клавиши **CTRL + SHIFT + P**.
 3. Введите **ADL: Generate Code Behind**.  Файл Code Behind будет создан в той же папке. 
 
-Чтобы создать файл Code Behind, можно также щелкнуть правой кнопкой файл скрипта и нажать кнопку **ADL: Generate Code Behind**. 
+Чтобы создать файл кода программной части, можно также щелкнуть правой кнопкой файл сценария и нажать кнопку **ADL: Generate Code Behind**. 
 
 Компиляция и отправка скрипта U-SQL с файлом Code Behind выполняется так же, как и для автономного скрипта U-SQL.
 
@@ -197,9 +198,11 @@ ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
 
 ![Файл Code Behind в Data Lake для Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
-## <a name="register-assemblies"></a>Регистрация сборок
+## <a name="use-assemblies"></a>Использование сборок
 
-С помощью средства Data Lake можно регистрировать сборки пользовательского кода в хранилище метаданных Data Lake Analytics.
+Сведения о разработке сборок см. в статье [Разработка сборок U-SQL для заданий Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
+
+С помощью средств Data Lake можно регистрировать сборки пользовательского кода в каталоге Data Lake Analytics.
 
 **Регистрация сборки**
 
@@ -209,9 +212,26 @@ ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
 4.  Выберите базу данных.
 5.  Укажите локальный путь к сборке.
 
-## <a name="access-data-lake-analytics-metadata"></a>Доступ к метаданным Data Lake Analytics
+В приведенном ниже коде U-SQL показано, как вызвать сборку. В этом примере имя сборки — *test*.
 
-После подключения к Azure вы можете получить доступ к метаданным U-SQL, используя следующие действия:
+    REFERENCE ASSEMBLY [test];
+    @a=EXTRACT Iid int,Starts DateTime,Region string,Query string,DwellTime int,Results string,ClickedUrls string 
+    FROM @"ruoxin/SearchLog.txt" USING Extractors.Tsv();
+    
+    @d=SELECT DISTINCT Region FROM @a;
+    
+    @d1=PROCESS @d
+        PRODUCE Region string,
+                Mkt string
+                USING new USQLApplication_codebehind.MyProcessor();
+    
+    OUTPUT @d1 TO @"ruoxin/SearchLogtest.txt" USING Outputters.Tsv();
+
+
+
+## <a name="access-data-lake-analytics-catalog"></a>Доступ к каталогу Data Lake Analytics
+
+После подключения к Azure вы можете получить доступ к каталогу U-SQL, выполнив следующие действия:
 
 **Доступ к метаданным U-SQL**
 
@@ -250,12 +270,13 @@ ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
 
 - Сведения для начала работы с Data Lake Analytics вы найдете в статье [Tutorial: get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md) (Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure).
 - Дополнительные сведения об использовании средств Data Lake для U-SQL есть в статье [Учебник. Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Сведения о разработке сборок см. в статье [Разработка сборок U-SQL для заданий Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
 
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

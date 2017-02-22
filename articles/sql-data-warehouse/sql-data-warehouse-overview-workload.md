@@ -1,5 +1,5 @@
 ---
-title: "Рабочая нагрузка хранилища данных"
+title: "Описание операций хранилища данных SQL Azure | Документация Майкрософт"
 description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
 
 
 ---
@@ -65,13 +65,13 @@ ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
 * Для целей аналитики вы можете создать в хранилище данных куб аналитики и анализировать информацию относительно хранилища данных. Или же можно предварительно обработать данные и экспортировать их на сервер аналитики для дальнейшего анализа.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вам уже известны некоторые сведения о хранилище данных SQL, узнайте о том, как [создать хранилище данных SQL][создать хранилище данных SQL] и [загрузить демонстрационные данные][загрузить демонстрационные данные].
+Теперь, когда вам уже известны некоторые сведения о хранилище данных SQL, узнайте о том, как [создать хранилище данных SQL][create a SQL Data Warehouse] и [загрузить демонстрационные данные][load sample data].
 
 <!--Image references-->
 
 <!--Article references-->
-[загрузить демонстрационные данные]: ./sql-data-warehouse-load-sample-databases.md
-[создать хранилище данных SQL]: ./sql-data-warehouse-get-started-provision.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -79,6 +79,6 @@ ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

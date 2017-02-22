@@ -13,9 +13,10 @@
 ## Разработка
 ### [Разработка приложений-функций](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Работа с триггерами и привязками](functions-triggers-bindings.md)
+#### [Привязки DocumentDB](functions-bindings-documentdb.md)
 #### [Привязки концентратора событий](functions-bindings-event-hubs.md)
 #### [Привязки HTTP и webhook](functions-bindings-http-webhook.md)
 #### [Привязки мобильных приложений](functions-bindings-mobile-apps.md)
@@ -27,28 +28,30 @@
 ##### [Привязки таблиц](functions-bindings-storage-table.md)
 #### [Триггер таймера](functions-bindings-timer.md)
 #### [Привязка к выходным данным Twilio](functions-bindings-twilio.md)
-### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md)
-### [Testing Azure Functions](functions-test-a-function.md)
+### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md) 
+### [Тестирование функций Azure](functions-test-a-function.md)
 ### [Локальная разработка и отладка](functions-run-local.md)
-### [Рекомендации по Функциям Azure](functions-best-practices.md)
+### [Рекомендации по функциям Azure](functions-best-practices.md)
 ### [Выполнение запланированной задачи очистки с помощью функций Azure](functions-scenario-database-table-cleanup.md)
 
 ## Управление
 ### [Настройка параметров для приложения-функции](functions-how-to-use-azure-function-app-settings.md)
 
 ## Развернуть
-### [Непрерывное развертывание для Функций Azure](functions-continuous-deployment.md)
+### [Непрерывное развертывание для функций Azure](functions-continuous-deployment.md)
+### [Развертывание функций с помощью подхода "инфраструктура как код"](functions-infrastructure-as-code.md)
 
-## Монитор
-### [Мониторинг Функций Azure](functions-monitoring.md)
+## Мониторинг
+### [Мониторинг функций Azure](functions-monitoring.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Переполнение стека](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Репозиторий GitHub для Функций Azure](https://github.com/Azure/Azure-Functions/) 
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

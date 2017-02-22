@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
 
 
 ---
@@ -25,11 +25,11 @@ ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
 
 > [!NOTE]
 > Выделенные группы требуют назначения лицензии Azure AD Premium:
-> 
+>
 > * администратору, который управляет правилом в группе;
 > * всем пользователям, которых правило выбрало в качестве участников группы.
-> 
-> 
+>
+>
 
 **Включение выделенных групп**
 
@@ -51,6 +51,7 @@ ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
 
 Сведения о том, как создавать *более сложные* правила (которые содержат несколько сравнений), регулирующие членство в динамических группах, см. в статье [Использование атрибутов для создания расширенных правил](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
+### <a name="next-steps"></a>Дальнейшие действия
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
@@ -60,7 +61,6 @@ ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

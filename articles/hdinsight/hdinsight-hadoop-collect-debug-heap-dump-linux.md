@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
 
 Дампы кучи содержат снимок памяти приложения, включая значения переменных на момент создания дампа. Поэтому они очень полезны для диагностики проблем, возникающих во время выполнения.
 
-> [!NOTE]
-> Сведения в этой статье применимы только к HDInsight, работающей под управлением Linux. Сведения об HDInsight, работающей под управлением Windows, см. в статье [Сбор дампов кучи в хранилище больших двоичных объектов для отладки и анализа служб Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md).
-> 
-> 
+
+
+> [!IMPORTANT]
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Службы
 Вы можете включить дампы кучи для следующих служб:
@@ -134,6 +134,6 @@ ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

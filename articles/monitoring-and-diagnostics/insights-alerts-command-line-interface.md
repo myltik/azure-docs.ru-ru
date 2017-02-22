@@ -1,8 +1,8 @@
 ---
-title: "Создание оповещений для служб Azure с помощью кроссплатформенного интерфейса командной строки | Документация Майкрософт"
-description: "Используйте интерфейс командной строки для создания оповещений Azure, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий."
+title: "Создание оповещений для служб Azure с помощью кроссплатформенного интерфейса командной строки | Документация Майкрософт"
+description: "Узнайте, как активировать сообщения электронной почты, уведомления, вызовы URL-адресов веб-сайтов (webhook) или автоматизированные операции при выполнении заданных условий."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1bb722726fd44972887fdcff2b33a15725914d2
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
 
 
 ---
-# <a name="use-the-cross-platform-command-line-interface-cli-to-create-alerts-for-azure-services"></a>Использование кроссплатформенного интерфейса командной строки (CLI) для создания оповещений для служб Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Создание оповещений в Azure Monitor для служб Azure с помощью кроссплатформенного интерфейса командной строки
 > [!div class="op_single_selector"]
 > * [Портал](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Обзор
 В этой статье показано, как настроить оповещения Azure с помощью интерфейса командной строки (CLI).
 
 > [!NOTE]
 > Azure Monitor — это новое название для Azure Insights, актуальное с 25 сентября 2016 г. При этом пространства имен и соответствующие команды будут по-прежнему содержать фрагмент старого названия ("insights").
-> 
-> 
+>
+>
 
 Вы можете получать оповещения на основе отслеживания метрик или событий в службах Azure.
 
@@ -73,74 +73,74 @@ ms.openlocfilehash: b1bb722726fd44972887fdcff2b33a15725914d2
     ```
 
 1. Чтобы получить список существующих правил для группы ресурсов, используйте следующую команду: **azure insights alerts rule list** *[параметры] &lt;группа_ресурсов&gt;*.
-   
+
    ```console
    azure insights alerts rule list myresourcegroupname
-   
+
    ```
 2. Чтобы создать правило, необходимо сначала получить определенные важные сведения.
-   
+
    * **Идентификатор ресурса** , для которого необходимо задать оповещение.
    * Доступные **определения метрик** для этого ресурса.
-     
+
      Получить идентификатор ресурса можно на портале Azure. Если ресурс уже создан, выберите его на портале. В следующей колонке в разделе *Параметры* выберите *Свойства*. В следующей колонке отображается поле *Идентификатор ресурса* . Кроме того, для получения идентификатора ресурса можно использовать [Azure Resource Explorer](https://resources.azure.com/).
-     
+
      Ниже приведен пример идентификатора ресурса для веб-приложения.
-     
+
      ```console
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
      ```
-     
+
      Чтобы получить список доступных метрик и их единиц измерения для предыдущего примера ресурсов, введите следующую команду в интерфейсе командной строки.  
-     
+
      ```console
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
-     
-     *PT1M* представляет собой детализацию доступного измерения (интервалы в 1 минуту). Выбор различных уровней детализации позволяет использовать разные параметры метрик.
+
+     *PT1M* представляет собой детализацию доступного измерения (интервалы в&1; минуту). Выбор различных уровней детализации позволяет использовать разные параметры метрик.
 3. Чтобы создать правило генерации оповещений на основе метрики, используйте команду следующего вида.
-   
+
     **azure insights alerts rule metric set** *[параметры] &lt;имя_правила&gt; &lt;расположение&gt; &lt;группа_ресурсов&gt; &lt;размер_окна&gt; &lt;оператор&gt; &lt;пороговое_значение&gt; &lt;ИД_целевого_ресурса&gt; &lt;имя_метрики&gt; &lt;оператор_агрегата_времени&gt;*
-   
+
     Следующий пример настраивает оповещение о ресурсе веб-сайта. Оповещение активируется, когда любой трафик непрерывно поступает в течении 5 минут, и затем снова активируется, если в течение 5 минут трафик не поступает.
-   
+
     ```console
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
-   
+
     ```
 4. Чтобы при срабатывании оповещения создавался webhook или отправлялось электронное сообщение, необходимо сначала создать электронный адрес и (или) веб-перехватчики webhook. Сразу после этого следует создать правило. С помощью интерфейса командной строки невозможно связать webhook или электронные адреса с уже созданными правилами.
-   
+
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
-   
+
     azure insights alerts actions webhook create https://www.contoso.com
-   
+
     azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
 5. Чтобы создать оповещение, которое срабатывает при возникновении определенных условий в журнале действий, используйте следующую команду.
-   
+
     **insights alerts rule log set** *[параметры] &lt;имя_правила&gt; &lt;расположение&gt; &lt;группа_ресурсов&gt; &lt;имя_операции&gt;*
-   
+
     Например:
-   
+
     ```console
     azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
     ```
-   
+
     Имя_операции соответствует типу события в записи, сохраненной в журнале действий. Примеры: *Microsoft.Compute/virtualMachines/delete*, *microsoft.insights/diagnosticSettings/write*.
-   
+
     Можно использовать команду PowerShell [Get AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) для получения списка возможных имен операций. Кроме того, можно использовать портал Azure, чтобы запросить журнал действий и найти определенные прошедшие операции, для которых требуется создать оповещение. Операции отображаются в графическом представлении журнала с понятными именами. Найдите в тексте JSON нужную запись и получите значение имя_операции.   
 6. Можно проверить, правильно ли созданы оповещения, просмотрев отдельное правило.
-   
+
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
     ```
 7. Для удаления правил используйте следующую команду.
-   
+
     **insights alerts rule delete** [параметры] &lt;группа_ресурсов&gt; &lt;имя_правила&gt;
-   
+
     Приведенные ниже команды удаляют правила, созданные ранее в этой статье.
-   
+
     ```console
     azure insights alerts rule delete myresourcegroup myrule
     azure insights alerts rule delete myresourcegroup myrulewithwebhookandemail
@@ -156,7 +156,6 @@ ms.openlocfilehash: b1bb722726fd44972887fdcff2b33a15725914d2
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

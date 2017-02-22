@@ -1,6 +1,6 @@
 ---
-title: "Триггеры и привязки в Функциях Azure | Документация Майкрософт"
-description: "Узнайте, как использовать триггеры и привязки в Функциях Azure."
+title: "Работа с триггерами и привязками в Функциях Azure | Документация Майкрософт"
+description: "Узнайте, как подключить выполнение кода к интерактивным мероприятиям и облачным службам, используя триггеры и привязки в Функциях Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,20 +14,26 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d809636cae48dd0ccca4c99370f41996430d89e4
-ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
+ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
+ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 
 
 ---
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Справочник разработчика по триггерам и привязкам в Функциях Azure
-Этот раздел содержит общие справочные сведения о триггерах и привязках. В нем также рассматриваются некоторые расширенные функции привязки и синтаксис, поддерживаемые всеми типами привязки.  
 
-Если же вам нужны подробные сведения о настройке и программировании определенного типа триггера или привязки, вы можете щелкнуть какой-либо триггер или привязку из указанных ниже.
+# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Узнайте о работе с триггерами и привязками в Функциях Azure 
+В этом разделе показано, как подключить код к различным триггерам, службам Azure и другим облачным службам, используя триггеры и привязки в Функциях Azure. В нем также рассматриваются некоторые расширенные функции привязки и синтаксис, поддерживаемые всеми типами привязки.  
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+Дополнительные сведения о работе с определенным типом триггера или привязки приведены в следующих справочных разделах.
+
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP или webhook](functions-bindings-http-webhook.md) | [Таймер](functions-bindings-timer.md) | [Мобильные приложения](functions-bindings-mobile-apps.md) | [Служебная шина](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Большой двоичный объект хранилища](functions-bindings-storage-blob.md) | [Очередь хранилища](functions-bindings-storage-queue.md) |  [Таблица хранилища](functions-bindings-storage-table.md) |  
+| [Концентраторы событий](functions-bindings-event-hubs.md) | [Центры уведомлений](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 В этих статьях предполагается, что вы уже прочли [справочник разработчика по функциям Azure](functions-reference.md), а также справочники разработчика по [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) и [Node.js](functions-reference-node.md).
 
@@ -61,7 +67,7 @@ ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
 }
 ```
 
-Ваш код может отправлять выходные данные разного типа в зависимости от того, как происходит обработка нового элемента очереди. Например, может потребоваться добавление новой записи в таблицу службы хранилища Azure.  Для этого можно настроить привязку для вывода для таблицы службы хранилища Azure. Ниже приведен пример файла *function.json*, содержащий привязку для вывода к таблице службы хранилища, которую может использовать триггер очереди. 
+Ваш код может отправлять выходные данные разного типа в зависимости от того, как происходит обработка нового элемента очереди. Например, может потребоваться добавление новой записи в таблицу службы хранилища Azure.  Для этого следует создать привязку для вывода для таблицы службы хранилища Azure. Ниже приведен пример файла *function.json*, содержащий привязку для вывода к таблице службы хранилища, которую может использовать триггер очереди. 
 
 ```json
 {
@@ -125,7 +131,7 @@ public class Person
 Чтобы использовать расширенные возможности привязки на портале Azure, щелкните **Расширенный редактор** на вкладке **Интеграция** своей функции. Расширенный редактор позволяет редактировать файл *function.json* прямо на портале.
 
 ## <a name="random-guids"></a>Случайные значения GUID
-Функции Azure предоставляют синтаксис для создания случайных значений GUID с использованием привязок. Ниже приведен синтаксис привязки, которая позволит записывать выходные данные в большой двоичный объект с уникальным именем в контейнере службы хранилища Azure. 
+Функции Azure предоставляют синтаксис для создания случайных значений GUID с использованием привязок. Ниже приведен синтаксис привязки, которая позволяет записывать выходные данные в новый большой двоичный объект с уникальным именем в контейнере службы хранилища. 
 
 ```json
 {
@@ -192,7 +198,7 @@ module.exports = function (context, input) {
 }
 ```
 
-Ниже также приведен пример для F#.
+Ниже приведен пример для F#.
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -229,7 +235,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -256,7 +262,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 },
 ```
 
-Теперь вашему коду функции достаточно инициализировать параметр вывода, как показано ниже. Во время выполнения свойства вывода будут привязаны к требуемым входным данным.
+Теперь вашему коду функции достаточно инициализировать параметр вывода, как показано ниже. Во время выполнения свойства вывода привязываются к требуемым входным данным.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -305,53 +311,61 @@ module.exports = function (context, myNewOrderItem) {
 Стандартная входная и выходная привязка с использованием файла *function.json* называется [*декларативной*](https://en.wikipedia.org/wiki/Declarative_programming) привязкой. Такая привязка определяется объявлением JSON. Тем не менее, можно использовать [императивную](https://en.wikipedia.org/wiki/Imperative_programming) привязку. С использованием такого шаблона можно на лету выполнить привязку к поддерживаемым входным и выходным привязкам в любом количестве в коде функции.
 Императивная привязка используется, если вычисление пути привязки или другие операции в функции должны осуществляться во время выполнения, а не разработки. 
 
-Для выполнения императивной привязки сделайте следующее:
+Определите принудительную привязку следующим образом.
 
 - **Не** добавляйте запись для нужных императивных привязок в файл *function.json*.
 - Передайте входной параметр [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) или [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Используйте следующий шаблон C# для привязки данных,
 
-        using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-        {
-                ...
-        }
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
 где `BindingTypeAttribute` — атрибут .NET, определяющий пользовательскую привязку, а `T` — входной или выходной тип, поддерживаемый этим типом привязки. `T` также не может быть параметром типа `out` (например, `out JObject`). Например, выходная привязка таблицы мобильных приложений поддерживает [шесть выходных типов](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), но для `T` можно использовать только [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) или [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs).
     
 В следующем примере кода создается [выходная привязка большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md#storage-blob-output-binding) с путем к большому двоичному объекту, определенному во время выполнения, а затем записывается строка в большой двоичный объект.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-                {
-                        writer.Write("Hello World!!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) определяет входную или выходную привязку [большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md), а [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) представляет собой поддерживаемый тип выходной привязки.
 Код возвращает параметр приложения по умолчанию для строки подключения к учетной записи службы хранилища (`AzureWebJobsStorage`). Вы можете указать пользовательский параметр приложения, который следует использовать, добавив [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) и передавая массив атрибутов в `BindAsync<T>()`. Например,
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                var attributes = new Attribute[]
-                {
-                        new BlobAttribute("samples-output/path"),
-                        new StorageAccountAttribute("MyStorageAccount")
-                };
-                using (var writer = await binder.BindAsync<TextWriter>(attributes))
-                {
-                        writer.Write("Hello World!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 В следующей таблице показан соответствующий атрибут .NET для каждого типа привязки, а также пакеты для ссылки.
 
+> [!div class="mx-codeBreakAll"]
 | Привязка | Атрибут | Ссылка, которую нужно добавить |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
@@ -362,7 +376,7 @@ module.exports = function (context, myNewOrderItem) {
 | Очередь службы хранилища | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Большой двоичный объект службы хранилища | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Таблица службы хранилища | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 
@@ -375,6 +389,6 @@ module.exports = function (context, myNewOrderItem) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

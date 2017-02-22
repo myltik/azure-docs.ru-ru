@@ -1,5 +1,5 @@
 ---
-title: "Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP | Документация Майкрософт"
+title: "Получение таблиц ARP. Устранение неполадок ExpressRoute (Resource Manager) | Документация Майкрософт"
 description: "На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
 
 ---
-# <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP в модели развертывания с помощью Resource Manager
+# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Получение таблиц ARP в модели развертывания с помощью Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell — Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell — классическая модель](expressroute-troubleshooting-arp-classic.md)
@@ -145,7 +145,7 @@ ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-connectivity-provider-side-has-problems"></a>Таблица ARP в случае проблем на стороне локальной сети или поставщика услуг подключения
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Таблица ARP в случае проблем на стороне локальной сети или поставщика услуг подключения
 * В таблице ARP будет отображаться только одна запись. Это будет сопоставление MAC-адреса и IP-адреса, используемого на стороне сети Майкрософт. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -171,6 +171,6 @@ ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Асинхронный обмен сообщениями в служебной шине | Документация Майкрософт"
-description: "Описание асинхронного обмена сообщениями в служебной шине."
+description: "Описание асинхронного обмена сообщениями в служебной шине Azure."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb178caeb1ba3cdf8f4a85ac88502425532f86b3
+ms.sourcegitcommit: 798b4310eb5ea7a4877d7842371b5dd7cf88d632
+ms.openlocfilehash: 8a5c1a381cc5cf30f211da948951dc577a124951
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: eb178caeb1ba3cdf8f4a85ac88502425532f86b3
 В служебной шине предусмотрен ряд способов устранения рисков, связанных с этими проблемами. В следующих разделах рассматривается каждая из этих проблем и способы их устранения.
 
 ### <a name="throttling"></a>Регулирование
-Регулирование в служебной шине позволяет управлять скоростью обмена сообщениями "кооперативным" способом. Каждый отдельный узел служебной шины хранит множество сущностей. Для каждой из этих сущностей требуются ресурсы центрального процессора, памяти, хранилища и др. Если использование какого-либо из ресурсов превысит установленные ограничения, служебная шина может отклонить запрос. Вызывающий объект получит исключение [ServerBusyException][ServerBusyException] и повторит попытку через 10 секунд.
+Регулирование в служебной шине позволяет управлять скоростью обмена сообщениями "кооперативным" способом. Каждый отдельный узел служебной шины хранит множество сущностей. Для каждой из этих сущностей требуются ресурсы центрального процессора, памяти, хранилища и др. Если использование какого-либо из ресурсов превысит установленные ограничения, служебная шина может отклонить запрос. Вызывающий объект получит [ServerBusyException][ServerBusyException] и повторит попытку через 10 секунд.
 
 Для устранения этой проблемы код должен прочитать ошибку и не допустить повторной отправки сообщения по крайней мере в течение 10 секунд. Так как эта ошибка может возникать в различных частях клиентского приложения, логику повторной отправки рекомендуется реализовать отдельно в каждой части. Такой код предотвращает выполнение регулирования благодаря секционированию очереди или раздела.
 
@@ -60,7 +60,7 @@ ms.openlocfilehash: eb178caeb1ba3cdf8f4a85ac88502425532f86b3
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Сбой служебной шины в единой подсистеме
 В любом приложении возможны обстоятельства, которые могут привести к несогласованности внутреннего компонента служебной шины. Когда служебная шина обнаруживает это, она собирает из приложения данные, которые помогут диагностировать проблему. После сбора данных приложение перезапускается, чтобы вернуться в согласованное состояние. Этот происходит довольно быстро, но сущность может стать недоступной. Обычно простой длится недолго, но иногда может достигать нескольких минут.
 
-В таких случаях клиентское приложение создает исключение [System.TimeoutException][System.TimeoutException] или [MessagingException][MessagingException]. Служебная шина содержит средство для устранения этой проблемы, которое реализовано в виде автоматизированной логики повтора для клиента. Если период повторных попыток исчерпан, а сообщение все еще не доставлено, можно использовать другие возможности, такие как [сопряженные пространства имен][сопряженные пространства имен]. С сопряженными пространствами имен связаны другие особенности, которые рассматриваются в этой статье.
+В таких случаях клиентское приложение создает исключение [System.TimeoutException][System.TimeoutException] или исключение [MessagingException][MessagingException]. Служебная шина содержит средство для устранения этой проблемы, которое реализовано в виде автоматизированной логики повтора для клиента. Если период повторных попыток исчерпан, а сообщение все еще не доставлено, можно использовать другие возможности, такие как [сопряженные пространства имен][paired namespaces]. С сопряженными пространствами имен связаны другие особенности, которые рассматриваются в этой статье.
 
 ### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Сбой служебной шины в центре обработки данных Azure
 Наиболее вероятной причиной сбоя в центре обработки данных Azure является сбой развертывания обновления для служебной шины или зависимой системы. Благодаря усовершенствованию платформы вероятность подобных сбоев снизилась. Сбой в центре обработки данных может также произойти по таким причинам:
@@ -68,10 +68,10 @@ ms.openlocfilehash: eb178caeb1ba3cdf8f4a85ac88502425532f86b3
 * перебои с электропитанием (сбой источника питания или генераторов);
 * сбой подключения (обрыв интернет-подключения между клиентами и Azure).
 
-Обе проблемы могут возникать вследствие стихийных бедствий или технических неполадок. Чтобы обойти эту проблему и обеспечить возможность отправки сообщений, можно использовать [сопряженные пространства имен][сопряженные пространства имен]. Они позволят отправлять сообщения в дополнительное расположение до восстановления работоспособности основного расположения. Дополнительные сведения см. в статье [Рекомендации по изолированию приложений от простоев и аварий служебной шины][Рекомендации по изолированию приложений от простоев и аварий служебной шины].
+Обе проблемы могут возникать вследствие стихийных бедствий или технических неполадок. Чтобы обойти эту проблему и обеспечить возможность отправки сообщений, можно использовать [сопряженные пространства имен][paired namespaces]. Они позволят отправлять сообщения в дополнительное расположение до восстановления работоспособности основного расположения. Дополнительные сведения см. в статье [Рекомендации по изолированию приложений от простоев и аварий служебной шины][Best practices for insulating applications against Service Bus outages and disasters].
 
 ## <a name="paired-namespaces"></a>Сопряженные пространства имен
-Функция [сопряженных пространств имен][сопряженные пространства имен] поддерживает сценарии, при которых сущности служебной шины или развертывания в центре обработки данных становятся недоступными. Хотя такое происходит редко, распределенные системы должны быть готовы к самым худшим сценариям. Как правило, это связано с краткосрочными проблемами в элементах, от которых зависит служебная шина. Чтобы обеспечить доступность приложения во время сбоя, пользователи служебной шины могут задействовать два отдельных пространства имен, в которых будут размещаться сущности обмена сообщениями. Желательно, чтобы эти пространства имен располагались в разных центрах обработки данных. В оставшейся части этого раздела используется следующая терминология.
+Функция [сопряженных пространств имен][paired namespaces] поддерживает сценарии, при которых сущность или развертывание служебной шины в центре обработки данных становятся недоступными. Хотя такое происходит редко, распределенные системы должны быть готовы к самым худшим сценариям. Как правило, это связано с краткосрочными проблемами в элементах, от которых зависит служебная шина. Чтобы обеспечить доступность приложения во время сбоя, пользователи служебной шины могут задействовать два отдельных пространства имен, в которых будут размещаться сущности обмена сообщениями. Желательно, чтобы эти пространства имен располагались в разных центрах обработки данных. В оставшейся части этого раздела используется следующая терминология.
 
 * Основное пространство имен — пространство имен, с которым взаимодействует ваше приложение во время операций отправки и получения.
 * Дополнительное пространство имен — пространство имен, которое выступает в роли резервного для основного пространства имен. Логика приложения не взаимодействует с этим пространством имен.
@@ -89,15 +89,15 @@ ms.openlocfilehash: eb178caeb1ba3cdf8f4a85ac88502425532f86b3
 В следующих разделах рассматриваются API-интерфейсы и их реализация, а также приводится пример кода, в котором реализована такая возможность. Обратите внимание, что использование этой возможности может быть сопряжено с дополнительными расходами.
 
 ### <a name="the-messagingfactorypairnamespaceasync-api"></a>API-интерфейс MessagingFactory.PairNamespaceAsync
-Функция сопряженных пространств имен включает в класс [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory] метод [PairNamespaceAsync][PairNamespaceAsync]:
+Функция сопряженных пространств имен включает метод [PairNamespaceAsync][PairNamespaceAsync] в класс [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory].
 
-```
+```csharp
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-Когда задача будет завершена, сопряжение пространства имен также завершается. После этого оно готово обрабатывать любые объекты [MessageReceiver][MessageReceiver], [QueueClient][QueueClient] или [TopicClient][TopicClient], созданные с помощью экземпляра [MessagingFactory][MessagingFactory]. Класс [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] является базовым классом для разных типов сопряжения, доступных в объекте [MessagingFactory][MessagingFactory]. Сейчас есть только один производный класс с именем [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], реализующий требования к доступности отправки. В классе [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] есть набор взаимозависимых конструкторов. Изучив конструктор с наибольшим количеством параметров, вы поймете поведение и других конструкторов.
+Когда задача будет завершена, сопряжение пространства имен также завершается. После этого оно готово обрабатывать любые объекты [MessageReceiver][MessageReceiver], [QueueClient][QueueClient] или [TopicClient][TopicClient], созданные с помощью экземпляра [MessagingFactory][MessagingFactory]. Класс [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] является базовым классом для разных типов сопряжения, доступных в объекте [MessagingFactory][MessagingFactory]. В настоящее время существует только один производный класс с именем [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], реализующий требования к доступности отправки. Класс [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] имеет набор взаимозависимых конструкторов. Изучив конструктор с наибольшим количеством параметров, вы поймете поведение и других конструкторов.
 
-```
+```csharp
 public SendAvailabilityPairedNamespaceOptions(
     NamespaceManager secondaryNamespaceManager,
     MessagingFactory messagingFactory,
@@ -108,22 +108,22 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Эти параметры имеют следующее предназначение.
 
-* *secondaryNamespaceManager* — инициализированный экземпляр класса [NamespaceManager][NamespaceManager] для дополнительного пространства имен, который может использоваться методом [PairNamespaceAsync][PairNamespaceAsync] для настройки дополнительного пространства имен. Диспетчер пространств имен используется для получения списка очередей в пространстве имен и обеспечивает наличие очередей невыполненной работы. Если очереди отсутствуют, они будут созданы. Для класса [NamespaceManager][NamespaceManager] требуется возможность создания маркера с утверждением **Manage**.
-* *messagingFactory* — экземпляр [MessagingFactory][MessagingFactory] для дополнительного пространства имен. Объект [MessagingFactory][MessagingFactory] используется для отправки сообщений в очередь невыполненной работы, а если свойство [EnableSyphon][EnableSyphon] имеет значение **true**, то и для их получения.
+* *secondaryNamespaceManager* — это инициализированный экземпляр класса [NamespaceManager][NamespaceManager] для дополнительного пространства имен, который может использоваться методом [PairNamespaceAsync][PairNamespaceAsync] для настройки дополнительного пространства имен. Диспетчер пространств имен используется для получения списка очередей в пространстве имен и обеспечивает наличие очередей невыполненной работы. Если очереди отсутствуют, они будут созданы. Для класса [NamespaceManager][NamespaceManager] требуется возможность создания токена с утверждением **Управление**.
+* *messagingFactory* — это экземпляр [MessagingFactory][MessagingFactory] для дополнительного пространства имен. Объект [MessagingFactory][MessagingFactory] используется для отправки сообщений в очередь невыполненной работы, а если свойство [EnableSyphon][EnableSyphon] имеет значение **true**, то и для их получения.
 * *backlogQueueCount* — количество создаваемых очередей невыполненной работы. Минимальное значение — 1. При отправке сообщений в очередь невыполненной работы произвольно выбирается одна из этих очередей. Если значение равно 1, используется только одна очередь. В таком случае, если в очереди невыполненной работы возникнут ошибки, клиент не сможет использовать другую очередь невыполненной работы, в результате чего сообщение не будет отправлено. Рекомендуем выбирать для этого параметра большее значение. Значение по умолчанию равно 10. Вы можете увеличить или уменьшить его в зависимости от объема данных, ежедневно отправляемых приложением. Каждая очередь невыполненной работы вмещает до 5 ГБ сообщений.
-* *failoverInterval* — промежуток времени для принятия сбоев в основном пространстве имен перед переводом сущности в дополнительное пространство имен. При отработке отказов сущности обрабатываются поочередно. Сущности в одном пространстве имен зачастую размещаются на разных узлах служебной шины. Сбой в одной сущности не подразумевает сбой в другой. Этому свойству можно присвоить значение [System.TimeSpan.Zero][System.TimeSpan.Zero]. В этом случае отработка отказа на дополнительное пространство имен будет выполняться сразу же после первого повторяющегося сбоя. К сбоям, активирующим таймер отработки отказа, относятся все исключения [MessagingException][MessagingException] со свойством [IsTransient][IsTransient], равным false, а также исключение [System.TimeoutException][System.TimeoutException]. Другие исключения, такие как [UnauthorizedAccessException][UnauthorizedAccessException], не приводят к отработке отказа, так как указывают на неправильную настройку клиента. Исключение [ServerBusyException][ServerBusyException] не приводит к отработке отказа, так как в данном случае после 10-секундного ожидания выполняется повторная попытка отправить сообщение.
+* *failoverInterval* — промежуток времени для принятия сбоев в основном пространстве имен перед переводом сущности в дополнительное пространство имен. При отработке отказов сущности обрабатываются поочередно. Сущности в одном пространстве имен зачастую размещаются на разных узлах служебной шины. Сбой в одной сущности не подразумевает сбой в другой. Этому свойству можно присвоить значение [System.TimeSpan.Zero][System.TimeSpan.Zero]. В этом случае отработка отказа на дополнительное пространство имен будет выполняться сразу же после первого повторяющегося сбоя. К сбоям, активирующим таймер отработки отказа, относятся все исключения [MessagingException][MessagingException] со свойством [IsTransient][IsTransient], значение которого — false, а также исключение [System.TimeoutException][System.TimeoutException]. Другие исключения, такие как [UnauthorizedAccessException][UnauthorizedAccessException], не приводят к отработке отказа, так как указывают на неправильную настройку клиента. Исключение [ServerBusyException][ServerBusyException] не приводит к отработке отказа, так как в данном случае после 10-секундного ожидания выполняется повторная попытка отправить сообщение.
 * *enableSyphon* — указывает, что сопряжение также должно выкачивать сообщения из дополнительного пространства имен обратно в основное пространство имен. Как правило, в приложениях, отправляющих сообщения, это значение должно быть равно **false**. В приложениях, принимающих сообщения, этому свойству следует присвоить значение **true**. Это связано с тем, что получателей сообщений зачастую меньше, чем отправителей. В зависимости от количества получателей вы можете иметь один экземпляр приложения для обработки задач выкачивания. Увеличение количества получателей отразится на стоимости каждой очереди невыполненной работы.
 
 Чтобы использовать этот код, создайте основной экземпляр [MessagingFactory][MessagingFactory], дополнительный экземпляр [MessagingFactory][MessagingFactory], дополнительный экземпляр [NamespaceManager][NamespaceManager] и экземпляр [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. Вызов выполняется просто:
 
-```
+```csharp
 SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
 После завершения задачи, возвращенной методом [PairNamespaceAsync][PairNamespaceAsync], все будет настроено и готово к использованию. Возможна ситуация, когда к моменту возврата задачи завершаются не все фоновые задания, необходимые для сопряжения. Поэтому не следует начинать отправку сообщений до возвращения задачи. Если возникнут ошибки, такие как ввод неправильных учетных данных или ошибки создания очередей невыполненной работы, после завершения задачи будут созданы соответствующие исключения. Как только задача будет возвращена, убедитесь в наличии очередей, просмотрев свойство [BacklogQueueCount][BacklogQueueCount] своего экземпляра [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. Для приведенного выше примера код этой операции будет выглядеть следующим образом.
 
-```
+```csharp
 if (sendAvailabilityOptions.BacklogQueueCount < 1)
 {
     // Handle case where no queues were created.
@@ -131,30 +131,30 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы ознакомились с основами асинхронного обмена сообщениями в служебной шине. Дополнительные сведения см. в статье, посвященной [сопряженным пространствам имен][сопряженные пространства имен].
+Теперь, ознакомившись с основами асинхронного обмена сообщениями в служебной шине, вы можете узнать дополнительные сведения о [сопряженных пространствах имен][paired namespaces].
 
-[ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
+[ServerBusyException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-[MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
-[Рекомендации по изолированию приложений от простоев и аварий служебной шины]: service-bus-outages-disasters.md
-[Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[SendAvailabilityPairedNamespaceOptions]:https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
-[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-[PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
-[EnableSyphon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.enablesyphon.aspx
-[System.TimeSpan.Zero]: https://msdn.microsoft.com/library/azure/system.timespan.zero.aspx
-[IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
-[UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
-[BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
-[сопряженные пространства имен]: service-bus-paired-namespaces.md
+[MessagingException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingexception
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
+[Microsoft.ServiceBus.Messaging.MessagingFactory]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[MessageReceiver]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver
+[QueueClient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient
+[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
+[MessagingFactory]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[SendAvailabilityPairedNamespaceOptions]:https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[NamespaceManager]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager
+[PairNamespaceAsync]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[EnableSyphon]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_EnableSyphon
+[System.TimeSpan.Zero]: https://msdn.microsoft.com/library/system.timespan.zero.aspx
+[IsTransient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient
+[UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
+[BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
+[paired namespaces]: service-bus-paired-namespaces.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Добавление решений для управления Log Analytics | Документация Майкрософт"
-description: "Решения для управления Log Analytics представляют собой коллекцию логики, визуализации и правил получения данных, предоставляющую метрики, связанные с определенной проблемной областью."
+title: "Добавление решений для управления Operations Management Suite (OMS) | Документация Майкрософт"
+description: "Решения для управления Operations Management Suite (OMS) и Log Analytics представляют собой коллекцию логики, визуализации и правил получения данных, предоставляющую метрики, связанные с определенной проблемной областью."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/13/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6cdc0730d7632e41b393c4abb17badc255e21a8d
-ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
+ms.sourcegitcommit: db7bc67a7797bc83450b07c4f32accc3ea7c0354
+ms.openlocfilehash: 757fd850bf1cc9fb058a0a7e0f4b65d95ba3ce03
 
 
 ---
-# <a name="add-log-analytics-management-solutions"></a>Добавление решений для управления Log Analytics
+# <a name="add-operations-management-suite-oms-management-solutions"></a>Добавление решений для управления Operations Management Suite (OMS)
 
-Решения для управления Log Analytics представляют собой коллекцию **логики**, **визуализации** и **правил получения данных**, предоставляющую метрики, связанные с определенной проблемной областью. В этой статье перечислены решения для управления, поддерживаемые Log Analytics, и показано, как их можно добавлять и удалять в рабочей области с помощью портала Azure. Эти решения можно также добавить на портале OMS с помощью коллекции решений.
+Решения для управления Operations Management Suite (OMS) представляют собой коллекцию **логики**, **визуализации** и **правил получения данных**, предоставляющую метрики, связанные с определенной проблемной областью. В этой статье перечислены решения для управления, поддерживаемые Log Analytics, и показано, как их можно добавлять и удалять в рабочей области с помощью портала Azure. Эти решения можно также добавить на портале OMS с помощью коллекции решений.
 
 Решения для управления позволяют получить более подробные данные для:
 
@@ -35,7 +35,7 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 
 В этой статье описывается, как добавить решения для управления в рабочую область с помощью портала Azure Marketplace. После добавления решения данные собираются с серверов в вашей инфраструктуре и отправляются в службу OMS. Обычно обработка в OMS занимает от нескольких минут до часа. Обработанные данные можно просмотреть в службе OMS.
 
-Если решение для управления больше не нужно, его можно удалить. При удалении решения для управления его данные не отправляются в службу OMS, что приводит к сокращению объема данных, используемых в рамках дневной квоты (если она установлена).
+Если решение для управления больше не нужно, его можно удалить. При удалении решения для управления его данные не отправляются в OMS. Если используется ценовая категория "Бесплатный", удаление решения может уменьшить объем используемых данных, что поможет не превысить ежедневную квоту данных.
 
 ## <a name="add-a-management-solution"></a>Добавление решения для управления
 1. Войдите на [портал Azure](https://portal.azure.com), используя подписку Azure, если вы еще этого не сделали.
@@ -59,22 +59,72 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
     ![Удаление решения](./media/log-analytics-add-solutions/solution-delete.png)  
 4. В диалоговом окне подтверждения нажмите кнопку **Да**.
 
+## <a name="offers-and-pricing-tiers"></a>Предложения и ценовые категории
+
+В следующей таблице указаны решения для управления, относящиеся к различным предложениям по управлению операциями и защите. В таблице также указаны ценовые категории, доступные для каждого для решения управления. Все решения в приведенной таблице доступны на портале Azure и в коллекции решений на портале Log Analytics.
+
+| Решение для управления                                                                        | ПРЕДЛОЖЕНИЕ                                                                     | Ценовые категории<sup>1</sup>                                                    | Примечания | 
+| ---                                                                                        | ---                                                                       | ---                                                                                                       | ---   |
+| Анализ журнала действий                                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | 90 дней данные доступны бесплатно. |
+| [Оценка AD](log-analytics-ad-assessment.md)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Состояние репликации AD](log-analytics-ad-replication-status.md)                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Работоспособность агента                                                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Управление оповещениями](log-analytics-solution-alert-management.md)                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Соединитель Application Insights <br>(предварительная версия)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>    | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Гибридная рабочая роль службы автоматизации                                                                     | <ul><li>Automation and Control</li></ul>                                    | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                            | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
+| [Анализ шлюзов приложений Azure](log-analytics-azure-networking-analytics.md)      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Анализ групп безопасности сети Azure](log-analytics-azure-networking-analytics.md)      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Azure SQL Analytics <br>(предварительная версия)                                                         | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br>На&nbsp;узел&nbsp;(OMS)                                                                             | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации.|
+| Архивация                                                                                    | <ul><li>Анализ и аналитика</li></ul>                                     | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                            | Требуется классическое хранилище службы архивации. |
+| Capacity and Performance <br>(предварительная версия)                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Отслеживание изменений](log-analytics-change-tracking.md)                                         | <ul><li>Automation and Control</li></ul>                                    | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                            | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
+| [Контейнеры](log-analytics-containers.md)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| HDInsight HBase Monitoring <br>(предварительная версия)                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Анализ хранилища ключей](log-analytics-azure-key-vault.md)                      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Оценка вредоносных программ](log-analytics-malware.md)                                             | <ul><li>Служба "Безопасность и соответствие требованиям"</li></ul>                                    | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                               | |
+| [Монитор производительности сети](log-analytics-network-performance-monitor.md) <br>(предварительная версия)    | <ul><li>Анализ и аналитика</li></ul>                                     | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | |
+| Office 365 Analytics <br>(предварительная версия)                                                        | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Безопасность и аудит](../operations-management-suite/oms-security-getting-started.md)        | <ul><li>Security&nbsp;and&nbsp;Compliance</li></ul>                        | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                               | Это решения нужно для сбора журналов событий безопасности. |
+| [Анализ Service Fabric](log-analytics-service-fabric.md) <br>(предварительная версия)                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [Схема услуги](../operations-management-suite/operations-management-suite-service-map.md) <br>(предварительная версия)| <ul><li>Анализ и аналитика</li></ul>                         | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | Доступно в восточной части США и Западной Европе.     |
+| Site Recovery                                                                                | <ul><li>Анализ и аналитика</li></ul>                                     | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                            | Требуется классическое хранилище Site Recovery. |
+| [Оценка SQL](log-analytics-sql-assessment.md)                                            | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Запуск и остановка виртуальных машин в нерабочее время<br>(предварительная версия)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
+| [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| [System Center Operations Manager Assessment](log-analytics-scom-assessment.md) <br>(предварительная версия) | <ul><li>Анализ и аналитика</li><li>Служба Log Analytics</li></ul>         | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| управление обновлениями;                                                                               | <ul><li>Automation and Control</li></ul>                                    | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                            | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
+| [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(предварительная версия)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | Плата за данные или узлы не взимается. |
+| [VMware Monitoring](log-analytics-vmware.md) <br>(предварительная версия)                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Wire Data 2.0<br>(предварительная версия)                                                                   | <ul><li>Анализ и аналитика</li></ul>                                      | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | Доступно в восточной части США и Западной Европе. |
+
+<sup>1</sup> Ценовые категории *Стандартная* и *Премиум (OMS)* доступны только клиентам, которые создали свою область Log Analytics до 21 сентября 2016 года.
+
+### <a name="community-provided-management-solutions"></a>Решения для управления от сообщества
+
+Предоставляемые сообществом решения можно получить из [коллекции шаблонов Azure](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS)) и непосредственно у авторов.
+
+| Решение для управления                 | ПРЕДЛОЖЕНИЕ                                                                     | Ценовые категории                         | Примечания | 
+| ---                                 | ---                                                                       | ---                                   | ---   |
+| Все решения от сообщества  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> На&nbsp;узел&nbsp;(OMS)     |    Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
+
+
+
 
 ## <a name="data-collection-details"></a>Сведения о сборе данных
 В следующих таблицах приведены методы сбора данных и другие сведения о том, как собираются данные для решений для управления и источников данных Log Analytics. Эти таблицы разбиты по предлагаемым решениям, тождественным [ценовым категориям подписки](https://go.microsoft.com/fwlink/?linkid=827926). Решение для анализа журнала действий бесплатно для всех ценовых категорий.
 
-Агенты Windows и SCOM по сути одинаковые. Однако в агенте Windows предусмотрена дополнительная возможность, позволяющая ему подключиться к рабочей области OMS и выполнять маршрутизацию через прокси-сервер. Агент SCOM должен использоваться в качестве агента OMS для взаимодействия с OMS. Агент SCOM в этой таблице является агентом OMS, подключенным к SCOM. Сведения о подключении существующей среды SCOM к OMS см. в статье [Подключение Operations Manager к Log Analytics](log-analytics-om-agents.md).
+Агент Log Analytics для Windows и агент System Center Operations Manager по сути одинаковы. Однако в агенте Windows предусмотрена дополнительная возможность, позволяющая ему подключиться к рабочей области OMS и выполнять маршрутизацию через прокси-сервер. Агент Operations Manager должен использоваться в качестве агента OMS для взаимодействия с OMS. Агенты Operations Manager в этой таблице являются агентами OMS, подключенными к Operations Manager. Сведения о подключении существующей среды Operations Manager к OMS см. в статье [Подключение Operations Manager к Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Тип используемого агента определяет способ отправки данных в OMS со следующими условиями:
-> - Можно использовать агент Windows или агент OMS, подключенный к SCOM.
-> - Если нужно использовать SCOM, данные агента SCOM для решения всегда передаются в OMS с помощью группы управления SCOM. Кроме того, в этом случае решение использует только агент SCOM.
-> - Если не нужно использовать SCOM и в таблице показано, что данные агента SCOM передаются в OMS с помощью группы управления, то передача этих данных в OMS будет всегда осуществляться с помощью групп управления. Агенты Windows обходят группу управления и передают свои данные непосредственно в OMS.
-> - Если при передаче данных агента SCOM не используется группа управления, то данные отправляются непосредственно в OMS, минуя группу управления.
+> - Можно использовать агент Windows или агент OMS, подключенный к Operations Manager.
+> - Когда требуется использовать Operations Manager, данные агента Operations Manager для решения всегда передаются в OMS с помощью группы управления Operations Manager. Кроме того, если требуется использовать Operations Manager, то в решении используется только агент Operations Manager.
+> - Если использовать Operations Manager не обязательно и в таблице показано, что данные агента Operations Manager передаются в OMS с помощью группы управления, то передача этих данных в OMS будет всегда осуществляться с помощью групп управления. Агенты Windows обходят группу управления и передают свои данные непосредственно в OMS.
+> - Если при передаче данных агента Operations Manager не используется группа управления, то данные отправляются непосредственно в OMS, минуя группу управления.
 
-### <a name="insight--analytics-or-log-analytics-standalone-per-gigabyte"></a>Информация и аналитика или изолированная служба Log Analytics (на гигабайт)
+### <a name="insight--analytics--log-analytics"></a>Insight and Analytics и Log Analytics 
 
-| Решение | платформа | Агент Windows | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Анализ журнала действий | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | при уведомлении |
 | Оценка AD |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 дней |
@@ -84,10 +134,11 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 | Управление оповещениями (Zabbix) |Linux |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |1 минута |
 | Управление оповещениями (Operations Manager) |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |3 минуты |
 | Соединитель Application Insights (предварительная версия) | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | при уведомлении |
-| Анализ сетевой активности (предварительная версия) | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 минут |
-| Управление емкостью <sup>1</sup> |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |ежечасно |
+| Анализ шлюзов приложений Azure | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 минут |
+| Анализ групп безопасности сети Azure | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 минут |
+| Управление емкостью; |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |ежечасно |
 | Контейнеры | Linux | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 минуты |
-| Анализ хранилища ключей (предварительная версия) |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |10 минут |
+| анализ хранилища ключей. |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |10 минут |
 | Монитор производительности сети | Windows | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | Подтверждения TCP выполняются каждые 5 секунд, данные отправляются каждые 3 минуты |
 | Office 365 Analytics (предварительная версия) |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |при уведомлении |
 | Анализ Service Fabric |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 мин |
@@ -97,19 +148,13 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 | Оценка System Center Operations Manager (предварительная версия) | Windows | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | 7 дней |
 | Анализ обновлений (предварительная версия) | Windows | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 2 дня |
 | Мониторинг VMware (предварительная версия) | Linux | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 минуты |
-| Данные передачи <sup>2</sup> |Windows (2012 R2/8.1 или более поздней версии) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 минута |
-
-
-<sup>1</sup> Решение для управления "Управление емкостью" пока нельзя добавлять в рабочие области. Клиенты, у которых решение "Управление ресурсами" уже установлено, могут продолжать его использовать.
-
-<sup>2</sup> Решение "Данные передачи" пока нельзя добавлять в рабочие области. Клиенты, у которых решение "Данные передачи" уже включено, могут продолжать его использовать.
+| Проводные данные |Windows (2012 R2/8.1 или более поздней версии) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 минута |
 
 
 ### <a name="automation--control"></a>Автоматизация и контроль
 
-| Решение | платформа | Агент Windows | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Анализ журнала действий | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | при уведомлении |
 | Гибридная рабочая роль службы автоматизации | Windows | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | Недоступно |
 | Отслеживание изменений |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |ежечасно |
 | Отслеживание изменений |Linux |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |ежечасно |
@@ -117,13 +162,12 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 
 ### <a name="security--compliance"></a>Безопасность и соответствие требованиям
 
-| Тип решения | платформа | Агент Windows | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Анализ журнала действий | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | при уведомлении |
 | Оценка защиты от вредоносных программ |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |ежечасно |
 | Безопасность и аудит <sup>1</sup> | Windows и Linux | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | Различная |
 
-<sup>1</sup> Решение "Безопасность и аудит" может собирать журналы из агентов Windows, Linux и SCOM. Сведения о сборе данных приведены в разделе [Источники данных](#data-sources) ниже.
+<sup>1</sup> Решение Security and Audit может собирать журналы от агентов Windows, Linux и Operations Manager. Сведения о сборе данных приведены в разделе [Источники данных](#data-sources).
 
 - syslog
 - Журналы событий безопасности Windows
@@ -134,9 +178,8 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 
 ### <a name="protection--recovery"></a>Защита и восстановление
 
-| Решение | платформа | Агент Windows | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| Решение для управления | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Анализ журнала действий | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | при уведомлении |
 | Архивация | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | Недоступно |
 | Azure Site Recovery | Таблицы Azure | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | Недоступно |
 
@@ -144,7 +187,7 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 ### <a name="data-sources"></a>Источники данных
 
 
-| Источник данных | платформа | Агент Windows | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| Источник данных | Платформа | Microsoft Monitoring Agent | Агент Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Трассировка событий Windows |Windows |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 мин |
 | Журналы IIS |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 мин |
@@ -162,19 +205,19 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 ## <a name="preview-management-solutions-and-features"></a>Предварительные версии решений для управления и компонентов
 Запуск службы и выполнение процедур разработки позволяет сотрудничать с клиентами в процессе разработки функций и решений.
 
-На этапе работы с закрытой предварительной версии мы предоставляем небольшой группе клиентов доступ к ранней реализации функции или решения, чтобы получить обратную связь и внести усовершенствования. Ранняя реализация включает минимум функций и операционных возможностей.
+На этапе закрытой предварительной версии мы предоставляем небольшой группе клиентов доступ к ранней реализации функции или решения, чтобы получить обратную связь и внести усовершенствования. Ранняя реализация включает минимум функций и операционных возможностей.
 
 Наша цель — быстро опробовать новые функции и понять, что работает, а что нет. Мы работаем таким образом до тех пор, пока отзывы пользователей закрытой предварительной версии не покажут, что мы готовы к выпуску общедоступной предварительной версии.
 
 В общедоступной предварительной версии функция или решение становятся доступными для всех пользователей, что позволяет получить больше отзывов и проверить нашу оценку и эффективность. На этом этапе
 
-* Предварительные версии компонентов появляются на вкладке "Параметры" и могут быть активированы пользователем.
-* Предварительные версии решений можно добавлять из коллекции или с помощью опубликованного сценария.
+* Предварительные версии компонентов появляются на вкладке "Параметры" и могут быть активированы любым пользователем.
+* Предварительные версии решений можно добавлять из коллекции или с помощью сценария.
 
 ### <a name="what-should-i-know-about-preview-features-and-solutions"></a>Что нужно знать о предварительных версиях компонентов и решений?
 Мы всегда с радостью выпускаем новые функции и решения для управления и нам нравится сотрудничать с вами в процессе их разработки.
 
-Однако предварительные версии функций и решений подходят не всем, поэтому прежде, чем подавать запрос об участии в тестировании закрытой предварительной версии или активировать общедоступную предварительную версию, убедитесь, что вы сможете работать с сырым продуктом.
+Предварительные версии компонентов и решений подходят не для всех. Прежде чем подавать запрос об участии в тестировании закрытой предварительной версии или активировать общедоступную предварительную версию, убедитесь, что вы сможете работать с продуктом на этапе разработки.
 
 Активировав предварительную версию функции через портал, вы увидите предупреждение о том, что эта функция находится на этапе предварительной версии.
 
@@ -191,7 +234,7 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
   * В зависимости от результатов работы на этапе предварительной версии мы можем отказаться от выпуска функции или решения.
 * Предварительные версии могут не работать или тестироваться со всеми конфигурациями; кроме того, мы можем ограничить следующее.
   * Операционные системы, которые можно использовать (например, на этапе предварительной версии компонент может применяться только в Linux).
-  * Тип агента (MMA, SCOM), который можно использовать (например, на этапе предварительной версии компонент может не работать с SCOM).  
+  * Тип агента (MMA, Operations Manager), который можно использовать (например, функция может не работать с Operations Manager на этапе предварительной версии).  
 * Предварительные версии решений и компонентов не регулируются соглашением об уровне обслуживания.
 * Работа с предварительными версиями компонентов потребует платы за использование.
 * Компоненты или возможности, необходимые для эффективной работы компонента или решения, могут отсутствовать или быть неполными.
@@ -225,6 +268,6 @@ ms.openlocfilehash: d036717661c252336ec0d747d6176d7b32913afe
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Создание заданий обработки эластичных баз данных и управление ими с помощью PowerShell"
+title: "Создание заданий обработки эластичных баз данных и управление ими с помощью PowerShell | Документация Майкрософт"
 description: "Управление пулами базы данных SQL Azure с помощью PowerShell"
 services: sql-database
 documentationcenter: 
@@ -7,7 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
 
 
 ---
-# <a name="create-and-manage-a-sql-database-elastic-database-jobs-using-powershell-preview"></a>Создание заданий обработки эластичных баз данных для Базы данных SQL и управление ими с помощью PowerShell (предварительная версия)
+# <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Создание заданий обработки эластичных баз данных базы данных SQL и управление ими с помощью PowerShell (предварительная версия)
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-elastic-jobs-create-and-manage.md)
+> * [портале Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
 > 
 > 
@@ -358,7 +358,7 @@ ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
 Получение состояния выполнения всех дочерних заданий, включая неактивные, по указанному идентификатору выполнения задания:
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Получение состояния выполнения всех заданий, созданных с помощью сочетания расписания и задания, включая неактивные:
 
@@ -372,13 +372,13 @@ ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Получение сведения обо всех заданиях в указанном пользовательском семействе, включая неактивные:
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Получение списка выполнения задач в определенном задании:
 
@@ -484,7 +484,7 @@ ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
     Remove-AzureSqlJob -JobName $jobName
 
 ## <a name="to-create-a-custom-database-target"></a>Создание целевого объекта пользовательской базы данных
-Вы можете определять целевые объекты пользовательской базы данных для выполнения напрямую или для включения в группу пользовательских баз данных. Например, поскольку **пулы эластичных баз данных** пока нельзя использовать напрямую через API-интерфейсы PowerShell, вы можете создать целевой объект пользовательской базы данных и пользовательской коллекции баз данных, охватив, таким образом, все базы данных в пуле.
+Вы можете определять целевые объекты пользовательской базы данных для выполнения напрямую или для включения в группу пользовательских баз данных. Например, так как **пулы эластичных баз данных** пока нельзя использовать напрямую через API-интерфейсы PowerShell, вы можете создать пользовательское целевое семейство баз данных, охватив, таким образом, все базы данных в пуле.
 
 Задайте следующие переменные в соответствии с нужными сведениями о базе данных:
 
@@ -586,7 +586,7 @@ ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger
     -ScheduleName $scheduleName
-    –JobName $jobName
+    -JobName $jobName
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Удаление расписания задания
@@ -652,6 +652,6 @@ ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

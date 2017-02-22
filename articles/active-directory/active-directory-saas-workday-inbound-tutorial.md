@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
+ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
+ms.openlocfilehash: a0d86046b471dec473fd707eedae061f9d1b9902
 
 
 ---
@@ -47,25 +47,25 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-workday-inbound-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-workday-inbound-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавление приложения](./media/active-directory-saas-workday-inbound-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-workday-inbound-tutorial/IC749321.png "Добавление приложения")
 5. В поле поиска введите **Workday**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-workday-inbound-tutorial/IC701021.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-workday-inbound-tutorial/IC701021.png "Добавление приложения из коллекции")
 6. В области результатов выберите Workday и нажмите кнопку "Завершить", чтобы добавить приложение.
    
-    ![Коллекция приложений](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Коллекция приложений")
 
 ## <a name="creating-an-integration-system-user"></a>Создание пользователя системы интеграции
 ### <a name="steps"></a>Шаги:
 1. В области **Workday Workbench** введите в поле поиска "create user", а затем щелкните ссылку **Create Integration System User** (Создать пользователя системы интеграции). 
    
-    ![Создать пользователя](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
+    ![Создание пользователя](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Создание пользователя")
 2. Завершите задачу **Создание пользователя системы интеграции** , указав имя пользователя и пароль для нового пользователя системы интеграции.  Оставьте флажок "Запросить новый пароль при следующем входе" снятым, так как этот пользователь будет осуществлять вход в систему программными средствами. Оставьте значение по умолчанию 0 для времени ожидания сеанса в минутах, что не позволит сеансам пользователя завершаться раньше времени. 
    
-    ![Create Integration System User](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Create Integration System User")
+    ![Создание пользователя системы интеграции](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Создание пользователя системы интеграции")
 
 ## <a name="creating-a-security-group"></a>Создание группы безопасности
 Для сценария, описанного в данном руководстве, необходимо создать ничем не ограниченную группу безопасности системы интеграции и назначить ей пользователя.
@@ -73,22 +73,22 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
 ### <a name="steps"></a>Шаги:
 1. Введите в поле поиска текст "создать группу безопасности", а затем щелкните **Создать группу безопасности**. 
    
-    ![Создать группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
+    ![Создание группы безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "Создание группы безопасности")
 2. Завершите задачу создания группы безопасности.  Выберите группу безопасности системы интеграции без ограничений в раскрывающемся списке "Тип клиентский группы безопасности", чтобы создать группу безопасности, члены в которую будут добавляться явным образом. 
    
-    ![Создать группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
+    ![Создание группы безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "Создание группы безопасности")
 
 ## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Назначение пользователя системы интеграции группе безопасности
 ### <a name="steps"></a>Шаги:
 1. Введите в поле поиска текст "изменить группу безопасности", а затем щелкните **Изменить группу безопасности**. 
    
-    ![Изменить группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
+    ![Изменение группы безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Изменение группы безопасности")
 2. Найдите и выберите новую группу безопасности интеграции по имени. 
    
-    ![Изменить группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Edit Security Group")
+    ![Изменение группы безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Изменение группы безопасности")
 3. Добавьте нового пользователя системы интеграции в новую группу безопасности. 
    
-    ![Группа безопасности системы](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
+    ![Группа безопасности системы](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Группа безопасности системы")  
 
 ## <a name="configuring-security-group-options"></a>Настройка параметров группы безопасности
 На этом этапе вы предоставляете группе безопасности новые разрешения на выполнение операций **Get** и **Put** с объектами, защищенными приведенными ниже политиками безопасности домена.
@@ -102,19 +102,19 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
 ### <a name="steps"></a>Шаги:
 1. В поле поиска введите "политики безопасности домена", а затем нажмите ссылку "Политики безопасности домена для функциональной области".  
    
-    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
+    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Политики безопасности домена")  
 2. Найдите систему и выберите функциональную область **Система** .  Нажмите кнопку **ОК**.  
    
-    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Domain Security Policies")  
+    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Политики безопасности домена")  
 3. В списке политик безопасности для функциональной области системы разверните узел "Администрирование безопасности" и выберите политику безопасности домена External Account Provisioning.  
    
-    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
+    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Политики безопасности домена")  
 4. Нажмите кнопку **Изменить разрешения**, а затем на странице диалогового окна **Изменение разрешений** добавьте новую группу безопасности в список групп безопасности с разрешениями интеграции **Get** и **Put**. 
    
-    ![Изменить разрешение](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
+    ![Изменение разрешения](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Изменение разрешения")  
 5. Повторите шаг 1 (см. выше), чтобы вернуться на экран для выбора функциональных областей. Затем введите в строке поиска текст "персонал", выберите функциональную область "Персонал" и нажмите кнопку **ОК**.
    
-    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
+    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Политики безопасности домена")  
 6. В списке политик безопасности для функциональной области "Персонал" разверните узел Worker Data: Staffing и повторите шаг 4 для каждой из оставшихся политик безопасности:
    
    * Worker Data: Public Worker Reports
@@ -122,7 +122,7 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
    * Worker Data: Current Staffing Information
    * Worker Data: Business Title on Worker Profile
 
-    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
+    ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Политики безопасности домена")  
 
 
 
@@ -134,13 +134,13 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
 ### <a name="steps"></a>Шаги:
 1. Введите "активировать" в поле поиска и затем нажмите ссылку "Активировать ожидающие изменения политики безопасности". 
    
-    ![Активировать](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
+    ![Активация](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Активация") 
 2. Начните выполнять задачу активации ожидающих изменений политики безопасности: введите комментарий для проведения аудита и нажмите кнопку **ОК**. 
    
-    ![Активировать ожидающие изменения безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Activate Pending Security")   
+    ![Активация ожидающих изменений безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Активация ожидающих изменений безопасности")   
 3. Завершите задачу на следующем экране, установив флажок подтверждения и нажав кнопку **ОК**. 
    
-    ![Активировать ожидающие изменения безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activate Pending Security")  
+    ![Активация ожидающих изменений безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Активация ожидающих изменений безопасности")  
 
 ## <a name="configuring-user-import-in-azure-ad"></a>Настройка импорта пользователей в Azure AD
 Цель этого раздела — описать настройку Azure AD для импорта пользователей из Workday.
@@ -149,7 +149,7 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
 1. На странице интеграции с приложением **Workday** щелкните **Настроить импорт пользователей**, чтобы открыть диалоговое окно **Настройка подготовки к работе**.
 2. На странице **Параметры и учетные данные администратора** выполните приведенные ниже действия, после чего нажмите кнопку **Далее**. 
    
-    ![Параметры и учетные данные администратора](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
+    ![Параметры и учетные данные администратора](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Параметры и учетные данные администратора")  
    
     а. В текстовое поле "Workday admin user" (Имя пользователя администратора Workday) введите имя пользователя, созданного в разделе "Creating an integration system user" (Создание пользователя системы интеграции).
    
@@ -158,15 +158,15 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
     c. В текстовое поле "Workday tenant URL" (URL-адрес клиента Workday) введите URL-адрес клиента Workday.
 3. На странице **Проверить подключение** щелкните **Начать тест**, чтобы подтвердить подключение, а затем нажмите кнопку **Далее**. 
    
-    ![Проверить подключение](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "Test connection")  
+    ![Проверка подключения](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "Проверка подключения")  
 4. На странице **Параметры подготовки к работе** нажмите кнопку **Далее**. 
    
-    ![Параметры подготовки к работе](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "Provisioning options")
+    ![Параметры подготовки к работе](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "Параметры подготовки к работе")
 5. В диалоговом окне **Начать подготовку к работе** нажмите кнопку **Завершить**. 
    
-    ![Начать подготовку к работе](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "Start provisioning")
+    ![Начало подготовки к работе](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "Начало подготовки к работе")
 
-Теперь можно перейти в раздел **Пользователи** и проверить, выполнен ли импорт пользователя Workday.
+Теперь вы можете перейти в раздел **Пользователи** и проверить выполнение импорта пользователя Workday.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
@@ -175,6 +175,6 @@ ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

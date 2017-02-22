@@ -1,5 +1,5 @@
 ---
-title: "Настройка CHAP для устройства StorSimple | Документация Майкрософт"
+title: "Настройка CHAP для устройства StorSimple серии 8000 | Документация Майкрософт"
 description: "В статье описываются способы настройки протокола CHAP на устройстве StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 918ca3b726cf194071d39ab92890293a08fcbc52
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
 
 
 ---
@@ -164,6 +164,6 @@ CHAP лучше всего использовать для повышения б
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

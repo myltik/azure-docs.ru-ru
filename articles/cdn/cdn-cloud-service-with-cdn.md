@@ -1,9 +1,9 @@
 ---
-title: "Интеграция облачной службы с Azure CDN | Документация Майкрософт"
-description: "В этом учебнике объясняется, как развернуть облачную службу, которая обслуживает содержимое из интегрированной конечной точки CDN Azure"
+title: "Интеграция облачной службы Azure с Azure CDN | Документация Майкрософт"
+description: "Узнайте, как развернуть облачную службу, которая обслуживает содержимое из интегрированной конечной точки Azure CDN."
 services: cdn, cloud-services
 documentationcenter: .net
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: tysonn
 ms.assetid: b3c0108f-9ec5-43a8-8fd0-40eafbd32637
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 
 
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Интеграция облачной службы с Azure CDN
+# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a>Интеграция облачной службы с Azure CDN
 Облачную службу можно интегрировать с сетью Azure CDN, которая обслуживает любое содержимое из расположения облачной службы. Такой подход обеспечивает следующие преимущества.
 
 * Упрощение развертывания и обновления образов, скриптов и таблиц стилей в каталогах проекта облачной службы.
@@ -603,6 +603,6 @@ ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 314399bb2d2502eb237e894ce6f21ffd134b4bf5
-ms.openlocfilehash: 96db8c18714655e923714a0f8dbf553e8ae03e2c
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
 
 
 ---
@@ -64,7 +64,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 
 
 ## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>Развертывание переданной виртуальной машины с помощью Resource Manager
-В шаблонах Resource Manager можно указывать дополнительный параметр для `licenseType`. Дополнительные сведения см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). После загрузки виртуального жесткого диска в Azure необходимо изменить шаблон Resource Manager, чтобы включить в него тип лицензирования как часть поставщика вычислительных ресурсов и развернуть шаблон в обычном режиме.
+В шаблонах Resource Manager можно указывать дополнительный параметр для `licenseType`. Дополнительные сведения см. в статье [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md). После загрузки виртуального жесткого диска в Azure необходимо изменить шаблон Resource Manager, чтобы включить в него тип лицензирования как часть поставщика вычислительных ресурсов и развернуть шаблон в обычном режиме.
 
 ```json
 "properties": {  
@@ -190,6 +190,6 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

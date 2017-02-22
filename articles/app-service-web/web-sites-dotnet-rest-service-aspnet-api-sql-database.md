@@ -1,5 +1,5 @@
 ---
-title: "Создание службы REST в службе приложений Azure с помощью веб-API ASP.NET и базы данных SQL"
+title: "Создание REST API в Azure с использованием ASP.NET и Базы данных SQL | Документация Майкрософт"
 description: "Учебник, в котором показано развертывание приложения, использующего веб-API ASP.NET, в веб-приложении Azure с помощью Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2188a56fee942cd58b20b92fb77891708ab62d24
+ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
+ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
 
 
 ---
@@ -493,7 +493,7 @@ Visual Studio начнет процесс копирования файлов в
 
     ![Диалоговое окно сохранения веб-интерфейса API][addwebapi007]
 
-    **Предупреждение системы безопасности**. На этом этапе ваше приложение не защищено и уязвимо для атак с подделкой межсайтовых запросов (CSRF). Эта уязвимость будет удалена позднее в рамках этого учебника. Для получения дополнительной информации ознакомьтесь с разделом [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API][prevent-csrf-attacks] (Предотвращение атак с подделкой межсайтовых запросов (CSRF) в веб-API ASP.NET).
+    **Предупреждение системы безопасности**. На этом этапе ваше приложение не защищено и уязвимо для атак с подделкой межсайтовых запросов (CSRF). Эта уязвимость будет удалена позднее в рамках этого учебника. Чтобы узнать больше, ознакомьтесь с [предотвращением атак с подделкой межсайтовых запросов (CSRF)][prevent-csrf-attacks].
 ## <a name="add-xsrf-protection"></a>Добавление защиты XSRF
 Кросс-сайтовые атаки посредством ложных запросов (также известные как XSRF или CSRF) – это атаки, применяемые против приложений, размещенных в сети, когда вредоносный сайт может влиять на взаимодействие между клиентским браузером и веб-сайтом, которому доверяет браузер. Эти атаки становятся возможными, потому что браузеры отправляют маркеры аутентификации автоматически вместе с каждым запросом веб-сайта. Типичный пример – файл cookie для проверки подлинности, например билет проверки форм ASP.NET. Однако веб-сайты, использующие любой надежный способ проверки подлинности (например, Windows Authentication, Basic и т.п.), также могут стать целью таких атак.
 
@@ -663,7 +663,7 @@ Visual Studio начнет процесс копирования файлов в
 Теперь приложение работает в облаке, используя базу данных SQL для хранения информации. После завершения тестирования приложения в Azure его необходимо удалить. Приложение является общедоступным и не имеет механизма ограничения доступа.
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -672,7 +672,7 @@ Visual Studio начнет процесс копирования файлов в
 
 Другой способ хранения данных в приложении Azure — использование хранилища Azure, обеспечивающего хранение нереляционных данных в виде BLOB-объектов и таблиц. Дополнительная информация о Web API, ASP.NET MVC и Window Azure содержится по ссылкам ниже.
 
-* [Приступая к работе с платформой Entity Framework с помощью MVC][EFCodeFirstMVCTutorial]
+* [Начало работы с Entity Framework&6; Code First с помощью MVC&5;][EFCodeFirstMVCTutorial]
 * [Введение в ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Первое приложение веб-интерфейса API ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Отладка WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
@@ -685,10 +685,10 @@ Visual Studio начнет процесс копирования файлов в
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- bookmarks -->
-[Добавление поставщика OAuth]: #addOauth
-[Добавление ролей в базу данных членства]:#mbrDB
-[Создание скрипта развертывания данных]:#ppd
-[Обновление базы данных членства]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Add Roles to the Membership Database]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -742,9 +742,9 @@ Visual Studio начнет процесс копирования файлов в
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Добавление защиты XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Добавление защиты XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
@@ -755,6 +755,6 @@ Visual Studio начнет процесс копирования файлов в
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

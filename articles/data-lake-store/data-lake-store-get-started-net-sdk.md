@@ -1,6 +1,6 @@
 ---
-title: "Использование пакета SDK .NET для Data Lake Store для разработки приложений | Документация Майкрософт"
-description: "Использование пакета SDK .NET хранилища озера данных для разработки приложений"
+title: "Разработка приложений с помощью пакета .NET SDK для Azure Data Lake Store | Документация Майкрософт"
+description: "Создание учетной записи Azure Data Lake Store и выполнение базовых операций в Data Lake Store с помощью пакета .NET SDK для Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 
 
 ---
@@ -58,9 +58,9 @@ ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
    2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** выберите **nuget.org** и установите флажок **Включить предварительные выпуски**.
    3. Найдите и установите следующие пакеты NuGet:
       
-      * `Microsoft.Azure.Management.DataLake.Store` — в этом руководстве используется предварительная версия 0.12.5.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` — в этом руководстве используется предварительная версия 0.10.6.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — в этом руководстве используется предварительная версия 2.2.8.
+      * `Microsoft.Azure.Management.DataLake.Store` — в этом руководстве используется предварительная версия&0;.12.5.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` — в этом руководстве используется предварительная версия&0;.10.6.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — в этом руководстве используется предварительная версия&2;.2.8.
         
         ![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Создание учетной записи Azure Data Lake")
    4. Закройте **Диспетчер пакетов Nuget**.
@@ -261,6 +261,6 @@ ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

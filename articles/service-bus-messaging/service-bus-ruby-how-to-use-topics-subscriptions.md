@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
+ms.sourcegitcommit: 43197f7402795c37fa7ed43658bc3b8858a41080
+ms.openlocfilehash: c083d8ac0d16de40de4a2a9908cdcf2e02ed3d6a
 
 
 ---
@@ -25,42 +25,9 @@ ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
 
 В этой статье показано, как использовать разделы и подписки служебной шины в приложениях Ruby. В этой статье описаны такие сценарии, как **создание разделов и подписок, создание фильтров подписок, отправка сообщений** в раздел, **получение сообщений из подписки** и **удаление разделов и подписок**. Дополнительные сведения о разделах и подписках см. в разделе [Дальнейшие действия](#next-steps).
 
-## <a name="service-bus-topics-and-subscriptions"></a>Разделы и подписки служебной шины
-Разделы и подписки служебной шины поддерживают модель обмена сообщениями *публикации/подписки* . При использовании разделов и подписок компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через раздел, который выступает в качестве посредника.
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-В отличие от очередей служебной шины, где каждое сообщение обрабатывается одним потребителем, разделы и подписки предоставляют вид связи **один ко многим** с помощью шаблона публикации или подписки. Можно зарегистрировать несколько подписок на раздел. Когда сообщение отправляется в раздел, оно затем может обрабатываться независимо каждой подпиской.
-
-Подписка раздела напоминает виртуальную очередь, которая получает копии сообщений, отправленных в раздел. Вы можете зарегистрировать в разделе правила фильтрации для отдельных подписок, которые позволят определить, какие подписки раздела будут получать те или иные сообщения из раздела.
-
-Разделы и подписки служебной шины обеспечивают возможность масштабирования для обработки большого количества сообщений для большого количества пользователей и приложений.
-
-## <a name="create-a-namespace"></a>Создание пространства имен
-Чтобы начать использовать очереди служебной шины в Azure, необходимо сначала создать пространство имен. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении. Так как [портале Azure][портале Azure] не создает пространство имен с помощью подключения ACS, необходимо создать пространство имен через интерфейс командной строки.
-
-Создание пространства имен службы:
-
-1. Откройте окно консоли Azure PowerShell.
-2. Введите следующую команду, чтобы создать пространство имен. Укажите собственное значение пространства имен и укажите ту же область, что и у приложения.
-   
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-    ```
-   
-    ![Создание пространства имен](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
-
-## <a name="obtain-default-management-credentials-for-the-namespace"></a>Получение учетных данных управления по умолчанию для пространства имен
-Для выполнения операций управления, таких как создание очереди в новом пространстве имен, необходимо получить учетные данные управления для пространства имен.
-
-Командлет PowerShell, выполненный с целью создания пространства имен служебной шины, отображает ключ, который можно использовать для управления пространством имен. Скопируйте значение **DefaultKey**. Оно понадобится в коде дальше в этом учебнике.
-
-![Копирование ключа](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
-
-> [!NOTE]
-> Этот ключ также можно найти на [портале Azure][портале Azure] в разделе сведений о подключении для вашего пространства имен.
-> 
-> 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-ruby-application"></a>Создание приложения Ruby
 Инструкции см. в разделе [Создание приложения Ruby в Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
@@ -75,14 +42,14 @@ ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
 ### <a name="import-the-package"></a>Импорт пакета
 Используйте свой любимый текстовый редактор, чтобы добавить следующий код в начало файла Ruby, где планируется использовать хранилище.
 
-```
+```ruby
 require "azure"
 ```
 
 ## <a name="set-up-a-service-bus-connection"></a>Настройка подключения к Service Bus
 Модуль Azure считывает переменные среды **AZURE\_SERVICEBUS\_NAMESPACE** и **AZURE\_SERVICEBUS\_ACCESS\_KEY**, в которых содержатся сведения, необходимые для подключения к служебной шине. Если эти переменные среды не заданы, необходимо указать сведения о пространстве имен перед использованием **Azure::ServiceBusService** с помощью следующего кода:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -92,7 +59,7 @@ Azure.config.sb_access_key = "<your azure service bus access key>"
 ## <a name="create-a-topic"></a>Создание раздела
 Объект **Azure::ServiceBusService** позволяет работать с разделами. Следующий код создает объект **Azure::ServiceBusService**. Чтобы создать раздел, используйте метод **create\_topic()**. В следующем примере создается раздел или выводятся возникающие ошибки.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   topic = azure_service_bus_service.create_queue("test-topic")
@@ -103,7 +70,7 @@ end
 
 Также можно передать объект **Azure::ServiceBus::Topic** с дополнительными параметрами, которые позволяют переопределить параметры раздела по умолчанию, например срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минута.
 
-```
+```ruby
 topic = Azure::ServiceBus::Topic.new("test-topic")
 topic.max_size_in_megabytes = 5120
 topic.default_message_time_to_live = "PT1M"
@@ -119,7 +86,7 @@ topic = azure_service_bus_service.create_topic(topic)
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
 Фильтр **MatchAll** является фильтром по умолчанию, используемым, если при создании новой подписки не указан фильтр. Если используется фильтр **MatchAll**, то все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка с именем "all-messages" и используется фильтр по умолчанию **MatchAll**.
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
 ```
 
@@ -134,7 +101,7 @@ subscription = azure_service_bus_service.create_subscription("test-topic", "all-
 
 В приведенном ниже примере создается подписка с именем high-messages с фильтром **Azure::ServiceBus::SqlFilter**, который выбирает только те сообщения, значение настраиваемого свойства **message\_number** которых больше 3.
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
 azure_service_bus_service.delete_rule("test-topic", "high-messages", "$Default")
 
@@ -148,7 +115,7 @@ rule = azure_service_bus_service.create_rule(rule)
 
 В следующем примере создается подписка с именем low-messages с фильтром **Azure::ServiceBus::SqlFilter**, выбирающим только те сообщения, значение свойства **message_number** которых меньше или равно 3.
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
 azure_service_bus_service.delete_rule("test-topic", "low-messages", "$Default")
 
@@ -163,11 +130,11 @@ rule = azure_service_bus_service.create_rule(rule)
 Если сообщение отправляется в раздел test-topic, оно всегда доставляется в приемники с подпиской раздела all-messages, а также в отдельные приемники с подписками разделов high-messages и low-messages (в зависимости от содержимого сообщений).
 
 ## <a name="send-messages-to-a-topic"></a>Отправка сообщений в раздел
-Чтобы отправить сообщение в раздел служебной шины, приложение должно использовать метод **send\_topic\_message()** в объекте **Azure::ServiceBusService**. Сообщения, отправленные в разделы служебной шины, представляют собой экземпляры объектов **Azure::ServiceBus::BrokeredMessage**. У объектов **Azure::ServiceBus::BrokeredMessage** есть набор стандартных свойств (например, **label** и **time\_to\_live**), словарь, используемый для хранения настраиваемых свойств приложения, и набор строковых данных. Приложение может задавать текст сообщения, передавая строковое значение в метод **send\_topic\_message()**, и все обязательные стандартные свойства будут заполнены значениями по умолчанию.
+Чтобы отправить сообщение в раздел служебной шины, приложение должно использовать метод **send\_topic\_message()** в объекте **Azure::ServiceBusService**. Сообщения, отправленные в разделы служебной шины, представляют собой экземпляры объектов **Azure::ServiceBus::BrokeredMessage**. У объектов **Azure::ServiceBus::BrokeredMessage** есть набор стандартных свойств (например, **label** и **time\_to\_live**), словарь, используемый для хранения настраиваемых свойств приложения и набор строковых данных. Приложение может задавать текст сообщения, передавая строковое значение в метод **send\_topic\_message()**, и все обязательные стандартные свойства будут заполнены значениями по умолчанию.
 
 В следующем примере показано, как отправить пять тестовых сообщений в раздел test-topic. Обратите внимание, что значение настраиваемого свойства **message_number** каждого сообщения зависит от итерации цикла (это определяет подписку, которая получит это сообщение).
 
-```
+```ruby
 5.times do |i|
   message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
     { :message_number => i })
@@ -186,7 +153,7 @@ end
 
 В следующем примере показаны получение и обработка сообщений с помощью метода **receive\_subscription**message()\_. В этом примере сначала получается и удаляется сообщение из подписки low-messages (для этого параметру **:peek\_lock** присваивается значение **false**), а затем получается другое сообщение из high-messages, которое удаляется с помощью метода **delete\_subscription\_message()**.
 
-```
+```ruby
 message = azure_service_bus_service.receive_subscription_message(
   "test-topic", "low-messages", { :peek_lock => false })
 message = azure_service_bus_service.receive_subscription_message(
@@ -202,15 +169,15 @@ azure_service_bus_service.delete_subscription_message(message)
 Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **delete\_subscription\_message()**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это реализуется с помощью свойства **message\_id** сообщения, которое остается постоянным для различных попыток доставки.
 
 ## <a name="delete-topics-and-subscriptions"></a>Удаление разделов и подписок
-Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [портале Azure][портале Azure] или с помощью программных средств. В приведенном ниже примере показано, как удалить раздел с именем test-topic.
+Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [портале Azure][Azure portal] или с помощью программных средств. В приведенном ниже примере показано, как удалить раздел с именем test-topic.
 
-```
+```ruby
 azure_service_bus_service.delete_topic("test-topic")
 ```
 
 При удалении раздела также удаляются все подписки, зарегистрированные в этом разделе. Подписки также можно удалять по отдельности. В следующем примере кода показано, как удалить подписку с именем high-messages из раздела test-topic:
 
-```
+```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
@@ -221,10 +188,10 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 * Справочник API для [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
 * Посетите репозиторий [Azure SDK для Ruby](https://github.com/Azure/azure-sdk-for-ruby) на веб-сайте GitHub.
 
-[портале Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

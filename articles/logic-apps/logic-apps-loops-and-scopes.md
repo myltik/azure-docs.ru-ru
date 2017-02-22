@@ -1,6 +1,6 @@
 ---
-title: "Циклы и области приложения логики | Документация Майкрософт"
-description: "Обзор различных способов обработки циклов и областей в приложении логики."
+title: "Создание циклов и областей или индивидуальная обработка рабочих процессов в Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте о создании циклов для выполнения итерации по данным, группировании действий в области и индивидуальной обработке данных для запуска дополнительных рабочих процессов в Azure Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 2556e43bba8f2080e292be4c5a7f2145f5718e57
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: 63ac171494e13f4451d585c3b704727eeed94fab
 
 
 ---
@@ -159,6 +159,6 @@ ms.openlocfilehash: 2556e43bba8f2080e292be4c5a7f2145f5718e57
 ```
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с управлением устройствами | Документация Майкрософт"
-description: "В этом учебнике показано, как начать работу с функцией управления устройствами в Центре Интернета вещей Azure"
+title: "Начало работы с функцией управления Центром Интернета вещей Azure (Node) | Документация Майкрософт"
+description: "Запуск удаленной перезагрузки устройства с помощью функции управления устройствами в Центре Интернета вещей. Используйте пакет SDK для Центра Интернета вещей Azure для Node.js, чтобы реализовать приложение имитации устройства, содержащее прямой метод и приложение службы, которое его вызывает."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: e1bb89ba369818d7ba0e92a54a4712033f648187
 
 
 ---
-# <a name="tutorial-get-started-with-device-management"></a>Учебник. Приступая к работе с управлением устройствами
+# <a name="get-started-with-device-management-node"></a>Начало работы с управлением устройствами (Node)
 ## <a name="introduction"></a>Введение
 Облачные приложения Интернета вещей могут использовать в Центре Интернета вещей примитивы, а именно "двойники" устройств и прямые методы, чтобы удаленно запускать и отслеживать на устройствах действия по управлению ими.  В этой статье содержатся рекомендации и код, которые можно использовать для взаимодействия облачного приложения Интернета вещей и устройства с целью запуска и отслеживания процесса удаленной перезагрузки устройства с помощью Центра Интернета вещей.
 
@@ -38,7 +38,7 @@ ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
 
 * Создание экземпляра Центра Интернета вещей на портале Azure и удостоверения устройства в экземпляре Центра Интернета вещей.
 * Создание приложения для имитации устройства с прямым методом, который позволяет выполнить перезагрузку через вызов из облака.
-* Создание консольного приложения, вызывающего прямой метод перезагрузки в приложении для имитации устройства с помощью Центра Интернета вещей.
+* Создание консольного приложения Node.js, вызывающего прямой метод перезагрузки в приложении имитации устройства с помощью Центра Интернета вещей.
 
 По завершении работы с этим руководством у вас будет два консольных приложения Node.js:
 
@@ -67,7 +67,7 @@ ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
     ```
     npm init
     ```
-2. В командной строке в папке **manageddevice** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iot-device** и пакет **azure-iot-device-mqtt**:
+2. В командной строке в папке **manageddevice** выполните следующую команду, чтобы установить пакет SDK для устройств **azure-iot-device** и пакет **azure-iot-device-mqtt**.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -81,7 +81,7 @@ ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Добавьте переменную **connectionString** , чтобы создать с ее помощью клиент устройства.  Замените connection string строкой подключения своего устройства.  
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью экземпляр **клиента**.  Замените connection string строкой подключения своего устройства.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -152,7 +152,7 @@ ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
     ```
     npm init
     ```
-2. В командной строке в папке **triggerrebootondevice** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iothub** и пакет **azure-iot-device-mqtt**:
+2. В командной строке в папке **triggerrebootondevice** выполните следующую команду, чтобы установить пакет SDK для устройств **azure-iothub** и пакет **azure-iot-device-mqtt**.
    
     ```
     npm install azure-iothub --save
@@ -260,7 +260,7 @@ ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
@@ -276,6 +276,6 @@ ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

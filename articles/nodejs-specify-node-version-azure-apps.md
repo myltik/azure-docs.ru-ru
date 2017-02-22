@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c41ef7c2bf4c7d66e8596627585cd3014a9ac839
+ms.sourcegitcommit: 70b0aef629ceb0fe0021f633183d2a6f09145d85
+ms.openlocfilehash: b164865aaef16799ccdec24d163d4723acb88530
 
 
 ---
@@ -28,8 +28,8 @@ ms.openlocfilehash: c41ef7c2bf4c7d66e8596627585cd3014a9ac839
 
 > [!NOTE]
 > При первом размещении приложения в облачной службе Azure (веб-роль или рабочая роль), Azure будет пытаться использовать ту же версию Node.js, что установлена в вашей среде разработки, если она совпадает с одной из версий по умолчанию, доступных в Azure.
-> 
-> 
+>
+>
 
 ## <a name="versioning-with-packagejson"></a>Управление версиями с использованием package.json
 Можно указать требуемую версию Node.js, добавив в файл **package.json** следующий текст:
@@ -58,48 +58,48 @@ ms.openlocfilehash: c41ef7c2bf4c7d66e8596627585cd3014a9ac839
 Хотя Azure предоставляет несколько версий Node.js по умолчанию, может потребоваться версия, не доступная по умолчанию. Если приложение размещено как веб-сайт Azure, это можно сделать с помощью файла **iisnode.yml** . Ниже рассмотрен процесс использования настраиваемой версии Node.Js на веб-сайте Azure.
 
 1. Создайте новый каталог, а затем создайте в каталоге файл **server.js** . Файл **server.js** должен содержать следующее:
-   
+
         var http = require('http');
         http.createServer(function(req,res) {
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.end('Hello from Azure running node version: ' + process.version + '</br>');
         }).listen(process.env.PORT || 3000);
-   
+
     Будет показана версия Node.js, используемая на момент просмотра веб-сайта.
 2. Создайте новый веб-сайт и запишите его имя. Например, ниже представлен пример использования [средств командной строки Azure] для создания нового веб-сайта Azure с именем **mywebsite**и последующего включения репозитория Git для веб-сайта.
-   
+
         azure site create mywebsite --git
 3. Создайте каталог под именем **bin**, дочерний по отношению к каталогу, содержащему файл **server.js**.
 4. Загрузите конкретную версию **node.exe** (версию для Windows), которую нужно использовать с вашим приложением. Например, в следующем примере используется **curl** для загрузки версии 0.8.1:
-   
+
         curl -O http://nodejs.org/dist/v0.8.1/node.exe
-   
+
     Сохраните файл **node.exe** в ранее созданный каталог **bin**.
 5. Создайте файл **iisnode.yml** в том же каталоге, что и файл **server.js**, а затем добавьте в файл **iisnode.yml** следующее содержимое:
-   
+
         nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
-   
+
     Этот путь указывает расположение файла **node.exe** в проекте после публикации приложения на веб-сайте Azure.
 6. Опубликуйте приложение. Например, поскольку ранее был создан веб-сайт с помощью параметра --git, следующие команды добавят файлы приложения в локальный репозиторий Git и передадут их в репозиторий веб-сайта:
-   
+
         git add .
         git commit -m "testing node v0.8.1"
         git push azure master
-   
+
     После публикации приложения откройте веб-сайт в браузере. Должно появиться сообщение "Hello from Azure running node version: v0.8.1".
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы научились устанавливать версии Node.js, используемые приложением, узнайте, как [работать с модулями], [создавать и развертывать веб-сайт Node.js](app-service-web/web-sites-nodejs-develop-deploy-mac.md) и [использовать средства командной строки Azure для Mac и Linux].
 
-Дополнительную информацию см. в [центре разработчиков Node.js](/develop/nodejs/).
+Дополнительную информацию см. в [центре разработчиков Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [использовать средства командной строки Azure для Mac и Linux]: xplat-cli-install.md
 [средств командной строки Azure]: xplat-cli-install.md
 [работать с модулями]: nodejs-use-node-modules-azure-apps.md
-[создание и развертывание веб-сайта Node.js]: web-sites-nodejs-develop-deploy-mac.md
+[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

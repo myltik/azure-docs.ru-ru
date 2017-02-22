@@ -1,5 +1,5 @@
 ---
-title: "Управление вычислительными ресурсами в хранилище данных SQL Azure (REST) | Документация Майкрософт"
+title: "Приостановка, возобновление и масштабирование ресурсов в хранилище данных SQL Azure с помощью T-SQL | Документация Майкрософт"
 description: "Задачи Transact-SQL (T-SQL) для масштабирования производительности путем изменения числа единиц DWU. Сокращение затрат путем свертывания ресурсов в периоды низкой загрузки."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
 
 
 ---
@@ -29,17 +29,6 @@ ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Масштабирование производительности путем развертывания вычислительных ресурсов и памяти для удовлетворения меняющихся потребностей рабочих нагрузок. Снижение затрат путем свертывания ресурсов в периоды низкой загрузки или полной приостановки вычислений. 
-
-В этом наборе задач T-SQL используется
-
-* Просмотр текущих параметров DWU
-* для изменения вычислительных ресурсов путем настройки единиц DWU.
-
-Чтобы приостановить или возобновить базу данных, выберите один из других параметров платформы в верхней части этой статьи.
-
-Дополнительные сведения см. в статье [Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)][Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)].
 
 <a name="current-dwu-bk"></a>
 
@@ -69,7 +58,7 @@ FROM
 Изменение DWU:
 
 1. Подключитесь к базе данных master, связанной с логическим сервером базы данных SQL.
-2. Используйте инструкцию TSQL [ALTER DATABASE][ALTER DATABASE]. В приведенном ниже примере для базы данных MySQLDW устанавливается цель уровня обслуживания DW1000. 
+2. Используйте оператор TSQL [ALTER DATABASE][ALTER DATABASE]. В приведенном ниже примере для базы данных MySQLDW устанавливается цель уровня обслуживания DW1000. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -80,14 +69,14 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения о других задачах управления см. в статье [Управление базами данных в хранилище данных SQL Azure][Управление базами данных в хранилище данных SQL Azure].
+Сведения о других задачах управления см. в статье [Управление базами данных в хранилище данных SQL Azure][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Ограничения емкости службы]: ./sql-data-warehouse-service-capacity-limits.md
-[Управление базами данных в хранилище данных SQL Azure]: ./sql-data-warehouse-overview-manage.md
-[Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)]: ./sql-data-warehouse-manage-compute-overview.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -96,10 +85,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 <!--Other Web references-->
 
-[Портал Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

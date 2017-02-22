@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9b0df6e95e465efce467b8bcc60063f0b1ead946
+ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
+ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
 
 
 ---
@@ -29,8 +29,8 @@ ms.openlocfilehash: 9b0df6e95e465efce467b8bcc60063f0b1ead946
 
 > [!NOTE]
 > Поддержка контейнера Windows будет реализована в следующем выпуске.
-> 
-> 
+>
+>
 
 ## <a name="prerequisites"></a>Предварительные требования
 Должны быть установлены следующие средства.
@@ -54,18 +54,18 @@ ms.openlocfilehash: 9b0df6e95e465efce467b8bcc60063f0b1ead946
 Для быстрой итерации изменений можно запустить приложение в контейнере и продолжить внесение изменений, просматривая их так же, как в IIS Express.
 
 1. Укажите для конфигурации решения значение `Debug` и нажмите клавиши **&lt;CTRL+F5>**, чтобы создать образ Docker и запустить его локально.
-   
+
     Когда образ контейнера будет построен и запущен в контейнере Docker, Visual Studio запустит веб-приложение в вашем браузере по умолчанию.
     Если вы пользуетесь браузером Microsoft Edge или по каким-либо причинам в работе возникают проблемы, ознакомьтесь с разделом [Устранение неполадок](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 2. Перейдите на страницу "О программе", где мы сможем внести наши изменения.
 3. Вернитесь в Visual Studio и откройте `Views\Home\About.cshtml`.
 4. Добавьте следующее HTML-содержимое в конец файла и сохраните изменения.
-   
+
     ```
     <h1>Hello from a Docker Container!</h1>
     ```
 5. При просмотре окна вывода, когда сборка .NET завершена и отображаются следующие строки, вернитесь в браузер и обновите страницу "О программе".
-   
+
    ```
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
@@ -77,16 +77,16 @@ ms.openlocfilehash: 9b0df6e95e465efce467b8bcc60063f0b1ead946
 
 1. Вернитесь в Visual Studio и откройте `Controllers\HomeController.cs`
 2. Замените содержимое метода About() следующим кодом:
-   
+
    ```
-   string message = "Your application description page from wthin a Container";
+   string message = "Your application description page from within a Container";
    ViewData["Message"] = message;
    ````
 3. Установите точку останова слева от строки `string message`…
 4. Чтобы начать отладку, нажмите клавишу **&lt;F5>**.
 5. Перейдите на страницу "О программе", чтобы достигнуть точки останова.
 6. Переключитесь в Visual Studio, чтобы просмотреть точку останова и проверить значение сообщения.
-   
+
    ![][2]
 
 ## <a name="summary"></a>Сводка
@@ -118,6 +118,6 @@ ms.openlocfilehash: 9b0df6e95e465efce467b8bcc60063f0b1ead946
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

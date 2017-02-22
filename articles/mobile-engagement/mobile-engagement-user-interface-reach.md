@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
 
 
 ---
@@ -81,8 +81,8 @@ ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
 ![Reach2][19]
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Основные понятия][Link 6]
-* [Руководство по устранению неполадок — служба][Link 24]
+* [Основные понятия Azure Mobile Engagement][Link 6]
+* [Поиск и устранение неполадок в службе][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -178,6 +178,6 @@ ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

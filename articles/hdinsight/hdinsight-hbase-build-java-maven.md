@@ -1,5 +1,5 @@
 ---
-title: "Создание приложения HBase с помощью Maven с последующим развертыванием в HDInsight на основе Windows | Документация Майкрософт"
+title: "Создание приложения Java HBase для кластеров Azure HDInsight под управлением Windows | Документация Майкрософт"
 description: "Узнайте, как использовать Apache Maven для создания приложения Java для Apache HBase и его последующего развертывания в кластере Azure HDInsight на основе Windows."
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/05/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
 
 
 ---
@@ -26,17 +26,16 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
 
 [Maven](http://maven.apache.org/) — это инструмент для управления и повышения обозримости проектов программного обеспечения, позволяющее создавать ПО, документацию и отчеты для проектов Java. Из данной статьи вы узнаете, как использовать его для создания базового приложения Java, которое формирует запросы и удаляет таблицу HBase в кластере Azure HDInsight.
 
-> [!NOTE]
-> В этом документе предполагается, что вы используете кластер HDInsight под управлением Windows. Сведения об использовании кластера HDInsight под управлением Linux см. в статье [Использование Maven для выполнения сборки приложений Java, которые используют HBase с HDInsight (Hadoop) под управлением Linux](hdinsight-hbase-build-java-maven-linux.md).
-> 
-> 
+> [!IMPORTANT]
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Требования
 * [Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней.
 * [Maven](http://maven.apache.org/)
 * [Кластер HDInsight под управлением Windows с HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
-    > [AZURE.NOTE] Действия, описанные в этом документе, были проверены для версий кластера HDInsight 3.2 и 3.3. Значения по умолчанию в примерах предназначены для кластера HDInsight 3.3.
+    > [!NOTE] 
+    > Действия, описанные в этом документе, были проверены для версий кластера HDInsight 3.2 и 3.3. Значения по умолчанию в примерах предназначены для кластера HDInsight 3.3.
 
 ## <a name="create-the-project"></a>Создание проекта
 1. Из командной строки вашей среды разработки измените каталоги на расположение, где вы хотите создать проект. Например, `cd code\hdinsight`.
@@ -181,8 +180,7 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
    
    > [!NOTE]
    > Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight.
-   > 
-   > 
+
 6. Сохраните файл **hbase-site.xml**.
 
 ## <a name="create-the-application"></a>Создание приложения
@@ -366,8 +364,6 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
    
    > [!NOTE]
    > Файл **hbaseapp-1.0-SNAPSHOT.jar** относится к типу uber jar (другое название — fat jar) и содержит все зависимости, необходимые для работы приложения.
-   > 
-   > 
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>Передача JAR-файла и запуск задания
 Существует множество способов передачи файла в ваш кластер HDInsight, они описаны в разделе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md). В следующих действиях используется Azure PowerShell.
@@ -423,10 +419,7 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
         FindAzure
    
         # Get the login for the HDInsight cluster
-        $creds = Get-Credential
-   
-        # Get storage information
-        $storage = GetStorage -clusterName $clusterName
+        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
    
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
@@ -453,9 +446,6 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
@@ -463,9 +453,6 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
    
@@ -633,6 +620,6 @@ ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

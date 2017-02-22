@@ -1,6 +1,6 @@
 ---
-title: "Планирование заданий с помощью Центра Интернета вещей Azure | Документация Майкрософт"
-description: "В этом учебнике описано, как планировать задания"
+title: "Планирование заданий c помощью Центра Интернета вещей Azure (.NET или Node) | Документация Майкрософт"
+description: "Планирование заданий с помощью Центра Интернета вещей Azure для вызова прямого метода на нескольких устройствах. Используйте пакет SDK для устройств Azure IoT для Node.js, чтобы реализовать приложение имитации устройства, и пакет SDK для служб Azure IoT для .NET, чтобы реализовать приложение-службу, которое выполняет задание."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fd53e73d6a686581ea2b807ae66716fc36a99ad4
 
 
 ---
-# <a name="tutorial-schedule-and-broadcast-jobs"></a>Руководство по планированию и трансляции заданий
+# <a name="schedule-and-broadcast-jobs"></a>Планирование и трансляция заданий
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
 ## <a name="introduction"></a>Введение
@@ -34,13 +34,13 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
 
 Дополнительные сведения о каждой из этих возможностей см. в следующих статьях:
 
-* двойники устройств и свойства: см. руководства о [начале работы с двойниками устройств][lnk-get-started-twin] и [настройке на двойниках устройств требуемых свойств][lnk-twin-props].
-* прямые методы: см. [руководство разработчика по прямым методам][lnk-dev-methods] и [по использованию прямых методов][lnk-c2d-methods].
+* Двойники устройств и свойства: [Приступая к работе с двойниками устройств (предварительная версия)][lnk-get-started-twin] и [Руководство. Настройка устройств с помощью требуемых свойств (предварительная версия)][lnk-twin-props].
+* Прямые методы: [Вызов прямого метода на устройстве (предварительная версия)][lnk-dev-methods] и [Руководство. Использование прямых методов][lnk-c2d-methods].
 
 В этом учебнике описаны следующие процедуры.
 
 * Создание приложения виртуального устройства с прямым методом, который позволяет выполнить действие **lockDoor** посредством вызова из серверного приложения.
-* Создание консольного приложения, которое с помощью задания вызывает в приложении виртуального устройства прямой метод **lockDoor** и обновляет требуемые свойства с помощью задания устройства.
+* Создание консольного приложения для .NET, которое с помощью задания вызывает в приложении имитации устройства прямой метод **lockDoor** и обновляет требуемые свойства с помощью задания устройства.
 
 По завершении работы с этим руководством у вас будет консольное приложение устройства Node.js и консольное приложение серверной части .NET (C#).
 
@@ -51,7 +51,7 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
 Для работы с этим учебником требуется:
 
 * Microsoft Visual Studio 2015.
-* Node.js версии 0.12.x или более поздней. <br/>  В статье [Подготовка среды разработки][lnk-dev-setup] описывается, как установить Node.js для работы с этим руководством в ОС Windows или Linux.
+* Node.js версии 0.12.x или более поздней. <br/>  В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Node.js для работы с этим учебником в ОС Windows или Linux.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -66,14 +66,14 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
     ![Новый проект классического приложения Windows на языке Visual C#][img-createapp]
 
 2. В обозревателе решений щелкните правой кнопкой мыши проект **ScheduleJob** и выберите **Управление пакетами NuGet**.
-3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. Эта процедура выполняет загрузку и установку пакета NuGet [SDK для Центра Интернета вещей Microsoft Azure][lnk-nuget-service-sdk], после чего добавляется ссылка на пакет и его зависимости.
+3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. В результате выполняется скачивание и установка пакета NuGet [SDK для служб Интернета вещей Azure][lnk-nuget-service-sdk] и его зависимостей, а также добавляется соответствующая ссылка.
 
     ![Окно "Диспетчер пакетов NuGet"][img-servicenuget]
 4. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
    
         using Microsoft.Azure.Devices;
         
-5. Добавьте следующие поля в класс **Program** . Замените несколько заполнителей строкой подключения для Центра Интернета вещей, созданного в предыдущем разделе.
+5. Добавьте следующие поля в класс **Program** . Замените значение заполнителя строкой подключения Центра Интернета вещей, созданного в предыдущем разделе.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
@@ -147,14 +147,14 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
 10. Выполните сборку решения.
 
 ## <a name="create-a-simulated-device-app"></a>Создание приложения виртуального устройства
-В этом разделе вы создадите консольное приложение Node.js, которое отвечает на прямой метод, вызванный в облаке. Этот метод запускает перезагрузку виртуального устройства и использует сообщаемые свойства для определения устройств и времени их последней перезагрузки в запросах двойников устройства.
+В этом разделе вы создадите консольное приложение Node.js, которое отвечает на прямой метод, вызываемый из облака. Этот метод запускает перезагрузку имитации устройства и использует сообщаемые свойства для определения устройств и времени их последней перезагрузки в запросах двойников устройства.
 
 1. Создайте пустую папку с именем **simDevice**.  В папке **simDevice** создайте файл package.json, используя следующую команду в командной строке.  Примите значения по умолчанию:
    
     ```
     npm init
     ```
-2. В командной строке в папке **simDevice** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iot-device** и пакет **azure-iot-device-mqtt**:
+2. В командной строке в папке **simDevice** выполните следующую команду, чтобы установить пакет SDK для устройств **azure-iot-device** и пакет **azure-iot-device-mqtt**.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -168,7 +168,7 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Добавьте переменную **connectionString** , чтобы создать с ее помощью клиент устройства.  
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью экземпляр **клиента**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -198,7 +198,7 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -213,7 +213,7 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
 ## <a name="run-the-apps"></a>Запуск приложений
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке **simDevice** выполните следующую команду, чтобы начать прослушивание прямого метода перезагрузки.
+1. В командной строке в папке **simDevice** выполните следующую команду, чтобы начать прослушивание прямого метода перезагрузки:
    
     ```
     node simDevice.js
@@ -227,7 +227,7 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
 
 Чтобы продолжить знакомство с Центром Интернета вещей и шаблонами управления устройствами, такими как удаленное обновление встроенного ПО, см. следующие материалы:
 
-[Руководство по обновлению встроенного ПО][lnk-fwupdate]
+[Учебник. Обновление встроенного ПО][lnk-fwupdate]
 
 Чтобы продолжить знакомство с Центром Интернета вещей, см. статью [Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей Azure (Linux)][lnk-gateway-SDK].
 
@@ -241,12 +241,13 @@ ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Dec16_HO1-->
 
 

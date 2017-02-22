@@ -1,5 +1,5 @@
 ---
-title: "Использование разделов служебной шины с Python | Документация Майкрософт"
+title: "Использование разделов служебной шины Azure с Python | Документация Майкрософт"
 description: "Узнайте, как использовать разделы и подписки служебной шины Azure в Python."
 services: service-bus-messaging
 documentationcenter: python
@@ -12,48 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86fa1e1cc5db31bdbec216e1c1f20c2b07cf68d9
+ms.sourcegitcommit: d0714870a0b01eca5e07c171c5ca8d0c0c1d6df1
+ms.openlocfilehash: 69f8807d509c31ae4aadeb16731fc481039a7e20
 
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Как использовать разделы и подписки служебной шины
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-В этой статье описывается использование разделов и подписок служебной шины. Примеры написаны на языке Python и используют [Пакет Azure для Python][Пакет Azure для Python]. В этой статье описаны такие сценарии, как **создание разделов и подписок**, **создание фильтров подписок**, **отправка сообщений в раздел**, **получение сообщений из подписки** и **удаление разделов и подписок**. Дополнительные сведения о разделах и подписках см. в разделе [Дальнейшие действия](#next-steps).
+В этой статье описывается использование разделов и подписок служебной шины. Примеры написаны на Python и используют [пакет Azure для Python][Python Azure package]. В этой статье описаны такие сценарии, как **создание разделов и подписок**, **создание фильтров подписок**, **отправка сообщений в раздел**, **получение сообщений из подписки** и **удаление разделов и подписок**. Дополнительные сведения о разделах и подписках см. в разделе [Дальнейшие действия](#next-steps).
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**Примечание.** Если нужно установить Python или [Пакет Azure для Python][Пакет Azure для Python], см. [руководство по установке Python](../python-how-to-install.md).
+> [!NOTE] 
+> Если требуется установить Python или [пакет Azure для Python][Python Azure package], дополнительные сведения см. в документе [Руководство по установке Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Создание раздела
 Объект **ServiceBusService** позволяет работать с разделами. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к служебной шине программным способом:
 
-```
+```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 Следующий код создает объект **ServiceBusService**. Замените `mynamespace`, `sharedaccesskeyname` и `sharedaccesskey` своим пространством имен, именем и значением ключа подписанного URL-адреса (SAS).
 
-```
+```python
 bus_service = ServiceBusService(
     service_namespace='mynamespace',
     shared_access_key_name='sharedaccesskeyname',
     shared_access_key_value='sharedaccesskey')
 ```
 
-Получить значения для имени ключа SAS и значение можно на [портале Azure][портал Azure].
+Значения для имени и значение ключа SAS можно получить на [портале Azure][Azure portal].
 
-```
+```python
 bus_service.create_topic('mytopic')
 ```
 
 Метод **create\_topic** также поддерживает дополнительные параметры, позволяющие переопределить настройки раздела по умолчанию, такие как срок жизни сообщения или максимальный размер раздела. В следующем примере показано, как установить максимальный размер раздела 5 ГБ и значение срока жизни в 1 минуту.
 
-```
+```python
 topic_options = Topic()
 topic_options.max_size_in_megabytes = '5120'
 topic_options.default_message_time_to_live = 'PT1M'
@@ -72,7 +73,7 @@ bus_service.create_topic('mytopic', topic_options)
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
 Фильтр **MatchAll** является фильтром по умолчанию, используемым, если при создании новой подписки не указан фильтр. Если используется фильтр **MatchAll**, то все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка AllMessages и используется фильтр по умолчанию **MatchAll**.
 
-```
+```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
@@ -90,7 +91,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 В следующем примере создается подписка с именем `HighMessages`, содержащая объект **SqlFilter**, который выбирает только те сообщения, значение настраиваемого свойства **messagenumber** которых больше 3.
 
-```
+```python
 bus_service.create_subscription('mytopic', 'HighMessages')
 
 rule = Rule()
@@ -103,7 +104,7 @@ bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 
 Аналогичным образом в следующем примере создается подписка с именем `LowMessages` и фильтром **SqlFilter**. Он выбирает только те сообщения, у которых значение свойства **messagenumber** меньше или равно 3.
 
-```
+```python
 bus_service.create_subscription('mytopic', 'LowMessages')
 
 rule = Rule()
@@ -121,18 +122,18 @@ bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 
 В следующем примере показано, как отправить пять тестовых сообщений в `mytopic`. Обратите внимание, что значение свойства **messagenumber** сообщения зависит от итерации цикла (определяет, какие подписки его получают).
 
-```
+```python
 for i in range(5):
     msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ. Дополнительные сведения о квотах см. в статье [Квоты на служебную шину][Квоты на служебную шину].
+Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ. Дополнительные сведения о квотах см. в статье [Квоты на служебную шину][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Получение сообщений из подписки
 Сообщения извлекаются из подписки с помощью метода **receive\_subscription\_message** в объекте **ServiceBusService**.
 
-```
+```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
@@ -143,7 +144,7 @@ print(msg.body)
 
 Если параметр **peek\_lock** имеет значение **True**, получение становится операцией из двух этапов, что позволяет поддерживать приложения, неустойчивые к пропуску сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Заканчивая обработку сообщения (или надежно сохраняя его для будущей обработки), приложение завершает второй этап процесса получения, вызывая метод **delete** объекта **Message**. Метод **delete** помечает сообщение как использованное и удаляет его из подписки.
 
-```
+```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 print(msg.body)
 
@@ -158,32 +159,32 @@ msg.delete()
 Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **delete**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным для различных попыток доставки.
 
 ## <a name="delete-topics-and-subscriptions"></a>Удаление разделов и подписок
-Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [портале Azure][портал Azure] или с помощью программных средств. В следующем примере показано, как удалить раздел с именем `mytopic`
+Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [портале Azure][Azure portal] или с помощью программных средств. В следующем примере показано, как удалить раздел с именем `mytopic`
 
-```
+```python
 bus_service.delete_topic('mytopic')
 ```
 
 При удалении раздела также удаляются все подписки, зарегистрированные в этом разделе. Подписки также можно удалять по отдельности. В следующем примере кода показано, как удалить подписку с именем `HighMessages` из раздела `mytopic`.
 
-```
+```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
-* См. статью [Очереди, разделы и подписки][Очереди, разделы и подписки].
+* Дополнительные сведения см. в статье [Очереди, разделы и подписки служебной шины][Queues, topics, and subscriptions].
 * Справочник по [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-[портал Azure]: https://portal.azure.com
-[Пакет Azure для Python]: https://pypi.python.org/pypi/azure  
-[Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Квоты на служебную шину]: service-bus-quotas.md 
+[Azure portal]: https://portal.azure.com
+[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Service Bus quotas]: service-bus-quotas.md 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

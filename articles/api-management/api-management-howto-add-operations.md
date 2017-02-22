@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
+ms.sourcegitcommit: d8b2f91a4d47513572fc5a56c60524d8338c8df4
+ms.openlocfilehash: 4527e27f760a7a0685f92a7108c4e8ff9759d33c
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
 
 ![Портал издателя][api-management-management-console]
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
@@ -47,6 +47,8 @@ ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
 <a name="url-template"></a>
 
 Определите шаблон URL-адреса путем ввода фрагмента URL-адреса, который содержит один или несколько сегментов пути URL, а также несколько параметров строки запроса (либо вообще без параметров). Шаблон URL-адреса, добавляемый к основному URL-адресу API, идентифицирует одиночную HTTP-операцию. Он может содержать один или несколько частей переменной с именем, которые идентифицируются изогнутыми фигурными скобками. Эти части переменной называются параметрами шаблона и представляют собой динамически назначаемые значения, извлекаемые из URL-адреса запроса, когда запрос обрабатывается платформой API Management.
+
+> Шаблон URL-адреса может включать шаблоны с подстановочными знаками. Например, если указать `/*`, то все запросы этого метода HTTP будут перенаправляться на внутреннюю службу.
 
 ![Шаблон URL-адреса][api-management-url-template]
 
@@ -75,7 +77,7 @@ ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
 
 Ключи кэша используются, чтобы отличать ответы друг от друга таким образом, чтобы ответ, соответствующий каждому отличному ключу кэша, получал свое собственное отдельное кэшированное значение. Или же можно ввести специальные параметры строки запроса и/или HTTP-заголовки, которые должны будут использоваться при вычислении значений ключей кэша, соответственно в текстовые поля **В зависимости от параметров строки запроса** и **Vary by headers** (В зависимости от заголовков). Если они не заданы, при создании ключей кэша используются полный URL-адрес запроса и следующие значения HTTP-заголовка: **Accept** и **Accept-Charset**.
 
-> Дополнительные сведения о кэшировании и политиках кэширования см. в статье [Добавление кэширования для повышения производительности в службе управления API Azure][Добавление кэширования для повышения производительности в службе управления API Azure].
+> Дополнительные сведения о кэшировании и политиках кэширования см. в статье [Добавление кэширования для повышения производительности в службе управления API Azure][How to cache operation results in Azure API Management].
 > 
 > 
 
@@ -129,7 +131,7 @@ ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
 ## <a name="next-steps"> </a>Дальнейшие действия
 Как только операции будут добавлены в API, следующим шагом будет сопоставление интерфейса API с продуктом и его публикация, чтобы разработчики могли вызывать его операции.
 
-* [Как создать и опубликовать продукт][Как создать и опубликовать продукт]
+* [Как создать и опубликовать продукт][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -154,22 +156,22 @@ ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
 [api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
 
-[Добавление операции]: #add-operation
-[Кэширование операций]: #operation-caching
-[Параметры запроса]: #request-parameters
-[Текст запроса]: #request-body
-[Ответы]: #responses
-[Дальнейшие действия]: #next-steps
+[Add an operation]: #add-operation
+[Operation caching]: #operation-caching
+[Request parameters]: #request-parameters
+[Request body]: #request-body
+[Responses]: #responses
+[Next steps]: #next-steps
 
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Как добавлять операции в API]: api-management-howto-add-operations.md
-[Как создать и опубликовать продукт]: api-management-howto-add-products.md
-[Добавление кэширования для повышения производительности в службе управления API Azure]: api-management-howto-cache.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

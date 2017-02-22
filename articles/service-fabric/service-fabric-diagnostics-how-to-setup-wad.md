@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 01/17/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: bc8eaf68b89bdefe203fc7ceea7b5241ac3e9dfa
+ms.sourcegitcommit: 1b4599848f44a7200f13bd6ddf4e82e96a75e069
+ms.openlocfilehash: 41343990d3379aabd129af437ff2edbbd2134dcc
 
 
 ---
@@ -29,10 +29,10 @@ ms.openlocfilehash: bc8eaf68b89bdefe203fc7ceea7b5241ac3e9dfa
 
 Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Централизованное хранение журналов упрощает анализ и устранение неполадок в кластере, а также в приложениях и службах, работающих в этом кластере.
 
-Для отправки и сбора журналов рекомендуется использовать расширение системы диагностики Azure, которое отправляет журналы в службу хранилища Azure. Журналы не используются непосредственно в хранилище. Но вы можете использовать внешний процесс, чтобы считать события из хранилища и поместить их, например, в [Log Analytics](../log-analytics/log-analytics-service-fabric.md), [ElasticSearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) или другое решение для анализа журналов.
+Для отправки и сбора журналов рекомендуется использовать расширение системы диагностики Azure, которое отправляет журналы в службу хранилища Azure, Azure Application Insights или концентраторы событий Azure. Журналы не используются непосредственно в службе хранилища или концентраторах событий. Но вы можете использовать внешний процесс, чтобы читывать события из хранилища и поместить их, например, в [Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов. В [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) предоставляется с возможностью полного поиска по журналам и встроенной службой аналитики.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Указанные далее инструменты будут использоваться для выполнения некоторых операций в данном документе.
+Указанные далее инструменты будут использоваться для выполнения некоторых операций, описываемых в данном документе.
 
 * [Система диагностики Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (статья посвящена облачным службам Azure, но содержит нужную информацию и примеры)
 * [Диспетчер ресурсов Azure](../azure-resource-manager/resource-group-overview.md)
@@ -57,9 +57,9 @@ ms.openlocfilehash: bc8eaf68b89bdefe203fc7ceea7b5241ac3e9dfa
 
 Журналы поддержки *необходимы* группе поддержки Azure при рассмотрении ваших запросов на поддержку. Эти журналы собираются в режиме реального времени и сохраняются в одной из учетных записей хранения, созданных в группе ресурсов. Параметры системы диагностики позволяют настраивать события уровня приложения. В их число входят события [Reliable Actors](service-fabric-reliable-actors-diagnostics.md), события [Reliable Services](service-fabric-reliable-services-diagnostics.md) и некоторые события Service Fabric системного уровня, которые хранятся в хранилище Azure.
 
-С помощью таких продуктов, как [Elasticsearch](service-fabric-diagnostic-how-to-use-elasticsearch.md), или собственного процесса можно получать события из учетной записи хранения. Сегодня не существует способа фильтрации или очистки событий, которые отправляются в таблицу. Если не реализовать метод удаления событий из таблицы, она продолжит расти.
+С помощью таких продуктов, как [Elasticsearch](https://www.elastic.co/guide/index.html), или собственного процесса можно получать события из учетной записи хранения. Сегодня не существует способа фильтрации или очистки событий, которые отправляются в таблицу. Если не реализовать метод удаления событий из таблицы, она продолжит расти.
 
-При создании кластера с помощью портала настоятельно рекомендуется скачать шаблон *перед тем, как нажать кнопку **ОК*** для создания кластера. Дополнительную информацию см. в статье [Создание кластера Service Fabric с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Шаблон вам понадобится позже для внесения изменений, так как не все изменения можно выполнять с помощью портала.
+При создании кластера с помощью портала настоятельно рекомендуется скачать шаблон перед тем, как нажать кнопку **ОК** для создания кластера. Дополнительную информацию см. в статье [Создание кластера Service Fabric с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Шаблон вам понадобится позже для внесения изменений, так как не все изменения можно выполнять с помощью портала.
 
 Шаблоны можно экспортировать с портала, используя приведенные ниже инструкции. Но, возможно, эти шаблоны будет сложнее использовать, так как они могут содержать несколько значений NULL, для которых необходимо будет указать значения, или в них могут отсутствовать все необходимые сведения.
 
@@ -84,7 +84,7 @@ ms.openlocfilehash: bc8eaf68b89bdefe203fc7ceea7b5241ac3e9dfa
 
 Чтобы просмотреть параметр системы диагностики в шаблоне Resource Manager, откройте файл azuredeploy.json и выполните поиск **IaaSDiagnostics**. Чтобы создать кластер с помощью этого шаблона, нажмите кнопку **Развернуть в Azure**, которая доступна по ссылке выше.
 
-Также можно скачать пример шаблона Resource Manager, внести в него изменения и создать кластер на основе измененного шаблона с помощью команды `New-AzureRmResourceGroupDeployment` в окне Azure PowerShell. Параметры, передаваемые в команду, приведены в коде ниже. Дополнительные инструкции по развертыванию группы ресурсов с помощью PowerShell см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](../resource-group-template-deploy.md).
+Также можно скачать пример шаблона Resource Manager, внести в него изменения и создать кластер на основе измененного шаблона с помощью команды `New-AzureRmResourceGroupDeployment` в окне Azure PowerShell. Параметры, передаваемые в команду, приведены в коде ниже. Дополнительные инструкции по развертыванию группы ресурсов с помощью PowerShell см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ```powershell
 
@@ -193,6 +193,25 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 
 После изменения файла template.json (как описано выше) повторно опубликуйте шаблон Resource Manager. Если шаблон экспортирован, для повторной публикации шаблона выполните файл deploy.ps1. После развертывания убедитесь, что параметр **ProvisioningState** имеет значение **Succeeded**.
 
+## <a name="update-diagnostics-to-collection-health-and-load-events"></a>Обновления системы диагностики для сбора событий работоспособности и нагрузки
+
+Начиная с выпуска Service Fabric 5.4 для сбора доступны события метрик работоспособности и нагрузки. Это события, создаваемые системой или кодом с помощью интерфейсов API для создания отчетов о работоспособности или нагрузке, в том числе [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) или [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Это обеспечивает статистическую обработку и просмотр состояния работоспособности системы с течением временем, а также оповещение на основе событий работоспособности или нагрузки. Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000008 в список поставщиков трассировки событий Windows.
+
+Чтобы включить сбор событий, измените шаблон Resource Manager, добавив в него следующее.
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387912",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
 ## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Обновление службы диагностики для сбора и отправки журналов из новых каналов EventSource
 Чтобы обновить службу диагностики для сбора журналов из новых каналов EventSource, представляющих новое приложение, которое вы собираетесь развернуть, выполните шаги из [предыдущего раздела](#deploywadarm), в которых описана настройка службы диагностики для существующего кластера.
 
@@ -222,6 +241,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

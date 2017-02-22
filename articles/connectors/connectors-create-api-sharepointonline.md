@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/19/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76a37a567ae077e3d0fee7a1bc7f763d4d1c7cf2
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 3ecf3e30fe2fcb9d6473d7eda450536cddfa97f4
 
 
 ---
 # <a name="get-started-with-the-sharepoint-online-connector"></a>Приступая к работе с соединителем SharePoint Online
 Соединитель SharePoint Online можно использовать для управления списками SharePoint.  
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-sharepoint-online"></a>Подключение к SharePoint Online
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -35,14 +35,14 @@ ms.openlocfilehash: 76a37a567ae077e3d0fee7a1bc7f763d4d1c7cf2
 > 
 
 ## <a name="use-a-sharepoint-online-trigger"></a>Использование триггера SharePoint Online
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 > 
 > 
 
 ## <a name="use-a-sharepoint-online-action"></a>Использование действия SharePoint Online
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 > 
@@ -103,10 +103,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -130,10 +130,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -166,10 +166,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -214,10 +214,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -242,10 +242,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -288,10 +288,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -313,10 +313,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -341,10 +341,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -524,11 +524,11 @@ TablesList
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

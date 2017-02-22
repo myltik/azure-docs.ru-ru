@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 translationtype: Human Translation
-ms.sourcegitcommit: 460d26bad4407de32f0e805063e0699ff3a31dbd
-ms.openlocfilehash: 62a3e78c95a39aa03ea1130e10950531dc60788e
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
 
 ---
 
@@ -152,7 +152,7 @@ Microsoft Azure включает несколько служб, управляю
 
 В нашем примере балансировщик нагрузки распределяет подключения, направляемые от веб-уровня к базам данных, размещенным в высокодоступном кластере.
 
-Если высокодоступный кластер базы данных использует SQL AlwaysOn, [настройте один или несколько прослушивателей группы доступности Always On](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Если высокодоступный кластер базы данных использует SQL AlwaysOn, [настройте один или несколько прослушивателей группы доступности Always On](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
 
 Дополнительные сведения о настройке внутреннего балансировщика нагрузки см. в статье [Создание балансировщика нагрузки на портале Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
@@ -213,6 +213,6 @@ Microsoft Azure включает несколько служб, управляю
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

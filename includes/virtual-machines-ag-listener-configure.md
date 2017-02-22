@@ -1,0 +1,111 @@
+Прослушиватель группы доступности — это IP-адрес и сетевое имя, с которыми выполняется прослушивание в группе доступности SQL Server. Чтобы создать прослушиватель группы доступности, сделайте следующее.
+
+1. [Получите имя сетевого ресурса для кластера](#getnet).
+
+1. [Добавьте точку доступа клиента](#addcap).
+
+1. [Настройте ресурс IP-адреса для группы доступности](#congroup).
+
+1. [Сделайте так, чтобы ресурс группы доступности SQL Server зависел от точки доступа клиента](#dependencyGroup).
+
+1. [Сделайте так, чтобы ресурс точки доступа клиента зависел от IP-адреса](#listname).
+
+1. [Настройте параметры кластера в PowerShell](#setparam).
+
+В следующих разделах приведены подробные инструкции по каждому из этих шагов. 
+
+#### <a name="a-namegetnetaget-the-name-of-the-cluster-network-resource"></a><a name="getnet"></a>Получение имени сетевого ресурса для кластера
+
+1. Подключитесь по протоколу RDP к виртуальной машине Azure, на которой размещена основная реплика. 
+
+1. Откройте диспетчер отказоустойчивости кластеров.
+
+1. Выберите узел **Сети** и запишите имя сети кластера. Это имя нужно использовать в переменной `$ClusterNetworkName` в сценарии PowerShell.
+
+   На следующем рисунке сетевое имя кластера — **Cluster Network 1**:
+
+   ![Сетевое имя кластера](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
+
+#### <a name="a-nameaddcapaadd-the-client-access-point"></a><a name="addcap"></a>Добавление точки доступа клиента
+
+Точка доступа клиента — это сетевое имя, которое используют приложения для подключения к базам данных в группе доступности. Создайте точку доступа клиента в диспетчере отказоустойчивости кластеров. 
+
+1. Разверните имя кластера и нажмите кнопку **Роли**.
+
+1. В области **Роли** щелкните правой кнопкой мыши имя группы доступности и выберите **Добавить ресурс** > **Точка доступа клиента**.
+
+   ![Точка доступа клиента](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+
+1. В поле **Имя** создайте имя для нового прослушивателя. 
+
+   Имя для нового прослушивателя — это сетевое имя, которое используют приложения для подключения к базам данных в группе доступности SQL Server.
+   
+   Чтобы завершить создание прослушивателя, нажмите кнопку **Далее** дважды, а затем нажмите кнопку **Готово**. Не подключайте прослушивателя или ресурс на этом этапе.
+   
+#### <a name="a-namecongroupaconfigure-the-ip-resource-for-the-availability-group"></a><a name="congroup"></a>Настройка ресурса IP-адреса для группы доступности
+
+1. Перейдите на вкладку **Ресурсы** и разверните созданную точку доступа клиента. Точка доступа клиента не подключена к сети.
+
+   ![Точка доступа клиента](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
+
+1. Щелкните правой кнопкой мыши ресурс IP-адреса и выберите пункт "Свойства". Запишите IP-адрес. Это имя нужно использовать в переменной `$IPResourceName` в сценарии PowerShell.
+
+1. В разделе **IP-адрес** выберите параметр **Статический IP-адрес**. Задайте тот же IP-адрес, который использовался на портале Azure при настройке адреса подсистемы балансировки нагрузки.
+
+   ![Ресурс IP-адреса](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+
+<!-----------------------I don't see this option on server 2016
+1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
+------------------------->
+
+#### <a name="a-name--dependencygroupamake-the-sql-server-availability-group-resource-dependent-on-the-client-access-point"></a><a name = "dependencyGroup"></a>Настройка зависимости ресурса группы доступности SQL Server от точки доступа клиента
+
+1. В диспетчере отказоустойчивости кластеров щелкните **Роли** и выберите группу доступности.
+
+1. На вкладке **Ресурсы** в разделе **Имя сервера** щелкните группу ресурсов правой кнопкой мыши и выберите **Свойства**. 
+
+1. На вкладке "Зависимости" добавьте имя ресурса. Этот ресурс — точка доступа клиента. 
+
+   ![Ресурс IP-адреса](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+
+1. Нажмите кнопку **ОК**.
+
+#### <a name="a-namelistnameamake-the-client-access-point-resource-dependent-on-the-ip-address"></a><a name="listname"></a>Настройка зависимости ресурса точки доступа клиента от IP-адреса
+
+1. В диспетчере отказоустойчивости кластеров щелкните **Роли** и выберите группу доступности. 
+
+1. На вкладке **Ресурсы** в разделе **Имя сервера** щелкните ресурс точки доступа клиента правой кнопкой мыши и выберите **Свойства**. 
+
+   ![Ресурс IP-адреса](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+
+1. Перейдите на вкладку **Зависимости** . Настройте зависимость от имени ресурса прослушивателя. Если в списке несколько ресурсов, убедитесь, что IP-адреса имеют зависимости OR, а не AND. Нажмите кнопку **ОК**. 
+
+   ![Ресурс IP-адреса](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
+
+1. Щелкните правой кнопкой мыши имя прослушивателя и выберите **Подключить**. 
+
+#### <a name="a-namesetparamaset-the-cluster-parameters-in-powershell"></a><a name="setparam"></a>Настройка параметров кластера в PowerShell
+
+1. Скопируйте следующий скрипт PowerShell на один из серверов SQL Server. Обновите переменные для среды.     
+   ```PowerShell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<IPResourceName>" # the IP Address resource name
+   $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ProbePort = <nnnnn>
+
+   Import-Module FailoverClusters
+
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
+
+2. Задайте параметры кластера, выполнив скрипт PowerShell на одном из узлов кластера.  
+
+> [!NOTE]
+> Если серверы SQL Server находятся в разных регионах, необходимо дважды запустить сценарий PowerShell. При первом запуске используйте значения `$ILBIP` и `$ProbePort` из первого региона. При втором запуске используйте значения `$ILBIP` и `$ProbePort` из второго региона. Сетевое имя кластера и имя ресурса IP-адреса кластера совпадают. 
+
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

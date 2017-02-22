@@ -1,5 +1,5 @@
 ---
-title: "Представления в хранилище данных SQL | Документация Майкрософт"
+title: "Применение представлений T-SQL в хранилище данных SQL Azure | Документация Майкрософт"
 description: "Советы по использованию представлений Transact-SQL в хранилище данных SQL Azure для разработки решений."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eada95920b3f539c70776964eb62ff9e4d219ddd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: eada95920b3f539c70776964eb62ff9e4d219ddd
 Представления особенно удобны в хранилище данных SQL. Их можно использовать разными способами для повышения качества вашего решения.  В этой статье представлены примеры того, как можно улучшить решение с помощью представлений; кроме того, здесь описаны ограничения, которые следует учитывать.
 
 > [!NOTE]
-> Синтаксис `CREATE VIEW` в этой статье не рассматривается. Сведения о синтаксисе см. в статье [CREATE VIEW (Transact-SQL)][CREATE VIEW (Transact-SQL)] на сайте MSDN.
+> Синтаксис `CREATE VIEW` в этой статье не рассматривается. Информацию о синтаксисе см. в статье [CREATE VIEW][CREATE VIEW] на сайте MSDN.
 > 
 > 
 
@@ -66,21 +66,21 @@ RENAME OBJECT DimDate_New TO DimDate;
 * В хранилище данных SQL нет индексированных представлений.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][Проектные решения и методики программирования для хранилища данных SQL].
-Сведения о синтаксисе `CREATE VIEW` см. в статье [CREATE VIEW (Transact-SQL)][CREATE VIEW (Transact-SQL)].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][SQL Data Warehouse development overview].
+Сведения о синтаксисе `CREATE VIEW` см. в статье [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 
 <!--Article references-->
-[Проектные решения и методики программирования для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[CREATE VIEW (Transact-SQL)]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
+[CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

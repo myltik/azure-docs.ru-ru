@@ -1,5 +1,5 @@
 ---
-title: "Устранение неполадок SSH-подключения к виртуальной машине | Документация Майкрософт"
+title: "Устранение неполадок SSH-подключения к виртуальной машине Azure | Документация Майкрософт"
 description: "Диагностика ошибок, например &quot;ошибка SSH-подключения&quot; или &quot;в SSH-подключении отказано&quot;, для виртуальной машины под управлением Linux."
 keywords: "отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения"
 services: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a585aaf2d40f077a81de299c0aef41844bde7cd1
+ms.sourcegitcommit: 10419c0e76ea647c0ef9e15f4cd0e514795a858e
+ms.openlocfilehash: 0191d6d84476b367e6cad6775738305e534c96a8
 
 
 ---
@@ -48,13 +48,13 @@ ms.openlocfilehash: a585aaf2d40f077a81de299c0aef41844bde7cd1
 ## <a name="available-methods-to-troubleshoot-ssh-connection-issues"></a>Доступные методы устранения неполадок подключения SSH
 Вы можете сбросить учетные данные или конфигурацию SSH одним из следующих методов:
 
-* [Портал Azure](#using-the-azure-portal) отлично подходит, когда нужно быстро сбросить конфигурацию или ключ SSH, а у вас не установлены инструменты Azure.
-* [Команды Azure CLI.](#using-the-azure-cli) Если вы уже открыли командную строку, быстро сбросьте конфигурацию SSH или учетные данные.
-* [Расширение Azure VMAccessForLinux.](#using-the-vmaccess-extension) Создайте и повторно используйте файлы определения JSON для сброса учетных данных пользователя или конфигурации SSH.
+* [Портал Azure](#use-the-azure-portal) отлично подходит, когда нужно быстро сбросить конфигурацию или ключ SSH, а у вас не установлены инструменты Azure.
+* [Azure CLI 1.0.](#use-the-azure-cli-10) Если вы уже открыли командную строку, быстро сбросьте конфигурацию SSH или учетные данные. Для этого действия можно также использовать [Azure CLI 2.0 (предварительная версия)](#use-the-azure-cli-20-preview).
+* [Расширение Azure VMAccessForLinux.](#use-the-vmaccess-extension) Создайте и повторно используйте файлы определения JSON для сброса учетных данных пользователя или конфигурации SSH.
 
 После выполнения каждого шага устранения неполадок попробуйте подключиться к виртуальной машине еще раз. Если все еще не удается подключиться, то попробуйте выполнить следующее действие.
 
-## <a name="using-the-azure-portal"></a>Использование портала Azure
+## <a name="use-the-azure-portal"></a>Использование портала Azure
 На портале Azure предусмотрена возможность быстрого сброса конфигурации SSH или учетных данных пользователей без установки каких-либо инструментов на локальном компьютере.
 
 Выберите свою виртуальную машину на портале Azure. Прокрутите вниз до раздела **Поддержка и устранение неполадок** и выберите **Сбросить пароль**, как в следующем примере:
@@ -69,8 +69,8 @@ ms.openlocfilehash: a585aaf2d40f077a81de299c0aef41844bde7cd1
 
 Кроме того, в этом меню можно создать пользователя с привилегиями sudo на виртуальной машине. Введите новое имя пользователя и соответствующий пароль или ключ SSH, а затем нажмите кнопку **Сброс**.
 
-## <a name="using-the-azure-cli"></a>Использование Azure CLI
-[Установите интерфейс командной строки (CLI) Azure и подключитесь к подписке Azure](../xplat-cli-install.md)(если вы еще этого не сделали). Убедитесь, что используется режим Resource Manager следующим образом:
+## <a name="use-the-azure-cli-10"></a>Использование Azure CLI 1.0
+[Установите Azure CLI 1.0 и подключитесь к подписке Azure](../xplat-cli-install.md) (если вы еще этого не сделали). Убедитесь, что используется режим Resource Manager следующим образом:
 
 ```azurecli
 azure config mode arm
@@ -93,18 +93,38 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-     --username myUsername --password myPassword
+     --user-name myUsername --password myPassword
 ```
 
-При использовании аутентификации с помощью ключа SSH можно сбросить ключ SSH для отдельного пользователя. В следующем примере обновляется ключ SSH, хранящийся в файле `~/.ssh/azure_id_rsa.pub`, для пользователя с именем `myUsername` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+При использовании аутентификации с помощью ключа SSH можно сбросить ключ SSH для отдельного пользователя. В следующем примере обновляется ключ SSH, хранящийся в файле `~/.ssh/id_rsa.pub`, для пользователя с именем `myUsername` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --username myUsername --ssh-key-file ~/.ssh/azure_id_rsa.pub
+    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+```
+
+## <a name="use-the-azure-cli-20-preview"></a>Использование Azure CLI 2.0 (предварительная версия)
+Установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) (если вы еще этого не сделали) и войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/#login).
+
+Если вы создали и отправили пользовательский образ диска Linux, убедитесь, что установлен [агент Linux для Microsoft Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) версии 2.0.5 или более поздней. В виртуальных машинах, созданных с помощью образов из коллекции, это расширение для доступа уже установлено и настроено.
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Сброс учетных данных SSH пользователя
+В следующем примере используется команда [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user), чтобы сбросить учетные данные для `myUsername` к значению, указанному в `myPassword` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+     --username myUsername --password myPassword
+```
+
+При использовании аутентификации с помощью ключа SSH можно сбросить ключ SSH для отдельного пользователя. В следующем примере используется команда **az vm access set-linux-user**, чтобы сбросить учетные данные для `~/.ssh/id_rsa.pub` к значению, указанному в `myUsername` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+    --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
-## <a name="using-the-vmaccess-extension"></a>Использование расширения VMAccess
+## <a name="use-the-vmaccess-extension"></a>Использование расширения VMAccess
 Расширение для доступа к виртуальной машине для Linux выполняет чтение в JSON-файле. При этом сбрасывается SSHD и ключ SSH или добавляется пользователь. Azure CLI по-прежнему используется для вызова расширения VMAccess, но при необходимости JSON-файлы можно использовать повторно в нескольких виртуальных машинах. Такой подход позволяет создать репозиторий JSON-файлов, которые можно впоследствии вызывать для заданных сценариев.
 
 ### <a name="reset-sshd"></a>Сброс SSHD
@@ -154,15 +174,22 @@ azure vm extension set myResourceGroup myVM \
 Если вы сбросили учетные данные пользователя и конфигурацию SSH или столкнулись с ошибкой при этом, попробуйте перезапустить виртуальную машину, чтобы устранить неполадки с базовыми вычислительными ресурсами.
 
 ### <a name="azure-portal"></a>Портал Azure
-Чтобы перезапустить виртуальную машину с помощью портала Azure, выберите виртуальную машину и нажмите кнопку ***Перезапуск**, как показано в следующем примере:
+Чтобы перезапустить виртуальную машину с помощью портала Azure, выберите виртуальную машину и нажмите кнопку **Перезапуск**, как показано в следующем примере:
 
 ![Перезапуск виртуальной машины на портале Azure](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli"></a>Инфраструктура CLI Azure
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 В следующем примере перезапускается виртуальная машина `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (предварительная версия)
+В следующем примере используется команда [az vm restart](/cli/azure/vm#restart), чтобы перезапустить виртуальную машину `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+
+```azurecli
+az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 
@@ -179,11 +206,18 @@ azure vm restart --resource-group myResourceGroup --name myVM
 
 ![Повторное развертывание виртуальной машины на портале Azure](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli"></a>Инфраструктура CLI Azure
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 В следующем примере повторно развертывается виртуальная машина `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (предварительная версия)
+В следующем примере используется команда [az vm restart](/cli/azure/vm#redeploy), чтобы повторно развернуть виртуальную машину `myVM` в группе ресурсов `myResourceGroup`. Используйте свои значения следующим образом:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Виртуальные машины, созданные с использованием классической модели развертывания
@@ -214,6 +248,6 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

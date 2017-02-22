@@ -1,5 +1,5 @@
 ---
-title: "Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase) | Документация Майкрософт"
+title: "Загрузка данных из большого двоичного объекта Azure в хранилище данных Azure | Документация Майкрософт"
 description: "Сведения об использовании технологии PolyBase для загрузки данных из хранилища больших двоичных объектов Azure в хранилище данных SQL. Описание загрузки нескольких таблиц из общедоступных данных в схему хранилища данных Contoso Retail."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea83972d4b12a83fbf339acb6601dc961674be6f
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 348605fed8101cf83cbcfb559c71f34407692f7a
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: ea83972d4b12a83fbf339acb6601dc961674be6f
 
 Загрузка данных из хранилища больших двоичных объектов Azure в хранилище данных SQL Azure с помощью команд PolyBase и T-SQL. 
 
-Для простоты в этом учебнике выполняется загрузка двух таблиц из общедоступного хранилища BLOB-объектов Azure в схему хранилища данных Contoso Retail. Чтобы загрузить полный набор данных, запустите пример [загрузки полного хранилища данных Contoso Retail][загрузки полного хранилища данных Contoso Retail] из репозитория примеров Microsoft SQL Server.
+Для простоты в этом учебнике выполняется загрузка двух таблиц из общедоступного хранилища BLOB-объектов Azure в схему хранилища данных Contoso Retail. Чтобы загрузить полный набор данных, запустите пример [загрузки полного хранилища данных Contoso Retail][Load the full Contoso Retail Data Warehouse] из репозитория примеров Microsoft SQL Server.
 
 Изучив данный учебник, вы научитесь:
 
@@ -38,7 +38,7 @@ ms.openlocfilehash: ea83972d4b12a83fbf339acb6601dc961674be6f
 3. выполнять оптимизацию после завершения загрузки.
 
 ## <a name="before-you-begin"></a>Перед началом работы
-Для использования этого учебника необходима учетная запись Azure, в которой уже имеется база данных хранилища данных SQL. Если у вас ее нет, см. статью [Создание хранилища данных SQL Azure][Создание хранилища данных SQL Azure].
+Для использования этого учебника необходима учетная запись Azure, в которой уже имеется база данных хранилища данных SQL. Если у вас ее нет, ознакомьтесь с разделом [Создание хранилища данных SQL][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Настройка источника данных
 PolyBase использует внешние объекты T-SQL для определения расположения и атрибутов внешних данных. Определения внешних объектов хранятся в хранилище данных SQL. Сами данные хранятся во внешней системе.
@@ -101,7 +101,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2) Настройка формата данных
-В хранилище BLOB-объектов Azure данные хранятся в текстовых файлах, где каждое поле отделяется разделителем. Выполните команду [Инструкция CREATE EXTERNAL FILE FORMAT][Инструкция CREATE EXTERNAL FILE FORMAT], чтобы указать формат данных в текстовых файлах. Для примера Contoso используются данные без сжатия с разделением вертикальной чертой.
+В хранилище BLOB-объектов Azure данные хранятся в текстовых файлах, где каждое поле отделяется разделителем. Выполните команду [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], чтобы указать формат данных в текстовых файлах. Для примера Contoso используются данные без сжатия с разделением вертикальной чертой.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -226,7 +226,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Загрузка данных в новые таблицы
-Чтобы загрузить данные из хранилища BLOB-объектов Azure и сохранить их в таблице в базе данных, используйте инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. При загрузке с помощью CTAS используются строго типизированные внешние таблицы, которые вы только что создали. Чтобы загрузить данные в новые таблицы, используйте одну инструкцию [CTAS][CTAS] на таблицу. 
+Чтобы загрузить данные из хранилища BLOB-объектов Azure и сохранить их в таблице в базе данных, используйте инструкцию [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT (Transact-SQL)] (Transact-SQL). При загрузке с помощью CTAS используются строго типизированные внешние таблицы, которые вы только что создали. Чтобы загрузить данные в новые таблицы, используйте одну инструкцию [CTAS][CTAS] на таблицу. 
 
 Компонент CTAS создает новую таблицу и заполняет ее результатам инструкции Select. CTAS определяет новую таблицу так, чтобы в ней содержались те же столбцы и типы данных, которые были выведены инструкцией Select. Если выбрать все столбцы из внешней таблицы, новая таблица будет репликой столбцов и типов данных такой внешней таблицы.
 
@@ -277,7 +277,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Оптимизация сжатия columnstore
-По умолчанию в хранилище данных SQL таблицы хранятся в виде кластеризованных индексов columnstore. После завершения загрузки для некоторых строк данных может не выполняться сжатие в индекс columnstore.  Это может происходить по ряду причин. Сведения об управлении индексами columnstore см. в статье [управлением индексами columnstore][управлением индексами columnstore].
+По умолчанию в хранилище данных SQL таблицы хранятся в виде кластеризованных индексов columnstore. После завершения загрузки для некоторых строк данных может не выполняться сжатие в индекс columnstore.  Это может происходить по ряду причин. Чтобы узнать больше, ознакомьтесь с [управлением индексами columnstore][manage columnstore indexes].
 
 Чтобы оптимизировать производительность запросов и сжатие columnstore после загрузки, перестройте таблицу, чтобы настроить принудительное сжатие всех строк таблиц индексом columnstore. 
 
@@ -289,12 +289,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Дополнительные сведения об обслуживании индексов columnstore см. в статье [управлением индексами columnstore][управлением индексами columnstore].
+Дополнительные сведения об обслуживании индексов columnstore см. в статье, посвященной [управлению индексами columnstore][manage columnstore indexes].
 
 ## <a name="6-optimize-statistics"></a>6. Оптимизация статистики
 Одностолбцовую статистику рекомендуется создавать сразу после загрузки. Существует несколько вариантов статистики. Например, при создании одностолбцовой статистики для каждого столбца перестройка всех статистических данных может занять длительное время. Если вам известно, что некоторые столбцы не будут входить в предикаты запросов, можно пропустить создание статистики для этих столбцов.
 
-Если вам потребуется создать одностолбцовую статистику для каждого столбца в каждой таблице, можно использовать пример кода хранимой процедуры `prc_sqldw_create_stats` в статье [Управление статистикой таблиц в хранилище данных SQL][Управление статистикой таблиц в хранилище данных SQL].
+Если вам потребуется создать одностолбцовую статистику для каждого столбца в каждой таблице, можно использовать пример кода хранимой процедуры `prc_sqldw_create_stats` из статьи, посвященной [статистике][statistics].
 
 Следующий пример кода — хорошая отправная точка для создания статистики. Он создает одностолбцовую статистику для каждого столбца в таблице измерения и для каждого соответствующего столбца в таблицах фактов. Одно- или многостолбцовую статистику в другие столбцы таблицы фактов можно добавить позже.
 
@@ -354,32 +354,32 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Чтобы загрузить полный набор данных хранилища данных Contoso Retail, используйте сценарий из раздела "Дополнительные советы по разработке" статьи [Проектные решения и методики программирования для хранилища данных SQL][Проектные решения и методики программирования для хранилища данных SQL].
+Чтобы загрузить полный набор данных хранилища данных Contoso Retail, используйте сценарий из раздела "Рекомендации по разработке и методики программирования" статьи [Проектные решения и методики программирования для хранилища данных SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
-[Загрузка данных в хранилище данных SQL]: sql-data-warehouse-overview-load.md
-[Проектные решения и методики программирования для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
-[управлением индексами columnstore]: sql-data-warehouse-tables-index.md
-[Статистика]: sql-data-warehouse-tables-statistics.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: sql-data-warehouse-tables-index.md
+[Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
-[Инструкция CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
-[загрузки полного хранилища данных Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
+[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

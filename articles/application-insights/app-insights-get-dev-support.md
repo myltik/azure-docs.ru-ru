@@ -1,5 +1,5 @@
 ---
-title: "Как получить техническую поддержку от группы разработчиков Application Insights | Документация Майкрософт"
+title: "Техническая поддержка Azure Application Insights | Документация Майкрософт"
 description: "Получите справку по решению проблем с Application Insights."
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: albulank
 translationtype: Human Translation
-ms.sourcegitcommit: 7dbcc3b11b744361113d4dba100407ee85c40cac
-ms.openlocfilehash: 330fab68efedee0e6e56459289f94beb88a5fdd5
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: b3306ebddae08f07650d91feba25e90de55656b4
 
 
 ---
@@ -62,6 +62,6 @@ ms.openlocfilehash: 330fab68efedee0e6e56459289f94beb88a5fdd5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

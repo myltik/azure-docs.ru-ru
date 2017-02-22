@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов Azure для начального набора Интернета вещей Azure (Ubuntu 16.04) | Документация Майкрософт"
+title: "Подключение Intel Edison (Node) к Интернету вещей Azure. Урок 2. Получение инструментов Azure (Ubuntu) | Документация Майкрософт"
 description: "Установка Python и интерфейса командной строки Azure (Azure CLI) на компьютер под управлением Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 12158a53a2c570fe5d10e7e01a03e54b04117215
-ms.openlocfilehash: eee0370eeb89971c37ff49ac87af96f95d5aef6d
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 1b3ee6667c8ba376bbbd7a2bb61e85ec17b61b4d
 
 
 ---
@@ -82,6 +82,6 @@ Azure CLI — это кроссплатформенное средство дл
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

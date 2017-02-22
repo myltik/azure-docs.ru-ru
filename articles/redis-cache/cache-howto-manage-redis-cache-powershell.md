@@ -1,40 +1,43 @@
 ---
-title: Управление кэшем Redis для Azure с использованием Azure PowerShell | Microsoft Docs
-description: Узнайте, как осуществлять администрирование кэша Redis для Azure с помощью Azure PowerShell.
+title: "Управление кэшем Redis для Azure с помощью Azure PowerShell | Документация Майкрософт"
+description: "Узнайте, как осуществлять администрирование кэша Redis для Azure с помощью Azure PowerShell."
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 01/06/2017
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 9d76e82b1658c3ea4dd6631bae232d17f375ab33
+ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
+
 
 ---
-# Управление кэшем Redis для Azure с использованием Azure PowerShell
+# <a name="manage-azure-redis-cache-with-azure-powershell"></a>Управление кэшем Redis для Azure с использованием Azure PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Интерфейс командной строки Azure](cache-manage-cli.md)
 > 
 > 
 
-В этом разделе демонстрируется выполнение таких обычных задач, как создание, обновление и масштабирование экземпляров кэша Redis для Azure, повторное создание ключей доступа и просмотр сведений о кэшах. Полный список командлетов PowerShell для работы с кэшем Redis для Azure см. в разделе [Командлеты кэша Redis для Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
+В этом разделе демонстрируется выполнение таких обычных задач, как создание, обновление и масштабирование экземпляров кэша Redis для Azure, повторное создание ключей доступа и просмотр сведений о кэшах.  См. полный список [командлетов PowerShell для работы с кэшем Redis для Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[Классическая модель развертывания](#classic) описаны далее в этой статье.
+Дополнительные сведения о классической модели развертывания см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics) (Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Если вы уже установили Azure PowerShell, необходимо использовать Azure PowerShell 1.0.0 или более поздней версии. Установленную версию Azure PowerShell можно узнать в командной строке Azure PowerShell с помощью такой команды:
 
     Get-Module azure | format-table version
 
-[!INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Сначала необходимо войти в Azure с помощью следующей команды.
 
@@ -52,22 +55,22 @@ ms.author: sdanie
 
 Чтобы использовать Windows PowerShell с диспетчером ресурсов Azure, необходимо следующее:
 
-* Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Сведения об установке совместимой версии см. в разделе [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Сведения об установке совместимой версии см. в разделе [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
 
     Get-Help <cmdlet-name> -Detailed
 
-Например, чтобы получить справку для командлета `New-AzureRmRedisCache`, введите:
+Например, чтобы получить справку для командлета `New-AzureRmRedisCache` , введите:
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### Подключение к облаку Azure Government или Azure China
+### <a name="how-to-connect-to-azure-government-cloud-or-azure-china-cloud"></a>Подключение к облаку Azure Government или Azure China
 Среда Azure по умолчанию — это `AzureCloud`, представляющая экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Add-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
 
-Чтобы просмотреть список доступных сред, выполните командлет `Get-AzureRmEnvironment`.
+Чтобы просмотреть список доступных сред, выполните командлет `Get-AzureRmEnvironment` .
 
-### Подключение к облаку Azure Government
+### <a name="to-connect-to-the-azure-government-cloud"></a>Подключение к облаку Azure Government
 Чтобы подключиться к облаку Azure Government, используйте одну из следующих команд.
 
     Add-AzureRMAccount -EnvironmentName AzureUSGovernment
@@ -81,9 +84,9 @@ ms.author: sdanie
 * Правительство штата Вирджиния
 * Правительство штата Айова
 
-Дополнительные сведения об облаке Azure Government см. на странице [Microsoft Azure для государственных организаций](https://azure.microsoft.com/features/gov/) и в разделе [Руководстве для разработчиков Microsoft Azure Government](../azure-government-developer-guide.md).
+Дополнительные сведения об облаке Azure для государственных организаций см. на странице [Microsoft Azure для государственных организаций](https://azure.microsoft.com/features/gov/) и в [руководстве для разработчиков Microsoft Azure для государственных организаций](../azure-government-developer-guide.md).
 
-### Подключение к облаку Azure China
+### <a name="to-connect-to-the-azure-china-cloud"></a>Подключение к облаку Azure China
 Чтобы подключиться к облаку Azure China, используйте одну из следующих команд.
 
     Add-AzureRMAccount -EnvironmentName AzureChinaCloud
@@ -97,9 +100,9 @@ ms.author: sdanie
 * Восток Китая
 * Север Китая
 
-Дополнительные сведения об облаке Azure в Китае см. на странице [AzureChinaCloud для Azure под управлением 21Vianet в Китае](http://www.windowsazure.cn/).
+Дополнительные сведения об облаке Azure для Китая см. на странице [AzureChinaCloud для Azure под управлением 21Vianet в Китае](http://www.windowsazure.cn/).
 
-### Свойства, используемые в командлетах PowerShell кэша Redis для Azure
+### <a name="properties-used-for-azure-redis-cache-powershell"></a>Свойства, используемые в командлетах PowerShell кэша Redis для Azure
 Приведенная ниже таблица содержит свойства и описания параметров, часто используемых при создании экземпляров кэша Redis для Azure с помощью Azure PowerShell и управления такими экземплярами.
 
 | Параметр | Описание | значение по умолчанию |
@@ -107,10 +110,10 @@ ms.author: sdanie
 | Имя |Имя кэша | |
 | Расположение |Расположение кэша | |
 | ResourceGroupName |Имя группы ресурсов, в которой необходимо создать кэш | |
-| Размер |Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ |1 ГБ |
+| Размер |Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ |1 ГБ |
 | ShardCount |Число сегментов, которые будут созданы при создании кэша уровня Premium с включенной кластеризацией. Допустимые значения: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Определяет SKU кэша. Допустимые значения: Basic, Standard, Premium |Стандарт |
-| RedisConfiguration |Задает параметры конфигурации кластера Redis. Подробные сведения о каждом параметре представлены в таблице [Свойства RedisConfiguration](#redisconfiguration-properties). | |
+| RedisConfiguration |Задает параметры конфигурации кластера Redis. Подробные сведения о каждом параметре представлены в таблице [Свойства RedisConfiguration](#redisconfiguration-properties) . | |
 | EnableNonSslPort |Определяет, включен ли порт без SSL. |Ложь |
 | MaxMemoryPolicy |Этот параметр устарел, вместо него используется параметр RedisConfiguration. | |
 | StaticIP |При размещении кэша в виртуальной сети определяет уникальный IP-адрес подсети для кэша. Если IP-адрес не указан, он автоматически выбирается из подсети. | |
@@ -118,15 +121,15 @@ ms.author: sdanie
 | Виртуальная сеть |При размещении кэша в виртуальной сети определяет идентификатор ресурса виртуальной сети, в которой будет развернут кэш. | |
 | KeyType |Определяет, какой ключ доступа будет создаваться повторно при обновлении ключей доступа. Допустимые значения: Primary, Secondary | |
 
-### Свойства RedisConfiguration
+### <a name="redisconfiguration-properties"></a>Свойства RedisConfiguration
 | Свойство | Описание | Ценовые категории |
 | --- | --- | --- |
-| rdb-backup-enabled |Указывает на то, включен ли параметр [Сохраняемость данных Redis](cache-how-to-premium-persistence.md). |Только "Премиум" |
-| rdb-storage-connection-string |Строка подключения к учетной записи хранения для параметра [Сохраняемость данных Redis](cache-how-to-premium-persistence.md). |Только "Премиум" |
-| rdb-backup-frequency |Указывает частоту резервного копирования для параметра [Сохраняемость данных Redis](cache-how-to-premium-persistence.md). |Только "Премиум" |
+| rdb-backup-enabled |Указывает на то, включен ли параметр [Сохраняемость данных Redis](cache-how-to-premium-persistence.md) . |Только "Премиум" |
+| rdb-storage-connection-string |Строка подключения к учетной записи хранения для параметра [Сохраняемость данных Redis](cache-how-to-premium-persistence.md) |Только "Премиум" |
+| rdb-backup-frequency |Указывает частоту резервного копирования для параметра [Сохраняемость данных Redis](cache-how-to-premium-persistence.md) |Только "Премиум" |
 | maxmemory-reserved |Определяет [объем памяти, зарезервированный](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) для процессов, не связанных с кэшем. |"Стандартный" и "Премиум" |
 | maxmemory-policy |Определяет [политику вытеснения](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) для кэша. |Все ценовые категории |
-| notify-keyspace-events |Настраивает [уведомления пространства ключей](cache-configure.md#keyspace-notifications-advanced-settings). |"Стандартный" и "Премиум" |
+| notify-keyspace-events |Настраивает [уведомления пространства ключей](cache-configure.md#keyspace-notifications-advanced-settings) |"Стандартный" и "Премиум" |
 | hash-max-ziplist-entries |Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. |"Стандартный" и "Премиум" |
 | hash-max-ziplist-value |Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. |"Стандартный" и "Премиум" |
 | set-max-intset-entries |Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. |"Стандартный" и "Премиум" |
@@ -134,8 +137,8 @@ ms.author: sdanie
 | zset-max-ziplist-value |Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. |"Стандартный" и "Премиум" |
 | databases |Определяет количество баз данных. Это свойство можно настроить только в момент создания кэша. |"Стандартный" и "Премиум" |
 
-## Создание кэша Redis
-Новые экземпляры кэша Redis для Azure создаются с помощью командлета [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+## <a name="to-create-a-redis-cache"></a>Создание кэша Redis
+Новые экземпляры кэша Redis для Azure создаются с помощью командлета [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
 
 > [!IMPORTANT]
 > Когда кэш Redis создается в подписке с использованием портала Azure впервые, портал регистрирует пространство имен `Microsoft.Cache` для этой подписки. Если первый кэш Redis создается в подписке с использованием PowerShell, необходимо зарегистрировать пространство имен с помощью представленной ниже команды, иначе команды `New-AzureRmRedisCache` и `Get-AzureRmRedisCache` завершатся неудачей.
@@ -144,7 +147,7 @@ ms.author: sdanie
 > 
 > 
 
-Чтобы увидеть список доступных параметров свойства `New-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `New-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help New-AzureRmRedisCache -detailed
 
@@ -222,29 +225,29 @@ ms.author: sdanie
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name` и `Location` — обязательные параметры; остальные указываются по желанию и имеют значения по умолчанию. При выполнении предыдущей команды создается экземпляр кэша Redis для Azure SKU Standard с заданным именем, расположением и группой ресурсов; размер экземпляра — 1 ГБ, порт без SSL отключен.
+`ResourceGroupName`, `Name` и `Location` — обязательные параметры; остальные указываются по желанию и имеют значения по умолчанию. При выполнении предыдущей команды создается экземпляр кэша Redis для Azure SKU Standard с заданным именем, расположением и группой ресурсов; размер экземпляра — 1 ГБ, порт без SSL отключен.
 
-Для создания кэша уровня Premium укажите размер P1 (6-60 ГБ), P2 (13-130 ГБ), (26-260 ГБ), P3 и P4 (53-530 ГБ). Чтобы включить кластеризацию, укажите количество сегментов с помощью параметра `ShardCount`. В следующем примере создается кэш P1 уровня Premium с 3 сегментами. Размер кэша P1 уровня Premium — 6 ГБ, и, поскольку мы указали три сегмента, общий размер составляет 18 ГБ (3 x 6 ГБ).
+Для создания кэша уровня Premium укажите размер P1 (6-60 ГБ), P2 (13-130 ГБ), (26-260 ГБ), P3 и P4 (53-530 ГБ). Чтобы включить кластеризацию, укажите количество сегментов с помощью параметра `ShardCount` . В следующем примере создается кэш P1 уровня Premium с 3 сегментами. Размер кэша P1 уровня Premium — 6 ГБ, и, поскольку мы указали три сегмента, общий размер составляет 18 ГБ (3 x 6 ГБ).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Чтобы указать значения для параметра `RedisConfiguration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Чтобы указать значения для параметра `RedisConfiguration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
 <a name="databases"></a>
 
-## Настройка параметров баз данных в процессе создания кэша
-Параметр `databases` можно настроить только при создании кэша. В следующем примере создается кэш Premium P3 (26 ГБ) на 48 баз данных, использующих командлет [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Настройка параметров баз данных в процессе создания кэша
+Параметр `databases` можно настроить только при создании кэша. В следующем примере создается кэш Premium P3 (26 ГБ) на 48 баз данных, использующих командлет [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Дополнительные сведения о свойстве `databases` см. в разделе [Конфигурация сервера Redis по умолчанию](cache-configure.md#default-redis-server-configuration). Дополнительные сведения о создании кэша с помощью командлета [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) см. в предыдущем разделе [Создание кэша Redis](#to-create-a-redis-cache).
+Дополнительные сведения о свойстве `databases` см. в разделе [Конфигурация сервера Redis по умолчанию](cache-configure.md#default-redis-server-configuration). Дополнительные сведения о создании кэша с помощью командлета [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) см. в предыдущем разделе [Создание кэша Redis](#to-create-a-redis-cache).
 
-## Обновление кэша Redis
-Экземпляры кэша Redis для Azure обновляются с помощью командлета [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx).
+## <a name="to-update-a-redis-cache"></a>Обновление кэша Redis
+Экземпляры кэша Redis для Azure обновляются с помощью командлета [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) .
 
-Чтобы увидеть список доступных параметров свойства `Set-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Set-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Set-AzureRmRedisCache -detailed
 
@@ -298,7 +301,7 @@ ms.author: sdanie
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Командлет `Set-AzureRmRedisCache` можно использовать для обновления таких свойств, как значения `Size`, `Sku`, `EnableNonSslPort` и `RedisConfiguration`.
+Командлет `Set-AzureRmRedisCache` можно использовать для обновления таких свойств, как значения `Size`, `Sku`, `EnableNonSslPort` и `RedisConfiguration`. 
 
 Следующая команда обновляет политику максимальной памяти кэша Redis с именем myCache.
 
@@ -306,24 +309,24 @@ ms.author: sdanie
 
 <a name="scale"></a>
 
-## Масштабирование кэша Redis
-`Set-AzureRmRedisCache` можно использовать для масштабирования экземпляров кэша Redis для Azure при изменении свойств `Size`, `Sku` или `ShardCount`.
+## <a name="to-scale-a-redis-cache"></a>Масштабирование кэша Redis
+`Set-AzureRmRedisCache` можно использовать для масштабирования экземпляров кэша Redis для Azure при изменении свойств `Size`, `Sku` или `ShardCount`. 
 
 > [!NOTE]
 > Масштабирование кэша с помощью PowerShell подчиняется тем же ограничениям и правилам, что и масштабирование кэша на портале Azure. Вы можете выполнить масштабирование до другой ценовой категории со следующими ограничениями.
 > 
 > * Перейти с более высокой ценовой категории на более низкую нельзя.
-> * Ценовую категорию кэша **Премиум** нельзя изменить на категорию **Базовый** или **Стандартный**.
+> * Ценовую категорию кэша **Премиум** нельзя изменить на категорию **Стандартный** или **Базовый**.
 > * Ценовую категорию кэша **Стандартный** нельзя изменить на категорию **Базовый**.
 > * Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
-> * Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
-> * Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
+> * Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
+> * Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)** .
 > 
 > Дополнительные сведения см. в статье [Масштабирование кэша Redis для Azure](cache-how-to-scale.md).
 > 
 > 
 
-В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ. Обратите внимание, что команда будет работать в кэше уровня "Базовый" или "Стандартный".
+В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ. Обратите внимание, что команда будет работать в кэше уровня "Базовый" или "Стандартный".
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -360,10 +363,10 @@ ms.author: sdanie
 
     Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
-## Получение сведений о кэше Redis
-Вы можете получить сведения об использовании кэша с помощью командлета [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx).
+## <a name="to-get-information-about-a-redis-cache"></a>Получение сведений о кэше Redis
+Вы можете получить сведения об использовании кэша с помощью командлета [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx) .
 
-Чтобы увидеть список и описание доступных параметров для свойства `Get-AzureRmRedisCache`, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Get-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Get-AzureRmRedisCache -detailed
 
@@ -436,10 +439,10 @@ ms.author: sdanie
     TenantSettings     : {}
     ShardCount         :
 
-## Получение ключей доступа для кэша Redis
-Для получения ключей доступа к кэшу вы можете использовать командлет [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
+## <a name="to-retrieve-the-access-keys-for-a-redis-cache"></a>Получение ключей доступа для кэша Redis
+Для получения ключей доступа к кэшу вы можете использовать командлет [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) .
 
-Чтобы увидеть список и описание доступных параметров для свойства `Get-AzureRmRedisCacheKey`, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Get-AzureRmRedisCacheKey`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Get-AzureRmRedisCacheKey -detailed
 
@@ -476,10 +479,10 @@ ms.author: sdanie
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
-## Повторное создание ключей доступа для кэша Redis
-Для повторного создания ключей доступа к кэшу вы можете использовать командлет [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx).
+## <a name="to-regenerate-access-keys-for-your-redis-cache"></a>Повторное создание ключей доступа для кэша Redis
+Для повторного создания ключей доступа к кэшу вы можете использовать командлет [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) .
 
-Чтобы увидеть список и описание доступных параметров для свойства `New-AzureRmRedisCacheKey`, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `New-AzureRmRedisCacheKey`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help New-AzureRmRedisCacheKey -detailed
 
@@ -526,10 +529,10 @@ ms.author: sdanie
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## Удаление кэша Redis
-Для удаления кэша Redis используйте командлет [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx).
+## <a name="to-delete-a-redis-cache"></a>Удаление кэша Redis
+Для удаления кэша Redis используйте командлет [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx) .
 
-Чтобы увидеть список и описание доступных параметров для свойства `Remove-AzureRmRedisCache`, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Remove-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Remove-AzureRmRedisCache -detailed
 
@@ -565,7 +568,7 @@ ms.author: sdanie
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-В приведенном ниже примере удаляется кэш с именем `myCache`.
+В приведенном ниже примере удаляется кэш с именем `myCache` .
 
     PS C:\> Remove-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 
@@ -574,15 +577,15 @@ ms.author: sdanie
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## Импорт кэша Redis
-Импортировать данные в кэш Redis для Azure можно с помощью командлета `Import-AzureRmRedisCache`.
+## <a name="to-import-a-redis-cache"></a>Импорт кэша Redis
+Импортировать данные в кэш Redis для Azure можно с помощью командлета `Import-AzureRmRedisCache` .
 
 > [!IMPORTANT]
-> Функция импорта и экспорта доступна только для кэшей [категории "Премиум"](cache-premium-tier-intro.md). Дополнительные сведения об импорте и экспорте см. в статье [Импорт и экспорт данных в кэше Redis для Azure](cache-how-to-import-export-data.md).
+> Функция импорта и экспорта доступна только для кэшей категории [Премиум](cache-premium-tier-intro.md). Дополнительные сведения об импорте и экспорте см. в статье [Импорт и экспорт данных в кэше Redis для Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
-Чтобы увидеть список доступных параметров свойства `Import-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Import-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Import-AzureRmRedisCache -detailed
 
@@ -634,15 +637,15 @@ ms.author: sdanie
 
     PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## Экспорт кэша Redis
-Экспортировать данные из кэша Redis для Azure можно с помощью командлета `Export-AzureRmRedisCache`.
+## <a name="to-export-a-redis-cache"></a>Экспорт кэша Redis
+Экспортировать данные из кэша Redis для Azure можно с помощью командлета `Export-AzureRmRedisCache` .
 
 > [!IMPORTANT]
-> Функция импорта и экспорта доступна только для кэшей [категории "Премиум"](cache-premium-tier-intro.md). Дополнительные сведения об импорте и экспорте см. в статье [Импорт и экспорт данных в кэше Redis для Azure](cache-how-to-import-export-data.md).
+> Функция импорта и экспорта доступна только для кэшей категории [Премиум](cache-premium-tier-intro.md). Дополнительные сведения об импорте и экспорте см. в статье [Импорт и экспорт данных в кэше Redis для Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
-Чтобы увидеть список доступных параметров свойства `Export-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Export-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Export-AzureRmRedisCache -detailed
 
@@ -695,15 +698,15 @@ ms.author: sdanie
         -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## Перезапуск кэша Redis
-Перезапустить экземпляр кэша Redis для Azure можно с помощью командлета `Reset-AzureRmRedisCache`.
+## <a name="to-reboot-a-redis-cache"></a>Перезапуск кэша Redis
+Перезапустить экземпляр кэша Redis для Azure можно с помощью командлета `Reset-AzureRmRedisCache` .
 
 > [!IMPORTANT]
-> Функция перезапуска доступна только для кэшей [категории "Премиум"](cache-premium-tier-intro.md). Дополнительные сведения о перезапуске кэша см. в разделе [Reboot](cache-administration.md#reboot) статьи "Администрирование кэша Redis для Azure".
+> Функция перезагрузки доступна только для кэшей [уровня "Премиум"](cache-premium-tier-intro.md). Дополнительные сведения о перезапуске кэша см. в разделе [Reboot](cache-administration.md#reboot) статьи "Администрирование кэша Redis для Azure".
 > 
 > 
 
-Чтобы увидеть список доступных параметров свойства `Reset-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список доступных параметров свойства `Reset-AzureRmRedisCache`и их описания, выполните следующую команду:
 
     PS C:\> Get-Help Reset-AzureRmRedisCache -detailed
 
@@ -756,14 +759,19 @@ ms.author: sdanie
         -Force
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об использовании Windows PowerShell с Azure см. в следующих ресурсах:
 
 * [Документация по командлету кэша Redis для Azure на MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765): узнайте, как использовать командлеты в модуле диспетчера ресурсов Azure.
-* [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале Azure.
+* [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале Azure.
 * [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 * [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 * [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

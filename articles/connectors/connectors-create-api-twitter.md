@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a9a1bcd75dbea49a4eff8e7eb9113cc47f7ab86f
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 13ecb8936484b1c86938a16c7dd6da8000d4ffec
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: a9a1bcd75dbea49a4eff8e7eb9113cc47f7ab86f
 * получать доступ к временным шкалам, просматривать друзей и подписчиков;
 * выполнять все действия и триггеры, описанные ниже.  
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).  
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).  
 
 ## <a name="connect-to-twitter"></a>Подключение к Twitter
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -39,7 +39,7 @@ ms.openlocfilehash: a9a1bcd75dbea49a4eff8e7eb9113cc47f7ab86f
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Использование триггера Twitter
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 В этом примере продемонстрировано, как с помощью триггера **When a new tweet is posted** (При публикации нового твита) выполнить поиск по хэш-тегу #Seattle, а затем заменить содержимое файла в Dropbox текстом из твита, отвечающего критериям поиска. В качестве примера для компаний можно выполнить поиск по имени компании и заменить содержимое базы данных SQL текстом из твита.
 
@@ -80,7 +80,7 @@ ms.openlocfilehash: a9a1bcd75dbea49a4eff8e7eb9113cc47f7ab86f
    ![Изображение 8. Условие Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Использование действия Twitter
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Добавив триггер, выполните следующие шаги, чтобы добавить действие для публикации нового твита с содержимым твитов, найденных с помощью триггера. Для целей этого пошагового руководства будут публиковаться только твиты пользователей, у которых более 50 подписчиков.  
 
@@ -384,11 +384,11 @@ TriggerBatchResponse[TweetModel]
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Сведения о соединителе шифрования сообщений EDIFACT из Пакета интеграции Enterprise | Документация Майкрософт"
-description: "Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики."
+title: "Кодирование сообщений EDIFACT в Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте, как использовать кодировщик EDIFACT, входящий в пакет интеграции Enterprise в приложениях логики."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,56 +12,56 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 7f9feb7b9ae01c18712f14035ac8c56256cf4d26
+ms.sourcegitcommit: 5bc7011d7b0d22a7f8c11a2fee8d002c24d3467c
+ms.openlocfilehash: 94d120cd8a5e33733ecc39af96d2719ad59ab090
 
 
 ---
 # <a name="get-started-with-encode-edifact-message"></a>Начало работы с соединителем кодирования сообщений EDIFACT
 Проверяет EDI и свойства для конкретного партнера. 
 
-## <a name="create-the-connection"></a>Создание подключения
-### <a name="prerequisites"></a>Предварительные требования
+## <a name="prereqs"></a>Предварительные требования
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 * Для работы с соединителем кодирования сообщений EDIFACT потребуется учетная запись интеграции. См. подробные сведения о создании [учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [партнеров](logic-apps-enterprise-integration-partners.md) и [соглашений EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md).
 
-### <a name="connect-to-decode-edifact-message-using-the-following-steps"></a>Этапы подключения к соединителю расшифровки сообщений EDIFACT.
-1. Пример см. в статье о [создании приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
-2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "EDIFACT".  Выберите пункт "Encode EDIFACT Message by agreement name" (Кодирование сообщений EDIFACT по названию соглашения) или "Encode to EDIFACT message by identities" (Кодирование в сообщение EDIFACT по идентификаторам).
+## <a name="encode-edifact-messages"></a>Кодирование сообщений EDIFACT
+1. [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md).
+2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "EDIFACT".  Выберите пункт "Encode EDIFACT message by agreement name" (Кодирование сообщения EDIFACT по имени соглашения) или "Encode to EDIFACT message by identities" (Кодирование в сообщение EDIFACT по идентификаторам):
    
     ![поиск EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
-3. Если до этого вы не создавали подключения к учетной записи интеграции, вам будет предложено ввести сведения о подключении.
+3. Если до этого вы не создавали подключений к учетной записи интеграции, то вам будет предложено ввести сведения о подключении:
    
     ![создание подключения к учетной записи интеграции](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
-4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными.
+4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными:
    
    | Свойство | Сведения |
    | --- | --- |
    | Имя подключения* |Введите имя подключения. |
    | Учетная запись интеграции* |Введите имя учетной записи интеграции. Убедитесь, что учетная запись интеграции и приложение логики находятся в одном расположении Azure. |
    
-    Введенные сведения о подключении будут выглядеть так:
+    После завершения сведения о подключении будут выглядеть следующим образом:
    
     ![подключение к учетной записи интеграции](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
-5. Нажмите кнопку **Создать**
-6. Подключение создано.
+5. Нажмите кнопку **Создать**.
+6. Обратите внимание, что было создано подключение:
    
     ![сведения о подключении к учетной записи интеграции](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>Кодирование сообщений EDIFACT по названию соглашения
-1. Укажите имя соглашения EDIFACT и XML-сообщение для кодирования.
+Введите имя соглашения EDIFACT и XML-сообщение для кодирования:
    
    ![заполнение обязательных полей](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
 #### <a name="encode-edifact-message-by-identities"></a>Кодирование сообщения EDIFACT по идентификаторам
-1. Укажите идентификатор отправителя, квалификатор отправителя, идентификатор получателя и квалификатор получателя, как указано в соглашении EDIFACT.  Выберите XML-сообщение для кодирования.
-   
+Введите идентификатор отправителя, квалификатор отправителя, идентификатор получателя и квалификатор получателя, как указано в соглашении EDIFACT. Выберите XML-сообщение для кодирования:  
     ![заполнение обязательных полей](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
-## <a name="edifact-encode-does-following"></a>Кодирование EDIFACT выполняет следующие действия.
+## <a name="edifact-encode-details"></a>Сведения о кодировании EDIFACT
+Соединитель для кодирования EDIFACT выполняет следующие функции: 
+
 * Определяет соглашение, сопоставляя квалификатор и идентификатор отправителя с квалификатором и идентификатором получателя.
 * Сериализует обмен EDI путем преобразования сообщения в кодировке XML в набор транзакций EDI.
 * Генерирует сегменты заголовков и окончаний для наборов транзакций.
@@ -82,6 +82,6 @@ ms.openlocfilehash: 7f9feb7b9ae01c18712f14035ac8c56256cf4d26
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

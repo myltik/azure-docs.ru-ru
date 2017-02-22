@@ -16,6 +16,10 @@
 ### [Масштабируемый набор Linux с автомасштабированием](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Масштабируемый набор Windows с автомасштабированием](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Приложения в масштабируемых наборах](virtual-machine-scale-sets-deploy-app.md)
+### [Использование дисков данных с масштабируемыми наборами](virtual-machine-scale-sets-attached-disks.md)
+### [Работа с большими масштабируемыми наборами](virtual-machine-scale-sets-placement-groups.md)
+### [Преобразование шаблона масштабируемого набора для использования управляемого диска](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 ## Управление
 ### [Масштабируемый набор Windows с помощью PowerShell](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +28,7 @@
 ### [Обновления для масштабируемых наборов](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Использование DSC и масштабируемых наборов](virtual-machine-scale-sets-dsc.md)
+### [Преобразование шаблона в управляемый диск](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Устранение неполадок
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
@@ -40,6 +45,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,21 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 64324eb5258a060f31902cfb30c97425304b7e33
 
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Анализ данных Twitter с помощью Hive в HDInsight
-В данном документе рассказывается, как получать твиты с использованием API потоковой передачи Twitter, а затем использовать Apache Hive в кластере HDInsight под управлением Linux для обработки данных в формате JSON. Результатом будет список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
 
-> [!NOTE]
-> Хотя отдельные части этого документа можно использовать для кластеров HDInsight под управлением Windows (например, Python), многие действия относятся к кластерам HDInsight под управлением Linux. Описание действий для кластеров на основе Windows см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md).
-> 
-> 
+В данном документе рассказывается, как получать твиты с использованием API потоковой передачи Twitter, а затем использовать Apache Hive в кластере HDInsight для обработки данных в формате JSON. Результатом будет список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
+
+> [!IMPORTANT]
+> Действия, описанные в этом документе, были протестированы на кластере HDInsight под управлением Linux.
+>
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
@@ -61,8 +62,7 @@ Twitter позволяет получать [данные для каждого 
 
 > [!NOTE]
 > При использовании команды Curl в Windows указывайте значения параметров в двойных кавычках вместо одинарных.
-> 
-> 
+
 
 ### <a name="download-tweets"></a>Скачивание твитов
 Следующий код Python скачает 10 000 твитов из Twitter и сохранит их в файл с именем **tweets.txt**.
@@ -316,6 +316,6 @@ Twitter позволяет получать [данные для каждого 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

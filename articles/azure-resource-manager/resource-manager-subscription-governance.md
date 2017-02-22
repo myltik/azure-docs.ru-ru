@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 927098a992a74a9b24795b5952d8e06361966580
-ms.openlocfilehash: 6a07a3cda187abc7383e4134285b3b0dabb46ef1
+ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
+ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
 
 
 ---
@@ -251,11 +251,9 @@ Resource Manager позволяет помещать ресурсы в пред�
 ## <a name="next-steps"></a>Дальнейшие действия
 * Теперь, когда вы узнали об управлении подписками, пришло время ознакомиться с этими рекомендациями на практике. Ознакомьтесь с разделом [Примеры реализации корпоративного каркаса Azure](resource-manager-subscription-examples.md).
 
-*Соавтором этого раздела является [Карл Кунхаузен (Karl Kuhnhausen](https://github.com/karlkuhnhausen).*
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

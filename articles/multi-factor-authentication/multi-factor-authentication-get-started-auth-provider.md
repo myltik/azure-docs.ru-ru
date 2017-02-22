@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 > [!NOTE]
 > Поставщик Azure MFA используется для получения всех преимуществ полной версии Azure MFA. Он предназначен для пользователей, у которых **нет лицензий Azure MFA, Azure AD Premium или Enterprise Mobility Suite**.  Эти решения по умолчанию включают в себя полную версию Azure MFA.  Если у вас есть лицензии, вам не нужно создавать поставщик Azure Multi Factor Authentication.
-> 
-> 
 
 Поставщик Azure Multi Factor Authentication требуется, если вы хотите скачать пакет SDK.
 
 > [!IMPORTANT]
 > Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS.  Если вы решили создать для этой цели поставщик Azure Multi-Factor Authentication и у вас уже есть лицензии, не забудьте создать поставщик на базе модели **На включенного пользователя**. Свяжите поставщик с каталогом, содержащим лицензии Azure MFA, Azure AD Premium или EMS.  В таком случае с вас будет взиматься плата, только если количество уникальных пользователей пакета SDK превысит количество лицензий, которыми вы владеете.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Создание поставщика Azure Multi Factor Authentication
+## <a name="create-a-multi-factor-auth-provider"></a>Создание поставщика многофакторной идентификации
 Ниже показано, как создать поставщик Azure Multi Factor Authentication.
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетной записью администратора.
@@ -64,6 +60,6 @@ ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

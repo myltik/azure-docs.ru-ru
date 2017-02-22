@@ -1,5 +1,5 @@
 ---
-title: "Развертывание виртуальной машины и управление ею с помощью шаблонов | Документация Майкрософт"
+title: "Развертывание виртуальных машин Windows с помощью шаблонов Azure | Документация Майкрософт"
 description: "Развертывайте наиболее распространенные конфигурации для виртуальных машин Azure с помощью шаблонов диспетчера ресурсов и интерфейса командной строки Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: e7e808c08c07ddafd6c6e126fbd0e4684fb65f60
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: eba7319ef182b6151f3e023e604b252ce9410053
 
 
 ---
@@ -35,6 +35,6 @@ ms.openlocfilehash: e7e808c08c07ddafd6c6e126fbd0e4684fb65f60
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

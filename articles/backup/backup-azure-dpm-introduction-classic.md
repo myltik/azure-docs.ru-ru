@@ -1,5 +1,5 @@
 ---
-title: "Общие сведения о службе архивации DPM Azure | Документация Майкрософт"
+title: "Архивация рабочих нагрузок DPM на классический портал Azure | Документация Майкрософт"
 description: "Общие сведения о резервном копировании серверов Azure с помощью службы архивации Azure"
 services: backup
 documentationcenter: 
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2016
-ms.author: trinadhk;giridham;jimpark;markgal
+ms.author: nkolli;giridham;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
 > * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Сервер службы архивации Azure (классическая модель)](backup-azure-microsoft-azure-backup-classic.md)
 > * [Диспетчер SCDPM (классическая модель)](backup-azure-dpm-introduction-classic.md)
-> 
-> 
+>
+>
 
 В этой статье содержатся общие сведения о защите серверов и рабочих нагрузок System Center Data Protection Manager (DPM) с помощью службы архивации Microsoft Azure. Здесь можно найти информацию по перечисленным ниже темам.
 
@@ -55,8 +55,8 @@ ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
 
 > [!NOTE]
 > Для виртуальных машин Linux возможно только резервное копирование с согласованием файлов.
-> 
-> 
+>
+>
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для подготовки службы архивации Azure к резервному копированию данных DPM необходимо выполнить перечисленные ниже действия.
@@ -100,12 +100,11 @@ ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
 
 > [!NOTE]
 > Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

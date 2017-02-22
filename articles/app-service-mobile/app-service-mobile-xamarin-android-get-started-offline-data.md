@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
+ms.sourcegitcommit: 29cd1d3583dfcba5c1057ae1e81376930f52f887
+ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
 
 
 ---
@@ -63,7 +63,7 @@ ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
    `CheckItem` вызывает `SyncAsync` для синхронизации каждого выполненного элемента с серверной частью мобильного приложения. `SyncAsync` вызывает операцию отправки и извлечения данных. **При каждом выполнении операции извлечения данных в отношении таблицы, в которую клиент внес изменения, операция отправки данных всегда выполняется автоматически**. Это позволяет обеспечить согласованность всех таблиц в локальном хранилище, а также связей между ними. Такое поведение может привести к непредвиденной отправке данных. Дополнительные сведения об этом поведении см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
 ## <a name="review-the-client-sync-code"></a>Просмотр кода синхронизации клиента
-Клиентский проект Xamarin, загруженный при изучении руководства [Создание приложения Xamarin.Android], уже содержит код, который поддерживает автономную синхронизацию с использованием локальной базы данных SQLite. Вот краткое содержание материала, уже включенного в код руководства. Общие сведения об этой функции см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
+Клиентский проект Xamarin, загруженный при изучении руководства [Создание приложения Xamarin.Android], уже содержит код, который поддерживает автономную синхронизацию с использованием локальной базы данных SQLite. Вот краткое содержание материала, уже включенного в код учебника. Общие сведения об этой функции см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
 * Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Инициализация базы данных локального хранилища происходит, когда `ToDoActivity.OnCreate()` выполняет `ToDoActivity.InitLocalStoreAsync()`. С помощью указанного метода создается локальная база данных SQLite с использованием класса `MobileServiceSQLiteStore`, предоставленного клиентским пакетом SDK для мобильных приложений Azure.
   
@@ -112,7 +112,7 @@ ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
 
 ## <a name="additional-resources"></a>дополнительные ресурсы.
 * [Автономная синхронизация данных в мобильных приложениях Azure]
-* [Использование управляемого клиента для мобильных приложений Azure][8]
+* [Использование пакета SDK .NET для мобильных приложений Azure][8]
 
 <!-- URLs. -->
 [Создание приложения Xamarin.Android]: ../app-service-mobile-xamarin-android-get-started.md
@@ -124,12 +124,12 @@ ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
 [Создание приложения Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Автономная синхронизация данных в мобильных приложениях Azure]: app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
-[Расширение Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

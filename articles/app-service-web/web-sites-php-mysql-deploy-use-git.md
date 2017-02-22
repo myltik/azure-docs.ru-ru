@@ -13,16 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1b1da346a253443c0b5eaf6f8a9a5a399923e760
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью Git
-В этом учебнике описывается, как создать веб-приложение PHP-MySQL и развернуть его в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) с помощью Git. На вашем компьютере должны быть установлены компонент [PHP][install-php], программа командной строки MySQL (которая входит в состав [MySQL][install-mysql]) и компонент [Git][install-git]. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, включая Windows, Mac и Linux. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
+В этом учебнике описывается, как создать веб-приложение PHP-MySQL и развернуть его в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) с помощью Git. Вы будете использовать [PHP][install-php], программу командной строки MySQL (которая входит в состав [MySQL][install-mysql]) и компонент [Git][install-git], установленный на компьютере. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, включая Windows, Mac и Linux. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
 
 Вы узнаете:
 
@@ -35,7 +35,7 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
 ![Веб-сайт Azure на PHP][running-app]
 
 ## <a name="set-up-the-development-environment"></a>Настройка среды разработки
-В этом руководстве предполагается, что на вашем компьютере установлены компонент [PHP][install-php], программа командной строки MySQL (входит в состав [MySQL][install-mysql]) и компонент [Git][install-git].
+При работе с этим руководством предполагается, что на компьютере установлены [PHP][install-php], интерфейс командной стройки MySQL (входит в состав [MySQL][install-mysql]) и [Git][install-git].
 
 <a id="create-web-site-and-set-up-git"></a>
 
@@ -86,7 +86,7 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
 
 * **index.php**: вывод формы для регистрации и таблицы, содержащей сведения о зарегистрировавшихся пользователях.
 
-Чтобы построить и запустить приложение локально, выполните следующие действия. Обратите внимание: предполагается, что на локальном компьютере установлены компонент PHP и программа командной строки MySQL (входит в состав MySQL), а также включено [расширение PDO для MySQL][pdo-mysql].
+Чтобы построить и запустить приложение локально, выполните следующие действия. Обратите внимание: предполагается, что на локальном компьютере установлены PHP и программа командной строки MySQL (входит в комплект поставки MySQL), а также включено [расширение PDO для MySQL][pdo-mysql].
 
 1. Подключитесь к удаленному серверу MySQL с использованием раннее полученных значений `Data Source`, `User Id`, `Password` и `Database`.
    
@@ -234,7 +234,7 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
     ![Веб-сайт Azure на PHP][running-app]
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -243,7 +243,7 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
 ## <a name="enable-composer-automation-with-the-composer-extension"></a>Включение расширения Composer для автоматизации задач Composer
 По умолчанию процесс развертывания git в службе приложений не выполняет никаких действий с файлом composer.json, если он есть в проект PHP. Чтобы включить обработку composer.json во время операции `git push` , активируйте расширение Composer.
 
-1. На [портале Azure][management-portal] в колонке вашего веб-приложения PHP щелкните **Инструменты** > **Расширения**.
+1. На [портале Azure][management-portal] в колонке своего веб-приложения PHP щелкните **Инструменты** > **Расширения**.
    
     ![Параметры расширения Composer][composer-extension-settings]
 2. Щелкните **Добавить**, а затем — **Composer**.
@@ -299,6 +299,6 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

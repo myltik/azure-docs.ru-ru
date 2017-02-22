@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
 
 
@@ -32,7 +32,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 В службу Log Analytics можно добавить решения для определения собираемых данных и логики для их анализа.  Решения могут включать дополнительные функции, которые автоматически доставляться агентам с минимальными настройками или вообще без них.  В дополнение к использованию инструментов анализа, предоставляемых отдельными решениями, можно выполнить настраиваемый поиск по всему набору данных для сопоставления данных между системами и приложениями.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Автоматизация и контроль](media/operations-management-suite-overview/icon-automation-control.png) Автоматизация и контроль
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Автоматизация и контроль](media/operations-management-suite-overview/icon-automation-control.png) Автоматизация и контроль
 Служба автоматизации Azure позволяет автоматизировать административные процессы с помощью [модулей Runbook](../automation/automation-runbook-types.md), основанных на PowerShell и выполняемых в облаке Azure.  Модули Runbook могут получать доступ к любому продукту или службе, которыми можно управлять с помощью PowerShell, включая ресурсы в других облачных средах, таких как Amazon Web Services (AWS).  Модули Runbook также могут выполняться на сервере в локальном центре обработки данных для управления локальными ресурсами.
 
 Служба автоматизации Azure предоставляет функции управления конфигурацией с помощью [PowerShell DSC](../automation/automation-dsc-overview.md).  Вы можете создавать ресурсы DSC, размещенные в Azure, управлять ими и назначать их облачным и локальным системам для определения и автоматического применения конфигурации.
@@ -42,7 +42,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) помогает реализовать стратегию непрерывности бизнес-процессов и аварийного восстановления (BCDR), обеспечивая оркестрацию репликации, отработки отказа и восстановления локальных виртуальных машин Hyper-V, виртуальных машин VMware и физических серверов Windows и Linux. Виртуальные машины можно реплицировать в дополнительный центр обработки данных или расширить имеющийся центр обработки данных, реплицировав их в Azure. Azure Site Recovery также предоставляет простые процедуры отработки отказа и восстановления для рабочих нагрузок. Она интегрируется с механизмами аварийного восстановления, такими как SQL Server AlwaysOn, и предоставляет планы восстановления для простой отработки отказа рабочих нагрузок, которые распределены между несколькими компьютерами.
 
-## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Безопасность и соответствие требованиям OMS](media/operations-management-suite-overview/icon-security-compliance.png)  Служба "Безопасность и соответствие требованиям"
+## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Безопасность и соответствие требованиям OMS](media/operations-management-suite-overview/icon-security-compliance.png) Служба "Безопасность и соответствие требованиям"
 Служба "Безопасность и соответствие требованиям" помогает выявить, оценить и устранить риски безопасности для вашей инфраструктуры.  Эти функции OMS реализуются с помощью нескольких решений в службе Log Analytics, которые выполняют анализ данных журнала и конфигурации из систем агентов, помогая вам обеспечивать текущую безопасность среды.
 
 * [Решение "Безопасность и аудит"](oms-security-getting-started.md) выполняет сбор и анализ событий безопасности в управляемых системах для выявления подозрительных действий.

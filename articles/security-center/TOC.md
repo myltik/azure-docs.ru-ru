@@ -4,11 +4,13 @@
 ## [Защита данных](security-center-data-security.md)
 ## Сценарии
 ### [Реагирование на инциденты](security-center-incident-response.md)
+### [Использование рекомендаций для повышения уровня безопасности](security-center-using-recommendations.md)
 
-# Начало работы
+# Приступая к работе
 ## [Краткое руководство](security-center-get-started.md)
 ## [Планирование и эксплуатация](security-center-planning-and-operations-guide.md)
 ## [Разрешения](security-center-permissions.md)
+## [Интеграция партнеров](security-center-partner-integration.md)
 ## [Часто задаваемые вопросы](security-center-faq.md)
 
 # Практическое руководство
@@ -18,12 +20,14 @@
 ### [Реализация рекомендаций по безопасности](security-center-recommendations.md)
 
 ### [Рекомендации по приложениям](security-center-application-recommendations.md)
-#### [Add a web application firewall](security-center-add-web-application-firewall.md)
+#### [Добавление брандмауэра веб-приложения](security-center-add-web-application-firewall.md)
+#### [Завершение подготовки защиты приложений](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Рекомендации по сети](security-center-network-recommendations.md)
 #### [Добавление брандмауэра следующего поколения](security-center-add-next-generation-firewall.md)
 #### [Включение групп безопасности сети](security-center-enable-network-security-groups.md)
 #### [Ограничение доступа через конечные веб-точки](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Route traffic through NGFW only (Маршрутизировать трафик только через NGFW)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Рекомендации по службе SQL](security-center-sql-service-recommendations.md)
 #### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
@@ -34,9 +38,11 @@
 #### [Применение шифрования дисков](security-center-apply-disk-encryption.md)
 #### [Применение обновлений системы](security-center-apply-system-updates.md)
 #### [Включение сбора данных](security-center-enable-data-collection.md)
+#### [Включение шифрования для учетной записи хранения](security-center-enable-encryption-for-storage-account.md)
 #### [Включение агента виртуальной машины](security-center-enable-vm-agent.md)
 #### [Установка Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Предоставление сведений о контактном лице по вопросам безопасности](security-center-provide-security-contact-details.md)
+#### [Перезагрузка после завершения обновлений системы](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Исправление уязвимостей ОС](security-center-remediate-os-vulnerabilities.md)
 #### [Разрешение оповещений о работоспособности Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Обновление версии ОС](security-center-update-os-version.md)
@@ -70,6 +76,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

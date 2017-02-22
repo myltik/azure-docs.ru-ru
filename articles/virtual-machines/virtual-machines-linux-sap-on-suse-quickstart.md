@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 02/14/2017
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
-ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
+ms.sourcegitcommit: 046f58eba906980f23ce1177794b28930e3314a1
+ms.openlocfilehash: e7255c4123849f8f3fb29767308b433b5c0e511b
 
 
 ---
@@ -33,6 +33,9 @@ ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
 
 Все новые тесты и установки в Azure должны выполняться с помощью Azure Resource Manager. Для поиска образов и версий SUSE SLES с помощью Azure Powershell или интерфейса командной строки используйте следующие команды. Впоследствии выходные данные можно будет использовать, например, для определения образа ОС в шаблоне JSON для развертывания новой виртуальной машины SUSE Linux.
 Для Azure Powershell версии 1.0.1 и более поздних действительны следующие команды PowerShell.
+
+Хотя для установки SAP можно использовать стандартные образы SLES, рекомендуется использовать новые образы SLES для SAP, которые теперь доступны в коллекции образов Azure. Дополнительные сведения об этих образах можно найти на соответствующей [странице Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES-SAP ) или [веб-странице часто задаваемых вопросов о SUSE, посвященной SLES для SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ).
+
 
 * Поиск существующих издателей, включая SUSE:
   
@@ -50,13 +53,17 @@ ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
   
    ```
    PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP"
    CLI : azure vm image list-skus westeurope SUSE SLES
+   CLI : azure vm image list-skus westeurope SUSE SLES-SAP
    ```
 * Поиск определенной версии SKU для SLES:
   
    ```
-   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   CLI : azure vm image list westeurope SUSE SLES 12
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
+   CLI : azure vm image list westeurope SUSE SLES 12-SP2
+   CLI : azure vm image list westeurope SUSE SLES-SAP 12-SP2
    ```
 
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Установка WALinuxAgent в виртуальной машине SUSE
@@ -77,7 +84,7 @@ ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
 Единственное исключение относительно подключения через UUID касается присоединения диска операционной системы для устранения неполадок, как описано в следующем разделе.
 
 ## <a name="troubleshooting-a-suse-vm-that-isnt-accessible-anymore"></a>Устранение неполадок с виртуальной машиной SUSE, которая стала недоступной
-Бывают ситуации, когда виртуальная машина SUSE в Azure зависает в процессе загрузки (например, вместе с ошибкой, связанной с подключением дисков). Эту проблему можно идентифицировать с помощью функции диагностики загрузки для виртуальных машин Azure вер. 2 на портале Azure. Дополнительные сведения см. в статье [Диагностика загрузки](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
+Бывают ситуации, когда виртуальная машина SUSE в Azure зависает в процессе загрузки (например, вместе с ошибкой, связанной с подключением дисков). Эту проблему можно идентифицировать с помощью функции диагностики загрузки для виртуальных машин Azure вер.&2; на портале Azure. Дополнительные сведения см. в статье [Диагностика загрузки](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
 
 Единственный способ решить эту проблему — подключить диск ОС из поврежденной виртуальной машины к другой виртуальной машине SUSE в Azure. Затем внесите соответствующие изменения, например отредактируйте /etc/fstab или удалите правила udev сети, как описано в следующем разделе.
 

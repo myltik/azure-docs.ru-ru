@@ -1,5 +1,5 @@
 
-1. Войдите в подписку Azure, выполнив действия, перечисленные в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../articles/xplat-cli-connect.md).
+1. Войдите в подписку Azure, выполнив действия, перечисленные в статье [Войдите в Azure из командной строки Azure](../articles/xplat-cli-connect.md).
 
 2. Убедитесь, что вы находитесь в режиме классического развертывания, следующим образом:
 
@@ -52,10 +52,10 @@
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о всех командах Azure CLI для управления виртуальной машиной см. в статье [Команды Azure CLI в режиме управления службами Azure (ASM)](../articles/virtual-machines-command-line-tools.md).
+Дополнительные сведения обо всех командах Azure CLI 1.0 для управления виртуальной машиной см. в статье [Get started with Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Приступая к работе с Azure CLI 2.0 (предварительная версия)).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

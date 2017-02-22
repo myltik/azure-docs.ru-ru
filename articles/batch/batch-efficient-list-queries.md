@@ -1,5 +1,5 @@
 ---
-title: "Эффективные запросы списков в пакетной службе Azure | Документация Майкрософт"
+title: "Проектирование эффективных запросов списков с помощью пакетной службы Azure | Документация Майкрософт"
 description: "Сведения о повышении производительности за счет фильтрации запросов, а именно при запросе сведений о ресурсах пакетной службы: пулах, заданиях, задачах и вычислительных узлах."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 62487d3d26ba66ce2ba88ae1a71858d68e68544c
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 4e127422e2ad4644aa028cdb987ca5bafa101868
 
 
 ---
@@ -292,6 +292,6 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

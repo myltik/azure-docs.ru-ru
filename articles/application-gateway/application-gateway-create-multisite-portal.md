@@ -1,5 +1,5 @@
 ---
-title: "Настройка имеющегося шлюза приложения для размещения нескольких узлов на портале Azure | Документация Майкрософт"
+title: "Размещение нескольких сайтов с помощью шлюза приложений Azure | Документация Майкрософт"
 description: "Эта страница содержит инструкции по настройке с помощью портала Azure существующего шлюза приложений Azure для размещения нескольких веб-приложений в одном шлюзе."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: ce548953a6503e146dc67401eaf57f30fe521632
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 90b7e2f7f5327684f173bd7e10f21e65bea8fbe7
 
 
 ---
@@ -143,6 +143,6 @@ ms.openlocfilehash: ce548953a6503e146dc67401eaf57f30fe521632
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -4,7 +4,7 @@ description: "Порядок обнаружения и устранения ра
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -61,8 +61,8 @@ ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
 * Ошибка пользователя, например неправильно введенные параметры подключения, такие как имя сервера в строке подключения.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Порядок устранения постоянных проблем подключения
-1. Настройте [правила брандмауэра](sql-database-configure-firewall-settings.md) , разрешив предоставление IP-адреса клиенту.
-2. На всех брандмауэрах между клиентом и Интернетом откройте порт 1433 для входящих соединений. Дополнительные указания см. в статье [Настройка брандмауэра Windows для разрешения доступа к SQL Server](https://msdn.microsoft.com/library/cc646023.aspx).
+1. Настройте [правила брандмауэра](sql-database-configure-firewall-settings.md) , разрешив предоставление IP-адреса клиенту. Для временных целей тестирования настройте правило брандмауэра, используя 0.0.0.0 как начало диапазона IP-адресов и 255.255.255.255 как завершение диапазона IP-адресов. Откроется сервер для всех IP-адресов. Если это позволяет устранить проблемы с подключением, удалите это правило и создайте правило брандмауэра для надлежащим образом лимитированных IP-адресов или их диапазона. 
+2. На всех брандмауэрах между клиентом и Интернетом откройте порт 1433 для входящих соединений. См инструкции по настройке [брандмауэра Windows для разрешения доступа к SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) и [портов и протоколов, необходимых для гибридной идентификации](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). Вы узнаете о дополнительных указателях, относящихся к дополнительным портам, которые необходимо открыть для аутентификации в Azure Active Directory.
 3. Проверьте строку подключения и другие параметры подключения. Ознакомьтесь с разделом "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Проверьте работоспособность службы на панели мониторинга. Если вы считаете, что имеет место региональный сбой, выполните инструкции по восстановлению в новый регион из раздела [Восстановление после сбоя](sql-database-disaster-recovery.md) .
 
@@ -77,13 +77,11 @@ ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
 | 4. |[Устранение неполадок подключения к Базе данных SQL Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Этот инструмент помогает выявить проблему и устранить ошибки подключения. |
 | 5 |[Ошибка при подключении к базе данных SQL: "База данных на сервере сейчас недоступна". Повторите попытку подключения позже"](sql-database-troubleshoot-connection.md) |Описывает, как определить и устранить ошибку 40613: "База данных &lt;x&gt; на сервере &lt;y&gt; сейчас недоступна. Повторите попытку подключения позже". |
 | 6 |[Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md) |Содержит сведения о кодах ошибок SQL для клиентских приложений базы данных SQL, например общих ошибок подключения к базе данных, проблем при копировании базы данных и общих ошибок. |
-| 7 |[Руководство по производительности базы данных SQL Azure для изолированных баз данных](sql-database-performance-guidance.md) |Содержит указания по выбору уровня служб, который подходит для вашего приложения. Кроме того, содержит рекомендации по настройке приложения для наиболее эффективного использования базы данных SQL Azure. |
+| 7 |[Руководство по производительности базы данных SQL Azure](sql-database-performance-guidance.md) |Содержит указания по выбору уровня служб, который подходит для вашего приложения. Кроме того, содержит рекомендации по настройке приложения для наиболее эффективного использования базы данных SQL Azure. |
 | 8 |[Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md) |Содержит ссылки на примеры кода для различных технологий, которые можно использовать для подключения к базе данных SQL Azure и взаимодействия с ней. |
-| 9 |Страница об обновлении до базы данных SQL Azure версии 12 ([портал Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Содержит указания по обновлению имеющихся баз данных и серверов базы данных SQL Azure версии&11; до версии&12; с помощью портала Azure или PowerShell. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Устранение проблем производительности базы данных SQL Azure](sql-database-troubleshoot-performance.md)
-* [Устранение проблем с разрешениями в базе данных SQL Azure](sql-database-troubleshoot-permissions.md)
 * [Поиск документации по Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Просмотр последних обновлений для службы базы данных SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -91,12 +89,10 @@ ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
 * [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
 * [Общие рекомендации по повторным попыткам](../best-practices-retry-general.md)
 * [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md)
-* [Схема обучения использованию базы данных SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

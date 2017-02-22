@@ -1,5 +1,5 @@
 ---
-title: "Создание виртуальной машины с MySQL | Документация Майкрософт"
+title: "Создание классической виртуальной машины Azure с MySQL | Документация Майкрософт"
 description: "Создайте виртуальную машину Azure под управлением Windows Server 2012 R2 и базу данных MySQL, используя классическую модель развертывания."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ca3993ef2cead2c38c09e2a7bceacadc7007834e
+ms.sourcegitcommit: 0937d80011d0ae7015c08d99b06934fda85930b0
+ms.openlocfilehash: d17c92bd239360e0bfddd61a57a9f481f64ff05d
 
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2012-r2"></a>Установка MySQL на виртуальной машине под управлением Windows Server 2012 R2, созданной с помощью классической модели развертывания.
 [MySQL](http://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. В этом учебнике демонстрируются установка и запуск версии сообщества MySQL 5.6.23 в качестве сервера MySQL на виртуальной машине под управлением Windows Server 2012 R2. Инструкции по установке MySQL в Linux см. в статье [Как установить MySQL в Azure](virtual-machines-linux-mysql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 ## <a name="create-a-virtual-machine-running-windows-server-2012-r2"></a>Создание виртуальной машины под управлением Windows Server 2012 R2
 Если у вас еще нет виртуальной машины под управлением Windows Server 2012 R2, создайте виртуальную машину, ориентируясь на это [руководство](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
@@ -73,7 +74,7 @@ ms.openlocfilehash: ca3993ef2cead2c38c09e2a7bceacadc7007834e
 18. Введите пароль пользователя root, указанный на шаге 11, чтобы появилось приглашение, где можно выполнить команды для настройки MySQL. Подробные сведения о командах и синтаксисе см. в [справочных руководствах по MySQL](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
     
     ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
-19. Можно также настроить для конфигурации сервера параметры по умолчанию, например каталоги базы и данных и диски, с записями в файле C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini. Дополнительные сведения см. в статье [Значения по умолчанию для конфигурации сервера 5.1.2](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19. Можно также настроить для конфигурации сервера параметры по умолчанию, например каталоги базы и данных и диски, с записями в файле C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini. Дополнительные сведения см. в статье [Значения по умолчанию для конфигурации сервера&5;.1.2](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 ## <a name="configure-endpoints"></a>Настройка конечных точек
 Если требуется, чтобы служба сервера MySQL была доступна для клиентских компьютеров MySQL в Интернете, необходимо настроить конечную точку для TCP-порта, который прослушивает служба сервера MySQL, и создать дополнительное правило брандмауэра Windows. Это порт TCP 3306, если только вы не указали другой порт, на странице **Тип и сеть** (шаг 10 предыдущей процедуры).
@@ -119,6 +120,6 @@ ms.openlocfilehash: ca3993ef2cead2c38c09e2a7bceacadc7007834e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

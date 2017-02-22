@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
 
 ---
@@ -66,12 +66,12 @@ ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Как и для учетных данных администратора, не используйте значения вида "username@server".. Вместо этого используйте просто "имя_пользователя".  Кроме того, обратите внимание, что строка подключения не содержит имя сервера и имя базы данных. Их нет, потому что вызов **OpenConnectionForKey** автоматически перенаправит подключение в нужный сегмент на основе ключа. Таким образом, имя сервера и имя базы данных не указываются. 
+Как и для учетных данных администратора, не используйте значения вида "username@server". Вместо этого используйте просто «имя_пользователя@сервер».  Кроме того, обратите внимание, что строка подключения не содержит имя сервера и имя базы данных. Их нет, потому что вызов **OpenConnectionForKey** автоматически перенаправит подключение в нужный сегмент на основе ключа. Таким образом, имя сервера и имя базы данных не указываются. 
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Управление базами данных и именами входа в Базе данных SQL Azure](sql-database-manage-logins.md)
 
-[Защита Базы данных SQL](sql-database-security.md)
+[Защита Базы данных SQL](sql-database-security-overview.md)
 
 [Начало работы с заданиями обработки эластичных баз данных](sql-database-elastic-jobs-getting-started.md)
 
@@ -80,6 +80,6 @@ ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

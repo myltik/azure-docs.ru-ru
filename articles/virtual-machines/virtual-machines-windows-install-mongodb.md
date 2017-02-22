@@ -1,5 +1,5 @@
 ---
-title: "Установка MongoDB на виртуальную машину Windows | Документация Майкрософт"
+title: "Установка MongoDB на виртуальной машине Windows в Azure | Документация Майкрософт"
 description: "Узнайте, как установить MongoDB на виртуальную машину Azure под управлением Windows Server 2012 R2, созданную посредством модели развертывания с помощью Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: 0772376d2d858b32dfdd06b64d61003388268361
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
 [MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье приведены инструкции по установке и настройке MongoDB на виртуальной машине Windows Server 2012 R2 в Azure. [MongoDB можно также установить на виртуальной машине Linux в Azure](virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Прежде чем установить и настроить MongoDB, необходимо создать виртуальную машину и, по возможности, добавить в нее диск данных. С помощью приведенных ниже ссылок можно ознакомиться со статьями, в которых описывается создание виртуальной машины и добавление диска данных.
+Прежде чем установить и настроить MongoDB, необходимо создать виртуальную машину и по возможности добавить в нее диск данных. С помощью приведенных ниже ссылок можно ознакомиться со статьями, в которых описывается создание виртуальной машины и добавление диска данных.
 
 * [Создайте виртуальную машину Windows на портале Azure](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [с помощью PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * [Подключите диск данных к виртуальной машине Windows Server на портале Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [с помощью PowerShell](https://msdn.microsoft.com/library/mt603673.aspx).
@@ -47,7 +47,7 @@ ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
      
      ![Настройка параметров безопасности Internet Explorer](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
 4. Перейдите на страницу [MongoDB - Downloads](http://www.mongodb.org/downloads) (Центр загрузки MongoDB) (http://www.mongodb.org/downloads).
-5. По умолчанию должен быть выбран выпуск **Community Server** и последний стабильный выпуск 64-разрядной версии Windows Server 2008 R2 и более поздних версий. Чтобы скачать установщик, щелкните **DOWNLOAD (msi)** (Скачать (MSI-файл)).
+5. При необходимости выберите выпуск **Community Server** и последний стабильный выпуск 64-разрядной версии Windows Server 2008 R2 и более поздней версии. Чтобы скачать установщик, щелкните **DOWNLOAD (msi)** (Скачать (MSI-файл)).
    
     ![Скачивание установщика MongoDB](./media/virtual-machines-windows-install-mongodb/download-mongodb.png)
    
@@ -74,7 +74,7 @@ ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
      > Обязательно добавьте начальную точку с запятой (`;`), чтобы указать, что добавляется расположение в переменную `PATH`.
      > 
      > 
-2. Создайте каталоги данных и журналов MongoDB на диске данных. В меню **Пуск** выберите **Командная строка**. В следующих примерах создаются каталоги на диске F:.
+2. Создайте каталоги данных и журналов MongoDB на диске данных. В меню **Пуск** выберите **Командная строка**. В следующих примерах создаются каталоги на диске F.
    
     ```
     mkdir F:\MongoData
@@ -86,7 +86,7 @@ ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
     mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
     ```
    
-    Может пройти несколько минут, пока MongoDB выделит место для файлов журналов и начнет прослушивать подключения. Все сообщения журнала будут направляться в файл *F:\MongoLogs\mongolog.log*, когда сервер `mongod.exe` запустится и выделит место для файлов журналов.
+    Может пройти несколько минут, пока MongoDB выделит место для файлов журналов и начнет ожидать передачи данных. Все сообщения журнала будут направляться в файл *F:\MongoLogs\mongolog.log*, когда сервер `mongod.exe` запустится и выделит место для файлов журналов.
    
    > [!NOTE]
    > Фокус командной строки будет оставаться на этой задаче, пока выполняется экземпляр MongoDB. Не закрывайте окно командной строки, чтобы не прерывать выполнение MongoDB. Или установите MongoDB в качестве службы, как описано на следующем шаге.
@@ -162,11 +162,11 @@ New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом учебнике вы узнали, как установить и настроить MongoDB на виртуальной машине Windows. Теперь вы можете получить доступ к MongoDB на виртуальной машине Windows, выполнив действия, описанные в дополнительных разделах [документации по MongoDB](https://docs.mongodb.com/manual/).
+Из этого руководства вы узнали, как установить и настроить MongoDB на виртуальной машине Windows. Теперь вы можете получить доступ к MongoDB на виртуальной машине Windows, выполнив действия, описанные в дополнительных разделах [документации по MongoDB](https://docs.mongodb.com/manual/).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

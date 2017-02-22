@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc77a43199a2d90978739eb1db89994a64990b76
+ms.sourcegitcommit: 32f0a3d9e8ee2c419a4171cd6702ce625648da94
+ms.openlocfilehash: 9de55f53d2bf574022f2a37222f58ee3a72d62ec
 
 
 ---
@@ -252,6 +252,6 @@ ms.openlocfilehash: bc77a43199a2d90978739eb1db89994a64990b76
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

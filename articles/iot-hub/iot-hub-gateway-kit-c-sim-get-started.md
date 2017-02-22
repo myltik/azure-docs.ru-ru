@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с начальным набором для шлюза Azure IoT | Документация Майкрософт"
+title: "Приступая к работе с имитацией устройства и шлюзом Azure IoT | Документация Майкрософт"
 description: "Приступите к работе с начальным набором для шлюза Azure IoT, создайте Центр Интернета вещей Azure и подключите шлюз к нему"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Урок 1. Настройка NUC
-![Урок 1. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![Урок&1;. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
 На этом уроке вы настроите Intel NUC (Next Unit of Computing) из набора в качестве шлюза Azure IoT, установите пакет SDK для шлюза Azure IoT на NUC и запустите пример приложения, чтобы проверить работоспособность шлюза.
 
@@ -44,7 +44,7 @@ ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
 Перейдите к статье [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md).
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Урок 2. Создание Центра Интернета вещей
-![Урок 2. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+![Урок&2;. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 В ходе этого урока вы установите инструменты и программное обеспечение на главном компьютере. Затем создадите бесплатную учетную запись Azure, подготовите Центр Интернета вещей Azure и создадите в нем первое устройство.
 
@@ -109,6 +109,6 @@ ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
 Дополнительные сведения см. на странице сообщества [Developer Zone комплекта Intel IoT Gateway](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit).
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

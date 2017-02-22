@@ -1,6 +1,6 @@
 ---
-title: "Основные концепции API Management"
-description: "Сведения об API, продуктах, ролях, группах и других основных концепциях службы управления API."
+title: "Импорт API в службу управления API Azure | Документация Майкрософт"
+description: "Узнайте, как импортировать API и его операции в службу управления API Azure."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: b69c8e918bb0380a10b1505fbf9792e284149de0
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
 
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Как импортировать определение API с операциями в Azure API Management
@@ -97,6 +96,6 @@ API создаются и настраиваются на портале изд�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -23,8 +23,11 @@
 ## [Управление удостоверениями](security-identity-management-overview.md)
 ### [Рекомендации по управлению удостоверениями для обеспечения безопасности](azure-security-identity-management-best-practices.md)
 ## Службы PaaS
-### [Рекомендации по обеспечению безопасности Интернета вещей](azure-security-iot-best-practices.md)
+### [Защита развернутых приложений PaaS](security-paas-deployments.md)
+#### [Защита приложений PaaS с помощью SQL](security-paas-applications-using-sql.md)
+#### [Защита приложений PaaS с помощью службы приложений](security-paas-applications-using-app-services.md)
 ### [Обзор системы безопасности Интернета вещей](security-internet-of-things-overview.md)
+### [Рекомендации по обеспечению безопасности Интернета вещей](azure-security-iot-best-practices.md)
 ## Вертикальные отрасли
 ### [Разработка безопасных решений для отрасли здравоохранения](security-health-care-solution.md)
 ## [Архитектура безопасности](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

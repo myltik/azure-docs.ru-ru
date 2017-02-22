@@ -1,5 +1,5 @@
 ---
-title: "Применение политик к виртуальным машинам Azure Resource Manager | Документация Майкрософт"
+title: "Обеспечение безопасности с помощью политик на виртуальных машинах Windows в Azure | Документация Майкрософт"
 description: "Как применить политику к виртуальной машине Azure Resource Manager на основе Windows"
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
-ms.author: singhkay
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Применение политик к виртуальным машинам Azure Resource Manager
+# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Применение параметров безопасности и политик к виртуальным машинам Windows с помощью Azure Resource Manager
 С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации. В этой статье мы расскажем, как определить требуемое поведение для виртуальных машин вашей организации с помощью политик Azure Resource Manager.
 
 Ниже представлены шаги для реализации вертикального масштабирования.
@@ -105,6 +105,6 @@ ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

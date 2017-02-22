@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
 
 
 ---
@@ -32,11 +32,11 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 Перед выполнением инструкций, приведенных в этом руководстве, и созданием индекса следует [создать службу поиска Azure](search-create-service-portal.md).
 
-## <a name="i-go-to-your-azure-search-blade"></a>1. Переход к колонке службы поиска Azure
+## <a name="go-to-your-azure-search-blade"></a>Переход к колонке службы поиска Azure
 1. Щелкните "Все ресурсы" в меню слева на [портале Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Выберите службу поиска Azure.
 
-## <a name="ii-add-and-name-your-index"></a>2. Добавление индекса и указание его имени
+## <a name="add-and-name-your-index"></a>Добавление индекса и указание его имени
 1. Нажмите кнопку "Добавить индекс".
 2. Укажите имя для индекса службы поиска Azure. Поскольку в этом руководстве мы создаем индекс для поиска гостиниц, мы назовем свой индекс "hotels".
    * Имя индекса должно начинаться с буквы и содержать только строчные буквы, цифры или дефисы ("-").
@@ -45,7 +45,7 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## <a name="iii-create-and-define-the-fields-of-your-index"></a>3. Создание и определение полей индекса
+## <a name="create-and-define-the-fields-of-your-index"></a>Создание и определение полей индекса
 1. После выбора элемента "Поля" откроется новая колонка с формой для ввода определения индекса.
 2. Добавьте поля в индекс с помощью этой формы.
    
@@ -62,12 +62,12 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next"></a>Далее
+## <a name="next-steps"></a>Дальнейшие действия
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

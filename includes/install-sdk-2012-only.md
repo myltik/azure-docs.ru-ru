@@ -4,7 +4,7 @@
 
 1. Чтобы установить пакет SDK, нажмите ссылку внизу. Для работы с этим учебником требуется Visual Studio 2012. Если у вас не установлена служба Visual Studio, вместе с пакетом SDK будет установлена служба Visual Studio Express for Web.
    
-   * [Пакет SDK Azure для Visual Studio 2012][Пакет SDK Azure для Visual Studio 2012]
+   * [Пакет SDK Azure для Visual Studio 2012][Azure SDK for Visual Studio 2012]
      
      **Примечание.** В зависимости от того, сколько зависимостей пакета SDK уже имеется на компьютере, установка пакета SDK может занять много времени: от нескольких минут до получаса или более.
 2. При появлении запроса на выполнение или сохранение исполняемой установки нажмите **Выполнить**.
@@ -14,7 +14,10 @@
 
 После завершения установки вы получите все компоненты, необходимые для разработки.
 
-[Пакет SDK Azure для Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
+[Azure SDK for Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
 [WebPIAzureSdk]: ./media/install-sdk-2012-only/WebPI46-2012.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

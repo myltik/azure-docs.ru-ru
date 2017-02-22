@@ -1,5 +1,5 @@
 ---
-title: "Пример кода: анализ данных, экспортированных из Application Insights| Документация Майкрософт"
+title: "Пример: анализ данных, экспортированных из Azure Application Insights | Документация Майкрософт"
 description: "Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта. Сохраните данные в SQL."
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: fedd078402bbd220bce9b71cd035508d46f92f82
 
 
 ---
@@ -30,14 +30,14 @@ ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
 * В этом примере мы перемещаем данные в базу данных Azure, выполняя код в рабочей роли Azure. Но вы можете адаптировать этот код для запуска на локальном сервере, чтобы передавать данные на локальный сервер SQL Server.
 * Вы можете [написать код для прямого доступа к данным телеметрии](http://dev.applicationinsights.io/) в Application Insights без их экспорта.
 
-Если вы еще не начали отслеживать веб-приложение с помощью Application Insights, [сделать это сейчас][start].
+Если вы еще не начали отслеживать веб-приложение с помощью Application Insights, [сделайте это сейчас][start].
 
 
 
 ## <a name="create-storage-in-azure"></a>Создание хранилища в Azure
 Данные из Application Insights всегда экспортируются в учетную запись хранения Azure в формате JSON. Это именно то хранилище, из которого ваш код будет считывать данные.
 
-1. Создайте "классическую" учетную запись хранения в подписке на [портале Azure][portal].
+1. Создайте классическую учетную запись хранения в подписке на [портале Azure][portal].
    
     ![На портале Azure выберите "Создать", "Данные", "Хранилище".](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 2. Создание контейнера
@@ -501,6 +501,6 @@ ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

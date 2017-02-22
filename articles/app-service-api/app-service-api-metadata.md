@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f5c17d51622dbc27a27c750999a925c3f80bff
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 53f5c17d51622dbc27a27c750999a925c3f80bff
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Свойство диспетчера ресурсов Azure
-URL-адрес определения API для приложения API можно также настроить с помощью [обозревателя ресурсов](https://resources.azure.com/) или [шаблонов диспетчера Azure Resource Manager](../resource-group-authoring-templates.md), используя такие средства командной строки, как [Azure PowerShell](../powershell-install-configure.md) и [интерфейс командной строки Azure](../xplat-cli-install.md). 
+URL-адрес определения API для приложения API можно также настроить с помощью [обозревателя ресурсов](https://resources.azure.com/) или [шаблонов диспетчера Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md), используя такие средства командной строки, как [Azure PowerShell](/powershell/azureps-cmdlets-docs) и [интерфейс командной строки Azure](../xplat-cli-install.md). 
 
 В **обозревателе ресурсов** выберите пункты **subscriptions > {ваша подписка} > resourceGroups > {ваша группа ресурсов} > providers > Microsoft.Web > sites > {ваш сайт} > config > web**. Отобразится свойство `apiDefinition`:
 
@@ -60,6 +60,6 @@ URL-адрес определения API для приложения API мож
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

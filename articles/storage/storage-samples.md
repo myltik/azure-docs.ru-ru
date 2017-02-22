@@ -1,5 +1,5 @@
 ---
-title: "Примеры для службы хранилища Azure | Документация Майкрософт"
+title: "Примеры кода для службы хранилища Azure | Документация Майкрософт"
 description: "Просмотрите, загрузите и запустите образцы кода и приложений для хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
 services: storage
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: dc466ed5dbd7ad14dd1c84760d9205b940acf504
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
 ## <a name="overview"></a>Обзор
 Используйте следующие ссылки для просмотра и загрузки действующих примеров службы хранилища Azure.
 
-## <a name="azure-code-sample-library"></a>Пример библиотеки кода Azure
-[Пример библиотеки кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage) включает примеры для хранилища Azure, которые можно загрузить и запустить локально. Пример библиотеки кода содержит пример кода в формате ZIP. Кроме того, можно просмотреть и клонировать репозиторий GitHub для каждого примера.
+## <a name="azure-code-samples-library"></a>Библиотека примеров кода Azure
+Библиотека [примеров кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage) содержит примеры для службы хранилища Azure, которые можно скачать и запустить локально. Пример библиотеки кода содержит пример кода в формате ZIP. Кроме того, можно просмотреть и клонировать репозиторий GitHub для каждого примера.
 
 ## <a name="getting-started-samples"></a>Приступая к работе: примеры
 * [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md)
@@ -34,19 +34,12 @@ ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
 ## <a name="net-samples"></a>Примеры для .NET
 Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [пакете Azure SDK для .NET](https://azure.microsoft.com/downloads/).
 
-* [Приступая к работе со службой BLOB-объектов Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
-* [Приступая к работе со службой очередей Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
-* [Приступая к работе со службой таблиц Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* [Приступая к работе со службой файлов Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
-* [Веб-приложение фотоальбома для хранилища BLOB-объектов Azure](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
-* [Управление параллелизмом с помощью службы хранилища Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
+* [Примеры для службы хранилища Azure с использованием .NET](storage-samples-dotnet.md)
 
 ## <a name="java-samples"></a>Примеры для Java
 Для просмотра примеров Java загрузите [Клиентскую библиотеку хранилища Java](https://github.com/azure/azure-storage-java).
 
-* [Начало работы с BLOB-объектами](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/blob/gettingstarted)
-* [Начало работы с таблицами](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted)
-* [Начало работы с очередями](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted)
+* [Примеры для службы хранилища Azure с использованием Java](storage-samples-java.md)
 
 ## <a name="nodejs-samples"></a>Примеры для Node.js
 Для просмотра примеров Node.js загрузите [Клиентскую библиотеку хранилища Node.js](https://github.com/Azure/azure-storage-node).
@@ -66,7 +59,8 @@ ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
 * [Начало работы с таблицами](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Начало работы с очередями](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="next-steps"></a>Дальнейшие действия
+
 ### <a name="net-resources"></a>Ресурсы для .NET
 * [Исходный код для клиентской библиотеки хранилища .NET](https://github.com/Azure/azure-storage-net)
 * [Справочник по клиентской библиотеке .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -86,6 +80,6 @@ ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

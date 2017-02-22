@@ -1,5 +1,5 @@
 ---
-title: "Интерфейсы API и пакеты SDK Python для DocumentDB | Документация Майкрософт"
+title: "Ресурсы для API Python и пакетов SDK для Python (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения о пакете SDK и интерфейсах API для Python, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Python."
 services: documentdb
 documentationcenter: python
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 
 
 ---
@@ -89,7 +89,7 @@ ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
 * Добавлен новый заголовок "ход выполнения преобразования индекса" в ResourceResponse.
 
 ### <a name="a-name110110httpspypipythonorgpypipydocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
-* Реализована политика индексации версии 2.
+* Реализована политика индексации версии&2;.
 
 ### <a name="a-name101101httpspypipythonorgpypipydocumentdb101"></a><a name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
 * Добавлена поддержка прокси-подключения.
@@ -97,7 +97,7 @@ ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
 ### <a name="a-name100100httpspypipythonorgpypipydocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
 * Пакет SDK общей доступности.
 
-## <a name="release-retirement-dates"></a>Даты выпуска и вывода из эксплуатации
+## <a name="release--retirement-dates"></a>Даты выпуска и вывода из эксплуатации
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии. 
@@ -142,6 +142,6 @@ ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

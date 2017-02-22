@@ -1,5 +1,5 @@
 ---
-title: "Переход к средствам разработки Azure Resource Manager для кластеров HDInsight | Документация Майкрософт"
+title: "Переход к средствам Azure Resource Manager для HDInsight | Документация Майкрософт"
 description: "Процесс перехода к средствам разработки на основе Azure Resource Manager для кластеров HDInsight"
 services: hdinsight
 editor: cgronlun
@@ -12,15 +12,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 660ea89373fe77dac9b77e529adf37025a0a80cc
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 3606df64b619b62f8b9e5aec2abc4efc994c37e3
 
 
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Переход к средствам разработки на основе Azure Resource Manager для кластеров HDInsight
+
 Средства для HDInsight на основе диспетчера служб Azure (ASM) устарели. Если для работы с кластерами HDInsight вы используете Azure PowerShell, интерфейс командной строки Azure или пакет SDK для HDInsight .NET, рекомендуем перейти на версии PowerShell, интерфейса командной строки и пакета SDK для .NET, основанные на диспетчере ресурсов Azure (ARM). В этой статье рассказывается, как перейти на средства, основанные на ARM. Кроме того, в этой статье указаны различия (если таковые имеются) между методами работы с HDInsight, основанными на ASM и ARM.
 
 > [!IMPORTANT]
@@ -48,8 +49,6 @@ ms.openlocfilehash: 660ea89373fe77dac9b77e529adf37025a0a80cc
 * `azure hdinsight cluster resize` — динамически изменяет количество рабочих узлов в кластере;
 * `azure hdinsight cluster enable-http-access` — обеспечивает HTTPs-доступ к кластеру (по умолчанию включен);
 * `azure hdinsight cluster disable-http-access` — отключает HTTPs-доступ к кластеру;
-* `azure hdinsight-enable-rdp-access` — включает протокол удаленного рабочего стола в кластере HDInsight под управлением Windows;
-* `azure hdinsight-disable-rdp-access` — отключает протокол удаленного рабочего стола в кластере HDInsight под управлением Windows;
 * `azure hdinsight script-action` — предоставляет команды для создания действий сценариев в кластере и управления этими действиями;
 * `azure hdinsight config` — предоставляет команды для создания файла конфигурации, который можно использовать с командой `hdinsight cluster create` для предоставления сведений о конфигурации.
 
@@ -324,7 +323,7 @@ ms.openlocfilehash: 660ea89373fe77dac9b77e529adf37025a0a80cc
                 Location = "West US",
                 ClusterType = "Hadoop",
                 Version = "3.1",
-                OSType = OSType.Windows,
+                OSType = OSType.Linux,
                 DefaultStorageAccountName = "mystorage.blob.core.windows.net",
                 DefaultStorageAccountKey =
                     "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",
@@ -366,6 +365,6 @@ ms.openlocfilehash: 660ea89373fe77dac9b77e529adf37025a0a80cc
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

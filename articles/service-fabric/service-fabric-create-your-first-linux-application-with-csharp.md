@@ -1,5 +1,5 @@
 ---
-title: "Создание первого приложения Service Fabric в Linux с помощью C# | Документация Майкрософт"
+title: "Создание приложения микрослужб Azure на платформе Linux с помощью C# | Документация Майкрософт"
 description: "Создание и развертывание приложения Service Fabric с помощью C#"
 services: service-fabric
 documentationcenter: csharp
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: c810f3e86ba582943e88f3085f6d9cff2496031c
 
 
 ---
@@ -102,6 +102,6 @@ Service Fabric предоставляет пакеты SDK для создани
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -64,13 +64,20 @@
 #### [Классический портал](cloud-services-how-to-scale.md)
 ### [Использование языка Python для управления ресурсами Azure](cloud-services-python-how-to-use-service-management.md)
 
+### [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)
+### Прекращение использования гостевой ОС
+#### [Политика прекращения использования ](cloud-services-guestos-retirement-policy.md)
+#### [Уведомление о прекращении использования семейства версий 1](cloud-services-guestos-family1-retirement.md)
+### [Новости о выпуске гостевой ОС](cloud-services-guestos-update-matrix.md)
+### [Памятка по конфигурации XPath для роли облачных служб](cloud-services-role-config-xpath.md)
+
 ## Управление сертификатами
 ### [Облачные службы и сертификаты управления](cloud-services-certs-create.md)
 ### Настройка SSL 
 #### [Портал](cloud-services-configure-ssl-certificate-portal.md)
 #### [Классический портал](cloud-services-configure-ssl-certificate.md)
 
-## Монитор
+## Мониторинг
 ### [Мониторинг облачной службы](cloud-services-how-to-monitor.md)
 ### [Тестирование производительности](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Тестирование с помощью профилировщика Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
@@ -98,15 +105,9 @@
 ### [Часто задаваемые вопросы об облачных службах](cloud-services-faq.md)
 
 # Справочные материалы
-## [XMLSchema в CSDEF-файле](https://msdn.microsoft.com/library/azure/ee758711)
-## [XMLSchema в CSCFG-файле](https://msdn.microsoft.com/library/azure/ee758710)
+## [Схема XML в CSDEF-файле](https://msdn.microsoft.com/library/azure/ee758711)
+## [Схема XML в CSCFG-файле](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)
-## Прекращение использования гостевой ОС
-### [Политика прекращения использования ](cloud-services-guestos-retirement-policy.md)
-### [Уведомление о прекращении использования семейства версий 1](cloud-services-guestos-family1-retirement.md)
-## [Новости о выпуске гостевой ОС](cloud-services-guestos-update-matrix.md)
-## [Памятка по конфигурации XPath для роли облачных служб](cloud-services-role-config-xpath.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

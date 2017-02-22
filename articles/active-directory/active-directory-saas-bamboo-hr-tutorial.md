@@ -35,7 +35,7 @@ ms.openlocfilehash: e675b92ea53c31c014e20735c039db3dbad325cc
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
+![Сценарий](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-bamboohr"></a>Включение интеграции приложений для BambooHR
 В этом разделе показано, как включить интеграцию приложений для BambooHR.
@@ -47,16 +47,16 @@ ms.openlocfilehash: e675b92ea53c31c014e20735c039db3dbad325cc
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-bamboo-hr-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-bamboo-hr-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **BambooHR**.
    
-   ![Коллекция приложений](./media/active-directory-saas-bamboo-hr-tutorial/IC796686.png "Application gallery")
+   ![Коллекция приложений](./media/active-directory-saas-bamboo-hr-tutorial/IC796686.png "Коллекция приложений")
 7. В области результатов выберите **BambooHR** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
@@ -70,27 +70,27 @@ ms.openlocfilehash: e675b92ea53c31c014e20735c039db3dbad325cc
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **BambooHR** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Сценарий](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
+   ![Сценарий](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Сценарий")
 2. На странице **Как пользователи должны входить в BambooHR?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.png "Настройка единого входа")
 3. На странице **Configure App URL** (Настройка URL-адреса приложения) в текстовом поле **URL-адрес входа в BambooHR** введите URL-адрес, используемый для входа в приложение BambooHR (например, https://company.bamboohr.com), и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-bamboo-hr-tutorial/IC796689.png "Configure app URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-bamboo-hr-tutorial/IC796689.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в BambooHR** щелкните **Скачать сертификат**, а затем сохраните файл сертификата на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-bamboo-hr-tutorial/IC796690.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-bamboo-hr-tutorial/IC796690.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт BambooHR в качестве администратора.
 6. На домашней странице выполните следующие действия.
    
-   ![Единый вход](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Single Sign-On")
+   ![Единый вход](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Единый вход")
    
    1. Нажмите **Приложения**.
    2. В меню приложений в левой части окна нажмите **Единый вход**.
    3. Нажмите **Единый вход SAML**.
 7. В разделе **Единый вход SAML** выполните следующие действия.
    
-   ![Единый вход SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
+   ![Единый вход SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Единый вход SAML")
    
    1. На диалоговой странице **Настройка единого входа в BambooHR** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **SSO Login URL** (URL-адрес для единого входа).
    2. Создайте файл **в кодировке Base-64** из скачанного сертификата.  
@@ -103,7 +103,7 @@ ms.openlocfilehash: e675b92ea53c31c014e20735c039db3dbad325cc
    4. Щелкните **Сохранить**.
 8. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Настройка единого входа")
    
    ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -114,7 +114,7 @@ ms.openlocfilehash: e675b92ea53c31c014e20735c039db3dbad325cc
 1. Войдите на свой веб-сайт **BambooHR** в качестве администратора.
 2. На панели инструментов в верхней части экрана нажмите **Параметры**.
    
-   ![Настройка](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Setting")
+   ![Параметр](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Параметр")
 3. Нажмите **Обзор**.
 4. На панели навигации в левой части экрана последовательно выберите параметры **Безопасность \> Пользователи**.
 5. Введите имя пользователя, пароль и адрес электронной почты для действующей учетной записи AAD, которую вы хотите подготовить, в соответствующие текстовые поля.
@@ -132,16 +132,16 @@ ms.openlocfilehash: e675b92ea53c31c014e20735c039db3dbad325cc
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **BambooHR** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Assign users")
+   ![Назначение пользователей](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

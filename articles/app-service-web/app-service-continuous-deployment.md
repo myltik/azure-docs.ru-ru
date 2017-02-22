@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d0f7412571da30febff1ec8ffd92ea52b3c0a1e3
+ms.sourcegitcommit: 071e8056382128f7c5070b46591b2a66ba5b7e41
+ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
 
 
 ---
@@ -94,11 +94,11 @@ ms.openlocfilehash: d0f7412571da30febff1ec8ffd92ea52b3c0a1e3
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo (Создание репозитория GitHub)
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo (Создание репозитория BitBucket)
-[началу работы с VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs (Приступая к работе с VSTS)
+[началу работы с VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview (Приступая к работе с VSTS)
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

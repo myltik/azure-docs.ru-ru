@@ -1,5 +1,5 @@
 ---
-title: "Подготовка главного компьютера и Центра Интернета вещей Azure | Документация Майкрософт"
+title: "Приступая к работе с устройством SensorTag и шлюзом Azure IoT. Урок 2. Получение инструментов (Windows) | Документация Майкрософт"
 description: "Установите инструменты и программное обеспечение на главном компьютере под управлением Windows, создайте Центр Интернета вещей и зарегистрируйте устройство в нем."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: c2e24522d1485cb8418b5f66ba16ce8c0b9bbca0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 4a854222be9aaf6733f1c256dd75195927299099
 
 
 ---
@@ -127,6 +127,6 @@ npm install -g gulp
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

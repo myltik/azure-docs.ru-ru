@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a95b496d16459e415e4ece50b230615bd1bd2169
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
 
 
 ---
@@ -46,7 +46,7 @@ ms.openlocfilehash: a95b496d16459e415e4ece50b230615bd1bd2169
 Как указано над диаграммой, приведенные в ней затраты *рассчитываются* согласно тарифам с [оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) .
 Кроме того, при расчете стоимости *не* учитываются следующие данные:
 
-* подписки CSP и Dreamspark в настоящее время не поддерживаются, так как для расчета затрат лаборатории Azure DevTest Labs использует [интерфейсы API Azure для выставления счетов](../billing-usage-rate-card-overview.md) , а они не поддерживают указанные подписки;
+* подписки CSP и Dreamspark в настоящее время не поддерживаются, так как для расчета затрат лаборатории Azure DevTest Labs использует [интерфейсы API Azure для выставления счетов](../billing/billing-usage-rate-card-overview.md) , а они не поддерживают указанные подписки;
 * индивидуальные тарифы — в настоящее время мы не можем учитывать ваши индивидуальные тарифы (указанные под подпиской), согласованные с корпорацией Майкрософт или ее партнерами; мы используем тарифы с оплатой по мере использования;
 * налоги;
 * скидки;
@@ -69,6 +69,6 @@ ms.openlocfilehash: a95b496d16459e415e4ece50b230615bd1bd2169
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 ## <a name="create-a-sql-data-warehouse"></a>Создание хранилища данных SQL
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Последовательно выберите **+ Создать** > **Данные+хранилище** > **Хранилище данных SQL**.
+2. Последовательно выберите **+ Создать** > **Базы данных** > **Хранилище данных SQL**.
 
     ![Создание](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. В колонке **Хранилище данных SQL** укажите требуемые сведения и нажмите кнопку "Создать", чтобы создать хранилище.
@@ -102,6 +102,6 @@ ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

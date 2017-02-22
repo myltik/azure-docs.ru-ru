@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
-ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 * Веб-страницы
   * Вызовы AJAX
 
-Можно также написать собственные вызовы пакета SDK для мониторинга других зависимостей (в клиентском и серверном коде) с помощью [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Можно также написать собственные вызовы пакета SDK для мониторинга других зависимостей (в клиентском и серверном коде) с помощью [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Настройка мониторинга зависимостей
 Неполные сведения о зависимостях собираются автоматически [пакетом SDK для Application Insights](app-insights-asp-net.md). Чтобы получить полные данные, установите соответствующий агент для сервера узла.
@@ -172,7 +172,7 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 ## <a name="custom-dependency-tracking"></a>Пользовательское отслеживание зависимостей
 Стандартный модуль отслеживания зависимостей выявляет внешние зависимости, например базы данных и API REST, автоматически. Однако при необходимости аналогичную обработку можно настроить и для других компонентов.
 
-Код, который отправляет сведения о зависимостях, можно написать с использованием того же интерфейса [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) , что используется в стандартных модулях.
+Код, который отправляет сведения о зависимостях, можно написать с использованием того же интерфейса [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency) , что используется в стандартных модулях.
 
 Например, формируя код на основе готовой сборки, можно назначить время для всех вызовов этого кода и таким образом выяснить, как он влияет на время отклика вашей системы. Чтобы эти данные отображались в диаграммах зависимостей в Application Insights, используйте для их отправки командлет `TrackDependency`.
 
@@ -209,6 +209,6 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

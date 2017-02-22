@@ -1,6 +1,6 @@
 ---
 title: "Сценарий PowerShell для развертывания кластера HPC на основе Windows | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как с помощью сценария PowerShell развернуть кластер пакета HPC в Windows на виртуальной машине Azure."
+description: "Из этой статьи вы узнаете, как с помощью сценария PowerShell развернуть кластер пакета HPC 2012 R2 в Windows на виртуальной машине Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,19 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 07/07/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
+ms.sourcegitcommit: ff9fb5f0b2229a470ea3f5c736622ee1e9228c93
+ms.openlocfilehash: 6c38e460f9194f0becba46cbdfd85075de00e27d
 
 
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Создание кластера для высокопроизводительных вычислений (HPC) Windows с помощью сценария развертывания пакета HPC в IaaS
-Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер HPC для рабочих нагрузок Windows на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также дополнительных вычислительных ресурсов Windows, которые вы указали. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Linux, см. раздел о [создании кластера HPC Linux с помощью сценария развертывания пакета HPC в IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Примеры см. в статьях [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) и [Создание кластера HPC с помощью пользовательского образа вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер пакета HPC 2012 R2 для рабочих нагрузок Windows на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также дополнительных вычислительных ресурсов Windows, которые вы указали. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Linux, см. раздел о [создании кластера HPC Linux с помощью сценария развертывания пакета HPC в IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Примеры см. в статьях [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) и [Создание кластера HPC с помощью пользовательского образа вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
+> Сценарий PowerShell, описанный в этой статье, создает кластер пакета Microsoft HPC 2012 R2 в Azure с помощью классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
+> Кроме того сценарий, описанный в этой статье не поддерживает пакет HPC 2016.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -35,7 +36,7 @@ ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
 ### <a name="example-1"></a>Пример 1
 Следующий файл конфигурации развертывает кластер пакета HPC с одним головным узлом с локальными базами данных, а также пятью вычислительными узлами под управлением операционной системы Windows Server 2012 R2. Все облачные службы создаются сразу в расположении West US (западная часть США). Головной узел выступает в качестве контроллера домена в доменном лесу.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -73,7 +74,7 @@ ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
 Следующий файл конфигурации развертывает HPC-кластер в существующем доменном лесу. Кластер содержит один головной узел с локальными базами данных и 12 вычислительных узлов с примененным расширением виртуальных машин BGInfo.
 Автоматическая установка обновлений Windows отключена для всех виртуальных машин в доменном лесу. Все облачные службы создаются сразу в расположении East Asia (Восточная Азия). Вычислительные узлы создаются в трех облачных службах и трех учетных записях хранения: от *MyHPCCN-0001* до *MyHPCCN-0005* в *MyHPCCNService01* и *mycnstorage01*; от *MyHPCCN-0006* до *MyHPCCN0010* в *MyHPCCNService02* и *mycnstorage02*; от *MyHPCCN-0011* до *MyHPCCN-0012* в *MyHPCCNService03* и *mycnstorage03*). Вычислительные узлы создаются из существующего частного образа вычислительного узла. Служба автоматического масштабирования включена с интервалами увеличения и уменьшения по умолчанию.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -136,7 +137,7 @@ ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
 ### <a name="example-3"></a>Пример 3
 Следующий файл конфигурации развертывает HPC-кластер в существующем доменном лесу. Кластер содержит один головной узел, один сервер базы данных с 500 ГБ дискового пространства, два узла-брокера под управлением операционной системы Windows Server 2012 R2, а также пять вычислительных узлов под управлением операционной системы Windows Server 2012 R2. Облачная служба MyHPCCNService создается в территориальной группе *MyIBAffinityGroup*, а остальные облачные службы — в территориальной группе *MyAffinityGroup*. Интерфейс REST API планировщика заданий HPC и веб-портал HPC работают на головном узле.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -191,7 +192,7 @@ ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
 ### <a name="example-4"></a>Пример 4
 Следующий файл конфигурации развертывает HPC-кластер в существующем доменном лесу. Кластер содержит один головной узел с локальными базами данных. Сценарий создает два шаблона узлов Azure, а на основе шаблона узла *AzureTemplate1* — три узла Azure среднего размера. Файл сценария будет выполняться на головном узле после настройки головного узла.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -275,6 +276,6 @@ ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

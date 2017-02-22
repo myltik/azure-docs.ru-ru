@@ -21,17 +21,14 @@
 ## [Сохранение результатов поиска и закрепление ресурсов-контейнеров данных](data-catalog-how-to-save-pin.md)
 ## [Настройка бизнес-глоссария](data-catalog-how-to-business-glossary.md)
 
-## Разработка
-### [Понятия, используемые разработчиками](data-catalog-developer-concepts.md)
-### [Примеры для разработчиков](data-catalog-samples.md)
-
 # Справочные материалы
-## [Сочетания клавиш для каталога данных Azure](data-catalog-keyboard-shortcuts.md)
-## [Терминология](data-catalog-terminology.md)
-## [Заметки о выпуске](data-catalog-release-notes.md)
 ## [REST](/rest/api/datacatalog/)
+## [Понятия, используемые разработчиками](data-catalog-developer-concepts.md)
+## [Примеры для разработчиков](data-catalog-samples.md)
 
 # Ресурсы
+## [Сочетания клавиш для каталога данных Azure](data-catalog-keyboard-shortcuts.md)
+## [Терминология](data-catalog-terminology.md)
 ## [Заметки о выпуске](data-catalog-whats-new.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Цены](https://azure.microsoft.com/pricing/details/data-catalog/)
@@ -39,6 +36,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

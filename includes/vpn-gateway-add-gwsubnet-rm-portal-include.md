@@ -1,15 +1,15 @@
-1. На портале перейдите к виртуальной сети, которую необходимо подключить к шлюзу.
+1. На портале перейдите к виртуальной сети Resource Manager, для которой необходимо создать шлюз.
 2. В колонке виртуальной сети в разделе **Параметры** щелкните **Подсети**, чтобы открыть соответствующую колонку.
 3. В колонке **Подсети** щелкните **+Подсеть шлюза**. Откроется колонка **Добавление подсети** . 
    
-    ![Добавление подсети шлюза](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
+    ![Добавить подсеть шлюза](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet.png "Add the gateway subnet")
 4. В поле **Имя** автоматически добавляется значение GatewaySubnet. По этому имени Azure идентифицирует подсеть как подсеть шлюза. Замените автоматически заполненное значение **диапазона адресов** в соответствии с требованиями к конфигурации.
-   
-    ![Добавление подсети](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
+
+    ![Добавление подсети](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addsubnetgw.png "Adding the subnet")
 5. В нижней части колонки нажмите кнопку **ОК** , чтобы создать подсеть.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

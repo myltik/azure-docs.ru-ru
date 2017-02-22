@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 169366535ed15d40de22bf71f444df7569562c8a
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
 
 
 ---
@@ -60,7 +60,7 @@ ms.openlocfilehash: 169366535ed15d40de22bf71f444df7569562c8a
 Включение [HTTPS](https://en.wikipedia.org/wiki/HTTPS) помогает защититься от MITM-атак на обмен данными между приложением и его пользователями.
 
 ## <a name="secure-data-tier"></a>Уровень защиты данных
-Служба приложений интегрируется с базой данных SQL таким образом, что все строки подключения шифруются по всей доске и расшифровываются только на той виртуальной машине, где запущено приложение, *и* только при его запуске. Кроме того, база данных SQL Azure включает в себя множество функций безопасности, которые помогут вам защитить данные приложений от киберугроз, включая [шифрование неактивных данных](https://msdn.microsoft.com/library/dn948096.aspx), [постоянное шифрование](https://msdn.microsoft.com/library/mt163865.aspx), [динамическое маскирование данных](../sql-database/sql-database-dynamic-data-masking-get-started.md) и [обнаружение угроз](../sql-database/sql-database-threat-detection-get-started.md). Если у вас есть конфиденциальные данные или нормативные требования, обратитесь за дополнительными сведениями о защите ваших данных к статье [Защита базы данных SQL](../sql-database/sql-database-security.md) .
+Служба приложений интегрируется с базой данных SQL таким образом, что все строки подключения шифруются по всей доске и расшифровываются только на той виртуальной машине, где запущено приложение, *и* только при его запуске. Кроме того, база данных SQL Azure включает в себя множество функций безопасности, которые помогут вам защитить данные приложений от киберугроз, включая [шифрование неактивных данных](https://msdn.microsoft.com/library/dn948096.aspx), [постоянное шифрование](https://msdn.microsoft.com/library/mt163865.aspx), [динамическое маскирование данных](../sql-database/sql-database-dynamic-data-masking-get-started.md) и [обнаружение угроз](../sql-database/sql-database-threat-detection.md). Если у вас есть конфиденциальные данные или нормативные требования, обратитесь за дополнительными сведениями о защите ваших данных к статье [Защита базы данных SQL](../sql-database/sql-database-security-overview.md) .
 
 Если вы пользуетесь услугами стороннего поставщика баз данных, такого как ClearDB, см. рекомендации по обеспечению безопасности в документации поставщика.  
 
@@ -120,6 +120,6 @@ ms.openlocfilehash: 169366535ed15d40de22bf71f444df7569562c8a
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

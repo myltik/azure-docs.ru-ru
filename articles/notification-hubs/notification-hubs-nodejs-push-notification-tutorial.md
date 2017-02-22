@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
+ms.sourcegitcommit: 88e8ead2b22bf53510c9c6008e34647272326690
+ms.openlocfilehash: 32d93f1ff6cf4ae78051b7208e38b6915509210f
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
 Центры уведомлений Azure — это простая в использовании масштабируемая многоплатформенная инфраструктура для отправки push-уведомлений на мобильные устройства. Подробные сведения об инфраструктуре служб приведены на странице [Центры уведомлений Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
 
 ## <a name="create-a-nodejs-application"></a>Создание приложения Node.js
-Первый шаг этого руководства представляет собой создание пустого приложения Node.js. Инструкции по созданию приложения Node.js см. в [этой статье][nodejswebsite], в статье [Облачная служба Node.js][Облачная служба Node.js] (с использованием Windows PowerShell) или на [веб-сайте с WebMatrix].
+Первый шаг этого руководства представляет собой создание пустого приложения Node.js. Указания по созданию приложения Node.js см. в статьях [Создание и развертывание простого веб-приложения Node.js][nodejswebsite], [Построение и развертывание приложения Node.js в облачной службе Azure][Node.js Cloud Service] (с использованием Windows PowerShell) или [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Настройка приложения для использования центров уведомлений
 Для использования центров уведомлений Azure необходимо загрузить и использовать [пакет Azure](https://www.npmjs.com/package/azure)для Node.js, который включает встроенный набор вспомогательных библиотек, взаимодействующих со службами push-уведомлений REST.
@@ -80,7 +80,7 @@ ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
 ![Портал Azure — центры уведомлений](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> Строку подключения можно также получить с помощью командлета **Get-AzureSbNamespace** в [Azure PowerShell](../powershell-install-configure.md) или команды **azure sb namespace show** в [интерфейсе командной строки Azure](../xplat-cli-install.md).
+> Строку подключения можно также получить с помощью командлета **Get-AzureSbNamespace** в [Azure PowerShell](/powershell/azureps-cmdlets-docs) или команды **azure sb namespace show** в [интерфейсе командной строки Azure](../xplat-cli-install.md).
 > 
 > 
 
@@ -95,7 +95,7 @@ ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Практическое руководство. Отправка push-уведомлений в приложения Android
 Объект **GcmService** предоставляет метод **send**, который может использоваться для отправки push-уведомлений в приложения Android. Метод **Отправить** принимает следующие параметры:
 
-* **Tags** — идентификатор тега. Если тег отсутствует, уведомление будет отправляться всем клиентам.
+* **Tags** — идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам.
 * **Payload** — полезные данные JSON или строковые полезные данные сообщения.
 * **Callback** — функция обратного вызова.
 
@@ -183,38 +183,38 @@ ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
 
 [пакетов SDK Azure для Node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Next Steps]: #nextsteps
-[Что такое разделы и подписки служебной шины?]: #what-are-service-bus-topics
-[Создание пространства имен службы]: #create-a-service-namespace
-[Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
-[Создание приложения Node.js]: #Create_a_Nodejs_Application
-[Настройка приложения для использования служебной шины]: #Configure_Your_Application_to_Use_Service_Bus
-[Практическое руководство. Создание раздела]: #How_to_Create_a_Topic
-[Практическое руководство. Создание подписок]: #How_to_Create_Subscriptions
-[Практическое руководство. Отправка сообщений в раздел]: #How_to_Send_Messages_to_a_Topic
-[Практическое руководство. Получение сообщений из подписки]: #How_to_Receive_Messages_from_a_Subscription
-[Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-[Практическое руководство. Удаление разделов и подписок]: #How_to_Delete_Topics_and_Subscriptions
+[What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
+[Create a Service Namespace]: #create-a-service-namespace
+[Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
+[Create a Node.js Application]: #Create_a_Nodejs_Application
+[Configure Your Application to Use Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
+[How to: Create a Topic]: #How_to_Create_a_Topic
+[How to: Create Subscriptions]: #How_to_Create_Subscriptions
+[How to: Send Messages to a Topic]: #How_to_Send_Messages_to_a_Topic
+[How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
+[How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+[How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
-[Основные понятия раздела]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Классический портал Azure]: http://manage.windowsazure.com
+[Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
+[Azure Classic Portal]: http://manage.windowsazure.com
 [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
 [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Центры уведомлений служебной шины Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
 [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-[веб-сайте с WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-[Облачная служба Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Предыдущая версия портала управления]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
+[Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Облачная служба Node.js с хранилищем]: /develop/nodejs/tutorials/web-app-with-storage/
-[Веб-приложение Node.js с хранилищем]: /develop/nodejs/tutorials/web-site-with-storage/
+[Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+[Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [портала Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure | Документация Майкрософт"
-description: "Узнайте, как создавать кластеры HDInsight по запросу с помощью фабрики данных Azure."
+title: "Создание кластеров Azure HDInsight (Hadoop) с помощью фабрики данных | Документация Майкрософт"
+description: "Узнайте, как создавать кластеры Hadoop в HDInsight по запросу с помощью фабрики данных Azure."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop в HDInsight по запросу с помощью фабрики данных Azure
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Фабрика данных Azure](../data-factory/data-factory-introduction.md) представляет собой облачную службу интеграции информации, которая организует и автоматизирует перемещение и преобразование данных. Из этой статьи вы узнаете, как создать [связанную службу Azure HDInsight по запросу](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) с помощью фабрики данных Azure и использовать кластер для выполнения задания Hive. В общих чертах процесс будет таким:
 
@@ -57,13 +57,14 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
 >
 >
 
-## <a name="prerequisites"></a>Предварительные требования:
+## <a name="prerequisites"></a>Предварительные требования
+
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
 * [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure CLI или Azure PowerShell.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## <a name="prepare-storage-account"></a>Подготовка учетной записи хранения
 В этом сценарии можно использовать до трех учетных записей хранения:
@@ -106,7 +107,7 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 
-Имя контейнера — *adfgetstarted*.  Не изменяйте его. В противном случае вам придется внести изменения в шаблон управления ресурсами.
+Имя контейнера — *adfgetstarted*.  Не изменяйте его. В противном случае потребуется обновить шаблон Resource Manager.
 
 Дополнительные сведения об этом сценарии CLI см. в статье [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](../storage/storage-azure-cli.md).
 
@@ -197,9 +198,9 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
 7. Откройте папку и проверьте файлы в папках.
 
 ## <a name="create-data-factory"></a>Создание фабрики данных
-При наличии учетной записи хранения, входных данных и подготовленного сценария HiveQL вы можете создать фабрику данных Azure. Существует несколько способов создания фабрики данных. В этом руководстве мы будем использовать портал Azure для вызова пользовательского шаблона управления ресурсами. Кроме того, шаблон управления ресурсами можно вызвать с помощью [Azure CLI](../resource-group-template-deploy-cli.md) и [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Описание других способов создания фабрики данных вы найдете в [руководстве по созданию фабрики данных](../data-factory/data-factory-build-your-first-pipeline.md).
+При наличии учетной записи хранения, входных данных и подготовленного сценария HiveQL вы можете создать фабрику данных Azure. Существует несколько способов создания фабрики данных. В этом руководстве мы будем использовать портал Azure для вызова пользовательского шаблона Resource Manager. Шаблон Resource Manager можно также вызвать из [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) и [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Описание других способов создания фабрики данных вы найдете в [руководстве по созданию фабрики данных](../data-factory/data-factory-build-your-first-pipeline.md).
 
-Шаблон управления ресурсами верхнего уровня содержит следующие данные:
+Шаблон Resource Manager верхнего уровня содержит следующие данные:
 
     {
         "contentVersion": "1.0.0.0",
@@ -327,9 +328,9 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
 
 **Создание фабрики данных**
 
-1. Щелкните кнопку ниже, чтобы войти в Azure и открыть шаблон управления ресурсами на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Введите значения параметров **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** и **STORAGEACCOUNTKEY** для учетной записи, созданной в последнем разделе, и нажмите кнопку **ОК**. Имя фабрики данных должно быть глобально уникальным.
 3. В разделе **Группа ресурсов**выберите ту же группу ресурсов, которая использовалась в последнем разделе.
 4. Щелкните **Условия использования**, а затем — кнопку **Создать**.
@@ -340,7 +341,7 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
 
     ![Фабрика данных Azure: схема конвейера действий Hive в кластере HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
-    Эти имена определяются в шаблоне управления ресурсами.
+    Эти имена определяются в шаблоне Resource Manager.
 9. Дважды щелкните **AzureBlobOutput**.
 10. В разделе **Последние обновленные срезы**вы увидите один срез. Если отображается состояние **Выполняется**, подождите, пока оно не изменится на **Готово**.
 
@@ -351,13 +352,13 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
    * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx — это контейнер по умолчанию для кластера HDInsight. Имя контейнера по умолчанию имеет формат "adf<yourdatafactoryname>-имя_связанной_службы-метка_даты_и_времени".
    * adfjobs — это контейнер для журналов заданий ADF.
 
-     Выходные данные фабрики данных хранятся в контейнере afgetstarted, как указано в шаблоне управления ресурсами.
+     Выходные данные фабрики данных хранятся в контейнере afgetstarted в соответствии с настройками в шаблоне Resource Manager.
 2. Щелкните **adfgetstarted**.
 3. Дважды щелкните **partitioneddata**. Вы увидите папку **year=2014** , так как все веб-журналы датированы 2014 годом.
 
     ![Фабрика данных Azure: выходные данные конвейера действия Hive в кластере HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    Если перейти вниз по списку, вы увидите 3 папки за январь, февраль и март. Для каждого месяца существует журнал.
+    Если перейти вниз по списку, вы увидите&3; папки за январь, февраль и март. Для каждого месяца существует журнал.
 
     ![Фабрика данных Azure: выходные данные конвейера действия Hive в кластере HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
@@ -377,7 +378,7 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
 
 Если вы не хотите удалять учетную запись хранения при удалении группы ресурсов, можно рассмотреть следующую архитектуру, отделив бизнес-данные от учетной записи хранения по умолчанию. В этом случае у вас будет одна группа ресурсов для учетной записи хранения с бизнес-данными, а другая — для учетной записи хранения по умолчанию и фабрики данных.  Удаление второй группы ресурсов не затронет учетную запись хранения для бизнес-данных.  Для этого выполните следующие действия:
 
-* Вместе с ресурсом Microsoft.DataFactory/datafactories в шаблоне управления ресурсами добавьте в группу ресурсов верхнего уровня следующий код. Он создаст новую учетную запись хранения.
+* Вместе с ресурсом Microsoft.DataFactory/datafactories в шаблоне Resource Manager добавьте следующее в группу ресурсов верхнего уровня. Он создаст новую учетную запись хранения.
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
@@ -443,6 +444,6 @@ ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

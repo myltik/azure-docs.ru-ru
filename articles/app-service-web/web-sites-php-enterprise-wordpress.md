@@ -1,5 +1,5 @@
 ---
-title: "Сайт WordPress корпоративного класса в службе приложений Azure | Документация Майкрософт"
+title: "Сайт WordPress корпоративного класса в Azure | Документация Майкрософт"
 description: "Информация о размещении сайта WordPress корпоративного класса в службе приложений Azure"
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f37777eb42051921087c90a57138cb4085dd7cd
-ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
+ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
+ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 
 
 ---
-# <a name="enterprise-class-wordpress-on-azure-app-service"></a>Сайт WordPress корпоративного класса в службе приложений Azure
+# <a name="enterprise-class-wordpress-on-azure"></a>WordPress корпоративного класса в Azure
 Служба приложений Azure предоставляет масштабируемую, безопасную и простую в использовании среду для критически важных, крупномасштабных сайтов [WordPress][wordpress]. Корпорация Майкрософт сама запускает сайты корпоративного класса, такие как блоги [Office][officeblog] и [Bing][bingblog]. В этой статье показано, как можно использовать веб-приложения службы приложений Microsoft Azure для установки и обслуживания корпоративного облачного сайта WordPress, который может принимать большое количество посетителей.
 
 ## <a name="architecture-and-planning"></a>Архитектура и планирование
@@ -191,7 +191,7 @@ ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
 * [Советы по WordPress в Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Create your Azure App Service app](http://go.microsoft.com/fwlink/?LinkId=523751) (Создать приложение службы приложений Azure), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Create your Azure App Service app](https://azure.microsoft.com/try/app-service/) (Создать приложение службы приложений Azure), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
 >
 >
 
@@ -246,6 +246,6 @@ ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Оптимизация среды с помощью решения Service Fabric в Log Analytics | Документация Майкрософт"
+title: "Оценка приложений и микрослужб Azure Service Fabric | Документация Майкрософт"
 description: "Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
+ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 В этой статье описано, как использовать решение Service Fabric в Log Analytics для выявления и устранения неполадок в кластере Service Fabric путем получения сведений о работе узлов Service Fabric, приложений и микрослужб.
 
@@ -43,8 +43,8 @@ ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
 
 > [!NOTE]
 > Расширение системы диагностики Azure нужно настроить для отправки журналов в таблицы хранилища, соответствующие тем, которые будет искать OMS. Дополнительные сведения о сборе журналов см. в статье [Сбор журналов с помощью системы диагностики Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). На примерах настроек конфигурации в этой статье вы увидите, какими должны быть имена таблиц хранилища. После настройки диагностики в кластере и отправки журналов в учетную запись хранения можно перейти к настройке OMS для сбора этих журналов.
-> 
-> 
+>
+>
 
 Обновите раздел **EtwEventSourceProviderConfiguration** в файле **template.json**, добавив записи для нового канала EventSources, до обновления конфигурации, запустив файл **deploy.ps1**. Таблица для отправки совпадает с таблицей (ETWEventTable). На данный момент OMS может читать только события трассировки событий Windows приложения из этой таблицы. Однако поддержка пользовательских таблиц трассировки событий Windows находится на стадии разработки.
 
@@ -369,8 +369,8 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 
 > [!NOTE]
 > Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Устранение неполадок конфигурации Service Fabric и OMS
 Если необходимо проверить конфигурацию OMS, потому что не удается просмотреть данные событий в OMS, используйте приведенный ниже сценарий. Он считывает конфигурацию системы диагностики Service Fabric, проверяет записываемые в таблицы данные, а также проверяет, настроена ли консоль OMS для считывания данных из таблиц.
@@ -542,7 +542,7 @@ function Check-ServiceFabricScaleSetDiagnostics {
         Write-Debug ("Found WADcfg")
         Write-Debug $scaleSetDiagnostics.WadCfg
         $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration 
+        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
@@ -639,7 +639,6 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

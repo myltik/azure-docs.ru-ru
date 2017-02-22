@@ -1,33 +1,33 @@
 ---
-title: "Работа с соединителями прокси приложения Azure AD | Документация Майкрософт"
+title: "Установка соединителей и управление ими — Прокси приложения Azure AD | Документация Майкрософт"
 description: "Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba87b73be45cb0893f418453bc0efb3293772c95
+ms.sourcegitcommit: 7ed296a6773763f7aaae55e9a1667efca7d9e590
+ms.openlocfilehash: c4fd1eb4637c310ff0c012a3aad5f4b8af47d50f
 
 
 ---
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей (общедоступная предварительная версия)
+# <a name="publish-applications-on-separate-networks-and-locations-using-connectors---public-preview"></a>Публикация приложений в отдельных сетях и расположениях с помощью соединителей (общедоступная предварительная версия)
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
-> * [Классический портал Azure](active-directory-application-proxy-connectors.md)
-> 
-> 
+> * [классический портал Azure](active-directory-application-proxy-connectors.md)
+>
+>
 
-Группы соединителей удобно использовать в нескольких сценариях, включая следующие:
+Соединители и группы соединителей удобно использовать в нескольких сценариях, включая следующие:
 
 * Сайты с несколькими взаимосвязанными центрами обработки данных. В этом сценарии требуется передавать за пределы центров обработки данных минимальный объем трафика и не использовать каналы связи между центрами, которые дороги и медленны. Вы можете развернуть соединители в каждом центре обработки данных для обслуживания только приложений, которые находятся в центре обработки данных. Такой подход сводит к минимуму ссылки между центрами и предоставляет пользователям полностью прозрачное взаимодействие.
 * Управление приложениями, которые установлены в изолированных сетях, не являющихся частью главной корпоративной сети. Вы можете использовать группы соединителей для установки выделенных соединителей для изолированных сетей, чтобы ограничить область действия приложений соответствующей сетью.
@@ -64,7 +64,6 @@ ms.openlocfilehash: ba87b73be45cb0893f418453bc0efb3293772c95
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

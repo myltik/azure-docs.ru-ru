@@ -1,9 +1,20 @@
 ---
 layout: LandingPage
-description: "Узнайте, как синхронизировать локальные каталоги и включить единый вход. Документация, в которой показано, как интегрировать все доступные средства для управления удостоверениями."
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: "Документация по Azure Active Directory. Руководства и справочник по API | Документация Майкрософт"
+services: active-directory
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5a478ce5c06cd875ec4ed5ff2bed4d0cd98fac53
-ms.openlocfilehash: 500c764b124ac811432212bab50f83dc6f6b86ee
+ms.sourcegitcommit: 2dc340dcb864325554700f58057d157dd46f7f7a
+ms.openlocfilehash: ba13ea0d6c17e50e7b1887373d67ca691bdfad01
 
 ---
 
@@ -129,16 +140,8 @@ ms.openlocfilehash: 500c764b124ac811432212bab50f83dc6f6b86ee
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по Active Directory </div>
-    </a>
-</div>
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

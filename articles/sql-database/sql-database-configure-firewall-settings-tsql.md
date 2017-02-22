@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 Дополнительные сведения об этих хранимых процедурах см. на страницах [sp_set_database_firewall_rule (база данных SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx) и [sp_delete_database_firewall_rule (база данных SQL Azure)](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Руководство, в котором описано использование брандмауэров уровня базы данных: [Руководство по базе данных SQL: проверка подлинности SQL Server, имена для входа и учетные записи пользователей, роли базы данных, разрешения, правила брандмауэра на уровне сервера и на уровне базы данных](sql-database-control-access-sql-authentication-get-started.md).
+>
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Практические руководства по созданию правил брандмауэра уровня сервера с помощью других методов см. в следующих разделах. 
 
@@ -94,6 +99,6 @@ ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

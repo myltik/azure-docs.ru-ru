@@ -1,14 +1,25 @@
 ---
+title: "Документация по мобильным приложениям Azure. Руководства и справочник по API | Документация Майкрософт"
+description: "Узнайте, как использовать мобильные приложения в службе приложений Azure для создания и размещения собственных приложений iOS, Android и Windows, а также кроссплатформенных приложений с помощью Xamarin или Cordova."
+services: app-service\mobile
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
-
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Документация по мобильным приложениям
 
-Мобильные приложения в службе приложений Azure — это масштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
+Узнайте, как использовать мобильные приложения в службе приложений Azure для создания собственных приложений iOS, Android и Windows, а также кроссплатформенных приложений с помощью Xamarin или Cordova. Руководства, видеоролики, документация по пакету SDK и другие ресурсы, в которых показано, как создавать и размещать серверные ресурсы для любого мобильного приложения.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -185,8 +196,13 @@ ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
                 <div class="card">
                     <div class="cardText">
                         <h3>Языки</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">Серверный пакет SDK для .NET</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Серверный пакет SDK для Node.js</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Клиентский пакет SDK для Android</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">Клиентский пакет SDK для iOS</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">Клиентский пакет SDK для JavaScript и Cordova</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Клиентский пакет SDK для Windows и Xamarin</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,6 +210,7 @@ ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

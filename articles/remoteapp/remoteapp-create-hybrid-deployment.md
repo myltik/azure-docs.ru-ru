@@ -3,7 +3,7 @@ title: "Создание гибридной коллекции для Azure Remo
 description: "Узнайте, как создать развертывание удаленного приложения RemoteApp, которое подключается к внутренней сети."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 08ea0ce3-3a2c-4ddf-9394-6d75c8030cb1
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
 * [Зарегистрируйтесь](https://azure.microsoft.com/services/remoteapp/) в Azure RemoteApp.
 * Создайте учетную запись пользователя в Active Directory для использования в качестве учетной записи службы Azure RemoteApp. Ограничьте разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену.
 * Соберите сведения о локальной сети, а именно получить информацию об IP-адресе и VPN-устройстве.
-* установить модуль [Azure PowerShell](../powershell-install-configure.md) .
+* установить модуль [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Соберите сведения о пользователях, которым нужно предоставить доступ. Для каждого пользователя требуется имя участника-пользователя Azure Active Directory (например, name@contoso.com)). Убедитесь, что имя участника-пользователя совпадает в Azure AD и в Active Directory.
 * Выберите образ шаблона. Образ шаблона Azure RemoteApp содержит приложения и программы, которыми вы хотите поделиться с пользователями. Дополнительные сведения см. в статье [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
 * Хотите использовать образ Office 365 профессиональный плюс? Ознакомьтесь с [этой информацией](remoteapp-officesubscription.md).
@@ -126,7 +126,7 @@ ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
    
    **Примечания.**
    
-   Используйте формат “user@domain.com”.
+   Используйте формат *user@domain.com*.
    
    Если в коллекции используется Office 365 профессиональный плюс, для пользователей необходимо использовать удостоверения Active Directory. Это поможет проверять лицензирование.
 3. По завершении проверки пользователей нажмите кнопку **Сохранить**.
@@ -140,6 +140,6 @@ ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

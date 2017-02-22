@@ -17,8 +17,8 @@ ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf9ea4bd9fde1cc534c58e32706b659e5d89e4f7
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f8d038a606ce518d2c9ba232049ce5bea02dd4c
 
 
 ---
@@ -35,25 +35,25 @@ ms.openlocfilehash: bf9ea4bd9fde1cc534c58e32706b659e5d89e4f7
 * подключить ресурсы к фабрике данных Azure;
 * создать конвейер для перемещения данных из больших двоичных объектов службы хранилища в хранилище данных SQL.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
 > 
 > 
 
 ## <a name="before-you-begin"></a>Перед началом работы
-Чтобы изучить фабрику данных Azure, см. статью [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке][Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке].
+Чтобы получить основные сведения о фабрике данных Azure, изучите статью [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке][Introduction to Azure Data Factory].
 
 ### <a name="create-or-identify-resources"></a>Создание или определение ресурсов
 Для работы с этим руководством вам потребуются следующие ресурсы.
 
-* **Хранилище BLOB-объектов Azure.** Оно используется как источник демонстрационных данных для конвейера фабрики данных Azure, поэтому его нужно создать заранее. Если у вас еще нет учетной записи хранения, узнайте, как [ее можно создать][Создание учетной записи хранения].
-* **Хранилище данных SQL.** В этом руководстве мы будем перемещать данные из хранилища BLOB-объектов Azure в хранилище данных SQL. Для этого в Интернете нам потребуется хранилище данных с демонстрационными данными AdventureWorksDW. Если у вас еще нет хранилища данных, [подготовьте его].[Создание хранилища данных SQL]. Если у вас уже есть хранилище данных, но в нем нет демонстрационных данных, [загрузите их вручную][Загрузка образца данных в хранилище данных SQL].
-* **Фабрика данных Azure.** Загрузку данных фактически будет выполнять фабрика данных Azure, поэтому она потребуется нам для создания конвейера перемещения данных. Если у вас еще нет фабрики, сведения о том, как ее создать, описаны на шаге 1 статьи [Руководство. Создание первой фабрики данных Azure с помощью портала Azure][Руководство. Создание первой фабрики данных Azure с помощью портала Azure].
-* **AZCopy.** Служебная программа AZCopy нужна, чтобы скопировать демонстрационные данные из локального клиента в хранилище BLOB-объектов Azure. Инструкции по установке см. в статье [Документация по AZCopy][Документация по AZCopy].
+* **Хранилище BLOB-объектов Azure.** Оно используется как источник демонстрационных данных для конвейера фабрики данных Azure, поэтому его нужно создать заранее. Если у вас еще нет учетной записи хранения, [создайте ее][Create a storage account].
+* **Хранилище данных SQL.** В этом руководстве мы будем перемещать данные из хранилища BLOB-объектов Azure в хранилище данных SQL. Для этого в Интернете нам потребуется хранилище данных с демонстрационными данными AdventureWorksDW. Если у вас еще нет хранилища данных, [подготовьте его][Create a SQL Data Warehouse]. Если у вас уже есть хранилище данных, но в нем нет демонстрационных данных, [загрузите их вручную][Load sample data into SQL Data Warehouse].
+* **Фабрика данных Azure**. Загрузку данных фактически будет выполнять фабрика данных Azure, поэтому она потребуется нам для создания конвейера перемещения данных. Если у вас еще нет фабрики, сведения о том, как ее создать, представлены на шаге 1 статьи [Создание первой фабрики данных Azure с помощью портала Azure и редактора фабрики данных][Get started with Azure Data Factory (Data Factory Editor)].
+* **AZCopy.** Служебная программа AZCopy нужна, чтобы скопировать демонстрационные данные из локального клиента в хранилище BLOB-объектов Azure. Инструкции по установке см. в [документации по AZCopy][AZCopy documentation].
 
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Шаг 1. Копирование демонстрационных данных в BLOB-объект хранилища Azure
 Когда все ресурсы будут готовы, скопируйте демонстрационные данные в BLOB-объект хранилища Azure.
 
-1. [Загрузите образец данных][Загрузите демонстрационные данные]. Они содержат пример данных о продажах, которые мы добавим наши демонстрационные данные AdventureWorksDW.
+1. [Скачайте демонстрационные данные][Download sample data]. Они содержат пример данных о продажах, которые мы добавим наши демонстрационные данные AdventureWorksDW.
 2. Чтобы скопировать данные о продажах в BLOB-объект хранилища Azure, выполните такую команду AZCopy:
 
 ````
@@ -64,7 +64,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>Шаг 2. Подключение ресурсов к фабрике данных Azure.
 Теперь, когда BLOB-объект содержит нужные нам данные, мы можем создать конвейер фабрики данных Azure, чтобы переместить их из хранилища BLOB-объектов Azure в хранилище данных SQL.
 
-Для начала откройте [портал Azure][портал Azure] и в меню слева выберите свою фабрику данных.
+Для начала откройте [портал Azure][Azure portal] и в меню слева выберите свою фабрику данных.
 
 ### <a name="step-21-create-linked-service"></a>Шаг 2.1. Создание связанной службы
 Свяжите свою учетную запись хранения Azure и хранилище данных SQL с фабрикой данных.  
@@ -143,7 +143,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 ```
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Шаг 3. Создание и запуск конвейера
-Наконец, настроим и запустим конвейер в фабрике данных Azure.  Эта операция будет выполнять фактическое перемещение данных.  Полный список операций, которые можно выполнять в хранилище данных SQL и фабрике данных Azure, см. [здесь][Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure].
+Наконец, настроим и запустим конвейер в фабрике данных Azure.  Эта операция будет выполнять фактическое перемещение данных.  Полный список операций, которые можно выполнять в хранилище данных SQL и фабрике данных Azure, см. [здесь][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
 
 Теперь в разделе "Разработка и развертывание" щелкните элемент "Дополнительные команды", а затем — "Создать конвейер".  Создав конвейер, вы сможете передавать данные в хранилище данных с помощью приведенного ниже кода.
 
@@ -198,40 +198,40 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения можно найти в следующих статьях.
 
-* [Схема обучения по фабрике данных Azure][Схема обучения по фабрике данных Azure].
-* [Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure][Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]. Это основная справочная статья, посвященная использованию фабрики данных Azure с хранилищем данных SQL Azure.
+* [Схема обучения по фабрике данных Azure][Azure Data Factory learning path].
+* [Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure][Azure SQL Data Warehouse Connector]. Это основная справочная статья, посвященная использованию фабрики данных Azure с хранилищем данных SQL Azure.
 
 В приведенных ниже статьях содержатся подробные сведения о фабрике данных Azure. В них речь идет о базах данных SQL Azure и HDinsight, но эти сведения также относятся к хранилищу данных SQL Azure.
 
-* [Руководство по началу работы с фабрикой данных Azure][Руководство по началу работы с фабрикой данных Azure]. Это основное руководство по обработке данных с помощью фабрики данных Azure. Из него вы узнаете, как построить конвейер, в котором веб-журналы ежемесячно преобразовываются и анализируются с помощью HDInsight. Обратите внимание, что в этом руководстве копирование не используется.
-* [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных][Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных]. В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
+* [Руководство по началу работы с фабрикой данных Azure][Tutorial: Get started with Azure Data Factory]. Это основное руководство по обработке данных с помощью фабрики данных Azure. Из него вы узнаете, как построить конвейер, в котором веб-журналы ежемесячно преобразовываются и анализируются с помощью HDInsight. Обратите внимание, что в этом руководстве копирование не используется.
+* [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных][Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]. В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
 
 <!--Image references-->
 
 <!--Article references-->
-[Документация по AZCopy]: ../storage/storage-use-azcopy.md
-[Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[AZCopy documentation]: ../storage/storage-use-azcopy.md
+[Azure SQL Data Warehouse Connector]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
-[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
-[Создание учетной записи хранения]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Фабрика данных]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Руководство. Создание первой фабрики данных Azure с помощью портала Azure]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке]: ../data-factory/data-factory-introduction.md
-[Загрузка образца данных в хранилище данных SQL]: sql-data-warehouse-load-sample-databases.md
-[Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
-[PolyBase;]: sql-data-warehouse-get-started-load-with-polybase.md
-[Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Руководство по началу работы с фабрикой данных Azure]: ../data-factory/data-factory-build-your-first-pipeline.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
+[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
+[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Схема обучения по фабрике данных Azure]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[портал Azure]: https://portal.azure.com
-[Загрузите демонстрационные данные]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Azure portal]: https://portal.azure.com
+[Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

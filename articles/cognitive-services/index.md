@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Документация по Azure Cognitive Services. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как добавить в приложения интеллектуальные возможности, такие как распознавание образов, речь и анализ языка. Ознакомьтесь с краткими руководствами по началу работы и справочниками по API."
+services: cognitive-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
-ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
+ms.sourcegitcommit: 0c5f1ba593952cb6dc6a8200a5666ecb7a32fce7
+ms.openlocfilehash: 3895b02f25b0e27b46a5e5493fe2b7f8f83201c1
 
 ---
 #<a name="cognitive-services-documentation"></a>Документация по службам Cognitive Services
@@ -97,16 +108,10 @@ ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по службам Cognitive Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

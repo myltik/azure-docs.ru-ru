@@ -1,5 +1,5 @@
 ---
-title: "Установка записных книжек Zeppelin для кластера Apache Spark в HDInsight на платформе Linux | Документация Майкрософт"
+title: "Установка записных книжек Zeppelin для кластера Spark в Azure HDInsight с помощью действия сценария | Документация Майкрософт"
 description: "Пошаговые инструкции по установке и использованию записных книжек Zeppelin с кластерами Spark в HDInsight на платформе Linux."
 services: hdinsight
 documentationcenter: 
@@ -12,26 +12,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: eadf0611ca46a975c364a1b073828c6c3faf5f77
 
 
 ---
-# <a name="install-zeppelin-notebooks-for-apache-spark-cluster-on-hdinsight-linux"></a>Установка записных книжек Zeppelin для кластера Apache Spark в HDInsight на платформе Linux
+# <a name="install-zeppelin-notebooks-for-apache-spark-cluster-on-hdinsight"></a>Установка записных книжек Zeppelin для кластера Apache Spark в HDInsight
+
 Узнайте, как устанавливать записные книжки Zeppelin в кластеры Apache Spark и использовать эти записные книжки для выполнения заданий Spark.
 
 > [!IMPORTANT]
-> Теперь записные книжки Zeppelin доступны в кластерах Spark по умолчанию. Их больше не нужно устанавливать отдельно в кластере Spark. Дополнительные сведения см. в статье [Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md) (Использование записных книжек Zeppelin с кластером Apache Spark в HDInsight на платформе Linux).
+> Если вы выполнили подготовку кластеров Spark 1.6 в HDInsight 3.5, то получить доступ к записным книжкам Zeppelin можно по умолчанию, следуя инструкциям из статьи [Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md) (Использование записных книжек Zeppelin с кластером Apache Spark в HDInsight на платформе Linux). Если вы хотите использовать Zeppelin в кластере HDInsight версий 3.3 и 3.4 или Spark 2.0 в HDInsight версии 3.5, то необходимо выполнить инструкции по установке Zeppelin, приведенные в этой статье.
 >
 >
 
 **Предварительные требования:**
 
 * Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
   > [!NOTE]
@@ -107,110 +108,23 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
     New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.3"
 
-## <a name="set-up-ssh-tunneling-to-access-a-zeppelin-notebook"></a>Настройка туннелирования SSH для доступа к записной книжке Zeppelin
-Для доступа к записным книжкам Zeppelin, работающим из кластера Spark в HDInsight Linux, используются туннели SSH. Описанные ниже действия показывают, как создать туннель SSH с помощью командной строки SSH (Linux) и PuTTY (Windows).
-
-### <a name="create-a-tunnel-using-the-ssh-command-linux"></a>Создание туннеля с помощью команды SSH (Linux)
-Используйте следующую команду для создания туннеля SSH с помощью команды `ssh` . Замените **USERNAME** именем пользователя SSH для кластера HDInsight, а **CLUSTERNAME** — именем кластера HDInsight.
-
-    ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-
-В результате создается подключение, которое направляет трафик, поступающий на локальный порт 9876, в кластер по протоколу SSH. Доступны следующие параметры.
-
-* **D 9876** — локальный порт, используемый для направления трафика через туннель;
-* **C** — сжатие всех данных, так как веб-трафик преимущественно состоит из текста;
-* **2** — принудительная попытка использовать только протокол SSH версии 2;
-* **q** — тихий режим;
-* **T** — отключение распределения псевдотелетайпа, так как выполняется только перенаправление порта;
-* **n** — предотвращение считывания с STDIN, так как выполняется только перенаправление порта;
-* **N** — запрет на выполнение удаленной команды, так как выполняется только перенаправление порта;
-* **f** — выполнение в фоновом режиме.
-
-При настройке кластера с ключом SSH может потребоваться использовать параметр `-i` и указать путь к закрытому ключу SSH.
-
-После завершения команды трафик, отправленный на порт 9876 на локальном компьютере, будет направляться с использованием SSL на головной узел кластера и выглядеть так, будто его источником является головной узел.
-
-### <a name="create-a-tunnel-using-putty-windows"></a>Создание туннеля с помощью PuTTY (Windows)
-Для создания туннеля SSH с помощью PuTTY выполните следующие действия.
-
-1. Откройте PuTTY и введите информацию о подключении. Если вы не знакомы с PuTTY, обратитесь к разделу [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md) , чтобы узнать, как пользоваться PuTTY с HDInsight.
-2. В разделе **Категории** в левой части диалогового окна последовательно разверните **Подключение**, **SSH** и выберите **Туннели**.
-3. Введите следующую информацию в форме **Параметры, управляющие перенаправлением портов SSH** :
-
-   * **Порт источника** — порт на стороне клиента, трафик которого нужно перенаправлять. Например, **9876**.
-   * **Назначение** — адрес SSH для кластера HDInsight под управлением Linux. Например, **mycluster-ssh.azurehdinsight.net**.
-   * **Динамическая** — включает динамическую маршрутизацию прокси-сервера SOCKS.
-
-     ![изображение параметров туннелирования](./media/hdinsight-apache-spark-use-zeppelin-notebook/puttytunnel.png)
-4. Щелкните **Добавить**, чтобы добавить параметры, а затем щелкните **Открыть**, чтобы открыть подключение SSH.
-5. При появлении запроса войдите на сервер. При этом будет установлен сеанс SSH и включен туннель.
-
-### <a name="use-the-tunnel-from-your-browser"></a>Использование туннеля из браузера
-> [!NOTE]
-> Для действий, описанных в этом разделе, используется браузер FireFox, так как он свободно доступен для систем Linux, Unix, Macintosh OS X и Windows. Другие современные браузеры, такие как Google Chrome, Microsoft Edge или Apple Safari, также должны работать, однако подключаемый модуль FoxyProxy, используемый в некоторых действиях, может быть недоступен для некоторых браузеров.
->
->
-
-1. Настройте браузер для использования **localhost:9876** в качестве прокси-сервера **SOCKS v5**. Вот как выглядят параметры Firefox. Если используется порт, отличный от 9876, измените номер порта соответствующим образом.
-
-    ![изображение параметров Firefox](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
-
-   > [!NOTE]
-   > Если выбрать параметр **Удаленная служба DNS** , то запросы DNS будут разрешаться с помощью кластера HDInsight. Если этот параметр не выбран, запросы DNS будут разрешаться локально.
-   >
-   >
-2. Чтобы проверить, что трафик направляется через туннель, зайдите на сайт [http://www.whatismyip.com/](http://www.whatismyip.com/) при включенных и выключенных параметрах прокси-сервера в Firefox. Если настройки включены, IP-адрес будет относиться к компьютеру в центре обработки данных Microsoft Azure.
-
-### <a name="browser-extensions"></a>Расширения браузера
-Обычно при настройке браузера для использования туннеля вы не хотите направлять через туннель весь трафик. Расширения браузера, такие как [FoxyProxy](http://getfoxyproxy.org/), поддерживают сопоставление шаблонов для запросов URL-адресов (только FoxyProxy Standard или Plus), что позволяет отправлять через туннель только запросы определенных URL-адресов.
-
-Если вы установили FoxyProxy Standard, выполните следующие действия, чтобы настроить его для перенаправления через туннель только трафика для HDInsight.
-
-1. Откройте расширение FoxyProxy в браузере. Например, в Firefox щелкните значок FoxyProxy рядом с полем адреса.
-
-    ![значок FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxy.png)
-2. Щелкните **Add New Proxy** (Добавить новый прокси-сервер), а затем выберите вкладку **Общие** и введите имя прокси-сервера **HDInsightProxy**.
-
-    ![вкладка "Общие" FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxygeneral.png)
-3. Выберите вкладку **Сведения о прокси** и заполните следующие поля.
-
-   * **Хост или IP-адрес** — необходимо указать значение localhost, так как мы используем туннель SSH на локальном компьютере.
-   * **Порт** — порт, используемый для туннеля SSH.
-   * **Прокси-сервер SOCKS** — выберите этот параметр, чтобы позволить браузеру использовать туннель в качестве прокси-сервера.
-   * **SOCKS v5** — выберите этот параметр, чтобы задать требуемую версию прокси-сервера.
-
-     ![прокси-сервер FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxyproxy.png)
-4. Выберите вкладку **URL Patterns** (Шаблоны URL-адреса), а затем щелкните **Add New Pattern** (Добавить новый шаблон). Используйте следующие значения параметров, чтобы определить шаблон, а затем нажмите кнопку **ОК**:
-
-   * **Имя шаблона** - **zeppelinnotebook**. Это просто понятное имя для шаблона.
-   * **Шаблон URL-адреса** - **\*hn0***. Определяет шаблон, который соответствует внутреннему полному доменному имени конечной точки, где размещаются записные книжки Zeppelin. Так как записные книжки Zeppelin доступны только на узле headnode0 кластера, а конечной точкой обычно является `http://hn0-<string>.internal.cloudapp.net`, использование шаблона **hn0** обеспечит переадресацию запроса в конечную точку Zeppelin.
-
-       ![шаблон FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
-5. Нажмите кнопку **ОК**, чтобы добавить прокси-сервер и закрыть окно **Параметры прокси-сервера**.
-6. В верхней части диалогового окна FoxyProxy из раскрывающегося списка **Выбрать режим** выберите пункт **Use proxies based on their pre-defined patterns and priorities** (Использовать прокси-серверы на основе предопределенных шаблонов и приоритетов), а затем нажмите кнопку **Закрыть**.
-
-    ![выбор режима FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
-
-После выполнения этих действий только запросы URL-адресов, которые содержат строку **hn0** , будут направляться через туннель SSL.
-
 ## <a name="access-the-zeppelin-notebook"></a>Доступ к записной книжке Zeppelin
-Настроив туннелирование SSH, вы можете получить доступ к записной книжке Zeppelin в кластере Spark, выполнив описанные ниже действия. В этом разделе показано, как выполнять инструкции %sql и %hive.
+
+Установив Zeppelin с помощью действия сценария, вы можете получить доступ к записной книжке Zeppelin в кластере Spark. Для этого выполните описанные ниже действия. В этом разделе показано, как выполнять инструкции %sql и %hive.
 
 1. В веб-браузере откройте следующую конечную точку:
 
-        http://hn0-myspar:9995
+        https://CLUSTERNAME.azurehdinsight.net/zeppelin
 
-   * **hn0** обозначает headnode0.
-   * **myspar** — это первые шесть букв имени кластера Spark.
-   * **9995** — порт для доступа к записной книжке Zeppelin.
+   
 2. Создайте новую записную книжку. На панели заголовка щелкните элемент **Notebook** (Записная книжка), а затем — **Create New Note** (Создать заметку).
 
-    ![Создание новой записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Create a new Zeppelin notebook")
+    ![Создание записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Создание записной книжки Zeppelin")
 
     На той же странице под заголовком **Notebook** (Записная книжка) отобразится новая записная книжка с именем, начинающимся с **Заметка XXXXXXXXX**. Щелкните новую записную книжку.
 3. На веб-странице для новой записной книжки щелкните заголовок и при необходимости переименуйте записную книжку. Нажмите клавишу ВВОД, чтобы сохранить изменения. Кроме того, убедитесь, что в правом верхнем углу в заголовке записной книжки отображается состояние **Подключено** .
 
-    ![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin notebook status")
+    ![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Состояния записной книжки Zeppelin")
 
 ### <a name="run-sql-statements"></a>Выполнение инструкций SQL
 1. Загрузите демонстрационные данные во временную таблицу. При создании кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\HdiSamples\SensorSampleData\hvac**.
@@ -238,7 +152,7 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
     Нажмите клавиши **SHIFT+ВВОД** или кнопку **воспроизведения** для абзаца, чтобы выполнить фрагмент кода. Состояние, которое отображается в правом верхнем углу абзаца, должно изменяться в следующей последовательности: READY (ГОТОВО), PENDING (ОЖИДАЕТ), RUNNING (ВЫПОЛНЯЕТСЯ) и FINISHED (ЗАВЕРШЕНО). Выходные данные отображаются в нижней части того же абзаца. Снимок экрана выглядит следующим образом:
 
-    ![Создание временной таблицы из необработанных данных](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Create a temporary table from raw data")
+    ![Создание временной таблицы из необработанных данных](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Создание временной таблицы из необработанных данных")
 
     Можно указать заголовок для каждого абзаца. В правом верхнем углу экрана щелкните значок **Параметры**, а затем выберите элемент **Показать заголовок**.
 2. Теперь вы можете выполнить инструкции Spark SQL для таблицы **hvac** . Вставьте следующий запрос в новый абзац. Запрос извлекает идентификатор здания и разницу между целевой и фактической температурами для каждого здания в указанный день. Нажмите **SHIFT + ВВОД**.
@@ -252,7 +166,7 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
     Выходные данные показаны на снимке экрана ниже.
 
-    ![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Run a Spark SQL statement using the notebook")
+    ![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Выполнение инструкции Spark SQL с помощью записной книжки")
 
      Используйте параметры отображения (выделены красным прямоугольником) для переключения между различными представлениями одних и тех же выходных данных. Щелкните элемент **Параметры** , чтобы определить ключи и значения в выходных данных. На снимке экрана выше параметр **buildingID** используется в качестве ключа, а среднее значение **temp_diff** — как значение.
 3. Можно также запустить инструкции Spark SQL с помощью переменных в запросе. В следующем фрагменте кода показано, как определить переменную ( **Temp**) в запросе с возможными значениями, с которыми необходимо выполнить запрос. При первом выполнении запроса раскрывающийся список автоматически заполняется значениями, указанными для переменной.
@@ -264,20 +178,20 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
     Вставьте этот фрагмент кода в новый абзац и нажмите клавиши **SHIFT + ВВОД**. Выходные данные показаны на снимке экрана ниже.
 
-    ![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Run a Spark SQL statement using the notebook")
+    ![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Выполнение инструкции Spark SQL с помощью записной книжки")
 
     Для последующих запросов можно выбрать новое значение из раскрывающегося списка и повторно выполнить запрос. Щелкните элемент **Параметры** , чтобы определить ключи и значения в выходных данных. На снимке экрана выше параметр **buildingID** используется в качестве ключа, среднее значение **temp_diff** используется как значение, а **targettemp** — как группа.
 4. Перезапустите интерпретатор Spark SQL, чтобы выйти из приложения. Перейдите на вкладку **Интерпретатор** в верхней части окна, а затем для интерпретатора Spark нажмите кнопку **Перезапустить**.
 
-    ![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
+    ![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Перезапуск интерпретатора Zeppelin")
 
 ### <a name="run-hive-statements"></a>Выполнение инструкций Hive
 1. В записной книжке Zeppelin нажмите кнопку **Interpreter** (Интерпретатор).
 
-    ![Обновление интерпретатора Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Update Hive interpreter")
+    ![Обновление интерпретатора Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Обновление интерпретатора Hive")
 2. Для интерпретатора **Hive** нажмите кнопку **Изменить**.
 
-    ![Обновление интерпретатора Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Update Hive interpreter")
+    ![Обновление интерпретатора Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Обновление интерпретатора Hive")
 
     Обновите следующие свойства.
 
@@ -292,7 +206,7 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
     По умолчанию кластер HDInsight содержит образец таблицы с именем **hivesampletable** , поэтому должны отобразиться следующие выходные данные.
 
-    ![Выходные данные Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Hive output")
+    ![Выходные данные Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Выходные данные Hive")
 5. Выполните следующую инструкцию, чтобы получить список записей в таблице.
 
         %hive
@@ -300,7 +214,7 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
     Должен отобразиться следующий результат.
 
-    ![Выходные данные Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Hive output")
+    ![Выходные данные Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Выходные данные Hive")
 
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -339,6 +253,6 @@ ms.openlocfilehash: 3fb67d1ecbaa9fd36bb88212e1a3fcd5208cb169
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

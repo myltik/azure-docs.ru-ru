@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 
 Вы также можете найти проект и просмотреть имя, описание, владельца и разрешения своей роли для любого проекта, в который входит ваше приложение.
 
-См. дополнительные сведения: [Документация по пользовательскому интерфейсу — главная страница][Link 13].
+Дополнительные сведения см. в статье [Управление существующими приложениями и проектами][Link 13]
 
   ![settings3][48]
 
@@ -52,7 +52,7 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 ### <a name="apple-push-notification-service-apns"></a>Служба push-уведомлений Apple (APNS)
 Чтобы включить системные push-уведомления, используя службу push-уведомлений Apple, вам необходимо зарегистрировать свой сертификат. Необходимо указать тип сертификата — сертификат разработки или производственный сертификат. Затем будет необходимо передать сертификат и ввести пароль.
 
-См. дополнительные сведения: [Документация по пакету SDK — iOS — подготовка приложения для push-уведомлений Apple][Link 5].
+Дополнительные сведения см. в статье [Документация по службам мобильного взаимодействия][Link 5]
 
 ![settings4][49]
 
@@ -66,7 +66,7 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 
 Дополнительные сведения можно найти в разделе  
 
-* [Документация по пакету SDK — Android — Интеграция GCM][Link 5]
+* [Документация по службам мобильного взаимодействия][Link 5]
 * [Руководство по GCM для разработчиков Google](http://developer.android.com/guide/google/gcm/gs.html)
 
 ### <a name="amazon-device-messaging-for-android-adm"></a>Amazon Device Messaging (ADM) для Android
@@ -74,7 +74,7 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 
 Дополнительные сведения можно найти в разделе  
 
-* [Документация по пакету SDK — Android — Интеграция ADM][Link 5]
+* [Документация по службам мобильного взаимодействия][Link 5]
 * [Документация по ADM для разработчиков Amazon](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
@@ -91,8 +91,8 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 ![settings12][57]
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Основные понятия][Link 6]
-* [Руководство по устранению неполадок — служба][Link 24]
+* [Основные понятия Azure Mobile Engagement][Link 6]
+* [Поиск и устранение неполадок в службе][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -192,6 +192,6 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

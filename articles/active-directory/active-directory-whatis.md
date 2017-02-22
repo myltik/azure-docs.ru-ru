@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b247388bff35fb755c8363eb48695e47f2510574
-ms.openlocfilehash: a5f8adfa278b096914239357c675654fd9fc2908
+ms.sourcegitcommit: c28d84bf59c161cfe6a80062f13f10f44bf43f34
+ms.openlocfilehash: 09261f739d2cd3976f68c499d0e83fe25beef0b8
 
 
 ---
@@ -146,7 +146,7 @@ LDAP
 
 **Если вы ИТ-администратор:**
 
-* [Просто попробуйте!](https://azure.microsoft.com/trial/get-started-active-directory/)  — вы можете зарегистрироваться сегодня, чтобы использовать бесплатную пробную версию в течение 30 дней и развернуть первое облачное решение в течение 5 минут, используя эту ссылку.
+* [Просто попробуйте!](https://azure.microsoft.com/trial/get-started-active-directory/) Вы можете зарегистрироваться сегодня, чтобы использовать бесплатную пробную версию в течение 30 дней и развернуть первое облачное решение в течение 5 минут, применив эту ссылку.
 
 * Прочтите статью "Начало работы с Azure AD", чтобы ознакомиться с советами и рекомендациями по началу работы и быстрому запуску клиента Azure AD.
 
@@ -173,6 +173,6 @@ LDAP
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

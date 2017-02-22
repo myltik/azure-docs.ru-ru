@@ -1,5 +1,5 @@
 ---
-title: "Создание узлов Docker в Azure с помощью виртуальной машины Docker | Документация Майкрософт"
+title: "Создание узлов Linux в Azure с помощью Docker Machine | Документация Майкрософт"
 description: "Описывается использование машины Docker для создания узлов Docker в Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
+ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
 
 
 ---
 # <a name="use-docker-machine-with-the-azure-driver"></a>Использование машины Docker с драйвером Azure
-[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий контейнеры Linux вместо виртуальных машин как способ изоляции данных приложения и вычислений при использовании общих ресурсов. В этой статье описывается, когда и как использовать [виртуальную машину Docker](https://docs.docker.com/machine/) (команду `docker-machine`) для создания виртуальных машин Linux в Azure, настроенных в качестве узла Docker для контейнеров Linux.
+[Docker](https://www.docker.com/) позволяет использовать виртуализацию на основе контейнеров Linux, а не виртуальных машин. Это дает возможность изолировать данные и вычисления приложений, использующие общий ресурс. В этом разделе описывается, как и когда использовать [Docker Machine](https://docs.docker.com/machine/) . Команда `docker-machine` создает виртуальную машину Linux в Azure, используемую в качестве узла Docker для контейнеров Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Создание виртуальных машин с помощью машины Docker
 Создайте виртуальные машины в Azure в качестве узла Docker с помощью команды `docker-machine create`, используя аргумент драйвера `azure` для параметра драйвера (`-d`), а также другие аргументы. 
@@ -132,6 +132,6 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

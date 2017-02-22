@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 
 
 ---
@@ -155,7 +155,7 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 | internal.data.id |строка | |
 
 ## <a name="events"></a>События
-Пользовательские события, создаваемые элементом [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+Пользовательские события, создаваемые элементом [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 | basicException [0] typeName |строка | |
 
 ## <a name="trace-messages"></a>Сообщения трассировки
-Отправитель: [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) и [адаптеры ведения журналов](app-insights-asp-net-trace-logs.md).
+Отправитель: [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) и [адаптеры ведения журналов](app-insights-asp-net-trace-logs.md).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 | remoteDependency [0] urlData.host |строка |Максимальная длина: 200 |
 
 ## <a name="requests"></a>Requests (Запросы)
-Отправитель: [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Используется стандартными модулями для создания отчетов о времени отклика сервера (измеряется на сервере).
+Отправитель: [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Используется стандартными модулями для создания отчетов о времени отклика сервера (измеряется на сервере).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
@@ -284,7 +284,7 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 | availability [0] dataSizeMetric.name |строка | |
 | availability [0] dataSizeMetric.value |целое число | |
 | availability [0] durationMetric.name |строка | |
-| availability [0] durationMetric.value |number |Продолжительность теста. 1e7 = 1 с. |
+| availability [0] durationMetric.value |number |Продолжительность теста. 1e7 =&1; с. |
 | availability [0] message |строка |Диагностика сбоя. |
 | availability [0] result |строка |Успех или сбой. |
 | availability [0] runLocation |строка |Географический объект-источник HTTP-запроса. |
@@ -354,6 +354,6 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

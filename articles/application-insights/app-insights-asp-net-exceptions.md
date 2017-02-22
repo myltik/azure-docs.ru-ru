@@ -1,5 +1,5 @@
 ---
-title: "Диагностика ошибок и исключений в приложениях ASP.NET с помощью Application Insights | Документация Майкрософт"
+title: "Диагностика ошибок и исключений в веб-приложениях с помощью Azure Application Insights | Документация Майкрософт"
 description: "Регистрируйте исключения приложений ASP.NET и телеметрию запросов."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
 
 ## <a name="set-up-exception-reporting"></a>Настройка создания отчетов об исключениях
 * Вот как можно настроить создание отчетов об исключениях серверного приложения.
-  * Запрограммируйте установку [пакета SDK для Application Insights](app-insights-asp-net.md) в приложении или: 
+  * Запрограммируйте установку [пакета SDK для Application Insights](app-insights-asp-net.md) в приложении или:
   * веб-серверы IIS: запустите [агент Application Insights](app-insights-monitor-performance-live-website-now.md) либо
   * веб-приложения Azure: добавьте [расширение Application Insights](app-insights-azure-web-apps.md).
 * Добавьте [фрагмент кода JavaScript](app-insights-javascript.md) в веб-страницы для перехвата исключений браузера.
@@ -44,7 +44,7 @@ ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
 
 ![Щелкните правой кнопкой мыши проект и последовательно выберите пункты "Application Insights" и "Открыть".](./media/app-insights-asp-net-exceptions/34.png)
 
-Обратите внимание: отчет можно отфильтровать так, чтобы отображались только исключения. 
+Обратите внимание: отчет можно отфильтровать так, чтобы отображались только исключения.
 
 *Исключения не отображаются? См. раздел [Запись исключений](#exceptions).*
 
@@ -76,12 +76,12 @@ ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
 [Узнайте больше о поиске диагностических данных](app-insights-diagnostic-search.md).
 
 ## <a name="custom-tracing-and-log-data"></a>Пользовательская трассировка и данные журналов
-Для получения диагностических данных своего приложения вставьте код для отправки собственных данных телеметрии. Они отображаются в результатах диагностического поиска вместе с запросом, просмотром страницы и другими данными, которые собираются автоматически. 
+Для получения диагностических данных своего приложения вставьте код для отправки собственных данных телеметрии. Они отображаются в результатах диагностического поиска вместе с запросом, просмотром страницы и другими данными, которые собираются автоматически.
 
 Доступно несколько параметров.
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) обычно используется для мониторинга шаблонов использования, но отправляемые с его помощью данные также отображаются в разделе пользовательских событий диагностического поиска. У событий есть имена и они могут содержать строковые свойства и числовые метрики, по которым можно [фильтровать результаты поиска диагностических данных](app-insights-diagnostic-search.md).
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) позволяет отправлять более длинные данные, например данные POST.
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) обычно используется для мониторинга шаблонов использования, но отправляемые с его помощью данные также отображаются в разделе пользовательских событий диагностического поиска. У событий есть имена и они могут содержать строковые свойства и числовые метрики, по которым можно [фильтровать результаты поиска диагностических данных](app-insights-diagnostic-search.md).
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) позволяет отправлять более длинные данные, например данные POST.
 * [TrackException()](#exceptions) отправляет трассировки стеков. [Дополнительные сведения об исключениях](#exceptions).
 * Если вы уже используете какую-либо платформу ведения журналов, например Log4Net или NLog, [эти журналы можно записывать](app-insights-asp-net-trace-logs.md) и включать в результаты поиска диагностических данных вместе с данными запросов и исключений.
 
@@ -91,14 +91,14 @@ ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
 
 > [!NOTE]
 > Если приложение генерирует много телеметрических данных, модуль адаптивной выборки автоматически сокращает объем отправляемых на портал данных, пересылая только репрезентативную часть событий. События, составляющие часть той же операции, отбираются как группа, что позволяет перемещаться между связанными событиями. [Дополнительная информация о выборке.](app-insights-sampling.md)
-> 
-> 
+>
+>
 
 ### <a name="how-to-see-request-post-data"></a>Просмотр данных POST запроса
 Сведения о запросе не содержат данные, отправляемые в приложение в вызове метода POST. Для внесения этих данных в отчет:
 
 * [Установите пакет SDK](app-insights-asp-net.md) в проект своего приложения.
-* Вставьте в свое приложение код для вызова [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace). Передайте данные POST в параметр сообщения. На допустимый размер есть ограничение, поэтому следует пытаться передавать только самые необходимые данные.
+* Вставьте в свое приложение код для вызова [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Передайте данные POST в параметр сообщения. На допустимый размер есть ограничение, поэтому следует пытаться передавать только самые необходимые данные.
 * При исследовании неудачно завершенных запросов найдите связанные трассировки.  
 
 ![Детализация](./media/app-insights-asp-net-exceptions/060-req-related.png)
@@ -116,13 +116,13 @@ ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
 
 JavaScript
 
-    try 
+    try
     { ...
     }
     catch (ex)
     {
       appInsights.trackException(ex, "handler loc",
-        {Game: currentGame.Name, 
+        {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
 
@@ -130,13 +130,13 @@ C#
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -198,7 +198,7 @@ VB
 
     namespace MVC2App.Controllers
     {
-      [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)] 
+      [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
       public class AiHandleErrorAttribute : HandleErrorAttribute
       {
         public override void OnException(ExceptionContext filterContext)
@@ -210,7 +210,7 @@ VB
                 {   //or reuse instance (recommended!). see note above  
                     var ai = new TelemetryClient();
                     ai.TrackException(filterContext.Exception);
-                } 
+                }
             }
             base.OnException(filterContext);
         }
@@ -269,7 +269,7 @@ VB
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
             if (actionExecutedContext != null && actionExecutedContext.Exception != null)
-            {  //or reuse instance (recommended!). see note above 
+            {  //or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
                 ai.TrackException(actionExecutedContext.Exception);    
             }
@@ -278,7 +278,7 @@ VB
       }
     }
 
-Можно добавить этот переопределенный атрибут в нужные контроллеры или в конфигурации глобальных фильтров в классе WebApiConfig: 
+Можно добавить этот переопределенный атрибут в нужные контроллеры или в конфигурации глобальных фильтров в классе WebApiConfig:
 
     using System.Web.Http;
     using WebApi1.x.App_Start;
@@ -304,10 +304,10 @@ VB
 
 Существует несколько ситуаций, когда обработка фильтров исключений невозможна. Например:
 
-* Исключения выброшены из конструкторов контроллеров. 
-* Исключения выброшены из обработчиков сообщений. 
-* Исключения выброшены при маршрутизации. 
-* Исключения выброшены при сериализации содержимого ответа. 
+* Исключения выброшены из конструкторов контроллеров.
+* Исключения выброшены из обработчиков сообщений.
+* Исключения выброшены при маршрутизации.
+* Исключения выброшены при сериализации содержимого ответа.
 
 ## <a name="web-api-2x"></a>Web API 2.x
 Добавьте реализацию IExceptionLogger:
@@ -322,7 +322,7 @@ VB
         public override void Log(ExceptionLoggerContext context)
         {
             if (context !=null && context.Exception != null)
-            {//or reuse instance (recommended!). see note above 
+            {//or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
                 ai.TrackException(context.Exception);
             }
@@ -353,7 +353,7 @@ VB
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger()); 
+            config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
   }
@@ -362,7 +362,7 @@ VB
 
 В качестве альтернативы можно выполнить следующее.
 
-1. Замените только ExceptionHandler пользовательской реализацией IExceptionHandler. Он вызывается, только когда платформа по-прежнему может выбирать ответное сообщение для отправки (но не после прерывания соединения для экземпляра) 
+1. Замените только ExceptionHandler пользовательской реализацией IExceptionHandler. Он вызывается, только когда платформа по-прежнему может выбирать ответное сообщение для отправки (но не после прерывания соединения для экземпляра)
 2. Фильтры исключений (как описано выше в разделе для контроллеров Web API 1.x) — не вызываются во всех случаях.
 
 ## <a name="wcf"></a>WCF
@@ -387,7 +387,7 @@ VB
         {
         }
 
-        public void ApplyDispatchBehavior(ServiceDescription serviceDescription, 
+        public void ApplyDispatchBehavior(ServiceDescription serviceDescription,
             System.ServiceModel.ServiceHostBase serviceHostBase)
         {
             foreach (ChannelDispatcher disp in serviceHostBase.ChannelDispatchers)
@@ -396,21 +396,21 @@ VB
             }
         }
 
-        public void Validate(ServiceDescription serviceDescription, 
+        public void Validate(ServiceDescription serviceDescription,
             System.ServiceModel.ServiceHostBase serviceHostBase)
         {
         }
 
         bool IErrorHandler.HandleError(Exception error)
-        {//or reuse instance (recommended!). see note above 
+        {//or reuse instance (recommended!). see note above
             var ai = new TelemetryClient();
 
             ai.TrackException(error);
             return false;
         }
 
-        void IErrorHandler.ProvideFault(Exception error, 
-            System.ServiceModel.Channels.MessageVersion version, 
+        void IErrorHandler.ProvideFault(Exception error,
+            System.ServiceModel.Channels.MessageVersion version,
             ref System.ServiceModel.Channels.Message fault)
         {
         }
@@ -422,8 +422,8 @@ VB
     namespace WcfService4
     {
         [AiLogException]
-        public class Service1 : IService1 
-        { 
+        public class Service1 : IService1
+        {
          ...
 
 [Пример](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
@@ -431,9 +431,9 @@ VB
 ## <a name="exception-performance-counters"></a>Счетчики производительности исключений
 Если на сервере [установлен агент Application Insights](app-insights-monitor-performance-live-website-now.md), то можно получить диаграмму частоты исключений, вычисленной платформой .NET. Она включает как обработанные, так и необработанные исключения .NET.
 
-Откройте колонку обозревателя метрик, добавьте новую диаграмму и выберите счетчик **Частота исключений**в списке "Счетчики производительности". 
+Откройте колонку обозревателя метрик, добавьте новую диаграмму и выберите счетчик **Частота исключений**в списке "Счетчики производительности".
 
-Для вычисление частоты платформа .NET подсчитывает число исключений в интервале и делит его на длину интервала. 
+Для вычисление частоты платформа .NET подсчитывает число исключений в интервале и делит его на длину интервала.
 
 Обратите внимание, что она будет отличаться от значения счетчика Exceptions, вычисленного порталом Application Insights по количеству отчетов TrackException. Интервалы выборки различаются, а пакет SDK не отправляет отчеты TrackException для всех обработанных и необработанных исключений.
 
@@ -444,7 +444,6 @@ VB
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

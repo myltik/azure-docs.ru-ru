@@ -1,3 +1,4 @@
+
 # Обзор
 ## [Что такое служба архивации Azure?](backup-introduction-to-azure-backup.md)
 # Начало работы
@@ -13,7 +14,7 @@
 ### [DPM на классическом портале](backup-dpm-automation-classic.md)
 ### [Windows Server на портале Azure](backup-client-automation.md)
 ### [Windows Server на классическом портале](backup-client-automation-classic.md)
-## Резервное копирование рабочих нагрузок приложений
+## Резервное копирование и восстановление рабочих нагрузок приложений
 ### [Подготовка рабочих нагрузок DPM на портале Azure](backup-azure-dpm-introduction.md)
 ### [Подготовка рабочих нагрузок DPM на классическом портале](backup-azure-dpm-introduction-classic.md)
 ### [Подготовка рабочих нагрузок сервера резервного копирования Azure на портале Azure](backup-azure-microsoft-azure-backup.md)
@@ -22,8 +23,7 @@
 ### [Восстановление данных из хранилища резервных копий на альтернативный сервер DPM](backup-azure-alternate-dpm-server.md)
 ### [Резервное копирование рабочих нагрузок SQL Server с помощью DPM](backup-azure-backup-sql.md)
 ### [Резервное копирование фермы SharePoint с помощью DPM](backup-azure-backup-sharepoint.md)
-### [Хранилище служб восстановления — вопросы и ответы](backup-azure-backup-ibiza-faq.md)
-## Резервное копирование виртуальных машин Azure
+## Резервное копирование и восстановление виртуальных машин Azure
 ### [Подготовка виртуальных машин Azure](backup-azure-vms-prepare.md)
 ### [Подготовка виртуальных машин, развернутых с помощью Resource Manager](backup-azure-arm-vms-prepare.md)
 ### [Планирование инфраструктуры резервного копирования виртуальных машин](backup-azure-vms-introduction.md)
@@ -33,9 +33,17 @@
 ### [Управление резервным копированием виртуальных машин Azure на классическом портале](backup-azure-manage-vms-classic.md)
 ### [Управлять резервным копированием виртуальных машин Azure на портале Azure](backup-azure-manage-vms.md)
 ### [Мониторинг предупреждений о резервном копировании виртуальных машин Azure на портале Azure](backup-azure-monitor-vms.md)
+### [Восстановление файлов из резервных копий виртуальных машин Azure](backup-azure-restore-files-from-vm.md)
 ### [Восстановление виртуальных машин в Azure](backup-azure-restore-vms.md)
 ### [Восстановление виртуальных машин, развернутых с помощью Azure Resource Manager, на портале Azure](backup-azure-arm-restore-vms.md)
-## Резервное копирование виртуальных машин под управлением Windows
+### [Восстановление ключа и секрета в Key Vault для зашифрованных виртуальных машин с помощью службы архивации Azure](backup-azure-restore-key-secret.md)
+## Резервное копирование и восстановление базы данных SQL Azure
+### [Настройка долгосрочного хранения резервных копий](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Просмотр резервных копий в хранилище служб восстановления](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Восстановление после долгосрочного хранения резервных копий](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Удаление резервных копий Azure SQL после долгосрочного хранения](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
+
+## Резервное копирование и восстановление компьютеров Windows
 ### [Windows Server: использование классической модели развертывания](backup-configure-vault-classic.md)
 ### [Windows Server: использование модели развертывания Resource Manager](backup-configure-vault.md)
 ### [Управление хранилищами службы архивации с помощью классической модели развертывания](backup-azure-manage-windows-server-classic.md)
@@ -43,6 +51,8 @@
 ### [Восстановление файлов на Windows Server с использованием модели развертывания Resource Manager](backup-azure-restore-windows-server.md)
 ### [Восстановление файлов на Windows Server с использованием классической модели развертывания](backup-azure-restore-windows-server-classic.md)
 
+## [Использование управления доступом на основе ролей для управления резервными копиями](backup-rbac-rs-vault.md)
+## [Включение функций безопасности для гибридных резервных копий](backup-azure-security-feature.md)
 ## [Удаление хранилища службы архивации Azure](backup-azure-delete-vault.md)
 ## [Настройка автономного резервного копирования](backup-azure-backup-import-export.md)
 ## [Использование службы архивации Azure для замены ленточной инфраструктуры](backup-azure-backup-cloud-as-tape.md)
@@ -58,11 +68,11 @@
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/backup/)
-## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
-## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=backup)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

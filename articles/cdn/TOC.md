@@ -11,7 +11,8 @@
 ### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
 
-## Управление
+## управление
+### [Включение HTTPS для пользовательского домена](cdn-custom-ssl.md)
 ### [Управление с помощью PowerShell](cdn-manage-powershell.md)
 ### Настройка срока жизни
 #### [Содержимое веб-приложений, облачных служб, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -40,7 +41,7 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Устранение неполадок
-### [Состояние 404](cdn-troubleshoot-endpoint.md)
+### [Состояние&404;](cdn-troubleshoot-endpoint.md)
 ### [Сжатие файлов](cdn-troubleshoot-compression.md)
 
 # Справочные материалы
@@ -62,6 +63,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

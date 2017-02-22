@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 98ace6ab2bc2a55bc0101284f5c7675fb1bbed68
-ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
+ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
+ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 
 Вы можете импортировать данные в инструмент аналитики, используя собственную схему. В этой схеме не обязательно использовать стандартные схемы Application Insights, например запрос или трассировку.
 
-В настоящее время можно импортировать CSV-файлы (файлы данных с разделителями-запятыми) или файлы аналогичного формата, в которых в качестве разделителей используется табуляция или точка с запятой.
+Можно импортировать файлы в формате JSON или DSV (значения с разделителями — запятыми, точками с запятой или знаками табуляции).
 
 Импорт в инструмент аналитики может понадобиться в трех ситуациях.
 
@@ -72,12 +72,15 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 
     ![Добавление источника данных](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Следуйте инструкциям, чтобы передать пример файла данных.
+2. Отправьте пример файла данных (необязательно, если отправляется определение схемы).
 
- * Первая строка примера может содержать заголовки столбцов. Вы можете изменить имена полей на следующем шаге.
- * Пример должен содержать по крайней мере 10 строк данных.
+    Первая строка примера может содержать заголовки столбцов. Вы можете изменить имена полей на следующем шаге.
 
-3. Проверьте схему, которую мастер вывел из вашего примера. При необходимости можно изменить выводимые типы столбцов.
+    Пример должен содержать по крайней мере 10 строк данных.
+
+3. Проверьте схему, которую получил мастер. Если он вывел типы из примера, то, возможно, потребуется изменить выводимые типы столбцов.
+
+   (Необязательно.) Отправьте определение схемы. Формат приведен ниже.
 
 4. Выберите метку времени. Все данные в инструменте аналитики должны включать поле метки времени. Это должно быть поле даты и времени (`datetime`), но его не обязательно называть timestamp. Если данные содержат столбец, содержащий дату и время в формате ISO, выберите его в качестве столбца метки времени. Или выберите "по мере поступления данных". В этом случае процесс импорта добавит полу метки времени.
 
@@ -85,6 +88,37 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 
 5. Создайте источник данных.
 
+### <a name="schema-definition-file-format"></a>Формат файла определения схемы
+
+Вместо того, чтобы редактировать схему в пользовательском интерфейсе, загрузите определение схемы из файла. Определение схемы имеет следующий формат: 
+
+Формат с разделителями 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+Формат JSON 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Каждый столбец идентифицируется по расположению, имени и типу. 
+
+* Расположение: для формата с разделителями это расположение сопоставленного значения. Для формата JSON это путь jpath сопоставленного ключа.
+* Имя: отображаемое имя столбца.
+* Тип: тип данных столбца.
+ 
+Если использовался пример данных и формат файла с разделителями, то определение схемы должно сопоставить все столбцы и добавить в конце новые столбцы. 
+
+Формат JSON позволяет выполнить частичное сопоставление данных, поэтому определение схемы в формате JSON не должно сопоставлять каждый ключ, найденный в примере данных. Оно также может сопоставить столбцы, которые не являются частью примера данных. 
 
 ## <a name="import-data"></a>Импорт данных
 
@@ -102,7 +136,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 2. [Создайте ключ подписанного URL-адреса для большого двоичного объекта](../storage/storage-dotnet-shared-access-signature-part-2.md). Ключ должен иметь срок действия один день и предоставлять доступ для чтения.
 3. Вызовите REST, чтобы уведомить Application Insights о данных, которые ожидают приема.
 
- * Конечная точка: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Конечная точка: `https://dc.services.visualstudio.com/v2/track`
  * Метод HTTP: POST
  * Полезные данные:
 
@@ -114,7 +148,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -128,7 +162,7 @@ ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
 Заполнители:
 
 * `Blob URI with Shared Access Key` — вы получаете этот заполнитель во время создания ключа. Он относится к большому двоичному объекту.
-* `Data source name` — имя, которое вы присвоили источнику данных. Данные в большом двоичном объекте должны соответствовать схеме, определенной для этого источника.
+* `Schema ID` — идентификатор схемы, созданный для определенной схемы. Данные в большом двоичном объекте должны соответствовать схеме.
 * `DateTime` — время отправки запроса в формате UTC. Мы принимаем следующие форматы: ISO8601 (например, "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` для ресурса Application Insights.
 
@@ -249,7 +283,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -258,7 +292,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -271,10 +305,12 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -285,11 +321,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 
@@ -332,6 +367,6 @@ namespace IngestionClient
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

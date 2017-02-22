@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 878d4da2e8283e19d4320c0cbb9c1b9d83210c98
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 878d4da2e8283e19d4320c0cbb9c1b9d83210c98
 
 Чтобы раскрыть эти темы на должном уровне, мы будем использовать образцы из пакета SDK для библиотеки **IoTHubClient**. Если вы хотите сразу же проверять все, о чем мы рассказываем, найдите приложения **iothub\_client\_sample\_http** и **iothub\_client\_sample\_amqp**. Они входят в пакет SDK для устройств Azure IoT для C. Все, что описано в следующих разделах, продемонстрировано именно в этих примерах.
 
-**Пакет SDK для устройств Azure IoT для C** доступен в репозитории [пакетов SDK для Azure IoT](https://github.com/Azure/azure-iot-sdks) на сайте GitHub, а информацию об API см. в [документации по API для C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+[**Пакет SDK для устройств Интернета вещей Azure для C**](https://github.com/Azure/azure-iot-sdk-c) доступен в репозитории на сайте GitHub. Дополнительные сведения об API см. в [справочной документации по API для C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-lower-level-apis"></a>Интерфейсы API нижнего уровня
 В предыдущей статье были описаны основные операции библиотеки **IotHubClient** в контексте приложения **iothub\_client\_sample\_amqp**. В частности, в ней объяснялось, как инициализировать библиотеку с помощью следующего кода.
@@ -279,6 +279,6 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

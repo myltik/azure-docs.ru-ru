@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 6d36976712ba1ea5d51f203fc532d7f89c3b0871
 
 
 ---
@@ -30,42 +30,38 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 > 
 
 ## <a name="what-is-ambari"></a>Что такое Ambari?
-[Apache Ambari][ambari-home] используется для подготовки, отслеживания кластеров Apache Hadoop и управления ими. Он включает в себя набор удобных средств и надежных интерфейсов API, который упрощают работу с кластерами Hadoop. Дополнительные сведения об интерфейсах API см. в [справочнике по API-интерфейсу Ambari][ambari-api-reference]. 
+[Apache Ambari][ambari-home] используется для подготовки, мониторинга кластеров Apache Hadoop и управления ими. Он включает в себя набор удобных средств и надежных интерфейсов API, который упрощают работу с кластерами Hadoop. Дополнительные сведения об интерфейсах API см. в [справочнике по Ambari API][ambari-api-reference]. 
 
 В настоящее время HDInsight поддерживает только функцию мониторинга Ambari. Ambari API 1.0 поддерживается кластерами HDInsight версии 3.0 и 2.1. В этой статье описывается доступ к интерфейсам Ambari API в кластерах HDInsight версии 3.1 и 2.1. Основное отличие между двумя версиями заключается в замене некоторых компонентов, что позволило обеспечить новые возможности (таких как «История задач сервера»). 
 
 **Предварительные требования**
 
-Перед началом работы с этим учебником необходимо иметь следующее:
+Перед началом работы с этим руководством необходимо иметь следующее:
 
 * **Рабочая станция с Azure PowerShell.**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * [cURL][curl] (необязательно). Чтобы установить cURL, перейдите на страницу [выпусков и скачиваемых файлов][curl-download].
   
   > [!NOTE]
   > При использовании команды cURL в Windows для значений параметров указывайте двойные кавычки вместо одинарных.
   > 
   > 
-* **Кластер Azure HDInsight**. Инструкции по подготовке кластера см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started] или [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision]. Для выполнения учебника необходимы следующие данные:
+* **Кластер Azure HDInsight**. Указания по подготовке кластеров см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started] или [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision]. Для прохождения учебника необходимы следующие данные:
   
   | Свойство кластера | Имя переменной Azure PowerShell | Значение | Описание |
   | --- | --- | --- | --- |
   |   Имя кластера HDInsight. |$clusterName | |Это имя вашего кластера HDInsight. |
   |   Имя пользователя кластера |$clusterUsername | |Имя пользователя кластера, указанное при создании кластера. |
   |   Пароль кластера |$clusterPassword | |Пароль пользователя кластера. |
-  
-  > [!NOTE]
-  > Введите значения в таблицу. Это будет полезно для изучения данного учебника.
-  > 
-  > 
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 ## <a name="jump-start"></a>Приступая к работе
 Существует несколько способов для использования Ambari для отслеживания кластеров HDInsight.
 
 **Использование Azure PowerShell**
 
-Ниже приведен скрипт Azure PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 3.1*.  Основное отличие заключается в том, что мы получаем эти данные от службы YARN (а не от MapReduce).
+Ниже приведен сценарий Azure PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 3.1*.  Основное отличие заключается в том, что мы получаем эти данные от службы YARN (а не от MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -81,7 +77,7 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 
     $response.metrics.'yarn.queueMetrics'
 
-Ниже приведен сценарий Azure PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 2.1*.
+Ниже приведен сценарий PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 2.1*.
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -103,7 +99,7 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 
 **Использование cURL**
 
-Ниже приведен пример получения информации о кластере с помощью cURL:
+Ниже приведен пример получения сведений о кластере с помощью cURL:
 
     curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
@@ -129,7 +125,7 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 При использовании конечной точки Ambari https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} поле *host_name* в настоящее время возвращает полное доменное имя (FQDN) узла вместо имени узла. До выпуска от 08.10.2014 этот пример просто возвращал значение**headnode0**. Начиная с выпуска от 08.10.2014 он возвращает полное доменное имя**headnode0.{ClusterDNS}.azurehdinsight.net**, как показано выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа, например кластеры HBase и Hadoop, можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
 
 ## <a name="ambari-monitoring-apis"></a>Интерфейсы Ambari API для мониторинга
-В следующей таблице перечислены некоторые наиболее распространенные вызовы Ambari API для мониторинга. Дополнительные сведения об интерфейсе API см. в [справочнике по API-интерфейсу Ambari][ambari-api-reference].
+В следующей таблице перечислены некоторые наиболее распространенные вызовы Ambari API для мониторинга. Дополнительные сведения об API см. в [справочнике по Ambari API][ambari-api-reference].
 
 | Отслеживание вызова API | URI | Описание |
 | --- | --- | --- |
@@ -137,7 +133,7 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 | Получение сведений о кластере. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |кластеры, службы, узлы |
 | Получение служб |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Службы включают в себя: hdfs, mapreduce |
 | Получение сведений о службах. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
-| Получение компонентов службы |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker |
+| Получение компонентов службы |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
 | Получение сведений о компонентах. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, host-components, metrics |
 | Получение узлов |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0, workernode0 |
 | Получение сведений об узлах. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
@@ -163,7 +159,7 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
@@ -177,6 +173,6 @@ ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

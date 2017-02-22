@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 865ddf4e8849c8c94ac8e20a22874e2edaead646
+ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
+ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
 
 
 ---
@@ -137,9 +137,9 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 Связанные разделы:
 
-* [Создание эластичного пула с помощью C#](sql-database-elastic-pool-create-csharp.md) 
+* [Создание эластичного пула с помощью C#](sql-database-elastic-pool-manage-csharp.md) 
 * [Мониторинг пула эластичных баз данных и управление им с помощью C#](sql-database-elastic-pool-manage-csharp.md) 
-* [Создание эластичного пула с помощью PowerShell](sql-database-elastic-pool-create-powershell.md) 
+* [Создание эластичного пула с помощью PowerShell](sql-database-elastic-pool-manage-powershell.md) 
 * [Мониторинг пула эластичных баз данных и управление им с помощью PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Общие ошибки
@@ -219,6 +219,6 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,10 +1,9 @@
-Схемы обучения AMS можно просмотреть здесь:
+Схемы обучения по службам мультимедиа Azure можно просмотреть здесь:
 
-* [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Рабочий процесс для потоковой передачи по запросу в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Службы мультимедиа — потоковая передача в реальном времени](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Службы мультимедиа — потоковая передача по запросу](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

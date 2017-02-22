@@ -1,6 +1,6 @@
 ---
-title: "Прогнозирование ETS + STL | Документация Майкрософт"
-description: "Прогнозирование ETS+STL"
+title: "Прогнозирование на основе ETS и STL (устаревшая версия) | Документация Майкрософт"
+description: "Сведения о прогнозировании на основе ETS и STL (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
 author: xueshanz
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f9f7366b6e957215bed717e94c8138add6506d6
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: cdf6661a36e38bf7a6fca241682be796712bd5d9
 
 
 ---
-# <a name="forecasting---ets-stl"></a>Прогнозирование ETS+STL
+# <a name="deprecated-forecasting---ets--stl"></a>Прогнозирование на основе ETS и STL (устаревшая версия)
+
+> [!NOTE]
+> Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
+> 
+> Много полезных примеров экспериментов и API можно найти в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Дополнительные сведения о коллекции см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Эта [веб-служба](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) реализует сезонную декомпозицию (STL) и модель экспоненциального сглаживания (ETS) для прогнозирования на основе исторических данных, предоставленных пользователем. Увеличится ли в этом году спрос на определенный продукт? Могу ли я предсказать объем продаж в сезон Рождества, чтобы эффективно спланировать товарные запасы? Модели прогнозирования позволяют решать такие задачи. Используя прошлые данные в качестве базы, эти модели анализируют скрытые тенденции и сезонные колебания для прогнозирования будущих тенденций. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -88,7 +95,7 @@ ms.openlocfilehash: 5f9f7366b6e957215bed717e94c8138add6506d6
 > 
 > 
 
-В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнение скрипта R][execute-r-script], который создает модель прогнозирования ARIMA с помощью функций ets и forecast языка R. 
+В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнить сценарий R][execute-r-script], который создает модель прогнозирования STL и ETS с помощью функций stl, ets и forecast языка R. 
 
 ### <a name="experiment-flow"></a>Ход эксперимента:
 ![Ход эксперимента][2]
@@ -141,6 +148,6 @@ ms.openlocfilehash: 5f9f7366b6e957215bed717e94c8138add6506d6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

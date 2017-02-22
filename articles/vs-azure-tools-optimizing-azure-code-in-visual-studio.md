@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5306fc491e7b832c116e7bb8cc73a11ed77eed7
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
 
 
 ---
@@ -420,9 +420,9 @@ AP5000
 1. В контекстном меню интересующей вас роли выберите пункт "Свойства", а затем перейдите на вкладку "Конфигурация".
 2. В разделе **Диагностика** установите флажок **Включить диагностику**.
 3. Нажмите кнопку **Настроить** .
-   
+
    ![Доступ к параметру "Включить диагностику"](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
-   
+
    Дополнительную информацию см. в статье [Настройка системы диагностики для облачных служб и виртуальных машин Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 ## <a name="avoid-declaring-dbcontext-objects-as-static"></a>Не объявляйте объекты DbContext статическими
@@ -465,11 +465,10 @@ public class BlogsController : Controller
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную информацию об оптимизации и устранении неполадок приложений Azure см. в статье [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Дополнительные сведения об оптимизации и устранении неполадок приложений Azure см. в статье [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

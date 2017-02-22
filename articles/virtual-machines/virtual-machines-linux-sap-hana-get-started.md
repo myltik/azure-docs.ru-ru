@@ -1,5 +1,5 @@
 ---
-title: "Краткое руководство по установке экземпляра SAP HANA вручную на виртуальных машинах Azure | Документация Майкрософт"
+title: "SAP HANA на виртуальных машинах Linux в Azure | Документация Майкрософт"
 description: "Краткое руководство по установке экземпляра SAP HANA вручную на виртуальных машинах Azure"
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: d8fe055ec2912b4bf8ba2c86ba63335cc6ac2600
-ms.openlocfilehash: 0683008470ade23abc5cf6c76ff945abdf303617
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0c7f550e9fe9c27315f8381a8b2a91ff75ba1535
 
 
 ---
@@ -400,6 +400,6 @@ ms.openlocfilehash: 0683008470ade23abc5cf6c76ff945abdf303617
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

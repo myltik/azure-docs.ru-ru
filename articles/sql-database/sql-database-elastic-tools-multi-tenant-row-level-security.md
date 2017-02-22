@@ -8,6 +8,7 @@ manager: jhubbard
 author: tmullaney
 ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 137808a62539e79c756752489981495b09066aa5
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 19afc13a1715890316b34ed1128b594105c53c69
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 137808a62539e79c756752489981495b09066aa5
 
 ## <a name="download-the-sample-project"></a>Загрузка примера проекта
 ### <a name="prerequisites"></a>Предварительные требования
-* Используйте Visual Studio 2012 или более поздней версии. 
+* Используйте Visual Studio&2012; или более поздней версии. 
 * Создайте три базы данных SQL Azure. 
 * Скачайте пример проекта: [Elastic DB Tools for Azure SQL — Multi-Tenant Shards](http://go.microsoft.com/?linkid=9888163)
   * Заполните информацию по своим базам данных в начале файла **Program.cs** 
@@ -214,7 +215,7 @@ GO
 ```
 
 > [!TIP]
-> В более сложных проектах, требующих добавления предиката в сотни таблиц, можно использовать вспомогательную хранимую процедуру, которая автоматически создает политику безопасности, добавляя предикат во все таблицы схемы. Подробнее можно узнать в статье [Применение безопасности на уровне строк ко всем таблицам — вспомогательный сценарий (блог)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
+> В более сложных проектах, требующих добавления предиката в сотни таблиц, можно использовать вспомогательную хранимую процедуру, которая автоматически создает политику безопасности, добавляя предикат во все таблицы схемы. Ознакомьтесь с записью блога [Apply Row-Level Security to all tables - helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) (Применение безопасности на уровне строк ко всем таблицам — вспомогательный сценарий (блог)).  
 > 
 > 
 
@@ -303,7 +304,7 @@ GO
 Средства эластичных баз данных и безопасность на уровне строк могут использоваться совместно для масштабирования уровня данных приложения благодаря поддержке мультитенантных и однотенантных сегментов. Мультитенантные сегменты могут использоваться для более эффективного хранения данных (особенно в случаях, где большое количество клиентов имеет лишь несколько строк данных), в то время как однотенантные сегменты — для поддержки premium-клиентов с более строгими требованиями к производительности и изоляции.  Дополнительные сведения см. в [справочнике по безопасности на уровне строк](https://msdn.microsoft.com/library/dn765131). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Что такое пул эластичных баз данных Azure](sql-database-elastic-pool.md)
+* [Что такое пул эластичных БД Azure?](sql-database-elastic-pool.md)
 * [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md)
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
@@ -320,6 +321,6 @@ GO
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

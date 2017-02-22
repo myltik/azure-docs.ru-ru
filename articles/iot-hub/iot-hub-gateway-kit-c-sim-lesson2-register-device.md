@@ -1,5 +1,5 @@
 ---
-title: "Создание Центра Интернета вещей Azure и регистрация устройства | Документация Майкрософт"
+title: "Приступая к работе с имитацией устройства и шлюзом Azure IoT. Урок 2. Регистрация устройства | Документация Майкрософт"
 description: 
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: d3726201754b90a60e9bde2651c023adf9f9033b
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 759085dcb4993d38f79cb19efe58e1a968ddb682
 
 
 ---
@@ -108,6 +108,6 @@ az iot device create --device-id mydevice --hub-name {my hub name} --resource-gr
 [Configure and run a simulated device cloud upload sample application](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md) (Настройка и запуск примера приложения отправки в облако для имитации устройства)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

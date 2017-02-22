@@ -1,6 +1,6 @@
 ---
-title: "Сведения о соединителе расшифровки сообщений AS2 из Пакета интеграции Enterprise | Документация Майкрософт"
-description: "Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики."
+title: "Декодирование сообщений AS2 в Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте, как использовать декодер AS2, входящий в пакет интеграции Enterprise и Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,31 +12,30 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 3e19be36daf550abf44bfb7b79deb57d79945d64
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: 37562ff385305088590c793147b8ad268148c40b
 
 
 ---
-# <a name="get-started-with-decode-as2-message"></a>Начало работы с расшифровкой сообщений AS2
+# <a name="get-started-with-decoding-as2-message-in-your-logic-apps"></a>Начало работы с декодированием сообщений AS2 в приложениях логики
 Подключитесь к соединителю расшифровки сообщений AS2, чтобы обеспечить безопасность и надежность при передаче сообщений. Эта служба выполняет цифровое подписывание, расшифровку и подтверждение через уведомления о состоянии сообщений (MDN).
 
-## <a name="create-the-connection"></a>Создание подключения
-### <a name="prerequisites"></a>Предварительные требования
+## <a name="prereqs"></a>Предварительные требования
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 * Для работы с соединителем расшифровки сообщений AS2 потребуется учетная запись интеграции. Подробнее о создании [учетной записи интеграции](logic-apps-enterprise-integration-create-integration-account.md), [партнеров](logic-apps-enterprise-integration-partners.md) и [соглашений AS2](../logic-apps/logic-apps-enterprise-integration-as2.md).
 
-### <a name="connect-to-decode-as2-message-using-the-following-steps"></a>Действия для подключения к соединителю расшифровки сообщений AS2.
-1. Пример см. в статье о [создании приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
-2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска AS2.  Выберите AS2 — Decode AS2 message (AS2 — расшифровка сообщений AS2).
+## <a name="decode-as2-messages"></a>Декодирование сообщений AS2
+1. [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md).
+2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса.  В конструкторе приложений логики добавьте триггер, а затем действие.  В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска AS2.  Выберите AS2 — Decode AS2 message (AS2 — декодирование сообщения AS2):
    
     ![Поиск AS2](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
-3. Если до этого вы не создавали подключения к учетной записи интеграции, вам будет предложено ввести сведения о подключении.
+3. Если до этого вы не создавали подключений к учетной записи интеграции, то вам будет предложено ввести сведения о подключении:
    
     ![Создание подключения к системе интеграции](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
-4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными.
+4. Введите данные учетной записи интеграции.  Свойства, отмеченные звездочкой, являются обязательными:
    
    | Свойство | Сведения |
    | --- | --- |
@@ -46,15 +45,17 @@ ms.openlocfilehash: 3e19be36daf550abf44bfb7b79deb57d79945d64
       Введенные сведения о подключении будут выглядеть так:
    
       ![подключение к системе интеграции](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
-5. Нажмите кнопку **Создать**
-6. Обратите внимание, что было создано подключение.  Теперь перейдите к другим действиям в приложении логики.
+5. Нажмите кнопку **Создать**.
+6. Обратите внимание, что было создано подключение.  Теперь перейдите к другим действиям в приложении логики:
    
     ![подключение к системе интеграции создано](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
-7. Выберите текст и заголовки из выходных данных запроса
+7. Выберите текст и заголовки из выходных данных запроса:
    
     ![заполнение обязательных полей](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
-## <a name="the-as2-decode-does-the-following"></a>Соединитель расшифровки AS2 выполняет следующие функции:
+## <a name="as2-decoder-details"></a>Сведения о декодере AS2
+Соединитель для декодирования AS2 выполняет следующие функции: 
+
 * обрабатывает заголовки AS2 и HTTP;
 * проверяет подпись (если настроено);
 * расшифровывает сообщения (если настроено);
@@ -67,15 +68,15 @@ ms.openlocfilehash: 3e19be36daf550abf44bfb7b79deb57d79945d64
 * создает синхронное или асинхронное MDN (в зависимости от конфигурации соглашения);
 * задает маркеры корреляции и свойства для MDN.
 
-## <a name="try-it-for-yourself"></a>Попробуйте сами
-Почему бы не попробовать. Щелкните [здесь](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) , чтобы развернуть собственное полностью работоспособное приложение логики с применением функций AS2 Logic Apps. 
+## <a name="try-it-yourself"></a>Попробуйте сами
+Просто попробуйте. Используйте [шаблон приложения логики AS2 и сценарий](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) для развертывания полностью рабочего приложения логики.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 
+[Обзор Пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md) 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

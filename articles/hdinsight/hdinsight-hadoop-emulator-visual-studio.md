@@ -1,5 +1,5 @@
 ---
-title: "Использование средств Microsoft Azure Data Lake для Visual Studio с песочницей Hortonworks | Документация Майкрософт"
+title: "Средства Azure Data Lake для Visual Studio с песочницей Hortonworks | Документация Майкрософт"
 description: "Узнайте, как использовать средства Azure Data Lake для Visual Studio с песочницей Hortonworks (работающей в локальной виртуальной машине). С помощью этих средств можно создавать и выполнять задания Hive и Pig в песочнице и просматривать выходные данные и журнал задания."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4b0572d8fb3b81fd4bd2a34794141f137b50eed0
-ms.openlocfilehash: 42f53e0c725ed7744c2e3d919c960c42e4cebc0c
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a1e6216647b7401183ab2f47f72aaee1f80ccee0
 
 
 ---
@@ -43,6 +43,7 @@ ms.openlocfilehash: 42f53e0c725ed7744c2e3d919c960c42e4cebc0c
 ## <a name="connect-the-tools-to-the-sandbox"></a>Подключение инструментов к песочнице
 
 1. Откройте Visual Studio и выберите **Просмотреть**, а затем — **Обозреватель серверов**.
+
 2. В окне **Обозреватель серверов** щелкните правой кнопкой мыши запись **HDInsight**, а затем выберите **Connect to HDInsight Emulator** (Подключиться к эмулятору HDInsight).
 
     ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
@@ -209,6 +210,6 @@ Hive предоставляет язык запросов по типу SQL (Hiv
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

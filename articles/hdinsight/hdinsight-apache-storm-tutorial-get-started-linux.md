@@ -1,5 +1,5 @@
 ---
-title: "Руководство по Apache Storm: начало работы со Storm под управлением Linux в HDInsight | Документация Майкрософт"
+title: "Начало работы с кластером Apache Storm в Azure HDInsight | Документация Майкрософт"
 description: "Начало работы с аналитикой больших данных с помощью Apache Storm и примеров Storm Starter под управлением Linux в HDInsight. Информация об использовании Storm для обработки данных в режиме реального времени."
 keywords: "apache storm, учебник sapache storm, анализ больших данных, storm starter"
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
-ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -216,6 +216,6 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
