@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью PowerShell
-> [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 В этой статье объясняется, как запустить плановую или незапланированную отработку отказа в базе данных SQL с помощью PowerShell. Сведения о настройке георепликации для баз данных SQL Azure см. в [этой статье](sql-database-geo-replication-powershell.md).
 
@@ -45,7 +39,7 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 
 Следующая команда изменяет роли базы данных с именем mydb на сервере srv2 в группе ресурсов rg2 на роли базы данных-источника. Исходная база данных-источник, к которой была подключена база данных db2, переключится на базу данных-получателя после полной синхронизации двух баз данных.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -55,7 +49,7 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Запуск внеплановой отработки отказа для превращения базы данных-источника в базу данных-получателя
-Командлет **Set-AzureRmSqlDatabaseSecondary** с параметрами **–Failover** и **-AllowDataLoss** позволяет во внеплановом порядке сделать базу данных-получатель источником. При этом текущая база данных-источник станет получателем, когда база данных-источник перестанет быть доступной.
+Командлет **Set-AzureRmSqlDatabaseSecondary** с параметрами **-Failover** и **-AllowDataLoss** позволяет во внеплановом порядке сделать базу данных-получатель источником. При этом текущая база данных-источник станет получателем, когда база данных-источник перестанет быть доступной.
 
 Эта функция предназначена для аварийного восстановления в случаях, когда восстановить доступность базы данных крайне необходимо, а потеря некоторого объема данных является приемлемой. Когда вызывается принудительная отработка отказа, указанная база данных-получатель сразу становится источником и начинает принимать транзакции записи. Когда становится возможным повторно подключить первоначальную базу данных-источник к новой базе данных-источнику после принудительной отработки отказа, сразу выполняется добавочная архивация первоначальной базы данных-источника, которая при этом становится получателем по отношению к новому источнику, то есть его репликой.
 
@@ -70,8 +64,8 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 
 Следующая команда изменяет роль базы данных с именем mydb на роль источника, если источник недоступен. Исходный источник, к которому подключена база данных mydb, станет получателем после своего возврата в сетевой режим. На этом этапе синхронизация может привести к потере данных.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
+    $database | Set-AzureRmSqlDatabaseSecondary -Failover -AllowDataLoss
 
 
 
@@ -87,6 +81,6 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

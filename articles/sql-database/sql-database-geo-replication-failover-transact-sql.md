@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 473d6195acf7867c3dd1348ff8644d0c3a26f986
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL
-> [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 В этой статье объясняется, как запустить отработку отказа в базе данных-получателе SQL Azure с помощью Transact-SQL. Сведения о настройке георепликации для баз данных SQL Azure см. в [этой статье](sql-database-geo-replication-transact-sql.md).
 
@@ -99,6 +93,6 @@ ms.openlocfilehash: 473d6195acf7867c3dd1348ff8644d0c3a26f986
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

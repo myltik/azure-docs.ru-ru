@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/17/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
-ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
 В этой статье подробно рассматривается создание контейнерных служб в контейнерах Windows.
 
 > [!NOTE]
-> Эта функция доступна в режиме предварительной версии для Windows Server 2016 и Linux.
+> Эта функция доступна в режиме предварительной версии для Windows Server 2016.
 >  
 
 В Service Fabric реализовано несколько способов использования контейнеров для создания приложений, состоящих из контейнерных микрослужб. 
@@ -57,7 +57,7 @@ Visual Studio предоставляет шаблон службы Service Fabri
 
 1. Чтобы создать приложение Service Fabric, выберите **Файл** > **Создать проект**.
 2. Выберите **гостевой контейнер** в качестве шаблона службы.
-3. Выберите **имя образа** и укажите путь к образу в репозитории контейнера, например https://hub.docker.com/. myrepo/myimage:v1 
+3. Выберите **имя образа** и укажите путь к образу в репозитории контейнера (например, https://hub.docker.com), например myrepo/myimage:v1. 
 4. Присвойте службе имя и нажмите кнопку **ОК**.
 5. Если контейнерной службе нужна конечная точка для обмена данными, можно добавить значения протокола, порта и типа в файл ServiceManifest.xml. Например: 
      
@@ -65,10 +65,24 @@ Visual Studio предоставляет шаблон службы Service Fabri
     
     Если указать `UriScheme`, конечная точка контейнера будет автоматически зарегистрирована в службе именования Service Fabric, что улучшит ее поиск. Порт может быть фиксированным (как показано в приведенном выше примере) или выделяться динамически (поле остается пустым и порт выделяется из диапазона портов назначенного приложения), как и в случае с любой службой.
     Кроме того, необходимо настроить сопоставление порта контейнера с портом узла, указав политику `PortBinding` в манифесте приложения, как описано ниже.
-6. Если для контейнера требуется управление ресурсами, добавьте `ResourceGovernancePolicy`. Пример см. ниже.
-8. Если для контейнера требуется аутентификация в частном репозитории, добавьте `RepositoryCredentials`. Пример см. ниже.
+6. Если для контейнера требуется управление ресурсами, добавьте `ResourceGovernancePolicy`.
+8. Если для контейнера требуется аутентификация в частном репозитории, добавьте `RepositoryCredentials`.
 7. Теперь можно использовать пакет и опубликовать действие в локальном кластере, если используется Windows Server 2016 с активированной поддержкой контейнеров. 
 8. Когда все будет готово, можно опубликовать приложение на удаленном кластере или вернуть решение в систему управления версиями. 
+
+В качестве примера приложения можно ознакомиться с [примерами кода контейнера Service Fabric на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
+
+## <a name="creating-a-windows-server-2016-cluster"></a>Создание кластера Windows Server 2016
+Чтобы развернуть контейнерное приложение, необходимо создать кластер под управлением Windows Server 2016 с поддержкой контейнеров. Это можно сделать на локальном компьютере разработки или в Azure с помощью Azure Resource Manager (ARM). 
+
+Чтобы развернуть кластер с помощью ARM, выберите параметр образа **Windows Server 2016 with Containers** (Windows Server 2016 с контейнерами) в Azure. Ознакомьтесь со статьей [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Обязательно используйте приведенные ниже параметры ARM.
+
+```xml
+"vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
+"vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
+"vmImageVersion": { "defaultValue": "latest","type": "string"     },  
+```
+Для создания кластера можно также использовать шаблон ARM кластера с&5; узлами, доступный [здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype). Кроме того, можно прочитать [записи блога Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) об использовании Service Fabric и контейнеров Windows.
 
 <a id="manually"></a>
 
@@ -286,9 +300,11 @@ Visual Studio предоставляет шаблон службы Service Fabri
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы успешно развернули контейнерную службу, изучите рекомендации по управлению ее жизненным циклом в статье [Жизненный цикл приложения Service Fabric](service-fabric-application-lifecycle.md).
 
+* [Общие сведения о Service Fabric и контейнерах](service-fabric-containers-overview.md)
+* В качестве примера приложения можно ознакомиться с [примерами кода контейнера Service Fabric на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

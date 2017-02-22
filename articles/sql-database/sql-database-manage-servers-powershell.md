@@ -16,8 +16,8 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 835702c8381fcd184b056c76054514348c675bbf
-ms.openlocfilehash: 9f1905f7e5aad0e43d81f7095089b9f3492a82ea
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: c22243db06c783bc4f5b311aa4d49ce12032ab02
 
 
 ---
@@ -51,7 +51,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
 > Приме скрипта: см. дополнительные сведения о [создании баз данных SQL с помощью скрипта PowerShell](sql-database-get-started-powershell.md).
 >
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
+## <a name="next-steps"></a>Дальнейшие действия
 * Обзор средств управления см. в статье [Обзор: средства управления для Базы данных SQL](sql-database-manage-overview.md).
 * Чтобы узнать, как выполнять задачи управления с использованием портала Azure, ознакомьтесь со статьей [Управление базами данных SQL Azure с помощью портала Azure](sql-database-manage-portal.md).
 * Чтобы узнать, как выполнять задачи управления с использованием PowerShell, ознакомьтесь со статьей [Управление базой данных SQL Azure с помощью PowerShell](sql-database-manage-powershell.md).
@@ -61,6 +61,6 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: c033c1b32ad7b69565f870636110d317d01266df
-ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -82,7 +82,6 @@ ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Устранение проблем производительности базы данных SQL Azure](sql-database-troubleshoot-performance.md)
-* [Устранение проблем с разрешениями в базе данных SQL Azure](sql-database-troubleshoot-permissions.md)
 * [Поиск документации по Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Просмотр последних обновлений для службы базы данных SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -90,12 +89,10 @@ ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
 * [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
 * [Общие рекомендации по повторным попыткам](../best-practices-retry-general.md)
 * [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md)
-* [Схема обучения использованию базы данных SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

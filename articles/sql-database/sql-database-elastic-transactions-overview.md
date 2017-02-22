@@ -16,8 +16,8 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b251edc753575f2235b9741a7c1eb5d1cf2f821
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
 
 
 ---
@@ -145,7 +145,7 @@ Azure включает несколько предложений для разм
 * Поддерживаются только базы данных, которые принадлежат к базе данных SQL Azure версии 12.
 * Транзакции между службами WCF не поддерживаются. Например, если у вас есть метод службы WCF, выполняющий транзакцию, включение вызова в область транзакции завершится ошибкой с исключением [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
+## <a name="next-steps"></a>Дальнейшие действия
 Еще не оценили преимущества транзакций эластичной базы данных для приложений Azure? См. [схему документации](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
@@ -156,6 +156,6 @@ Azure включает несколько предложений для разм
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

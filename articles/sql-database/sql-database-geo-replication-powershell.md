@@ -16,19 +16,12 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 1849e257240a45a6161db524ce53a83cbf29068d
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 85efdb2a5b9571d76338aeb0871b729693b63dcb
 
 
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-powershell"></a>Настройка активной георепликации для базы данных SQL Azure с помощью PowerShell
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-geo-replication-overview.md)
-> * [Портал Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 В этой статье показано, как настроить активную георепликацию для базы данных SQL Azure с помощью PowerShell.
 
@@ -141,6 +134,6 @@ ms.openlocfilehash: 1849e257240a45a6161db524ce53a83cbf29068d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

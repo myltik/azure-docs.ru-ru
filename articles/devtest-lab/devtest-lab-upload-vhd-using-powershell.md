@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
-ms.openlocfilehash: 36edca0969eb2895777a85dc4ee826abeb42601f
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 379544e6592e933e510308bb0ae7193542c099f2
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 36edca0969eb2895777a85dc4ee826abeb42601f
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-В Azure DevTest Labs с помощью VHD-файлов можно создать пользовательские образы, используемые для подготовки виртуальных машин. Ниже приведены пошаговые инструкции по передаче VHD-файла в учетную запись хранения лаборатории с помощью PowerShell. После отправки VHD-файла переходите к разделу [Дальнейшие действия](#next-steps), где перечислены несколько статей, в которых описывается создание пользовательского образа из загруженного VHD-файла. Дополнительные сведения о дисках и виртуальных жестких дисках в Azure см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин Azure](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
+В Azure DevTest Labs с помощью VHD-файлов можно создать пользовательские образы, используемые для подготовки виртуальных машин. Ниже приведены пошаговые инструкции по передаче VHD-файла в учетную запись хранения лаборатории с помощью PowerShell. После отправки VHD-файла переходите к разделу [Дальнейшие действия](#next-steps), где перечислены несколько статей, в которых описывается создание пользовательского образа из загруженного VHD-файла. См. дополнительные сведения [о дисках и виртуальных жестких дисках для виртуальных машин Azure](../storage/storage-about-disks-and-vhds-linux.md).
 
 ## <a name="step-by-step-instructions"></a>Пошаговые инструкции
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: 36edca0969eb2895777a85dc4ee826abeb42601f
 
 1. В колонке лаборатории выберите **Конфигурация**. 
 
-1. В колонке **Конфигурация** лаборатории выберите **Custom images (VHDs)** (Пользовательские образы (VHD)).
+1. В колонке **Configuration** (Конфигурация) лаборатории выберите **Custom images (VHDs)** (Пользовательские образы (VHD)).
 
 1. В колонке **Custom images** (Пользовательские образы) выберите **+Add** (+ Добавить). 
 
@@ -66,6 +66,6 @@ ms.openlocfilehash: 36edca0969eb2895777a85dc4ee826abeb42601f
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

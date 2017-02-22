@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
 
 
 ---
@@ -49,7 +49,7 @@ ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
 ### <a name="azure-prerequisites"></a>Предварительные требования Azure
 * Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/) . Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 * Для хранения реплицируемых данных потребуется учетная запись хранения Azure. На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и хранилище Azure Site Recovery, и быть связана с той же подпиской. См. [дополнительные сведения о службе хранилища Azure](../storage/storage-introduction.md).
-* Вам потребуется убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Вам потребуется убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### <a name="vmm-prerequisites"></a>Предварительные требования VMM
 * Вам потребуется сервер VMM под управлением System Center 2012 R2.
@@ -74,7 +74,6 @@ ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
 
 * Защищаемые виртуальные машины на исходном сервере VMM должны быть подключены к сети виртуальных машин. Эта сеть должна быть подключена к логической сети, которая связана с облаком.
 * Сеть Azure, к которой могут подключаться реплицированные виртуальные машины после отработки отказа. Эту сеть вы выбираете во время отработки отказа. Сеть должна располагаться в том же регионе, что и ваша подписка Azure Site Recovery.
-* [Узнайте больше](site-recovery-network-mapping.md) о сетевом сопоставлении.
 
 ### <a name="powershell-prerequisites"></a>Необходимые компоненты PowerShell
 Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](https://msdn.microsoft.com/library/dn850420.aspx).
@@ -302,7 +301,7 @@ marsagentinstaller.exe /q /nu
 ## <a name="step-9-enable-protection-for-virtual-machines"></a>Шаг 9. Включение защиты для виртуальных машин
 После успешной настройки серверов, облаков и сетей можно включить защиту для виртуальных машин в облаке. Обратите внимание на следующее.
 
-Виртуальные машины должны соответствовать [предварительным требованиям к виртуальным машинам Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Виртуальные машины должны соответствовать [предварительным требованиям к виртуальным машинам Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 Для обеспечения защиты должны быть заданы соответствующие свойства операционной системы и диска с операционной системой. Данные свойства можно установить при создании виртуальной машины в VMM с помощью шаблона виртуальной машины. Эти свойства также можно задать для существующих виртуальных машин на вкладках **Общие** и **Конфигурация оборудования** свойств виртуальной машины. Если установка этих свойств в VMM не была выполнена, сделать это можно на портале Azure Site Recovery.
 
@@ -408,6 +407,6 @@ marsagentinstaller.exe /q /nu
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

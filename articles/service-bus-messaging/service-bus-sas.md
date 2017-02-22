@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/14/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: d634db213f73341ed09be58c720d4e058986a38e
-ms.openlocfilehash: ef5f574712cf6fc6f10261d14e280a697163ec4c
+ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
+ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
 
 
 ---
@@ -39,8 +39,8 @@ ms.openlocfilehash: ef5f574712cf6fc6f10261d14e280a697163ec4c
 
 При проверке подлинности SAS используются следующие элементы.
 
-* [Правило авторизации общего доступа](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule): 256-битный основной криптографический ключ в кодировке Base64, необязательный дополнительный ключ, имя ключа и соответствующие права (набор прав на *прослушивание*, *отправку* и *управление*).
-* Маркер [подписанного URL-адреса](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider): создается с помощью кода HMAC-SHA256 строки ресурса и криптографического ключа. В строке ресурса указывается URI ресурса, к которому запрашивается доступ, и срок действия. Подпись и другие элементы, описанные в следующих разделах, преобразуются в строку, образуя маркер SAS.
+* [Правило авторизации общего доступа](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule): 256-битный основной криптографический ключ в кодировке Base64, необязательный дополнительный ключ, имя ключа и соответствующие права (набор прав на *прослушивание*, *отправку* и *управление*).
+* Маркер [подписанного URL-адреса](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider): создается с помощью кода HMAC-SHA256 строки ресурса и криптографического ключа. В строке ресурса указывается URI ресурса, к которому запрашивается доступ, и срок действия. Подпись и другие элементы, описанные в следующих разделах, преобразуются в строку, образуя маркер SAS.
 
 ## <a name="shared-access-policy"></a>Политика общего доступа
 
@@ -55,6 +55,26 @@ ms.openlocfilehash: ef5f574712cf6fc6f10261d14e280a697163ec4c
 Вновь созданной политике назначается *первичный* и *вторичный ключ*. Это криптографически строгие ключи. Их нельзя потерять — они всегда будут доступны на [портал Azure][Azure portal]. Вы можете использовать любой из созданных ключей и создавать их повторно в любое время. Однако в случае повторного создания или изменения первичного ключа в политике любая созданная на его основе подпись общего доступа станет недействительной.
 
 Когда вы создаете пространство имен служебной шины, для него автоматически формируется политика с именем **RootManageSharedAccessKey**, которая содержит все возможные разрешения. Так как вы не входите в систему как **привилегированный пользователь**, не используйте эту политику без действительно веской причины. Вы можете создать дополнительные политики для пространства имен на вкладке **Настройка** портала. Следует отметить, что к одному уровню дерева в служебной шине (пространству имен, очереди и т. д.) может быть привязано до 12 политик.
+
+## <a name="configuration-for-shared-access-signature-authentication"></a>Настройка проверки подлинности подписанного URL-адреса
+Правило [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) можно настроить в пространствах имен, очередях или разделах служебной шины. Настройка правила [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) в подписке на служебную шину сейчас не поддерживается, но для безопасного доступа к подпискам можно использовать правила, настроенные в пространстве имен или разделе. Рабочий пример, в котором показана эта процедура, см. в примере [Использование проверки подлинности подписанного URL-адреса (SAS) для доступа к подпискам служебной шины](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+
+В пространстве имен, очереди или разделе служебной шины можно настроить до 12 таких правил. Правила, настроенные для пространства имен служебной шины, применяются ко всем сущностям в этом пространстве.
+
+![SAS](./media/service-bus-sas/service-bus-namespace.png)
+
+На этом рисунке правила авторизации *manageRuleNS*, *sendRuleNS* и *listenRuleNS* применяются к очереди Q1 и разделу T1, правила *listenRuleQ* и *sendRuleQ* — только к очереди Q1 и правило *sendRuleT* — только к разделу T1.
+
+Основные параметры правила [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) .
+
+| Параметр | Описание |
+| --- | --- |
+| *KeyName* |Строка с описанием правила авторизации. |
+| *PrimaryKey* |256-битный первичный ключ в кодировке Base64 для подписи и проверки маркера SAS. |
+| *SecondaryKey* |256-битный вторичный ключ в кодировке Base64 для подписи и проверки маркера SAS. |
+| *AccessRights* |Список прав доступа, предоставляемых правилом авторизации. Эти права могут быть любым набором прав на прослушивание, отправку и управление. |
+
+Если пространство имен служебной шины подготовлено, правило [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) со значением **RootManageSharedAccessKey**, установленным для параметра [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName), создается по умолчанию.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Создание подписанного URL-адреса (маркера)
 
@@ -85,13 +105,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Маркер SAS действителен для всех ресурсов по универсальному коду `<resourceURI>`, используемому в `signature-string`.
 
-Параметр [KeyName](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) в маркере SAS ссылается на **keyName** правила авторизации общего доступа, используемого для создания маркера.
+Параметр [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) в маркере SAS ссылается на **keyName** правила авторизации общего доступа, используемого для создания маркера.
 
 Параметр *URL-encoded-resourceURI* должен совпадать с URI, который используется в строке для подписи во время вычисления подписи. Значение должно быть [закодировано с помощью знака процента](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
-Рекомендуется периодически повторно создавать ключи, используемые в объекте [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Чтобы создать маркер SAS, в приложениях рекомендуется использовать параметр [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey). При повторном создании ключей следует заменить параметр [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) старым первичным ключом. Затем нужно создать первичный ключ заново. Это позволит и дальше использовать для авторизации маркеры, содержащие как старый первичный ключ, так и тот, срок действия которого еще не истек.
+Рекомендуется периодически повторно создавать ключи, используемые в объекте [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Чтобы создать маркер SAS, в приложениях рекомендуется использовать параметр [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey). При повторном создании ключей следует заменить параметр [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) старым первичным ключом. Затем нужно создать первичный ключ заново. Это позволит и дальше использовать для авторизации маркеры, содержащие как старый первичный ключ, так и тот, срок действия которого еще не истек.
 
-В случае взлома, когда отзываются оба ключа, можно повторно создать ключи [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) и [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) в правиле [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), заменив ими старые. В результате этой процедуры все маркеры, подписанные старыми ключами, станут недействительными.
+В случае взлома, когда отзываются оба ключа, можно повторно создать ключи [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) и [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) в правиле [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), заменив ими старые. В результате этой процедуры все маркеры, подписанные старыми ключами, станут недействительными.
 
 ## <a name="how-to-use-shared-access-signature-authentication-with-service-bus"></a>Использование проверки подлинности подписанного URL-адреса в служебной шине
 
@@ -109,7 +129,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Чтобы создать объект [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) в пространстве имен служебной шины, выполните операцию POST в конечной точке с сериализацией информации о правиле в формат JSON или XML. Например:
+Чтобы создать объект [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) в пространстве имен служебной шины, выполните операцию POST в конечной точке с сериализацией информации о правиле в формат JSON или XML. Например:
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -144,13 +164,13 @@ var postResult = httpClient.PostAsJsonAsync("", sendRule).Result;
 
 Чтобы обновить или удалить определенное правило авторизации, используйте следующую конечную точку:
 
-```
+```http
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
 ```
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Доступ к правилам авторизации общего доступа в сущности
 
-Доступ к объекту [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), настроенному для очереди или раздела служебной шины, можно получить через коллекцию [AuthorizationRules](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.authorizationrules) в соответствующих объектах [QueueDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription) и [TopicDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription).
+Доступ к объекту [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), настроенному для очереди или раздела служебной шины, можно получить через коллекцию [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) в соответствующих объектах [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) и [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
 
 В следующем коде показано, как добавлять правила авторизации для очереди.
 
@@ -185,7 +205,7 @@ nsm.CreateQueue(qd);
 
 ## <a name="use-shared-access-signature-authorization"></a>Использование авторизации подписанного URL-адреса
 
-Приложения, использующие пакет Azure SDK для .NET с библиотеками служебной шины для .NET, могут использовать авторизацию SAS с помощью класса [SharedAccessSignatureTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . В следующем коде показано, как использовать поставщик маркеров, чтобы отправить сообщения в очередь служебной шины.
+Приложения, использующие пакет Azure SDK для .NET с библиотеками служебной шины для .NET, могут использовать авторизацию SAS с помощью класса [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . В следующем коде показано, как использовать поставщик маркеров, чтобы отправить сообщения в очередь служебной шины.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -202,7 +222,7 @@ sendClient.Send(helloMessage);
 
 Приложения также могут использовать SAS для проверки подлинности с помощью строки подключения SAS в методах, которые принимают строки подключения в качестве параметров.
 
-Обратите внимание, что для использования авторизации SAS с ретрансляторами служебной шины вы можете использовать ключи SAS, настроенные в пространстве имен служебной шины. Если вы явным образом создаете ретранслятор в объекте пространства имен ([NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) с [RelayDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.relaydescription)), вы можете задать правила SAS для этого ретранслятора. Чтобы выполнить авторизацию SAS с помощью подписок служебной шины, вы можете использовать ключи SAS, настроенные в пространстве имен или разделе служебной шины.
+Обратите внимание, что для использования авторизации SAS с ретрансляторами служебной шины вы можете использовать ключи SAS, настроенные в пространстве имен служебной шины. Если вы явным образом создаете ретранслятор в объекте пространства имен ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) с [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), вы можете задать правила SAS для этого ретранслятора. Чтобы выполнить авторизацию SAS с помощью подписок служебной шины, вы можете использовать ключи SAS, настроенные в пространстве имен или разделе служебной шины.
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>Использование подписанного URL-адреса (на уровне HTTP)
 
@@ -350,6 +370,6 @@ private bool PutCbsToken(Connection connection, string sasToken)
 [Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

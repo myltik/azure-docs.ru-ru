@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 79adce1f3fb9a33e60159af72e83118dd88e0946
-ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
+ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
+ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 
 
 ---
@@ -70,7 +70,7 @@ ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
 3. Настройте проверку подлинности следующим образом.
 
    * В разделе **Проверка подлинности и порты** выберите способ проверки подлинности сервера-источника и порты проверки подлинности. Если вы используете сертификат, нажмите кнопку **Выбрать сертификат** и укажите нужный сертификат. Если основные узлы и узлы восстановления Hyper-V находятся в одном домене или доверенных доменах, используйте Kerberos. Для разных доменов или для развертывания рабочей группы используйте сертификаты.
-   * В разделе **Авторизация и хранилище** разрешите отправку данных репликации на этот сервер-реплику для **любого** прошедшего проверку сервера (источника). 
+   * В разделе **Авторизация и хранилище** разрешите отправку данных репликации на этот сервер-реплику для **любого** прошедшего проверку сервера (источника).
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Запустите команду **netsh http show servicestate**, чтобы проверить выполнение прослушивателя для указанных протокола и порта.  
@@ -133,11 +133,9 @@ ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
 * [Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure](site-recovery-vmm-to-azure.md)
 * [Репликация виртуальных машин Hyper-V (без VMM) в Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Репликация виртуальных машин Hyper-V между сайтами VMM](site-recovery-vmm-to-vmm.md)
-* [Репликация виртуальных машин Hyper-V между сайтами VMM с использованием SAN](site-recovery-vmm-san.md)
-* [Репликация виртуальных машин Hyper-V на одном сервере VMM](site-recovery-single-vmm.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 325ef2cd13a090ad0ee0c09cc16c81d80672a70b
-ms.openlocfilehash: a170cca6b92e8278afe41f8876b9954df1e314e4
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: 74f94ad347b31e8c7848e1fd72692732431338b2
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: a170cca6b92e8278afe41f8876b9954df1e314e4
 > Портал Azure: см. дополнительные сведения о [создании баз данных с помощью портала Azure](sql-database-get-started.md).
 >
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
+## <a name="next-steps"></a>Дальнейшие действия
 * Обзор средств управления см. в статье [Обзор: средства управления для Базы данных SQL](sql-database-manage-overview.md).
 * Чтобы узнать, как выполнять задачи управления с использованием портала Azure, ознакомьтесь со статьей [Управление базами данных SQL Azure с помощью портала Azure](sql-database-manage-portal.md).
 * Чтобы узнать, как выполнять задачи управления с использованием PowerShell, ознакомьтесь со статьей [Управление базой данных SQL Azure с помощью PowerShell](sql-database-manage-powershell.md).
@@ -63,6 +63,6 @@ ms.openlocfilehash: a170cca6b92e8278afe41f8876b9954df1e314e4
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
