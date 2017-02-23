@@ -3,7 +3,7 @@ title: "Управление именами личных доменов в Azure
 description: "Основные принципы и указания по управлению личными доменами в Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: cf3523bd-9ee0-439e-963d-ccea038867b9

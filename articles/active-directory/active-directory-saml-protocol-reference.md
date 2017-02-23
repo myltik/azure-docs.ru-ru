@@ -37,6 +37,6 @@ Azure Active Directory предоставляет клиентские и общ
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 
