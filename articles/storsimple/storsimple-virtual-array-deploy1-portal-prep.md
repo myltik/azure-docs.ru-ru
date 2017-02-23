@@ -1,10 +1,10 @@
 ---
-title: "Развертывание виртуального массива Microsoft Azure StorSimple 1. Подготовка на портале | Документация Майкрософт"
+title: "Подготовка портала к использованию виртуального массива StorSimple | Документация Майкрософт"
 description: "Первое руководство по развертыванию виртуального массива StorSimple посвящено подготовке портала Azure"
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Развертывание виртуального массива StorSimple — подготовка портала
@@ -72,7 +72,7 @@ ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
 * Главная система должна быть в состоянии выделить указанный ниже объем ресурсов для подготовки виртуального массива.
   
   * Не менее 4 ядер.
-  * Не менее 8 ГБ ОЗУ.
+  * Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку 2 млн файлов. Для поддержки 2–4 млн файлов требуется 16 ГБ ОЗУ.
   * Один сетевой интерфейс.
   * Виртуальный диск размером 500 ГБ для системных данных.
 
@@ -172,6 +172,6 @@ ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

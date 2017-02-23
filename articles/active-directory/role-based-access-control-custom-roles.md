@@ -1,10 +1,10 @@
 ---
-title: "Настраиваемые роли в Azure RBAC | Документация Майкрософт"
+title: "Создание настраиваемых ролей для Azure RBAC | Документация Майкрософт"
 description: "Узнайте, как c помощью управления доступом на основе ролей Azure задавать пользовательские роли для более точного управления удостоверениями в подписке Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: kgremban
+manager: femila
 editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
+ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
 
 
 ---
@@ -54,9 +54,10 @@ ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
 }
 ```
 ## <a name="actions"></a>Действия
-Свойство **Действия** пользовательской роли определяет операции Azure, к которым эта роль предоставляет доступ. Это коллекция строк операций, которые определяют защищенные действия поставщиков ресурсов Azure. Строки операций, содержащие подстановочные знаки (\*), предоставляют доступ ко всем операциям, которые соответствуют определенной строке операции. например
+Свойство **Действия** пользовательской роли определяет операции Azure, к которым эта роль предоставляет доступ. Это коллекция строк операций, которые определяют защищенные действия поставщиков ресурсов Azure. Строки операций используют формат `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Строки операций, содержащие подстановочные знаки (\*), предоставляют доступ ко всем операциям, которые соответствуют определенной строке операции. например
 
 * `*/read` предоставляет доступ к операциям чтения для всех типов ресурсов для всех поставщиков ресурсов Azure;
+* `Microsoft.Compute/*` предоставляет доступ ко всем операциям для всех типов ресурсов в поставщике ресурсов Microsoft.Compute.
 * `Microsoft.Network/*/read` предоставляет доступ к операциям чтения для всех типов ресурсов для поставщика ресурсов Microsoft.Network;
 * `Microsoft.Compute/virtualMachines/*` предоставляет доступ ко всем операциям виртуальных машин и их вложенных типов ресурсов;
 * строка `Microsoft.Web/sites/restart/Action` предоставляет доступ к перезапуску веб-сайтов.
@@ -69,7 +70,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Снимок экрана PowerShell: Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![Снимок экрана PowerShell: Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -84,8 +85,8 @@ azure provider operations show "Microsoft.Network/*"
 
 > [!NOTE]
 > Пользователю одновременно могут быть назначены две роли: первая исключает определенную операцию с помощью свойства **NotActions**, а вторая предоставляет доступ к этой же операции. В таком случае пользователь имеет право на выполнение этой операции. Свойство **NotActions** не является запрещающим правилом. Это удобный способ создания набора допустимых операций путем исключения некоторых операций.
-> 
-> 
+>
+>
 
 ## <a name="assignablescopes"></a>AssignableScopes
 Свойство настраиваемой роли **AssignableScopes** определяет области (подписки, группы ресурсов или ресурсы), в которых эта настраиваемая роль доступна для назначения. Вы можете разрешить использование пользовательской роли только в тех подписках или группах ресурсов, в которых она действительно нужна. В остальных подписках и группах ресурсов она просто не будет отображаться, чтобы не отвлекать пользователей.
@@ -98,8 +99,8 @@ azure provider operations show "Microsoft.Network/*"
 
 > [!NOTE]
 > Необходимо использовать по крайней мере одну подписку, группу ресурсов или идентификатор ресурса.
-> 
-> 
+>
+>
 
 ## <a name="custom-roles-access-control"></a>Контроль доступа к пользовательским ролям
 Свойство **AssignableScopes** пользовательской роли также определяет пользователей с правом просматривать, изменять и удалять эту роль.
@@ -122,7 +123,6 @@ azure provider operations show "Microsoft.Network/*"
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

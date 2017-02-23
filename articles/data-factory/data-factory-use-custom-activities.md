@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 691fd286fa41f26f192354574c460bd88d9c2bce
-ms.openlocfilehash: 1222f736a71f38611ae72a2591bfdc893d91eb6e
+ms.sourcegitcommit: b8a54b6ca0b13c161a35595af7f09e6c5ab203c0
+ms.openlocfilehash: 21190b985860a79e4bebf7bf4845e5954c657b9f
 
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Использование настраиваемых действий в конвейере фабрики данных Azure
 
-> [!div class="op_single_selector"]
+> [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive](data-factory-hive-activity.md) 
 > * [Pig](data-factory-pig-activity.md)
 > * [MapReduce](data-factory-map-reduce.md)
@@ -31,27 +31,21 @@ ms.openlocfilehash: 1222f736a71f38611ae72a2591bfdc893d91eb6e
 > * [Хранимая процедура](data-factory-stored-proc-activity.md)
 > * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
 > * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
->
 
 
 Существует два типа действий, которые можно использовать в конвейере фабрики данных Azure.
 
-* [Действия перемещения данных](data-factory-data-movement-activities.md) для перемещения данных между [поддерживаемыми хранилищами данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-* [Действия преобразования данных](data-factory-data-transformation-activities.md) для преобразования и обработки данных с помощью вычислений, например: в Azure HDInsight, пакетной службе Azure и машинном обучении Azure. Например: HDInsight Hive и выполнение пакетной службы машинного обучения.  
+- [Действия перемещения данных](data-factory-data-movement-activities.md) для перемещения данных между [поддерживаемыми исходными хранилищами данных и хранилищами данных-приемниками](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- [Действия преобразования данных](data-factory-data-transformation-activities.md) для преобразования данных с помощью служб вычислений, например: в Azure HDInsight, пакетной службе Azure и Машинном обучении Azure. 
 
-Если необходимо переместить данные из хранилища данных, не поддерживаемого фабрикой данных Azure, или в такое хранилище, можно создать пользовательское действие .NET с собственной логикой перемещения данных и использовать это действие в конвейере.
+Чтобы переместить данные из хранилища данных, которое не поддерживает фабрика данных Azure, или в такое хранилище, можно создать **пользовательское действие** с собственной логикой перемещения данных и использовать это действие в конвейере. Аналогично, чтобы преобразовать или обработать данные способом, который не поддерживается фабрикой данных Azure, создайте пользовательское действие с собственной логикой преобразования данных и используйте это действие в конвейере. 
 
-Аналогично, если вам нужно преобразовать или обработать данные способом, который не поддерживается фабрикой данных Azure, можно создать пользовательское действие с собственной логикой обработки данных и использовать это действие в конвейере.
+Вы можете настроить запуск пользовательского действия в пуле виртуальных машин **пакетной службы Azure** или в кластере **Azure HDInsight**. При использовании пакетной службы Azure можно использовать только имеющийся пул пакетной службы Azure. А при использовании HDInsight можно применить имеющийся кластер HDInsight или кластер, который автоматически создается для вас по запросу в среде выполнения.  
+
+В следующем руководстве содержатся пошаговые инструкции по созданию пользовательского действия .NET и его использованию в конвейере. В этом пошаговом руководстве используется связанная **пакетная служба Azure**. Чтобы вместо нее использовалась связанная служба Azure HDInsight, создайте связанную службу типа **HDInsight** (ваш кластер HDInsight) или **HDInsightOnDemand** (фабрика данных создает кластер HDInsight по запросу). Затем настройте пользовательское действие для использования связанной службы HDInsight. Дополнительные сведения об использовании Azure HDInsight для выполнения пользовательского действия приведены в разделе [Использование связанных служб Azure HDInsight](#use-hdinsight-compute-service) .
 
 > [!NOTE]
-> В настоящее время шлюз управления данными поддерживает действие копирования и действие хранимой процедуры только в фабрике данных. Невозможно использовать шлюз из настраиваемого действия для доступа к локальным источникам данных.
-
-Можно настроить запуск настраиваемого действия .NET с помощью **пакетной службы Azure** или **кластера Azure HDInsight**.   
-
-В следующем руководстве содержатся пошаговые инструкции по созданию пользовательского действия .NET и его использованию в конвейере. В этом пошаговом руководстве используется связанная **пакетная служба Azure** . Чтобы использовать вместо нее пакетную службу Azure HDInsight, создайте связанную службу типа **HDInsight** (если вы используете собственный кластер HDInsight) или **HDInsightOnDemand** (если хотите создать кластер HDInsight по запросу с помощью фабрики данных), а затем используйте ее в разделе activity определения JSON конвейера (**linkedServiceName**). Дополнительные сведения об использовании Azure HDInsight для выполнения пользовательского действия приведены в разделе [Использование связанных служб Azure HDInsight](#use-azure-hdinsight-linked-services) .
-
-> [!IMPORTANT]
-> Задайте версию 4.5.2 платформы .NET Framework в качестве целевой для своего проекта настраиваемого действия в Visual Studio. Фабрика данных не поддерживает настраиваемые действия, скомпилированные для более поздних версий, чем .NET Framework 4.5.2.   
+> Невозможно использовать шлюз управления данными из пользовательского действия для доступа к локальным источникам данных. В настоящее время [шлюз управления данными](data-factory-data-management-gateway.md) поддерживает действие копирования и действие хранимой процедуры только в фабрике данных.   
 
 ## <a name="walkthrough"></a>Пошаговое руководство
 ### <a name="prerequisites"></a>Предварительные требования
@@ -59,13 +53,15 @@ ms.openlocfilehash: 1222f736a71f38611ae72a2591bfdc893d91eb6e
 * Скачанный и установленный [пакет SDK для Azure .NET][azure-developer-center]
 
 ### <a name="azure-batch-prerequisites"></a>Предварительные требования для пакетной службы Azure
-В этом руководстве вы запустите свои настраиваемые действия .NET с помощью пакетной службы Azure как вычислительные ресурсы. В статье [Основные сведения о пакетной службе Azure][batch-technical-overview] представлен обзор пакетной службы Azure, а статья [Начало работы с библиотекой Пакетной службы Azure для .NET][batch-get-started] поможет быстро приступить к работе с пакетной службой Azure.
+В этом руководстве вы запустите свои настраиваемые действия .NET с помощью пакетной службы Azure как вычислительные ресурсы. **Пакетная служба Azure** — это служба платформы, которая позволяет эффективно работать с приложениями для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. Пакетная служба Azure планирует запуск ресурсоемких вычислительных задач в управляемой **коллекции виртуальных машин** и автоматически масштабирует вычислительные ресурсы, учитывая требования заданий. Подробные сведения о пакетной службе Azure см. в [этой статье][batch-technical-overview].
 
-Для этого руководства вам понадобится создать учетную запись пакетной службы Azure с пулом виртуальных машин. Для этого выполните следующие действия:
+Для этого руководства создайте учетную запись пакетной службы Azure с пулом виртуальных машин. Для этого выполните следующие действия:
 
-1. Создание **учетной записи пакетной службы Azure** на [портале Azure](http://manage.windowsazure.com). Инструкции см. в статье [Создание учетной записи пакетной службы Azure на портале Azure][batch-create-account]. Запишите ключ и имя учетной записи Пакетной службы Azure.
-
-    Для создания учетной записи пакетной службы Azure можно также воспользоваться командлетом [New-AzureBatchAccount][new-azure-batch-account]. Подробные инструкции по использованию этого командлета см. в записи блога [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] (Использование Azure PowerShell для управления учетной записью Пакетной службы Azure).
+1. Создание **учетной записи пакетной службы Azure** на [портале Azure](http://portal.azure.com). Инструкции см. в статье [Создание учетной записи пакетной службы Azure на портале Azure][batch-create-account].
+2. Запишите ключ и имя учетной записи пакетной службы Azure, а также URI и имя пула. Они понадобятся при создании связанной службы пакетной службы Azure.
+    1. На домашней странице учетной записи пакетной службы Azure отображается **URL-адрес** в следующем формате: **https://myaccount.westus.batch.azure.com**. В этом примере **myaccount** — это имя учетной записи пакетной службы Azure. URI, используемый в определении связанной службы — это URL-адрес без имени учетной записи. Пример: **https://westus.batch.azure.com**.
+    2. В меню слева щелкните **Ключи** и скопируйте значение параметра **Первичный ключ доступа**.
+    3. Чтобы использовать имеющийся пул, щелкните **Пулы** в меню и запишите **идентификатор** пула. Если у вас нет пула, перейдите к следующему шагу.     
 2. Создайте **пул пакетной службы Azure**.
 
    1. На [портале Azure](https://portal.azure.com) щелкните **Обзор** в меню слева и выберите **Уч. записи пакетной службы**.
@@ -78,27 +74,17 @@ ms.openlocfilehash: 1222f736a71f38611ae72a2591bfdc893d91eb6e
       4. Для параметра **Выделенный целевой объект** укажите значение **2**.
       5. Для параметра **Максимальное число заданий на узел** укажите значение **2**.
    5. Нажмите кнопку **ОК** , чтобы создать пул.
+   6. Запишите **идентификатор** пула. 
 
-      Для создания пула Пакетной службы Azure можно также воспользоваться командлетом [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) .     
+
 
 ### <a name="high-level-steps"></a>Пошаговые действия
-1. **Создайте настраиваемое действие** для использования конвейера фабрики данных. Настраиваемое действие в этом примере будет содержать логику преобразования и обработки данных.
-   1. В Visual Studio создайте проект библиотеки классов .NET, добавьте код для обработки входных данных и скомпилируйте проект.    
-   2. Запакуйте все двоичные файлы и PDB-файл (необязательно) в ZIP-архив в выходной папке.    
-   3. Отправьте ZIP-файл в хранилище BLOB-объектов Azure. Подробные указания см. в разделе «Создание пользовательского действия».
-2. **Создайте фабрику данных Azure, которая использует пользовательское действие**:
-   1. Создание фабрики данных Azure.
-   2. создание связанных служб.
-      1. AzureStorageLinkedService — предоставляет учетные данные хранилища для доступа к большим двоичным объектам.
-      2. AzureBatchLinkedService — указывает пакетную службу Azure в качестве вычислительного ресурса.
-   3. Создайте наборы данных.
-      1. InputDataset — определяет контейнер хранилища и папку для входных больших двоичных объектов.
-      2. OuputDataset — определяет контейнер хранилища и папку для выходных больших двоичных объектов.
-   4. Создайте конвейер, который использует пользовательское действие.
-   5. Запустите и протестируйте конвейер.
-   6. Выполните отладку конвейера.
+Ниже приведены два высокоуровневых шага, выполняемые в рамках этого пошагового руководства. 
 
-## <a name="create-the-custom-activity"></a>Создание пользовательского действия
+1. Создайте пользовательское действие, содержащее простую логику преобразования и обработки данных.
+2. Создайте фабрику данных Azure с конвейером, использующим пользовательское действие.
+
+## <a name="create-a-custom-activity"></a>Создать настраиваемое действие.
 Чтобы создать настраиваемое действие .NET, создайте проект **библиотеки классов .NET** с классом, который реализует интерфейс **IDotNetActivity**. У этого интерфейса есть только один метод [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) , и его сигнатура такова.
 
 ```csharp
@@ -112,10 +98,10 @@ public IDictionary<string, string> Execute(
 
 Метод принимает четыре параметра:
 
-* **linkedServices** — это перечисляемый список связанных служб, которые связывают источники входных и выходных данных (например, хранилище BLOB-объектов Azure) с фабрикой данных. В этом примере присутствует только одна связанная служба (служба хранилища Azure), которая используется для входных и выходных данных.
-* **наборы данных**. Это свойство является перечисляемым списком наборов данных. Этот параметр можно использовать для получения расположений и схем, которые определяются входными и выходными наборами данных.
-* **activity** — Это свойство представляет текущую вычислительную сущность, в данном случае пакетную службу Azure.
-* **logger** — это объект, который позволяет записывать комментарии отладки, которые отображаются в виде пользовательского журнала для конвейера.
+- **linkedServices** — Это свойство является перечисляемым списком связанных служб хранилища данных, на которые ссылаются входные и выходные наборы данных для действия.   
+- **наборы данных**. Это свойство является перечисляемым списком входных и выходных наборов данных для действия. Этот параметр можно использовать для получения расположений и схем, которые определяются входными и выходными наборами данных.
+- **activity** — Это свойство представляет текущее действие. Его можно использовать для доступа к расширенным свойствам, связанным с пользовательским действием. Дополнительные сведения см. в разделе [Доступ к расширенным свойствам](#access-extended-properties).
+- **logger** — Этот объект позволяет записывать комментарии отладки, которые отображаются в виде пользовательского журнала для конвейера.
 
 Этот метод возвращает словарь, который можно будет использовать для создания цепочки из настраиваемых действий в будущем. Эта функция еще не реализована, поэтому из метода просто возвращается пустой словарь.  
 
@@ -142,7 +128,7 @@ public IDictionary<string, string> Execute(
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Средство запуска службы фабрики данных требует пакет WindowsAzure.Storage версии 4.3. Если добавить ссылку в проекте настраиваемого действия в сборку службы хранилища Azure более поздней версии, при выполнении действия возникнет ошибка. Чтобы устранить ее, см. раздел [Изоляция домена приложения](#appdomain-isolation). 
 5. Добавьте следующие инструкции с **using** в исходный файл в проекте.
 
@@ -184,11 +170,13 @@ public IDictionary<string, string> Execute(
         Activity activity,
         IActivityLogger logger)
     {
-        // to get extended properties (for example: SliceStart)
+        // get extended properties defined in activity JSON definition
+        // (for example: SliceStart)
         DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
         string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
     
-        // to log all extended properties            
+        // to log information, use the logger object
+        // log all extended properties            
         IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
         logger.Write("Logging extended properties if any...");
         foreach (KeyValuePair<string, string> entry in extendedProperties)
@@ -196,19 +184,26 @@ public IDictionary<string, string> Execute(
             logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
         }
     
-        // declare types for input and output data stores
+        // linked service for input and output data stores
+        // in this example, same storage is used for both input/output
         AzureStorageLinkedService inputLinkedService;
-    
-        // declare dataset types
-        CustomDataset inputLocation;
-        AzureBlobDataset outputLocation;
-    
+
+        // get the input dataset
         Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-        inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
     
+        // declare variables to hold type properties of input/output datasets
+        AzureBlobDataset inputTypeProperties, outputTypeProperties;
+        
+        // get type properties from the dataset object
+        inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
+    
+        // log linked services passed in linkedServices parameter
+        // you will see two linked services of type: AzureStorage
+        // one for input dataset and the other for output dataset 
         foreach (LinkedService ls in linkedServices)
             logger.Write("linkedService.Name {0}", ls.Name);
     
+        // get the first Azure Storate linked service from linkedServices object
         // using First method instead of Single since we are using the same
         // Azure Storage linked service for input and output.
         inputLinkedService = linkedServices.First(
@@ -217,9 +212,10 @@ public IDictionary<string, string> Execute(
             inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
             as AzureStorageLinkedService;
     
+        // get the connection string in the linked service
         string connectionString = inputLinkedService.ConnectionString;
     
-        // To create an input storage client.
+        // get the folder path from the input dataset definition
         string folderPath = GetFolderPath(inputDataset);
         string output = string.Empty; // for use later.
     
@@ -249,11 +245,14 @@ public IDictionary<string, string> Execute(
     
         // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
         Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-        // convert to blob location object.
-        outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
+
+        // get type properties for the output dataset
+        outputTypeProperties = outputDataset.Properties.TypeProperties as AzureBlobDataset;
     
+        // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
-    
+
+        // log the output folder path   
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -261,7 +260,9 @@ public IDictionary<string, string> Execute(
         // write the name of the file.
         Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
     
+        // log the output file name
         logger.Write("output blob URI: {0}", outputBlobUri.ToString());
+
         // create a blob and upload the output text.
         CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
         logger.Write("Writing {0} to the output blob", output);
@@ -273,7 +274,7 @@ public IDictionary<string, string> Execute(
         return new Dictionary<string, string>();
     }
     ```
-9. Добавьте следующие вспомогательные методы. Эти вспомогательные методы вызывает метод **Execute** . Метод **GetConnectionString** извлекает строку подключения к службе хранилища Azure, а **GetFolderPath** — расположение большого двоичного объекта. Самое главное, метод **Calculate** изолирует код, который выполняет итерацию каждого большого двоичного объекта.
+9. Добавьте следующие вспомогательные методы. 
 
     ```csharp
     /// <summary>
@@ -286,13 +287,15 @@ public IDictionary<string, string> Execute(
         {
             return null;
         }
-    
+
+        // get type properties of the dataset   
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
     
+        // return the folder path found in the type properties
         return blobDataset.FolderPath;
     }
     
@@ -307,12 +310,14 @@ public IDictionary<string, string> Execute(
             return null;
         }
     
+        // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
     
+        // return the blob/file name in the type properties
         return blobDataset.FileName;
     }
     
@@ -363,97 +368,25 @@ public IDictionary<string, string> Execute(
     > Задайте версию 4.5.2 платформы .NET Framework в качестве целевой для своего проекта: щелкните правой кнопкой мыши проект и выберите **Свойства**, чтобы задать целевую платформу. Фабрика данных не поддерживает настраиваемые действия, скомпилированные для более поздних версий, чем .NET Framework 4.5.2.
 
 11. Запустите **проводник Windows** и перейдите к папке **bin\debug** или **bin\release** в зависимости от типа сборки.
-12. Создайте ZIP-файл **MyDotNetActivity.zip**, который содержит все двоичные файлы из папки <project folder>\bin\Debug. Кроме того, можно добавить файл **MyDotNetActivity.pdb** , чтобы в случае сбоя получить дополнительные сведения, например номер строки в исходном коде, вызвавшем ошибку. Все файлы в ZIP-файле для настраиваемого действия должны размещаться на **верхнем уровне** без вложенных папок.
+12. Создайте ZIP-файл **MyDotNetActivity.zip**, который содержит все двоичные файлы из папки <project folder>\bin\Debug. Добавьте файл **MyDotNetActivity.pdb**, чтобы в случае сбоя получить дополнительные сведения, например номер строки в исходном коде, вызвавшем ошибку. 
+
+    > [!IMPORTANT]
+    > Все файлы в ZIP-файле для настраиваемого действия должны размещаться на **верхнем уровне** без вложенных папок.
 
     ![Двоичные выходные файлы](./media/data-factory-use-custom-activities/Binaries.png)
-13. Отправьте архив **MyDotNetActivity.zip** в качестве большого двоичного объекта в контейнер больших двоичных объектов **customactvitycontainer** в хранилище BLOB-объектов Azure, которое используется связанной службой **AzureStorageLinkedService** в **ADFTutorialDataFactory**.  Создайте контейнер больших двоичных объектов **customactivitycontainer** , если он еще не создан.
+14. Создайте контейнер больших двоичных объектов **customactivitycontainer**, если он еще не создан.
+15. Отправьте файл MyDotNetActivity.zip в виде большого двоичного объекта в контейнер customactivitycontainer в хранилище BLOB-объектов Azure **общего назначения** (не в "горячее" или "холодное" хранилище BLOB-объектов), на которое ссылается служба AzureStorageLinkedService.  
 
 > [!NOTE]
-> Если добавить этот проект действия .NET в решение в Visual Studio, содержащее проект фабрики данных, и добавить ссылку в проект действия .NET из проекта приложения фабрики данных, то необязательно выполнять два последних шага по созданию ZIP-файла и его добавлению в хранилище BLOB-объектов Azure. При публикации сущностей фабрики данных с помощью Visual Studio эти шаги выполняются автоматически в процессе публикации. Сведения о создании и публикации сущностей фабрики данных с помощью Visual Studio см. в статьях [Создание первого конвейера с помощью Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) и [Копирование данных из большого двоичного объекта Azure в SQL Azure](data-factory-copy-activity-tutorial-using-visual-studio.md).  
->
->
+> Если добавить этот проект действия .NET в решение в Visual Studio, содержащее проект фабрики данных, и добавить ссылку в проект действия .NET из проекта приложения фабрики данных, то не обязательно выполнять два последних шага по созданию ZIP-файла и его добавлению в хранилище BLOB-объектов Azure общего назначения. При публикации сущностей фабрики данных с помощью Visual Studio эти шаги выполняются автоматически в процессе публикации. Сведения о создании и публикации сущностей фабрики данных с помощью Visual Studio см. в статьях [Создание первого конвейера с помощью Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) и [Копирование данных из большого двоичного объекта Azure в SQL Azure](data-factory-copy-activity-tutorial-using-visual-studio.md).  
 
-### <a name="execute-method"></a>Метод Execute
-В этом разделе содержатся дополнительные сведения и примечания о коде в методе **Execute** .
 
-1. Элементы для выполнения итерации входной коллекции находятся в пространстве имен [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). Для итерации коллекции больших двоичных объектов необходимо использовать класс **BlobContinuationToken**. В сущности, необходимо использовать цикл do-while и маркер в качестве механизма для выхода из цикла. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md). Базовый цикл выглядит так:
+## <a name="create-a-data-factory"></a>Создание фабрики данных 
+Вы создали пользовательское действие и отправили ZIP-файл с двоичными файлами в контейнер больших двоичных объектов в учетной записи хранения Azure **общего назначения**. В этом разделе вы создадите фабрику данных Azure с конвейером, использующим пользовательское действие.
 
-    ```csharp
-    // Initialize the continuation token.
-    BlobContinuationToken continuationToken = null;
-    do
-    {   
-        // Get the list of input blobs from the input storage client object.
-        BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-            true,
-            BlobListingDetails.Metadata,
-            null,
-            continuationToken,
-            null,
-            null);
-        // Return a string derived from parsing each blob.
-        output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-    } while (continuationToken != null);
-    ```
+Входной набор данных для пользовательского действия представляет собой большие двоичные объекты (файлы) в папке customactivityinput контейнера adftutorial в хранилище BLOB-объектов. Выходной набор данных для пользовательского действия представляет собой выходные большие двоичные объекты в папке customactivityoutput контейнера adftutorial в хранилище BLOB-объектов.
 
-    Дополнительные сведения см. в документации по методу [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
-2. Код для работы с набором больших двоичных объектов логически находится в цикле do-while. В методе **Execute** цикл do-while передает список больших двоичных объектов в метод **Calculate**. Этот метод возвращает строковую переменную с именем **output** , которая является результатом итерации всех больших двоичных объектов в сегменте.
-
-   Он возвращает число вхождений условия поиска (**Microsoft**) в большом двоичном объекте, переданном в метод **Calculate**.
-
-    ```csharp
-    output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-    ```
-3. После завершения работы метода **Calculate** его результаты записываются в новый большой двоичный объект. Следовательно, для каждого обработанного набора больших двоичных объектов можно записать новый большой двоичный объект с результатами. Чтобы записать новый большой двоичный объект, сначала найдите выходной набор данных.
-    
-    ```csharp
-    // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-    Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-    
-    // Convert to blob location object.
-    outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-    ```
-4. Код также вызывает вспомогательный метод **GetFolderPath** , чтобы получить путь к папке (имя контейнера хранилища).
-
-    ```csharp
-    folderPath = GetFolderPath(outputDataset);
-    ```
-
-   Метод **GetFolderPath** приводит объект DataSet к AzureBlobDataSet со свойством FolderPath.
-
-    ```csharp
-    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-    
-    return blobDataset.FolderPath;
-    ```
-5. Код вызывает метод **GetFileName** , чтобы получить имя файла (имя большого двоичного объекта).  
-
-    ```csharp
-    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-    
-    return blobDataset.FileName;
-    ```
-6. Чтобы записать имя файла, создается объект универсального кода ресурса (URI). Для возврата имени контейнера в конструкторе URI используется свойство **BlobEndpoint** . Для создания URI выходного большого двоичного объекта сочетаются путь к папке и имя файла.  
-
-    ```csharp
-    // Write the name of the file.
-    Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-    ```
-7. Имя файла записано, и теперь можно записать выводимую строку из метода Calculate в новый большой двоичный объект:
-
-    ```csharp
-    // Create a blob and upload the output text.
-    CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-    logger.Write("Writing {0} to the output blob", output);
-    outputBlob.UploadText(output);
-    ```
-
-## <a name="create-the-data-factory-using-azure-portal"></a>Создание фабрики данных с помощью портала Azure
-В разделе **Создание настраиваемого действия** вы создали настраиваемое действие и отправили ZIP-файл с двоичными файлами и PDB-файлом в контейнер больших двоичных объектов Azure. В этом разделе вы создадите **фабрику данных** Azure с **конвейером**, использующим **настраиваемое действие**.
-
-Входной набор данных для настраиваемого действия представляет собой большие двоичные объекты (файлы) во входной папке (adftutorial\inputfolder) в хранилище BLOB-объектов. Выходной набор данных для настраиваемого действия представляет собой выходные большие двоичные объекты в выходной папке (adftutorial\outputfolder) в хранилище BLOB-объектов.
-
-Создайте файл **file.txt** со следующим содержимым и отправьте его в папку **adftutorial\inputfolder** (adftutorial — имя контейнера больших двоичных объектов Azure, а inputfolder — имя папки в этом контейнере).
+Создайте файл **file.txt** со следующим содержимым, а затем отправьте его в папку **customactivityinput** контейнера **adftutorial**. Если контейнер adftutorial еще не существует, создайте его. 
 
 ```
 test custom activity Microsoft test custom activity Microsoft
@@ -461,25 +394,22 @@ test custom activity Microsoft test custom activity Microsoft
 
 Входная папка соответствует одному срезу в фабрике данных Azure, даже если она содержит два файла или более. При обработке каждого среза конвейером пользовательское действие выполняет итерацию всех больших двоичных объектов во входной папке для этого среза.
 
-В папке adftutorial\output отображается один выходной файл с одной или несколькими строками (соответствует количеству больших двоичных объектов во входной папке).
+В папке adftutorial\customactivityoutput отображается один выходной файл с одной или несколькими строками (соответствует количеству больших двоичных объектов во входной папке):
 
 ```
-2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
 ```
 
 
 Ниже приведены шаги, подробно описанные далее в этом разделе.
 
 1. Создание **фабрики данных**.
-2. **Связанные службы** для пула виртуальных машин пакетной службы Azure, в котором выполняется настраиваемое действие, а также служба хранилища Azure, содержащая входные и выходные большие двоичные объекты.
-3. Входные и выходные **наборы данных** , которые представляют собой входные и выходные данные настраиваемого действия.
-4. **Конвейер** , который использует настраиваемое действие.
-5. **Фабрика данных**. Вы создадите его при публикации этих сущностей в Azure.
+2. Создание **связанных служб** для пула виртуальных машин пакетной службы Azure, в котором выполняется пользовательское действие, а также экземпляр службы хранилища Azure, содержащей входные и выходные большие двоичные объекты.
+3. Создание входных и выходных **наборов данных**, которые представляют собой входные и выходные данные пользовательского действия.
+4. Создание **конвейера**, который использует пользовательское действие.
 
 > [!NOTE]
-> Создайте файл **file.txt** и передайте его в контейнер больших двоичных объектов, если еще не сделали это. См. инструкции выше.  
->
->
+> Создайте файл **file.txt** и передайте его в контейнер больших двоичных объектов, если еще не сделали это. Инструкции см. в предыдущем разделе.   
 
 ### <a name="step-1-create-the-data-factory"></a>Шаг 1. Создание фабрики данных
 1. Войдите на портал Azure и выполните следующие действия:
@@ -500,7 +430,7 @@ test custom activity Microsoft test custom activity Microsoft
 1. В колонке **Фабрика данных** для **CustomActivityFactory** щелкните элемент **Создание и развертывание**. Отобразится редактор фабрики данных.
 2. На панели команд щелкните **Создание хранилища данных** и выберите **Служба хранилища Azure**. В редакторе отобразится сценарий JSON для создания связанной службы хранилища Azure.
 
-3. Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к ней. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-account).
+3. Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к ней. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
 4. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
@@ -511,7 +441,7 @@ test custom activity Microsoft test custom activity Microsoft
    1. В свойстве **accountName** укажите имя учетной записи пакетной службы Azure. **URL-адрес** из **колонки учетной записи пакетной службы Azure** имеет следующий формат: http://**имя_учетной_записи**.<регион>.batch.azure.com. В свойстве **batchUri** в JSON требуется **удалить заполнитель accountname** из URL-адреса и указать **accountname** в свойстве JSON **accountName**.
    2. В свойстве **accessKey** укажите ключ учетной записи пакетной службы Azure.
    3. В свойстве **poolName** укажите имя пула, созданного при выполнении предварительных требований. Вместо имени пула также можно указать идентификатор пула.
-   4. В свойстве **batchUri** укажите универсальный код ресурса (URI) пакетной службы Azure. Ознакомьтесь с примечаниями о свойстве **accountName** выше. Пример: https://westus.batch.azure.com.  
+   4. В свойстве **batchUri** укажите универсальный код ресурса (URI) пакетной службы Azure. Пример: https://westus.batch.azure.com.  
    5. Для свойства **AzureStorageLinkedService** for the **linkedServiceName** укажите имя учетной записи пакетной службы Azure.
 
         ```JSON
@@ -532,10 +462,9 @@ test custom activity Microsoft test custom activity Microsoft
 
        Для свойства **poolName** можно также указать идентификатор пула вместо его имени.
 
-      > [!NOTE]
-      > Служба фабрики данных не поддерживает параметр по требованию для пакетной службы Azure, как для HDInsight. Пул пакетной службы Azure можно использовать только в фабрике данных Azure.
-      >
-      >
+      > [!IMPORTANT]
+      > Служба фабрики данных не поддерживает параметр по требованию для пакетной службы Azure, как для HDInsight. Пул пакетной службы Azure можно использовать только в фабрике данных Azure.   
+    
 
 ### <a name="step-3-create-datasets"></a>Шаг 3. Создание наборов данных
 На этом шаге вы создадите наборы данных, которые представляют входные и выходные данные.
@@ -566,7 +495,7 @@ test custom activity Microsoft test custom activity Microsoft
     }
     ```
 
-   Позже в этом пошаговом руководстве вы создадите конвейер со временем начала 2015-11-16T00:00:00Z и временем окончания 2015-11-16T05:00:00Z. Данные будут создаваться почасово, поэтому мы получим 5 входных и выходных срезов (между **00**:00:00 -> **05**:00:00).
+   Позже в этом пошаговом руководстве вы создадите конвейер со временем начала 2016-11-16T00:00:00Z и временем окончания 2016-11-16T05:00:00Z. Данные будут создаваться почасово, поэтому мы получим пять входных и выходных срезов (от **00**:00:00 до **05**:00:00).
 
    Для параметров **frequency** и **interval** входного набора данных установлены значения **Hour** и **1**. Это означает, что входной срез данных будет создаваться каждый час. В этом примере используется тот же файл (file.txt) в папке intputfolder.
 
@@ -611,18 +540,18 @@ test custom activity Microsoft test custom activity Microsoft
 
    | Срез | Время начала | Выходной файл |
    |:--- |:--- |:--- |
-   | 1 |2015-11-16T00:00:00 |2015-11-16-00.txt |
-   | 2 |2015-11-16T01:00:00 |2015-11-16-01.txt |
-   | 3 |2015-11-16T02:00:00 |2015-11-16-02.txt |
-   | 4 |2015-11-16T03:00:00 |2015-11-16-03.txt |
-   | 5 |2015-11-16T04:00:00 |2015-11-16-04.txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Помните, что все файлы во входной папке являются частью среза со значениями времени начала, указанными выше. Во время обработки этого среза пользовательское действие сканирует каждый файл и создает строку в выходном файле с количеством вхождений условия поиска (Microsoft). Если в папке inputfolder находятся три файла, в выходном файле будут содержаться три строки для каждого почасового среза: 2015-11-16-00.txt, 2015-11-16:01:00:00.txt и т. д.
+    Помните, что все файлы во входной папке являются частью среза со значениями времени начала, указанными выше. Во время обработки этого среза пользовательское действие сканирует каждый файл и создает строку в выходном файле с количеством вхождений условия поиска (Microsoft). Если в папке inputfolder находятся три файла, в выходном файле будут содержаться три строки для каждого почасового среза: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt и т. д.
 3. На панели команд нажмите кнопку **Развернуть**, чтобы развернуть **OutputDataset**.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Создание и запуск конвейера, который использует настраиваемое действие
 1. В редакторе фабрики данных, нажмите кнопку **Создать конвейер** на панели команд. Если команда не отображается, нажмите кнопку **... (многоточие)**, чтобы отобразить ее.
-2. Замените сценарий JSON в правой области на следующий:
+2. Замените сценарий JSON в правой области приведенным ниже.
 
     ```JSON
     {
@@ -662,8 +591,8 @@ test custom activity Microsoft test custom activity Microsoft
             }
           }
         ],
-        "start": "2015-11-16T00:00:00Z",
-        "end": "2015-11-16T05:00:00Z",
+        "start": "2016-11-16T00:00:00Z",
+        "end": "2016-11-16T05:00:00Z",
         "isPaused": false
       }
     }
@@ -681,7 +610,7 @@ test custom activity Microsoft test custom activity Microsoft
    * Свойство linkedServiceNam настраиваемого действия указывает на свойство **AzureBatchLinkedService**, которое сообщает фабрике данных Azure, что необходимо запустить настраиваемое действие на виртуальных машинах пакетной службы Azure.
    * Для свойства **isPaused** по умолчанию установлено значение **false**. В этом примере конвейер запускается незамедлительно, потому что срезы приходятся на прошлое. Для этого свойства можно задать значение true, чтобы приостановить работу конвейера. Чтобы перезапустить его, нужно снова установить значение false.
    * Разница между временем **начала** и временем **окончания** составляет **пять** часов, а срезы создаются каждый час. Таким образом конвейер создает пять срезов.
-3. Чтобы развернуть конвейер, нажмите кнопку **Развернуть** на панели команд.
+3. Чтобы развернуть конвейер, на панели команд нажмите кнопку **Развернуть**.
 
 ### <a name="monitor-the-pipeline"></a>Мониторинг конвейера
 1. На портале Azure в колонке "Фабрика данных" щелкните **Схема**.
@@ -690,7 +619,7 @@ test custom activity Microsoft test custom activity Microsoft
 2. Теперь в представлении схемы щелкните OutputDataset.
 
     ![Представление схемы](./media/data-factory-use-custom-activities/diagram.png)
-3. Если срезы уже созданы, вы увидите пять выходных срезов данных в состоянии готовности.
+3. Вы увидите пять выходных срезов данных в состоянии готовности. Если они не в состоянии готовности, они еще не созданы. 
 
    ![Выходные срезы](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. Убедитесь, что выходные файлы создаются в хранилище больших двоичных объектов в контейнере **adftutorial** .
@@ -699,7 +628,7 @@ test custom activity Microsoft test custom activity Microsoft
 5. Если вы откроете выходной файл, вы увидите выходные данные, похожие на следующие:
 
     ```
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
     ```
 6. Используйте [портал Azure][azure-preview-portal] или командлеты Azure PowerShell для отслеживания состояния фабрики данных, конвейеров и наборов данных. Вы можете просматривать сообщения **ActivityLogger** о настраиваемом действии в журналах (а именно — user-0.log), которые можно скачать на портале или с помощью командлетов.
 
@@ -708,11 +637,11 @@ test custom activity Microsoft test custom activity Microsoft
 Подробные указания по мониторингу наборов данных и конвейеров см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md).      
 
 ### <a name="data-factory-and-batch-integration"></a>Интеграция фабрики данных и пакетной службы
-Служба фабрики данных создает в пакетной службе Azure задание с именем **adf-poolname:job-xxx**.
+Служба фабрики данных создает в пакетной службе Azure задание с именем **adf-poolname:job-xxx**. В меню слева щелкните **Задания**. 
 
 ![Фабрика данных Azure — задания пакетной службы](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-Такое задание создается для каждого запуска действия среза. При наличии 10 срезов, готовых к обработке, в рамках этого задания создаются 10 задач. Если в пуле доступны несколько вычислительных узлов, можно обрабатывать параллельно сразу несколько срезов. Если для максимального количества задач на вычислительный узел установлено значение > 1, также можно выполнять сразу несколько срезов в одной среде выполнения приложений.
+Такое задание создается для каждого запуска действия среза. При наличии пяти срезов, готовых к обработке, в рамках этого задания создаются пять задач. Если в пуле пакетной службы есть несколько вычислительных узлов, два или больше среза могут выполняться параллельно. Если для максимального количества задач на вычислительный узел установлено значение > 1, также можно выполнять сразу несколько срезов в одной среде выполнения приложений.
 
 ![Фабрика данных Azure — задачи задания пакетной службы](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
@@ -720,17 +649,22 @@ test custom activity Microsoft test custom activity Microsoft
 
 ![Фабрика данных и пакетная служба](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
-## <a name="debug-the-pipeline"></a>Выполнение отладки конвейера
-Отладка состоит из нескольких базовых методов:
+## <a name="troubleshoot-failures"></a>Устранение ошибок
+Устранение неполадок состоит из нескольких базовых методов:
 
-1. Если отображается следующее сообщение об ошибке, убедитесь, что имя класса в CS-файле соответствует имени, указанному для свойства **EntryPoint** в конвейере JSON. В приведенном выше пошаговом руководстве имя класса — MyDotNetActivity, а для свойства EntryPoint в конвейере JSON указано значение MyDotNetActivityNS.**MyDotNetActivity**.
+1. Если отображается следующая ошибка, возможно, используется "горячее" или "холодное" хранилище BLOB-объектов вместо хранилища BLOB-объектов Azure общего назначения. Отправьте ZIP-файл в **учетную запись хранения Azure общего назначения**. 
+ 
+    ```
+    Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
+    ``` 
+2. Если отображается следующая ошибка, убедитесь, что имя класса в CS-файле соответствует имени, указанному для свойства **EntryPoint** в конвейере JSON. В пошаговом руководстве имя класса — MyDotNetActivity, а для свойства EntryPoint в конвейере JSON указано значение MyDotNetActivityNS.**MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
     ```
 
    Если имена соответствуют, убедитесь, что все двоичные файлы размещены в **корневой папке** ZIP-файла. Это означает, что при открытии ZIP-файла все файлы должны находиться в корневой папке, а не во вложенных.   
-2. Если для входного среза данных не установлено значение **Готов**, убедитесь, что структура входной папки правильная и что в ней существует файл **file.txt**.
+3. Если для входного среза данных не установлено значение **Готов**, убедитесь, что структура входной папки правильная и что в ней существует файл **file.txt**.
 3. В методе **Execute** настраиваемого действия используйте объект **IActivityLogger**, чтобы записывать в журнал сведения, которые помогут устранить неполадки. Сообщения, записываемые в журналы, появятся в файлах журнала пользователя (один или несколько файлов с именами user-0.log, user-1.log, user-2.log и т. д.).
 
    В колонке **OutputDataset** щелкните срез, чтобы открыть для него колонку **Срез данных**. Для этого среза будет указано значение **Запуски операции** . Должно выполняться лишь одно действие. Если в командной строке нажать кнопку «Запуск», можно запустить другое действие для этого среза.
@@ -739,10 +673,10 @@ test custom activity Microsoft test custom activity Microsoft
 
    В списке файлов журнала щелкните **user-0.log**. На панели справа отображаются результаты использования метода **IActivityLogger.Write** . Если вы не видите всех сообщений, проверьте наличие дополнительных файлов журнала user_1.log, user_2.log и т. д. Если нет, сбой в коде, возможно, произошел уже после последнего сообщения, записанного в журнал.
 
-   Следует также проверить файл **system-0.log** на наличие любых системных сообщений об ошибках или исключений.
+   Кроме того, проверьте файл **system-0.log** на наличие любых системных сообщений об ошибках или исключений.
 4. Добавьте **PDB-файл** в ZIP-файл, чтобы в случае возникновения ошибки сведения об ошибке содержали, например, информацию о **стеке вызовов**.
 5. Все файлы в ZIP-файле для настраиваемого действия должны размещаться на **верхнем уровне** без вложенных папок.
-6. Убедитесь, что для параметров **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) и **packageLinkedService** (должен указывать на хранилище BLOB-объектов Azure, содержащее ZIP-файл) установлены правильные значения.
+6. Убедитесь, что для параметров **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) и **packageLinkedService** (должен указывать на хранилище BLOB-объектов Azure **общего назначения**, содержащее ZIP-файл) установлены правильные значения.
 7. Если ошибки устранены и необходимо повторно обработать срез, в колонке **OutputDataset** щелкните срез правой кнопкой мыши и выберите пункт **Запуск**.
 8. Если возникла указанная ниже ошибка, это значит, что вы используете пакет службы хранилища Azure более поздней версии, чем 4.3.0. Средство запуска службы фабрики данных требует пакет WindowsAzure.Storage версии 4.3. Сведения о том, что делать, если вам нужно использовать более позднюю версию сборки службы хранилища Azure, см. в разделе [Изоляции домена приложения](#appdomain-isolation). 
 
@@ -757,24 +691,18 @@ test custom activity Microsoft test custom activity Microsoft
     ```
 
     Создайте проект. Удалите сборку WindowsAzure.Storage более поздней версии, чем 4.3.0, из папки bin\Debug. Создайте ZIP-файл с двоичными файлами и PDB-файлом. Замените старый ZIP-файл в контейнере больших двоичных объектов (customactivitycontainer) созданным. Повторно запустите срезы, в которых произошли сбои (щелкните срез правой кнопкой мыши и выберите пункт "Выполнить").   
-8. Настраиваемое действие не использует файл **app.config** из пакета, поэтому если код считывает строки подключения из файла конфигурации, то действие не работает в среде выполнения. При использовании пакетной службы Azure рекомендуется хранить все секреты в **хранилище ключей Azure**. Кроме того, следует использовать субъект-службу на основе сертификата для защиты **хранилища ключей** и переместить сертификат в пул пакетной службы Azure. В этом случае пользовательское действие .NET в среде выполнения сможет использовать секреты из хранилища ключей. Это общее решение, которое можно использовать для любого типа секретов, а не только строк подключения.
+8. Настраиваемое действие не использует файл **app.config** из пакета. Поэтому, если код считывает какие-либо строки подключения из файла конфигурации, это не сработает во время выполнения. При использовании пакетной службы Azure рекомендуется хранить все секреты в **хранилище ключей Azure**. Кроме того, следует использовать субъект-службу на основе сертификата для защиты **хранилища ключей** и переместить сертификат в пул пакетной службы Azure. В этом случае пользовательское действие .NET в среде выполнения сможет использовать секреты из хранилища ключей. Это общее решение, которое можно использовать для любого типа секретов, а не только строк подключения.
 
    Существует и более простое (но не самое лучшее) решение: можно создать **связанную службу SQL Azure** с параметрами строки подключения, набор данных, использующий связанную службу, и привязать его как фиктивный набор входных данных к настраиваемому действию .NET. После этого вы сможете получить доступ к строке подключения связанной службы из кода пользовательского действия — в среде выполнения она должна работать нормально.  
 
-## <a name="update-the-custom-activity"></a>Обновление пользовательского действия
+## <a name="update-custom-activity"></a>Обновление пользовательского действия
 Если вы обновляете код для настраиваемого действия, создайте его и отправьте ZIP-файл, содержащий новые двоичные файлы, в службу хранилища больших двоичных объектов.
 
-## <a name="copymove-data"></a>Копирование и перемещение данных
-
-Действие копирования копирует данные из хранилища данных-**источника** в хранилище данных-**приемник**. В разделе [Поддерживаемые хранилища данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования.
-
-Если необходимо переместить данные в хранилище или из хранилища данных, которое не поддерживается **действием копирования**, вы можете использовать в фабрике данных **настраиваемое действие** с собственной логикой для копирования и перемещения данных. Ознакомьтесь с [примером загрузчика данных HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) на сайте GitHub.  
-
 ## <a name="appdomain-isolation"></a>Изоляция домена приложения
-В разделе с [примером перекрестного домена приложения](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) показано, как создать настраиваемое действие .NET для фабрики данных Azure, которое не ограничено версиями сборок, используемых средством запуска фабрики данных Azure (например, WindowsAzure.Storage версии 4.3.0, Newtonsoft.Json версии 6.0.x и т. д.).
+В разделе с [примером перекрестного домена приложения](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) показано, как создать пользовательское действие, которое не ограничено версиями сборок, используемых средством запуска фабрики данных Azure (например, WindowsAzure.Storage версии&4;.3.0, Newtonsoft.Json версии&6;.0.x и т. д.).
 
 ## <a name="access-extended-properties"></a>Доступ к расширенным свойствам
-Вы можете объявить расширенные свойства в действии JSON, как показано ниже.
+Вы можете объявить расширенные свойства в действии JSON, как показано в примере ниже.
 
 ```JSON
 "typeProperties": {
@@ -790,7 +718,7 @@ test custom activity Microsoft test custom activity Microsoft
 ```
 
 
-В коде есть два расширенных свойства: **SliceStart** и **DataFactoryName**. Значение свойства SliceStart основано на системной переменной SliceStart. Список поддерживаемых системных переменных см. [в этом разделе](data-factory-scheduling-and-execution.md#data-factory-functions-and-system-variables). Значение свойства DataFactoryName жестко задано как CustomActivityFactory.
+В примере есть два расширенных свойства: **SliceStart** и **DataFactoryName**. Значение свойства SliceStart основано на системной переменной SliceStart. Список поддерживаемых системных переменных см. [в этом разделе](data-factory-scheduling-and-execution.md#data-factory-functions-and-system-variables). Значение свойства DataFactoryName жестко задано как CustomActivityFactory.
 
 Для доступа к этим расширенным свойствам в методе **Execute** используйте код, аналогичный приведенному ниже.
 
@@ -808,7 +736,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 }
 ```
 
-## <a name="auto-scaling-feature-of-azure-batch"></a>Функция автомасштабирования пакетной службы Azure
+## <a name="auto-scaling-of-azure-batch"></a>Автомасштабирование пакетной службы Azure
 Можно также создать пул пакетной службы Azure с использованием функции **автомасштабирования** . Например, можно создать пул пакетной службы Azure с нулем выделенных виртуальных машин и формулой автоматического масштабирования на основе числа ожидающих задач:
 
 По одной виртуальной машине на одну ожидающую задачу (например, пять ожидающих задач -> пять виртуальных машин):
@@ -829,13 +757,13 @@ $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
 Если в пуле используется [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)(значение по умолчанию), пакетной службе может потребоваться 15–30 минут на подготовку виртуальной машины перед выполнением настраиваемого действия.  Если пул использует другое значение autoScaleEvaluationInterval, пакетная служба может затрачивать autoScaleEvaluationInterval плюс 10 минут.
 
-## <a name="use-azure-hdinsight-linked-services"></a>Использование связанных служб Azure HDInsight
+## <a name="use-hdinsight-compute-service"></a>Использование службы вычислений HDInsight
 В пошаговом руководстве для запуска пользовательского действия был использован вычислительный ресурс пакетной службы Azure. Также можно использовать собственный кластер HDInsight или создать кластер HDInsight по требованию с помощью фабрики данных и запустить пользовательское действие на кластере HDInsight. Ниже приведены основные шаги для использования кластера HDInsight.  
 
 1. Создайте связанную службу Azure HDInsight.   
 2. Используйте связанную службу HDInsight вместо **AzureBatchLinkedService** в конвейере JSON.
 
-Чтобы протестировать сценарий с использованием службы Azure HDInsight, может потребоваться изменить время **начала** и **окончания** для конвейера.
+Чтобы протестировать сценарий с использованием службы Azure HDInsight в руководстве, измените время **начала** и **окончания** для конвейера.
 
 #### <a name="create-azure-hdinsight-linked-service"></a>Создание связанной службы Azure HDInsight
 Служба фабрики данных Azure поддерживает создание кластера по запросу и использует его для обработки входных данных, чтобы создать выходные данные. Вы также можете использовать для этого собственный кластер. Когда вы используете кластер HDInsight по запросу, для каждого среза создается отдельный кластер. Если вы используете собственный кластер HDInsight, он сразу сможет обработать срез. Поэтому при использовании кластера по запросу выходные данные могут выводится не так быстро, как при использовании собственного кластера.
@@ -853,7 +781,7 @@ $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
    1. В свойстве **clusterSize** укажите размер кластера HDInsight.
    2. В свойстве **timeToLive** укажите, как долго может простаивать клиент, прежде чем он будет удален.
    3. В свойстве **version** укажите версию HDInsight, которую хотите использовать. Если исключить это свойство, будет использоваться последняя версия.  
-   4. В свойстве **linkedServiceName** укажите службу **AzureStorageLinkedService**, которую вы создали при изучении учебника по началу работы.
+   4. В свойстве **LinkedServiceName** укажите **AzureStorageLinkedService**.
 
         ```JSON
         {
@@ -879,7 +807,7 @@ $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
    1. В свойстве **clusterUri** укажите URL-адрес кластера HDInsight. Например, https://<clustername>.azurehdinsight.net/     
    2. В свойстве **UserName** введите имя пользователя, у которого есть доступ к кластеру HDInsight.
    3. В свойстве **Password** укажите пароль этого пользователя.
-   4. В свойстве **LinkedServiceName** укажите **AzureStorageLinkedService**. Вы создали связанную службу в руководстве по началу работы.
+   4. В свойстве **LinkedServiceName** укажите **AzureStorageLinkedService**.
 4. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
 Дополнительные сведения см. в статье [Связанные службы вычислений](data-factory-compute-linked-services.md).
@@ -924,8 +852,8 @@ $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
         }
       }
     ],
-    "start": "2015-11-16T00:00:00Z",
-    "end": "2015-11-16T05:00:00Z",
+    "start": "2016-11-16T00:00:00Z",
+    "end": "2016-11-16T05:00:00Z",
     "isPaused": false
   }
 }
@@ -939,8 +867,6 @@ $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 | [Запуск скрипта R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |Вызов сценария R путем запуска RScript.exe в кластере HDInsight, где уже установлен R. |
 | [Действие перекрестного домена приложения .NET](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Использование разных версий сборок, которые используются средством запуска фабрики данных. |
 
-## <a name="see-also"></a>См. также
-[Обновления фабрики данных Azure: выполнение настраиваемых действий .NET ADF с помощью Пакетной службы Azure](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../batch/batch-account-create-portal.md
@@ -973,6 +899,6 @@ $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

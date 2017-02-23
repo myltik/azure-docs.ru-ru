@@ -1,22 +1,22 @@
 ---
-title: "Работа с приложениями, поддерживающими утверждения, в прокси приложения"
-description: "Описывается, как настроить и запустить прокси приложения Azure AD."
+title: "Приложения с поддержкой утверждений: прокси приложения Azure AD | Документация Майкрософт"
+description: "Как публиковать локальные приложения ASP.NET, принимающие утверждения ADFS для защиты удаленного доступа пользователей."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 164f9fada5565110d37c0f191bcdfac9ec8e48e8
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
 
 
 ---
@@ -35,22 +35,23 @@ ms.openlocfilehash: 164f9fada5565110d37c0f191bcdfac9ec8e48e8
 ## <a name="adfs-configuration"></a>Настройка в службах AD FS
 1. Откройте оснастку управления AD FS.
 2. Перейдите в раздел **Отношения доверия проверяющей стороны**, щелкните правой кнопкой мыши приложение, которое публикуется с помощью прокси приложения, и выберите **Свойства**.  
-   ![Щелкните правой кнопкой мыши имя приложения в папке «Отношения доверия проверяющей стороны» (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+
+   ![Щелчок правой кнопкой мыши имени приложения в разделе "Отношения доверия проверяющей стороны" (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+
 3. На вкладке **Конечные точки** в поле **Тип конечной точки** выберите **WS-Federation**.
 4. В поле **Доверенный URL-адрес** введите URL-адрес, который вы указали в прокси приложении в поле **Внешний URL-адрес**, и нажмите кнопку **ОК**.  
+
    ![Добавление конечной точки: задайте значение в поле «Доверенный URL-адрес» (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
-## <a name="see-also"></a>Дополнительные материалы
-* [Опубликуйте приложения с помощью прокси-сервера приложений.](active-directory-application-proxy-publish.md)
+## <a name="next-steps"></a>Дальнейшие действия
 * [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 * [Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)
 
-Последние новости и обновления см. в [блоге, посвященном прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

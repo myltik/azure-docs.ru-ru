@@ -5,29 +5,30 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 3273ec453a78c74d9e492e869eea4186a764e2f2
-ms.openlocfilehash: 30a49b2a546d766a8a826a45b7bbf27059a2cc9d
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
 
 
 ---
 # <a name="how-to-silently-install-the-azure-ad-application-proxy-connector"></a>Автоматическая установка соединителя прокси приложения Azure AD
 Необходимо иметь возможность отправки сценария установки на несколько серверов Windows или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел описывает создание сценария Windows PowerShell, позволяющего реализовать автоматическую установку, а также устанавливающего и регистрирующего соединитель прокси приложения Azure AD.
 
-Используйте командную строку для установки соединителя без использования пользовательского интерфейса, если вам необходимо следующее: 
-* установить соединитель на компьютерах без уровня пользовательского интерфейса, или если не удается подключиться к компьютеру по протоколу RDP; 
-* установить и зарегистрировать много соединителей одновременно; 
-* интегрировать установку и регистрацию соединителя в другую процедуру; 
-* создать стандартный образ сервера, который содержит биты соединителя, но не зарегистрирован. 
+Эта возможность полезна в тех случаях, когда требуется:
+
+* установить соединитель на компьютерах без уровня пользовательского интерфейса, или если не удается подключиться к компьютеру по протоколу RDP;
+* установить и зарегистрировать много соединителей одновременно;
+* интегрировать установку и регистрацию соединителя в другую процедуру;
+* создать стандартный образ сервера, который содержит биты соединителя, но не зарегистрирован.
 
 ## <a name="enabling-access"></a>Включение доступа
 Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Но вместо этого с помощью Windows PowerShell можно создать объект учетных данных и указать сведения для регистрации в нем. Кроме того, вы можете создать собственный маркер и использовать его для ввода сведений о регистрации.
@@ -36,7 +37,7 @@ ms.openlocfilehash: 30a49b2a546d766a8a826a45b7bbf27059a2cc9d
 Установите MSI-файлы соединителя без регистрации соединителя следующим образом.
 
 1. Откройте окно командной строки.
-2. Выполните следующую команду, в которой /q означает, что установка осуществляется в автоматическом режиме и не предлагает принять лицензионное соглашение.
+2. Выполните следующую команду, в которой /q означает, что установка осуществляется в автоматическом режиме и не предлагает принять условия лицензионного соглашения.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -47,7 +48,7 @@ ms.openlocfilehash: 30a49b2a546d766a8a826a45b7bbf27059a2cc9d
 * Регистрация соединителя с помощью токена, созданного в автономном режиме
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
-1. Создайте объект учетных данных Windows PowerShell, выполнив приведенную команду, где <username> и <password> следует заменить на имя пользователя и пароль для вашего каталога.
+1. Создайте объект учетных данных Windows PowerShell, выполнив приведенную команду, в которой \<username\> и \<password\> следует заменить именем пользователя и паролем для вашего каталога.
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -114,25 +115,23 @@ ms.openlocfilehash: 30a49b2a546d766a8a826a45b7bbf27059a2cc9d
         }
 
 
+2. После создания маркера создайте с его помощью SecureString.
 
-
-
-1. После создания токена создайте с его помощью SecureString:  <br>
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-2. Выполните следующую команду Windows PowerShell, в которой SecureToken — это имя созданного выше маркера, а tenantID —  идентификатор GUID клиента:  <br>
+
+3. Выполните следующую команду Windows PowerShell, заменив \<tenant GUID\> идентификатором каталога.
+
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
-## <a name="see-also"></a>Дополнительные материалы
-* [Включение прокси приложения Azure AD](active-directory-application-proxy-enable.md)
+## <a name="next-steps"></a>Дальнейшие действия 
 * [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
 * [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 
-Последние новости и обновления см. в [блоге, посвященном прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
