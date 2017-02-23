@@ -7,11 +7,10 @@
 ## Использование виртуального устройства
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Node](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Использование Raspberry Pi
-### Node.js
-#### [Начало](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Урок 1. Настройка устройства
 ##### [Настройка устройства](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Устранение неполадок](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Начало](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Урок 1. Настройка устройства
 ##### [Настройка устройства](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Устранение неполадок](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Использование Intel Edison
-### Node.js
-#### [Начало](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Урок 1. Настройка устройства
 ##### [Настройка устройства](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Устранение неполадок](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Начало](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Урок 1. Настройка устройства
 ##### [Настройка устройства](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Устранение неполадок](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Использование Arduino
-### Node.js
-#### [Начало](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Урок 1. Настройка устройства
 ##### [Настройка устройства](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Моделирование в Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Использование начального набора шлюза Интернета вещей
-### Виртуальное устройство
-
-#### [Начало](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Имитация устройства](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Урок 1. Настройка NUC
 ##### [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [Устранение неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### Устройство SensorTag
-#### [Начало](iot-hub-gateway-kit-c-get-started.md)
+### [Устройство SensorTag](iot-hub-gateway-kit-c-get-started.md)
 #### Урок 1. Настройка NUC
 ##### [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [Устранение неполадок](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## Использование пакета SDK для устройств Центра Интернета вещей для C
-### [Введение](iot-hub-device-sdk-c-intro.md)
+## [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
 ### [Использование IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
 
@@ -280,6 +271,6 @@
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

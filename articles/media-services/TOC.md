@@ -195,7 +195,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Портал](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Хранилище очередей для мониторинга уведомлений о заданиях](media-services-dotnet-check-job-progress-with-queues.md)
+### [Мониторинг уведомлений о заданиях с помощью хранилища очередей](media-services-dotnet-check-job-progress-with-queues.md)
+### [Мониторинг уведомлений о заданиях с помощью вызовов webhook](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](media-services-frequently-asked-questions.md)
@@ -216,6 +217,6 @@
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
