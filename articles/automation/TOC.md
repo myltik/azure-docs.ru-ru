@@ -55,6 +55,7 @@
 ### [Удаление группы ресурсов](automation-scenario-remove-resourcegroup.md)
 ### [Запуск и остановка виртуальных машин в нерабочее время](automation-solution-vm-management.md)
 ### [Интеграция системы управления версиями с помощью GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Интеграция системы управления версиями с помощью VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Монитор
 ### [Пересылка данных задания службы автоматизации Azure в Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Отмена привязки учетной записи службы автоматизации Azure к Log Analytics](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Вводный видеоролик о службе автоматизации](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

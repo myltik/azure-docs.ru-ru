@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Трафик, исходящий из локальной сети и предназначенный для Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Трафик, исходящий из локальной сети и предназначенный для Microsoft
 * Убедитесь, что трафик поступает по пути пиринга Майкрософт с действительным открытым адресом IPv4. У Майкрософт должна быть возможность проверить владельца пула адресов IPv4 для NAT по региональному интернет-реестру (RIR) или интернет-реестру маршрутизации (IRR). Проверка выполняется по номеру AS для пиринга и IP-адресам, используемым для NAT. Сведения о реестрах маршрутизации см. в статье [Требования ExpressRoute к маршрутизации](expressroute-routing.md).
 * IP-адреса, используемые для настройки общедоступного пиринга Azure и других каналов ExpressRoute .нельзя объявлять Майкрософт в сеансе BGP. Длина префиксов IP-адресов для NAT, объявляемых с помощью этого пиринга, не ограничивается.
   
@@ -54,7 +54,7 @@ ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Трафик, исходящий из Майкрософт и предназначенный для вашей сети
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Трафик, исходящий из Майкрософт и предназначенный для вашей сети
 * В некоторых сценариях от Майкрософт требуется запуск подключения к конечным точкам службы, размещенным в вашей сети. В качестве типового примера можно привести подключение Office 365 к серверам ADFS, размещенным в вашей сети. В таких случаях необходима передача соответствующих префиксов из вашей сети в пиринг Майкрософт. 
 * Трафик, предназначенный для передачи из облака Майкрософт на IP-адреса в вашей сети, необходимо подвергнуть исходящему преобразованию сетевых адресов. 
 
@@ -70,6 +70,6 @@ ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -27,7 +27,7 @@ ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
 
 Если новый диапазон ключей не входит в существующее сопоставление, добавление сегмента и привязка к нему нового ключа или диапазона становится довольно простой задачей. 
 
-### <a name="example-adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Пример: добавление сегмента и его диапазона в имеющееся сопоставление сегментов
+### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Пример: добавление сегмента и его диапазона в имеющееся сопоставление сегментов
 В этом примере используются методы [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx), [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping\(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0}\)) и создается экземпляр класса [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.). В примере ниже для хранения диапазона [300, 400) создается база данных с именем **sample_shard_2** и все необходимые объекты схемы внутри нее.  
 
     // sm is a RangeShardMap object.

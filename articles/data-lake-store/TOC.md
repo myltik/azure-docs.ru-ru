@@ -39,9 +39,10 @@
 ## Интеграция со службами Azure
 ### [Доступ с виртуальных машин в виртуальной сети Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Использование с Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Создание кластера HDInsight с Data Lake Store с помощью портала](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Создание кластера HDInsight с Data Lake Store с помощью PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Создание кластера HDInsight с Data Lake Store с помощью шаблона Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Использование HDInsight с Data Lake Store — портал](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [Использование HDInsight с Data Lake Store как хранилищем по умолчанию — PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [Использование HDInsight с Data Lake Store как дополнительным хранилищем — PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Использование HDInsight с Data Lake Store — шаблон Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Использование с фабрикой данных](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Использование со Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Использование с Power BI](data-lake-store-power-bi.md)
@@ -71,6 +72,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

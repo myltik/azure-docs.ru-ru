@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
+ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
+ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
 
 
 ---
@@ -97,7 +97,7 @@ ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
 
 По умолчанию все сообщения, которые явно не соответствуют правилу маршрутизации сообщений, записываются во встроенную конечную точку. Если отключить этот резервный маршрут, то сообщения, которые явно не соответствуют ни одному правилу маршрутизации сообщений, будут удаляться.
 
-Вы можете изменить все эти свойства на [портале Azure][lnk-management-portal] или программно (с помощью [интерфейсов REST API поставщика ресурсов Центра Интернета вещей][lnk-resource-provider-apis]).
+Вы можете изменить период хранения на [портале Azure][lnk-management-portal] или программно (с помощью [интерфейсов REST API поставщика ресурсов Центра Интернета вещей][lnk-resource-provider-apis]).
 
 ### <a name="anti-spoofing-properties"></a>Свойства для защиты от спуфинга
 Чтобы избежать спуфинга устройств при работе с сообщениями, отправляемыми с устройства в облако, центр IoT отмечает все сообщения такими свойствами:
@@ -437,6 +437,6 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

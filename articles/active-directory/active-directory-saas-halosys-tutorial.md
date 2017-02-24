@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
@@ -124,7 +124,7 @@ ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
 
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый пользователями для входа в приложение Halosys, в следующем формате: `https://<company-name>.Halosys.com/client-api/api`.
 
-    В текстовом поле **Identifier URL** (URL-адрес идентификатора) введите URL-адрес в следующем формате: `https://<company-name>.Halosys.com`.   
+    В текстовом поле **Identifier URL** (URL-адрес идентификатора) введите URL-адрес в следующем формате: `https://<company-name>.Halosys.com`.    
          
 4. На странице **Настройка единого входа в Halosys** нажмите кнопку **Скачать метаданные**, а затем сохраните файл метаданных на своем компьютере.
 

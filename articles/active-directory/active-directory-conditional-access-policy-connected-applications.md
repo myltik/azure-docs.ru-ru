@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/23/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 1e7e764bdb1e883c28c137292de6a3ef8873e473
@@ -37,11 +37,11 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 
 На портале управления Azure политику условного доступа на основе устройств можно настроить, выбрав конкретное приложение в каталоге.
 
-  ![Список приложений в каталоге на портале Azure](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applications")
+  ![Список приложений в каталоге на портале Azure](./media/active-directory-conditional-access-policy-connected-applications/01.png "Приложения")
 
 Выберите приложение и щелкните вкладку **Настройка**, чтобы настроить политику условного доступа.  
 
-  ![Настройка приложения](./media/active-directory-conditional-access-policy-connected-applications/02.png "Device based access rules")
+  ![Настройка приложения](./media/active-directory-conditional-access-policy-connected-applications/02.png "Правила доступа на основе устройств")
 
 Чтобы включить политику условного доступа на основе устройств, в разделе **Правила доступа на основе устройств** для параметра **Включение правил доступа** выберите значение **Вкл.**.
 
@@ -51,7 +51,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 * **Правила устройства.** Условия, которые должны выполняться устройствами для получения доступа к приложению.
 * **Принудительное выполнение приложения.** Клиентские приложения (собственные приложения или приложения браузера), к которым применяется политика.
   
-  ![Три компонента политики доступа на основе устройств](./media/active-directory-conditional-access-policy-connected-applications/03.png "Device based access rules")
+  ![Три компонента политики доступа на основе устройств](./media/active-directory-conditional-access-policy-connected-applications/03.png "Правила доступа на основе устройств")
 
 ## <a name="select-the-users-the-policy-applies-to"></a>Выбор пользователей, к которым будет применяться политика
 В разделе **Применить к** можно выбрать область пользователей, к которым будет применяться данная политика.
@@ -61,7 +61,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 * **Все пользователи.** Применяется ко всем пользователям, которые используют приложение.
 * **Группы.** Применяется для ограничения области только теми пользователями, которые включены в определенную группу.
 
-![Применение политики ко всем пользователям или только к определенной группе](./media/active-directory-conditional-access-policy-connected-applications/11.png "Apply to")
+![Применение политики ко всем пользователям или только к определенной группе](./media/active-directory-conditional-access-policy-connected-applications/11.png "Применить к")
 
  Чтобы исключить пользователя из политики, установите флажок **Исключение**. Эта функция полезна, когда вам необходимо временно разрешить доступ к приложению для определенного пользователя. Например, используйте этот параметр, если у отдельных пользователей имеются устройства, не готовые к применению политики условного доступа (еще не зарегистрированы или не соответствуют требованиям).
 
@@ -77,7 +77,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 
 Добавление поддержки Mac ожидается в ближайшее время.
 
-  ![Применение политики к устройствам](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applications")
+  ![Применение политики к устройствам](./media/active-directory-conditional-access-policy-connected-applications/04.png "Приложения")
 
 > [!NOTE]
 > Дополнительные сведения о различиях между присоединенными к домену и присоединенными к Azure AD устройствами см. в статье [Устройства под управлением Windows 10 в вашей рабочей области](active-directory-azureadjoin-windows10-devices.md).
@@ -89,7 +89,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 * **Все устройства должны соответствовать требованиям** — для доступа к приложению все платформы устройств должны соответствовать требованиям. Если платформа не поддерживает условный доступ на основе устройств, то устройствам, запущенным на ней, будет отказано в доступе.
 * **Только выбранные устройства должны соответствовать требованиям** — соответствовать требованиям должны только определенные платформы устройств. Доступ имеют другие платформы или платформы с доступом к приложению.
   
-  ![Настройка области для правил устройства](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applications")
+  ![Настройка области для правил устройства](./media/active-directory-conditional-access-policy-connected-applications/05.png "Приложения")
 
 Присоединенные к Azure AD устройства соответствуют требованиям, если они помечены в каталоге службой Intune или сторонней системой управления мобильными устройствами (MDM), интегрированной с Azure AD, как **соответствующие требованиям**.
 
@@ -98,7 +98,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 * они зарегистрированы в Azure AD (многие организации рассматривают присоединенные к домену устройства как доверенные);
 * они помечены в Azure AD службой System Center Configuration Manager как **соответствующие требованиям**.
   
-  ![Соответствующие требованиям устройства, присоединенные к домену](./media/active-directory-conditional-access-policy-connected-applications/06.png "Device Rules")
+  ![Соответствующие требованиям устройства, присоединенные к домену](./media/active-directory-conditional-access-policy-connected-applications/06.png "Правила устройства")
 
 Персональные устройства Windows соответствуют требованиям, если они помечены в каталоге службой Intune или сторонней системой управления мобильными устройствами (MDM), интегрированной с Azure AD, как **соответствующие требованиям**.
 
@@ -112,7 +112,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 Для политики доступа на основе устройств можно выбрать одну или несколько платформ устройств, включая Android, iOS, Windows Mobile (телефоны и планшеты Windows 8.1) и Windows (все прочие устройства Windows, в том числе все устройства Windows 10).
 В этом случае оценка политики выполняется только для выбранных платформ. Если попытка доступа осуществляется с устройств под управлением других платформ, то такие устройства получают доступ, если пользователь его также получил. Оценка политики в отношении устройства не выполняется.
 
-![Выбор платформы для правил устройства](./media/active-directory-conditional-access-policy-connected-applications/07.png "Device Rules")
+![Выбор платформы для правил устройства](./media/active-directory-conditional-access-policy-connected-applications/07.png "Правила устройства")
 
 ## <a name="set-policy-evaluation-for-a-type-of-application"></a>Настройка оценки политики для типа устройства
 В разделе **Принудительное выполнение приложения** выберите тип приложений, оценку политики которого требуется выполнять для пользователя или доступа к устройствам.
@@ -122,7 +122,7 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 * приложения браузера и собственные приложения;
 * только собственные приложения.
 
-![Выбор приложений браузера и собственных приложений](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applications")
+![Выбор приложений браузера и собственных приложений](./media/active-directory-conditional-access-policy-connected-applications/08.png "Приложения")
 
 Чтобы применить политику доступа для приложений, выберите **Для приложений браузера и собственных приложений**. Затем можно добавить:
 
@@ -137,9 +137,9 @@ ms.openlocfilehash: e4b8622fc6d06be480a2de057070155b12746133
 ## <a name="help-protect-email-access-from-exchange-activesync-based-applications"></a>Защита доступа к электронной почте при использовании приложений на базе Exchange ActiveSync
 В приложениях Office 365 Exchange Online раздел Exchange ActiveSync позволяет блокировать доступ к электронной почте для почтовых приложений на базе Exchange ActiveSync.
 
-![Параметры соответствия требованиям Exchange ActiveSync](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applications")
+![Параметры соответствия требованиям Exchange ActiveSync](./media/active-directory-conditional-access-policy-connected-applications/09.png "Приложения")
 
-!["Требовать доступ к почте на соответствующем устройстве"](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applications")
+![Требование доступа к почте на соответствующем устройстве](./media/active-directory-conditional-access-policy-connected-applications/10.png "Приложения")
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Условный доступ в Azure Active Directory](active-directory-conditional-access.md)

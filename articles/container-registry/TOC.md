@@ -4,7 +4,7 @@
 
 # Начало работы
 ## [Создание реестра на портале](container-registry-get-started-portal.md)
-## [Создание реестра с помощью интерфейса командной строки](container-registry-get-started-azure-cli.md)
+## [Создание реестра с помощью Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Передача и получение образа](container-registry-get-started-docker-cli.md)
 
 # Практическое руководство
@@ -14,7 +14,7 @@
 
 # Справочные материалы
 
-## [Предварительная версия Azure CLI 2.0](/cli/azure/acr)
+## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # Сопутствующие материалы
@@ -27,6 +27,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

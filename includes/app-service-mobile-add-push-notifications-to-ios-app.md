@@ -10,7 +10,7 @@
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. В **QSAppDelegate.m** добавьте приведенные ниже методы обработчика. Ваше приложение теперь обновлено для поддержки push-уведомлений.
+3. В **QSAppDelegate.m**добавьте приведенные ниже методы обработчика. Ваше приложение теперь обновлено для поддержки push-уведомлений. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -79,7 +79,7 @@
 
 **Swift**:
 
-1. Добавьте файл **ClientManager.swift** со следующим содержимым: Замените *% AppUrl %* на URL-адрес внутреннего сервера мобильных приложений Azure.
+1. Добавьте файл **ClientManager.swift** со следующим содержимым. Замените *%AppUrl%* на URL-адрес внутреннего сервера мобильных приложений Azure.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
@@ -97,7 +97,7 @@
            application.registerForRemoteNotifications()
            return true
         }
-4. В **QSAppDelegate.m** добавьте приведенные ниже методы обработчика. Ваше приложение теперь обновлено для поддержки push-уведомлений.
+4. В **QSAppDelegate.m**добавьте приведенные ниже методы обработчика. Ваше приложение теперь обновлено для поддержки push-уведомлений.
    
         func application(application: UIApplication,
            didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -139,4 +139,8 @@
    
         }
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

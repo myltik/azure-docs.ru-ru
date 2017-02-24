@@ -1,6 +1,6 @@
 ---
-title: "Справочник разработчика NodeJS по Функциям Azure | Документация Майкрософт"
-description: "Узнайте, как пользоваться функциями Azure в NodeJS."
+title: "Справочник разработчика JavaScript для Функций Azure | Документация Майкрософт"
+description: "Узнайте, как разрабатывать Функции Azure с помощью JavaScript."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
-ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
+ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
+ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Справочник разработчика NodeJS по функциям Azure
+# <a name="azure-functions-javascript-developer-guide"></a>Руководство разработчика JavaScript для Функций Azure
 > [!div class="op_single_selector"]
 > * [Сценарий C#](functions-reference-csharp.md)
 > * [Скрипт F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-Интерфейс Node/JavaScript для Функций Azure позволяет легко экспортировать функцию, которой передается объект `context` , для взаимодействия со средой выполнения, а также для получения и отправки данных с помощью привязок.
+Интерфейс JavaScript для Функций Azure позволяет легко экспортировать функцию, которой передается объект `context`, для взаимодействия со средой выполнения, а также для получения и отправки данных с помощью привязок.
 
 В этой статье предполагается, что вы уже прочли [справочник разработчика по Функциям Azure](functions-reference.md).
 
@@ -198,6 +198,6 @@ function GetEnvironmentVariable(name)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

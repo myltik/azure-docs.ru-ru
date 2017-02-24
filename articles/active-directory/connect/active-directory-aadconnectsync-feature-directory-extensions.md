@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
+ms.sourcegitcommit: 2f5c5e9af193c843765f63640d46c25f3a6d10c3
+ms.openlocfilehash: 3641f9309cc38f6575ce36d3450448cdae1601a9
 
 
 ---
@@ -26,23 +26,24 @@ ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
 В настоящее время рабочие нагрузки Office 365 не используют эти атрибуты.
 
 Дополнительные атрибуты для синхронизации выбираются в разделе пользовательских параметров мастера установки.
-![Мастер расширения схемы](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) При установке отображаются следующие допустимые атрибуты:
+![Мастер расширения схемы](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+При установке отображаются следующие допустимые атрибуты:
 
 * Типы объектов пользователей и групп
 * Однозначные атрибуты: строка, логическое значение, целое число, двоичное значение.
 * Многозначные атрибуты: строка, двоичное значение.
 
-Список атрибутов считывается из кэша, созданного во время установки Azure AD Connect. Если в схему Active Directory добавлены дополнительные атрибуты, они будут отображаться только после [обновления схемы](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) .
+Список атрибутов считывается из кэша схемы, созданного во время установки Azure AD Connect. Если в схему Active Directory добавлены дополнительные атрибуты, они будут отображаться только после [обновления схемы](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema).
 
-Объект может иметь до 100 атрибутов расширений каталога. Максимальная длина составляет 250 символов. Если значение атрибута больше, он будет усечен модулем синхронизации.
+Объект в Azure AD может иметь до 100 атрибутов расширений каталога. Максимальная длина составляет 250 символов. Если значение атрибута больше, он будет усечен модулем синхронизации.
 
 Во время установки Azure AD Connect приложение регистрируется при условии наличия этих атрибутов. Это приложение отображается на портале Azure.  
-![Приложение расширения схемы](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+![Приложение расширения схемы](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
 Теперь эти атрибуты доступны в Graph:   
 ![График](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Атрибуты имеют префикс extension\_{AppClientId}\_. AppClientId имеет то же значение для всех атрибутов в каталоге Azure AD.
+Атрибуты имеют префикс extension\_{AppClientId}\_. AppClientId имеет одно значение для всех атрибутов в вашем клиенте Azure AD.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
@@ -51,7 +52,6 @@ ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

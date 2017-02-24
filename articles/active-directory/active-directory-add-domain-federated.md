@@ -3,7 +3,7 @@ title: "Добавление имени личного домена и наст�
 description: "В этой статье рассматривается добавление доменного имени организации в Azure Active Directory и настройка федеративного входа между Azure Active Directory и локальным решением федерации."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

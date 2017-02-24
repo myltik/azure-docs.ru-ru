@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 36c9a33fc0fa1b71b3dde22a6dfd472eb569b650
-ms.openlocfilehash: 28a18ac0e33c0cccbb97d31dd34e8286ff566852
+ms.sourcegitcommit: ab688288c7ae0d6bebdff5156fad6f7f5e9b4224
+ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
 
 
 ---
@@ -56,7 +56,7 @@ ms.openlocfilehash: 28a18ac0e33c0cccbb97d31dd34e8286ff566852
 
 **Задайте hive.exec.reducer.bytes.per.reducer** — значение по умолчанию хорошо работает для несжатых данных.  Если используются сжатые данные, попробуйте сократить размер модуля уменьшения редукции.  
 
-**Задайте hive.tez.container.size** — объем памяти для каждого узла, который определяется параметром yarn.nodemanager.resource.memory-mb (должен быть правильно определен для кластера HDI по умолчанию).  Дополнительные сведения о настройке памяти в YARN см. в этой записи блога.
+**Задайте hive.tez.container.size** — объем памяти для каждого узла, который определяется параметром yarn.nodemanager.resource.memory-mb (должен быть правильно определен для кластера HDI по умолчанию).  Дополнительные сведения о настройке памяти в YARN см. в этой [записи блога](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 Для интенсивных нагрузок ввода-вывода будет полезным увеличить параллелизм, снижая размер контейнера Tez. Это предоставит пользователю дополнительные контейнеры, то есть увеличит параллелизм.  Но некоторые запросы Hive требуют значительного объема памяти (например, MapJoin).  Если задача не получит достаточного объема памяти, во время выполнения возникнет соответствующее исключение.  Если вы заметите такие исключения, увеличьте объем памяти.   
 
@@ -94,6 +94,6 @@ ms.openlocfilehash: 28a18ac0e33c0cccbb97d31dd34e8286ff566852
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

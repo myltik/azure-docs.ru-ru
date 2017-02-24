@@ -1,5 +1,5 @@
 ---
-title: "Запросы к хранилищу данных SQL Azure (Visual Studio) | Документация Майкрософт"
+title: "Подключение к хранилищу данных SQL Azure — VSTS | Документация Майкрософт"
 description: "Отправка запросов к хранилищу данных SQL с помощью Visual Studio."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Запросы к хранилищу данных SQL Azure (Visual Studio)
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Подключение к хранилищу данных SQL с помощью Visual Studio и SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -36,7 +36,7 @@ ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
 Для работы с этим руководством необходимы указанные ниже компоненты.
 
 * Существующее хранилище данных SQL. Чтобы создать его, см. статью [Создание хранилища данных SQL Azure][Создание хранилища данных SQL Azure].
-* Расширение SSDT для Visual Studio. Скорее всего, оно уже есть, если на вашем компьютере установлено приложение Visual Studio. Инструкции по установке и доступные варианты установки см. в статье [Установка Visual Studio 2015 и SSDT для хранилища данных SQL][Установка Visual Studio 2015 и SSDT для хранилища данных SQL].
+* Расширение SSDT для Visual Studio. Скорее всего, оно уже есть, если на вашем компьютере установлено приложение Visual Studio. Инструкции по установке и доступные варианты установки см. в статье [Установка Visual Studio и SSDT][Установка Visual Studio и SSDT].
 * Полное имя сервера SQL Server. Чтобы найти его, см. статью [Подключение к хранилищу данных SQL Azure][Подключение к хранилищу данных SQL Azure].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Подключение к хранилищу данных SQL
@@ -79,15 +79,15 @@ ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
     ![Результаты запроса][7]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [визуализировать данные с помощью PowerBI][визуализация данных с помощью PowerBI].
+Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [визуализировать данные с помощью PowerBI][визуализировать данные с помощью PowerBI].
 
 Дополнительные сведения о настройке в своей среде проверки подлинности Azure Active Directory, см. в статье [Аутентификация в хранилище данных SQL Azure][Аутентификация в хранилище данных SQL Azure].
 
 <!--Arcticles-->
-[Подключение к хранилищу данных SQL]: sql-data-warehouse-connect-overview.md
+[Подключение к хранилищу данных SQL Azure]: sql-data-warehouse-connect-overview.md
 [Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
 [Установка Visual Studio и SSDT]: sql-data-warehouse-install-visual-studio.md
-[Проверка подлинности в хранилище данных SQL Azure]: sql-data-warehouse-authentication.md
+[Аутентификация в хранилище данных SQL Azure]: sql-data-warehouse-authentication.md
 [визуализировать данные с помощью PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
@@ -105,6 +105,6 @@ ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

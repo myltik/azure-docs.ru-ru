@@ -55,8 +55,8 @@ ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
 Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы Azure для доступа к BLOB-объектам.  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/blob.h"
+include <was/storage_account.h>
+include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Настройка строки подключения к службе хранилища Azure

@@ -4,7 +4,7 @@ description: "Поясняет, как пользователи могут ре�
 services: active-directory
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: 9f3d38f5-1cfd-43d4-97da-4fed1255a1ff
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: bf9f0ae5876af6f9e92f86f0d49315ccb5ff06cf
 ms.openlocfilehash: 5f25bee0d6cb4c6985a63073e19929f8d69de139

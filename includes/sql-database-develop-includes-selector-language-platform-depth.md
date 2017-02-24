@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [C#](../articles/sql-database/sql-database-develop-dotnet-simple.md)
+> * [CSharp](../articles/sql-database/sql-database-develop-dotnet-simple.md)
 > * [Java](../articles/sql-database/sql-database-develop-java-simple.md)
 > * [Node.js](../articles/sql-database/sql-database-develop-nodejs-simple.md)
 > * [PHP](../articles/sql-database/sql-database-develop-php-simple.md)
@@ -7,4 +7,9 @@
 > * [Ruby](../articles/sql-database/sql-database-develop-ruby-simple.md)
 > 
 > 
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

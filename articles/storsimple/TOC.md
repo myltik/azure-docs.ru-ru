@@ -186,7 +186,7 @@
 
 ## Заметки о выпуске
 ### [Обновление 4 (текущая версия)](storsimple-update4-release-notes.md)
-### [Обновление 3 (текущая версия)](storsimple-update3-release-notes.md)
+### [Обновление 3](storsimple-update3-release-notes.md)
 ### [Обновление 2.2](storsimple-update21-release-notes.md)
 ### [Обновление 2](storsimple-update2-release-notes.md)
 ### [Обновление 1](storsimple-update1-release-notes.md)
@@ -239,6 +239,6 @@
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

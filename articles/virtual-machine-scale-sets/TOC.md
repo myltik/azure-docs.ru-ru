@@ -3,6 +3,7 @@
 
 # Начало работы
 ## [Создание масштабируемого набора на портале](virtual-machine-scale-sets-portal-create.md)
+## [Создание масштабируемого набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Практическое руководство
 ## Планирование и проектирование
@@ -10,6 +11,7 @@
 
 ## Развернуть
 ### [Масштабируемый набор с помощью портала](virtual-machine-scale-sets-portal-create.md)
+### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
 ### [Масштабируемый набор с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Масштабирование набора с помощью PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Масштабирование набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
@@ -19,6 +21,7 @@
 ### [Использование дисков данных с масштабируемыми наборами](virtual-machine-scale-sets-attached-disks.md)
 ### [Работа с большими масштабируемыми наборами](virtual-machine-scale-sets-placement-groups.md)
 ### [Преобразование шаблона масштабируемого набора для использования управляемого диска](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## Управление
@@ -36,7 +39,7 @@
 # Справочные материалы
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Интерфейс командной строки Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Ресурсы
 ## Цены 
@@ -45,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
