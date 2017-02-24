@@ -50,8 +50,11 @@
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 
-## [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
+## [Просмотр отчетов об активности и безопасности](active-directory-view-access-usage-reports.md)
 ### [Отчеты Azure AD](active-directory-reporting-getting-started.md)
+### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
+### [Перенос отчетов](active-directory-reporting-migration.md)
+
 ### [Известные сети](active-directory-known-networks.md)
 
 ### [Руководство по отчетам](active-directory-reporting-guide.md)
@@ -212,7 +215,6 @@
 #### [Маркеры пользователя B2B](active-directory-b2b-user-token.md)
 #### [Сопоставление утверждений пользователя B2B](active-directory-b2b-claims-mapping.md)
 #### [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
-#### [Сравнение B2B и B2C](active-directory-b2b-compare-b2c.md)
 #### [Настройка приложений SaaS для B2B](active-directory-b2b-configure-saas-apps.md)
 #### [Код и примеры PowerShell](active-directory-b2b-code-samples.md)
 #### [Текущие ограничения](active-directory-b2b-current-limitations.md)
@@ -230,9 +232,9 @@
 ### [Административные единицы](active-directory-administrative-units-management.md)
 ### [Доступ к ресурсам в Azure](active-directory-understanding-resource-access.md)
 ### [Контроль доступа на основе ролей](role-based-access-control-what-is.md)
-#### Управление доступом
-##### [Портал Azure](role-based-access-control-manage-assignments.md)
-##### [Классический портал.](role-based-access-control-configure.md)
+#### Управление назначениями доступа
+##### [В зависимости от пользователя](role-based-access-control-manage-assignments.md)
+##### [В зависимости от ресурса](role-based-access-control-configure.md)
 #### [Встроенные роли](role-based-access-built-in-roles.md)
 #### [Пользовательские роли](role-based-access-control-custom-roles.md)
 #### [Отчеты](role-based-access-control-access-change-history-report.md)
@@ -323,6 +325,6 @@
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

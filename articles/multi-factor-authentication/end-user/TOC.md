@@ -10,10 +10,12 @@
 ## [Устранение неполадок](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Настройка паролей приложений](multi-factor-authentication-end-user-app-passwords.md)
 ## Использование приложения Microsoft Authenticator
-### [Приступая к работе](microsoft-authenticator-app-how-to.md)
+### [Начало работы с приложением](microsoft-authenticator-app-how-to.md)
+### [Вход с помощью телефона](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Часто задаваемые вопросы](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

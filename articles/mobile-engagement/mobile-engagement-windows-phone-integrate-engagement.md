@@ -101,7 +101,7 @@ ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
 > 
 
 ## <a name="basic-reporting"></a>Упрощенные отчеты
-### <a name="recommended-method-overload-your-phoneapplicationpage-classes"></a>Рекомендуемый метод: перегрузка классов `PhoneApplicationPage`
+### <a name="recommended-method--overload-your-phoneapplicationpage-classes"></a>Рекомендуемый метод: перегрузка классов `PhoneApplicationPage`
 Чтобы активировать отчет по всем журналам, необходимым для Engagement при вычислении статистики пользователей, сеансов, действий, сбоев и технической информации, вы можете просто задать для подклассов `PhoneApplicationPage` наследование из классов `EngagementPage`.
 
 Ниже приведен пример того, как сделать это для страницы приложения. То же самое можно сделать для всех страниц приложения.

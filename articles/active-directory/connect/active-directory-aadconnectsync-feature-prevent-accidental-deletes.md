@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
+ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
+ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
 
 
 ---
@@ -25,6 +25,7 @@ ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
 
 При установке Azure AD Connect функция предотвращения случайного удаления включается по умолчанию с настроенным запретом экспортировать более 500 операций удаления. Эта функция защищает от случайных изменений конфигурации и изменений в локальном каталоге, которые могут повлиять на большое количество пользователей и других объектов.
 
+## <a name="what-is-prevent-accidental-deletes"></a>Предотвращение случайного удаления
 Распространенные сценарии включают следующие:
 
 * изменения [фильтрации](active-directory-aadconnectsync-configure-filtering.md), когда целое [подразделение](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) или [домен](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) остаются невыбранными;
@@ -38,7 +39,7 @@ ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
 ![Сообщение электронной почты "Предотвращение случайного удаления"](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *(Контактное лицо по техническим вопросам), здравствуйте! В (время) служба синхронизации удостоверений обнаружила, что число удалений превысило указанное в настройках пороговое значение удалений для компании (название организации). В рамках этого запуска синхронизации удостоверений для удаления было отправлено всего (число) об. Это число соответствует пороговому значению удаления объектов, равному (число), или превышает его. Нам необходимо получить от вас подтверждение, что эти удаления следует обработать, прежде чем мы продолжим. Дополнительные сведения об указанной в этом сообщении ошибке см. в разделе "Предотвращение случайных удалений".*
-> 
+>
 > 
 
 При поиске профиля экспорта в пользовательском интерфейсе **Synchronization Service Manager** также может отобразиться состояние `stopped-deletion-threshold-exceeded`.
@@ -69,7 +70,6 @@ ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

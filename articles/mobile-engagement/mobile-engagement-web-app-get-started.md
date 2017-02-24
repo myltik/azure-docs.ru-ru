@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Настройка Mobile Engagement для веб-приложения
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных.
 
 Мы создадим базовое веб-приложение с помощью Visual Studio, чтобы продемонстрировать интеграцию, хотя вы можете выполнить эти действия для любого веб-приложения, созданного вне Visual Studio. 
@@ -65,7 +65,7 @@ ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
    
     ![Использование JS-файлов в Visual Studio][1]
 
-## <a name="enable-realtime-monitoring"></a>Включение мониторинга в режиме реального времени
+## <a name="enable-real-time-monitoring"></a>Включение мониторинга в режиме реального времени
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере одно действие в серверную часть Mobile Engagement. Действие в контексте веб-приложения — это веб-страница. 
 
 1. Создайте страницу с именем **home.html** в решении и настройте ее в качестве начальной страницы для веб-приложения. 
@@ -88,7 +88,7 @@ ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="connect-app-with-real-time-monitoring"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

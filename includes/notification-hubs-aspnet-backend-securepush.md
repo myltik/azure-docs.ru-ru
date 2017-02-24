@@ -1,5 +1,5 @@
-## Проект веб-интерфейса API
-1. В Visual Studio откройте проект **AppBackend**, созданный в учебнике **Уведомление пользователей**.
+## <a name="webapi-project"></a>Проект веб-интерфейса API
+1. В Visual Studio откройте проект **AppBackend**, созданный в руководстве об **уведомлении пользователей**.
 2. Замените в файле Notifications.cs целый класс **Уведомления** на следующий код. Убедитесь, что заменили заполнители на строку подключения (с полным доступом) для центра уведомлений и имени центра. Эти значения можно получить на [классическом портале Azure](http://manage.windowsazure.com). В этом модуле теперь представлены разные уведомления безопасности, которые будут отправлены. При полной реализации уведомления будут сохранены в базе данных; для упрощения в этом случае мы сохраняем их память.
    
         public class Notification
@@ -66,10 +66,10 @@
            await Notifications.Instance.Hub.SendNotificationAsync(rawNotificationToBeSent, usernameTag);
    
            // apns
-           await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{"aps": {"content-available": 1}, "secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}", usernameTag);
+           await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{\"aps\": {\"content-available\": 1}, \"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}", usernameTag);
    
            // gcm
-           await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{"data": {"secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}}", usernameTag);
+           await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{\"data\": {\"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}}", usernameTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -78,6 +78,10 @@
 Обратите внимание, что теперь метод `Post` не отправляет всплывающее уведомление. Он отправляет необработанное уведомление, которое содержит только идентификатор уведомления без конфиденциального содержимого. Также убедитесь, что закомментировали операцию отправки для платформ, для которых вы не настроили учетные данные в концентраторе уведомлений, поскольку они приведут к ошибкам.
 
 1. После этого повторно развернем это приложение на веб-сайте Azure, чтобы сделать его доступным для всех устройств. Щелкните правой кнопкой мыши проект **AppBackend** и нажмите кнопку **Опубликовать**.
-2. Выберите в качестве цели публикации веб-сайт Azure. Войдите с помощью учетной записи Azure, выберите существующий или новый веб-сайт и запишите свойство **URL-адрес назначения** во вкладке **Подключение**. Далее в учебнике этот URL-адрес будет называться *конечная точка сервера*. Щелкните **Опубликовать**.
+2. Выберите в качестве цели публикации веб-сайт Azure. Войдите с помощью учетной записи Azure, выберите имеющийся или новый веб-сайт и запишите свойство **URL-адрес назначения** на вкладке **Подключение**. Далее в учебнике этот URL-адрес будет называться *конечная точка сервера* . Щелкните **Опубликовать**.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

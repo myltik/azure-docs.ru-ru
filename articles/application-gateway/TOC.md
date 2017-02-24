@@ -1,5 +1,6 @@
 # Обзор
 ## [Что такое шлюз приложений?](application-gateway-introduction.md)
+## [Шлюз приложений: часто задаваемые вопросы](application-gateway-faq.md)
 ## [Брандмауэр веб-приложения](application-gateway-webapplicationfirewall-overview.md)
 ## [Мониторинг работоспособности](application-gateway-probe-overview.md)
 ## [Маршрутизация URL-адресов](application-gateway-url-route-overview.md)
@@ -38,10 +39,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Управление
-### [Диагностика](application-gateway-diagnostics.md)
-### [Устранение неполадок](application-gateway-troubleshooting-502.md)
-
+## Устранение неполадок
+### [Устранение ошибок в шлюзе приложений](application-gateway-troubleshooting-502.md)
+### [Ведение журналов диагностики и метрики](application-gateway-diagnostics.md)
 # Справочные материалы
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Предварительная версия Azure CLI 2.0](/cli/azure/network/application-gateway)
@@ -50,7 +50,7 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/mt299393)
 # Сопутствующие материалы
 ## [ExpressRoute](/azure/expressroute/)
@@ -67,6 +67,6 @@
 ## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 1f0b951e7b3ffc328604ce799590d478da36915d
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
 
 Решение Майкрософт для работы с данными большого размера интегрирует компоненты бизнес-аналитики Майкрософт с кластерами Apache Hadoop, которые были развернуты с помощью Azure HDInsight. Примером такой интеграции является возможность подключения Excel к хранилищу данных Hive на кластере Hadoop в HDInsight с помощью драйвера Microsoft Hive ODBC.
 
-Можно также подключить данные, связанные с кластером HDInsight, и другими источниками данных, включая другие кластеры Hadoop (не HDInsight) из Excel с использованием надстройки Microsoft Power Query для Excel. Сведения об установке и использовании Power Query см. в разделе [Подключение Excel к Hadoop с помощью Power Query][hdinsight-power-query].
+Можно также подключить данные, связанные с кластером HDInsight, и другими источниками данных, включая другие кластеры Hadoop (не HDInsight) из Excel с использованием надстройки Microsoft Power Query для Excel. Сведения об установке и использовании Power Query см. в статье [Подключение Excel к Hadoop с помощью Power Query][hdinsight-power-query].
 
 > [!NOTE]
 > Хотя действия, описанные в этой статье, применимы к кластеру HDInsight под управлением Windows или Linux, Windows является обязательным для клиентской рабочей станции.
@@ -37,11 +37,11 @@ ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Кластер HDInsight**. Инструкции по созданию кластера описаны в [руководстве по Hadoop][hdinsight-get-started].
+* **Кластер HDInsight**. Дополнительные сведения о создании кластера см. в статье [Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight][hdinsight-get-started].
 * **Рабочая станция** с Office 2013 профессиональный плюс, Office 365 профессиональный плюс, Excel 2013 автономный или Office 2010 профессиональный плюс.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Установка драйвера Microsoft Hive ODBC
-Загрузите и установите драйвер Microsoft Hive ODBC из [Центра загрузок][hive-odbc-driver-download].
+Скачайте и установите драйвер Microsoft Hive ODBC из [Центра загрузок][hive-odbc-driver-download].
 
 Этот драйвер может быть установлен на 32-разрядной или 64-разрядной версии Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 и Windows Server 2012. Он обеспечит подключение к Azure HDInsight (версии 1.6 и выше) и эмулятору Azure HDInsight (версии 1.0.0.0 и выше). Необходимо установить версию, которая соответствует версии приложения, где будет использоваться драйвер ODBC. В этом учебнике драйвер будет использоваться в Office Excel.
 
@@ -96,7 +96,7 @@ ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
 5. Повторно введите в мастере пароль для кластера, затем щелкните **Тест** для проверки конфигурации, если требуется.
 6. Нажмите **OK** , чтобы закрыть диалоговое окно Тест.
 7. Нажмите кнопку **ОК**. Подождите открытие диалогового окна **Выбор базы данных и таблицы** . Это может занять несколько секунд.
-8. Выберите таблицу, которую следует импортировать, и нажмите кнопку **Далее**. *hivesampletable* является примером таблицы hive, которая содержится в кластерах HDInsight.  Можно выбрать ее, если такая таблица еще не была создана. Дополнительные сведения о выполнении запросов Hive и создании таблиц Hive см. в разделе [Использование Hive и HiveQL с Hadoop в HDInsight][hdinsight-use-hive].
+8. Выберите таблицу, которую следует импортировать, и нажмите кнопку **Далее**. *hivesampletable* является примером таблицы hive, которая содержится в кластерах HDInsight.  Можно выбрать ее, если такая таблица еще не была создана. Дополнительные сведения о выполнении запросов Hive и создании таблиц Hive см. в статье [Использование Hive с HDInsight][hdinsight-use-hive].
 9. Нажмите кнопку **Готово**
 10. В диалоговом окне **Импорт данных** можно изменить или указать запрос. Для этого щелкните **Свойства**. Это может занять несколько секунд.
 11. Щелкните вкладку **Определение**, затем добавьте **LIMIT 200** к инструкции Hive select в текстовом поле **Текст команды**. Это изменение приведет к ограничению возвращаемого набора записей 200 шт.
@@ -110,8 +110,8 @@ ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
 В этой статье было рассмотрено, как использовать драйвер Microsoft Hive ODBC для получения данных из службы HDInsight в Excel. Аналогичным образом можно получать данные из службы HDInsight в базу данных SQL. Можно также передавать данные в службу HDInsight. Дополнительные сведения см. на следующих ресурсах:
 
 * [Анализ данных о задержке рейсов с помощью Hive в HDInsight][hdinsight-analyze-flight-data]
-* [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data]
-* [Использование Sqoop с Hadoop в HDInsight (SSH)][hdinsight-use-sqoop]
+* [Отправка данных в HDInsight][hdinsight-upload-data]
+* [Использование Sqoop с Hadoop в HDInsight][hdinsight-use-sqoop]
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
@@ -129,6 +129,6 @@ ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

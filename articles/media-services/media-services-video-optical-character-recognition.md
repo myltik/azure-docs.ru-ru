@@ -1,5 +1,5 @@
 ---
-title: "Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью аналитики мультимедиа Azure | Документация Майкрософт"
+title: "Оцифровывание текста с помощью распознавания текста медиа-аналитики Azure | Документация Майкрософт"
 description: "Функция OCR (оптическое распознавание символов) медиа-аналитики Azure позволяет преобразовывать текстовое содержимое в видеофайлах в редактируемый и доступный для поиска цифровой текст.  Это позволяет автоматически извлекать значимые метаданные из видеосигнала файлов мультимедиа."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 
 ---
@@ -35,6 +35,10 @@ ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
 
 ## <a name="task-configuration"></a>Конфигурация задачи
 Конфигурация задачи (предустановка). При создании задачи с помощью **Azure Media OCR** необходимо указать предустановку конфигурации, используя JSON- или XML-файл. 
+
+>[!NOTE]
+>Подсистема распознавания текста принимает в качестве допустимых входных данных только область изображения от 40 до 32 000 пикселей в высоту и ширину.
+>
 
 ### <a name="attribute-descriptions"></a>Описания атрибутов
 | Имя атрибута | Описание |
@@ -342,6 +346,6 @@ ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

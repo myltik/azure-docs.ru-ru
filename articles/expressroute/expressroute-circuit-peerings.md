@@ -1,10 +1,10 @@
 ---
-title: "Каналы ExpressRoute и домены маршрутизации | Документация Майкрософт"
+title: "Каналы Azure ExpressRoute и домены маршрутизации | Документация Майкрософт"
 description: "Общие сведения о каналах ExpressRoute и доменах маршрутизации."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
+ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 
 
 ---
@@ -52,7 +52,7 @@ ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
 
 Подключение всегда инициируется из глобальной сети к службам Microsoft Azure. Службы Microsoft Azure не будут иметь возможность инициировать подключения к вашей сети через этот домен маршрутизации. После включения общедоступного пиринга можно будет подключаться ко всем службам Azure. Мы не позволяем выбирать службы, для которых объявляются маршруты. Можно просмотреть список префиксов, которые мы объявляем для вас через этот пиринг, на странице [IP-диапазонов центра данных Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653) . Страница обновляется раз в неделю.
 
-Вы можете задавать в своей сети настраиваемые фильтры маршрутов, чтобы использовать только нужные маршруты. Подробные сведения о настройке маршрутизации см. на странице [Маршрутизация](expressroute-routing.md). Вы можете задавать в своей сети настраиваемые фильтры маршрутов, чтобы использовать только нужные маршруты. 
+Вы можете задавать в своей сети настраиваемые фильтры маршрутов, чтобы использовать только нужные маршруты. Подробные сведения о настройке маршрутизации см. на странице [Маршрутизация](expressroute-routing.md). 
 
 Дополнительные сведения о службах, поддерживаемых через домен маршрутизации общедоступного пиринга, см. на [странице вопросов и ответов](expressroute-faqs.md). 
 
@@ -89,6 +89,6 @@ ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

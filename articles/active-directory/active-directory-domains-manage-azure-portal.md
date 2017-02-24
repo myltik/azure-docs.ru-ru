@@ -3,7 +3,7 @@ title: "Управление именами личных доменов в пр�
 description: "Основные принципы и указания по управлению доменным именем в Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a

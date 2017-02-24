@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6084b2761e33609310461d90868179770d7acc01
+ms.sourcegitcommit: 41e04425a291c9f89bc58341c6bad22ad1bdb8ef
+ms.openlocfilehash: 90f962fbd19f125cfb609e439f157c4822acfce4
 
 
 ---
+
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Учебник. Интеграция Azure Active Directory с Panopto
-Цель данного учебника — показать интеграцию Azure и Panopto.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного учебника — показать интеграцию Azure и Panopto. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * Действующая подписка на Azure
 * Клиент Panopto.
@@ -35,108 +35,114 @@ ms.openlocfilehash: 6084b2761e33609310461d90868179770d7acc01
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-panopto-tutorial/IC777665.png "Scenario")
+![Сценарий](./media/active-directory-saas-panopto-tutorial/IC777665.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-panopto"></a>Включение интеграции приложений для Panopto
 В этом разделе показано, как включить интеграцию приложений для Panopto.
 
-### <a name="to-enable-the-application-integration-for-panopto-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Panopto, выполните следующие действия:
+**Чтобы включить интеграцию приложений для Panopto, выполните следующие действия:**
+
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-panopto-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-panopto-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-panopto-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-panopto-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-panopto-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-panopto-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-panopto-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Panopto**.
    
-   ![Коллекция приложений](./media/active-directory-saas-panopto-tutorial/IC777666.png "Appkication Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-panopto-tutorial/IC777666.png "Коллекция приложений")
 7. В области результатов выберите **Panopto** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Panopto](./media/active-directory-saas-panopto-tutorial/IC782936.png "Panopto")
    
-   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Panopto со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+
 В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64.  
 Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На странице интеграции с приложением **Panopto** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777667.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Panopto?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777668.png "Настройка единого входа")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Panopto** введите свой URL-адрес, используя шаблон *https://\<имя-клиента\>. Panopto.com*, а затем нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-panopto-tutorial/IC777528.png "Configure app URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-panopto-tutorial/IC777528.png "Настройка URL-адреса приложения")
 4. Чтобы скачать сертификат, на странице **Настройка единого входа в Panopto** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777669.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на сайт Panopto своей компании в качестве администратора.
 6. На панели слева щелкните **System** (Система), а затем щелкните **Identity Providers** (Поставщики удостоверений).
    
-   ![System](./media/active-directory-saas-panopto-tutorial/IC777670.png "System")
+   ![Система](./media/active-directory-saas-panopto-tutorial/IC777670.png "Система")
 7. Щелкните **Добавить поставщик**.
    
-   ![Поставщики удостоверений](./media/active-directory-saas-panopto-tutorial/IC777671.png "Identity Providers")
+   ![Поставщики удостоверений](./media/active-directory-saas-panopto-tutorial/IC777671.png "Поставщики удостоверений")
 8. В разделе сведений поставщика SAML выполните следующие действия:
    
-   ![Конфигурация SaaS](./media/active-directory-saas-panopto-tutorial/IC777672.png "SaaS configuration")
+   ![Конфигурация SaaS](./media/active-directory-saas-panopto-tutorial/IC777672.png "Конфигурация SaaS")
    
    1. В списке **Provider Type** (Тип поставщика) выберите пункт **SAML20**.
    2. В текстовом поле **Имя экземпляра** введите имя экземпляра.
    3. В текстовом поле **Понятное описание** введите понятное описание.
    4. На диалоговой странице **Настройка единого входа в Panopto** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **Издатель**.
    5. На диалоговой странице **Настройка единого входа в Panopto** классического портала Azure скопируйте значение поля **URL-адрес единого входа SAML** и вставьте его в текстовое поле **Bounce Page URL** (URL-адрес страницы возврата).
-   6. Создайте файл **в кодировке Base-64** из скачанного сертификата.  
+   6. Создайте файл в кодировке **Base-64** из загруженного сертификата.    
+   
+      >[!TIP]
+      >Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+      >
       
-      > [!TIP]
-      > Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
    7. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Открытый ключ** .
    8. Щелкните **Сохранить**.
-      ![Сохранить](./media/active-directory-saas-panopto-tutorial/IC777673.png "Save")
+
+ ![Сохранить](./media/active-directory-saas-panopto-tutorial/IC777673.png "Сохранить")
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-panopto-tutorial/IC777674.png "Настройка единого входа")
    
-   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
 Действие для настройки подготовки пользователей в Panopto отсутствует.  
 Когда назначенный пользователь пытается войти в Panopto с помощью панели доступа, Panopto проверяет, существует ли данный пользователь.  
+
 Если учетная запись пользователя отсутствует, Panopto автоматически создает ее.
 
 > [!NOTE]
 > Вы можете использовать любые другие инструменты создания учетных записей пользователя Panopto или API, предоставляемые Panopto для подготовки учетных записей пользователя AAD.
 > 
-> 
+
 
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-panopto-perform-the-following-steps"></a>Чтобы назначить пользователей Panopto, выполните следующие действия:
+**Чтобы назначить пользователей Panopto, выполните следующие действия:**
+
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Panopto** щелкните **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-panopto-tutorial/IC777675.png "Assign users")
+   ![Назначение пользователей](./media/active-directory-saas-panopto-tutorial/IC777675.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-panopto-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-panopto-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
