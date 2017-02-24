@@ -69,7 +69,7 @@ ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://portal.azure.com
+[AZURE-Portal]: https://portal.azure.com
 
 
 
