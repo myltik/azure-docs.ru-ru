@@ -74,7 +74,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 2. Убедитесь, что виртуальная машина была освобождена.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Теперь задайте для виртуальной машины состояние **Generalized**(Универсальная). 
@@ -119,7 +119,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 2. Остановите и освободите виртуальную машину.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Пометьте виртуальную машину как универсальную.
