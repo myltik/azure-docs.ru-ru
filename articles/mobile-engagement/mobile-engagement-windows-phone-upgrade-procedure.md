@@ -4,7 +4,7 @@ description: "Процедуры обновления пакета SDK для Wi
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -110,7 +111,7 @@ ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
         </engagement:EngagementPage>
 4. Обратите внимание, что для использования Engagement были переименованы и другие ресурсы, такие как изображения Capptain.
 
-### <a name="application-id-sdk-key"></a>Идентификатор приложения и ключ SDK
+### <a name="application-id--sdk-key"></a>Идентификатор приложения и ключ SDK
 Engagement использует строку подключения. При использовании Mobile Engagement не нужно указывать идентификатор приложения и ключ SDK. Достаточно просто задать строку подключения. Ее можно настроить в файле EngagementConfiguration.
 
 Конфигурацию Engagement можно определить в файле `Resources\EngagementConfiguration.xml` проекта.
@@ -142,10 +143,5 @@ Engagement использует строку подключения. При ис
 * GetCapptainPageName теперь называется GetEngagementPageName.
 
 Обратите внимание, что переименование также влияет на переопределенные методы.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

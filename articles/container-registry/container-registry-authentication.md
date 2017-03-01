@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 1a5af0b498cfdf1946f5c405d9557b0c2d2c8e63
-ms.openlocfilehash: 1e9e54ee935b4c27eb93f72eb99c3ce52cc6c7e2
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="authenticate-with-a-container-registry"></a>Проверка подлинности в реестре контейнеров Azure
@@ -59,7 +60,7 @@ docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
 
 
 ## <a name="admin-account"></a>Учетная запись администратора
-При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#manage-registry-settings) или с помощью [команд предварительной версии Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Если учетная запись включена, укажите в команде `docker login` имя пользователя и пароль для базовой проверки подлинности в реестре. Например:
+При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#manage-registry-settings) или с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Если учетная запись включена, укажите в команде `docker login` имя пользователя и пароль для базовой проверки подлинности в реестре. Например:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
@@ -74,10 +75,5 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 * [Отправьте свой первый образ с помощью интерфейса командной строки Docker.](container-registry-get-started-docker-cli.md)
 * Дополнительные сведения о проверке подлинности в предварительной версии реестра контейнеров см. в [этой записи блога](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

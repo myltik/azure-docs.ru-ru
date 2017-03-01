@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 683ff9f9a829468d9852ce7e9699c766cab53f8b
-ms.openlocfilehash: 163f9f19dfed86e1280135b653086e018f85592b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: a0f47a19f7ef1832e64e9a0bdc4bda3434f77aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Квоты и ограничения пакетной службы Azure
+# <a name="batch-service-quotas-and-limits"></a>Квоты и ограничения пакетной службы
+
 Как и в других службах Azure, существуют ограничения на некоторые ресурсы, связанные с пакетной службой. Многие из этих ограничений являются квотами по умолчанию, которые Azure применяет на уровне подписки или учетной записи. В данной статье рассматриваются эти значения по умолчанию и то, как запросить увеличение квот.
 
 Если планируется выполнять рабочие нагрузки в производственной среде с использованием пакетной службы, имеет смысл увеличить одну или несколько квот по сравнению со значениями по умолчанию. Для увеличения квоты отправьте (бесплатно) [запрос в службу поддержки клиентов](#increase-a-quota) .
@@ -95,9 +98,4 @@ ms.openlocfilehash: 163f9f19dfed86e1280135b653086e018f85592b
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

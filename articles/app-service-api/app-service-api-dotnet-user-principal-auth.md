@@ -4,7 +4,7 @@ description: "Узнайте, как защитить приложение API �
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
 ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -280,10 +281,5 @@ ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как использовать проверку подлинности в службе приложений для приложения API и как вызывать приложение API с помощью библиотеки ADAL JS. В следующем руководстве вы узнаете, как [обеспечить безопасный доступ к приложению API в сценариях взаимодействия между службами](app-service-api-dotnet-service-principal-auth.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

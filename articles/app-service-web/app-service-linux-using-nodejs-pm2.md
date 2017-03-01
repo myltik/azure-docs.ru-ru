@@ -5,7 +5,7 @@ keywords: "служба приложений azure, веб-приложение,
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
 ms.service: app-service
@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a46f52198e956406c2384c45ed4323aff27259a0
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux
-При использовании стека приложений Node.js для веб-приложений Linux вы можете задать загрузочный файл Node.js, как показано на следующем изображении.
+При использовании стека приложений Node.js для веб-приложений Linux вы можете задать загрузочный файл Node.js, как показано на следующем рисунке.
 
 ![Указание загрузочного файла Node.js][1]
 
@@ -61,12 +62,8 @@ ms.openlocfilehash: a46f52198e956406c2384c45ed4323aff27259a0
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [What is App Service on Linux?](app-service-linux-intro.md) (Общие сведения о службе приложений в Linux)
+* [Вопросы и ответы о веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

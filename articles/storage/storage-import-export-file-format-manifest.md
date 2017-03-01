@@ -1,5 +1,5 @@
 ---
-title: "Формат файла манифеста службы импорта и экспорта | Документация Майкрософт"
+title: "Формат файла манифеста импорта и экспорта Azure | Документация Майкрософт"
 description: "Сведения о формате файла манифеста диска с описанием сопоставления между большими двоичными объектами в хранилище BLOB-объектов Azure и файле на диске для задания импорта или экспорта в службе импорта и экспорта"
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 54b2d4d50cda5c2cdb602bd8d471a8c75f88cd3b
-ms.openlocfilehash: db684f836d5a28c7c6ba188c22029ab84f031bb7
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="import-export-service-manifest-file-format"></a>Формат файла манифеста службы импорта и экспорта
+# <a name="azure-importexport-service-manifest-file-format"></a>Формат файла манифеста службы импорта и экспорта Azure
 Файл манифеста диска описывает сопоставление между большими двоичными объектами в хранилище BLOB-объектов Azure и файлами на диске, включая задание импорта или экспорта. Для операции импорта файл манифеста создается в рамках процесса подготовки диска и сохраняется на нем перед отправкой в центр обработки данных Azure. Во время операции экспорта манифест создается и сохраняется на диске службой импорта и экспорта Azure.  
   
 Для заданий импорта и экспорта файл манифеста диска хранится на диске импорта или экспорта и не передается в службу через операции API.  
@@ -132,9 +133,4 @@ block-list ::=
   
 ## <a name="see-also"></a>См. также  
 [Storage Import/Export REST](/rest/api/storageimportexport/) (Справочник по API REST служб хранилища импорта и экспорта)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

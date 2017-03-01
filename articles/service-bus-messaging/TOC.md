@@ -39,6 +39,7 @@
 ### [Секционированные очереди и разделы](service-bus-partitioning.md)
 ### [Очереди недоставленных сообщений](service-bus-dead-letter-queues.md)
 ### [Обработка транзакций](service-bus-transactions.md)
+### [Журналы диагностики](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Обозреватель служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

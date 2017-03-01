@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 54afb2f55ef9ff48448c63bc8ee8e745765f61e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -96,15 +97,10 @@ ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
 ## <a name="create-the-policy"></a>Создание политики
 Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Для создания политики обратитесь к следующей статье:
 
-* [Создание политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Создание политики](../azure-resource-manager/resource-manager-policy.md)
 
 ## <a name="apply-the-policy"></a>Применение политики
 После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Для применения политики обратитесь к следующей статье:
 
-* [Создание политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Создание политики](../azure-resource-manager/resource-manager-policy.md)
 

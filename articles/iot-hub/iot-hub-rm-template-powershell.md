@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 02/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
-ms.openlocfilehash: b884fe128b8414ae1692df92e89a41f7ba1c0447
+ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
+ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -135,7 +136,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 * Ознакомьтесь с возможностями [REST API поставщика ресурсов Центра Интернета вещей][lnk-rest-api].
 * Сведения о возможностях Azure Resource Manager см. в статье [Общие сведения об Azure Resource Manager][lnk-azure-rm-overview].
 
-Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
+Дополнительные сведения о разработке для Центра Интернета вещей см. в следующих статьях:
 
 * [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
 * [IoT Hub SDKs][lnk-sdks] (Пакеты SDK для Центра Интернета вещей)
@@ -157,9 +158,4 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

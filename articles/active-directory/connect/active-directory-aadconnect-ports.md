@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
+ms.sourcegitcommit: 935246ad590af0dcdb6d52257a94169f94dd66e5
+ms.openlocfilehash: 3ff7256578cffd30ae9b75ead2dd7f08babca171
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Порты и протоколы, необходимые для гибридной идентификации
 Следующий документ представляет собой технический справочник по портам и протоколам, которые необходимы для реализации решения для гибридной идентификации. Используйте приведенный ниже рисунок и соответствующую таблицу.
 
-![Что такое Azure AD Connect?](./media/active-directory-aadconnect-ports/required2.png)
+![Что такое Azure AD Connect?](./media/active-directory-aadconnect-ports/required3.png)
 
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Таблица 1. Azure AD Connect и локальная служба AD
 В этой таблице описываются порты и протоколы, необходимые для взаимодействия между сервером Azure AD Connect и локальной службой AD.
@@ -71,9 +72,10 @@ ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 | HTTPS |443 (TCP или UDP) |Используется для проверки подлинности устройств. |
 | TCP |49443 (TCP) |Используется для проверки подлинности с помощью сертификата. |
 
-## <a name="table-6---pass-through-authentication"></a>Таблица 6. Сквозная проверка подлинности
-В этой таблице описываются порты и протоколы, которые необходимы для взаимодействия между соединителем и Azure AD.
+## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Таблицы 6a и 6b. Сквозная аутентификация с помощью единого входа (SSO) и синхронизация хэша паролей с помощью единого входа (SSO)
+В следующих таблицах описываются порты и протоколы, которые необходимы для взаимодействия между Azure AD Connect и Azure AD.
 
+### <a name="table-6a---pass-through-authentication-with-sso"></a>Таблица 6a. Сквозная аутентификация с помощью SSO
 |Протокол|Номер порта|Описание
 | --- | --- | ---
 |HTTP|80|Разрешение исходящего трафика HTTP для проверки безопасности, например SSL.
@@ -84,6 +86,12 @@ ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 |HTTPS|8080/443|    Включение последовательности начальной загрузки соединителя и автоматического обновления соединителя.
 |HTTPS|9090|    Регистрация соединителя (требуется только для процесса регистрации соединителя).
 |HTTPS|9091|    Включение автоматического обновления сертификатов доверия соединителя.
+
+### <a name="table-6b---password-hash-sync-with-sso"></a>Таблица 6b. Синхронизация хэша паролей с помощью SSO
+
+|Протокол|Номер порта|Описание
+| --- | --- | ---
+|HTTPS|9090|    Включение регистрации SSO (требуется только для процесса регистрации SSO).
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблицы 7а и 7б. Агент Azure AD Connect Health для AD FS и синхронизации и Azure AD
 В следующих таблицах описываются конечные точки, порты и протоколы, необходимые для взаимодействия между агентами Azure AD Connect Health и Azure AD.
@@ -98,10 +106,5 @@ ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица&7;б. Конечные точки для агента Azure AD Connect Health для AD FS и синхронизации и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

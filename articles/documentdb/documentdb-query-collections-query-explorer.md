@@ -1,5 +1,5 @@
 ---
-title: "Обозреватель запросов DocumentDB: редактор SQL-запросов | Документация Майкрософт"
+title: "Инструмент DocumentDB портала Azure: обозреватель запросов | Документация Майкрософт"
 description: "Сведения об обозревателе запросов DocumentDB — редакторе SQL-запросов портала Azure, предназначенном для написания SQL-запросов и их выполнения в коллекции DocumentDB NoSQL."
 keywords: "написание sql-запросов, редактор sql-запросов"
 services: documentdb
@@ -13,18 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a4e66ff9022b153fe09fba004ff50aed053b392
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: c4c2cd8ddcb541b2619f7e1b140222899f15f87c
+ms.lasthandoff: 02/23/2017
 
 
 ---
-# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer"></a>Создание, изменение и выполнение SQL-запросов для DocumentDB с помощью обозревателя запросов
+# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer-in-the-azure-portal"></a>Создание, изменение и выполнение SQL-запросов для DocumentDB с помощью обозревателя запросов на портале Azure
 В этой статье приведены общие сведения об обозревателе запросов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), который представляет собой инструмент портала Azure, предназначенный для создания, изменения и выполнения SQL-запросов к [коллекции DocumentDB](documentdb-create-collection.md).
 
-1. На навигационной панели портала Azure щелкните **DocumentDB (NoSQL)**. Если пункт **DocumentDB (NoSQL)** не отображается, то щелкните **Больше служб** и выберите **DocumentDB (NoSQL)**.
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Если пункт **NoSQL (DocumentDB)** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. В меню ресурсов выберите **Обозреватель запросов**. 
    
     ![Снимок экрана: портал Azure с выделенным элементом "Обозреватель запросов"](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
@@ -66,15 +69,10 @@ ms.openlocfilehash: 4a4e66ff9022b153fe09fba004ff50aed053b392
 ![Снимок экрана: ошибки запроса в обозревателе запросов](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## <a name="run-documentdb-sql-queries-outside-the-portal"></a>Выполнение SQL-запросов к DocumentDB за пределами портала
-Использование обозревателя запросов на портале Azure — это один из способов выполнения SQL-запросов к DocumentDB. Вы можете также выполнять SQL-запросы с помощью [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или [клиентских пакетов SDK](documentdb-sdk-dotnet.md). Дополнительные сведения об использовании других способов см. в разделе [Выполнение SQL-запросов](documentdb-sql-query.md#executing-sql-queries).
+Использование обозревателя запросов на портале Azure — это один из способов выполнения SQL-запросов к DocumentDB. Вы можете также выполнять SQL-запросы с помощью [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или [клиентских пакетов SDK](documentdb-sdk-dotnet.md). Дополнительные сведения об использовании других способов см. в разделе [Выполнение SQL-запросов](documentdb-sql-query.md#ExecutingSqlQueries).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о грамматике SQL в DocumentDB, которую поддерживает обозреватель запросов, см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md). Можно также распечатать копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md).
 Вы также можете поэкспериментировать на [площадке для запросов](https://www.documentdb.com/sql/demo) , где запросы можно тестировать через Интернет с помощью примера набора данных.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

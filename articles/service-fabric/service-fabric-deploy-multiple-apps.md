@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 02/17/2017
+ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
-ms.openlocfilehash: bf2e34a27806ca79f88db9a9f8d052cd7bfcc94d
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: 8ff5933239521f8ed986da5a12aced3110085376
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -26,6 +27,10 @@ ms.openlocfilehash: bf2e34a27806ca79f88db9a9f8d052cd7bfcc94d
 Хотя в этом пошаговом руководстве показано, как развернуть приложение с клиентом Node.js и MongoDB в качестве хранилища данных, эти действия можно применить к любому приложению, которое зависит от другого приложения.   
 
 Visual Studio можно использовать для создания пакета приложения, содержащего несколько гостевых исполняемых файлов. Ознакомьтесь с разделом [Упаковка имеющегося приложения с использованием Visual Studio](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). После добавления первого гостевого исполняемого файла щелкните правой кнопкой мыши проект приложения и выберите **Добавить > Новая служба Service Fabric**, чтобы добавить в решение проект второго гостевого исполняемого файла. Примечание. Если связать источник с проектом Visual Studio, то при выполнении сборки решения Visual Studio следует убедиться, что в пакете приложения отображаются последние изменения в источнике. 
+
+## <a name="samples"></a>Примеры
+* [Пример для упаковки и развертывания гостевого исполняемого файла](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Пример двух гостевых исполняемых файлов (C# и Node.js), которые взаимодействуют через службу именования с помощью REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Упаковка нескольких гостевых исполняемых файлов вручную
 В качестве альтернативы можно вручную можно упаковать гостевой исполняемый файл. Для этого в данной статье используется инструмент упаковки Service Fabric, доступный по адресу [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -210,13 +215,8 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 1. Перейдите в корневой каталог существующего приложения.  Например, `cd ~/YeomanSamples/MyApplication`, если `MyApplication` является приложением, созданным с помощью Yeoman.
 2. Выполните команду `yo azuresfguest:AddService`, чтобы предоставить необходимые сведения.
 
-
-
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о развертывании контейнеров в [обзоре Service Fabric и контейнеров](service-fabric-containers-overview.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+* [Пример для упаковки и развертывания гостевого исполняемого файла](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Пример двух гостевых исполняемых файлов (C# и Node.js), которые взаимодействуют через службу именования с помощью REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

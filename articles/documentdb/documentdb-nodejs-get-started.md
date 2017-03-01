@@ -1,7 +1,7 @@
 ---
 title: "Руководство по NoSQL Node.js для DocumentDB | Документация Майкрософт"
 description: "Руководство по NoSQL Node.js, в котором создается база данных NoSQL и консольное приложение с помощью пакета SDK для Node.js DocumentDB. DocumentDB — это база данных NoSQL для JSON."
-keywords: "руководство по Node.js, база данных Node"
+keywords: "node.js, руководство, база данных node"
 services: documentdb
 documentationcenter: node.js
 author: AndrewHoh
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -406,7 +407,7 @@ DocumentDB поддерживает [полнофункциональные за
 
 ![Руководство по Node.js (база данных Node): на схеме представлен масштаб и значение запроса.](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-Ключевое слово [FROM](documentdb-sql-query.md#from-clause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
+Ключевое слово [FROM](documentdb-sql-query.md#FromClause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
 
 Скопируйте код и вставьте его после вызова функции **getFamilyDocument**, чтобы выполнить функцию **queryCollection**.
 
@@ -627,9 +628,4 @@ DocumentDB поддерживает удаление документов JSON.
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

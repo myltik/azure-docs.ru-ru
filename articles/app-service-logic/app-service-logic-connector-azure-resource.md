@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
 
 Дэвид Эббо написал об этом отличную [статью в своем блоге](http://blog.davidebbo.com/2014/12/azure-service-principal.html) . Прочтите ее и, воспользовавшись приведенными в ней инструкциями, получите **идентификатор клиента**, **код клиента** и **секрет**. Этих трех значений вместе с **идентификатором подписки**достаточно для настройки соединителя.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>Использование соединителя ресурсов Azure в конструкторе приложений логики
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>Использование соединителя ресурсов Azure в конструкторе приложений логики
 ### <a name="trigger"></a>Триггер
 В соединителе поддерживаются два триггера.
 
@@ -106,9 +107,4 @@ ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -92,13 +93,8 @@ ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
 | imageVersion |Указывает версию образа для выбранного номера SKU |
 
 ## <a name="create-the-policy"></a>Создание политики
-Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="apply-the-policy"></a>Применение политики
-После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Вы можете ознакомиться с дополнительными сведениями о [создании и назначении политики](../azure-resource-manager/resource-manager-policy.md).
 

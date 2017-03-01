@@ -3,7 +3,7 @@ title: "Рекомендации по управлению паролями Azur
 description: "Рекомендации по развертыванию и использованию функции, образцы документации для пользователей и обучающие руководства по управлению паролями в службе Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Развертывание компонентов управления паролями и обучение пользователей их использованию
 > [!IMPORTANT]
 > **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 После настройки функции сброса пароля необходимо научить пользователей в своей организации ее использовать. Для этого необходимо убедится, что учетные записи пользователей правильно настроены, а сами пользователи прошли необходимое обучение по управлению своими паролями. В этой статье мы поговорим о таких аспектах:
 
@@ -122,11 +123,11 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 2. Откройте вкладку **Пользователи** .
 3. Выберите нужного пользователя из списка.
 4. На первой вкладке содержится **Альтернативный адрес электронной почты**, который можно использовать как свойство для активации функции сброса пароля.
-   
+
    ![][005]
 5. Откройте вкладку **Сведения о работе** .
 6. На этой странице есть поля **Рабочий телефон**, **Мобильный телефон**, **Телефон для проверки подлинности** и **Адрес электронной почты для проверки подлинности**.  Эти свойства также можно задать, чтобы позволить пользователю сбрасывать свой пароль.
-   
+
    ![][006]
 
 Сведения о том, как использовать каждое из этих свойств, см. в разделе [Какие данные используются при сбросе пароля?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
@@ -140,7 +141,7 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Ссылки на документацию по сбросу паролей
+## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
 * **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
@@ -159,9 +160,4 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

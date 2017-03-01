@@ -3,7 +3,7 @@
 ## [Что такое Центр Интернета вещей в Azure?](iot-hub-what-is-iot-hub.md)
 ## [Обзор управления устройствами](iot-hub-device-management-overview.md)
 
-# Начало работы
+# [Приступая к работе](iot-hub-get-started.md)
 ## Использование виртуального устройства
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -23,7 +23,7 @@
 ##### [Получение инструментов Azure (MacOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Урок 3. Отправка сообщений с устройства в облако
-##### [Создание приложения-функции Azure и учетной записи хранения Azure]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Запуск примера приложения для отправки сообщений](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [Чтение сообщений, сохраненных в хранилище](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Урок 4. Отправка сообщений из облака на устройство
@@ -66,7 +66,7 @@
 ##### [Получение инструментов Azure (MacOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Урок 3. Отправка сообщений с устройства в облако
-##### [Создание приложения-функции Azure и учетной записи хранения Azure]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Запуск примера приложения для отправки сообщений](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [Чтение сообщений, сохраненных в хранилище](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Урок 4. Отправка сообщений из облака на устройство
@@ -107,13 +107,13 @@
 ##### [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Получение инструментов Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Получение инструментов Azure (MacOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Создание Центра Интернета вещей и регистрация Raspberry Pi]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Урок 3. Отправка сообщений с устройства в облако
-##### [Создание приложения-функции Azure и учетной записи хранения Azure]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [Запуск примера приложения для отправки сообщений](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [Чтение сообщений, сохраненных в хранилище](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Урок 4. Отправка сообщений из облака на устройство
-##### [Запуск примера приложения для получения сообщений]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [Запуск примера приложения для получения сообщений](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Устранение неполадок](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -172,7 +172,7 @@
 ### [Масштабирование своего решения](iot-hub-scaling.md)
 ### [Высокий уровень доступности и аварийное восстановление](iot-hub-ha-dr.md)
 ### [Поддержка дополнительных протоколов](iot-hub-protocol-gateway.md)
-## Разработка
+## [Разработка](iot-hub-how-to.md)
 ### [Руководство для разработчиков](iot-hub-devguide.md)
 #### [Отправка и получение сообщений](iot-hub-devguide-messaging.md)
 #### [Руководство по функциям передачи из устройства в облако](iot-hub-devguide-d2c-guidance.md)
@@ -269,8 +269,3 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Центре разработчика для IoT в Azure](https://azure.microsoft.com/develop/iot/)
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -11,36 +11,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
+ms.sourcegitcommit: ddbe54eb6f9565e0c42d138231dbde22592e75b5
+ms.openlocfilehash: d6191e01450859a5e91b815df84d9a024bbee2c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Руководство. Интеграция Azure Active Directory с Abintegro
 Цель данного руководства — показать интеграцию Azure и Abintegro.  
+
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
-* Подписка с поддержкой единого входа Abintegro
+* действующая подписка Azure;
+* подписка Abintegro с поддержкой единого входа.
 
 После завершения этого руководства пользователи Azure AD, назначенные Abintegro, будут иметь возможность единого входа в приложение на веб-сайте компании Abintegro (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1. Включение интеграции приложений для Abintegro
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+* Включение интеграции приложений для Abintegro
+* Настройка единого входа
+* Настройка подготовки учетных записей пользователей
+* Назначение пользователей
 
 ![Сценарий](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Сценарий")
 
-## <a name="enabling-the-application-integration-for-abintegro"></a>Включение интеграции приложений для Abintegro
+## <a name="enable-the-application-integration-for-abintegro"></a>Включение интеграции приложений для Abintegro
 В этом разделе показано, как включить интеграцию приложений для Abintegro.
 
-### <a name="to-enable-the-application-integration-for-abintegro-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Abintegro, выполните следующие действия.
+**Чтобы включить интеграцию приложений для Abintegro, сделайте следующее:**
+
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-abintegro-tutorial/IC700993.png "Active Directory")
@@ -61,11 +64,12 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
    
    ![Abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
    
-   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Abintegro со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На странице интеграции с приложением **Abintegro** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Настройка единого входа")
@@ -80,24 +84,25 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
    ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Настройка единого входа")
 5. Отправьте файл метаданных в службу поддержки Abintegro.
    
-   > [!NOTE]
-   > Настройка единого входа должна выполняться службой поддержки Abintegro. Сразу же после завершения настройки вы получите уведомление.
-   > 
-   > 
+   >[!NOTE]
+   >Настройка единого входа должна выполняться службой поддержки Abintegro. Сразу же после завершения настройки вы получите уведомление.
+   >  
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Настройка единого входа")
+  ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Настройка единого входа")
    
-   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
 Элемент действия для настройки подготовки пользователей в Abintegro отсутствует.  
 Когда назначенный пользователь пытается войти в Abintegro с помощью панели доступа, Abintegro проверяет, существует ли данный пользователь.  
+
 Если учетная запись пользователя отсутствует, Abintegro автоматически создает ее.
 
-## <a name="assigning-users"></a>Назначение пользователей
+## <a name="assign-users"></a>Назначить пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-abintegro-perform-the-following-steps"></a>Чтобы назначить пользователей Abintegro, выполните следующие действия.
+**Чтобы назначить пользователей Abintegro, сделайте следующее:**
+
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Abintegro** нажмите кнопку **Назначить пользователей**.
    
@@ -107,10 +112,5 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
    ![Да](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

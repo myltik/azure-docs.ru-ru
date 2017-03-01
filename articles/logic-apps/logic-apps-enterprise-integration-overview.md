@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: 538ba17e2b90ca1b30aee79c1f1835f3c4cdfb3c
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 514942b2552564f669d73b997a2d355ddb477b22
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 538ba17e2b90ca1b30aee79c1f1835f3c4cdfb3c
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>Как приступить к работе с интеграцией Enterprise?
 
-Создавать приложения B2B и управлять ими с помощью пакета интеграции Enterprise можно в конструкторе Logic Apps на **портале Azure**. Вы также можете управлять приложениями логики с помощью [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Разделы о PowerShell, посвященные приложениям логики").
+Создавать приложения B2B и управлять ими с помощью пакета интеграции Enterprise можно в конструкторе приложений логики на **портале Azure**. Вы также можете управлять приложениями логики с помощью [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Разделы о PowerShell, посвященные приложениям логики").
 
 Ниже описаны действия, которые необходимо выполнить перед созданием приложений на портале Azure.
 
@@ -74,10 +75,5 @@ ms.openlocfilehash: 538ba17e2b90ca1b30aee79c1f1835f3c4cdfb3c
 * [Метаданные учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-metadata.md "Узнайте о метаданных учетной записи интеграции")
 * [Мониторинг сообщений "бизнес — бизнес"](logic-apps-monitor-b2b-message.md "Узнайте больше о мониторинге сообщений "бизнес — бизнес"")
 * [Отслеживание сообщений "бизнес — бизнес" на портале OMS](logic-apps-track-b2b-messages-omsportal.md "Узнайте больше об отслеживании сообщений "бизнес — бизнес" на портале OMS")
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

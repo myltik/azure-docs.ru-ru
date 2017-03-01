@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9ab2950715850d0c2ee0f398cd44399a5974c1a9
-ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
+ms.sourcegitcommit: ad9c78483af88a85a1b790269231683155760d76
+ms.openlocfilehash: aef560c2b05a80c59743c4cc6d68d6d2c14bdc3f
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -46,7 +47,7 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Описание сценария
@@ -69,7 +70,7 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 
     ![Приложения][2]
     
-3. Нажмите кнопку **Добавить** вверху диалогового окна.
+3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
 
     ![Приложения][3]
 
@@ -93,7 +94,7 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа в Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Infor Retail – Information Management](#creating-an-infor-retail---information-management-user)** требуется для создания пользователя Britta Simon в Infor Retail – Information Management, связанного с представлением этого же пользователя в Azure AD.
+3. **[Создание тестового пользователя Infor Retail – Information Management](#creating-an-infor-retail---information-management-test-user)** требуется для создания пользователя Britta Simon в Infor Retail – Information Management, связанного с представлением этого же пользователя в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
@@ -115,9 +116,9 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 
     ![Настройка единого входа](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `http://<company name>.mingle.infor.com`.
+    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<company name>.mingle.infor.com`
     
-    b. В текстовое поле **URL-адрес ответа** введите URL-адрес в следующем формате: `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`.
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<company name>.mingle.infor.com/sp/ACS.saml2`.
     
 4. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, то в разделе **Домены и URL-адреса приложения Infor Retail – Information Management** выполните следующие действия:
     
@@ -128,11 +129,11 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
     b. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.mingle.infor.com/<company code>`.
 
     > [!NOTE] 
-    > Обратите внимание, что значения, указанные выше, используются в качестве примера. Следует заменить их фактическими значениями URL-адреса для входа, идентификатора и URL-адреса ответа. Чтобы получить эти сведения, обратитесь в [службу поддержки Infor Retail – Information Management](http://www.infor.com/contact/).
+    > Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо обновить фактические значения URL-адреса для входа, идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки по вопросам управления данными Infor Retail](mailto:innovate@infor.com).
 
 5. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
 
-    ![Настройка единого входа](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)   
+    ![Настройка единого входа](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)     
 
 6. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
 
@@ -146,11 +147,11 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 
     ![Настройка единого входа](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. В разделе **Сертификат подписи SAML** нажмите кнопку **Загрузить** и сохраните файл метаданных на своем компьютере.
+9. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Infor Retail – Information Management](http://www.infor.com/contact/) и предоставьте скачанный **файл метаданных**.
+10. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Infor Retail – Information Management](mailto:innovate@infor.com) и предоставьте скачанный **файл метаданных**.
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
@@ -160,7 +161,7 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале управления Azure** в левой области навигации нажмите значок **Azure Active Directory**.
+1. На **портале управления Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_01.png) 
 
@@ -172,15 +173,15 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_03.png) 
 
-4. На странице диалогового окна **Пользователь** выполните следующие действия:
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_04.png) 
 
-    а. В текстовом поле **Имя** введите **Britta Simon**.
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи Britta Simon.
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-    В. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
     d. Щелкните **Создать**. 
 
@@ -188,7 +189,7 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 
 ### <a name="creating-an-infor-retail--information-management-test-user"></a>Создание тестового пользователя Infor Retail – Information Management
 
-В этом разделе описано, как создать пользователя Britta Simon в приложении Infor Retail – Information Management. Обратитесь в [службу поддержки Infor Retail – Information Management](http://www.infor.com/contact/), чтобы добавить пользователей на платформу Infor Retail – Information Management.
+В этом разделе описано, как создать пользователя Britta Simon в приложении Infor Retail – Information Management. Обратитесь в [службу поддержки Infor Retail – Information Management](mailto:innovate@infor.com), чтобы добавить пользователей на платформу Infor Retail – Information Management.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
@@ -250,8 +251,3 @@ ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
 [201]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

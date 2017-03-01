@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 2ea87726b06a0e8ab20515031424bf4e93f45a80
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -47,8 +48,8 @@ ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
-1. Добавление Proofpoint on Demand из коллекции.
-2. Настройка и проверка единого входа в Azure AD.
+* Добавление Proofpoint on Demand из коллекции.
+* Настройка и проверка единого входа в Azure AD.
 
 ## <a name="add-proofpoint-on-demand-from-the-gallery"></a>Добавление Proofpoint on Demand из коллекции
 Чтобы настроить интеграцию приложения Proofpoint on Demand с Azure AD, необходимо добавить это приложение из коллекции в список управляемых приложений SaaS.
@@ -98,29 +99,20 @@ ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
 3. На странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Страница "Настроить параметры приложения" с заполненными полями](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
-   
-    а. В поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Proofpoint on Demand. Используйте следующий формат: **https://\<имя_узла\>.pphosted.com/ppssamlsp_hostname**.
-   
-    b. В поле **Идентификатор** введите URL-адрес по следующей схеме: **https://\<имя_узла/>.pphosted.com/ppssamlsp**.
-   
-    c. В поле **URL-адрес ответа** введите URL-адрес по следующей схеме: **https://\<имя_узла/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**.
-   
-    d. Нажмите кнопку **Далее**.
+   1. В поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Proofpoint on Demand. Используйте следующий формат: **https://\<имя_узла\>.pphosted.com/ppssamlsp_hostname**.
+   2. В поле **Идентификатор** введите URL-адрес по следующей схеме: **https://\<имя_узла/>.pphosted.com/ppssamlsp**.
+   3. В поле **URL-адрес ответа** введите URL-адрес по следующей схеме: **https://\<имя_узла/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**.  
+   4. Нажмите кнопку **Далее**.
 4. На странице **Настройка единого входа в Proofpoint on Demand** выполните следующие действия.
    
     ![Страница "Настройка единого входа в Proofpoint on Demand" с кнопкой "Скачать сертификат"](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
+   1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.   
+   2. Нажмите кнопку **Далее**.
 5. Чтобы настроить единый вход для своего приложения, обратитесь к группе поддержки Proofpoint on Demand и предоставьте следующие сведения:
-   
-    • скачанный сертификат;
-   
-    • идентификатор сущности;
-   
-    • URL-адрес единого входа SAML.
-6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+   * Скачанный сертификат
+   * идентификатор сущности;
+   * URL-адрес единого входа SAML;
+6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![Флажок, подтверждающий настройку единого входа][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
@@ -142,34 +134,28 @@ ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Кнопка "Добавить пользователя"](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
-5. На странице **Тип учетной записи пользователя** выполните следующие действия.  ![Страница "Тип учетной записи пользователя" с заполненными полями](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)
-   
-    а. В поле **Тип пользователя** выберите **Новый пользователь в вашей организации**.
-   
-    b. В поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице **Профиль пользователя** выполните следующие действия. ![Страница "Профиль пользователя" с заполненными полями](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)
-   
-   а. В поле **Имя** введите **Britta**.  
-   
-   b. В поле **Фамилия** введите **Simon**.
-   
-   c. В поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+5. На странице **Тип учетной записи пользователя** выполните следующее.
+
+    ![Страница "Тип учетной записи пользователя" с заполненными полями](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)   
+   1. В поле **Тип пользователя** выберите **Новый пользователь в вашей организации**.
+   2. В поле **Имя пользователя** введите **BrittaSimon**.
+   3. Нажмите кнопку **Далее**.
+6. На странице **Профиль пользователя** выполните следующее.
+
+  ![Страница "Профиль пользователя" с заполненными полями](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)   
+   1. В поле **Имя** введите **Britta**.  
+   2. В поле **Фамилия** введите **Simon**.
+   3. В поле **Отображаемое имя** введите **Britta Simon**.
+   4. В списке **Роль** выберите **Пользователь**.
+   5. Нажмите кнопку **Далее**.
 7. На странице **Получить временный пароль** нажмите кнопку **Создать**.
    
-    ![Кнопка для создания временного пароля](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+   ![Кнопка для создания временного пароля](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
 8. На странице **Получить временный пароль** выполните следующие действия.
    
-    ![Страница "Получить временный пароль" с информацией о пароле](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+   ![Страница "Получить временный пароль" с информацией о пароле](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)  
+   1. Запишите значение поля **Новый пароль**.
+   2. Нажмите **Завершено**.   
 
 ### <a name="create-a-proofpoint-on-demand-test-user"></a>Создание тестового пользователя Proofpoint on Demand
 В этом разделе описано, как создать пользователя Britta Simon в Proofpoint on Demand. Обратитесь в службу поддержки Proofpoint on Demand, чтобы добавить пользователей на платформу Proofpoint on Demand.
@@ -219,9 +205,4 @@ ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
 [203]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

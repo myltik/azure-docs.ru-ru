@@ -4,7 +4,7 @@ description: "Последние обновления и процедуры па
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 585341f9-3f39-459a-af42-864e400a0128
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: af776804affea5abe599594d7b486bbead982f3e
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -74,10 +75,5 @@ ms.openlocfilehash: af776804affea5abe599594d7b486bbead982f3e
 * Удален API для отправки и получения сообщений между устройствами.
 * Улучшения безопасности.
 * Удалено отслеживание Google Play и SmartAd.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

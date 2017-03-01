@@ -4,7 +4,7 @@ description: "Эта статья поможет устранить причин
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "Производительность веб-приложения, медленное приложение, приложение работает медленно"
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
 ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -171,9 +172,4 @@ Microsoft Azure информирует о каждом случае прерыв
  ![Перезапуск веб-приложение для устранения проблем с производительностью](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

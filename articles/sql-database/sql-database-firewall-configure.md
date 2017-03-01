@@ -12,26 +12,19 @@ ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 5b94c884c585824ab580f307f3a04e27c8536947
-ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 09bc875449ecdf48c2570f1029df68d28ae5e798
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="overview-of-azure-sql-database-firewall-rules"></a>Обзор правил брандмауэра базы данных SQL Azure 
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-firewall-configure.md)
-> * [Портал Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 База данных SQL Microsoft Azure предоставляет службу реляционных баз данных для Azure и других интернет-приложений. Чтобы защитить ваши данные, брандмауэр запрещает любой доступ к серверу базы данных, пока вы не укажете компьютеры, у которых есть разрешение на доступ. Брандмауэр предоставляет доступ к базам данным на основе исходного IP-адреса каждого запроса.
 
@@ -41,7 +34,7 @@ ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
 * **Правила брандмауэра уровня базы данных.** Эти правила разрешают клиентам доступ к отдельным базам данных в пределах сервера Базы данных SQL Azure. Вы можете создать такие правила для каждой базы данных, и они будут храниться в отдельных базах данных. (Правила брандмауэра уровня базы данных можно создать для базы данных **master**.) Эти правила могут быть полезны для ограничения доступа к определенным (защищенным) базам данных в одном логическом сервере. Правила брандмауэра на уровне базы данных можно настроить только с помощью инструкций Transact-SQL.
 
    > [!NOTE]
-   > Руководство, в котором описано использование брандмауэров уровня базы данных: [Руководство по базе данных SQL: проверка подлинности SQL Server, имена для входа и учетные записи пользователей, роли базы данных, разрешения, правила брандмауэра на уровне сервера и на уровне базы данных](sql-database-control-access-sql-authentication-get-started.md).
+   > Сведения об использовании брандмауэров уровня базы данных см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
    >
 
 **Рекомендация.** Корпорация Майкрософт рекомендует по возможности всегда использовать правила брандмауэра на уровне базы данных, чтобы повысить уровень безопасности и портативность базы данных. Используйте правила брандмауэра серверного уровня для администраторов, если у вас много баз данных с одинаковыми требованиями к доступу и вы не хотите тратить время на настройку каждой базы данных по отдельности.
@@ -135,14 +128,14 @@ ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
   * Получите статические IP-адреса для клиентских компьютеров, а затем добавьте IP-адреса как правила брандмауэра.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Практические руководства по созданию правил брандмауэра уровня сервера и уровня базы данных см. в следующих разделах.
+Ниже перечислены статьи о создании правил брандмауэра уровня сервера и уровня базы данных.
 
 * [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md)
 * [Настройка правил брандмауэра уровня сервера базы данных SQL Azure и уровня базы данных SQL Azure с помощью T-SQL](sql-database-configure-firewall-settings-tsql.md)
 * [Настройка правил брандмауэра уровня сервера базы данных SQL с помощью PowerShell](sql-database-configure-firewall-settings-powershell.md)
 * [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API](sql-database-configure-firewall-settings-rest.md)
 
-Учебник по созданию базы данных SQL доступен в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
+Руководство по созданию базы данных см. в статье [Краткое руководство. Начало работы с базой данных SQL Azure](sql-database-get-started.md).
 Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 Общие сведения о навигации по базам данных см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -152,9 +145,4 @@ ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

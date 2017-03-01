@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
-ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
+ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
+ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -74,7 +75,7 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 ## <a name="next-steps"></a>Дальнейшие действия
 После того как вы выполните эти шаги для каждого клиента B2C, счета за подписку Azure будут выставляться в соответствии с вашим соглашением Azure Direct или Enterprise.
 - Просмотр сведений об использовании и выставлении счетов в выбранной подписке Azure
-- Просмотр подробных отчетов о ежедневном использовании с помощью API отчетов об использовании (подлежит уточнению)
+- Просмотр подробных отчетов о ежедневном использовании с помощью [API отчетов об использовании](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 
 
@@ -82,9 +83,4 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

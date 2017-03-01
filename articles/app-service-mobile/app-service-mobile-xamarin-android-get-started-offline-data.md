@@ -3,7 +3,7 @@ title: "Включение автономной синхронизации дл�
 description: "Узнайте, как использовать мобильное приложение службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin Android"
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 29cd1d3583dfcba5c1057ae1e81376930f52f887
 ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -127,9 +128,4 @@ ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
 [Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

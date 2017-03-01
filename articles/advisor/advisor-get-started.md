@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
 translationtype: Human Translation
-ms.sourcegitcommit: 14e9e494d6e824964b9164ff36d9938341e244be
-ms.openlocfilehash: 7adaa1a457e19c66bdc31a01f4e04b7911e58062
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 8ed18f6f62b6d2895e2470df1c3bdd448ea98210
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -35,7 +36,7 @@ ms.openlocfilehash: 7adaa1a457e19c66bdc31a01f4e04b7911e58062
 4. Чтобы получить рекомендации в определенной категории, щелкните одну из вкладок: **Высокая доступность**, **Безопасность**, **Производительность** или **Стоимость**.
  
 > [!NOTE]
-> Azure Advisor создает рекомендации для подписок, для которых вам назначена роль **владельца**, **участника** или **читателя**.
+> Для доступа к рекомендациям Помощника необходимо сначала **зарегистрировать** в нем свою подписку. Подписка регистрируется, когда **владелец подписки** запускает панель мониторинга Помощника и нажимает кнопку **Get recommendations** (Получить рекомендации). Выполнить данную **операцию достаточно всего один раз**. После регистрации подписки рекомендации Помощника могут просматривать **владельцы**, **участники** или **читатели** подписки, группы ресурсов или конкретного ресурса.
 
   ![Панель мониторинга Azure Advisor](./media/advisor-overview/advisor-all-tab.png)
 
@@ -78,9 +79,4 @@ ms.openlocfilehash: 7adaa1a457e19c66bdc31a01f4e04b7911e58062
 -  [Рекомендации Azure Advisor по безопасности](advisor-security-recommendations.md)
 -  [Рекомендации Azure Advisor по производительности](advisor-performance-recommendations.md)
 -  [Рекомендации Azure Advisor по затратам](advisor-performance-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

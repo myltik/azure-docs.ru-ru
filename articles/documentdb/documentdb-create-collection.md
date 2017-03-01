@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: a87b2811175193377142e391597011f48f169f11
-ms.openlocfilehash: 4c16c843ba43a9e38d73fc1fd44d06f6f72de60c
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -79,10 +80,5 @@ DocumentDB автоматически секционирует коллекци�
 * Вы можете [импортировать документы и данные](documentdb-import-data.md) с помощью средства миграции данных DocumentDB, которое позволяет импортировать JSON- и CSV-файлы, а также данные из SQL Server, MongoDB, табличного хранилища Azure и других коллекций DocumentDB.
 * Либо можно добавить документы с помощью одного из [пакетов SDK для DocumentDB](documentdb-sdk-dotnet.md). DocumentDB содержит пакеты SDK для .NET, Java, Python, Node.js и JavaScript API. Примеры кода C#, в которых показано, как работать с документами с помощью пакета SDK .NET для DocumentDB, см. в [примерах документов C#](documentdb-dotnet-samples.md#document-examples). Примеры кода Node.js, в которых показано, как работать с документами с помощью пакета SDK Node.js для DocumentDB, см. в [примерах документов Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Добавив документы в коллекцию, [DocumentDB SQL](documentdb-sql-query.md) можно использовать для [выполнения запросов](documentdb-sql-query.md#executing-sql-queries) к документам с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале, [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](documentdb-sdk-dotnet.md). 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Добавив документы в коллекцию, [DocumentDB SQL](documentdb-sql-query.md) можно использовать для [выполнения запросов](documentdb-sql-query.md#ExecutingSqlQueries) к документам с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале, [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](documentdb-sdk-dotnet.md). 
 
