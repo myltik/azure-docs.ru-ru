@@ -4,7 +4,7 @@ description: "Информация о содержимом пакета SDK дл
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
 * `EngagementIconCloseLight.png` : значок "Закрыть" уведомлений рекламных кампаний в Mobile Engagement для светлой темы Windows Phone.
 * `EngagementIconCloseDark.png`: значок "Закрыть" уведомлений рекламных кампаний в Mobile Engagement для темной темы Windows Phone.
 * `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

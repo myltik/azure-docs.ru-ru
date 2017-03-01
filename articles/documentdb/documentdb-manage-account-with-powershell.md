@@ -13,18 +13,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/27/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 7e10f4d051a484965c7d58de6351dd357aa64c0f
-ms.openlocfilehash: 0c0e682c79a6a25ac29760f649a832f22f39e8b5
+ms.sourcegitcommit: 8078f9822b392af09e00e9bf1e448e0a51994e11
+ms.openlocfilehash: 15707a71500424e4776adc80491af95b57bea222
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="automate-azure-documentdb-account-management-using-azure-powershell"></a>Автоматизация управления учетными записями Azure DocumentDB с помощью Azure Powershell
 > [!div class="op_single_selector"]
 > * [Портал Azure](documentdb-create-account.md)
-> * [Azure CLI и ARM](documentdb-automation-resource-manager-cli.md)
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 > * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 В этом руководстве содержатся команды Azure Powershell, используемые для автоматизации управления учетными записями баз данных DocumentDB. Здесь также приведены команды для управления ключами учетных записей и изменения порядка при отработке отказа в [межрегиональных учетных записях баз данных][scaling-globally]. Вы можете изменить политики согласованности, а также добавить или удалить регионы в учетной записи базы данных. Чтобы управлять своей учетной записью базы данных DocumentDB между несколькими регионами, можно использовать [Azure CLI](documentdb-automation-resource-manager-cli.md), [REST API поставщика ресурсов][rp-rest-api] или [портал Azure](documentdb-create-account.md).
@@ -190,8 +192,3 @@ ms.openlocfilehash: 0c0e682c79a6a25ac29760f649a832f22f39e8b5
 [azure-resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
-
-
-<!--HONumber=Dec16_HO3-->
-
-

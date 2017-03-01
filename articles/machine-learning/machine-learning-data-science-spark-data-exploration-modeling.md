@@ -1,6 +1,6 @@
 ---
 title: "Исследование и моделирование данных с помощью Spark | Документация Майкрософт"
-description: "В этой статье показаны возможности исследования и моделирования данных с помощью набора средств Spark MLlib."
+description: "В этой статье показаны возможности исследования и моделирования данных с помощью набора средств Spark MLlib в Azure."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
-ms.openlocfilehash: e989da22fe6819410ff9b4c1e132dc7d74a9bf50
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: 76fb321dbe909730f72eba71042264caba407aed
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -43,7 +44,33 @@ ms.openlocfilehash: e989da22fe6819410ff9b4c1e132dc7d74a9bf50
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для работы с этим пошаговым руководством требуется учетная запись Azure и кластер Spark 1.6 или Spark 2.0 HDInsight. См. статью [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md) для получения инструкций по выполнению этих требований. В этой статье также содержится описание используемых здесь данных о поездках в такси по Нью-Йорку за 2013 г., и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark. Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примерами кода, которые используются в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark). 
+Для работы с этим пошаговым руководством требуется учетная запись Azure и кластер Spark 1.6 или Spark 2.0 HDInsight. См. статью [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md) для получения инструкций по выполнению этих требований. В этой статье также содержится описание используемых здесь данных о поездках в такси по Нью-Йорку за 2013 г., и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark. 
+
+## <a name="spark-clusters-and-notebooks"></a>Кластеры и записные книжки Spark
+Действия по настройке и код, указанные в этом пошаговом руководстве, применимы к использованию для HDInsight Spark 1.6. Но записные книжки Jupyter можно использовать для кластеров HDInsight Spark 1.6 и Spark 2.0. Описание записных книжек и ссылки на них вы можете найти в файле [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) для репозитория GitHub с записными книжками. Более того, код здесь и в связанных записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark. Для удобства мы приводим ссылки на записные книжки Jupyter для Spark 1.6 и 2.0, которые можно выполнять в ядре pyspark на сервере Jupyter Notebook.
+
+### <a name="spark-16-notebooks"></a>Записные книжки для Spark 1.6
+
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку с использованием нескольких различных алгоритмов.
+
+### <a name="spark-20-notebooks"></a>Записные книжки для Spark 2.0
+Задачи регрессии и классификации, которые реализуются с помощью кластера Spark 2.0, используют другой набор данных и находятся в отдельных записных книжках:
+
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере набора данных о расстояниях и ценах на такси в Нью-Йорке, который описан [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере известного набора данных о расписании вылетов авиакомпании за 2011 и 2012 гг. До моделирования мы дополнили набор данных об авиарейсах набором данных о погоде в аэропортах (скорость ветра, температура, высота над уровнем моря и т. д.), чтобы включить в модель эту информацию о погоде.
+
+<!-- -->
+
+> [!NOTE]
+> В записные книжки для Spark 2.0 был добавлен набор данных об авиарейсах, который лучше иллюстрирует использование алгоритмов классификации. Следующие ссылки помогут получить информацию о наборах данных о расписании вылетов авиакомпании и о погоде.
+
+>- Данные о расписании вылетов авиакомпании: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+
+>- Данные о погоде в аэропортах: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+> 
+> 
+
+<!-- -->
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -1064,10 +1091,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 **Использование модели**. Дополнительные сведения об оценке и анализе моделей классификации и регрессии, созданных в этой статье см. в статье [Оценка моделей машинного обучения, созданных с помощью Spark](machine-learning-data-science-spark-model-consumption.md).
 
 **Перекрестная проверка и перебор гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и перебора гиперпараметров см. в статье [Расширенное исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

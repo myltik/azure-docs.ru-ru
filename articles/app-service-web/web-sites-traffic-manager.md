@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.service: app-service-web
@@ -18,6 +18,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e5711e9c9d3ff70b38a4d19aa6be7b037cdb38aa
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -54,10 +55,5 @@ ms.openlocfilehash: e5711e9c9d3ff70b38a4d19aa6be7b037cdb38aa
 Общие и технические сведения о диспетчере трафика Azure см. в разделе [Обзор диспетчера трафика](../traffic-manager/traffic-manager-overview.md).
 
 Дополнительные сведения об использовании диспетчера трафика с веб-приложениями см. в записях блогов [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) (Использование диспетчера трафика Azure c веб-сайтами Azure) и [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/) (Диспетчер трафика Azure теперь можно интегрировать с веб-сайтами Azure).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

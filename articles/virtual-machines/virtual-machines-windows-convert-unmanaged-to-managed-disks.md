@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: be2752f46ebedf35a28277ad853207ae8038e345
-ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
+ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
+ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,12 +40,12 @@ ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
 
 **Диски данных**.
 1.    Отсоедините диск данных от виртуальной машины.
-2.    Скопируйте VHD в учетную запись хранения, для которой никогда не применялось шифрование SSE. Чтобы скопировать диск в другую учетную запись хранения, используйте [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Скопируйте VHD в учетную запись хранения, для которой никогда не применялось шифрование SSE. Чтобы скопировать диск в другую учетную запись хранения, используйте [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3.    Присоедините скопированный диск к виртуальной машине и переходите к переключению виртуальной машины.
 
 **Диск ОС**.
 1.    Остановите виртуальную машину и отмените ее подготовку. При необходимости сохраните конфигурацию виртуальной машины.
-2.    Скопируйте VHD с операционной системой в учетную запись хранения, для которой никогда не применялось шифрование SSE. Чтобы скопировать диск в другую учетную запись хранения, используйте [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Скопируйте VHD с операционной системой в учетную запись хранения, для которой никогда не применялось шифрование SSE. Чтобы скопировать диск в другую учетную запись хранения, используйте [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Создайте новую виртуальную машину, которая использует управляемые диски, и в процессе создания присоедините к ней этот VHD-файл в качестве диска операционной системы.
 
 
@@ -86,7 +87,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Переключение существующих виртуальных машин Azure на использование управляемых дисков в хранилище того же класса
 
 > [!IMPORTANT]
-> После выполнения следующей процедуры создается один блочный BLOB-объект, размещенный в контейнере по умолчанию /vhds. Этот объект хранится в файле с именем VMName.xxxxxxx.status. Не удаляйте этот объект состояния. В дальнейшем эта проблема будет решена.
+> После выполнения следующей процедуры создается один блочный BLOB-объект, размещенный в контейнере по умолчанию /vhds. Этот объект хранится в файле с именем VMName.xxxxxxx.status. Не удаляйте этот оставшийся объект состояния. В дальнейшем эта проблема будет решена.
 
 В этом разделе описывается, как можно переключить существующие виртуальные машины Azure с неуправляемых дисков в учетных записях хранения на управляемые диски в хранилище того же класса. Этот процесс позволяет перейти от неуправляемых дисков класса Premium (SSD) на управляемые диски класса Premium, или от неуправляемых дисков класса Standard (HDD) на управляемые диски класса Standard. 
 
@@ -176,10 +177,5 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Создайте копию виртуальной машины, доступную только для чтения, с помощью [моментальных снимков](virtual-machines-windows-snapshot-copy-managed-disk.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

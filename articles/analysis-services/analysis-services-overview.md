@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
 ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -119,10 +120,5 @@ Power BI Embedded пока не поддерживается в предвари
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы достаточно знаете о службах Azure Analysis Services, пора приступать к работе. Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure и [развернуть на нем табличную модель](analysis-services-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

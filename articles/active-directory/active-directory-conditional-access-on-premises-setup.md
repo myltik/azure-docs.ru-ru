@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
+ms.sourcegitcommit: f42e31c99bf43e8f034c8d6f4f98d777661c3d81
+ms.openlocfilehash: 204ec83dc1000bb1e10df6fecc303b6ac7795739
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -176,9 +177,6 @@ ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
 ### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Windows 7 с помощью регистрации устройств в Active Directory Azure
 Чтобы зарегистрировать устройства Windows 7, присоединенные к домену, разверните программный пакет регистрации устройств. Программный пакет называется "Присоединение к рабочей области для Windows 7". Его можно скачать с [веб-сайта Microsoft Connect](https://connect.microsoft.com/site1164). Инструкции по использованию пакета см. в статье [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
-### <a name="join-an-android-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Android с помощью регистрации устройств в Active Directory Azure
-В статье [Azure Authenticator для Android](active-directory-conditional-access-azure-authenticator-app.md) приведены указания по установке приложения Azure Authenticator на устройство Android и добавлению рабочей учетной записи. После успешного создания рабочей учетной записи на устройстве Android оно присоединяется к рабочей области организации.
-
 ## <a name="verify-registered-devices-are-written-back-to-active-directory"></a>Проверка обратной записи зарегистрированных устройств в Active Directory
 Просмотреть и убедиться, что объекты устройств были записаны в Active Directory посредством обратной записи, можно с помощью LDP.exe и ADSI Edit. Оба приложения доступны в инструментах для администратора Active Directory.
 
@@ -234,10 +232,5 @@ ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

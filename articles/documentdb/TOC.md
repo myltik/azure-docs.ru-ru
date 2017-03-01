@@ -44,8 +44,9 @@
 ### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
 ### [Снятие с учета S1, S2, S3](documentdb-performance-levels.md)
 ### [Единиц запросов](documentdb-request-units.md)
-### Инфраструктура CLI Azure
-#### [Создание учетной записи](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+### Azure CLI 1.0
+#### [Создание учетной записи](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Добавление и удаление регионов](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Поддерживаемые брандмауэры](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Объяснение согласованности данных на примере игры в бейсбол](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Книга: "Using Microsoft Azure DocumentDB in a Node.js Application" (Использование Microsoft Azure DocumentDB в приложении Node.js)](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

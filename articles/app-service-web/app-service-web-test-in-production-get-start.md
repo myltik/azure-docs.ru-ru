@@ -4,7 +4,7 @@ description: "Дополнительные сведения о тестиров�
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4623468d-886e-4203-8012-8f86deb2790b
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: f9d423e87938e55daeb07268b11c930fb62755b6
 ms.openlocfilehash: 8fa7ca18fd2ea3a3f672854a0b2e0397cfdbb2bc
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -84,10 +85,5 @@ ms.openlocfilehash: 8fa7ca18fd2ea3a3f672854a0b2e0397cfdbb2bc
 * [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)
 * [Гибкая разработка программного обеспечения с помощью службы приложений Azure.](app-service-agile-software-development.md)
 * [Эффективное использование сред разработки и операций для веб-приложений](app-service-web-staged-publishing-realworld-scenarios.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

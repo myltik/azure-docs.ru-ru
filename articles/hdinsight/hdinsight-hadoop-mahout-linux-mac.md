@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
-ms.openlocfilehash: be8146ae3dd34f4c8d5e02b06fd1b1f8d5d63dc1
+ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
+ms.openlocfilehash: 163bf5b8d2884f678f7fea2207055eeb78b4e8ba
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -42,9 +43,9 @@ Mahout — это библиотека [машинного обучения][ml]
 
 ## <a name="a-namerecommendationsaunderstanding-recommendations"></a><a name="recommendations"></a>Общие сведения о рекомендациях
 
-Одной из функций, предоставляемой Mahout, является подсистема рекомендаций. Она принимает данные в формате `userID`, `itemId` и `prefValue` (предпочтения пользователей для элемента). Затем Mahout может провести анализ совместной встречаемости, чтобы определить: *пользователи с предпочтениями к одному элементу также имеют их и к определенным другим элементам*. После этого Mahout определяет пользователей со сходными предпочтениями элементов, что можно использовать для создания рекомендаций.
+Одной из функций, предоставляемой Mahout, является подсистема рекомендаций. Она принимает данные в формате `userID`, `itemId` и `prefValue` (предпочтения для элемента). Затем Mahout может провести анализ совместной встречаемости, чтобы определить: *пользователи с предпочтениями к одному элементу также имеют их и к определенным другим элементам*. После этого Mahout определяет пользователей со сходными предпочтениями элементов, что можно использовать для создания рекомендаций.
 
-Ниже приведен предельно простой пример рабочего процесса с использованием данных о фильме.
+Ниже приведен простой пример рабочего процесса с использованием данных о фильме.
 
 * **Совместная встречаемость**: Джо, Алисе и Бобу нравятся фильмы *Звездные войны*, *Империя наносит ответный удар* и *Возвращение джедая*. Mahout определяет, что пользователям, которым нравится любой из этих фильмов, также нравятся другие два.
 
@@ -56,7 +57,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Очень кстати, что компания [GroupLens Research][movielens] предоставляет данные о рейтинге фильмов в формате, совместимом с Mahout. Эти данные можно найти в хранилище по умолчанию вашего кластера по адресу `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Там есть два файла, `moviedb.txt` (сведения о фильмах) и `user-ratings.txt`. Файл user-ratings.txt используется во время анализа, а moviedb.txt — для отображения понятного текста в результатах анализа.
+Вы увидите два файла, `moviedb.txt` и `user-ratings.txt`. Файл user-ratings.txt используется во время анализа, а moviedb.txt — для отображения понятного текста в результатах анализа.
 
 Данные, содержащиеся файле user-ratings.txt, имеют структуру `userID`, `movieID`, `userRating` и `timestamp`, благодаря чему мы видим, насколько высоко каждый пользователь оценил фильм. Вот пример данных:
 
@@ -94,92 +95,92 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    
     Первый столбец — `userID`. Значения, хранящиеся в скобках «[» и «]», — это `movieId`:`recommendationScore`.
 
-2. Выходные данные, а также файл moviedb.txt, можно использовать, чтобы отобразить более понятные сведения. Во-первых, необходимо скопировать файлы локально с помощью следующих команд.
-    
-    ```bash
-    hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
-    hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
-    ```
+2. Выходные данные, а также файл moviedb.txt, можно использовать, чтобы отобразить более понятные сведения о рекомендациях. Во-первых, необходимо скопировать файлы локально с помощью следующих команд.
 
-    Выходные данные будут скопированы в файл **recommendations.txt** в текущем каталоге. В него также будут скопированы и файлы данных фильмов.
+   ```bash
+   hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+   hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
+   ```
 
-3. Чтобы создать новый скрипт Python, выполняющий поиск названий фильмов для данных в полученных рекомендациях, используйте следующую команду:
-   
-    ```bash
-    nano show_recommendations.py
-    ```
+    Эта команда копирует выходные данные в файл **recommendations.txt** в текущем каталоге. В него также будут скопированы и файлы данных фильмов.
+
+3. Чтобы создать сценарий Python, выполняющий поиск названий фильмов для данных в полученных рекомендациях, используйте следующую команду:
+
+   ```bash
+   nano show_recommendations.py
+   ```
 
     Когда откроется редактор, добавьте в файл следующее содержимое:
-    
-    ```python
-    #!/usr/bin/env python
 
-    import sys
+   ```python
+   #!/usr/bin/env python
 
-    if len(sys.argv) != 5:
-            print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-            sys.exit(1)
+   import sys
 
-    userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+   if len(sys.argv) != 5:
+        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+        sys.exit(1)
 
-    print "Reading Movies Descriptions"
-    movieFile = open(movieFilename)
-    movieById = {}
-    for line in movieFile:
-            tokens = line.split("|")
-            movieById[tokens[0]] = tokens[1:]
-    movieFile.close()
+   userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
 
-    print "Reading Rated Movies"
-    userDataFile = open(userDataFilename)
-    ratedMovieIds = []
-    for line in userDataFile:
-            tokens = line.split("\t")
-            if tokens[0] == userId:
-                    ratedMovieIds.append((tokens[1],tokens[2]))
-    userDataFile.close()
+   print "Reading Movies Descriptions"
+   movieFile = open(movieFilename)
+   movieById = {}
+   for line in movieFile:
+       tokens = line.split("|")
+       movieById[tokens[0]] = tokens[1:]
+   movieFile.close()
 
-    print "Reading Recommendations"
-    recommendationFile = open(recommendationFilename)
-    recommendations = []
-    for line in recommendationFile:
-            tokens = line.split("\t")
-            if tokens[0] == userId:
-                    movieIdAndScores = tokens[1].strip("[]\n").split(",")
-                    recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-                    break
-    recommendationFile.close()
+   print "Reading Rated Movies"
+   userDataFile = open(userDataFilename)
+   ratedMovieIds = []
+   for line in userDataFile:
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           ratedMovieIds.append((tokens[1],tokens[2]))
+   userDataFile.close()
 
-    print "Rated Movies"
-    print "------------------------"
-    for movieId, rating in ratedMovieIds:
-            print "%s, rating=%s" % (movieById[movieId][0], rating)
-    print "------------------------"
+   print "Reading Recommendations"
+   recommendationFile = open(recommendationFilename)
+   recommendations = []
+   for line in recommendationFile:
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           movieIdAndScores = tokens[1].strip("[]\n").split(",")
+           recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+           break
+   recommendationFile.close()
 
-    print "Recommended Movies"
-    print "------------------------"
-    for movieId, score in recommendations:
-            print "%s, score=%s" % (movieById[movieId][0], score)
-    print "------------------------"
-    ```
+   print "Rated Movies"
+   print "------------------------"
+   for movieId, rating in ratedMovieIds:
+       print "%s, rating=%s" % (movieById[movieId][0], rating)
+   print "------------------------"
+
+   print "Recommended Movies"
+   print "------------------------"
+   for movieId, score in recommendations:
+       print "%s, score=%s" % (movieById[movieId][0], score)
+   print "------------------------"
+   ```
    
     Нажмите **CTRL+X**, **Y**, и, наконец, **ВВОД**, чтобы сохранить данные.
-    
+
 4. Используйте следующую команду, чтобы сделать файл исполняемым:
    
-    ```bash
-    chmod +x show_recommendations.py
-    ```
+   ```bash
+   chmod +x show_recommendations.py
+   ```
 
 5. Запустите скрипт Python. Следующая команда предполагает, что вы находитесь в каталоге со всеми скачанными файлами.
    
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
-    ```
+   ```bash
+   ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+   ```
     
     Она рассматривает рекомендации, созданные для пользователя ID 4.
    
-   * Файл **user-ratings.txt** используется для получения фильмов, оцененных пользователем.
+   * Файл **user-ratings.txt** используется для получения оцененных фильмов.
 
    * Файл **moviedb.txt** используется для извлечения названий фильмов.
 
@@ -266,10 +267,5 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

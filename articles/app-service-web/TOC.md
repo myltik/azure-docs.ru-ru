@@ -257,7 +257,7 @@
 ### [Устранение проблем с производительностью веб-приложений](app-service-web-troubleshoot-performance-degradation.md)
 
 # Справочные материалы
-## [Предварительная версия Azure CLI 2.0](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -273,9 +273,3 @@
 # Ресурсы
 ## [Рекомендации по использованию хранилища данных SQL Azure](app-service-best-practices.md)
 ## [Список ресурсов веб-задания](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

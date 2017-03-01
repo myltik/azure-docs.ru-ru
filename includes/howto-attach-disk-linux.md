@@ -1,5 +1,5 @@
 
-Дополнительные сведения о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин Azure](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Дополнительные сведения о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин Azure](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
@@ -114,9 +114,4 @@
 > После добавления диска данных необходимо войти в систему на виртуальной машине и инициализировать диск, чтобы виртуальная машина могла использовать его для хранения данных. Сведения об инициализации диска см. в инструкциях ниже.
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

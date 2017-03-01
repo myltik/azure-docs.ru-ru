@@ -1,5 +1,5 @@
 ---
-title: "Подписка Microsoft Azure, границы, квоты и ограничения служб"
+title: "Ограничения и квоты подписки Azure | Документация Майкрософт"
 description: "В этой статье приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и границ. Сюда входит информация о том, как увеличить лимиты и максимальные значения."
 services: 
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/17/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
-ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
+ms.sourcegitcommit: 4e37d976ab7616674ff4b41111bfe7000444ca54
+ms.openlocfilehash: 2ff41f4a93b0cc7f104fe4703f5b031cfb3252e1
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -60,11 +61,13 @@ ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
 * [Облачные службы](#cloud-services-limits)
 * [Фабрика данных](#data-factory-limits)
 * [Аналитика озера данных](#data-lake-analytics-limits)
+* [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
 * [DocumentDB](#documentdb-limits)
 * [Концентраторы событий](#event-hubs-limits)
 * [Центр IoT](#iot-hub-limits)
 * [хранилище ключей;](#key-vault-limits)
+* [Log Analytics или Operational Insights](#log-analytics-limits)
 * [Службы мультимедиа](#media-services-limits)
 * [Mobile Engagement;](#mobile-engagement-limits)
 * [Мобильные службы](#mobile-services-limits)
@@ -72,7 +75,6 @@ ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Сеть](#networking-limits)
 * [Служба концентратора уведомлений](#notification-hub-service-limits)
-* [Operational Insights;](#operational-insights-limits)
 * [Группа ресурсов](#resource-group-limits)
 * [Планировщик](#scheduler-limits)
 * [Поиск](#search-limits)
@@ -130,20 +132,23 @@ ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
 
 ### <a name="storage-limits"></a>Ограничения хранилища
 Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](storage/storage-scalability-targets.md).
-
+<!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Ограничения службы хранения
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Дополнительные сведения см. в статье [Размеры виртуальных машин](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-**Учетные записи хранения Standard**
+#### <a name="managed-virtual-machine-disks"></a>Управляемые диски виртуальной машины
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Неуправляемые диски виртуальной машины
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-**Учетные записи хранения Premium**
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
@@ -219,8 +224,11 @@ DocumentDB — это масштабная база данных, пропуск
 ### <a name="data-factory-limits"></a>Ограничения фабрики данных
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
-### <a name="data-lake-analytics-limits"></a>Ограничения аналитики озера данных
+### <a name="data-lake-analytics-limits"></a>Ограничения Data Lake Analytics
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
+
+### <a name="data-lake-store-limits"></a>Ограничения Data Lake Store
+[!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Ограничения Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -234,7 +242,7 @@ DocumentDB — это масштабная база данных, пропуск
 ### <a name="storsimple-system-limits"></a>Ограничения системы StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="operational-insights-limits"></a>Ограничения Operational Insights
+### <a name="log-analytics-limits"></a>Ограничения Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### <a name="backup-limits"></a>Ограничения резервного копирования
@@ -270,10 +278,5 @@ DocumentDB — это масштабная база данных, пропуск
 [Размеры виртуальных машин и облачных служб для Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

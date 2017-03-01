@@ -5,7 +5,7 @@ keywords: "служба приложений, служба приложений 
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f403c971-4450-432b-8cea-3eeb426c0147
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec043a9e01aca2e843e50cef8b90328ba1939ea5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ ms.openlocfilehash: ec043a9e01aca2e843e50cef8b90328ba1939ea5
 Этот раздел поможет вам разобраться во всех этих факторах и создать стратегию, реализующую все необходимые функции службы приложений для достижения искомого уровня масштабирования.
 
 [!INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

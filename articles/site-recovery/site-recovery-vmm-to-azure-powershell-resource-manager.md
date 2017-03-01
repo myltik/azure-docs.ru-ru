@@ -1,5 +1,5 @@
 ---
-title: "Репликация виртуальных машин Hyper-V из VMM с помощью Azure Site Recovery и PowerShell (Resource Manager) | Документация Майкрософт"
+title: "Репликация виртуальных машин Hyper-V из облаков VMM с помощью Azure Site Recovery и PowerShell (Resource Manager) | Документация Майкрософт"
 description: "Репликация виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery и PowerShell"
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 19/01/2017
+ms.date: 02/02/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
+ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
+ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -58,7 +59,7 @@ ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
 * Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/) . Если у вас ее нет, воспользуйтесь [бесплатной учетной записью](https://azure.microsoft.com/free). Вы также можете ознакомиться с [расценками на использование диспетчера восстановления Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Чтобы опробовать репликацию в подписку CSP, вам потребуется подписка CSP. Дополнительные сведения о программе CSP см. в статье [Как зарегистрироваться в программе CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 * Для хранения данных, реплицируемых в Azure, потребуется учетная запись хранения Azure версии&2; (Resource Manager). На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и служба Azure Site Recovery, и быть связана с той же подпиской или с подпиской CSP. Дополнительные сведения о настройке службы хранилища Azure см. в разделе [Введение в хранилище Microsoft Azure](../storage/storage-introduction.md).
-* Нужно убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Нужно убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
 > В настоящее через Powershell доступны только операции уровня виртуальной машины. Скоро будет включена поддержка операций на уровне плана восстановления.  Сейчас отработка отказа ограничена уровнем "защищенных виртуальных машин", на уровне плана восстановления она недоступна.
@@ -132,7 +133,7 @@ ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Шаг 3. Настройка контекста для хранилища служб восстановления
 
 Задайте контекст хранилища, выполнив указанную ниже команду.
-   
+
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="step-4-install-the-azure-site-recovery-provider"></a>Шаг 4. Установка поставщика Azure Site Recovery
@@ -166,7 +167,7 @@ ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
 ## <a name="step-5-create-an-azure-storage-account"></a>Шаг 5. Создание учетной записи хранения Azure
 
 Если у вас нет учетной записи хранения Azure, создайте учетную запись с включенной георепликацией в том же регионе, что и хранилище, выполнив следующую команду:
-   
+
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
         $ResourceGroupName =  “myRG”             #ResourceGroupName
@@ -243,7 +244,7 @@ ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
 
  Обратите внимание на следующее.
 
-* Виртуальные машины должны соответствовать требованиям, предъявляемым Azure. Эти требования приведены в разделе [Предварительные условия и поддержка](site-recovery-best-practices.md) руководства по планированию.
+* Виртуальные машины должны соответствовать требованиям, предъявляемым Azure. Эти требования приведены в разделе [Предварительные условия и поддержка](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) руководства по планированию.
 * Чтобы включить защиту, необходимо задать соответствующие свойства операционной системы и диска с операционной системой для виртуальной машины. Данные свойства можно установить при создании виртуальной машины в VMM с помощью шаблона виртуальной машины. Эти свойства также можно задать для существующих виртуальных машин на вкладках **Общие** и **Конфигурация оборудования** свойств виртуальной машины. Если установка этих свойств в VMM не была выполнена, сделать это можно на портале Azure Site Recovery.
 
 1. Чтобы включить защиту, выполните следующую команду для получения контейнера защиты:
@@ -307,9 +308,4 @@ ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Узнайте больше](https://msdn.microsoft.com/library/azure/mt637930.aspx) об использовании командлетов PowerShell инструмента Azure Resource Manager для службы Azure Site Recovery.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

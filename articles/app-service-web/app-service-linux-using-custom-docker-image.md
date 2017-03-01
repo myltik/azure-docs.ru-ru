@@ -5,7 +5,7 @@ keywords: "служба приложений azure, веб-приложение,
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 54b38c7f8cf685387ac639653d208a00cefbc3fa
-ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -27,8 +28,8 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Для размещения этих готовых стеков служба приложений на платформе Linux использует контейнеры Docker. Вы также можете использовать пользовательский образ Docker для развертывания веб-приложения в стек приложений, который еще не определен в Azure. Пользовательские образы Docker могут размещаться как в открытых, так и закрытых репозиториях Docker.
 
 
-## <a name="how-to-set-a-custom-docker-image-for-a-new-web-app"></a>Практическое руководство. Определение пользовательского образа Docker для нового веб-приложения
-Вы можете применять пользовательские образы Docker как для новых, так и для существующих веб-приложений. Создавая веб-приложение на платформе Linux на [портале Azure](https://portal.azure.com), нажмите кнопку **Настроить контейнер**, чтобы определить пользовательский образ Docker:
+## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Практическое руководство. Определение пользовательского образа Docker для веб-приложения
+Вы можете применять пользовательские образы Docker как для новых, так и для существующих веб-приложений. Создавая веб-приложение на платформе Linux на [портале Azure](https://portal.azure.com), нажмите кнопку **Настроить контейнер**, чтобы определить пользовательский образ Docker.
 
 ![Определение пользовательского образа Docker для нового веб-приложения на платформе Linux][1]
 
@@ -53,7 +54,7 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 
 1. На [портале Azure](https://portal.azure.com) найдите веб-приложение на платформе Linux, а затем в разделе **Параметры** щелкните **Контейнер Docker**.
 
-2.  Выберите **Закрытый реестр** как **источник изображения**, а затем укажите **образ и дополнительный тег**, **URL-адрес сервера** закрытого реестра, а также учетные данные (**имя пользователя для входа** и **пароль**), после чего нажмите кнопку **Сохранить**.
+2.  Для параметра **Источник образа** выберите **Частный реестр**. Укажите значения в полях **Image and optional tag name** (Образ и дополнительный тег) и **URL-адрес сервера** для частного реестра, а также введите учетные данные в поля **Имя пользователя для входа** и **Пароль**. Щелкните **Сохранить**.
 
     ![Настройка образа Docker из закрытого реестра][4]
 
@@ -71,9 +72,7 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 
 В последней строке команды видно, что переменная среды PORT передается во время выполнения. Помните, что в командах учитывается регистр.
 
-Если используется существующий образ Docker, созданный другим пользователем, возможно, вам понадобится указать для приложения порт, отличный от порта 80. 
-
-Это можно сделать, добавив параметр приложения `PORT` вместе со значением, которое требуется для образа:
+Если используется существующий образ Docker, созданный другим пользователем, возможно, вам понадобится указать для приложения порт, отличный от порта 80. Чтобы настроить порт, добавьте параметр `PORT` со значением, как показано ниже.
 
 ![Настройка параметра приложения PORT для пользовательского образа Docker][6]
 
@@ -104,6 +103,7 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 * [Вводные сведения о службе приложений на платформе Linux](./app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md) (Создание веб-приложений в службе приложений на платформе Linux)
 * [Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Вопросы и ответы о веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 
 Если у вас возникли вопросы или проблемы, вы можете опубликовать их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -116,9 +116,4 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

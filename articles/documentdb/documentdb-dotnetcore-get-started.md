@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
-ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: e31be1a97b9b3d7718e4e6f58f22a2c6f5550beb
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -425,7 +426,7 @@ ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 ![На схеме представлен масштаб и значение запроса, используемого в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-Ключевое слово [FROM](documentdb-sql-query.md#from-clause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
+Ключевое слово [FROM](documentdb-sql-query.md#FromClause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Шаг 8. Замена документа JSON
 DocumentDB поддерживает замену документов JSON.  
@@ -559,9 +560,4 @@ DocumentDB поддерживает удаление документов JSON.
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

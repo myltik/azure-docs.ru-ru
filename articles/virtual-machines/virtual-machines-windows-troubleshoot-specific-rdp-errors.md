@@ -17,8 +17,9 @@ ms.topic: support-article
 ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 5398d262bf1f54c40663d6ee76e8dfb48aa3226b
+ms.sourcegitcommit: 3a4516d267dbedc6fc0a4afda93e052d9798434a
+ms.openlocfilehash: cf1d80f52ac61845083e9c28c0ad3e88a029fc4f
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -107,13 +108,7 @@ ms.openlocfilehash: 5398d262bf1f54c40663d6ee76e8dfb48aa3226b
 ## <a name="next-steps"></a>Дальнейшие действия
 Если описанные выше ошибки отсутствуют и при подключении по протоколу RDP возникает неизвестная проблема, см. [руководство по устранению неполадок с подключением к удаленному рабочему столу](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* [Пакет диагностики Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * Сведения об устранении неполадок с доступом к приложениям, работающим на виртуальной машине, см. в статье [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Если вы подключаетесь к виртуальной машине Linux в Azure по протоколу SSH и у вас возникают проблемы, см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Узнайте, как использовать Azure Mobile Engag
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 17057b78cbba962022afc92cdff4e506bcc0e46e
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -175,10 +176,10 @@ Mobile Engagement позволяет взаимодействовать и св�
 ![][8]
 
 <!-- URLs. -->
-[Документация по пакетам SDK для Служб мобильного взаимодействия для универсальных приложений для Windows]: ../mobile-engagement-windows-store-integrate-engagement/
+[Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Центр разработки Магазина Windows]: https://dev.windows.com
-[Универсальные приложения для Windows — интеграция наложения]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -193,9 +194,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

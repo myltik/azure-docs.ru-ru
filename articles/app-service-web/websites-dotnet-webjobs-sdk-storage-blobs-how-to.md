@@ -4,7 +4,7 @@ description: "Информация об использовании хранил�
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 968df0fde8b042cdea369e566ecdb62937a3b8ee
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -244,10 +245,5 @@ ms.openlocfilehash: 968df0fde8b042cdea369e566ecdb62937a3b8ee
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Дальнейшие действия
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с большими двоичными объектами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в [рекомендуемых ресурсах для веб-заданий Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

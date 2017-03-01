@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  Для Azure CLI 2.0 (предварительная версия):
+  В Azure CLI 2.0 используйте следующую команду.
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -80,7 +81,6 @@ ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
 * CDN
 * Облачные службы — см. раздел [Ограничения классического развертывания](#classic-deployment-limitations).
 * Cognitive Services
-* Служба контейнеров
 * Content Moderator
 * Каталог данных
 * Фабрика данных
@@ -127,6 +127,7 @@ ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
 * Шлюз приложений
 * Application Insights
 * Службы BizTalk
+* Служба контейнеров
 * ExpressRoute
 * DevTest Labs — переход на новую группу ресурсов в одной подписке включен, но перемещение между подписками не доступно.
 * Dynamics LCS.
@@ -319,7 +320,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli-20-preview"></a>Azure CLI 2.0 (предварительная версия)
+## <a name="use-azure-cli-20"></a>Использование Azure CLI 2.0
 Чтобы переместить существующие ресурсы в другую группу ресурсов или подписку, выполните команду `az resource move`. Укажите идентификаторы перемещаемых ресурсов. Чтобы получить идентификаторы ресурсов, воспользуйтесь следующей командой.
 
 ```azurecli
@@ -382,10 +383,5 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 * Сведения о командах интерфейса командной строки Azure для управления подпиской см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](xplat-cli-azure-resource-manager.md).
 * Сведения о функциях портала для управления подпиской см. в статье [Управление ресурсами Azure через портал](resource-group-portal.md).
 * Сведения о логической организации ресурсов см. в разделе [Использование тегов для организации ресурсов в Azure](resource-group-using-tags.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

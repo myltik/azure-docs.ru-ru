@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5240bfc66ce15f845a511b7f09a5cd6209c8d539
-ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
+ms.sourcegitcommit: 3fcd6583b415cea6b2151651297c55c93e59c796
+ms.openlocfilehash: b0375a99f5ea3d6af2d3ead382f9a43f1fd285f0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -155,7 +156,7 @@ ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 
-    После установления пиринговой связи виртуальные машины смогут взаимодействовать друг с другом через обе виртуальные сети. По умолчанию свойство `AllowVirtualNetworkAccess` имеет значение *True*. Поэтому при пиринге виртуальных сетей будут подготовлены соответствующие списки управления доступом, обеспечивая обмен данными между этими виртуальными сетями. Но вы также можете заблокировать возможность подключения (например, к определенной подсети или виртуальной машине) с помощью правил группы безопасности сети (NSG), реализуя более точное управление доступом между двумя виртуальными сетями. Дополнительные сведения о группах безопасности сети см. в статье [Создание групп безопасности сети с помощью PowerShell](virtual-networks-create-nsg-arm-ps.md).
+    После установления пиринговой связи виртуальные машины смогут взаимодействовать друг с другом через обе виртуальные сети. По умолчанию свойство `AllowVirtualNetworkAccess` имеет значение *True*. Поэтому при пиринге виртуальных сетей будут подготовлены соответствующие списки управления доступом, обеспечивая обмен данными между этими виртуальными сетями. Но вы также можете заблокировать возможность подключения (например, к определенной подсети или виртуальной машине) с помощью правил группы безопасности сети (NSG), реализуя более точное управление доступом между двумя виртуальными сетями. Дополнительные сведения о группах безопасности сети см. в статье [Управление потоком сетевого трафика с помощью групп безопасности сети](virtual-networks-create-nsg-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -225,7 +226,7 @@ ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. Если вы создаете пиринговую связь между виртуальными сетями, развернутыми в *одной* подписке с помощью разных моделей развертывания, перейдите к шагу 2. Функция создания пиринговой связи между виртуальными сетями, развернутыми с помощью разных моделей развертывания в *разных* подписках, доступна в режиме **предварительной версии**. В отличие от функций в общедоступных версиях, функции в предварительной версии не обеспечивают аналогичный уровень надежности и не подкреплены соглашением об уровне обслуживания. Если вы создаете пиринговую связь между виртуальными сетями, развернутыми в разных подписках с помощью разных моделей развертывания, вам нужно сначала выполнить следующие задачи.
-    - Зарегистрируйте функцию предварительной версии в подписке Azure. Для этого введите следующую команду из PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    - Зарегистрируйте функцию предварительной версии в подписке Azure. Для этого введите следующие команды в PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` и `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`.
     - Выполните шаги 1–2 из раздела этой статьи, посвященного [пиринговой связи между разными подписками](#x-sub).
 2. Прочтите объект виртуальной сети **VNET1** (виртуальная сеть Azure Resource Manager). Для этого введите следующую команду:
 
@@ -235,7 +236,7 @@ ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
 
 3. Чтобы настроить пиринг виртуальных сетей в этом сценарии, требуется только одно соединение, в частности соединение от **VNET1** к **VNET2**. Для этого необходимо знать идентификатор ресурса классической виртуальной сети. Формат идентификатора группы ресурсов показан в примере ниже:
 
-        subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
+           subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
     Замените SubscriptionID, ResourceGroupName и VirtualNetworkName соответствующими именами.
 
@@ -279,10 +280,5 @@ ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
     ```
 
 2. Когда вы удалите одну связь в пиринге между виртуальными сетями, состояние пирингового соединения изменится на *Отключено*. В этом состоянии вы не сможете повторно создать соединение, пока состояние не изменится на *Инициировано*. Перед повторной настройкой пиринга виртуальных сетей рекомендуется удалить оба соединения.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

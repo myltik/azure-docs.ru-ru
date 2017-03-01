@@ -1,22 +1,23 @@
 ---
 title: "Схема конфигурации системы диагностики Azure версии 1.0 | Документация Майкрософт"
 description: "Применимо ТОЛЬКО при использовании пакета Azure SDK 2.4 и ниже с виртуальными машинами Azure, масштабируемыми наборами виртуальных машин, Service Fabric или облачными службами."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: c749a0929d292913e03fa7340bbbebad411fb44d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
 > Система диагностики Azure — это компонент, который используется для сбора данных счетчиков производительности и других статистических данных из виртуальных машин Azure, масштабируемых наборов виртуальных машин, Service Fabric и облачных служб.  Данная страница применяется только в том случае, если вы используете одну из этих служб.
 >
 
-Система диагностики Azure используется в сочетании с другими продуктами диагностики корпорации Майкрософт, такими как Azure Monitor, Application Insights и Log Analytics.
+Система диагностики Azure используется с другими продуктами диагностики корпорации Майкрософт, такими как Azure Monitor, Application Insights и Log Analytics.
 
 Файл конфигурации системы диагностики Azure определяет значения, которые используются для инициализации монитора диагностики. Этот файл используется для инициализации параметров конфигурации диагностики при запуске монитора диагностики.  
 
@@ -274,9 +275,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Атрибут|Тип|Описание|  
 |---------------|----------|-----------------|  
 |**name**|строка|обязательный параметр. Выражение XPath, задающее журнал для сбора.|  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

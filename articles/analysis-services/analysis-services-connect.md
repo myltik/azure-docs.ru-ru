@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,6 +67,13 @@ ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
 
 Подключиться к серверу служб Analysis Services Azure из Excel можно с использованием функции Get Data (в Excel 2016) или Power Query (в более ранних версиях). [Поставщик MSOLAP.7](analysis-services-data-providers.md) является обязательным. Подключение с помощью мастера импорта таблиц в Power Pivot не поддерживается.
 
+> [!NOTE]
+> В некоторых организациях для развертывания обновлений Office 365 используется отложенный канал. Это значит, что обновления версии задерживаются на период до четырех месяцев от текущей версии. Для Excel 2016 (со сборкой версии 1609.7369.2115 и ниже) или Excel 2013 можно создать файл подключения к данным Office (ODC-файл) и вручную обновить поставщик MSOLAP.7 для подключения к серверу Azure Analysis Services. Чтобы узнать больше, изучите раздел [Создание файла подключения к данным Office (ODC-файла)](analysis-services-odc.md).
+> 
+> 
+
+**Подключение из Excel 2016**
+
 1. В Excel 2016 на ленте **Данные** последовательно выберите **Получить внешние данные** > **Из других источников** > **Из служб Analysis Services**.
 2. В мастере подключения к данным вставьте имя сервера из буфера обмена в поле **Имя сервера**. Затем для параметра **Учетные данные** выберите значение **Использовать следующие имя пользователя и пароль**, введите имя пользователя, например nancy@adventureworks.com,, и пароль для него.
 
@@ -94,10 +102,5 @@ ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Управление службами Analysis Services](analysis-services-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

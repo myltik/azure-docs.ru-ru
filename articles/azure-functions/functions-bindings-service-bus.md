@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff4286d6006eb362b6fba705e2afca1fd872f72
-ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
+ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
+ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -71,7 +72,7 @@ ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
 * Для свойства `accessRights` возможны такие значения, как `manage` и `listen`. Значение по умолчанию — `manage`. Это означает, что у свойства `connection` есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление**, задайте для свойства `accessRights` значение `listen`. В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций может завершиться ошибкой.
 
 ## <a name="trigger-behavior"></a>Поведение триггера
-* **Однопоточная обработка**. По умолчанию в среде выполнения Функций одновременно обрабатываются несколько сообщений очереди. Чтобы среда выполнения обрабатывала в любой момент времени только одно сообщение очереди или раздела, для свойства `serviceBus.maxConcurrrentCalls` в файле *host.json* нужно задать значение 1. 
+* **Однопоточная обработка**. По умолчанию в среде выполнения Функций одновременно обрабатываются несколько сообщений очереди. Чтобы среда выполнения обрабатывала в любой момент времени только одно сообщение очереди или раздела, для свойства `serviceBus.maxConcurrentCalls` в файле *host.json* нужно задать значение 1. 
   Сведения о файле *host.json* см. в разделе [Структура папок](functions-reference.md#folder-structure) и статье [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Обработка подозрительных сообщений.** В служебной шине выполняется собственная обработка подозрительных сообщений, которую нельзя контролировать или настраивать с помощью конфигурации или кода Функций Azure. 
 * **Поведение PeekLock.** Среда выполнения Функций получает сообщение в [режиме `PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) и вызывает для сообщения метод `Complete`, если функция выполнена успешно, или метод `Abandon` в случае сбоя. 
@@ -299,10 +300,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

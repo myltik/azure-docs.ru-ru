@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 9be1a05a-9460-49ae-94fb-9798f82c11cf
 ms.service: app-service-web
@@ -18,6 +18,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -464,9 +465,4 @@ Azure предоставляет службы баз данных, которы�
 [Visual Studio]: http://www.visualstudio.com/
 [документации по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Документация по Django]: https://www.djangoproject.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

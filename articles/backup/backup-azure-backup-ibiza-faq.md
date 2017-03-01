@@ -4,7 +4,7 @@ description: "Этот раздел часто задаваемых вопрос
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "решение для архивации; служба архивации"
 ms.assetid: 5f55b500-1ee9-4f64-9306-02d6f7a8eded
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/21/2016
-ms.author: trinadhk; markgal; jimpark;
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fdc596def57968381ea48dfc5df2269a682c9de7
+ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
+ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="recovery-services-vault-faq"></a>Хранилище служб восстановления — вопросы и ответы
+# <a name="recovery-services-vault---faq"></a>Хранилище служб восстановления — вопросы и ответы
 В этой статье описывается хранилище служб восстановления. Она дополняет статью [Служба архивации Azure: часто задаваемые вопросы](backup-azure-backup-faq.md), содержащую полный набор вопросов и ответов о службе архивации Azure.  
 
 Вопросы о службе архивации Azure можно задать в разделе обсуждений этой статьи или другой связанной статьи. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -35,16 +36,10 @@ ms.openlocfilehash: fdc596def57968381ea48dfc5df2269a682c9de7
 ## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Какие виртуальные машины поддерживают хранилища служб восстановления: классические ВМ или ВМ на основе Resource Manager? <br/>
 Хранилища служб восстановления поддерживают обе модели.  В хранилище служб восстановления можно создать резервную копию виртуальной машины, созданной как на классическом портале (классическая ВМ), так и на портале Azure (ВМ на основе Resource Manager).
 
-## <a name="i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault"></a>Резервные копии классических виртуальных машин созданы в хранилище службы архивации. Теперь эти виртуальные машины нужно перевести из классического режима в режим Resource Manager.  Как выполнить их резервное копирование в хранилище служб восстановления?
+## <a name="i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode--how-can-i-backup-them-in-recovery-services-vault"></a>Резервные копии классических виртуальных машин созданы в хранилище службы архивации. Теперь эти виртуальные машины нужно перевести из классического режима в режим Resource Manager.  Как выполнить их резервное копирование в хранилище служб восстановления?
 Резервные копии классических виртуальных машин в хранилище службы архивации автоматически не перемещаются в хранилище служб восстановления при переводе виртуальных машин из классического режима в режим Resource Manager. Выполнить перенос резервных копий виртуальных машин можно так.
 
 1. В хранилище службы архивации на вкладке **Защищенные элементы** выберите виртуальную машину. Щелкните [Остановить защиту](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). *Снимите* флажок **Удаление связанных архивируемых данных**.
 2. Теперь эту виртуальную машину можно перевести из классического режима в режим Resource Manager. Хранилище и сеть, связанные с виртуальной машиной, также следует перевести в режим Resource Manager.
 3. Создайте хранилище служб восстановления и настройте резервное копирование для перенесенной виртуальной машины. Это можно сделать с помощью действия **резервного копирования** в верхней части панели мониторинга хранилища. См. дополнительные сведения о [включении резервного копирования в хранилище служб восстановления](backup-azure-vms-first-look-arm.md).
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

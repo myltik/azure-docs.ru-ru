@@ -4,7 +4,7 @@ description: "Узнайте, чем может быть полезна служ
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -63,10 +64,5 @@ ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 С помощью *службы приложений Azure* вы теперь можете создать несколько тестовых и промежуточных сред для своих мобильных приложений. Используйте их, чтобы тестировать приложения перед развертыванием. В производственную стадию вы можете переходить без простоя. Веб-приложения загружаются автоматически, что позволяет обеспечить самые лучшие условия работы клиентов.
 
 Следуя инструкциям этого *учебника* , вы можете начать использовать [службу приложений](app-service-mobile-migrating-from-mobile-services.md)для существующей мобильной службы.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

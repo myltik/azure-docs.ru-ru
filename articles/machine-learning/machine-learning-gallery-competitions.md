@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
+ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
+ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,6 +26,8 @@ ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 ## <a name="cortana-intelligence-competitions"></a>Конкурсы Cortana Intelligence
 **[Конкурсы](https://gallery.cortanaintelligence.com/competitions)** позволяют бросить вызов сообществу специалистов по обработке и анализу данных в решении сложных проблем с помощью пакета Cortana Intelligence Suite.
+
+Ответы на часто задаваемые вопросы о конкурсах см. в статье [Часто задаваемые вопросы о конкурсах Microsoft Cortana Intelligence](machine-learning-competition-faq.md).
 
 ## <a name="discover"></a>Поиск
   Для поиска конкурсов перейдите на сайт [коллекции](http://gallery.cortanaintelligence.com), в верхней части главной страницы наведите указатель мыши на пункт **More** (Дополнительно) и выберите **Competitions** (Конкурсы).
@@ -54,10 +57,5 @@ ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 **[ПЕРЕЙТЕ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

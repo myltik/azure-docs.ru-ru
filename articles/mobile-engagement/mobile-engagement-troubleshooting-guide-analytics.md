@@ -4,7 +4,7 @@ description: "Поиск и устранение неисправностей ф
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -59,10 +60,5 @@ ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
 ### <a name="causes"></a>Причины
 * Чтобы устранить сбои приложений, отображаемые в разделах аналитики, мониторинга и панели мониторинга, проверьте, нет ли соответствующей информации в разделе известных проблем с предыдущими версиями пакета SDK в заметках о выпуске.
 * Если вы не нашли решение, выполните действие на тестовом устройстве, где установлено ваше приложение, и найдите идентификатор устройства в разделе «Монитор — События» пользовательского интерфейса Azure Mobile Engagement. Затем выполните действие, которое приводит к сбою приложения, и найдите дополнительную информацию в разделе «Монитор — Сбой» пользовательского интерфейса Azure Mobile Engagement. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

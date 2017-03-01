@@ -4,7 +4,7 @@ description: "Узнайте, как включить непрерывное р�
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 071e8056382128f7c5070b46591b2a66ba5b7e41
 ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -96,9 +97,4 @@ ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo (Создание репозитория BitBucket)
 [началу работы с VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview (Приступая к работе с VSTS)
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

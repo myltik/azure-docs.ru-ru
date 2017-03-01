@@ -1,6 +1,6 @@
 ---
 title: "Непрерывность бизнес-процессов и аварийное восстановление: связанные регионы Azure | Документация Майкрософт"
-description: "Пары регионов Azure гарантируют отказоустойчивость приложений во время сбоев в центрах обработки данных."
+description: "Дополнительные сведения о подключении регионов Azure для обеспечения отказоустойчивости приложений во время сбоев в центрах данных."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 56fe2f8d65379c9e957e46e1f44195b3ad2d0055
-ms.openlocfilehash: 30ec787997c0c622e8ade6eec2b2dcc635a5a664
+ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
+ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -91,9 +92,4 @@ Azure работает в различных странах по всему ми
 
 ![Данные](./media/best-practices-availability-paired-regions/9Orange.png)
  **Размещение данных**. Регион находится в той же географической области, что и его пара (за исключением Южной Бразилии). Таким образом соблюдаются требования к размещению данных, связанные с налогообложением и юрисдикцией применения законодательства.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

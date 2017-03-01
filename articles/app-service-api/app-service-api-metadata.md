@@ -4,7 +4,7 @@ description: "Узнайте, как приложения API в службе п
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -56,10 +57,5 @@ URL-адрес определения API для приложения API мож
 Пошаговое руководство по созданию, развертыванию и использованию приложений API см. в статье [Приступая к работе с приложениями API в службе приложений Azure](app-service-api-dotnet-get-started.md).
 
 Если вы используете управление API Azure с приложениями API, вы можете использовать метаданные Swagger для импорта API в управление API. Дополнительные сведения см. в статье [Как импортировать определение API с операциями в Azure API Management](../api-management/api-management-howto-import-api.md). 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
