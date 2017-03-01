@@ -4,7 +4,7 @@ description: "Узнайте о функциях проверки подлинн
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -108,10 +109,5 @@ ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы познакомились с функциями проверки подлинности и авторизации службы приложений, которые можно использовать для приложений API. В следующем учебнике начальной серии вы узнаете, как реализовать [проверку подлинности пользователя для приложений API службы приложений Azure](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

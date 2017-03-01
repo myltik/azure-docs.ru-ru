@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 2e846fc0-37cc-42e6-ac57-ff442ef16e85
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -137,10 +138,5 @@ ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
 
 ## <a name="whats-changed"></a>Изменения
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Интеграция Azure Mobile Engagement с приложени
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -246,10 +247,5 @@ ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
 > Для порогового значения пакета нельзя настроить период менее одной секунды. При попытке задать значение менее одной секунды трассировка в пакете SDK отобразится с ошибкой, и будет автоматически восстановлено значения по умолчанию, т. е. ноль секунд. Это приведет к тому, что пакет SDK начнет создавать отчеты по журналам в режиме реального времени.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

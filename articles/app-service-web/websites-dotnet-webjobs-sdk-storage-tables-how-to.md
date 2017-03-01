@@ -4,7 +4,7 @@ description: "Информация об использовании таблич�
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -156,10 +157,5 @@ ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Дальнейшие действия
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с таблицами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в [рекомендуемых ресурсах для веб-заданий Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

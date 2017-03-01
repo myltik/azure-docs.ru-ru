@@ -2,7 +2,7 @@
 title: "Управление сущностями служб мультимедиа с помощью REST | Документация Майкрософт"
 description: "Сведения о том, как управлять сущностями служб мультимедиа с помощью REST API."
 author: juliako
-manager: dwrede
+manager: erikre
 editor: 
 services: media-services
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
 ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -179,10 +180,5 @@ ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

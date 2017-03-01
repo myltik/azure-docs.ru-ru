@@ -4,7 +4,7 @@ description: "Ознакомьтесь с рекомендациями и мет
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1068ac3c3ffd832df5e61bc24887780ced6444d0
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -49,10 +50,5 @@ ms.openlocfilehash: 1068ac3c3ffd832df5e61bc24887780ced6444d0
 
 ## <a name="a-namenodejsawhen-new-nodejs-apps-are-deployed-to-azure-app-service"></a><a name="nodejs"></a>Развертывание новых приложений Node.js в службе приложений Azure
 Конфигурация по умолчанию службы приложений Azure для приложений Node.js предназначена для наиболее распространенных из них. Если в конфигурации для приложения Node.js целесообразно использовать персонализированные настройки, чтобы повысить производительность или оптимизировать использование ресурсов ЦП, памяти и сети, то можно ознакомиться с нашими рекомендациями и действиями по устранению неполадок. В статье [Рекомендации и руководство по устранению неполадок приложений Node в веб-приложениях Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md) описаны параметры IISNode, которые может потребоваться настроить для приложения Node.js. В ней также рассмотрены различные сценарии и проблемы, которые могут возникнуть при работе приложения, и показано, как устранить эти проблемы.   
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

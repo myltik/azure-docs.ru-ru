@@ -4,7 +4,7 @@ description: "Устранение ошибок &quot;502 — недопусти
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "502 — недопустимый шлюз, 503 — служба недоступна, ошибка 503, ошибка 502"
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -129,10 +130,5 @@ Microsoft Azure информирует о каждом случае прерыв
  ![Перезапуск приложения для устранения ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "В этом учебнике показано, как создат
 services: app-service\web
 documentationcenter: .net
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 877bff08-9ef7-405a-a1ca-1194f33c55f2
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4f1bf0f15a373dfe60d923f017a96784424d6563
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -240,10 +241,5 @@ Git — это распределенная система управления 
 
 ## <a name="summary"></a>Сводка
 В этом учебнике вы узнали, как создавать веб-приложение в VSCode и развертывать его в Azure. Дополнительную информацию о VS Code см. в разделе [Зачем использовать Visual Studio Code?](https://code.visualstudio.com/Docs/) Дополнительную информацию о веб-приложениях службы приложений Azure см. в статье [Обзор веб-приложений](app-service-web-overview.md). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Из этой статьи вы узнаете о различны
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dde6b7e6-bf6a-4fa5-8390-3a18155d21bd
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f989ea86c76706af9413b2bb945956b1c6432e1d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ ms.openlocfilehash: f989ea86c76706af9413b2bb945956b1c6432e1d
 * Для доступа к локальным данным AD через корпоративный брандмауэр необходимо использовать отдельное решение.
 
 Чтобы узнать, как создать бизнес-приложение Azure, в котором выполняется аутентификация с помощью локальной службы маркеров безопасности, изучите статью [Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией AD FS](web-sites-dotnet-lob-application-adfs.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
