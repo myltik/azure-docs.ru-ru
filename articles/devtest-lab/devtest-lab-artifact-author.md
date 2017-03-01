@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
+ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -75,7 +76,7 @@ ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
 | Имя элемента | Обязательный? | Описание |
 | --- | --- | --- |
 | type |Да |Тип значения параметра. Ниже приведен список допустимых типов. |
-| displayName Да |Имя параметра, отображаемое для пользователя в лаборатории. | |
+| displayName |Да |Имя параметра, отображаемое для пользователя в лаборатории. | |
 | Описание |Да |Описание параметра, отображаемого в лаборатории. |
 
 Допустимые типы:
@@ -129,10 +130,5 @@ ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [добавить репозиторий артефактов Git в лабораторию](devtest-lab-add-artifact-repo.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
