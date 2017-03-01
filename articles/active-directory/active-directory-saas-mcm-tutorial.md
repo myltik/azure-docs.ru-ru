@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: 2a204ffbb915370328e574dc3cba6a617e97c87a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,19 +67,19 @@ ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applications")
+    ![Приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **MCM**.
    
-    ![Коллекция приложений](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Коллекция приложений")
 
 7. В области результатов выберите **MCM** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -106,15 +107,15 @@ ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
 
 1. На странице интеграции с приложением **MCM** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в MCM?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Единый вход Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+    ![Единый вход Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Единый вход Microsoft Azure AD")
 
 3. В диалоговом окне на странице "Настройка параметров приложения" выполните следующие действия.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Настройка URL-адреса приложения")
    
     а. В текстовом поле **URL-адрес для входа** введите `https://myaba.co.uk/client-access/<company name>/saml.php`.
    
@@ -122,17 +123,17 @@ ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
 
 4. На странице **Настройка единого входа в MCM** нажмите кнопку **Скачать метаданные**, а затем сохраните файл сертификата на своем компьютер.
    
-    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Настройка единого входа")
 
 5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки MCM. Присоедините к сообщению скачанный файл метаданных, чтобы специалисты MCM смогли настроить единый вход со своей стороны.
 
 6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Настройка единого входа")
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
    
-    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Настройка единого входа")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -202,13 +203,13 @@ ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к MCM.
 
-![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assign users")
+![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Назначение пользователей")
 
 **Чтобы назначить пользователя Britta Simon в MCM, сделайте следующее:**
 
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
    
-    ![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Назначение пользователей")
 
 2. В списке приложений выберите **MCM**.
    
@@ -216,13 +217,13 @@ ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
 
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
-    ![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Назначение пользователей")
 
 4. В списке пользователей выберите **Britta Simon**.
 
 5. На панели инструментов внизу щелкните **Назначить**.
    
-    ![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Назначение пользователей")
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
 Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
@@ -232,10 +233,5 @@ ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

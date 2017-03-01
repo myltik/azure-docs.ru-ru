@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
-ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Модель ценообразования приложений логики
@@ -58,10 +59,5 @@ ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор приложений логики][whatis]
 * [Создание приложения логики][create] [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/ [whatis]: logic-apps-what-are-logic-apps.md [create]: logic-apps-create-a-logic-app.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

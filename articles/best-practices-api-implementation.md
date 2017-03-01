@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
+ms.sourcegitcommit: 066bc9911050c44fe5d8ce2d63bdb0f843e08176
+ms.openlocfilehash: 31dd351ae216e131c092447493ac9f3ae65ba10d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -1147,9 +1148,4 @@ Azure предоставляет [службу управления API](https:/
 * Дополнительные сведения об установке и настройке Application Insights в проекте веб-API ASP.NET. см. на странице, посвященной [настройке Application Insights для ASP.NET](application-insights/app-insights-asp-net.md), на веб-сайте Майкрософт.
 * На странице [Проверка кода при помощи модульных тестов](https://msdn.microsoft.com/library/dd264975.aspx) на веб-сайте Майкрософт предоставлены подробные сведения о создании модульных тестов и управлении ими с помощью Visual Studio.
 * На странице [Запуск тестов производительности в приложении](https://msdn.microsoft.com/library/dn250793.aspx) на веб-сайте Майкрософт описывается порядок использования Visual Studio Ultimate для создания веб-тестов производительности и загрузки тестового проекта.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

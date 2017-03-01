@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 096fcd2a7415da03714f05bb1f29ceac6f186eda
-ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
+ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
+ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -178,7 +179,7 @@ ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
 Интегрированное отслеживание изменений поддерживается, начиная со следующих версий баз данных SQL Server:
 
 * SQL Server 2008 R2 и более поздних версий, если вы используете SQL Server на виртуальных машинах Azure.
-* База данных SQL Azure 12, если вы используете базу данных SQL Azure.
+* База данных SQL Azure&12;, если вы используете базу данных SQL Azure.
 
 При использовании интегрированной политики отслеживания изменений SQL не указывайте отдельную политику обнаружения удаления данных, так как она уже поддерживает выявление удаленных строк.
 
@@ -203,11 +204,13 @@ ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
 
 * при каждой вставке указывается значение для столбца;
 * при всех обновлениях элементов также изменяется значение столбца;
-* значение этого столбца растет с каждым изменением;
+* значение этого столбца растет с каждой вставкой или обновлением;
 * возможно эффективное выполнение запросов со следующими предложениями WHERE и ORDER BY: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-Например, индексированный столбец **rowversion** идеально подходит на роль столбца максимального уровня.
-Чтобы использовать эту политику, создайте или обновите источник данных следующим образом:
+> [!IMPORTANT] 
+> Настоятельно рекомендуется использовать столбец **rowversion** для отслеживания изменений. В случае использования любого другого типа данных не гарантируется запись всех изменений при наличии транзакций, выполняемых параллельно с запросом индексатора.
+
+Чтобы использовать политику верхнего предела, создайте или обновите источник данных следующим образом.
 
     {
         "name" : "myazuresqldatasource",
@@ -216,7 +219,7 @@ ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
@@ -312,9 +315,4 @@ ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
 **Вопрос.** Влияет ли выполнение индексатора на рабочую нагрузку запросов?
 
 Ответ. Да. Индексатор выполняется на одном из узлов службы поиска, и ресурсы этого узла распределяются между выполнением индексирования, обслуживанием трафика запросов и другими запросами API. Если при выполнении интенсивных рабочих нагрузок индексирования и запросов часто отображается ошибка 503 или увеличивается время ответа, вы можете расширить службу поиска.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

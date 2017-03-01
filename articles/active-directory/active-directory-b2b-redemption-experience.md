@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,9 +33,7 @@ ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
 ## <a name="social-id-user-first-time-redemption"></a>Активация приглашения с помощью внешнего идентификатора пользователя
 Служба совместной работы Azure AD B2B позволяет с легкостью использовать для активации любой адрес электронной почты. Взгляните на процесс активации, в котором для службы совместной работы B2B используется внешний адрес (не принадлежащий корпорации Майкрософт). В этом случае процедура будет более сложной, так как в процессе активации может потребоваться создать учетную запись. Просмотрите следующий видеоролик:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
-
-Если этот видеоролик не отображается, то вы можете его найти [здесь](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -51,9 +50,4 @@ ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

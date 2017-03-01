@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
-ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
+ms.sourcegitcommit: e657e901900b4879d649ac82d8de026957a409c2
+ms.openlocfilehash: 36a872e3e5bd3230dcfe2abdab9b4dbf25212cdb
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,7 +32,14 @@ ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
 > [!NOTE]
 > Журналы диагностики доступны только для NSG, для которых применена модель развертывания с помощью Azure Resource Manager. Вы не сможете включить ведение журналов диагностики для NSG, развернутых с помощью классической модели развертывания. Чтобы получить более полное представление об этих двух моделях, см. статью [о моделях развертывания Azure](../resource-manager-deployment-model.md).
 
-Ведение журнала действий (ранее он назывался журналом аудита или рабочим журналом) включена по умолчанию для всех NSG, независимо от модели развертывания. Чтобы найти в журнале действий, какие операции выполнялись в группе безопасности сети, отберите записи со следующими типами ресурсов: Microsoft.ClassicNetwork/networkSecurityGroups, Microsoft.ClassicNetwork/networkSecurityGroups/securityRules, Microsoft.Network/networkSecurityGroups и Microsoft.Network/networkSecurityGroups/securityRules. Подробнее журнал действий Azure описан в [этой статье](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). 
+Ведение журнала действий (ранее он назывался журналом аудита или рабочим журналом) включена по умолчанию для всех NSG, независимо от модели развертывания. Чтобы определить в журнале активности, какие операции были выполнены с группами безопасности сети, найдите записи, содержащие следующие типы ресурсов: 
+
+- Microsoft.ClassicNetwork/networkSecurityGroups 
+- Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+- Microsoft.Network/networkSecurityGroups
+- Microsoft.Network/networkSecurityGroups/securityRules 
+
+Подробнее журнал действий Azure описан в [этой статье](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). 
 
 ## <a name="enable-diagnostic-logging"></a>Включение ведения журналов диагностики
 
@@ -116,9 +124,4 @@ ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
 ## <a name="view-and-analyze-logs"></a>Просмотр и анализ журналов
 
 Методы просмотра журнала действий описаны в [этой статье](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Методы просмотра журнала диагностики описаны в статье [Обзор журналов диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Если вы отправляете данные диагностики в Log Analytics, то [Решение для анализа сетей Azure (предварительная версия) в Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) поможет получить более подробный анализ данных. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

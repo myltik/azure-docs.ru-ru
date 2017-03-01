@@ -3,7 +3,7 @@ title: "Настройка георепликации для базы данны
 description: "Настройка георепликации для базы данных SQL Azure с помощью портала Azure"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,21 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Настройка георепликации для базы данных SQL Azure с помощью портала Azure
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-geo-replication-overview.md)
-> * [Портал Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Настройка активной георепликации для базы данных SQL Azure с помощью портала Azure
 
 В этой статье объясняется, как настроить активную георепликацию для базы данных SQL Azure с помощью [портала Azure](http://portal.azure.com).
 
@@ -39,7 +33,7 @@ ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
 > 
 > 
 
-Для настройки георепликации с помощью портала Azure необходим следующий ресурс.
+Для настройки активной георепликации с помощью портала Azure необходим приведенный ниже ресурс.
 
 * База данных SQL Azure — база данных-источник, которую необходимо реплицировать в другом географическом регионе.
 
@@ -51,7 +45,7 @@ ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
 
 Добавить базу данных-получатель может только владелец или совладелец подписки.
 
-Базе данных-получателю присваивается такое же имя, как у базы данных-источника, и по умолчанию тот же уровень обслуживания. База данных-получатель может быть изолированной базой данных или базой данных в пуле эластичных баз данных. Чтобы узнать больше, ознакомьтесь с [уровнями служб](sql-database-service-tiers.md).
+Базе данных-получателю присваивается такое же имя, как у базы данных-источника, и по умолчанию тот же уровень обслуживания. База данных-получатель может быть отдельной базой данных или базой данных в эластичном пуле. Чтобы узнать больше, ознакомьтесь с [уровнями служб](sql-database-service-tiers.md).
 После создания и заполнения базы данных-получателя начинается репликация данных из базы данных-источника в новую базу данных-получателя.
 
 > [!NOTE]
@@ -88,12 +82,7 @@ ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
 5. Откроется окно подтверждения. Нажмите кнопку **Да**, чтобы удалить базу данных из партнерства георепликации (и сделать ее доступной для чтения и записи и не используемой в репликации).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Чтобы больше узнать об активной георепликации, см. статью [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
+* Дополнительные сведения об активной георепликации см. в статье [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
 * Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

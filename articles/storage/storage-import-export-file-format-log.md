@@ -1,6 +1,6 @@
 ---
 
-title: "Формат файла журнала службы импорта и экспорта | Документация Майкрософт"
+title: "Формат файла журнала импорта и экспорта Azure | Документация Майкрософт"
 description: "Сведения о формате файлов журналов, созданных при выполнении задания службы импорта и экспорта"
 author: muralikk
 manager: syadav
@@ -13,22 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: fab36b750ec4ba518fad8392f611cd46d8155985
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="import-export-service-log-file-format"></a>Формат файла журнала службы импорта и экспорта
+# <a name="azure-importexport-service-log-file-format"></a>Формат файла журнала службы импорта и экспорта Azure
 Когда служба импорта и экспорта Microsoft Azure выполняет действия на диске в ходе задания импорта или экспорта, в блочные BLOB-объекты в учетной записи хранения, связанной с этим заданием, записываются журналы.  
   
 Служба импорта и экспорта может записывать два журнала:  
   
 -   журнал ошибок, который всегда создается в случае возникновения ошибки;  
   
--   подробный журнал, который не включен по умолчанию. Чтобы включить его, установите свойство `EnableVerboseLog` для операции [Put Job](/rest/api/storageservices/importexport/Put-Job) (Поместить задание) или [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) (Обновить свойства задания).  
+-   подробный журнал, который не включен по умолчанию. Чтобы включить его, установите свойство `EnableVerboseLog` для операции [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Поместить задание) или [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) (Обновить свойства задания).  
   
 ## <a name="log-file-location"></a>Расположение файла журнала  
 Журналы записываются в блочные BLOB-объекты в контейнере или виртуальном каталоге, указанном в параметре `ImportExportStatesPath`, который можно установить для операции `Put Job`. Расположение, в которое записываются журналы, зависит от того, как задана проверка подлинности задания, а также от значения, установленного для параметра `ImportExportStatesPath`. Проверка подлинности для задания может быть задана с использованием ключа учетной записи хранения или SAS (подписанного URL-адреса) контейнера.  
@@ -44,7 +45,7 @@ ms.openlocfilehash: fab36b750ec4ba518fad8392f611cd46d8155985
 |SAS контейнера|Значение по умолчанию|Виртуальный каталог с именем по умолчанию (`waimportexport`) в контейнере, указанном в SAS.<br /><br /> Например, если для задания указан SAS `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, расположением журнала будет `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`.|  
 |SAS контейнера|Значение, заданное пользователем|Виртуальный каталог с именем, заданным пользователем, в контейнере, указанном в SAS.<br /><br /> Например, если для задания указан SAS `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, а указанному виртуальному каталогу присвоено имя `mylogblobs`, расположение журнала будет `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-URL-адреса журнала ошибок и подробного журнала можно получить, вызвав операцию [Get Job](/rest/api/storageservices/importexport/Get-Job3) (получить задание). Журналы будут доступны после завершения обработки диска.  
+URL-адреса журнала ошибок и подробного журнала можно получить, вызвав операцию [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (получить задание). Журналы будут доступны после завершения обработки диска.  
   
 ## <a name="log-file-format"></a>Формат файла журнала  
 Формат обоих журналов одинаков: большой двоичный объект, содержащий XML-описания событий, возникших при копировании больших двоичных объектов между жестким диском и учетной записью клиента.  
@@ -358,10 +359,5 @@ properties-status ::=
 ```
   
 ## <a name="see-also"></a>См. также  
-[Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference) (Справочник по API REST служб хранилища импорта и экспорта)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[Storage Import/Export REST](/rest/api/storageimportexport/) (Справочник по API REST служб хранилища импорта и экспорта)
 

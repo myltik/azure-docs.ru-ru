@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
+ms.sourcegitcommit: f179a19dd3a126d23c33520a428a8c3a644f4171
+ms.openlocfilehash: 08a1399e702dbf9222b8412950ee62509b53ef76
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -89,7 +90,7 @@ ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
     
     ```powershell
     $IpConfigName2 = "IPConfig-2"
-    $IPAddress     = 10.0.0.5
+    $IPAddress     = "10.0.0.5"
     $myPublicIp2   = New-AzureRmPublicIpAddress -Name "myPublicIp2" -ResourceGroupName $myResourceGroup `
     -Location $location -AllocationMethod Static
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName2 `
@@ -132,9 +133,7 @@ ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
 Выполнив следующие шаги, вы сможете добавить к сетевой карте частные и общедоступные IP-адреса. В примерах, приводимых в следующих разделах, предполагается, что у вас уже есть виртуальная машина с тремя IP-конфигурациями, описанными в [сценарии](#Scenario) в этой статье, но это не является обязательным требованием.
 
 1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-2. Зарегистрируйтесь для получения предварительной версии, отправив с помощью [этой ссылки](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) сообщение электронной почты. Укажите в нем идентификатор своей подписки и опишите предполагаемое использование. Не переходите к следующим этапам, пока не будут выполнены следующие условия:
-    - вы получите по электронной почте уведомление о возможности использовать предварительную версию;
-    - вы выполните все инструкции, приведенные в этом сообщении электронной почты.
+2. Зарегистрируйтесь для использования общедоступной предварительной версии, выполнив шаг 2 в разделе **Создание виртуальной машины с несколькими IP-адресами**.
 3. Измените значения переменных со знаком "$" на имя сетевого интерфейса, к которому необходимо добавить IP-адрес, а также имя группы ресурсов и расположения, где находится сетевой интерфейс.
 
     ```powershell
@@ -252,8 +251,4 @@ ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
 9. Добавьте в операционную систему виртуальной машины частный IP-адрес, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи. Не добавляйте в операционную систему общедоступный IP-адрес.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-<!--HONumber=Feb17_HO2-->
-
 

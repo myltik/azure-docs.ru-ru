@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c65c4021f5d0beda8005abdd375ac51729acf0a8
-ms.openlocfilehash: 8ff246ab7d70bd00ce989d3049e016d692722d18
+ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
+ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -78,11 +79,13 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+## <a name="throughput-faq"></a>Часто задаваемые вопросы о пропускной способности
+
+**Можно ли задать значение пропускной способности ниже 400 ЕЗ/с?**
+
+400 ЕЗ/с — это минимальное значение пропускной способности, доступное для односекционных коллекций DocumentDB (минимальное значение для секционированных коллекций —&2500; ЕЗ/с). Единицы запроса можно задать с интервалом в 100 ЕЗ/с, но невозможно задать значение пропускной способности равное 100 ЕЗ/с или любое значение менее 400 ЕЗ/с. Чтобы определить экономически эффективный метод разработки и тестирования в DocumentDB, можно воспользоваться бесплатным [эмулятором DocumentDB](documentdb-nosql-local-emulator.md), который развертывается локально и без дополнительных затрат. 
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о подготовке и глобальном масштабировании с помощью DocumentDB см. в статье [Секционирование и масштабирование в Azure DocumentDB](documentdb-partition-data.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

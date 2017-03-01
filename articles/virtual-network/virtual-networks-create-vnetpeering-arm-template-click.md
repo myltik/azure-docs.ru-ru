@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: ddfa2998d7e9305891c5a976dff5c2365d5eb1d4
-ms.openlocfilehash: 351b77482c07160fa62155e90dcb8eb280e9087c
+ms.sourcegitcommit: d68c2f496cfdfa52c33243542ee141c44639e5c0
+ms.openlocfilehash: 7b4fda3ffb269c6a9de407bbd9af32d90768504f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -336,7 +337,7 @@ ms.openlocfilehash: 351b77482c07160fa62155e90dcb8eb280e9087c
 Чтобы настроить пиринг между виртуальными сетями из разных моделей развертывания, выполните следующие действия:
 
 1. Если вы создаете пиринговую связь между виртуальными сетями, развернутыми в *одной* подписке с помощью разных моделей развертывания, перейдите к шагу 2. Функция создания пиринговой связи между виртуальными сетями, развернутыми с помощью разных моделей развертывания в *разных* подписках, доступна в режиме **предварительной версии**. В отличие от функций в общедоступных версиях, функции в предварительной версии не обеспечивают аналогичный уровень надежности и не подкреплены соглашением об уровне обслуживания. Если вы создаете пиринговую связь между виртуальными сетями, развернутыми в разных подписках с помощью разных моделей развертывания, вам нужно сначала выполнить следующие задачи.
-    - Зарегистрируйте функцию предварительной версии в подписке Azure. Для этого введите следующую команду из PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    - Зарегистрируйте функцию предварительной версии в подписке Azure. Для этого введите следующие команды в PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` и `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`.
     - Выполните шаги 1–2 из раздела этой статьи, посвященного [пиринговой связи между разными подписками](#x-sub).
 2. Ниже показано определение пирингового соединения между виртуальными сетями (от VNET1 к VNET2) в этом сценарии. Для настройки пиринга между классической виртуальной сетью и виртуальной сетью Azure Resource Manager требуется только одно соединение.
 
@@ -417,10 +418,5 @@ ms.openlocfilehash: 351b77482c07160fa62155e90dcb8eb280e9087c
         RemoteVirtualNetworkAddressSpace : null
 
     Когда пиринг будет настроен между классической виртуальной сетью и виртуальной сетью Resource Manager, вы сможете подключать любую виртуальную машину в VNET1 к виртуальной машине в VNET2 и наоборот.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

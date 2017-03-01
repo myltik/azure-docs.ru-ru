@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0eef684115f9c21ea61502a10576f74cac0ace8e
-ms.openlocfilehash: 2054cb65b5192e08fc64e56f59a456fc911f0829
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -72,7 +73,7 @@ ms.openlocfilehash: 2054cb65b5192e08fc64e56f59a456fc911f0829
 2. Создайте динамическую группу, в которую входят гостевые пользователи. ![](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Настройте политику условного доступа, блокирующую доступ гостевых пользователей к порталу, как показано в следующем видео.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
+  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
   Если этот видеоролик не отображается, то вы можете его найти [здесь](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
 
@@ -109,9 +110,4 @@ Azure AD имеет единые требования в отношении фи
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

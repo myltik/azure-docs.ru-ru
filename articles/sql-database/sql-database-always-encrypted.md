@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cffa8955cf044398e526b1ad6158eefebbf91b3b
-ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 02ea369d76c1fe7266e9dc0cad2c75e4b5eada6a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: защита конфиденциальных данных в Базе данных SQL и хранение ключей шифрования в хранилище сертификатов Windows
-> [!div class="op_single_selector"]
-> * [Хранилище ключей Azure](sql-database-always-encrypted-azure-key-vault.md)
-> * [Хранилище сертификатов Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 В этой статье показано, как защитить конфиденциальные данные в базе данных SQL с помощью шифрования базы данных, используя [мастер настройки Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). В ней также показано, как сохранить ключи в хранилище сертификатов Windows.
 
@@ -54,7 +50,7 @@ Always Encrypted — это новая технология шифровани�
 ## <a name="create-a-blank-sql-database"></a>Создание пустой базы данных SQL
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. Выберите **Создать** > **Данные+хранилище** > **База данных SQL**.
-3. Создайте **пустую** базу данных **Clinic** на новом или имеющемся сервере. Подробные инструкции по созданию базы данных на портале Azure см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
+3. Создайте **пустую** базу данных **Clinic** на новом или имеющемся сервере. Подробные инструкции по созданию базы данных на портале Azure см. в статье [Краткое руководство. Начало работы с базой данных SQL Azure](sql-database-get-started.md).
    
     ![Создание пустой базы данных](./media/sql-database-always-encrypted/create-database.png)
 
@@ -522,10 +518,5 @@ Always Encrypted — это новая технология шифровани�
 * [SQL Server Encryption (Шифрование SQL Server)](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted Wizard (Мастер настройки постоянного шифрования)](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Блог по функции постоянного шифрования](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

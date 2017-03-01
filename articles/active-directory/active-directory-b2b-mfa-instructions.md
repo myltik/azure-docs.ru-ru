@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 32d0b45080d57712209e0c5a3e5adf981fb4b66e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -36,10 +37,14 @@ ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
 7. Таким образом, ответственность за применение MFA по отношению к пользователям службы совместной работы B2B из партнерской организации *всегда* лежит на приглашающем клиенте, а не на партнерской организации (даже если она имеет возможности применения MFA). В будущих выпусках будет реализована возможность для приглашающей организации "доверять" проверке MFA определенной партнерской организации вместо применения собственной проверки MFA.
 
 ## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Настройка MFA для пользователей службы совместной работы B2B
-Чтобы узнать, как можно с легкостью настроить MFA для пользователей службы совместной работы B2B, просмотрите [этот видеоролик](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+Чтобы узнать, как можно с легкостью настроить MFA для пользователей службы совместной работы B2B, просмотрите следующий видеоролик:
 
-## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Прохождение MFA пользователями службы совместной работы B2B при активации предложения
-В [этом видеоролике](https://channel9.msdn.com/Blogs/Azure/MFA-redemption) показано, как выглядит процедура активации.
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
+
+## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Прохождение MFA пользователями службы B2B при активации предложения
+В следующем видеоролике показано, как выглядит процедура активации:
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Сброс настроек MFA для пользователей службы совместной работы B2B
 В настоящее время администратор может потребовать от пользователей службы совместной работы B2B пройти повторную проверку только с помощью приведенных ниже командлетов PowerShell. Поэтому следует использовать эти командлеты, когда требуется сбросить настройки метода проверки для пользователя службы совместной работы B2B.
@@ -85,9 +90,4 @@ ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

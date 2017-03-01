@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
+ms.openlocfilehash: 217715ad1657582eb35008b765de6d19bd2a8b0b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -124,8 +125,14 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Рабочий процесс обновления кластера
-1. Скачайте последнюю версию пакета отсюда: [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md). 
-2. Подключитесь к кластеру с любой виртуальной машины, на которой есть доступ администратора ко всем ВМ, перечисленным в качестве узлов в файле конфигурации кластера. Виртуальная машина, на которой выполняется этот скрипт, может и не входить в кластер. 
+1. Выполните командлет Get-ServiceFabricClusterUpgrade из одного из узлов в кластере и запишите значение TargetCodeVersion.
+2. Выполните следующую команду с компьютера, подключенного к Интернету, чтобы получить список всех версий, совместимых с обновлением, для текущей версии и скачайте соответствующий пакет с помощью связанных ссылок для загрузки.
+   ```powershell
+   
+    ###### Get list of all upgrade compatible packages
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1>
+    ```
+3. Подключитесь к кластеру с любой виртуальной машины, на которой есть доступ администратора ко всем ВМ, перечисленным в качестве узлов в файле конфигурации кластера. Виртуальная машина, на которой выполняется этот скрипт, может и не входить в кластер. 
    
     ```powershell
    
@@ -140,7 +147,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-3. Скопируйте скачанный пакет в хранилище образов кластера.
+4. Скопируйте скачанный пакет в хранилище образов кластера.
    
     ```powershell
    
@@ -152,7 +159,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 
     ```
 
-1. Зарегистрируйте скопированный пакет. 
+5. Зарегистрируйте скопированный пакет. 
    
     ```powershell
    
@@ -163,7 +170,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Запустите обновление кластера до одной из доступных версий. 
+6. Запустите обновление кластера до одной из доступных версий. 
    
     ```Powershell
    
@@ -184,6 +191,24 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 
 Устранив проблемы, которые привели к откату, запустите обновление снова, выполнив те же действия.
 
+
+## <a name="cluster-configuration-upgrade"></a>Обновление конфигурации кластера
+Для обновления конфигурации кластера выполните командлет ServiceFabricClusterConfigurationUpgrade. Обновление конфигурации обрабатывает домен обновления.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+### <a name="cluster-certificate-config-upgrade-pls-hold-on-till-v55-is-released-because-cluster-cert-upgrade-doesnt-work-till-v55"></a>Обновление конфигурации сертификата кластера (дождитесь выпуска версии&5;.5, так как это обновление не поддерживается в предыдущих версиях)
+Сертификат кластера используется для аутентификации между узлами кластера, поэтому смену сертификата следует выполнять с особой осторожностью, так как из-за сбоя заблокируется связь между узлами кластера.
+С технической точки зрения поддерживаются два варианта:
+
+1. Единое обновление сертификата. Путь обновления: ''сертификат А (основной) -> сертификат B (основной) -> сертификат C (основной) ->...''. 
+2. Двойное обновление сертификата. Путь обновления ''сертификат А (основной) -> сертификат А (основной) и В (дополнительный) -> сертификат В (основной) -> сертификат В (основной) и С (дополнительный) -> сертификат C (основной)->...''.
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как настроить некоторые [параметры Service Fabric для кластера](service-fabric-cluster-fabric-settings.md)
 * Ознакомьтесь с концепцией [масштабирования кластера](service-fabric-cluster-scale-up-down.md)
@@ -191,9 +216,4 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

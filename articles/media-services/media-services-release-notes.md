@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
-ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
+ms.sourcegitcommit: 83881cda043fc9f1ef48281e8160a882c1f9bced
+ms.openlocfilehash: 5aa7353e681a16d2032fecaf8a2de50e241ac4ad
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 | Проблема | Описание |
 | --- | --- |
 | В API-интерфейсе REST отсутствует ряд стандартных заголовков HTTP. |При разработке приложений служб мультимедиа с использованием API-интерфейса REST замечено, что ряд стандартных полей заголовков HTTP (включая CLIENT-REQUEST-ID, REQUEST-ID и RETURN-CLIENT-REQUEST-ID) не поддерживается. Эти заголовки будут добавлены в следующем обновлении. |
-| URL-кодирование содержимого не допускается. |Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла. |
+| URL-кодирование содержимого не допускается. |Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [зарезервированные знаки, используемые для кодировки URL-адресов](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла. |
 | Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, приводит к сбою. |Службы мультимедиа создают URL-адреса SAS на основе версии [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) . Если вы хотите использовать пакет SDK хранилища Azure для создания списка BLOB-объектов в контейнере BLOB-объектов, используйте метод [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) , входящий в пакет SDK хранилища Azure версии 2.x. Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, будет вызывать сбой. |
 | Механизм регулирования служб мультимедиа ограничивает использование ресурсов для приложений, создающих избыточный запрос к службе. Службой может быть возвращен код состояния HTTP "Service Unavailable (503)". |Дополнительные сведения см. в описании кода состояния HTTP 503 в статье с [кодами ошибок служб мультимедиа Azure](media-services-encoding-error-codes.md). |
 | При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. |Используйте **Skip** и **Take** (.NET) или **top** (REST), как описано в [этом](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [этом](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities) примерах. |
@@ -103,6 +104,12 @@ ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 Зарезервированные модули кодирования "Базовый", "Стандартный" и "Премиум" переименованы в зарезервированные модули кодирования S1, S2 и S3 соответственно.  Теперь пользователи зарезервированных модулей кодирования Базовый будут видеть на портале Azure (а также счете) метку S1, а пользователи модулей Стандартный и Премиум — метки S2 и S3 соответственно. 
 
 ## <a name="a-iddecchanges15adecember-2015-release"></a><a id="dec_changes_15"></a>Выпуск: декабрь 2015 г.
+
+### <a name="azure-media-encoder-deprecation-announcement"></a>Объявление о нерекомендуемой версии Azure Media Encoder
+
+Azure Media Encoder будет считаться нерекомендуемым по истечении 12 месяцев. Рекомендуется начать использование кодировщика [Media Encoder Standard](media-services-media-encoder-standard-formats.md).
+
+### <a name="azure-sdk-for-php"></a>Пакет SDK для Azure для PHP
 Команда SDK Azure опубликовала новый выпуск пакета [SDK Azure для PHP](http://github.com/Azure/azure-sdk-for-php) , содержащий обновления и новые функции для служб мультимедиа Microsoft Azure. В частности, пакет SDK служб мультимедиа Azure для PHP теперь поддерживает новые функции [защиты контента](media-services-content-protection-overview.md) : динамическое шифрование с использованием AES и управления цифровыми правами (PlayReady и Widevine) с ограничением по маркеру или без него. Кроме того, он поддерживает масштабирование [единиц кодирования](media-services-dotnet-encoding-units.md).
 
 Дополнительные сведения можно найти в разделе 
@@ -535,10 +542,5 @@ API REST служб мультимедиа обновлены до версии 
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Управление активами служб мультимедиа в нескольких учетных записях хранения]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 5b775b3cb53086daea6258cccc15cd77fd0e68d9
-ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: d81de30a46f7b849e70b99e7f7423cbc90f25326
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Конфигурация](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768996.png "Configuration")
+![Конфигурация](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768996.png "Конфигурация")
 
 ## <a name="enabling-the-application-integration-for-citrix-gotomeeting"></a>Включение интеграции приложений для Citrix GoToMeeting
 В этом разделе показано, как включить интеграцию приложений для Citrix GoToMeeting.
@@ -46,15 +47,15 @@ ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Add an application from gallery")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Citrix GoToMeeting**.
    
@@ -73,25 +74,25 @@ ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Citrix GoToMeeting** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Включить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Enable single sign-on")
+    ![Разрешить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Разрешить единый вход")
 
 2. На странице **Как пользователи должны входить в Citrix GoToMeeting?** выберите **Единый вход Microsoft Azure AD**.
    
-    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Настройка единого входа")
 
 3. На странице **Настроить параметры приложения** нажмите кнопку **Далее**. 
    
-    ![Включить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Enable single sign-on")
+    ![Разрешить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Разрешить единый вход")
 
 4. На странице **Настройка единого входа в Citrix GoToMeeting** щелкните **Скачать сертификат**, а затем сохраните файл сертификата на компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Настройка единого входа")
 
 5. В другом окне браузера войдите в [центр организации Citrix](https://account.citrixonline.com/organization/administration/).
 
 6. Щелкните вкладку **Конфигурация поставщика удостоверений** и выполните следующие действия.  
    
-    ![Настройка SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML setup")
+    ![Настройка SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "Настройка SAML")
    
     а. Выберите **Вручную**
 
@@ -106,13 +107,13 @@ ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
     Е. Щелкните **Сохранить**.
 
 
-1. На классическом портале Azure подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+1. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Настройка единого входа")
 
 2. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
    
-    ![Настройка SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML setup")
+    ![Настройка SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "Настройка SAML")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 В этом разделе показано, как включить подготовку учетных записей пользователей Active Directory для Citrix GoToMeeting.
@@ -120,11 +121,11 @@ ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 1. На странице интеграции приложения **Citrix GoToMeeting** классического портала Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Configure user provisioning** (Настройка подготовки учетных записей пользователей).
    
-    ![Настроить подготовку учетных записей пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configure user provisioning")
+    ![Настройка подготовки пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Настройка подготовки пользователей")
 
 2. На странице **Параметры и учетные данные администратора** выполните следующие действия.
    
-    ![Настройка подготовки учетных записей пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configure user provisioning")
+    ![Настройка подготовки пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Настройка подготовки пользователей")
    
     а. В текстовом поле **Имя пользователя администратора Citrix GoToMeeting** введите имя пользователя администратора.
 
@@ -142,29 +143,24 @@ ms.openlocfilehash: c4f33f3f856c5017c5b156e2b27b3b82a275afa6
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции приложения **Citrix GoToMeeting** щелкните **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "Да")
 
 Подождите 10 минут и убедитесь, что учетная запись синхронизирована с Dropbox for Business.
 
 В качестве первого шага проверки можно проверить состояние подготовки, щелкнув "Панель мониторинга" в разделе D на странице интеграции приложения **Citrix GoToMeeting** на классическом портале Azure.
 
-![Панель мониторинга](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Dashboard")
+![Панель мониторинга](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Панель мониторинга")
 
 Об успешном завершении цикла подготовки пользователя говорит соответствующий статус:
 
-![Состояние интеграции](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769005.png "Integration status")
+![Состояние интеграции](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769005.png "Состояние интеграции")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа.
 
 Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
