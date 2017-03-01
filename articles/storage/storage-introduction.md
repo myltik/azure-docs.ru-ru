@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ SAS учетной записи делегирует доступ к ресур�
 * [API-интерфейс REST служб хранилища](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Клиентская библиотека хранилища для .NET, Windows Phone и среды выполнения Windows](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Клиентская библиотека хранилища для C++](https://github.com/Azure/azure-storage-cpp)
-* [Клиентская библиотека хранилища для Java/Android](/develop/java/)
+* [Клиентская библиотека хранилища для Java/Android](https://azure.microsoft.com/develop/java/)
 * [Клиентская библиотека хранилища для Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Клиентская библиотека хранилища для PHP](/develop/php/)
-* [Клиентская библиотека хранилища для Ruby](/develop/ruby/)
-* [Клиентская библиотека хранилища для Python](/develop/python/)
+* [Клиентская библиотека хранилища для PHP](https://azure.microsoft.com/develop/php/)
+* [Клиентская библиотека хранилища для Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Клиентская библиотека хранилища для Python](https://azure.microsoft.com/develop/python/)
 * [Командлеты хранилища для PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Службы управления хранилищем Azure
-* [Справочник API REST поставщика ресурсов хранилища](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [Клиентская библиотека поставщика ресурсов хранилища для .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [Командлеты поставщика ресурсов хранилища для PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [Справочник API REST поставщика ресурсов хранилища](/rest/api/storagerp/)
+* [Клиентская библиотека поставщика ресурсов хранилища для .NET](/dotnet/api/microsoft.azure.management.storage)
+* [Командлеты поставщика ресурсов хранилища для PowerShell 1.0](/powershell/storage/)
 * [Интерфейс API REST управления службой хранилища (классический)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Службы перемещения данных хранилища Azure
-* [Интерфейсы API REST службы импорта и экспорта хранилища](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [Интерфейсы API REST службы импорта и экспорта хранилища](storage-import-export-service.md)
 * [Клиентская библиотека перемещения хранилища данных для .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Средства и служебные программы
@@ -248,9 +249,4 @@ SAS учетной записи делегирует доступ к ресур�
 * [Использование табличного хранилища из Python](storage-python-how-to-use-table-storage.md)
 * [Использование хранилища очередей из Python](storage-python-how-to-use-queue-storage.md)
 * [Использование хранилища файлов из Python](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

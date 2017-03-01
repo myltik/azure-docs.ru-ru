@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/20/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7c7995e7242b3e07692fa89d05c4ba1fa230bfd2
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 7c7995e7242b3e07692fa89d05c4ba1fa230bfd2
 Вы можете увеличить масштаб виртуальных машин, используемых приложением, а также развернуть дополнительные виртуальные машины в соответствии с требованиями.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>О чем следует подумать перед созданием виртуальной машины?
-При создании инфраструктуры приложения в Azure всегда нужно учитывать множество [рекомендаций по проектированию](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md). Перед началом работы следует подумать о следующих аспектах для виртуальной машины:
+При создании инфраструктуры приложения в Azure всегда нужно учитывать множество [рекомендаций по проектированию](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Перед началом работы следует подумать о следующих аспектах для виртуальной машины:
 
 * имена ресурсов приложения;
 * расположение, в котором хранятся ресурсы;
@@ -46,9 +47,9 @@ ms.openlocfilehash: 7c7995e7242b3e07692fa89d05c4ba1fa230bfd2
 * связанные ресурсы, необходимые для виртуальной машины.
 
 ### <a name="naming"></a>Именование
-Виртуальной машине назначается [имя](virtual-machines-windows-infrastructure-naming-guidelines.md). Кроме того, для нее настраивается имя компьютера как часть операционной системы. Имя виртуальной машины может содержать не более 15 символов.
+Виртуальной машине назначается [имя](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Кроме того, для нее настраивается имя компьютера как часть операционной системы. Имя виртуальной машины может содержать не более 15 символов.
 
-Если диск операционной системы создается с помощью Azure, имя компьютера и имя виртуальной машины совпадают. При [передаче и использовании собственного образа](virtual-machines-windows-upload-image.md), содержащего ранее настроенную операционную систему, а также создании виртуальной машины с его помощью имена могут различаться. При передаче файла собственного образа мы советуем указать одинаковые имя компьютера в операционной системе и имя виртуальной машины.
+Если диск операционной системы создается с помощью Azure, имя компьютера и имя виртуальной машины совпадают. При [передаче и использовании собственного образа](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), содержащего ранее настроенную операционную систему, а также создании виртуальной машины с его помощью имена могут различаться. При передаче файла собственного образа мы советуем указать одинаковые имя компьютера в операционной системе и имя виртуальной машины.
 
 ### <a name="locations"></a>Расположения
 Все ресурсы, созданные в Azure, распределяются по нескольким [географическим регионам](https://azure.microsoft.com/regions/) во всем мире. Как правило, при создании виртуальной машины регион называется **расположением**. Для виртуальной машины расположение указывает на место хранения виртуальных жестких дисков.
@@ -62,7 +63,7 @@ ms.openlocfilehash: 7c7995e7242b3e07692fa89d05c4ba1fa230bfd2
 | Интерфейс REST API |Используйте операцию [вывода списка расположений](https://msdn.microsoft.com/library/dn790540.aspx). |
 
 ### <a name="vm-size"></a>Размер виртуальной машины
-Используемый [размер](virtual-machines-windows-sizes.md) виртуальной машины зависит от рабочей нагрузки, которую требуется выполнить. Позже выбранный размер определяет разные факторы, например вычислительную мощность, объем памяти и хранилища. Azure предлагает широкий спектр размеров для поддержки разных вариантов использования.
+Используемый [размер](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) виртуальной машины зависит от рабочей нагрузки, которую требуется выполнить. Позже выбранный размер определяет разные факторы, например вычислительную мощность, объем памяти и хранилища. Azure предлагает широкий спектр размеров для поддержки разных вариантов использования.
 
 Azure взимает [почасовую оплату](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), исходя из размера и операционной системы виртуальной машины. При частичном использовании Azure взимает плату только за использованные минуты. Плата за использование хранилища взимается отдельно.
 
@@ -70,7 +71,7 @@ Azure взимает [почасовую оплату](https://azure.microsoft.c
 Для подписки Azure предусмотрена [квота](../azure-subscription-service-limits.md) по умолчанию, от которой зависит возможность развертывания большого количества виртуальных машин для проекта. Текущее ограничение для каждой подписки составляет 20 виртуальных машин на регион. Чтобы увеличить квоту, следует отправить соответствующий запрос в службу поддержки.
 
 ### <a name="operating-system-disks-and-images"></a>Диски и образы операционной системы
-Для хранения операционной системы и данных виртуальные машины используют [виртуальные жесткие диски](virtual-machines-windows-about-disks-vhds.md). Они также используются для образов, которые доступны для установки операционной системы. 
+Для хранения операционной системы и данных виртуальные машины используют [виртуальные жесткие диски](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Они также используются для образов, которые доступны для установки операционной системы. 
 
 Azure предоставляет множество [образов из Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) для различных версий и типов операционных систем Windows Server. Образы из Marketplace определяются по издателю, предложению, SKU и версии (обычно указывается последняя версия). 
 
@@ -82,15 +83,15 @@ Azure предоставляет множество [образов из Marketp
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx). Параметр -Location указывает расположение.<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx). Параметр -Location указывает расположение, -PublisherName — издателя.<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx). Параметр -Location указывает расположение, -PublisherName — издателя, а -Offer — предложение. |
 | Интерфейсы API REST |[Получение списка издателей образов](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Получение списка предложений для образа](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Получение списка SKU для образа](https://msdn.microsoft.com/library/mt743701.aspx) |
 
-Вы можете [передать и использовать собственный образ](virtual-machines-windows-upload-image.md). В этом случае имя издателя, предложение и SKU не используются.
+Вы можете [передать и использовать собственный образ](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В этом случае имя издателя, предложение и SKU не используются.
 
 ### <a name="extensions"></a>расширения.
-[Расширения](virtual-machines-windows-extensions-features.md) виртуальных машин предоставляют дополнительные возможности за счет настройки после развертывания и автоматизированных задач.
+[Расширения](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) виртуальных машин предоставляют дополнительные возможности за счет настройки после развертывания и автоматизированных задач.
 
 С помощью расширений можно выполнить такие стандартные задачи:
 
-* **Выполнение пользовательских скриптов.** [Расширение пользовательских скриптов](virtual-machines-windows-extensions-customscript.md) помогает настроить рабочие нагрузки на виртуальной машине, выполняя скрипт при подготовке виртуальной машины.
-* **Развертывание конфигураций и управление ими.** [Расширение настройки требуемого состояния (DSC) PowerShell](virtual-machines-windows-extensions-dsc-overview.md) позволяет настроить DSC на виртуальной машине для управления конфигурациями и средами.
+* **Выполнение пользовательских скриптов.** [Расширение пользовательских скриптов](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) помогает настроить рабочие нагрузки на виртуальной машине, выполняя скрипт при подготовке виртуальной машины.
+* **Развертывание конфигураций и управление ими.** [Расширение настройки требуемого состояния (DSC) PowerShell](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) позволяет настроить DSC на виртуальной машине для управления конфигурациями и средами.
 * **Сбор данных диагностики.** [Расширение системы диагностики Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) позволяет настроить виртуальную машину для сбора данных диагностики, которые можно использовать для мониторинга состояния работоспособности приложения.
 
 ### <a name="related-resources"></a>Связанные ресурсы
@@ -103,7 +104,7 @@ Azure предоставляет множество [образов из Marketp
 | [Виртуальная сеть](../virtual-network/virtual-networks-overview.md) |Да |Виртуальная машина должна быть подключена к виртуальной сети. |
 | [Общедоступный IP-адрес](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Нет |Для удаленного доступа к виртуальной машине ей можно назначить общедоступный IP-адрес. |
 | [Сетевой интерфейс](../virtual-network/virtual-network-network-interface-overview.md) |Да |Для обмена данными в сети виртуальной машине нужен сетевой интерфейс. |
-| [Диски данных](virtual-machines-windows-attach-disk-portal.md) |Нет |Виртуальная машина может содержать диски данных для расширения объема ресурсов хранения. |
+| [Диски данных](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Нет |Виртуальная машина может содержать диски данных для расширения объема ресурсов хранения. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Как создать первую виртуальную машину?
 Существует несколько способов создания виртуальной машины. Выбор зависит от используемой среды. 
@@ -112,13 +113,13 @@ Azure предоставляет множество [образов из Marketp
 
 | Метод | Статья |
 | --- | --- |
-| Портал Azure |[Создание виртуальной машины под управлением Windows на портале](virtual-machines-windows-hero-tutorial.md) |
-| Шаблоны |[Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов](virtual-machines-windows-ps-template.md) |
-| Azure PowerShell |[Создание виртуальной машины Windows с помощью PowerShell](virtual-machines-windows-ps-create.md) |
-| Клиентские пакеты SDK |[Развертывание ресурсов Azure с помощью языка C#](virtual-machines-windows-csharp.md) |
+| Портал Azure |[Создание виртуальной машины под управлением Windows на портале](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Шаблоны |[Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure PowerShell |[Создание виртуальной машины Windows с помощью PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Клиентские пакеты SDK |[Развертывание ресурсов Azure с помощью языка C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Интерфейсы API REST |[Создание или обновление виртуальной машины](https://msdn.microsoft.com/library/mt163591.aspx) |
 
-Так или иначе, иногда вы будете сталкиваться с проблемами. В этом случае см. сведения в статье [Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+Так или иначе, иногда вы будете сталкиваться с проблемами. В этом случае см. сведения в статье [Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Как управлять созданной виртуальной машиной?
 Управление виртуальными машинами осуществляется с помощью браузерного портала, программ командной строки с поддержкой создания скриптов или напрямую с помощью интерфейсов API. Некоторые стандартные задачи администрирования включают в себя получение сведений о виртуальной машине, вход в виртуальную машину, управление доступностью и архивацию.
@@ -129,29 +130,24 @@ Azure предоставляет множество [образов из Marketp
 | Метод | Описание |
 | --- | --- |
 | Портал Azure |В меню концентратора щелкните **Виртуальные машины** и выберите виртуальную машину из списка. В колонке виртуальной машины доступны общие сведения, значения параметров и метрики мониторинга. |
-| Azure PowerShell |Сведения об управлении виртуальными машинами с помощью PowerShell см. в статье [Управление виртуальными машинами Azure с помощью диспетчера ресурсов и PowerShell](virtual-machines-windows-ps-manage.md). |
+| Azure PowerShell |Сведения об управлении виртуальными машинами с помощью PowerShell см. в статье [Управление виртуальными машинами Azure с помощью диспетчера ресурсов и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | Интерфейс REST API |Используйте операцию [получения сведений о виртуальной машине](https://msdn.microsoft.com/library/mt163682.aspx) для выполнения соответствующего действия. |
-| Клиентские пакеты SDK |Сведения об управлении виртуальными машинами с помощью C# см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-csharp-manage.md). |
+| Клиентские пакеты SDK |Сведения об управлении виртуальными машинами с помощью C# см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Вход в виртуальную машину
-Чтобы [запустить сеанс удаленного рабочего стола](virtual-machines-windows-connect-logon.md), на портале Azure нажмите кнопку "Подключиться". Иногда при попытке использования удаленного подключения может произойти сбой. В этом случае см. справочные сведения в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Чтобы [запустить сеанс удаленного рабочего стола](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), на портале Azure нажмите кнопку "Подключиться". Иногда при попытке использования удаленного подключения может произойти сбой. В этом случае см. справочные сведения в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="manage-availability"></a>Управление доступностью
-Важно понимать, как [обеспечить высокий уровень доступности](virtual-machines-windows-manage-availability.md) для приложения. Эта конфигурация требует создания нескольких виртуальных машин, чтобы гарантировать работу хотя бы одной из них.
+Важно понимать, как [обеспечить высокий уровень доступности](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) для приложения. Эта конфигурация требует создания нескольких виртуальных машин, чтобы гарантировать работу хотя бы одной из них.
 
-Чтобы обеспечить соответствие соглашению об уровне обслуживания на 99,95 %, необходимо развернуть две или больше виртуальные машины для выполнения рабочих нагрузок в рамках [группы доступности](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). Такая конфигурация гарантирует, что виртуальные машины распределяются по нескольким доменам сбоя, а также развертываются на узлах с разными периодами обслуживания. В полном [соглашении об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) поясняется гарантированная доступность Azure в целом.
+Чтобы обеспечить соответствие соглашению об уровне обслуживания на 99,95 %, необходимо развернуть две или больше виртуальные машины для выполнения рабочих нагрузок в рамках [группы доступности](virtual-machines-windows-infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Такая конфигурация гарантирует, что виртуальные машины распределяются по нескольким доменам сбоя, а также развертываются на узлах с разными периодами обслуживания. В полном [соглашении об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) поясняется гарантированная доступность Azure в целом.
 
 ### <a name="back-up-the-vm"></a>Архивация виртуальной машины
 [Хранилище служб восстановления](../backup/backup-introduction-to-azure-backup.md) используется для защиты данных и ресурсов в службе архивации Azure и службах Azure Site Recovery. Хранилище служб восстановления позволяет [развертывать резервные копии виртуальных машин, развернутых с помощью Resource Manager, и управлять ими с использованием PowerShell](../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Если планируется работать с виртуальными машинами Linux, см. сведения в статье [Azure и Linux](virtual-machines-linux-azure-overview.md).
-* Дополнительные рекомендации по настройке инфраструктуры см. в статье [Пошаговое руководство по примеру инфраструктуры Azure](virtual-machines-windows-infrastructure-example.md).
-* Обязательно следуйте рекомендациям из статьи [Рекомендации по запуску виртуальных машин Windows в Azure](virtual-machines-windows-guidance-compute-single-vm.md).
-
-
-
-
-<!--HONumber=Nov16_HO2-->
+* Если планируется работать с виртуальными машинами Linux, см. сведения в статье [Azure и Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Дополнительные рекомендации по настройке инфраструктуры см. в статье [Пошаговое руководство по примеру инфраструктуры Azure](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Обязательно следуйте рекомендациям из статьи [Рекомендации по запуску виртуальных машин Windows в Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
