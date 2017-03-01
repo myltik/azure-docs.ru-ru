@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
 ms.openlocfilehash: 18d64f1ad4ef0dd41ae9302d08e02e94d1c608f5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -66,10 +67,5 @@ ms.openlocfilehash: 18d64f1ad4ef0dd41ae9302d08e02e94d1c608f5
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После развертывания табличной модели на сервере к нему можно подключиться. Чтобы управлять сервером, вы можете [подключиться к нему с помощью SSMS](analysis-services-manage.md). Также вы можете [подключиться к серверу с помощью клиентского средства](analysis-services-connect.md), например Power BI, Power BI Desktop или Excel, и начать создавать отчеты.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/07/2016
+ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: e731c2334ca2d63017b54f0362657aaace585ae0
+ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
+ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -100,7 +101,7 @@ ms.openlocfilehash: e731c2334ca2d63017b54f0362657aaace585ae0
 Пример использования двух типов кластера в виртуальной сети Azure см. в статье об [анализе данных с датчиков с использованием Storm и HBase](hdinsight-storm-sensor-data-analysis.md).
 
 ## <a name="cluster-tiers"></a>Уровни кластера
-Azure HDInsight предлагает облачные решения для работы с большими данными в двух категориях: "Стандартный" и [Премиум](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). HDInsight "Премиум" включает R и другие дополнительные компоненты. HDInsight "Премиум" поддерживается только для HDInsight версии 3.4.
+Azure HDInsight предлагает облачные решения для работы с большими данными в двух категориях: "Стандартный" и [Премиум](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). HDInsight "Премиум" включает R и другие дополнительные компоненты. HDInsight уровня "Премиум" поддерживается только для HDInsight версии 3.5.
 
 В следующей таблице перечислены типы кластеров HDInsight и приведена матрица поддержки "Премиум" HDInsight.
 
@@ -337,9 +338,4 @@ Azure HDInsight предлагает облачные решения для ра
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |✔ |✔ |
 | [Пакет SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |✔ |
 | [Шаблоны диспетчера ресурсов Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

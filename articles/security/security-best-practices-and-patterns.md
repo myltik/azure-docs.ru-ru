@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 02/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
-ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+ms.sourcegitcommit: e3d01fadc5597efa7beb5ee690470f428ee12b62
+ms.openlocfilehash: 216146ffaa0f2732b2f2369107e80de0bbc4e466
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,6 +32,7 @@ ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
 * [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Рекомендации для PaaS Azure] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure — это безопасная платформа для создания пользовательских решений. Кроме того, для защиты ваших решений в Azure мы дополнительно предоставляем разные службы и технологии. Так как доступно множество параметров, многие пользователи интересуются способами защиты, рекомендуемыми специалистами Майкрософт.
 
@@ -47,9 +49,4 @@ Azure — это безопасная платформа для создания
 * как научиться применять эту рекомендацию.
 
 Мы надеемся в скором времени добавить еще много статей со сведениями и рекомендациями об архитектуре безопасности Azure. Если вы хотите увидеть статьи на те или иные темы, сообщите нам об этом в дискуссионном разделе в нижней части этой страницы.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

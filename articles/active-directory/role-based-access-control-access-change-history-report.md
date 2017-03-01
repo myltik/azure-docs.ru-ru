@@ -1,5 +1,5 @@
 ---
-title: "Создание отчета по журналу изменений доступа | Документация Майкрософт"
+title: "Доступ к отчетам с помощью Azure RBAC | Документация Майкрософт"
 description: "Создайте отчет, в котором указаны все изменения доступа к подпискам Azure с управлением доступом на основе ролей за последние 90 дней."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44295ff647cbfd2d63ffe08d101da66b83a924f6
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -59,13 +60,8 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 
 ![Просмотр журнала изменений в виде электронной таблицы — снимок экрана](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>Дополнительные материалы
-* Начало работы с [управлением доступом на основе ролей в Azure](role-based-access-control-configure.md)
+## <a name="next-steps"></a>Дальнейшие действия
 * Работа с [пользовательскими ролями в Azure RBAC](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Узнайте, как управлять [Azure RBAC с помощью PowerShell](role-based-access-control-manage-access-powershell.md).
 
 

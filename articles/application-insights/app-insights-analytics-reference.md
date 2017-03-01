@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f336058fd743b4dfec17eb301a3b28d035ca8d0f
-ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
+ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
+ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 ## <a name="index"></a>Индекс
 **Let** [let](#let-clause)
 
-**Запросы и операторы** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Запросы и операторы** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Статистические функции** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -43,9 +44,9 @@ ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 
 **Дата и время** [Выражения даты и времени](#date-and-time-expressions) | [Литералы даты и времени](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**Строка** [GUID](#guids) | [Маскируемые строковые литералы](#obfuscated-string-literals) | [Строковые литералы](#string-literals) | [Сравнение строк](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**Строка** [GUID](#guids) | [Маскируемые строковые литералы](#obfuscated-string-literals) | [Строковые литералы](#string-literals) | [Сравнение строк](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**Массивы, объекты и динамические типы** [Литералы массива и объекта](#array-and-object-literals) | [Функции динамического объекта](#dynamic-object-functions) | [Динамические объекты в предложениях let](#dynamic-objects-in-let-clauses) | [Выражения пути JSON](#json-path-expressions) | [именах](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**Массивы, объекты и динамические типы** [Литералы массива и объекта](#array-and-object-literals) | [Функции динамического объекта](#dynamic-object-functions) | [Динамические объекты в предложениях let](#dynamic-objects-in-let-clauses) | [Выражения пути JSON](#json-path-expressions) | [Имена](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [in, !in](#in) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 ## <a name="let"></a>Let
 ### <a name="let-clause"></a>Предложение let
@@ -439,7 +440,10 @@ traces
 
 ### <a name="find-operator"></a>Оператор find
 
-    find in (Table1, Table2, Table3) where id=='42'
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
 
 Поиск строк, соответствующих предикату в наборе таблиц.
 
@@ -453,6 +457,7 @@ traces
 
 * *Table1*: имя таблицы или запроса. Это может быть таблица, определенная с помощью LET, но не функция. Оператор выполняется быстрее, если указано имя таблицы, а не запрос.
 * *Predicate*: логическое выражение, вычисляемое для каждой строки в указанных таблицах.
+ * В сравнении строк вместо имени столбца можно использовать "*".
 * *Column1*: параметр `project` позволяет указать, какие столбцы всегда должны отображаться в выходных данных. 
 
 **Результат**
@@ -1140,7 +1145,7 @@ Traces
 Рассмотрите [оператор join](#join-operator) в качестве альтернативы.
 
 ### <a name="where-operator"></a>Оператор where
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 Отфильтровывает таблицу для подмножества строк, которые удовлетворяют предикату.
 
@@ -1183,61 +1188,7 @@ traces
 
 Обратите внимание: сравнение двух столбцов вводится в последнюю очередь, так как эта операция не предполагает использование индекса и запуска проверки.
 
-### <a name="where-in-operator"></a>Оператор where-in
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**Синтаксис**
-
-    T | where col in (listExpression)
-    T | where col !in (listExpression)
-
-**Аргументы**
-
-* `col`: столбец в таблице.
-* `listExpression`...: список скалярных выражений или выражение, которое возвращает список. 
-
-Вложенный массив сведен в один список (например, `where x in (dynamic([1,[2,3]]))` становится `where x in (1,2,3)`).
-
-`in` используется для включения только строк, в которых `col` равно одному из выражений `expr1...`.
-
-`!in` используется для включения только строк, в которых `col` не равно ни одному из выражений `expr1...`.  
-
-**Примеры**
-
-```AIQL
-let cities = dynamic(['Dublin','Redmond','Amsterdam']);
-requests | where client_City in (cities) 
-|  summarize count() by client_City
-```
-
-Вычисленный список:
-
-```AIQL
-let topCities =  toscalar ( // convert single column to value
-   requests
-   | summarize count() by client_City 
-   | top 4 by count_ 
-   | summarize makeset(client_City)) ;
-requests
-| where client_City in (topCities) 
-| summarize count() by client_City;
-```
-
-Использование вызова функции как выражения списка:
-
-```AIQL
-let topCities =  (n:int) {toscalar (
-   requests
-   | summarize count() by client_City 
-   | top n by count_ 
-   | summarize makeset(client_City)) };
-requests
-| where client_City in (topCities(3)) 
-| summarize count() by client_City;
-```
- 
 
 ## <a name="aggregations"></a>Агрегаты
 Агрегаты — это функции, которые используются для объединения значений в группы, созданные в [операции суммирования](#summarize-operator). Например, в этом запросе dcount() является агрегатной функцией:
@@ -2239,8 +2190,8 @@ h"hello"
 | `endswith` |Правая часть является конечной подстрокой левой части. |Нет |`"Fabrikam" endswith "kam"` |
 | `!endswith` |Правая часть не является конечной подстрокой левой части. |Нет |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |Левая часть содержит соответствие для правой части |Да |`"Fabrikam" matches regex "b.*k"` |
-| `in` |Равно любому из элементов |Да |`"abc" in ("123", "345", "abc")` |
-| `!in` |Не равно ни одному из элементов |Да |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |Равно любому из элементов |Да |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |Не равно ни одному из элементов |Да |`"bc" !in ("123", "345", "abc")` |
 
 При проверке на наличие полной лексической единицы (т. е. знака или буквенно-цифрового слова, окруженного не буквенно-цифровыми знаками, в начале или в конце поля) используйте `has` или `in`. `has` выполняется быстрее, чем `contains`, `startswith` или `endswith`. Первый из этих запросов выполняется быстрее:
 
@@ -2323,6 +2274,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
     isempty("") == true
@@ -2611,8 +2564,8 @@ T
 ### <a name="dynamic-object-functions"></a>Функции динамического объекта
 |  |  |
 | --- | --- |
-| *value* `in` *array* |Возвращает значение true, если в массиве *array* есть элемент, который равен значению *value*.<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *value* `!in` *array* |Возвращает значение true, если в массиве *array* нет ни одного элемента, который равен значению *value*. |
+| [*значение* `in` *массив*](#in) |*Массив* содержит *значение*. |
+| [*значение* `!in` *массив*](#in) |*Массив* не содержит *значение*. |
 | [`arraylength(`array`)`](#arraylength) |Возвращает NULL, если это не массив |
 | [`extractjson(`путь,объект`)`](#extractjson) |Использует путь path для перехода к объекту object. |
 | [`parsejson(`source`)`](#parsejson) |Преобразует строку формата JSON в динамический объект. |
@@ -2631,7 +2584,57 @@ T
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### <a name="in"></a>больше
+    value in (listExpression)
+    value !in (listExpression)
 
+Определяет, имеется ли в списке элемент, равный значению. Регистр знаков учитывается, если это значение — строка.
+
+**Аргументы**
+
+* `value`: скалярное выражение.
+* `listExpression`...: список скалярных выражений или выражение, которое возвращает список. 
+
+Вложенный массив сведен в один список (например, `where x in (dynamic([1,[2,3]]))` становится `where x in (1,2,3)`).  
+
+**Примеры**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Вычисленный список:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Использование вызова функции как выражения списка:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### <a name="arraylength"></a>arraylength
 Количество элементов в динамическом массиве.
@@ -2833,10 +2836,5 @@ range(1, 8, 3)
 | [where] |Использование ключевого слова языка в качестве имени. |
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

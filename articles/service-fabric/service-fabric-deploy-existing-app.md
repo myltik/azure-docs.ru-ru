@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 02/17/2016
+ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,6 +34,10 @@ ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
 * Наблюдение за работоспособностью системы. Service Fabric наблюдает за работоспособностью приложений и в случае сбоя предоставляет диагностические данные.   
 * Управление жизненным циклом приложений. Service Fabric не только обновляет приложения без ущерба для работы пользователей, но и автоматически откатывает приложение к предыдущей версии, если во время обновления возникло событие ухудшения работоспособности.    
 * Плотность. В одном кластере могут работать несколько приложений, что позволяет отказаться от использования отдельного оборудования для каждого приложения.
+
+## <a name="samples"></a>Примеры
+* [Пример для упаковки и развертывания гостевого исполняемого файла](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Пример двух гостевых исполняемых файлов (C# и Node.js), которые взаимодействуют через службу именования с помощью REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Обзор файлов манифестов приложений и служб
 При развертывании гостевого исполняемого файла рекомендуем ознакомиться с моделью развертывания и упаковки Service Fabric, которая описана в [этой статье](service-fabric-application-model.md). Модель упаковки Service Fabric основана на двух XML-файлах — манифестах приложения и службы. Определение схемы для файла ApplicationManifest.xml и ServiceManifest.xml устанавливается с пакетом SDK в расположении *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -333,13 +338,9 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этой статьи вы узнали об основной процедуре упаковки гостевого исполняемого файла и его развертывания в Service Fabric. В приведенных ниже статьях описаны связанные сведения и задачи.
 
-* [Пример для упаковки и развертывания гостевого исполняемого файла на GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), включая ссылку на предварительную версию средства упаковки
+* [Пример для упаковки и развертывания гостевого исполняемого файла](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), включая ссылку на предварительную версию средства упаковки
+* [Пример двух гостевых исполняемых файлов (C# и Node.js), которые взаимодействуют через службу именования с помощью REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Развертывание нескольких пользовательских приложений](service-fabric-deploy-multiple-apps.md)
 * [Создание первого приложения Service Fabric в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

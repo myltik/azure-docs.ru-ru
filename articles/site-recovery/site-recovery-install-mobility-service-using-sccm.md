@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: da682645640d74485a1caaff82fd0483a0e3f149
-ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
+ms.sourcegitcommit: 93ac6629df82b1a5b8d14a1ad289e1e462b49b17
+ms.openlocfilehash: 8883b2d15592ea5e0c286bd6e6fc7c38134326a7
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>Автоматизация установки Mobility Service с использованием средств развертывания программного обеспечения
@@ -83,8 +84,10 @@ ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
 | Команда | install.bat |
 | Программа может запускаться | Независимо от входа пользователя в систему |
 9. На следующей странице выберите целевые операционные системы. Mobility Service можно устанавливать только на Windows Server 2012 R2, Windows Server 2012 и Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Дважды нажмите кнопку "Далее", чтобы завершить работу мастера.
+
 > [!NOTE]
 > Скрипт поддерживает как новые установки агентов Mobility Service, так и обновление уже установленных агентов.
 
@@ -199,9 +202,4 @@ Mobility Service устанавливается в коллекцию устро
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете [включить защиту](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) для виртуальных машин.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -1,22 +1,23 @@
 ---
 title: "Схема конфигурации системы диагностики Azure версии 1.2 | Документация Майкрософт"
 description: "Применимо ТОЛЬКО при использовании пакета Azure SDK 2.5 с виртуальными машинами Azure, масштабируемыми наборами виртуальных машин, Service Fabric или облачными службами."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 8cfb5116d06532b132d5ae9fe54dff1345d6948a
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: b76ef954d8a00e190817e3d7f8e2b064210d0357
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: 8cfb5116d06532b132d5ae9fe54dff1345d6948a
 > Система диагностики Azure — это компонент, который используется для сбора данных счетчиков производительности и других статистических данных из виртуальных машин Azure, масштабируемых наборов виртуальных машин, Service Fabric и облачных служб.  Данная страница применяется только в том случае, если вы используете одну из этих служб.
 >
 
-Система диагностики Azure используется в сочетании с другими продуктами диагностики корпорации Майкрософт, такими как Azure Monitor, Application Insights и Log Analytics.
+Система диагностики Azure используется с другими продуктами диагностики корпорации Майкрософт, такими как Azure Monitor, Application Insights и Log Analytics.
 
 Эта схема определяет возможные значения, которые можно использовать для инициализации параметров конфигурации диагностики при запуске монитора диагностики.  
 
 
  Скачайте общедоступное определение схемы файла конфигурации, выполнив следующую команду PowerShell:  
 
-```  
+```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
@@ -204,9 +205,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Имя элемента|Описание|  
 |------------------|-----------------|  
 |**DataSource**|Собираемые журналы событий Windows. Обязательный атрибут:<br /><br /> **name** — запрос XPath, описывающий собираемые события Windows. Например:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Для сбора всех событий укажите "*".|
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

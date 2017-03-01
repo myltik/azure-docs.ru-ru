@@ -1,8 +1,8 @@
 ---
-title: "Восстановление задания экспорта | Документация Майкрософт"
+title: "Восстановление задания экспорта Azure | Документация Майкрософт"
 description: "Узнайте, как восстановить задание экспорта, созданное и выполняемое с помощью службы импорта и экспорта Azure."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: 61bcbe23f9c747aeb486414fca6c1eb394098d11
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="repairing-an-export-job"></a>Восстановление задания экспорта
+# <a name="repairing-an-export-job"></a>Исправление задания экспорта
 После завершения задания экспорта вы можете локально выполнить следующие задачи с помощью средства импорта и экспорта Microsoft Azure:  
   
 1.  загрузить любые файлы, которые служба импорта и экспорта Azure не смогла экспортировать;  
@@ -82,7 +83,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Использование режима RepairExport для проверки содержимого диска  
 Также средство импорта и экспорта Azure в режиме **RepairExport** можно использовать для проверки правильности содержимого на диске. Файл манифеста на каждом экспортируемом диске содержит MD5-хэши всего содержимого диска.  
   
-Служба импорта и экспорта Azure может в процессе экспорта сохранять эти файлы манифеста в учетную запись хранения. Расположение файлов манифеста можно получить после завершения задания с помощью команды [получения задания](/rest/api/storageservices/importexport/Get-Job3). Дополнительные сведения о формате файла манифеста диска см. в статье [Формат файла манифеста службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md).  
+Служба импорта и экспорта Azure может в процессе экспорта сохранять эти файлы манифеста в учетную запись хранения. Расположение файлов манифеста можно получить после завершения задания с помощью команды [получения задания](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Дополнительные сведения о формате файла манифеста диска см. в статье [Формат файла манифеста службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md).  
   
 В следующем примере показано, как запустить средство импорта и экспорта Azure с параметрами **/ManifestFile** и **/CopyLogFile**:  
   
@@ -155,8 +156,4 @@ G:\pictures\wild\canyon.jpg.properties
 [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Просмотр состояния задания с помощью файлов журнала копирования)  
 [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Восстановление задания импорта)  
 [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md) (Устранение неполадок со средством импорта и экспорта Azure)
-
-
-<!--HONumber=Dec16_HO2-->
-
 

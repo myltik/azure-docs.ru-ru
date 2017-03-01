@@ -1,10 +1,10 @@
 ---
-title: "Архивация сервера или клиента Windows Server в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager | Документация Майкрософт"
+title: "Архивация Windows Server в Azure (Resource Manager) | Документация Майкрософт"
 description: "Архивация серверов или клиентов Windows в Azure путем создания хранилища архивации, скачивания учетных данных, установки агента архивации и выполнения начальной архивации файлов и папок."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "хранилище архивации; архивация сервера Windows; архивация Windows;"
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jimpark; trinadhk; markgal
+ms.date: 2/16/2017
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 738b8e29fbc139753ea59f1a20416386383f942d
-ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: 018a1bde8163eda660fd50a41839b6c1ec622d79
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -222,9 +223,4 @@ ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
 
 * Теперь, когда вы выполнили резервное копирование файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
 * Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

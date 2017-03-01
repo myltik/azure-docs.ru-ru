@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/21/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
-ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Масштабирование кластера службы контейнеров Azure
 После того как вы [развернете кластер службы контейнера Azure](container-service-deployment.md), может потребоваться изменить число узлов агента. Например, будут нужны дополнительные узлы агентов для запуска большего количества контейнеров или экземпляров приложения. 
 
-Количество узлов агентов в кластере можно изменить с помощью портала Azure или Azure CLI 2.0 (Предварительная версия). Azure CLI 2.0 (предварительная версия) — это [интерфейс командной строки нового поколения](/cli/azure/old-and-new-clis) для модели развертывания Resource Manager.
-
-> [!NOTE]
-> В настоящее время не поддерживается масштабирование узлов агентов в кластере службы контейнеров Kubernetes.
-
+Количество узлов агентов в кластере DC/OS, Docker Swarm или Kubernetes можно изменить с помощью портала Azure или Azure CLI 2.0. Azure CLI 2.0 — это [интерфейс командной строки нового поколения](/cli/azure/old-and-new-clis) для модели развертывания Resource Manager.
 
 ## <a name="scale-with-the-azure-portal"></a>Масштабирование с помощью портала Azure
 
@@ -43,9 +40,9 @@ ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
 
 
 
-## <a name="scale-with-the-azure-cli-20-preview"></a>Масштабирование с помощью Azure CLI 2.0 (предварительная версия)
+## <a name="scale-with-the-azure-cli-20"></a>Масштабирование с помощью Azure CLI 2.0
 
-Убедитесь, что у вас [установлена](/cli/azure/install-az-cli2) последняя версия Azure CLI 2.0 (предварительная версия) и войдите в учетную запись Azure с помощью команды `az login`.
+Убедитесь, что у вас [установлена](/cli/azure/install-az-cli2) последняя версия Azure CLI 2.0, и войдите в учетную запись Azure с помощью команды `az login`.
 
 
 ### <a name="see-the-current-agent-count"></a>Просмотр текущего числа агентов
@@ -67,7 +64,7 @@ az acs show -g myResourceGroup -n containerservice-myACSName
 azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-Интерфейс командной строки Azure 2.0 (предварительная версия) возвращает строку JSON, представляющую новую конфигурацию службы контейнеров, включая измененное количество агентов.
+Azure CLI 2.0 возвращает строку JSON, представляющую новую конфигурацию службы контейнеров, включая измененное количество агентов.
 
 Чтобы увидеть дополнительные параметры команды, запустите `az acs scale --help`.
 
@@ -90,12 +87,7 @@ azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-cou
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Изучите [дополнительные примеры](container-service-create-acs-cluster-cli.md) использования команд Azure CLI 2.0 (предварительная версия) для работы со службой контейнеров Azure.
+* Изучите [дополнительные примеры](container-service-create-acs-cluster-cli.md) использования команд Azure CLI 2.0 для работы со службой контейнеров Azure.
 * См. дополнительные сведения о [пулах агентов DC/OS](container-service-dcos-agents.md) в службе контейнеров Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

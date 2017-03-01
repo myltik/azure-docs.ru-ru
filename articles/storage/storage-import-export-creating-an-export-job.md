@@ -1,5 +1,5 @@
 ---
-title: "Создание задания экспорта для службы импорта и экспорта Azure | Документация Майкрософт"
+title: "Создание задания экспорта для импорта и экспорта Azure | Документация Майкрософт"
 description: "Сведения о создании задания экспорта для службы импорта и экспорта Microsoft Azure"
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 24b9d103ef1e53bddbf72f9867f134ed522aa497
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="creating-an-export-job"></a>Создание задания экспорта
+# <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Создание задания экспорта для службы импорта и экспорта Azure
 Создание задания экспорта для службы импорта и экспорта Microsoft Azure с помощью интерфейса REST API включает следующие шаги:
 
 -   выбор больших двоичных объектов для экспорта;
@@ -94,10 +95,5 @@ ms.openlocfilehash: 24b9d103ef1e53bddbf72f9867f134ed522aa497
  После обработки задания экспорта вы получите диски с зашифрованными данными. Чтобы получить ключ BitLocker для каждого диска выполните операцию [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Затем разблокируйте диск с помощью ключа. Файл манифеста диска на каждом диске содержит список файлов на диске, а также исходный адрес большого двоичного объекта для каждого файла.
 
 ## <a name="see-also"></a>См. также
- [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md) (Использование REST API службы импорта и экспорта)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+ [Использование REST API службы импорта и экспорта Azure](storage-import-export-using-the-rest-api.md)
 

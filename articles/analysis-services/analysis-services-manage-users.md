@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/18/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 8725687a5700df72026f9154659758b9280872f4
-ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
+ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
+ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,14 +80,17 @@ ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
 }
 ```
 
+## <a name="role-based-access-control-rbac"></a>Управление доступа на основе ролей
+
+Администраторы подписок могут использовать **управление доступом** в колонке управления для настройки ролей. Это отличается от настройки администраторов сервера или пользователей базы данных, которые, как описано выше, настраиваются на уровне сервера или базы данных. 
+
+![Управление доступом на портале Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+Роли применяются к пользователям или учетным записям, которым необходимо выполнить задачи на портале или с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье об [управлении доступом на основе ролей](../active-directory/role-based-access-control-what-is.md).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы еще не развернули табличную модель на сервере, сейчас самое время это сделать. Дополнительные сведения см. в статье [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Развертывание в службы Azure Analysis Services).
 
 Если модель для сервера развернута, к ней можно подключиться с помощью клиента или браузера. Дополнительные сведения см. в статье [Получение данных из служб Azure Analysis Services](analysis-services-connect.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

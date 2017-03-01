@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
 ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -76,10 +77,5 @@ ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При наличии локальных источников данных не забудьте установить [локальный шлюз](analysis-services-gateway.md). Дополнительные сведения об управлении сервером в SSDT или SSMS см. в разделе об [управлении сервером](analysis-services-manage.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

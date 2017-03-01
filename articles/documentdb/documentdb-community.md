@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2017
+ms.date: 02/16/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
+ms.sourcegitcommit: cf163b2809f50daf0273398d6fec50dfc6fd69a2
+ms.openlocfilehash: 96dbc1f5a84f52ab39a3515511c7851bba5fa9a9
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -96,15 +97,20 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ### <a name="recent-and-upcoming-events"></a>Недавно прошедшие и предстоящие мероприятия
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | --- | --- | --- | --- | --- |
-| [Вебинар Wintellect: введение в Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|В сети|12 января 2017 г., 13:00 (восточное поясное время)|Недоступно|
+|[South Florida Codecamp: как освоить NoSQL для разработчиков .NET с помощью Azure DocumentDB менее, чем 10 минут](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari)|Дэйви, штат Флорида|11 марта 2017 г.|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
+|[Orlando Codecamp: как освоить NoSQL для разработчиков .NET с помощью Azure DocumentDB менее, чем 10 минут](http://orlandocodecamp.com/Sessions/Details/20)| [Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari)|Сэнфорд, штат Флорида|8 апреля 2017 г.|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
+|[Глобальный учебный курс по Azure: независимые от сервера вычисления в Azure с помощью Функций Azure и DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|Атланта, штат Джорджия, США|22 апреля 2017 г.|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
 
 *Вы являетесь докладчиком или организуете мероприятие? [Сообщите нам,](mailto:askdocdb@microsoft.com) чем мы можем помочь.*
 
 ### <a name="previous-events-and-recordings"></a>Более ранние мероприятия и записи
 | Название мероприятия | Докладчик | Расположение | Дата | Записи |
 | --- | --- | --- | --- | --- |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) |Кирилл Гаврилюк |Нью-Йорк, Нью-Йорк |Ноябрь 16–18, 2016 г. |[Видео Channel 9 Connect();](https://channel9.msdn.com/Events/Connect) |
-| [Capital City .NET Users Group (Группа пользователей Capital City .NET)](http://www.meetup.com/tally-dot-net/events/233768568/) |Сантош Хари (Santosh Hari) |Таллахасси, шт. Флорида |3 ноября 2016 г. |Недоступно |
+|[Ignite Australia. Hello DocumentDB: быстродействующая и глобально масштабируемая база данных NoSQL](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Эндрю Лю (Andrew Liu)](https://twitter.com/aliuy8)|Квинсленд, Австралия|Среда, 15 февраля 2017 г.|Будет добавлена позже|
+|[Ignite Australia. Углубленный курс по Azure DocumentDB: секционирование, моделирование данных и георепликация](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Эндрю Лю (Andrew Liu)](https://twitter.com/aliuy8)|Квинсленд, Австралия|16 февраля 2017 г.|Будет добавлена позже|
+| Вебинар Wintellect: введение в Azure DocumentDB| [Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|В сети|12 января 2017 г., 13:00 (восточное поясное время)|[Azure DocumentDB: ваше облачное, географически масштабируемое сверхоружие на базе NoSQL. Что скрывается у всех на виду.](https://www.youtube.com/watch?v=uVcWgIYtBoc)|
+| [Connect(); // 2016](https://connectevent.microsoft.com/) |[Кирилл Гаврилюк](https://twitter.com/kirillg_msft) |Нью-Йорк, Нью-Йорк |Ноябрь 16–18, 2016 г. |[Видео Channel 9 Connect();](https://channel9.msdn.com/Events/Connect) |
+| [Capital City .NET Users Group (Группа пользователей Capital City .NET)](http://www.meetup.com/tally-dot-net/events/233768568/) |[Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari)|Таллахасси, шт. Флорида |3 ноября 2016 г. |Недоступно |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |Команда DocumentDB |Атланта, штат Джорджия, США |26–30 сентября 2016 г. |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Кен Ченерелли (Ken Cenerelli) |Монреаль, Канада |4–8 июля 2016 г. |[NoSQL, No Problem, Using Azure DocumentDB (NoSQL без проблем: использование Azure DocumentDB)](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT (Интеграция и IoT) ](http://www.btug.be/events) |Элдерт Грутенбур (Eldert Grootenboer) |Контих, Бельгия |30 июня 2016 г. |Недоступно |
@@ -234,10 +240,5 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [Matías Quaranta](https://twitter.com/ealsur) (Матиас Куаранта) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) (Матиас Куаранта) |
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 603505ed07f7ab38470b669295acf08a35d9f38e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,25 +36,26 @@ ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
 Чтобы настроить интеграцию Azure AD с Pacific Timesheet, вам потребуется:
 
 * подписка Azure AD;
-* подписка **Pacific Timesheet** с поддержкой единого входа.
+* подписка Pacific Timesheet с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+>  
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. 
 
-1. Добавление Pacific Timesheet из коллекции.
-2. Настройка и проверка единого входа в Azure AD.
+Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
-## <a name="adding-pacific-timesheet-from-the-gallery"></a>Добавление Pacific Timesheet из коллекции
+* Добавление Pacific Timesheet из коллекции.
+* Настройка и проверка единого входа в Azure AD
+
+## <a name="add-pacific-timesheet-from-the-gallery"></a>Добавление Pacific Timesheet из коллекции
 Чтобы настроить интеграцию Pacific Timesheet с Azure AD, необходимо добавить это приложение из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Pacific Timesheet из коллекции, сделайте следующее:**
@@ -78,20 +80,21 @@ ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Pacific Timesheet с использованием тестового пользователя Britta Simon.
 
-Чтобы настроить единый вход в Azure AD, необходимо знать, какой пользователь в Pacific Timesheet соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Pacific Timesheet.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в Pacific Timesheet соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Pacific Timesheet.
+
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Pacific Timesheet. Чтобы настроить и проверить единый вход Azure AD в Pacific Timesheet, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Pacific Timesheet](#creating-a-pacific-timesheet-test-user)** требуется для создания пользователя Britta Simon в Pacific Timesheet, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложении Pacific Timesheet.
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении Pacific Timesheet.
 
 **Чтобы настроить единый вход Azure AD в Pacific Timesheet, сделайте следующее:**
 
@@ -107,25 +110,23 @@ ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
 4. На диалоговой странице **Настроить параметры приложения** настройте приложение в **режиме, инициированном поставщиком удостоверений**, сделав следующее:
    
     ![Настройка единого входа](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_07.png)
+  1. В текстовом поле "Идентификатор" введите URL-адрес в следующем формате: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+  2. В текстовом поле "URL-адрес ответа" введите URL-адрес в следующем формате: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
+  3. Нажмите кнопку **Далее**.
 
-    а. В текстовом поле "Идентификатор" введите URL-адрес в следующем формате: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
-
-    b. В текстовом поле "URL-адрес ответа" введите URL-адрес в следующем формате: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
-
-    b. Нажмите кнопку **Далее**.
-
-1. На странице **Настройка единого входа в Pacific Timesheet**. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+5. На странице **Настройка единого входа в Pacific Timesheet**. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
    
     ![Настройка единого входа](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_09.png)
-2. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Pacific Timesheet. Обратите внимание, что сообщения электронной почты необходимо отправлять со значениями URL-адреса издателя и URL-адреса единого входа SAML со страницы **Настройка единого входа в Pacific Timesheet**, прикрепив скачанный сертификат.
-3. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+6. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Pacific Timesheet. Обратите внимание, что сообщения электронной почты необходимо отправлять со значениями URL-адреса издателя и URL-адреса единого входа SAML со страницы **Настройка единого входа в Pacific Timesheet**, прикрепив скачанный сертификат.
+
+7. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
     ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -145,40 +146,30 @@ ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+  1. В текстовом поле **Имя** введите **Britta**.   
+  2. В текстовом поле **Фамилия** введите **Simon**.
+  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+  4. В списке **Роль** выберите **Пользователь**.
+  5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+  1. Запишите значение поля **Новый пароль**.
+  2. Нажмите **Завершено**.   
 
-### <a name="creating-a-pacific-timesheet-test-user"></a>Создание тестового пользователя Pacific Timesheet
+### <a name="create-a-pacific-timesheet-test-user"></a>Создание тестового пользователя Pacific Timesheet
 В этом разделе описано, как создать пользователя Britta Simon в приложении Pacific Timesheet. Чтобы создать пользователя в приложении, обратитесь в службу поддержки Pacific Timesheet.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Pacific Timesheet.
 
 ![Назначение пользователя][200] 
@@ -199,7 +190,7 @@ ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув плитку Pacific Timesheet на панели доступа, вы автоматически войдете в приложение Pacific Timesheet.
@@ -228,9 +219,4 @@ ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
 [203]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

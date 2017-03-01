@@ -14,8 +14,9 @@ ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 032747ffb7a603c54e8913c0d82edbc8e11b73c3
-ms.openlocfilehash: 0b808dd6bcf0a0d1f8e459927a4010dc1887ca60
+ms.sourcegitcommit: 146fe63ba2c9efd8b734eb8cc8cb5dee82a94f2a
+ms.openlocfilehash: 97757f2cc78dc02f4efdcb3c09cee7741504448b
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -44,7 +45,7 @@ ms.openlocfilehash: 0b808dd6bcf0a0d1f8e459927a4010dc1887ca60
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Компилирование конфигурации DSC с помощью портала Azure
 
-1. В учетной записи автоматизации щелкните **Конфигурации**.
+1. В учетной записи службы автоматизации щелкните **DSC Configurations** (Конфигурации DSC).
 2. Щелкните конфигурацию, чтобы открыть ее колонку.
 3. Нажмите кнопку **Компилировать**.
 4. Если конфигурация не имеет параметров, нужно будет подтвердить ее компилирование. Если конфигурация имеет параметры, то отобразится колонка **Compile Configuration** (Компилирование конфигурации), в которой можно указать значения параметров. Дополнительные сведения о параметрах см. в разделе [**Базовые параметры**](#basic-parameters) ниже.
@@ -240,8 +241,39 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
 
+## <a name="importing-node-configurations"></a>Импорт конфигураций узлов
+
+Вы также можете импортировать конфигурации узла (MOF-файлы), скомпилированные за пределами Azure. Одним из преимуществ является то, что конфигурации узла могут быть заверены.
+Заверенная конфигурация узла проверяется локально на управляемом узле агентом DSC. Тем самым гарантируется, что конфигурация, применяемая к узлу, передана из авторизованного источника.
+
+> [!NOTE]
+> Заверенные конфигурации можно импортировать в учетную запись службы автоматизации Azure, но служба автоматизации Azure в настоящее время не поддерживает компиляцию заверенных конфигураций.
+
+> [!NOTE]
+> Размер файла конфигурации узла не должен превышать 1 МБ, чтобы его можно было импортировать в службу автоматизации Azure.
+
+Сведения о том, как заверить конфигурацию узла, см. по следующей ссылке: https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+
+### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Импорт конфигурации узла на портале Azure
+
+1. В учетной записи службы автоматизации щелкните **DSC node configurations** (Конфигурации узла DSC).
+
+    ![Конфигурации узла DSC](./media/automation-dsc-compile/node-config.png)
+2. В колонке **DSC node configurations** (Конфигурации узла DSC) щелкните **Add a NodeConfiguration** (Добавить конфигурацию узла).
+3. В колонке **Import** (Импорт) щелкните значок папки рядом с текстовым полем **Node Configuration File** (Файл конфигурации узла), чтобы найти файл конфигурации узла (MOF) на локальном компьютере.
+
+    ![Поиск локального файла](./media/automation-dsc-compile/import-browse.png)
+4. В текстовом поле **Configuration Name** (Имя конфигурации) введите имя. Это имя должно совпадать с именем конфигурации, из которой была скомпилирована данная конфигурация узла.
+5. Нажмите кнопку **ОК**.
+
+### <a name="importing-a-node-configuration-with-powershell"></a>Импорт конфигурации узла с помощью PowerShell
+
+Для импорта конфигурации узла в учетную запись службы автоматизации можно использовать командлет [Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.automation/v1.0.12/import-azurermautomationdscnodeconfiguration).
+
+```powershell
+Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```
 
 
-<!--HONumber=Feb17_HO2-->
 
 
