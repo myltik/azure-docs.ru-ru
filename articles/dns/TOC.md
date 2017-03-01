@@ -6,11 +6,11 @@
 
 ## [Создание зоны DNS](dns-getstarted-create-dnszone-portal.md)
 ### [PowerShell](dns-getstarted-create-dnszone.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-getstarted-create-dnszone-cli.md)
+### [Интерфейс командной строки Azure](dns-getstarted-create-dnszone-cli.md)
 
 ## [Создание записей DNS](dns-getstarted-create-recordset-portal.md)
 ### [PowerShell](dns-getstarted-create-recordset.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-getstarted-create-recordset-cli.md)
+### [Интерфейс командной строки Azure](dns-getstarted-create-recordset-cli.md)
 
 ## [Делегирование своего домена в Azure DNS](dns-domain-delegation.md)
 ## [Создание пользовательских записей DNS для веб-приложения](dns-web-sites-custom-domain.md)
@@ -19,14 +19,15 @@
 
 ## Управление зонами DNS
 ### [PowerShell](dns-operations-dnszones.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-operations-dnszones-cli.md)
+### [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
+
 
 ## [Управление зонами DNS](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-operations-recordsets-cli.md)
+### [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 
 ## [Управление записями обратного преобразования DNS](dns-reverse-dns-record-operations-ps.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-reverse-dns-record-operations-cli.md)
+### [Интерфейс командной строки Azure](dns-reverse-dns-record-operations-cli.md)
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Импорт и экспорт файла зоны DNS](dns-import-export.md)
@@ -39,7 +40,7 @@
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Azure CLI 2.0 (предварительная версия)](/cli/azure/network/dns)
+## [Интерфейс командной строки Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
@@ -60,8 +61,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/dns/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -83,7 +83,6 @@
 ### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP из SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [Фабрика данных](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Руководство по PolyBase](sql-data-warehouse-load-polybase-guide.md)
@@ -146,8 +145,3 @@
 ### [Бизнес-аналитика](sql-data-warehouse-partner-business-intelligence.md)
 ### [Интеграция данных](sql-data-warehouse-partner-data-integration.md)
 ### [Управление данными](sql-data-warehouse-partner-data-management.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
