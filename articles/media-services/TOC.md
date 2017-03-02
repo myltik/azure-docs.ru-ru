@@ -45,9 +45,17 @@
 
 ## [Кодирование содержимого](media-services-encode-asset.md)
 ### [Сравнение кодировщиков](media-services-compare-encoders.md)
-### [Коды ошибок](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### [Автоматическое создание схемы скоростей с помощью MES](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Кодирование с помощью Media Encoder Standard
+##### [Портал](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
+##### [Настройка предустановок Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+##### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
 #### Схемы MES
 ##### [Схема Media Encoder Standard](media-services-mes-schema.md)
 ##### [Входные метаданные](media-services-input-metadata-schema.md)
@@ -78,23 +86,18 @@
 ##### [H264 Single Bitrate 720p для Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Кодирование с помощью Media Encoder Standard
-##### [Портал](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
-##### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
-### Рабочий процесс Media Encoder Premium
+### Расширенный рабочий процесс кодировщика мультимедиа
 #### [Форматы и кодеки рабочего процесса Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 #### Кодирование с помощью рабочего процесса Media Encoder Premium
 ##### [Рабочий процесс Media Encoder Premium](media-services-encode-with-premium-workflow.md)
 ##### [Руководства по рабочему процессу Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Создание рабочих процессов кодирования Advanced с помощью конструктора рабочих процессов](media-services-workflow-designer.md)
 ##### [Рабочий процесс Premium с несколькими элементами входных данных](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Создание задачи, формирующей блоки fMP4](media-services-generate-fmp4-chunks.md)
 ### Обработчики мультимедиа
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Коды ошибок](media-services-encoding-error-codes.md)
 ### Не рекомендуется
 #### [Статическая упаковка и шифрование](media-services-static-packaging.md)
 
@@ -215,8 +218,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

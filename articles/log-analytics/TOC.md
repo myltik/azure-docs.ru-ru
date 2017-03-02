@@ -16,7 +16,7 @@
 #### [Агенты Windows](log-analytics-windows-agents.md)
 #### [Агенты Linux](log-analytics-linux-agents.md)
 #### [Виртуальные машины Azure](log-analytics-azure-vm-extension.md)
-#### [Ресурсы Azure](log-analytics-azure-storage.md)
+#### [Хранилище Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [Шлюз OMS](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## Запрос данных
 ### [Обзор поиска по журналу](log-analytics-log-searches.md)
 ### [Справочник по поиску](log-analytics-search-reference.md)
+#### [Регулярные выражения](log-analytics-log-searches-regex.md)
 ### [Группы компьютеров](log-analytics-computer-groups.md)
-### [Оповещения](log-analytics-alerts.md)
 ## Анализ данных
 ### [Панели мониторинга](log-analytics-dashboards.md)
 ### [Конструктор представлений](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [Оценка AD](log-analytics-ad-assessment.md)
 #### [Состояние репликации AD](log-analytics-ad-replication-status.md)
 #### [Управление оповещениями](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analytics](log-analytics-azure-sql.md)
 #### [Управление емкостью](log-analytics-capacity.md)
 #### [Отслеживание изменений](log-analytics-change-tracking.md)
 #### [Контейнеры](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Данные передачи](log-analytics-wire-data.md)
 #### [Оценка SCOM](log-analytics-scom-assessment.md)
+## Создание оповещений
+### [Основные сведения об оповещениях](log-analytics-alerts.md)
+### [Действия оповещений](log-analytics-alerts-actions.md)
+### Создание правил генерации оповещений
+#### [Портал OMS](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Шаблон Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Пример действия webhook](log-analytics-alerts-webhooks.md)
+### [Решение по управлению оповещениями](log-analytics-solution-alert-management.md)
 ## Разработка
 ### [API сборщика данных](log-analytics-data-collector-api.md)
 ### [Командлеты PowerShell](log-analytics-powershell-workspace-configuration.md)
@@ -75,8 +85,3 @@
 ## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Цены](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

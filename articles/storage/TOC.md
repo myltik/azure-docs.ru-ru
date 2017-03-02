@@ -45,7 +45,7 @@
 
 ## Хранилище дисков 
 ### [Создание виртуальной машины с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Подключение управляемого диска к виртуальной машине Windows с помощью PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [Задание и получение свойств и метаданных](storage-properties-metadata.md)
 ## Управление
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0 (предварительная версия)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Служба автоматизации Azure](automation-manage-storage.md)
 ## Безопасность
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

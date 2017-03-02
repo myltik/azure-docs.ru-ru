@@ -15,6 +15,7 @@
 ### [Защита серверной части веб-API с помощью AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Подключение к виртуальной сети](api-management-using-with-vnet.md)
 ### [Подключение к внутренней виртуальной сети](api-management-using-with-internal-vnet.md)
+### [Интеграция шлюза приложений с внутренней виртуальной сетью](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Взаимная аутентификация на основе сертификатов](api-management-howto-mutual-certificates.md)
 ## Настройка политик
 ### [Настраиваемое кэширование](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Индекс справочника по политикам](api-management-policy-reference.md)
 ### [Обзор политик](api-management-howto-policies.md)
 ### [Управление секретами с помощью свойств](api-management-howto-properties.md)
+### [Защита API-интерфейсов с помощью проверки подлинности на основе сертификата клиента](api-management-howto-mutual-certificates-for-clients.md)
 ## Настройка процесса разработки
-### [Настройка портала разработчика](api-management-customize-portal.md)
+### [Изменение содержимого и макета страницы](api-management-modify-content-layout.md)
+### [Настройка стиля элементов страницы](api-management-customize-styles.md)
+### [Настройка системных страниц с помощью шаблонов](api-management-developer-portal-templates.md)
 ### [Аутентификация с помощью AAD](api-management-howto-aad.md)
+### [Проверка подлинности с помощью AAD B2C](api-management-howto-aad-b2c.md)
 ### [Делегированная аутентификация](api-management-howto-setup-delegation.md)
 ### [Уведомления по электронной почте и шаблоны](api-management-howto-configure-notifications.md)
 ### [Обеспечение поддержки консольного приложения OAuth](api-management-howto-oauth2.md)
-### [Настройка с помощью шаблонов](api-management-developer-portal-templates.md)
 ## Управление в производственной среде
 ### [Управление группами](api-management-howto-create-groups.md)
 ### [Развертывание в несколько регионов Azure](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Предоставление доступа по модели RBAC с помощью REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Настройка PostMan для вызова интерфейсов API службы управления API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Подключаемый модуль службы управления API для SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

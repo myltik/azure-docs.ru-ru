@@ -20,19 +20,22 @@
 ### [Рекомендации по сетевой инфраструктуре](site-recovery-network-design.md)
 ### [Использование планировщика ресурсов Site Recovery](site-recovery-capacity-planner.md)
 ### [Планирование ресурсов и масштабирование репликации VMware в Azure](site-recovery-plan-capacity-vmware.md)
+### [Запуск планировщика развертывания для репликации VMware в Azure](site-recovery-deployment-planner.md)
 ## Настройка
-### [Настройка среды исходной репликации](site-recovery-set-up-vmware-to-azure.md)
+### [Настройка исходной среды](site-recovery-set-up-vmware-to-azure.md)
+### [Настройка целевой среды](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Настройка параметров репликации](site-recovery-setup-replication-settings-vmware.md)
 ### [Развертывание службы Mobility Service для репликации VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Развертывание службы Mobility Service с помощью System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-#### [Развертывание службы Mobility Service с использованием Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+#### [Развертывание службы Mobility Service с помощью Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ## Отработка отказа и восстановление размещения
 ### [Отработка отказа в Site Recovery](site-recovery-failover.md)
 ### [Настройка планов восстановления](site-recovery-create-recovery-plans.md)
 #### [Добавление модуля Runbook Azure в планы восстановления](site-recovery-runbook-automation.md)
 ### [Запуск тестовой отработки отказа в Azure](site-recovery-test-failover-to-azure.md)
 ### [Запуск тестовой отработки отказа между двумя сайтами VMM](site-recovery-test-failover-vmm-to-vmm.md)
-### [Восстановление размещения виртуальных машин VMware и физических серверов](site-recovery-failback-azure-to-vmware.md)
+### [Восстановление размещения виртуальных машин VMware и физических серверов из Azure](site-recovery-how-to-failback-azure-to-vmware.md)
+### [Восстановление размещения виртуальных машин Hyper-V из Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 ## Миграция
 ### [Миграция в облако Azure](site-recovery-migrate-to-azure.md)
@@ -53,8 +56,8 @@
 ### [Автоматизация репликации Hyper-V на дополнительный сайт (с VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Управление
 ### [Удаление серверов и отключение защиты](site-recovery-manage-registration-and-protection.md)
-### [Изменение параметров репликации](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
-## [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
+### [Масштабирование серверов обработки](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
@@ -70,8 +73,3 @@
 ## [Блог](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Цены](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=site-recovery)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

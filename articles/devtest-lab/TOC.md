@@ -5,7 +5,7 @@
 
 # Начало работы
 ## [Создание лаборатории](devtest-lab-create-lab.md)
-## [Создание артефактов виртуальной машины](devtest-lab-add-vm-with-artifacts.md)
+## [Создание виртуальной машины](devtest-lab-add-vm.md)
 ## [Создание учебной лаборатории](devtest-lab-training-lab.md)
 ## [Часто задаваемые вопросы](devtest-lab-faq.md)
 
@@ -20,6 +20,7 @@
 ## Управление артефактами
 ### [Добавление репозитория артефактов](devtest-lab-add-artifact-repo.md)
 ### [Создание настраиваемых артефактов](devtest-lab-artifact-author.md)
+### [Управление артефактами](devtest-lab-add-vm-with-artifacts.md)
 
 ## Управление базами и шаблонами виртуальных машин
 ### [Создание сред со множеством виртуальных машин с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

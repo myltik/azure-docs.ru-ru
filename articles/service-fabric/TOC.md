@@ -105,6 +105,7 @@
 #### Создание кластера в Azure
 ##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio и Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Виды узлов и масштабируемые наборы ВМ](service-fabric-cluster-nodetypes.md)
 #### [Масштабирование кластера](service-fabric-cluster-scale-up-down.md)
 #### [Обновление кластера](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Пробное бесплатное использование кластера Party Cluster](http://aka.ms/tryservicefabric)
 
 ### Изолированные кластеры
+#### [Планирование и подготовка развертывания](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Содержимое изолированного пакета Service Fabric](service-fabric-cluster-standalone-package-contents.md)
 #### [Создание изолированного кластера](service-fabric-cluster-creation-for-windows-server.md)
 #### [Создание автономного кластера на виртуальной машине Azure](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Масштабирование кластера](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
