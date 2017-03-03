@@ -44,8 +44,3 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

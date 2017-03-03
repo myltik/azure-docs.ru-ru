@@ -17,6 +17,7 @@ ms.author: narayan
 translationtype: Human Translation
 ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
 ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -90,9 +91,4 @@ ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
 * [Портал Azure](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Настройка пиринга виртуальных сетей с использованием шаблонов Resource Manager](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -63,8 +63,3 @@
 ###[Проверка входных данных](azure-security-threat-modeling-tool-input-validation.md)
 ###[Конфиденциальные данные](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[Управление сеансом](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -58,8 +58,3 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

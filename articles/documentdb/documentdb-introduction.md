@@ -18,6 +18,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
 ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -107,10 +108,5 @@ DocumentDB позволяет вам реализовать логику при�
 Затем, когда вы будете готовы получить дополнительные сведения, воспользуйтесь нашей [схемой обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) для работы со всеми доступными учебными материалами. 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

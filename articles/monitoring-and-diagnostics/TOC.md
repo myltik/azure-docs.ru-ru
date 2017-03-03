@@ -52,8 +52,3 @@
 ## [Примеры для PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Примеры Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Список поддерживаемых метрик](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

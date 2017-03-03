@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
 ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -412,9 +413,4 @@ ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья содержит сведения о конвейерах и действиях в фабрике данных Azure. |
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
 | [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

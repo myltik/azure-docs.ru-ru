@@ -81,8 +81,3 @@
 ## [Обучение работе со службой автоматизации Azure](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Вводный видеоролик о службе автоматизации](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
