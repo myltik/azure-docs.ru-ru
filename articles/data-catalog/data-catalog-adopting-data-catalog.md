@@ -18,6 +18,7 @@ ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
 ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -166,9 +167,4 @@ ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 * [Поиск источников данных](data-catalog-get-started.md)
 * [Комментарии к источникам данных](data-catalog-get-started.md)
 * [Краудсорсинг метаданных](data-catalog-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
