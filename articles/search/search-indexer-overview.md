@@ -18,6 +18,7 @@ ms.author: heidist
 translationtype: Human Translation
 ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
 ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.lasthandoff: 01/19/2017
 
 ---
 
@@ -74,9 +75,4 @@ ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 * [Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-csv-blobs.md)
 * [Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

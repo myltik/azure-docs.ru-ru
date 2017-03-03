@@ -18,6 +18,7 @@ ms.author: ashmaka
 translationtype: Human Translation
 ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
 ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Создание индекса службы поиска Azure с помощью REST API
@@ -107,9 +108,4 @@ ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
