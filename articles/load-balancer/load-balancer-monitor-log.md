@@ -15,12 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
+ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
+ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
+ms.lasthandoff: 01/31/2017
 
 ---
 
-# <a name="log-analytics-for-azure-load-balancer-preview"></a>Служба анализа журналов для балансировщика нагрузки Azure (предварительная версия)
+# <a name="log-analytics-for-azure-load-balancer"></a>Служба анализа журналов для балансировщика нагрузки Azure
 
 В Azure можно использовать различные виды журналов для управления балансировщиками нагрузки и устранения возникающих в них неполадок. Доступ к некоторым из этих журналов можно получить через портал. Также можно извлечь все журналы из хранилища BLOB-объектов Azure и просматривать их с помощью различных средств, таких как Excel и Power BI. В списке ниже приведены дополнительные сведения о различных типах журналов.
 
@@ -145,9 +146,4 @@ ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Проверки балансировщика нагрузки](load-balancer-custom-probe-overview.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 
