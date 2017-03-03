@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
 ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
 * Ответы на некоторые общие вопросы о ценах на служебную шину и выставлении счетов за ее использование приведены в разделе [Сведения о ценах на служебную шину](service-bus-faq.md#pricing).
 
 [Azure classic portal]: http://manage.windowsazure.com
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

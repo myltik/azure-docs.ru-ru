@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
 ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -233,10 +234,5 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

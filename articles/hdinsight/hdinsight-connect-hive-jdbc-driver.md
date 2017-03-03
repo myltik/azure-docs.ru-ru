@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
 ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -195,10 +196,5 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

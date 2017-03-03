@@ -18,6 +18,7 @@ ms.author: anandy
 translationtype: Human Translation
 ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
 ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -45,10 +46,5 @@ ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
 
 ## <a name="also-read"></a>Также ознакомьтесь
 * [Управление службами федерации Active Directory и их настройка с помощью Azure AD Connect](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

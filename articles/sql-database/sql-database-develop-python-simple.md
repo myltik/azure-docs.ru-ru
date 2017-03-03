@@ -18,6 +18,7 @@ ms.author: meetb
 translationtype: Human Translation
 ms.sourcegitcommit: 2793ddb1c903f6732a193276a2d804192b7ab53b
 ms.openlocfilehash: 86524dd1a73df3b60245cb664c0e17a63df00763
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -160,9 +161,4 @@ cnxn.rollback()
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

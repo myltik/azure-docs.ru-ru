@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
 ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -122,10 +123,5 @@ ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

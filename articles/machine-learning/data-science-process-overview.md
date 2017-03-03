@@ -17,6 +17,7 @@ ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -196,10 +197,5 @@ ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Также предоставляются полные пошаговые руководства, которые демонстрируют все этапы процесса для **конкретных сценариев** . Они перечислены с описаниями эскизов в статье [Пошаговые руководства по процессу обработки и анализа данных](data-science-process-walkthroughs.md) .
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
 ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -97,9 +98,4 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Выполните первый эксперимент по обработке и анализу данных с использованием Студии машинного обучения Microsoft Azure.](machine-learning-create-experiment.md)
 * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
