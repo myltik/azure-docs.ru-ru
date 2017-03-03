@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
 ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -533,8 +534,3 @@ SSE управляется службой хранилища Azure. Шифров
 * [Влияние параметров безопасности "Системная криптография: использовать FIPS-совместимые алгоритмы для шифрования, хэширования и подписывания" в Windows XP и более поздних версиях Windows](https://support.microsoft.com/kb/811833)
   
   В этой статье рассказывается об использовании режима FIPS на более старых компьютерах с ОС Windows.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

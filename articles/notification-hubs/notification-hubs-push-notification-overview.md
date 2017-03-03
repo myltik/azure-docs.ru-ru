@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 58458cdc99cc8f78e63c9640a7c71a8ce5dc70f1
 ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -154,9 +155,4 @@ Push-уведомления доставляются через инфрастр
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [портале Azure]: https://portal.azure.com
 [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

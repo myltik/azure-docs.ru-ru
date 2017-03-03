@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
 ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -321,9 +322,4 @@ HBase на HDInsight поставляется с веб-интерфейсом �
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

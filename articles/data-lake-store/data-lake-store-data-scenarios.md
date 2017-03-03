@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
 ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -132,9 +133,4 @@ ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 * Сначала с помощью [фабрики данных Azure переместите данные из Data Lake Store в хранилище данных SQL Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 * После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
