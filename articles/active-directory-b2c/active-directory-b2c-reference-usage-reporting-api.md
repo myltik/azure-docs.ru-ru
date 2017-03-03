@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 4b2cbf5f62ee63bada42b2a06506b793d4349fdb
-ms.openlocfilehash: 7db9a45a4c80ea8d01937837dfa7a15c171fb66b
+ms.sourcegitcommit: 274ed196cc7159e77f6de4d84328c3607b155ee9
+ms.openlocfilehash: 9bb528aa0172fb7179b5498be89aee9a92b788f8
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -102,8 +103,7 @@ if ($oauth.access_token -ne $null) {
  * TotalUserCount — число всех объектов-пользователей;
  * OtherUserCount — число пользователей каталога AAD (не являющихся пользователями B2C);
  * LocalUserCount — число учетных записей пользователей B2C с локальными учетными данными в клиенте B2C;
-
-**AlternateIdUserCount** — число пользователей B2C, зарегистрированных с помощью внешних поставщиков удостоверений (например, Facebook, учетная запись Майкрософт или другие клиенты AAD, в т. ч. OrgId).
+ * AlternateIdUserCount** — число пользователей B2C, зарегистрированных с помощью внешних поставщиков удостоверений (например, Facebook, учетная запись Майкрософт или другие клиенты AAD, в т. ч. OrgId).
 
 **b2cAuthenticationCountSummary** — сводка по количеству платных ежедневных операций аутентификации за последние 30 дней по дням и типу последовательности аутентификации.
 
@@ -140,9 +140,4 @@ $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

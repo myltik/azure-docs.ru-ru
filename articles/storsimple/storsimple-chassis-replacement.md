@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -59,10 +60,5 @@ ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -18,6 +18,7 @@ ms.author: rclaus
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
 ms.openlocfilehash: 1cc7ccfe191e41913c1fbf04b92e809ce4fb5f6a
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -25,10 +26,5 @@ ms.openlocfilehash: 1cc7ccfe191e41913c1fbf04b92e809ce4fb5f6a
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [!INCLUDE [virtual-machines-common-classic-oracle-images](../../includes/virtual-machines-common-classic-oracle-images.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

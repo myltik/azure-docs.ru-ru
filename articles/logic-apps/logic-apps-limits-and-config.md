@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
-ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
+ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
+ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -81,7 +82,8 @@ ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
 
 |Name (Имя)|Ограничение|Примечания|
 |----|----|----|
-|Выполняемых действий в секунду|100|При необходимости можно распределить рабочие процессы между несколькими приложениями|
+|Выполняемых действий в секунду (пиковая нагрузка)|1000|При необходимости можно распределить рабочую нагрузку между несколькими приложениями|
+|Выполняемых действий в час (непрерывная нагрузка)|1&000;&000;|При необходимости можно распределить рабочую нагрузку между несколькими приложениями|
 
 ### <a name="definition-limits"></a>Ограничение определений
 
@@ -180,9 +182,4 @@ ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
 - [Примеры приложений логики и распространенные сценарии](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Вы можете автоматизировать бизнес-процессы с помощью приложений логики](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Узнайте, как интегрировать системы с приложениями логики](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

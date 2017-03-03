@@ -18,6 +18,7 @@ ms.author: annahar
 translationtype: Human Translation
 ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
 ms.openlocfilehash: f52a86b01e45a32315b017c2605f7caebb68b006
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -151,9 +152,4 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
     ```
 
 13. Наконец, необходимо настроить записи ресурсов DNS, чтобы они указывали на соответствующие интерфейсные IP-адреса подсистемы балансировки нагрузки. Домены можно разместить в Azure DNS. Дополнительные сведения об использовании Azure DNS с подсистемой балансировки нагрузки см. в разделе [Использование Azure DNS с другими службами Azure](../dns/dns-for-azure-services.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

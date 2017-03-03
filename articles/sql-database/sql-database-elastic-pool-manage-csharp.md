@@ -16,14 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e80f41533d82fbb2086d4d766c3ba4a4e34a5032
-ms.openlocfilehash: be569200e4c4a125a275687d82c3204dcfb5b39a
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Создание и администрирование эластичного пула с помощью C#
 
-В этой статье показано, как с помощью [C#](sql-database-elastic-pool-manage-csharp.md) создавать и администрировать масштабируемые [эластичные пулы](sql-database-elastic-pool.md). Эластичные пулы Azure можно также создавать и администрировать с помощью [портала Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) и REST API. Вы также можете использовать [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), чтобы создавать новые базы данных в эластичных пулах и перемещать базы данных в пулы и обратно.
+В этой статье показано, как с помощью C# создавать и администрировать масштабируемые [эластичные пулы](sql-database-elastic-pool.md). Эластичные пулы Azure можно также создавать и администрировать с помощью [портала Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) и REST API. Вы также можете использовать [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), чтобы создавать новые базы данных в эластичных пулах и перемещать базы данных в пулы и обратно.
 
 > [!NOTE]
 > Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
@@ -303,7 +304,7 @@ namespace SqlElasticPoolConsoleApp
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Пул эластичных баз данных. См. дополнительные сведения о [создании эластичного пула с помощью C#](sql-database-elastic-pool-create-csharp.md).
+* Пул эластичных баз данных. См. дополнительные сведения о [создании эластичного пула с помощью C#](sql-database-elastic-pool-manage-csharp.md).
 * приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Перемещение базы данных в пул эластичных БД
@@ -370,10 +371,5 @@ namespace SqlElasticPoolConsoleApp
 *  См. дополнительные сведения о [кодах ошибок](sql-database-develop-error-messages.md) SQL для клиентских приложений базы данных SQL, ошибках подключения к базе данных и других проблемах.
 * [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 * См. дополнительные сведения в руководстве по [использованию эластичного пула](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

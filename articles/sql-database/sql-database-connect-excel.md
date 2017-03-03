@@ -19,6 +19,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,10 +80,5 @@ ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
 * Узнайте, как [подключаться к базе данных SQL с помощью SQL Server Management Studio](sql-database-connect-query-ssms.md) для выполнения сложных запросов и анализа.
 * Узнайте о преимуществах использования [пулов эластичных БД](sql-database-elastic-pool.md).
 * Узнайте, как [создавать веб-приложения, которые подключаются к базе данных SQL в серверной части](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

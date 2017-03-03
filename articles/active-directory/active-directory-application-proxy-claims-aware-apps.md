@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -48,10 +49,5 @@ ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 * [Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

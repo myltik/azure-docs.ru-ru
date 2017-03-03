@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
 ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -275,9 +276,4 @@ ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md). Задания обработки для эластичных баз данных упрощают выполнение сценариев T-SQL для любого количества баз данных в пуле.
 * См. статью [Развертывание с помощью базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В ней описывается использование инструментов эластичной базы данных для развертывания, перемещения данных, выполнения запросов и создания транзакций.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

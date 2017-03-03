@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -256,9 +257,4 @@ ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

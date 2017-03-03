@@ -19,6 +19,7 @@ ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 4f8d038a606ce518d2c9ba232049ce5bea02dd4c
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -229,9 +230,4 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 [Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [Azure portal]: https://portal.azure.com
 [Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

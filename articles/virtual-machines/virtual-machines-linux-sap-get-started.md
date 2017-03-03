@@ -19,6 +19,7 @@ ms.author: rclaus
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -355,10 +356,5 @@ ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
 Обновление: март 2016 г.
 
 [Это руководство можно найти здесь.] [dbms-guide]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

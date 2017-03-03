@@ -1,5 +1,5 @@
 ---
-title: "Подключение физических и виртуальных машин для управления с помощью Azure Automation DSC | Документация Майкрософт"
+title: "Подключение компьютеров для управления с помощью Azure Automation DSC | Документация Майкрософт"
 description: "Настройка машин для управления с помощью Azure Automation DSC"
 services: automation
 documentationcenter: dev-center-name
@@ -14,8 +14,9 @@ ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 0832b5866b49800cc0aecda8f4e473f89b12139b
+ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
+ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -196,7 +197,7 @@ $VM | Update-AzureVM
 
 ## <a name="generating-dsc-metaconfigurations"></a>Создание метаконфигураций DSC
 
-Для универсального внедрения любого компьютера в службу автоматизации Azure DSC можно создать метаконфигурацию DSC, при использовании которой агент DSC на соответствующем компьютере будет настроен на извлечение данных из службы автоматизации Azure и (или) перечу в эту службу отчетов. Метаконфигурации DSC для службы автоматизации Azure DSC можно создавать, используя либо конфигурацию PowerShell DSC, либо командлеты PowerShell в службе автоматизации Azure.
+Для универсального внедрения любого компьютера в службу автоматизации Azure DSC можно создать [метаконфигурацию DSC](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig), при использовании которой агент DSC на соответствующем компьютере будет настроен на извлечение данных из службы автоматизации Azure и (или) передачу в эту службу отчетов. Метаконфигурации DSC для службы автоматизации Azure DSC можно создавать, используя либо конфигурацию PowerShell DSC, либо командлеты PowerShell в службе автоматизации Azure.
 
 > [!NOTE]
 > Метаконфигурации DSC содержат секретные данные, необходимые при подключении компьютера к учетной записи службы автоматизации для управления. Обеспечьте должную защиту создаваемых метаконфигураций или удаляйте их сразу после использования.
@@ -319,7 +320,11 @@ $VM | Update-AzureVM
 
 3. Введите регистрационный ключ и URL-адрес для учетной записи автоматизации, а также имена виртуальных машин, которые необходимо внедрить. Все остальные параметры являются необязательными. Расположение ключа и URL-адреса регистрации для учетной записи службы автоматизации см. ниже в разделе [**Безопасная регистрация**](#secure-registration).
 4. Если вы хотите, чтобы компьютеры передавали сведения о состоянии DSC в службу Azure Automation DSC, не извлекая конфигурацию или модули PowerShell, установите для параметра **ReportOnly** значение Тrue.
-5. Выполните скрипт. В рабочем каталоге появится папка **DscMetaConfigs** , содержащая метаконфигурации PowerShell DSC для подключаемых компьютеров.
+5. Выполните скрипт. В рабочем каталоге появится папка **DscMetaConfigs**, содержащая метаконфигурации PowerShell DSC для подключаемых компьютеров (в качестве администратора):
+
+    ```powershell
+    Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```
 
 ### <a name="using-the-azure-automation-cmdlets"></a>Использование командлетов службы автоматизации Azure
 
@@ -338,13 +343,16 @@ $VM | Update-AzureVM
         ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
         OutputFolder = "$env:UserProfile\Desktop\";
     }
-
     # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
     # For more info about splatting, run: Get-Help -Name about_Splatting
     Get-AzureRmAutomationDscOnboardingMetaconfig @Params
-     ```
-
-    В рабочем каталоге появится папка ***DscMetaConfigs***, содержащая метаконфигурации PowerShell DSC для подключаемых компьютеров.
+    ```
+    
+4. В рабочем каталоге появится папка ***DscMetaConfigs***, содержащая метаконфигурации PowerShell DSC для подключаемых компьютеров (в качестве администратора):
+    
+    ```powershell
+    Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```
 
 ## <a name="secure-registration"></a>Безопасная регистрация
 
@@ -384,9 +392,4 @@ $VM | Update-AzureVM
 * [Обзор Azure Automation DSC](automation-dsc-overview.md)
 * [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Цены на Automation DSC Azure](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

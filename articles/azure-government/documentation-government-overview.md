@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 8e5dd57f4ff55e350aebce339f9f723cc6ca917b
 ms.openlocfilehash: 2a1e9c6e001280451ae01330ee659d1e27c2d89a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -94,10 +95,5 @@ Azure для государственных организаций — это ф
 Дополнительные сведения об изоляции в Microsoft Azure см. в [разделе об изоляции руководства по безопасности Azure](/azure-security-getting-started/#isolation).
 
 Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

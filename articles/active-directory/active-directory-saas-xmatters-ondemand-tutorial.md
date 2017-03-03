@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
 ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -160,10 +161,5 @@ ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
     ![Да](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

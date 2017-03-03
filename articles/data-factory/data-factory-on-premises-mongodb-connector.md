@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
 ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -355,9 +356,4 @@ ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь со статьей [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md), в которой представлены пошаговые инструкции по созданию конвейера данных, который перемещает данные из локального хранилища в хранилище данных Azure.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

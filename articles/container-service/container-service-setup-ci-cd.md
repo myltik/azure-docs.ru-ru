@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
 ## <a name="get-started"></a>Приступая к работе
 Инструкции из приведенного ниже пошагового руководства можно выполнить в операционной системе OS X, Windows или Linux.
 - Вам понадобится подписка Azure. Если у вас ее нет, [зарегистрируйте учетную запись](https://azure.microsoft.com/).
-- Установите [программы командной строки Azure](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Установите [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 ## <a name="what-well-create"></a>Что мы будем создавать
 Рассмотрим некоторые ключевые аспекты приложения и последовательности его развертывания, которую мы собираемся настроить.
@@ -319,7 +320,7 @@ az container release list \
 ## <a name="clean-up"></a>Очистка
 Чтобы ограничить расходы на вычислительные операции, связанные с выполнением примеров этого руководства, выполните следующую команду и запишите ресурсы конвейера развертывания, связанные с кластером ACS.
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +346,4 @@ az container release list --resource-name myacs --resource-group myacs-rg
 2. В списке определений выпуска в на панели слева щелкните раскрывающийся список рядом с определением выпуска, которое требуется удалить, и выберите **Удалить**.
 
 `![Удаление определения выпуска VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

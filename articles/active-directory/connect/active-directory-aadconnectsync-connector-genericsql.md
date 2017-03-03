@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
 ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -284,9 +285,4 @@ ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 * Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731) (Включение трассировки событий Windows для соединителей).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

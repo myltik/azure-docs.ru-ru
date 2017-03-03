@@ -17,6 +17,7 @@ ms.author: nisoneji
 translationtype: Human Translation
 ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
 ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -133,9 +134,4 @@ ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 * [Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure](site-recovery-vmm-to-azure.md)
 * [Репликация виртуальных машин Hyper-V (без VMM) в Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Репликация виртуальных машин Hyper-V между сайтами VMM](site-recovery-vmm-to-vmm.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

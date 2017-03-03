@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: a715413312c7d8bd3dcfb9b252f3dae8d95fafd7
 ms.openlocfilehash: 7c4a0c1167837a876164d93d93e6dd6cd8f62ee6
+ms.lasthandoff: 02/21/2017
 
 ---
 #<a name="azure-government-documentation"></a>Документация по Azure для государственных организаций
@@ -99,10 +100,5 @@ Microsoft Azure для государственных организаций п�
 </ul>
     
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
 ms.openlocfilehash: 091ab246826c96b9d816c87b27014c1e54039429
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -147,10 +148,5 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 ## <a name="see-also"></a>Дополнительные материалы
 * [Пакет Microsoft Azure SDK для Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Пакет Microsoft Azure SDK для Node.js — управление аналитикой озера данных](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

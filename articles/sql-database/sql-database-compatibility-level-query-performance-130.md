@@ -18,6 +18,7 @@ ms.author: alainl
 translationtype: Human Translation
 ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
 ms.openlocfilehash: 3ad25fe844c75941303034ca1037fdb99a5c679b
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -458,9 +459,4 @@ sql-database-compatibility-level-query-performance-130.md
 
 genemi = MightyPen , 2016-05-20  Friday  17:00pm
 -->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

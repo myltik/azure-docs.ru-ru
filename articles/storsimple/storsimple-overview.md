@@ -17,6 +17,7 @@ ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 3575e4f22e17608de7f3b66e9dd577a1d4a4c148
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -306,10 +307,5 @@ Microsoft Azure StorSimple использует дедупликацию и сж
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Подробнее об [обеспечении безопасности StorSimple](storsimple-security.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

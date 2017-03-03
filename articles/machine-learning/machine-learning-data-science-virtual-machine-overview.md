@@ -18,6 +18,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
 ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -87,10 +88,5 @@ ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
 ### <a name="for-the-linux-data-science-vm"></a>Для виртуальной машины Linux для обработки и анализа данных
 * Дополнительные сведения о том, как запустить конкретные средства, доступные в версии Linux, см. в разделе [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md).
 * Пошаговое руководство по некоторым общим задачам обработки и анализа данных на виртуальных машинах Linux см. в статье [Обработка и анализ данных с использованием специально подготовленной виртуальной машины Linux](machine-learning-data-science-linux-dsvm-walkthrough.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

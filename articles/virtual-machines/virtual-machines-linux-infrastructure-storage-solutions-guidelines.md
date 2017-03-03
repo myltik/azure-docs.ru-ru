@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 61bd36ff8b3bff0acb262f6d181ffe69e6b92d27
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -84,10 +85,5 @@ Azure накладывает ограничения на количество д
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

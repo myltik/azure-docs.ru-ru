@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной сети с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Как создать виртуальную сеть с помощью интерфейса командной строки Azure | Resource Manager"
+title: "Создание виртуальной сети с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную сеть с помощью Azure CLI 2.0 в модели Resource Manager."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
+ms.sourcegitcommit: 617ac4672b24d339c5d4c0b671de7fb19cd9af91
+ms.openlocfilehash: 3cbb679048a0cc1121b221bda8fc1e3df0e307c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,8 +27,14 @@ ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure предоставляет две модели развертывания: с помощью Azure Resource Manager и классическую. Для создания ресурсов корпорация Майкрософт рекомендует использовать модель развертывания с помощью Resource Manager. Дополнительные сведения о различиях между двумя моделями см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
+
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- [Azure CLI 2.0 (предварительная версия)](#create-a-virtual-network) — интерфейс командной строки нового поколения для модели развертывания с помощью Resource Manager (описывается в этой статье).
  
-В этой статье описывается создание виртуальной сети с помощью модели развертывания Resource Manager с использованием интерфейса командной строки Azure. Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
+    Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
 
 > [!div class="op_single_selector"]
 - [Портал](virtual-networks-create-vnet-arm-pportal.md)
@@ -40,81 +47,149 @@ Azure предоставляет две модели развертывания:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
+
 ## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 
-Чтобы создать виртуальную сеть с помощью интерфейса командной строки Azure, сделайте следующее:
+Чтобы создать виртуальную сеть с помощью Azure CLI 2.0, сделайте следующее.
 
-1. Установите и настройте интерфейс командной строки Azure, следуя инструкциям в [этой статье](../xplat-cli-install.md).
+1. Установите и настройте последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2), затем войдите в систему с учетной записью Azure, выполнив команду [az login](/cli/azure/#login).
 
-2. Чтобы создать виртуальную сеть и подсеть, выполните следующую команду:
+2. Создайте группу ресурсов для виртуальной сети, выполнив команду [az group create](/cli/azure/group#create) с аргументами `--name` и `--location`.
 
     ```azurecli
-    azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
+    az group create --name myVNet --location centralus
+    ```
+
+3. Создайте виртуальную сеть и подсеть.
+
+    ```azurecli
+    az network vnet create \
+        --name TestVNet \
+        --resource-group myVNet \
+        --location centralus \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name FrontEnd \
+        --subnet-prefix 192.168.1.0/24
     ```
 
     Ожидаемые выходные данные:
    
-            info:    Executing command network vnet create
-            + Looking up network configuration
-            + Looking up locations
-            + Setting network configuration
-            info:    network vnet create command OK
+    ```json
+    {
+        "newVNet": {
+            "addressSpace": {
+            "addressPrefixes": [
+                "192.168.0.0/16"
+            ]
+            },
+            "dhcpOptions": {
+            "dnsServers": []
+            },
+            "provisioningState": "Succeeded",
+            "resourceGuid": "<guid>",
+            "subnets": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                "name": "FrontEnd",
+                "properties": {
+                "addressPrefix": "192.168.1.0/24",
+                "provisioningState": "Succeeded"
+                },
+                "resourceGroup": "myVNet"
+            }
+            ]
+        }
+    }
+    ```
 
     Используемые параметры:
 
-   * **--vnet**. Имя виртуальной сети, которую нужно будет создать. В данном сценарии это *TestVNet*
-   * **-e (или --address-space)**. Адресное пространство виртуальной сети. В данном сценарии это *192.168.0.0*
-   * **-i (или -cidr)**. Маска подсети в формате CIDR. В данном сценарии это *16*.
-   * **-n (или --subnet-name**). Имя первой подсети. В данном сценарии это *FrontEnd*.
-   * **-p (или --subnet-start-ip)**. Начальный IP-адрес для подсети или адресное пространство подсети. В нашем сценарии это *192.168.1.0*.
-   * **-r (или --subnet-cidr)**. Маска подсети в формате CIDR для подсети. В данном сценарии это *24*.
-   * **-l (или --location)**. Регион Azure, в котором будет создана виртуальная сеть. В данном сценарии это *Central US*.
-3. Чтобы создать подсеть, выполните следующую команду:
+    - `--name TestVNet`: имя виртуальной сети, которую нужно будет создать.
+    - `--resource-group myVNet`: имя группы ресурсов, которая управляет ресурсом. 
+    - `--location centralus`: расположение для развертывания.
+    - `--address-prefix 192.168.0.0/16`: префикс и блок адреса.  
+    - `--subnet-name FrontEnd`: имя подсети.
+    - `--subnet-prefix 192.168.1.0/24`: префикс и блок адреса.
+
+    Чтобы вывести на экран основные данные, которые используются в следующей команде, можно отправить запрос к виртуальной сети с помощью [фильтра запроса](/cli/azure/query-az-cli2).
 
     ```azurecli
-    azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
+    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
+    ```
+
+    В результате будут возвращены следующие выходные данные:
+
+        Where      Name      Group
+        ---------  --------  -------
+        centralus  TestVNet  myVNet
+
+4. Создайте подсеть.
+
+    ```azurecli
+    az network vnet subnet create \
+        --address-prefix 192.168.2.0/24 \
+        --name BackEnd \
+        --resource-group myVNet \
+        --vnet-name TestVNet
     ```
    
     Ожидаемые выходные данные:
 
-            info:    Executing command network vnet subnet create
-            + Looking up network configuration
-            + Creating subnet "BackEnd"
-            + Setting network configuration
-            + Looking up the subnet "BackEnd"
-            + Looking up network configuration
-            data:    Name                            : BackEnd
-            data:    Address prefix                  : 192.168.2.0/24
-            info:    network vnet subnet create command OK
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid> \"",
+    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "ipConfigurations": null,
+    "name": "BackEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myVNet",
+    "resourceNavigationLinks": null,
+    "routeTable": null
+    }
+    ```
 
     Используемые параметры:
 
-   * **-t (или --vnet-name**. Имя виртуальной сети, в которой будет создана подсеть. В данном сценарии это *TestVNet*.
-   * **-n (или --name)**. Имя новой подсети. В нашем сценарии это *BackEnd*.
-   * **-a (или --address-prefix)**. Блок подсети CIDR. В данном сценарии это *192.168.2.0/24*.
-4. Чтобы просмотреть свойства новой виртуальной сети, выполните следующую команду:
+    - `--address-prefix 192.168.2.0/24`: блок CIDR подсети.
+    - `--name BackEnd`: имя новой подсети.
+    - `--resource-group myVNet`: группа ресурсов.
+    - `--vnet-name TestVNet`: имя виртуальной сети, в которую входит подсеть.
+
+5. Запросите свойства новой виртуальной сети.
 
     ```azurecli
-    azure network vnet show
+    az network vnet show \
+    -g myVNET \
+    -n TestVNet \
+    --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
+    -o table
     ```
    
     Ожидаемые выходные данные:
    
-            info:    Executing command network vnet show
-            Virtual network name: TestVNet
-            + Looking up the virtual network sites
-            data:    Name                            : TestVNet
-            data:    Location                        : Central US
-            data:    State                           : Created
-            data:    Address space                   : 192.168.0.0/16
-            data:    Subnets:
-            data:      Name                          : FrontEnd
-            data:      Address prefix                : 192.168.1.0/24
-            data:
-            data:      Name                          : BackEnd
-            data:      Address prefix                : 192.168.2.0/24
-            data:
-            info:    network vnet show command OK
+        Name      Where      Group    Status       SubnetCount
+        --------  ---------  -------  ---------  -------------
+        TestVNet  centralus  myVNet   Succeeded              2
+
+6. Запросите свойства подсетей.
+
+    ```azurecli
+    az network vnet subnet list \
+    -g myvnet \
+    --vnet-name testvnet \
+    --query '[].{Name:name,CIDR:addressPrefix,Status:provisioningState}' \
+    -o table
+    ```
+
+    Ожидаемые выходные данные:
+
+        Name      CIDR            Status
+        --------  --------------  ---------
+        FrontEnd  192.168.1.0/24  Succeeded
+        BackEnd   192.168.2.0/24  Succeeded
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -122,9 +197,4 @@ Azure предоставляет две модели развертывания:
 
 - Сведения о подключении виртуальной машины к виртуальной сети см. в статье о [создании виртуальной машины Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). Вместо создания виртуальной сети и подсети с помощью действий, описанных в этой статье, виртуальную машину можно подключить к имеющейся виртуальной сети и подсети.
 - Сведения об установке подключения между виртуальными сетями см. в статье [Настройка подключения между виртуальными сетями на портале Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-- Сведения о подключении виртуальной сети к локальной сети с использованием виртуальной частной сети типа "сеть — сеть" или канала ExpressRoute см. в [этой статье](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) и в статье [Связывание виртуальной сети с каналом ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+- Сведения о подключении виртуальной сети к локальной сети с использованием виртуальной частной сети типа "сеть — сеть" или канала ExpressRoute см. в статьях [Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) и [Подключение виртуальной сети к каналу ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

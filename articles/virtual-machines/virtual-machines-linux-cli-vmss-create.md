@@ -19,6 +19,7 @@ ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
 ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -46,10 +47,5 @@ ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
 Документацию см. на [основной странице документации по масштабируемым наборам](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 Чтобы найти примеры шаблонов Resource Manager с использованием наборов масштабирования, выполните поиск строки "vmss" в [репозитории GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

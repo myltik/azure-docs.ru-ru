@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 6fad9ecee49eae24daf924bc292daaf42000c901
 ms.openlocfilehash: 546d7f721689d5d52adfc6149b715a0f9e1aa71e
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -281,9 +282,4 @@ ms.openlocfilehash: 546d7f721689d5d52adfc6149b715a0f9e1aa71e
 Ознакомьтесь со следующими статьями:
 
 * [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

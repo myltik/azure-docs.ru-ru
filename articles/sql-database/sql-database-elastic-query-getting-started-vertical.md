@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 41c26ebb4737eaf0d198e920892b19da7c389a66
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: 594760d5c52ac3724a0b8dd882e76ca3302ee8ba
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,6 +27,10 @@ ms.openlocfilehash: 41c26ebb4737eaf0d198e920892b19da7c389a66
 Будут представлены способы настройки и использования Базы данных Azure SQL для выполнения запросов, охватывающих несколько связанных баз данных. 
 
 Дополнительные сведения о функции запросов к эластичной базе данных см. в [этой статье](sql-database-elastic-query-overview.md). 
+
+## <a name="prerequisites"></a>Предварительные требования
+
+Требуется наличие разрешения ALTER ANY EXTERNAL DATA SOURCE. Это разрешение включено в разрешение ALTER DATABASE. Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
 
 ## <a name="create-the-sample-databases"></a>Создание образца базы данных
 Для начала создайте две базы данных, **Клиенты** и **Заказы**, на одном или на разных логических серверах.   
@@ -100,14 +105,10 @@ ms.openlocfilehash: 41c26ebb4737eaf0d198e920892b19da7c389a66
 
 Сведения о ценах см. на [странице с ценами на базы данных SQL](https://azure.microsoft.com/pricing/details/sql-database). 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Дальнейшие действия
 
-<!--Image references-->
-
-<!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-
+* Общие сведения об эластичных запросах см. в разделе [Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)](sql-database-elastic-query-overview.md).
+* Описание синтаксиса и примеры запросов вертикально секционированных данных см. в разделе [Запрос к нескольким облачным базам данных с разными схемами (предварительная версия)](sql-database-elastic-query-vertical-partitioning.md).
+* Руководство по горизонтальному секционированию (сегментированию) см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-getting-started.md).
+* Описание синтаксиса и примеры запросов горизонтально секционированных данных см. в разделе [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md).
+* В описании [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) приведена хранимая процедура, которая выполняет инструкцию Transact-SQL для отдельной удаленной базы данных SQL Azure или набора баз данных, выступающих в качестве сегментов в схеме горизонтального секционирования.

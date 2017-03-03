@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: fcc47e3e054d88fe40c13a0fd9949c315dbfce9b
 ms.openlocfilehash: 1617aebffeec5b385b47a7425f6c849267da68a6
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -142,10 +143,5 @@ ms.openlocfilehash: 1617aebffeec5b385b47a7425f6c849267da68a6
 * Сведения об управлении кластерами в HDInsight см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-portal-linux.md).
 * Подробные сведения о пакете SDK для HDInsight .NET см. в [соответствующей справке](https://msdn.microsoft.com/library/mt271028.aspx).
 * Сведения о неинтерактивной проверке подлинности в Azure см. в статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

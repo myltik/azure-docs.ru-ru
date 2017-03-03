@@ -9,12 +9,31 @@
 ## [Получение клиента Azure AD](active-directory-howto-tenant.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
-## [Управление лицензированием Azure AD](active-directory-licensing-what-is.md)
+## Управление лицензированием Azure AD
+### [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
+### [Классический портал.](active-directory-licensing-what-is.md)
 ## [Получение Azure для организации](sign-up-organization.md)
 ## [Часто задаваемые вопросы](active-directory-faq.md)
 ## [Руководства по приложениям SaaS](active-directory-saas-tutorial-list.md)
 
 # Практическое руководство
+## планирование и разработка
+### [Развертывание решения для гибридной идентификации](active-directory-hybrid-identity-design-considerations-overview.md)
+#### Определение требований
+##### [Удостоверение](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [Синхронизация каталогов](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Многофакторная проверка подлинности](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Стратегия жизненного цикла удостоверений](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Планирование безопасности данных](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Защита данных](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Управление содержимым](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Контроль доступа](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Реагирование на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### Планирование жизненного цикла удостоверений
+##### [Задачи](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Стратегия внедрения](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Дальнейшие действия](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [Сравнение инструментов](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## Управление пользователями
 ### Добавление пользователей
 #### [Портал Azure](active-directory-users-create-azure-portal.md)
@@ -46,18 +65,27 @@
 #### [Командлеты](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Создание дополнительных правил
 #### [Портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Классический портал](active-directory-accessmanagement-groups-with-advanced-rules.md)
+#### [Классический портал.](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Групповое лицензирование](active-directory-licensing-whatis-azure-portal.md)
+#### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Поиск и устранение проблем лицензирования группы](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Как перевести отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
+#### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 
-## [Просмотр отчетов об активности и безопасности](active-directory-view-access-usage-reports.md)
-### [Отчеты Azure AD](active-directory-reporting-getting-started.md)
+## [Просмотр отчетов об активности](active-directory-view-access-usage-reports.md)
+### [Вход в систему](active-directory-reporting-activity-sign-ins.md)
+### [Журналы аудита](active-directory-reporting-activity-audit-logs.md)
+### [Пользователи под угрозой](active-directory-reporting-security-user-at-risk.md)
+### [Вход, представляющий риск](active-directory-reporting-security-risky-sign-ins.md)
 ### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
 ### [Перенос отчетов](active-directory-reporting-migration.md)
-
 ### [Известные сети](active-directory-known-networks.md)
 
-### [Руководство по отчетам](active-directory-reporting-guide.md)
+### Классический портал.
+#### [Отчеты Azure AD](active-directory-reporting-getting-started.md)
+#### [Руководство по отчетам](active-directory-reporting-guide.md)
 #### [Предварительная версия](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 ##### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
@@ -65,20 +93,18 @@
 ##### [Предварительные требования](active-directory-reporting-api-prerequisites.md)
 ##### [Справочник по входу](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [Примеры входа](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [События аудита](active-directory-reporting-audit-events.md)
 #### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
-### Чтение отчетов
-#### [Нестандартная операция входа](active-directory-reporting-irregular-sign-in-activity.md)
-#### [Несколько сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [Подозрительные IP-адреса](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [Несколько географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [Возможно инфицированные устройства](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [Неизвестные источники](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [Аномальные попытки входа](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### Чтение отчетов
+##### [Нестандартная операция входа](active-directory-reporting-irregular-sign-in-activity.md)
+##### [Несколько сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [Подозрительные IP-адреса](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [Несколько географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [Возможно инфицированные устройства](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [Неизвестные источники](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [Аномальные попытки входа](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Управление паролями](active-directory-manage-passwords.md)
 ### [Изменение своего пароля](active-directory-passwords-update-your-own-password.md)
@@ -99,9 +125,11 @@
 #### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
 
 ## Управление устройствами
+### [Регистрация устройств](active-directory-conditional-access-device-registration-overview.md)
+#### [Управление автоматической регистрацией](active-directory-conditional-access-automatic-device-registration.md)
+#### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [Регистрация персональных устройств](active-directory-azureadjoin-personal-device.md)
 ### [Регистрация устройств Windows 10](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Присоединение к Azure AD](active-directory-azureadjoin-overview.md)
 #### [План](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
@@ -176,6 +204,7 @@
 ### [Библиотека документов](active-directory-apps-index.md)
 
 ## Управление каталогом
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Имена пользовательских доменов
 #### [Обзор](active-directory-add-domain-concepts.md)
 #### Добавление имени домена
@@ -249,10 +278,6 @@
 ### [Условный доступ](active-directory-conditional-access.md)
 #### [Начало работы](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Поддерживаемые приложения](active-directory-conditional-access-supported-apps.md)
-#### [Регистрация устройств](active-directory-conditional-access-device-registration-overview.md)
-#### [Управление автоматической регистрацией](active-directory-conditional-access-automatic-device-registration.md)
-##### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Управление приложением для проверки подлинности](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
 #### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
 #### [Локальное развертывание](active-directory-conditional-access-on-premises-setup.md)
@@ -274,27 +299,12 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Управление привилегированными пользователями](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Развертывание на виртуальных машинах Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Развертывание служб AD DS на виртуальных машинах Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory на виртуальных машинах Azure](active-directory-deploying-ws-ad-guidelines.md)
 ### [Реплика контроллера домена в виртуальной сети Azure](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Новый лес в виртуальной сети Azure](active-directory-new-forest-virtual-machine.md)
 
-## [Развертывание решения для гибридной идентификации](active-directory-hybrid-identity-design-considerations-overview.md)
-### Определение требований
-#### [Удостоверение](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [Синхронизация каталогов](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Многофакторная проверка подлинности](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [Стратегия жизненного цикла удостоверений](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [Планирование безопасности данных](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [Защита данных](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [Управление содержимым](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [Контроль доступа](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [Реагирование на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### Планирование жизненного цикла удостоверений
-#### [Задачи](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [Стратегия внедрения](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [Дальнейшие действия](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [Сравнение инструментов](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [Развертывание AD FS в Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Высокая доступность](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -323,8 +333,3 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
 ms.openlocfilehash: 9071f344946999d49aee2e6bc420d35edfca96cd
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -123,10 +124,5 @@ DataFu можно скачать и установить из репозитор
 
 * [Руководство по Apache DataFu Pig](http://datafu.incubator.apache.org/docs/datafu/guide.html).
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

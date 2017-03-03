@@ -12,21 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
+ms.sourcegitcommit: 6144dd5309128d0069d15b8f6194ad920fb29f6a
+ms.openlocfilehash: f8be19e8c43368cffec7249f7a07217c3252b06a
+ms.lasthandoff: 02/17/2017
 
 
 ---
+
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Руководство. Интеграция Azure Active Directory с Learning at Work
 В этом руководстве описано, как интегрировать Azure Active Directory (Azure AD) с приложением Learning at Work.
 
 Интеграция Learning at Work с Azure AD обеспечивает следующие преимущества.
 
 * С помощью Azure AD вы можете контролировать доступ к Learning at Work.
-* Вы можете включить автоматический вход пользователей в Learning at Work (единый вход) с учетной записью Azure AD.
+* Вы можете включить автоматический вход пользователей в Learning at Work (единый вход) с их учетными записями Azure AD.
 * Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -37,9 +39,8 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
 * подписка Azure AD;
 * подписка Learning at Work (Saba Cloud) с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
@@ -55,7 +56,7 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
 1. Добавление Learning at Work из коллекции.
 2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-learning-at-work-from-the-gallery"></a>Добавление Learning at Work из коллекции.
+## <a name="add-learning-at-work-from-the-gallery"></a>Добавление Learning at Work из коллекции
 Чтобы настроить интеграцию Learning at Work с Azure AD, необходимо добавить Learning at Work из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Learning at Work из коллекции, сделайте следующее:**
@@ -80,7 +81,7 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Learning at Work с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Learning at Work соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Learning at Work.
@@ -89,13 +90,13 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
 
 Чтобы настроить и проверить единый вход Azure AD в Learning at Work, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Learning at Work](#creating-a-predictix-price-reporting-test-user)** требуется для создания в Learning at Work пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+3. **[Создание тестового пользователя Learning at Work](#creating-a-predictix-price-reporting-test-user)** требуется для создания в Learning at Work пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Learning at Work.
 
 **Чтобы настроить единый вход Azure AD в Learning at Work, сделайте следующее:**
@@ -110,35 +111,28 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
    
     ![Настройка единого входа](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_04.png) 
    
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение Learning at Work, в следующем формате: `https://\<company name\>.sabacloud.com/Saba/Web/<company code>`.
-   
-    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: https://<company name>.sabacloud.com/Saba/SAML/sso/alias/<company name>``.
-   
-    В. click **Далее**
+    1. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение Learning at Work, в следующем формате: `https://\<company name\>.sabacloud.com/Saba/Web/<company code>`.
+    2. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<company name>.sabacloud.com/Saba/SAML/sso/alias/<company name>`.
+    3. Нажмите кнопку **Далее**.
 4. На странице **Configure single sign-on at Learning at Work** (Настройка единого входа в Learning at Work) выполните следующие действия:
    
     ![Настройка единого входа](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_05.png)
    
-    а. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Learning at Work (Saba Cloud) и предоставьте следующие сведения:
-   
-    • скачанный файл метаданных.
-   
-    • **URL-адрес издателя**
-   
-    • **URL-адрес единого входа SAML**
-   
-    • **URL-адрес службы единого выхода**
-6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+    1. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
+    2. Нажмите кнопку **Далее**.
+5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Learning at Work (Saba Cloud) и предоставьте следующие сведения:  
+     * скачанный файл метаданных;
+     * **URL-адрес издателя**;
+     * **URL-адрес единого входа SAML**
+     * **URL-адрес службы единого выхода**
+6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
     ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -155,39 +149,34 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png) 
+  
+    1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+    3. Нажмите кнопку **Далее**.
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_06.png) 
+   1. В текстовом поле **Имя** введите **Britta**.  
+   2. В текстовом поле **Фамилия** введите **Simon**.
+   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+   4. В списке **Роль** выберите **Пользователь**.
+   5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+    1. Запишите значение поля **Новый пароль**.
+    2. Нажмите **Завершено**.   
 
-### <a name="creating-an-learning-at-work-test-user"></a>Создание тестового пользователя Learning at Work
+### <a name="create-an-learning-at-work-test-user"></a>Создание тестового пользователя Learning at Work
 В этом разделе описано, как создать пользователя Britta Simon в приложении Learning at Work. Обратитесь в службу поддержки Learning at Work, чтобы добавить пользователей на платформу Learning at Work.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Learning at Work.
 
 ![Назначение пользователя][200] 
@@ -208,7 +197,7 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Learning at Work на панели доступа, вы автоматически войдете в приложение Learning at Work.
@@ -234,9 +223,4 @@ ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
 [203]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

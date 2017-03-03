@@ -1,6 +1,5 @@
 ---
-title: "Создание Azure HDInsight и Data Lake Store с помощью PowerShell | Документация Майкрософт"
-description: "Создание кластеров HDInsight для работы с озером данных Azure с помощью Azure PowerShell"
+title: "PowerShell: кластер Azure HDInsight с Data Lake Store в качестве дополнительного хранилища | Документация Майкрософт"
 services: data-lake-store,hdinsight
 documentationcenter: 
 author: nitinme
@@ -12,34 +11,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0fed9cff7a357c596d7e178ec756be449cd1dff0
-ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
+ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
+ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-powershell"></a>Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
+# <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Создание кластера HDInsight с Data Lake Store (как дополнительное хранилище) с помощью Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Использование портала](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Использование PowerShell (для хранилища по умолчанию)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Использование PowerShell (для дополнительного хранилища)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Использование Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight с доступом к Azure Data Lake Store. В поддерживаемых типах кластеров Data Lake Store можно использовать в качестве хранилища по умолчанию или дополнительной учетной записи хранения. Если Data Lake Store используется как дополнительное хранилище, в этом случае в качестве учетной записи хранения по умолчанию для кластеров по-прежнему используется Azure Storage Blob (WASB). Кроме того, относящиеся к кластеру файлы (журналы и т. д.) записываются в хранилище по умолчанию, а данные, которые необходимо обработать, могут храниться в учетной записи Data Lake Store. Использование хранилища озера данных в качестве дополнительной учетной записи хранения не влияет на производительность или возможность выполнять чтение и запись в хранилище из кластера.
+Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight с Azure Data Lake Store в качестве **дополнительного хранилища**. Инструкции по созданию кластера HDInsight с Data Lake Store в качестве хранилища по умолчанию см. в статье [Создание кластера HDInsight с Data Lake Store (как хранилище по умолчанию) с помощью Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
-Важные сведения
+В поддерживаемых типах кластеров Data Lake Store можно использовать в качестве хранилища по умолчанию или дополнительной учетной записи хранения. Если Data Lake Store используется как дополнительное хранилище, в этом случае в качестве учетной записи хранения по умолчанию для кластеров по-прежнему используется Azure Storage Blob (WASB). Кроме того, относящиеся к кластеру файлы (журналы и т. д.) записываются в хранилище по умолчанию, а данные, которые необходимо обработать, могут храниться в учетной записи Data Lake Store. Использование хранилища озера данных в качестве дополнительной учетной записи хранения не влияет на производительность или возможность выполнять чтение и запись в хранилище из кластера.
 
-* Возможность создавать кластеры HDInsight с доступом к Data Lake Store в качестве хранилища по умолчанию поддерживается для версии HDInsight 3.5.
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Использование Data Lake Store в качестве хранилища кластера HDInsight
+
+Ниже приведены некоторые важные сведения об использовании HDInsight с Data Lake Store.
 
 * Возможность создавать кластеры HDInsight с доступом к Data Lake Store в качестве дополнительного хранилища поддерживается для версий HDInsight 3.2, 3.4 и 3.5.
 
 * В кластерах HBase (Windows и Linux) Data Lake Store **нельзя** использовать как хранилище по умолчанию, а также как дополнительное хранилище.
 
-
-В этой статье мы подготовим кластер Hadoop, в котором хранилище озера данных будет дополнительным хранилищем. Инструкции по созданию кластера Hadoop с Data Lake Store в качестве хранилища по умолчанию см. в статье [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Настройка в HDInsight хранилища озера данных с помощью PowerShell состоит из нескольких этапов:
 
@@ -161,8 +162,9 @@ ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-## <a name="create-an-hdinsight-linux-cluster-with-authentication-to-data-lake-store"></a>Создание кластера HDInsight под управлением Linux с аутентификацией в Data Lake Store
-В этом разделе мы создадим кластер HDInsight Hadoop под управлением Linux. В этом выпуске кластер HDInsight и Data Lake Store должны быть в одном расположении.
+## <a name="create-an-hdinsight-linux-cluster-with-data-lake-store-as-additional-storage"></a>Создание кластера HDInsight на платформе Linux с Data Lake Store в качестве дополнительного хранилища
+
+В этом разделе показано, как создать кластер HDInsight Hadoop на платформе Linux с Data Lake Store в качестве дополнительного хранилища. В этом выпуске кластер HDInsight и Data Lake Store должны быть в одном расположении.
 
 1. Сначала получите идентификатор клиента подписки. Позже он вам понадобится.
 
@@ -248,9 +250,4 @@ ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

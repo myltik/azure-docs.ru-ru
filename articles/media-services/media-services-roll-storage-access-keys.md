@@ -17,6 +17,7 @@ ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 8e0f0905748923177269b6d5df27be900770fece
 ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -77,9 +78,4 @@ ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
 
 ### <a name="acknowledgments"></a>Благодарности
 Мы выражаем признательность тем, кто помог нам в составлении этого документа, — это Сенк Динджилоглу (Cenk Dingiloglu), Милан Гада (Milan Gada) и Сева Титов.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

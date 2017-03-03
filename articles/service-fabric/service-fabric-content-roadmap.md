@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6c2464b2f4d16f70c2841faf18e2246c8125b60f
-ms.openlocfilehash: 9421b8545715def823a4bdafd27c261e159fbbab
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 9742523c0a1743ff5982e746aa3c99aed8934499
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -42,15 +43,17 @@ Service Fabric — это надежная и гибкая платформа, 
 </a></center>
 
 ## <a name="get-started-and-create-your-first-app"></a>Начало работы и создание первого приложения 
-С помощью пакетов SDK и инструментов Service Fabric можно разрабатывать приложения в средах Windows, Linux и MacOS и развертывать их в кластерах под управлением Windows или Linux.  Ниже приведены указания, позволяющие развернуть приложение за несколько минут.  После запуска первого приложения скачайте и выполните несколько наших [примеров приложений](http://aka.ms/servicefabricsamples).
+С помощью пакетов SDK и инструментов Service Fabric можно разрабатывать приложения в средах Windows, Linux и MacOS и развертывать их в кластерах под управлением Windows или Linux.  Ниже приведены указания, позволяющие развернуть приложение за несколько минут.  После запуска первого приложения скачайте и выполните несколько наших [примеров приложений](http://aka.ms/servicefabricsamples). В частности, начните с [примеров для начала работы](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 
 ### <a name="on-windows"></a>В Windows
 Пакет SDK Service Fabric содержит надстройку для Visual Studio, в которой есть шаблоны и средства для создания, развертывания и отладки приложений Service Fabric. В этих разделах поэтапно описывается создание первого приложения в Visual Studio и его запуск на компьютере разработки.
 
-[Настройка вашей среды разработки](service-fabric-get-started.md)
-[Создание первого приложения (C#)](service-fabric-create-your-first-application-in-visual-studio.md)
+[Подготовка среды разработки](service-fabric-get-started.md)
+[Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-application-in-visual-studio.md)
 
-Изучите этот [практический пример](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx), чтобы ознакомиться с полной последовательностью разработки для Service Fabric.  Узнайте, как создать службу без отслеживания состояния, настроить мониторинг и отчеты о работоспособности, а также обновить приложение. 
+#### <a name="practical-hands-on-labs"></a>Практические занятия Hands On Lab
+Изучите это [практическое занятие Hands On Lab (часть 1)](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx), чтобы ознакомиться с полной последовательностью разработки для Service Fabric.  Узнайте, как создать службу без отслеживания состояния, настроить мониторинг и отчеты о работоспособности, а также обновить приложение. После этого изучите [практическое занятие Hands On Lab (часть 2)](http://aka.ms/sflab2), где рассматриваются службы с отслеживанием состояния.
+
 
 В следующем видео Channel9 демонстрируется пошаговый процесс создания приложения C# в Visual Studio.  
 <center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
@@ -138,9 +141,4 @@ Service Fabric предлагает несколько способов запи
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

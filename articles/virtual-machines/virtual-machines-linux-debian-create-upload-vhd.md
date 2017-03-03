@@ -18,6 +18,7 @@ ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
 ms.openlocfilehash: b38edfee4f74ede5fb647001cd64cbe81e941c41
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -94,10 +95,5 @@ ms.openlocfilehash: b38edfee4f74ede5fb647001cd64cbe81e941c41
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы загружаете VHD-файл в Azure впервые, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

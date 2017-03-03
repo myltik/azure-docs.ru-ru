@@ -14,8 +14,9 @@ ms.workload: identity
 ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: c22eb13206e629399c20b02fcaeb422d20ac0b21
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -31,8 +32,7 @@ ms.openlocfilehash: c22eb13206e629399c20b02fcaeb422d20ac0b21
 
 В этой статье приведены требования и поддерживаемые сценарии для настройки CBA на устройстве Android для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования и для государственных организаций США. 
 
-В тарифных планах Office 365 China, US Government Defense и US Government Federal доступна предварительная версия этой функции. 
-
+В тарифных планах Office 365 US Government Defense и Federal доступна предварительная версия этой функции.
 
 
 ## <a name="office-mobile-applications-support"></a>Поддержка мобильных приложений Office
@@ -79,9 +79,4 @@ Azure Active Directory добавляет эти утверждения в ма�
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

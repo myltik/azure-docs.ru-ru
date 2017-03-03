@@ -17,6 +17,7 @@ ms.author: hkanna
 translationtype: Human Translation
 ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: db05fb35fdcbcf6691cc3ffc99d201383706592f
+ms.lasthandoff: 01/26/2017
 
 ---
 
@@ -523,9 +524,4 @@ StorSimple является решением, интегрированным с 
 
 - Узнайте, как выполнить [восстановление из набора резервных копий](storsimple-restore-from-backup-set-u2.md).
 - Узнайте, как выполнить [отработку отказа и аварийное восстановление устройства](storsimple-device-failover-disaster-recovery.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

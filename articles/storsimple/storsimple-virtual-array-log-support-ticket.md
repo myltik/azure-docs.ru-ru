@@ -17,6 +17,7 @@ ms.author: manuaery
 translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Использование службы диспетчера устройств StorSimple для регистрации запроса в службу поддержки для виртуального массива StorSimple
@@ -66,10 +67,5 @@ ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
 ## <a name="next-steps"></a>Дальнейшие действия
 
 [Устранение неполадок виртуального массива StorSimple с помощью диспетчера устройств StorSimple](storsimple-virtual-array-diagnose-problems.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

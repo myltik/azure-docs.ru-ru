@@ -17,6 +17,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: 721f476e63c82c75fd6bc7422b577b1750c6875e
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -24,10 +25,5 @@ ms.openlocfilehash: 721f476e63c82c75fd6bc7422b577b1750c6875e
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [!INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

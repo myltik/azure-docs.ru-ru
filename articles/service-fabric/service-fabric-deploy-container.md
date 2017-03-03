@@ -17,6 +17,7 @@ ms.author: msfussell
 translationtype: Human Translation
 ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
 ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -302,9 +303,4 @@ Visual Studio предоставляет шаблон службы Service Fabri
 
 * [Общие сведения о Service Fabric и контейнерах](service-fabric-containers-overview.md)
 * В качестве примера приложения можно ознакомиться с [примерами кода контейнера Service Fabric на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

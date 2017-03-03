@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -40,10 +41,5 @@ ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md)
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md)  
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

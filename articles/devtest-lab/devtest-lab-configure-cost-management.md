@@ -17,6 +17,7 @@ ms.author: tarcher
 translationtype: Human Translation
 ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
 ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -65,10 +66,5 @@ ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
 * [Создание пользовательского образа.](devtest-lab-create-template.md) При создании виртуальной машины необходимо указать базовый образ виртуальной машины, который может представлять собой пользовательский образ или образ из Marketplace. В этой статье показано, как создать настраиваемый образ из VHD-файла.
 * [Настройка образов Marketplace.](devtest-lab-configure-marketplace-images.md) DevTest Labs поддерживает создание виртуальных машин на основе образов Azure Marketplace. В этой статье показано, как определить, какие образы Azure Marketplace (если таковые имеются) можно использовать при создании виртуальных машин в лаборатории.
 * [Добавление виртуальной машины с артефактами в лабораторию.](devtest-lab-add-vm-with-artifacts.md) В этой статье рассказывается, как создать виртуальную машину из базового образа (пользовательского или из Marketplace) и работать с артефактами виртуальной машины.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

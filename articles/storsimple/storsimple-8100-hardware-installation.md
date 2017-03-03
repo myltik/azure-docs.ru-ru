@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -247,10 +248,5 @@ Microsoft Azure StorSimple 8100 представляет собой единый
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте, как [развернуть и настроить локальное устройство StorSimple](storsimple-deployment-walkthrough-u2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

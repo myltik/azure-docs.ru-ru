@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -128,10 +129,5 @@ ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
 * [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

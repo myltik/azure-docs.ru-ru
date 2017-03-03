@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/15/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 44bc06506707e09ea2bbcbb18198bc1a10467d53
-ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
+ms.sourcegitcommit: de2b914ddb7238c9939066570d8fba78aa5c231e
+ms.openlocfilehash: 73e9c8491520d47bbc60b1556b97918977d29d7f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -51,15 +52,20 @@ ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
+### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Минимальная пропускная способность секционированных коллекций снижена с 10 100 ЕЗ/с до 2500 ЕЗ/с.
+
 ### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
 * Исправление ошибки, из-за которой происходил сбой некоторых запросов между секциями в 32-разрядном хост-процессе.
 * Исправление ошибки, из-за которой в контейнере сеанса не обновлялся маркер для неудачных запросов в режиме шлюза.
 * Исправление ошибки, из-за которой в некоторых случаях запрос с вызовами UDF в проекции завершался сбоем.
+* Исправление производительности на стороне клиента для увеличения пропускной способности операций чтения и записи запросов.
 
 ### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Исправление ошибки, из-за которой в контейнере сеанса не обновлялся маркер для неудачных запросов.
 * Добавлена поддержка для работы пакета SDK в 32-разрядных хост-процессах. Обратите внимание, что при использовании запросов между секциями для повышения производительности рекомендуется использовать 64-разрядные хост-процессы.
 * Повышена производительность для сценариев, применяющих запросы с большим количеством значений ключа секции в выражении IN.
+* Заполнена статистика по различным квотам ресурсов в ResourceResponse для запросов на чтение коллекции документов, если задан параметр запроса PopulateQuotaInfo.
 
 ### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Незначительное исправление производительности API CreateDocumentCollectionIfNotExistsAsync, представленного в 1.11.0.
@@ -199,6 +205,7 @@ ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |15 февраля 2017 г. |--- |
 | [1.11.4](#1.11.4) |6 февраля 2017 г. |--- |
 | [1.11.3](#1.11.3) |26 января 2017 г. |--- |
 | [1.11.1](#1.11.1) |21 декабря 2016 г. |--- |
@@ -230,10 +237,5 @@ ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
 
 ## <a name="see-also"></a>Дополнительные материалы
 Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

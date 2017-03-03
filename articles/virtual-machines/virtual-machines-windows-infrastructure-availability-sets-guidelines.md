@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -52,10 +53,5 @@ ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

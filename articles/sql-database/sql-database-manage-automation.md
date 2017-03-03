@@ -18,6 +18,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 46f65a2898c39774bd63ff2f8f053224d7238fb0
 ms.openlocfilehash: 0abfceb43ec5c333e9800ee6fca4e31fb317208d
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -50,10 +51,5 @@ ms.openlocfilehash: 0abfceb43ec5c333e9800ee6fca4e31fb317208d
 * [Мой первый Runbook](../automation/automation-first-runbook-graphical.md)
 * [План обучения работе со службой автоматизации Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Служба автоматизации Azure: ваш агент SQL в облаке](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

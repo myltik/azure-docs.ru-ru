@@ -18,6 +18,7 @@ ms.author: brjohnst
 translationtype: Human Translation
 ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
 ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -178,10 +179,5 @@ serviceClient.Indexes.Delete("hotels");
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

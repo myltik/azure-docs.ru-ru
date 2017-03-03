@@ -19,6 +19,7 @@ ms.author: v-shysun
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -39,10 +40,5 @@ ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
 ## <a name="steps-to-improve-database-performance-with-more-resources"></a>Повышение производительности базы данных с использованием дополнительных ресурсов
 1. Для повышения производительности изолированных баз данных можно [изменять уровни служб](sql-database-service-tiers.md) по мере необходимости.
 2. Если баз данных несколько, можно включить автомасштабирование ресурсов, используя [пулы эластичных баз данных](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

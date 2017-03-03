@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
 ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -139,9 +140,4 @@ GUID — это идентификатор подписки (не ключ ин�
 * [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
 * [Автоматизация связывания системы диагностики Microsoft Azure с Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Автоматизация реагирования на оповещения](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

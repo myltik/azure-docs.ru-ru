@@ -18,6 +18,7 @@ ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: cb794e5da329173ab4d7c856733e6a0f2c5f7019
 ms.openlocfilehash: 7c53a5b443f8afa89dc7ede39f46d29eb39de6cc
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -186,10 +187,5 @@ ms.openlocfilehash: 7c53a5b443f8afa89dc7ede39f46d29eb39de6cc
   > 
 
 * Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

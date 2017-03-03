@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
 ms.openlocfilehash: ac22518bb36cc9d4c7a581dab8aca22ffde986e5
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -160,10 +161,5 @@ ms.openlocfilehash: ac22518bb36cc9d4c7a581dab8aca22ffde986e5
     ![Да](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

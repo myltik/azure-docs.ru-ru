@@ -18,6 +18,7 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
 ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 * Дополнительные сведения о требованиях к проверке подлинности для новых сервера-источника и базы данных-источника см. в статье [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
