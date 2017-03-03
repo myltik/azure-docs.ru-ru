@@ -17,6 +17,7 @@ ms.author: juliako;milangada;
 translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: ee40b92c48d91a391fe72582c7ea5e244907747f
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -69,10 +70,5 @@ ms.openlocfilehash: ee40b92c48d91a391fe72582c7ea5e244907747f
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

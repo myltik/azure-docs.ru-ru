@@ -19,6 +19,7 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
 ms.openlocfilehash: 8fefa688ee52395d7dee2f53da12ebc50e84fb8e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -154,10 +155,5 @@ ms.openlocfilehash: 8fefa688ee52395d7dee2f53da12ebc50e84fb8e
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вопросы разработки приложений для автономных баз данных и пулов эластичных БД рассматриваются в статьях [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) и [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -77,10 +78,5 @@ ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
 ## <a name="next-steps"></a>Дальнейшие действия
 * Открытие баз данных SQL в Visual Studio осуществляется с помощью SQL Server Data Tools. Дополнительные сведения см. в статье [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
 * Чтобы подключиться к базе данных SQL программно, см. статью [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-develop-dotnet-simple.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

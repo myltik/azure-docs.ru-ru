@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: d2087d4a1844379ae642c9ce5b08d62edef2fccf
 ms.openlocfilehash: 21723b3c8ab636f6c4a497abece59ce83a46d65f
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -127,10 +128,5 @@ ms.openlocfilehash: 21723b3c8ab636f6c4a497abece59ce83a46d65f
 Дополнительные сведения о проектировании см. в статьях [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md) и [Шлюзы VPN](vpn-gateway-about-vpngateways.md).
 
 Дополнительные сведения о конкретных параметрах шлюза см. в разделе [Сведения о параметрах VPN-шлюза](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

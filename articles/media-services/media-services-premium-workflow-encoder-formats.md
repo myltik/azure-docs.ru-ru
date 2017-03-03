@@ -17,6 +17,7 @@ ms.author: juliako;anilmur
 translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -130,10 +131,5 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

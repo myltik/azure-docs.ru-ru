@@ -17,6 +17,7 @@ ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -91,10 +92,5 @@ ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 ## <a name="see-also"></a>См. также
 [Учебные видеоматериалы по расширенному рабочему процессу кодировщика служб мультимедиа Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

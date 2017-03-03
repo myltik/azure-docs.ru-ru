@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -77,10 +78,5 @@ ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
 * Сведения о проектировании облачных приложений для использования активной георепликации см. в статье [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 * Сведения об использовании активной георепликации с пулами эластичных баз данных см. в статье [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * Общие сведения об обеспечении непрерывности бизнес-процессов можно узнать в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

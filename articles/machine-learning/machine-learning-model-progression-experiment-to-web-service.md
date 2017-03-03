@@ -17,6 +17,7 @@ ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -118,10 +119,5 @@ ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
 
 * [Инструкции по созданию первого эксперимента в Студии машинного обучения Azure](machine-learning-create-experiment.md)
 * [Пошаговое руководство по разработке решения для прогнозной аналитики в службе машинного обучения Azure для оценки кредитных рисков](machine-learning-walkthrough-develop-predictive-solution.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

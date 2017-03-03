@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: f687e73b4106118a89df9258f128b2ae850edd3c
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: f687e73b4106118a89df9258f128b2ae850edd3c
 Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, например nginx, MongoDB, Docker и т. д.
 
 Изучите дополнительные сведения об [использовании Resource Manager](../azure-resource-manager/resource-group-overview.md), чтобы получить советы по созданию развертываний Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

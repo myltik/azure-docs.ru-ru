@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -74,9 +75,4 @@ ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

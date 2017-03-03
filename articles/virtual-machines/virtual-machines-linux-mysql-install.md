@@ -18,6 +18,7 @@ ms.author: mingzhan
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 84722fffc5419f866250d4093250839066c54c46
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -177,10 +178,5 @@ ms.openlocfilehash: 84722fffc5419f866250d4093250839066c54c46
 
 ### <a name="next-step"></a>Дальнейшее действие
 Дополнительные сведения и сведения об использовании MySQL см. [здесь](https://www.mysql.com/).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

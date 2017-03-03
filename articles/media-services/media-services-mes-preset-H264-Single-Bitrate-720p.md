@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: f653f966d8498c756ebd318e7631feaaa753b49a
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -116,8 +117,3 @@ ms.openlocfilehash: f653f966d8498c756ebd318e7631feaaa753b49a
   ]  
 }  
 ```
-
-
-<!--HONumber=Jan17_HO4-->
-
-

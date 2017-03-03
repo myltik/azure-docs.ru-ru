@@ -17,6 +17,7 @@ ms.author: nkolli;trinadhk;anuragm;markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 127484103706be5acd0f988aee3d13217d4d87f2
 ms.openlocfilehash: f73bdcf056dc745f9f40e96d3dc51e5e4b88f77d
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -348,9 +349,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Введение в службу архивации DPM](backup-azure-dpm-introduction.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

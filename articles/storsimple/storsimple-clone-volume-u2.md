@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -111,10 +112,5 @@ ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [восстановить том StorSimple из резервного набора данных](storsimple-restore-from-backup-set-u2.md).
 * Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

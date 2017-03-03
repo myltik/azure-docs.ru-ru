@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: e89e5769701f00c6f403bd54cb2b29bcce53bf15
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: e89e5769701f00c6f403bd54cb2b29bcce53bf15
 Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, такие как IIS, SQL или SharePoint.
 
 Изучите дополнительные сведения об [использовании Resource Manager](../azure-resource-manager/resource-group-overview.md), чтобы получить советы по созданию развертываний Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

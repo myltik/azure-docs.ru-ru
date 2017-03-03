@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -166,10 +167,5 @@ ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
 
 * [Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 * [Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware](storsimple-ova-deploy2-provision-vmware.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

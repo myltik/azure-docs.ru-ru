@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
 ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Создание в Azure виртуальной машины на основе универсального виртуального жесткого диска](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Создание в Azure виртуальной машины на основе специализированного виртуального жесткого диска](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), который подключается как диск ОС в процессе создания виртуальной машины.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
