@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 9fe4e1356064d62d1a373ecbabf4f9cf276524f6
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -36,10 +37,5 @@ ms.openlocfilehash: 9fe4e1356064d62d1a373ecbabf4f9cf276524f6
 ## <a name="next-steps"></a>Дальнейшие действия
 * Вы также можете создать конечную точку виртуальной машины с помощью [интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Выполните команду **azure vm endpoint create** .
 * Если вы создали виртуальную машину с помощью модели развертывания Resource Manager, [создайте группы безопасности сети](../virtual-network/virtual-networks-create-nsg-arm-cli.md) с помощью интерфейса командной строки Azure в режиме Resource Manager и управляйте трафиком, поступающим к этой виртуальной машине.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

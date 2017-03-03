@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: f8ce1215861da2db49f5148400195c4fefb9a01d
+ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
+ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -53,6 +54,31 @@ https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e19
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### <a name="changing-http-method-of-the-trigger"></a>Изменение метода HTTP триггера
+По умолчанию триггер запросов в Logic Apps ожидает HTTP-запроса POST. Но метод HTTP можно настроить в разделе `Show advanced options`.
+
+ > [!NOTE]
+ > Допускается только один тип метода.
+
+### <a name="relative-trigger-url"></a>Относительный URL-адрес триггера
+Чтобы принимать параметры, можно также настроить относительный путь URL-адреса запроса.
+
+1. Разверните раздел `Show advanced options` триггера **Request**.
+ - В поле `Relative path` введите `customer/{customerId}`.
+
+  ![Относительный URL-адрес триггера](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Обновите действие **Respond**, чтобы создать пользователя параметра.
+ - В средстве выбора маркеров должен отобразиться вариант `customerId`.
+ - Обновите текст ответа, чтобы он возвращал `Hello {customerId}`.
+
+  ![Относительный URL-адрес ответа](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Сохраните приложение логики. Вы заметите, что URL-адрес запроса обновился и содержит относительный путь.
+
+4. Скопируйте новый URL-адрес запроса и вставьте его в новое окно браузера. Замените `{customerId}` на `123` и нажмите клавишу ВВОД.
+ - Должен вернуться ответ `Your customer Id is 123`.
 
 ### <a name="security-for-the-trigger-url"></a>Безопасность URL-адреса триггера
 URL-адреса обратного вызова приложений логики создаются безопасным способом на основе подписанного URL-адреса.  Подпись передается как параметр запроса и должна быть проверена перед запуском приложения логики.  Она создается с помощью уникального сочетания секретного ключа каждого приложения логики, имени триггера и выполняемой операции.  Не имея доступа к секретному ключу приложения логики, невозможно создать действительную подпись.
@@ -154,9 +180,4 @@ URL-адреса обратного вызова приложений логик
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [2]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

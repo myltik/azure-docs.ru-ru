@@ -39,8 +39,3 @@
 4. После подключения диска данных он будет отображаться на панели мониторинга виртуальной машины.
 
     ![Диск данных успешно подключен](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -437,10 +438,5 @@ ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
 * Дополнительные сведения об уровнях служб см. в статье [Параметры базы данных SQL и производительность](sql-database-service-tiers.md).
 * Дополнительные сведения о пулах эластичных баз данных Azure см. в статье [Что такое пул эластичных БД Azure?](sql-database-elastic-pool.md)
 * Сведения о производительности и пулах эластичных баз данных см. в статье [Когда следует использовать эластичный пул?](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

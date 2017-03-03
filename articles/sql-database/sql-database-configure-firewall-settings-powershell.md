@@ -12,24 +12,17 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: d80bd1fbb5cdb0492e521a4d600f657fac0e3325
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: a88c38f01b62dee9454f612e795b6722db2547e8
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="configure-azure-sql-database-server-level-firewall-rules-by-using-powershell"></a>Настройка правил брандмауэра уровня сервера базы данных SQL с помощью PowerShell
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-firewall-configure.md)
-> * [Портал Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 Для подключения к серверам и базам данных в Базе данных SQL Azure используются правила брандмауэра. На сервере Базы данных SQL для базы данных master или пользовательской базы данных можно определить параметры брандмауэра уровня сервера и базы данных, которые будут выборочно разрешать доступ к базе данных.
 
@@ -72,7 +65,7 @@ ms.openlocfilehash: d80bd1fbb5cdb0492e521a4d600f657fac0e3325
 * [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md)
 * [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API](sql-database-configure-firewall-settings-rest.md)
 
-Учебник по созданию базы данных SQL доступен в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
+Руководство по созданию базы данных см. в статье [Краткое руководство. Начало работы с базой данных SQL Azure](sql-database-get-started.md).
 Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для Базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 Общие сведения о навигации по базам данных см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -84,9 +77,4 @@ ms.openlocfilehash: d80bd1fbb5cdb0492e521a4d600f657fac0e3325
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

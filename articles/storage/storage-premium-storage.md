@@ -17,6 +17,7 @@ ms.author: ramankum
 translationtype: Human Translation
 ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
 ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -277,8 +278,3 @@ sudo yum install microsoft-hyper-v
 ### <a name="blog-posts"></a>Записи блога
 * [Хранилище Azure класса Premium общедоступно](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Объявление о серии GS: добавление поддержки хранилища класса Premium для наиболее крупных виртуальных машин в общедоступном облаке](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

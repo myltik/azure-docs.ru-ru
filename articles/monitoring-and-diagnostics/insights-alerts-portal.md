@@ -17,6 +17,7 @@ ms.author: robb
 translationtype: Human Translation
 ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
 ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -81,9 +82,4 @@ ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 * Узнайте больше о [модулях Runbook службы автоматизации Azure](../automation/automation-starting-a-runbook.md).
 * Ознакомьтесь с [обзором журналов диагностики](monitoring-overview-of-diagnostic-logs.md) , чтобы собирать подробные метрики о службе с высокой частотой.
 * Прочитайте [обзор сбора метрики](insights-how-to-customize-monitoring.md) и узнайте, как можно обеспечить, чтобы служба была доступна и отвечала на запросы.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

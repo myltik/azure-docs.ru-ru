@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/28/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4ad6d1003b3acd48a1f129eb84f9bbed53075d37
-ms.openlocfilehash: 3c2705a7608c3af9085b51fdbc7191030d3fc9fe
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 84c9ac92ec08d1e7c1a163c2990c4fe3e14bf9e5
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -59,15 +60,19 @@ ms.openlocfilehash: 3c2705a7608c3af9085b51fdbc7191030d3fc9fe
 Если требуется репликация во вторичный центр обработки данных, то виртуальные машины Hyper-V должны быть расположены на серверах узлов Hyper-V в облаке VMM. Но если предполагается репликация в Azure, ее можно выполнить, реплицировав виртуальные машины на серверах узлов Hyper-V как с использованием облаков VMM, так и без них. [Подробная информация](site-recovery-hyper-v-site-to-azure.md).
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Можно ли развернуть службу Site Recovery с помощью VMM при наличии только одного сервера VMM?
-Да. Вы можете реплицировать виртуальные машины на серверах Hyper-V в облаке VMM в Azure или между облаками VMM на том же сервере. Для репликации между локальными средами мы рекомендуем использовать сервер VMM как на первичном, так и на вторичном сайте.  [Подробная информация](site-recovery-single-vmm.md)
+
+Да. Вы можете реплицировать виртуальные машины на серверах Hyper-V в облаке VMM в Azure или между облаками VMM на том же сервере. Для репликации между локальными средами мы рекомендуем использовать сервер VMM как на первичном, так и на вторичном сайте.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>Какие физические серверы можно защитить?
-Можно реплицировать физические серверы под управлением Windows и Linux в Azure или на вторичный сайт. [Узнайте](site-recovery-vmware-to-azure.md#replicated-machine-prerequisites) о требованиях к операционной системе.  Те же требования применяются независимо от конечного расположения репликации физических серверов: Azure или вторичный сайт.
+Можно реплицировать физические серверы под управлением Windows и Linux в Azure или на вторичный сайт. [Узнайте](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) о требованиях к операционной системе.  Те же требования применяются независимо от конечного расположения репликации физических серверов: Azure или вторичный сайт.
+
 
 Обратите внимание, что если локальный сервер выйдет из строя, физические серверы запустятся в качестве виртуальных машин в Azure. В настоящее время восстановление размещения на локальные физические серверы не поддерживается, но возможно восстановление размещения на виртуальную машину Hyper-V или VMware.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>Какие виртуальные машины VMware можно защитить?
-Для защиты виртуальных машин VMware вам понадобится низкоуровневая оболочка vSphere и виртуальные машины с запущенными инструментами VMware. Мы также рекомендуем использовать сервер VMware vCenter для управления низкоуровневыми оболочками. [Узнайте больше](site-recovery-vmware-to-azure.md#replicated-machine-prerequisites) о точных требованиях к репликации серверов и виртуальных машин VMware в Azure или на вторичный сайт.
+
+Для защиты виртуальных машин VMware вам понадобится низкоуровневая оболочка vSphere и виртуальные машины с запущенными инструментами VMware. Мы также рекомендуем использовать сервер VMware vCenter для управления низкоуровневыми оболочками. [Узнайте больше](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) о точных требованиях к репликации серверов и виртуальных машин VMware в Azure или на вторичный сайт.
+
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Можно ли управлять аварийным восстановлением в офисах филиалов с помощью службы Site Recovery?
 Да. Используя службу Site Recovery для управления репликацией и отработкой отказа в офисах филиалов, вы получаете объединенные возможности управления и представление для всех рабочих нагрузок офисов филиалов в центральном расположении. Таким образом, можно легко выполнить отработку отказа и управлять аварийным восстановлением для всех филиалов, не выходя из главного офиса.
@@ -75,7 +80,7 @@ ms.openlocfilehash: 3c2705a7608c3af9085b51fdbc7191030d3fc9fe
 ## <a name="pricing"></a>Цены
 
 ### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Какие расходы я понесу при использовании Azure Site Recovery?
-При использовании Azure Site Recovery взимается плата за лицензию Azure Site Recovery, службу хранилища Azure, транзакции с хранилищем и передачу исходящих данных. [Подробнее](https://azure.microsoft.com/pricing/details/site-recovery).
+При использовании Site Recovery взимается плата за лицензию Site Recovery, службу хранилища Azure, транзакции с хранилищем и передачу исходящих данных. [Подробнее](https://azure.microsoft.com/pricing/details/site-recovery).
 
 Лицензия Site Recovery предоставляется на каждый защищенный экземпляр. Экземпляром является виртуальная машина или физический сервер.
 
@@ -102,13 +107,13 @@ Site Recovery имеет сертификаты ISO 27001:2013, 27018, HIPAA, DP
 ## <a name="replication"></a>Репликация
 
 ### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>Можно выполнить репликацию через VPN-подключение типа "сеть — сеть" в Azure?
-Azure Site Recovery реплицирует данные в учетную запись хранения Azure через общедоступную конечную точку. Таким образом репликация будет не будет проходить через VPN-подключение типа "сеть — сеть". Можно создать VPN-подключение типа "сеть — сеть" с помощью виртуальной сети Azure, что не повлияет на репликацию Azure Site Recovery.
+Azure Site Recovery реплицирует данные в учетную запись хранения Azure через общедоступную конечную точку. Репликация не выполняется через VPN-подключение типа "сеть — сеть". Вы можете создать такое подключение с помощью виртуальной сети Azure. Это никак не повлияет на репликацию Site Recovery.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Можно ли использовать ExpressRoute для репликации виртуальных машин в Azure?
 Да, ExpressRoute можно использовать для репликации виртуальных машин в Azure. Azure Site Recovery реплицирует данные в учетную запись хранения Azure через общедоступную конечную точку. Чтобы использовать ExpressRoute для репликации Site Recovery, необходимо настроить [общедоступный пиринг](../expressroute/expressroute-circuit-peerings.md#public-peering). После отработки отказа виртуальных машин в виртуальную сеть Azure доступ к можно получать с помощью [частного пиринга](../expressroute/expressroute-circuit-peerings.md#private-peering), настроенного в виртуальной сети Azure.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Существуют ли предварительные требования для репликации виртуальных машин в Azure?
-Виртуальные машины, которые необходимо реплицировать в Azure, должны соответствовать [требованиям Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Виртуальные машины, которые необходимо реплицировать в Azure, должны соответствовать [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Можно ли реплицировать виртуальные машины Hyper-V второго поколения в Azure?
 Да. Во время отработки отказа Site Recovery преобразует машины второго поколения в первое. При восстановлении размещения машина преобразуется обратно во второе поколение. [Подробная информация](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
@@ -116,12 +121,10 @@ Azure Site Recovery реплицирует данные в учетную зап
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>Как осуществляется оплата за виртуальные машины при репликации в Azure?
 При регулярной репликации данные реплицируются в геоизбыточное хранилище Azure, поэтому нет необходимости платить за использование виртуальных машин Azure IaaS, что является значительным преимуществом. При отработке отказа в Azure служба Site Recovery автоматически создает виртуальные машины Azure IaaS, после чего вам будут выставляться счета за вычислительные ресурсы, используемые в Azure.
 
-### <a name="is-there-an-sdk-i-can-use-to-automate-the-asr-workflow"></a>Существует ли пакет SDK для автоматизации рабочего процесса ASR?
+### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Можно ли автоматизировать сценарии Site Recovery с помощью пакета SDK?
 Да. Рабочие процессы службы Site Recovery можно автоматизировать с помощью интерфейса REST API, PowerShell или пакета SDK для Azure. Ниже перечислены сценарии развертывания Site Recovery с помощью PowerShell, которые поддерживаются в настоящее время.
 
-* [Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (классическая модель)](site-recovery-deploy-with-powershell.md)
 * [Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (модель Resource Manager)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Репликация виртуальных машин Hyper-V (без VMM) в Azure с помощью PowerShell (классическая модель)](site-recovery-hyper-v-site-to-azure-classic.md)
 * [Репликация виртуальных машин Hyper-V (без VMM) в Azure с помощью PowerShell (модель Resource Manager)](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Какая учетная запись хранения требуется при репликации в Azure?
@@ -139,7 +142,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 Эта возможность не поддерживается. Запросите эту функцию на [форуме отзывов и предложений](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Можно ли исключить из репликации отдельные диски?
-Эта возможность поддерживается при [репликации виртуальных машин VMware и физических серверов](site-recovery-vmware-to-azure.md#exclude-disks-from-replication) в Azure с помощью портала Azure.
+Эта возможность поддерживается при [репликации виртуальных машин VMware и физических серверов](site-recovery-exclude-disk.md) в Azure с помощью портала Azure.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Можно ли реплицировать виртуальные машины с динамическими дисками?
 Динамические диски поддерживаются при репликации виртуальных машин Hyper-V. Они также поддерживаются при репликации виртуальных машин VMware и физических компьютеров в Azure. Диск операционной системы должен представлять собой базовый диск.
@@ -152,7 +155,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 ### <a name="can-i-throttle-bandwidth-allotted-for-hyper-v-replication-traffic"></a>Можно ли регулировать пропускную способность, выделенную для трафика репликации Hyper-V?
 Да. Дополнительные сведения о регулировании пропускной способности можно прочитать в приведенных ниже статьях о развертывании.
 
-* [Планирование ресурсов для репликации виртуальных машин VMware и физических серверов](site-recovery-vmware-to-azure.md#step-5-capacity-planning)
+* [Планирование ресурсов для репликации виртуальных машин VMware и физических серверов](site-recovery-plan-capacity-vmware.md)
 * [Планирование ресурсов для репликации виртуальных машин Hyper-V в облаках VMM](site-recovery-vmm-to-azure.md#step-5-capacity-planning)
 * [Планирование ресурсов для репликации виртуальных машин Hyper-V без VMM](site-recovery-hyper-v-site-to-azure.md#step-5-capacity-planning)
 
@@ -160,7 +163,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Как получить доступ к виртуальным машинам Azure после отработки отказа в Azure?
 Доступ к виртуальным машинам Azure можно получить через безопасное подключение к Интернету, подключение VPN типа "сеть — сеть" или с помощью Azure ExpressRoute. Для подключения потребуется выполнить несколько подготовительных действий. Дополнительные сведения см. в приведенных ниже статьях.
 
-* [Подключение к виртуальным машинам Azure после отработки отказа виртуальных машин VMware или физических серверов](site-recovery-vmware-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+* [Подключение к виртуальным машинам Azure после отработки отказа виртуальных машин VMware или физических серверов](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 * [Подключение к виртуальным машинам Azure после отработки отказа виртуальных машин Hyper-V в облаках VMM](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
 * [Подключение к виртуальным машинам Azure после отработки отказа виртуальных машин Hyper-V без VMM](site-recovery-hyper-v-site-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
@@ -171,7 +174,7 @@ Azure Site Recovery реплицирует данные в учетную зап
 Можно активировать незапланированную отработку отказа на дополнительном сайте. Для отработки отказа службе Site Recovery не требуется подключение на основном сайте.
 
 ### <a name="is-failover-automatic"></a>Отработка отказа выполняется автоматически?
-Отработка отказа не выполняется автоматически. Чтобы активировать ее, необходимо щелкнуть в соответствующем месте на портале или воспользоваться [Site Recovery PowerShell](https://msdn.microsoft.com/library/dn850420.aspx) . Восстановление размещения — простое действие, которое выполняется на портале Site Recovery.
+Отработка отказа не выполняется автоматически. Чтобы активировать ее, необходимо щелкнуть в соответствующем месте на портале или воспользоваться [Site Recovery PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery) . Восстановление размещения — простое действие, которое выполняется на портале Site Recovery.
 
 Чтобы автоматизировать выполнение этих процедур, можно использовать локальное решение Orchestrator или Operations Manager для обнаружения сбоя виртуальной машины, а затем активировать отработку отказа, используя пакет SDK.
 
@@ -209,9 +212,4 @@ Azure Site Recovery реплицирует данные в учетную зап
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь со статьей [Обзор Site Recovery](site-recovery-overview.md)
 * Ознакомьтесь с [архитектурой Site Recovery](site-recovery-components.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

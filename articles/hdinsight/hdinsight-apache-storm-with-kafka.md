@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight
@@ -318,10 +319,5 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 Дополнительные примеры топологий, которые можно использовать со Storm в HDInsight, см. в статье [Примеры топологий и компонентов Storm для Apache Storm в HDInsight](hdinsight-storm-example-topology.md).
 
 Сведения о развертывании и мониторинге топологий в HDInsight под управлением Linux см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

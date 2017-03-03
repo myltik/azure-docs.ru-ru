@@ -13,67 +13,57 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/21/2017
 ms.author: danielsollondon
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14f83c6753ce37639b1b2f78a4c632f1d69f585d
+ms.sourcegitcommit: b2e89f0d5e6b14ce8d5847f8adc3d57a6122172e
+ms.openlocfilehash: a3a36028a75d6cb7eb36277f3e2b5ab833c96a96
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell
-Ниже приведен пример создания масштабируемого набора виртуальных машин (VMSS), который создает VMSS из 3 узлов со всей соответствующей сетевой инфраструктурой и ресурсами хранения.
+В этой статье подробно рассматривается пример того, как создать масштабируемый набор виртуальных машин (VMSS). В нем создается масштабируемый набор из трех узлов со связанными сетью и хранилищем.
 
 ## <a name="first-steps"></a>Первые шаги
-Убедитесь, что установлен последний модуль Azure PowerShell с командлетами PowerShell, необходимыми для обслуживания и создания VMSS.
+Убедитесь, что у вас установлен последний модуль Azure PowerShell и доступны командлеты PowerShell, необходимые для обслуживания и создания масштабируемых наборов.
 Перейдите к расположенным [здесь](http://aka.ms/webpi-azps) программам командной строки, чтобы узнать о последних доступных модулях Azure.
 
-Чтобы найти связанные с VMSS командлеты, используйте строку поиска \*VMSS\*.
+Чтобы найти связанные с VMSS командлеты, используйте строку поиска \*VMSS\*. Например, _gcm *vmss*_.
 
 ## <a name="creating-a-vmss"></a>Создание VMSS
-##### <a name="create-resource-group"></a>Создать группу ресурсов
+#### <a name="create-resource-group"></a>Создать группу ресурсов
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
   New-AzureRmResourceGroup -Name $rgname -Location $loc -Force;
 ```
 
-##### <a name="create-storage-account"></a>Создать учетную запись хранения
-Задайте тип и имя учетной записи хранения.
-
-```
-$stoname = 'sto' + $rgname;
-$stotype = 'Standard_LRS';
- New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname -Location $loc -SkuName $stotype -Kind "Storage";
-
-$stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
-```
-
-#### <a name="create-networking-vnet--subnet"></a>Создание сетевой инфраструктуры (виртуальной сети и подсети)
-##### <a name="subnet-specification"></a>Спецификация подсети
+### <a name="create-networking-vnet--subnet"></a>Создание сетевой инфраструктуры (виртуальной сети и подсети)
+#### <a name="subnet-specification"></a>Спецификация подсети
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
-##### <a name="vnet-specification"></a>Спецификация виртуальной сети
+#### <a name="vnet-specification"></a>Спецификация виртуальной сети
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
-#In this case below we assume the new subnet is the only one, note difference if you have one already or have adjusted this code to more than one subnet.
+# In this case assume the new subnet is the only one
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-##### <a name="create-public-ip-resource-to-allow-external-access"></a>Создание ресурса общедоступного IP-адреса для внешнего доступа
-Выполняется привязка к балансировщику нагрузки.
+#### <a name="create-public-ip-resource-to-allow-external-access"></a>Создание ресурса общедоступного IP-адреса для внешнего доступа
+Выполняется привязка к подсистеме балансировки нагрузки.
 
 ```
 $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGroupName $rgname -Location $loc -AllocationMethod Dynamic -DomainNameLabel ('pubip' + $rgname);
 $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName $rgname;
 ```
 
-##### <a name="create-and-configure-load-balancer"></a>Создание и настройка балансировщика нагрузки
+#### <a name="create-load-balancer"></a>Создание балансировщика нагрузки
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -82,12 +72,12 @@ $inboundNatPoolName = 'innatpool' + $rgname
 $lbruleName = 'lbrule' + $rgname
 $lbName = 'vmsslb' + $rgname
 
-#Bind Public IP to Load Balancer
+# Bind Public IP to Load Balancer
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
-##### <a name="configure-load-balancer"></a>Настройка балансировщика нагрузки
-Создайте конфигурацию пула адресов серверной части, которая будет совместно использоваться сетевыми картами виртуальных машин в VMSS.
+#### <a name="configure-load-balancer"></a>Настройка балансировщика нагрузки
+Создайте конфигурацию внутреннего пула адресов, которая будет совместно использоваться сетевыми картами виртуальных машин в масштабируемом наборе.
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
@@ -99,7 +89,7 @@ $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $bac
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-Создайте правила NAT для прямой перенаправляемой связи (без балансировки нагрузки) с виртуальными машинами в VMSS через балансировщик нагрузки. Обратите внимание, как это показано на примере использования протокола удаленного рабочего стола (RDP). Это лишь демонстрация, и при взаимодействии с серверами с помощью RDP следует использовать внутренние методы виртуальной сети.
+Создайте пул входящих подключений NAT для подключений с прямой маршрутизацией (без балансировки) к виртуальным машинам в масштабируемом наборе с помощью подсистемы балансировки нагрузки. Это нужно для демонстрации использования протокола RDP и может не потребоваться в вашем приложении.
 
 ```
 $frontendpoolrangestart = 3360
@@ -130,20 +120,20 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Проверьте параметры балансировки нагрузки и конфигурации портов с балансировкой нагрузки. Помните, что правила NAT для входящего трафика отображаются только после создания виртуальных машин в VMSS.
+Проверьте параметры балансировки нагрузки и конфигурации портов с балансировкой нагрузки. Помните, что правила NAT для входящего трафика отображаются только после создания виртуальных машин в масштабируемом наборе.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### <a name="configure-and-create-vmss"></a>Настройка и создание VMSS
-Обратите внимание, что в этом примере инфраструктуры показано, как настроить распространение и масштабирование веб-трафика в VMSS, однако в указанных здесь образах виртуальных машин нет установленных веб-служб.
+##### <a name="configure-and-create-the-scale-set"></a>Настройка и создание масштабируемого набора
+Обратите внимание, что в этом примере инфраструктуры показано, как настроить распространение и масштабирование веб-трафика в масштабируемом наборе, однако в указанных здесь образах виртуальных машин нет установленных веб-служб.
 
 ```
-#specify VMSS Name
+# specify scale set Name
 $vmssName = 'vmss' + $rgname;
 
-##specify VMSS specific details
+## specify VMSS specific details
 $adminUsername = 'azadmin';
 $adminPassword = "Password1234!";
 
@@ -152,8 +142,6 @@ $Offer         = 'WindowsServer'
 $Sku          = '2012-R2-Datacenter'
 $Version       = 'latest'
 $vmNamePrefix = 'winvmss'
-
-$vhdContainer = "https://" + $stoname + ".blob.core.windows.net/" + $vmssName;
 
 ###add an extension
 $extname = 'BGInfo';
@@ -171,37 +159,32 @@ $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -SubnetId $subnetId;
 ```
 
-Создание конфигурации VMSS
+Создание конфигурации масштабируемого набора
 
 ```
-#Specify number of nodes
+# Specify number of nodes
 $numberofnodes = 3
 
 $vmss = New-AzureRmVmssConfig -Location $loc -SkuCapacity $numberofnodes -SkuName 'Standard_A2' -UpgradePolicyMode 'automatic' `
     | Add-AzureRmVmssNetworkInterfaceConfiguration -Name $subnetName -Primary $true -IPConfiguration $ipCfg `
     | Set-AzureRmVmssOSProfile -ComputerNamePrefix $vmNamePrefix -AdminUsername $adminUsername -AdminPassword $adminPassword `
-    | Set-AzureRmVmssStorageProfile -Name 'test' -OsDiskCreateOption 'FromImage' -OsDiskCaching 'None' `
+    | Set-AzureRmVmssStorageProfile -OsDiskCreateOption 'FromImage' -OsDiskCaching 'None' `
     -ImageReferenceOffer $Offer -ImageReferenceSku $Sku -ImageReferenceVersion $Version `
-    -ImageReferencePublisher $PublisherName -VhdContainer $vhdContainer `
+    -ImageReferencePublisher $PublisherName `
     | Add-AzureRmVmssExtension -Name $extname -Publisher $publisher -Type $exttype -TypeHandlerVersion $extver -AutoUpgradeMinorVersion $true
 ```
 
-Сборка конфигурации VMSS
+Сборка конфигурации масштабируемого набора
 
 ```
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-Вы создали VMSS. Подключение к отдельной виртуальной машине можно проверить с помощью протокола удаленного рабочего стола в этом примере:
+Теперь вы создали масштабируемый набор. Подключение к отдельной виртуальной машине можно проверить с помощью протокола удаленного рабочего стола в этом примере:
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360
 VM1 : pubipmynewrgwu.westus.cloudapp.azure.com:3361
 VM2 : pubipmynewrgwu.westus.cloudapp.azure.com:3362
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: fdc4e495fb3fb99022b0f7c487001b2fba42cccc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -30,8 +31,8 @@ ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
 ![Получение имени сервера в Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Подключение к серверу в Azure происходит так же, как и подключение к экземпляру сервера в организации. В среде SSMS можно выполнять большое количество задач, таких как обработка данных, создание скрипта обработки, управление ролями и использование PowerShell. [Скачайте и установите последнюю версию SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
-
+Подключение к серверу в Azure происходит так же, как и подключение к экземпляру сервера в организации. В среде SSMS можно выполнять большое количество задач, таких как обработка данных, создание скрипта обработки, управление ролями и использование PowerShell. [Скачайте и установите SSMS](#download-and-install-ssms).
+  
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
  Разница между порталом и SSMS заключается в методе проверки подлинности при подключении к серверу. Чтобы подключиться к серверу служб Analysis Services Azure, выберите **Проверка подлинности с помощью пароля Active Directory**.
@@ -49,7 +50,7 @@ ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
    
     **Проверка подлинности с помощью пароля Active Directory** — для входа используется учетная запись организации. Например, при подключении с компьютера, не присоединенного к домену.
    
-    Примечание. Если параметры проверки подлинности на основе Active Directory не отображаются, то, возможно, требуется выполнить обновление до [последней версии SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+    Примечание. Если параметры проверки подлинности на основе Active Directory не отображаются, то, возможно, требуется выполнить обновление до [последней версии SSMS](#download-and-install-ssms).
    
     ![Подключение в среде SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
@@ -58,6 +59,25 @@ ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
 ## <a name="server-administrators-and-database-users"></a>Администраторы сервера и пользователи базы данных
 В службах Azure Analysis Services существует два типа пользователей, администраторы сервера и пользователи базы данных. Оба типа пользователей должны находиться в Azure Active Directory и иметь настроенный адрес электронной почты организации или имя участника-пользователя. Это отличается от локальных баз данных с табличной моделью, которые поддерживают имена пользователей домена Windows для администраторов сервера и пользователей базы данных. Чтобы узнать больше, ознакомьтесь с разделом [Управление пользователями в службах Azure Analysis Services](analysis-services-manage-users.md).
 
+## <a name="download-and-install-ssms"></a>Скачивание и установка SSMS
+[Скачайте SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+
+На странице скачивания вы увидите два варианта:
+ 
+* Релиз-кандидат. Рекомендуется использовать при только подключении к предварительной версии служб Azure Analysis Services. Этот выпуск получает последние обновления и лучше всего работает с предварительной версией служб Azure Analysis Services.
+* Текущий рабочий выпуск. Рекомендуется использовать при подключении и к рабочим серверам, и к предварительной версии служб Azure Analysis Services. При использовании этой версии, возможно, потребуется изменить реестр, чтобы включить аутентификацию Azure Active Directory.
+
+## <a name="enable-azure-active-directory-authentication"></a>Включение проверки подлинности Azure Active Directory
+
+Чтобы включить компонент проверки подлинности Azure Active Directory для SSMS в реестре, создайте текстовый файл с именем EnableAAD.reg, а затем скопируйте и вставьте в него следующее.
+
+```
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
+"AS AAD Enabled"="True"
+```
+
+Сохраните и откройте файл.
 
 ## <a name="troubleshooting-connection-problems"></a>Устранение неполадок с подключением
 Если при подключении к серверу с помощью SSMS (на шаге 3) вы пробуете выполнить вход с помощью учетной записи, не являющейся федеративной или не входящей в Azure Active Directory, и подключиться не удается, то может потребоваться очистить кэш учетных данных. Закройте SSMS, затем выполните следующие действия.
@@ -71,10 +91,5 @@ ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
 Если вы все еще не развернули табличную модель нового сервера, сейчас самое время это сделать. Дополнительные сведения см. в статье [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Развертывание в службы Azure Analysis Services).
 
 Если модель для сервера развернута, к ней можно подключиться с помощью клиента или браузера. Дополнительные сведения см. в статье [Получение данных из служб Azure Analysis Services](analysis-services-connect.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

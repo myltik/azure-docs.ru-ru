@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Настройка MPIO на узле Windows Server для виртуального массива StorSimple
@@ -156,10 +157,5 @@ MPIO необходимо настроить для идентификации �
    
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [использовании службы диспетчера устройств StorSimple для администрирования виртуального массива StorSimple](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

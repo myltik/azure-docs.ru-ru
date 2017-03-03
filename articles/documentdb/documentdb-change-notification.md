@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
 ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -1114,10 +1115,5 @@ emailBody является объединением количества док�
 Скачайте и используйте код приложений логики, размещенный на сайте [Github](https://github.com/HEDIDIN/DocDbNotifications). Предлагаю вам создать приложение и отправить изменения в репозиторий. 
 
 Дополнительные сведения о DocumentDB см. на странице [схемы обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

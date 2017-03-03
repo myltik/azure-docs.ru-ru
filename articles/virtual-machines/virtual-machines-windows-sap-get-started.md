@@ -19,6 +19,7 @@ ms.author: rclaus
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: 581ddd7ac3d612007614ca4f582364dfa16d30f6
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -389,10 +390,5 @@ ms.openlocfilehash: 581ddd7ac3d612007614ca4f582364dfa16d30f6
 Последнее обновление: декабрь 2016 г.
 
 [Это руководство можно найти здесь.][ha-guide]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

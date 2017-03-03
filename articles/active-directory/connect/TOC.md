@@ -22,8 +22,10 @@
 ## планирование и разработка
 ### [Принципы проектирования](active-directory-aadconnect-design-concepts.md)
 ### [Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md)
+### [Единый вход](active-directory-aadconnect-sso.md)
+### [Службы федерации Active Directory в Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Специальные рекомендации для экземпляров](active-directory-aadconnect-instances.md)
-
+### [Если у вас уже есть клиент Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Управление Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Обновление сертификатов для Office&365; и Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Включение обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Управление синхронизацией Azure AD Connect
 ### [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Синхронизация паролей](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Сквозная проверка подлинности](active-directory-aadconnect-pass-through-authentication.md)
 ### [Учетная запись службы Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Мастер установки](active-directory-aadconnectsync-installation-wizard.md)
 ### [Изменение конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md)
 ### [Планировщик](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Конструктор метавселенной](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Поиск в метавселенной](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Управление службами федерации
 ### [Управление и настройка](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # Ресурсы
 ##[Azure AD Connect: вопросы и ответы](active-directory-aadconnect-faq.md)
 ##[Нерекомендуемая версия DirSync](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -84,10 +85,5 @@ ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
 
 ## <a name="see-also"></a>См. также
 [Доставка потокового контента](media-services-deliver-streaming-content.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

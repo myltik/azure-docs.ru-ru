@@ -42,8 +42,3 @@
 ## [Пробная версия](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Блог](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Веб-сайт Azure для государственных организаций](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

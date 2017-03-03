@@ -11,14 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/02/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d0c072a57ca3afb89dffc88895f004d66b28cb8
+ms.sourcegitcommit: 99d0c1671ac0b1ec969308ff1bee0623c5dab673
+ms.openlocfilehash: be3ba2e5d74aecc3ca0bae6d48c982827ceb5583
+ms.lasthandoff: 02/17/2017
 
 
 ---
+
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Руководство. Интеграция Azure Active Directory с Intacct
 Цель данного руководства — показать интеграцию Azure и Intacct.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
@@ -30,131 +32,124 @@ ms.openlocfilehash: 5d0c072a57ca3afb89dffc88895f004d66b28cb8
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1. Включение интеграции приложений для Intacct
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+* Включение интеграции приложений для Intacct
+* Настройка единого входа
+* Настройка подготовки учетных записей пользователей
+* Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-intacct-tutorial/IC790030.png "Scenario")
+![Сценарий](./media/active-directory-saas-intacct-tutorial/IC790030.png "Сценарий")
 
-## <a name="enabling-the-application-integration-for-intacct"></a>Включение интеграции приложений для Intacct
+## <a name="enable-the-application-integration-for-intacct"></a>Включение интеграции приложений для Intacct
 В этом разделе показано, как включить интеграцию приложений для Intacct.
 
-### <a name="to-enable-the-application-integration-for-intacct-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Intacct, выполните следующие действия.
+**Чтобы включить интеграцию приложений для Intacct, сделайте следующее:**
+
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-intacct-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-intacct-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-intacct-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-intacct-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-intacct-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-intacct-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-intacct-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Intacct**.
    
-   ![Коллекция приложений](./media/active-directory-saas-intacct-tutorial/IC790031.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-intacct-tutorial/IC790031.png "Коллекция приложений")
 7. В области результатов выберите **Intacct** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Intacct](./media/active-directory-saas-intacct-tutorial/IC790032.png "Intacct")
    
-   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Intacct со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
-В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64.  
-Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На странице интеграции с приложением **Intacct** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790033.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Intacct?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790034.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790034.png "Настройка единого входа")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Intacct** введите свой URL-адрес в формате *https://Intacct.com/компания* и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-intacct-tutorial/IC790035.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-intacct-tutorial/IC790035.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Intacct** нажмите кнопку **Скачать сертификат**, а затем сохраните файл сертификата на своем компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790036.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790036.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Intacct в качестве администратора.
 6. Откройте вкладку **Company** (Компания) и выберите **Company Info** (Сведения о компании).
    
-   ![Компания](./media/active-directory-saas-intacct-tutorial/IC790037.png "Company")
+   ![Организация](./media/active-directory-saas-intacct-tutorial/IC790037.png "Организация")
 7. Откройте вкладку **Security** (Безопасность) и нажмите кнопку **Edit** (Изменить).
    
-   ![Безопасность](./media/active-directory-saas-intacct-tutorial/IC790038.png "Security")
+   ![Безопасность](./media/active-directory-saas-intacct-tutorial/IC790038.png "Безопасность")
 8. В разделе **Единый вход** сделайте следующее:
    
-   ![Единый вход](./media/active-directory-saas-intacct-tutorial/IC790039.png "Single Sign On")
+   ![Единый вход](./media/active-directory-saas-intacct-tutorial/IC790039.png "Единый вход")
    
    1. Установите флажок **Включить единый вход**.
    2. Выберите для параметра **Identity provider type** (Тип поставщика удостоверений) значение **SAML 2.0**.
    3. На странице диалогового окна **Настройка единого входа в Intacct** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **Issuer URL** (URL-адрес издателя).
    4. На странице диалогового окна **Настройка единого входа в Intacct** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **Login URL** (URL-адрес для входа).
-   5. Создайте файл **в кодировке Base-64** из скачанного сертификата.
-      
-      > [!TIP]
-      > Дополнительные сведения можно узнать в видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
-   6. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат** .
+   5. Создайте файл **в кодировке Base-64** из скачанного сертификата.      
+      >[!TIP]
+      >Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
+      >  
+   6. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат**.
    7. Щелкните **Сохранить**.
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-intacct-tutorial/IC790040.png "Настройка единого входа")
    
-   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
-Чтобы пользователи Azure AD могли выполнять вход в Intacct, они должны быть подготовлены для Intacct.  
-В случае с Intacct подготовка выполняется вручную.
+Чтобы пользователи Azure AD могли выполнять вход в Intacct, они должны быть подготовлены для Intacct. В случае с Intacct подготовка выполняется вручную.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия.
+**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+
 1. Выполните вход в клиент **Intacct** .
 2. Откройте вкладку **Company** (Компания) и выберите **Users** (Пользователи).
    
-   ![Пользователи](./media/active-directory-saas-intacct-tutorial/IC790041.png "Users")
+   ![Пользователи](./media/active-directory-saas-intacct-tutorial/IC790041.png "Пользователи")
 3. Откройте вкладку **Добавить** .
    
-   ![Добавить](./media/active-directory-saas-intacct-tutorial/IC790042.png "Add")
+   ![Добавление](./media/active-directory-saas-intacct-tutorial/IC790042.png "Добавление")
 4. В разделе **Информация о пользователе** сделайте следующее:
    
-   ![Информация о пользователе](./media/active-directory-saas-intacct-tutorial/IC790043.png "User Information")
+   ![Сведения о пользователе](./media/active-directory-saas-intacct-tutorial/IC790043.png "Сведения о пользователе")
    
    1. В соответствующие текстовые поля введите атрибуты **User ID** (Идентификатор пользователя), **Last Name** (Фамилия), **First name** (Имя), **Email address** (Адрес электронной почты), **Title** (Обращение) и **Phone** (Телефон) действующей учетной записи Azure AD, которую вы хотите подготовить.
    2. Выберите параметр **Полномочия администратора** для учетной записи Azure AD, которую требуется подготовить.
-   3. Щелкните **Сохранить**.
-      
-      > [!NOTE]
-      > Владелец учетной записи Azure AD получит по электронной почте сообщение со ссылкой для активации учетной записи.
-      > 
-      > 
+   3. Щелкните **Сохранить**.      
+      >[!NOTE]
+      >Владелец учетной записи Azure AD получит по электронной почте сообщение со ссылкой для активации учетной записи.
+      >  
 
-> [!NOTE]
-> Вы можете использовать любые другие средства создания учетной записи пользователя Intacct или API, предоставляемые Intacct для подготовки учетных записей пользователя AAD.
-> 
+>[!NOTE]
+>Вы можете использовать любые другие средства создания учетной записи пользователя Intacct или API, предоставляемые Intacct для подготовки учетных записей пользователя AAD.
 > 
 
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-intacct-perform-the-following-steps"></a>Чтобы назначить пользователей Intacct, выполните следующие действия.
+**Чтобы назначить пользователей Intacct, сделайте следующее:**
+
 1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Intacct** нажмите кнопку **Назначить пользователей**.
+2. На странице интеграции с приложением **Intacct** щелкните **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-intacct-tutorial/IC790044.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-intacct-tutorial/IC790044.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-intacct-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-intacct-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

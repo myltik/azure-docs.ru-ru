@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
 ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -139,10 +140,5 @@ VPN-шлюз — это разновидность шлюза виртуаль�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о доступных конфигурациях подключений см. в статье [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md). 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

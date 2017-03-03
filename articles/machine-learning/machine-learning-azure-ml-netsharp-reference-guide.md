@@ -17,6 +17,7 @@ ms.author: jeannt
 translationtype: Human Translation
 ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
 ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
+ms.lasthandoff: 12/15/2016
 
 
 ---
@@ -405,13 +406,8 @@ Net# дополнительно поддерживает определение 
 * Так как **Sharing**[d] имеет значение False только для *d == 0*, число ядер равно ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Благодарности
-Язык Net# для изменения архитектуры нейронных сетей был разработан в корпорации Майкрософт Шоном Катценбергером [Shon Katzenberger] (архитектор, машинное обучение) и Алексеем Каменевым (разработчик программного обеспечения, Microsoft Research). Он используется внутри компании для проектов машинного обучения и различных приложений от приложений распознавания образов до приложений анализа текста. Дополнительные сведения см. в статье [Neural Nets in Azure ML – Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Нейронные сети в машинном обучении Azure. Введение в Net#)
+Язык Net# для изменения архитектуры нейронных сетей был разработан в корпорации Майкрософт Шоном Катценбергером Shon Katzenberger (архитектор, машинное обучение) и Алексеем Каменевым (разработчик программного обеспечения, Microsoft Research). Он используется внутри компании для проектов машинного обучения и различных приложений от приложений распознавания образов до приложений анализа текста. Дополнительные сведения см. в статье [Neural Nets in Azure ML – Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Нейронные сети в машинном обучении Azure. Введение в Net#)
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

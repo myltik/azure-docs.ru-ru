@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: cc61bd7ab1f81ccdc5e9c73c1861d29dafa59c12
+ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
+ms.openlocfilehash: 5afe1110944641daaeace5ef02b2c9fa8d2a8e05
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -80,6 +81,9 @@ ms.openlocfilehash: cc61bd7ab1f81ccdc5e9c73c1861d29dafa59c12
 > [!NOTE]
 > Важно использовать источник питания из набора с силой тока не менее 2 А, чтобы на устройство Raspberry подавалась энергия, которой достаточно для правильной работы.
 
+## <a name="enable-ssh"></a>Включение SSH
+В выпуске за ноябрь 2016 г. в настройках ОС Raspbian сервер SSH по умолчанию отключен. Его необходимо включить вручную. Вы можете ознакомиться с [официальными инструкциями](https://www.raspberrypi.org/documentation/remote-access/ssh/) или подключить монитор и перейти в меню **Preferences -> Raspberry Pi Configuration** (Настройки -> Конфигурация Raspberry Pi), чтобы включить SSH.
+
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>Подключение устройства Raspberry Pi 3 к сети
 Устройство Pi можно подключить к проводной или беспроводной сети. Убедитесь, что плата Pi подключена к той же сети, что и компьютер. Например, можно подключить плату Pi к тому же коммутатору, к которому подключен компьютер.
 
@@ -113,10 +117,5 @@ ms.openlocfilehash: cc61bd7ab1f81ccdc5e9c73c1861d29dafa59c12
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Получение инструментов](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

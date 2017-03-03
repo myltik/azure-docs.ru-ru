@@ -18,6 +18,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
 ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -212,10 +213,5 @@ ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о Power BI см. в статье [Приступая к работе с Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Дополнительные сведения о DocumentDB см. на [целевой странице документации по DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

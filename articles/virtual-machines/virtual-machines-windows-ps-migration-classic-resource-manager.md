@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
 ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -270,10 +271,5 @@ Get-AzureRmVMUsage -Location "West US"
 * Дополнительные сведения о переносе см. в разделе [Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 * Чтобы перенести дополнительные сетевые ресурсы в Resource Manager с помощью PowerShell, выполните аналогичные действия, используя командлеты [Move-AzureNetworkSecurityGroup](https://msdn.microsoft.com/library/mt786729.aspx), [Move-AzureReservedIP](https://msdn.microsoft.com/library/mt786752.aspx) и [Move-AzureRouteTable](https://msdn.microsoft.com/library/mt786718.aspx).
 * Сценарии с открытым кодом, которые можно использовать для переноса ресурсов Azure из классической модели в модель Resource Manager, описаны в разделе [Инструменты сообщества для переноса ресурсов из управления службами Azure в Azure Resource Manager](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

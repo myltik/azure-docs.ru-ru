@@ -17,6 +17,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
 ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 При желании вы можете попробовать воспользоваться [расширением виртуальных машин Docker](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в Azure для выполнения этой же операции с помощью интерфейса командной строки Azure или шаблонов Azure Resource Manager. 
 
 Дополнительные примеры работы с Docker см. в статье [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Работа с Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

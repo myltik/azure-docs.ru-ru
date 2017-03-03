@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -56,10 +57,5 @@ ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
 * Узнайте больше о [безопасности StorSimple](storsimple-security.md).
 * Узнайте больше об [изменении конфигурации устройства](storsimple-modify-device-config.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

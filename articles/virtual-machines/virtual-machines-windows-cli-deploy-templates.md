@@ -18,6 +18,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: eba7319ef182b6151f3e023e604b252ce9410053
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -31,10 +32,5 @@ ms.openlocfilehash: eba7319ef182b6151f3e023e604b252ce9410053
 </br> 
 
 [!INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

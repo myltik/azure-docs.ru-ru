@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
 ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -94,10 +95,5 @@ ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива](media-services-rest-get-started.md) , в котором будет показано, как использовать Media Encoder Standard для кодирования ресурса-контейнера.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

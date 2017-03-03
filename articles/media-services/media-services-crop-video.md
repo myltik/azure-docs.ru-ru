@@ -17,6 +17,7 @@ ms.author: anilmur;juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -142,9 +143,4 @@ ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
 См. схемы обучения по службам мультимедиа Azure, которые позволят вам узнать о возможностях, предлагаемых AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

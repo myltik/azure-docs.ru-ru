@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 4fa0cdc2ee71d4e499dfc45bac7b690d728b626a
 ms.openlocfilehash: 2649edd4af67e25ce49bf0ced858b7c7e4633290
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -595,10 +596,5 @@ vmName: vmsstestvm1
 * Просмотрите примеры функций мониторинга Azure Monitor в статье [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md).
 * Узнайте о возможностях уведомлений в статье [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

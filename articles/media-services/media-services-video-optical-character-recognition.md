@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
 ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -49,20 +50,25 @@ ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 | DetectRegions |(необязательно) Массив объектов DetectRegion, указывающих области внутри видеокадра, в котором выполняется распознавание текста.<br/>Объект DetectRegion состоит из следующих четырех значений, которые являются целыми числами.<br/>Left — отступ в пикселях от левого края.<br/>Top — отступ в пикселях от верхнего края.<br/>Width — ширина области в пикселях.<br/>Height: высота области в пикселях. |
 
 #### <a name="json-preset-example"></a>Пример предустановки JSON
+
     {
-        'Version':'1.0', 
-        'Options': 
+        "Version":1.0, 
+        "Options": 
         {
-        'Language':'English', 
-            'TimeInterval':'00:00:01.5',
-            'DetectRegions': 
-             [
-                {'Left':'1','Top':'1','Width':'1','Height':'1'},
-                {'Left':'2','Top':'2','Width':'2','Height':'2'}
-             ],
-            'TextOrientation':'Up'
+            "Language":"English", 
+            "TimeInterval":"00:00:01.5",
+            "TextOrientation":"Up",
+            "DetectRegions": [
+                    {
+                       "Left": 10,
+                       "Top": 10,
+                       "Width": 100,
+                       "Height": 50
+                    }
+             ]
         }
     }
+
 
 #### <a name="xml-preset-example"></a>Пример предустановки XML
     <?xml version=""1.0"" encoding=""utf-16""?>
@@ -72,10 +78,10 @@ ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>
              <DetectRegion>
-                   <Left>1</Left>
-                   <Top>1</Top>
-                   <Width>1</Width>
-                   <Height>1</Height>
+                   <Left>10</Left>
+                   <Top>10</Top>
+                   <Width>100</Width>
+                   <Height>50</Height>
             </DetectRegion>
        </DetectRegions>
        <TextOrientation>Up</TextOrientation>
@@ -342,10 +348,5 @@ ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 ## <a name="related-links"></a>Связанные ссылки
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

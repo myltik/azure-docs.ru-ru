@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -239,10 +240,5 @@ ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
 * [Подробный справочник по модели данных типов и значений свойств.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
+ms.lasthandoff: 02/22/2017
+
 
 
 ---
@@ -49,7 +51,7 @@ ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
     [;]
 
 > [!NOTE]
-> Убедитесь, что значение `<username>` не содержит суффикс **"@servername"**. 
+> Убедитесь, что значение `<username>` не содержит суффикс **@servername**. 
 >
 
 ## <a name="create-external-data-sources"></a>Создание внешних источников данных
@@ -180,18 +182,17 @@ ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 * Эластичные запросы оптимальны, когда основная часть вычислений может быть выполнена в удаленной базе данных. Обычно наиболее эффективны запросы с предикатами выборочных фильтров, дающие возможность вычисления в удаленных базах данных, или соединениями, которые могут быть полностью выполнены в удаленной базе данных. Для других шаблонов запросов может потребоваться загрузка больших объемов данных из удаленной базы данных, и эти шаблоны могут сработать неэффективно. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения о запросах к базам данных с горизонтальным секционированием (или сегментированным базам данных) см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+* Общие сведения об эластичных запросах см. в разделе [Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)](sql-database-elastic-query-overview.md).
+* Руководств по вертикальному секционированию см. в статье [Приступая к работе с межбазовыми запросами (вертикальное секционирование) (предварительная версия)](sql-database-elastic-query-getting-started-vertical.md).
+* Руководство по горизонтальному секционированию (сегментированию) см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-getting-started.md).
+* Описание синтаксиса и примеры запросов горизонтально секционированных данных см. в разделе [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md).
+* В описании [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) приведена хранимая процедура, которая выполняет инструкцию Transact-SQL для отдельной удаленной базы данных SQL Azure или набора баз данных, выступающих в качестве сегментов в схеме горизонтального секционирования.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
 
 
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

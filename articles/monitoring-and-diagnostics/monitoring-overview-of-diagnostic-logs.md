@@ -17,6 +17,7 @@ ms.author: johnkem; magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
 ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -213,9 +214,4 @@ ServiceBusRuleID — это строка в таком формате: `{service
 * [Потоковая передача журналов диагностики в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Create or update a diagnostics setting in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx) (Создание и изменение параметров диагностики с помощью REST API Azure Monitor)
 * [Анализ журналов с помощью OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

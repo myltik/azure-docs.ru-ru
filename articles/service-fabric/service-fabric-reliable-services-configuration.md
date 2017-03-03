@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/17/2017
 ms.author: sumukhs
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 438ecec47e35619442ed2fdad4e835a674e1a2dc
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: 101b4e6a7bd5ded44334a4c3c9efee69669d9bcf
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,14 +36,26 @@ ms.openlocfilehash: 438ecec47e35619442ed2fdad4e835a674e1a2dc
 | SharedLogPath |Полное имя пути |"" |Полный путь к файлу общего журнала, используемому всеми службами Reliable Services во всех узлах кластера, для которых в конфигурации службы не указан параметр SharedLogId. Однако если параметр SharedLogPath задан, то также необходимо задать SharedLogId. |
 | SharedLogSizeInMB |Мегабайты |8192 |Определяет дисковое пространство в МБ, выделяемое для общего журнала в статическом режиме. Значение должно быть больше или равно 2048. |
 
-### <a name="sample-cluster-manifest-section"></a>Образец раздела манифеста кластера
+В Azure ARM или в локальном шаблоне JSON выполните приведенный ниже пример, позволяющий изменить общий журнал транзакций, который создается для хранения резервных копий надежных коллекций для служб с отслеживанием состояния.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
+### <a name="sample-local-developer-cluster-manifest-section"></a>Пример раздела манифеста кластера для локальной среды разработки
+Если вы хотите изменить это в вашей локальной среде разработки, необходимо изменить локальный файл clustermanifest.xml.
+
 ```xml
    <Section Name="KtlLogger">
+     <Parameter Name="SharedLogSizeInMB" Value="4096"/>
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
      <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
      <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
      <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
-     <Parameter Name="SharedLogSizeInMB" Value="16383"/>
    </Section>
 ```
 
@@ -174,10 +187,5 @@ class MyStatefulService : StatefulService
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отладка приложения Service Fabric с помощью Visual Studio](service-fabric-debugging-your-application.md)
 * [Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

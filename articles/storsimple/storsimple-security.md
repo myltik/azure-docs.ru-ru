@@ -17,6 +17,7 @@ ms.author: v-sharos
 translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -257,10 +258,5 @@ StorSimple использует следующие алгоритмы шифро
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Развертывание устройства StorSimple](storsimple-deployment-walkthrough.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

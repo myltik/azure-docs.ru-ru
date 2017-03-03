@@ -18,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
 ms.openlocfilehash: d39f9b4f55f93745afea48a4b581d76e57a824c3
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -359,9 +360,4 @@ MLlib предоставляет простой способ выполнени�
 ### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

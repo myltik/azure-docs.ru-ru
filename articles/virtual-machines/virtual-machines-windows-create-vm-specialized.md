@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
 ms.openlocfilehash: cbe3d72bbd0d9cc425b1b26ad412e77b33f385b2
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -196,10 +197,5 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы войти на новую виртуальную машину, найдите ее на [портале](https://portal.azure.com), нажмите кнопку **Подключение**и откройте RDP-файл "Удаленный рабочий стол". Для входа на новую виртуальную машину используйте учетные данные для входа в новую виртуальную машину. Дополнительные сведения см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

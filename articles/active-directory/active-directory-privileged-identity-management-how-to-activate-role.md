@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: f70fec829b273de97fc49e61ba42d511b6b141b3
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -62,9 +63,4 @@ ms.openlocfilehash: f70fec829b273de97fc49e61ba42d511b6b141b3
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

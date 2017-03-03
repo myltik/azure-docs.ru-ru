@@ -20,6 +20,7 @@ ms.author: sstein;carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -65,10 +66,5 @@ ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
 - Основные сведения об аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
 - Основные сведения об аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
 - Дополнительные сведения о решении SSMS см. в статье [Использование среды SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

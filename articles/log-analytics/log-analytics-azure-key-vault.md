@@ -17,6 +17,7 @@ ms.author: richrund
 translationtype: Human Translation
 ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
 ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -150,10 +151,5 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных о хранилище ключей Azure.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

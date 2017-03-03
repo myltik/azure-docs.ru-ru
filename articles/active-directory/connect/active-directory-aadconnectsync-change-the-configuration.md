@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
 ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -179,9 +180,4 @@ ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

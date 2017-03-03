@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
 ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -174,10 +175,5 @@ UserPrincipalName. Пользователи будут использовать 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
 См. также [Azure AD Connect: принципы проектирования](active-directory-aadconnect-design-concepts.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

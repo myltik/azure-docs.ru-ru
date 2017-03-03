@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: c30916c0b5078a6e346ac2a7ddeb07eda3bda218
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -64,10 +65,5 @@ ms.openlocfilehash: c30916c0b5078a6e346ac2a7ddeb07eda3bda218
 * [Перенос ресурсов IaaS из классической модели в модель Azure Resource Manager с помощью интерфейса командной строки Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Клонирование классической виртуальной машины в Azure Resource Manager с помощью сценариев PowerShell](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

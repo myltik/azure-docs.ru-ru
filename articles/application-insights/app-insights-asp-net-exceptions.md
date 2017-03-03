@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -441,9 +442,4 @@ VB
 * [Мониторинг вызовов REST, SQL и других вызовов зависимостей](app-insights-asp-net-dependencies.md)
 * [Мониторинг времени загрузки страниц, исключений браузера и вызовов AJAX](app-insights-javascript.md)
 * [Мониторинг счетчиков производительности](app-insights-performance-counters.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

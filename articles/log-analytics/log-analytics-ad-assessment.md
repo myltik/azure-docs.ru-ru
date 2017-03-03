@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
+ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,7 +40,7 @@ ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
 Для установки и настройки решений используйте указанные ниже данные.
 
 * Агенты должны устанавливаться на контроллерах домена, являющихся членами домена, который будет оцениваться.
-* Для решения оценки Active Directory на каждом компьютере с агентом OMS должна быть установлена платформа .NET Framework 4.
+* Для решения оценки Active Directory на каждом компьютере с агентом OMS должна быть установлена поддерживаемая версия платформы .NET Framework 4 (4.5.2 или выше).
 * Решение оценки Active Directory необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
   > [!NOTE]
@@ -170,9 +171,4 @@ ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по оценке AD и рекомендациям.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

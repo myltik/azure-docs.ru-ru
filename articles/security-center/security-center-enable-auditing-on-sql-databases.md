@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: d36bb775d0b0fd732562b18787b65600c8fb5fa1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -42,12 +43,12 @@ ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
 3. В колонке **Аудит и обнаружение угроз** в разделе **Аудит** щелкните **Вкл.**
 
    ![Включение аудита и обнаружения угроз][3]
-4. Следуйте указаниям в разделе [Приступая к работе с системой обнаружения угроз базы данных SQL](../sql-database/sql-database-threat-detection-get-started.md) , чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться предупреждения системы безопасности при обнаружении аномальных действий.
+4. Следуйте указаниям в разделе [Обнаружение угроз для базы данных SQL](../sql-database/sql-database-threat-detection-portal.md), чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться оповещения системы безопасности при обнаружении аномальных действий.
 
 ## <a name="see-also"></a>Дополнительные материалы
 В этой статье показано, как выполнить рекомендацию центра безопасности по включению аудита баз данных SQL. Чтобы узнать больше о защите базы данных SQL, ознакомьтесь со следующими статьями.
 
-* [Защита Базы данных SQL](../sql-database/sql-database-security.md)
+* [Защита Базы данных SQL](../sql-database/sql-database-security-overview.md)
 
 Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
@@ -63,9 +64,4 @@ ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -413,9 +414,4 @@ ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
 | [Планирование и выполнение](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

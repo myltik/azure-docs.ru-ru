@@ -21,6 +21,7 @@
 ### [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Использование Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Передача данных из источников вне сети](data-lake-store-offline-bulk-data-upload.md)
+### [Перенос хранилища Azure Data Lake Store между регионами](data-lake-store-migration-cross-region.md)
 
 ## Обеспечение безопасности данных
 ### [Обзор безопасности](data-lake-store-security-overview.md)
@@ -70,8 +71,3 @@
 ## [Отправка отзывов с помощью UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Блог Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

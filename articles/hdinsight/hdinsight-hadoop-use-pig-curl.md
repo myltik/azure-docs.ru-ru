@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
 ms.openlocfilehash: d4d9ed8380a0e8726fe2e2835e4b10fd262e1562
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -118,10 +119,5 @@ Curl используется для демонстрации возможнос
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

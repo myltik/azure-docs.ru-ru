@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3f0af43c103e34535fd114e33c40da010ea69d69
-ms.openlocfilehash: b8a2a33909f77dd1bbe0a7b454e15df7432164a8
+ms.sourcegitcommit: 2461f706f8fc1150e69312098640c0676206a531
+ms.openlocfilehash: 4edd728fe4798450106a4991b353b9dac9de0d88
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -60,9 +61,4 @@ ms.openlocfilehash: b8a2a33909f77dd1bbe0a7b454e15df7432164a8
 * Описание процесса миграции базы данных SQL Server в базу данных SQL Azure см. в [этой статье](sql-database-cloud-migrate.md).
 * Общие сведения о копировании базы данных SQL Azure см. в [этой статье](sql-database-copy.md).
 * Вы можете создать базу данных SQL Azure с помощью [портала Azure](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) или [Transact-SQL](sql-database-copy-transact-sql.md). 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

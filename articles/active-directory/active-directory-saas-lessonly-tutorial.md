@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
-ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 242cc7d58acb4af66d7ea5da4502db4ce2b414c6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -141,7 +142,7 @@ ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
     а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
-2. Чтобы получить помощь по настройке единого входа для приложения, обратитесь в службу поддержки Lesson.ly, используя адрес dev@lessonly.com. Прикрепите к сообщению скачанный сертификат и укажите URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода), чтобы специалисты Lesson.ly смогли настроить единый вход со своей стороны.
+2. Чтобы получить помощь по настройке единого входа для приложения, обратитесь к группе поддержки Lesson.ly, отправив письмо на электронный адрес dev@lessonly.com. Прикрепите к сообщению скачанный сертификат и укажите URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода), чтобы специалисты Lesson.ly смогли настроить единый вход со своей стороны.
 3. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
    ![единого входа Azure AD][10]
@@ -257,9 +258,4 @@ ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

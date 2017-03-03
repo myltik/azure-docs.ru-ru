@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -308,10 +309,5 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об управлении хранилищем ключей Azure, а также об удалении криптографических ключей и хранилищ см. в статье [Управление хранилищем ключей с помощью интерфейса командной строки](../key-vault/key-vault-manage-with-cli.md).
 * Дополнительные сведения о шифровании дисков, а именно о подготовке зашифрованной настраиваемой виртуальной машины к передаче в Azure, см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](../security/azure-security-disk-encryption.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

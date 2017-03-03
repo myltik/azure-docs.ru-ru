@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
 ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -215,10 +216,5 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 ## <a name="related-links"></a>Связанные ссылки
 * [Возможности базы данных SQL Azure](sql-database-features.md)
 * [Ограничения ресурсов базы данных SQL Azure](sql-database-resource-limits.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

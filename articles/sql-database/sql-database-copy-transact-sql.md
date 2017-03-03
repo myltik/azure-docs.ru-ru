@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
 ms.openlocfilehash: 3ade1f2850b2a67f68e8a4a7f519b7dc7ba1de10
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -79,9 +80,4 @@ ms.openlocfilehash: 3ade1f2850b2a67f68e8a4a7f519b7dc7ba1de10
 * Дополнительные сведения об управлении пользователями и именами для входа при копировании базы данных на другой логический сервер см. в статье [Настройка безопасности Базы данных SQL Azure и управление ею для геовосстановления или отработки отказа](sql-database-geo-replication-security-config.md).
 * [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 * [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

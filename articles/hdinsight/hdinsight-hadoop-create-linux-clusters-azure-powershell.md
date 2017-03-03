@@ -18,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 2dd64398fce3a85f92492b01951008eab31a2c3f
 ms.openlocfilehash: a566fe935da98d303f1260cbc2a2009e5702530a
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -187,10 +188,5 @@ Azure PowerShell — это полнофункциональная среда с
 * [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

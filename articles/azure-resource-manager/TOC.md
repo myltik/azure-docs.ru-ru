@@ -17,6 +17,7 @@
 ### [Создание шаблонов](resource-group-authoring-templates.md)
 ### [Функции шаблонов](resource-group-template-functions.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
+### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
 ### [Создание нескольких экземпляров типа ресурса](resource-group-create-multiple.md)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 ### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

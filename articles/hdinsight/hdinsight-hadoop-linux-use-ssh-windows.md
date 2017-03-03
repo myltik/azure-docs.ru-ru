@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -239,9 +240,4 @@ SSH — это служебная программа для входа в сис
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 6a854486060c77d743cbdd42b7a341860ab77361
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,24 +32,21 @@ ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
 ## <a name="admins-adding-guest-users-to-the-directory"></a>Администраторы, добавляющие гостевых пользователей в каталог
 В следующем видеоролике показано, как администратор Azure AD может добавить пользователей службы совместной работы B2B в каталог:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant/Player]
 
-  Если этот видеоролик не отображается, то вы можете его найти [здесь](https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant).
 
 ## <a name="admins-adding-guest-users-to-a-group"></a>Администраторы, добавляющие гостевых пользователей в группу
 В следующем видеоролике показано, как администратор Azure AD может добавить пользователей службы совместной работы B2B в группу:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
-  Если этот видеоролик не отображается, то вы можете его найти [здесь](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
 
 ## <a name="admins-adding-guest-users-to-an-application"></a>Администраторы, добавляющие гостевых пользователей в приложение
 
 В следующем видеоролике показано, как администратор Azure AD может добавить пользователей службы совместной работы B2B в приложение:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
-  Если этот видеоролик не отображается, то вы можете его найти [здесь](https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps).
 
 ## <a name="related-articles"></a>Связанные статьи
 
@@ -65,9 +63,4 @@ ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

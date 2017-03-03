@@ -1,6 +1,6 @@
 ---
-title: "Добавление диска к виртуальной машине Linux | Документация Майкрософт"
-description: "Узнайте, как добавить постоянный диск к виртуальной машине Linux."
+title: "Добавление диска в виртуальную машину Linux с помощью Azure CLI | Документация Майкрософт"
+description: "Узнайте, как добавить постоянный диск в виртуальную машину Linux с помощью Azure CLI 1.0 и Azure CLI 2.0."
 keywords: "виртуальная машина Linux, добавление диска ресурсов"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
-ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
-
+ms.sourcegitcommit: f520ed9cc1a3a7063d5b3ddacf7f0c8174e75a36
+ms.openlocfilehash: 77cbdaaea0eec5265ef005f66dd5efdd8e237022
+ms.lasthandoff: 02/21/2017
 
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Добавление диска к виртуальной машине Linux
-Из этой статьи вы узнаете, как добавить в виртуальную машину постоянный диск, на котором можно хранить данные. Эти данные сохранятся даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). Для добавления диска вам потребуется использовать [интерфейс командной строки Azure](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).  
+Из этой статьи вы узнаете, как добавить в виртуальную машину постоянный диск, на котором можно хранить данные. Эти данные сохранятся даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). 
 
 ## <a name="quick-commands"></a>Быстрые команды
 В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
@@ -31,13 +32,15 @@ ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 Использование управляемых дисков:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 Использование неуправляемых дисков:
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## <a name="attach-a-managed-disk"></a>Подключение управляемого диска
@@ -50,17 +53,18 @@ azure vm disk attach-new myResourceGroup myVM 50
 Если вам просто нужен новый диск в виртуальной машине, можно использовать команду `az vm disk attach`.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>Подключение существующего диска 
 
-Во многих случаях подключаются созданные диски. Сначала нужно найти идентификатор диска и передать его в команду `az vm disk attach-disk`. В следующем коде используется диск, созданный с помощью команды `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+Во многих случаях подключаются созданные диски. Сначала нужно найти идентификатор диска и передать его в команду `az vm disk attach`. В следующем примере используется диск, созданный с помощью команды `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
 
 ```azurecli
 # find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
-az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 Результат выглядит примерно следующим образом (для форматирования результатов можно использовать параметр `-o table` для любой команды):
@@ -96,22 +100,13 @@ az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
 Вы можете очень быстро подключить новый диск, если у вас не вызывает проблем создание диска в той же учетной записи хранения, которая используется для виртуальной машины. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, введите `azure vm disk attach-new`. Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
-```
-
-Выходные данные
-
-```azurecli
-info:    Executing command vm disk attach-new
-+ Looking up the VM "myVM"
-info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
-+ Updating VM "myVM"
-info:    vm disk attach-new command OK
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Подключение к виртуальной машине Linux для подключения нового диска
 > [!NOTE]
-> В этом разделе для подключения к виртуальной машине используются имена пользователей и пароли. Чтобы использовать пары открытых и закрытых ключей для взаимодействия с виртуальной машиной, см. статью [об использовании ключей SSH для Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Вы можете изменить подключение **SSH** виртуальных машин, созданных с помощью команды `azure vm quick-create`, используя команду `azure vm reset-access` для полного сброса доступа **SSH**, добавления или удаления пользователей или добавления файлов открытого ключа для обеспечения безопасного доступа.
+> В этом разделе для подключения к виртуальной машине используются имена пользователей и пароли. Чтобы использовать пары открытых и закрытых ключей для взаимодействия с виртуальной машиной, см. статью [об использовании ключей SSH для Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 
@@ -348,10 +343,5 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 * Помните, для того чтобы после перезапуска виртуальная машина получила доступ к новому диску, информацию о нем необходимо прописать в файле [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , чтобы правильно настроить виртуальную машину Linux.
 * Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для повышения производительности.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

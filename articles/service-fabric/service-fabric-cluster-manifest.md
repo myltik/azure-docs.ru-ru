@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
+ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
+ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -156,7 +157,7 @@ ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
 * *applicationPorts* — порты, которые будут использоваться приложениями Service Fabric. Они должны быть подмножеством диапазона *ephemeralPorts*, достаточным для обеспечения потребностей приложений в конечных точках. Service Fabric будет использовать их каждый раз, когда потребуются новые порты, а также разрешать их использование в брандмауэре. 
 * *reverseProxyEndpointPort* — это необязательная конечная точка обратного прокси-сервера. Дополнительные сведения см. в статье [Обратный прокси-сервер Service Fabric](service-fabric-reverseproxy.md). 
 
-### <a name="other-settings"></a>Другие параметры
+### <a name="log-settings"></a>Параметры журнала
 В разделе **fabricSettings** можно задать корневые каталоги для данных и журналов Service Fabric. Их можно настроить только во время создания исходного кластера. Ниже приведен фрагмент кода из этого раздела.
 
     "fabricSettings": [{
@@ -171,12 +172,19 @@ ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
 
 Рекомендуется использовать несистемный диск (без ОС) в качестве FabricDataRoot и FabricLogRoot, так как он обеспечивает большую надежность и независимость от сбоев операционной системы. Обратите внимание, что если настроить только корневой каталог данных, то корневой каталог файлов журнала будет помещен на один уровень ниже корневого каталога данных.
 
+### <a name="stateful-reliable-service-settings"></a>Параметры надежной службы с отслеживанием состояния
+В разделе **KtlLogger** можно задать глобальные параметры конфигурации для Reliable Services. Дополнительные сведения об этих параметрах см. в разделе [Настройка надежных служб с отслеживанием состояния](service-fabric-reliable-services-configuration.md).
+Ниже приведен пример, показывающий, как изменить общий журнал транзакций, который создается для обслуживания Reliable Collections для служб с отслеживанием состояния.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Завершив настройку файла ClusterConfig.JSON в соответствии с конфигурацией изолированного кластера, вы можете развернуть этот кластер, следуя указаниям в статье [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md), а затем перейти к [визуализации кластера с помощью Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

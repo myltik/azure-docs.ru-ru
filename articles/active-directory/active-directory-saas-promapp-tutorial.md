@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
 ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -248,9 +249,4 @@ ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
 [400]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_400.png
 [401]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_401.png
 [402]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_402.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

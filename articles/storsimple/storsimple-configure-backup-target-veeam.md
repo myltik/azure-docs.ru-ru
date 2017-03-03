@@ -17,6 +17,7 @@ ms.author: hkanna
 translationtype: Human Translation
 ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
+ms.lasthandoff: 01/26/2017
 
 ---
 
@@ -552,9 +553,4 @@ Veeam позволяет выполнять быстрое, точное вос�
 
 - Узнайте, как выполнить [восстановление из набора резервных копий](storsimple-restore-from-backup-set-u2.md).
 - Узнайте, как выполнить [отработку отказа и аварийное восстановление устройства](storsimple-device-failover-disaster-recovery.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,6 +17,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
 ms.openlocfilehash: 88032b3855c2f89b935064abe496a8455dcff88b
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -197,9 +198,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [лимитах, квотах и ограничениях подписки и службы Azure](../azure-subscription-service-limits.md).
 * Дополнительные сведения о таких рабочих нагрузках, как высокопроизводительные вычисление, см. в разделе [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
