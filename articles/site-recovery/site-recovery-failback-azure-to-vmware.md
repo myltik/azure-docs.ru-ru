@@ -17,6 +17,7 @@ ms.author: ruturajd
 translationtype: Human Translation
 ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
 ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -243,9 +244,4 @@ ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
 
 * Подключение ExpressRoute необходимо настроить в виртуальной сети Azure, в которую будет выполняться отработка отказа исходных виртуальных машин и в которой будут размещены виртуальные машины Azure после отработки отказа.
 * Данные реплицируются в учетную запись хранения Azure в общедоступной конечной точке. Чтобы настроить подключение ExpressRoute, следует настроить в ExpressRoute общедоступный пиринг с целевым центром обработки данных для репликации Site Recovery.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

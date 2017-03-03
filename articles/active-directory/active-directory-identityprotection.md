@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
 ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -395,9 +396,4 @@ Aure Active Directory обнаруживает [типы событий риск
 * [Защита идентификации Azure Active Directory. Разблокирование пользователей](active-directory-identityprotection-unblock-howto.md)
 
 * [Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

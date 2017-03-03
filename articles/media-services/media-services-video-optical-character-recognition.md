@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
 ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -342,10 +343,5 @@ ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 ## <a name="related-links"></a>Связанные ссылки
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
