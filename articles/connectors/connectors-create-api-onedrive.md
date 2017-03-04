@@ -18,6 +18,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 60c1d307ede5d66f8e92b048581148d6c7112dac
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -396,10 +397,5 @@ BlobMetadata
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

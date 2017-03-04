@@ -16,6 +16,7 @@ ms.author: femila;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
 ms.openlocfilehash: b51d409a78d737ac6d15d05d5b146ed185223e75
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -30,10 +31,5 @@ ms.openlocfilehash: b51d409a78d737ac6d15d05d5b146ed185223e75
 * [Приступая к работе с API отчетов Azure AD](active-directory-reporting-api-getting-started.md)
 * [Отчеты о событиях аудита Azure Active Directory](active-directory-reporting-audit-events.md)
 * [Хранение отчетов Azure Active Directory](active-directory-reporting-retention.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

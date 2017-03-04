@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
 ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -69,9 +70,4 @@ ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
 [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)содержат сведения о работе с расширенными функциями при обновлении приложения.
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
