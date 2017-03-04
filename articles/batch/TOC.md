@@ -46,8 +46,3 @@
 ## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Примеры кода Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

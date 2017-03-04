@@ -17,6 +17,7 @@ ms.author: ricardom
 translationtype: Human Translation
 ms.sourcegitcommit: a3a8b9ff522369ed0f03817585e1666507c95c6e
 ms.openlocfilehash: da4d3c13910a3e1a47592d056af3c8b2a8576ebe
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -140,10 +141,5 @@ As an added benefit, you now have one convenient place in Key Vault to manage al
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

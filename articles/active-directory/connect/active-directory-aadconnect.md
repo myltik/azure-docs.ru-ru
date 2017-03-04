@@ -18,6 +18,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
 ms.openlocfilehash: fe52867519aa65cabb62a876d5bfe57310b90fd6
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -155,10 +156,5 @@ Azure AD Connect поставляется с несколькими функци
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
