@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
 ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -327,10 +328,5 @@ Power Query можно установить, зайдя на страницу [w
 * [Отладка заданий Tez в HDInsight с помощью представлений Ambari](hdinsight-debug-ambari-tez-view.md)
 * [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

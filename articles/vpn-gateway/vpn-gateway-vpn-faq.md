@@ -17,6 +17,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
 ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -170,8 +171,3 @@ VPN Azure использует проверку подлинности с пом
 
 * Дополнительные сведения о VPN-шлюзах см. в [этой статье](vpn-gateway-about-vpngateways.md).
 * Дополнительные сведения о параметрах конфигурации VPN-шлюза см. в [этой статье](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

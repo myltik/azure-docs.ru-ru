@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
 ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -31,9 +32,4 @@ ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
 * [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

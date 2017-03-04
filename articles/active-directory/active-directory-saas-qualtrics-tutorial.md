@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
 ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -108,10 +109,5 @@ ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
    ![Да](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

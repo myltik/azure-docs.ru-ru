@@ -17,6 +17,7 @@ ms.author: jotaub
 translationtype: Human Translation
 ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
 ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
+ms.lasthandoff: 02/02/2017
 
 ---
 
@@ -59,8 +60,3 @@ ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
 * [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

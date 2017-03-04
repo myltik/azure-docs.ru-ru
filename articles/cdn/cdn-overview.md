@@ -17,6 +17,7 @@ ms.author: rli
 translationtype: Human Translation
 ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
 ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -88,10 +89,5 @@ ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
 Узнайте об автоматизации Azure CDN с помощью [.NET](cdn-app-dev-net.md) или [Node.js](cdn-app-dev-node.md).
 
 Сведения о ценах на CDN см. на [этой странице](https://azure.microsoft.com/pricing/details/cdn/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

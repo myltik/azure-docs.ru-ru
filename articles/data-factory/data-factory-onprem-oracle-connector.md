@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
 ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -566,9 +567,4 @@ User Id=<username>;Password=<password>;",
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

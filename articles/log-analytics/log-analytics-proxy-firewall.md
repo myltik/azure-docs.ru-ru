@@ -17,6 +17,7 @@ ms.author: banders;magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
 ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -185,9 +186,4 @@ ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 ## <a name="next-steps"></a>Дальнейшие действия
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
 * Подробная информация, которую собирают решения, описана в статье [о поиске по журналам](log-analytics-log-searches.md) .
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

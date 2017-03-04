@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: b1c18ac614e17cbd25691dc92dbd14a781e4d8ab
 ms.openlocfilehash: ee656180676450834940b996bccf93c26190f9d6
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -182,10 +183,5 @@ ms.openlocfilehash: ee656180676450834940b996bccf93c26190f9d6
    ![Да](./media/active-directory-saas-onit-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
