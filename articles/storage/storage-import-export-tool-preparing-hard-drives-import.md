@@ -1,8 +1,8 @@
 ---
 title: "Подготовка жестких дисков к заданию импорта службы импорта и экспорта Azure | Документация Майкрософт"
 description: "Сведения о подготовке жестких дисков с помощью средства WAImportExport перед созданием задания импорта в службе импорта и экспорта Azure."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 005e0ab8ec8dce52d9fc13d018f985cb0d6033a7
-ms.openlocfilehash: 80e7af5c874dca9390a2588664334b61dc57701a
+ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
+ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -89,7 +90,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BlobType | **[Необязательный параметр]** block &#124; page<br/>В настоящее время служба импорта и экспорта поддерживает 2 вида больших двоичных объектов: страничные BLOB-объекты и блочные BLOB-объекты. По умолчанию все файлы импортируются как блочные BLOB-объекты. Файлы \*.vhd и \*.vhdx импортируются как страничные BLOB-объекты. Максимальный размер этих видов больших двоичных объектов ограничен. Дополнительные сведения см. в статье [Целевые показатели масштабируемости и производительности службы хранилища Azure](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).  |
 | Disposition | **[Необязательный параметр]** rename &#124; no-overwrite &#124; overwrite <br/> Это поле определяет поведение копирования во время импорта (т. е. время отправки данных с диска в учетную запись хранения). Допустимые значения: rename, overwite, no-overwrite. Значение по умолчанию — rename. <br/><br/>**rename** — при наличии двух объектов с одинаковым именем создает копию в целевом расположении.<br/>overwrite — заменяет более старый файл новым. Приоритет имеет последний измененный файл.<br/>**no-overwrite** — пропускает запись имеющегося файла.|
 | MetadataFile | **[Необязательный параметр]** <br/>Значение этого поля — файл метаданных с сохраненными или пользовательскими метаданными объектов. Путь к файлу метаданных для целевых больших двоичных объектов. Дополнительные сведения см. в статье [Формат файла свойств и метаданных службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md). |
-| PropertiesFile | **[Необязательный параметр]** <br/>Путь к файлу свойств для целевых больших двоичных объектов. Дополнительные сведения см. в статье [Формат файла свойств и метаданных службы импорта и экспорта](/rest/api/storageservices/importexport/import-export-service-metadata-and-properties-file-format). |
+| PropertiesFile | **[Необязательный параметр]** <br/>Путь к файлу свойств для целевых больших двоичных объектов. Дополнительные сведения см. в статье [Формат файла свойств и метаданных службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md). |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>Подготовка CSV-файла InitialDriveSet или AdditionalDriveSet
 
@@ -407,8 +408,4 @@ WAImportExport — это средство подготовки и исправ
 **XML-файл.** Для каждого подготавливаемого жесткого диска средство WAImportExport создает отдельный файл журнала с именем &lt;DriveID&gt;.xml, где идентификатор диска — это связанный с диском серийный номер, полученный средством с диска. Чтобы создать задание импорта на портале Azure, вам потребуются файлы журналов со всех ваших дисков. Этот файл журнала также можно использовать для возобновления подготовки диска, если работа средства прервана.
 
 **JRN-файл.** Файл журнала с суффиксом .jrn содержит данные о состояниях всех сеансов копирования на жесткий диск. Он также содержит сведения, необходимые для создания задания импорта. При запуске средства WAImportExport необходимо всегда указывать файл журнала и идентификатор сеанса копирования.
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -18,6 +18,7 @@ ms.author: masashin
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: 0eb72af5c0f904655fc4a0d8fd44d6e481c73645
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -706,10 +707,5 @@ ms.openlocfilehash: 0eb72af5c0f904655fc4a0d8fd44d6e481c73645
 * [Бизнес-аналитика SQL Server на виртуальных машинах Azure](virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md)
 * [Получение уведомлений об оповещениях](monitoring-and-diagnostics/insights-receive-alert-notifications.md) и [Мониторинг работоспособности службы](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

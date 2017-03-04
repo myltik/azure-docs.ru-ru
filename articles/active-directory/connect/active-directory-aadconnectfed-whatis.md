@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 2a361774095b20aacff91e9926ead2c1a53b8835
-ms.openlocfilehash: eedfdea0bcc3f0c69d2fe87b3cf2e2bc4e0ed3a6
+ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
+ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -45,13 +46,6 @@ Azure AD Connect позволяет настроить федерацию меж
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-* [Развертывание AD FS в Azure](active-directory-aadconnect-
-* azure-adfs.md)
+* [Развертывание AD FS в Azure](active-directory-aadconnect-azure-adfs.md)
 * [Развертывание AD FS высокого уровня доступности в нескольких регионах Azure с помощью диспетчера трафика Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
