@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
 ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -523,9 +524,4 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 | [Действия по преобразованию данных](data-factory-data-transformation-activities.md) |В этой статье рассматриваются действия по преобразованию данных (например, преобразование HDInsight Hive, используемое в этом руководстве), поддерживаемые фабрикой данных Azure. |
 | [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -18,11 +18,12 @@ ms.author: drewm
 translationtype: Human Translation
 ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
 ms.openlocfilehash: d0e7d00dd8e6ab53897340e13a3170519cbdb135
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="planned-maintenance-for-linux-virtual-machines-in-azure"></a>Плановое обслуживание виртуальных машин Linux в Azure
-Сведения о том, что такое плановое обслуживание Azure и как оно влияет на доступность виртуальных машин Linux. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Сведения о том, что такое плановое обслуживание Azure и как оно влияет на доступность виртуальных машин Linux. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
 В этой статье содержатся общие сведения о процессе планового технического обслуживания Azure. Если вы хотите определить причину перезагрузки виртуальной машины, см. [эту запись блога, посвященную просмотру журналов перезагрузки виртуальной машины](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
 
@@ -36,10 +37,4 @@ Microsoft Azure периодически выполняет обновления
 Обратите внимание, что на доступность ваших виртуальных машин могут повлиять два типа обслуживания: плановое и внеплановое. На этой странице описывается, как выполняется плановое обслуживание Microsoft Azure. Дополнительные сведения о внеплановом обслуживании см. в разделе [Различия планового и внепланового обслуживания](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

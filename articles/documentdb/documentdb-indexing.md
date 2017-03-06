@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 01/21/2017
 
 
 
@@ -56,10 +57,5 @@ ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
 * Загрузите документ [Схемонезависимое индексирование с помощью Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), который будет представлен на 41-й внутренней конференции по очень большим базам данных, которая пройдет с 31 августа по 4 сентября 2015 года.
 * [Формирование запросов с помощью DocumentDB SQL](documentdb-sql-query.md)
 * Узнайте о том, как настроить индекс DocumentDB, [здесь](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

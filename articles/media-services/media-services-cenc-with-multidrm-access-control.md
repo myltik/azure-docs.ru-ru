@@ -17,6 +17,7 @@ ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
 ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -456,8 +457,3 @@ EME в Microsoft Edge и IE 11 в Windows 10 позволяет вызывать
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
-
-
-<!--HONumber=Jan17_HO3-->
-
-

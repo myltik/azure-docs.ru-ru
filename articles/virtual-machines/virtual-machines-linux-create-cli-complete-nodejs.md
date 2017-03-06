@@ -1,6 +1,6 @@
 
 ---
-title: "Создание полной среды Linux с помощью Azure CLI 1.0 | Документация Майкрософт"
+title: "Создание полной среды Linux с помощью Azure CLI 1.0 | Документация Майкрософт"
 description: "Узнайте, как с помощью Azure CLI 1.0 создать &quot;с нуля&quot; хранилище, виртуальную машину Linux, виртуальную сеть и подсеть, балансировщик нагрузки, сетевую карту, общедоступный IP-адрес и группу безопасности сети."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,12 +17,13 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 8c051aca8aa9eb0ebbd55098917218f6f874c1be
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-10"></a>Создание полной среды Linux с помощью Azure CLI 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Создание полной среды Linux с помощью Azure CLI 1.0
 В этой статье мы создаем простую сеть с балансировщиком нагрузки и парой виртуальных машин, подходящих для разработки и простых вычислений. Мы поэтапно выполняем полное развертывание, от первой до последней команды, в результате чего создаем две защищенные рабочие виртуальные машины Linux, к которым можно подключиться откуда угодно через Интернет. Затем вы сможете работать с более сложными сетями и средами.
 
 Попутно вы ознакомитесь с иерархией зависимостей модели развертывания с помощью Resource Manager и узнаете, какие возможности она дает. Узнав, как устроена система, вы сможете воссоздать ее гораздо быстрее с помощью [шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Кроме того, когда вы узнаете, как взаимодействуют части среды, создавать шаблоны для их автоматизации станет проще.
@@ -42,7 +43,7 @@ ms.openlocfilehash: 8c051aca8aa9eb0ebbd55098917218f6f874c1be
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#quick-commands) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
 
 ## <a name="quick-commands"></a>Быстрые команды
@@ -594,7 +595,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-Вы можете изучить дополнительные сведения о ресурсе, в том числе полное доменное имя (FQDN) поддомена, используя полную команду `azure network public-ip show` . Ресурс общедоступного IP-адреса выделен логически, но при этом конкретный адрес еще не назначен. Для получения IP-адреса вам потребуется балансировщик нагрузки, но он еще не создан.
+Вы можете изучить дополнительные сведения о ресурсе, в том числе полное доменное имя (FQDN) поддомена, используя полную команду `azure network public-ip show`. Ресурс общедоступного IP-адреса выделен логически, но при этом конкретный адрес еще не назначен. Для получения IP-адреса вам потребуется балансировщик нагрузки, но он еще не создан.
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -685,7 +686,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-Можно узнать, как выглядит балансировщик нагрузки, введя команду `azure network lb show` , и проверить выходные данные JSON.
+Можно узнать, как выглядит балансировщик нагрузки, введя команду `azure network lb show`, и проверить выходные данные JSON.
 
 ```azurecli
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
@@ -998,7 +999,7 @@ data:
 info:    network nic create command OK
 ```
 
-Чтобы отобразить сведения, необходимо просмотреть ресурс напрямую. Проверить ресурс можно с помощью команды `azure network nic show` :
+Чтобы отобразить сведения, необходимо просмотреть ресурс напрямую. Проверить ресурс можно с помощью команды `azure network nic show`:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -1125,7 +1126,7 @@ azure availset create --resource-group myResourceGroup --location westeurope
 
 Кроме того, можно использовать метод `--admin-password` для проверки подлинности подключений по протоколу SSH после создания виртуальной машины. Обычно этот метод менее безопасен.
 
-Мы создаем виртуальную машину, собирая вместе все наши ресурсы и информацию командой `azure vm create` .
+Мы создаем виртуальную машину, собирая вместе все наши ресурсы и информацию командой `azure vm create`.
 
 ```azurecli
 azure vm create \
@@ -1292,9 +1293,4 @@ azure group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы готовы приступить к работе с несколькими сетевыми компонентами и виртуальными машинами. Используя этот пример среды, можно создать приложение на основе представленных здесь основных компонентов.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

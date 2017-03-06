@@ -222,8 +222,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Получение справки с помощью чата в реальном времени](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

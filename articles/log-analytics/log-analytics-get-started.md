@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
 ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
 * Дополнительные сведения о подключении [агентов Operations Manager](log-analytics-om-agents.md) к Log Analytics.
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
 * Подробная информация, которую собирают решения, описана в статье [о поиске по журналам](log-analytics-log-searches.md) .
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

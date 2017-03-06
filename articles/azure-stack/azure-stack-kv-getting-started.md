@@ -17,6 +17,7 @@ ms.author: ricardom
 translationtype: Human Translation
 ms.sourcegitcommit: a3a8b9ff522369ed0f03817585e1666507c95c6e
 ms.openlocfilehash: f2e97d984e9c889f259cb9b409c22ed8ec077c71
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -198,10 +199,5 @@ If you want to authorize that same application to read secrets in your vault, ru
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

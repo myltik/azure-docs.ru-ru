@@ -17,6 +17,7 @@ ms.author: seanmck;mikhegn
 translationtype: Human Translation
 ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
 ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -99,9 +100,4 @@ ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

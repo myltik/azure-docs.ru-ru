@@ -17,6 +17,7 @@ ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
 ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -448,9 +449,4 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * В разделе [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) . В руководстве создается конвейер, который использует шлюз для перемещения данных из локальной базы данных SQL Server в большой двоичный объект Azure.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

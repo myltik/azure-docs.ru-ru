@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: ab0df01d637c15b05c2d83f1936a0154118034f7
 ms.openlocfilehash: f88c4914478c3adf823fc22a0e049e73fb43e8db
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -106,9 +107,4 @@ API концентраторов событий создают исключен�
 * [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

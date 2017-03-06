@@ -1,6 +1,6 @@
 ---
 title: "Создание Центра Интернета вещей с помощью Azure CLI (az.py) | Документация Майкрософт"
-description: "Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI 2.0 (предварительная версия).(az.py)."
+description: "Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI 2.0 (az.py)."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,31 +12,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 4f512601cebcfce7bfac47ed440c96fcb2c91b5f
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Создание Центра Интернета вещей с помощью Azure CLI 2.0 (предварительная версия)
+# <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Создание Центра Интернета вещей с помощью Azure CLI 2.0
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Введение
 
-Вы можете использовать Azure CLI 2.0 (предварительная версия) (az.py), чтобы создать Центр Интернета вещей Azure программным способом и управлять им. В этой статье показано, как создать Центр Интернета вещей с помощью Azure CLI 2.0 (предварительная версия) (az.py).
+Вы можете использовать Azure CLI 2.0 (az.py), чтобы создать Центр Интернета вещей Azure программным способом и управлять им. В этой статье показано, как создать Центр Интернета вещей с помощью Azure CLI 2.0 (az.py).
 
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-* Azure CLI 2.0 (предварительная версия) (az.py) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager, как описано в этой статье.
+* Azure CLI 2.0 (az.py) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager, как описано в этой статье.
 
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
-* [Azure CLI 2.0 (предварительная версия)][lnk-CLI-install].
+* [Azure CLI 2.0][lnk-CLI-install].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Выполнение входа и установка учетной записи Azure
 
@@ -62,16 +63,16 @@ ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
     az account set --subscription {your subscription name or id}
     ```
 
-3. Прежде чем развертывать ресурсы Интернета вещей, вам необходимо зарегистрировать его поставщика. Выполните следующую [команду для регистрации поставщика Интернета вещей][lnk-az-register-command].
-    
-    ```azurecli
-    az provider register -namespace "Microsoft.Devices"
-    ```
-
-4. Возможно, вам потребуется установить _компонент Интернета вещей_ Azure CLI. Выполните следующую [команду для добавления компонента Интернета вещей][lnk-az-addcomponent-command]:
+3. Установите _компонент Интернета вещей_ Azure CLI. Выполните следующую [команду для добавления компонента Интернета вещей][lnk-az-addcomponent-command]:
     
     ```azurecli
     az component update --add iot
+    ```
+
+4. Прежде чем развертывать ресурсы Интернета вещей, зарегистрируйте поставщик Интернета вещей. Выполните следующую [команду для регистрации поставщика Интернета вещей][lnk-az-register-command].
+    
+    ```azurecli
+    az provider register -namespace Microsoft.Devices
     ```
 
 ## <a name="create-an-iot-hub"></a>Создание центра IoT
@@ -81,7 +82,7 @@ ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
 1. Создайте Центр Интернета вещей в группе ресурсов. Используйте существующую группу ресурсов либо выполните следующую [команду для создания группы ресурсов][lnk-az-resource-command]:
     
     ```azurecli
-     az resource group create --name {your resource group name} --location westus
+     az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
@@ -96,7 +97,7 @@ ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
     ```
 
 > [!NOTE]
-> Имя Центра Интернета вещей должно быть глобально уникальным. Предыдущая команда создает Центр Интернета вещей в оплачиваемой ценовой категории S1. Дополнительные сведения см. на [странице цен Интернета вещей Azure][lnk-iot-pricing].
+> Имя Центра Интернета вещей должно быть глобально уникальным. Предыдущая команда создает Центр Интернета вещей в оплачиваемой ценовой категории S1. Дополнительные сведения см. на странице с [ценами на Центр Интернета вещей Azure][lnk-iot-pricing].
 >
 >
 
@@ -113,17 +114,17 @@ az resource delete --name {your iot hub name} --resource-group {your resource gr
 Чтобы удалить группу ресурсов и все ее ресурсы, выполните следующую команду:
 
 ```azurecli
-az resource group delete --name {your resource group name}
+az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
+Дополнительные сведения о разработке для Центра Интернета вещей см. в следующих статьях:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Управление Центра Интернета вещей через портал Azure][lnk-portal]
+* [Создание Центра Интернета вещей через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -137,9 +138,4 @@ az resource group delete --name {your resource group name}
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

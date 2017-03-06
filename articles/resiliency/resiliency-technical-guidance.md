@@ -17,6 +17,7 @@ ms.author: aglick
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -62,10 +63,5 @@ ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Этот материал входит в цикл статей, составляющих техническое руководство по обеспечению устойчивости в Azure. Если вы хотите ознакомиться с другими материалами из этой серии, рекомендуем перейти к следующей статье под названием [Техническое руководство по обеспечению устойчивости в Azure. Восстановление после локальных сбоев в Azure](resiliency-technical-guidance-recovery-local-failures.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

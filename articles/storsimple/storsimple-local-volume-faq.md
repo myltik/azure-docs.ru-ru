@@ -17,6 +17,7 @@ ms.author: manuaery
 translationtype: Human Translation
 ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
 ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -214,10 +215,5 @@ ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
 **Вопрос.** Можно ли выполнить отработку отказа для контейнера томов с локально закрепленными томами на облачное устройство?
 
 **Ответ.** Да, можно. Для локально закрепленных томов отработка отказа будет выполнена как для многоуровневых томов. Ознакомьтесь с дополнительными сведениями об [отработке отказа и аварийном восстановлении локально закрепленных томов для разных версий программного обеспечения](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

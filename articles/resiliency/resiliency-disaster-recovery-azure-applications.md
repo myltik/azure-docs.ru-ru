@@ -17,6 +17,7 @@ ms.author: aglick
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: d0ea8137dcdd72cf09806006bdca4c24d6f1c1de
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -284,10 +285,5 @@ Azure автоматически сохраняет данные базы дан
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Эта статья входит в серию статей, посвященных [аварийному восстановлению и высокой доступности для приложений на платформе Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). Предыдущая статья в этой серии — [Обеспечение высокой доступности для приложений на платформе Microsoft Azure](resiliency-high-availability-azure-applications.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
