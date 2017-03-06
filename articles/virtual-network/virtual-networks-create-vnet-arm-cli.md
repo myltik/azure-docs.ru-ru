@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной сети с помощью Azure CLI 2.0 | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную сеть с помощью Azure CLI 2.0 в модели Resource Manager."
+title: "Создание виртуальной сети (Azure CLI 2.0) | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную сеть с помощью Azure CLI 2.0."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 617ac4672b24d339c5d4c0b671de7fb19cd9af91
-ms.openlocfilehash: 3cbb679048a0cc1121b221bda8fc1e3df0e307c3
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 4f59512d83e6d000dd60b3fba46e483be8466292
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli"></a>Создание виртуальной сети с помощью интерфейса командной строки Azure
+# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Создание виртуальной сети с помощью Azure CLI 2.0
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
@@ -31,8 +32,8 @@ Azure предоставляет две модели развертывания:
 ## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
-- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](#create-a-virtual-network) — интерфейс командной строки нового поколения для модели развертывания с помощью Resource Manager (описывается в этой статье).
+- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- [Azure CLI 2.0](#create-a-virtual-network) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
  
     Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
 
@@ -52,12 +53,12 @@ Azure предоставляет две модели развертывания:
 
 Чтобы создать виртуальную сеть с помощью Azure CLI 2.0, сделайте следующее.
 
-1. Установите и настройте последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2), затем войдите в систему с учетной записью Azure, выполнив команду [az login](/cli/azure/#login).
+1. Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2), а затем войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/#login).
 
 2. Создайте группу ресурсов для виртуальной сети, выполнив команду [az group create](/cli/azure/group#create) с аргументами `--name` и `--location`.
 
     ```azurecli
-    az group create --name myVNet --location centralus
+    az group create --name TestRG --location centralus
     ```
 
 3. Создайте виртуальную сеть и подсеть.
@@ -65,7 +66,7 @@ Azure предоставляет две модели развертывания:
     ```azurecli
     az network vnet create \
         --name TestVNet \
-        --resource-group myVNet \
+        --resource-group TestRG \
         --location centralus \
         --address-prefix 192.168.0.0/16 \
         --subnet-name FrontEnd \
@@ -90,13 +91,13 @@ Azure предоставляет две модели развертывания:
             "subnets": [
             {
                 "etag": "W/\"<guid>\"",
-                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
                 "name": "FrontEnd",
                 "properties": {
                 "addressPrefix": "192.168.1.0/24",
                 "provisioningState": "Succeeded"
                 },
-                "resourceGroup": "myVNet"
+                "resourceGroup": "TestRG"
             }
             ]
         }
@@ -106,7 +107,7 @@ Azure предоставляет две модели развертывания:
     Используемые параметры:
 
     - `--name TestVNet`: имя виртуальной сети, которую нужно будет создать.
-    - `--resource-group myVNet`: имя группы ресурсов, которая управляет ресурсом. 
+    - `--resource-group TestRG`: имя группы ресурсов, которая управляет ресурсом. 
     - `--location centralus`: расположение для развертывания.
     - `--address-prefix 192.168.0.0/16`: префикс и блок адреса.  
     - `--subnet-name FrontEnd`: имя подсети.
@@ -120,9 +121,9 @@ Azure предоставляет две модели развертывания:
 
     В результате будут возвращены следующие выходные данные:
 
-        Where      Name      Group
-        ---------  --------  -------
-        centralus  TestVNet  myVNet
+            Where      Name      Group
+            ---------  --------  -------
+            centralus  TestVNet  TestRG
 
 4. Создайте подсеть.
 
@@ -130,7 +131,7 @@ Azure предоставляет две модели развертывания:
     az network vnet subnet create \
         --address-prefix 192.168.2.0/24 \
         --name BackEnd \
-        --resource-group myVNet \
+        --resource-group TestRG \
         --vnet-name TestVNet
     ```
    
@@ -140,12 +141,12 @@ Azure предоставляет две модели развертывания:
     {
     "addressPrefix": "192.168.2.0/24",
     "etag": "W/\"<guid> \"",
-    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
     "ipConfigurations": null,
     "name": "BackEnd",
     "networkSecurityGroup": null,
     "provisioningState": "Succeeded",
-    "resourceGroup": "myVNet",
+    "resourceGroup": "TestRG",
     "resourceNavigationLinks": null,
     "routeTable": null
     }
@@ -155,14 +156,14 @@ Azure предоставляет две модели развертывания:
 
     - `--address-prefix 192.168.2.0/24`: блок CIDR подсети.
     - `--name BackEnd`: имя новой подсети.
-    - `--resource-group myVNet`: группа ресурсов.
+    - `--resource-group TestRG`: группа ресурсов.
     - `--vnet-name TestVNet`: имя виртуальной сети, в которую входит подсеть.
 
 5. Запросите свойства новой виртуальной сети.
 
     ```azurecli
     az network vnet show \
-    -g myVNET \
+    -g TestRG \
     -n TestVNet \
     --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
     -o table
@@ -172,13 +173,13 @@ Azure предоставляет две модели развертывания:
    
         Name      Where      Group    Status       SubnetCount
         --------  ---------  -------  ---------  -------------
-        TestVNet  centralus  myVNet   Succeeded              2
+        TestVNet  centralus  TestRG   Succeeded              2
 
 6. Запросите свойства подсетей.
 
     ```azurecli
     az network vnet subnet list \
-    -g myvnet \
+    -g TestRG \
     --vnet-name testvnet \
     --query '[].{Name:name,CIDR:addressPrefix,Status:provisioningState}' \
     -o table

@@ -4,7 +4,7 @@ description: "В этом руководстве описывается, как 
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: mysql
 ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4e1c3e8fa45f4ef4ee7df7e6bc9ea4aa4fe1b1aa
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7877662f43b83d6d60c3ef836d14b291245d8d42
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: 4e1c3e8fa45f4ef4ee7df7e6bc9ea4aa4fe1b1aa
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-php-get-started.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-php-get-started.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [PHP 5.6.29](http://php.net/downloads.php)
@@ -250,10 +251,5 @@ ms.openlocfilehash: 4e1c3e8fa45f4ef4ee7df7e6bc9ea4aa4fe1b1aa
 * [Настройка PHP в веб-приложениях службы приложений Azure](web-sites-php-configure.md)
 * [Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure](web-sites-php-convert-wordpress-multisite.md)
 * [Сайт WordPress корпоративного класса в службе приложений Azure](web-sites-php-enterprise-wordpress.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
