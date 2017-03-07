@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 03/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
-ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
+ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -24,16 +24,19 @@ ms.lasthandoff: 02/17/2017
 ## <a name="services-enabled-with-conditional-access"></a>Службы, включаемые с условным доступом
 Правила условного доступа поддерживаются в самых разных типах приложений Azure AD. В этот список входят:
 
-* Федеративные приложения из коллекции приложений Azure AD
-* Приложения с единым входом и паролем из коллекции приложений Azure AD
+
 * Приложения, зарегистрированные с прокси приложений Azure
-* Линейка многопользовательских и бизнес-приложений, зарегистрированных в Azure AD
-* Visual Studio Online
 * Удаленное приложение Azure
+* Линейка многопользовательских и бизнес-приложений, зарегистрированных в Azure AD
 * Dynamics CRM
+* Федеративные приложения из коллекции приложений Azure AD
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (включая OneDrive для бизнеса)
+* Microsoft Power BI 
+* Приложения с единым входом и паролем из коллекции приложений Azure AD
+* Visual Studio Online
+
 
 ## <a name="enable-access-rules"></a>Включить правила доступа
 Каждое правило можно включать или отключать для каждого приложения отдельно. Если правила **включены** , они будут действовать для всех пользователей, которые обращаются к приложению. Если правила **отключены** , они не действуют и не влияют на то, как пользователи входят в систему.

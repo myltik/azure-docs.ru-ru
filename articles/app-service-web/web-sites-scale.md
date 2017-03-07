@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: b7ef8386e974486c2d327d0b042eeabdb9701b7e
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: bc0fe3341bc5b698032c56dec836b942ce7fa8be
+ms.openlocfilehash: 3ca6156369bf4ae530a91520e86166592181511a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -116,9 +116,9 @@ ms.lasthandoff: 01/20/2017
 * Рекомендации по использованию службы приложений Azure, в том числе по созданию масштабируемой и устойчивой архитектуры, см. [здесь](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * Видео о масштабировании приложений службы приложений см. на следующих ресурсах:
   
-  * [Стефан Шаков (Stefan Schackow). Когда следует масштабировать веб-сайты Azure](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Стефан Шаков (Stefan Schackow). Автоматическое масштабирование веб-сайтов Azure, ЦП или по расписанию](/documentation/videos/auto-scaling-azure-web-sites/)
-  * [Стефан Шаков (Stefan Schackow). Как масштабируются веб-сайты Azure](/documentation/videos/how-azure-web-sites-scale/)
+  * [Стефан Шаков (Stefan Schackow). Когда следует масштабировать веб-сайты Azure](https://azure.microsoft.com/en-us/resources/videos/azure-web-sites-free-vs-standard-scaling/)
+  * [Стефан Шаков (Stefan Schackow). Автоматическое масштабирование веб-сайтов Azure, ЦП или по расписанию](https://azure.microsoft.com/en-us/resources/videos/auto-scaling-azure-web-sites/)
+  * [Стефан Шаков (Stefan Schackow). Как масштабируются веб-сайты Azure](https://azure.microsoft.com/en-us/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/

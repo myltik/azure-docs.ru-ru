@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 040598d55939685e50a3fb7006e27e27097f9224
-ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
+ms.sourcegitcommit: 9b18af35dc0a70c7335fd54477a6d8f57048b685
+ms.openlocfilehash: 5bf418af22746610e96712ed33fd389998e4fa46
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -71,7 +72,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Атланта** |Equinix |
 | **Пусан** |LG CNS+, Sejong Telecom |
-| **Ченнай** |SIFY, Tata Communications |
+| **Ченнай** |Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **Дублин** |Colt, Telecity Group |
@@ -168,9 +169,4 @@ ExpressRoute поддерживается во всех регионах и ра
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

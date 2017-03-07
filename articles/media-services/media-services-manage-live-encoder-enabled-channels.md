@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: ef9c1d5511889cf78421d24f9c5902bf188890c7
-ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -161,19 +162,8 @@ ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
     * моно, стерео.
 * Рекомендуемые вещательные кодировщики:
   
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>Односкоростной RTMP
@@ -194,7 +184,6 @@ ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
 * Рекомендуемые кодировщики:
 * Telestream Wirecast
 * Flash Media Live Encoder
-* Tricaster
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>Односкоростной фрагментированный MP4 (Smooth Streaming)
 Типичный случай использования:
@@ -428,10 +417,5 @@ ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
 [Спецификация приема фрагментированного MP4 в реальном времени в службах мультимедиа Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -47,6 +48,12 @@ ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
     - время, затраченное на сбор и индексирование данных;
 - список запросов.
 
+## <a name="understanding-nodes-for-oms-offers"></a>Основные сведения об узлах для предложений OMS
+
+Если у вас ценовая категория с оплатой *за каждый узел (OMS)*, то плата взимается на основании количества включенных узлов и решений. В разделе *offerings* (предложения) панели мониторинга "Использование" можно увидеть, сколько узлов из каждого предложения используется.
+
+![панель мониторинга "Использование"](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Работа с данными об использовании
 1. Войдите на [портал Azure](https://portal.azure.com), используя подписку Azure, если вы еще этого не сделали.
 2. В меню **концентратора** щелкните **Больше служб**, а затем в списке ресурсов введите **Log Analytics**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Щелкните **Log Analytics**.  
@@ -63,9 +70,4 @@ ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о данных, собираемых и отправляемых в OMS из компонентов и решений, см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -13,18 +13,26 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
-ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
+ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
+ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Создание виртуальной машины Windows с помощью Resource Manager и PowerShell
 
-В этой статье показано, как быстро создать виртуальную машину Azure под управлением Windows Server и связанные с ней ресурсы с помощью [Resource Manager](../azure-resource-manager/resource-group-overview.md) и PowerShell. Все действия, описанные в этой статье, необходимы для создания виртуальной машины. Их выполнение займет около 30 минут. Заменяйте значения параметров в командах значениями, соответствующими вашей среде.
+В этой статье показано, как быстро создать виртуальную машину Azure под управлением Windows Server и связанные с ней ресурсы с помощью [Resource Manager](../azure-resource-manager/resource-group-overview.md) и Azure PowerShell.  
+
+Все действия, описанные в этой статье, необходимы для создания виртуальной машины. Их выполнение займет около 30 минут. Заменяйте значения параметров в командах значениями, соответствующими вашей среде.
 
 ## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
 
 Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
+
+> [!NOTE]
+> Может потребоваться переустановить Azure PowerShell, чтобы использовать функции, описываемые в этой статье. Возможности Управляемых дисков доступны в версии 3.5 и более поздних версиях.
+> 
+> 
 
 ## <a name="step-2-create-a-resource-group"></a>Шаг 2. Создание группы ресурсов
 
@@ -175,10 +183,5 @@ ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
 * При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,7 +1,8 @@
 > [!div class="op_single_selector"]
 > * [Портал](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> * [Интерфейс командной строки 2.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> > * [Интерфейс командной строки 1.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md)
 > * [Шаблон](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 
@@ -12,8 +13,3 @@
 * Возможность добавления любых частных IP-адресов любых сетевых карт во внутренний пул Azure Load Balancer. Раньше во внутренний пул можно было добавить только основной IP-адрес для основной сетевой карты. Дополнительные сведения о балансировке нагрузки в конфигурациях с несколькими IP-адресами см. в [этой статье](../articles/load-balancer/load-balancer-multiple-ip.md).
 
 Каждому сетевому адаптеру, подключенному к виртуальной машине, присвоена одна или несколько конфигураций IP-адресов. Каждая конфигурация получает один статический или динамический частный IP-адрес. Кроме того, каждой конфигурации также может быть присвоен один ресурс общедоступного IP-адреса. Ресурсу общедоступного IP-адреса назначен один динамический или статический общедоступный IP-адрес. Дополнительные сведения об IP-адресах в Azure см. в [этой статье](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). Каждой сетевой карте можно назначить до 250 частных IP-адресов. Хотя каждой сетевой карте можно назначить несколько общих IP-адресов, число общих IP-адресов, которые могут использоваться в подписке Azure, ограничено. См. дополнительные сведения об [ограничениях в Azure](../articles/azure-subscription-service-limits.md#networking-limits).
-
-
-<!--HONumber=Jan17_HO3-->
-
-

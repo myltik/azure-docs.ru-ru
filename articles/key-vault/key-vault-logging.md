@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,8 +40,6 @@ ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 > В настоящее время нельзя настроить хранилище ключей Azure на портале Azure. Вместо этого используйте эти указания по работе с Azure PowerShell.
 > 
 > 
-
-Собираемые журналы можно визуализировать с помощью Log Analytics в Operations Management Suite. Дополнительные сведения см. в статье [Решение хранилища ключей Azure (предварительная версия) в Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Общие сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 | SecretList |[Список секретов в хранилище](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Список версий секрета](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Использование Log Analytics
+
+Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы AuditEvent хранилища ключей Azure. Дополнительные сведения, включая инструкции по настройке, см. в статье [Решение Azure Key Vault Analytics в Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). В этой статье также содержатся инструкции на случай переноса из старого решения Key Vault, которое предлагалось в предварительной версии Log Analytics, где сначала требовалось направить журналы в учетную запись хранения Azure и настроить Log Analytics для чтения из этой учетной записи.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
 Руководство по использованию хранилища ключей Azure в веб-приложении см. в статье [Использование хранилища ключей Azure из веб-приложения](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 Полный список командлетов Azure PowerShell 1.0 для хранилища ключей Azure см. в статье [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Командлеты хранилища ключей Azure).
 
 Руководство по смене ключей и аудиту журналов с помощью хранилища ключей Azure см. в статье [Как настроить полную смену ключей и аудит в хранилище ключей](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

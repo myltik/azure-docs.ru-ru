@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 02/12/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
-ms.openlocfilehash: 14cc104bb755a0893c00963636e210b656b270b5
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
+ms.openlocfilehash: 61909f588077f3bbdbaf368db1a9138a3b28b117
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -42,7 +42,7 @@ Site Recovery можно использовать для переноса экз
 
 Вот что необходимо для этого развертывания:
 
-* **Сервер конфигурации.** Виртуальная машина Amazon EC2 под управлением Windows Server 2012 EC2, развернутая в качестве сервера конфигурации. По умолчанию при развертывании сервера конфигурации устанавливаются другие компоненты Azure Site Recovery (сервер обработки и главный целевой сервер). Эта статья содержит инструкции по миграции с помощью портала Azure, которые основаны на сведениях, приведенных в [этом разделе](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure).
+* **Сервер конфигурации.** Виртуальная машина Amazon EC2 под управлением Windows Server 2012 EC2, развернутая в качестве сервера конфигурации. По умолчанию при развертывании сервера конфигурации устанавливаются другие компоненты Azure Site Recovery (сервер обработки и главный целевой сервер). Эта статья содержит инструкции по миграции с помощью портала Azure, которые основаны на сведениях, приведенных в [этом разделе](site-recovery-components.md#vmware-replication-to-azure).
 
 * **Экземпляры EC2.** Экземпляры виртуальных машин Amazon EC2, которые требуется перенести.
 

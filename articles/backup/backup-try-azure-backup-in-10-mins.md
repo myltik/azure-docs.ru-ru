@@ -1,6 +1,6 @@
 ---
-title: "Резервное копирование файлов и папок из Windows в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager | Документация Майкрософт"
-description: "Сведения о резервном копировании файлов и папок Windows в Azure с использованием модели развертывания с помощью Resource Manager."
+title: "Архивация файлов и папок Windows в Azure (Resource Manager) | Документация Майкрософт"
+description: "Описание архивации файлов и папок Windows в Azure с использованием модели развертывания с помощью Resource Manager."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
 
 Дополнительные сведения о службе архивации Azure см. в этом [обзоре](backup-introduction-to-azure-backup.md).
 
-Чтобы создать резервную копию файлов и папок, нужно сделать следующее:
-
-![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Оформление подписки Azure (при необходимости).<br>
-![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Создание хранилища служб восстановления.<br>
-![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Скачивание необходимых файлов.<br>
-![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Установка и регистрация агента служб восстановления.<br>
-![Step 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Архивация файлов и папок.
-
-![Резервное копирование компьютеров Windows с помощью службы архивации Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Оформление подписки Azure
 Если у вас нет подписки Azure, вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free/) , предоставляющую доступ ко всем службам Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
@@ -70,6 +60,7 @@ ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
   Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. В поле **Расположение** выберите географический регион, в котором будет находиться хранилище. Этот выбор определяет географический регион, в который будут отправляться данные архивации.
+
 8. В нижней части колонки "Хранилище служб восстановления" нажмите кнопку **Создать**.
 
     Создание хранилища служб восстановления может занять несколько минут. Следите за уведомлениями о состоянии на портале в верхней правой области. После создания хранилище появится в списке хранилищ служб восстановления. Если через несколько минут хранилище не отобразилось, нажмите кнопку **Обновить**.
@@ -229,9 +220,4 @@ ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
 * См. дополнительные сведения об [архивации компьютеров Windows](backup-configure-vault.md).
 * Теперь, когда вы выполнили резервное копирование файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
 * Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
