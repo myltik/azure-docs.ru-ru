@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки Azure для NodeJS."
+title: "Создание виртуальной машины Linux с помощью Azure CLI 1.0 | Документация Майкрософт"
+description: "Создание виртуальной машины Linux в Azure с помощью Azure CLI 1.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -9,23 +9,24 @@ editor:
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2c37d5186e169789881a4b29597cb37cd6f7ede9
-ms.openlocfilehash: dc5c575873ceb2acc8321b949031276d9a8f8cc8
+ms.sourcegitcommit: a0d80ae5a4fe5af6f46e97a8f5d9a0c0715361b8
+ms.openlocfilehash: 5643a7f792cdfd1a445e69ac18b149a736951991
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli"></a>Создание виртуальной машины Linux с нуля с помощью Azure CLI.
+# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Создание виртуальной машины Linux с помощью Azure CLI 1.0
 
 В этой статье мы расскажем, как быстро развернуть в Azure виртуальную машину Linux с помощью команды `azure vm quick-create` в интерфейсе командной строки Azure. Команда `quick-create` развертывает виртуальную машину в надежной базовой инфраструктуре, которую вы можете использовать для быстрой проверки или создания прототипа решения.
 
 > [!NOTE]
-Чтобы создать виртуальную машину с использованием интерфейса командной строки Azure 2.0 (предварительная версия), см. сведения в [этой статье](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Чтобы создать виртуальную машину с использованием Azure CLI 2.0, изучите раздел [Создание виртуальной машины с помощью Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Для работы с этой статьей потребуется:
 
@@ -211,9 +212,4 @@ myAdminUser@myVM:~$
 * [Создание виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Вы также можете [использовать драйвер Azure `docker-machine` с разными командами для быстрого создания виртуальной машины Linux в качестве узла Docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
