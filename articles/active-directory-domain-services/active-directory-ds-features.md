@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
 ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -39,9 +40,4 @@ ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
 * **Доступность в различных регионах Azure** : на странице [служб Azure по регионам](https://azure.microsoft.com/regions/#services/) можно узнать, в каких регионах Azure доступны доменные службы Azure AD.
 * **Высокий уровень доступности:** доменные службы AD Azure обеспечивают высокий уровень доступности вашего домена. Эта функция обеспечивает большее время непрерывной работы службы и отказоустойчивость. Встроенный мониторинг предоставляет средства автоматического восстановления после сбоев путем развертывания новых экземпляров для замены неисправных экземпляров и для обеспечения непрерывной работы домена.
 * **Использование привычных средств управления:** вы можете использовать привычные средства управления Windows Server Active Directory, такие как центр администрирования Active Directory или Active Directory PowerShell, для администрирования управляемых доменов.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
