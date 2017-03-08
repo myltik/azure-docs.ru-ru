@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a7320a7e5052ffb4171307bc8636182447ddfc50
+ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
+ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
 
 
 ---
@@ -42,26 +42,23 @@ ms.openlocfilehash: a7320a7e5052ffb4171307bc8636182447ddfc50
 * Инициализация каждой роли будет занимать больше времени.
 * Добавляется внутренняя конечная точка, служащая для перенаправления трафика, как было указано выше.
 
-Пример сохранения данных сеанса при включенном сходстве сеансов см. в [центре разработчиков Java][Сохранение данных сеанса с использованием сходства сеансов].
 
 ## <a name="see-also"></a>См. также
-[Набор средств Azure для Eclipse][Набор средств Azure для Eclipse]
+[Набор средств Azure для Eclipse][Azure Toolkit for Eclipse]
 
-[Создание приложения Hello World для Azure в Eclipse][Создание приложения Hello World для Azure в Eclipse]
+[Создание приложения Hello World для Azure в Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Установка набора средств Azure для Eclipse][Установка набора средств Azure для Eclipse] 
+[Установка набора средств Azure для Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Сохранение данных сеанса с использованием сходства сеансов][Сохранение данных сеанса с использованием сходства сеансов]
-
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Сохранение данных сеанса с использованием сходства сеансов]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -71,6 +68,6 @@ ms.openlocfilehash: a7320a7e5052ffb4171307bc8636182447ddfc50
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

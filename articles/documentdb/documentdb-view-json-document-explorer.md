@@ -1,5 +1,5 @@
 ---
-title: "Использование проводника документов DocumentDB для просмотра документов JSON | Документация Майкрософт"
+title: "Инструмент DocumentDB портала Azure: проводник документов | Документация Майкрософт"
 description: "Сведения о проводнике документов DocumentDB, средстве портала Azure для просмотра, изменения, создания и отправки документов JSON с помощью DocumentDB — базы данных документов NoSQL."
 keywords: "просмотр кода json"
 services: documentdb
@@ -13,21 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
+ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
+ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Просмотр, изменение, создание и отправка документов JSON с помощью проводника документов DocumentDB
 В этой статье приведены общие сведения о проводнике документов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) — средстве портала Azure, предназначенном для просмотра, изменения, создания, отправки и фильтрации документов JSON с помощью DocumentDB. 
 
-Обратите внимание: в учетных записях DocumentDB с поддержкой протокола для MongoDB проводник документов не включен. Страница будет обновлена после включения этого компонента.
+> [!NOTE]
+> В учетных записях DocumentDB с поддержкой протокола для MongoDB проводник документов не включен. Страница будет обновлена после включения этого компонента.
 
-## <a name="launch-document-explorer"></a>Запуск проводника документов
-1. На навигационной панели портала Azure щелкните **DocumentDB (NoSQL)**. Если пункт **DocumentDB (NoSQL)** не отображается, то щелкните **Больше служб** и выберите **DocumentDB (NoSQL)**.
+<a id="launch-document-explorer"></a>
+
+## <a name="launch-document-explorer-in-the-azure-portal"></a>Запуск проводника документов на портале Azure
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Если пункт **NoSQL (DocumentDB)** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Выберите имя учетной записи. 
 3. В меню ресурсов выберите **Обозреватель документов**. 
    
@@ -35,7 +41,7 @@ ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
    
     В колонке **Обозреватель документов** раскрывающиеся списки **Базы данных** и **Коллекции** заполняются заранее в зависимости от контекста, в котором запускается проводник документов. 
 
-## <a name="create-a-document"></a>Создание документа
+## <a name="create-a-json-document"></a>Создание документа JSON
 1. [Запустите проводник документов](#launch-document-explorer).
 2. В колонке **Обозреватель документов** щелкните **Создать документ**. 
    
@@ -53,7 +59,7 @@ ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
    
     Если у вас уже есть данные из JSON-файлов, баз MongoDB и SQL Server, CSV-файлов, хранилища таблиц Azure, Amazon DynamoDB, HBase или других коллекций DocumentDB, вы можете быстро импортировать их с помощью [инструмента DocumentDB для переноса данных](documentdb-import-data.md) .
 
-## <a name="edit-a-document"></a>Изменение документа
+## <a name="edit-a-json-document"></a>Изменение документа JSON
 1. [Запустите проводник документов](#launch-document-explorer).
 2. Чтобы изменить существующий документ, выберите его в колонке **Обозреватель документов**, измените документ в колонке **Документ**, а затем нажмите кнопку **Сохранить**.
    
@@ -63,7 +69,7 @@ ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
    
     ![Снимок экрана: команда отмены в обозревателе документов](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document"></a>Удаление документа
+## <a name="delete-a-document-from-documentdb"></a>Удаление документа из DocumentDB
 1. [Запустите проводник документов](#launch-document-explorer).
 2. Выберите документ в колонке **Обозреватель документов**, нажмите кнопку **Удалить** и подтвердите удаление. После подтверждения документ будет немедленно удален из списка проводника документов.
    
@@ -156,12 +162,5 @@ ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о грамматике SQL в DocumentDB, которую поддерживает проводник документов, см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md). Можно также распечатать копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md).
-
-[Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) — еще один полезный ресурс, который поможет вам узнать больше о DocumentDB. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

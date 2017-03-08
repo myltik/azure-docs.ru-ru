@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 81706c6c95199b25a07589780d2a27fc0f8dffa7
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C# #
 Этой статье показаны задачи управления виртуальными машинами, в том числе как запуск, остановка и обновление. Чтобы выполнить задачи в этой статье, виртуальная машина должна существовать в группе ресурсов.
 
 Для выполнения задач из этой статьи необходимо следующее:
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-* [Токен проверки подлинности](../resource-group-authenticate-service-principal.md)
+* [Токен проверки подлинности](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="create-a-visual-studio-project-and-install-packages"></a>Создание проекта Visual Studio и установка пакетов
 Для установки библиотек, которые необходимы для выполнения задач в этой статье, проще всего воспользоваться пакетами NuGet. Для этой статьи вам потребуется установить библиотеку управления ресурсами Azure, библиотеку аутентификации Azure Active Directory и библиотеку поставщика ресурсов компьютера. Чтобы добавить эти библиотеки в Visual Studio, сделайте следующее:
@@ -435,11 +435,11 @@ ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
 5. Нажмите кнопку **Запуск** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При наличии проблем с развертыванием ознакомьтесь со статьей [об устранении неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

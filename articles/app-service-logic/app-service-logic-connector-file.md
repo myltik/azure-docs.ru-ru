@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 35bd4561f6e8f4482cb084eb293b506eb9269cf7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -59,7 +60,7 @@ ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
 После создания приложения API соединитель File можно использовать как действие для приложения логики. Для этого необходимо выполнить следующие действия.
 
 1. Создайте новое приложение логики и выберите ту же группу ресурсов, в которую входит соединитель File. Следуйте инструкциям, чтобы [создать новое приложение логики].
-2. Откройте раздел Triggers and Actions (Триггеры и действия) в созданном приложении логики, чтобы открыть конструктор приложений логики и настроить поток.
+2. Откройте раздел "Триггеры и действия" в созданном приложении логики, чтобы открыть конструктор приложений логики и настроить последовательность.
 3. Соединитель File отображается в разделе API Apps in this resource group (Приложения API в этой группе ресурсов) в коллекции с правой стороны.
 4. Приложение API соединителя File можно перетащить в редактор, щелкнув элемент File connector (Соединитель File). Соединитель File предоставляет один триггер и четыре действия:   
    ![][5]
@@ -98,11 +99,6 @@ ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
 
 <!-- Links -->
 [создать новое приложение логики]: app-service-logic-create-a-logic-app.md
-[Определение API соединителя File]: https://msdn.microsoft.com/library/dn936296.aspx
+[определении API соединителя File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Управление гибридными подключениями]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Подробное руководство по устранению неполадок с удаленным рабочим столом | Документация Майкрософт"
+title: "Подробное руководство по устранению неполадок с удаленным рабочим столом в Azure | Документация Майкрософт"
 description: "Подробное руководство по устранению неполадок с удаленным рабочим столом, не позволяющих подключиться к виртуальным машинам Windows в Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 
 
 ---
@@ -28,8 +28,6 @@ ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 > [!IMPORTANT]
 > Чтобы устранить более распространенные ошибки удаленного рабочего стола, обязательно ознакомьтесь с [основными способами устранения неполадок удаленного рабочего стола](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), прежде чем продолжить.
-> 
-> 
 
 Вам может встретиться сообщение об ошибке удаленного рабочего стола, не похожее ни на одно из сообщений, описанных в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Выполните следующие действия, чтобы определить, почему клиент удаленного рабочего стола (RDP) не может подключиться к службе удаленного рабочего стола на виртуальной машине Azure.
 
@@ -141,7 +139,7 @@ ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 Для виртуальных машин, созданных по классической модели развертывания, можно использовать удаленный сеанс Azure PowerShell на виртуальной машине Azure. Сначала нужно установить сертификат для доступа к облачной службе, в которой размещена виртуальная машина. Откройте страницу [Configure Secure Remote PowerShell Access to Windows Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Настройка защищенного удаленного доступа PowerShell к виртуальным машинам Azure) и скачайте файл сценария **InstallWinRMCertAzureVM.ps1** на локальный компьютер.
 
-Затем установите Azure PowerShell, если еще не сделали этого. См. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Затем установите Azure PowerShell, если еще не сделали этого. См. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Затем откройте командную строку Azure PowerShell и перейдите из текущей папки в папку с файлом сценария **InstallWinRMCertAzureVM.ps1**. Для запуска сценария Azure PowerShell необходимо задать правильную политику выполнения. Выполните команду **Get-ExecutionPolicy**, чтобы определить текущий уровень политики. Инструкции по выбору подходящего уровня см. в описании команды [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -192,7 +190,7 @@ ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 [Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+[Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -201,6 +199,6 @@ ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с решениями SAP | Документация Майкрософт"
+title: "Приступая к работе с SAP на виртуальных машинах Linux в Azure | Документация Майкрософт"
 description: "Сведения о работе решений SAP на виртуальных машинах в Microsoft Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 93e460026969ef75edd68116479eb4ff1c53bdf3
-ms.openlocfilehash: 04944e7311b325f0ea320d6206af634bbae5c679
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -355,10 +356,5 @@ ms.openlocfilehash: 04944e7311b325f0ea320d6206af634bbae5c679
 Обновление: март 2016 г.
 
 [Это руководство можно найти здесь.] [dbms-guide]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

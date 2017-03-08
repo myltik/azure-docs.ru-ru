@@ -42,13 +42,35 @@ Version
   Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
   ```
 
-Чтобы добавить все теги из группы ресурсов к ресурсам в этой группе, **не сохраняя существующие теги ресурсов**, используйте следующий скрипт:
+Чтобы добавить все теги из группы ресурсов к ресурсам в этой группе, **не сохраняя существующие теги ресурсов**, используйте следующий сценарий.
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups) 
 {
     Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+}
+```
+
+Чтобы добавить все теги из группы ресурсов к ресурсам в этой группе, **сохранив существующие теги ресурсов**, используйте приведенный ниже сценарий.
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups) 
+{
+    if ($g.Tags -ne $null) {
+        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
+        foreach ($r in $resources)
+        {
+            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+            foreach ($key in $g.Tags.Keys)
+            {
+                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
+            }
+            $resourcetags += $g.Tags
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+    }
 }
 ```
 
@@ -69,9 +91,4 @@ Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

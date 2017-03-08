@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг, диагностика и устранение неполадок в работе службы хранилища | Документация Майкрософт"
-description: Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
+title: "Мониторинг, диагностика и устранение неполадок в работе службы хранилища Azure | Документация Майкрософт"
+description: "Воспользуйтесь такими функциями, как аналитика хранилища, вход на стороне клиента, и другими сторонними инструментами для выявления, диагностики и устранения проблем, связанных со службой хранилища Azure."
 services: storage
 documentationcenter: 
 author: jasonnewyork
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/16/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
+ms.sourcegitcommit: d755a94bc8c5165480291d891c5feb0cf3b26e75
+ms.openlocfilehash: e6915bf94b56b9c9ff3deb131d18d1d5457f0e85
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -84,8 +85,6 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 ![][1]
 
-*Рис. 1. Мониторинг, диагностика и устранение неполадок*
-
 Это руководство в первую очередь предназначено для разработчиков веб-служб, использующих службы хранилища Azure, а также для ИТ-специалистов, ответственных за управление ими. Цели этого руководства:
 
 * Помочь вам поддерживать работоспособность и производительность своих учетных записей хранилища Azure.
@@ -110,7 +109,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Метрики позволяют получить довольно полную картину о состоянии службы хранилища, но иногда регистрируют не все операции.
 
-На портале Azure можно просматривать такие метрики, как доступность, общее количество запросов и средние показатели задержки, для учетной записи хранения. Кроме того, на этой странице настроено правило для оповещения администратора о спаде доступности ниже определенного уровня. Помимо этих данных, на возможные проблемы также может указывать то, что уровень успешной обработки службы таблиц составляет менее 100 % (дополнительные сведения см. в разделе [Метрики содержат низкие значения PercentSuccess, или в записях журналов аналитики присутствуют операции с состоянием транзакции ClientOtherErrors]).
+На портале Azure можно просматривать такие метрики для учетной записи хранения, как доступность, общее количество запросов и средние показатели задержки. Кроме того, на этой странице настроено правило для оповещения администратора о спаде доступности ниже определенного уровня. Помимо этих данных, на возможные проблемы также может указывать то, что уровень успешной обработки службы таблиц составляет менее 100 % (дополнительные сведения см. в разделе [Метрики содержат низкие значения PercentSuccess, или в записях журналов аналитики присутствуют операции с состоянием транзакции ClientOtherErrors]).
 
 Чтобы упростить постоянный контроль за работоспособностью и производительностью своих приложений Azure, рекомендуем вам:
 
@@ -119,7 +118,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 * С помощью ежечасных метрик контролировать средние значения, например среднее число ошибок и запросов.
 * Изучать потенциальные проблемы с помощью диагностических инструментов, описанных в разделе[Диагностика неполадок с хранилищем].
 
-Диаграммы на представленном ниже рисунке 3 демонстрируют, как усреднение, происходящее при сборе метрик каждый час, скрывает всплески активности. Ежечасные метрики отражают равномерный поток запросов, в то время как ежеминутные показывают колебания, которые происходят на самом деле.
+Диаграммы на представленном ниже рисунке демонстрируют, как усреднение, происходящее при сборе метрик каждый час, скрывает всплески активности. Ежечасные метрики отражают равномерный поток запросов, в то время как ежеминутные показывают колебания, которые происходят на самом деле.
 
 ![][3]
 
@@ -128,16 +127,16 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 ### <a name="a-namemonitoring-service-healthamonitoring-service-health"></a><a name="monitoring-service-health"></a>Мониторинг работоспособности службы
 На [портале Azure](https://portal.azure.com) вы можете следить за работоспособностью службы хранилища (и других служб Azure) в любых регионах Azure по всему миру. Это позволяет мгновенно определить, не затронуто ли ваше приложение проблемой со службой хранилища, на которую вы никак не можете повлиять.
 
-Кроме того, [портале Azure](https://portal.azure.com) может рассылать уведомления об инцидентах, влияющих на различные службы Azure.
+Кроме того, [портал Azure](https://portal.azure.com) может рассылать уведомления об инцидентах, влияющих на различные службы Azure.
 Ранее эта информация, наряду с данными журналов, была доступна на [панели мониторинга служб Azure](http://status.azure.com).
 
-[Портал Azure](https://portal.azure.com) собирает сведения о работоспособности из центров обработки данных Azure (внутренний мониторинг), но вы также можете использовать внешний мониторинг для создания искусственных транзакций, которые периодически поступают в ваше приложение на базе Azure из различных мест. Например, подобный подход может быть реализован с использованием [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) и Application Insights для Visual Studio Team Services. Дополнительные сведения об Application Insights для Visual Studio Team Services см. в разделе [приложении 5 "Мониторинг с использованием Application Insights для Visual Studio Team Services"](#appendix-5).
+[Портал Azure](https://portal.azure.com) собирает сведения о работоспособности из центров обработки данных Azure (внутренний мониторинг), но вы также можете использовать внешний мониторинг для создания искусственных транзакций, которые периодически поступают в ваше веб-приложение на базе Azure из нескольких расположений. Например, подобный подход может быть реализован с использованием [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) и Application Insights для Visual Studio Team Services. Дополнительные сведения об Application Insights для Visual Studio Team Services см. в разделе [приложении 5 "Мониторинг с использованием Application Insights для Visual Studio Team Services"](#appendix-5).
 
 ### <a name="a-namemonitoring-capacityamonitoring-capacity"></a><a name="monitoring-capacity"></a>Мониторинг мощностей
 В метриках емкости учитывается только служба BLOB-объектов, так как именно они обычно занимают больше всего места (на момент подготовки этой статьи метрики хранилища невозможно использовать для мониторинга емкости таблиц и очередей). Если вы включили мониторинг службы BLOB-объектов, то можете найти эти данные в таблице **$MetricsCapacityBlob**. Метрики хранилища регистрируют подобные сведения каждый день. По значению **RowKey** вы можете определить, к чему относится запись в строке: к пользовательским (значение **data**) или к аналитическим данным (значение **analytics**). Каждая сохраненная запись содержит информацию о занятом месте (показатель **Capacity** в байтах), а также о том, сколько контейнеров (**ContainerCount**) и BLOB-объектов (**ObjectCount**) на данный момент используется в учетной записи хранилища. Дополнительные сведения о метриках емкости, хранящихся в таблице **$MetricsCapacityBlob**, см. в статье [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx) (Схема таблицы метрик аналитики хранилища).
 
 > [!NOTE]
-> Рекомендуем вам отслеживать эти значения, так как они позволяют заранее определить, что в вашей учетной записи хранилища скоро будут достигнуты пределы емкости. На портале Azure можно добавить правила уведомлений о превышении установленных пороговых значений используемой емкости.
+> Рекомендуем вам отслеживать эти значения, так как они позволяют заранее определить, что в вашей учетной записи хранилища скоро будут достигнуты пределы емкости. На портале Azure можно добавить правила генерации оповещений о превышении установленных пороговых значений используемой емкости.
 > 
 > 
 
@@ -148,7 +147,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Если значение меньше 100 %, это означает, что некоторые запросы к хранилищу не были выполнены. Чтобы узнать, в чем причина сбоя, проверьте другие столбцы с данными метрик, означающих число запросов с ошибками разных типов, например **Ошибка времени ожидания сервера**. Вы должны быть готовы к тому, что иногда значение в столбце **Доступность** временно опускается ниже 100 % по определенным причинам (например, из-за превышения времени ожидания на сервере, когда служба перемещает разделы для балансировки нагрузки по запросам). Логический алгоритм повтора в вашем клиентском приложении должен обрабатывать эти периодически возникающие ситуации. В статье [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx) (Регистрируемые операции и сообщения о состоянии аналитики хранилища) перечислены типы транзакций, которые учитываются системой метрик хранилища при расчете значения **Availability**.
 
-На [портале Azure](https://portal.azure.com)можно добавить правила оповещений, чтобы получать уведомления, когда значение **Availability** для службы опустится ниже заданного порога.
+На [портале Azure](https://portal.azure.com)можно добавить правила генерации оповещений, чтобы получать уведомления, когда значение **Availability** для службы опустится ниже заданного порога.
 
 В разделе[Рекомендации по устранению неполадок]этого руководства описаны некоторые распространенные проблемы со службой хранилища, связанные с доступностью.
 
@@ -161,7 +160,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Обычно выполняется мониторинг неожиданных изменений каждого из этих значений, так как это говорит о том, что возникла проблема, требующая внимания.
 
-На [портале Azure](https://portal.azure.com)можно добавить правила оповещений, чтобы получать уведомления, когда значение любой из метрик производительности для службы опустится ниже заданного порога.
+На [портале Azure](https://portal.azure.com)можно добавить правила генерации оповещений, чтобы получать уведомления, когда значение любой из метрик производительности для службы опустится ниже заданного порога.
 
 В разделе[Рекомендации по устранению неполадок]этого руководства описаны некоторые распространенные проблемы со службой хранилища, связанные с производительностью.
 
@@ -228,7 +227,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 * [Fiddler](http://www.telerik.com/fiddler) — это бесплатный веб-прокси для отладки, с помощью которого можно проверять заголовки и полезные данные HTTP- и HTTPS-запросов, а также ответных сообщений. Дополнительные сведения см. в [приложении 1 "Отслеживание HTTP- и HTTPS-трафика с помощью Fiddler"](#appendix-1).
 * [Microsoft Network Monitor (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) и [Wireshark](http://www.wireshark.org/) — бесплатные средства для анализа сетевых протоколов, с помощью которых можно просматривать подробную информацию о пакетах для широкого спектра сетевых протоколов. Дополнительные сведения о Wireshark см. в [Приложение 2. Отслеживание сетевого трафика с помощью Wireshark](#appendix-2).
-* Microsoft Message Analyzer — это средство, предлагаемое корпорацией Майкрософт в качестве замены Netmon. Оно позволяет не только собирать данные о сетевых пакетах, но и просматривать, а также анализировать информацию из журналов, созданных с помощью других инструментов. Дополнительные сведения см. в [Приложение 3. Отслеживание сетевого трафика с помощью Microsoft Message Analyzer](#appendix-3).
+* Microsoft Message Analyzer — это средство, предлагаемое корпорацией Майкрософт в качестве замены Netmon. Оно позволяет не только собирать данные о сетевых пакетах, но и просматривать, а также анализировать информацию из журналов, созданных с помощью других инструментов. Дополнительные сведения см. в [приложении 3 "Отслеживание сетевого трафика с помощью Microsoft Message Analyzer"](#appendix-3).
 * Если вы хотите выполнить базовый тест подключения, чтобы проверить, может ли клиентская машина подключиться к службе хранилища Azure по сети, этого не удастся сделать с помощью стандартного инструмента **ping** на клиенте. Однако вы можете воспользоваться для проверки подключения инструментом [**tcping**](http://www.elifulkerson.com/projects/tcping.php).
 
 Во многих случаях данных журналов хранилища и клиентской библиотеки хранилища достаточно для диагностики проблемы, но иногда вам могут потребоваться более подробные сведения, чем способны предоставить эти инструменты. Например, используя Fiddler для просмотра сообщений HTTP и HTTPS, вы можете видеть заголовки и полезные данные, отправленные в службы хранилища и из них. Это позволяет проверить, как работает повтор операций хранилища в клиентском приложении. Средства для анализа протоколов, такие как Wireshark, работают на уровне пакетов, благодаря чему вы можете просматривать данные TCP и выявлять потерянные пакеты и проблемы с подключением. Message Analyzer может работать как на уровне HTTP, так и на уровне TCP.
@@ -267,36 +266,37 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 В приведенном ниже примере кода показано, как настроить пользовательское значение **ClientRequestId**, прикрепив объект **OperationContext** к запросу к службе хранилища. Кроме того, показано, как извлечь значение **ServerRequestId** из ответного сообщения.
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
-    OperationContext oc = new OperationContext();
-    oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
+// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
+OperationContext oc = new OperationContext();
+oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
-    try
+try
+{
+    CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
+    ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
+    var downloadToPath = string.Format("./{0}", blob.Name);
+    using (var fs = File.OpenWrite(downloadToPath))
     {
-        CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
-        ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
-        var downloadToPath = string.Format("./{0}", blob.Name);
-        using (var fs = File.OpenWrite(downloadToPath))
-        {
-            blob.DownloadToStream(fs, null, null, oc);
-            Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
-        }
+        blob.DownloadToStream(fs, null, null, oc);
+        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
     }
-    catch (StorageException storageException)
+}
+catch (StorageException storageException)
+{
+    Console.WriteLine("Storage exception {0} occurred", storageException.Message);
+    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
+    foreach (var result in oc.RequestResults)
     {
-        Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-        // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
-        foreach (var result in oc.RequestResults)
-        {
-                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
-        }
+            Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
     }
-
+}
+```
 
 ### <a name="a-nametimestampsatimestamps"></a><a name="timestamps"></a>Метки времени
 Для поиска связанных записей в журналах можно также использовать метки времени, однако при этом нужно учитывать возможное расхождение в значениях времени между клиентом и сервером. Поиск соответствующих записей на стороне сервера нужно выполнять в интервале, охватывающем по 15 минут до и после метки времени на клиенте. Помните, что метаданные BLOB-объектов, содержащих метрики, определяют для них временной диапазон. Это полезно, если у вас есть много BLOB-объектов с метриками, относящимися к одной минуте или часу.
@@ -348,7 +348,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 - - -
 ### <a name="a-namemetrics-show-high-averagee2elatency-and-low-averageserverlatencyametrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Метрики содержат высокие значения AverageE2ELatency и низкие значения AverageServerLatency
-На приведенной ниже иллюстрации из средства мониторинга [портале Azure](https://portal.azure.com) показана ситуация, когда значение метрики **AverageE2ELatency** значительно выше значения метрики **AverageServerLatency**.
+На приведенной ниже иллюстрации из средства мониторинга на [портале Azure](https://portal.azure.com) показана ситуация, когда значение метрики **AverageE2ELatency** значительно выше значения метрики **AverageServerLatency**.
 
 ![][4]
 
@@ -364,11 +364,13 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Для служб таблиц и очередей алгоритм Нейгла также может приводить к высокому значению метрики **AverageE2ELatency** по сравнению с метрикой **AverageServerLatency**. Дополнительные сведения см. в записи блога [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (Алгоритм Нейгла не ориентирован на мелкие запросы). Вы можете отключить алгоритм Нейгла в коде с помощью класса **ServicePointManager** в пространстве имен **System.Net**. Это следует сделать до выполнения вызовов к службам таблиц или очередей в приложении, так как на открытые подключения это не распространяется. Приведенный ниже пример взят из метода **Application_Start** в рабочей роли.
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-    tableServicePoint.UseNagleAlgorithm = false;
-    ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
-    queueServicePoint.UseNagleAlgorithm = false;
+```csharp
+var storageAccount = CloudStorageAccount.Parse(connStr);
+ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
+tableServicePoint.UseNagleAlgorithm = false;
+ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
+queueServicePoint.UseNagleAlgorithm = false;
+```
 
 Вы должны просмотреть журналы на стороне клиента, чтобы понять, сколько запросов отправляет приложение, а также проверить общие узкие места, связанные с производительностью .NET, в приложении. К ним относятся использование процессора, сети и памяти, а также сборка мусора .NET. В качестве отправной точки для устранения неполадок в клиентских приложениях .NET используйте статью [Debugging, Tracing, and Profiling](http://msdn.microsoft.com/library/7fe0dd2y) (Отладка, трассировка и профилирование).
 
@@ -425,7 +427,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 * [Временное увеличение метрики PercentThrottlingError]
 * [Постоянное увеличение метрики PercentThrottlingError]
 
-Метрика **PercentThrottlingError** часто увеличивается одновременно с увеличением числа запросов к хранилищу или при первоначальном нагрузочном тестировании приложения. Это также может проявляться в получении сообщений о состоянии HTTP 503 "Сервер занят" или 500 "Время ожидания операции истекло" в клиенте при операциях с хранилищем.
+Метрика **PercentThrottlingError** часто увеличивается одновременно с увеличением числа запросов к хранилищу или при первоначальном нагрузочном тестировании приложения. Это также может проявляться в получении сообщений о состоянии HTTP&503; "Сервер занят" или&500; "Время ожидания операции истекло" в клиенте при операциях с хранилищем.
 
 #### <a name="a-nametransient-increase-in-percentthrottlingerroratransient-increase-in-percentthrottlingerror"></a><a name="transient-increase-in-PercentThrottlingError"></a>Временное увеличение метрики PercentThrottlingError
 Если в значении метрики **PercentThrottlingError** наблюдаются пиковые скачки, совпадающие с периодами высокой активности приложения, следует реализовать стратегию повторения с экспоненциальной, а не линейной задержкой в клиенте. Это позволит снизить мгновенную нагрузку на секцию и сгладить пиковые скачки трафика. Дополнительные сведения о том, как реализовать политики повтора с помощью клиентской библиотеки хранилища, см. в статье [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx) (Пространство имен Microsoft.WindowsAzure.Storage.RetryPolicies).
@@ -448,7 +450,7 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 > 
 
 ### <a name="a-namemetrics-show-an-increase-in-percenttimeouterrorametrics-show-an-increase-in-percenttimeouterror"></a><a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Метрики показывают увеличение значения PercentTimeoutError
-Вы можете наблюдать увеличение метрики **PercentTimeoutError** для одной из служб хранилища. В то же время клиент может получать большое число сообщений о состоянии HTTP 500 "Время ожидания операции истекло" при операциях с хранилищем.
+Вы можете наблюдать увеличение метрики **PercentTimeoutError** для одной из служб хранилища. В то же время клиент может получать большое число сообщений о состоянии HTTP&500; "Время ожидания операции истекло" при операциях с хранилищем.
 
 > [!NOTE]
 > Ошибки времени ожидания могут возникать временно, когда служба хранилища выполняет балансировку нагрузки запросов, перемещая раздел на новый сервер.
@@ -472,11 +474,11 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 | Источник | Уровень детализации | Уровень детализации | Идентификатор запроса клиента | Operation Text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начинается выполнение операции с расположением «Основное» в режиме расположения PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начало синхронного запроса к https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начало синхронного запроса к https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh %&2;BmcR6zbudIH2F5Ikm %&2;FyhNYZEmJNQ %&3;D&amp;api-version =&2014;-02-14. |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Waiting for response (Ожидание ответа). |
-| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |При ожидании ответа возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). |
+| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |При ожидании ответа возникло исключение: удаленный сервер вернул ошибку&403; (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Response received. Код состояния = 403; идентификатор запроса = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d; Content-MD5 = ; ETag = . |
-| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |Во время операции возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). |
+| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |Во время операции возникло исключение: удаленный сервер вернул ошибку&403; (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Проверка необходимости в повторной попытке выполнения операции. Число повторных попыток = 0; код состояния HTTP = 403; исключение = удаленный сервер вернул ошибку 403 (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Следующим установлено расположение «Основное» в соответствием с режимом расположения. |
 | Microsoft.WindowsAzure.Storage |Ошибка |1 |85d077ab -… |Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (403) — запрещено.) |
@@ -563,53 +565,29 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 В этой таблице показан пример сообщения журнала на стороне сервера из файла журнала хранилища:
 
-<table>
-  <tr>
-    <td>Request start time (Время начала запроса)</td>
-    <td>2014-05-30T06:17:48.4473697Z</td>
-  </tr>
-  <tr>
-    <td>Operation type (Тип операции)</td>
-    <td>GetBlobProperties</td>
-  </tr>
-  <tr>
-    <td>Request status (Состояние запроса)</td>
-    <td>SASAuthorizationError</td>
-  </tr>
-  <tr>
-    <td>HTTP status code (Код состояния HTTP)</td>
-    <td>404</td>
-  </tr>
-  <tr>
-    <td>Authentication type (Тип проверки подлинности)</td>
-    <td>SAS</td>
-  </tr>
-  <tr>
-    <td>Service type (Тип службы)</td>
-    <td>BLOB-объект</td>
-  </tr>
-  <tr>
-    <td>Request URL (URL-адрес запроса)</td>
-    <td>
-    https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;amp;sr=c&amp;amp;si=mypolicy&amp;amp;sig=XXXXX&amp;amp;api-version=2014-02-14&amp;amp;</td>
-  </tr>
-  <tr>
-    <td>Request ID header</td>
-    <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
-  </tr>
-  <tr>
-    <td>Идентификатор запроса клиента</td>
-    <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
-  </tr>
-</table>
+| Имя | Значение |
+| --- | --- |
+| Request start time (Время начала запроса) | 2014-05-30T06:17:48.4473697Z |
+| Operation type (Тип операции)     | GetBlobProperties            |
+| Request status (Состояние запроса)     | SASAuthorizationError        |
+| HTTP status code (Код состояния HTTP)   | 404                            |
+| Authentication type (Тип проверки подлинности)| SAS                          |
+| Service type (Тип службы)       | BLOB-объект                         |
+| Request URL (URL-адрес запроса)         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| Идентификатор запроса клиента  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+
 
 Вам нужно найти причину того, что клиентское приложение пытается выполнить операцию, для которой ему не предоставлены разрешения.
 
 #### <a name="a-namejavascript-code-does-not-have-permissionaclient-side-javascript-code-does-not-have-permission-to-access-the-object"></a><a name="JavaScript-code-does-not-have-permission"></a>У кода JavaScript на стороне клиента нет разрешения на доступ к объекту
 Если вы используете клиент JavaScript и служба хранилища возвращает сообщения HTTP 404, проверьте в браузере, нет ли следующих ошибок JavaScript:
 
-    SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
-    SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
+SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
+SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
 
 > [!NOTE]
 > При диагностике и устранении неполадок на стороне клиента JavaScript вы можете воспользоваться средствами разработчика F12 в Internet Explorer для трассировки сообщений, которыми обмениваются браузер и служба хранилища.
@@ -622,19 +600,21 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 В этом примере кода показано, как настроить службу BLOB-объектов, чтобы разрешить работу приложения JavaScript в домене Contoso для получения доступа к хранящемуся в ней BLOB-объекту:
 
-    CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-    // Set the service properties.
-    ServiceProperties sp = client.GetServiceProperties();
-    sp.DefaultServiceVersion = "2013-08-15";
-    CorsRule cr = new CorsRule();
-    cr.AllowedHeaders.Add("*");
-    cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
-    cr.AllowedOrigins.Add("http://www.contoso.com");
-    cr.ExposedHeaders.Add("x-ms-*");
-    cr.MaxAgeInSeconds = 5;
-    sp.Cors.CorsRules.Clear();
-    sp.Cors.CorsRules.Add(cr);
-    client.SetServiceProperties(sp);
+```csharp
+CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
+// Set the service properties.
+ServiceProperties sp = client.GetServiceProperties();
+sp.DefaultServiceVersion = "2013-08-15";
+CorsRule cr = new CorsRule();
+cr.AllowedHeaders.Add("*");
+cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
+cr.AllowedOrigins.Add("http://www.contoso.com");
+cr.ExposedHeaders.Add("x-ms-*");
+cr.MaxAgeInSeconds = 5;
+sp.Cors.CorsRules.Clear();
+sp.Cors.CorsRules.Add(cr);
+client.SetServiceProperties(sp);
+```
 
 #### <a name="a-namenetwork-failureanetwork-failure"></a><a name="network-failure"></a>Сбой сети
 В некоторых обстоятельствах потеря сетевых пакетов может привести к тому, что служба хранилища будет возвращать клиенту сообщения HTTP 404. Например, когда клиентское приложение удаляет субъект из службы таблиц, это вызывает исключение хранилища и вы увидите сообщение о состоянии HTTP 404 (не найдено) от службы таблиц. Если вы посмотрите на таблицу в службе таблиц, то поймете, что субъект удален в соответствии с запросом.
@@ -713,10 +693,12 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 
 Причина заключается в проблемах с существующей установкой LocalDB. По умолчанию эмулятор хранения использует базу данных LocalDB для хранения данных при эмуляции служб хранилища Azure. Вы можете переустановить экземпляр LocalDB, прежде чем пытаться установить пакет SDK, выполнив указанные ниже команды в окне командной строки.
 
-    sqllocaldb stop v11.0
-    sqllocaldb delete v11.0
-    delete %USERPROFILE%\WAStorageEmulatorDb3*.*
-    sqllocaldb create v11.0
+```
+sqllocaldb stop v11.0
+sqllocaldb delete v11.0
+delete %USERPROFILE%\WAStorageEmulatorDb3*.*
+sqllocaldb create v11.0
+```
 
 Команда **delete** удаляет старые файлы базы данных, оставшиеся от предыдущих установок эмулятора хранения.
 
@@ -789,7 +771,9 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Настройка сеанса трассировки веб-трафика с помощью анализатора сообщений Майкрософт
 Чтобы настроить сеанс трассировки веб-трафика HTTP и HTTPS с помощью анализатора сообщений Майкрософт, запустите анализатор, а затем в меню **Файл** выберите пункт **Захват и трассировка**. В списке доступных сценариев трассировки выберите пункт **Web Proxy**(Веб-прокси). Затем на панели **Trace Scenario Configuration** (Конфигурация сценария трассировки) в текстовом поле **HostnameFilter** (Фильтр имен узлов) добавьте имена конечных точек хранилища (их можно узнать на [портале Azure](https://portal.azure.com)). Например, если ваша учетная запись хранения Azure имеет имя **contosodata**, добавьте в поле **Фильтр имен узлов** следующий текст.
 
-    contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
+contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
 
 > [!NOTE]
 > Имена узлов разделяются пробелом.
@@ -905,9 +889,4 @@ ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

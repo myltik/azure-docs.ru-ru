@@ -1,5 +1,5 @@
 ---
-title: "Руководство 1. .NET Core для виртуальных машин Azure | Документация Майкрософт"
+title: "Руководство 1. .NET Core для виртуальных машин Windows в Azure | Документация Майкрософт"
 description: "Руководство по .NET Core для виртуальных машин Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cc534bbf4eb282fe3b675f1783e05e2d3357405e
+ms.sourcegitcommit: 8284fa063d8ffa0d9951b77eb06be14159fc2561
+ms.openlocfilehash: 5b40d5476d85a4eeba65f01320e0ea03ed4debaa
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -68,10 +69,5 @@ ms.openlocfilehash: cc534bbf4eb282fe3b675f1783e05e2d3357405e
 [Шаг 3. Доступность и масштабирование в шаблонах Azure Resource Manager](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Шаг 4. Развертывание приложений с использованием шаблонов Azure Resource Manager](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

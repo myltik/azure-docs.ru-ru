@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 799ef33c924a0067bb5e8da9d1b4e50091dbabf6
 
 
 ---
@@ -52,11 +52,11 @@ ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
 В статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md) описаны регистрация учетной записи Azure и создание пространства имен службы. Чтобы использовать пространство имен служебной шины, приложение должно ссылаться на сборку служебной шины, а именно Microsoft.ServiceBus.dll. Самым простым способом сослаться на зависимости служебной шины является установка [пакета Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) служебной шины. Эта сборка также доступна в составе пакета SDK Azure. Ее можно загрузить на [странице загрузки пакета SDK Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Создание раздела и подписок
-Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Для создания экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для определенного пространства имен необходимы соответствующие учетные данные. Служебная шина использует модель безопасности на основе [подписанного URL-адреса](service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
+Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager). Для создания экземпляра **NamespaceManager** для определенного пространства имен необходимы соответствующие учетные данные. Служебная шина использует модель безопасности на основе [подписанного URL-адреса](service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_). Затем экземпляр [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
 
-Класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Приведенный здесь код иллюстрирует создание и использование экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для создания раздела **DataCollectionTopic**.
+Класс [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Приведенный здесь код иллюстрирует создание и использование экземпляра **NamespaceManager** для создания раздела **DataCollectionTopic**.
 
-```
+```csharp
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "test-blog", string.Empty);
 string name = "RootManageSharedAccessKey";
 string key = "abcdefghijklmopqrstuvwxyz";
@@ -67,42 +67,42 @@ NamespaceManager namespaceManager = new NamespaceManager(uri, tokenProvider);
 namespaceManager.CreateTopic("DataCollectionTopic");
 ```
 
-Обратите внимание, что существуют перегруженные версии метода [CreateTopic](https://msdn.microsoft.com/library/azure/hh293080.aspx), которые позволяют задавать свойства раздела. Например, можно указать значение "срока жизни" (TTL) по умолчанию, которое будет применяться к сообщениям, отправляемым в раздел. Затем добавьте подписки **Запасы** и **Панель мониторинга**.
+Обратите внимание, что существуют перегруженные версии метода [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_), которые позволяют задавать свойства раздела. Например, можно указать значение "срока жизни" (TTL) по умолчанию, которое будет применяться к сообщениям, отправляемым в раздел. Затем добавьте подписки **Запасы** и **Панель мониторинга**.
 
-```
+```csharp
 namespaceManager.CreateSubscription("DataCollectionTopic", "Inventory");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
 ### <a name="send-messages-to-the-topic"></a>Отправка сообщений в раздел
-Для выполнения операций над сущностями служебной шины, например для отправки и получения сообщений, приложение сначала должно создать объект [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). По аналогии с классом [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) экземпляр [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) создается на основе базового адреса пространства имен службы и поставщика маркеров.
+Для выполнения операций над сущностями служебной шины, например для отправки и получения сообщений, приложение сначала должно создать объект [MessagingFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#microsoft_servicebus_messaging_messagingfactory). По аналогии с классом [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) экземпляр **MessagingFactory** создается на основе базового адреса пространства имен службы и поставщика маркеров.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
 ```
 
-Сообщения, отправляемые в разделы служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Этот класс состоит из набора стандартных свойств (таких как [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словаря, в котором хранятся свойства приложения, и набора произвольных данных приложения. Приложение может задать набор произвольных данных, передав любой сериализуемый объект, который будет использовать [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) для сериализации объекта. (В следующем примере передается объект **SalesData**, представляющий данные о продажах от терминала POS.) Также можно предоставить объект [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
+Сообщения, отправляемые в разделы служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Этот класс состоит из набора стандартных свойств (таких как [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) и [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), словаря, в котором хранятся свойства приложения, и набора произвольных данных приложения. Приложение может задать набор произвольных данных, передав любой сериализуемый объект, который будет использовать [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx) для сериализации объекта. (В следующем примере передается объект **SalesData**, представляющий данные о продажах от терминала POS.) Также можно предоставить объект [Stream](https://msdn.microsoft.com/library/system.io.stream.aspx).
 
-```
+```csharp
 BrokeredMessage bm = new BrokeredMessage(salesData);
 bm.Label = "SalesReport";
 bm.Properties["StoreName"] = "Redmond";
 bm.Properties["MachineID"] = "POS_1";
 ```
 
-Самый простой способ отправки сообщений в раздел — с помощью метода [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) создать объект [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) прямо в экземпляре класса [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
+Самый простой способ отправки сообщений в раздел — с помощью метода [CreateMessageSender](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageSender_System_String_) создать объект [MessageSender](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesender) прямо в экземпляре класса [MessagingFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory).
 
-```
+```csharp
 MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 
 ### <a name="receive-messages-from-a-subscription"></a>Получение сообщений из подписки
-По аналогии с использованием очередей для получения сообщений из подписки можно использовать объект [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), который создается непосредственно в [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) с помощью [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Можно использовать один из двух различных режимов получения (**ReceiveAndDelete** и **PeekLock**), как описано в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
+По аналогии с использованием очередей для получения сообщений из подписки можно использовать объект [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver), который создается непосредственно в [MessagingFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory) с помощью [CreateMessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageReceiver_System_String_). Можно использовать один из двух различных режимов получения (**ReceiveAndDelete** и **PeekLock**), как описано в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
 
-Обратите внимание, что при создании [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) для подписок параметр *entityPath* имеет вид `topicPath/subscriptions/subscriptionName`. Поэтому, чтобы создать [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) для подписки **Запасы** раздела **DataCollectionTopic**, для *entityPath* необходимо задать значение `DataCollectionTopic/subscriptions/Inventory`. Код выглядит следующим образом.
+Обратите внимание, что при создании **MessageReceiver** для подписок параметр *entityPath* имеет вид `topicPath/subscriptions/subscriptionName`. Поэтому, чтобы создать **MessageReceiver** для подписки **Запасы** раздела **DataCollectionTopic**, для *entityPath* необходимо задать значение `DataCollectionTopic/subscriptions/Inventory`. Код выглядит следующим образом.
 
-```
+```csharp
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionTopic/subscriptions/Inventory");
 BrokeredMessage receivedMessage = receiver.Receive();
 try
@@ -117,20 +117,20 @@ catch (Exception e)
 ```
 
 ## <a name="subscription-filters"></a>Фильтры подписки
-Пока в этом сценарии все сообщения, отправляемые в раздел, становились доступными для всех зарегистрированных подписок. Ключевая фраза здесь "становились доступными". Хотя подпискам служебной шины доступны все сообщения, отправленные в раздел, при желании в виртуальную очередь подписки можно скопировать только часть этих сообщений. Это возможно благодаря использованию *фильтров* подписок. При создании подписки можно указать критерий фильтра в форме предиката в стиле SQL92, который работает со свойствами сообщения: как с системными свойствами (например, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)), так и со свойствами приложения, такими как **StoreName** в предыдущем примере.
+Пока в этом сценарии все сообщения, отправляемые в раздел, становились доступными для всех зарегистрированных подписок. Ключевая фраза здесь "становились доступными". Хотя подпискам служебной шины доступны все сообщения, отправленные в раздел, при желании в виртуальную очередь подписки можно скопировать только часть этих сообщений. Это возможно благодаря использованию *фильтров* подписок. При создании подписки можно указать критерий фильтра в форме предиката в стиле SQL92, который работает со свойствами сообщения: как с системными свойствами (например, [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label)), так и со свойствами приложения, такими как **StoreName** в предыдущем примере.
 
 Для развития сценария с целью это проиллюстрировать в наш сценарий розничной торговли добавляется второе хранилище. Данные о продажах со всех терминалов POS из обоих хранилищ по-прежнему должны направляться в централизованную систему управления запасами, но менеджера хранилища, использующего панель мониторинга, интересует только производительность этого хранилища. Для достижения этой цели можно использовать фильтрацию подписок. Обратите внимание, что при публикации сообщений терминалами POS они устанавливают свойство приложения **StoreName** для этих сообщений. Предположим, что у нас есть два хранилища — **Redmond** и **Seattle**. В этом случае терминалы POS в первом хранилище устанавливают значение параметра **StoreName** в своих сообщениях в **Redmond**, а терминалы во втором хранилище устанавливают значение параметра **StoreName** в **Seattle**. Диспетчеру хранилища Redmond нужны только данные от своих терминалов POS. Система выглядит следующим образом:
 
-![Служебная шина 4](./media/service-bus-create-topics-subscriptions/IC657167.gif)
+![Служебная шина&4;](./media/service-bus-create-topics-subscriptions/IC657167.gif)
 
 Чтобы настроить этот маршрут, создайте подписку **Панель мониторинга** следующим образом:
 
-```
+```csharp
 SqlFilter dashboardFilter = new SqlFilter("StoreName = 'Redmond'");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboardFilter);
 ```
 
-Благодаря этому фильтру подписки в виртуальную очередь подписки **Панель мониторинга** копируются только сообщения со свойством **StoreName**, для которого задано значение **Redmond**. Но этим возможности фильтрации подписок не ограничиваются. Приложения могут иметь несколько правил фильтрации для каждой подписки, а также возможность изменять свойства сообщения при его попадании в виртуальную очередь подписки.
+Благодаря этому [фильтру подписки](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) в виртуальную очередь подписки **Панель мониторинга** копируются только сообщения со свойством **StoreName**, для которого задано значение **Redmond**. Но этим возможности фильтрации подписок не ограничиваются. Приложения могут иметь несколько правил фильтрации для каждой подписки, а также возможность изменять свойства сообщения при его попадании в виртуальную очередь подписки.
 
 ## <a name="summary"></a>Сводка
 Все причины использования очередей, описанные в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md), применимы и к разделам. К ним, в частности, относятся следующие:
@@ -146,6 +146,6 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

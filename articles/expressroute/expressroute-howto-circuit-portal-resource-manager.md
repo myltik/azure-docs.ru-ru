@@ -1,10 +1,10 @@
 ---
-title: "Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов и портала Azure | Документация Майкрософт"
+title: "Создание и изменение канала ExpressRoute с помощью портала Azure | Документация Майкрософт"
 description: "В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6ee9ef23e8594391a4fce313f945b31e6870a7
-ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
+ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
+ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -58,7 +59,7 @@ ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
 2. После щелчка **ExpressRoute** отобразится колонка **Создание канала ExpressRoute**. При заполнении значений в этой колонке необходимо указать правильный уровень SKU и измерение данных.
    
    * **Уровень** определяет, какого уровня надстройка включена — ExpressRoute "Стандартный" или ExpressRoute "Премиум". Укажите **Standard**, чтобы получить SKU Standard, или **Premium**, чтобы получить надстройку Premium.
-   * **Измерение данных** определяет тип выставления счетов. Выберите **С учетом трафика** для тарифного плана с оплатой за трафик или **Не ограничено** для безлимитного тарифного плана. Обратите внимание, что тип выставления счетов можно изменить со **С учетом трафика** на **Не ограничено**, но не наоборот.
+   * **Измерение данных** определяет тип выставления счетов. Выберите **С учетом трафика** для тарифного плана с оплатой за трафик или **Не ограничено** для безлимитного тарифного плана. Обратите внимание, что тип выставления счетов можно изменить со **С учетом трафика** на **Не ограничено**, но не наоборот. ********
      
      ![Настройка уровня SKU и измерения данных](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
@@ -145,10 +146,5 @@ ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
 
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

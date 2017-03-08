@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
     `<InstrumentationKey>` *скопированный ключ инструментирования* `</InstrumentationKey>`
 * Убедитесь, что свойства файла ApplicationInsights.config в обозревателе решений имеют следующие значения: **"Действие сборки = содержимое", "Копировать в выходной каталог = копировать"**.
 
+Если вы хотите [изменить ключ для разных конфигураций сборки](app-insights-separate-resources.md), можно задать ключ инструментирования в коде. Если ключ задан в коде, его не нужно задавать в файле `.config`.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a>Запуск проекта
 Запустите приложение, нажав клавишу **F5** , и попробуйте открывать разные страницы, чтобы создать некоторый объем данных телеметрии.
 
@@ -132,6 +134,6 @@ ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

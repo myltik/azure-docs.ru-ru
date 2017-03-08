@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/13/2016
+ms.date: 01/05/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 52f2bf14c60dbb062a6f4aec26403c5064bba036
-ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
+ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
+ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
 
 | Поддерживаемые операционные системы | Требуемая версия | Дополнительные требования и примечания |
 | --- | --- | --- |
-| Windows Server |2008R2 с пакетом обновления 1 (SP1), 2012, 2012R2 |Тома StorSimple iSCSI поддерживаются только на следующих типах дисков Windows:<ul><li>простой том на базовом диске;</li><li>простой и зеркальный тома на динамическом диске.</li></ul>Тонкая подготовка Windows Server 2012 и функции ODX поддерживаются при использовании тома StorSimple iSCSI.<br><br>StorSimple может создавать тома с тонкой и полной подготовкой. Однако тома с частичной подготовкой создать нельзя.<br><br>Переформатирование тома с тонкой подготовкой может занять длительное время. Вместо переформатирования рекомендуется удалить том, а затем создать новый. Если все же требуется переформатировать том, выполните следующие действия.<ul><li>Выполните следующую команду до переформатирования, чтобы избежать задержек при реорганизации пространства: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>После завершения форматирования используйте следующую команду, чтобы реорганизовать пространство:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Примените исправление Windows Server 2012 к компьютеру Windows Server в соответствии с указаниями в [статье 2878635 базы знаний](https://support.microsoft.com/kb/2870270).</li></ul></li></ul></ul> При настройке StorSimple Snapshot Manager или адаптера StorSimple для SharePoint см. раздел [Требования к программному обеспечению для дополнительных компонентов](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 с пакетом обновления 1 (SP1), 2012, 2012 R2, 2016 |Тома StorSimple iSCSI поддерживаются только на следующих типах дисков Windows:<ul><li>простой том на базовом диске;</li><li>простой и зеркальный тома на динамическом диске.</li></ul>Тонкая подготовка Windows Server 2012 и 2016 и функции ODX поддерживаются при использовании тома StorSimple iSCSI.<br><br>StorSimple может создавать тома с тонкой и полной подготовкой. Однако тома с частичной подготовкой создать нельзя.<br><br>Переформатирование тома с тонкой подготовкой может занять длительное время. Вместо переформатирования рекомендуется удалить том, а затем создать новый. Если все же требуется переформатировать том, выполните следующие действия.<ul><li>Выполните следующую команду до переформатирования, чтобы избежать задержек при реорганизации пространства: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>После завершения форматирования используйте следующую команду, чтобы реорганизовать пространство:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Примените исправление Windows Server 2012 к компьютеру Windows Server в соответствии с указаниями в [статье 2878635 базы знаний](https://support.microsoft.com/kb/2870270).</li></ul></li></ul></ul> При настройке StorSimple Snapshot Manager или адаптера StorSimple для SharePoint см. раздел [Требования к программному обеспечению для дополнительных компонентов](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 и 6.0 |Поддерживается при использовании VMware vSphere в качестве клиента iSCSI. Функция блокировки VAAI поддерживается при использовании VMware vSphere на устройствах StorSimple. |
 | Linux RHEL/CentOS |5, 6 и 7 |Поддержка клиентов Linux iSCSI с инициатором Open-iSCSI версий 5, 6 и 7. |
 | Linux |SUSE Linux 11 | |
@@ -250,9 +251,4 @@ ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

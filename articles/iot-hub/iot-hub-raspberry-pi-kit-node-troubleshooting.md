@@ -1,5 +1,5 @@
 ---
-title: "Устранение неполадок | Документация Майкрософт"
+title: "Подключение Raspberry Pi (C) к Интернету вещей Azure. Устранение неполадок | Документация Майкрософт"
 description: "Страница со сведениями об устранении неполадок в работе Raspberry Pi Node.js"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
 
 
 ---
@@ -123,6 +123,7 @@ gulp run --debug
 ### <a name="device-explorer"></a>Обозреватель устройств
 Инструмент [обозреватель устройств](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) работает на локальном компьютере Windows и подключается к Центру Интернета вещей в Azure. Он взаимодействует со следующими [конечными точками Центра Интернета вещей](iot-hub-devguide.md):
 
+
 * *управление удостоверениями устройств* для подготовки устройств, зарегистрированных в Центре Интернета вещей, и управления ими;
 * *получение сообщений с устройства в облако*, что позволяет отслеживать сообщения, отправляемые с устройства в Центр Интернета вещей;
 * *отправка сообщений из облака на устройство*, что позволяет отправлять сообщения на устройства из вашего Центра Интернета вещей.
@@ -153,6 +154,6 @@ iothub-explorer help
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

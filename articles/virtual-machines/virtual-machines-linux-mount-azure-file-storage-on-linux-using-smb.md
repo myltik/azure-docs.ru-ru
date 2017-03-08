@@ -1,6 +1,6 @@
 ---
 title: "Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью SMB | Документация Майкрософт"
-description: "Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью SMB."
+description: "Как подключить хранилище файлов Azure к виртуальным машинам Linux по протоколу SMB с помощью Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -12,42 +12,50 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/07/2016
+ms.date: 02/13/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 6a3c4b85642a7b6eb4dbd0efc3b046a89328b3f0
-ms.openlocfilehash: 711d217841690ee78321a1ae1a56571c49ef74cc
+ms.sourcegitcommit: ff8ee82704443f3debd96ce163da810af9bb4757
+ms.openlocfilehash: 92db8008eba1deb6b649df54b83e4ab0bc19d14d
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Подключение хранилища файлов Azure на виртуальных машинах Linux с помощью SMB
 
-В этой статье показано, как использовать службу хранилища файлов Azure на виртуальной машине Linux, используя подключение SMB.  Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB.  Для этого необходимы следующие компоненты:
+В этой статье показано, как использовать службу хранилища файлов Azure на виртуальной машине Linux с помощью подключения SMB посредством Azure CLI 2.0. Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Для этого необходимы следующие компоненты:
 
 - [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/);
-
 - [файлы открытого и закрытого ключа SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a name="quick-commands"></a>Быстрые команды
 
-Если вам необходимо быстро выполнить задачу, в следующем разделе описаны нужные команды. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough).
+* Группа ресурсов.
+* Виртуальная сеть Azure.
+* Группа безопасности сети с входящим трафиком SSH.
+* Подсеть.
+* Учетная запись хранения Azure.
+* Ключи учетной записи хранения Azure.
+* Общая папка хранилища файлов Azure.
+* Виртуальная машина Linux.
 
-Необходимые компоненты: группа ресурсов, виртуальная сеть, группа безопасности сети с входящим трафиком SSH, подсеть, учетная запись хранения Azure и ее ключи, общая папка хранилища файлов Azure и виртуальная машина Linux. Замените все примеры параметров своими параметрами.
+Замените все примеры параметров своими параметрами.
 
-Создание каталога для локального подключения
+### <a name="create-a-directory-for-the-local-mount"></a>Создание каталога для локального подключения
 
 ```bash
 mkdir -p /mnt/mymountpoint
 ```
 
-Подключение общего ресурса SMB хранилища файлов Azure к точке подключения
+### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Подключение общего ресурса SMB хранилища файлов к точке подключения
 
 ```bash
 sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
-Чтобы сохранить подключение после перезагрузки, добавьте строку в `/etc/fstab`
+### <a name="persist-the-mount-after-a-reboot"></a>Сохранение подключения после перезагрузки
+Для этого добавьте приведенную ниже строку в файл `/etc/fstab`.
 
 ```bash
 //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -55,72 +63,88 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoi
 
 ## <a name="detailed-walkthrough"></a>Подробное пошаговое руководство
 
-Хранилище файлов Azure предоставляет общие папки в облаке с доступом по стандартному протоколу SMB.  Кроме того, новая версия хранилища файлов позволяет подключить общую папку из любой ОС, которая поддерживает протокол SMB 3.0.  Использование подключения SMB в Linux обеспечивает простое резервное копирование в надежное постоянное место хранения для архивации, которое поддерживается Соглашением об уровне обслуживания.  
+Хранилище файлов предоставляет общие папки в облаке с доступом по стандартному протоколу SMB. Новая версия хранилища файлов позволяет подключить общую папку из любой ОС, которая поддерживает протокол SMB 3.0. Использование подключения SMB в Linux обеспечивает простое резервное копирование в надежное постоянное место хранения для архивации, которое поддерживается Соглашением об уровне обслуживания.
 
-Перемещение файлов с виртуальной машины в точку подключения SMB, размещенную в хранилище файлов Azure, — это отличный способ отладки c использованием журналов, поскольку этот же общий ресурс SMB можно подключить локально к рабочей станции с ОС Mac, Linux или Windows.  SMB — это не лучшее решение для потоковой передачи журналов Linux или приложений в режиме реального времени, так как протокол SMB не предназначен для такого интенсивного ведения журналов.  Вместо SMB для сбора выходных данных журналов Linux и приложений лучше использовать специальный единый инструмент, работающий на уровне ведения журналов, например Fluentd.
+Перемещение файлов с виртуальной машины в точку подключения SMB, размещенную в хранилище файлов — отличный способ отладки с использованием журналов. Это связано с тем, что этот же общий ресурс SMB можно подключить локально к рабочей станции с ОС Mac, Linux или Windows. SMB — не лучшее решение для потоковой передачи журналов Linux или журналов приложений в режиме реального времени, так этот протокол не предназначен для такого интенсивного ведения журнала. Вместо SMB для сбора выходных данных журналов Linux и приложений лучше использовать специальный единый инструмент, работающий на уровне ведения журналов, например Fluentd.
 
-Для прохождения этого подробного пошагового руководства необходимо сначала создать общую папку хранилища файлов Azure и подключить ее по протоколу SMB к виртуальной машине Linux.
+Для работы с этим подробным пошаговым руководством необходимо сначала создать общую папку хранилища файлов и подключить ее по протоколу SMB к виртуальной машине Linux.
 
-## <a name="create-the-azure-storage-account"></a>Создание учетной записи хранения Azure
+1. С помощью команды [az group create](/cli/azure/group#create) создайте группу ресурсов для хранения файлового ресурса.
 
-```azurecli
-azure storage account create myStorageAccount \
---sku-name lrs \
---kind storage \
--l westus \
--g myResourceGroup
-```
+    Чтобы создать группу ресурсов `myResourceGroup` в регионе "Западная часть США", воспользуйтесь следующим примером.
 
-## <a name="show-the-storage-account-keys"></a>Отображение ключей учетной записи хранения
+    ```azurecli
+    az group create --name myResourceGroup --location westus
+    ```
 
-Ключи учетной записи хранения Azure создаются парами при создании учетной записи хранения.  Ключи учетной записи хранения создаются парами, поэтому их можно менять без прерывания работы службы.  После смены одного из ключей в паре создается новая пара ключей.  Поскольку новые ключи учетной записи хранения всегда создаются парами, у вас всегда будет по крайней мере один неиспользованный ключ к хранилищу данных, на который можно сменить текущий ключ.
+2. С помощью команды [az storage account create](/cli/azure/storage/account#create) создайте учетную запись хранения для файлов.
 
-```azurecli
-azure storage account keys list myStorageAccount \
---resource-group myResourceGroup
-```
+    Чтобы создать учетную запись хранения mystorageaccount, использующую номер SKU службы хранилища Standard_LRS, воспользуйтесь следующим примером.
 
-## <a name="create-the-azure-file-storage-share"></a>Создание общей папки хранилища файлов Azure
+    ```azurecli
+    az storage account create --resource-group myResourceGroup \
+        --name mystorageaccount \
+        --location westus \
+        --sku Standard_LRS
+    ```
 
-Создайте общую папку хранилища файлов, содержащую общий ресурс SMB.  Квота всегда измеряется в гигабайтах (ГБ).
+3. Отобразите ключи учетной записи хранения.
 
-```azurecli
-azure storage share create mystorageshare \
---quota 10 \
---account-name myStorageAccount \
---account-key nPOgPR<--snip-->4Q==
-```
+    При создании учетной записи хранения ключи учетной записи создаются парами, поэтому их можно менять без прерывания работы службы. При смене одного из ключей в паре создается еще одна пара ключей. Так как новые ключи учетной записи хранения всегда создаются парами, у вас всегда будет по крайней мере один неиспользованный ключ учетной записи хранения, на который можно сменить текущий ключ.
 
-## <a name="create-the-mount-point-directory"></a>Создайте каталог точек подключения.
+    Ключи учетной записи хранения можно просмотреть, выполнив команду [az storage account keys list](/cli/azure/storage/account/keys#list). В следующем примере отображаются ключи для учетной записи хранения `mystorageaccount`.
 
-Для подключения к общему ресурсу SMB требуется локальный каталог в файловой системе Linux.  Все данные, записанные в подключенный локальный каталог или считанные из него, перенаправляются в общую папку SMB, размещенную в хранилище файлов Azure.
+    ```azurecli
+    az storage account keys list --resource-group myResourceGroup \
+        --account-name mystorageaccount
+    ```
 
-```bash
-sudo mkdir -p /mnt/mymountdirectory
-```
+    Чтобы извлечь отдельный ключ, используйте флаг `--query`. Приведенный ниже пример извлекает первый ключ (`[0]`).
 
-## <a name="mount-the-smb-share"></a>Подключение общего ресурса SMB
+    ```azurecli
+    az storage account keys list --resource-group myResourceGroup \
+        --account-name mystorageaccount \
+        --query '[0].{Key:value}' --output tsv
+    ```
 
-```azurecli
-sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=myStorageAccount,password=myStorageAccountkey,dir_mode=0777,file_mode=0777
-```
+4. Создайте общий ресурс хранилища файлов.
 
-## <a name="persist-the-smb-mount-through-reboots"></a>Сохранение подключения SMB после перезагрузки
+    Общий ресурс хранилища файлов используется для хранения общего ресурса SMB. Создайте его, выполнив команду [az storage share create](/cli/azure/storage/share#create). Квота всегда измеряется в гигабайтах (ГБ). Передайте один из ключей из предыдущей команды `az storage account keys list`. Создайте общий ресурс mystorageshare с квотой в 10 ГБ, используя приведенный ниже пример.
 
-При перезагрузке виртуальной машины Linux подключенный общий ресурс SMB отключается во время завершения работы.  Для его повторного подключения при загрузке необходимо добавить строку в файл Linux `/etc/fstab`.  ОС Linux использует файл `fstab` в качестве списка файловых систем, которые ей следует подключить во время загрузки.  Если добавить общий ресурс SMB, общая папка хранилища файлов Azure станет постоянно подключенной файловой системой в виртуальной машине Linux.  Общий ресурс SMB в хранилище файлов Azure можно добавить в новую виртуальную машину с помощью `cloud-init`.
+    ```azurecli
+    az storage share create --name mystorageshare \
+        --quota 10 \
+        --account-name mystorageaccount \
+        --account-key nPOgPR<--snip-->4Q==
+    ```
 
-```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
-```
+5. Создайте каталог точек подключения.
+
+    Создайте локальный каталог в файловой системе Linux для подключения общего ресурса SMB. Все данные, записанные в подключенный локальный каталог или считанные из него, перенаправляются в общую папку SMB, размещенную в хранилище файлов. Чтобы создать локальный каталог в /mnt/mymountdirectory, используйте приведенный ниже пример.
+
+    ```bash
+    sudo mkdir -p /mnt/mymountdirectory
+    ```
+
+6. Подключите общий ресурс SMB к локальному каталогу.
+
+    Укажите собственные имя пользователя и ключ учетной записи хранения для подключения, как показано ниже.
+
+    ```azurecli
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    ```
+
+7. Обеспечьте сохранение подключения SMB после перезагрузок.
+
+    При перезагрузке виртуальной машины Linux подключенный общий ресурс SMB отключается во время завершения работы. Чтобы общий ресурс SMB повторно подключался при загрузке, добавьте строку в файл Linux /etc/fstab. Linux использует файл fstab, чтобы получить список файловых систем, которые следует подключить во время загрузки. Если добавить общий ресурс SMB, общая папка хранилища файлов станет постоянно подключенной файловой системой в виртуальной машине Linux. Общий ресурс SMB в хранилище файлов можно добавить в новую виртуальную машину, используя cloud-init.
+
+    ```bash
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [Настройка виртуальной машины Linux во время создания с помощь cloud-init](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Добавление диска к виртуальной машине Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Шифрование дисков на виртуальной машине Linux с помощью интерфейса командной строки Azure)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+- [Шифрование дисков на виртуальной машине Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

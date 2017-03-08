@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c881b378a96b9d3eca7018bc32154a265ec524ea
-ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
 
 
 ---
@@ -40,17 +40,17 @@ ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
 1. Перейдите на страницу `https://azure.microsoft.com/services/data-catalog`и щелкните **Начало работы**.
 2. Войдите на портал каталога данных Azure и щелкните **Опубликовать данные**.
 
-    ![Регистрация источника данных](./media/data-lake-store-with-data-catalog/register-data-source.png "Register a data source")
+    ![Регистрация источника данных](./media/data-lake-store-with-data-catalog/register-data-source.png "Регистрация источника данных")
 3. На следующей странице щелкните **Запустить приложение**. На ваш компьютер будет скачан файл манифеста приложения. Дважды щелкните этот файл манифеста, чтобы запустить приложение.
 4. На странице "Приветствие" щелкните **Войти**и введите учетные данные.
 
-    ![Экран приветствия](./media/data-lake-store-with-data-catalog/welcome.screen.png "Welcome screen")
+    ![Экран приветствия](./media/data-lake-store-with-data-catalog/welcome.screen.png "Экран приветствия")
 5. На странице "Выбор источника данных" выберите **Azure Data Lake**, а затем нажмите кнопку **Далее**.
 
-    ![Выберите источник данных](./media/data-lake-store-with-data-catalog/select-source.png "Select data source")
+    ![Выбор источника данных](./media/data-lake-store-with-data-catalog/select-source.png "Выбор источника данных")
 6. На следующей странице укажите имя учетной записи хранилища озера данных, которую необходимо зарегистрировать в каталоге данных. Оставьте значения по умолчанию для остальных параметров и щелкните **Подключиться**.
 
-    ![Подключение к источнику данных](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connect to data source")
+    ![Подключение к источнику данных](./media/data-lake-store-with-data-catalog/connect-to-source.png "Подключение к источнику данных")
 7. Следующую страницу можно разделить на следующие области.
 
     а. Поле **Иерархия серверов** представляет структуру папки учетной записи хранилища озера данных. **$Root** представляет корень учетной записи Data Lake Store, а **AmbulanceData** — папку, созданную в корне учетной записи Data Lake Store.
@@ -59,20 +59,20 @@ ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
 
     c. **Объекты для регистрации** перечислены файлы и папки, которые вы хотите зарегистрировать в каталоге данных Azure.
 
-    ![Просмотр структуры данных](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
-8. В рамках этого учебника необходимо зарегистрировать все файлы в каталоге. Для этого нажмите кнопку (![Перемещение объектов](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")), чтобы переместить все файлы в поле **Объекты для регистрации** .
+    ![Просмотр структуры данных](./media/data-lake-store-with-data-catalog/view-data-structure.png "Просмотр структуры данных")
+8. В рамках этого учебника необходимо зарегистрировать все файлы в каталоге. Для этого нажмите кнопку (![Перемещение объектов](./media/data-lake-store-with-data-catalog/move-objects.png "Перемещение объектов")), чтобы переместить все файлы в поле **Объекты для регистрации**.
 
     Так как данные будут зарегистрированы в каталоге данных на уровне всей организации, рекомендуется добавить какие-либо метаданные, которые позже можно будет использовать для быстрого поиска данных. Скажем, можно добавить электронный адрес владельца данных (например, того, кто передает данные) или добавить тег для идентификации данных. На снимке экрана ниже показан тег, добавляемый к данным.
 
-    ![Просмотр структуры данных](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
+    ![Просмотр структуры данных](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Просмотр структуры данных")
 
     Щелкните **Зарегистрировать**.
 9. На следующем снимке экрана показано, что данные успешно зарегистрированы в каталоге данных.
 
-    ![Регистрация завершена](./media/data-lake-store-with-data-catalog/registration-complete.png "View data structure")
+    ![Регистрация завершена](./media/data-lake-store-with-data-catalog/registration-complete.png "Просмотр структуры данных")
 10. Щелкните **Просмотреть портал** , чтобы вернуться на портал каталога данных и убедиться, что теперь вы можете обращаться к зарегистрированным данным на портале. Для поиска данных можно использовать тег, который вы добавили при регистрации данных.
 
-     ![Поиск данных в каталоге](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Search data in catalog")
+     ![Поиск данных в каталоге](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Поиск данных в каталоге")
 11. Теперь можно выполнять такие операции, как добавление аннотаций и документации к данным. Дополнительные сведения см. по следующим ссылкам.
 
     * [Создание заметок к источникам данных](../data-catalog/data-catalog-how-to-annotate.md)
@@ -85,6 +85,6 @@ ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

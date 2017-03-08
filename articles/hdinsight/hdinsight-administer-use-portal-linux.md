@@ -1,6 +1,6 @@
 ---
-title: "Управление кластерами Hadoop на основе Linux в HDInsight с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создавать кластеры HDInsight на основе Linux и управлять ими с помощью портала Azure."
+title: "Управление кластерами Hadoop в HDInsight с помощью портала Azure | Документация Майкрософт"
+description: "Узнайте, как создавать кластеры HDInsight и управлять ими с помощью портала Azure."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,18 +13,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 7bfa0d73f870202e4caeb893830952ca39a35c26
-ms.openlocfilehash: 27ee26b38b9881ed7f0cd7b0253be123af27955f
+ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
+ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
+ms.lasthandoff: 02/04/2017
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Портал Azure][azure-portal] позволяет управлять кластерами на платформе Linux в Azure HDInsight. Используйте другие вкладки, чтобы перейти к статьям об управлении кластерами Hadoop в HDInsight с помощью других инструментов. 
+[Портал Azure][azure-portal] позволяет управлять кластерами Hadoop в Azure HDInsight. Используйте другие вкладки, чтобы перейти к статьям об управлении кластерами Hadoop в HDInsight с помощью других инструментов. 
 
 **Предварительные требования**
 
@@ -43,6 +44,8 @@ ms.openlocfilehash: 27ee26b38b9881ed7f0cd7b0253be123af27955f
      
        ![Кнопка кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       Если кластер HDInsight не отображается, в нижней части списка щелкните **Больше служб** и в разделе **Аналитика** щелкните **Кластеры HDInsight**.
+
 ## <a name="create-clusters"></a>Создание кластеров
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -58,12 +61,12 @@ HDInsight работает со множеством компонентов Hado
    
     **Меню "Обзор":**
 
-   * **Панель мониторинга**, **Панель мониторинга кластера** и **URL-адрес: три способа перехода к панели мониторинга кластера, которая для кластеров под управлением Linux представляет собой веб-интерфейс Ambari.
+   * **Панель мониторинга.** Открывает панель мониторинга кластера, а именно веб-интерфейс Ambari для кластеров под управлением Linux.
    * **Secure Shell**: отображение сведений, необходимых для подключения к кластеру по протоколу SSH.
    * **Изменить масштаб кластера**: позволяет изменить количество рабочих узлов для этого кластера.
    * **Удалить**: удаление кластера.
 
-    **Меню слева**
+    **Меню слева:**
    
    * **Журналы действий.** Отображайте и запрашивайте журналы действий.
    * **Управление доступом (IAM).** Используйте назначение ролей.  Ознакомьтесь со статьей [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
@@ -312,9 +315,4 @@ Ambari изменит пароль на всех узлах в кластере.
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

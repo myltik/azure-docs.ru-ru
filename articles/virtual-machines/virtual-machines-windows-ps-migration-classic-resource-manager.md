@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
+ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
+ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
 * Если у вас есть текущие автоматизированные сценарии, которые развертывают инфраструктуру и приложения, попробуйте создать аналогичную программу установки для миграции с помощью этих сценариев. Вы можете также настроить примеры среды с помощью портала Azure.
 
 > [!IMPORTANT]
-> В настоящее время не поддерживается перенос шлюзов ExpressRoute и шлюзов приложений из классической модели в модель Resource Manager. Чтобы перенести классическую виртуальную сеть со шлюзом ExpressRoute или шлюзом приложений, удалите шлюз перед выполнением операции фиксации для перемещения сети (этап подготовки можно выполнить, не удаляя шлюз ExpressRoute или шлюз приложений). После завершения переноса повторно подключите шлюз в Azure Resource Manager.
+> В настоящее время не поддерживается перенос шлюзов приложений из классической модели в модель Resource Manager. Чтобы перенести классическую виртуальную сеть со шлюзом приложений, удалите шлюз перед выполнением операции фиксации для перемещения сети (этап подготовки можно выполнить, не удаляя шлюз приложений). После завершения переноса повторно подключите шлюз в Azure Resource Manager. Если необходимо перенести шлюзы ExpressRoute, которые находятся в той же подписке, что и канал ExpressRoute, обратитесь в службу поддержки. Шлюзы ExpressRoute, подключенные к каналам ExpressRoute в другой подписке, перенести невозможно. В таких случаях удалите шлюз ExpressRoute, перенесите виртуальную сеть и создайте шлюз заново.
 > 
 > 
 
@@ -270,10 +271,5 @@ Get-AzureRmVMUsage -Location "West US"
 * Дополнительные сведения о переносе см. в разделе [Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 * Чтобы перенести дополнительные сетевые ресурсы в Resource Manager с помощью PowerShell, выполните аналогичные действия, используя командлеты [Move-AzureNetworkSecurityGroup](https://msdn.microsoft.com/library/mt786729.aspx), [Move-AzureReservedIP](https://msdn.microsoft.com/library/mt786752.aspx) и [Move-AzureRouteTable](https://msdn.microsoft.com/library/mt786718.aspx).
 * Сценарии с открытым кодом, которые можно использовать для переноса ресурсов Azure из классической модели в модель Resource Manager, описаны в разделе [Инструменты сообщества для переноса ресурсов из управления службами Azure в Azure Resource Manager](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aa0b90781d10be6a87fdad6f04c8630317efd4e4
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
 
 
 ---
@@ -157,7 +157,7 @@ else
 [Как приобрести Azure]: http://azure.microsoft.com/pricing/purchase-options/
 [Предложения для участников]: http://azure.microsoft.com/pricing/member-offers/
 [Создайте бесплатную учетную запись Azure уже сегодня]: http://azure.microsoft.com/pricing/free-trial/
-[Установка и настройка Azure PowerShell]: ../powershell-install-configure.md
+[Установка и настройка Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API .NET для центров уведомлений]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -166,6 +166,6 @@ else
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

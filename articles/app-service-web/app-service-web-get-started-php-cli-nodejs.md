@@ -4,7 +4,7 @@ description: "Узнайте, как просто запускать веб-пр
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 21acd587-b772-4d89-be06-9a7429c33c7a
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: e04c5a2715800bb354faf6db8f2c486843bfcfa6
+ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
+ms.openlocfilehash: f574612734ff9cef0c717d5a12ee2962ef211178
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes"></a>Развертывание первого веб-приложения PHP в Azure за пять минут
-
-> [!div class="op_single_selector"]
-> * [Первый HTML-сайт](app-service-web-get-started-html-cli-nodejs.md)
-> * [Первое приложение .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Первое приложение PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [Первое приложение Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Первое приложение Python](app-service-web-get-started-python-cli-nodejs.md)
-> * [Первое приложение Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 Это руководство поможет вам развернуть ваше первое веб-приложение PHP в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
 В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ ms.openlocfilehash: e04c5a2715800bb354faf6db8f2c486843bfcfa6
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started-php.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-get-started-php.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Git](http://www.git-scm.com/downloads).
@@ -57,7 +49,7 @@ ms.openlocfilehash: e04c5a2715800bb354faf6db8f2c486843bfcfa6
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -128,10 +120,5 @@ ms.openlocfilehash: e04c5a2715800bb354faf6db8f2c486843bfcfa6
 
 * Попробуйте [другие способы развертывания кода в Azure](web-sites-deploy.md). Например, чтобы развернуть приложение из какого-либо репозитория на GitHub, в разделе **Параметры развертывания** нужно просто указать **GitHub**, а не **Локальный репозиторий Git**.
 * Выведите приложение Azure на следующий уровень. Проверяйте подлинность пользователей. Масштабируйте приложение в зависимости от потребностей. Настраивайте оповещения производительности. И все это — с помощью нескольких действий. См. статью [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

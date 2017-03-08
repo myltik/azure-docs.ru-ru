@@ -1,9 +1,9 @@
 ---
-title: "Как сопоставить содержимое сети доставки содержимого (CDN) Azure с личным доменом | Документация Майкрософт"
-description: "В этом разделе показано, как сопоставить содержимое CDN с личным доменом."
+title: "Сопоставление содержимого Azure CDN с личным доменом | Документация Майкрософт"
+description: "Узнайте, как сопоставлять содержимое Azure CDN с личным доменом."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>Как сопоставить личный домен с конечной точкой сети доставки содержимого (CDN)
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Сопоставление содержимого Azure CDN с пользовательским доменом
 Личный домен можно сопоставить с конечной точкой CDN, чтобы использовать имя своего домена в URL-адресах кэшированного содержимого вместо того, чтобы использовать поддомен azureedge.net.
 
 Существуют два способа сопоставления пользовательского домена с конечной точкой CDN:
@@ -84,6 +84,6 @@ ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

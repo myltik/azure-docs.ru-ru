@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 1be7dc038f1bc864e7c6461b616449d75ecda439
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,12 +30,12 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 * Azure CLI (azure.js) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager, как описано в этой статье.
-* [Azure CLI 2.0 (предварительная версия) (az.py)](iot-hub-create-using-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+* [Azure CLI 2.0 (az.py)](iot-hub-create-using-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
-* [Интерфейс командной строки Azure 0.10.4][lnk-CLI-install] или более поздней версии. При наличии интерфейса командной строки Azure можно проверить его текущую версию в командной строке, выполнив следующую команду:
+* [Интерфейс командной строки Azure 0.10.4][lnk-CLI-install] или более поздней версии. Если установлен Azure CLI, можно проверить его текущую версию в командной строке, выполнив следующую команду:
   ```
     azure --version
   ```
@@ -55,7 +56,7 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
     azure login
    ```
    Пройдите аутентификацию, используя предлагаемый браузер и код.
-2. Если у вас есть несколько подписок Azure, при подключении вы получаете доступ ко всем подпискам Azure, связанным с вашими учетными данными. Вы можете просмотреть подписки Azure, а также узнать, какая из них используется по умолчанию, с помощью команды
+2. Если у вас есть несколько подписок Azure, то при подключении к Azure вы получаете доступ ко всем подпискам Azure, связанным с вашими учетными данными. Вы можете просмотреть подписки Azure, а также узнать, какая из них используется по умолчанию, выполнив команду:
    
    ```
     azure account list 
@@ -67,13 +68,13 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
     azure account set <subscription name>
    ```
 
-3. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана: 
+3. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана:
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
 
 > [!TIP]
-> Дополнительные сведения об управлении ресурсами Azure с помощью интерфейса командной строки Azure см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure][lnk-CLI-arm]. 
+> Дополнительные сведения об управлении ресурсами и группами ресурсов Azure с помощью Azure CLI см. в [этой статье][lnk-CLI-arm]. 
 > 
 > 
 
@@ -88,21 +89,21 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
     - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
     - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
 ```
-Чтобы просмотреть все параметры для создания, можно воспользоваться командой справки в командной строке
+Чтобы просмотреть все параметры для создания, можно воспользоваться командой справки в командной строке:
 
 ```
     azure iothub create -h 
 ```
 Краткий пример:
 
- Чтобы создать Центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, просто выполните следующую команду:
+ Чтобы создать Центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, выполните следующую команду:
 
 ```
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> Эта команда интерфейса командной строки Azure создает стандартный центр Интернета вещей S1, за который взимается плата. Чтобы удалить Центр Интернета вещей **exampleIoTHubName**, выполните следующую команду: 
+> Эта команда интерфейса командной строки Azure создает стандартный центр Интернета вещей S1, за который взимается плата. Чтобы удалить Центр Интернета вещей **exampleIoTHubName**, выполните следующую команду:
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -118,7 +119,7 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Управление Центра Интернета вещей через портал Azure][lnk-portal]
+* [Создание Центра Интернета вещей через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -130,9 +131,4 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

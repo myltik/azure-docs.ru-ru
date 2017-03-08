@@ -1,5 +1,5 @@
 ---
-title: "Сохранение сообщений в облаке Azure и чтение их из облака | Документация Майкрософт"
+title: "Приступая к работе с устройством SensorTag и шлюзом Azure IoT. Урок 4. Создание приложения-функции | Документация Майкрософт"
 description: "Сохраняйте сообщения из Intel NUC в Центр Интернета вещей, записывайте их в Хранилище таблиц Azure, а затем читайте их из облака."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 73c5268ece75776a3c5007b612f84bd29cc7784d
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 3672804218dbbe3a545536b8c4baccb2b9171cdc
 
 
 ---
@@ -89,6 +89,6 @@ az group deployment create --template-file arm-template.json --parameters @arm-t
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

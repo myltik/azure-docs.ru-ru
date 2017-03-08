@@ -16,21 +16,19 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
+ms.sourcegitcommit: edfbc0d94d9d5b33a25788772a98173187e394b8
+ms.openlocfilehash: 031a17d179cee8d6cceb9ed3aefd993add1958b8
+ms.lasthandoff: 02/11/2017
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-powershell"></a>Копирование базы данных SQL Azure с помощью PowerShell
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-copy.md)
-> * [Портал Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-В этой статье показано, как с помощью PowerShell скопировать базу данных SQL на одном сервере, с одного сервера на другой или в [пул эластичных баз данных](sql-database-elastic-pool.md). Для операции копирования базы данных используется командлет [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) . 
+В этой статье показано, как с помощью PowerShell скопировать базу данных SQL на тот же сервер, на другой сервер или в [эластичный пул](sql-database-elastic-pool.md). Для операции копирования базы данных используется командлет [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) . 
+
+> [!NOTE]
+> Кроме того, это можно сделать с помощью [портала Azure](sql-database-copy-portal.md) или [Transact-SQL](sql-database-copy-transact-sql.md).
+>
 
 Для работы с этой статьей необходимо следующее:
 
@@ -55,7 +53,7 @@ ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyServerName "server2" -CopyDatabaseName "database1_copy"
 
 
-## <a name="copy-a-sql-database-into-an-elastic-database-pool"></a>Копирование базы данных SQL в пул эластичных баз данных
+## <a name="copy-a-sql-database-into-an-elastic-pool"></a>Копирование базы данных SQL в эластичный пул
 Чтобы создать копию базы данных SQL в пуле, задайте параметру `-ElasticPoolName` значение существующего пула.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
@@ -94,7 +92,7 @@ ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
     # -------------------------------------
     New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceDbResourceGroupName -ServerName $sourceDbServerName -DatabaseName $sourceDbName -CopyResourceGroupName $copyDbResourceGroupName -CopyServerName $copyDbServerName -CopyDatabaseName $copyDbName
 
-    # Copy a database into an elastic database pool
+    # Copy a database into an elastic pool
     # ---------------------------------------------
     $poolName = "pool1"
 
@@ -105,10 +103,10 @@ ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* В разделе [Копирование Базы данных SQL Azure](sql-database-copy.md) доступны общие сведения о копировании базы данных SQL Azure.
-* В статье [Копирование базы данных SQL Azure с помощью портала Azure](sql-database-copy-portal.md) рассматривается копирование базы данных с помощью портала Azure.
-* В разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md) рассматривается копирование базы данных с помощью Transact-SQL.
-* В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер.
+* Дополнительные сведения об управлении пользователями и именами для входа при копировании базы данных на другой логический сервер см. в статье [Настройка безопасности Базы данных SQL Azure и управление ею для геовосстановления или отработки отказа](sql-database-geo-replication-security-config.md).
+* Рекомендации по экспорту базы данных в BACPAC-файл с помощью PowerShell см. в [этой статье](sql-database-export-powershell.md).
+* [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
+* [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx)
@@ -119,10 +117,5 @@ ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
 * [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 * [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Справочник по командлетам PowerShell для Базы данных SQL Azure](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

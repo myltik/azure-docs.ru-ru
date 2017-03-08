@@ -1,6 +1,6 @@
 ---
 title: "Log Analytics — часто задаваемые вопросы | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы о службе Log Analytics."
+description: "Ответы на часто задаваемые вопросы о службе Azure Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 4695669dc20b4b4b90ccdaf4db06df2cfcba2167
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -90,6 +91,13 @@ ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
 Ответ. В SCOM удалите компьютер из списка компьютеров, находящихся под управлением OMS. При этом все взаимодействие через SCOM для этого агента прекращается. Для агентов, подключенных к OMS напрямую, можно отключить взаимодействие с OMS, выбрав элементы "Панель управления", "Безопасность и параметры", **Microsoft Monitoring Agent**.
 В разделе **Azure Log Analytics (OMS)** удалите все рабочие области.
 
+**Вопрос. Почему возникает ошибка при попытке переместить рабочую область из одной подписки Azure в другую?**
+
+Ответ. При добавлении решения Azure создает ресурс в подписке Azure, в которой находится рабочая область.
+
+Как правило, пользователь, добавляющий подписку, является администратором или участником *подписки Azure*. Недостаточно быть администратором или участником на портале OMS, если у пользователя нет таких же разрешений для подписки Azure на портале Azure.
+
+
 ## <a name="agent-data"></a>Данные агента
 **В. Каков объем данных, которые можно отправить с помощью агента в Log Analytics? Существует ли максимальный объем данных для одного клиента?**  
 О. Для плана "Бесплатный" ежедневное ограничение составляет 500 МБ. Для планов "Стандартный" и "Премиум" ограничений по объему отправляемых данных нет. Как облачная служба, Log Analytics в OMS может автоматически масштабироваться с учетом объема данных, поступающих от клиента, даже если это несколько ТБ в день.
@@ -121,9 +129,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Приступая к работе с Log Analytics](log-analytics-get-started.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

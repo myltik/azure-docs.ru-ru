@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
+ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
+ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -42,6 +43,7 @@ ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **больших двоичных объектов хранилища Azure** с некоторыми данными.
+* **Учетная запись Azure Data Lake Store.** Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
 * **Учетная запись Azure Data Lake Analytics (необязательно).** Инструкции по созданию учетной записи Data Lake Store см. в статье [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 * **Средство AdlCopy**. Установите средство AdlCopy по ссылке [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
@@ -89,6 +91,10 @@ ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
    
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
+### <a name="performance-considerations"></a>Рекомендации по производительности
+
+При копировании из учетной записи хранения BLOB-объектов Azure может выполняться регулирование во время копирования на стороне хранилища BLOB-объектов. Это может снизить производительность задания копирования. Дополнительные сведения об ограничениях хранилища BLOB-объектов Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
+
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-store-account"></a>Использование AdlCopy (автономно) для копирования данных из другой учетной записи Data Lake Store
 Также можно использовать AdlCopy для копирования данных между двумя учетными записями Data Lake Store.
 
@@ -117,6 +123,10 @@ ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
    
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
+### <a name="performance-considerations"></a>Рекомендации по производительности
+
+При использовании AdlCopy в качестве автономного инструмента копирование выполняется на общих ресурсах, управляемых Azure. Производительность в этой среде зависит от системной нагрузки и доступных ресурсов. Этот режим лучше всего применять для небольших передач, выполняемых при необходимости. При использовании AdlCopy в качестве автономного инструмента параметры не требуют настройки.
+
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Использование AdlCopy (с учетной записью Data Lake Analytics) для копирования данных
 Вы также можете воспользоваться своей учетной записью аналитики озера данных для запуска задания AdlCopy для копирования данных из хранилища больших двоичных объектов Azure в хранилище озера данных. Этот вариант обычно используется, если объем перемещаемых данных измеряется гигабайтами или терабайтами и вам необходима лучшая и прогнозируемая производительность.
 
@@ -135,10 +145,13 @@ ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-
 Аналогичным образом выполните следующую команду, чтобы скопировать данные из большого двоичного объекта службы хранилища Azure в учетную запись Data Lake Store, используя учетную запись Data Lake Analytics:
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
+
+### <a name="performance-considerations"></a>Рекомендации по производительности
+
+При копировании данных в диапазоне терабайт применение AdlCopy с учетной записью Azure Data Lake Analytics обеспечивает более высокую и более предсказуемую производительность. Параметр, который необходимо настроить, — это количество единиц Azure Data Lake Analytics для задания копирования. Увеличение числа единиц повысит производительность задания копирования. Каждый копируемый файл может использовать не более одной единицы. Если указать количество единиц, превышающее количество копируемых файлов, то это не приведет к повышению производительности.
 
 ## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Использование AdlCopy для копирования данных с помощью сопоставления шаблонов
 В этом разделе показано, как использовать AdlCopy для копирования данных из источника (в приведенном ниже примере — из большого двоичного объекта службы хранилища Azure) в целевую учетную запись Data Lake Store с помощью сопоставления шаблонов. Например, описанные ниже действия можно использовать для копирования всех файлов с расширением CSV из исходного большого двоичного объекта в целевое хранилище.
@@ -159,14 +172,13 @@ ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
 ## <a name="considerations-for-using-adlcopy"></a>Рекомендации по использованию AdlCopy
 * AdlCopy (для версии 1.0.5) поддерживает копирование данных из источников, которые совокупно содержат тысячи файлов и папок. Тем не менее, если при копировании большого набора данных возникают проблемы, то вы можете распределить файлы и папки в разных вложенных папках и использовать путь к этим вложенным папкам в качестве источника.
 
+## <a name="performance-considerations-for-using-adlcopy"></a>Рекомендации по производительности при использовании AdlCopy
+
+AdlCopy поддерживает копирование данных, содержащих тысячи файлов и папок. Тем не менее, если при копировании большого набора данных возникают проблемы, то вы можете распределить файлы и папки по вложенным папкам меньшего размера. Инструмент AdlCopy был создан для выполнения задач копирования при необходимости. Если требуется копировать данные на регулярной основе, то лучше воспользоваться [фабрикой данных Azure](../data-factory/data-factory-azure-datalake-connector.md), которая предоставляет возможности полного управления операциями копирования.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

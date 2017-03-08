@@ -1,5 +1,5 @@
 ---
-title: "Подписка Microsoft Azure, границы, квоты и ограничения служб"
+title: "Ограничения и квоты подписки Azure | Документация Майкрософт"
 description: "В этой статье приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и границ. Сюда входит информация о том, как увеличить лимиты и максимальные значения."
 services: 
 documentationcenter: 
@@ -13,23 +13,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 02/17/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
+ms.sourcegitcommit: 4e37d976ab7616674ff4b41111bfe7000444ca54
+ms.openlocfilehash: 2ff41f4a93b0cc7f104fe4703f5b031cfb3252e1
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
-## <a name="overview"></a>Обзор
-Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. На текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
+В этом документе указаны некоторые из наиболее распространенных ограничений Microsoft Azure, которые иногда называются квотами. Этот документ на текущий момент охватывает не все службы Azure. Со временем список будет расширен и обновлен, чтобы охватить больше платформ.
 
 Дополнительную информацию о ценах Azure см. на странице [Цены Azure](https://azure.microsoft.com/pricing/). Там вы сможете оценить затраты с помощью [калькулятора цен](https://azure.microsoft.com/pricing/calculator/) или просмотрев страницу сведений о ценах для службы (например, для [виртуальных машин Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
 
 > [!NOTE]
-> Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение** в таблицах ниже. Если столбца **Максимальное ограничение** нет, то указанный ресурс не имеет настраиваемого ограничения.
+> Если ограничение или квоту требуется сделать выше значения **Ограничение по умолчанию**, [бесплатно отправьте запрос в службу поддержки клиентов](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение**, как показано в таблицах ниже. Если столбца **Максимальное ограничение** нет, то ресурс не имеет настраиваемого ограничения. 
 > 
+> Бесплатная пробная версия подписки не предусматривает возможность увеличения ограничения и квоты. При наличии бесплатной пробной подписки ее можно обновить до подписки [с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/). Дополнительные сведения см. в статье [Upgrade your free Azure subscription to Pay-As-You-Go](billing-upgrade-azure-subscription.md) (Обновление бесплатной пробной версии Azure до версии с оплатой по мере использования).
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Ограничения и диспетчер ресурсов Azure
@@ -60,11 +61,13 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 * [Облачные службы](#cloud-services-limits)
 * [Фабрика данных](#data-factory-limits)
 * [Аналитика озера данных](#data-lake-analytics-limits)
+* [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
 * [DocumentDB](#documentdb-limits)
 * [Концентраторы событий](#event-hubs-limits)
 * [Центр IoT](#iot-hub-limits)
 * [хранилище ключей;](#key-vault-limits)
+* [Log Analytics или Operational Insights](#log-analytics-limits)
 * [Службы мультимедиа](#media-services-limits)
 * [Mobile Engagement;](#mobile-engagement-limits)
 * [Мобильные службы](#mobile-services-limits)
@@ -72,7 +75,6 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Сеть](#networking-limits)
 * [Служба концентратора уведомлений](#notification-hub-service-limits)
-* [Operational Insights;](#operational-insights-limits)
 * [Группа ресурсов](#resource-group-limits)
 * [Планировщик](#scheduler-limits)
 * [Поиск](#search-limits)
@@ -130,20 +132,23 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 
 ### <a name="storage-limits"></a>Ограничения хранилища
 Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](storage/storage-scalability-targets.md).
-
+<!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Ограничения службы хранения
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Дополнительные сведения см. в статье [Размеры виртуальных машин](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-**Учетные записи хранения Standard**
+#### <a name="managed-virtual-machine-disks"></a>Управляемые диски виртуальной машины
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Неуправляемые диски виртуальной машины
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-**Учетные записи хранения Premium**
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
@@ -170,9 +175,7 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="documentdb-limits"></a>Ограничения DocumentDB
-[!INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
-
-Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](documentdb/documentdb-increase-limits.md).
+DocumentDB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Ограничения привлечения пользователей мобильных устройств
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -221,8 +224,11 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 ### <a name="data-factory-limits"></a>Ограничения фабрики данных
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
-### <a name="data-lake-analytics-limits"></a>Ограничения аналитики озера данных
+### <a name="data-lake-analytics-limits"></a>Ограничения Data Lake Analytics
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
+
+### <a name="data-lake-store-limits"></a>Ограничения Data Lake Store
+[!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Ограничения Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -236,7 +242,7 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 ### <a name="storsimple-system-limits"></a>Ограничения системы StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="operational-insights-limits"></a>Ограничения Operational Insights
+### <a name="log-analytics-limits"></a>Ограничения Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### <a name="backup-limits"></a>Ограничения резервного копирования
@@ -272,10 +278,5 @@ ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
 [Размеры виртуальных машин и облачных служб для Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

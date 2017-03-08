@@ -1,28 +1,29 @@
 ---
-title: "Добавление пакета SDK Application Insights для отслеживания работы приложения Node.js | Документация Майкрософт"
+title: "Мониторинг приложения Node.js с помощью пакета SDK для Azure Application Insights | Документация Майкрософт"
 description: "Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Добавление пакета SDK Application Insights для отслеживания работы приложения Node.js
-*Доступна только предварительная версия Application Insights.*
 
-[Visual Studio Application Insights](app-insights-overview.md) выполняет мониторинг работы действующего приложения, благодаря чему вы можете [обнаруживать и диагностировать проблемы, связанные с производительностью и исключениями](app-insights-detect-triage-diagnose.md), а также [просматривать показатели использования приложения](app-insights-overview-usage.md). Например, с веб-приложениями Azure или приложениями, размещенными на ваших локальных серверах IIS либо виртуальных машинах Azure.
+
+[Azure Application Insights](app-insights-overview.md) выполняет мониторинг работы действующего приложения, благодаря чему вы можете [обнаруживать и диагностировать проблемы, связанные с производительностью и исключениями](app-insights-detect-triage-diagnose.md), а также [просматривать показатели использования приложения](app-insights-overview-usage.md). Например, с веб-приложениями Azure или приложениями, размещенными на ваших локальных серверах IIS либо виртуальных машинах Azure.
 
 Пакет SDK автоматически собирает сведения о частоте входящих HTTP-запросов и ответы на них, счетчики производительности (ЦП, память, RPS) и необработанные исключения. Кроме того, вы можете добавить настраиваемые вызовы, чтобы отслеживать зависимости, метрики и другие события.
 
@@ -31,15 +32,14 @@ ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
 #### <a name="before-you-start"></a>Перед началом работы
 Вам необходимы:
 
-* Visual Studio 2013 или более поздняя версия. Чем новее версия, тем лучше.
 * подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com).
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Создание ресурса Application Insights
-Войдите на [портал Azure][portal] и создайте новый ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
+Войдите на [портал Azure][portal] и создайте ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
 
 ![Нажмите "Создать" и "Application Insights"](./media/app-insights-nodejs/01-new-asp.png)
 
-Выберите "Другое" в качестве типа приложения. От выбранного типа приложения зависит содержимое по умолчанию столбцов ресурсов и свойств, отображаемых в [обозревателе метрик][metrics].
+Выберите "Универсальный" в качестве типа приложения. От выбранного типа приложения зависит содержимое по умолчанию столбцов ресурсов и свойств, отображаемых в [обозревателе метрик][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Копирование ключа инструментирования
 Ключ идентифицирует ресурс, и вы установите его в пакет SDK для направления данных ресурсу.
@@ -80,7 +80,7 @@ appInsights.setup("<instrumentation_key>").start();
 * Используйте приложение, открывая различные страницы, чтобы создать некоторый объем данных телеметрии.
 * Откройте плитку [Поиск](app-insights-diagnostic-search.md) , чтобы просмотреть отдельные события. Иногда для прохождения событий через конвейер метрики требуется чуть больше времени.
 * Подождите несколько секунд и нажмите **Обновить**. Диаграмма периодически обновляется, однако ее можно обновить и вручную, если вы ждете появления каких-либо данных.
-* См. [Устранение неполадок][qna].
+* Ознакомьтесь с разделом [Устранение неполадок][qna].
 
 ## <a name="publish-your-app"></a>Публикация приложения
 Теперь разверните свое приложение в IIS или Azure и наблюдайте за тем, как накапливаются данные.
@@ -95,7 +95,7 @@ appInsights.setup("<instrumentation_key>").start();
 Изучите [этот элемент устранения неполадок](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 ## <a name="customized-usage"></a>Настройка использования
-### <a name="disabling-autocollection"></a>Отключение автоматического сбора
+### <a name="disabling-auto-collection"></a>Отключение автоматического сбора
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -197,9 +197,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

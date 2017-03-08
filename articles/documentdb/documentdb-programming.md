@@ -1,5 +1,5 @@
 ---
-title: "Программирование DocumentDB. Хранимые процедуры, триггеры базы данных и определяемые пользователем функции | Документация Майкрософт"
+title: "Программирование серверных компонентов на JavaScript для Azure DocumentDB | Документация Майкрософт"
 description: "Узнайте, как с помощью DocumentDB писать хранимые процедуры, триггеры базы данных и определяемые пользователем функции (UDF) на JavaScript. Здесь вы найдете советы по программированию баз данных и многое другое."
 keywords: "Триггеры базы данных, хранимая процедура, хранимая процедура, программа базы данных, хранимая процедура, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
 
 Прежде чем приступить к работе, рекомендуется просмотреть следующий видеоролик, где Эндрю Лю (Andrew Liu) кратко представляет модель программирования баз данных на стороне сервера DocumentDB. 
 
-> [!ВИДЕО https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
@@ -63,7 +63,7 @@ ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
 
     var helloWorldStoredProc = {
         id: "helloWorld",
-        body: function () {
+        serverScript: function () {
             var context = getContext();
             var response = context.getResponse();
 
@@ -105,7 +105,7 @@ ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
-        body: function createMyDocument(documentToCreate) {
+        serverScript: function createMyDocument(documentToCreate) {
             var context = getContext();
             var collection = context.getCollection();
 
@@ -161,8 +161,8 @@ ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
 
     // JavaScript source code
     var exchangeItemsSproc = {
-        name: "exchangeItems",
-        body: function (playerId1, playerId2) {
+        id: "exchangeItems",
+        serverScript: function (playerId1, playerId2) {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -298,8 +298,8 @@ ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
 DocumentDB предоставляет триггеры, которые выполняются или запускаются при выполнении операций над документом. Например, можно задать предварительный триггер, когда вы создаете документ, и он будет запускаться перед созданием документа. Ниже приведен пример того, как предварительные триггеры можно использовать для проверки свойств документа, который создается:
 
     var validateDocumentContentsTrigger = {
-        name: "validateDocumentContents",
-        body: function validate() {
+        id: "validateDocumentContents",
+        serverScript: function validate() {
             var context = getContext();
             var request = context.getRequest();
 
@@ -369,8 +369,8 @@ DocumentDB предоставляет триггеры, которые выпо�
 В следующем примере используются триггеры со срабатыванием после наступления события:
 
     var updateMetadataTrigger = {
-        name: "updateMetadata",
-        body: function updateMetadata() {
+        id: "updateMetadata",
+        serverScript: function updateMetadata() {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -439,11 +439,11 @@ DocumentDB предоставляет триггеры, которые выпо�
 ## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Функции, определяемые пользователем
 Функции, определяемые пользователем (UDF), используются для расширения грамматики языка запросов SQL для DocumentDB и реализации пользовательской бизнес-логики. Функции можно вызывать только из запросов. Они не имеют доступа к объектам контекста и предназначены для использования только в качестве вычислимых JavaScript-сценариев. Таким образом, UDF могут запускаться только на дополнительных репликах службы DocumentDB.  
 
-Следующий пример создает UDF для расчета налога на прибыль на основе ставок для различных доходов, а затем использует его в запросе, чтобы найти всех людей, которые заплатили более 20 000 долларов США в виде налогов.
+Следующий пример создает UDF для расчета налога на прибыль на основе ставок для различных доходов, а затем использует его в запросе, чтобы найти всех людей, которые заплатили более&20;&000; долларов США в виде налогов.
 
     var taxUdf = {
-        name: "tax",
-        body: function tax(income) {
+        id: "tax",
+        serverScript: function tax(income) {
 
             if(income == undefined) 
                 throw 'no input';
@@ -814,6 +814,6 @@ UDF впоследствии могут быть использованы в з�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Создание полного доменного имени для виртуальной машины на портале Azure | Документация Майкрософт"
+title: "Создание FQDN для виртуальной машины Linux на портале Azure | Документация Майкрософт"
 description: "Узнайте, как создать полное доменное имя (FQDN) для виртуальной машины на основе Resource Manager на портале Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f556fd0318accc19f0fa56fa7f2a8716ee6f1c02
-ms.openlocfilehash: 9bd1032c8a831ab22bbebad8881a0f6ea434e360
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: f687e73b4106118a89df9258f128b2ae850edd3c
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: 9bd1032c8a831ab22bbebad8881a0f6ea434e360
 Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, например nginx, MongoDB, Docker и т. д.
 
 Изучите дополнительные сведения об [использовании Resource Manager](../azure-resource-manager/resource-group-overview.md), чтобы получить советы по созданию развертываний Azure.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

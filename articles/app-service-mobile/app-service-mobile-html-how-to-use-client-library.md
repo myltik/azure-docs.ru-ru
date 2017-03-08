@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: d6e68497cf0a4c48e6f611834089224b50b9bd5e
-ms.openlocfilehash: 79743cab91f8c22d06796803eb7e31681a581233
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -68,7 +69,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 * выполнение службы в локальной среде;
 * использование динамической перезагрузки с платформой Ionic;
-* перенаправление в службу приложений для аутентификации. 
+* перенаправление в службу приложений для аутентификации.
 
 Выполнение в локальной среде может вызвать проблемы, так как по умолчанию аутентификация службы приложений настроена только для доступа из серверной части мобильного приложения. Следуйте инструкциям ниже, чтобы изменить параметры службы приложений для включения аутентификации при выполнении сервера в локальной среде.
 
@@ -79,12 +80,12 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 5. Разверните узел **config** > **authsettings** для своего приложения.
 6. Нажмите кнопку **Изменить** , чтобы включить режим редактирования ресурса.
 7. Найдите элемент **allowedExternalRedirectUrls** , который должен иметь значение NULL. Добавьте URL-адреса в массив.
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Замените URL-адреса в массиве URL-адресами службы. В данном примере — это `http://localhost:3000` для локального примера службы Node.js. Можно также использовать адрес `http://localhost:4400` для службы Ripple или для других URL-адресов, в зависимости от настроек приложения.
 8. В верхней части страницы щелкните **Чтение и запись**, затем щелкните **PUT**, чтобы сохранить изменения.
 
@@ -106,10 +107,5 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 [портал Azure]: https://portal.azure.com/
 [пакета SDK JavaScript для мобильных приложений Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

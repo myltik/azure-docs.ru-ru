@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2284b12c87eee6a453844e54cdcb2add5874218b
-ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
+ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
+ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -91,7 +92,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 ```AIQL
 
     requests
-    | where resultCode  == "404" 
+    | where resultCode  == "404"
     | take 10
 ```
 
@@ -114,7 +115,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` имеет строковый тип, поэтому мы должны [привести его тип](app-insights-analytics-reference.md#casts) для числового сравнения.
+`resultCode` имеет строковый тип, поэтому мы должны [привести его тип](app-insights-analytics-reference.md#casts) для числового сравнения.
 
 ## <a name="time-range"></a>Диапазон времени
 
@@ -128,26 +129,26 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
     // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range 
+    | where timestamp > ago(3d)  // Override the time range
     | top 5 by duration
 ```
 
-Функция диапазона времени эквивалентна предложению where, добавленному после каждого упоминания какой-либо из исходных таблиц. 
+Функция диапазона времени эквивалентна предложению where, добавленному после каждого упоминания какой-либо из исходных таблиц.
 
-`ago(3d)` означает "три дня назад". Другие единицы времени включают в себя часы (`2h`, `2.5h`), минуты (`25m`) и секунды (`10s`). 
+`ago(3d)` означает "три дня назад". Другие единицы времени включают в себя часы (`2h`, `2.5h`), минуты (`25m`) и секунды (`10s`).
 
 Другие примеры.
 
 ```AIQL
 
     // Last calendar week:
-    requests 
-    | where timestamp > startofweek(now()-7d) 
-        and timestamp < startofweek(now()) 
+    requests
+    | where timestamp > startofweek(now()-7d)
+        and timestamp < startofweek(now())
     | top 5 by duration
 
     // First hour of every day in past seven days:
-    requests 
+    requests
     | where timestamp > ago(7d) and timestamp % 1d < 1h
     | top 5 by duration
 
@@ -189,7 +190,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
 * [Имена столбцов](app-insights-analytics-reference.md#names) могут содержать пробелы или символы, если будут заключены в квадратные скобки: `['...']` или `["..."]`.
 * `%` — обычный оператор остатка от деления.
-* `1d` (т. е. цифра 1, а затем "d") — это литерал интервала времени, который означает один день. Вот еще несколько литералов интервала времени: `12h`, `30m`, `10s`, `0.01s`.
+* `1d` (т. е. цифра&1;, а затем "d") — это литерал интервала времени, который означает один день. Вот еще несколько литералов интервала времени: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (псевдоним `bin`) округляет значение до ближайшего числа, кратного указанному базовому значению. Например, `floor(aTime, 1s)` округляет время до ближайшей секунды.
 
 [Выражения](app-insights-analytics-reference.md#scalars) могут включать в себя все обычные операторы (`+`, `-` и т. д.) и ряд полезных функций.
@@ -212,7 +213,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend localTime = timestamp - 8h
 ```
@@ -318,14 +319,14 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 ```AIQL
 
     // Bounce rate: sessions with only one page view
-    requests 
-    | where notempty(session_Id) 
+    requests
+    | where notempty(session_Id)
     | where tostring(operation_SyntheticSource) == "" // real users
-    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
-               by session_Id 
-    | extend isbounce= pagesInSession == 1 
-    | summarize count() 
-               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp)
+               by session_Id
+    | extend isbounce= pagesInSession == 1
+    | summarize count()
+               by tostring(isbounce), bin (sessionEnd, 1h)
     | render timechart
 ```
 
@@ -343,7 +344,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
 ```AIQL
 
-    requests 
+    requests
     | where timestamp > ago(30d)  // Override "Last 24h"
     | where tostring(operation_SyntheticSource) == "" // real users
     | extend hour = bin(timestamp % 1d , 1h)
@@ -449,7 +450,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -459,6 +460,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 В тех же предложениях мы переименуем столбец timestamp.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>Оператор [let](app-insights-analytics-reference.md#let-clause): присвоение результата переменной
+
 С помощью оператора `let` можно разделить части предыдущего выражения. Результаты не изменились:
 
 ```AIQL
@@ -471,23 +473,37 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
     | take 30
 ```
 
-> Совет. Не добавляйте пустые строки между частями выражения в клиенте аналитики. Обязательно выполните все части.
->
+> [!Tip] 
+> Не добавляйте пустые строки между частями запроса в клиенте аналитики. Обязательно выполните все части.
 >
 
-### <a name="functions"></a>Функции 
+Используйте `toscalar` для преобразования одной ячейки таблицы в значение:
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
+
+### <a name="functions"></a>Функции
 
 Используйте *Let* для определения функции.
 
 ```AIQL
 
-    let usdate = (t:datetime) 
+    let usdate = (t:datetime)
     {
-      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
       bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
     };
     requests  
-    | extend PST = usdate(timestamp-8h) 
+    | extend PST = usdate(timestamp-8h)
 ```
 
 ## <a name="accessing-nested-objects"></a>Доступ к вложенным объектам
@@ -547,24 +563,24 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
 ## <a name="combine-with-imported-data"></a>Объединение с импортированными данными
 
-Аналитические отчеты отлично выглядят на панели мониторинга, но иногда необходимо преобразовать данные в более удобную форму. Например предположим, что аутентифицированные пользователи идентифицируются в данных телеметрии по псевдониму. А вы хотите показать в результатах их настоящие имена. В этом случае вам необходим CSV-файл для сопоставления настоящих имен и псевдонимов. 
+Аналитические отчеты отлично выглядят на панели мониторинга, но иногда необходимо преобразовать данные в более удобную форму. Например предположим, что аутентифицированные пользователи идентифицируются в данных телеметрии по псевдониму. А вы хотите показать в результатах их настоящие имена. В этом случае вам необходим CSV-файл для сопоставления настоящих имен и псевдонимов.
 
 Можно импортировать файл данных и использовать его как стандартную таблицу (включая запросы, исключения и т. д.). Можно выполнять запросы к такой таблице отдельно либо соединить ее с другими таблицами. Например, если у вас есть таблица usermap и она содержит столбцы `realName` и `userId`, то с ее помощью можно преобразовать поле `user_AuthenticatedId` в телеметрии запросов.
 
 ```AIQL
 
     requests
-    | where notempty(user_AuthenticatedId) 
+    | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
       // get the realName field from the usermap table:
-    | join kind=leftouter ( usermap ) on userId 
+    | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-Для импорта таблицы в колонке "Схема" следуйте инструкциям в разделе **Другие источники данных**, чтобы добавить новый источник данных, передав образец данных. Затем это определение можно использовать для передачи таблиц. 
+Для импорта таблицы в колонке "Схема" следуйте инструкциям в разделе **Другие источники данных**, чтобы добавить новый источник данных, передав образец данных. Затем это определение можно использовать для передачи таблиц.
 
-В настоящее время доступна предварительная версия функции импорта, поэтому в разделе "Другие источники данных" сначала будет отображаться ссылка "Свяжитесь с нами". Используйте ее для регистрации в программе по ознакомлению с предварительной версией, и позже на месте ссылки появится кнопка "Добавить новый источник данных". 
+В настоящее время доступна предварительная версия функции импорта, поэтому в разделе "Другие источники данных" сначала будет отображаться ссылка "Свяжитесь с нами". Используйте ее для регистрации в программе по ознакомлению с предварительной версией, и позже на месте ссылки появится кнопка "Добавить новый источник данных".
 
 
 ## <a name="tables"></a>Таблицы
@@ -580,7 +596,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 ![Число запросов, сегментированных по имени](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Таблица настраиваемых событий
-Если вы используете [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) для отправки своих собственных событий, то их можно считать из этой таблицы.
+Если вы используете [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) для отправки своих собственных событий, то их можно считать из этой таблицы.
 
 Рассмотрим пример, в котором код вашего приложения содержит следующие строки.
 
@@ -602,7 +618,7 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 ![Частота отображения пользовательских событий](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Таблица настраиваемых метрик
-Если вы используете [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) для отправки своих собственных значений метрик, то вы найдете полученные результаты в потоке **customMetrics**. Например:  
+Если вы используете [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) для отправки своих собственных значений метрик, то вы найдете полученные результаты в потоке **customMetrics**. Например:  
 
 ![Настраиваемые метрики в аналитике Application Insights](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -655,16 +671,16 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 Вызовы AJAX из браузера:
 
 ```AIQL
-    
-    dependencies | where client_Type == "Browser" 
+
+    dependencies | where client_Type == "Browser"
     | take 10
 ```
 
 Вызовы зависимостей от сервера:
 
 ```AIQL
-    
-    dependencies | where client_Type == "PC" 
+
+    dependencies | where client_Type == "PC"
     | take 10
 ```
 
@@ -680,9 +696,4 @@ ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 * [Памятка для пользователей SQL](https://aka.ms/sql-analytics) содержит сопоставление наиболее распространенных идиом.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

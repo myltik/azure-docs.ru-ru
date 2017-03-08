@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: ce18993832ce4953a1c3b21707206cdd06580edd
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 00dcedb09ea63b4337b2b730746fb2f5a1f27e64
 
 
 ---
@@ -202,7 +202,7 @@ ms.openlocfilehash: ce18993832ce4953a1c3b21707206cdd06580edd
     
     ![QlikSense][qs13]
     
-    а. В разделе Host white list (Список разрешенных узлов) определяются имена принимаемых узлов при подключении к серверу Qlik Sense.  **Введите имя узла, которое пользователи будут указывать при подключении к серверу Qlik Sense.**  Для имени узла указывается то же значение, что и для URI узла SAML, только без https://.
+    а. В разделе Host white list (Список разрешенных узлов) определяются имена принимаемых узлов при подключении к серверу Qlik Sense.  **Введите имя узла, которое пользователи будут указывать при подключении к серверу Qlik Sense.** Для имени узла указывается то же значение, что и для URI узла SAML, только без https://.
 15. Нажмите кнопку Apply (Применить).
     
     ![QlikSense][qs14]
@@ -219,7 +219,7 @@ ms.openlocfilehash: ce18993832ce4953a1c3b21707206cdd06580edd
     
     ![QlikSense][qs18]
     ![QlikSense][qs19]
-20. Через 5–10 секунд появится сообщение об обновлении QMC.  Нажмите кнопку Refresh QMC (Обновить QMC).
+20. Через&5;–10 секунд появится сообщение об обновлении QMC.  Нажмите кнопку Refresh QMC (Обновить QMC).
     
     ![QlikSense][qs20]
 21. После обновления QMC щелкните пункт меню Virtual proxies (Виртуальные прокси-серверы). Новая запись виртуального прокси-сервера SAML указана в таблице на экране.  Выделите запись виртуального прокси-сервера.
@@ -375,6 +375,6 @@ ms.openlocfilehash: ce18993832ce4953a1c3b21707206cdd06580edd
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

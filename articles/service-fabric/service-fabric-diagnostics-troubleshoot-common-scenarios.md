@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 03/31/2016
 ms.author: mattrow
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: c920a206d6f3288f6cba0d2658d556749fc4d574
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 При запуске служб на компьютере разработчика можно без труда использовать [средства отладки Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Работу с удаленными кластерами всегда лучше всего начать со знакомства с [отчетами о работоспособности](service-fabric-view-entities-aggregated-health.md) . Самым простым способом доступа к этим отчетам является использование PowerShell или [SFX](service-fabric-visualizing-your-cluster.md). В этой статье предполагается, что вы выполняете отладку удаленного кластера и имеете базовые знания о применении этих инструментов.
 
 ## <a name="application-crash"></a>Сбой приложения
-Вывод отчета «Число секций меньше количества целевых реплик или экземпляров» означает, что произошел сбой службы. Чтобы узнать, где произошел отказ, требуется выполнить ряд действий по дополнительному анализу. Если служба масштабируется, незаменимыми будут тщательно продуманные трассировки.  Мы рекомендуем попробовать применить [систему диагностики Azure](service-fabric-diagnostics-how-to-setup-wad.md) для сбора этих трассировок и использовать такое решение, как [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md), для просмотра и поиска трассировок.
+Вывод отчета «Число секций меньше количества целевых реплик или экземпляров» означает, что произошел сбой службы. Чтобы узнать, где произошел отказ, требуется выполнить ряд действий по дополнительному анализу. Если служба масштабируется, незаменимыми будут тщательно продуманные трассировки.  Мы рекомендуем попробовать применить [систему диагностики Azure](service-fabric-diagnostics-how-to-setup-wad.md) для сбора этих трассировок и использовать такое решение, как [Azure Application Insight](https://azure.microsoft.com/services/application-insights/), для просмотра и поиска трассировок.
 
 ![Работоспособность секции SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
@@ -55,6 +55,6 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

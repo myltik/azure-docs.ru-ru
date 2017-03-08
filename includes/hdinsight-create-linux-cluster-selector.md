@@ -1,12 +1,17 @@
 > [!div class="op_single_selector"]
-> * [Windows-based](../articles/hdinsight/hdinsight-provision-clusters.md)
-> * [Overview](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
-> * [Azure portal](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)
-> * [Azure CLI](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+> * [Обзор](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
+> * [портале Azure](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)
+> * [Фабрика данных Azure](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md)
+> * [Интерфейс командной строки Azure](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 > * [Azure PowerShell](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 > * [REST API (cURL)](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-> * [.NET SDK](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+> * [Пакет SDK для .NET](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+> * [Шаблоны Resource Manager](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 > 
 > 
 
-<!---HONumber=AcomDC_0107_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

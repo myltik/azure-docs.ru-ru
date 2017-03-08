@@ -13,21 +13,26 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: d7e51bee4b9ec4441a080004f938cdc609fd1250
+ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
+ms.openlocfilehash: 6cedd18c22bcd97f7fb2b6926bdf637fe9f04ab4
+ms.lasthandoff: 02/07/2017
 
 
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Разработка скриптов c действиями сценария для кластеров HDInsight под управлением Windows
 Узнайте, как разрабатывать скрипты действия сценария для HDInsight. Дополнительную информацию о скриптах с действиями сценария см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). Аналогичные сведения для кластеров HDInsight под управлением Linux см. в статье [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-> [!NOTE]
-> Информация, приведенная в этом документе, относится только к кластерам HDInsight под управлением Windows. Сведения об использовании действий сценария в кластерах на платформе Windows см. в статье [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+
+> [!IMPORTANT]
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Сведения об использовании действий скриптов в кластерах на платформе Linux см. в статье, посвященной [разработке действий скриптов с помощью HDInsight в Linux](hdinsight-hadoop-script-actions-linux.md).
 >
 >
+
+
 
 Действие сценария можно использовать для установки дополнительного программного обеспечения, работающего в кластере Hadoop, или для изменения конфигурации приложений, установленных в кластере. Действия сценариев — это сценарии, выполняемые на узлах кластера во время развертывания кластеров HDInsight. Они будут выполнены, как только узлы в кластере завершат конфигурацию HDInsight. Действие сценария выполняется из учетной записи с правами системного администратора и предоставляет права полного доступа к узлам кластера. Для каждого кластера можно задать ряд действий сценария, которые будут выполнены в указанном порядке.
 
@@ -99,12 +104,12 @@ HDInsight предоставляет несколько скриптов для 
 
 | Имя | Скрипт |
 | --- | --- |
-| **Установка Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark][hdinsight-install-spark]. |
-| **Установка R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Приступая к работе с R Server в HDInsight (предварительная версия)][hdinsight-r-scripts]. |
+| **Установка Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Ознакомьтесь со статьей [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]. |
+| **Установка R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Ознакомьтесь со статьей [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-r-scripts]. |
 | **Установка Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Ознакомьтесь со статьей [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md). |
 | - **Установка Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Ознакомьтесь со статьей [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). |
 
-Действие сценария можно развернуть из портала Azure, из пакета SDK для HDInsight .NET или Azure PowerShell.  Дополнительную информацию см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария][hdinsight-cluster-customize].
+Действие сценария можно развернуть из портала Azure, из пакета SDK для HDInsight .NET или Azure PowerShell.  Дополнительные сведения см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария][hdinsight-cluster-customize].
 
 > [!NOTE]
 > Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight](hdinsight-component-versioning.md).
@@ -187,7 +192,7 @@ HDInsight предоставляет несколько скриптов для 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Этот оператор задает для переменной среды **MDS_RUNNER_CUSTOM_CLUSTER** значение true, а также задает область действия этой переменной в рамках виртуальной машины. В некоторых случаях крайне важно, чтобы переменные среды были заданы в соответствующей области — в рамках компьютера или пользовательской области. Дополнительную информацию о настройке переменных среды см. [здесь][1].
+Этот оператор задает для переменной среды **MDS_RUNNER_CUSTOM_CLUSTER** значение true, а также задает область действия этой переменной в рамках виртуальной машины. В некоторых случаях крайне важно, чтобы переменные среды были заданы в соответствующей области — в рамках компьютера или пользовательской области. Дополнительные сведения о настройке переменных среды см. [здесь][1].
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Доступ к расположениям, в которых хранятся пользовательские сценарии
 Сценарии для настройки кластера должны находиться в учетной записи хранения по умолчанию для кластера или в доступном только для чтения контейнере другой учетной записи хранения. Если сценарий получает доступ к ресурсам в другом расположении, это расположение должно быть общедоступным (или по крайней мере открытым только для чтения). Например, вам может потребоваться получить доступ к файлу и сохранить его с помощью команды SaveFile HDI.
@@ -295,8 +300,8 @@ HDInsight предоставляет несколько скриптов для 
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария][hdinsight-cluster-customize]
-* [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark][hdinsight-install-spark]
-* [Приступая к работе с R Server в HDInsight (предварительная версия)][hdinsight-r-scripts]
+* [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]
+* [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-r-scripts]
 * [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 * [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
@@ -308,9 +313,4 @@ HDInsight предоставляет несколько скриптов для 
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

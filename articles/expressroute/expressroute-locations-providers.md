@@ -1,10 +1,10 @@
 ---
-title: "Расположения ExpressRoute | Документация Майкрософт"
-description: "В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure."
+title: "Расположения и поставщики услуг подключения Azure ExpressRoute | Документация Майкрософт"
+description: "В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure. Эта таблица отсортирована по расположению."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
-ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
-
+ms.sourcegitcommit: 9b18af35dc0a70c7335fd54477a6d8f57048b685
+ms.openlocfilehash: 5bf418af22746610e96712ed33fd389998e4fa46
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
+
+> [!div class="op_single_selector"]
+> * [Расположения по поставщикам](expressroute-locations.md)
+> * [Поставщики по расположению](expressroute-locations-providers.md)
+
+
 В данной статье приведены таблицы со сведениями о поставщиках услуг подключения ExpressRoute, географическом покрытии ExpressRoute, облачных службах Майкрософт, поддерживаемых через ExpressRoute, и системных интеграторах ExpressRoute.
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Поставщики услуг подключения ExpressRoute
@@ -35,38 +41,38 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- |
-| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия, Монреаль+, Квебек+, Торонто |
+| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, западная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, западно-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия), Монреаль, Квебек, Торонто |
 | **Северная Америка** |Южная часть Бразилии |Сан-Паулу |
 | **Европа** |Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства |Амстердам, Дублин, Лондон, Ньюпорт (Уэльс), Париж |
 | **Азия** |Восточная Азия, Юго-Восточная Азия |Гонконг, Сингапур |
 | **Япония** |Западная Япония, Восточная Япония |Осака, Токио |
 | **Австралия** |Восточная Австралия, Юго-Восточная Австралия |Мельбурн, Сидней |
 | **Индия** |Западная Индия, Центральная Индия, Южная Индия |Ченнаи, Мумбаи |
+| **Южная Корея** |Центральная Корея, Южная Корея |Пусан, Сеул |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Регионы и геополитические границы для национальных облаков
 В таблице ниже содержатся сведения о регионах и геополитических границах для национальных облаков.
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- | --- |
-| **Облако правительства США** |Правительство штата Айова, США, Правительство штата Вирджиния, США |Чикаго, Даллас, Нью-Йорк, Вашингтон (округ Колумбия) |
+| **Облако правительства США** |Айова (для обслуживания государственных организаций США), Виргиния (для обслуживания государственных организаций США), центральная часть США (US DoD), восточная часть США (US DoD)  |Чикаго, Даллас, Нью-Йорк, Кремниевая долина, Вашингтон (округ Колумбия) |
 | **Китай** |Северный Китай, Восточный Китай |Пекин, Шанхай |
 | **Германия** |Центральная Германия, восточная Германия |Берлин, Франкфурт |
 
 В стандартном номере SKU ExpressRoute подключение между геополитическими регионами не поддерживается. Для поддержки глобальных подключений необходимо включить надстройку ExpressRoute класса "Премиум". Подключение к национальным облачным средам не поддерживается. При необходимости вы можете работать с поставщиками услуг подключения.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Расположения поставщиков услуг подключения
-> [!div class="op_single_selector"]
-> * [Расположения по поставщикам](expressroute-locations.md#locations)
-> * [Поставщики по расположению](expressroute-locations-providers.md#locations)
-> 
-> 
+
+В таблице ниже приведены расположения для подключения и поставщики услуг в каждом расположении. Поставщики услуг и расположения, в которых они предоставляют услуги, перечислены в разделе [Расположения поставщиков услуг подключения](expressroute-locations.md#locations). 
+
 
 ### <a name="production-azure"></a>Рабочая среда Azure
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
-| **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Атланта** |Equinix |
-| **Ченнай** |SIFY, Tata Communications |
+| **Пусан** |LG CNS+, Sejong Telecom |
+| **Ченнай** |Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **Дублин** |Colt, Telecity Group |
@@ -75,16 +81,18 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Лас-Вегас** |Level 3 Communications+, Megaport |
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **Нью-Йорк** |Equinix, Megaport, Zayo Group |
+| **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
 | **Ньюпорт (Уэльс)** |Next Generation Data |
-| **Монреаль** |Cologix + |
+| **Монреаль** |Cologix |
 | **Мумбай** |Tata Communications |
 | **Осака** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Париж** |Interxion, Equinix+ |
+| **Квебек** | Megaport |
 | **Сан-Паулу** |Equinix Telefonica |
 | **Сиэтл;** |Equinix, Level 3 Communications, Megaport |
+| **Сеул** |KINX, Sejong Telecom |
 | **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
-| **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Торонто** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
@@ -98,8 +106,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
 | **Чикаго** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Даллас** |Equinix, Verizon |
+| **Даллас** |Equinix, Megaport, Verizon |
 | **Нью-Йорк** |Equinix, Level 3 Communications+, Verizon |
+| **Кремниевая долина** | Equinix |
 | **Вашингтон, округ Колумбия** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Китай
@@ -113,7 +122,7 @@ ExpressRoute поддерживается во всех регионах и ра
 ### <a name="germany"></a>Германия
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
-| **Берлин** |Colt+, e-shelter |
+| **Берлин** |Colt+, e-shelter, Megaport+ |
 | **Франкфурт** |Colt, Equinix, Interxion |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Подключение через других поставщиков услуг
@@ -134,12 +143,14 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Расположение** | **Exchange** | **Поставщики услуг подключения** |
 | --- | --- | --- |
-| **Лондон** | Equinix | Exponential E |
+| **Амстердам** | Equinix | Eurofiber |
+| **Лондон** | Equinix | Exponential E, HSO |
 | **Нью-Йорк** |Equinix |Lightower |
 | **Сиэтл;** |Equinix |Alaska Communications |
 | **Кремниевая долина** |Equinix |XO Communications |
 | **Сингапур** |Equinix |1CLOUDSTAR |
-| **Сидней** | Megaport | Macquarie |
+| **Сидней** | Megaport | Macquarie Telecom Group|
+| **Токио** | Equinix | ARTERIA Networks Corporation |
 | **Вашингтон, округ Колумбия** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Системные интеграторы ExpressRoute
@@ -148,18 +159,14 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Континент** | **Системные интеграторы** |
 | --- | --- |
 | **Азия** |Avanade Inc., OneAs1a |
-| **Европа** |Avanade Inc., Dotnet Solutions |
-| **США** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **Австралия** | IT Consultancy |
+| **Европа** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **Северная Америка** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **Северная Америка** |Avanade Inc. |
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 * Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

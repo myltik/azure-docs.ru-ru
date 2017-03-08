@@ -1,5 +1,5 @@
 ---
-title: "Готовы ли ваши данные к обработке и анализу? Вычисление данных | Документация Майкрософт"
+title: "Готовы ли ваши данные к обработке и анализу? Вычисление данных в Azure | Документация Майкрософт"
 description: "Узнайте, каким 4 критериям должны удовлетворять данные, чтобы подвергаться обработке и анализу. Видео 2 из цикла &quot;Обработка и анализ данных для начинающих&quot; содержит конкретные примеры общей оценки данных."
 keywords: "соответствующие данные,оценить данные,подготовить данные,критерии данных,данные готовы"
 services: machine-learning
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -110,9 +111,4 @@ ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Выполните первый эксперимент по обработке и анализу данных с использованием Студии машинного обучения Microsoft Azure.](machine-learning-create-experiment.md)
 * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

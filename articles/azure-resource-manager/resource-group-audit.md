@@ -1,6 +1,6 @@
 ---
-title: "Операции аудита с помощью диспетчера ресурсов | Документация Майкрософт"
-description: "Просмотр действий пользователя и ошибок с помощью журнала действий в Resource Manager. Отображаются портал Azure, PowerShell, интерфейс командной строки Azure и REST."
+title: "Просмотр журналов действий Azure для наблюдения за ресурсами | Документация Майкрософт"
+description: "Просмотр действий пользователя и ошибок с помощью журнала действий. Отображаются портал Azure, PowerShell, интерфейс командной строки Azure и REST."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/09/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 0cb9d6acbe318ced7bc41e6a896d0b0fc77e2b64
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
 
 
 ---
-# <a name="audit-operations-with-resource-manager"></a>Операции аудита с помощью диспетчера ресурсов
+# <a name="view-activity-logs-to-audit-actions-on-resources"></a>Просмотр журналов действий для аудита действий с ресурсами
 С помощью журналов действий можно определить:
 
 * какие операции выполнялись с ресурсами в вашей подписке;
@@ -31,88 +31,126 @@ ms.openlocfilehash: 0cb9d6acbe318ced7bc41e6a896d0b0fc77e2b64
 
 [!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
 
-Этот раздел посвящен аудиту операций. Сведения об устранении неполадок развертывания с помощью журналов действий см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
-
 Сведения из журналов действий можно получить с помощью портала, PowerShell, интерфейса командной строки Azure, API REST Insights или с помощью [библиотеки .NET для Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="portal-to-view-activity-logs"></a>Просмотр журналов действий на портале
-1. Чтобы просмотреть журналы действий на портале, выберите пункт **Другие службы**, а затем — **Журналы действий**.
+## <a name="portal"></a>Microsoft Azure
+1. Чтобы просмотреть журналы действий на портале, выберите **Монитор**.
    
-    ![просмотр журналов действий](./media/resource-group-audit/select-audit-logs.png)
-2. В колонке **Журнал действий** приводится сводка последних операций для всех групп ресурсов в вашей подписке. Среди прочего здесь есть список недавних операций.
-   
-    ![отображение действий](./media/resource-group-audit/audit-summary.png)
-3. Чтобы ограничить количество отображаемых операций, выберите различные условия. Например, на следующем рисунке показано, как изменение полей **Временной диапазон** и **Кем инициировано событие** позволяет просмотреть действия конкретного пользователя или приложения за прошлый месяц.
-   
-    ![установка параметров фильтра](./media/resource-group-audit/set-filter.png)
-4. Выберите **Применить** для просмотра результатов запроса.
-5. Если вы хотите повторить тот же запрос позже, выберите **Сохранить** и укажите имя запроса.
-   
-    ![сохранение запроса](./media/resource-group-audit/save-query.png)
-6. Если вы перейдете к **журналу действий** из колонки ресурса, журнал будет автоматически отфильтрован по этому ресурсу или группе ресурсов. Обратите внимание, что журнал действий автоматически фильтруется по выбранному ресурсу.
+    ![просмотр журналов действий](./media/resource-group-audit/select-monitor.png)
+
+   Или, чтобы автоматически отфильтровать журнал действий по определенному ресурсу или группе ресурсов, выберите **Журнал действий** в колонке этого ресурса. Обратите внимание, что журнал действий автоматически фильтруется по выбранному ресурсу.
    
     ![фильтрация по ресурсам](./media/resource-group-audit/filtered-by-resource.png)
+2. В колонке **Журнал действий** можно просмотреть сводку последних операций.
+   
+    ![отображение действий](./media/resource-group-audit/audit-summary.png)
+3. Чтобы ограничить количество отображаемых операций, выберите различные условия. Например, на следующем рисунке показано, как изменение полей **Временной диапазон** и **Кем инициировано событие** позволяет просмотреть действия конкретного пользователя или приложения за прошлый месяц. Выберите **Применить** для просмотра результатов запроса.
+   
+    ![установка параметров фильтра](./media/resource-group-audit/set-filter.png)
 
-## <a name="powershell-to-view-activity-logs"></a>Просмотр журналов действий с помощью PowerShell
+4. Если вы хотите повторить тот же запрос позже, выберите **Сохранить** и укажите имя запроса.
+   
+    ![сохранение запроса](./media/resource-group-audit/save-query.png)
+5. Чтобы быстро выполнить запрос, можно выбрать один из встроенных запросов, например запрос невыполненных развертываний.
+
+    ![Выбор запроса](./media/resource-group-audit/select-quick-query.png)
+
+   Выбранный запрос автоматически задает необходимые значения фильтра.
+
+    ![Просмотр ошибок развертывания](./media/resource-group-audit/view-failed-deployment.png)   
+
+6. Выберите одну из операций, чтобы просмотреть сводку по событию.
+
+    ![Просмотр операции](./media/resource-group-audit/view-operation.png)  
+
+## <a name="powershell"></a>PowerShell
 1. Чтобы получить записи журнала, выполните команду **Get-AzureRmLog** . Укажите дополнительные параметры, чтобы отфильтровать список записей. Если не указать время начала и окончания, возвращаются записи за последний час. Например, для получения операций для группы ресурсов за последний час выполните следующую команду:
+
+  ```powershell
+  Get-AzureRmLog -ResourceGroup ExampleGroup
+  ```
    
-        Get-AzureRmLog -ResourceGroup ExampleGroup
-   
-    В следующем примере показано, как использовать журнал аудита для анализа действий, выполненных в течение указанного времени. Даты начала и окончания указывайте в формате даты.
-   
-        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
-   
+    В следующем примере показано, как использовать журнал действий для анализа действий, выполненных в течение указанного времени. Даты начала и окончания указывайте в формате даты.
+
+  ```powershell
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+  ```
+
     Диапазон дат, например последние 14 дней, также можно указать с помощью функций даты.
    
-        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
-2. В зависимости от указанного времени начала приведенные выше команды могут вернуть длинный список операций для группы ресурсов. Чтобы найти в результатах нужную информацию, отфильтруйте их, используя условия поиска. Например, чтобы проанализировать обстоятельства остановки веб-приложения, выполните приведенную ниже команду.  
-   
-        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
-   
-    В нашем примере вы видите, что веб-приложение было остановлено пользователем. 
-   
-        Authorization     :
-        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-        Action    : Microsoft.Web/sites/stop/action
-        Role      : Subscription Admin
-        Condition :
-        Caller            : someone@contoso.com
-        CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-        EventSource       : Administrative
-        EventTimestamp    : 8/28/2015 4:08:18 PM
-        OperationName     : Microsoft.Web/sites/stop/action
-        ResourceGroupName : ExampleGroup
-        ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-        Status            : Succeeded
-        SubscriptionId    : xxxxx
-        SubStatus         : OK
+  ```powershell 
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+  ```
+
+2. В зависимости от указанного времени начала приведенные выше команды могут вернуть длинный список операций для группы ресурсов. Чтобы найти в результатах нужную информацию, отфильтруйте их, используя условия поиска. Например, чтобы проанализировать обстоятельства остановки веб-приложения, выполните приведенную ниже команду.
+
+  ```powershell
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+  ```
+
+    В нашем примере вы видите, что веб-приложение было остановлено пользователем someone@contoso.com. 
+
+  ```powershell 
+  Authorization     :
+  Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+  Action    : Microsoft.Web/sites/stop/action
+  Role      : Subscription Admin
+  Condition :
+  Caller            : someone@contoso.com
+  CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
+  EventSource       : Administrative
+  EventTimestamp    : 8/28/2015 4:08:18 PM
+  OperationName     : Microsoft.Web/sites/stop/action
+  ResourceGroupName : ExampleGroup
+  ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+  Status            : Succeeded
+  SubscriptionId    : xxxxx
+  SubStatus         : OK
+  ```
+
 3. Можно найти действия, выполненные конкретным пользователем, даже для группы ресурсов, которой больше не существует.
-   
-        Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-## <a name="azure-cli-to-view-activity-logs"></a>Просмотр журналов действий с помощью интерфейса командной строки Azure
-1. Чтобы получить записи журнала, выполните команду **azure group log show** .
-   
-        azure group log show ExampleGroup
-2. Вы можете отфильтровать результаты с помощью служебной программы JSON, например [jq](http://stedolan.github.io/jq/download/). В следующем примере показано, как найти операции, связанные с обновлением файла веб-конфигурации.
-   
-        azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == \"Update web sites config\")"
-3. Вы можете найти действия для конкретного пользователя.
-   
-        azure group log show ExampleGroup --json | jq ".[] | select(.caller==\"someone@contoso.com\")"
+  ```powershell 
+  Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+  ```
 
-## <a name="rest-api-to-view-audit-logs"></a>Просмотр журналов аудита с помощью API REST
+4. Можно применить фильтр для невыполненных операций.
+
+  ```powershell
+  Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+  ```
+
+5. Можно получить сведения об одной ошибке, просмотрев сообщение о состоянии для ее записи.
+   
+        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+   
+    Возвращаемые данные:
+   
+        code           message                                                                        
+        ----           -------                                                                        
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. 
+
+
+## <a name="azure-cli"></a>Инфраструктура CLI Azure
+* Чтобы получить записи журнала, выполните команду **azure group log show** .
+
+  ```azurecli
+  azure group log show ExampleGroup --json
+  ```
+
+
+## <a name="rest-api"></a>Интерфейс REST API
 Операции REST для работы с журналом действий включены в интерфейс [REST API Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Получение событий журнала действий описано в статье [Список событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы получить больше информации о действиях в вашей подписке, можно использовать журналы аудита Azure совместно с Power BI. Дополнительные сведения см. в записи блога [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Журналы аудита Azure в Power BI: просмотр, анализ и другие возможности).
 * Дополнительные сведения о настройке политик безопасности см. в статье о [контроле доступа на основе ролей Azure](../active-directory/role-based-access-control-configure.md).
-* Сведения о командах для устранения неполадок при развертывании см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
+* Чтобы узнать о командах для просмотра операций развертывания, ознакомьтесь с разделом [View deployment operations with Azure Resource Manager](resource-manager-deployment-operations.md) (Просмотр операций развертывания с помощью Azure Resource Manager).
 * Вы можете запретить всем пользователям операции удаления для определенного ресурса, как описано в статье [Блокировка ресурсов с помощью Azure Resource Manager](resource-group-lock-resources.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

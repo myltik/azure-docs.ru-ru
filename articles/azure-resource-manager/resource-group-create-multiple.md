@@ -1,5 +1,5 @@
 ---
-title: "Развертывание нескольких экземпляров ресурсов | Документация Майкрософт"
+title: "Развертывание нескольких экземпляров ресурсов Azure | Документация Майкрософт"
 description: "Использование операции копирования и массивов в шаблоне диспетчера ресурсов Azure для выполнения нескольких итераций при развертывании ресурсов."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 28bda592a685de4b2b938da21c3f3aa0a60e632d
-ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Развертывание нескольких экземпляров ресурсов в шаблонах Azure Resource Manager
 В этом разделе показано, как выполнить итерацию в шаблоне диспетчера ресурсов Azure для создания нескольких экземпляров ресурса.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex и length
@@ -556,6 +556,6 @@ ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

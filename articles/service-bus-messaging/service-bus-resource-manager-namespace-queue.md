@@ -1,5 +1,5 @@
 ---
-title: "Создание пространства имен и очереди служебной шины с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+title: "Создание пространства имен и очереди служебной шины Azure с помощью шаблона | Документация Майкрософт"
 description: "Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 777a515daa57f6a6af0ebec41412a3edbd1eaf19
 
 
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure
 В этой статье показывается, как использовать шаблон диспетчера ресурсов Azure, создающий пространство имен служебной шины и очередь. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Создание шаблонов Azure Resource Manager].
+Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Полный шаблон пространства имен и очередей служебной шины приведен [здесь][Шаблон пространства имен служебной шины и очереди] в GitHub.
+Полный шаблон приведен в разделе [Service Bus namespace and queue template][Service Bus namespace and queue template] (Шаблон пространства имен и очереди служебной шины) на сайте GitHub.
 
 > [!NOTE]
 > Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
@@ -35,7 +35,7 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 > * [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
 > * [Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][шаблонов быстрого запуска Azure] выполните поиск по запросу "служебная шина".
+> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][Azure Quickstart Templates] выполните поиск "Service Bus".
 > 
 > 
 
@@ -56,7 +56,7 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Имя создаваемого пространства имен служебной шины.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -68,7 +68,7 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
 Имя очереди, создаваемой в пространстве имен служебной шины.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -77,7 +77,7 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 Версия API служебной шины для шаблона.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -86,7 +86,7 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
 Создает стандартное пространство имен служебной шины типа **Messaging**с очередью.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -115,12 +115,14 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
-```
+
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
@@ -130,17 +132,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
 * [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
-* [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Шаблон пространства имен служебной шины и очереди]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-[шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Дополнительные сведения об очередях служебной шины]: service-bus-queues-topics-subscriptions.md
-[Использование Azure PowerShell с Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure]: ../xplat-cli-azure-resource-manager.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 37d0a4b953c51ce244a21d9a67d97df960d4edaf
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7d547ee39c4fe2bd52dd1fedce9c61d63b4e3011
 
 
 ---
@@ -100,21 +100,21 @@ ms.openlocfilehash: 37d0a4b953c51ce244a21d9a67d97df960d4edaf
 > 
 
 ## <a name="see-also"></a>См. также
-[Набор средств Azure для Eclipse][Набор средств Azure для Eclipse]
+[Набор средств Azure для Eclipse][Azure Toolkit for Eclipse]
 
-[Создание приложения Hello World для Azure в Eclipse][Создание приложения Hello World для Azure в Eclipse]
+[Создание приложения Hello World для Azure в Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Установка набора средств Azure для Eclipse][Установка набора средств Azure для Eclipse] 
+[Установка набора средств Azure для Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][Центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[портал управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -127,6 +127,6 @@ ms.openlocfilehash: 37d0a4b953c51ce244a21d9a67d97df960d4edaf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

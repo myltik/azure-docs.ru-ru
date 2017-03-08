@@ -1,5 +1,5 @@
 ---
-title: "Управление кластерами Hadoop в HDInsight с помощью портала Azure | Документация Майкрософт"
+title: "Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure | Документация Майкрософт"
 description: "Сведения об управлении службой HDInsight. Создайте кластер HDInsight, откройте интерактивную консоль JavaScript и командную консоль Hadoop."
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,26 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
+ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
+ms.lasthandoff: 02/07/2017
 
 
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop в HDInsight с помощью портала Azure
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Управление кластерами Hadoop на платформе Windows в HDInsight с помощью портала Azure
 
-На [портале Azure][azure-portal] можно создавать кластеры Hadoop в Azure HDInsight, менять пароль пользователя Hadoop и включать протокол удаленного рабочего стола (RDP) для работы с командной консолью Hadoop в кластере.
+На [портале Azure][azure-portal] можно создавать кластеры Hadoop под управлением Windows в Azure HDInsight, менять пароль пользователя Hadoop и включать протокол удаленного рабочего стола (RDP) для работы с командной консолью Hadoop в кластере.
 
-Эта статья посвящена только кластерам HDInsight под управлением Windows. Чтобы почитать об управлении кластерами под управлением Linux, щелкните выше соответствующую вкладку.
+Эта статья посвящена только кластерам HDInsight под управлением Windows. Сведения об управлении кластерами на платформе Linux см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-portal-linux.md).
 
-Другие вкладки позволяют перейти к статьям о создании кластеров Hadoop в HDInsight с помощью других средств.
+> [!IMPORTANT]
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-**Предварительные требования**
+
+## <a name="prerequisites"></a>Предварительные требования
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
@@ -92,7 +94,7 @@ HDInsight работает со множеством компонентов Hado
      > Этот параметр влияет *только* на право доступа к указанному кластеру на портале Azure. Он не определяет тех, кто может подключаться к кластеру HDInsight или отправлять в него задания.
      >
      >
-   * **Теги (![значок тегов](./media/hdinsight-administer-use-portal-linux/tags.png))**: теги позволяют задавать пары "ключ — значение" для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем **project**, а затем использовать общее значение для всех служб, связанных с определенным проектом.
+   * **Теги (![значок тегов](./media/hdinsight-administer-use-portal-linux/tags.png))**: теги позволяют задавать пары "ключ — значение" для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем **project**, а затем использовать общее значение для всех служб, связанных с определенным проектом.
    * **Просмотры Ambari**: ссылки на веб-интерфейс Ambari.
 
      > [!IMPORTANT]
@@ -122,7 +124,7 @@ HDInsight работает со множеством компонентов Hado
      >
 6. Щелкните **Свойства**.
 
-    Вы увидите следующий список свойств.
+    В разделе свойств отобразится следующий список:
 
    * **Имя узла**: имя кластера.
    * **URL-адрес кластера**.
@@ -188,10 +190,10 @@ HDInsight работает со множеством компонентов Hado
 
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Перенастройте топологию mytopology с учетом 5 рабочих процессов,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>3 исполнителей для воронки blue-spout и
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>10 исполнителей для сита yellow-bolt.
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Масштабирование кластеров**
 
@@ -269,7 +271,6 @@ HDInsight работает со множеством компонентов Hado
 ## <a name="open-hdinsight-query-console"></a>Открытие консоли запросов HDInsight
 Консоль запросов HDInsight содержит следующие компоненты.
 
-* **Коллекция для начала работы**. Сведения об использовании этой коллекции см. в статье [Изучение Hadoop с помощью коллекции для начала работы с Azure HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 * **Редактор кустов**. Графический пользовательский веб-интерфейс для отправки заданий Hive.  См. статью [Выполнение запросов Hive с помощью консоли запросов](hdinsight-hadoop-use-hive-query-console.md).
 
     ![Редактор кустов на портале HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
@@ -327,7 +328,7 @@ HDInsight работает со множеством компонентов Hado
 3. В верхнем меню щелкните **Параметры** и выберите пункт **Удаленный рабочий стол**.
 4. Заполните поля **Срок действия**, **Имя пользователя удаленного рабочего стола** и **Пароль удаленного рабочего стола**, а затем нажмите кнопку **Включить**.
 
-    ![hdinsight, включить, отключить, настроить, удаленный рабочий стол](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![Hdinsight, включить, отключить, настроить, удаленный рабочий стол](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     Для поля "Срок действия" значением по умолчанию является неделя.
 
@@ -376,9 +377,4 @@ HDInsight работает со множеством компонентов Hado
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

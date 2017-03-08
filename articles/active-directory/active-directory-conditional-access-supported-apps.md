@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
+ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
+ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
 
 
 ---
@@ -41,8 +41,8 @@ ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности) |
 | Office 365 Exchange Online |iOS, Android |Приложение Outlook Mobile |
 | Office 365 Exchange Online |Mac OS X |Outlook 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств и поддержка Skype для бизнеса ожидается в будущем. |
-| Office 365 SharePoint Online |Windows 10 |Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности). Поддержка приложения OneDrive для бизнеса (клиент синхронизации нового поколения или NGSC), групп Office и приложения SharePoint ожидается в будущем. |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Приложения Office 2016, Office 2013 (с современной проверкой подлинности), приложение OneDrive для бизнеса (клиент синхронизации Groove) |
+| Office 365 SharePoint Online |Windows 10 |Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), групп Office и приложения SharePoint ожидается в будущем |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Приложения Office 2016, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Мобильные приложения Office |
 | Office 365 SharePoint Online |Mac OS X |Приложения Office 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств ожидается в будущем. |
 | Office 365 Yammer |Windows 10, iOS и Android |Приложение Office Yammer |
@@ -111,6 +111,6 @@ ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

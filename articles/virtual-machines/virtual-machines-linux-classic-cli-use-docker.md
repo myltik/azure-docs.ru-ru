@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 205812cdd4aa7cd5858075c642188a37de456ba7
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
 
 
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Дополнительные сведения об использовании расширения виртуальной машины Docker с моделью Resource Manager см. [здесь](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании расширения виртуальной машины Docker с моделью Resource Manager см. [здесь](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 В этой статье показано, как создать виртуальную машину с расширением виртуальных машин Docker в режиме управления службами (asm) в интерфейсе командной строки Azure на любой платформе. [Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Можно использовать расширение виртуальной машины Docker и [агент Linux для Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для создания виртуальной машины Docker, в которой можно разместить любое количество контейнеров для приложений в Azure. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -162,21 +161,21 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 * Расширение виртуальной машины Docker для Azure также поддерживает Docker Compose, использующий декларативный файл YAML, позволяющий использовать смоделированное разработчиком приложение в любой среде и обеспечить согласованное развертывание. Ознакомьтесь с разделом [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure].  
 
 <!--Anchors-->
-[Подзаголовок 1]: #subheading-1
-[Подзаголовок 2]: #subheading-2
-[Подзаголовок 3]: #subheading-3
-[Дальнейшие действия]: #next-steps
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
+[Next steps]: #next-steps
 
-[Использование расширения виртуальных машин Docker в Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Расширения виртуальных машин для Linux и Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Ресурсы для контейнеров и управления ими в Azure]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
 
 
 <!--Link references-->
-[Ссылка 1 на другой раздел документации на сайте azure.microsoft.com]: virtual-machines-windows-hero-tutorial.md
-[Ссылка 2 на другой раздел документации на сайте azure.microsoft.com]: ../web-sites-custom-domain-name.md
-[Ссылка 3 на другой раздел документации на сайте azure.microsoft.com]: ../storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 [Использование расширения виртуальных машин Docker на классическом портале Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [руководству пользователя Docker]: https://docs.docker.com/userguide/
@@ -185,6 +184,6 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

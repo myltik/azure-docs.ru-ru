@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по подпискам и учетным записям | Документация Майкрософт"
+title: "Подписка и учетная запись для виртуальных машин Linux в Azure | Документация Майкрософт"
 description: "Изучите основные рекомендации по проектированию и реализации, касающиеся подписок и учетных записей в Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b22f5fe87e1bf741e59ed71a3f57e756e2fad88
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0a4ddfa550913df1c987d1782bcd4bc3c41eb048
+ms.lasthandoff: 01/31/2017
 
 
 ---
-# <a name="subscription-and-accounts-guidelines"></a>Рекомендации по подпискам и учетным записям
+# <a name="azure-subscription-and-accounts-guidelines"></a>Рекомендации по подпискам и учетным записям Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Эта статья посвящена различным подходам к управлению подписками и учетными записями по мере расширения среды и базы пользователей.
@@ -65,10 +66,5 @@ ms.openlocfilehash: 2b22f5fe87e1bf741e59ed71a3f57e756e2fad88
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

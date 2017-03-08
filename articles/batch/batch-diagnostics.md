@@ -1,5 +1,5 @@
 ---
-title: "Ведение журнала диагностики пакетной службы Azure | Документация Майкрософт"
+title: "Включение ведения журнала диагностики для событий пакетной службы в Azure | Документация Майкрософт"
 description: "Запись и анализ событий журнала диагностики для ресурсов учетной записи пакетной службы Azure, таких как пулы и задачи."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/01/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
+ms.sourcegitcommit: 4b8343ac07aa7b2c0771a723306cf1f875cb6147
+ms.openlocfilehash: aeba32d62458f948c7aa99294c90519979924d57
 
 
 ---
@@ -93,7 +93,7 @@ ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
 * [Потоковая передача журналов диагностики Azure в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
   Потоковая передача диагностических событий пакетной службы в концентраторы событий, которые представляют собой масштабируемую службу приема данных. Концентраторы событий способны принимать миллионы событий в секунду, позволяя преобразовать и сохранять их с помощью любого поставщика аналитики в реальном времени.
-* [Анализ журналов диагностики Azure с помощью Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Анализ журналов диагностики Azure с помощью Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
   Отправьте журналы диагностики в Log Analytics, где вы сможете проанализировать их с помощью портала OMS (Operations Management Suite) или экспортировать для анализа в Power BI или Excel.
 
@@ -108,6 +108,6 @@ ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

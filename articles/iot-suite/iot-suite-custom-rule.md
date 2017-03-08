@@ -18,6 +18,7 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 3d24c0c29da8c97e5fcff524dc88746982fda77c
 ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
+ms.lasthandoff: 12/15/2016
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
 
 ## <a name="introduction"></a>Введение
 
-В предварительно настроенных решениях вы можете создавать [правила, которые активируются при достижении определенного порога для значения телеметрии устройства][lnk-builtin-rule]. В статье [Использование динамической телеметрии с предварительно настроенным решением для удаленного мониторинга] [ lnk-dynamic-telemetry] описывается, как добавлять в решение пользовательские параметры телеметрии, например *ExternalTemperature*. В этой статье показано, как создать в решении настраиваемое правило для динамических типов данных телеметрии.
+В предварительно настроенных решениях вы можете создавать [правила, которые активируются при достижении определенного порога для значения телеметрии устройства][lnk-builtin-rule]. В статье [Использование динамической телеметрии с предварительно настроенным решением для удаленного мониторинга][lnk-dynamic-telemetry] описывается, как добавлять в решение пользовательские параметры телеметрии, например *ExternalTemperature*. В этой статье показано, как создать в решении настраиваемое правило для динамических типов данных телеметрии.
 
 В этом руководстве мы с помощью простого виртуального устройства, созданного на основе Node.js, будем генерировать динамические данные телеметрии для отправки в серверную часть предварительно настроенного решения. Затем вы добавите настраиваемые правила в решение Visual Studio **RemoteMonitoring** и развернете настроенную серверную часть в подписке Azure.
 
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Активная подписка Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье о [бесплатной пробной версии Azure][lnk_free_trial].
-* [Node.js] [ lnk-node] 0.12.x или более поздней версии для создания виртуального устройства.
+* [Node.js][lnk-node] 0.12.x или более поздней версии для создания виртуального устройства.
 * Microsoft Visual Studio 2015 для внесения новых правил в серверную часть предварительно настроенного решения.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
@@ -228,11 +229,6 @@ ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#view-alarms
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 [lnk-logic-app]: iot-suite-logic-apps-tutorial.md
-
-
-<!--HONumber=Dec16_HO3-->
-
-

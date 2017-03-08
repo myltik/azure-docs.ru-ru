@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Обзор
-В этом руководстве показано, как добавить облачную серверную службу в приложение Xamarin.Android. Дополнительные сведения см. в статье [Общие сведения о мобильных приложениях](app-service-mobile-value-prop.md).
+В этом руководстве показано, как добавить облачную серверную службу в приложение Xamarin.Android. Дополнительные сведения см. в статье [Что такое мобильные приложения?](app-service-mobile-value-prop.md).
 
 Снимок экрана завершенного приложения приведен ниже:
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
 * Visual Studio с Xamarin. Инструкции см. в статье об [установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 > [!NOTE]
-> Если вы хотите приступить к работе со службой приложений Azure до регистрации для получения учетной записи Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appServiceName=mobile).  Там вы сможете быстро создать в службе приложений простое кратковременное мобильное приложение. Никаких кредитных карт и обязательств.
+> Если вы хотите приступить к работе со службой приложений Azure до регистрации для получения учетной записи Azure, перейдите на [эту страницу](https://azure.microsoft.com/try/app-service/mobile/).  Там вы сможете быстро создать в службе приложений простое кратковременное мобильное приложение. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -83,11 +83,11 @@ ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[портал Azure]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

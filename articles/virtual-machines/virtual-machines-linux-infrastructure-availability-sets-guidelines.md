@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по группам доступности Azure | Документация Майкрософт"
+title: "Группы доступности для виртуальных машин Linux в Azure | Документация Майкрософт"
 description: "Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания групп доступности в службах инфраструктуры Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0c31fb1d02e26491de8d1076d074a2021906999f
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -52,10 +53,5 @@ ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

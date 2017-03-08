@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3de8751c58870fceee2575608982a5b36eca7478
+ms.sourcegitcommit: 593fdde402845fa062dbceafa533a1efc1f7af9c
+ms.openlocfilehash: b189106be19b95366ba0e6d248c69b34b219b8a1
 
 
 ---
@@ -233,7 +233,7 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 Проверка загруженного пакета
 
-1. Запустите сценарий verifykeypackage.py, указав одно из приведенных ниже значений в зависимости от вашего географического региона или экземпляра:
+1. Запустите сценарий verifykeypackage.py, указав одно из приведенных ниже значений в зависимости от вашего географического региона или экземпляра Azure.
    
    * Для Северной Америки:
      
@@ -411,6 +411,6 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

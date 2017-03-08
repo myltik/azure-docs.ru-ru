@@ -4,8 +4,8 @@ description: "Здесь содержится информация о парам
 services: active-directory
 keywords: "что такое Enterprise State Roaming, корпоративная синхронизация, облако Windows"
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: markvi
+manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
+ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
 
 
 ---
@@ -36,10 +36,11 @@ ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
 | [Часто задаваемые вопросы о перемещении параметров и данных](active-directory-windows-enterprise-state-roaming-faqs.md) |В этой статье содержится информация о синхронизации параметров и данных приложений, которая может быть полезной для ИТ-администраторов. |
 | [Group policy and MDM settings for settings sync (Параметры групповой политики и управления мобильными устройствами)](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 предоставляет параметры групповой политики и управления мобильными устройствами (MDM) для ограничения синхронизации параметров. |
 | [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Ниже приведен полный список всех параметров, для которых в Windows 10 будет выполнено перемещение и/или резервное копирование. |
+| [Устранение неполадок](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |В этом разделе представлены основные инструкции по устранению неполадок, а также список известных проблем. |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

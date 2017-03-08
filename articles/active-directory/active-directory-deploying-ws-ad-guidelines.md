@@ -4,7 +4,7 @@ description: "Если вы знаете, как развернуть домен
 services: active-directory
 documentationcenter: 
 author: femila
-manager: stevenpo
+manager: femila
 editor: 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -501,6 +501,6 @@ Azure также хорошо подходит как замена дороги�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

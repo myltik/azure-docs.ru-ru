@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53aa0a84a7f22c8cda5144eb6e1b82f38b72acb8
+ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
+ms.openlocfilehash: 7166f4d3046f573d2f60d747edf2eefbbd0439c2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -313,9 +314,4 @@ ms.openlocfilehash: 53aa0a84a7f22c8cda5144eb6e1b82f38b72acb8
 [203]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

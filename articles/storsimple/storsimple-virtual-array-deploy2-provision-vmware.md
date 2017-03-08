@@ -1,10 +1,10 @@
 ---
-title: "Развертывание виртуального массива Microsoft Azure StorSimple — подготовка в VMware | Документация Майкрософт"
+title: "Подготовка виртуального массива StorSimple в VMware | Документация Майкрософт"
 description: "Это второе руководство из серии, посвященной развертыванию виртуального массива StorSimple, в котором описывается подготовка виртуального устройства в VMware."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
+ms.sourcegitcommit: f0ccf2706b5ce514613712fb866dc2d0120b0ad3
+ms.openlocfilehash: fe420fc0d4e5e2b7c625bf3a3d87005fdbcff200
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware
+# <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Развертывание виртуального массива StorSimple — подготовка в VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Обзор
@@ -43,7 +45,7 @@ ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
 * ОС сервера виртуальных машин должна быть в состоянии выделить указанные ниже ресурсы для подготовки виртуального устройства к работе.
 
   * Не менее 4 ядер.
-  * Не менее 8 ГБ ОЗУ.
+  * Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку до 2 млн файлов. Для поддержки 2–4 млн файлов потребуется 16 ГБ ОЗУ.
   * Один сетевой интерфейс.
   * Виртуальный диск размером 500 ГБ для системных данных.
 
@@ -66,7 +68,7 @@ ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
 * Наличие в системе клиента VMware vSphere для управления узлом ESXi.
 
   * Не менее 4 ядер.
-  * Не менее 8 ГБ ОЗУ.
+  * Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку до 2 млн файлов. Для поддержки 2–4 млн файлов потребуется 16 ГБ ОЗУ.
   * Один сетевой интерфейс, подключенный к сети с маршрутизацией трафика в Интернет. Для оптимальной работы устройства минимальная пропускная способность интернет-канала должна составлять 5 Мбит/с.
   * Виртуальный диск данных размером 500 ГБ.
 
@@ -77,6 +79,7 @@ ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
 
    1. Убедитесь, что это последний скачанный вами файл образа. Если вы уже скачивали образ, скачайте его снова, чтобы убедиться, что у вас его последняя версия. Последний образ состоит из двух файлов (вместо одного).
    2. Запишите расположение, в которое был скопирован образ, так как он потребуется вам позднее.
+
 2. Войдите на сервер ESXi, используя клиент vSphere. Чтобы создать виртуальную машину, требуются права администратора.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -240,9 +243,4 @@ ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Deploy StorSimple Virtual Array - Set up as file server (Preview) (Развертывание виртуального массива StorSimple — настройка в качестве файлового сервера (предварительная версия))](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview) (Развертывание виртуального массива StorSimple — настройка в качестве сервера iSCSI (предварительная версия))](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
+ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -24,15 +25,15 @@ ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
 > [!div class="op_single_selector"]
 > * [Классический портал Azure — Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell — Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-> 
-> 
+>
+>
 
 <br>
 
 > [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Сейчас доменные службы Azure AD не поддерживают модель Resource Manager.
-> 
-> 
+>
+>
 
 Ниже показано, как настроить набор команд Azure PowerShell для создания и предварительной настройки виртуальной машины Azure под управлением Windows, используя подход на базе стандартных блоков. Приведенные ниже шаги помогут создать виртуальную машину Azure под управлением Windows и присоединить ее к управляемому домену доменных служб Azure AD.
 
@@ -119,7 +120,7 @@ ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
 
 * использует образ Windows Server 2012 R2 Datacenter;
 * имеет размер "очень малая";
-* имеет имя "contoso-test";
+* имеет имя Contoso100-test;
 * является автоматически присоединяемой к управляемому домену contoso100;
 * добавляется в ту же виртуальную сеть, что и управляемый домен.
 
@@ -156,10 +157,4 @@ ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
 ## <a name="related-content"></a>Похожий контент
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

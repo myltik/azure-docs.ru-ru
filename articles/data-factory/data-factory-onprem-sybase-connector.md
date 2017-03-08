@@ -1,5 +1,5 @@
 ---
-title: "Перемещение данных из Sybase | Документация Майкрософт"
+title: "Перемещение данных из Sybase с помощью фабрики данных Azure | Документация Майкрософт"
 description: "Узнайте, как перемещать данные из базы данных Sybase с использованием фабрики данных Azure."
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 399553ced40b0d8095d7c51649177510592f6a43
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: b4b60c9134fd491184b02593c32659d2dcdfed8a
 
 
 ---
@@ -286,6 +286,6 @@ Sybase поддерживает T-SQL и типы T-SQL. Таблицу сопо
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

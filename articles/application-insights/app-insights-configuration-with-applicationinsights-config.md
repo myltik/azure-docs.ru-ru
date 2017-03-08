@@ -1,6 +1,6 @@
 ---
-title: "Настройка пакета SDK для Application Insights с использованием файла ApplicationInsights.config или ApplicationInsights.xml | Документация Майкрософт"
-description: "Включение или отключение модулей сбора данных и добавление счетчиков производительности, а также других параметров"
+title: "Справочник по файлу ApplicationInsights.config в Azure | Документация Майкрософт"
+description: "Включение или отключение модулей сбора данных и добавление счетчиков производительности, а также других параметров."
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
 
 
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Настройка пакета SDK для Application Insights с использованием файла ApplicationInsights.config или ApplicationInsights.xml
 Пакет SDK .NET Application Insights состоит из нескольких пакетов NuGet. [Основной пакет](http://www.nuget.org/packages/Microsoft.ApplicationInsights) предоставляет API для отправки телеметрии в Application Insights. [Дополнительные пакеты](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) предоставляют *модули* и *инициализаторы* телеметрии для автоматического отслеживания телеметрии вашего приложения и его контекста. При настройке файла конфигурации можно включить или отключить модули телеметрии и задать для них параметры.
 
-Имя файла конфигурации – `ApplicationInsights.config` или `ApplicationInsights.xml` в зависимости от типа приложения. Он добавляется в проект автоматически при [установке большинства версий пакета SDK][start]. Кроме того, [монитор состояний на сервере IIS][redfield] добавляет этот файл в веб-приложение. Он также добавляется при выборе [расширения Appplication Insights для веб-сайта или виртуальной машины Azure](app-insights-azure-web-apps.md).
+Имя файла конфигурации – `ApplicationInsights.config` или `ApplicationInsights.xml` в зависимости от типа приложения. Он добавляется в проект автоматически при [установке большинства версий пакета SDK][start]. Кроме того, [монитор состояний на сервере IIS][redfield] добавляет этот файл в веб-приложение. Он также добавляется при [выборе расширения Appplication Insights для веб-сайта или виртуальной машины Azure](app-insights-azure-web-apps.md).
 
-Нет эквивалентного файла для управления [пакетом SDK на веб-странице][client].
+Эквивалентного файла для управления [пакетом SDK на веб-странице][client] не существует.
 
 В этом документе описываются разделы файла конфигурации и то, как они управляют компонентами пакета SDK. Кроме того, в нем содержатся сведения о пакетах NuGet, загружающих эти компоненты.
 
@@ -37,7 +37,7 @@ ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
 ### <a name="dependency-tracking"></a>Отслеживание зависимостей
 [Dependency tracking](app-insights-asp-net-dependencies.md) собирает данные телеметрии о вызовах, выполняемых приложением к базам данных и внешним службам. Чтобы этот модуль работал на сервере IIS, [установите монитор состояний][redfield]. Чтобы использовать его в веб-приложениях или виртуальных машинах Azure, [выберите расширение Application Insights](app-insights-azure-web-apps.md).
 
-Можно также написать код отслеживания зависимостей, используя [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Можно также написать код отслеживания зависимостей, используя [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
@@ -49,7 +49,7 @@ ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) .
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Телеметрия диагностики Application Insights
-`DiagnosticsTelemetryModule` информирует об ошибках в самом коде инструментирования Application Insights, например, если код не может получить доступ к счетчикам производительности или `ITelemetryInitializer` вызывает исключение. Телеметрия трассировки, собранная этим модулем, отображается в результатах [диагностического поиска][diagnostic]. Отправляет диагностические данные по адресу dc.services.vsallin.net.
+`DiagnosticsTelemetryModule` информирует об ошибках в самом коде инструментирования Application Insights, например, если код не может получить доступ к счетчикам производительности или `ITelemetryInitializer` вызывает исключение. Данные телеметрии трассировки, собранные этим модулем, отображаются в колонке [Diagnostic Search][diagnostic] (Поиск в диагностических данных). Отправляет диагностические данные по адресу dc.services.vsallin.net.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) . Если просто установить этот пакет, файл ApplicationInsights.config не создается автоматически.
@@ -67,7 +67,7 @@ ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) 
 
 ### <a name="exception-tracking"></a>Отслеживание исключений
-`ExceptionTrackingTelemetryModule` отслеживает количество необработанных исключений в вашем веб-приложении. См. статью [Ошибки и исключения][exceptions].
+`ExceptionTrackingTelemetryModule` отслеживает количество необработанных исключений в вашем веб-приложении. Ознакомьтесь со статьей [Ошибки и исключения][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) 
@@ -246,10 +246,10 @@ ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
 
 ```
 
-Чтобы получить новый ключ, [создайте новый ресурс на портале Application Insights][новая].
+Чтобы получить новый ключ, [создайте новый ресурс на портале Application Insights][new].
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Дополнительные сведения об API][api].
+[Узнайте больше об API.][api]
 
 <!--Link references-->
 
@@ -258,12 +258,12 @@ ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[новая]: app-insights-create-new-resource.md
+[new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Не удается подключиться к виртуальной машине Azure через протокол удаленного рабочего стола | Документация Майкрософт"
+title: "Не удается подключиться по протоколу RDP к виртуальной машине Windows в Azure | Документация Майкрософт"
 description: "Устранение неполадок, возникающих при подключении к виртуальной машине Windows в Azure через удаленный рабочий стол"
 keywords: "Ошибка удаленного рабочего стола, ошибка подключения к удаленному рабочему столу, не удается подключиться к виртуальной машине, диагностика удаленного рабочего стола"
 services: virtual-machines-windows
@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 10/26/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
+ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
+ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -40,7 +41,7 @@ ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
 6. Перезапустите виртуальную машину.
 7. Заново разверните виртуальную машину.
 
-Читайте статью дальше, если вам нужны более подробные инструкции или пояснения.
+Читайте статью дальше, если вам нужны более подробные инструкции или пояснения. Убедитесь, что локальное сетевое оборудование, такое как маршрутизаторы и брандмауэры, не блокирует исходящий TCP-порт 3389, как указано в [подробных сценариях устранения неполадок RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
 > Если кнопка **Подключить** для вашей виртуальной машины на портале неактивна и вы не используете канал [Express Route](../expressroute/expressroute-introduction.md) или [VPN-подключение типа "сеть — сеть"](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) для подключения к Azure, то прежде всего следует создать общедоступный IP-адрес и назначить его виртуальной машине. Только после этого вы сможете использовать протокол RDP. Дополнительные сведения см. в статье [IP-адреса в Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
@@ -248,14 +249,7 @@ ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 Если ни одна из указанных ошибок не возникла, но подключиться к виртуальной машине с помощью протокола удаленного рабочего стола не удается, прочтите [подробное руководство по устранению неполадок с удаленным рабочим столом](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-* [Пакет диагностики Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * Сведения об устранении неполадок с доступом к приложениям, работающим на виртуальной машине, см. в статье [Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Если вы подключаетесь к виртуальной машине Linux в Azure по протоколу SSH и у вас возникают проблемы, см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

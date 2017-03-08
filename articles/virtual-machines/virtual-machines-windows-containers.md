@@ -1,5 +1,5 @@
 ---
-title: "Виртуальные машины и контейнеры | Документация Майкрософт"
+title: "Контейнеры на виртуальных машинах Windows в Azure | Документация Майкрософт"
 description: "Описание виртуальных машин, контейнеров Docker и Linux, а также особенностей их использования в группах в среде Azure, включая преимущества каждого из них и сценарии, в которых лучше всего работает соответствующий подход."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b88308800720f36ac9443aed3c3b3cda8ccda20
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 721f476e63c82c75fd6bc7422b577b1750c6875e
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -24,10 +25,5 @@ ms.openlocfilehash: 4b88308800720f36ac9443aed3c3b3cda8ccda20
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [!INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

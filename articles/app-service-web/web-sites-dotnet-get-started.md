@@ -1,10 +1,10 @@
 ---
-title: "Развертывание приложения ASP.NET в службе приложений Azure с помощью Visual Studio | Документация Майкрософт"
+title: "Развертывание приложения ASP.NET в Azure с помощью Visual Studio | Документация Майкрософт"
 description: "Узнайте, как с помощью Visual Studio развернуть веб-проект ASP.NET в новом веб-приложении в службе приложений Azure."
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -47,7 +48,7 @@ ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 * В этом руководстве предполагается, что у вас есть опыт работы с ASP.NET MVC и Visual Studio. Общие сведения об этих компонентах см. в статье [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) (Приступая к работе с Azure и ASP.NET MVC 5).
 * Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
+    Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](https://azure.microsoft.com/try/app-service/). Там можно создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Настройка среды разработки
 Это руководство написано для Visual Studio 2015 с [пакетом Azure SDK для .NET](../dotnet-sdk.md) версии 2.9 или более поздней. 
@@ -205,7 +206,7 @@ ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 * Развертывание веб-проекта из системы управления версиями.
   
     Сведения об [автоматизации развертывания](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) из [системы управления версиями](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) см. в статьях [Развертывание первого веб-приложения в Azure за пять минут](app-service-web-get-started.md) и [Развертывание приложения в службе приложений Azure](web-sites-deploy.md).
-* Развертывание веб-API ASP.NET 2 в приложении API в службе приложений Azure.
+* Развертывание веб-API ASP.NET&2; в приложении API в службе приложений Azure.
   
     Вы узнали, как создать экземпляр службы приложений Azure, который предназначен главным образом для размещения веб-сайта. Служба приложений также предусматривает возможности для размещения веб-API, в частности поддержку CORS и метаданных API для создания клиентского кода. В веб-приложении можно использовать функции API, но если основная цель — это размещение API в экземпляре службы приложений, лучше использовать **приложение API**. Дополнительные сведения см. в статье [Приступая к работе с приложениями API, ASP.NET и Swagger в службе приложений Azure](../app-service-api/app-service-api-dotnet-get-started.md). 
 * Добавление имени личного домена и SSL.
@@ -218,10 +219,5 @@ ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
   
     Дополнительные сведения о работе с группами ресурсов на портале Azure см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Дополнительные примеры создания веб-приложения ASP.NET в службе приложений см. в статьях [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Создание и развертывание веб-приложения ASP.NET в службе приложений Azure) и [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Создание и развертывание мобильного приложения в службе приложений Azure), описывающих [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API"
+title: "Управление учетными записями разработчиков с помощью групп в службе управления API Azure | Документация Майкрософт"
 description: "Сведения об управлении учетными записями разработчика с помощью групп в службе управления API Azure"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 2187c94f5deab28159594216545d7b57ef02cb70
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
 
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API
@@ -118,6 +117,6 @@ ms.openlocfilehash: 2187c94f5deab28159594216545d7b57ef02cb70
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

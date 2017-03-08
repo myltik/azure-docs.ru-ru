@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b144f8c76597a7c805824de9eca5056354a47dea
+ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
+ms.openlocfilehash: 02674646a0dac8a468b8c4f9f079630103058a3a
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -152,10 +153,5 @@ Curl используется для демонстрации возможнос
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

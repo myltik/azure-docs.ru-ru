@@ -1,5 +1,5 @@
 ---
-title: "Настройка свойств и метаданных во время импорта | Документация Майкрософт"
+title: "Настройка свойств и метаданных с помощью службы импорта и экспорта Azure | Документация Майкрософт"
 description: "Сведения об указании свойств и метаданных, используемых для настройки целевых больших двоичных объектов, при запуске инструмента импорта и экспорта для подготовки дисков."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: f49604cf6738da3576ed2a65ca96d083d5e8219b
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -70,9 +71,4 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
   
 ## <a name="see-also"></a>См. также  
 [Формат файла свойств и файла метаданных службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

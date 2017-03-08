@@ -21,11 +21,14 @@
 ## Создание приложения
 ### [Примеры и сценарии](service-fabric-patterns-and-scenarios.md)
 ### Основы
-#### [Модель программирования](service-fabric-choose-framework.md)
 #### [Модель приложения](service-fabric-application-model.md)
+#### [Поддерживаемая модель программирования](service-fabric-choose-framework.md)
+#### [Состояние службы](service-fabric-concepts-state.md)
 #### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
+#### [Добавление веб-интерфейса](service-fabric-add-a-web-frontend.md)
 #### [Ресурсы манифеста службы](service-fabric-service-manifest-resources.md)
-#### [Инструменты](service-fabric-manage-application-in-visual-studio.md)
+#### [Управление приложениями в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+#### [Настройка безопасных соединений в Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Отладка
 ##### [Отладка службы на C# в VS](service-fabric-debugging-your-application.md)
 ##### [Отладка службы на Java в Eclipse](service-fabric-debugging-your-application-java.md)
@@ -36,6 +39,15 @@
 #### [Настройка политик безопасности для приложения](service-fabric-application-runas-security.md)  
 #### [Настройка приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md)  
 #### [Распространенные ошибки и исключения](service-fabric-errors-and-exceptions.md) 
+
+### Гостевое исполняемое приложение
+#### [Развертывание гостевого исполняемого файла](service-fabric-deploy-existing-app.md)
+#### [Развертывание нескольких пользовательских приложений](service-fabric-deploy-multiple-apps.md)
+
+### Приложение-контейнер
+#### [Обзор](service-fabric-containers-overview.md)
+#### [Развертывание контейнера Windows](service-fabric-deploy-container.md)
+#### [Развертывание контейнера Docker](service-fabric-deploy-container-linux.md)
 
 ### Приложение Reliable Services
 #### [Обзор](service-fabric-reliable-services-introduction.md)
@@ -73,15 +85,6 @@
 #### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Настройка параметров подключения](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
-### Гостевое исполняемое приложение
-#### [Развертывание гостевого исполняемого файла](service-fabric-deploy-existing-app.md)
-#### [Развертывание нескольких пользовательских приложений](service-fabric-deploy-multiple-apps.md)
-
-### Приложение-контейнер
-#### [Обзор](service-fabric-containers-overview.md)
-#### [Развертывание контейнера Windows](service-fabric-deploy-container.md)
-#### [Развертывание контейнера Docker](service-fabric-deploy-container-linux.md)
-
 ## Миграция из облачных служб
 ### [Сравнение облачных служб и Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Переход к использованию Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -95,51 +98,40 @@
 #### [Визуализация кластера](service-fabric-visualizing-your-cluster.md)
 #### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
 #### [Управление кластером с помощью интерфейса командной строки Azure](service-fabric-azure-cli.md) 
-#### [Безопасность](service-fabric-cluster-security.md)
+#### [Обеспечение безопасности кластера](service-fabric-cluster-security.md)
 #### [Аварийное восстановление](service-fabric-disaster-recovery.md)
 
 ### Кластеры в Azure
 #### Создание кластера в Azure
 ##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio и Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Виды узлов и масштабируемые наборы ВМ](service-fabric-cluster-nodetypes.md)
 #### [Масштабирование кластера](service-fabric-cluster-scale-up-down.md)
 #### [Обновление кластера](service-fabric-cluster-upgrade.md)
 #### [Удаление кластера](service-fabric-cluster-delete.md)
 #### [Контроль доступа](service-fabric-cluster-security-roles.md)
 #### [Настройка кластера](service-fabric-cluster-fabric-settings.md)
+#### [Защита кластера с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
 #### [Добавление или изменение сертификатов кластера](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Пробное бесплатное использование кластера Party Cluster](http://aka.ms/tryservicefabric)
 
 ### Изолированные кластеры
+#### [Планирование и подготовка развертывания](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Содержимое изолированного пакета Service Fabric](service-fabric-cluster-standalone-package-contents.md)
 #### [Создание изолированного кластера](service-fabric-cluster-creation-for-windows-server.md)
 #### [Создание автономного кластера на виртуальной машине Azure](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Масштабирование кластера](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Обновление кластера](service-fabric-cluster-upgrade-windows-server.md)
-#### [Обеспечение безопасности кластера](service-fabric-windows-cluster-x509-security.md)
 #### [Контроль доступа](service-fabric-cluster-security-roles.md)
 #### [Настройка кластера](service-fabric-cluster-manifest.md)
 #### [Защита кластера с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)  
 #### [Защита кластера с помощью системы безопасности Windows](service-fabric-windows-cluster-windows-security.md) 
 
-## Ресурсы кластера: управление и оркестрация
-### [Обзор диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-introduction.md)
-### [Архитектура диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-architecture.md)
-### [Описание кластера](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Обзор групп приложений](service-fabric-cluster-resource-manager-application-groups.md)
-### [Настройка параметров диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-configure-services.md)
-### [Метрики потребления ресурсов](service-fabric-cluster-resource-manager-metrics.md)
-### [Использование сходства служб](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Политики размещения служб](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Управление кластером](service-fabric-cluster-resource-manager-management-integration.md)
-### [Дефрагментация кластера](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Балансировка кластера](service-fabric-cluster-resource-manager-balancing.md)
-### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Управление жизненным циклом приложения
 ### [Обзор](service-fabric-application-lifecycle.md)
 ### [Настройка непрерывной интеграции](service-fabric-set-up-continuous-integration.md)
+### [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Развертывание или удаление приложений
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -161,6 +153,7 @@
 ### [Просмотр отчетов о работоспособности](service-fabric-view-entities-aggregated-health.md)
 
 ## Мониторинг и диагностика
+### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
 ### Мониторинг и диагностика состояния служб в локальной среде разработки
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -168,8 +161,8 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Сбор журналов из процесса службы](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Диагностика в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Диагностика в Reliable Services с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
+### [Диагностика в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
 ### [Устранение распространенных неполадок](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
@@ -191,6 +184,21 @@
 #### [Использование API-интерфейсов для изменения состояния узла](service-fabric-node-transition-apis.md)
 ### [Нагрузочный тест приложения](service-fabric-vso-load-test.md)
 
+## Ресурсы кластера: управление и оркестрация
+### [Обзор диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-introduction.md)
+### [Архитектура диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-architecture.md)
+### [Описание кластера](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Обзор групп приложений](service-fabric-cluster-resource-manager-application-groups.md)
+### [Настройка параметров диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-configure-services.md)
+### [Метрики потребления ресурсов](service-fabric-cluster-resource-manager-metrics.md)
+### [Использование сходства служб](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [Политики размещения служб](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [Управление кластером](service-fabric-cluster-resource-manager-management-integration.md)
+### [Дефрагментация кластера](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [Балансировка кластера](service-fabric-cluster-resource-manager-balancing.md)
+### [Регулирование](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
+
 # Справочные материалы
 ## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
 ## [API Java](/java/api/microsoft.servicefabric.services)
@@ -206,8 +214,3 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

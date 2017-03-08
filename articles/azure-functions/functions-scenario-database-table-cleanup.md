@@ -1,13 +1,13 @@
 ---
-title: Выполнение запланированной задачи очистки с помощью функций Azure | Microsoft Docs
-description: Использование функций Azure для создания функции C#, которая срабатывает по таймеру событий.
+title: "Выполнение запланированной задачи очистки с помощью Функций Azure | Документация Майкрософт"
+description: "Использование функций Azure для создания функции C#, которая срабатывает по таймеру событий."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
+ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+
 
 ---
 # <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Выполнение запланированной задачи очистки с помощью функций Azure
@@ -48,16 +52,20 @@ ms.author: glenga
    
     ![Создание активируемой по таймеру функции](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. В области **Код** на вкладке **Разработка** добавьте следующие ссылки на сборки в начало существующего кода функции.
-   
+    ```cs
         #r "System.Configuration"
         #r "System.Data"
+    ```
+
 3. Добавьте в функцию следующие операторы `using` :
-   
+    ```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+    ```
+
 4. Замените имеющуюся функцию **Run** следующим кодом:
-   
+    ```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -73,6 +81,8 @@ ms.author: glenga
                 }
             }
         }
+    ```
+
 5. Нажмите кнопку **Сохранить**. Выполнение следующей функции можно просмотреть в окне **Журналы**. Запишите число строк, удаленных из таблицы TodoItems.
 6. (Необязательно) Используя [приложение из краткого учебника по созданию мобильных приложений](../app-service-mobile/app-service-mobile-ios-get-started.md), отметьте дополнительные элементы как "завершенные", а затем вернитесь в окно **Журналы** и убедитесь, что такое же число строк удаляется функцией во время следующего выполнения. 
 
@@ -80,14 +90,17 @@ ms.author: glenga
 Дополнительные сведения о функциях Azure см. в следующих статьях.
 
 * [Справочник разработчика по функциям Azure](functions-reference.md)  
-  Справочник программиста по созданию функций, а также определению триггеров и привязок.
+   Справочник программиста по созданию функций, а также определению триггеров и привязок.
 * [Testing Azure Functions](functions-test-a-function.md)  
-  Описание различных средств и методов тестирования функций.
+   Описание различных средств и методов тестирования функций.
 * [Масштабирование функций Azure](functions-scale.md)  
-  Обсуждение планов обслуживания, доступных для использования с Функциями Azure (включая динамический план обслуживания), а также выбор подходящего плана.  
+  Обсуждение планов обслуживания, доступных для использования с Функциями Azure (включая план потребления), а также сведения о выборе подходящего плана.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

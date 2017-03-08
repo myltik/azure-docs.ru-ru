@@ -4,7 +4,7 @@ description: "Узнайте, как защитить приложение API �
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
 ms.service: app-service-api
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cbac2de7334b8733c17b2db5b407eecb925bcc2f
+ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
+ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -182,7 +183,7 @@ ms.openlocfilehash: cbac2de7334b8733c17b2db5b407eecb925bcc2f
 
 Внесите следующие изменения в файлы проекта ToDoListAngular.
 
-1. Откройте файл *index.html* .
+1. Откройте файл *index.cshtml*.
 2. Раскомментируйте строки, которые ссылаются на библиотеку проверки подлинности Active Directory (ADAL) для скриптов JS.
    
         <script src="app/scripts/adal.js"></script>
@@ -280,10 +281,5 @@ ms.openlocfilehash: cbac2de7334b8733c17b2db5b407eecb925bcc2f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как использовать проверку подлинности в службе приложений для приложения API и как вызывать приложение API с помощью библиотеки ADAL JS. В следующем руководстве вы узнаете, как [обеспечить безопасный доступ к приложению API в сценариях взаимодействия между службами](app-service-api-dotnet-service-principal-auth.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

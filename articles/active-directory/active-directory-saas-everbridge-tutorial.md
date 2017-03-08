@@ -1,31 +1,36 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Everbridge | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и Everbridge.
+title: "Руководство по интеграции Azure Active Directory с Everbridge | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Everbridge."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/14/2017
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: d31201fa2ad57006d5181ee808020cea80446557
+ms.lasthandoff: 02/15/2017
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-everbridge"></a>Руководство. Интеграция Azure Active Directory с Everbridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Руководство по интеграции Azure Active Directory с Everbridge
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Everbridge.
 
 Интеграция Everbridge с Azure AD обеспечивает следующие преимущества.
 
 * С помощью Azure AD вы можете контролировать доступ к Everbridge.
 * Вы можете включить автоматический вход пользователей в Everbridge (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Everbridge, вам потребуется:
@@ -44,7 +49,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
@@ -138,10 +143,10 @@ ms.author: jeedes
     Е. В поле **Service Provider Initiated Request Binding**(Связывание запросов, инициированных поставщиком услуг) установите переключатель HTTP Redirect (Перенаправление HTTP).
 7. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 8. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -173,17 +178,18 @@ ms.author: jeedes
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_07.png)
@@ -245,9 +251,4 @@ ms.author: jeedes
 [203]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Oct16_HO2-->
-
 

@@ -4,7 +4,7 @@ description: "Убедитесь, как просто запускать веб-
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,25 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 68298208d2e2cc1fe7ab4050afecb25ca7d619cd
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения PHP в Azure за пять минут (предварительная версия CLI 2.0)
-
-> [!div class="op_single_selector"]
-> * [Первый HTML-сайт](app-service-web-get-started-html.md)
-> * [Первое приложение .NET](app-service-web-get-started-dotnet.md)
-> * [Первое приложение PHP](app-service-web-get-started-php.md)
-> * [Первое приложение Node.js](app-service-web-get-started-nodejs.md)
-> * [Первое приложение Python](app-service-web-get-started-python.md)
-> * [Первое приложение Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Это руководство поможет вам развернуть ваше первое веб-приложение PHP в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
 В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started-php.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-get-started-php.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Git](http://www.git-scm.com/downloads).
@@ -57,12 +49,12 @@ ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
 ## <a name="deploy-a-php-web-app"></a>Развертывание веб-приложения PHP
-1. Откройте новое окно командной строки Windows, окно PowerShell, оболочку Linux или терминал OS X. Выполните команды `git --version` и `azure --version`, чтобы убедиться, что система GIT и интерфейс командной строки Azure установлены на компьютере.
+1. Откройте новое окно командной строки Windows, окно PowerShell, оболочку Linux или терминал OS X. Выполните команды `git --version` и `az --version`, чтобы убедиться, что система GIT и интерфейс командной строки Azure установлены на компьютере.
    
     ![Тестирование установки средств интерфейса командной строки для первого веб-приложения в Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -77,7 +69,7 @@ ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
 
 3. Укажите пользователя развертывания для службы приложений. Вы развернете код позже с помощью этих учетных данных.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        az appservice web deployment user set --user-name <unique-username> --password <8-char-or-longer-password-letters-and-numbers>
 
 3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). В рамках этого руководства по использованию службы приложений вам не обязательно знать, что это такое.
 
@@ -128,7 +120,7 @@ ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
 ## <a name="see-your-app-running-live"></a>Наблюдение за работой приложения в реальном времени
 Чтобы увидеть работу приложения в Azure в реальном времени, выполните в любом каталоге репозитория следующую команду:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Обновление приложения
 Теперь с помощью Git можно в любой момент передать на рабочий сайт изменения из корневого каталога проекта (репозитория). Для этого нужно выполнить те же действия, что и при первом развертывании кода. Например, каждый раз, когда вам нужно отправить новое изменение, протестированное локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
@@ -151,10 +143,5 @@ ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
 
 * Попробуйте [другие способы развертывания кода в Azure](web-sites-deploy.md). Например, чтобы развернуть приложение из какого-либо репозитория на GitHub, в разделе **Параметры развертывания** нужно просто указать **GitHub**, а не **Локальный репозиторий Git**.
 * Выведите приложение Azure на следующий уровень. Проверяйте подлинность пользователей. Масштабируйте приложение в зависимости от потребностей. Настраивайте оповещения производительности. И все это — с помощью нескольких действий. См. статью [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

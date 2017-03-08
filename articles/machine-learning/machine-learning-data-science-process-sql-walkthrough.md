@@ -1,5 +1,5 @@
 ---
-title: "Процесс обработки и анализа данных группы на практике: использование SQL Server | Документация Майкрософт"
+title: "Создание и развертывание модели машинного обучения с помощью SQL Server на виртуальной машине Azure | Документация Майкрософт"
 description: "Расширенный процесс аналитики и технологии в действии"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/29/2017
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
 ## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Примеры задач прогнозирования
 Мы сформулируем три перечисленные ниже задачи прогнозирования на основе *tip\_amount*.
 
-1. Двоичная классификация. Позволяет спрогнозировать, были ли оставлены чаевые после поездки, т. е. значение *tip\_amount* > 0 $ — это положительный пример, а значение *tip\_amount* = 0 $ — отрицательный пример.
+1. Двоичная классификация. Позволяет спрогнозировать, были ли оставлены чаевые после поездки, т. е. значение *tip\_amount* >&0; $ — это положительный пример, а значение *tip\_amount* =&0; $ — отрицательный пример.
 2. Мультиклассовая классификация: Спрогнозировать диапазон суммы чаевых за поездку. Мы разделяем *tip\_amount* на пять ячеек или классов:
    
         Class 0 : tip_amount = $0
@@ -70,7 +70,7 @@ ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
 
 1. [создать учетную запись хранения;](../storage/storage-create-storage-account.md)
 2. [Создание рабочей области машинного обучения Azure](machine-learning-create-workspace.md)
-3. [Подготовьте виртуальную машину для обработки данных](machine-learning-data-science-setup-sql-server-virtual-machine.md), которая будет служить сервером SQL Server, равно как и сервером IPython Notebook.
+3. [Подготовьте виртуальную машину для обработки и анализа данных](machine-learning-data-science-setup-sql-server-virtual-machine.md), которая будет служить сервером SQL Server и сервером IPython Notebook.
    
    > [!NOTE]
    > Примеры сценариев и файлов IPython Notebook будут загружены в вашу виртуальную машину для обработки данных в процессе установки. После завершения сценария, выполняемого после установки ВМ, примеры будут располагаться в библиотеке документов вашей виртуальной машины.  
@@ -656,6 +656,6 @@ ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

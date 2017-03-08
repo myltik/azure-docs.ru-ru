@@ -1,6 +1,6 @@
 ---
 title: "Начало работы с Azure Data Lake Analytics с помощью пакета SDK .NET | Документация Майкрософт"
-description: "Узнайте, как использовать пакет SDK .NET для создания учетных записей хранения озера данных, создания заданий аналитики озера данных и отправки заданий на языке U-SQL. "
+description: "Узнайте, как использовать пакет SDK для .NET для создания учетных записей Data Lake Analytics, создания заданий Data Lake Analytics и отправки заданий на языке U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
           }
         }
 
-1. Нажмите клавишу **F5** для запуска приложения. Результат выглядит так:
+5. Нажмите клавишу **F5** для запуска приложения. Результат выглядит так:
    
     ![Azure Data Lake Analytics: результат выполнения задания U-SQL, созданного с помощью .NET SDK](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Проверьте выходной файл.  Путь по умолчанию и имя файла — C:\Temp\SearchLog-from-Data-Lake.csv.
+6. Проверьте выходной файл.  Путь по умолчанию и имя файла — C:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>См. также
 * Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
@@ -257,6 +257,6 @@ ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

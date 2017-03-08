@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
+ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -70,8 +71,8 @@ Log Analytics собирает записи в журналах IIS из каж�
 
 | Запрос | Описание |
 |:--- |:--- |
-| Type=IISLog |Все записи в журнале IIS. |
-| Type=IISLog EventLevelName=error |Все события Windows с указанием серьезности ошибки. |
+| Type=W3CIISLog |Все записи в журнале IIS. |
+| Type=W3CIISLog scStatus=500 |Все записи журнала IIS с состоянием возврата 500. |
 | Type=W3CIISLog &#124; Measure count() by cIP |Число записей в журнале IIS по IP-адресу клиента. |
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Число записей в журнале IIS по URL-адресу для узла www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Общее количество байтов, полученных каждым компьютером IIS. |
@@ -80,10 +81,5 @@ Log Analytics собирает записи в журналах IIS из каж�
 * Настройте службу Log Analytics для сбора других [источников данных](log-analytics-data-sources.md) для анализа.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.
 * Настройте оповещения в службе Log Analytics для получения заблаговременных уведомлений о важных условиях, обнаруженных в журналах IIS.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Развитие модели машинного обучения от эксперимента до рабочей веб-службы | Документация Майкрософт"
+title: "Как модель Машинного обучения Azure превращается в веб-службу | Документация Майкрософт"
 description: "Обзор процесса развития модели машинного обучения Azure от эксперимента по разработке до рабочей веб-службы."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
 В этой статье описывается механизм развития модели машинного обучения от эксперимента по разработке до рабочей веб-службы.
 
 > [!NOTE]
-> Существуют и другие способы разработки и развертывания моделей машинного обучения, но в этой статье рассматривается использование студии машинного обучения. Описание того, как создать классическую прогнозную веб-службу, используя R, см. в записи блога [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Создание и развертывание прогнозных веб-приложений с помощью RStudio и машинного обучения Azure).
+> Существуют и другие способы разработки и развертывания моделей машинного обучения, но в этой статье рассматривается использование студии машинного обучения. Пример того, как создать классическую прогнозную веб-службу, используя R, см. в записи блога [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Создание и развертывание прогнозных веб-приложений с помощью RStudio и машинного обучения Azure).
 > 
 > 
 
@@ -118,10 +119,5 @@ ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
 
 * [Инструкции по созданию первого эксперимента в Студии машинного обучения Azure](machine-learning-create-experiment.md)
 * [Пошаговое руководство по разработке решения для прогнозной аналитики в службе машинного обучения Azure для оценки кредитных рисков](machine-learning-walkthrough-develop-predictive-solution.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

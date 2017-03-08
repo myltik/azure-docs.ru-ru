@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 *У меня не получается настроить компоненты, о которых идет речь в таких статьях:*
 
 * [Troubleshooting no data - Application Insights for .NET](app-insights-asp-net-troubleshoot-no-data.md)
-* [раздел "Устранение неполадок"](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [раздел "Устранение неполадок"](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Настройка системы диагностики Azure для входа в Application Insights](app-insights-azure-diagnostics.md)
 * [Устранение неполадок, а также вопросы и ответы по Application Insights для Java](app-insights-java-troubleshoot.md)
 * [другие платформы.](app-insights-platforms.md)
@@ -40,7 +40,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 ## <a name="is-it-free"></a>Предоставляется ли бесплатно?
 
-Да, для экспериментальных целей. По условиям тарифного плана по умолчанию приложение может отправлять определенный лимит данных каждый месяц бесплатно. Бесплатный лимит достаточен для разработки и публикации приложения для небольшого числа пользователей. Можно задать ограничение, запрещающее обработку данных сверх заданного лимита.
+Да, для экспериментальных целей. По условиям тарифного плана "Базовый" приложение может отправлять определенный лимит данных каждый месяц бесплатно. Бесплатный лимит достаточен для разработки и публикации приложения для небольшого числа пользователей. Можно задать ограничение, запрещающее обработку данных сверх заданного лимита.
 
 План "Корпоративный" нужен, чтобы получить определенные функции, такие как непрерывный экспорт. В этом случае оплата взимается ежедневно.
 
@@ -51,20 +51,20 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 Подробности зависят от типа проекта. Для веб-приложения:
 
 * Добавляет в проект следующие файлы:
-  
+
   * ApplicationInsights.config.
   * ai.js
 * Устанавливает следующие пакеты NuGet:
-  
+
   * *Application Insights API* — основной API
   * *API Application Insights для веб-приложений* — используется для отправки данных телеметрии со стороны сервера
   * *API Application Insights для приложений JavaScript* — используется для отправки данных телеметрии со стороны клиента
-    
+
     Пакет включает эти сборки:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Вставляет элементы в:
-  
+
   * Web.config
   * packages.config
 * (Только для новых проектов. Если нужно [добавить Application Insights в существующий проект][start], придется делать это вручную.) Вставляет фрагменты кода в код клиента и сервера для их инициализации с идентификатором ресурса Application Insights. Например, в приложении MVC код вставляется в файл главной страницы Views/Shared/_Layout.cshtml.
@@ -90,7 +90,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 | Что вы должны видеть | Как это получить | Для чего это нужно |
 | --- | --- | --- |
 | Диаграммы доступности |[Веб-тесты](app-insights-monitor-web-app-availability.md) |Узнать, что ваше веб-приложение работает |
-| Производительность приложения на сервере: время отклика и т.д. |[Добавить Application Insights в ваш проект](app-insights-asp-net.md) или [установить монитор состояний Application Insights на сервере](app-insights-monitor-performance-live-website-now.md) (или написать собственный код для [отслеживания зависимостей](app-insights-api-custom-events-metrics.md#track-dependency)) |Выявить проблемы производительности |
+| Производительность приложения на сервере: время отклика и т.д. |[Добавить Application Insights в ваш проект](app-insights-asp-net.md) или [установить монитор состояний Application Insights на сервере](app-insights-monitor-performance-live-website-now.md) (или написать собственный код для [отслеживания зависимостей](app-insights-api-custom-events-metrics.md#trackdependency)) |Выявить проблемы производительности |
 | Телеметрия зависимостей |[Установить монитор состояний Application Insights на сервере](app-insights-monitor-performance-live-website-now.md) |Выявить проблемы с базами данных или другими внешними компонентами |
 | Получение данных трассировки стека из исключений |[Вставить вызовы TrackException в код](app-insights-search-diagnostic-logs.md#exceptions) (некоторые выводятся автоматически) |Обнаружить и диагностировать исключения |
 | Поиск по трассировкам журнала |[Добавить адаптер ведения журнала](app-insights-search-diagnostic-logs.md) |Выявить исключения, проблемы производительности |
@@ -113,6 +113,6 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

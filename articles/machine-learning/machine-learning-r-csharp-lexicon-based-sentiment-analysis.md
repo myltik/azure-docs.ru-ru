@@ -1,6 +1,6 @@
 ---
-title: "Лексический анализ тональности | Документация Майкрософт"
-description: "Лексический анализ мнений"
+title: "Лексический анализ тональности (устаревшая версия) | Документация Майкрософт"
+description: "Сведения о лексическом анализе тональности (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
 author: pengxia
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: pengxia
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: baf4a5e27febb0a26c4bee860957a4e740bd3275
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
 
 
 ---
-# <a name="lexicon-based-sentiment-analysis"></a>Лексический анализ мнений
+# <a name="deprecated-lexicon-based-sentiment-analysis"></a>Лексический анализ тональности (устаревшая версия)
+
+> [!NOTE]
+> Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
+> 
+> Много полезных примеров экспериментов и API можно найти в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Дополнительные сведения о коллекции см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Как можно измерить мнения пользователей и их отношение к торговым маркам или темам в социальных сетях, например публикациях в Facebook, твитах, рецензиях и т. д.? Анализ мнений позволяет изучать такие вопросы.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -72,7 +79,7 @@ ms.openlocfilehash: baf4a5e27febb0a26c4bee860957a4e740bd3275
 
 
 
-Входные данные: "Сегодня хороший день". Служба возвращает значение 1, указывая на положительное мнение, высказанное в исходной фразе. 
+Входные данные: "Сегодня хороший день". Служба возвращает значение&1;, указывая на положительное мнение, высказанное в исходной фразе. 
 
 ## <a name="creation-of-web-service"></a>Создание веб-службы
 > Эта веб-служба была создана с помощью системы машинного обучения Azure. Чтобы получить бесплатную пробную версию и вводные видеоматериалы по созданию экспериментов и [публикации веб-служб](machine-learning-publish-a-machine-learning-web-service.md), посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
@@ -158,6 +165,6 @@ ms.openlocfilehash: baf4a5e27febb0a26c4bee860957a4e740bd3275
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

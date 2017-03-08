@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
+ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
+ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
 
 Для каждого действия или триггера соединителя необходимо настроить отдельный набор свойств.  Чтобы просмотреть описание действия, можно нажать кнопку дополнительных сведений или открыть [соответствующую документацию](apis-list.md).
 
-Вы можете выполнить интеграцию со службой или API, которые еще не являются соединителями. Для этого можно расширить приложения логики с помощью [настраиваемого соединителя](../app-service-logic/app-service-logic-create-api-app.md) или отправить вызов непосредственно к службе через подходящий протокол, например HTTP.
+Вы можете выполнить интеграцию со службой или API, которые еще не являются соединителями. Для этого можно расширить приложения логики с помощью [настраиваемого соединителя](../logic-apps/logic-apps-create-api-app.md) или отправить вызов непосредственно к службе через подходящий протокол, например HTTP.
 
 ## <a name="triggers"></a>триггеры;
 У некоторых соединителей есть триггер. Это событие, с помощью которого соединитель запускает приложение логики и передает данные.  Триггер — это всегда первый шаг в приложении логики.  Распространенные триггеры включают такие операции:
@@ -56,9 +56,9 @@ ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
 Просматривать подключения, а также управлять ими можно в Azure, щелкнув **Обзор** и выбрав **Подключения API**.  В ресурсе подключений API можно просматривать, изменять, обновлять и повторно авторизовать все созданные подключения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
-* [Примеры приложений логики и распространенные сценарии](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-* [Начало работы с триггерами и действиями интеграции Enterprise](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+* [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Примеры приложений логики и распространенные сценарии](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Начало работы с триггерами и действиями интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
@@ -66,6 +66,6 @@ ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

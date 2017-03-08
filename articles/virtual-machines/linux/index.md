@@ -1,20 +1,21 @@
 ---
-layout: LandingPage
+title: "Документация по виртуальным машинам Linux в Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как создать виртуальную машину с помощью дистрибутива Linux на свой выбор. В справочной документации показаны различные способы создания шаблонов виртуальных машин."
-title: "Документация по виртуальным машинам Azure для Linux. Руководства и справочник по API | Документация Майкрософт"
-services: virtual-machines-linux
+services: virtual-machines\linux
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
-ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 540c213b1228b11fe3c4f77026d71829d16e04d1
+ms.lasthandoff: 02/27/2017
 
 ---
 # <a name="linux-virtual-machine-documentation"></a>Документация по виртуальным машинам Linux
@@ -33,7 +34,7 @@ ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)</h3>
+                        <h3>Создание виртуальной машины Linux с помощью Azure CLI 2.0</h3>
                     </div>
                 </div>
             </div>
@@ -142,10 +143,5 @@ ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

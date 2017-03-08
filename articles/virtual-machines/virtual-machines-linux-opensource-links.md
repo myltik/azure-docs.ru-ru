@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 2224028e314ca32b51c36cc2b9b8134a5eda330a
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -105,7 +106,7 @@ ms.openlocfilehash: 2224028e314ca32b51c36cc2b9b8134a5eda330a
 * [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## <a name="reference"></a>Справочные материалы
-* [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
+* [Команды Azure CLI в режиме управления службами Azure (ASM)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Интерфейс API REST управления службой Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## <a name="general-links"></a>Общие ссылки
@@ -160,10 +161,5 @@ ms.openlocfilehash: 2224028e314ca32b51c36cc2b9b8134a5eda330a
 * [Блог. Как сделать Powershell DSC для Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 * [Github. DSC клиента Docker](https://github.com/anweiss/DockerClientDSC)
 * [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

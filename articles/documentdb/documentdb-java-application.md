@@ -18,6 +18,7 @@ ms.author: denlee
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -742,7 +743,7 @@ ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 3. В Eclipse откройте меню **File** (Файл) и щелкните **Import** (Импорт).
 4. В окне **Import** (Импорт) щелкните **Git**, а затем выберите **Projects from Git** (Проекты из Git) и нажмите кнопку **Next** (Далее).
 5. На экране **Select Repository Source** (Выбрать источник репозитория) щелкните **Clone URI** (Клон URI).
-6. На экране **Source Git Repository** (Исходный репозиторий Git) в поле **URI** введите hhttps://github.com/Azure-Samples/documentdb-java-todo-app.git, а затем нажмите кнопку **Next** (Далее).
+6. На экране **Source Git Repository** (Исходный репозиторий Git) в поле **URI** введите https://github.com/Azure-Samples/documentdb-java-todo-app.git, а затем нажмите кнопку **Next** (Далее).
 7. На экране **Branch Selection** (Выбор ветви) выберите значение **master** и нажмите кнопку **Next** (Далее).
 8. На экране **Local Destination** (Локальная папка назначения) нажмите кнопку **Browse** (Обзор), выберите папку, в которую можно копировать репозитории, и нажмите кнопку **Next** (Далее).
 9. Проверьте, установлен ли на экране **Select a wizard to use for importing projects** (Выбор мастера для импорта проектов) флажок **Import existing projects** (Импортировать существующие проекты), и нажмите кнопку **Next** (Далее).
@@ -761,9 +762,4 @@ ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 22. Инструкции по развертыванию проекта на веб-сайтах Azure см. в пункте [Шаг 6. Развертывание приложений на веб-сайтах Azure](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 4ca6e9a70eeba688912dd1f2c840fe0289a365c9
+ms.sourcegitcommit: 6fad9ecee49eae24daf924bc292daaf42000c901
+ms.openlocfilehash: 546d7f721689d5d52adfc6149b715a0f9e1aa71e
+ms.lasthandoff: 02/10/2017
 
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Перемещение данных из Amazon Redshift с помощью фабрики данных Azure
-В этой статье мы рассказываем, как с помощью действия копирования перемещать данные из Amazon Redshift в другое хранилище данных. Здесь мы развиваем темы, освещенные в статье о [действиях перемещения данных](data-factory-data-movement-activities.md) , которая кратко описывает, как перемещать данные с помощью действия копирования, и содержит список исходных и целевых хранилищ данных (источников и приемников).  
+В этой статье описано, как с помощью действия копирования в фабрике данных Azure можно перемещать данные из Amazon Redshift в другое хранилище данных. Здесь мы развиваем темы, освещенные в статье о [действиях перемещения данных](data-factory-data-movement-activities.md) , которая кратко описывает, как перемещать данные с помощью действия копирования, и содержит список исходных и целевых хранилищ данных (источников и приемников).  
 
 Сейчас фабрика данных поддерживает перемещение данных из Amazon Redshift в другие хранилища данных, но не наоборот.
 
@@ -281,9 +282,4 @@ ms.openlocfilehash: 4ca6e9a70eeba688912dd1f2c840fe0289a365c9
 Ознакомьтесь со следующими статьями:
 
 * [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

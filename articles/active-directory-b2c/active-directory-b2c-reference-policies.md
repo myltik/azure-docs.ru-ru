@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a3bec8542cc5974516a8fb3deb14d23bf1fe2e
+ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
+ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
 
 
 ---
@@ -162,12 +162,16 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
     > 
     > 
 
+## <a name="how-to-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Как связать политику регистрации или входа с политикой сброса пароля?
+При создании политики регистрации или входа (с помощью локальных учетных записей) на первой странице потребитель увидит ссылку "Забыли пароль?". Нажатие этой ссылки не активирует политику сброса пароля автоматически. Вместо этого в приложении отобразится код ошибки `AADB2C90118`. Приложение должно обработать эту информацию и вызвать определенную политику сброса пароля. [Здесь](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) приведен пример, демонстрирующий этот способ связывания политик.
+
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Предварительная версия Azure Active Directory B2C: конфигурация маркера, сеанса и единого входа](active-directory-b2c-token-session-sso.md).
+* [Azure Active Directory B2C: отключение проверки адреса электронной почты во время регистрации потребителя](active-directory-b2c-reference-disable-ev.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

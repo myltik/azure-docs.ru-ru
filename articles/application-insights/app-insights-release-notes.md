@@ -1,21 +1,22 @@
 ---
-title: "Заметки о выпуске Application Insights"
-description: "Последние обновления."
+title: "Заметки о выпуске Azure Application Insights | Документация Майкрософт"
+description: "Последние обновления для пактов SDK для Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2016
+ms.date: 02/15/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1add923868a3d187401d33f6d4e38cbf028f92dc
+ms.sourcegitcommit: d3706fcb5c632cb283374e241dd899f894380804
+ms.openlocfilehash: 6422c00c36a38d9266955be86f484df5781aeda0
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -25,21 +26,14 @@ ms.openlocfilehash: 1add923868a3d187401d33f6d4e38cbf028f92dc
 * [Пакет SDK для веб-сервера ASP.NET](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
 * [Базовый пакет SDK для .NET](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
 * [Адаптеры ведения журнала .NET](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
+* [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
-* [Windows Phone и Магазин Windows C#|VB](app-insights-release-notes-windows.md)
-* [Windows Phone и Магазин Windows C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
-* [Средства Visual Studio](app-insights-release-notes-vsix.md)
+* [Инструменты Visual Studio](app-insights-release-notes-vsix.md)
 * [другие платформы.](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Ознакомьтесь также с нашими [обновлениями службы](https://azure.microsoft.com/updates/?service=application-insights) , которые содержат сводку основных улучшений службы Application Insights.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

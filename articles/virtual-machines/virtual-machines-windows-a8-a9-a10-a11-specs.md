@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 31c630088b6dc7481068e8050972b693f4dcaf71
+ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
+ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 31c630088b6dc7481068e8050972b693f4dcaf71
 * **MPI** — Microsoft MPI (MS-MPI) 2012 R2 и более поздних версий, библиотека Intel MPI 5.x.
 
   Для взаимодействия между экземплярами поддерживаемые реализации MPI используют интерфейс Microsoft Network Direct. 
-* **Расширение виртуальных машин HpcVmDrivers**. На виртуальных машинах с поддержкой RDMA необходимо добавить расширение HpcVmDrivers для установки драйверов устройств сети Windows, обеспечивающих подключения RDMA. (В некоторых облачных службах и средах виртуальных машин расширение HpcVmDrivers добавляется автоматически.) Если в виртуальную машину требуется добавить расширение виртуальной машины, можно использовать командлеты [Azure PowerShell](/powershell/azureps-cmdlets-docs) для Azure Resource Manager.
+* **Расширение виртуальных машин HpcVmDrivers**. На виртуальных машинах с поддержкой RDMA необходимо добавить расширение HpcVmDrivers для установки драйверов устройств сети Windows, обеспечивающих подключения RDMA. (В некоторых развертываниях экземпляров A8 и A9 расширение HpcVmDrivers добавляется автоматически.) Если в виртуальную машину требуется добавить расширение виртуальной машины, можно использовать командлеты [Azure PowerShell](/powershell/azureps-cmdlets-docs) для Azure Resource Manager.
 
   Дополнительные сведения о последних версиях расширения HpcVmDrivers см. здесь:
 
@@ -67,6 +67,6 @@ ms.openlocfilehash: 31c630088b6dc7481068e8050972b693f4dcaf71
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

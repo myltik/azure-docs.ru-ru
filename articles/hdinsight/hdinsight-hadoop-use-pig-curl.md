@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: d4d9ed8380a0e8726fe2e2835e4b10fd262e1562
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -34,9 +35,13 @@ Curl используется для демонстрации возможнос
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Linux или Windows).
+
+  > [!IMPORTANT]
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -66,7 +71,7 @@ Curl используется для демонстрации возможнос
 
 2. Чтобы отправить задание Pig Latin в кластер, используйте следующий код:
    
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
    
     Ниже приведены параметры, используемые в этой команде:
    
@@ -94,18 +99,9 @@ Curl используется для демонстрации возможнос
 
 ## <a name="a-idresultsaview-results"></a><a id="results"></a>Просмотр результатов
 
-После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища BLOB-объектов Azure. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это **wasbs:///example/pigcurl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/pigcurl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
+После изменения состояния задания на **Успешно** результаты задания можно получить из хранилища по умолчанию, которое использует кластер. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это **/example/pigcurl**. 
 
-Вы можете вывести список этих файлов и скачать их с помощью [интерфейса командной строки Azure](../xplat-cli-install.md). Например, для просмотра списка файлов в **example/pigcurl**можно использовать следующую команду:
-
-    azure storage blob list <container-name> example/pigcurl
-
-Чтобы скачать файл:
-
-    azure storage blob download <container-name> <blob-name> <destination-file>
-
-> [!NOTE]
-> Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k` или задать переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**.
+В качестве резервного хранилища для HDInsight можно использовать службу хранилища Azure или Azure Data Lake Store. Данные можно получить разными способами в зависимости от используемого хранилища. Дополнительные сведения о работе со службой хранилища Azure и Azure Data Lake Store см. в разделе [HDFS, хранилище BLOB-объектов и Azure Data Lake Store](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) в документе об использовании HDInsight в Linux.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
 
@@ -123,10 +119,5 @@ Curl используется для демонстрации возможнос
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -7,6 +7,7 @@ author: telmosampaio
 manager: carmonm
 editor: 
 tags: azure-resource-manager,azure-service-management
+redirect_url: ./azure-resource-manager/resource-manager-deployment-model
 ms.assetid: 18a235d8-38ac-4886-9e56-b3855c73ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -16,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b08630777e9cb66e3baae24ad9befc93a47e65db
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 0843651c8fcddbc171bb485ce9c96b53b170881d
 
 
 ---
@@ -54,7 +55,7 @@ ms.openlocfilehash: b08630777e9cb66e3baae24ad9befc93a47e65db
 Некоторые ресурсы и функции можно создавать и настраивать только в одной из версий портала. Часть ресурсов и функций пока невозможно ни создавать, ни настраивать с помощью порталов: для их настройки используются PowerShell и CLI. Сведения о том, с помощью какого метода можно создать тот или иной ресурс Azure, приводятся в документации по конкретным ресурсам. 
 
 ## <a name="powershell"></a>PowerShell
-Используя [PowerShell](powershell-install-configure.md) , вы можете создавать и настраивать ресурсы Azure на компьютере под управлением Windows с помощью командной строки и сценариев.  Для отдельных ресурсов Azure могут быть доступны [командлеты Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [командлеты управления службами](https://msdn.microsoft.com/library/azure/dn708504.aspx) или и те, и другие.  Некоторые ресурсы и функции можно создавать и настраивать либо в PowerShell, либо в CLI. Для создания и настройки ресурсов Azure с помощью командлетов PowerShell диспетчера ресурсов вам доступны два варианта:
+Используя [PowerShell](/powershell/azureps-cmdlets-docs) , вы можете создавать и настраивать ресурсы Azure на компьютере под управлением Windows с помощью командной строки и сценариев.  Для отдельных ресурсов Azure могут быть доступны [командлеты Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [командлеты управления службами](https://msdn.microsoft.com/library/azure/dn708504.aspx) или и те, и другие.  Некоторые ресурсы и функции можно создавать и настраивать либо в PowerShell, либо в CLI. Для создания и настройки ресурсов Azure с помощью командлетов PowerShell диспетчера ресурсов вам доступны два варианта:
 
 * **Только командлеты PowerShell**. Вы можете создавать и настраивать ресурсы Azure по отдельности, используя командлеты для каждого ресурса. Можно выполнять отдельные команды из командной строки или объединить несколько команд в сценарий PowerShell. Вы можете сохранять такие сценарии и управлять их версиями.
 * **Командлеты PowerShell с шаблоном Azure Resource Manager**. Вы можете использовать PowerShell для создания ресурсов Azure с помощью шаблона Azure Resource Manager. Можно сохранять такие шаблоны и управлять их версиями. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md). Для решения типовых задач предусмотрены [шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/), которые также можно скачать и изменить.
@@ -69,6 +70,6 @@ ms.openlocfilehash: b08630777e9cb66e3baae24ad9befc93a47e65db
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

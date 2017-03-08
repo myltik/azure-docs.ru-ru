@@ -4,7 +4,7 @@ description: "Решения для управления расширяют фу
 services: operations-management-suite
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
+ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
+ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
 
 
 ---
@@ -261,13 +261,14 @@ ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
 Перед развертыванием решение для управления рекомендуется протестировать с помощью командлета [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Так вы сможете проверить файл решения, чтобы обнаружить проблемы до попытки развертывания.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* [Добавьте сохраненные поиски и оповещения](operations-management-suite-solutions-resources-searches-alerts.md) в решение для управления.
+* [Добавьте представления](operations-management-suite-solutions-resources-views.md) в решение для управления.
+* [Добавьте модули Runbook и другие ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md) в решение для управления.
 * Узнайте больше о [создании шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Найдите в коллекции [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates) примеры разных шаблонов Resource Manager.
-* См. дополнительные сведения о [добавлении представлений в решение для управления](operations-management-suite-solutions-resources-views.md).
-* См. дополнительные сведения о [добавлении ресурсов службы автоматизации в решение для управления](operations-management-suite-solutions-resources-automation.md).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

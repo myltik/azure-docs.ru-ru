@@ -1,5 +1,5 @@
 ---
-title: "Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell | Документация Майкрософт"
+title: "Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell и Azure | Документация Майкрософт"
 description: "В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью модели развертывания Resource Manager и PowerShell."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
-ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
+ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
+ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
+ms.lasthandoff: 02/03/2017
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Связывание виртуальной сети с каналом ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Подключение виртуальной сети к каналу ExpressRoute
 > [!div class="op_single_selector"]
-> * [Портал Azure — Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell — Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell — классическая модель](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Классическая модель: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -36,7 +38,7 @@ ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Предварительные требования для настройки
-* Вам потребуется последняя версия модулей Azure PowerShell (минимум 1.0). Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
+* Вам потребуется последняя версия модулей Azure PowerShell (минимум 1.0). Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Прежде чем приступить к настройке, необходимо изучить [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
 * Вам потребуется активный канал ExpressRoute. 
   * Следуйте инструкциям, чтобы [создать канал ExpressRoute](expressroute-howto-circuit-arm.md) и включить его на стороне поставщика услуг подключения. 
@@ -148,10 +150,5 @@ ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

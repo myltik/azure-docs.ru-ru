@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
 ms.openlocfilehash: 7e1f1ccd109a2777f6d5df96b5f5d02eefc4b841
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -166,10 +167,5 @@ ms.openlocfilehash: 7e1f1ccd109a2777f6d5df96b5f5d02eefc4b841
     ![Да](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

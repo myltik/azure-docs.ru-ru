@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d1c1fa1638a37c23bb4c37933b74bf703290f7ca
+ms.sourcegitcommit: b8b663d802fde83f3435f2d97ceb51d5b5c802bb
+ms.openlocfilehash: ef17c0226528fef35c0317cebbaa14b7bbe28b1d
 
 
 ---
@@ -56,7 +56,7 @@ ms.openlocfilehash: d1c1fa1638a37c23bb4c37933b74bf703290f7ca
 
 ### <a name="before-you-begin"></a>Перед началом работы
 * Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Вам потребуется установить командлеты PowerShell диспетчера ресурсов Azure. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
+* Вам потребуется установить командлеты PowerShell диспетчера ресурсов Azure. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Шаг 1. Создание и настройка VNet1
 #### <a name="1-declare-your-variables"></a>1. Объявление переменных
@@ -169,7 +169,7 @@ ms.openlocfilehash: d1c1fa1638a37c23bb4c37933b74bf703290f7ca
 
 * Локальный сетевой шлюз может находиться в том же расположении, что и VPN-шлюз, или в любом другом. Это же справедливо в отношении групп ресурсов. В этом примере они представлены в разных группах ресурсов, но в одном и том же расположении Azure.
 * Если, как показано выше, есть только одно локальное VPN-устройство, подключение в режиме "активный — активный" может работать как с протоколом BGP, так и без него. В этом примере для подключения между локальными сетями используется BGP.
-* Если включен BGP, то префикс, который необходимо объявить для шлюза локальной сети — это IP-адрес узла BGP на VPN-устройстве. В нашем примере это префикс /32 для адреса 10.52.255.253/32.
+* Если включен BGP, то префикс, который необходимо объявить для шлюза локальной сети — это IP-адрес узла BGP на VPN-устройстве. В нашем примере это префикс /32 для адреса&10;.52.255.253/32.
 * Не забывайте, что для локальных сетей и виртуальной сети Azure должны быть указаны разные номера ASN BGP. Если они совпадают, а локальное VPN-устройство уже использует свой ASN для связи с другими соседями BGP, необходимо изменить ASN вашей виртуальной сети.
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2) Создание локального сетевого шлюза для сети Site5
@@ -227,14 +227,15 @@ ms.openlocfilehash: d1c1fa1638a37c23bb4c37933b74bf703290f7ca
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Параметры VPN и BGP для второго локального VPN-устройства
 Аналогичным образом ниже перечислены параметры, которые нужно ввести на втором VPN-устройстве.
 
-    - Site5 ASN            : 65050
-    - Site5 BGP IP         : 10.52.255.254
-    - Объявленные префиксы: (например) 10.51.0.0/16 и 10.52.0.0/16
-    - Azure VNet ASN       : 65010
-    - Azure VNet BGP IP 1  : 10.12.255.4 для туннеля к 40.112.190.5
-    - Azure VNet BGP IP 2  : 10.12.255.5 для туннеля к 138.91.156.129
-    - Статические маршруты        : назначение 10.12.255.4/32, следующий прыжок: интерфейс туннеля VPN к 40.112.190.5                        назначение 10.12.255.5/32, следующий прыжок: интерфейс туннеля VPN к 138.91.156.129
-    - Мультипрыжок eBGP        : убедитесь, что при необходимости на вашем устройстве включен параметр мультипрыжка для eBGP
+      - Site5 ASN            : 65050
+      - Site5 BGP IP         : 10.52.255.254
+      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+      - Azure VNet ASN       : 65010
+      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 
 После того, как подключение (туннели) установится, VPN-устройства с двойной избыточностью и туннели подключатся к локальной сети и Azure.
 
@@ -381,6 +382,6 @@ ms.openlocfilehash: d1c1fa1638a37c23bb4c37933b74bf703290f7ca
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

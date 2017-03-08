@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 472f86ecd821dfad74c25fe7cd36d07114489a71
+ms.sourcegitcommit: 1a82f9f1de27c9197bf61d63dd27c5191fec1544
+ms.openlocfilehash: 3e1bf2372762de474310c78d512a6a073c7a01b6
 
 
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Руководство по использованию PolyBase в хранилище данных SQL
 Это руководство содержит практические сведения об использовании PolyBase в хранилище данных SQL.
 
-Указания по началу работы см. в руководстве [Загрузка данных с помощью PolyBase][Загрузка данных с помощью PolyBase].
+Инструкции по началу работы см. в руководстве [Загрузка данных в хранилище данных SQL с помощью PolyBase][Load data with PolyBase].
 
 ## <a name="rotating-storage-keys"></a>Ротация ключей хранилищ данных
 Время от времени вам потребуется изменять ключи доступа к хранилищу больших двоичных объектов по соображениям безопасности.
@@ -80,10 +80,10 @@ FROM   [ext].[CarSensor_Data]
 ;
 ```
 
-См. статью [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
+Ознакомьтесь с разделом [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Создание статистики для вновь загруженных данных
-Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики.  Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных.  Подробные сведения о работе со статистикой см. в статье, посвященной [управлению статистикой таблиц в хранилище данных SQL][Статистика].  Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
+Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики.  Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных.  Подробные сведения о работе со статистикой см. в статье [Управление статистикой таблиц в хранилище данных SQL][Statistics].  Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -172,24 +172,25 @@ $write.Dispose()
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о переносе данных в хранилище данных SQL см. в [этой статье][Перенос решения в хранилище данных SQL].
+Дополнительные сведения о перемещении данных в хранилище данных SQL см. в статье [Перенос решения в хранилище данных SQL][data migration overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Загрузка данных с помощью bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Загрузка данных с помощью PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
-[Перенос решения в хранилище данных SQL]: ./sql-data-warehouse-overview-migrate.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[data migration overview]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
-[Поддерживаемый источник и приемник]: https://msdn.microsoft.com/library/dn894007.aspx
-[Действие копирования]: https://msdn.microsoft.com/library/dn835035.aspx
-[Адаптер загрузки данных SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspxx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
@@ -206,6 +207,6 @@ $write.Dispose()
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

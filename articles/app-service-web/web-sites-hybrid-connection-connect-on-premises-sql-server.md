@@ -4,7 +4,7 @@ description: "Создание веб-приложения в Microsoft Azure и
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 2b4e0539-1a0b-4aa1-8a69-b4b053c3b2e5
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e3c1440cc2b669c574c2c0160a0d282b5f27bca
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 7e3c1440cc2b669c574c2c0160a0d282b5f27bca
 В этом учебнике вы узнаете, как создать веб-приложение службы приложений [на портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715), подключить веб-приложение к локальной базе данных SQL Server с помощью новой функции гибридного подключения, создать простое приложение ASP.NET, которое будет использовать гибридное подключение, и развернуть приложение в веб-приложение службы приложений Azure. В полном веб-приложении Azure учетные данные пользователя хранятся в локальной базе данных участников. Этот учебник разработан для читателей, не имеющих опыта использования Azure или ASP.NET.
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > Часть функции гибридных подключений, которая называется "Веб-приложения", доступна только на [портале Azure](https://portal.azure.com). Сведения о создании подключения в службах BizTalk см. в статье [Обзор гибридных подключений](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 > 
@@ -289,11 +290,11 @@ ms.openlocfilehash: 7e3c1440cc2b669c574c2c0160a0d282b5f27bca
 [SSMScreateNewDB]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A05SSMScreateNewDBlh.png
 [SSMSprovideDBname]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A06SSMSprovideDBname.png
 [SSMSMembershipDBCreated]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A07SSMSMembershipDBCreated.png
-[Создать]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B01New.png
+[New]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B01New.png
 [NewWebsite]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B02NewWebsite.png
 [WebsiteCreationBlade]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B03WebsiteCreationBlade.png
 [WebSiteRunningBlade]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B04WebSiteRunningBlade.png
-[Обзор]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B05Browse.png
+[Browse]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B05Browse.png
 [DefaultWebSitePage]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B06DefaultWebSitePage.png
 [CreateHCHCIcon]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/C01CreateHCHCIcon.png
 [CreateHCAddHC]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/C02CreateHCAddHC.png
@@ -332,9 +333,4 @@ ms.openlocfilehash: 7e3c1440cc2b669c574c2c0160a0d282b5f27bca
 [HCTestRegisterRelecloud]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: ee1668dce71a1f5d7b91e839670b69c9527c4892
 
 
 ---
@@ -77,7 +77,7 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 > 
 > 
 
-## <a name="get-the-connection-string"></a>Получение строки подключения
+## <a name="get-the--connection-string"></a>Получение строки подключения
 Чтобы получить строку подключения, выполните следующее. 
 
 1. На [портале Azure](https://portal.azure.com) перейдите к своей учетной записи DocumentDB.
@@ -87,12 +87,12 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 Если вы используете строку подключения в инструменте [DocumentDB Database Migration Tool](documentdb-import-data.md), добавьте имя базы данных в конец строки подключения. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> Удаление учетной записи DocumentDB
-Чтобы удалить учетную запись DocumentDB, которая больше не нужна, с портала Azure, воспользуйтесь командой **Удалить учетную запись** в колонке **Учетная запись DocumentDB**.
+Чтобы удалить учетную запись DocumentDB, которая больше не нужна, щелкните правой кнопкой мыши имя учетной записи и выберите команду **Удалить учетную запись**.
 
 ![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 1. На [портале Azure](https://portal.azure.com/)перейдите в учетную запись DocumentDB, которую необходимо удалить.
-2. В колонке **Учетная запись DocumentDB** щелкните **Дополнительно**, а затем выберите **Удалить учетную запись**. Или щелкните правой кнопкой мыши имя базы данных и выберите команду **Удалить учетную запись**.
+2. В колонке **Учетная запись DocumentDB** щелкните правой кнопкой мыши учетную запись и выберите команду **Удалить учетную запись**. 
 3. В появившейся колонке подтверждения введите имя учетной записи DocumentDB, чтобы подтвердить ее удаление.
 4. Нажмите кнопку **Удалить** .
 
@@ -100,8 +100,6 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
 Узнайте о том, как [приступить к работе с учетной записью DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
-
-Дополнительные сведения о DocumentDB можно найти в документации по Azure DocumentDB на сайте [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
@@ -119,6 +117,6 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

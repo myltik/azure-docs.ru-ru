@@ -16,8 +16,9 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2e30909f2917fc01f6066d8489961ca94f34f429
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 77e106d9170fc49d66d322bd9c92bf0e14869259
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -29,7 +30,7 @@ Project Online — это гибкое интернет-решение для у
 > 
 > 
 
-Для начала можно создать приложение логики, как описано [здесь](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Триггеры и действия
 Соединитель ProjectOnline можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML. 
@@ -61,9 +62,9 @@ Project Online — это гибкое интернет-решение для у
 ## <a name="create-a-connection-to-projectonline"></a>Создание подключения к ProjectOnline
 Для создания приложений логики с помощью ProjectOnline необходимо создать **подключение**, а затем указать данные для приведенных ниже свойств. 
 
-| Свойство | Обязательно | Описание |
+| Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
-| токен |Да |Укажите учетные данные ProjectOnline |
+| Маркер |Да |Укажите учетные данные ProjectOnline |
 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 
@@ -444,11 +445,6 @@ Project Online — это гибкое интернет-решение для у
 | Контакт |string |Нет |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 

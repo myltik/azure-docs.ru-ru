@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -103,10 +104,5 @@ GEP использует ряд других служб Azure, чтобы при
 * Хузейфа Матавала (Huzaifa Matawala), содиректор-архитектор, GEP.
 * Сатьян Нарасингх (Sathyan Narasingh), технический руководитель, GEP.
 * Дипа Вилукутти (Deepa Velukutty), архитектор баз данных, GEP.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

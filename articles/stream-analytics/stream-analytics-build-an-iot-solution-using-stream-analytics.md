@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
+ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
+ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 
 * Последняя версия [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 или бесплатная версия [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
-*  [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/)
+* [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Права администратора на компьютере.
 * Файл [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) , который нужно скачать из Центра загрузки Майкрософт.
 * Исходный код генератора событий TollApp из [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
@@ -128,7 +128,7 @@ ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 > 
 > 
 
-Обязательно выполните шаги в разделе "Очистка учетной записи Azure" в конце этой статьи, чтобы максимально эффективно использовать 200 долл. на счете Azure.
+Обязательно выполните шаги в разделе "Очистка учетной записи Azure" в конце этой статьи, чтобы максимально эффективно использовать&200; долл. на счете Azure.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Подготовка ресурсов Azure, необходимых для работы с руководством
 В этом руководстве необходимы два концентратора событий для получения потоков данных *entry* и *exit*. Для вывода результатов выполнения заданий Stream Analytics используется база данных SQL Azure. Для хранения справочных данных о регистрации транспортных средств используется служба хранилища Azure.
@@ -252,7 +252,7 @@ ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 4. В качестве **Псевдонима входных данных** введите **EntryStream**.
 5. В качестве типа источника данных выберите **Поток данных**.
 6. Источник данных — **концентратор событий**.
-7. В раскрывающемся списке **Service bus namescape** (Пространство имен служебной шины) выберите TollData.
+7. В раскрывающемся списке **Пространство имен служебной шины** выберите TollData.
 8. **Имя концентратора событий** — **entry**.
 9. **Имя политики концентратора событий* — **RootManageSharedAccessKey* (значение по умолчанию).
 10. В поле **Формат сериализации событий** выберите **JSON**, а в поле **Кодировка** — **UTF8**.
@@ -445,6 +445,6 @@ Azure Stream Analytics поддерживает масштабируемость
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

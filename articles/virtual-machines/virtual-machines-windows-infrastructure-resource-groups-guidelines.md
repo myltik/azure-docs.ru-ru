@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по группам ресурсов Azure | Документация Майкрософт"
+title: "Группы ресурсов для виртуальных машин Windows в Azure | Документация Майкрософт"
 description: "Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания групп ресурсов в службах инфраструктуры Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 0d7c84d811b37a16e018f0915d3a0fde5183653f
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: ec2392cb926df7c375c1c7c58766ef3b6ca2ff2d
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -53,10 +54,5 @@ ms.openlocfilehash: 0d7c84d811b37a16e018f0915d3a0fde5183653f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

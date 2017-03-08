@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
+ms.sourcegitcommit: 7a633460f249f7c7b6675a5ab23b1724549cccba
+ms.openlocfilehash: ca07067b73b72b5ff8b93a72fa7eef55e9d47cc2
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
 
 Для работы с учебником вам потребуется подписка Azure и служба поиска Azure. Справку по настройке службы см. в разделе [Создание службы поиска на портале](search-create-service-portal.md).
 
- [Для работы с этим руководством требуется учетная запись Azure.](../../includes/free-trial-note.md)]
+[!INCLUDE [You need an Azure account to complete this tutorial](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 
@@ -122,9 +123,4 @@ ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

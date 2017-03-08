@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
-ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 0e5f420833276d23565ae0aa83f79bbbe47faf67
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -44,7 +45,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и найдите **Microsoft.Azure.Management.ResourceManager**. Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
-5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом.
+5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом:
    
     ```
     using System;
@@ -84,13 +85,13 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
    
     }
     ```
-2. Добавьте следующий код в метод **CreateIoTHub** для создания объекта **HttpClient** с маркером аутентификации в заголовках:
+2. Добавьте в метод **CreateIoTHub** следующий код. Этот код создает объект **HttpClient** с маркером аутентификации в заголовках:
    
     ```
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
-3. Добавьте следующий код в метод **CreateIoTHub** для описания Центра Интернета вещей, а также создания и генерирования представления JSON. Текущий список расположений, которые поддерживают Центр Интернета вещей, указан на странице [Состояние Azure][lnk-status].
+3. Добавьте в метод **CreateIoTHub** следующий код. Этот код описывает создаваемый Центр Интернета вещей и создает представление JSON. Текущий список расположений, которые поддерживают Центр Интернета вещей, указан на странице [Состояние Azure][lnk-status].
    
     ```
     var description = new
@@ -107,7 +108,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
    
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
-4. Добавьте следующий код в метод **CreateIoTHub** для отправки запроса REST в Azure, проверки ответа и получения URL-адреса, который можно использовать для контроля состояния задачи развертывания:
+4. Добавьте в метод **CreateIoTHub** следующий код. Этот код отправляет запрос REST в Azure, проверяет ответ и получает URL-адрес, который можно использовать для контроля состояния задачи развертывания:
    
     ```
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -122,7 +123,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
    
     var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
-5. Добавьте следующий код в конец метода **CreateIoTHub** для ожидания завершения развертывания с помощью адреса **asyncStatusUri**, полученного на предыдущем шаге:
+5. Добавьте в конец метода **CreateIoTHub** следующий код. Этот код ожидает завершения развертывания с помощью адреса **asyncStatusUri**, полученного на предыдущем шаге:
    
     ```
     string body;
@@ -133,7 +134,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
     } while (body == "{\"status\":\"Running\"}");
     ```
-6. Добавьте следующий код в конец метода **CreateIoTHub** для получения созданных ключей центра IoT и их вывода на консоль:
+6. Добавьте в конец метода **CreateIoTHub** следующий код. Этот код получает созданные ключи Центра Интернета вещей и выводит их на консоль:
    
     ```
     var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
@@ -166,7 +167,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 * Ознакомьтесь с возможностями [REST API поставщика ресурсов Центра Интернета вещей][lnk-rest-api].
 * Сведения о возможностях Azure Resource Manager см. в статье [Общие сведения об Azure Resource Manager][lnk-azure-rm-overview].
 
-Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
+Дополнительные сведения о разработке для Центра Интернета вещей см. в следующих статьях:
 
 * [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
 * [IoT Hub SDKs][lnk-sdks] (Пакеты SDK для Центра Интернета вещей)
@@ -187,9 +188,4 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

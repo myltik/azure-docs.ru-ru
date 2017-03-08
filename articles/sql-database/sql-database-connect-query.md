@@ -17,18 +17,13 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 0f5600ba211d70677e97f7a8daf780794c043d73
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="connect-to-a-sql-database-with-visual-studio"></a>Подключение к базе данных SQL с помощью Visual Studio
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
 
 Узнайте, как подключиться к базе данных SQL Azure в Visual Studio. 
 
@@ -83,10 +78,5 @@ ms.openlocfilehash: 0f5600ba211d70677e97f7a8daf780794c043d73
 ## <a name="next-steps"></a>Дальнейшие действия
 * Открытие баз данных SQL в Visual Studio осуществляется с помощью SQL Server Data Tools. Дополнительные сведения см. в статье [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
 * Чтобы подключиться к базе данных SQL программно, см. статью [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-develop-dotnet-simple.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

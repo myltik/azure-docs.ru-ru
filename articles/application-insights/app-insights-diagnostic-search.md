@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e8daf6f37cbbdf1c33d8b66a2b8719458e8bd9f9
-ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -86,7 +87,7 @@ ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
 ### <a name="narrow-your-search"></a>Сужение области поиска
 Обратите внимание, что счетчики справа от значений фильтра показывают число вхождений в текущем отфильтрованном наборе. 
 
-В этом примере ясно, что запрос Rpt/Employees вернул в большинстве случаев ошибку с кодом 500:
+В этом примере ясно, что запрос Rpt/Employees вернул в большинстве случаев ошибку с кодом&500;:
 
 ![Разверните свойство и выберите значение](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -137,7 +138,7 @@ ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
 
 
 ## <a name="create-work-item"></a>Создание рабочего элемента
-Можно создать ошибку в Visual Studio Team Services, указав сведения из любого элемента телеметрии. 
+Можно зарегистрировать ошибку на сайте GitHub или в Visual Studio Team Services, указав сведения из любого элемента телеметрии. 
 
 ![Щелкните "Создать рабочий элемент", отредактируйте поля и нажмите кнопку "ОК".](./media/app-insights-diagnostic-search/42.png)
 
@@ -145,7 +146,7 @@ ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
 
 ![Введите URL-адрес сервера Team Services и имя проекта, затем нажмите кнопку "Авторизовать".](./media/app-insights-diagnostic-search/41.png)
 
-(Также можно перейти к колонке настройки, выбрав "Параметры" > "Рабочие элементы".)
+(Можно также настроить ссылку в колонке "Рабочие элементы".)
 
 ## <a name="save-your-search"></a>Сохранение результатов поиска
 После задания всех нужных фильтров параметры поиска можно сохранить как избранное. Если вы используете учетную запись организации, можно выбрать, будут ли другие члены команды иметь к ним доступ.
@@ -168,7 +169,8 @@ ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
 
 ## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Вопросы и ответы
 ### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Какой объем данных сохраняется?
-До 500 событий в секунду от каждого приложения. События сохраняются в течение семи дней.
+
+Ознакомьтесь со [сводной таблицей ограничений](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Как просмотреть данные POST в запросах к серверу?
 Мы не заносим в журнал данные POST автоматически, но вы можете использовать [вызовы TrackTrace или вызовы журнала](app-insights-search-diagnostic-logs.md). Поместите данные POST в параметр сообщения. Сообщения нельзя отфильтровать тем же способом, как это делается для свойств, но предельный размер больше.
@@ -178,9 +180,4 @@ ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
 * [Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights](app-insights-search-diagnostic-logs.md)
 * [Наблюдение за доступностью и скоростью реагирования веб-сайта](app-insights-monitor-web-app-availability.md)
 * [Устранение неполадок](app-insights-troubleshoot-faq.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

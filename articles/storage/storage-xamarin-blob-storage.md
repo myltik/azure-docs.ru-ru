@@ -3,7 +3,7 @@ title: "Как использовать хранилище BLOB-объектов
 description: "Клиентская библиотека службы хранилища Azure для Xamarin позволяет разработчикам создавать приложения Магазина Windows, iOS и Android, используя их собственные пользовательские интерфейсы. В этом учебнике материале показано, как в Xamarin создать приложение, которое использует хранилище BLOB-объектов Azure."
 services: storage
 documentationcenter: xamarin
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b438a4c90a5ccbcfb47b24ef85b70ba91fa228d6
+ms.sourcegitcommit: 5e531c6c23c510936fe7e4e844db2ec3afb170dc
+ms.openlocfilehash: 32d79cf050968738764c2239cbd79c73734ee855
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -36,19 +37,14 @@ Xamarin позволяет разработчикам использовать �
 Выполните следующие действия, чтобы создать приложение.
 
 1. Если вы еще не сделали этого, скачайте и установите [Xamarin для Visual Studio](https://www.xamarin.com/download).
-2. Откройте Visual Studio и создайте пустое приложение (общее собственное): **Файл > Создать > Проект > Кроссплатформенный > Blank App(Native Shared)** (Пустое приложение (общее собственное)).
+2. Откройте Visual Studio и создайте пустое приложение (Native Portable): **Файл > Создать > Проект > Кроссплатформенный > Пустое приложение (Native Portable)**.
 3. В области обозревателя решений щелкните правой кнопкой мыши свое решение и выберите пункт **Управление пакетами NuGet для решения**. Найдите пакет **WindowsAzure.Storage** и установите последнюю стабильную версию во все проекты в решении.
 4. Выполните сборку проекта и запустите его.
 
 Теперь у вас должно быть приложение, в котором можно нажать кнопку, увеличивающую значение счетчика.
 
-> [!NOTE]
-> Клиентская библиотека хранилища Azure для Xamarin в настоящее время поддерживает следующие типы проектов: "общий собственный", "общий Xamarin.Forms", "Xamarin.Android" и "Xamarin.iOS".
-> 
-> 
-
 ## <a name="create-container-and-upload-blob"></a>Создание контейнера и передача большого двоичного объекта
-Далее добавим в общий класс `MyClass.cs` код, который создает контейнер и передает в него большой двоичный объект. `MyClass.cs` должен выглядеть следующим образом.
+Далее вы добавите код для `MyClass.cs` в свой проект `(Portable)`. Этот код создает контейнер и передает в него большой двоичный объект. `MyClass.cs` должен выглядеть следующим образом.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -63,7 +59,7 @@ namespace XamarinApp
         {
         }
 
-        public static async Task createContainerAndUpload()
+        public static async Task performBlobOperation()
         {
             // Retrieve storage account from connection string.
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
@@ -87,7 +83,9 @@ namespace XamarinApp
 }
 ```
 
-Обязательно замените your_account_name_here и your_account_key_here действительными именем и ключом учетной записи. После этого данный общий класс можно использовать в приложении iOS, Android или Windows Phone. Можно просто добавить `MyClass.createContainerAndUpload()` в каждый проект. Например:
+Обязательно замените your_account_name_here и your_account_key_here действительными именем и ключом учетной записи. 
+
+Ваши проекты для iOS, Android и Windows Phone содержат ссылки на проект Portable. Это означает, что весь общий код можно написать в одном месте и использовать его для всех проектов. Теперь, чтобы воспользоваться этим преимуществом, можно добавить следующую строку кода в каждый проект: `MyClass.performBlobOperation()`
 
 ### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
 
@@ -118,7 +116,8 @@ namespace XamarinApp.Droid
                 button.Text = string.Format ("{0} clicks!", count++);
             };
 
-            await MyClass.createContainerAndUpload();
+            await MyClass.performBlobOperation();
+            }
         }
     }
 }
@@ -142,21 +141,30 @@ namespace XamarinApp.iOS
 
         public override async void ViewDidLoad ()
         {
-            base.ViewDidLoad ();
-            // Perform any additional setup after loading the view, typically from a nib.
-            Button.AccessibilityIdentifier = "myButton";
-            Button.TouchUpInside += delegate {
-                var title = string.Format ("{0} clicks!", count++);
-                Button.SetTitle (title, UIControlState.Normal);
-            };
+            int count = 1;
 
-            await MyClass.createContainerAndUpload();
-        }
+            public ViewController (IntPtr handle) : base (handle)
+            {
+            }
 
-        public override void DidReceiveMemoryWarning ()
-        {
-            base.DidReceiveMemoryWarning ();
-            // Release any cached data, images, etc that aren't in use.
+            public override async void ViewDidLoad ()
+            {
+                base.ViewDidLoad ();
+                // Perform any additional setup after loading the view, typically from a nib.
+                Button.AccessibilityIdentifier = "myButton";
+                Button.TouchUpInside += delegate {
+                    var title = string.Format ("{0} clicks!", count++);
+                    Button.SetTitle (title, UIControlState.Normal);
+                };
+
+                await MyClass.performBlobOperation();
+            }
+
+            public override void DidReceiveMemoryWarning ()
+            {
+                base.DidReceiveMemoryWarning ();
+                // Release any cached data, images, etc that aren't in use.
+            }
         }
     }
 }
@@ -193,19 +201,36 @@ namespace XamarinApp.WinPhone
         /// This parameter is typically used to configure the page.</param>
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            // TODO: Prepare page for display here.
+            int count = 1;
 
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
-            Button.Click += delegate {
-                var title = string.Format("{0} clicks!", count++);
-                Button.Content = title;
-            };
+            public MainPage()
+            {
+                this.InitializeComponent();
 
-            await MyClass.createContainerAndUpload();
+                this.NavigationCacheMode = NavigationCacheMode.Required;
+            }
+
+            /// <summary>
+            /// Invoked when this page is about to be displayed in a Frame.
+            /// </summary>
+            /// <param name="e">Event data that describes how this page was reached.
+            /// This parameter is typically used to configure the page.</param>
+            protected override async void OnNavigatedTo(NavigationEventArgs e)
+            {
+                // TODO: Prepare page for display here.
+
+                // TODO: If your application contains multiple pages, ensure that you are
+                // handling the hardware Back button by registering for the
+                // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
+                // If you are using the NavigationHelper provided by some templates,
+                // this event is handled for you.
+                Button.Click += delegate {
+                    var title = string.Format("{0} clicks!", count++);
+                    Button.Content = title;
+                };
+
+                await MyClass.performBlobOperation();
+            }
         }
     }
 }
@@ -225,10 +250,5 @@ namespace XamarinApp.WinPhone
 * [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

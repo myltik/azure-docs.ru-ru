@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad6693598cffd5aec7554f5612bc75d7c61d80dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 
 
 ---
@@ -215,6 +215,6 @@ ms.openlocfilehash: ad6693598cffd5aec7554f5612bc75d7c61d80dd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

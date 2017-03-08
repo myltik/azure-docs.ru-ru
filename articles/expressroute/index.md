@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: "Документация по Azure ExpressRoute. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как настроить и администрировать частное подключение ExpressRoute к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы."
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
+ms.sourcegitcommit: 8a169425aa6e99b1a710f5ca56a76445fb1e09bc
+ms.openlocfilehash: 0d06677f6f3815e8ebb35d13f906481350069d4c
+ms.lasthandoff: 03/01/2017
 
 ---
+
 #<a name="expressroute-documentation"></a>Документация по ExpressRoute
 
 Узнайте, как с помощью ExpressRoute настроить быстрое частное подключение к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы. Настроить канал ExpressRoute и управлять им вам помогут руководства, справочники по REST API и другая документация.
@@ -77,7 +90,7 @@ ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
                 <div class="card">
                     <div class="cardText">
                         <h3>Командная строка</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -98,10 +111,5 @@ ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

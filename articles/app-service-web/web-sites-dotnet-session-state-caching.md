@@ -4,7 +4,7 @@ description: "Узнайте, как использовать службу кэ�
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
-manager: wpickett
+manager: erikre
 editor: none
 ms.assetid: 4f98d289-2698-464d-85cd-99ec40fad1f2
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a682e51bfaed9056b170c3e9473180ca210557b9
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -86,10 +87,10 @@ ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
        strValue = (string)objValue;    
 
 Вы можете также использовать Redis Cache для кэширования объектов в вашем веб-приложении. Дополнительные сведения см. в статье о [приложении для обработки фильмов MVC с кэшем Redis для Azure за 15 минут](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-Дополнительные сведения об использовании состояния сеанса ASP.NET см. в [Обзоре состояния сеанса ASP.NET][ASP.NET Session State Overview].
+См. дополнительные сведения об [использовании состояния сеанса ASP.NET][ASP.NET Session State Overview].
 
 > [!NOTE]
-> Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -98,8 +99,8 @@ ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
   
   *Автор: [Рик Андерсон (Rick Anderson)](https://twitter.com/RickAndMSFT)*
 
-[установлена последняя версия]: http://www.windowsazure.com/downloads/?sdk=net  
-[Общие сведения о состоянии сеанса ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
+[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
+[ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
 [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
@@ -109,10 +110,5 @@ ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
 [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
 [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
 [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Основные понятия, терминология и иерархия сущностей планировщика
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Основные понятия, терминология и иерархия сущностей планировщика
 ## <a name="scheduler-entity-hierarchy"></a>Иерархия сущностей планировщика
 В приведенной ниже таблице описаны основные ресурсы, которые предоставляет или использует API планировщика.
 

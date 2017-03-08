@@ -1,10 +1,10 @@
 ---
-title: "Развертывание первого веб-приложения в Azure за пять минут (предварительная версия CLI 2.0) | Документация Майкрософт"
+title: "Развертывание веб-приложения Java на HTML в Azure за пять минут (предварительная версия CLI 2.0) | Документация Майкрософт"
 description: "Узнайте, как можно быстро запускать веб-приложения в службе приложений, развернув пример приложения. Начните с разработки настоящего приложения — и сразу же получите результаты."
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения в Azure за пять минут (предварительная версия CLI 2.0)
-
-> [!div class="op_single_selector"]
-> * [Первый HTML-сайт](app-service-web-get-started-html.md)
-> * [Первое приложение .NET](app-service-web-get-started-dotnet.md)
-> * [Первое приложение PHP](app-service-web-get-started-php.md)
-> * [Первое приложение Node.js](app-service-web-get-started-nodejs.md)
-> * [Первое приложение Python](app-service-web-get-started-python.md)
-> * [Первое приложение Java](app-service-web-get-started-java.md)
-> 
-> 
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения на HTML в Azure за пять минут (предварительная версия CLI 2.0)
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Это руководство поможет вам развернуть простое веб-приложение HTML+CSS в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
 В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started-html.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-get-started-html.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Git](http://www.git-scm.com/downloads).
@@ -57,7 +49,7 @@ ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -150,10 +142,5 @@ ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
 
 * Попробуйте [другие способы развертывания кода в Azure](web-sites-deploy.md). Например, чтобы развернуть приложение из какого-либо репозитория на GitHub, в разделе **Параметры развертывания** нужно просто указать **GitHub**, а не **Локальный репозиторий Git**.
 * Выведите приложение Azure на следующий уровень. Проверяйте подлинность пользователей. Масштабируйте приложение в зависимости от потребностей. Настраивайте оповещения производительности. И все это — с помощью нескольких действий. См. статью [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "Устранение ошибок &quot;502 — недопусти
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "502 — недопустимый шлюз, 503 — служба недоступна, ошибка 503, ошибка 502"
@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80c7a8584dac9537ddaf1d97a561388c3c22ec1b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -88,7 +89,7 @@ Microsoft Azure информирует о каждом случае прерыв
 
 Вы также можете загрузить собранные данные на свой компьютер. По умолчанию они сохраняются в папке D:\home\data\DaaS.
 
-Дополнительные сведения о возможностях портала поддержки службы приложений Azure см. в описании [обновлений расширения портала поддержки Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Дополнительные сведения о возможностях портала поддержки службы приложений Azure см. в описании [обновлений расширения портала поддержки Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Использование консоли отладки Kudu
 Веб-приложения оснащены консолью отладки, с помощью которой вы можете получать сведения о среде, используя функции отладки, изучения, передачи файлов и конечных точек JSON. Она называется *консолью Kudu* или *панелью SCM* приложения.
@@ -104,7 +105,7 @@ Microsoft Azure информирует о каждом случае прерыв
 
 У консоли Kudu есть еще одна очень полезная функция. Если приложение создает обрабатываемые исключения, с помощью консоли Kudu и средства SysInternals Procdump вы можете получать дампы памяти. Эти дампы представляют собой снимок процессов, выполняемых в момент создания исключения. Вы можете использовать эти данные при анализе сложных проблем в веб-приложении.
 
-Дополнительные сведения о возможностях консоли Kudu см. в статье [Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/) (Интерактивные инструменты веб-сайтов Azure, о которых вам нужно знать).
+Дополнительные сведения о возможностях консоли Kudu см. в статье [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/) (Интерактивные инструменты веб-сайтов Azure, о которых вам нужно знать).
 
 <a name="mitigate" />
 
@@ -121,7 +122,7 @@ Microsoft Azure информирует о каждом случае прерыв
 #### <a name="use-autoheal"></a>Использование функции AutoHeal
 Функция AutoHeal перезапускает рабочий процесс вашего приложения при определенных условиях, которые вы определяете в настройках (например, при изменении конфигурации, при определенном количестве запросов, при достижении ограничений памяти или времени выполнения запроса). В большинстве случаев повторный запуск процесса будет самым быстрым способом устранения проблемы. Хотя веб-приложение всегда можно вручную перезапустить на портале Azure, функция AutoHeal позволяет выполнять перезапуск автоматически. Для этого достаточно добавить в корневой файл web.config вашего веб-приложения некоторые триггеры. Эти параметры одинаково работают во всех приложениях, а не только в приложениях .NET.
 
-Дополнительные сведения см. в статье об [автоматическом восстановлении веб-сайтов Microsoft Azure](/blog/auto-healing-windows-azure-web-sites/).
+Дополнительные сведения см. в статье об [автоматическом восстановлении веб-сайтов Microsoft Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Перезапуск веб-приложения
 Обычно это самый простой способ восстановления после проблемы, которая возникла один раз. Остановить или перезапустить приложение можно при помощи колонки веб-приложения на [портале Azure](https://portal.azure.com/).
@@ -129,10 +130,5 @@ Microsoft Azure информирует о каждом случае прерыв
  ![Перезапуск приложения для устранения ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

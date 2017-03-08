@@ -12,38 +12,38 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
+ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
+ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
+ms.lasthandoff: 02/03/2017
 
 
 ---
 # <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Перемещение данных в локальную базу данных Oracle и обратно с помощью фабрики данных Azure
 В этой статье описано использование действия копирования в фабрике данных для перемещения данных в Oracle из другого хранилища данных и обратно. В этой статье мы продолжим тему о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
-## <a name="supported-versions"></a>Поддерживаемые версии
-Благодаря установке поставщика данных Oracle для .NET 12.1 на компьютере шлюза управления данными этот соединитель Oracle можно использовать для копирования данных в экземплярах Oracle более ранних версий. Дополнительные сведения о настройке см. в разделе [Установка](#installation).
+Фабрика данных поддерживает подключение к локальным источникам Oracle с помощью шлюза управления данными. Сведения о шлюзе управления данными см. в статье [Шлюз управления данными](data-factory-data-management-gateway.md), а пошаговые инструкции по настройке шлюза для перемещения данных с использованием конвейера — в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
-* Oracle 12c
-* Oracle 11g
-* Oracle 10g Release 2
+> [!NOTE]
+> Шлюз является обязательным, даже если база данных Oracle размещается на виртуальной машине Azure IaaS. Шлюз можно установить на той же ВМ IaaS, на которой размещается хранилище данных, или на другой ВМ. Важно, чтобы шлюз мог подключиться к базе данных.
+>
 
-## <a name="installation"></a>Установка
-Чтобы служба фабрики данных Azure могла подключаться к локальной базе данных Oracle, необходимо установить следующие компоненты:
+## <a name="supported-versions-and-installation"></a>Поддерживаемые версии и установка
+Соединитель Oracle поддерживает две версии драйверов:
 
-* Шлюз управления данными на том же компьютере, на котором размещена база данных, или на отдельном компьютере во избежание конкуренции за ресурсы. Шлюз управления данными — это агент клиента, который обеспечивает безопасное и управляемое подключение локальных источников данных к облачным службам. Сведения о шлюзе управления данными см. в статье [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md).
-* Поставщик данных Oracle для .NET. Входит в состав [компонентов доступа к данным Oracle для Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Установите соответствующую версию (32- или 64- разрядную) на главном компьютере, на котором установлен шлюз. [Поставщик данных Oracle для .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) может обращаться к Oracle Database 10g версии 2 или более поздней версии.
+- **Драйвер Майкрософт для Oracle** включен в комплект шлюза управления данными, начиная с версии 2.7. **Рекомендуется** использовать именно этот драйвер. Таким образом, для подключения к Oracle не нужно устанавливать ничего, кроме шлюза, а производительность копирования будет выше. Поддерживаются базы данных Oracle версии 10g Release 2 или более поздних версий.
+
+    > [!NOTE]
+    > В настоящее время драйвер Майкрософт для Oracle поддерживает копирование данных из базы данных Oracle, но не поддерживает запись к базу данных Oracle. Обратите внимание, что этот драйвер не поддерживает возможность тестирования подключения на вкладке "Диагностика" в шлюзе управления данными. Кроме того, для проверки подключения можно воспользоваться мастером копирования.
+    >
+
+- **Поставщик данных Oracle для .NET**: для копирования данных в базу данных Oracle и из нее также можно использовать поставщик данных Oracle. Входит в состав [компонентов доступа к данным Oracle для Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Установите соответствующую версию (32- или&64;- разрядную) на компьютере, на котором установлен шлюз. [Поставщик данных Oracle для .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) может обращаться к Oracle Database 10g версии 2 или более поздней версии.
 
     Если вы выбрали "XCopy Installation" (Установка XCopy), то следуйте инструкциям в файле readme.htm. Мы советуем выбрать установщик через пользовательский интерфейс (а не через XCopy).
 
-    После установки поставщика перезапустите на компьютере службу узла шлюза управления данными, используя приложение "Службы" или диспетчер конфигурации шлюза управления данными.  
-
-> [!NOTE]
-> Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
->
->
+    После установки поставщика **перезапустите** на компьютере службу узла шлюза управления данными, используя приложение "Службы" или диспетчер конфигурации шлюза управления данными.  
 
 ## <a name="copy-data-wizard"></a>Мастер копирования данных
 Самый простой способ создать конвейер, копирующий данные в базу данных Oracle или из нее в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
@@ -65,28 +65,33 @@ ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
 
 **Связанная служба Oracle**
 
-    {
-      "name": "OnPremisesOracleLinkedService",
-      "properties": {
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-          "gatewayName": "<gateway name>"
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
-      }
     }
+}
+```
 
 **Связанная служба хранилища BLOB-объектов Azure**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
+```json
+{
+    "name": "StorageLinkedService",
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
         }
-      }
     }
+}
+```
 
 **Входной набор данных Oracle**
 
@@ -94,148 +99,143 @@ ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
 
 Если параметру external присвоить значение true, фабрика данных воспримет этот набор данных как внешний и созданный не в результате какого-либо действия в этой службе.
 
-    {
-        "name": "OracleInput",
-        "properties": {
-            "type": "OracleTable",
-            "linkedServiceName": "OnPremisesOracleLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-               "external": true,
-            "availability": {
-                "offset": "01:00:00",
-                "interval": "1",
-                "anchorDateTime": "2014-02-27T12:00:00",
-                "frequency": "Hour"
-            },
-          "policy": {     
-               "externalData": {        
-                    "retryInterval": "00:01:00",    
-                    "retryTimeout": "00:10:00",       
-                    "maximumRetry": 3       
-                }     
-              }
+```json
+{
+    "name": "OracleInput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+            "offset": "01:00:00",
+            "interval": "1",
+            "anchorDateTime": "2014-02-27T12:00:00",
+            "frequency": "Hour"
+        },
+        "policy": {     
+            "externalData": {        
+                "retryInterval": "00:01:00",    
+                "retryTimeout": "00:10:00",       
+                "maximumRetry": 3       
+            }     
         }
     }
-
+}
+```
 
 **Выходной набор данных BLOB-объекта Azure**
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке с BLOB-объектом и имя файла вычисляются динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
+```json
+{
+    "name": "AzureBlobOutput",
+    "properties": {
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
+            "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ],
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": "\t",
+                "rowDelimiter": "\n"
             }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
-          }
         },
         "availability": {
-          "frequency": "Hour",
-          "interval": 1
+            "frequency": "Hour",
+            "interval": 1
         }
-      }
     }
-
+}
+```
 
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входные и выходные наборы данных и выполняется ежечасно. В определении JSON конвейера для типа **source** устанавливается значение **OracleSource**, а для типа **sink** — значение **BlobSink**.  SQL-запрос, указанный для свойства **oracleReaderQuery** , выбирает для копирования данные за последний час.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
-          {
-            "name": "OracletoBlob",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": " OracleInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "OracleSource",
-                "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
+            {
+                "name": "OracletoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": " OracleInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "OracleSource",
+                        "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
             }
-          }
-         ]
-       }
+        ]
     }
-
-
-Необходимо настроить строку запроса в зависимости от того, как настроены даты в базе данных Oracle. Если вы видите следующее сообщение об ошибке:
-
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
-
-может потребоваться изменить запрос, как показано ниже (используя функцию to_date).
-
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+}
+```
 
 ## <a name="sample-copy-data-from-azure-blob-to-oracle"></a>Пример копирования данных из BLOB-объекта Azure в Oracle
 В этом примере показано, как скопировать данные из хранилища BLOB-объектов Azure в локальную базу данных Oracle. Однако данные можно **напрямую** копировать из любого указанного [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) источника, используя действие копирования в фабрике данных Azure.  
@@ -251,165 +251,163 @@ ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
 В примере данные из хранилища BLOB-объектов каждый час копируются в таблицу в локальной базе данных Oracle. Дополнительные сведения о различных свойствах, используемых в примере, см. в документации, ссылки на которую приведены в разделах после примеров.
 
 **Связанная служба Oracle**
-
-    {
-      "name": "OnPremisesOracleLinkedService",
-      "properties": {
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-          "gatewayName": "<gateway name>"
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+            User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
-      }
     }
+}
+```
 
 **Связанная служба хранилища BLOB-объектов Azure**
-
-    {
-      "name": "StorageLinkedService",
-      "properties": {
+```json
+{
+    "name": "StorageLinkedService",
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
         }
-      }
     }
+}
+```
 
 **Входной набор данных BLOB-объекта Azure**
 
 Данные берутся из нового BLOB-объекта каждый час (frequency: hour, interval: 1). Путь к папке с BLOB-объектом и имя файла вычисляются динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц и день начала, а в имени файла — час начала. Когда для параметра external задано значение true, служба фабрики данных считает эту таблицу внешней и созданной не в результате какого-либо действия в фабрике данных.
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
+```json
+{
+    "name": "AzureBlobInput",
+    "properties": {
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
+            "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                }
+            ],
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n"
             }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
-          }
         },
         "external": true,
         "availability": {
-          "frequency": "Hour",
-          "interval": 1
+            "frequency": "Day",
+            "interval": 1
         },
         "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
-      }
     }
+}
+```
 
 **Выходной набор данных Oracle**
 
 В примере предполагается, что вы создали в Oracle таблицу MyTable. Таблицу в Oracle нужно создать с таким же количеством столбцов, которое должно быть в CSV-файле большого двоичного объекта. Новые строки добавляются в таблицу каждый час.
 
-    {
-        "name": "OracleOutput",
-        "properties": {
-            "type": "OracleTable",
-            "linkedServiceName": "OnPremisesOracleLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": "1"
-            }
+```json
+{
+    "name": "OracleOutput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": "1"
         }
     }
-
+}
+```
 
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** устанавливается значение **BlobSource**, а для типа **sink** — значение **OracleSink**.  
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
         "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "end":"2014-06-05T19:00:00",
         "description":"pipeline with copy activity",
         "activities":[  
-          {
-            "name": "AzureBlobtoOracle",
-            "description": "Copy Activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OracleOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "OracleSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
+            {
+                "name": "AzureBlobtoOracle",
+                "description": "Copy Activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OracleOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "OracleSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
             }
-          }
-          ]
-       }
+        ]
     }
-
+}
+```
 
 ## <a name="oracle-linked-service-properties"></a>Свойства связанной службы Oracle
 В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе Oracle.
@@ -417,10 +415,43 @@ ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
 | type |Для свойства type необходимо задать значение **OnPremisesOracle** |Да |
-| connectionString |В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных Oracle. |Да |
-| gatewayName |Имя шлюза, который будет использоваться для подключения к локальному серверу Oracle. |Да |
+| driverType | Укажите, какой драйвер следует использовать для копирования данных в базу данных Oracle и из нее. Допустимые значения: **Майкрософт** или **ODP** (по умолчанию). Дополнительные сведения о драйверах см. в разделе [Поддерживаемые версии и установка](#supported-versions-and-installation). | Нет |
+| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных Oracle. Ознакомьтесь с приведенными ниже примерами. | Да |
+| gatewayName | Имя шлюза, который будет использоваться для подключения к локальному серверу Oracle. |Да |
 
 Дополнительные сведения о настройке учетных данных для локального источника данных Oracle см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
+
+**Пример: использование драйвера Майкрософт**
+```JSON
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+**Пример: использование драйвера ODP**
+
+Другие допустимые форматы приведены на [этом сайте](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+```JSON
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
 
 ## <a name="oracle-dataset-type-properties"></a>Свойства типа "Набор данных Oracle"
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Такие разделы, как структура, доступность и политика набора данных JSON, одинаковы для всех видов наборов данных (Oracle, большие двоичные объекты Azure, таблицы Azure и т. д.).
@@ -453,10 +484,44 @@ ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. |Интервал времени<br/><br/>  Пример: 00:30:00 (30 минут). |Нет |
+| writeBatchTimeout |Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. |Интервал времени<br/><br/> Пример: 00:30:00 (30 минут). |Нет |
 | writeBatchSize |Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. |Целое число (количество строк) |Нет (значение по умолчанию — 100) |
 | sqlWriterCleanupScript |Укажите запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза очищены. |Инструкция запроса. |Нет |
 | sliceIdentifierColumnName |Укажите имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. |Имя столбца с типом данных binary(32). |Нет |
+
+## <a name="troubleshooting-tips"></a>Советы по устранению неполадок
+### <a name="problem-1-net-framework-data-provider"></a>Проблема 1: поставщик данных .NET Framework
+
+Отображается следующее **сообщение об ошибке**:
+
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
+
+**Возможные причины:**
+
+1. Поставщик данных .NET Framework для Oracle не был установлен.
+2. Поставщик данных .NET Framework для Oracle был установлен в .NET Framework 2.0 и не найден в папках .NET Framework 4.0.
+
+**Решение:**
+
+1. Если поставщик данных .NET для Oracle не установлен, [установите его](http://www.oracle.com/technetwork/topics/dotnet/downloads/) и повторите сценарий.
+2. Если сообщение об ошибке появляется даже после установки поставщика, выполните следующие действия:
+   1. Откройте файл конфигурации .NET 2.0 из папки: <system disk> \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+   2. Найдите **поставщик данных Oracle для .NET** и вы сможете найти запись, как показано в следующем примере, в разделе **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Поставщик данных Oracle для .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+3. Скопируйте эту запись в файл конфигурации компьютера в следующей папке v4.0: <system disk>\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, измените версию на 4.xxx.x.x.
+4. Установите файл <путь установки ODP.NET>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll в глобальный кэш сборок (GAC), выполнив команду `gacutil /i [provider path]`.## Советы по устранению неполадок
+
+### <a name="problem-2-datetime-formatting"></a>Проблема 2: формат даты и времени
+
+Отображается следующее **сообщение об ошибке**:
+
+    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+**Решение:**
+
+Необходимо настроить строку запроса в действии копирования в зависимости от настроек дат в базе данных Oracle, как показано в следующем примере (используя функцию to_date):
+
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -494,31 +559,12 @@ ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
 | VARCHAR2 |Строка |
 | XML |Строка |
 
-## <a name="troubleshooting-tips"></a>Советы по устранению неполадок
-**Проблема.** Появляется следующее **сообщение об ошибке**: "Действие копирования обнаружило недопустимые параметры: UnknownParameterName, подробное сообщение: "Не удалось найти запрошенный поставщик данных .NET Framework". Возможно, он не установлен.  
-
-**Возможные причины:**
-
-1. Поставщик данных .NET Framework для Oracle не был установлен.
-2. Поставщик данных .NET Framework для Oracle был установлен в .NET Framework 2.0 и не найден в папках .NET Framework 4.0.
-
-**Решение:**
-
-1. Если поставщик данных .NET для Oracle не установлен, [установите его](http://www.oracle.com/technetwork/topics/dotnet/downloads/) и повторите сценарий.
-2. Если сообщение об ошибке появляется даже после установки поставщика, выполните следующие действия:
-   1. Откройте файл конфигурации .NET 2.0 из папки: <system disk> \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Найдите **поставщик данных Oracle для .NET** и вы сможете найти запись, как показано в следующем примере, в разделеder **system.data** -> **DbProviderFactories**:
-           “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-3. Скопируйте эту запись в файл конфигурации компьютера в следующей папке v4.0: <system disk>\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, измените версию на 4.xxx.x.x.
-4. Установите файл <путь установки ODP.NET>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll в глобальный кэш сборок (GAC), выполнив команду `gacutil /i [provider path]`.
+> [!NOTE]
+> При использовании драйвера Майкрософт типы данных **INTERVAL YEAR TO MONTH** и **INTERVAL DAY TO SECOND** не поддерживаются.
+>
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

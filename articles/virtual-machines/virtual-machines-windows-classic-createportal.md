@@ -13,28 +13,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 20c19b9f2c725d1f7857ea116ad941fffc73e825
+ms.sourcegitcommit: 662145f825a26bac6fe3f94970f60eba576f2f56
+ms.openlocfilehash: 7ff027a99b880d43dd845d58562f1d8e5c6126a8
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Вы также можете создать настраиваемую виртуальную машину под управлением Windows с помощью классической модели развертывания.
-> [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Если вы собираетесь использовать новый портал Azure, см. статью [Создание первой виртуальной машины Windows на портале Azure](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
 [!INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
-Вы также можете [создать настраиваемую виртуальную машину под управлением Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) с помощью классического портала.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+## <a name="next-steps"></a>Дальнейшие действия 
+Вы можете также [создать настраиваемую виртуальную машину под управлением Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

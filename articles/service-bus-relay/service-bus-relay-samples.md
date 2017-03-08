@@ -1,5 +1,5 @@
 ---
-title: "Обзор примеров ретранслятора служебной шины | Документация Майкрософт"
+title: "Обзор примеров ретранслятора служебной шины Azure | Документация Майкрософт"
 description: "Классификация и описание примеров ретранслятора служебной шины со ссылками."
 services: service-bus-relay
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
+ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -24,23 +25,23 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 В этих примерах демонстрируются ключевые возможности [ретранслятора служебной шины](https://azure.microsoft.com/services/service-bus/). В этой статье приведены категории примеров с описаниями и ссылками.
 
 > [!NOTE]
-> Примеры служебной шины не устанавливаются вместе с пакетом SDK. Примеры доступны на [странице примеров пакета SDK для Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Примеры для служебной шины не устанавливаются вместе с пакетом SDK для Azure. Примеры доступны на [странице примеров пакета SDK для Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Обновленный набор примеров ретранслятора служебной шины см. [здесь](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (на момент написания этой статьи они в ней не описаны).  
+> Кроме того, [здесь](https://github.com/Azure-Samples/azure-servicebus-relay-samples) доступен обновленный набор примеров ретранслятора служебной шины.  
 > 
 > 
 
-Примеры обмена сообщениями см. в статье [Служебная шина: примеры](../service-bus-messaging/service-bus-samples.md).
+Примеры обмена сообщениями через служебную шину представлен в статье [Примеры обмена сообщениями с помощью служебной шины](../service-bus-messaging/service-bus-samples.md).
 
-## <a name="service-bus-relay"></a>Ретранслятор служебной шины
-В следующем примере показывается, как писать приложения, использующие службу ретранслятора служебной шины.
+## <a name="azure-service-bus-relay"></a>Ретрансляция служебной шины Azure
+В следующем примере показывается, как создавать приложения, использующие службу ретранслятора Azure.
 
-Обратите внимание, что для примеров ретранслятора необходима строка подключения для доступа к пространству имен служебной шины.
+Обратите внимание на то, что для примеров ретранслятора необходима строка подключения для доступа к пространству имен ретранслятора.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Получение строки подключения для служебной шины Azure
+### <a name="to-obtain-a-connection-string-for-azure-relay"></a>Получение строки подключения для ретранслятора Azure
 1. Войдите на [портал Azure](http://portal.azure.com).
-2. В столбце слева щелкните **Служебная шина**.
-3. В списке щелкните имя пространства имен.
+2. Щелкните, чтобы развернуть список пространств имен в области **Все ресурсы**.
+3. В списке щелкните имя пространства имен ретранслятора.
 4. В колонке пространства имен щелкните **Политики общего доступа**.
 5. В колонке **Политики общего доступа** щелкните **RootManageSharedAccessKey**.
 6. Скопируйте строку подключения в буфер обмена.
@@ -48,13 +49,13 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 ### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Получение строки подключения для служебной шины Windows Server
 1. Выполните такой командлет PowerShell:
    
-    ```
+    ```powershell
     get-sbClientConfiguration
     ```
 2. Вставьте строку подключения в файл App.config примера.
 
-## <a name="service-bus-relay"></a>Ретранслятор служебной шины
-Примеры, демонстрирующие ретранслятор служебной шины.
+## <a name="azure-relay"></a>Ретранслятор Azure
+Примеры, демонстрирующие использование ретранслятора Azure.
 
 ### <a name="getting-started"></a>Приступая к работе
 | Имя примера | Описание | Минимальная версия пакета SDK | Доступность |
@@ -84,13 +85,8 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 ## <a name="next-steps"></a>Дальнейшие действия
 Принципиальные сведения о служебной шине см. в следующих статьях:
 
-* [Что такое ретранслятор Azure?](service-bus-relay-overview.md)
+* [Что такое ретранслятор Azure?](relay-what-is-it.md)
 * [Архитектура служебной шины](../service-bus-messaging/service-bus-architecture.md)
 * [Базовая информация о служебной шине](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

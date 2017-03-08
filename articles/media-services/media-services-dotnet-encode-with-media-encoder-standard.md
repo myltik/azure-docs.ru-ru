@@ -17,6 +17,7 @@ ms.author: juliako;anilmur
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -146,10 +147,5 @@ ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
 ## <a name="see-also"></a>См. также
 [Создание эскиза с помощью стандартного кодировщика мультимедиа и платформы .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

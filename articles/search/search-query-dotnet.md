@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>1. Определение ключа API запроса службы поиска Azure
+## <a name="identify-your-azure-search-services-query-api-key"></a>Определение ключа API запроса службы поиска Azure
 Теперь, когда вы создали индекс службы поиска Azure, вы почти готовы отправлять запросы с помощью пакета SDK для .NET. Для этого сначала нужно получить один из ключей API запроса, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
 1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
@@ -48,7 +48,7 @@ ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 Для отправки запросов в индекс можно использовать один из ключей запросов. Для запросов можно использовать также ключи администратора, но в коде приложения следует использовать ключ запроса, так как этот вариант лучше соответствует [принципу предоставления минимальных прав](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>2. Создание экземпляра класса SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Создание экземпляра класса SearchIndexClient
 Чтобы отправлять запросы с помощью пакета SDK .NET для службы поиска Azure, нужно создать экземпляр класса `SearchIndexClient`. Этот класс имеет несколько конструкторов. Нужный вам конструктор принимает в качестве параметров имя службы поиска, имя индекса и объект `SearchCredentials` . `SearchCredentials` содержит ключ API.
 
 Приведенный ниже код создает новый класс `SearchIndexClient` для индекса hotels, используя значения имени службы поиска и ключа API, которые хранятся в файле конфигурации приложения (`app.config` или `web.config`). Инструкции по созданию индекса hotels см. в статье [Создание индекса службы поиска Azure с помощью пакета SDK для .NET](search-create-index-dotnet.md).
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 У класса `SearchIndexClient` есть свойство `Documents`. Это свойство предоставляет все методы, которые требуются для отправки запросов в индексы службы поиска Azure.
 
-## <a name="iii-query-your-index"></a>3. Отправка запроса в индекс
+## <a name="query-your-index"></a>Отправка запроса в индекс
 Поиск с помощью пакета SDK для .NET сводится к вызову метода `Documents.Search` для класса `SearchIndexClient`. Этот метод принимает несколько параметров, включая текст поиска и объект `SearchParameters` , с помощью которого можно уточнить запрос.
 
 #### <a name="types-of-queries"></a>Типы запросов
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>4. Обработка результатов поиска
+## <a name="handle-search-results"></a>Обработка результатов поиска
 Метод `Documents.Search` возвращает объект `DocumentSearchResult`, содержащий результаты запроса. В примере из предыдущего раздела результаты поиска выводятся на консоль с помощью метода `WriteDocuments` .
 
 ```csharp
@@ -169,6 +169,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

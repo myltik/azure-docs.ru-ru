@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с Azure Data Lake Store с помощью Python | Документация Майкрософт"
+title: "Начало работы с Azure Data Lake Store с помощью пакета Python SDK | Документация Майкрософт"
 description: "Узнайте, как использовать пакет Python SDK для работы с учетными записями и файловой системой Data Lake Store."
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
-ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
 
 
 ---
@@ -74,12 +74,19 @@ pip install azure-datalake-store
     ## Use this only for Azure AD end-user authentication
     from azure.common.credentials import UserPassCredentials
 
+    ## Use this only for Azure AD multi-factor authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
+
     ## Required for Azure Data Lake Store account management
-    from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
     ## Required for Azure Data Lake Store filesystem management
     from azure.datalake.store import core, lib, multithread
+
+    # Common Azure imports
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
     ## Use these as needed for your application
     import logging, getpass, pprint, uuid, time
@@ -88,6 +95,14 @@ pip install azure-datalake-store
 3. Сохраните изменения в mysample.py.
 
 ## <a name="authentication"></a>Аутентификация
+
+В этом разделе мы рассмотрим различные способы проверки подлинности в Azure AD. Доступны следующие варианты.
+
+* Аутентификация пользователей
+* Взаимодействие между службами
+* Многофакторная проверка подлинности
+
+Эти параметры проверки подлинности необходимо использовать для управления учетными записями и для модулей управления файловой системы.
 
 ### <a name="end-user-authentication-for-account-management"></a>Проверка подлинности пользователя для управления учетными записями
 
@@ -121,6 +136,29 @@ pip install azure-datalake-store
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
+### <a name="multi-factor-authentication-for-account-management"></a>Многофакторная идентификация для управления учетными записями
+
+Используйте этот метод проверки подлинности в Azure AD для операций управления учетными записями (создание, удаление учетной записи Data Lake Store и т. п.). Следующий фрагмент кода можно использовать для проверки подлинности приложения с помощью многофакторной идентификации. Примените этот фрагмент кода к существующему веб-приложению Azure AD.
+
+    authority_host_url = "https://login.microsoftonline.com"
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### <a name="multi-factor-authentication-for-filesystem-management"></a>Многофакторная идентификация для управления файловой системой
+
+Используется для проверки подлинности в Azure AD для операций файловой системы (создание папки, отправка файла и т. д.). Следующий фрагмент кода можно использовать для проверки подлинности приложения с помощью многофакторной идентификации. Примените этот фрагмент кода к существующему веб-приложению Azure AD.
+
+    token = lib.auth(tenant_id='FILL-IN-HERE')
+
 ## <a name="create-an-azure-resource-group"></a>Создание группы ресурсов Azure
 
 Чтобы создать группу ресурсов Azure, используйте следующий фрагмент кода.
@@ -137,7 +175,7 @@ pip install azure-datalake-store
     )
     
     ## Create an Azure Resource Group
-    armGroupResult = resourceClient.resource_groups.create_or_update(
+    resourceClient.resource_groups.create_or_update(
         resourceGroup,
         ResourceGroup(
             location=location
@@ -207,6 +245,6 @@ pip install azure-datalake-store
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

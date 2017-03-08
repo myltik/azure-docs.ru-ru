@@ -1,5 +1,5 @@
 ---
-title: "Общие сведения о службе реестра контейнеров Azure | Документация Майкрософт"
+title: "Использование частного реестра контейнеров Docker в Azure | Документация Майкрософт"
 description: "Общие сведения о службе реестра контейнеров Azure, предоставляющей облачные, управляемые и частные реестры Docker."
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 806ffa8ce0c434d2a6cc1c7ec3a6e89be9145679
-ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 
 ---
 # <a name="what-is-azure-container-registry"></a>Общие сведения о службе реестра контейнеров Azure
@@ -26,7 +26,7 @@ ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
 > В настоящее время доступна предварительная версия реестра контейнеров.
 
 
-Реестр контейнеров Azure — это управляемая служба [реестра Docker](https://docs.docker.com/registry/) на базе реестра Docker версии 2 с открытым кодом. Создавайте и настраивайте реестры контейнеров Azure, чтобы хранить частные образы [контейнеров Docker](https://www.docker.com/what-docker) и управлять ими. Используйте реестры контейнеров Azure с имеющимися конвейерами разработки и развертывания контейнеров, изучив сведения, предоставленные сообществом Docker.
+Реестр контейнеров Azure — это управляемая служба [реестра Docker](https://docs.docker.com/registry/) на базе реестра Docker версии&2; с открытым кодом. Создавайте и настраивайте реестры контейнеров Azure, чтобы хранить частные образы [контейнеров Docker](https://www.docker.com/what-docker) и управлять ими. Используйте реестры контейнеров Azure с имеющимися конвейерами разработки и развертывания контейнеров, изучив сведения, предоставленные сообществом Docker.
 
 Общие сведения о Docker и контейнерах см. в следующих источниках:
 
@@ -71,6 +71,6 @@ ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

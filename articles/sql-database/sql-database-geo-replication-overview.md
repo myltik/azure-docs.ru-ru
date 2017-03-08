@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,28 +27,13 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 
 > [!NOTE]
 > Активная георепликация (с доступными для чтения базами данных-получателями) теперь доступна для всех баз данных и всех уровней обслуживания. В апреле 2017 года недоступные для чтения базы данных-получатели будут удалены, и существующие недоступные для чтения базы данных будут автоматически преобразованы в доступные для чтения базы данных-получатели.
-> 
-> 
+>  
 
  Активную георепликацию можно настроить с помощью [портала Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) или [REST API (создания или обновления базы данных)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!div class="op_single_selector"]
-> * [Настройка: портал Azure](sql-database-geo-replication-portal.md)
-> * [Настройка: PowerShell](sql-database-geo-replication-powershell.md)
-> * [Настройка: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 Если по какой-либо причине произойдет сбой вашей базы данных-источника (или вам просто потребуется перевести ее в автономный режим), вы можете выполнить *отработку отказа* на любую из доступных баз данных-получателей. При активации отработки отказа в одной из баз данных-получателей все прочие получатели автоматически связываются с новой базой данных-источником.
 
 Отработку отказа на базу данных-получатель можно выполнить с помощью [портала Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API (плановой отработки отказа)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) или [REST API (внеплановой отработки отказа)](https://msdn.microsoft.com/library/azure/mt582027.aspx).
-
-> [!div class="op_single_selector"]
-> * [Отработка отказа: портал Azure](sql-database-geo-replication-failover-portal.md)
-> * [Отработка отказа: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [Отработка отказа: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
 
@@ -145,10 +131,5 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 * Дополнительные сведения о требованиях к проверке подлинности для новых сервера-источника и базы данных-источника см. в статье [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

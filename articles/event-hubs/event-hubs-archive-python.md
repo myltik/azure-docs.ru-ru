@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 01/12/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0dc22f03c114508190a8da7ae4ca385c39690d2c
-ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
+ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
+ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
+ms.lasthandoff: 02/03/2017
 
 
 ---
 # <a name="event-hubs-archive-walkthrough-python"></a>Пошаговое руководство. Использование архива концентраторов событий с Python
 Архив концентраторов событий — это новая функция концентраторов событий, которая позволяет автоматически передавать потоковые данные из концентратора событий в выбранную учетную запись хранилища BLOB-объектов Azure. Это упрощает выполнение пакетной обработки данных потоковой передачи в режиме реального времени. В этой статье мы расскажем, как использовать архив концентраторов событий с Python. Дополнительные сведения о концентраторах событий см. в [этом обзоре](event-hubs-archive-overview.md).
 
-В приведенном примере для демонстрации функции архива используется пакет SDK Azure для Python. Программа sender.py отправляет имитацию телеметрии окружающей среды концентраторам событий в формате JSON. Настройками концентратора событий предусмотрено использование функции архива для пакетной записи этих данных в хранилище BLOB-объектов. Затем archivereader.py считывает эти большие двоичные объекты и создает файл для дозаписи для каждого устройства, после чего записывает данные в CSV-файлы.
+В приведенном примере для демонстрации функции архива используется [пакет SDK Azure для Python](https://azure.microsoft.com/develop/python/). Программа sender.py отправляет имитацию телеметрии окружающей среды концентраторам событий в формате JSON. Настройками концентратора событий предусмотрено использование функции архива для пакетной записи этих данных в хранилище BLOB-объектов. Затем archivereader.py считывает эти большие двоичные объекты и создает файл для дозаписи для каждого устройства, после чего записывает данные в CSV-файлы.
 
 Наши задачи:
 
@@ -37,19 +38,18 @@ ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
 
 - Python 2.7.x.
 - Подписка Azure
+- Активные [пространство имен концентраторов событий и концентратор событий](event-hubs-create.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
 1. Войдите на [портал Azure][Azure portal].
-2. В области навигации слева на странице портала щелкните **Создать** > **Данные+хранилище** > **Учетная запись хранения**.
+2. В области навигации слева на странице портала щелкните **Создать** > **Хранилище** > **Учетная запись хранения**.
 3. Заполните поля в колонке учетной записи хранения и нажмите кнопку **Создать**.
    
    ![][1]
 4. Получив сообщение об **успешном выполнении развертывания**, щелкните имя новой учетной записи хранения, затем в колонке **Основные компоненты** щелкните **BLOB-объекты**. В верхней части открывшейся колонки **Служба BLOB-объектов** щелкните **+ Container** (+ Контейнер). Присвойте контейнеру имя **archive**, затем закройте колонку **Служба BLOB-объектов**.
 5. Щелкните **Ключи доступа** в колонке слева и скопируйте имя учетной записи хранения, а также значение **key1**. Сохраните на время эти значения в Блокноте или любом другом месте.
-
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 ## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Создание сценария Python для отправки событий в концентратор событий
 1. Откройте предпочитаемый редактор Python, например [Visual Studio Code][Visual Studio Code].
@@ -72,10 +72,10 @@ ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
        for dev in devices:
            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
            s = json.dumps(reading)
-           sbs.send\_event('myhub', s)
+           sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. Обновите предыдущий код, указав имя пространства имен и значения ключей, полученные при создании пространства имен концентратора событий.
+4. Обновите предыдущий код, указав имя пространства имен, значение ключа и имя концентратора событий, полученные при создании пространства имен концентратора событий.
 
 ## <a name="create-a-python-script-to-read-your-archive-files"></a>Создание сценария Python для чтения архивных файлов
 1. Заполните поля в колонке и щелкните **Создать**.
@@ -95,33 +95,33 @@ ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
        reader = DataFileReader(open(filename, 'rb'), DatumReader())
        dict = {}
        for reading in reader:
-           parsed\_json = json.loads(reading["Body"])
-           if not 'id' in parsed\_json:
+           parsed_json = json.loads(reading["Body"])
+           if not 'id' in parsed_json:
                return
-           if not dict.has\_key(parsed\_json['id']):
+           if not dict.has_key(parsed_json['id']):
            list = []
-           dict[parsed\_json['id']] = list
+           dict[parsed_json['id']] = list
        else:
-           list = dict[parsed\_json['id']]
-           list.append(parsed\_json)
+           list = dict[parsed_json['id']]
+           list.append(parsed_json)
        reader.close()
        for device in dict.keys():
            deviceFile = open(device + '.csv', "a")
            for r in dict[device]:
-               deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\\n')
+               deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\n')
    
    def startProcessing(accountName, key, container):
        print 'Processor started using path: ' + os.getcwd()
-       block\_blob\_service = BlockBlobService(account\_name=accountName, account\_key=key)
-       generator = block\_blob\_service.list\_blobs(container)
+       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
+       generator = block_blob_service.list_blobs(container)
        for blob in generator:
-           if blob.properties.content\_length != 0:
+           if blob.properties.content_length != 0:
                print('Downloaded a non empty blob: ' + blob.name)
-               cleanName = string.replace(blob.name, '/', '\_')
-               block\_blob\_service.get\_blob\_to\_path(container, blob.name, cleanName)
+               cleanName = string.replace(blob.name, '/', '_')
+               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
                processBlob(cleanName)
                os.remove(cleanName)
-           block\_blob\_service.delete\_blob(container, blob.name)
+           block_blob_service.delete_blob(container, blob.name)
    startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
    ```
 4. Не забудьте вставить соответствующие значения имени вашей учетной записи хранения и ключа в вызов `startProcessing`.
@@ -168,14 +168,9 @@ ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
 [Azure portal]: https://portal.azure.com/
 [Overview of Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: ../storage/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

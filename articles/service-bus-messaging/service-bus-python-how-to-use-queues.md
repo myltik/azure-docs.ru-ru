@@ -1,5 +1,5 @@
 ---
-title: "Как использовать очереди служебной шины с Python | Документация Майкрософт"
+title: "Использование очередей служебной шины Azure с Python | Документация Майкрософт"
 description: "Узнайте, как использовать очереди служебной шины в Python."
 services: service-bus-messaging
 documentationcenter: python
@@ -12,51 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 01/11/2017
 ms.author: sethm;lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
 
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Как использовать очереди служебной шины
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-В этой статье показано, как использовать очереди служебной шины. Примеры написаны на языке Python и используют [Пакет служебной шины Azure для Python][Пакет служебной шины Azure для Python]. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**.
+В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Python и используют [пакет служебной шины Azure для Python][Python Azure Service Bus package]. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 > [!NOTE]
-> Если требуется установить Python или [Пакет служебной шины Azure для Python][Пакет служебной шины Azure для Python], см. [руководство по установке Python](../python-how-to-install.md).
+> Если требуется установить Python или [пакет служебной шины Azure для Python][Python Azure Service Bus package], дополнительные сведения см. в документе [Руководство по установке Python](../python-how-to-install.md).
 > 
 > 
 
 ## <a name="create-a-queue"></a>Создание очереди
 Объект **ServiceBusService** позволяет работать с очередями. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к служебной шине программным способом.
 
-```
+```python
 from azure.servicebus import ServiceBusService, Message, Queue
 ```
 
 Следующий код создает объект **ServiceBusService**. Замените `mynamespace`, `sharedaccesskeyname` и `sharedaccesskey` своим пространством имен, именем и значением ключа подписанного URL-адреса (SAS).
 
-```
+```python
 bus_service = ServiceBusService(
     service_namespace='mynamespace',
     shared_access_key_name='sharedaccesskeyname',
     shared_access_key_value='sharedaccesskey')
 ```
 
-Значения для имени и значения ключа SAS можно найти в данных подключения к [классическому порталу Azure][классическом портале Azure] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
+Значения для имени и значение ключа SAS можно найти в данных подключения к [классическому порталу Azure][Azure classic portal] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
 
-```
+```python
 bus_service.create_queue('taskqueue')
 ```
 
 **create_queue** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
 
-```
+```python
 queue_options = Queue()
 queue_options.max_size_in_megabytes = '5120'
 queue_options.default_message_time_to_live = 'PT1M'
@@ -69,17 +71,17 @@ bus_service.create_queue('taskqueue', queue_options)
 
 В следующем примере показано, как отправить тестовое сообщение в очередь с именем *taskqueue* с помощью **send\_queue\_message**.
 
-```
+```python
 msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Дополнительные сведения о квотах см. в статье [Квоты на служебную шину][Квоты на служебную шину].
+Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Дополнительные сведения о квотах см. в статье [Квоты на служебную шину][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Получение сообщений из очереди
 Сообщения извлекаются из очереди с помощью метода **receive\_queue\_message** объекта **ServiceBusService**.
 
-```
+```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
@@ -90,7 +92,7 @@ print(msg.body)
 
 Если параметр **peek\_lock** имеет значение **True**, получение становится операцией из двух этапов, что позволяет поддерживать приложения, неустойчивые к пропуску сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. После завершения обработки сообщения (или его надежного сохранения для будущей обработки) приложение завершает второй этап процесса получения, вызывая метод **delete** объекта **Message**. Метод **delete** помечает сообщение как использованное и удаляет его из очереди.
 
-```
+```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 print(msg.body)
 
@@ -105,18 +107,18 @@ msg.delete()
 Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **delete**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным для различных попыток доставки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы ознакомились с основными сведениями об очередях служебной шины. Для получения дополнительной информации используйте следующие ссылки.
+Вы ознакомились с основными сведениями об очередях служебной шины. Дополнительные сведения см. в статье:
 
-* См. статью [Очереди, разделы и подписки][Очереди, разделы и подписки].
+* [Очереди, разделы и подписки служебной шины][Queues, topics, and subscriptions].
 
-[классическом портале Azure]: https://manage.windowsazure.com
-[Пакет служебной шины Azure для Python]: https://pypi.python.org/pypi/azure-servicebus  
-[Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
-[Квоты на служебную шину]: service-bus-quotas.md
-
-
+[Azure classic portal]: https://manage.windowsazure.com
+[Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Service Bus quotas]: service-bus-quotas.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO2-->
 
 

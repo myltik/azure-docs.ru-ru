@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
-ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 49c7506b35f661509346dfd8305f10c0d63422eb
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и найдите **Microsoft.Azure.Management.ResourceManager**. Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
-5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом.
+5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом:
    
     ```
     using System;
@@ -193,7 +194,7 @@ ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 * Ознакомьтесь с возможностями [REST API поставщика ресурсов Центра Интернета вещей][lnk-rest-api].
 * Сведения о возможностях Azure Resource Manager см. в статье [Общие сведения об Azure Resource Manager][lnk-azure-rm-overview].
 
-Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
+Дополнительные сведения о разработке для Центра Интернета вещей см. в следующих статьях:
 
 * [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
 * [IoT Hub SDKs][lnk-sdks] (Пакеты SDK для Центра Интернета вещей)
@@ -215,9 +216,4 @@ ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

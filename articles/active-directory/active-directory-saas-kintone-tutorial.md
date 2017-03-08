@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: d6ce5ac0207ac94a4eb8e6dccedd36c7cb446d70
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-kintone-tutorial/IC785859.png "Scenario")
+![Сценарий](./media/active-directory-saas-kintone-tutorial/IC785859.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-kintone"></a>Включение интеграции приложений для Kintone
 В этом разделе показано, как включить интеграцию приложений для Kintone.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-kintone-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-kintone-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-kintone-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-kintone-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-kintone-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-kintone-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Kintone**.
    
-    ![Коллекция приложений](./media/active-directory-saas-kintone-tutorial/IC785867.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-kintone-tutorial/IC785867.png "Коллекция приложений")
 
 7. В области результатов выберите **Kintone** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -74,41 +75,41 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Kintone** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785872.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в Kintone?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785873.png "Настройка единого входа")
 
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Kintone** введите свой URL-адрес в формате *https://компания.kintone.com*, а затем нажмите кнопку **Далее**.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-kintone-tutorial/IC785875.png "Настройка URL-адреса приложения")
 
 4. Для скачивания сертификата на странице **Настройка единого входа в Kintone** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785878.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785878.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на веб-сайт **Kintone** компании в качестве администратора.
 
 6. Щелкните **Параметры**.
    
-    ![Параметры](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![Параметры](./media/active-directory-saas-kintone-tutorial/IC785879.png "Параметры")
 
 7. Щелкните **Users & System Administration** (Администрирование пользователей и системы).
    
-    ![Администрирование пользователей и системы](./media/active-directory-saas-kintone-tutorial/IC785880.png "Users & System Administration")
+    ![Users & System Administration](./media/active-directory-saas-kintone-tutorial/IC785880.png "Users & System Administration") (Администрирование пользователей и системы)
 
 8. Перейдите в раздел **System Administration \> Security** (Системное администрирование > Безопасность) и щелкните **Login** (Вход).
    
-    ![Вход](./media/active-directory-saas-kintone-tutorial/IC785881.png "Login")
+    ![Login](./media/active-directory-saas-kintone-tutorial/IC785881.png "Login") (Вход)
 
 9. Установите флажок **Включить проверку подлинности SAML**.
    
-    ![Проверка подлинности SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "SAML Authentication")
+    ![Аутентификация SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Аутентификация SAML")
 
 10. В разделе «Проверка подлинности SAML» выполните следующие действия.
     
-    ![Проверка подлинности SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML Authentication")
+    ![Аутентификация SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Аутентификация SAML")
     
     1. На странице диалогового окна **Настройка единого входа в Kintone** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **Login URL** (URL-адрес для входа).
    
@@ -120,7 +121,7 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 
 11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785884.png "Настройка единого входа")
     
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -132,23 +133,23 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 
 2. Щелкните **Параметр**.
    
-    ![Параметры](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![Параметры](./media/active-directory-saas-kintone-tutorial/IC785879.png "Параметры")
 
 3. Щелкните **Users & System Administration** (Администрирование пользователей и системы).
    
-    ![Администрирование пользователей и системы](./media/active-directory-saas-kintone-tutorial/IC785880.png "User & System Administration")
+    ![Users & System Administration](./media/active-directory-saas-kintone-tutorial/IC785880.png "Users & System Administration") (Администрирование пользователей и системы)
 
 4. В разделе **User Administration** (Администрирование пользователей) щелкните **Departments & Users** (Отделы и пользователи).
    
-    ![Отделы и пользователи](./media/active-directory-saas-kintone-tutorial/IC785888.png "Department & Users")
+    ![Department & Users](./media/active-directory-saas-kintone-tutorial/IC785888.png "Department & Users") (Отделы и пользователи)
 
 5. Щелкните **Новый пользователь**.
    
-    ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785889.png "New Users")
+    ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785889.png "Новые пользователи")
 
 6. В разделе **New User** (Новый пользователь) выполните следующие действия.
    
-    ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785890.png "New Users")
+    ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785890.png "Новые пользователи")
    
     1. В соответствующие текстовые поля введите атрибуты **Display Name** (Отображаемое имя), **Login Name** (Имя входа), **New Password** (Новый пароль), **Confirm Password** (Подтверждение пароля), **E-mail Address** (Адрес электронной почты) и другие данные действующей учетной записи AAD, которую вы хотите подготовить.
  
@@ -167,17 +168,12 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 
 2. На странице интеграции с приложением **Kintone** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-kintone-tutorial/IC785891.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-kintone-tutorial/IC785891.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-kintone-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-kintone-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

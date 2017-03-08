@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
+ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
+ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -141,7 +142,7 @@ ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
 
 Если имеется другая фабрика данных с конвейером, который принимает набор данных 4 (созданный конвейером 2 в фабрике данных 1), то следует пометить набор данных 4 как внешний (external), так как он производится фабрикой данных (фабрикой данных 1, не фабрикой данных 2).  
 
-**Фабрика данных 2**    
+**Фабрика данных&2;**    
 Конвейер 1: набор данных 4 -> действие 4 -> набор данных 5.
 
 Если свойство external задано неверно, проверьте, существуют ли входные данные в расположении, заданном в определении входного набора данных.
@@ -162,7 +163,7 @@ ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
 ### <a name="how-can-i-rerun-a-slice"></a>Как повторно выполнять срез?
 Вы можете повторно выполнить срез одним из следующих способов:
 
-* Запустите окно действия или срез повторно с помощью приложения для мониторинга и управления. Инструкции см. в разделе [Повторное выполнение выбранных окон действий](data-factory-monitor-manage-app.md#performing-batch-actions).   
+* Запустите окно действия или срез повторно с помощью приложения для мониторинга и управления. Инструкции см. в разделе [Повторное выполнение выбранных окон действий](data-factory-monitor-manage-app.md#perform-batch-actions).   
 * Щелкните **Выполнить** в командной строке в колонке **Срез данных** для среза на портале Azure.
 * Выполните для этого среза командлет **Set-AzureRmDataFactorySliceStatus** с состоянием **Waiting**.   
 
@@ -200,9 +201,4 @@ ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

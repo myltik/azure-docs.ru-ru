@@ -1,5 +1,5 @@
 ---
-title: "Безопасность StorSimple | Документация Майкрософт"
+title: "Безопасность StorSimple серии 8000 | Документация Майкрософт"
 description: "Описание функций обеспечения безопасности и конфиденциальности, защищающих службу, устройство и данные StorSimple как локально, так и в облаке."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 05/03/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: efdb69c03845ba321d7e0b1270268c4fb92fa1ef
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -257,10 +258,5 @@ StorSimple использует следующие алгоритмы шифро
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Развертывание устройства StorSimple](storsimple-deployment-walkthrough.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

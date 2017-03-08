@@ -16,13 +16,17 @@ ms.topic: get-started-article
 ms.date: 07/06/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
+ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
+ms.openlocfilehash: 6e5ccae8837491e042b85ba4b7d42227e194cb94
 
 
 ---
 # <a name="my-first-graphical-runbook"></a>Первый графический Runbook
-> [AZURE.SELECTOR] - [Графические](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [Рабочий процесс PowerShell](automation-first-runbook-textual.md)
+
+> [!div class="op_single_selector"]
+> * [Графический](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [Рабочий процесс PowerShell](automation-first-runbook-textual.md)
 > 
 > 
 
@@ -35,7 +39,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 * [Учетная запись запуска от имени Azure](automation-sec-configure-azure-runas-account.md) , чтобы хранить модуль Runbook и выполнять проверку подлинности ресурсов Azure.  Эта учетная запись должна иметь разрешение на запуск и остановку виртуальной машины.
 * Виртуальная машина Azure.  Это не должна быть рабочая машина, поскольку в процессе изучения данного материала ее нужно будет остановить и запустить заново.
 
-## <a name="step-1-create-new-runbook"></a>Шаг 1. Создание нового модуля Runbook
+## <a name="step-1---create-new-runbook"></a>Шаг 1. Создание нового модуля Runbook
 Для начала мы создадим простой модуль Runbook, выводящий на экран текст *Привет, мир!*
 
 1. На портале Azure выберите свою учетную запись в службе автоматизации.  
@@ -46,7 +50,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 5. В этом примере создается [графический модуль Runbook](automation-graphical-authoring-intro.md), поэтому в поле **Runbook type** (Тип Runbook) выберите значение **Графический**.<br> ![Новый Runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Щелкните **Создать** , чтобы создать модуль Runbook и открыть графический редактор.
 
-## <a name="step-2-add-activities-to-the-runbook"></a>Шаг 2. Добавление действий в модуль Runbook
+## <a name="step-2---add-activities-to-the-runbook"></a>Шаг 2. Добавление действий в модуль Runbook
 Элемент управления "Библиотека" в левой части редактора позволяет добавлять действия в модуль Runbook.  Добавим командлет **Write-Output** для вывода текста из модуля Runbook.
 
 1. В элементе управления "Библиотека" щелкните текстовое поле поиска и введите **Write-Output**.  Результаты поиска будут отображены ниже. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
@@ -61,7 +65,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 8. В поле **Выражение** введите *Привет, мир* и дважды нажмите кнопку **ОК**, чтобы вернуться к холсту.<br> ![PowerShell Expression](media/automation-first-runbook-graphical/expression-hello-world.png)
 9. Сохраните модуль Runbook, щелкнув **Сохранить**.<br> ![Сохранить Runbook](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
-## <a name="step-3-test-the-runbook"></a>Шаг 3. Тестирование модуля Runbook
+## <a name="step-3---test-the-runbook"></a>Шаг 3. Тестирование модуля Runbook
 Прежде чем опубликовать модуль Runbook и, таким образом, сделать его доступным для рабочей среды, необходимо проверить, нормально ли он работает.  Чтобы протестировать модуль Runbook, нужно запустить его **черновую** версию и проверить его работу в интерактивном режиме.
 
 1. Щелкните **Test pane** (Тестовая область), чтобы открыть колонку "Тестирование".<br> ![Область тестирования](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
@@ -71,7 +75,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 4. Когда задание модуля Runbook будет выполнено, на экране появится результат. В нашем случае это должен быть текст *Привет, мир!*.<br> ![Привет, мир!](media/automation-first-runbook-graphical/runbook-test-results.png)
 5. Закройте колонку "Тест", чтобы вернуться на холст.
 
-## <a name="step-4-publish-and-start-the-runbook"></a>Шаг 4. Публикация и запуск модуля Runbook
+## <a name="step-4---publish-and-start-the-runbook"></a>Шаг 4. Публикация и запуск модуля Runbook
 Модуль, который мы только что создали, все еще находится в режиме проекта. Прежде чем запустить модуль в рабочей среде, его нужно опубликовать.  При публикации модуля Runbook существующая опубликованная версия перезаписывается черновой версией.  В нашем случае опубликованной версии не существует, поскольку Runbook был создан только что.
 
 1. Щелкните **Опубликовать**, чтобы опубликовать модуль Runbook, а затем нажмите кнопку **Да** в появившемся запросе.<br> ![Опубликовать](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
@@ -88,7 +92,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 11. Щелкните **Задания** , чтобы открыть колонку "Задания" для этого модуля.  Откроется список всех заданий, созданных этим модулем Runbook. В нем должно быть только одно задание, так как мы запускали задание только один раз.<br> ![Задания](media/automation-first-runbook-graphical/runbook-control-jobs.png)
 12. Если щелкнуть это задание, откроется та же область заданий, которую мы видели при запуске модуля Runbook.  С ее помощью можно вернуться назад и просмотреть сведения о любом задании, созданном для конкретного модуля Runbook.
 
-## <a name="step-5-create-variable-assets"></a>Шаг 5. Создание ресурсов для переменных
+## <a name="step-5---create-variable-assets"></a>Шаг 5. Создание ресурсов для переменных
 Мы протестировали и опубликовали свой модуль Runbook, но пока он не выполняет никаких полезных действий. Нам нужно, чтобы он управлял ресурсами Azure.  Перед тем как настроить проверку подлинности модуля Runbook, мы создадим переменную и сохраним в ней идентификатор подписки. На эту переменную мы будем ссылаться при настройке действия для проверки подлинности (см. шаг 6).  Добавив ссылку в контекст подписки, вы сможете легко работать с несколькими подписками.  Прежде чем продолжить, скопируйте идентификатор подписки из элемента "Подписки" на панели навигации.  
 
 1. В колонке "Учетные записи службы автоматизации" щелкните плитку **Ресурсы**, после чего откроется колонка **Ресурсы**.
@@ -97,7 +101,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 4. В колонке "Создание переменной" введите в поле **Имя** значение **AzureSubscriptionId**, а в поле **Значение** — свой идентификатор подписки.  Для параметра **Тип** укажите значение *Строка*, а для параметра **Шифрование** используйте значение по умолчанию.  
 5. Щелкните **Создать** , чтобы создать переменную.  
 
-## <a name="step-6-add-authentication-to-manage-azure-resources"></a>Шаг 6. Добавление проверки подлинности для управления ресурсами Azure
+## <a name="step-6---add-authentication-to-manage-azure-resources"></a>Шаг 6. Добавление проверки подлинности для управления ресурсами Azure
 Теперь, когда есть переменная, содержащая идентификатор подписки, можно настроить модуль Runbook для выполнения проверки подлинности, используя учетные данные запуска от имени, которые указаны в разделе [Предварительные требования](#prerequisites).  Для этого необходимо добавить на холст командлет **Add-AzureRMAccount** и **ресурс** подключения учетной записи запуска от имени Azure.  
 
 1. Откройте графический редактор, щелкнув **Изменить** в колонке MyFirstRunbook.<br> ![Изменить Runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
@@ -126,7 +130,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 
 Теперь модуль Runbook должен выглядеть примерно так:  <br>![Настройка проверки подлинности Runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="step-7-add-activity-to-start-a-virtual-machine"></a>Шаг 7. Добавление действия для запуска виртуальной машины
+## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Шаг 7. Добавление действия для запуска виртуальной машины
 Теперь мы добавим действие **Start-AzureRmVM** для запуска виртуальной машины.  Вы можете выбрать любую виртуальную машину в своей подписке Azure. Имя этой машины будет прописано в коде командлета.
 
 1. В элементе управления "Библиотека" введите в поле поиска текст **Start-AzureRm** .
@@ -140,7 +144,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 
 Теперь модуль Runbook должен выглядеть примерно так:  <br>![Настройка проверки подлинности Runbook](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="step-8-add-additional-input-parameters-to-the-runbook"></a>Шаг 8. Добавление дополнительных входных параметров в Runbook
+## <a name="step-8---add-additional-input-parameters-to-the-runbook"></a>Шаг 8. Добавление дополнительных входных параметров в Runbook
 Сейчас наш модуль Runbook запускает виртуальную машину в группе ресурсов, указанной в командлете **Start-AzureRmVM**. Но будет удобнее, если мы сможем выбирать нужную виртуальную машину и группу ресурсов при запуске модуля Runbook.  Для этого добавим в модуль Runbook входные параметры.
 
 1. Откройте графический редактор, щелкнув **Изменить** в области **MyFirstRunbook**.
@@ -157,7 +161,7 @@ ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
 12. Щелкните **Пуск** , чтобы запустить модуль Runbook.  Введите значения **VMName** и **ResourceGroupName** для виртуальной машины, которую нужно запустить.<br> ![Start Runbook](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
 13. Когда модуль Runbook будет выполнен, проверьте, запустилась ли виртуальная машина.
 
-## <a name="step-9-create-a-conditional-link"></a>Шаг 9. Создание условной связи
+## <a name="step-9---create-a-conditional-link"></a>Шаг 9. Создание условной связи
 Теперь мы изменим модуль Runbook, чтобы он запускал виртуальную машину только в том случае, если она еще не запущена.  Для этого добавим в Runbook командлет **Get-AzureRmVM**, который получает текущее состояние виртуальной машины. Затем добавим модуль кода с именем **Get Status** для рабочего процесса PowerShell. Фрагмент кода PowerShell в этом модуле будет определять состояние виртуальной машины (запущена или остановлена).  Условная связь между модулем **Get Status** и действием **Start-AzureRmVM** позволит запускать действие, только если виртуальная машина остановлена.  И еще мы выведем сообщение с информацией о том, удалось ли командлету PowerShell Write-Output запустить виртуальную машину.
 
 1. Откройте **MyFirstRunbook** в графическом редакторе.

@@ -1,5 +1,5 @@
 ---
-title: "Изменение размера классической виртуальной машины Windows | Документация Майкрософт"
+title: "Изменение размера виртуальной машины Windows в классической модели развертывания Azure | Документация Майкрософт"
 description: "Изменение размера виртуальной машины Windows, созданной в классической модели развертывания, с использованием Azure Powershell."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
+ms.sourcegitcommit: 3352e5d17777a213a91911440274419f2058940b
+ms.openlocfilehash: 381cf34b9e65a46a8033880a95e94446bd01edf1
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -26,9 +27,8 @@ ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
 
 Собираясь изменять размер виртуальной машины, обратите внимание на два фактора, которые определяют диапазон размеров, доступных для виртуальной машины. Первый фактор — регион, в котором развернута виртуальная машина. Список размеров виртуальных машин, доступных в регионе, находится на вкладке "Службы" веб-страницы "Регионы Azure". Второй фактор — физическое оборудование, на котором размещена виртуальная машина. Физические серверы, на которых размещены виртуальные машины, группируются в кластеры общего физического оборудования. Метод изменения размера виртуальной машины зависит от того, поддерживает ли оборудование кластера, в котором размещена виртуальная машина, новый размер.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Кроме того, можно [изменить размер виртуальной машины, созданной с использованием модели развертывания на основе Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Кроме того, можно [изменить размер виртуальной машины, созданной с использованием модели развертывания на основе Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="add-your-account"></a>Добавление учетной записи
 Для работы с классическими ресурсами Azure необходимо настроить Azure PowerShell. Выполните следующие действия, чтобы настроить Azure PowerShell для управления классическими ресурсами.
@@ -69,10 +69,5 @@ ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Resize a Windows VM](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Изменение размера виртуальной машины Windows).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

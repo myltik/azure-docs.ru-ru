@@ -1,24 +1,27 @@
 ---
 services: virtual-machines
-title: Setting up PowerShell
+title: "Настройка PowerShell"
 author: JoeDavies-MSFT
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: ''
+ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
+ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
+
 
 ---
-## Настройка PowerShell
+## <a name="setting-up-powershell"></a>Настройка PowerShell
 Прежде чем использовать Azure PowerShell, выполните следующие действия.
 
-### Проверка версий PowerShell
+### <a name="verify-powershell-versions"></a>Проверка версий PowerShell
 Чтобы использовать Windows PowerShell, необходимо установить Windows PowerShell версии 3.0 или 4.0. Чтобы узнать версию Windows PowerShell, введите в командной строке Windows PowerShell такую команду:
 
     $PSVersionTable
@@ -35,7 +38,7 @@ ms.author: rasquill
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Убедитесь, что в строке **PSVersion** указано значение 3.0 или 4.0. Сведения об установке совместимой версии см. в разделе [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Убедитесь, что в строке **PSVersion** указано значение 3.0 или 4.0. Сведения об установке совместимой версии см. в разделе [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Также необходимо установить Azure PowerShell версии 0.8.0 или выше. Установленную версию Azure PowerShell можно узнать в командной строке Azure PowerShell с помощью такой команды:
 
@@ -47,10 +50,10 @@ ms.author: rasquill
     -------
     0.8.16.1
 
-Инструкции и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
+Инструкции и ссылку на последнюю версию см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### Настройка учетной записи и подписки Azure
-Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+### <a name="set-your-azure-account-and-subscription"></a>Настройка учетной записи и подписки Azure
+Если у вас нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или зарегистрироваться в [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 
 Откройте окно командной строки Azure PowerShell и войдите в систему Azure с помощью такой команды:
 
@@ -78,6 +81,11 @@ ms.author: rasquill
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Подключение к подписке](../articles/powershell-install-configure.md#Connect).
+Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Шаг 3. Подключение](/powershell/azureps-cmdlets-docs#Connect).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

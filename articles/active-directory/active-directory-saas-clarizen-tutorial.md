@@ -1,142 +1,262 @@
 ---
 title: "Учебник. Интеграция Azure Active Directory с Clarizen | Документация Майкрософт"
-description: "Узнайте, как использовать Clarizen вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход Azure Active Directory в Clarizen."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9f8d2418fe86163a4022960f87803c82487c86fd
+ms.sourcegitcommit: 3908c354a8551d7b16c759a48ef3e5316bfa11fa
+ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Руководство. Интеграция Azure Active Directory с Clarizen
-Цель данного руководства — показать интеграцию Azure и Clarizen.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
-* Подписка с поддержкой единого входа Clarizen
+В этом руководстве описано, как интегрировать Azure Active Directory (Azure AD) с Clarizen. Эта интеграция дает следующие преимущества.
 
-После завершения этого руководства пользователи Azure AD, назначенные Clarizen, будут иметь возможность единого входа в приложение на веб-сайте компании Clarizen (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+- С помощью Azure AD вы можете контролировать доступ к Clarizen.
+- Вы можете включить автоматический вход пользователей в Clarizen (единый вход) с помощью учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно, через портал Azure.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Сценарий, описанный в этом руководстве, состоит из двух основных задач.
 
-1. Включение интеграции приложений для Clarizen
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+1. Добавление Clarizen из коллекции.
+2. Настройка и проверка единого входа в Azure AD.
 
-![Сценарий](./media/active-directory-saas-clarizen-tutorial/IC784679.png "Scenario")
+Дополнительные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="enabling-the-application-integration-for-clarizen"></a>Включение интеграции приложений для Clarizen
-В этом разделе показано, как включить интеграцию приложений для Clarizen.
+## <a name="prerequisites"></a>Предварительные требования
+Чтобы настроить интеграцию Azure AD с Clarizen, вам потребуется:
 
-### <a name="to-enable-the-application-integration-for-clarizen-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Clarizen, выполните следующие действия.
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-clarizen-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-clarizen-tutorial/IC700994.png "Applications")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавить приложение](./media/active-directory-saas-clarizen-tutorial/IC749321.png "Add application")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавить приложение из коллекции](./media/active-directory-saas-clarizen-tutorial/IC749322.png "Add an application from gallerry")
-6. В **поле поиска** введите **Clarizen**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-clarizen-tutorial/IC784680.png "Application Gallery")
-7. В области результатов выберите **Clarizen** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![Clarizen](./media/active-directory-saas-clarizen-tutorial/IC784681.png "Clarizen")
-   
-   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
+- подписка Azure AD;
+- подписка Clarizen с поддержкой единого входа.
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Clarizen со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+При проверке действий в этом руководстве соблюдайте следующие рекомендации:
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. На странице интеграции с приложением **Clarizen** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-clarizen-tutorial/IC784682.png "Configure Single Sign-On")
-2. На странице **Как пользователи должны входить в Clarizen?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-clarizen-tutorial/IC784683.png "Configure Single Sign-On")
-3. Для скачивания сертификата на странице **Настройка единого входа в Clarizen** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-clarizen-tutorial/IC784684.png "Configure Single Sign-On")
-4. В другом окне веб-браузера войдите на свой корпоративный сайт **Clarizen** в качестве администратора (например: *https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
-5. Нажмите свое имя пользователя и выберите пункт **Параметры**.
-   
-   ![Параметры](./media/active-directory-saas-clarizen-tutorial/IC784685.png "Settings")
-6. Откройте вкладку **Global Settings** (Глобальные параметры), а затем рядом с параметром **Federated Authentication** (Федеративная аутентификация) нажмите **edit** (изменить).
-   
-   ![Глобальные параметры](./media/active-directory-saas-clarizen-tutorial/IC786906.png "Global Settings")
-7. В диалоговом окне **Федеративная проверка подлинности** выполните следующие действия.
-   
-   ![Федеративная проверка подлинности](./media/active-directory-saas-clarizen-tutorial/IC785892.png "Federated Authentication")
-   
-   1. Чтобы отправить загруженный сертификат, нажмите кнопку **Отправить** .
-   2. На странице диалогового окна **Настройка единого входа в Clarizen** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **Sign-in URL** (URL-адрес для входа).
-   3. На странице диалогового окна **Configure single sign-out at Clarizen** (Настройка единого выхода для Clarizen) классического портала Azure скопируйте значение поля **URL-адрес службы единого выхода** и вставьте его в текстовое поле **Sign-out URL** (URL-адрес для выхода).
-   4. Установите флаг **Использовать POST**.
-   5. Щелкните **Сохранить**.
-8. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configure Single Sign-On")
-   
-   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+- Проверьте единый вход Azure AD в тестовой среде. Не используйте рабочую среду без необходимости.
+- Если у вас нет тестовой среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
-Чтобы пользователи Azure AD могли выполнить вход в Clarizen, они должны быть подготовлены для Clarizen.  
-В случае с Clarizen подготовка выполняется вручную.
+## <a name="add-clarizen-from-the-gallery"></a>Добавление Clarizen из коллекции
+Чтобы настроить интеграцию Clarizen с Azure AD, добавьте Clarizen из коллекции в список управляемых приложений SaaS.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия.
-1. Выполните вход на свой корпоративный веб-сайт **Clarizen** в качестве администратора.
+1. На [портале Azure](https://portal.azure.com) в области слева щелкните значок **Azure Active Directory**.
+
+    ![Значок Azure Active Directory][1]
+
+2. Щелкните **Корпоративные приложения**. Затем щелкните **Все приложения**.
+
+    ![Выбор пунктов "Корпоративные приложения" и "Все приложения".][2]
+
+3. В верхней части диалогового окна нажмите кнопку **Добавить**.
+
+    ![Кнопка "Добавить"][3]
+
+4. В поле поиска введите **Clarizen**.
+
+    ![Ввод Clarizen в поле поиска](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
+
+5. В области результатов выберите **Clarizen** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+
+    ![Выбор Clarizen в области результатов](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В следующих разделах описана настройка и проверка единого входа Azure AD в Clarizen с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Clarizen соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Clarizen. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Clarizen.
+
+Чтобы настроить и проверить единый вход Azure AD в Clarizen, выполните инструкции ниже.
+
+1. **[Настройте единый вход в Azure AD](#configure-azure-ad-single-sign-on)**, чтобы пользователи могли использовать эту функцию.
+2. **[Создайте тестового пользователя Azure AD](#create-an-azure-ad-test-user)** для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создайте тестового пользователя Clarizen](#create-a-clarizen-test-user)**, чтобы в Clarizen был тестовый пользователь Britta Simon, связанный с соответствующим представлением в Azure AD.
+4. **[Назначьте тестового пользователя Azure AD](#assign-the-azure-ad-test-user)**, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверьте единый вход](#test-single-sign-on)**, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+Включите единый вход Azure AD на портале Azure и настройте его в приложении Clarizen.
+
+1. На портале Azure на странице интеграции с приложением **Clarizen** щелкните **Единый вход**.
+
+    ![Выбор пункта "Единый вход"][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+
+    ![Выбор параметра "Единый вход на основе SAML"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_01.png)
+
+3. В разделе **Домены и URL-адреса приложения Clarizen** сделайте следующее.
+
+    ![Поля идентификатора и URL-адреса ответа](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
+
+    а. В поле **Идентификатор** введите значение **Clarizen**.
+
+    b. В поле **URL-адрес ответа** введите URL-адрес, используя следующий шаблон: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+
+    > [!NOTE]
+    > Значения, указанные выше, приведены в качестве примера. Используйте фактические значения идентификатора и URL-адреса ответа. Мы рекомендуем использовать уникальное значение строки идентификатора. Чтобы получить фактические значения, обратитесь в [техническую поддержку Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
+
+4. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
+
+    ![Нажатие кнопки "Создать новый сертификат"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)     
+
+5. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите дату окончания срока действия. Нажмите кнопку **Сохранить**.
+
+    ![Выбор и сохранение даты окончания действия](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
+
+6. В разделе **Сертификат подписи SAML** поставьте флажок **Сделать новый сертификат активным** и нажмите кнопку **Сохранить**.
+
+    ![Установка флажка для активации нового сертификата](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
+
+7. В диалоговом окне **Сертификат возобновления** нажмите кнопку **ОК**.
+
+    ![Нажатие кнопки "ОК" для подтверждения активации сертификата](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
+
+8. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
+
+    ![Нажатие кнопки "Сертификат (Base64)" для начала загрузки](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
+
+9. В разделе **Конфигурация Clarizen** нажмите кнопку **Настроить Clarizen**, чтобы открыть окно **Настройка единого входа**.
+
+    ![Нажатие кнопки "Настроить Clarizen"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_06.png)
+
+    ![Окно "Настройка единого входа" с файлами и URL-адресами](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_07.png)
+
+10. В другом окне веб-браузера войдите на корпоративный сайт Clarizen в качестве администратора.
+
+11. Щелкните свое имя пользователя и выберите пункт **Settings** (Параметры).
+
+    ![Выбор пункта "Параметры" по именем пользователя](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Параметры")
+
+12. Откройте вкладку **Global Settings** (Глобальные параметры). Рядом с параметром **Federated Authentication** (Федеративная проверка подлинности) нажмите кнопку **edit** (изменить).
+
+    ![Вкладка "Глобальные параметры"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "Глобальные параметры")
+
+13. В диалоговом окне **Federated Authentication** (Федеративная проверка подлинности) выполните следующие действия.
+
+    ![Диалоговое окно "Федеративная проверка подлинности"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Федеративная проверка подлинности")
+
+    а. Выберите **Enable Federated Authentication** (Включить федеративную проверку подлинности).
+
+    b. Чтобы отправить загруженный сертификат, нажмите кнопку **Отправить** .
+
+    c. В текстовом поле **Sign-in URL** (URL-адрес входа) введите значение **URL-адреса службы единого входа SAML** из окна настройки приложения Azure AD.
+
+    d. В текстовом поле **Sign-out URL** (URL-адрес выхода) введите значение **URL-адреса выхода** из окна настройки приложения Azure AD.
+
+    д. Установите флаг **Использовать POST**.
+
+    Е. Щелкните **Сохранить**.
+
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+На портале Azure создайте тестового пользователя с именем Britta Simon.
+
+![Имя и адрес электронной почты тестового пользователя Azure AD][100]
+
+1. На портале Azure в области слева щелкните значок **Azure Active Directory**.
+
+    ![Значок Azure Active Directory](./media/active-directory-saas-clarizen-tutorial/create_aaduser_01.png)
+
+2. Откройте раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+
+    ![Выбор разделов "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_02.png)
+
+3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь" с заполненными полями "Имя", "Адрес электронной почты" и "Пароль"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты учетной записи Britta Simon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+
+### <a name="create-a-clarizen-test-user"></a>Создание тестового пользователя Clarizen
+Чтобы пользователи Azure AD могли входить в приложение Clarizen, необходимо подготовить учетные записи пользователей. В случае с Clarizen подготовка выполняется вручную.
+
+1. Войдите на корпоративный сайт Clarizen в качестве администратора.
+
 2. Выберите параметр **Пользователи**.
-   
-   ![Пользователи](./media/active-directory-saas-clarizen-tutorial/IC784689.png "People")
+
+    ![Выберите пункт People (Пользователи)](./media/active-directory-saas-clarizen-tutorial/create_aaduser_001.png "Пользователи")
+
 3. Нажмите кнопку **Пригласить пользователя**.
-   
-   ![Пригласить пользователей](./media/active-directory-saas-clarizen-tutorial/IC784690.png "Invite Users")
-4. На странице диалогового окна "Приглашение пользователей" выполните следующие действия.
-   
-   ![Приглашение пользователей](./media/active-directory-saas-clarizen-tutorial/IC784691.png "Invite People")
-   
-   1. В текстовом поле **Электронная почта** введите адрес электронной почты действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
-   2. Нажмите кнопку **Пригласить**.
-   
-   > [!NOTE]
-   > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
-   > 
-   > 
 
-## <a name="assigning-users"></a>Назначение пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+    ![Кнопка Invite User](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "Пригласить пользователя")
 
-### <a name="to-assign-users-to-clarizen-perform-the-following-steps"></a>Чтобы назначить пользователей Clarizen, выполните следующие действия.
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Clarizen** нажмите кнопку **Назначить пользователей**.
-   
-   ![Назначить пользователей](./media/active-directory-saas-clarizen-tutorial/IC784692.png "Assign Users")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Yes")
+4. В диалоговом окне **Invite People** (Приглашение пользователей) выполните следующие действия.
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+    ![Диалоговое окно Invite People](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Приглашение пользователей")
 
+    а. В текстовом поле **Email** (Электронная почта) введите адрес электронной почты учетной записи Britta Simon.
 
+    b. Нажмите кнопку **Пригласить**.
 
+    > [!NOTE]
+    > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
-<!--HONumber=Nov16_HO3-->
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Разрешите пользователю Britta Simon применять единый вход Azure, предоставив доступ к Clarizen.
 
+![Назначение тестового пользователя][200]
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Выбор пунктов "Корпоративные приложения" и "Все приложения".][201]
+
+2. В списке приложений выберите **Clarizen**.
+
+    ![Выбор Clarizen в списке](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
+
+3. В области слева выберите **Пользователи и группы**.
+
+    ![Выбор пункта "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Add** (Добавить). Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Нажатие кнопки "Добавить" и диалоговое окно "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+
+### <a name="test-single-sign-on"></a>Проверка единого входа
+Проверьте конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент Clarizen на панели доступа, вы автоматически войдете в приложение Clarizen.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_203.png
 

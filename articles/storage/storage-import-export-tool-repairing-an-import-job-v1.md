@@ -1,5 +1,5 @@
 ---
-title: "Восстановление задания импорта | Документация Майкрософт"
+title: "Восстановление задания импорта Azure | Документация Майкрософт"
 description: "Узнайте, как восстановить задание импорта, созданное и выполняемое с помощью службы импорта и экспорта."
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: 9278256edd5c117de9b0e6b5b12f0ca37c612661
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="repairing-an-import-job"></a>Восстановление задания импорта
+# <a name="repairing-an-import-job"></a>Исправление задания импорта
 Иногда службе импорта и экспорта Microsoft Azure не удается скопировать некоторые файлы или их части в службу BLOB-объектов Windows Azure. Это может происходить по следующим причинам:  
   
 -   файлы повреждены;  
@@ -107,9 +108,4 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
 [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Просмотр состояния задания с помощью файлов журнала копирования)  
 [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)  (Восстановление задания экспорта)  
 [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md) (Устранение неполадок со средством импорта и экспорта Azure)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

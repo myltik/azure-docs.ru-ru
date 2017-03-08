@@ -5,18 +5,17 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 
 
 ---
@@ -43,7 +42,7 @@ ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
 | Федеративный единый вход |[Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
 | Единый вход на основе пароля |[Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Прокси приложения |[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
-| Единый вход между локальным AD и Azure AD |[Устранение неполадок синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Устранение неполадок обратной записи паролей](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Единый вход между локальным AD и Azure AD |[Устранение неполадок синхронизации паролей](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Устранение неполадок обратной записи паролей](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Динамическое членство в группах |[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Единый вход (SSO)
@@ -114,7 +113,7 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 
 Условный доступ — это функция [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) .
 
-## <a name="apps-azure-ad"></a>Приложения и Azure AD
+## <a name="apps--azure-ad"></a>Приложения и Azure AD
 ### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud App Discovery: поиск приложений SaaS, используемых в вашей организации
 С помощью службы Cloud App Discovery ИТ-отделы могут узнать, какие приложения SaaS используются в организации. Эта служба позволяет оценить использование и популярность приложений. Таким образом ИТ-отделы смогут определить, какие приложения выгоднее всего контролировать и интегрировать с Azure AD.
 
@@ -214,6 +213,6 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

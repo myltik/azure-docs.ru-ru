@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
+ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
+ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -44,6 +45,18 @@ ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
 
 При использовании неотслеживаемого ручного режима после каждого обновления домена обновления потребуется вручную запустить обновление на следующем домене обновления. Проверок работоспособности Service Fabric не выполняется. Администратор проверяет работоспособность или состояние перед запуском обновления в следующем домене обновления.
 
+## <a name="upgrade-default-services"></a>Обновление служб по умолчанию
+Службы по умолчанию внутри приложения Service Fabric могут быть обновлены во время обновления приложения. Службы по умолчанию определяются в [манифесте приложения](service-fabric-application-model.md#describe-an-application). Применяются следующие стандартные правила обновления служб по умолчанию.
+
+1. Если службы по умолчанию, определенные в новом [манифесте приложения](service-fabric-application-model.md#describe-an-application), не существуют в кластере, то они создаются.
+> [!TIP]
+> Чтобы включить приведенные правила, для [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) необходимо задать значение true. Эта функция поддерживается, начиная с версии&5;.5.
+
+2. Службы по умолчанию, существующие в предыдущей и новой версиях [манифеста приложения](service-fabric-application-model.md#describe-an-application), обновляются. Описания служб в новой версии заменят описания, уже используемые в кластере. При сбое обновления служб по умолчанию автоматически выполняется откат обновления приложения.
+3. Службы по умолчанию, присутствующие в предыдущем [манифесте приложения](service-fabric-application-model.md#describe-an-application), но отсутствующие в его новой версии, удаляются. **Обратите внимание, что это удаление служб по умолчанию невозможно отменить.**
+
+В случае отката обновления приложения будет возвращено состояние служб по умолчанию на момент до начала обновления. Но создать удаленные службы будет невозможно.
+
 ## <a name="application-upgrade-flowchart"></a>Блок-схема обновления приложения
 Блок-схема, приведенная далее в этом абзаце, поможет понять процесс обновления приложения Service Fabric. В частности, она описывает, как параметры времени ожидания, в том числе *HealthCheckStableDuration*, *HealthCheckRetryTimeout* и *UpgradeHealthCheckInterval*, помогают управлять тем, при каких условиях обновление домена обновления считается успешным или неудачным.
 
@@ -63,9 +76,4 @@ ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
 Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

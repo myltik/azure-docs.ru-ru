@@ -1,5 +1,5 @@
 ---
-title: "Часто задаваемые вопросы по виртуальным машинам Linux | Документация Майкрософт"
+title: "Часто задаваемые вопросы о виртуальных машинах Linux в Azure | Документация Майкрософт"
 description: "В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Linux, созданных с помощью модели Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 84b100bef1ee9661a38c05056ffafdb1d6640986
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 78b476b31f030fba4034dc1f499b020d244e8288
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -111,9 +112,4 @@ ms.openlocfilehash: 84b100bef1ee9661a38c05056ffafdb1d6640986
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

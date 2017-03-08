@@ -1,5 +1,5 @@
 ---
-title: "Начало развертывания и обновления приложений в локальном кластере | Документация Майкрософт"
+title: "Развертывание и обновление микрослужб Azure локально | Документация Майкрософт"
 description: "Установка локального кластера Service Fabric, развертывание в нем существующего приложения и обновление этого приложения."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
-ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -240,9 +241,4 @@ ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

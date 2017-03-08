@@ -3,8 +3,7 @@ title: "Заметки о выпуске пакета SDK для Azure для .N
 description: "Заметки о выпуске пакета SDK для Azure для .NET 2.9"
 services: app-service\web
 documentationcenter: .net
-author: Juliako
-manager: erikre
+author: chrissfanos
 editor: 
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
@@ -12,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/16/2016
+ms.date: 02/24/2017
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
-ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+ms.sourcegitcommit: 71c5a4f1b816fdcfe7ef267c20e6ed42e6cc51e6
+ms.openlocfilehash: 3c3fb275a7c980f71a3a30e6875b9515321bad99
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,6 +43,10 @@ ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
 ### <a name="windows-server-2016-virtual-machines"></a>Виртуальные машины Windows Server 2016
 
 - Visual Studio теперь поддерживает развертывание облачных служб на виртуальных машинах с операционной системой из семейства версии 5 (Windows Server 2016). Для имеющихся облачных служб можно изменить параметры, чтобы использовать новую ОС из семейства версий. Если для создания облачных служб вы решили использовать .NET 4.6 или более поздней версии, по умолчанию для службы будет использоваться ОС из семейства версий 5.  Дополнительные сведения см. в статье [Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+
+#### <a name="known-issues"></a>Известные проблемы
+
+- В пакете SDK Azure для .NET 2.9.6 введено ограничение, который блокирует развертывание проектов, использующих неподдерживаемые платформы .NET Framework (например, .NET 4.6) для любого семейства ОС, предшествующего версии 5. Обходной путь описан [здесь](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
  
 ### <a name="azure-in-role-cache"></a>Кэш роли Azure 
@@ -83,14 +87,9 @@ ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
 **Средства HDInsight** для Visual Studio теперь поддерживают HDInsight версии 3.3, включая показ графики Tez и другие языковые исправления.
 
 ## <a name="azure-resource-manager"></a>Диспетчер ресурсов Azure
-В этом выпуске добавлена поддержка [KeyVault](../resource-manager-keyvault-parameter.md) для шаблонов ARM.
+В этом выпуске добавлена поддержка [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) для шаблонов Resource Manager.
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Объявление о пакете SDK Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

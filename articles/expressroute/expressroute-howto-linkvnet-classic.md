@@ -1,5 +1,5 @@
 ---
-title: "Связывание виртуальной сети с каналом ExpressRoute с помощью классической модели развертывания и PowerShell | Документация Майкрософт"
+title: "Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell и классического портала Azure | Документация Майкрософт"
 description: "В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью классической модели развертывания и PowerShell."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
+ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
+ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
+ms.lasthandoff: 02/03/2017
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Связывание виртуальной сети с каналом ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Подключение виртуальной сети к каналу ExpressRoute
 > [!div class="op_single_selector"]
-> * [Портал Azure — Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell — Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell — классическая модель](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Классическая модель: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -158,10 +160,5 @@ ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

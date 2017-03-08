@@ -16,18 +16,13 @@ ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5a3f40ff8811c08d130c2a3e0a7d61aed9457d1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="restore-a-deleted-azure-sql-database-using-the-azure-portal"></a>Восстановление удаленной базы данных SQL Azure на портале Azure
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-recovery-using-backups.md)
-> * [**Восстановление удаленной базы данных: портал**](sql-database-restore-deleted-database-portal.md)
-> * [Восстановление удаленной базы данных: PowerShell](sql-database-restore-deleted-database-powershell.md)
-> 
-> 
 
 ## <a name="select-the-database-to-restore"></a>Выбор базы данных для восстановления
 Чтобы восстановить удаленную базу данных на портале Azure, сделайте следующее:
@@ -46,10 +41,5 @@ ms.openlocfilehash: b5a3f40ff8811c08d130c2a3e0a7d61aed9457d1
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md)
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md)  
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

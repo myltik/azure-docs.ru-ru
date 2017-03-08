@@ -4,7 +4,7 @@ description: "Узнайте, как использовать Azure Mobile Engag
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 2fc534e90431d7c44dc05327fd3d32a2e6ab1c8b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -45,10 +46,10 @@ ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для приложения Cordova
+## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для приложения Cordova
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+## <a name="a-idconnecting-appaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 В этом учебнике описаны действия по базовой интеграции, т. е. минимум, требуемый для сбора данных и отправки push-уведомлений. 
 
 Чтобы продемонстрировать интеграцию, мы создадим простое приложение при помощи Сordova.
@@ -67,8 +68,10 @@ ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
         $ cordova platform add android
         $ cordova run android
 4. Добавьте консольный подключаемый модуль Cordova. 
-   
-    $ cordova plugin add cordova-plugin-console 
+
+    ```
+    $ cordova plugin add cordova-plugin-console
+    ``` 
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Подключение приложения к серверной части Mobile Engagement
 1. Установите подключаемый модуль Cordova для Azure Mobile Engagement и укажите значения переменных для настройки подключаемого модуля:
@@ -87,7 +90,7 @@ ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
 
 *Значок iOS Reach* — это должно быть имя ресурса с расширением (например, mynotificationicon.png), а файл значка должен быть добавлен в проект iOS с XCode (с помощью меню "Добавить файлы").
 
-## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Включение мониторинга в реальном времени
+## <a name="a-idmonitoraenabling-real-time-monitoring"></a><a id="monitor"></a>Включение мониторинга в реальном времени
 1. В проекте Cordova добавьте в файл **www/js/index.js** вызов Mobile Engagement, чтобы объявить новое действие после получения события *deviceReady* .
    
          onDeviceReady: function() {
@@ -114,10 +117,10 @@ ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegrate-pushaenabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
 Mobile Engagement позволяет взаимодействовать с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах описаны действия по настройке приложения для приема уведомлений и сообщений.
 
@@ -203,7 +206,7 @@ Mobile Engagement позволяет взаимодействовать с по�
     ![][10]
 9. Теперь push-уведомления в рамках этой кампании будут отображаться на устройстве или в эмуляторе. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="next-steps"></a>Дальнейшие действия
+## <a name="a-idnext-stepsanext-steps"></a><a id="next-steps"></a>Дальнейшие действия
 [Обзор методов, доступных в пакете Cordova SDK для Mobile Engagement](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->
@@ -217,10 +220,5 @@ Mobile Engagement позволяет взаимодействовать с по�
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

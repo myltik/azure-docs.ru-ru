@@ -1,5 +1,5 @@
 ---
-title: "Функции высокой доступности кластера HDInsight (Hadoop) под управлением Linux | Документация Майкрософт"
+title: "Функции высокой доступности кластера HDInsight (Hadoop) | Документация Майкрософт"
 description: "Узнайте, как использование дополнительного головного узла позволяет повысить надежность и доступность кластеров HDInsight под управлением Linux. Вы узнаете, как это влияет на службы Hadoop, такие как Ambari и Hive, а также как подключиться к каждому отдельному головному узлу с помощью SSH."
 services: hdinsight
 editor: cgronlun
@@ -13,23 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6709e134242f80bfaf74671b3d6d37b6a1eb0c6a
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
 
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Доступность и надежность кластеров Hadoop в HDInsight
+
 Платформа Hadoop обеспечивает высокий уровень доступности и надежности, распределяя избыточные копии служб и данных между узлами в кластере. Однако стандартные дистрибутивы Hadoop обычно имеют один головной узел. Любой сбой такого узла может вызвать прекращение работы кластера.
 
-Для решения этой потенциальной проблемы кластеры HDInsight под управлением Linux в Azure предоставляют два головных узла для повышения доступности и надежности выполняемых служб и заданий Hadoop.
+Для решения этой потенциальной проблемы кластеры HDInsight в Azure предоставляют два головных узла для повышения доступности и надежности выполняемых служб и заданий Hadoop.
 
-> [!NOTE]
-> Действия, описанные в этом документе, относятся только к кластерам HDInsight под управлением Linux. Если вы используете кластер под управлением Windows, см. статью [Доступность и надежность кластеров Hadoop под управлением Windows в HDInsight](hdinsight-high-availability.md).
-> 
-> 
+> [!IMPORTANT]
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="understanding-the-nodes"></a>Основные сведения об узлах
 Узлы в кластере HDInsight реализуются с помощью виртуальных машин Azure. В случае сбоя узел переводится в автономный режим и взамен неисправного создается новый узел. Когда узел находится в автономном режиме, используется второй узел того же типа, пока не будет подключен новый узел.
@@ -187,14 +186,10 @@ URL-адрес указывает, что сейчас служба работа
 
 > [!NOTE]
 > Некоторые графические интерфейсы позволяют визуализировать файловую систему при подключении по протоколу SFTP. Например, [MobaXTerm](http://mobaxterm.mobatek.net/) позволяет просматривать файловую систему с помощью интерфейса, похожего на проводник Windows.
-> 
-> 
 
 ### <a name="ambari"></a>Ambari
 > [!NOTE]
 > Для доступа к файлам журнала через Ambari требуется туннель SSH, так как веб-сайты отдельных служб не отображаются для всех пользователей в Интернете. Сведения об использовании туннеля SSH можно найти в разделе [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
-> 
-> 
 
 В веб-интерфейсе Ambari выберите службу, для которой нужно просмотреть журналы (например, YARN), а затем щелкните **Быстрые ссылки** , чтобы выбрать головной узел, журналы которого следует просмотреть.
 
@@ -203,7 +198,7 @@ URL-адрес указывает, что сейчас служба работа
 ## <a name="how-to-configure-the-node-size"></a>Настройка размера узла
 Размер узла можно выбрать только во время создания кластера. Список различных размеров виртуальных машин, доступных для HDInsight, включая количество ядер, объем памяти и локального хранилища для каждого из них, можно найти на [странице цен на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-При создании нового кластера можно указать размер узлов. Ниже содержатся сведения о том, как указать размер с помощью [портала Azure][preview-portal], [Azure PowerShell][azure-powershell] и [интерфейса командной строки Azure (CLI)][azure-cli].
+При создании нового кластера можно указать размер узлов. Далее приведены сведения о том, как указать размер узла с помощью [портала Azure][preview-portal], [Azure PowerShell][azure-powershell] и [Azure CLI][azure-cli].
 
 * **Портал Azure.** При создании кластера можно задать размер (ценовую категорию) головного и рабочего узлов и узла ZooKeeper (если используется типом кластера) для этого кластера.
   
@@ -216,16 +211,16 @@ URL-адрес указывает, что сейчас служба работа
 
 * [Справочник по REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Установка и настройка CLI Azure](../xplat-cli-install.md)
-* [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Управление кластерами HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
 * [«Подготовка кластеров HDInsight на основе Linux»](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../xplat-cli-install.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

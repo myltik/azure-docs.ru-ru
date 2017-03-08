@@ -1,5 +1,5 @@
 ---
-title: "Чтение сообщений, сохраненных в Хранилище таблиц Azure | Документация Майкрософт"
+title: "Приступая к работе с устройством SensorTag и шлюзом Azure IoT. Урок 4. Хранилище таблиц | Документация Майкрософт"
 description: "Сохраняйте сообщения из Intel NUC в Центр Интернета вещей, записывайте их в Хранилище таблиц Azure, а затем читайте их из облака."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: a1007ac2db53c2c378cf4312b73765ef490e0ad6
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
 
 
 ---
@@ -78,7 +78,7 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
 2. Замените `[Azure storage connection string]` полученной строкой подключения к службе хранилища Azure.
 
-   `[IoT hub connection string]` уже должна быть заменена в разделе [Чтение сообщений из Центра Интернета вещей Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) в уроке 3.
+   `[IoT hub connection string]` уже должна быть заменена в разделе [Чтение сообщений из Центра Интернета вещей Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) в уроке&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Чтение сообщений в Хранилище таблиц Azure
 
@@ -101,6 +101,6 @@ gulp run --table-storage
 Вы запустили пример кода для чтения сообщений в Хранилище таблиц Azure, сохраненных приложением-функцией Azure.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

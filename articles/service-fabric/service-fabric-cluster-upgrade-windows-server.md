@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: 3d7e28c1cd221d704cf9cfec66da535e079fb472
+ms.openlocfilehash: 30044abc0d7d42b11ddd210dfb9ea3eadb94dda6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -104,7 +105,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 Устранив проблемы, которые привели к откату, запустите обновление снова, выполнив те же действия.
 
 ### <a name="upgrade-the-clusters-with-uno-connectivityu-to-download-the-latest-code-and-configuration"></a>Обновление кластеров <U>без возможности подключения</u> для скачивания последней версии кода и конфигурации
-Выполните следующие действия, чтобы обновить до поддерживаемой версии кластер [без возможности](http://download.microsoft.com) подключения к Интернету на сайте **http://download.microsoft.com**. 
+Выполните следующие действия, чтобы обновить до поддерживаемой версии кластер **без возможности** подключения к Интернету на сайте [http://download.microsoft.com](http://download.microsoft.com). 
 
 > [!NOTE]
 > Если вы используете кластер без возможности подключения к Интернету, вам нужно отслеживать блог группы Service Fabric, чтобы узнавать о новых выпусках. Система **не будет** создавать сообщения о состоянии работоспособности кластера.  
@@ -124,7 +125,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Рабочий процесс обновления кластера
-1. Скачайте последнюю версию пакета отсюда: [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md). 
+1. Скачайте последнюю версию пакета отсюда: [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md).
 2. Подключитесь к кластеру с любой виртуальной машины, на которой есть доступ администратора ко всем ВМ, перечисленным в качестве узлов в файле конфигурации кластера. Виртуальная машина, на которой выполняется этот скрипт, может и не входить в кластер. 
    
     ```powershell
@@ -152,7 +153,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 
     ```
 
-1. Зарегистрируйте скопированный пакет. 
+4. Зарегистрируйте скопированный пакет. 
    
     ```powershell
    
@@ -163,7 +164,7 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Запустите обновление кластера до одной из доступных версий. 
+5. Запустите обновление кластера до одной из доступных версий. 
    
     ```Powershell
    
@@ -184,6 +185,17 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 
 Устранив проблемы, которые привели к откату, запустите обновление снова, выполнив те же действия.
 
+
+## <a name="cluster-configuration-upgrade"></a>Обновление конфигурации кластера
+Для обновления конфигурации кластера выполните командлет ServiceFabricClusterConfigurationUpgrade. Обновление конфигурации обрабатывает домен обновления.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как настроить некоторые [параметры Service Fabric для кластера](service-fabric-cluster-fabric-settings.md)
 * Ознакомьтесь с концепцией [масштабирования кластера](service-fabric-cluster-scale-up-down.md)
@@ -191,9 +203,4 @@ ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

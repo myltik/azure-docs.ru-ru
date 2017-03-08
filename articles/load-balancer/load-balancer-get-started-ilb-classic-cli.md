@@ -1,5 +1,5 @@
 ---
-title: "Создание подсистемы балансировки нагрузки с помощью Azure CLI в классической модели развертывания | Документация Майкрософт"
+title: "Создание внутренней подсистемы балансировки нагрузки с помощью классической версии Azure CLI | Документация Майкрософт"
 description: "Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью интерфейса командной строки Azure."
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b65d386af78847b7994f7df0b379e30d3e35618c
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: dc1ca3ce8befb0c5b707d6db2fb16178afe3de1e
 
 ---
 
@@ -182,6 +182,6 @@ azure vm endpoint delete DB1 tcp-1433-1433
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

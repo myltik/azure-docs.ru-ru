@@ -1,5 +1,5 @@
 ---
-title: "Загрузка ресурсов мультимедиа"
+title: "Скачивание ресурсов служб мультимедиа на компьютер в Azure | Документация Майкрософт"
 description: "Инструкции по загрузке ресурсов на компьютер. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -84,10 +85,5 @@ ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
 
 ## <a name="see-also"></a>См. также
 [Доставка потокового контента](media-services-deliver-streaming-content.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

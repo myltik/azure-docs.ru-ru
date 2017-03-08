@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по группам доступности Azure | Документация Майкрософт"
+title: "Группы доступности для виртуальных машин Windows в Azure | Документация Майкрософт"
 description: "Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания групп доступности в службах инфраструктуры Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2e981b0bebbc88fdad23ce8279762fe717e48a4c
-ms.openlocfilehash: 59ef4be4854c4625bed5f9f1f32e7771ccb6979d
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -52,10 +53,5 @@ ms.openlocfilehash: 59ef4be4854c4625bed5f9f1f32e7771ccb6979d
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

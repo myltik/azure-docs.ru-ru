@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
+ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,21 +28,19 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-[Субъект-служба Azure Active Directory](../active-directory/active-directory-application-objects.md) используется кластером Kubernetes в службе контейнеров Azure в качестве учетной записи службы, обеспечивающей взаимодействие с API-интерфейсами Azure. Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами](../virtual-network/virtual-networks-udr-overview.md) и [Azure Load Balancer](../load-balancer/load-balancer-overview.md) уровня 4.
+[Субъект-служба Azure Active Directory](../active-directory/active-directory-application-objects.md) используется кластером Kubernetes в службе контейнеров Azure в качестве учетной записи службы, обеспечивающей взаимодействие с API-интерфейсами Azure. Субъект-служба используется для динамического управления ресурсами, например определяемыми пользователем маршрутами и Azure Load Balancer уровня 4.
 
-В этой статье показано, как можно указать субъект-службу для кластера Kubernetes. Например, если вы установили и настроили [Azure CLI 2.0 (предварительная версия)](https://docs.microsoft.com/cli/azure/install-az-cli2), выполните команду [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), чтобы одновременно создать кластер Kubernetes и субъект-службу.
+В этой статье показано, как можно указать субъект-службу для кластера Kubernetes. Например, если вы установили и настроили [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), выполните команду [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), чтобы одновременно создать кластер Kubernetes и субъект-службу.
 
-> [!NOTE]
-> Поддержка Kubernetes в службе контейнеров Azure сейчас доступна в предварительной версии.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Требования для субъекта-службы
 
 Ниже приведены требования для субъекта-службы Azure Active Directory в кластере Kubernetes в службе контейнеров Azure. 
 
-* **Область** — подписка Azure, в которой развернут кластер.
+* **Область** — группа ресурсов, в которой развернут кластер.
 
-* **Роль** - **участник**.
+* **Роль** — **Участник**.
 
 * **Секрет клиента** — должен быть паролем. Сейчас субъект-службу нельзя использовать для проверки подлинности сертификата.
 
@@ -56,30 +55,36 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 Создавая кластер Kubernetes, укажите в качестве параметров **идентификатор клиента** (или `appId` для идентификатора приложения) и **секрет клиента** (`password`) существующего субъекта-службы. Если вы используете существующий субъект-службу, убедитесь, что он соответствует требованиям, указанным в предыдущем разделе. Если необходимо создать субъект-службу, см. раздел [Создание субъекта-службы в Azure Active Directory](#create-a-service-principal-in-azure-active-directory) далее в этой статье.
 
-[Развертывая кластер Kubernetes](./container-service-deployment.md), вы можете указать эти параметры с помощью портала, интерфейса командной строки Azure или Azure PowerShell.
+[Развертывая кластер Kubernetes](./container-service-deployment.md), вы можете указать эти параметры с помощью портала, Azure CLI 2.0, Azure PowerShell или других методов.
 
 >[!TIP] 
 >В качестве **идентификатора клиента** обязательно используйте `appId`, а не `ObjectId` субъекта-службы.
 >
 
-В следующем примере показан один способ передачи параметров с помощью [Azure CLI](../xplat-cli-install.md) в [режиме Resource Manager](../xplat-cli-connect.md). В этом примере используется [шаблон быстрого запуска Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+В следующем примере показан один способ передачи параметров с помощью Azure CLI 2.0 (см. [инструкции по установке и настройке](/cli/azure/install-az-cli2)). В этом примере используется [шаблон быстрого запуска Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. [Скачайте](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) файл параметров шаблона azuredeploy.parameters.json из репозитория GitHub.
+1. [Скачайте](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) файл параметров шаблона `azuredeploy.parameters.json` из репозитория GitHub.
 
 2. Чтобы указать субъект-службу, присвойте в файле значения параметрам `servicePrincipalClientId` и `servicePrincipalClientSecret`. (Также вам нужно присвоить собственные значения параметрам `dnsNamePrefix` и `sshRSAPublicKey`. Последний параметр — это открытый ключ SSH для доступа к кластеру.) Сохраните файл.
 
     ![Передача параметров субъекта-службы](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Выполните следующую команду, используя параметр `-e`, чтобы указать путь к файлу azuredeploy.parameters.json. Эта команда развертывает кластер в существующей группе ресурсов с именем `myResourceGroup`.
+3. Выполните следующую команду, используя параметр `--parameters`, чтобы указать путь к файлу azuredeploy.parameters.json. Эта команда развертывает кластер в созданной группе ресурсов `myResourceGroup` в регионе "Западная часть США".
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Вариант 2. Создание субъекта-службы при создании кластера с помощью Azure CLI 2.0 (предварительная версия)
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Вариант 2. Создание субъекта-службы при создании кластера с помощью Azure CLI 2.0
 
-Если вы установили и настроили [Azure CLI 2.0 (предварительная версия)](https://docs.microsoft.com/cli/azure/install-az-cli2), выполните команду [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), чтобы [создать кластер](./container-service-create-acs-cluster-cli.md).
+Если вы установили и настроили [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), выполните команду [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), чтобы [создать кластер](./container-service-create-acs-cluster-cli.md).
 
 Как и в случае с другими вариантами создания кластера Kubernetes, выполняя команду `az acs create`, вы можете указать параметры для существующего субъекта-службы. Но даже если вы не настроите эти параметры, служба контейнеров Azure создаст субъект-службу автоматически. Субъект-служба создается открытым образом во время развертывания. 
 
@@ -93,16 +98,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Создать субъект-службу в Azure Active Directory для использования в кластере Kubernetes можно разными способами. 
 
-Следующие примеры команд показывают, как это сделать с помощью [Azure CLI 2.0 (предварительная версия)](https://docs.microsoft.com/cli/azure/install-az-cli2). Кроме того, можно создать субъект-службу с помощью [интерфейса командной строки Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) или [классического портала](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Следующие примеры команд показывают, как это сделать с помощью [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Кроме того, субъект-службу можно создать с помощью [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), [классического портала](../azure-resource-manager/resource-group-create-service-principal-portal.md) или других методов.
 
 > [!IMPORTANT]
 > Обязательно ознакомьтесь с требованиями к субъекту-службе, приведенными ранее в этой статье.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +121,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscri
 
 Чтобы подтвердить субъект-службу, откройте новую оболочку и выполните следующую команду, заменив значения параметров `appId`, `password` и `tenant` собственными:
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -134,9 +139,4 @@ az vm list-sizes --location westus
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Узнайте, как [начать работу с Kubernetes](container-service-kubernetes-walkthrough.md) в кластере службы контейнеров.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

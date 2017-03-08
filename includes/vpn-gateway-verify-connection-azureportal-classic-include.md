@@ -12,6 +12,6 @@
 
     ![Дополнительные сведения о состоянии подключения](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Дополнительные сведения о состоянии подключения")
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

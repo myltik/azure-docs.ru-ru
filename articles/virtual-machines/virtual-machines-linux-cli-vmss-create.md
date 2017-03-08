@@ -1,5 +1,5 @@
 ---
-title: "Что такое наборы масштабирования виртуальных машин? | Документация Майкрософт"
+title: "Создание масштабируемых наборов ВМ Azure с помощью Azure CLI | Документация Майкрософт"
 description: "Узнайте о наборах масштабирования виртуальных машин."
 keywords: "Виртуальная машина Linux, наборы масштабирования виртуальных машин"
 services: virtual-machines-linux
@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 03/24/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
 
 Преимущества:
 
-1. обеспечение высокой доступности; Каждый набор масштабирования помещает свои виртуальные машины в группу доступности с 5 доменами сбоя (FD) и 5 доменами обновления (UD) для обеспечения доступности (дополнительные сведения о доменах сбоя и обновления см. в статье [Доступность виртуальных машин](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). 
+1. обеспечение высокой доступности; Каждый набор масштабирования помещает свои виртуальные машины в группу доступности с&5; доменами сбоя (FD) и&5; доменами обновления (UD) для обеспечения доступности (дополнительные сведения о доменах сбоя и обновления см. в статье [Доступность виртуальных машин](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). 
 2. Простая интеграция с балансировщиком нагрузки Azure и шлюзом приложений.
 3. Простая интеграция с функцией автоматического масштабирования Azure.
 4. Упрощение развертывания, удаления виртуальных машин и управления ими.
@@ -46,10 +47,5 @@ ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
 Документацию см. на [основной странице документации по масштабируемым наборам](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 Чтобы найти примеры шаблонов Resource Manager с использованием наборов масштабирования, выполните поиск строки "vmss" в [репозитории GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

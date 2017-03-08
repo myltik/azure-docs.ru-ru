@@ -23,7 +23,7 @@
 | [Веб-задания](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [планировщика Azure](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
 | [Мониторинг конечных точек](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Промежуточные слоты (предварительная версия)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Промежуточные слоты](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Количество личных доменов на одно приложение</a> | |500 |500 |500 |500 |
 | Соглашение об уровне обслуживания | |<p> |99,9 % |99,95 %<sup>10</sup> |99,95 %<sup>10</sup> |
 
@@ -40,6 +40,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

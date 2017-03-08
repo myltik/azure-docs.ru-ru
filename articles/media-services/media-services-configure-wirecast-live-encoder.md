@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Создайте учетную запись служб мультимедиа Azure](media-services-portal-create-account.md).
-* Убедитесь, что запущена конечная точка потоковой трансляции как минимум с одной выделенной единицей потоковой трансляции. Дополнительные сведения см. в статье об [управлении конечными точками потоковой передачи с помощью учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+* Убедитесь, что запущена конечная точка потоковой передачи. Дополнительные сведения см. в статье об [управлении конечными точками потоковой передачи с помощью учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 * Установите последнюю версию средства [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Запустите его и подключитесь к учетной записи AMS.
 
@@ -45,16 +45,17 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 * При использовании программных кодировщиков закройте все ненужные программы.
 
 ## <a name="create-a-channel"></a>Создание канала
-1. В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...**  в меню.
+1. В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...** в меню.
 
-![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-1. Укажите имя канала, поле описания является необязательным. В разделе Channel Settings ("Параметры каналов") для параметра Live Encoding ("Кодирование в реальном времени") установите значение **Standard** ("Стандартное"), а для параметра Input Protocol ("Входной протокол") — значение **RTMP**. Остальные параметры можно оставить без изменений.
+2. Укажите имя канала, поле описания является необязательным. В разделе Channel Settings ("Параметры каналов") для параметра Live Encoding ("Кодирование в реальном времени") установите значение **Standard** ("Стандартное"), а для параметра Input Protocol ("Входной протокол") — значение **RTMP**. Остальные параметры можно оставить без изменений.
 
-Убедитесь, что флажок **Start the new channel now** (Сразу запустить новый канал) установлен.
+    Убедитесь, что флажок **Start the new channel now** (Сразу запустить новый канал) установлен.
 
-1. Щелкните **Создать канал**.
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. Щелкните **Создать канал**.
+
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > На запуск канала может потребоваться до 20 минут.
@@ -108,7 +109,8 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
    * Профиль: основной
    * Ключевой кадр: каждые 60 кадров
 
-     **Звук:**
+    **Звук:**
+
    * Конечная скорость: 192 Кбит/сек
    * Частота выборки: 44,100 кГц
 
@@ -141,9 +143,10 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 >
 
 ## <a name="test-playback"></a>Проверка воспроизведения
-1. Перейдите в средство AMSE и щелкните правой кнопкой мыши на канале, который необходимо проверить. В меню наведите указатель мыши на пункт **Playback the Preview** (Воспроизведение для предварительного просмотра) и выберите пункт **with Azure Media Player** (с помощью проигрывателя мультимедиа Azure).  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+Перейдите в средство AMSE и щелкните правой кнопкой мыши на канале, который необходимо проверить. В меню наведите указатель мыши на пункт **Playback the Preview** (Воспроизведение для предварительного просмотра) и выберите пункт **with Azure Media Player** (с помощью проигрывателя мультимедиа Azure).  
+
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Если поток отображается в проигрывателе, то кодировщик правильно настроен для подключения к AMS.
 
@@ -157,7 +160,9 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 3. Установите флажок **Start the Program now** (Запустить программу сейчас).
 4. Щелкните **Create Program**(Создать программу).  
 
-    Примечание. Создание программы занимает меньше времени, чем создание канала.    
+   >[!NOTE]
+   >Создание программы занимает меньше времени, чем создание канала.
+       
 5. После запуска программы проверьте воспроизведение. Для этого щелкните правой кнопкой мыши программу, перейдите к пункту **Playback the program(s)** (Воспроизвести программы) и выберите пункт **with Azure Media Player** (с помощью проигрывателя мультимедиа Azure).  
 6. После проверки снова щелкните программу правой кнопкой мыши и выберите команду **Copy the Output URL to Clipboard** (Копировать выходной URL-адрес в буфер обмена) или получите соответствующий адрес, используя пункт меню **Program information and settings** (Сведения о программе и параметры).
 
@@ -174,6 +179,6 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 3/1/2016
 ms.author: helaw
 translationtype: Human Translation
-ms.sourcegitcommit: c0549cbe1685da87fc5c91bff7ae24964dad31f5
-ms.openlocfilehash: cc98e0aa7db9a7577bed14db1ff3f2c1276d6d3a
+ms.sourcegitcommit: ab3d1ffaeddf6f0422d1cc45f0057e5b8c60b0d1
+ms.openlocfilehash: 05e6a89b00db023300e74fa5fac25d6d5cb0676b
+ms.lasthandoff: 11/23/2016
 
 
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Manage Azure policy using the Azure Stack Policy Module
-The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack.  The module uses the **New-AzureRMPolicyAssignment** cmdlet to create an Azure policy, which limits the APIs and services available in a subscription.  Once complete, you can use your Azure subscription to develop apps for Azure Stack.  
+The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack.  The module uses the **New-AzureRMPolicyAssignment** cmdlet to create an Azure policy, which limits the resource types and services available in a subscription.  Once complete, you can use your Azure subscription to develop apps for Azure Stack.  
 
 ## <a name="install-the-module"></a>Install the module
 1. [Install the AzureRM module](azure-stack-connect-powershell.md) for Azure Stack.   
@@ -83,10 +84,5 @@ Once you've deployed the Azure policy, you receive an error when you try to depl
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
 [Deploy Templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 89ff5d5deeda72361cb619516681aca386c5a422
 
 
 ---
@@ -247,11 +247,11 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 <table>
   <tr>
     <th>Метрика</th>
-    <th>Description (Описание)</th>
+    <th>Описание</th>
   </tr>
   <tr>
     <td><b>Ресурс</b></td>
-    <td><p><b>Метрики ресурсов</b> основаны на использовании ЦП, потреблении памяти и пропускной способности вычислительных узлов, а также количестве узлов.</p>
+    <td><p><b>Метрики ресурсов</b> основаны на использовании ресурсов ЦП, памяти и пропускной способности вычислительных узлов, а также количестве узлов.</p>
         <p> Для внесения изменений с учетом количества узлов используются следующие служебные переменные:</p>
     <p><ul>
       <li>$TargetDedicated</li>
@@ -272,7 +272,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td><b>Задача</b></td>
+    <td><b>Задача.</b></td>
     <td><p><b>Метрики задач</b> основаны на состоянии задач (активные, ожидающие и завершенные). Для внесения изменений в размер пула с учетом метрик задач используются следующие служебные переменные:</p>
     <p><ul>
       <li>$ActiveTasks</li>
@@ -646,6 +646,6 @@ string formula = string.Format(@"
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

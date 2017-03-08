@@ -4,7 +4,7 @@ description: "Убедитесь, как просто запускать веб-
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 9388093516af0aa7fcdbfb06e1215cda960d3f4a
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5df82f438eab04d7ef2753c02b87eb5162c5c19d
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-python-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения Python в Azure за пять минут (предварительная версия CLI 2.0)
-
-> [!div class="op_single_selector"]
-> * [Первый HTML-сайт](app-service-web-get-started-html.md)
-> * [Первое приложение .NET](app-service-web-get-started-dotnet.md)
-> * [Первое приложение PHP](app-service-web-get-started-php.md)
-> * [Первое приложение Node.js](app-service-web-get-started-nodejs.md)
-> * [Первое приложение Python](app-service-web-get-started-python.md)
-> * [Первое приложение Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Это руководство поможет вам развернуть ваше первое веб-приложение Python в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
 В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ ms.openlocfilehash: 9388093516af0aa7fcdbfb06e1215cda960d3f4a
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-get-started-python-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started-python.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-get-started-python.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Git](http://www.git-scm.com/downloads).
@@ -57,7 +49,7 @@ ms.openlocfilehash: 9388093516af0aa7fcdbfb06e1215cda960d3f4a
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -139,7 +131,7 @@ ms.openlocfilehash: 9388093516af0aa7fcdbfb06e1215cda960d3f4a
     git push azure master
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Использование Django и MySQL в Azure с помощью инструментов Python 2.2 для Visual Studio](web-sites-python-ptvs-django-mysql.md). С помощью этого руководства вы научитесь выполнять основные действия для запуска веб-приложения Python в Azure, такие как:
+[Использование Django и MySQL в Azure с помощью инструментов Python&2;.2 для Visual Studio](web-sites-python-ptvs-django-mysql.md). С помощью этого руководства вы научитесь выполнять основные действия для запуска веб-приложения Python в Azure, такие как:
 
 * создание и развертывание приложения Python с помощью шаблона;
 * выбор версии Python;
@@ -150,10 +142,5 @@ ms.openlocfilehash: 9388093516af0aa7fcdbfb06e1215cda960d3f4a
 
 * Попробуйте [другие способы развертывания кода в Azure](web-sites-deploy.md). Например, чтобы развернуть приложение из какого-либо репозитория на GitHub, в разделе **Параметры развертывания** нужно просто указать **GitHub**, а не **Локальный репозиторий Git**.
 * Выведите приложение Azure на следующий уровень. Проверяйте подлинность пользователей. Масштабируйте приложение в зависимости от потребностей. Настраивайте оповещения производительности. И все это — с помощью нескольких действий. См. статью [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -13,11 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: df275d6ee1aed7e44eb26f999a068b6b56ca918f
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: 697a99ec828984d4e6f6e3dc446bc6dc8377cf57
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -39,10 +40,10 @@ ms.openlocfilehash: df275d6ee1aed7e44eb26f999a068b6b56ca918f
 ## <a name="a-idodbcadata-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Технологии доступа к данным: ODBC и OLE DB
 Подключение к базе данных SQL Azure ничем не отличается от обычной процедуры. В настоящее время существует два способа подключения к базам данных: ODBC и OLE DB. В последние годы корпорация Майкрософт поддерживает [ODBC для доступа к собственным реляционным данным](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). Технология ODBC относительно проста и работает гораздо быстрее, чем OLE DB. Единственное предостережение — ODBC использует старый API в стиле C. 
 
-## <a name="a-idcreateastep-1-creating-your-azure-sql-database"></a><a id="Create"></a>Шаг 1. Создание базы данных SQL Azure
-Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md) .  Или просмотрите [этот короткий 2-минутный видеоролик](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/), чтобы создать базу данных SQL Azure с помощью портала Azure.
+## <a name="a-idcreateastep-1--creating-your-azure-sql-database"></a><a id="Create"></a>Шаг 1. Создание базы данных SQL Azure
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md) .  Или просмотрите [этот короткий&2;-минутный видеоролик](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/), чтобы создать базу данных SQL Azure с помощью портала Azure.
 
-## <a name="a-idconnectionstringastep-2-get-connection-string"></a><a id="ConnectionString"></a>Шаг 2. Получение строки подключения
+## <a name="a-idconnectionstringastep-2--get-connection-string"></a><a id="ConnectionString"></a>Шаг 2. Получение строки подключения
 После подготовки базы данных SQL Azure необходимо выполнить следующие действия, чтобы найти информацию о подключении и добавить IP-адрес клиента для доступа через брандмауэр. 
 
 На [портале Azure](https://portal.azure.com/) перейдите к строке подключения ODBC базы данных SQL Azure с помощью команды **Показать строки подключения к базам данных** в обзоре базы данных: 
@@ -53,7 +54,7 @@ ms.openlocfilehash: df275d6ee1aed7e44eb26f999a068b6b56ca918f
 
 Скопируйте содержимое строки **ODBC (включает Node.js) [проверка подлинности SQL]**. Оно будет использоваться позже для подключения из интерпретатора командной строки ODBC C++. Эта строка содержит такие сведения, как драйвер, сервер и другие параметры подключения к базе данных. 
 
-## <a name="a-idfirewallastep-3-add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Шаг 3. Добавление IP-адреса в брандмауэр
+## <a name="a-idfirewallastep-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Шаг 3. Добавление IP-адреса в брандмауэр
 Перейдите к разделу брандмауэра, где указан сервер базы данных, и добавьте IP-адрес клиента с помощью [этих действий](sql-database-configure-firewall-settings.md), чтобы установить подключение. 
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
@@ -129,15 +130,10 @@ ms.openlocfilehash: df275d6ee1aed7e44eb26f999a068b6b56ca918f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
-* См. дополнительные сведения в [справочнике по API ODBC](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)
+* См. дополнительные сведения в [справочнике по API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

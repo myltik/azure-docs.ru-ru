@@ -1,6 +1,6 @@
 ---
-title: "Дополнительное кодирование с помощью стандартного кодировщика мультимедиа"
-description: "В этом разделе показано, как выполнять расширенные задачи кодирования, настраивая предустановки задач Media Encoder Standard. В этом разделе показано, как использовать пакет SDK служб мультимедиа для .NET для создания задания и задачи кодирования. В нем также показано, как предоставить пользовательские предустановки для задания кодирования."
+title: "Настройка предустановок MES для расширенного кодирования | Документация Майкрософт"
+description: "В этом разделе показано, как выполнять расширенные задачи кодирования, настраивая предустановки задач Media Encoder Standard."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,233 +12,36 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 98060e27d72605934d773b3cb6291c7c5d0df6f8
 
 
 ---
-# <a name="advanced-encoding-with-media-encoder-standard"></a>Дополнительное кодирование с помощью стандартного кодировщика мультимедиа
+
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Настройка предустановок MES для расширенного кодирования 
+
 ## <a name="overview"></a>Обзор
-В этом разделе показано, как выполнять расширенные задачи кодирования с помощью Media Encoder Standard. В этом разделе показано, [как с помощью .NET создать задачу кодирования и задание, которое выполняет эту задачу](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). В нем также показано, как предоставить пользовательские предустановки для задачи кодирования. Описания элементов, использующихся в данных предустановках, содержатся в [этом документе](https://msdn.microsoft.com/library/mt269962.aspx).
 
-В статье демонстрируются пользовательские предустановки, которые выполняют следующие задачи кодирования:
+В этом разделе показано, как настроить предустановки Media Encoder Standard. В разделе [Дополнительное кодирование с помощью стандартного кодировщика мультимедиа](media-services-custom-mes-presets-with-dotnet.md) показано, как использовать .NET для создания задачи кодирования и задания, которое выполняет эту задачу. Настроив предустановку, укажите пользовательские предустановки для задачи кодирования. 
 
-* [Создание эскизов](media-services-custom-mes-presets-with-dotnet.md#thumbnails)
-* [Монтаж видео (обрезка)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
-* [Создание наложения](media-services-custom-mes-presets-with-dotnet.md#overlay)
-* [Вставка звуковой дорожки с тишиной, если входные данные не содержат звука](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-* [Отключение автоматического устранения чересстрочной развертки](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
-* [Предустановки только для звука](media-services-custom-mes-presets-with-dotnet.md#audio_only)
-* [Объединение двух или нескольких видеофайлов](#concatenate)
-* [Обрезка видео с помощью стандартного кодировщика мультимедиа](#crop)
-* [Вставка видеодорожки, если во входных данных нет видео](#no_video)
-* [Поворот видео](#rotate_video)
+В этом разделе демонстрируются пользовательские предустановки, которые выполняют следующие задачи кодирования.
 
-## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Кодирование с помощью пакета SDK служб мультимедиа для .NET
-В следующем примере кода пакет SDK служб мультимедиа используется для выполнения следующих задач.
-
-* Создание задания кодирования.
-* Получение ссылки на стандартный кодировщик мультимедиа.
-* Загрузка пользовательских предустановок в формате XML или JSON. Вы можете сохранить код [XML](media-services-custom-mes-presets-with-dotnet.md#xml) или [JSON](media-services-custom-mes-presets-with-dotnet.md#json) в файл и использовать приведенный ниже код для загрузки файла.
-
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
-* Добавление задачи кодирования в задание.
-* Указание входного ресурса-контейнера для кодирования.
-* Создание выходного ресурса-контейнера с закодированным ресурсом.
-* Добавление обработчика событий для проверки хода выполнения задания.
-* Отправка задания.
-
-        using System;
-        using System.Collections.Generic;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using System.Net;
-        using System.Security.Cryptography;
-        using System.Text;
-        using System.Threading.Tasks;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using Newtonsoft.Json.Linq;
-        using System.Threading;
-        using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-        using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-        using System.Web;
-        using System.Globalization;
-
-        namespace CustomizeMESPresests
-        {
-            class Program
-            {
-                // Read values from the App.config file.
-                private static readonly string _mediaServicesAccountName =
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string _mediaServicesAccountKey =
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-
-                // Field for service context.
-                private static CloudMediaContext _context = null;
-                private static MediaServicesCredentials _cachedCredentials = null;
-
-                private static readonly string _mediaFiles =
-                    Path.GetFullPath(@"../..\Media");
-
-                private static readonly string _singleMP4File =
-                    Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-
-                static void Main(string[] args)
-                {
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    _mediaServicesAccountName,
-                                    _mediaServicesAccountKey);
-                    // Used the chached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_cachedCredentials);
-
-                    // Get an uploaded asset.
-                    var asset = _context.Assets.FirstOrDefault();
-
-                    // Encode and generate the output using custom presets.
-                    EncodeToAdaptiveBitrateMP4Set(asset);
-
-                    Console.ReadLine();
-                }
-
-                static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                    // Load the XML (or JSON) from the local file.
-                    string configuration = File.ReadAllText("CustomPreset_JSON.json");
-
-                    // Create a task
-                    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                        processor,
-                        configuration,
-                        TaskOptions.None);
-
-                    // Specify the input asset to be encoded.
-                    task.InputAssets.Add(asset);
-                    // Add an output asset to contain the results of the job.
-                    // This output is specified as AssetCreationOptions.None, which
-                    // means the output asset is not encrypted.
-                    task.OutputAssets.AddNew("Output asset",
-                        AssetCreationOptions.None);
-
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                    job.Submit();
-                    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                    return job.OutputMediaAssets[0];
-                }
-
-                static public IAsset UploadMediaFilesFromFolder(string folderPath)
-                {
-                    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-
-                    foreach (var af in asset.AssetFiles)
-                    {
-                        // The following code assumes
-                        // you have an input folder with one MP4 and one overlay image file.
-                        if (af.Name.Contains(".mp4"))
-                            af.IsPrimary = true;
-                        else
-                            af.IsPrimary = false;
-
-                        af.Update();
-                    }
-
-                    return asset;
-                }
-
-
-                static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                    // Load the XML (or JSON) from the local file.
-                    string configuration = File.ReadAllText(customPresetFileName);
-
-                    // Create a task
-                    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                        processor,
-                        configuration,
-                        TaskOptions.None);
-
-                    // Specify the input assets to be encoded.
-                    // This asset contains a source file and an overlay file.
-                    task.InputAssets.Add(assetSource);
-
-                    // Add an output asset to contain the results of the job.
-                    task.OutputAssets.AddNew("Output asset",
-                        AssetCreationOptions.None);
-
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                    job.Submit();
-                    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                    return job.OutputMediaAssets[0];
-                }
-
-
-                private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-                {
-                    Console.WriteLine("Job state changed event:");
-                    Console.WriteLine("  Previous state: " + e.PreviousState);
-                    Console.WriteLine("  Current state: " + e.CurrentState);
-                    switch (e.CurrentState)
-                    {
-                        case JobState.Finished:
-                            Console.WriteLine();
-                            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                            break;
-                        case JobState.Canceling:
-                        case JobState.Queued:
-                        case JobState.Scheduled:
-                        case JobState.Processing:
-                            Console.WriteLine("Please wait...\n");
-                            break;
-                        case JobState.Canceled:
-                        case JobState.Error:
-
-                            // Cast sender as a job.
-                            IJob job = (IJob)sender;
-
-                            // Display or log error details as needed.
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-
-                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-                {
-                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                    if (processor == null)
-                        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                    return processor;
-                }
-
-            }
-        }
-
+- [Создание эскизов](#thumbnails)
+- [Монтаж видео (обрезка)](#trim_video)
+- [Создание наложения](#overlay)
+- [Вставка звуковой дорожки с тишиной, если входные данные не содержат звука](#silent_audio)
+- [Отключение автоматического устранения чересстрочной развертки](#deinterlacing)
+- [Предустановки только для звука](#audio_only)
+- [Объединение двух или нескольких видеофайлов](#concatenate)
+- [Обрезка видео с помощью стандартного кодировщика мультимедиа](#crop)
+- [Вставка видеодорожки, если во входных данных нет видео](#no_video)
+- [Поворот видео](#rotate_video)
 
 ## <a name="support-for-relative-sizes"></a>Поддержка относительных размеров
+
 При создании эскизов вам не нужно всегда указывать выходную ширину и высоту в пикселях. Эти значения можно указать в процентах, используя диапазон [1%, ..., 100%].
 
 ### <a name="json-preset"></a>Предустановка JSON
@@ -250,16 +53,17 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     <Height>100%</Height>
 
 ## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>Создание эскизов
-В этом разделе показано, как настроить предустановку, которая создает эскизы. Предустановка, определенная ниже, содержит сведения о том, как должен кодироваться файл, а также сведения, необходимые для создания эскизов. Вы можете использовать любую из предустановок Media Encoder Standard (MES), которые приведены [здесь](https://msdn.microsoft.com/library/mt269960.aspx) , и добавить в нее код для создания эскизов.  
+
+В этом разделе показано, как настроить предустановку, которая создает эскизы. Предустановка, определенная ниже, содержит сведения о том, как должен кодироваться файл, а также сведения, необходимые для создания эскизов. Вы можете использовать любую из предустановок Media Encoder Standard (MES), которые приведены в [этом](media-services-mes-presets-overview.md) разделе, и добавить в нее код для создания эскизов.  
 
 > [!NOTE]
 > Если видео преобразуется в односкоростной формат, параметр **SceneChangeDetection** в следующей конфигурации может иметь только значение True. Если видео преобразуется в формат с несколькими скоростями, а параметр **SceneChangeDetection** имеет значение True, то кодировщик выдает ошибку.  
 >
 >
 
-Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
+Сведения о схеме см. [здесь](media-services-mes-schema.md).
 
-Обязательно изучите раздел [Рекомендации](media-services-custom-mes-presets-with-dotnet.md#considerations) .
+Обязательно изучите раздел [Рекомендации](#considerations) .
 
 ### <a name="a-idjsonajson-preset"></a><a id="json"></a>Предустановка JSON
     {
@@ -435,6 +239,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     </Preset>
 
 ### <a name="considerations"></a>Рекомендации
+
 Действительны следующие условия.
 
 * Использование явных меток времени для элементов Start, Step или Range предполагает, что входные данные составляют не менее одной минуты.
@@ -453,7 +258,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 ## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>Монтаж видео (обрезка)
 В этом разделе рассказывается об изменении предустановок кодировщика для обрезки входного видеоролика, при котором входной видеоролик представляет собой так называемый мезонинный файл или файл по требованию. Кодировщик может также использоваться для обрезки ресурса-контейнера, который записывается или архивируется из потока в реальном времени. Подробные сведения об этом см. в [этом блоге](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx) , и изменить элемент **Sources** (как показано ниже). Значение StartTime должно соответствовать абсолютной метке времени входящего видео. Например, если первый кадр входящего видео имеет отметку времени "12:00:10.000", значение StartTime должно равняться или быть больше 12:00:10.000. В приведенном ниже примере мы предполагаем, что входящее видео имеет отметку времени начала, равную нулю. **Sources** должен размещаться в начале предустановки.
+Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны в [этом](media-services-mes-presets-overview.md) разделе, и изменить элемент **Sources** (как показано ниже). Значение StartTime должно соответствовать абсолютной метке времени входящего видео. Например, если первый кадр входящего видео имеет отметку времени "12:00:10.000", значение StartTime должно равняться или быть больше 12:00:10.000. В приведенном ниже примере мы предполагаем, что входящее видео имеет отметку времени начала, равную нулю. **Sources** должен размещаться в начале предустановки.
 
 ### <a name="a-idjsonajson-preset"></a><a id="json"></a>Предустановка JSON
     {
@@ -575,7 +380,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     }
 
 ### <a name="xml-preset"></a>Предустановка XML
-Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx) , и изменить элемент **Sources** (как показано ниже).
+Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](media-services-mes-presets-overview.md) , и изменить элемент **Sources** (как показано ниже).
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -693,11 +498,65 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     </Preset>
 
 ## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>Создание наложения
+
 Стандартный кодировщик служб мультимедиа позволяет наложить изображение на существующее видео. В настоящее время поддерживаются следующие форматы: png, jpg, gif и bmp. Предустановка, определенная ниже, представляет собой базовый пример наложения видео.
 
 Наряду с определением файла предустановки также необходимо сообщить службам мультимедиа, какой файл в ресурсе-контейнере содержит изображение для наложения, а какой — исходное видео, на которое вы хотите наложить изображение. Видеофайл должен быть **первичным** файлом.
 
-В приведенном выше примере .NET определены две функции: **UploadMediaFilesFromFolder** и **EncodeWithOverlay**. Функция UploadMediaFilesFromFolder передает файлы из папки (например, BigBuckBunny.mp4 и Image001.png) и задает MP4-файл в качестве первичного файла в ресурсе-контейнере. Функция **EncodeWithOverlay** использует настраиваемый файл предустановки, который был передан в нее (например, приведенную ниже предустановку), для создания задачи кодирования.
+При использовании .NET добавьте две приведенные ниже функции в пример .NET, определенный в [этом](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) разделе. Функция **UploadMediaFilesFromFolder** передает файлы из папки (например, BigBuckBunny.mp4 и Image001.png) и задает MP4-файл в качестве первичного файла в ресурсе-контейнере. Функция **EncodeWithOverlay** использует настраиваемый файл предустановки, который был передан в нее (например, приведенную ниже предустановку), для создания задачи кодирования.
+
+
+    static public IAsset UploadMediaFilesFromFolder(string folderPath)
+    {
+        IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+    
+        foreach (var af in asset.AssetFiles)
+        {
+            // The following code assumes 
+            // you have an input folder with one MP4 and one overlay image file.
+            if (af.Name.Contains(".mp4"))
+                af.IsPrimary = true;
+            else
+                af.IsPrimary = false;
+    
+            af.Update();
+        }
+    
+        return asset;
+    }
+
+    static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
+    {
+        // Declare a new job.
+        IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+        // Get a media processor reference, and pass to it the name of the 
+        // processor to use for the specific task.
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+        // Load the XML (or JSON) from the local file.
+        string configuration = File.ReadAllText(customPresetFileName);
+
+        // Create a task
+        ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+            processor,
+            configuration,
+            TaskOptions.None);
+
+        // Specify the input assets to be encoded.
+        // This asset contains a source file and an overlay file.
+        task.InputAssets.Add(assetSource);
+
+        // Add an output asset to contain the results of the job. 
+        task.OutputAssets.AddNew("Output asset",
+            AssetCreationOptions.None);
+
+        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+        job.Submit();
+        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+        return job.OutputMediaAssets[0];
+    }
+
 
 > [!NOTE]
 > Текущие ограничения:
@@ -853,7 +712,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 
 Чтобы заставить кодировщик создать ресурс, содержащий звуковую дорожку с тишиной, когда входные данные не содержат звука, укажите значение "InsertSilenceIfNoAudio".
 
-Вы можете использовать любую из предустановок Media Encoder Standard, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и внести в нее следующие изменения.
+Вы можете использовать любую из предустановок MES, которые определены в [этом](media-services-mes-presets-overview.md) разделе, и внести в нее следующие изменения.
 
 ### <a name="json-preset"></a>Предустановка JSON
     {
@@ -947,9 +806,14 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     }
 
 ## <a name="a-idconcatenateaconcatenate-two-or-more-video-files"></a><a id="concatenate"></a>Сцепка нескольких видеофайлов
+
 В следующем примере показано, как создать предустановку для сцепления двух или более видеофайлов. Наиболее распространенный сценарий — это добавление названия или трейлера к основному видео. Используется, когда совместно редактируемые видеофайлы имеют одинаковые свойства (разрешение видео, частоту кадров, количество аудиодорожек и т. д.). Не следует комбинировать видео с разной частотой кадров или разным количеством аудиодорожек.
 
+>[!NOTE]
+>Текущая структура функции сцепки предполагает, что исходные видеозаписи имеют согласованное разрешение, частоту кадров и т. д. 
+
 ### <a name="requirements-and-considerations"></a>Требования и рекомендации
+
 * В исходных видеофайлах должна быть только одна аудиодорожка.
 * У всех исходных видеофайлов должна быть одинаковая частота кадров.
 * Необходимо загрузить видеофайлы в отдельные ресурсы и задать видео как основной файл в каждом ресурсе.
@@ -963,6 +827,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
   2. Внести соответствующие права в элемент Sources (Источники) файла JSON, добавив новые записи в том же порядке.
 
 ### <a name="net-code"></a>Код .NET
+
     IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
     IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
 
@@ -995,6 +860,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
 ### <a name="json-preset"></a>Предустановка JSON
+
 Обновите настроенную вами предустановку, указав идентификаторы ресурсов, которые нужно сцепить, и соответствующий промежуток времени для каждого видеофайла.
 
     {
@@ -1063,7 +929,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Вставка видео только с минимальной скоростью
 Предположим, что вы используете предустановку кодирования с несколькими скоростями, например [H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) , чтобы закодировать для потоковой передачи весь входной каталог, содержащий смесь видео- и аудиофайлов. В этом случае, если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку только с самой низкой скоростью, а не с каждой выходной скоростью. Для этого необходимо указать флаг InsertBlackIfNoVideoBottomLayerOnly.
 
-Вы можете использовать любую из предустановок Media Encoder Standard, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и внести в нее следующие изменения.
+Вы можете использовать любую из предустановок MES, которые определены в [этом](media-services-mes-presets-overview.md) разделе, и внести в нее следующие изменения.
 
 #### <a name="json-preset"></a>Предустановка JSON
     {
@@ -1081,9 +947,9 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Вставка видео со всеми выходными скоростями
-Предположим, что вы используете предустановку кодирования с несколькими скоростями, например [H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) , чтобы закодировать для потоковой передачи весь входной каталог, содержащий смесь видео- и аудиофайлов. В этом случае, если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку с каждой из выходных скоростей. Это гарантирует, что выходные ресурсы-контейнеры будут однородны по количеству видео- и аудиодорожек. Чтобы получить такой результат, необходимо указать флаг InsertBlackIfNoVideo.
+Предположим, что вы используете предустановку кодирования с несколькими скоростями, например [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) , чтобы закодировать для потоковой передачи весь входной каталог, содержащий смесь видео- и аудиофайлов. В этом случае, если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку с каждой из выходных скоростей. Это гарантирует, что выходные ресурсы-контейнеры будут однородны по количеству видео- и аудиодорожек. Чтобы получить такой результат, необходимо указать флаг InsertBlackIfNoVideo.
 
-Вы можете использовать любую из предустановок Media Encoder Standard, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и внести в нее следующие изменения.
+Вы можете использовать любую из предустановок MES, которые определены в [этом](media-services-mes-presets-overview.md) разделе, и внести в нее следующие изменения.
 
 #### <a name="json-preset"></a>Предустановка JSON
     {
@@ -1101,7 +967,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     <Condition>InsertBlackIfNoVideo</Condition>
 
 ## <a name="a-idrotatevideoarotate-a-video"></a><a id="rotate_video"></a>Поворот видео
-[Стандартный кодировщик служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md) поддерживает поворот на 0, 90, 180 и 270 градусов. По умолчанию задается значение Auto, при котором система пытается обнаружить метаданные поворота во входящем видеофайле и обеспечить соответствующую компенсацию. Включите следующий элемент **Sources** в одну из предустановок, определенных [здесь](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+[Стандартный кодировщик служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md) поддерживает поворот на 0, 90, 180 и 270 градусов. По умолчанию задается значение Auto, при котором система пытается обнаружить метаданные поворота во входящем видеофайле и обеспечить соответствующую компенсацию. Включите приведенный ниже элемент **Sources** в одну из предустановок, определенных в [этом](media-services-mes-presets-overview.md) разделе.
 
 ### <a name="json-preset"></a>Предустановка JSON
     "Sources": [
@@ -1125,9 +991,9 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
         </Source>
     </Sources>
 
-Сведения о том, как кодировщик интерпретирует значения ширины и высоты в предустановке, когда запускается компенсация поворота, см. [здесь](https://msdn.microsoft.com/library/azure/mt269962.aspx#PreserveResolutionAfterRotation).
+Сведения о том, как кодировщик интерпретирует значения ширины и высоты в предустановке, когда запускается компенсация поворота, см. [здесь](media-services-mes-schema.md#PreserveResolutionAfterRotation).
 
-Если указать значение 0, кодировщик будет игнорировать метаданные поворота (если они есть) во входящем видеофайле.
+Если указать значение&0;, кодировщик будет игнорировать метаданные поворота (если они есть) во входящем видеофайле.
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -1140,6 +1006,6 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

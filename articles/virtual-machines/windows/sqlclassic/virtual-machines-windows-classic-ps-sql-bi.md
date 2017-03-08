@@ -8,16 +8,16 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: c681e7a7-eeda-48aa-bc35-6277f4828244
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
+ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
+ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 
 
 ---
@@ -67,11 +67,12 @@ ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Компоненты бизнес-аналитики, установленные в образах коллекции виртуальных машин SQL Server
 В следующей таблице перечислены компоненты бизнес-аналитики, установленные в общих образах коллекции виртуальных машин Microsoft Azure, для SQL Server.
 
-* SQL Server 2016 RC3
-* SQL Server 2014 SP1 Enterprise
-* SQL Server 2014 SP1 Standard
-* SQL Server 2012 SP2 Enterprise
-* SQL Server 2012 SP2 Standard
+* SQL Server 2016 SP1 Enterprise
+* SQL Server 2016 SP1 Standard
+* SQL Server 2014 SP2 Enterprise
+* SQL Server 2014 SP2 Standard
+* SQL Server 2012 SP3 Enterprise
+* SQL Server 2012 SP3 Standard
 
 | Компонент бизнес-аналитики SQL Server | Установлен в образе коллекции | Примечания |
 | --- | --- | --- |
@@ -103,8 +104,6 @@ ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
   
   > [!NOTE]
   > В поддерживаемых сценариях бизнес-аналитики требуется ядро СУБД SQL Server. В односерверной топологии ВМ ядро СУБД обязательно должно выполняться на той же ВМ.
-  > 
-  > 
   
     Дополнительные сведения см. в следующих разделах: [Удаление служб Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) и [Как удалить экземпляр служб Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Просмотрите раздел «Важные обновления» **Центра обновления Windows** . Образы виртуальных машин Microsoft Azure часто обновляются, однако важные обновления могут поступать из **Центра обновления Windows** уже после последнего обновления образа виртуальной машины.
@@ -140,8 +139,6 @@ ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
 
 > [!NOTE]
 > Аналогичные материалы, где для настройки сервера отчетов используются сценарии Windows PowerShell, см. в статье [Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](virtual-machines-windows-classic-ps-sql-report.md).
-> 
-> 
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>Подключение к виртуальной машине и запуск диспетчера конфигурации служб Reporting Services
 Существуют две общие процедуры для подключения к виртуальной машине Azure:
@@ -160,7 +157,7 @@ ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
 
 **Запустите диспетчер конфигурации служб Reporting Services.**
 
-1. В **Windows Server 2012**выполните следующие действия.
+1. В **Windows Server 2012 или Windows Server 2016** выполните следующие действия.
 2. На **начальном** экране введите **Reporting Services**, чтобы просмотреть список приложений.
 3. Щелкните правой кнопкой мыши элемент **Диспетчер конфигурации служб Reporting Services** и выберите пункт **Запуск от имени администратора**.
 4. В **Windows Server 2008 R2**выполните следующие действия.
@@ -346,8 +343,6 @@ ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
 
 > [!NOTE]
 > [Отправьте отзыв и контактные данные через Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
-> 
-> 
 
 ### <a name="community-content"></a>Материалы сообщества
 * [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
@@ -355,6 +350,6 @@ ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

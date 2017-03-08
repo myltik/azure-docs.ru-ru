@@ -7,6 +7,7 @@ manager: jhubbard
 author: torsteng
 ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,9 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f3fe836133197b49c05bfc8e91616bbd6ee02306
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: c43b34124fd0ccdbe03ce3d336388cbd3b77ad9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -51,7 +53,7 @@ ms.openlocfilehash: f3fe836133197b49c05bfc8e91616bbd6ee02306
     [;]
 
 > [!NOTE]
-> Убедитесь, что значение *"\<username\>"* не содержит суффикс *"@servername"*. 
+> Убедитесь, что значение *\<username\>* не содержит суффикс *@servername*. 
 > 
 > 
 
@@ -190,14 +192,16 @@ ms.openlocfilehash: f3fe836133197b49c05bfc8e91616bbd6ee02306
 * Функция эластичных запросов в настоящее время не позволяет исключать сегменты, когда предикаты для ключа сегментирования безопасно исключают определенные сегменты из процесса обработки.
 * Эластичные запросы оптимальны, когда основная часть вычислений может быть выполнена в сегментах. Обычно наиболее эффективны запросы с предикатами выборочных фильтров, дающие возможность вычисления в сегментах или соединениях путем секционирования ключей с выравниванием по секциям для всех сегментов. Для других шаблонов запросов может потребоваться загрузка больших объемов данных из сегментов в головной узел, что может стать причиной снижения производительности.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Дальнейшие действия
+
+* Общие сведения об эластичных запросах см. в разделе [Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)](sql-database-elastic-query-overview.md).
+* Руководств по вертикальному секционированию см. в статье [Приступая к работе с межбазовыми запросами (вертикальное секционирование) (предварительная версия)](sql-database-elastic-query-getting-started-vertical.md).
+* Описание синтаксиса и примеры запросов вертикально секционированных данных см. в разделе [Запрос к нескольким облачным базам данных с разными схемами (предварительная версия)](sql-database-elastic-query-vertical-partitioning.md).
+* Руководство по горизонтальному секционированию (сегментированию) см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-getting-started.md).
+* В описании [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) приведена хранимая процедура, которая выполняет инструкцию Transact-SQL для отдельной удаленной базы данных SQL Azure или набора баз данных, выступающих в качестве сегментов в схеме горизонтального секционирования.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

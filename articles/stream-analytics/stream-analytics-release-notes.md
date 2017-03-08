@@ -12,15 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
+ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
+ms.lasthandoff: 02/01/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Заметки о выпуске Stream Analytics
+## <a name="notes-for-02012017-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 01.02.2017
+Этот выпуск содержит следующее обновление.
+
+| Название | Описание |
+| --- | --- |
+| Введение в определяемые пользователем функции JavaScript |Теперь доступны [определяемые пользователем функции Java](stream-analytics-javascript-user-defined-functions.md) (UDF), повышающие гибкость при создании запросов. |
+| Введение в инструменты для Visual Studio и Stream Analytics |Теперь доступны [инструменты для Visual Studio](stream-analytics-tools-for-visual-studio.md), используемые для отладки и расширяющие ваши возможности. |
+| Обзор ведения журнала диагностики |Теперь доступно [ведение журнала диагностики](stream-analytics-job-diagnostic-logs.md), что расширяет возможности по устранению неполадок. |
+| Введение в геопространственные функции |Выпущена общедоступная версия [геопространственных функций](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx). |
+
 ## <a name="notes-for-04152016-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics 15.04.2016
 Этот выпуск содержит следующее обновление.
 
@@ -133,9 +144,4 @@ ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

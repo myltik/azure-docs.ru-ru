@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
+ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
+ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -93,14 +94,9 @@ Elapsed time:            00.00:13:07
 ```
 
 ## <a name="troubleshooting"></a>Устранение неполадок
-* При использовании AZCopy отображается сообщение об ошибке: "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature" (Серверу не удалось проверить подлинность запроса. Проверьте правильность формата значения в заголовке "Авторизация", включая подпись). При этом вы используете ключ key2 или вторичный ключ к хранилищу данных. Попробуйте воспользоваться первичным ключом или первый ключ к хранилищу данных.
+* При использовании AZCopy, если отображается сообщение об ошибке "Серверу не удалось проверить подлинность этого запроса", то убедитесь, что значение заголовка авторизации составлено правильно (содержит подпись) и что используется второй или вторичный ключ к хранилищу данных. Попробуйте использовать первичный или первый ключ к хранилищу данных.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Можно создать виртуальную машину, [подключив копию VHD к виртуальной машине в качестве диска ОС](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

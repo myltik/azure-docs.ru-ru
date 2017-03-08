@@ -13,11 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2016
+ms.date: 02/03/2017
 ms.author: jhubbard
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4dd54c4febb8242d59fd3d7170d5e7da14dfb548
+ms.sourcegitcommit: 46f65a2898c39774bd63ff2f8f053224d7238fb0
+ms.openlocfilehash: 0abfceb43ec5c333e9800ee6fca4e31fb317208d
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 4dd54c4febb8242d59fd3d7170d5e7da14dfb548
 Уменьшите операционные затраты и освободите ИТ-сотрудников и специалистов по разработке и операциям для работы над повышением бизнес-ценности ПО и автоматизации задач управления облаком в службе автоматизации Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Как служба автоматизации Azure может помочь управлять базами данных SQL Azure?
-Базой данных SQL Azure можно управлять в службе автоматизации Azure, используя [командлеты PowerShell для базы данных SQL Azure](https://msdn.microsoft.com/library/dn546723.aspx), доступные в разделе со [средствами Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Служба автоматизации Azure предоставляет командлеты PowerShell базы данных SQL Azure в готовом виде, чтобы вы могли выполнять все задачи управления базами данных SQL, не выходя из службы. Вы также можете связать эти командлеты в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
+Базой данных SQL Azure можно управлять в службе автоматизации Azure, используя [командлеты PowerShell для базы данных SQL Azure](https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/azure.sqldatabase/), доступные в разделе со [средствами Azure PowerShell](https://docs.microsoft.com/en-us/powershell/). Служба автоматизации Azure предоставляет командлеты PowerShell базы данных SQL Azure в готовом виде, чтобы вы могли выполнять все задачи управления базами данных SQL, не выходя из службы. Вы также можете связать эти командлеты в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
 
 Служба автоматизации Azure также может взаимодействовать непосредственно с серверами SQL Server, выполняя команды SQL с помощью PowerShell.
 
@@ -50,10 +51,5 @@ ms.openlocfilehash: 4dd54c4febb8242d59fd3d7170d5e7da14dfb548
 * [Мой первый Runbook](../automation/automation-first-runbook-graphical.md)
 * [План обучения работе со службой автоматизации Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Служба автоматизации Azure: ваш агент SQL в облаке](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

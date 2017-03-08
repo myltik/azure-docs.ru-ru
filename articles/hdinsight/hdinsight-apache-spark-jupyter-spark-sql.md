@@ -1,5 +1,5 @@
 ---
-title: "Создание кластера Spark в HDInsight Azure и использование запросов Spark SQL из Jupyter для интерактивного анализа | Документация Майкрософт"
+title: "Начало работы с кластером Apache Spark в Azure HDInsight | Документация Майкрософт"
 description: "Пошаговые инструкции по быстрому созданию кластера Apache Spark в HDInsight и последующему использованию запросов Spark SQL из записных книжек Jupyter для выполнения интерактивных запросов."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/22/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 791b6a5a07bb87302cb382290a355c9a14c63ff0
-ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
+ms.lasthandoff: 02/06/2017
 
 
 ---
 # <a name="get-started-create-apache-spark-cluster-in-azure-hdinsight-and-run-interactive-queries-using-spark-sql"></a>Начало работы. Создание кластера Apache Spark в Azure HDInsight и выполнение интерактивных запросов с помощью SQL Spark
+
 Узнайте, как создать кластер [Apache Spark](hdinsight-apache-spark-overview.md) в HDInsight и выполнять интерактивные запросы Spark SQL в кластере Spark с помощью записной книжки [Jupyter](https://jupyter.org).
 
    ![Приступая к работе с Apache Spark в HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Руководство по началу работы с Apache Spark в HDInsight. Описание шагов: создание учетной записи хранения; создание кластера; выполнение инструкций Spark SQL")
@@ -30,7 +32,8 @@ ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
 
 ## <a name="prerequisites"></a>Предварительные требования
 * **Подписка Azure**. Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. Ознакомьтесь со страницей [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/free).
-* **Клиент SSH**: в системах Linux, Unix и OS X клиент SSH предоставляется с помощью команды `ssh`. Дополнительные сведения для систем Windows см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а для систем Linux, Unix или OS X — в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* **Клиент SSH**: в системах Linux, Unix и OS X клиент SSH предоставляется с помощью команды `ssh`. См. дополнительные сведения для клиентов соответствующих ОС в материалах об [использовании SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а также об [использовании SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!NOTE]
 > В этой статье описано, как с помощью шаблона Azure Resource Manager создать кластер Spark, который использует [BLOB-объекты службы хранилища Azure в качестве хранилища кластера](hdinsight-hadoop-use-blob-storage.md). Кроме того, вы можете создать кластер Spark, использующий [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) в качестве дополнительного хранилища (в придачу к BLOB-объектам Azure, которые служат основными хранилищами). Инструкции см. в инструкциях по [созданию кластера HDInsight с Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -68,19 +71,19 @@ ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
 * **PySpark** (для приложений, написанных на языке Python).
 * **Spark** (для приложений, написанных на языке Scala);
 
-В этой статье вы будете использовать ядро PySpark. В статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Spark в HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) можно узнать подробности о преимуществах использования ядра PySpark. Однако несколько основных преимуществ использования ядра PySpark заключаются в следующем:
+В этой статье вы будете использовать ядро PySpark. Дополнительные сведения о двух ядрах см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-jupyter-notebook-kernels.md). Основные преимущества использования ядра PySpark:
 
-* Вам не нужно задавать контексты для Spark и Hive. Они устанавливаются автоматически.
-* Для запуска запросов SQL или Hive напрямую без предшествующих фрагментов кода можно использовать волшебные слова ячеек, например `%%sql`.
+* контексты Spark и Hive устанавливаются автоматически;
+* для запуска запросов SQL или Hive напрямую без предшествующих фрагментов кода можно использовать волшебный текст ячеек, например `%%sql`.
 * Выходные данные для запросов SQL или Hive визуализируются автоматически.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Создание документа Jupyter Notebook с помощью ядра PySpark
 
 1. Откройте [портал Azure](https://portal.azure.com/).
-2. В меню слева щелкните **Resoruce groups** (Группы ресурсов).
+2. В меню слева щелкните **Группы ресурсов**.
 3. Выберите группу ресурсов, созданную в предыдущем разделе. Если имеется слишком много групп ресурсов, можно использовать функцию поиска. В группе отобразится два ресурса, кластер HDInsight и учетная запись хранения по умолчанию.
 4. Щелкните кластер, чтобы открыть его.
- 
+
 2. В разделе **Быстрые ссылки** щелкните **Панели мониторинга кластера**, а затем — **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
 
    ![Панели мониторинга кластера HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "Панели мониторинга кластера HDInsight")
@@ -95,7 +98,7 @@ ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
 
    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 
-   Будет создана и открыта записная книжка с именем Untitled (Untitled.pynb). 
+   Будет создана и открыта записная книжка с именем Untitled (Untitled.pynb).
 
 4. Щелкните имя записной книжки вверху и по желанию введите понятное имя.
 
@@ -114,27 +117,27 @@ ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
 
         # Load the data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
+        
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-
+        
         # Parse the data in hvacText
         hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
+        
         # Create a data frame
         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
+        
         # Register the data fram as a table to run queries against
         hvacdf.registerTempTable("hvac")
 
     Кластеры Spark в HDInsight поставляются с файлом демонстрационных данных **hvac.csv** в разделе **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-    
+
 7. Выполните следующий код для запроса данных:
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+   Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    По умолчанию выводятся следующие табличные данные.
 
@@ -185,9 +188,4 @@ ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

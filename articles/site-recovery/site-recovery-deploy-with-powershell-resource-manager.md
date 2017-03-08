@@ -1,6 +1,6 @@
 ---
-title: "Защита серверов в Azure с помощью Azure PowerShell и Azure Resource Manager | Документация Майкрософт"
-description: "Автоматизируйте защиту серверов в Azure с помощью Azure Site Recovery, используя PowerShell в сочетании с Azure Resource Manager."
+title: "Репликация виртуальных машин Hyper-V с помощью PowerShell и Azure Resource Manager | Документация Майкрософт"
+description: "Автоматизируйте репликацию виртуальных машин Hyper-V в Azure с помощью Azure Site Recovery, используя PowerShell и Azure Resource Manager."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 555f61f76a8d6f1564e7ca736bcdd0dec7d594df
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -62,7 +63,7 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
 * Узел Hyper-V под управлением Windows Server 2012 R2 или Microsoft Hyper-V Server 2012 R2, содержащий одну или несколько виртуальных машин.
 * Серверы Hyper-V должны быть подключены к Интернету напрямую или через прокси-сервер.
-* Виртуальные машины, которые требуется защитить, должны отвечать [предварительным требованиям к виртуальным машинам](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Виртуальные машины, которые требуется защитить, должны отвечать [предварительным требованиям к виртуальным машинам](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Шаг 1. Вход в учетную запись Azure
 1. Откройте консоль PowerShell и выполните следующую команду, чтобы войти в учетную запись Azure. Этот командлет открывает веб-страницу с запросом на ввод учетных данных.
@@ -244,9 +245,4 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Узнайте больше](https://msdn.microsoft.com/library/azure/mt637930.aspx) о командлетах PowerShell инструмента Azure Resource Manager для службы Azure Site Recovery.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

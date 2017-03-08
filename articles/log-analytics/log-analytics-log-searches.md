@@ -1,5 +1,5 @@
 ---
-title: "Поиск по журналам в Log Analytics | Документация Майкрософт"
+title: "Поиск данных по журналам в Azure Log Analytics | Документация Майкрософт"
 description: "Поиск по журналам позволяет объединять и сопоставлять любые данные о компьютерах из нескольких источников в вашей среде."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="log-searches-in-log-analytics"></a>Поиск по журналам в Log Analytics
+# <a name="find-data-using-log-searches"></a>Поиск данных по журналам
+
 Основой Log Analytics является функция поиска по журналам, которая позволяет объединять и сопоставлять данные компьютеров из нескольких источников в существующей среде. Функция поиска журналов также дополняет решения, позволяя получать сводные показатели по определенной проблемной области.
 
 На странице Поиск можно создать запрос, а затем во время поиска отфильтровать результаты с помощью элементов управления аспектами. Можно создать сложные запросы для преобразования и фильтрации результатов, а также для формирования соответствующих отчетов.
@@ -574,9 +577,4 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 
 * Чтобы расширить возможности поиска по журналам, см. статью [Настраиваемые поля в службе Log Analytics](log-analytics-custom-fields.md).
 * Полный список полей и аспектов для поиска, доступных в Log Analytics, см. в [справочнике по поиску в журналах Log Analytics](log-analytics-search-reference.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

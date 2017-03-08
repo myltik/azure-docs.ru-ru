@@ -1,6 +1,6 @@
 ---
-title: "Обозреватель скриптов DocumentDB, редактор JavaScript | Документация Майкрософт"
-description: "Узнайте об обозревателе скриптов DocumentDB, средстве портала Azure для управления артефактами программирования на стороне сервера DocumentDB, включая хранимые процедуры, триггеры и определяемые пользователем функции."
+title: "Инструмент DocumentDB портала Azure: обозреватель скриптов | Документация Майкрософт"
+description: "Узнайте об обозревателе скриптов DocumentDB, средстве портала Azure для управления артефактами программирования на стороне сервера DocumentDB, включая хранимые процедуры JavaScript, триггеры и определяемые пользователем функции."
 keywords: "редактор JavaScript"
 services: documentdb
 author: kirillg
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
+ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
+ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -25,7 +26,9 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 В этой статье приведены общие сведения об обозревателе скриптов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), который представляет собой редактор JavaScript на портале Azure, позволяющий просматривать и запускать артефакты программирования на стороне сервера DocumentDB, включая хранимые процедуры, триггеры и пользовательские функции. Дополнительные сведения о программировании DocumentDB на стороне сервера см. в статье [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
 
 ## <a name="launch-script-explorer"></a>Запуск обозревателя скриптов
-1. На навигационной панели портала Azure щелкните **DocumentDB (NoSQL)**. Если пункт **Учетные записи DocumentDB** не отображается, то щелкните **Больше служб** и выберите **DocumentDB (NoSQL)**.
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Если пункт **NoSQL (DocumentDB)** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. В меню ресурсов выберите **Обозреватель скриптов**.
    
     ![Снимок экрана: команда "Обозреватель скриптов"](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -36,7 +39,8 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
    
     ![Снимок экрана: обозреватель скриптов с результатами фильтрации](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] Функциональные возможности фильтрации обозревателя скриптов обеспечивают только фильтрацию загруженного ***в настоящее время*** набора сценариев и не обновляют автоматически выбранную в данный момент коллекцию.
+    > [!IMPORTANT] 
+    > Функциональные возможности фильтрации обозревателя скриптов обеспечивают только фильтрацию загруженного ***в настоящее время*** набора сценариев и не обновляют автоматически выбранную в данный момент коллекцию.
 
 1. Чтобы обновить список скриптов, которые загружены в обозревателе скриптов, щелкните команду **Обновить** в верхней части колонки.
    
@@ -106,10 +110,5 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 Дополнительные сведения о программировании DocumentDB на стороне сервера см. в статье [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
 
 [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) — еще один полезный ресурс, который поможет вам узнать больше о DocumentDB.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

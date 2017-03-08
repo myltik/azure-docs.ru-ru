@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 02/09/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
+ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -28,31 +29,33 @@ ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Что можно делать с журналами диагностики
 Ниже описано несколько доступных операций с журналами диагностики.
 
-* Сохранение журналов в **учетную запись хранения** для аудита или проверки вручную. В **параметрах диагностики**вы также можете задать время хранения (в днях).
+* Сохранение журналов в [**учетную запись хранения**](monitoring-archive-diagnostic-logs.md) для аудита или проверки вручную. В **параметрах диагностики**вы также можете задать время хранения (в днях).
 * [Потоковая передача журналов в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md) для обработки в сторонней службе или пользовательском аналитическом решении, например в PowerBI.
-* Анализ журналов с помощью [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* Анализ журналов с помощью [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+
+Учетная запись хранения или пространство имен концентратора событий не обязательно должны находиться в той самой подписке, что и ресурс, выдающий журналы, если у пользователя, настраивающего параметр, имеется соответствующий доступ RBAC к обеим подпискам.
 
 ## <a name="diagnostic-settings"></a>параметрах диагностики
 Журналы диагностики для всех ресурсов, кроме вычислительных, настраиваются с помощью параметры диагностики. **Параметры диагностики** для ресурса определяют следующие настройки.
 
 * Куда будут отправляться журналы диагностики (учетная запись хранения, концентраторы событий и (или) OMS Log Analytics).
 * Какие категории журналов будут отправляться.
-* Как долго будет храниться в учетной записи хранения каждая категория журналов (если указать здесь 0 дней, журналы будут храниться неограниченно долго). В противном случае нужно указать значение от 1 до 2 147 483 647. Если политики хранения заданы, но хранение журналов в учетной записи отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены.
+* Как долго будет храниться в учетной записи хранения каждая категория журналов (если указать здесь&0; дней, журналы будут храниться неограниченно долго). В противном случае нужно указать значение от 1 до 2 147 483 647. Если политики хранения заданы, но хранение журналов в учетной записи отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены. Политики хранения применяются по дням, поэтому в конце дня (по времени в формате UTC) журналы, срок которых теперь превышает период хранения, будут удалены. Например, если настроена политика хранения в течение одного дня, то в начале текущего дня журналы за вчерашний день будет удалены.
 
 Эти параметры легко настраиваются в колонке диагностики для ресурса на портале Azure, а также с помощью Azure PowerShell, интерфейса командной строки или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!WARNING]
 > Для журналов диагностики и метрик для вычислительных ресурсов (например, виртуальных машин или Service Fabric) доступен [отдельный механизм настройки и выбора выходных данных](../azure-diagnostics.md).
-> 
-> 
+>
+>
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Как включить сбор журналов диагностики
 Сбор журналов диагностики можно включить во время или после создания ресурса в колонке ресурса на портале. Журналы диагностики можно также включить в любой момент с помощью Azure PowerShell, интерфейса командной строки или REST API Azure Monitor.
 
 > [!TIP]
 > При работе с некоторыми ресурсами эти инструкции могут требовать корректировки. Изучите связи на схеме, представленной в конце этой страницы, чтобы разобраться в дополнительных действиях, которые могут потребоваться при использовании некоторых типов ресурсов.
-> 
-> 
+>
+>
 
 [В этой статье показано, как использовать шаблон ресурсов для включения параметров диагностики при создании ресурса](monitoring-enable-diagnostic-logs-using-template.md)
 
@@ -61,7 +64,7 @@ ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
 
 1. Нажмите кнопку **Создать** и выберите ресурс, который вас интересует.
 2. Настроив базовые параметры и выбрав размер, в колонке **Параметры** в разделе **Мониторинг** выберите значение **Включено** и укажите учетную запись хранения, в которой будут храниться журналы диагностики. Отправка диагностических данных в учетную запись хранения тарифицируется по стандартным расценкам на хранение и передачу данных.
-   
+
    ![Включение журналов диагностики при создании ресурса](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3. Нажмите **ОК** , чтобы создать ресурс.
 
@@ -69,7 +72,7 @@ ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
 
 1. Перейдите к колонке ресурса и откройте колонку **Диагностика** .
 2. Щелкните **Включено** и выберите учетную запись хранения и (или) концентратор событий.
-   
+
    ![Включение журналов диагностики после создания ресурса](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3. В разделе **Журналы** выберите **категории журналов**, которые вы хотите собирать или передавать.
 4. Щелкните **Сохранить**.
@@ -79,26 +82,31 @@ ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
 
 Эта команда включает отправку журналов диагностики в учетную запись хранения:
 
+```powershell
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+```
 
 StorageAccountID — это идентификатор ресурса учетной записи хранения, в которую будут отправляться журналы.
 
 Эта команда включает потоковую передачу журналов диагностики в концентратор событий:
 
+```powershell
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+```
 
 ServiceBusRuleID — это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`.
 
 Чтобы включить отправку журналов диагностики в рабочую область Log Analytics, используйте следующую команду.
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+```powershell
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+```
 
-> [!NOTE]
-> В октябрьском выпуске параметр WorkspaceId недоступен. Он будет доступен в ноябрьском выпуске.
-> 
-> 
+Идентификатор ресурса рабочей области Log Analytics можно получить с помощью следующей команды.
 
-Идентификатор рабочей области Log Analytics можно получить на портале Azure.
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 Можно объединять эти параметры, чтобы получить несколько вариантов вывода.
 
@@ -107,26 +115,25 @@ ServiceBusRuleID — это строка в таком формате: `{service
 
 Эта команда включает отправку журналов диагностики в учетную запись хранения:
 
+```azurecli
     azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+```
 
 StorageAccountID — это идентификатор ресурса учетной записи хранения, в которую будут отправляться журналы.
 
 Эта команда включает потоковую передачу журналов диагностики в концентратор событий:
 
+```azurecli
     azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+```
 
 ServiceBusRuleID — это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`.
 
 Чтобы включить отправку журналов диагностики в рабочую область Log Analytics, используйте следующую команду.
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> В октябрьском выпуске параметр WorkspaceId недоступен. Он будет доступен в ноябрьском выпуске.
-> 
-> 
-
-Идентификатор рабочей области Log Analytics можно получить на портале Azure.
+```azurecli
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+```
 
 Можно объединять эти параметры, чтобы получить несколько вариантов вывода.
 
@@ -150,8 +157,8 @@ ServiceBusRuleID — это строка в таком формате: `{service
 
 > [!NOTE]
 > Это представление будет содержать журналы диагностики, которые можно будет скачать, только если вы настроили параметры для их сохранения в учетную запись хранения.
-> 
-> 
+>
+>
 
 Щелкните ссылку **Параметры диагностики**, чтобы открыть одноименную колонку. Здесь вы можете включить, отключить или изменить параметры диагностики для выбранного ресурса.
 
@@ -160,56 +167,51 @@ ServiceBusRuleID — это строка в таком формате: `{service
 
 | служба | Схемы и документы |
 | --- | --- |
-| Программный балансировщик нагрузки |[Служба анализа журналов для балансировщика нагрузки Azure (предварительная версия)](../load-balancer/load-balancer-monitor-log.md) |
+| Подсистема балансировки нагрузки |[Служба анализа журналов для балансировщика нагрузки Azure (предварительная версия)](../load-balancer/load-balancer-monitor-log.md) |
 | группы сетевой безопасности; |[Аналитика журналов для групп безопасности сети](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Шлюзы приложений |[Ведение журнала диагностики для шлюза приложений](../application-gateway/application-gateway-diagnostics.md) |
 | хранилище ключей; |[Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
 | поиск Azure; |[Включение и использование аналитики поискового трафика](../search/search-traffic-analytics.md) |
 | Хранилище озера данных |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Аналитика озера данных |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Приложения логики |Нет схемы. |
+| Приложения логики |[Настраиваемая схема отслеживания сообщений B2B для приложений логики](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Пакетная служба Azure |[Ведение журналов диагностики пакетной службы Azure](../batch/batch-diagnostics.md) |
 | Служба автоматизации Azure |[Log Analytics для службы автоматизации Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Концентратор событий |Нет схемы. |
+| Концентраторы событий |[Журналы диагностики концентраторов событий Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Анализ потока |[Журналы диагностики задания](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Служебная шина |Нет схемы. |
-| Анализ потока |Нет схемы. |
+
 
 ## <a name="supported-log-categories-per-resource-type"></a>Поддерживаемые категории журнала для каждого типа ресурса
-| Тип ресурса | Категория | Отображаемое имя категории |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |Журналы заданий |
-| Microsoft.Automation/automationAccounts |JobStreams |Потоки заданий |
-| Microsoft.Batch/batchAccounts |ServiceLog |Журналы служб |
-| Microsoft.DataLakeAnalytics/accounts |Аудит |Журналы аудита |
-| Microsoft.DataLakeAnalytics/accounts |Запросы |Журналы запросов |
-| Microsoft.DataLakeStore/accounts |Аудит |Журналы аудита |
-| Microsoft.DataLakeStore/accounts |Запросы |Журналы запросов |
-| Microsoft.EventHub/namespaces |ArchiveLogs |Журналы архивации |
-| Microsoft.EventHub/namespaces |OperationalLogs |Журналы операций |
-| Microsoft.KeyVault/vaults |AuditEvent |Журналы аудита |
-| Microsoft.Logic/workflows |WorkflowRuntime |События диагностики среды выполнения рабочего процесса |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |Событие группы безопасности сети |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |Счетчик правил группы безопасности сети |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |Событие потока правил группы безопасности сети |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |События оповещения балансировщика нагрузки |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |Состояние работоспособности балансировщика нагрузки |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Журнал доступа к шлюзу приложений |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Журнал производительности шлюза приложений |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Журнал брандмауэра шлюза приложений |
-| Microsoft.Search/searchServices |OperationLogs |Журналы операций |
-| Microsoft.ServerManagement/nodes |RequestLogs |Журналы запросов |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |Журналы операций |
-| Microsoft.StreamAnalytics/streamingjobs |Выполнение |Выполнение |
-| Microsoft.StreamAnalytics/streamingjobs |Разработка |Разработка |
+|Тип ресурса|Категория|Отображаемое имя категории|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Журналы заданий|
+|Microsoft.Automation/automationAccounts|JobStreams|Потоки заданий|
+|Microsoft.Batch/batchAccounts|ServiceLog|Журналы служб|
+|Microsoft.DataLakeAnalytics/accounts|Аудит|Журналы аудита|
+|Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
+|Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
+|Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Журналы архивации|
+|Microsoft.EventHub/namespaces|OperationalLogs|Журналы операций|
+|Microsoft.KeyVault/vaults|AuditEvent|Журналы аудита|
+|Microsoft.Logic/workflows|WorkflowRuntime|События диагностики среды выполнения рабочего процесса|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Событие группы безопасности сети|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Счетчик правил группы безопасности сети|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|События оповещения балансировщика нагрузки|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Состояние работоспособности балансировщика нагрузки|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Журнал доступа к шлюзу приложений|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Журнал производительности шлюза приложений|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Журнал брандмауэра шлюза приложений|
+|Microsoft.Search/searchServices|OperationLogs|Журналы операций|
+|Microsoft.ServerManagement/nodes|RequestLogs|Журналы запросов|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Журналы операций|
+|Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
+|Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Потоковая передача журналов диагностики в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Create or update a diagnostics setting in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx) (Создание и изменение параметров диагностики с помощью REST API Azure Monitor)
-* [Анализ журналов с помощью OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Анализ журналов с помощью OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

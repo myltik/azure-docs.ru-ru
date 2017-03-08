@@ -1,6 +1,6 @@
 ---
 title: "Включение аудита для баз данных SQL в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по включению аудита для баз данных SQL."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по **включению аудита для баз данных SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: d36bb775d0b0fd732562b18787b65600c8fb5fa1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,22 +30,25 @@ ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
 
 > [!NOTE]
 > В документе приводится обзор службы с помощью примера развертывания.  Он не является пошаговым руководством.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Выполнение рекомендаций
 1. В колонке **Рекомендации** выберите **Включить аудит для баз данных SQL**.  Откроется колонка **Включить аудит для баз данных SQL** .
-   ![Enable auditing on SQL databases][1]
+
+   ![Включение аудита для баз данных SQL][1]
 2. Выберите базу данных SQL для включения аудита. Откроется колонка **Аудит и обнаружение угроз**.
+
    ![Аудит и обнаружение угроз][2]
 3. В колонке **Аудит и обнаружение угроз** в разделе **Аудит** щелкните **Вкл.**
+
    ![Включение аудита и обнаружения угроз][3]
-4. Следуйте указаниям в разделе [Приступая к работе с системой обнаружения угроз базы данных SQL](../sql-database/sql-database-threat-detection-get-started.md) , чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться предупреждения системы безопасности при обнаружении аномальных действий.
+4. Следуйте указаниям в разделе [Обнаружение угроз для базы данных SQL](../sql-database/sql-database-threat-detection-portal.md), чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться оповещения системы безопасности при обнаружении аномальных действий.
 
 ## <a name="see-also"></a>Дополнительные материалы
 В этой статье показано, как выполнить рекомендацию центра безопасности по включению аудита баз данных SQL. Чтобы узнать больше о защите базы данных SQL, ознакомьтесь со следующими статьями.
 
-* [Защита Базы данных SQL](../sql-database/sql-database-security.md)
+* [Защита Базы данных SQL](../sql-database/sql-database-security-overview.md)
 
 Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
@@ -60,9 +64,4 @@ ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

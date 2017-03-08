@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d41a332d0d4265bc2802be65c7f89aa07e46ae97
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 
 
 ---
@@ -113,10 +113,10 @@ ms.openlocfilehash: d41a332d0d4265bc2802be65c7f89aa07e46ae97
     // I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-    var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
+    var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
     //I put a variable in a Utils class to hold the secret for general  application use.
-    Utils.EncryptSecret = sec;
+    Utils.EncryptSecret = sec.Value;
 
 
 
@@ -142,29 +142,26 @@ ms.openlocfilehash: d41a332d0d4265bc2802be65c7f89aa07e46ae97
 
 Дополнительные сведения о создании тестового сертификата см. в [этом практическом руководстве](https://msdn.microsoft.com/library/ff699202.aspx).
 
-**Свяжите сертификат с приложением Azure AD** Теперь, когда у вас есть сертификат, необходимо связать его с приложением Azure AD. Но в настоящее время портал управления Azure не поддерживает это. Вместо этого необходимо использовать Powershell. Ниже приведены команды, которые нужно выполнить.
+**Свяжите сертификат с приложением Azure AD** Теперь, когда у вас есть сертификат, необходимо связать его с приложением Azure AD. В настоящее время портал Azure не поддерживает этот рабочий процесс. Однако это можно сделать с помощью PowerShell. Чтобы связать сертификат с приложением Azure AD, выполните следующие команды:
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-
-    PS C:\> $x509.Import("C:\data\KVWebApp.cer")
-
-    PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
-
-    PS C:\> $now = [System.DateTime]::Now
+    $x509.Import("C:\data\KVWebApp.cer")
+    $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+    $now = [System.DateTime]::Now
 
     # this is where the end date from the cert above is used
-    PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
+    $yearfromnow = [System.DateTime]::Parse("2016-07-31")
 
-    PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 
-    PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
+    $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-    PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
     # get the thumbprint to use in your app settings
-    PS C:\>$x509.Thumbprint
+    $x509.Thumbprint
 
-После выполнения этих команд приложение можно будет увидеть в Azure AD. Если вы сначала не видите приложение, выполните поиск по запросу "Приложения, которыми владеет моя компания" вместо "Приложения, используемые моей компанией".
+После выполнения этих команд приложение можно будет увидеть в Azure AD. Во время поиска в диалогом окне поиска выберите "Приложения, которыми владеет моя компания", а не "Приложения, которые использует моя компания".
 
 Дополнительные сведения об объектах приложения Azure AD и ServicePrincipal см. в статье [Объекты приложения и субъекта-службы в Azure Active Directory](../active-directory/active-directory-application-objects.md).
 
@@ -243,6 +240,6 @@ ms.openlocfilehash: d41a332d0d4265bc2802be65c7f89aa07e46ae97
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

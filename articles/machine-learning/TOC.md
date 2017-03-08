@@ -1,17 +1,24 @@
 # Обзор
+
 ## [Что такое машинное обучение?](machine-learning-what-is-machine-learning.md)
-## Студия машинного обучения
-### [Что такое студия?](machine-learning-what-is-ml-studio.md)
-### [Возможности студии](machine-learning-studio-overview-diagram.md)
-### [Инфографика: основные сведения о машинном обучении](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Процесс обработки и анализа данных группы
 ### [Обзор](http://aka.ms/datascienceprocess)
 ### [Жизненный цикл](data-science-process-overview.md)
 ### [Пошаговые руководства](data-science-process-walkthroughs.md)
+
+## Студия машинного обучения
+### [Что такое студия?](machine-learning-what-is-ml-studio.md)
+### [Возможности студии](machine-learning-studio-overview-diagram.md)
+### [Инфографика: основные сведения о машинном обучении](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Часто задаваемые вопросы](machine-learning-faq.md)
 ## [Новые возможности](machine-learning-whats-new.md)
+
 # Начало работы
+
 ## [Создание первого эксперимента](machine-learning-create-experiment.md)
+
 ## Пошаговое руководство по примеру
 ### [Создание прогнозного решения](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1. Создание рабочей области](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4. Обучение и анализ](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5. Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6. Доступ к веб-службе](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Обработка и анализ данных для начинающих
 ### [1. Пять вопросов](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2. Готовы ли данные?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [Быстрый запуск R](machine-learning-r-quickstart.md)
 
-
 # Практическое руководство
+
 ## Настройка инструментов и служебных программ
 ### [Настройка сред](machine-learning-data-science-environment-setup.md)
 ### [Настройка виртуальных машин](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Устранение неполадок](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Развертывание с помощью ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Создание в другом регионе](machine-learning-multi-geo.md)
+
 ## Анализ потребностей бизнеса
 ### [Технические требования](machine-learning-data-science-plan-your-environment.md)
 ### [Определение своего сценария](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Получение и интерпретация данных
 ### Загрузка данных в хранилище
 #### [Обзор](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Оценка моделей](machine-learning-data-science-spark-model-consumption.md)
 ##### [Расширенное изучение данных](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Использование Scala и Spark](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Разработка моделей
 ### Проектирование и выбор компонентов
 #### [Обзор](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [Выбор компонентов TDSP](machine-learning-data-science-select-features.md)
 ### Создание и обучение моделей
 #### [Преобразование в оценку](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Управление жизненным циклом эксперимента](machine-learning-version-control.md)
 #### [Управление итерациями](machine-learning-manage-experiment-iterations.md)
 #### [Создание моделей с помощью PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Выбор алгоритмов
@@ -120,11 +132,11 @@
 ##### [Выполнение скриптов R](machine-learning-extend-your-experiment-with-r.md)
 ##### [Создание пользовательских модулей R](machine-learning-custom-r-modules.md)
 ##### [Выполнение скриптов Python](machine-learning-execute-python-scripts.md)
+
 ## Модели развертывания и потребления
 ### [Обзор](machine-learning-deploy-consume-web-service-guide.md)
 ### Развертывание моделей
 #### [Принцип работы](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Развертывание новой веб-службы](machine-learning-webservice-deploy-a-web-service.md)
 #### [Развертывание веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Использование внешних данных](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Развертывание в нескольких регионах](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Использование Excel](machine-learning-consuming-from-excel.md)
 #### [Использование надстройки Excel](machine-learning-excel-add-in-for-web-services.md)
 #### [Использование шаблона веб-приложений](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Примеры
 ### [Примеры экспериментов](machine-learning-sample-experiments.md)
 ### [Примеры наборов данных](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [Использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Справочные материалы
+
 ## [Модуль PowerShell (новый)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [Модуль PowerShell (классический)](machine-learning-powershell-module.md)
 ## [Справочник по алгоритмам и модулям](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [Справочник по REST API](/rest/api/machinelearning)
+## [Коды ошибок веб-службы](machine-learning-web-service-error-codes.md)
 
 # Сопутствующие материалы
 
@@ -176,6 +191,7 @@
 ### [Руководства](machine-learning-gallery-tutorials.md)
 ### [Коллекции](machine-learning-gallery-collections.md)
 ### [Пользовательские модули](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### Интерфейсы API
 #### [Обнаружение аномалий](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Настройка](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Ресурсы
-## [Коды ошибок REST в службе машинного обучения](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Язык нейронных сетей Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -206,8 +222,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Получение справки с помощью чата в реальном времени](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

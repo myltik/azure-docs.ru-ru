@@ -1,6 +1,6 @@
 ---
-title: "Прогнозирование: интегрированное скользящее среднее с авторегрессией (ARIMA) | Документация Майкрософт"
-description: "Прогнозирование: авторегрессионная интегрированная модель скользящего среднего (ARIMA)"
+title: "(Не рекомендуется.) Прогнозирование. Интегрированное скользящее среднее с авторегрессией (ARIMA) в Azure | Документация Майкрософт"
+description: "(Не рекомендуется.) Прогнозирование. Интегрированное скользящее среднее с авторегрессией (ARIMA)"
 services: machine-learning
 documentationcenter: 
 author: yijichen
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/15/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 169331fc08c8d378fbb0c9869e69a9eb132224ba
 
 
 ---
-# <a name="forecasting---autoregressive-integrated-moving-average-arima"></a>Прогнозирование: авторегрессионная интегрированная модель скользящего среднего (ARIMA)
+# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>(Не рекомендуется.) Прогнозирование. Интегрированное скользящее среднее с авторегрессией (ARIMA)
+
+> [!NOTE]
+> Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
+> 
+> Много полезных примеров экспериментов и API можно найти в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Дополнительные сведения о коллекции см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](machine-learning-gallery-how-to-use-contribute-publish.md).
+
+
 Эта [служба](https://datamarket.azure.com/dataset/aml_labs/arima) использует модель ARIMA (интегрированное скользящее среднее с авторегрессией) для формирования прогнозов на основе предоставленных пользователем данных журнала. Увеличится ли в этом году спрос на определенный продукт? Могу ли я предсказать объем продаж в сезон Рождества, чтобы эффективно спланировать товарные запасы? Модели прогнозирования позволяют решать такие задачи. Используя прошлые данные в качестве базы, эти модели анализируют скрытые тенденции и сезонные колебания для прогнозирования будущих тенденций. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -88,7 +96,7 @@ ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
 > 
 > 
 
-В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнение скрипта R][execute-r-script], который создает модель прогнозирования ARIMA с использованием функций auto.arima и forecast из кода R. 
+В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнить сценарий R][execute-r-script], который создает модель прогнозирования ARIMA с использованием функций auto.arima и forecast языка R. 
 
 ### <a name="experiment-flow"></a>Ход эксперимента:
 ![Создание рабочей области][2]
@@ -142,6 +150,6 @@ ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

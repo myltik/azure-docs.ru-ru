@@ -54,6 +54,7 @@
 ### [Установка RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Контексты вычислений](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Использование Spark для обработки в памяти
+### [Использование Caffe для глубокого обучения](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [С помощью Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [С помощью инструментов бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 ### [Автономное приложение](hdinsight-apache-spark-create-standalone-application.md)
@@ -77,9 +78,7 @@
 ### [Использование Phoenix и SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Анализ твитов в реальном времени](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Создание кластеров в виртуальной сети](hdinsight-hbase-provision-vnet.md)
-### [Настройка подключения VPN](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [Настройка DNS-серверов](hdinsight-hbase-geo-replication-configure-dns.md)
-### [Настройка георепликации HBase](hdinsight-hbase-geo-replication.md)
+### [Настройка репликации HBase](hdinsight-hbase-replication.md)
 ### [Разработка приложения с помощью Java](hdinsight-hbase-build-java-maven-linux.md)
 ## Использование Storm
 ### [Развертывание топологий и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +197,6 @@
 ### [Начало работы с Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Начало работы со Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Начало работы с HBase](hdinsight-hbase-tutorial-get-started.md)
-### [Коллекция примеров HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Запуск примеров Hadoop MapReduce](hdinsight-run-samples.md)
 ### [Создание кластеров Hadoop](hdinsight-provision-clusters.md)
 #### [Использование портала Azure](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -226,8 +224,3 @@
 # Ресурсы
 ## [Обращение за помощью на форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

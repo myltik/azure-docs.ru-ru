@@ -1,10 +1,10 @@
 ---
-title: "Развертывание виртуального массива Microsoft Azure StorSimple —подготовка в Hyper-V | Документация Майкрософт"
+title: "Подготовка виртуального массива StorSimple в Hyper-V | Документация Майкрософт"
 description: "Второе руководство по развертыванию виртуального массива StorSimple посвящено подготовке виртуального массива в Hyper-V."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: 8209eb8df45d8c7c42e303ab3377dbde3255154a
+ms.openlocfilehash: 924b3621e03b678e158cd1240864a903db6c8510
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Развертывание виртуального массива StorSimple — подготовка в Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Обзор
@@ -48,7 +50,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 * Главная система должна быть в состоянии выделить указанный ниже объем ресурсов для подготовки виртуального массива.
 
   * Не менее 4 ядер.
-  * Не менее 8 ГБ ОЗУ.
+  * Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку до 2 млн файлов. Для поддержки 2–4 млн файлов потребуется 16 ГБ ОЗУ.
   * Один сетевой интерфейс.
   * Виртуальный диск данных размером 500 ГБ.
 
@@ -73,7 +75,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 Убедиться, что оборудование (главная система), на котором создается виртуальный массив, располагает указанными ниже ресурсами для подготовки виртуального массива.
 
 * Не менее 4 ядер.
-* Не менее 8 ГБ ОЗУ.
+* Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку до 2 млн файлов. Для поддержки 2–4 млн файлов потребуется 16 ГБ ОЗУ.
 * Один сетевой интерфейс.
 * Виртуальный диск размером 500 ГБ для системных данных.
 
@@ -214,9 +216,4 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Deploy StorSimple Virtual Array - Set up as file server (Preview) (Развертывание виртуального массива StorSimple — настройка в качестве файлового сервера (предварительная версия))](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview) (Развертывание виртуального массива StorSimple — настройка в качестве сервера iSCSI (предварительная версия))](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

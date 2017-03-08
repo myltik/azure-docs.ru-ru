@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
+ms.openlocfilehash: d993ba4bdff690ee6f0867cdbf0a8059fb5847ee
 
 
 ---
@@ -27,8 +27,10 @@ ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-nodejs-application"></a>Создание приложения Node.js
-Создайте пустое приложение Node.js. Указания по созданию приложения Node.js можно найти в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure][Создание и развертывание приложения Node.js на веб-сайте Azure] или [Облачная служба Node.js][Облачная служба Node.js] (с помощью Windows PowerShell).
+Создайте пустое приложение Node.js. Указания по созданию приложения Node.js можно найти в статьях [Создание веб-приложения Node.js в службе приложений Azure][Create and deploy a Node.js application to an Azure Website] или [Построение и развертывание приложения Node.js в облачной службе Azure][Node.js Cloud Service] с помощью Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
 Чтобы использовать служебную шину Azure, необходимо скачать и запустить пакет Azure для Node.js. Пакет содержит набор библиотек, взаимодействующих со службами REST Service Bus.
@@ -55,27 +57,27 @@ ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
 ### <a name="import-the-module"></a>Импорт модуля
 С помощью Блокнота или другого текстового редактора добавьте в начало файла **server.js** приложения следующее:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Настройка подключения к служебной шине Azure
 Модуль Azure считывает переменные среды AZURE\_SERVICEBUS\_NAMESPACE и AZURE\_SERVICEBUS\_ACCESS\_KEY для получения сведений, необходимых для подключения к служебной шине. Если эти переменные среды не заданы, при вызове **createServiceBusService** необходимо указать сведения об учетной записи.
 
-Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Облачная служба Node.js с хранилищем][Облачная служба Node.js с хранилищем].
+Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Веб-приложение Node.js, использующее хранилище][Node.js Cloud Service with Storage].
 
-Пример настройки переменных среды для веб-сайта Azure на [классическом портале Azure][классическом портале Azure] см. в статье [Веб-приложение Node.js с хранилищем][Веб-приложение Node.js с хранилищем].
+Пример настройки переменных среды на [классическом портале Azure][Azure classic portal] для веб-сайта Azure см. в статье [Использование табличного хранилища Azure из Node.js][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Создание очереди
 Объект **ServiceBusService** позволяет работать с очередями служебной шины. Следующий код создает объект **ServiceBusService**. Добавьте его в начало файла **server.js** после оператора импорта модуля Аzure.
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 Вызов **createQueueIfNotExists** для объекта **ServiceBusService** возвращает указанную очередь (при ее наличии) или создает новую очередь с указанным именем. В следующем коде используется метод **createQueueIfNotExists**, чтобы создать очередь `myqueue` или подключиться к ней.
 
-```
+```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
     if(!error){
         // Queue exists
@@ -85,7 +87,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 
 **createServiceBusService** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
 
-```
+```javascript
 var queueOptions = {
       MaxSizeInMegabytes: '5120',
       DefaultMessageTimeToLive: 'PT1M'
@@ -101,13 +103,13 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ### <a name="filters"></a>Фильтры
 Используя **ServiceBusService**, к выполняемым операциям можно применить дополнительные операции фильтрации. К операциям фильтрации могут относиться ведение журнала, автоматический повтор и т. д. Фильтры являются объектами, реализующими метод со следующей сигнатурой:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Выполнив предварительную обработку параметров запроса, метод должен вызвать `next`, передавая обратный вызов со следующей сигнатурой:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -115,7 +117,7 @@ function (returnObject, finalCallback, next)
 
 В пакет SDK Azure для Node.js включены два фильтра, реализующие логику повторных попыток: **ExponentialRetryPolicyFilter** и **LinearRetryPolicyFilter**. Следующий код создает объект **ServiceBusService**, использующий **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
@@ -125,7 +127,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 
 В следующем примере показано, как отправить тестовое сообщение в очередь с именем `myqueue` с помощью метода **sendQueueMessage**.
 
-```
+```javascript
 var message = {
     body: 'Test message',
     customProperties: {
@@ -138,7 +140,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Дополнительные сведения о квотах см. в статье [Квоты на служебную шину][Квоты на служебную шину].
+Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Дополнительные сведения о квотах см. в статье [Квоты на служебную шину][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Получение сообщений из очереди
 Сообщения извлекаются из очереди с помощью метода **receiveQueueMessage** для объекта **ServiceBusService**. По умолчанию прочитанные сообщения удаляются из очереди. Но можно прочитать (извлечь) сообщение и заблокировать его без удаления из очереди, задав для необязательного параметра **isPeekLock** значение **true**.
@@ -149,7 +151,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 
 В следующем примере показано, как получать и обрабатывать сообщения с помощью метода **receiveQueueMessage**. Сначала сообщение в примере получается и удаляется, затем оно получается с помощью параметра **isPeekLock**, для которого задано значение **true**, а затем удаляется с помощью метода **deleteMessage**.
 
-```
+```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -177,22 +179,22 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию об очередях см. в следующих ресурсах.
 
-* [Очереди, разделы и подписки][Очереди, разделы и подписки].
-* Репозиторий [пакета Azure SDK для Node][Пакет SDK Azure для Node] на сайте GitHub.
-* [Центр разработчика Node.js](/develop/nodejs/)
+* [Очереди, разделы и подписки служебной шины][Queues, topics, and subscriptions]
+* Репозиторий [пакетов Azure SDK для Node][Azure SDK for Node] на сайте GitHub
+* [центре разработчиков Node.js](https://azure.microsoft.com/develop/nodejs/)
 
-[Пакет SDK Azure для Node]: https://github.com/Azure/azure-sdk-for-node
-[классическом портале Azure]: http://manage.windowsazure.com
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: http://manage.windowsazure.com
 
-[Облачная служба Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
-[Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Облачная служба Node.js с хранилищем]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-[Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
-[Квоты на служебную шину]: service-bus-quotas.md
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Create and deploy a Node.js application to an Azure Website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
+[Service Bus quotas]: service-bus-quotas.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

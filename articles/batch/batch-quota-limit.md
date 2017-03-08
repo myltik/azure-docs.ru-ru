@@ -1,5 +1,5 @@
 ---
-title: "Квоты и ограничения пакетной службы | Документация Майкрософт"
+title: "Квоты и ограничения служб для пакетной службы Azure | Документация Майкрософт"
 description: "Узнайте о квотах по умолчанию, лимитах и ограничениях пакетной службы Azure, а также о том, как запросить увеличение квоты."
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: a0f47a19f7ef1832e64e9a0bdc4bda3434f77aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Квоты и ограничения пакетной службы Azure
+# <a name="batch-service-quotas-and-limits"></a>Квоты и ограничения пакетной службы
+
 Как и в других службах Azure, существуют ограничения на некоторые ресурсы, связанные с пакетной службой. Многие из этих ограничений являются квотами по умолчанию, которые Azure применяет на уровне подписки или учетной записи. В данной статье рассматриваются эти значения по умолчанию и то, как запросить увеличение квот.
 
 Если планируется выполнять рабочие нагрузки в производственной среде с использованием пакетной службы, имеет смысл увеличить одну или несколько квот по сравнению со значениями по умолчанию. Для увеличения квоты отправьте (бесплатно) [запрос в службу поддержки клиентов](#increase-a-quota) .
@@ -30,12 +33,7 @@ ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 > 
 > 
 
-## <a name="subscription-quotas"></a>Квоты для подписки
-| **Ресурс** | **Ограничение по умолчанию** | **Максимальное ограничение** |
-| --- | --- | --- |
-| Учетных записей пакетной службы на регион на подписку |1 |50 |
-
-## <a name="batch-account-quotas"></a>Квоты для учетной записи пакетной службы
+## <a name="resource-quotas"></a>Квоты ресурсов
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## <a name="other-limits"></a>Другие ограничения
@@ -100,9 +98,4 @@ ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

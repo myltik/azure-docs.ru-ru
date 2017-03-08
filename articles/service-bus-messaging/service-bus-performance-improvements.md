@@ -1,6 +1,6 @@
 ---
-title: "Рекомендации по повышению производительности с помощью служебной шины | Документация Майкрософт"
-description: "В этой статье описывается использование служебной шины Azure для оптимизации производительности при обмене сообщениями через брокер."
+title: "Рекомендации по повышению производительности с помощью служебной шины Azure | Документация Майкрософт"
+description: "В этой статье описывается использование служебной шины Azure для оптимизации производительности при обмене сообщениями в брокере."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,29 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
+ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
+ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Рекомендации по повышению производительности с помощью обмена сообщениями через служебную шину
-В этой статье описывается использование обмена данными через служебную шину Azure для оптимизации производительности при обмене сообщениями в брокере. В первой части статьи описываются различные механизмы, которые можно использовать для повышения производительности. Во второй части приведены инструкции по эффективному использованию служебной шины для достижения максимальной производительности при определенных условиях.
+В этой статье описывается использование [обмена данными через служебную шину Azure](https://azure.microsoft.com/services/service-bus/) для оптимизации производительности при обмене сообщениями в брокере. В первой части статьи описываются различные механизмы, которые можно использовать для повышения производительности. Во второй части приведены инструкции по эффективному использованию служебной шины для достижения максимальной производительности при определенных условиях.
 
 В этой статье термин "клиент" означает любую сущность, которая обращается к служебной шине. Клиент может быть как отправителем, так и получателем. Термин "отправитель" используется в отношении клиента очереди или раздела служебной шины, который отправляет сообщения в очередь или раздел. Термин "получатель" используется в отношении клиента очереди или подписки служебной шины, который получает сообщения из очереди или подписки.
 
 В разделах ниже описывается ряд способов, которые используются служебной шиной для повышения производительности.
 
 ## <a name="protocols"></a>Протоколы
-Service Bus позволяет клиентам отправлять и получать сообщения посредством трех протоколов.
+Служебная шина позволяет клиентам отправлять и получать сообщения с помощью трех протоколов.
 
 1. Протокол AMQP
 2. Протокол SBMP
 3. HTTP
 
-Протоколы AMQP и SBMP более эффективны, так как они поддерживают подключение к Service Bus, пока существует фабрика обмена сообщениями. Он также реализует функции пакетной обработки и предварительной выборки. Если явно не указано иное, в этой статье предполагается использование протокола AMQP или SBMP.
+Протоколы AMQP и SBMP более эффективны, так как они поддерживают подключение к служебной шине, пока существует фабрика обмена сообщениями. Он также реализует функции пакетной обработки и предварительной выборки. Если явно не указано иное, в этой статье предполагается использование протокола AMQP или SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Повторное использование фабрик и клиентов
 Клиентские объекты служебной шины, такие как [QueueClient][QueueClient] или [MessageSender][MessageSender], создаются с помощью объекта [MessagingFactory][MessagingFactory]. Этот объект также обеспечивает внутреннее управление подключениями. Не следует закрывать фабрики обмена сообщениями или клиенты очередей, разделов и подписок после отправки сообщения, а затем повторно создавать их при отправке следующего сообщения. При закрытии фабрики обмена сообщениями удаляется подключение к службе служебной шины, а при повторном создании фабрики устанавливается новое подключение. Установка подключения является ресурсоемкой операцией, которую можно исключить, если повторно использовать одну и ту же фабрику и клиентские объекты для нескольких операций. Объект [QueueClient][QueueClient] можно безопасно использовать для отправки сообщений из параллельных асинхронных операций и нескольких потоков. 
@@ -44,7 +44,7 @@ Service Bus позволяет клиентам отправлять и полу
 
 * **Асинхронные операции**. Клиент планирует действия за счет асинхронных операций. Следующий запрос запускается до завершения предыдущего запроса. Вот пример асинхронной операции отправки:
   
-  ```
+ ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
   BrokeredMessage m2 = new BrokeredMessage(body);
   
@@ -62,7 +62,7 @@ Service Bus позволяет клиентам отправлять и полу
   
   Вот пример асинхронной операции получения:
   
-  ```
+  ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   
@@ -93,7 +93,7 @@ Service Bus позволяет клиентам отправлять и полу
 
 Чтобы отключить пакетную обработку, задайте для свойства [BatchFlushInterval][BatchFlushInterval] значение **TimeSpan.Zero**. Например:
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -107,7 +107,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 При создании новой очереди, раздела или подписки пакетный доступ к хранилищу включен по умолчанию. Чтобы отключить пакетный доступ к хранилищу, задайте для свойства [EnableBatchedOperations][EnableBatchedOperations] значение **false** перед созданием сущности. Например:
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -120,7 +120,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 При использовании предварительной выборки сообщений служба блокирует выбранное сообщение. В результате это сообщение не может быть получено другим получателем. Если получатель не может завершить сообщение до истечения периода блокировки, сообщение станет доступным другим получателям. Копия предварительно выбранного сообщения остается в кэше. Если получатель обратится к кэшированной копии, срок действия которой истек, то при попытке завершить это сообщение будет создано исключение. По умолчанию период блокировки сообщения составляет 60 секунд. Это значение можно увеличить до 5 минут. Во избежание использования сообщений с истекшим сроком действия размер кэша всегда должен быть меньше, чем количество сообщений, которые могут быть использованы клиентом в течение периода блокировки.
 
-Если не менять стандартный период блокировки (60 секунд), то для свойства [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] рекомендуется установить значение, в 20 раз превышающее максимальную скорость обработки всех получателей фабрики. Например, фабрика создает трех получателей, каждый из которых может обработать до 10 сообщений в секунду. Количество объектов предварительной выборки не должно превышать 20 \* 3 \* 10 = 600. По умолчанию свойство [QueueClient.PrefetchCount][QueueClient.PrefetchCount] имеет значение 0. Это означает, что предварительная выборка сообщений из службы отключена.
+Если не менять стандартный период блокировки (60 секунд), то для свойства [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] рекомендуется установить значение, в 20 раз превышающее максимальную скорость обработки всех получателей фабрики. Например, фабрика создает трех получателей, каждый из которых может обработать до 10 сообщений в секунду. Число объектов предварительной выборки не должно превышать 20 х 3 х 10 = 600. По умолчанию свойство [QueueClient.PrefetchCount][QueueClient.PrefetchCount] имеет значение 0. Это означает, что предварительная выборка сообщений из службы отключена.
 
 Предварительная выборка сообщений увеличивает совокупную пропускную способность очереди или подписки, так как уменьшает общее количество операций с сообщениями (так называемых круговых путей). Тем не менее предварительная выборка первого сообщения займет больше времени (из-за увеличенного размера сообщения). Получение предварительно выбранных сообщений будет выполняться быстрее, так как эти сообщения уже загружены клиентом.
 
@@ -131,7 +131,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 ## <a name="express-queues-and-topics"></a>Экспресс-очереди и экспресс-разделы
 Экспресс-сущности обеспечивают высокую пропускную способность и уменьшают частоту задержек. Если при использовании экспресс-сущностей сообщение отправляется в очередь или раздел, оно не помещается сразу же в хранилище сообщений. Вместо этого оно сохраняется в кэше, расположенном в памяти. Если сообщение остается в очереди больше нескольких секунд, оно автоматически записывается в постоянное хранилище. Это делается для защиты от потери данных в случае сбоя. Запись сообщения в кэш памяти повышает пропускную способность и сокращает задержки, так как в этом случае во время отправки сообщения исключается доступ к постоянному хранилищу. Сообщения, обработанные в течение нескольких секунд, не записываются в хранилище обмена сообщениями. В следующем примере создается экспресс-раздел.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -142,7 +142,7 @@ namespaceManager.CreateTopic(td);
 ## <a name="use-of-partitioned-queues-or-topics"></a>Использование секционированных очередей или разделов
 Для обработки и хранения всех сообщений для сущности сообщений (очереди или раздела) внутри служебной шины используется один узел и хранилище обмена сообщениями. С другой стороны, секционирование очередей или разделов позволяет распределять их между несколькими узлами и хранилищами обмена сообщениями. Секционированные очереди и разделы не только повышают пропускную способность в сравнении с обычными очередями и разделами, но также обеспечивают высочайший уровень доступности. Чтобы создать секционированную сущность, задайте для свойства [EnablePartitioning][EnablePartitioning] значение **true**, как показано в следующем примере. Дополнительные сведения о секционированных сущностях см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;
@@ -150,14 +150,14 @@ namespaceManager.CreateQueue(qd);
 ```
 
 ## <a name="use-of-multiple-queues"></a>Использование нескольких очередей
+
 Если использование секционированной очереди или раздела невозможно или если ожидаемую нагрузку невозможно будет обработать с помощью одной секционированной очереди или раздела, необходимо использовать несколько сущностей обмена сообщениями. При использовании нескольких сущностей создайте выделенный клиент для каждой сущности. Не используйте один клиент для всех сущностей.
 
-## <a name="development--testing-features"></a>Возможности для разработки и тестирования
-В служебной шине имеется одна функция, используемая специально для разработки, которую **никогда не следует использовать в рабочих конфигурациях**.
+## <a name="development-and-testing-features"></a>Возможности для разработки и тестирования
 
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+В служебной шине доступна одна функция, используемая специально для разработки, которую **никогда не следует использовать в рабочих конфигурациях**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
-* При добавлении новых правил или фильтров в раздел вы можете использовать EnableFilteringMessagesBeforePublishing, чтобы проверить правильность работы выражения нового фильтра.
+При добавлении новых правил или фильтров в раздел вы можете использовать функцию [TopicDescription.EnableFilteringMessagesBeforePublishing][], чтобы проверить правильность работы выражения нового фильтра.
 
 ## <a name="scenarios"></a>Сценарии
 Далее описываются стандартные сценарии обмена сообщениями и приводятся рекомендации по настройкам служебной шины. Пропускная способность бывает небольшой (менее 1 сообщения в секунду), средней (1 сообщение в секунду или больше, но не более 100 сообщений в секунду) и высокой (100 сообщений в секунду или больше). Количество клиентов бывает небольшим (5 и меньше), средним (более 5, но не более 20) и большим (более 20).
@@ -243,21 +243,22 @@ namespaceManager.CreateQueue(qd);
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об оптимизации производительности служебной шины см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
 
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
-[EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
-[QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
-[SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
-[ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
-[EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

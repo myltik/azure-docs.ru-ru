@@ -1,21 +1,21 @@
 ---
 title: "Служба архивации в Azure для государственных организаций | Документация Майкрософт"
 description: "В этой статье содержится обзор функций службы архивации Azure, доступных в Azure для государственных организаций."
-services: backup
+services: azure-government
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 ms.assetid: a7622135-8790-4be4-a02a-7b9ac8a4996f
-ms.service: backup
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/11/2016
+ms.workload: azure-government
+ms.date: 1/5/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 0095a95afc14de42c1160a73139a0f059cd758dd
-ms.openlocfilehash: 3b3ecaef33aefc89e5a5c1cd351566d21246d0b8
+ms.sourcegitcommit: fa00142a9e89c5ad2630f688ea9771a1a542c052
+ms.openlocfilehash: e5f89f845302ecb890caa50dd8f86503b29f1154
 
 
 ---
@@ -33,25 +33,35 @@ ms.openlocfilehash: 3b3ecaef33aefc89e5a5c1cd351566d21246d0b8
 
 Если вы только начали использовать службу архивации Azure и хотите узнать больше о доступных функциях, см. [эту статью](../backup/backup-introduction-to-azure-backup.md).
 
-> [!IMPORTANT]
-> Сейчас служба архивации в Azure для государственных организаций поддерживает развертывания с помощью Service Manager. Этот тип развертываний также называют классической моделью развертывания. Развертывания с помощью Resource Manager еще не поддерживаются. См. статью о [различиях между моделью развертывания с помощью Azure Resource Manager и классической моделью развертывания](../resource-manager-deployment-model.md).
-
 [!INCLUDE [learn-about-backup-deployment models](../../includes/backup-deployment-models.md)]
 
 ## <a name="azure-backup-components-available-in-azure-government-backup"></a>Компоненты службы архивации Azure, доступные в службе архивации Azure для государственных организаций
 
-Службу архивации Azure можно использовать для защиты файлов, папок, томов, виртуальных машин, приложений и рабочих нагрузок. Выбор компонентов службы архивации Azure зависит от того, что необходимо защитить и где находятся данные. В следующих разделах есть ссылки на статьи в общедоступной документации по службе архивации Azure для каждого компонента.
+Службу архивации Azure можно использовать для защиты файлов, папок, томов, виртуальных машин, приложений и рабочих нагрузок. Выбор компонентов службы архивации Azure зависит от того, что необходимо защитить и где находятся данные. В следующих разделах есть ссылки на статьи в общедоступной документации по службе архивации Azure для каждого компонента. В одних разделах приведены сведения для классического портала, а в других — для портала Azure. Воспользуйтесь версией для портала Azure, если вы планируете использовать развертывания Resource Manager.
 
-В каждой статье объясняется, как использовать компонент службы архивации Azure в классической версии портала.
+### <a name="using-windows-server-and-windows-computers-in-azure-portal"></a>Использование Windows Server и компьютеров Windows на портале Azure
 
-### <a name="windows-server-and-windows-computers"></a>Windows Server и компьютеры Windows
-
-- [Архивация сервера или клиентского компьютера Windows в Azure с использованием классической модели развертывания](../backup/backup-configure-vault-classic.md)
+- [Архивация сервера или клиентского компьютера Windows в Azure с использованием классической модели развертывания](../backup/backup-configure-vault.md)
 - [Восстановление файлов на сервере Windows Server или клиентском компьютере Windows с помощью модели развертывания Resource Manager](../backup/backup-azure-restore-windows-server.md)
 - [Мониторинг хранилищ и серверов служб восстановления Azure для компьютеров Windows и управление ими](../backup/backup-azure-manage-windows-server.md)
+- [Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell](../backup/backup-client-automation.md)
+
+### <a name="using-windows-server-and-windows-computers-in-classic-portal"></a>Использование Windows Server и компьютеров Windows на классическом портале
+
+- [Архивация сервера или клиентского компьютера Windows в Azure с использованием классической модели развертывания](../backup/backup-configure-vault-classic.md)
+- [Восстановление файлов на сервере Windows Server или клиентском компьютере Windows с помощью модели развертывания Resource Manager](../backup/backup-azure-restore-windows-server-classic.md)
+- [Мониторинг хранилищ и серверов служб восстановления Azure для компьютеров Windows и управление ими](../backup/backup-azure-manage-windows-server-classic.md)
 - [Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell](../backup/backup-client-automation-classic.md)
 
-### <a name="virtual-machines"></a>Виртуальные машины
+### <a name="using-virtual-machines-in-azure-portal"></a>Использование виртуальных машин на портале Azure
+
+- [Подготовка среды для резервного копирования виртуальных машин Azure](../backup/backup-azure-arm-vms-prepare.md)
+- [Настройка виртуальных машин](../backup/backup-azure-vms-first-look-arm.md)
+- [Восстановление виртуальных машин](../backup/backup-azure-arm-restore-vms.md)
+- [Управление резервными копиями виртуальных машин Azure и их мониторинг](../backup/backup-azure-manage-vms.md)
+- [Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею](../backup/backup-azure-vms-automation.md)
+
+### <a name="using-virtual-machines-in-classic-portal"></a>Использование виртуальных машин на классическом портале
 
 - [Подготовка среды для резервного копирования виртуальных машин Azure](../backup/backup-azure-vms-prepare.md)
 - [Настройка виртуальных машин](../backup/backup-azure-vms-first-look.md)
@@ -59,15 +69,24 @@ ms.openlocfilehash: 3b3ecaef33aefc89e5a5c1cd351566d21246d0b8
 - [Управление резервными копиями виртуальных машин Azure и их мониторинг](../backup/backup-azure-manage-vms-classic.md)
 - [Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею](../backup/backup-azure-vms-classic-automation.md)
 
-### <a name="system-center-data-protection-manager"></a>System Center Data Protection Manager
+### <a name="using-system-center-data-protection-manager-in-azure-portal"></a>Использование System Center Data Protection Manager на портале Azure
+
+- [Подготовка к архивированию рабочих нагрузок в Azure с помощью DPM](../backup/backup-azure-dpm-introduction.md)
+
+### <a name="using-system-center-data-protection-manager-in-classic-portal"></a>Использование System Center Data Protection Manager на классическом портале
 
 - [Подготовка к архивированию рабочих нагрузок в Azure с помощью DPM](../backup/backup-azure-dpm-introduction-classic.md)
 
-### <a name="azure-backup-server"></a>Сервер службы архивации Azure
+### <a name="using-azure-backup-server-in-azure-portal"></a>Использование сервера резервного копирования Azure на портале Azure
+
+Сервер резервного копирования Azure — это компонент службы архивации Azure, который работает аналогично System Center Data Protection Manager с единственным исключением, заключающимся в том, что он не сохраняет данные на ленту. Сервер резервного копирования Azure обеспечивает защиту рабочих нагрузок приложения, таких как виртуальные машины Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange и клиенты Windows, в облаке с помощью единой консоли. Лицензия System Center для сервера резервного копирования Azure не требуется.
+
+- [Сервер службы архивации Azure](../backup/backup-azure-microsoft-azure-backup.md)
+
+### <a name="using-azure-backup-server-in-classic-portal"></a>Использование сервера резервного копирования Azure на классическом портале
 
 - [Сервер службы архивации Azure](../backup/backup-azure-microsoft-azure-backup-classic.md)
 
-Сервер резервного копирования Azure — это компонент службы архивации Azure, который работает аналогично System Center Data Protection Manager. Сервер резервного копирования Azure обеспечивает защиту рабочих нагрузок приложения, таких как виртуальные машины Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange и клиенты Windows, в облаке с помощью единой консоли.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -77,6 +96,6 @@ ms.openlocfilehash: 3b3ecaef33aefc89e5a5c1cd351566d21246d0b8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

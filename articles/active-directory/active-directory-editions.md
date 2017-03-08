@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
 
 
 ---
@@ -377,7 +377,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 * [Аутентификация на основе сертификата в iOS](active-directory-certificate-based-authentication-ios.md)
 * [Аутентификация на основе сертификата в Android](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>Что дальше?
+## <a name="next-steps"></a>Дальнейшие действия
 * [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Добавление фирменной символики компании на страницах  входа и панели доступа](active-directory-add-company-branding.md)
 * [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
@@ -387,6 +387,6 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Применение политик к виртуальным машинам Azure Resource Manager | Документация Майкрософт"
+title: "Обеспечение безопасности с помощью политик на виртуальных машинах Windows в Azure | Документация Майкрософт"
 description: "Как применить политику к виртуальной машине Azure Resource Manager на основе Windows"
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
-ms.author: singhkay
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 54afb2f55ef9ff48448c63bc8ee8e745765f61e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Применение политик к виртуальным машинам Azure Resource Manager
+# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Применение параметров безопасности и политик к виртуальным машинам Windows с помощью Azure Resource Manager
 С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации. В этой статье мы расскажем, как определить требуемое поведение для виртуальных машин вашей организации с помощью политик Azure Resource Manager.
 
 Ниже представлены шаги для реализации вертикального масштабирования.
@@ -96,15 +97,10 @@ ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
 ## <a name="create-the-policy"></a>Создание политики
 Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Для создания политики обратитесь к следующей статье:
 
-* [Создание политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Создание политики](../azure-resource-manager/resource-manager-policy.md)
 
 ## <a name="apply-the-policy"></a>Применение политики
 После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Для применения политики обратитесь к следующей статье:
 
-* [Создание политики](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+* [Создание политики](../azure-resource-manager/resource-manager-policy.md)
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/20/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
+ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -38,10 +39,10 @@ ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
 | Расширенный рабочий процесс кодировщика мультимедиа |Позволяет выполнять задачи кодирования с использованием расширенного рабочего процесса кодировщика мультимедиа. |[Обзор и сравнение кодировщиков мультимедиа Azure по запросу](media-services-encode-asset.md) |
 | Azure Media Indexer |Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров. |[Azure Media Indexer](media-services-index-content.md) |
 | Azure Media Hyperlapse (предварительная версия) |Позволяет сгладить "неровности" видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Кодировщик мультимедиа Azure |Цена снижена | |
-| Расшифровка хранилища |Цена снижена | |
-| Azure Media Packager |Цена снижена | |
-| Azure Media Encryptor |Цена снижена | |
+| Кодировщик мультимедиа Azure |Не рекомендуется | |
+| Расшифровка хранилища |Не рекомендуется | |
+| Azure Media Packager |Не рекомендуется | |
+| Azure Media Encryptor |Не рекомендуется | |
 
 ## <a name="get-mediaprocessor"></a>Получение MediaProcessor
 > [!NOTE]
@@ -94,10 +95,5 @@ ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива](media-services-rest-get-started.md) , в котором будет показано, как использовать Media Encoder Standard для кодирования ресурса-контейнера.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

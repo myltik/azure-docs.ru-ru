@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 07/14/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 339438be098d0adb46a22ccf0389d7503c43672e
+ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
+ms.openlocfilehash: 6623bb9a4f3845676574f6335dd662dd5bcf7be9
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.openlocfilehash: 339438be098d0adb46a22ccf0389d7503c43672e
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Подключение системы диагностики Azure к приемнику концентраторов событий
 Система диагностики Azure по умолчанию всегда принимает журналы и метрики в учетную запись хранения Azure. Приложение может также передавать данные в концентраторы событий. Для этого необходимо добавить новый раздел **Sinks** в элемент **WadCfg** раздела **PublicConfig** в *WADCFGX*-файле. В Visual Studio *WADCFGX*-файл доступен по следующему пути: **Cloud Service Project** (Проект облачной службы) > **Роли** >  **(имя роли)** > **diagnostics.wadcfgx**.
 
-```
+```xml
 <SinksConfig>
   <Sink name="HotPath">
     <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
@@ -93,7 +94,7 @@ URL-адрес концентратора событий отображаетс�
 
 Ниже приведены некоторые примеры конфигурации.
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -108,7 +109,7 @@ URL-адрес концентратора событий отображаетс�
 
 В следующем примере приемник применяется к родительскому узлу **PerformanceCounters** в иерархии, что означает, что все дочерние счетчики производительности **PerformanceCounters** будут отправляться в концентраторы событий.  
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -156,7 +157,7 @@ URL-адрес концентратора событий отображаетс�
 
 Не забудьте заменить значения в угловых скобках в функции **Main** соответствующими значениями для своих ресурсов.   
 
-```
+```csharp
 //Console application code for EventHub test client
 using System;
 using System.Collections.Generic;
@@ -252,7 +253,7 @@ namespace EventHubListener
 •    [Дополнительные сведения о концентраторах событий](https://azure.microsoft.com/services/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Приложение. Полный пример файла конфигурации системы диагностики Azure (WADCFGX-файл)
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -307,7 +308,7 @@ namespace EventHubListener
 
 Дополнительный файл *ServiceConfiguration.Cloud.cscfg* для этого примера выглядит следующим образом.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
   <Role name="MyFixIt.WorkerRole">
@@ -318,12 +319,13 @@ namespace EventHubListener
   </Role>
 </ServiceConfiguration>
 ```
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения о концентраторах событий см. в следующих источниках:
+
+* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Создание концентратора событий](event-hubs-create.md)
+* [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

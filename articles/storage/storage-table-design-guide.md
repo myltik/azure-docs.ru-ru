@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/22/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fdb058fff2deac539c6af1b004c700775579b2c2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: daff0744d20996014b065b9d4f5fd6b196af923c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -948,48 +949,51 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="executing-a-point-query-using-the-storage-client-library"></a>Выполнение запроса точки с помощью клиентской библиотеки хранилища
 Самый простой способ выполнения точечного запроса заключается в использовании табличной операции **Retrieve**, приведенной в следующем фрагменте кода C#. Он извлекает сущность, у которой свойство **PartitionKey** имеет значение Sales, а свойство **RowKey** — значение 212:  
 
-    TableOperation retrieveOperation =
-        TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
-    var retrieveResult = employeeTable.Execute(retrieveOperation);
-    if (retrieveResult.Result != null)
-    {
+```csharp
+TableOperation retrieveOperation = TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
+var retrieveResult = employeeTable.Execute(retrieveOperation);
+if (retrieveResult.Result != null)
+{
     EmployeeEntity employee = (EmployeeEntity)retrieveResult.Result;
     ...
-    }  
+}  
+```
 
 Обратите внимание на то, что извлекаемая сущность будет иметь тип **EmployeeEntity**.  
 
 #### <a name="retrieving-multiple-entities-using-linq"></a>Извлечение нескольких сущностей с помощью LINQ
 Для извлечения нескольких сущностей можно использовать LINQ с клиентской библиотекой хранилища, указав при этом запрос с предложением **where** . Чтобы исключить просмотр таблицы, в предложение where необходимо всегда включать значение **PartitionKey** и, если возможно, значение **RowKey**, которые позволят избежать просмотров таблиц и разделов. Служба таблиц поддерживает ограниченный набор операторов сравнения («больше», «больше или равно», «меньше», «меньше или равно», «равно», «не равно»), которые могут использоваться в предложении where. Следующий фрагмент кода C# предназначен для поиска всех сотрудников, фамилии которых начинаются с буквы B (при условии, что фамилия хранится в свойстве **RowKey**), в отделе продаж (при условии, что название отдела хранится в свойстве **PartitionKey**).  
 
-    TableQuery<EmployeeEntity> employeeQuery =
-              employeeTable.CreateQuery<EmployeeEntity>();
-    var query = (from employee in employeeQuery
-                where employee.PartitionKey == "Sales" &&
-                employee.RowKey.CompareTo("B") >= 0 &&
-                employee.RowKey.CompareTo("C") < 0
-                select employee).AsTableQuery();
-    var employees = query.Execute();  
+```csharp
+TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
+var query = (from employee in employeeQuery
+            where employee.PartitionKey == "Sales" &&
+            employee.RowKey.CompareTo("B") >= 0 &&
+            employee.RowKey.CompareTo("C") < 0
+            select employee).AsTableQuery();
+var employees = query.Execute();  
+```
 
 Обратите внимание на то, каким образом в запросе указываются свойства **RowKey** и **PartitionKey** для обеспечения максимального быстродействия.  
 
 В следующем примере кода показана эквивалентная функциональность с использованием плавного API (дополнительные сведения о плавных API см. в разделе [Best Practices for Designing a Fluent API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx) (Советы и рекомендации по разработке плавного API)).  
 
-    TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
-      TableQuery.CombineFilters(
-        TableQuery.CombineFilters(
-          TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, "Sales"),
-      TableOperators.And,
-      TableQuery.GenerateFilterCondition(
-        "RowKey", QueryComparisons.GreaterThanOrEqual, "B")
-    ),
+```csharp
+TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
+    TableQuery.CombineFilters(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition(
+    "PartitionKey", QueryComparisons.Equal, "Sales"),
     TableOperators.And,
-    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "C")
-      )
-    );
-    var employees = employeeTable.ExecuteQuery(employeeQuery);  
-
+    TableQuery.GenerateFilterCondition(
+    "RowKey", QueryComparisons.GreaterThanOrEqual, "B")
+),
+TableOperators.And,
+TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "C")
+    )
+);
+var employees = employeeTable.ExecuteQuery(employeeQuery);  
+```
 
 > [!NOTE]
 > В образце объединено несколько методов **CombineFilters** для включения трех условий фильтрации.  
@@ -1005,36 +1009,40 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 Клиентская библиотека хранилища может автоматически обрабатывать маркеры продолжения при возвращении сущностей из службы таблиц. В следующем примере кода C# клиентская библиотека хранилища автоматически обрабатывает маркеры продолжения в случае их возвращения службой таблиц в ответе.  
 
-    string filter = TableQuery.GenerateFilterCondition(
-          "PartitionKey", QueryComparisons.Equal, "Sales");
-    TableQuery<EmployeeEntity> employeeQuery =
-          new TableQuery<EmployeeEntity>().Where(filter);
+```csharp
+string filter = TableQuery.GenerateFilterCondition(
+        "PartitionKey", QueryComparisons.Equal, "Sales");
+TableQuery<EmployeeEntity> employeeQuery =
+        new TableQuery<EmployeeEntity>().Where(filter);
 
-    var employees = employeeTable.ExecuteQuery(employeeQuery);
-    foreach (var emp in employees)
-    {
-          ...
-    }  
+var employees = employeeTable.ExecuteQuery(employeeQuery);
+foreach (var emp in employees)
+{
+        ...
+}  
+```
 
 Следующий код C# обрабатывает маркеры продолжения явным образом.  
 
-    string filter = TableQuery.GenerateFilterCondition(
-          "PartitionKey", QueryComparisons.Equal, "Sales");
-    TableQuery<EmployeeEntity> employeeQuery =
-          new TableQuery<EmployeeEntity>().Where(filter);
+```csharp
+string filter = TableQuery.GenerateFilterCondition(
+        "PartitionKey", QueryComparisons.Equal, "Sales");
+TableQuery<EmployeeEntity> employeeQuery =
+        new TableQuery<EmployeeEntity>().Where(filter);
 
-    TableContinuationToken continuationToken = null;
+TableContinuationToken continuationToken = null;
 
-    do
+do
+{
+        var employees = employeeTable.ExecuteQuerySegmented(
+        employeeQuery, continuationToken);
+    foreach (var emp in employees)
     {
-          var employees = employeeTable.ExecuteQuerySegmented(
-            employeeQuery, continuationToken);
-      foreach (var emp in employees)
-      {
-        ...
-      }
-      continuationToken = employees.ContinuationToken;
-    } while (continuationToken != null);  
+    ...
+    }
+    continuationToken = employees.ContinuationToken;
+} while (continuationToken != null);  
+```
 
 Явное использование маркеров продолжения позволяет управлять извлечением следующего сегмента данных. Например, если клиентское приложение разрешает пользователям постранично просматривать хранящиеся в таблице сущности, пользователь может отказаться от постраничного просмотра всех сущностей, полученных запросом, поэтому приложение будет использовать маркер продолжения для извлечения следующего сегмента только после того, как пользователь завершит постраничный просмотр всех сущностей в текущем сегменте. Такой подход имеет несколько преимуществ.  
 
@@ -1049,22 +1057,26 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 Следующий код C# демонстрирует процесс изменения количества возвращаемых сущностей в сегменте.  
 
-    employeeQuery.TakeCount = 50;  
+```csharp
+employeeQuery.TakeCount = 50;  
+```
 
 #### <a name="server-side-projection"></a>Проекция на стороне сервера
 Одна сущность может иметь до 255 свойств и быть размером не более 1 МБ. При выполнении запроса к таблице и извлечении сущностей может потребоваться только часть свойств, а передача данных будет осуществляться только при необходимости (для сокращения времени задержки и снижения затрат). Проекции на стороне сервера можно использовать для передачи только необходимых свойств. В следующем примере показано извлечение только свойства **Email** (вместе с **PartitionKey**, **RowKey**, **Timestamp** и **ETag**) из сущностей, выбранных запросом.  
 
-    string filter = TableQuery.GenerateFilterCondition(
-          "PartitionKey", QueryComparisons.Equal, "Sales");
-    List<string> columns = new List<string>() { "Email" };
-    TableQuery<EmployeeEntity> employeeQuery =
-          new TableQuery<EmployeeEntity>().Where(filter).Select(columns);
+```csharp
+string filter = TableQuery.GenerateFilterCondition(
+        "PartitionKey", QueryComparisons.Equal, "Sales");
+List<string> columns = new List<string>() { "Email" };
+TableQuery<EmployeeEntity> employeeQuery =
+        new TableQuery<EmployeeEntity>().Where(filter).Select(columns);
 
-    var entities = employeeTable.ExecuteQuery(employeeQuery);
-    foreach (var e in entities)
-    {
-          Console.WriteLine("RowKey: {0}, EmployeeEmail: {1}", e.RowKey, e.Email);
-    }  
+var entities = employeeTable.ExecuteQuery(employeeQuery);
+foreach (var e in entities)
+{
+        Console.WriteLine("RowKey: {0}, EmployeeEmail: {1}", e.RowKey, e.Email);
+}  
+```
 
 Обратите внимание на доступность значения **RowKey** несмотря на то, что оно не включено в список возвращаемых свойств.  
 
@@ -1296,95 +1308,101 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 Вторым вариантом является использование типа **DynamicTableEntity** (контейнер свойств) вместо конкретного типа сущности POCO. Этот вариант способен повысить производительность, так как не нужно выполнять сериализацию и десериализацию сущности в типы .NET. В следующем примере кода C# показано извлечение нескольких сущностей различных типов из таблицы и возврат всех сущностей в качестве экземпляров **DynamicTableEntity**. После этого в примере используется свойство **EntityType** для определения типа каждой сущности.  
 
-    string filter =     TableQuery.CombineFilters(
-        TableQuery.GenerateFilterCondition("PartitionKey",
-      QueryComparisons.Equal, "Sales"),
+```csharp
+string filter = TableQuery.CombineFilters(
+    TableQuery.GenerateFilterCondition("PartitionKey",
+    QueryComparisons.Equal, "Sales"),
+    TableOperators.And,
+    TableQuery.CombineFilters(
+    TableQuery.GenerateFilterCondition("RowKey",
+                    QueryComparisons.GreaterThanOrEqual, "B"),
         TableOperators.And,
-        TableQuery.CombineFilters(
         TableQuery.GenerateFilterCondition("RowKey",
-                      QueryComparisons.GreaterThanOrEqual, "B"),
-            TableOperators.And,
-            TableQuery.GenerateFilterCondition("RowKey",
-          QueryComparisons.LessThan, "F")
-        )
-    );
-    TableQuery<DynamicTableEntity> entityQuery =
-      new TableQuery<DynamicTableEntity>().Where(filter);
-    var employees = employeeTable.ExecuteQuery(entityQuery);
+        QueryComparisons.LessThan, "F")
+    )
+);
+TableQuery<DynamicTableEntity> entityQuery =
+    new TableQuery<DynamicTableEntity>().Where(filter);
+var employees = employeeTable.ExecuteQuery(entityQuery);
 
-    IEnumerable<DynamicTableEntity> entities = employeeTable.ExecuteQuery(entityQuery);
-    foreach (var e in entities)
+IEnumerable<DynamicTableEntity> entities = employeeTable.ExecuteQuery(entityQuery);
+foreach (var e in entities)
+{
+EntityProperty entityTypeProperty;
+if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
+{
+    if (entityTypeProperty.StringValue == "Employee")
     {
-    EntityProperty entityTypeProperty;
-    if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
-    {
-        if (entityTypeProperty.StringValue == "Employee")
-        {
-            // Use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
-            }
+        // Use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
         }
-    }  
+    }
+}  
+```
 
 Обратите внимание, что другие свойства извлекаются с помощью метода **TryGetValue** в свойстве **Properties** класса **DynamicTableEntity**.  
 
 Третий вариант заключается в использовании типа **DynamicTableEntity** вместе в экземпляром **EntityResolver**. Он позволяет выполнять разрешение в несколько типов POCO в рамках одного запроса. В этом примере делегат **EntityResolver** использует свойство **EntityType**, чтобы отличать два типа сущности, возвращаемых запросом. Метод **Resolve** использует делегат **resolver** для разрешения экземпляров **DynamicTableEntity** в экземпляры **TableEntity**.  
 
-    EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
-    {
+```csharp
+EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
+{
 
-          TableEntity resolvedEntity = null;
-          if (props["EntityType"].StringValue == "Department")
-          {
-            resolvedEntity = new DepartmentEntity();
-          }
-          else if (props["EntityType"].StringValue == "Employee")
-          {
-            resolvedEntity = new EmployeeEntity();
-          }
-          else throw new ArgumentException("Unrecognized entity", "props");
+        TableEntity resolvedEntity = null;
+        if (props["EntityType"].StringValue == "Department")
+        {
+        resolvedEntity = new DepartmentEntity();
+        }
+        else if (props["EntityType"].StringValue == "Employee")
+        {
+        resolvedEntity = new EmployeeEntity();
+        }
+        else throw new ArgumentException("Unrecognized entity", "props");
 
-          resolvedEntity.PartitionKey = pk;
-          resolvedEntity.RowKey = rk;
-          resolvedEntity.Timestamp = ts;
-          resolvedEntity.ETag = etag;
-          resolvedEntity.ReadEntity(props, null);
-          return resolvedEntity;
-    };
+        resolvedEntity.PartitionKey = pk;
+        resolvedEntity.RowKey = rk;
+        resolvedEntity.Timestamp = ts;
+        resolvedEntity.ETag = etag;
+        resolvedEntity.ReadEntity(props, null);
+        return resolvedEntity;
+};
 
-    string filter = TableQuery.GenerateFilterCondition(
-          "PartitionKey", QueryComparisons.Equal, "Sales");
-    TableQuery<DynamicTableEntity> entityQuery =
-          new TableQuery<DynamicTableEntity>().Where(filter);
+string filter = TableQuery.GenerateFilterCondition(
+        "PartitionKey", QueryComparisons.Equal, "Sales");
+TableQuery<DynamicTableEntity> entityQuery =
+        new TableQuery<DynamicTableEntity>().Where(filter);
 
-    var entities = employeeTable.ExecuteQuery(entityQuery, resolver);
-    foreach (var e in entities)
-    {
-          if (e is DepartmentEntity)
-          {
-        ...
-          }
-          if (e is EmployeeEntity)
-          {
-        ...
-          }
-    }  
+var entities = employeeTable.ExecuteQuery(entityQuery, resolver);
+foreach (var e in entities)
+{
+        if (e is DepartmentEntity)
+        {
+    ...
+        }
+        if (e is EmployeeEntity)
+        {
+    ...
+        }
+}  
+```
 
 #### <a name="modifying-heterogeneous-entity-types"></a>Изменение разных типов сущностей
 Чтобы удалить тип сущности, его не нужно знать. Однако при вставке тип сущности всегда известен. Чтобы обновить сущность, не зная ее тип и не используя класс сущности POCO, можно воспользоваться типом **DynamicTableEntity**. Следующий пример кода извлекает одну сущность и проверяет свойство **EmployeeCount** перед его обновлением.  
 
-    TableResult result =
-          employeeTable.Execute(TableOperation.Retrieve(partitionKey, rowKey));
-    DynamicTableEntity department = (DynamicTableEntity)result.Result;
+```csharp
+TableResult result =
+        employeeTable.Execute(TableOperation.Retrieve(partitionKey, rowKey));
+DynamicTableEntity department = (DynamicTableEntity)result.Result;
 
-    EntityProperty countProperty;
+EntityProperty countProperty;
 
-    if (!department.Properties.TryGetValue("EmployeeCount", out countProperty))
-    {
-          throw new
-            InvalidOperationException("Invalid entity, EmployeeCount property not found.");
-    }
-    countProperty.Int32Value += 1;
-    employeeTable.Execute(TableOperation.Merge(department));  
+if (!department.Properties.TryGetValue("EmployeeCount", out countProperty))
+{
+        throw new
+        InvalidOperationException("Invalid entity, EmployeeCount property not found.");
+}
+countProperty.Int32Value += 1;
+employeeTable.Execute(TableOperation.Merge(department));  
+```
 
 ### <a name="controlling-access-with-shared-access-signatures"></a>Управление доступом с помощью подписей общего доступа
 Маркеры подписи общего доступа (SAS) позволяют клиентским приложениям напрямую изменять (и выполнять запросы) сущности таблицы без прохождения проверки подлинности в службе таблиц. Существует три основных преимущества использования SAS в приложении.  
@@ -1405,48 +1423,52 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 Повысить производительность в экземпляре клиента можно путем асинхронного выполнения операций хранения. Клиентская библиотека хранилища упрощает написание асинхронных запросов и изменений. Например, можно начать с синхронного метода, который извлекает все сущности в разделе, как показано в следующем коде C#.  
 
-    private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
-    {
-          string filter = TableQuery.GenerateFilterCondition(
-            "PartitionKey", QueryComparisons.Equal, department);
-          TableQuery<EmployeeEntity> employeeQuery =
-            new TableQuery<EmployeeEntity>().Where(filter);
+```csharp
+private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
+{
+        string filter = TableQuery.GenerateFilterCondition(
+        "PartitionKey", QueryComparisons.Equal, department);
+        TableQuery<EmployeeEntity> employeeQuery =
+        new TableQuery<EmployeeEntity>().Where(filter);
 
-          TableContinuationToken continuationToken = null;
+        TableContinuationToken continuationToken = null;
 
-          do
-          {
-            var employees = employeeTable.ExecuteQuerySegmented(
-                  employeeQuery, continuationToken);
-            foreach (var emp in employees)
+        do
         {
-          ...
-        }
-            continuationToken = employees.ContinuationToken;
-          } while (continuationToken != null);
-    }  
+        var employees = employeeTable.ExecuteQuerySegmented(
+                employeeQuery, continuationToken);
+        foreach (var emp in employees)
+    {
+        ...
+    }
+        continuationToken = employees.ContinuationToken;
+        } while (continuationToken != null);
+}  
+```
 
 Этот код можно легко изменить, чтобы запрос выполнялся в асинхронном режиме, как показано ниже.  
 
-    private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
-    {
-          string filter = TableQuery.GenerateFilterCondition(
-            "PartitionKey", QueryComparisons.Equal, department);
-          TableQuery<EmployeeEntity> employeeQuery =
-            new TableQuery<EmployeeEntity>().Where(filter);
-          TableContinuationToken continuationToken = null;
+```csharp
+private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
+{
+        string filter = TableQuery.GenerateFilterCondition(
+        "PartitionKey", QueryComparisons.Equal, department);
+        TableQuery<EmployeeEntity> employeeQuery =
+        new TableQuery<EmployeeEntity>().Where(filter);
+        TableContinuationToken continuationToken = null;
 
-          do
-          {
-            var employees = await employeeTable.ExecuteQuerySegmentedAsync(
-                  employeeQuery, continuationToken);
-            foreach (var emp in employees)
-            {
-              ...
-            }
-            continuationToken = employees.ContinuationToken;
-              } while (continuationToken != null);
-    }  
+        do
+        {
+        var employees = await employeeTable.ExecuteQuerySegmentedAsync(
+                employeeQuery, continuationToken);
+        foreach (var emp in employees)
+        {
+            ...
+        }
+        continuationToken = employees.ContinuationToken;
+            } while (continuationToken != null);
+}  
+```
 
 В данном примере асинхронного режима присутствуют следующие отличия от синхронной версии.  
 
@@ -1459,23 +1481,27 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 Можно вставлять, обновлять и удалять сущности в асинхронном режиме. В следующем примере кода C# показан простой синхронный метод вставки или замены сущности сотрудника.  
 
-    private static void SimpleEmployeeUpsert(CloudTable employeeTable,
-          EmployeeEntity employee)
-    {
-          TableResult result = employeeTable
-            .Execute(TableOperation.InsertOrReplace(employee));
-          Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
-    }  
+```csharp
+private static void SimpleEmployeeUpsert(CloudTable employeeTable,
+        EmployeeEntity employee)
+{
+        TableResult result = employeeTable
+        .Execute(TableOperation.InsertOrReplace(employee));
+        Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
+}  
+```
 
 Этот код можно легко изменить, чтобы обновление выполнялось в асинхронном режиме, как показано ниже.  
 
-    private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
-          EmployeeEntity employee)
-    {
-          TableResult result = await employeeTable
-            .ExecuteAsync(TableOperation.InsertOrReplace(employee));
-          Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
-    }  
+```csharp
+private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
+        EmployeeEntity employee)
+{
+        TableResult result = await employeeTable
+        .ExecuteAsync(TableOperation.InsertOrReplace(employee));
+        Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
+}  
+```
 
 В данном примере асинхронного режима присутствуют следующие отличия от синхронной версии.  
 
@@ -1518,10 +1544,5 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 [27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

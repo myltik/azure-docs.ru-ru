@@ -1,28 +1,25 @@
 ---
-title: "Сохранение и настройка конфигурации службы управления API с помощью Git"
+title: "Настройка службы управления API в Azure с помощью Git | Документация Майкрософт"
 description: "Узнайте, как сохранить и настроить конфигурацию службы управления API с помощью Git."
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Сохранение и настройка конфигурации службы управления API с помощью Git
-> [!IMPORTANT]
-> В настоящее время доступна предварительная версия конфигурации Git для службы управления API. Она функционально завершена, но доступна в предварительной версии, так как мы активно собираем о ней отзывы. Вполне возможно, что в ответ на отзывы клиентов мы внесем критические изменения, поэтому мы рекомендуем не использовать эту версию в производственной среде. Если у вас есть комментарии или вопросы, сообщите нам по адресу `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -40,7 +37,7 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 Ниже приведены действия с общими сведениями по управлению экземпляром службы управления API с помощью Git.
 
-1. Включение доступа к Git в службе.
+1. Доступ к конфигурации Git в службе
 2. Сохранение базы данных конфигурации службы в репозиторий Git.
 3. Клонирование репозитория Git на локальный компьютер.
 4. Извлечение последнего репозитория на локальном компьютере, фиксация и отправка изменений обратно в репозиторий.
@@ -48,20 +45,14 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 В этой статье описывается включение и использование Git для управления конфигурацией и содержатся справочные сведения о файлах и папках в репозитории Git.
 
-## <a name="to-enable-git-access"></a>Включение доступа к Git
-Чтобы быстро просмотреть состояние конфигурации Git, взгляните на значок Git в правом верхнем углу портала издателя. В этом примере доступ к Git еще не включен.
+## <a name="access-git-configuration-in-your-service"></a>Доступ к конфигурации Git в службе
+Чтобы быстро просмотреть состояние конфигурации Git, взгляните на значок Git в правом верхнем углу портала издателя. В этом примере сообщение о состоянии указывает, что в репозитории остались несохраненные изменения. Это связано с тем, что база данных конфигурации службы управления API не была сохранена в репозитории.
 
 ![Состояние Git][api-management-git-icon-enable]
 
 Чтобы просмотреть и настроить параметры конфигурации Git, щелкните значок Git или в меню **Безопасность** откройте вкладку **Репозиторий конфигурации**.
 
 ![Включение доступа к GIT][api-management-enable-git]
-
-Чтобы включить доступ к Git, установите флажок **Включить доступ к Git** .
-
-Через некоторое время изменение будет сохранено, и появится сообщение с подтверждением. Обратите внимание, что цвет значка Git изменился; это значит, что доступ к Git включен. Сообщение о состоянии указывает, что в репозитории имеются несохраненные изменения. Это связано с тем, что база данных конфигурации службы управления API не была сохранена в репозитории.
-
-![Доступ к Git включен][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Все секреты, которые не определены как свойства, будут сохранены в репозитории и останутся в его журнале до отключения и повторного включения доступа к Git. Свойства обеспечивают безопасное управление постоянными строковыми значениями, включая секреты, во всех конфигурациях API и политиках, поэтому их не нужно хранить непосредственно в правилах политики. Дополнительные сведения см. в статье [Использование свойств в политиках управления API Azure](api-management-howto-properties.md).
@@ -109,42 +100,58 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 Откройте средство Git в нужной папке и выполните указанную ниже команду для клонирования репозитория git на локальный компьютер с помощью команды, предоставленной на портале издателя.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 При появлении запроса введите имя пользователя и пароль.
 
 При появлении ошибок попробуйте изменить команду `git clone` так, чтобы она включала в себя имя пользователя и пароль, как показано в следующем примере.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 Если ошибка возникнет и в этом случае, попробуйте использовать кодирование URL части пароля, содержащегося в команде. Чтобы быстро решить эту задачу, откройте Visual Studio и выполните следующую команду в **окне интерпретации**. Чтобы открыть **окно интерпретации**, откройте любое решение или проект в Visual Studio (или создайте пустое консольное приложение), а затем выберите **Окна** и **Интерпретация** в меню **Отладка**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Зашифрованный пароль вместе с именем пользователя и расположением репозитория можно использовать для создания команды git.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 После клонирования репозиторий доступен для просмотра и работы в локальной файловой системе. Дополнительные сведения см. в разделе [Справочные сведения по структуре файлов и папок локального репозитория Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Обновление локального репозитория самой последней конфигурацией экземпляра службы
 Перед обновлением локального репозитория с помощью последних изменений необходимо сохранить изменения, вносимые в экземпляр службы управления API, на портале издателя или с помощью REST API. Для этого нажмите кнопку **Сохранить конфигурацию в репозиторий** на вкладке **Репозиторий конфигурации** на портале издателя, а затем выполните следующую команду в локальном репозитории.
 
-    git pull
+```
+git pull
+```
 
 Перед выполнением `git pull` убедитесь, что выбрана папка локального хранилища. Если вы только что завершили команду `git clone` , необходимо изменить каталог на репозиторий, выполнив команду, аналогичную приведенной ниже.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Отправка изменений из локального репозитория в репозиторий сервера
 Чтобы отправить изменения из локального репозитория в репозиторий сервера, необходимо зафиксировать изменения и после этого отправить их в репозиторий сервера. Чтобы зафиксировать изменения, откройте командное средство Git, перейдите в каталог локального репозитория и выполните следующие команды.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 Для отправки всех фиксаций на сервер выполните следующую команду.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Развертывание изменений конфигурации службы в экземпляре службы управления API
 После фиксации и отправки локальных изменений в репозиторий сервера их можно развернуть в экземпляре службы управления API.
@@ -190,19 +197,21 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 ### <a name="root-api-management-folder"></a>Корневая папка api-management
 Корневая папка `api-management` содержит файл `configuration.json` со сведениями верхнего уровня об экземпляре службы в следующем формате.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 Первые четыре параметра (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` и `UserRegistrationTermsConsentRequired`) соответствуют указанным далее параметрам на вкладке **Удостоверения** в разделе **Безопасность**.
 
@@ -303,6 +312,6 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

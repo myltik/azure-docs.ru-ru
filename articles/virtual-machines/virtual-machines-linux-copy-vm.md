@@ -1,6 +1,6 @@
 ---
-title: "Создание копии виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как создать копию виртуальной машины Linux в Azure, используя модель развертывания с помощью Resource Manager."
+title: "Копирование виртуальной машины Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Узнайте, как создать копию виртуальной машины Linux в Azure, развернутой в рамках модели Resource Manager, с помощью Azure CLI 2.0 (предварительная версия)."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -12,106 +12,178 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 02/02/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 55c6eb6eac96b341d082594b2bac2396fe3032e1
+ms.sourcegitcommit: 1beaca707bfc5058083213b564b3898545f57556
+ms.openlocfilehash: edf98951d4ed6709a9894e36ec5ae80b589dd639
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Создание копии виртуальной машины Linux, работающей в Azure
-В этой статье показано, как создать копию виртуальной машины Azure под управлением Linux, используя модель развертывания с помощью Resource Manager. Сначала следует скопировать операционную систему и диски данных в новый контейнер, а затем настроить сетевые ресурсы и создать новую виртуальную машину.
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-preview"></a>Создание копии виртуальной машины Linux с помощью Azure CLI 2.0 (предварительная версия)
+В этой статье показано, как создать копию виртуальной машины Azure под управлением Linux, используя модель развертывания с помощью Azure Resource Manager.
+
+Скопируйте операционную систему и диски данных в новый контейнер, а затем настройте сетевые ресурсы и создайте виртуальную машину.
 
 Кроме того, можно [передать пользовательский образ диска и создать виртуальную машину на его основе](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="before-you-begin"></a>Перед началом работы
-Перед началом описанной ниже процедуры необходимо выполнить следующие условия.
+## <a name="cli-versions"></a>Версии интерфейса командной строки
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки:
 
-* Необходимо скачать [интерфейс командной строки Azure (Azure CLI)](../xplat-cli-install.md) и установить его на компьютере. 
-* Необходимы также некоторые сведения о существующей виртуальной машине Linux в Azure.
+* [Azure CLI 1.0.](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Для классической модели развертывания и модели развертывания с помощью Resource Manager.
+* Azure CLI 2.0 (предварительная версия). Интерфейс командной строки нового поколения для модели развертывания с помощью Resource Manager, описанный в этой статье.
 
-| Сведения об исходной виртуальной машине | Как получить |
-| --- | --- |
-| Имя виртуальной машины |`azure vm list` |
-| Имя группы ресурсов |`azure vm list` |
-| Расположение |`azure vm list` |
-| Имя учетной записи хранения |`azure storage account list -g <resourceGroup>` |
-| Имя контейнера |`azure storage container list -a <sourcestorageaccountname>` |
-| Имя исходного VHD-файла виртуальной машины |`azure storage blob list --container <containerName>` |
+## <a name="prerequisites"></a>Предварительные требования
+* Установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в учетную запись Azure, выполнив команду [az login](/cli/azure/#login).
+* При создании копии используйте в качестве источника виртуальную машину Azure.
 
-* Необходимо будет выбрать параметры новой виртуальной машины:    <br>  - имя контейнера;    <br>  - имя виртуальной машины;    <br>  - размер виртуальной машины;    <br>  - имя виртуальной сети;    <br>  - имя подсети;    <br>  - имя IP-адреса;    <br>  - имя сетевой карты.
-
-## <a name="login-and-set-your-subscription"></a>Вход и задание подписки
-1. Войдите в интерфейс командной строки.
+## <a name="step-1-stop-the-source-vm"></a>Шаг 1. Остановка исходной виртуальной машины
+Отмените выделение исходной виртуальной машины, выполнив команду [az vm deallocate](/cli/azure/vm#deallocate). В следующем примере освобождается виртуальная машина `myVM`, входящая в группу ресурсов `myResourceGroup`:
 
 ```azurecli
-azure login
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-2. Убедитесь, что режим Resource Manager включен.
+## <a name="step-2-copy-the-source-vm"></a>Шаг 2. Копирование исходной виртуальной машины
+Чтобы скопировать виртуальную машину, необходимо создать копию ее виртуального жесткого диска. Этот процесс позволяет создать специализированную виртуальную машину, конфигурация и параметры которой будут такими же, как у исходной виртуальной машины.
 
-```azurecli
-azure config mode arm
+Процессы копирования виртуального диска различаются для Управляемых дисков Azure и неуправляемых дисков. Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Так как управляемые диски являются ресурсами верхнего уровня, с ними гораздо проще работать. Достаточно напрямую скопировать этот дисковый ресурс.
+
+Дополнительные сведения об Управляемых дисках Azure см. в [обзоре Управляемых дисков Azure](../storage/storage-managed-disks-overview.md).
+
+В зависимости от типа хранилища, используемого для исходной виртуальной машины, следуйте инструкциям, указанным в одном из следующих двух разделов, а затем перейдите к разделу "Шаг 3. Настройка виртуальной сети".
+
+### <a name="managed-disks"></a>Управляемые диски
+
+1. Получите список виртуальных машин и имен соответствующих управляемых дисков с операционными системами, выполнив команду [az vm list](/cli/azure/vm#list). В следующем примере создается список виртуальных машин, входящих в группу ресурсов `myResourceGroup`:
+
+    ```azurecli
+    az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+    ```
+
+    Вы должны увидеть результат, аналогичный приведенному ниже.
+
+    ```azurecli
+    Name    DiskName
+    ------  --------
+    myVM    myDisk
 ```
 
-3. Задайте соответствующую подписку. Для просмотра всех подписок можно использовать команду azure account list.
+2. Чтобы скопировать диск, создайте управляемый диск, выполнив команду [az disk create](/cli/azure/disk#create). В следующем примере создается диск `myCopiedDisk` на основе управляемого диска `myDisk`:
 
-```azurecli
-azure account set mySubscriptionID
-```
+    ```azurecli
+    az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+    ```
 
-## <a name="stop-the-vm"></a>Остановка виртуальной машины
-Остановите исходную виртуальную машину и отмените ее распределение. Для получения списка всех виртуальных машин в подписке и имен их групп ресурсов можно использовать команду azure vm list.
+3. Убедитесь, что этот управляемый диск теперь входит в нужную группу ресурсов, выполнив команду [az disk list](/cli/azure/disk#list). В следующем примере создается список управляемых дисков, входящих в группу ресурсов `myResourceGroup`:
 
-```azurecli
-azure vm stop myResourceGroup myVM
-azure vm deallocate myResourceGroup MyVM
-```
+    ```azurecli
+    az disk list --resource-group myResourceGroup --output table
+    ```
 
-
-## <a name="copy-the-vhd"></a>Копирование виртуального жесткого диска
-Скопировать виртуальный жесткий диск из исходного хранилища в место назначения можно с помощью команды `azure storage blob copy start`. В этом примере мы скопируем виртуальный жесткий диск в ту же учетную запись хранения, но в другой контейнер.
-
-Чтобы скопировать виртуальный жесткий диск в другой контейнер в той же учетной записи хранения, введите следующую команду.
-
-```azurecli
-azure storage blob copy start \
-        https://mystorageaccountname.blob.core.windows.net:8080/mycontainername/myVHD.vhd \
-        myNewContainerName
-```
-
-## <a name="set-up-the-virtual-network-for-your-new-vm"></a>Настройка виртуальной сети для новой виртуальной машины
-Настройте виртуальную сеть и сетевую карту для новой виртуальной машины. 
-
-```azurecli
-azure network vnet create myResourceGroup myVnet -l myLocation
-
-azure network vnet subnet create -a <address.prefix.in.CIDR/format> myResourceGroup myVnet mySubnet
-
-azure network public-ip create myResourceGroup myPublicIP -l myLocation
-
-azure network nic create myResourceGroup myNic -k mySubnet -m myVnet -p myPublicIP -l myLocation
-```
+4. Перейдите к разделу [Шаг 3. Настройка виртуальной сети](#set-up-the-virtual-network).
 
 
-## <a name="create-the-new-vm"></a>Создание виртуальной машины
-Теперь можно создать виртуальную машину из переданного виртуального диска, [используя шаблон Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) или интерфейс командной строки, указав универсальный код ресурса (URI) скопированного диска. Для этого введите следующую команду:
+### <a name="unmanaged-disks"></a>Неуправляемые диски
 
-```azurecli
-azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
-        -z Standard_DS1_v2 -y Linux \
-        https://mystorageaccountname.blob.core.windows.net:8080/mycontainername/myVHD.vhd 
-```
+1. Чтобы создать копию виртуального жесткого диска, вам потребуются ключи учетной записи хранения Azure и универсальный код ресурса (URI) диска. Ключи учетной записи хранения можно просмотреть, выполнив команду [az storage account keys list](/cli/azure/storage/account/keys#list).
 
+ В следующем примере отображается список ключей для учетной записи хранения `mystorageaccount` в группе ресурсов `myResourceGroup`:
 
+    ```azurecli
+    az storage account keys list --resource-group myResourceGroup \
+        --name mystorageaccount --output table
+    ```
+
+ Вы должны увидеть результат, аналогичный приведенному ниже.
+
+    ```azurecli
+    KeyName    Permissions    Value
+    ---------  -------------  ----------------------------------------------------------------------------------------
+    key1       Full           gi7crXhD8PMs8DRWqAM7fAjQEFmENiGlOprNxZGbnpylsw/nq+lQQg0c4jiKoV3Nytr3dAiXZRpL8jflpAr2Ug==
+    key2       Full           UMoyQjWuKCBUAVDr1ANRe/IWTE2o0ZdmQH2JSZzXKNmDKq83368Fw9nyTBcTEkSKI9cm5tlTL8J15ArbPMo8eA==
+    ```
+
+2. Выполните команду [az vm list](/cli/azure/vm#list), чтобы просмотреть список виртуальных машин и их универсальные коды ресурсов. В следующем примере отображается список виртуальных машин, входящих в группу ресурсов `myResourceGroup`:
+
+    ```azurecli
+    az vm list -g myResourceGroup --query '[].{Name:name,URI:storageProfile.osDisk.vhd.uri}' --output table
+    ```
+
+    Вы должны увидеть результат, аналогичный приведенному ниже.
+
+    ```azurecli
+    Name    URI
+    ------  -------------------------------------------------------------
+    myVM    https://mystorageaccount.blob.core.windows.net/vhds/myVHD.vhd
+    ```
+
+3. Скопируйте виртуальный жесткий диск, выполнив команду [az storage blob copy start](/cli/azure/storage/blob/copy#start). Чтобы указать необходимые ключи учетной записи хранения и универсальный код ресурса виртуального жесткого диска, используйте сведения из списков, полученных с помощью команд `az storage account keys` и `az vm`.
+
+    ```azurecli
+    az storage blob copy start \
+        --account-name mystorageaccount \
+        --account-key gi7crXhD8PMs8DRWqAM7fAjQEFmENiGlOprNxZGbnpylsw/nq+lQQg0c4jiKoV3Nytr3dAiXZRpL8jflpAr2Ug== \
+        --source-uri https://mystorageaccount.blob.core.windows.net/vhds/myVHD.vhd \
+        --destination-container vhds --destination-blob myCopiedVHD.vhd
+    ```
+
+## <a name="step-3-set-up-a-virtual-network"></a>Шаг 3. Настройка виртуальной сети
+Следующие необязательные шаги позволяют создать виртуальную сеть, подсеть, общедоступный IP-адрес и виртуальную сетевую карту.
+
+Если копирование виртуальной машины выполняется для устранения неполадок или для создания дополнительных развертываний, вам может потребоваться создать виртуальную машину в новой виртуальной сети.
+
+Если для копируемых виртуальных машин нужна отдельная инфраструктура виртуальный сети, выполните следующие шаги. Если вам не нужно создавать виртуальную сеть, перейдите к разделу [Шаг 4. Создание виртуальной машины](#create-a-vm).
+
+1. Создайте виртуальную сеть, выполнив команду [az network vnet create](/cli/azure/network/vnet#create). В следующем примере создается виртуальная сеть `myVnet` и подсеть `mySubnet`:
+
+    ```azurecli
+    az network vnet create --resource-group myResourceGroup --location westus --name myVnet \
+        --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+    ```
+
+2. Создайте общедоступный IP-адрес, выполнив команду [az network public-ip create](/cli/azure/network/public-ip#create). В следующем примере создается общедоступный IP-адрес `myPublicIP` с DNS-именем `mypublicdns`. (DNS-имя должно быть уникальным, поэтому укажите уникальное имя.)
+
+    ```azurecli
+    az network public-ip create --resource-group myResourceGroup --location westus \
+        --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+    ```
+
+3. Создайте сетевую карту, выполнив команду [az network nic create](/cli/azure/network/nic#create). В следующем примере создается сетевая карта `myNic`, подключенная к подсети `mySubnet`:
+
+    ```azurecli
+    az network nic create --resource-group myResourceGroup --location westeurope --name myNic \
+        --vnet-name myVnet --subnet mySubnet
+    ```
+
+## <a name="step-4-create-a-vm"></a>Шаг 4. Создание виртуальной машины
+Теперь можно создать виртуальную машину, выполнив команду [az vm create](/cli/azure/vm#create). Как и при копировании диска, этот процесс немного отличается для управляемых и неуправляемых дисков. В зависимости от типа хранилища, используемого для исходной виртуальной машины, следуйте инструкциям, указанным в одном из следующих двух разделов.
+
+### <a name="managed-disks"></a>Управляемые диски
+1. Создайте виртуальную машину, выполнив команду [az vm create](/cli/azure/vm#create).
+2. Укажите скопированный управляемый диск в качестве диска операционной системы (`--attach-os-disk`) следующим образом:
+
+    ```azurecli
+    az vm create --resource-group myResourceGroup --name myCopiedVM \
+        --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+        --nics myNic --size Standard_DS1_v2 --os-type Linux \
+        --image UbuntuLTS
+        --attach-os-disk myCopiedDisk
+    ```
+
+### <a name="unmanaged-disks"></a>Неуправляемые диски
+1. Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create).
+2. Укажите учетную запись хранения, имя контейнера и виртуальный жесткий диск, использованные при копировании диска путем выполнения команды `az storage blob copy start` (`--image`), следующим образом:
+
+    ```azurecli
+    az vm create --resource-group myResourceGroup --name myCopiedVM  \
+        --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+        --nics myNic --size Standard_DS1_v2 --os-type Linux \
+        --image https://mystorageaccount.blob.core.windows.net/vhds/myCopiedVHD.vhd \
+        --use-unmanaged-disk
+    ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Чтобы узнать, как использовать интерфейс командной строки Azure для управления новой виртуальной машиной, ознакомьтесь со статьей [Команды Azure CLI в режиме Resource Manager](azure-cli-arm-commands.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Сведения об управлении виртуальной машиной с помощью Azure CLI см. в статье [Команды Azure CLI в режиме Resource Manager](azure-cli-arm-commands.md).
 

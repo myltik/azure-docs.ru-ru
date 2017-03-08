@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8254f41006c36509af3626cb14825602e6a4adb
+ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
+ms.openlocfilehash: 6e6dad2dba03bd3339d841c885ab4e60b2dafbd3
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Руководство. Интеграция Azure Active Directory с Box
 Цель данного руководства — показать интеграцию Azure и Box.  
+
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * Действующая подписка на Azure
@@ -30,107 +32,113 @@ ms.openlocfilehash: c8254f41006c36509af3626cb14825602e6a4adb
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1. Включение интеграции приложений для Box
-2. Настройка единого входа
-3. Настройка подготовки пользователей и групп
-4. Назначение пользователей
+* Включение интеграции приложений для Box
+* Настройка единого входа
+* Настройка подготовки пользователей и групп
+* Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-box-tutorial/IC769537.png "Scenario")
+![Сценарий](./media/active-directory-saas-box-tutorial/IC769537.png "Сценарий")
 
-## <a name="enabling-the-application-integration-for-box"></a>Включение интеграции приложений для Box
+## <a name="enable-the-application-integration-for-box"></a>Включение интеграции приложений для Box
 В этом разделе показано, как включить интеграцию приложений для Box.
 
-### <a name="to-enable-the-application-integration-for-box-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Box, выполните следующие действия.
+**Чтобы включить интеграцию приложений для Box, сделайте следующее:**
+
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-box-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-box-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-box-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-box-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-box-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-box-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Box**.
    
-   ![Коллекция приложений](./media/active-directory-saas-box-tutorial/IC701023.png "Application gallery")
+   ![Коллекция приложений](./media/active-directory-saas-box-tutorial/IC701023.png "Коллекция приложений")
 7. В области результатов выберите **Box** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Box](./media/active-directory-saas-box-tutorial/IC701024.png "Box")
 
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Box со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Во время этой процедуры потребуется отправить метаданные на сайт Box.com.
+## <a name="configure-single-sign-on"></a>Настройка единого входа
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Box со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. 
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+Во время этой процедуры потребуется отправить метаданные на сайт Box.com.
+
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На классическом портале Azure на странице интеграции с приложением **Box** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC769538.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Box?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC769539.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC769539.png "Настройка единого входа")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес клиента Box** введите URL-адрес клиента Box (например, https://<mydomainname>.box.com) и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-box-tutorial/IC669826.png "Configure app URL")
+  ![Настройка URL-адреса приложения](./media/active-directory-saas-box-tutorial/IC669826.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Box** нажмите кнопку **Скачать метаданные**, чтобы скачать их, а затем сохраните файл данных локально на своем компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
+  ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC669824.png "Настройка единого входа")
 5. Передайте этот файл метаданных в группу поддержки Box. Группа поддержки осуществляет настройку единого входа.
 6. Выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC769540.png "Configure single sign-on")
+  ![Настройка единого входа](./media/active-directory-saas-box-tutorial/IC769540.png "Настройка единого входа")
    
-   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
 В этом разделе показано, как включить подготовку учетных записей пользователей Active Directory для Box.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На классическом портале Azure на странице интеграции с приложением **Box** щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Настроить подготовку учетных записей пользователей**. 
    
-    ![Включить автоматическую подготовку пользователей](./media/active-directory-saas-box-tutorial/IC769541.png "Enable automatic user provisioning")
+    ![Включение автоматической подготовки пользователей](./media/active-directory-saas-box-tutorial/IC769541.png "Включение автоматической подготовки пользователей")
 2. На диалоговой странице **Включить подготовку учетных записей пользователей для Box** нажмите кнопку **Включить подготовку пользователей**. 
    
-    ![Включить автоматическую подготовку пользователей](./media/active-directory-saas-box-tutorial/IC769544.png "Enable automatic user provisioning")
+    ![Включение автоматической подготовки пользователей](./media/active-directory-saas-box-tutorial/IC769544.png "Включение автоматической подготовки пользователей")
 3. На странице **Log in to grant access to Box** (Войдите в систему, чтобы предоставить доступ к Box) введите необходимые учетные данные и нажмите кнопку **Авторизовать**. 
    
-    ![Включить автоматическую подготовку пользователей](./media/active-directory-saas-box-tutorial/IC769546.png "Enable automatic user provisioning")
+    ![Включение автоматической подготовки пользователей](./media/active-directory-saas-box-tutorial/IC769546.png "Включение автоматической подготовки пользователей")
 4. Нажмите кнопку **Grant access to Box** (Предоставить доступ к Box), чтобы авторизовать операцию и вернуться на портал управления Azure. 
    
-    ![Включить автоматическую подготовку пользователей](./media/active-directory-saas-box-tutorial/IC769549.png "Enable automatic user provisioning")
+    ![Включение автоматической подготовки пользователей](./media/active-directory-saas-box-tutorial/IC769549.png "Включение автоматической подготовки пользователей")
 5. На странице **Параметры подготовки** с помощью флажков **Типы объектов для подготовки** можно указать, будут ли подготовлены в Box объекты групп наряду с объектами пользователей.  Дополнительные сведения см. в разделе "Назначение пользователей и групп" ниже.
 6. Для завершения настройки нажмите кнопку "Завершить". 
    
-    ![Включить автоматическую подготовку пользователей](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
+    ![Включение автоматической подготовки пользователей](./media/active-directory-saas-box-tutorial/IC769551.png "Включение автоматической подготовки пользователей")
 
-## <a name="assigning-a-test-user"></a>Назначение тестового пользователя
+## <a name="assign-a-test-user"></a>Назначение тестового пользователя
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-box-perform-the-following-steps"></a>Чтобы назначить пользователей Box, выполните следующие действия.
+**Чтобы назначить пользователей Box, сделайте следующее:**.
+
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Box** нажмите кнопку **Назначить пользователей**. 
    
-    ![Назначить пользователей](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-box-tutorial/IC769552.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение. 
    
-   ![Да](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-box-tutorial/IC767830.png "Да")
 
 Подождите 10 минут и убедитесь, что учетная запись синхронизирована с Box.
 
 В качестве первого шага проверки можно проверить состояние подготовки. Для этого щелкните "Панель мониторинга" в разделе D на странице интеграции приложения Box на классическом портале Azure.
 
-![Панель мониторинга](./media/active-directory-saas-box-tutorial/IC769553.png "Dashboard")
+![Панель мониторинга](./media/active-directory-saas-box-tutorial/IC769553.png "Панель мониторинга")
 
 Об успешном завершении цикла подготовки пользователя говорит соответствующий статус:
 
-![Состояние интеграции](./media/active-directory-saas-box-tutorial/IC769555.png "Integration status")
+![Состояние интеграции](./media/active-directory-saas-box-tutorial/IC769555.png "Состояние интеграции")
 
 В клиенте Box список синхронизированных пользователей приводится в разделе **Управляемые пользователи** в **консоли администрирования**.
 
-![Состояние интеграции](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
+![Состояние интеграции](./media/active-directory-saas-box-tutorial/IC769556.png "Состояние интеграции")
 
-## <a name="assigning-users-and-groups"></a>Назначение пользователей и групп
+## <a name="assign-users-and-groups"></a>Назначение пользователей и групп
 На классическом портале Azure на вкладке **Box > Пользователи и группы** можно указать, каким пользователям и группам следует предоставить доступ к Box. Назначение пользователей или группы приводит к указанным далее результатам.
 
 * Azure AD позволяет назначенному пользователю (путем прямого назначения или членства в группе) проходить проверку подлинности в Box. Если пользователь не назначен, Azure AD запретит вход Box, а на странице входа в Azure AD будет отображена ошибка.
@@ -147,10 +155,5 @@ ms.openlocfilehash: c8254f41006c36509af3626cb14825602e6a4adb
 * [Подготовка. Настройка сопоставлений атрибутов](active-directory-saas-customizing-attribute-mappings.md)
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

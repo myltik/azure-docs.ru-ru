@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 685d77363c451fbc28c39a34241dc34f796f7a77
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: c4fb98946a41ee37d8676eca52ff26f81d0ff56a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -28,13 +29,15 @@ ms.openlocfilehash: 685d77363c451fbc28c39a34241dc34f796f7a77
 
 > [!NOTE]
 > Для подключения к Hive в Beeline используется интерфейс JDBC. Дополнительные сведения об использовании JDBC с Hive см. в статье [Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
-> 
-> 
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Hadoop в кластере HDInsight на платформе Linux.
+
+  > [!IMPORTANT]
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Клиент SSH. Клиент SSH должен входить в состав Linux, Unix и Mac OS. Пользователи Windows должны загрузить отдельный клиент, например [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Подключение по SSH
@@ -243,10 +246,5 @@ Beeline также можно использовать для запуска ф�
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

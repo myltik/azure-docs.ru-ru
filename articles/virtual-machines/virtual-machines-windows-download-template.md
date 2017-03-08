@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6dffec166ffe8e04c5d7b701aef009bf7b72d45
+ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
+ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: b6dffec166ffe8e04c5d7b701aef009bf7b72d45
    * parameters.json;
    * template.json.
 
-JSON-файл является шаблоном.
+Файл template.json является шаблоном.
 
 ## <a name="download-the-template-using-powershell"></a>Скачивание шаблона с помощью PowerShell
 JSON-файл шаблона можно также скачать с помощью командлета [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx). Имя файла и путь к JSON-файлу можно указать с помощью параметра `-path`. В этом примере показано, как скачать шаблон для группы ресурсов с именем **myResourceGroup** в папку **C:\users\public\downloads** на локальном компьютере.
@@ -54,6 +54,6 @@ JSON-файл шаблона можно также скачать с помощ�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

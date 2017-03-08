@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: f7b508071e76deb47bfbaf397ce168ebc78aa068
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
 
 Прежде чем приступить к работе, рекомендуется просмотреть следующий видеоролик о выполнении задания Hive с помощью DocumentDB и HDInsight.
 
-> [!ВИДЕО https://channel9.msdn.com/Blogs/Windows-Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
 >
 >
 
@@ -63,10 +64,10 @@ ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
 Перед выполнением инструкций в этом учебнике убедитесь в наличии следующих ресурсов.
 
 * Учетная запись DocumentDB, база данных и коллекция с документами внутри. Дополнительные сведения можно найти в статье [Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C][getting-started]. Импортируйте демонстрационные данные в свою учетную запись DocumentDB с помощью [средства импорта DocumentDB][documentdb-import-data].
-* Пропускная способность. Операции чтения и записи из HDInsight будут входить в число выделенных единиц запроса для ваших коллекций. Дополнительные сведения можно найти в разделе о [подготовленной пропускной способности, единицах запросов и операциях базы данных][documentdb-manage-throughput].
-* Емкость для дополнительных хранимых процедур в каждой выходной коллекции. Хранимые процедуры используются для передачи результирующих документов. Дополнительные сведения можно найти в разделе о [коллекциях и подготовленной пропускной способности][documentdb-manage-document-storage].
-* Емкость для документов, являющихся результатами выполнения заданий MapReduce, Pig и Hive. Дополнительные сведения можно найти в разделе об [управлении емкостью и производительностью DocumentDB][documentdb-manage-collections].
-* [*Необязательная*] емкость для дополнительной коллекции. Дополнительные сведения можно найти в разделе о [подготовленном хранилище документов и накладных затратах на индексирование][documentdb-manage-document-storage].
+* Пропускная способность. Операции чтения и записи из HDInsight будут входить в число выделенных единиц запроса для ваших коллекций.
+* Емкость для дополнительных хранимых процедур в каждой выходной коллекции. Хранимые процедуры используются для передачи результирующих документов.
+* Емкость для документов, являющихся результатами выполнения заданий MapReduce, Pig и Hive.
+* [*Необязательная*] емкость для дополнительной коллекции.
 
 > [!WARNING]
 > Во избежание создания новой коллекции во время выполнения заданий можно распечатать результаты в stdout, сохранить результат в контейнере WASB или указать уже существующую коллекцию. Если указывается существующая коллекция, то документы будут созданы в ней. При наличии конфликта в полях *id* затрагиваются только существующие документы. **Соединитель автоматически перезапишет существующие документы с конфликтами идентификаторов**. Эту функцию можно отключить, задав параметру upsert значение false. Если параметру upsert задано значение false и возникает конфликт, задание Hadoop завершится ошибкой и выводом сообщения о конфликте идентификаторов.
@@ -416,9 +417,6 @@ ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: documentdb-java-application.md
-[documentdb-manage-collections]: documentdb-manage.md#database-collections
-[documentdb-manage-document-storage]: documentdb-manage.md#provisioned-document-storage-and-index-overhead
-[documentdb-manage-throughput]: documentdb-manage.md#request-units-and-database-operations
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
@@ -436,9 +434,4 @@ ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

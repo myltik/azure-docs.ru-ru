@@ -1,14 +1,15 @@
 # Обзор
 ## [Что такое ExpressRoute?](expressroute-introduction.md)
 ## [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md)
+## [Модели подключения](expressroute-connectivity-models.md)
 ## [Расположения и партнеры](expressroute-locations.md)
 ### [Поставщики по расположению](expressroute-locations-providers.md)
 ### [Расположения по поставщикам](expressroute-locations.md)
 
 # Начало работы
-## [Сведения о каналах и доменах маршрутизации](expressroute-circuit-peerings.md)
 ## [Рабочие процессы](expressroute-workflows.md)
 ## [Предварительные требования](expressroute-prerequisites.md)
+## [Сведения о каналах и доменах маршрутизации](expressroute-circuit-peerings.md)
 ## [Требования к маршрутизации](expressroute-routing.md)
 ## [Оптимизация маршрутизации](expressroute-optimize-routing.md)
 ## [Требования к NAT](expressroute-nat.md)
@@ -50,7 +51,7 @@
 ### [Получение таблиц ARP (классическая модель)](expressroute-troubleshooting-arp-classic.md)
 
 # Справочные материалы
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -78,8 +79,3 @@
 ### [Развитие сетевой инфраструктуры для повышения качества подключений](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Гибридные партнерства: реализация локальных сценариев](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute)
-
-
-<!--HONumber=Jan17_HO1-->
-
-

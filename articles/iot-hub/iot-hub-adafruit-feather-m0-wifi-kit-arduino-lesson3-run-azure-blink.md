@@ -1,5 +1,5 @@
 ---
-title: "Запуск примера приложения для отправки сообщений с устройства в облако в Центр Интернета вещей Azure | Документация Майкрософт"
+title: "Подключение Arduino (C) к Интернету вещей Azure. Урок 3. Запуск примера | Документация Майкрософт"
 description: "Разверните и запустите на плате Adafruit Feather M0 WiFi пример приложения, которое отправляет сообщения в Центр Интернета вещей и заставляет светодиодный индикатор мигать."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 569a28ae496f196c0f59be499cdef36550cc2ffa
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 631a6677e4801b1c3475b9e8f2726219dd101132
 
 
 ---
@@ -151,6 +151,6 @@ gulp run --listen
 [read-messages-persisted-in-azure-storage]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

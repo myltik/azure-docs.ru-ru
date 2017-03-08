@@ -1,6 +1,6 @@
 ---
-title: "Классические конечные точки в Resource Manager | Документация Майкрософт"
-description: "Узнайте, как конечные точки из классической модели развертывания теперь реализованы в Resource Manager с помощью групп безопасности сети и правил ACL."
+title: "Общие сведения о конечных точках для виртуальных машин Linux в Azure | Документация Майкрософт"
+description: "Узнайте, как конечные точки из классической модели развертывания теперь реализованы в Resource Manager с помощью групп безопасности сети и правил списков управления доступом."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 381d098fcd3c82aa0ea73cc05b42d8412b473e52
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 890c1ea7f7039886b1d2de72ea8f4a453a7b8ce2
+ms.lasthandoff: 02/10/2017
 
 
 ---
-# <a name="classic-endpoints-in-resource-manager"></a>Классические конечные точки в Resource Manager
+# <a name="classic-endpoints-for-linux-vms-with-azure-resource-manager"></a>Использование классических конечных точек для виртуальных машин Linux с помощью Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -30,10 +31,5 @@ ms.openlocfilehash: 381d098fcd3c82aa0ea73cc05b42d8412b473e52
 * [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)  
 * [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)  
 * [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

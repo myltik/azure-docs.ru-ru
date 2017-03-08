@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с Data Lake Store | Документация Майкрософт"
-description: "Использование портала для создания учетной записи хранения озера данных и выполнение базовых операций в хранилище озера данных"
+title: "Начало работы с Data Lake Store с помощью портала Azure | Документация Майкрософт"
+description: "Использование портала Azure для создания учетной записи Data Lake Store и выполнения базовых операций в Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
-ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 2. Щелкните **СОЗДАТЬ**, щелкните **Данные + хранилище**, а затем — **Azure Data Lake Store**. Ознакомьтесь со сведениями в колонке **Azure Data Lake Store** и нажмите кнопку **Создать** в левом нижнем углу колонки.
 3. В колонке **Новое хранилище озера данных** задайте значения, как показано на снимке экрана ниже.
    
-    ![Создание учетной записи хранения озера данных Azure](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Создание учетной записи Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Создание учетной записи Azure Data Lake")
    
    * **Имя**. Введите уникальное имя учетной записи Data Lake Store.
    * **Подписка**. выберите подписку, в которой нужно создать учетную запись Data Lake Store.
@@ -62,10 +62,10 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
      * (Необязательно.) Если вам не требуется использовать шифрование, в раскрывающемся списке выберите пункт **Не включать шифрование**.
      * (По умолчанию.) Для управления ключами шифрования с помощью Azure Data Lake выберите пункт **Использовать ключи, управляемые Azure Data Lake**.
        
-         ![Шифрование данных с помощью Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
+         ![Шифрование Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Шифрование Data Lake Store")
      * (Необязательно.) Если вы хотите использовать собственные ключи, имеющиеся в хранилище ключей Azure, выберите **Выбрать ключи из хранилища ключей Azure**. С помощью этого параметра можно также создать учетную запись хранилища ключей и ключи, если у вас их нет.
        
-         ![Шифрование данных с помощью Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+         ![Шифрование Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Шифрование Data Lake Store")
        
        Нажмите кнопку **ОК** в колонке **Параметры шифрования**.
        
@@ -80,7 +80,7 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 1. Если вы использовали ключи из хранилища ключей Azure, вверху колонки учетной записи Data Lake Store отображается предупреждение. Щелкните его, чтобы открыть колонку **Настройка разрешений хранилища ключей**.
    
-    ![Шифрование данных с помощью Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+    ![Шифрование Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Шифрование Data Lake Store")
 2. В колонке доступно два варианта настройки доступа.
    
    * В первом случае, чтобы настроить доступ, щелкните **Предоставить разрешение**. Этот вариант возможен, только если пользователь, который создал учетную запись Data Lake Store, также является администратором хранилища ключей Azure.
@@ -92,30 +92,30 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 1. Откройте только что созданную учетную запись хранения озера данных. В левой панели щелкните **Обзор**, щелкните **Data Lake Store** и затем в колонке Data Lake Store щелкните имя учетной записи, в которой нужно создать папки. Если учетная запись была закреплена на начальной панели, щелкните элемент этой учетной записи.
 2. В колонке учетной записи «Хранилище озера данных» щелкните **Обозреватель данных**.
    
-    ![Создание папок в учетной записи хранения озера данных](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Создание папок в учетной записи Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Создание папок в учетной записи Data Lake Store")
 3. В колонке своей учетной записи Data Lake Store щелкните **Создать папку**, введите имя новой папки и нажмите кнопку **ОК**.
    
-    ![Создание папок в учетной записи хранения озера данных](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    ![Создание папок в учетной записи Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Создание папок в учетной записи Data Lake Store")
    
     Созданная папка появится в списке в колонке **Обозреватель данных** . Вы можете создавать вложенные папки любого уровня.
    
-    ![Создание папок в учетной записи озера данных](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Создание папок в учетной записи Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Создание папок в учетной записи Data Lake")
 
 ## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Передача данных в учетную запись хранилища озера данных Azure
 Данные можно передавать в учетную запись хранения озера данных Azure непосредственно на корневой уровень или в папку, созданную в учетной записи. На снимке экрана ниже выполните необходимые действия, чтобы передать файл во вложенную папку из колонки **Обозреватель данных** . На этом снимке экрана файл передается во вложенную папку, показанную в адресной строке (выделена красным прямоугольником).
 
 Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Отправка данных](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+![Отправка данных](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Отправка данных")
 
 ## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Свойства и действия, доступные на сохраненных данных
 Щелкните добавленный файл, чтобы открыть колонку **Свойства** . В этой колонке показываются свойства, связанные с этим файлом, и действия, которые можно с ним выполнять. Также можно скопировать полный путь к файлу в вашей учетной записи хранения озера данных Azure, выделенный красным прямоугольником на снимке экрана ниже.
 
-![Свойства данных](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
+![Свойства данных](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Свойства данных")
 
 * Щелкните **Просмотр**, чтобы просмотреть файл непосредственно в браузере. Вы также можете указать формат просмотра. Щелкните **Просмотр**, в колонке **Просмотр файла** щелкните **Формат** и в колонке **Формат просмотра файла** укажите нужные параметры, такие как количество отображаемых строк, используемая кодировка, разделитель и т. д.
   
-  ![Формат просмотра файла](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
+  ![Формат просмотра файла](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Формат просмотра файла")
 * Щелкните **Загрузить** , чтобы загрузить файл на компьютер.
 * Щелкните **Переименовать файл** , чтобы переименовать файл.
 * Щелкните **Удалить файл** , чтобы удалить файл.
@@ -126,7 +126,7 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 ## <a name="delete-azure-data-lake-store-account"></a>Удаление учетной записи хранения озера данных Azure
 Чтобы удалить учетную запись хранения озера данных Azure, в колонке хранилища озера данных щелкните **Удалить**. Чтобы подтвердить действие, вам будет предложено ввести имя учетной записи, которую вы хотите удалить. Введите имя учетной записи и нажмите кнопку **Удалить**.
 
-![Удаление учетной записи озера данных](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+![Удаление учетной записи Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Удаление учетной записи Data Lake")
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
@@ -137,6 +137,6 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

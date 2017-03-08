@@ -13,16 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+ms.sourcegitcommit: c8abf308c20968f184a80b20dc40185b1631105d
+ms.openlocfilehash: 903004ae83d86ddcda13c6f2fce708e71ffa729b
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Настройка кластеров HDInsight с помощью начальной загрузки
-В некоторых случаях требуется изменить файлы конфигурации, которые включают:
+В некоторых случаях требуется изменить файлы конфигурации, к которым относятся:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -40,20 +41,17 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
 * webhcat-site.xml
 * yarn-site.xml
 
-При повторном развертывании образа изменения в кластере не сохраняются. Дополнительные сведения о повторном развертывании образа см. в статье [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (Перезапуск экземпляра роли из-за обновлений ОС). Чтобы они сохранялись в течение всего времени существования кластера, можно в процессе создания изменить файлы конфигурации кластера HDInsight. Это рекомендуемый способ изменения конфигураций кластера и сохранения состояния между событиями перезапуска, перезагрузки и пересоздания образа Azure. Эти изменения конфигурации применяются до запуска службы, поэтому перезапуск службы не требуется. 
-
-Существуют 3 способа использования начальной загрузки:
+Существуют три способа использования начальной загрузки.
 
 * Использование Azure PowerShell
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * Использование пакета SDK для .NET
 * Использование шаблона Azure Resource Manager
 
-Сведения об установке дополнительных компонентов в кластере HDInsight во время создания см. в разделах:
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+Сведения об установке дополнительных компонентов в кластере HDInsight во время создания см. в следующих разделах:
 
 * [Настройка кластеров HDInsight с помощью действия скрипта (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-* [Настройка кластеров HDInsight с помощью действия скрипта (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## <a name="use-azure-powershell"></a>Использование Azure PowerShell
 Следующий код PowerShell настраивает конфигурацию Hive:
@@ -74,8 +72,8 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType Hadoop `
-        -OSType Windows `
-        -Version "3.2" `
+        -OSType Linux `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -Config $config 
 
@@ -84,7 +82,7 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
 **Чтобы проверить изменения, выполните следующие действия:**
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. В левой области щелкните **Обзор**, а затем — **Кластеры HDInsight**.
+2. В меню слева щелкните **Кластеры HDInsight**. Если вы не видите этот пункт, сначала щелкните **Больше служб**.
 3. Щелкните кластер, созданный с помощью сценария PowerShell.
 4. Щелкните **Панель мониторинга** в верхней части колонки, чтобы открыть пользовательский интерфейс Ambari.
 5. Щелкните **Hive** в меню слева.
@@ -127,12 +125,12 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
     }
 
 
-![hdinsight hadoop настройка кластера начальная загрузка шаблон azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop настройка кластер начальная загрузка шаблон Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] — инструкции по созданию кластера HDInsight с использованием других настраиваемых параметров.
+* В статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
 * [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
-* [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark][hdinsight-install-spark]
+* [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]
 * [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r]
 * [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 * [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
@@ -141,7 +139,7 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы создания кластера"
@@ -244,7 +242,7 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
         -ClusterSizeInNodes 1 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.2" `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -SshCredential $sshCredential `
         -Config $config
@@ -255,9 +253,4 @@ ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
     #endregion
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 40ad0b85072c3a54c7791500663c4dd88133c095
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 40ad0b85072c3a54c7791500663c4dd88133c095
 
 Компания SnelStart из Нидерландов — создатель популярного ПО для управления финансами и предприятием для малого и среднего бизнеса. Ее 55 000 клиентов обслуживаются персоналом из 110 сотрудников, включая 35 ИТ-специалистов. Перейдя с классического ПО на программное обеспечение как услугу (SaaS) на платформе Azure, SnelStart максимально эффективно использовала встроенные службы, автоматизировав управление с помощью привычной среды на языке C#. При этом удалось оптимизировать производительность и масштабируемость, избегая выделения чрезмерных или недостаточных ресурсов для организаций благодаря использованию пулов эластичных баз данных. Использование Azure позволяет SnelStart плавно перемещать клиентов между локальными и облачными ресурсами.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
 > 
 > 
 
@@ -107,10 +108,5 @@ SnelStart также разрабатывает API, который действ
 * Чтобы узнать больше о веб-ролях и рабочих ролях, ознакомьтесь с [рабочими ролями](../fundamentals-introduction-to-azure.md#compute).    
 * Дополнительные сведения о хранилище данных SQL Azure см. в статье [Хранилище данных SQL](https://azure.microsoft.com/documentation/services/sql-data-warehouse/).
 * Дополнительные сведения о SnelStart см. в статье [SnelStart](http://www.snelstart.nl).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

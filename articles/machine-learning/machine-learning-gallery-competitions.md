@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
+ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
+ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
 ## <a name="cortana-intelligence-competitions"></a>Конкурсы Cortana Intelligence
 **[Конкурсы](https://gallery.cortanaintelligence.com/competitions)** позволяют бросить вызов сообществу специалистов по обработке и анализу данных в решении сложных проблем с помощью пакета Cortana Intelligence Suite.
 
+Ответы на часто задаваемые вопросы о конкурсах см. в статье [Часто задаваемые вопросы о конкурсах Microsoft Cortana Intelligence](machine-learning-competition-faq.md).
+
 ## <a name="discover"></a>Поиск
   Для поиска конкурсов перейдите на сайт [коллекции](http://gallery.cortanaintelligence.com), в верхней части главной страницы наведите указатель мыши на пункт **More** (Дополнительно) и выберите **Competitions** (Конкурсы).
 
@@ -34,7 +37,7 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
  На странице **[конкурсов](https://gallery.cortanaintelligence.com/competitions)**
  отобразится список наиболее популярных конкурсов.
 Щелкните **See all** (Показать все), чтобы просмотреть все конкурсы.
-На открывшейся странице можно просмотреть все конкурсы в коллекции. Здесь также можно воспользоваться фильтрами в левой части страницы или строкой поиска вверху, чтобы найти определенные конкурсы.
+На этой странице можно просмотреть все конкурсы в коллекции. Кроме того, для поиска можно задать условия фильтра в левой части страницы и ввести условия поиска вверху.
 
  Щелкнув любой конкурс, вы попадете на страницу с его описанием и дополнительными сведениями. На этой странице в разделе комментариев можно оставлять замечания, отзывы и задавать вопросы. Ссылку на страницу можно опубликовать в социальных сетях LinkedIn и Twitter для друзей и коллег. Кроме того, ссылку можно отправить по электронной почте, чтобы другие пользователи также могли просмотреть найденный вами конкурс.
 
@@ -47,17 +50,12 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
 
 ![Конкурс завершен](media/machine-learning-gallery-competitions/open-competition.png)
 
-Если конкурс завершен, на странице с его описанием будет указано состояние **Completed** (Завершился), а вместо кнопки **Enter Competition** (Принять участие в конкурсе) будет надпись **Finished** (Завершен).
+Если конкурс завершен, на странице с его описанием будет указано состояние **Выполнено**, а вместо кнопки **Enter Competition** (Принять участие) будет надпись **Готово**.
 
 ![Конкурс завершен](media/machine-learning-gallery-competitions/completed-competition.png)
 
 **[ПЕРЕЙТЕ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

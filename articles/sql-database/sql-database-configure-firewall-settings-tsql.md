@@ -12,24 +12,17 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.topic: article
+ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 84efba61fbb0248edef3036de702e3a1aa8ae903
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="configure-azure-sql-database-server-level-and-database-level-firewall-rules-using-t-sql"></a>Настройка правил брандмауэра уровня сервера базы данных SQL Azure и уровня базы данных SQL Azure с помощью T-SQL
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-firewall-configure.md)
-> * [Портал Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 Для подключения к серверам и базам данных в Базе данных SQL Microsoft Azure используются правила брандмауэра. На сервере Базы данных SQL Azure для главной или пользовательской базы данных можно определить значения параметров брандмауэра на уровне сервера и базы данных, которые будут выборочно разрешать доступ к базе данных.
 
@@ -39,7 +32,7 @@ ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 > 
 
 ## <a name="server-level-firewall-rules"></a>Правила брандмауэра на уровне сервера
-Правило брандмауэра уровня сервера с помощью Transact-SQL может создавать только пользователь с именем пользователя субъекта или администратор Azure Active Directory.
+Правило брандмауэра уровня сервера с помощью Transact-SQL может создавать только администратор сервера Azure SQL Server или администратор Azure Active Directory.
 
 1. Откройте окно запроса и подключитесь к главной виртуальной базе данных с помощью SQL Server Management Studio.
 2. В окне запроса можно создавать, обновлять или удалять правила брандмауэра на уровне сервера.
@@ -61,7 +54,7 @@ ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 ## <a name="database-level-firewall-rules"></a>Правила брандмауэра на уровне базы данных
 Правило брандмауэра уровня базы данных может создавать только пользователь базы данных с разрешением **УПРАВЛЕНИЕ** для базы данных (например, владелец базы данных).
 
-1. После создания правила брандмауэра уровня сервера для своего IP-адреса откройте окно запроса на классическом портале или с помощью SQL Server Management Studio.
+1. После создания правила брандмауэра уровня сервера для своего IP-адреса откройте окно запроса на портале Azure или с помощью SQL Server Management Studio.
 2. Подключение к базе данных, для которой нужно создать правило брандмауэра на уровне базы данных.
    
     Для создания нового или обновления существующего правила брандмауэра уровня базы данных выполните хранимую процедуру `sp_set_database_firewall_rule` . В следующем примере показано, как создать новое правило с именем ContosoFirewallRule.
@@ -76,24 +69,24 @@ ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 Дополнительные сведения об этих хранимых процедурах см. на страницах [sp_set_database_firewall_rule (база данных SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx) и [sp_delete_database_firewall_rule (база данных SQL Azure)](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Сведения об использовании брандмауэров уровня базы данных см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
+>
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
-Практические руководства по созданию правил брандмауэра уровня сервера с помощью других методов см. в следующих разделах. 
+Сведения о создании правил брандмауэра уровня сервера с помощью других методов см. в следующих статьях: 
 
 * [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью PowerShell](sql-database-configure-firewall-settings.md)
 * [Настройка правил брандмауэра уровня сервера базы данных SQL с помощью PowerShell](sql-database-configure-firewall-settings-powershell.md)
 * [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API](sql-database-configure-firewall-settings-rest.md)
 
-Учебник по созданию базы данных SQL доступен в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
+Руководство по созданию базы данных см. в статье [Краткое руководство. Начало работы с базой данных SQL Azure](sql-database-get-started.md).
 Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 Общие сведения о навигации по базам данных см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Защита базы данных](sql-database-security-overview.md)
 * [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

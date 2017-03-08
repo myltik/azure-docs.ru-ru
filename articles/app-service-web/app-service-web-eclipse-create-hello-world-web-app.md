@@ -1,5 +1,5 @@
 ---
-title: "Создание веб-приложения Hello World для Azure в Eclipse | Документация Майкрософт"
+title: "Создание веб-приложения Azure (цен. категория &quot;Базовый&quot;) с помощью Eclipse | Документация Майкрософт"
 description: "В этом учебнике показано, как с помощью набора средств Azure для Eclipse создать веб-приложение Hello World для Azure."
 services: app-service\web
 documentationcenter: java
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: robmcm
+ms.date: 12/22/2016
+ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+ms.sourcegitcommit: 9bb0b5fa32cd6dabd6c41106db38a587b0a55eed
+ms.openlocfilehash: 18299966173f030f615049eaf11a55a1f71305a0
 
 
 ---
-# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Создание веб-приложения Hello World для Azure в Eclipse
-В этом учебнике показано, как создать базовое приложение Hello World для Azure и развернуть его как веб-приложение с помощью [средств Azure для Eclipse]. Для простоты мы приводим базовый пример на JSP, но практически те же действия подойдут и для сервлета Java, если речь идет о развертывании в Azure.
+# <a name="create-a-basic-azure-web-app-using-eclipse"></a>Создание веб-приложения Azure (цен. категория "Базовый") с помощью Eclipse
+В этом учебнике показано, как создать базовое приложение Hello World для Azure и развернуть его как веб-приложение с помощью [средств Azure для Eclipse]. Для простоты мы приводим базовый пример на JSP, но схожие действия подойдут и для сервлета Java, если речь идет о развертывании в Azure.
 
 После завершения этого учебника приложение при просмотре в веб-браузере будет выглядеть следующим образом:
 
@@ -30,9 +30,9 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 ## <a name="prerequisites"></a>Предварительные требования
 * Пакет SDK для Java (JDK) 1.8 или более поздней версии.
 * Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Luna или более поздняя. Скачать ее можно на веб-странице <http://www.eclipse.org/downloads/>.
-* Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat или Jetty.
+* Дистрибутив веб-сервера или сервера приложений на основе Java, например [Apache Tomcat] или [Jetty].
 * Подписка на Azure, которую можно получить, перейдя по ссылке <https://azure.microsoft.com/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
-* Набор средств Azure для Eclipse. Дополнительные сведения см. в статье [Установка набора средств Azure для Eclipse].
+* [средств Azure для Eclipse]. Дополнительные сведения об установке см. в статье [Установка набора средств Azure для Eclipse].
 
 ## <a name="to-create-a-hello-world-application"></a>Создание приложения Hello World
 Сначала необходимо создать проект Java.
@@ -148,17 +148,17 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 
 Через несколько секунд в представлении **Журнал действий Azure** состояние обновленного развертывания изменится на **Опубликовано**, и вы сможете проверить свое обновленное приложение в веб-браузере.
 
-## <a name="stopping-an-existing-web-app"></a>Остановка существующего веб-приложения
-Остановить существующий контейнер веб-приложения Azure (включая все развернутые в нем приложения Java) можно в представлении **Azure Explorer** (Обозреватель Azure).
+## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>Запуск, остановка или перезапуск существующего веб-приложения
+Запустить или остановить существующий контейнер веб-приложения Azure (включая все развернутые в нем приложения Java) можно в представлении **Обозреватель Azure** .
 
 Если представление **Azure Explorer** еще не открыто, это можно сделать, щелкнув в Eclipse меню **Окно** и последовательно выбрав **Show View** (Показать представление), **Other** (Другие), **Azure**, **Azure Explorer**. Если ранее вы не вошли в систему, вам будет предложено это сделать.
 
-Когда представление **Azure Explorer** (Обозреватель Azure) откроется, выполните следующие действия, чтобы остановить веб-приложение: 
+Когда представление **Обозреватель Azure** откроется, выполните следующие действия для запуска или остановки веб-приложения. 
 
 1. Разверните узел **Azure** .
 2. Разверните узел **Web Apps** (Веб-приложения). 
 3. Щелкните правой кнопкой мыши необходимое веб-приложение.
-4. В открывшемся контекстном меню выберите пункт **Stop**(Остановить).
+4. В открывшемся контекстном меню выберите **Запустить**, **Остановить** или **Перезапустить**. Обратите внимание, что доступные меню контекстно зависимы, поэтому можно только остановить веб-приложение или запустить веб-приложение, которое в данный момент не запущено.
    
     ![Остановка существующего веб-приложения][13]
 
@@ -184,7 +184,7 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 
 [средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
 [Набор средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
-[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-installation.md
@@ -193,6 +193,8 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 
 [Центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
+[Apache Tomcat]: http://tomcat.apache.org/
+[Jetty]: http://www.eclipse.org/jetty/
 
 <!-- IMG List -->
 
@@ -202,8 +204,8 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 [04]: ./media/app-service-web-eclipse-create-hello-world-web-app/04-Log-In-Dialog.png
 [05]: ./media/app-service-web-eclipse-create-hello-world-web-app/05-Manage-Subscriptions-Dialog.png
 [06]: ./media/app-service-web-eclipse-create-hello-world-web-app/06-Deploy-To-Azure-Web-Container.png
-[07а]: ./media/app-service-web-eclipse-create-hello-world-web-app/07a-New-Web-App-Container-Dialog.png
-[07б]: ./media/app-service-web-eclipse-create-hello-world-web-app/07b-New-Web-App-Container-Dialog.png
+[07a]: ./media/app-service-web-eclipse-create-hello-world-web-app/07a-New-Web-App-Container-Dialog.png
+[07b]: ./media/app-service-web-eclipse-create-hello-world-web-app/07b-New-Web-App-Container-Dialog.png
 [08]: ./media/app-service-web-eclipse-create-hello-world-web-app/08-New-Resource-Group-Dialog.png
 [09]: ./media/app-service-web-eclipse-create-hello-world-web-app/09-New-Service-Plan-Dialog.png
 [10]: ./media/app-service-web-eclipse-create-hello-world-web-app/10-Completed-Web-App-Container-Dialog.png
@@ -215,6 +217,6 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

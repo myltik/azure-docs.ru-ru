@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 
 
 ---
@@ -24,24 +24,24 @@ ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-users-reset-password-azure-portal.md)
 > * [классическом портале Azure](active-directory-create-users-reset-password.md)
-> 
-> 
+>
+>
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>Сброс пароля для пользователя
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-   
+
    ![Открытие страницы "Управление пользователями"](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Пользователи**.
-   
+
    ![Открытие колонки "Пользователи"](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 4. В колонке **Пользователи и группы — Пользователи** выберите пользователя из списка.
 5. В колонке для выбранного пользователя щелкните **Обзор**, а затем на панели команд щелкните **Сбросить пароль**.
-   
+
     ![Выбор команды "Сбросить пароль"](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 6. В колонке **Сброс пароля** щелкните **Сбросить пароль**.
 
-## <a name="whats-next"></a>Что дальше?
+## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление пользователей](active-directory-users-create-azure-portal.md)
 * [Назначение пользователей в предварительной версии Azure AD](active-directory-users-assign-role-azure-portal.md)
 * [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
@@ -50,7 +50,6 @@ ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

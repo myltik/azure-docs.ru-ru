@@ -13,41 +13,43 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1160dbc2f2a6b8e427c5280b2eaa06307ecac80c
-ms.openlocfilehash: 9b22dc671cd63f77ad6076404069c271455dc61e
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 8da7631d2dfc51e21269d05ace737760e3be61b8
+ms.lasthandoff: 02/14/2017
 
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими
+
 Панель мониторинга Storm позволяет легко развернуть и запустить топологии Apache Storm в кластере HDInsight с помощью браузера. С помощью панели мониторинга можно также следить за топологиями и управлять их работой. Если используется Visual Studio, средства HDInsight для Visual Studio предоставляют аналогичные функциональные возможности в Visual Studio.
 
 Панель мониторинга и компоненты Storm в средствах HDInsight используют интерфейс REST API для Storm, с помощью которого можно создавать собственные решения для мониторинга и управления.
 
 > [!IMPORTANT]
-> Действия, описанные в этом документе, требуют наличия Storm под управлением Windows в кластере HDInsight. Дополнительные сведения об использовании кластера под управлением Linux можно найти в разделе [Развертывание и управление топологиями Apache Storm в HDInsight под управлением Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
+> Действия, описанные в этом документе, требуют наличия Storm в кластере HDInsight с операционной системой Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 >
->
+> Сведения о развертывании топологий Storm и управлении ими с помощью кластера HDInsight под управлением Linux см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **Apache Storm в HDInsight** — инструкции по созданию кластера см. в статье <a href="hdinsight-apache-storm-tutorial-get-started.md" target="_blank">Начало работы с Apache Storm в HDInsight</a>.
+
+* **Apache Storm в HDInsight** — инструкции по созданию кластера представлены в статье [Начало работы с Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-get-started.md).
+
 * Для **панели мониторинга Storm**— современный браузер, который поддерживает HTML5.
-* Для **Visual Studio** — пакет SDK для Azure 2.5.1 или более поздней версии и средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье <a href="hdinsight-hadoop-visual-studio-tools-get-started.md" target="_blank">Начало работы со средствами HDInsight для Visual Studio</a>.
+
+* Для **Visual Studio** — пакет SDK для Azure 2.5.1 или более поздней версии и средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
     Одна из следующих версий Visual Studio:
 
-  * Visual Studio 2012 с <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">обновлением 4</a>
-  * Visual Studio 2013 с <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">обновлением 4</a> или <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
-  * <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015, CTP-версия 6</a>
+  * Visual Studio 2012 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-    > [!NOTE]
-    > В настоящее время инструменты HDInsight для Visual Studio поддерживают только Storm в кластере HDInsight версии 3.2.
-    >
-    >
+  * Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
 ## <a name="storm-dashboard"></a>Панель мониторинга Storm
+
 Панель мониторинга Storm представляет собой веб-страницу в кластере Storm URL-адрес: **https://&lt;имя_кластера>.azurehdinsight.net/**, где **имя_кластера** — это имя топологии Storm в кластере HDInsight.
 
 В верхней части панели мониторинга Storm выберите **Submit Topology**(Отправка топологии). Следуйте инструкциям на странице, чтобы запустить пример топологии или передать и запустить созданную вами топологию.
@@ -55,112 +57,134 @@ ms.openlocfilehash: 9b22dc671cd63f77ad6076404069c271455dc61e
 ![страница отправки топологии][storm-dashboard-submit]
 
 ### <a name="storm-ui"></a>Пользовательский интерфейс Storm
-На панели мониторинга Storm выберите ссылку **Storm UI** (Пользовательский интерфейс Storm). Отобразится информация о кластере, а также всех запущенных топологиях.
+
+На панели мониторинга Storm выберите ссылку **Storm UI** (Пользовательский интерфейс Storm). Отобразятся сведения о кластере, а также о всех запущенных топологиях.
 
 ![пользовательский интерфейс storm][storm-dashboard-ui]
 
 > [!NOTE]
 > В некоторых версиях Internet Explorer может возникать ситуация, когда пользовательский интерфейс Storm не обновляется после первого открытия. Например, он может не отображать новые отправленные топологии или отображать топологию как активную, хотя она была выключена. Корпорация Майкрософт знает о наличии этой проблемы и работает над ее решением.
->
->
 
 #### <a name="main-page"></a>Главная страница
+
 На главной странице пользовательского интерфейса Storm отображается следующая информация.
 
 * **Cluster summary**(Сводка по кластерам) — основная информация о кластере Storm.
+
 * **Topology summary**(Сводка по топологиям) — список запущенных топологий. С помощью ссылок в этом разделе можно просмотреть дополнительную информацию о конкретных топологиях.
+
 * **Supervisor summary**(Сводка по контролеру) — информация о контролере Storm.
+
 * **Nimbus configuration**(Конфигурация Nimbus) — конфигурация Nimbus для кластера.
 
 #### <a name="topology-summary"></a>Topology summary
+
 При выборе ссылки в разделе **Topology summary** (Сводка по топологиям) отображается следующая информация о топологии.
 
 * **Topology summary**(Сводка по топологии) — основная информация о топологии.
+
 * **Topology actions**(Действия с топологией) — действия управления, которые можно выполнять с топологией.
 
   * **Activate**(Включить) — возобновление обработки отключенной топологии.
+
   * **Deactivate**(Отключить) — приостановка выполняемой топологии.
+
   * **Rebalance**(Повторная балансировка) — корректировка параллелизма топологии. После изменения числа узлов в кластере необходимо выполнить повторную балансировку топологий. Это позволяет топологии скорректировать параллелизм для компенсации увеличения или уменьшения количества узлов в кластере.
 
-      Дополнительные сведения см. в статье <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a> (Общие сведения о параллелизме топологии Storm).
+      Дополнительные сведения см. в разделе [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Основные сведения о параллелизме в топологии Storm): http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html.
+
   * **Kill**(Удалить) — останавливает выполнение топологии Storm по истечении заданного времени ожидания.
+
 * **Topology stats**(Статистика топологии) — статистика по топологии. С помощью ссылок в столбце **Window** (Окно) можно установить временные рамки для оставшихся записей на странице.
+
 * **Spouts**(Воронки) — используемые в топологии источники данных, которые называются воронками. С помощью ссылок в этом разделе можно получить дополнительную информацию о конкретных воронках.
+
 * **Bolts**(Сита — используемые в топологии обработчики данных, которые называются ситами. С помощью ссылок в этом разделе можно получить дополнительную информацию о конкретных ситах.
+
 * **Topology configuration**(Конфигурация топологии) — конфигурация выбранной топологии.
 
 #### <a name="spout-and-bolt-summary"></a>Сводка по воронкам и ситам
+
 При выборе воронки в разделе **Spouts** (Воронки) или **Bolts** (Сита) отображается следующая информация о выбранном элементе.
 
 * **Component summary**(Сводка по компоненту) — основная информация о воронке или сите.
+
 * **Spout/Bolt stats**(Статистика по воронке или ситу) — статистика по воронке или ситу. С помощью ссылок в столбце **Window** (Окно) можно установить временные рамки для оставшихся записей на странице.
+
 * **Input stats** (Статистика по входным данным, только сита) — информация о входных потоках, проходящих через сито.
+
 * **Output stats**(Статистика по выходным данным) — информация о потоках, создаваемых этой воронкой или ситом.
+
 * **Executors**(Исполнители) — информация об экземплярах воронки или сита. Выберите запись **Port** (Порт) для конкретного исполнителя, чтобы просмотреть журнал диагностической информации, созданный для этого экземпляра.
+
 * **Errors**(Ошибки) — информация об ошибках для данной воронки или сита.
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>Средства HDInsight для Visual Studio
+
 Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий с помощью средств HDInsight см. в разделе [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Чтобы развернуть пример в Storm в кластере HDInsight, а затем просмотреть топологию и управлять ею, сделайте следующее.
 
-1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью <a href="hdinsight-hadoop-visual-studio-tools-get-started.md" target="_blank">Начало работы со средствами HDInsight для Visual Studio</a>.
+1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+
 2. Откройте Visual Studio b выберите **Файл** > **Создать** > **Проект**.
+
 3. В диалоговом окне **Новый проект** разверните **Установленные** > **Шаблоны** и выберите **HDInsight**. В списке шаблонов выберите **Пример Storm**. В нижней части диалогового окна введите имя приложения.
 
     ![изображение](./media/hdinsight-storm-deploy-monitor-topology/sample.png)
+
 4. В **обозревателе решений** щелкните правой кнопкой мыши проект и выберите **Submit to Storm on HDInsight** (Отправить в Storm в HDInsight).
 
    > [!NOTE]
    > При появлении запроса введите учетные данные входа для своей подписки Azure. Если у вас несколько подписок, воспользуйтесь той, что содержит ваш кластер Storm в HDInsight.
-   >
-   >
+
 5. Выберите Storm в кластере HDInsight из раскрывающегося списка **Кластер Storm** и щелкните **Отправить**. Вы можете отслеживать выполнение отправки в окне **Выходные данные** .
+
 6. После успешной отправки топологии должны появиться **топологии Storm** для кластера. Выберите топологию в списке, чтобы просмотреть информацию о выполняемой топологии.
 
     ![мониторинг Visual Studio](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
    > [!NOTE]
    > Можно также просмотреть **топологии Storm** в **обозревателе серверов**. Для этого разверните **Azure** > **HDInsight**, затем щелкните правой кнопкой мыши топологию Storm в кластере HDInsight и выберите **Просмотреть топологии Storm**.
-   >
-   >
 
     Выделите компонент spout или bolt, чтобы просмотреть информацию о нем. Для каждого выбранного элемента открывается новое окно.
 
    > [!NOTE]
    > Имя топологии — это имя класса топологии (в данном случае `HelloWord`) с добавлением отметки времени.
-   >
-   >
+
 7. В представлении **Topology Summary** (Сводка по топологиям) выберите **Прервать**, чтобы остановить топологию.
 
    > [!NOTE]
    > Топологии Storm выполняются, пока не будут удалены или пока не будет удален кластер.
-   >
-   >
+
 
 ## <a name="rest-api"></a>Интерфейс REST API
+
 Пользовательский интерфейс Storm построен на базе REST API, поэтому функциональность отслеживания и управления можно реализовать аналогичным образом с помощью API. С помощью REST API можно создать пользовательские средства для отслеживания топологий Storm и управления ими.
 
 Дополнительные сведения см. в разделе [API-интерфейс REST пользовательского интерфейса Storm](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). Следующая информация касается использования REST API с Apache Storm в HDInsight.
 
 ### <a name="base-uri"></a>Базовый универсальный код ресурса
+
 Базовый универсальный код ресурса (URI) для REST API в кластерах HDInsight: **https://&lt;имя_кластера>.azurehdinsight.net/stormui/api/v1/**, где **имя_кластера** — это имя топологии Storm в кластере HDInsight.
 
 ### <a name="authentication"></a>Аутентификация
+
 Для запросов REST API необходимо использовать **обычную проверку подлинности**с помощью имени и пароля администратора кластера HDInsight.
 
 > [!NOTE]
 > Так как при обычной проверке подлинности данные отправляются открытым текстом, следует **всегда** использовать HTTPS для защиты связи с кластером.
->
->
 
 ### <a name="return-values"></a>Возвращаемые значения
-Информацию, возвращаемую REST API, можно использовать только в пределах кластера или виртуальной машины в одной виртуальной сети Azure, выполняющей функцию кластера. Например, полное доменное имя (FQDN), возвращаемое для серверов Zookeeper, не будет доступно из Интернета.
+
+Информацию, возвращаемую REST API, можно использовать только в пределах кластера или виртуальной машины в одной виртуальной сети Azure, выполняющей функцию кластера. Например, полное доменное имя (FQDN), возвращаемое для серверов Zookeeper, недоступно из Интернета.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Теперь, когда вы знаете принципы развертывания и мониторинга топологии с помощью панели мониторинга Storm, вы можете ознакомиться с другими сведениями.
 
 * [Развертывание топологий C# с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+
 * [Разработка топологий на платформе Java с помощью Maven](hdinsight-storm-develop-java-topology.md)
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
@@ -168,9 +192,4 @@ ms.openlocfilehash: 9b22dc671cd63f77ad6076404069c271455dc61e
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

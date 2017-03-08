@@ -1,10 +1,10 @@
 ---
-title: "Добавление функциональных возможностей в первое веб-приложение"
+title: "Добавление функциональных возможностей в веб-приложение | Документация Майкрософт"
 description: "Добавьте потрясающие возможности в свое первое веб-приложение за несколько минут."
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -153,10 +154,5 @@ ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
    Просканируйте свое веб-приложение на уязвимость перед современными угрозами с помощью службы [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Обзор функций Azure.](../azure-functions/functions-overview.md) Выполнение заданий по обработке данных, созданию отчетов и т. д.
 * [Принцип работы службы приложений](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

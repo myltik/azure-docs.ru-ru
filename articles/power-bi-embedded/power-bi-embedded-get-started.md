@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
+ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. В разделе **Данные+аналитика** щелкните **Power BI Embedded**.
-4. В **колонке создания** введите необходимые сведения. Дополнительные сведения о **ценообразовании** см. на странице с информацией о [ценах на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. В колонке **Коллекция рабочей области** введите необходимые сведения. Дополнительные сведения о **ценообразовании** см. на странице с информацией о [ценах на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Щелкните **Создать**.
@@ -69,11 +70,15 @@ ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 Теперь, когда у вас есть экземпляр Power BI для приложения и **ключи доступа**, вы можете импортировать отчет в свое приложение. Прежде чем вы узнаете, как импортировать отчет, в следующем разделе мы расскажем о создании наборов данных и отчетов Power BI, которые будут внедрены в приложение.
 
+## <a name="working-with-workspaces"></a>Работа с рабочими областями
+
+После создания коллекции рабочих областей необходимо создать рабочую область для размещения отчетов и наборов данных. Чтобы создать рабочую область, необходимо использовать [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
+
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Создание наборов данных и отчетов Power BI для внедрения в приложение
 Теперь, когда вы создали экземпляр Power BI для приложения и получили **ключи доступа**, можно приступать к созданию наборов данных и отчетов Power BI для внедрения. Наборы данных и отчеты можно создавать с помощью **Power BI Desktop**. [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662) можно скачать бесплатно. Или же, чтобы быстро приступить к работе, можно скачать [PBIX-файл с примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
-> Дополнительные сведения об использовании **Power BI Desktop** см. в статье [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+> Дополнительные сведения об использовании **Power BI Desktop** см. в статье [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 С помощью **Power BI Desktop** вы можете подключиться к источнику данных. Для этого импортируйте копию данных в **Power BI Desktop** или подключитесь непосредственно к источнику данных с помощью **DirectQuery**.
 
@@ -105,10 +110,5 @@ ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 * [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

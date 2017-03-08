@@ -1,40 +1,46 @@
-
 ---
-title: Управление сущностями служб мультимедиа с помощью REST API | Microsoft Docs
-description: Сведения о том, как управлять сущностями служб мультимедиа с помощью REST API.
+title: "Управление сущностями служб мультимедиа с помощью REST | Документация Майкрософт"
+description: "Сведения о том, как управлять сущностями служб мультимедиа с помощью REST API."
 author: juliako
-manager: dwrede
-editor: ''
+manager: erikre
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 95262a32-0f2a-4286-b9e2-1a1ca6399b5b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/09/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
+ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+ms.lasthandoff: 02/10/2017
+
 
 ---
-# <a name="managing-media-services-entities-with-rest-api"></a>Управление сущностями служб мультимедиа с помощью REST API
+# <a name="managing-media-services-entities-with-rest"></a>Управление сущностями служб мультимедиа с помощью REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
 
-Службы мультимедиа Microsoft Azure — это служба на основе REST, построенная на базе OData 3. Это значит, что вы можете добавлять, запрашивать, обновлять и удалять сущности во многом так же, как и в любой другой службе OData. Исключения будут выделены, когда это понадобится. Дополнительные сведения об OData см. в [документации по протоколу Open Data Protocol](http://www.odata.org/documentation/).
+Службы мультимедиа Microsoft Azure — это служба на основе REST, построенная на базе OData 3. Это значит, что вы можете добавлять, запрашивать, обновлять и удалять сущности во многом так же, как и в любой другой службе OData. Исключения будут выделены, когда это понадобится. Дополнительные сведения об OData см. в [документации по протоколу Open Data Protocol](http://www.odata.org/documentation/).
 
-* Добавление сущностей 
-* Запрашивание сущностей 
-* Перечисление больших коллекций сущностей
-* Обновление сущностей 
-* Удаление сущностей 
+В этой статье показано, как управлять сущностями служб мультимедиа с помощью REST.
+
+
+>[!NOTE]
+> Начиная с 1 апреля 2017 г. все записи задания в вашей учетной записи и связанные с ней записи задач старше 90 дней будут автоматически удалены, даже если общее число записей не превышает значение максимальной квоты. Например, 1 апреля 2017 г. будет автоматически удалена любая запись задания в вашей учетной записи, созданная ранее 31 декабря 2016 г. Если необходимо архивировать данные задания или задачи, то можно использовать код, описанный в этой статье.
+
+## <a name="considerations-when-working-with-ams-rest"></a>Рекомендации при работе с AMS REST
+
+При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 
 > [!NOTE]
-> При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
-> 
 > При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
 > После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md). 
@@ -174,7 +180,5 @@ ms.author: juliako
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-<!--HONumber=Oct16_HO2-->
 
 

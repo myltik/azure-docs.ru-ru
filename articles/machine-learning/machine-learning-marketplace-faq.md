@@ -1,6 +1,6 @@
 ---
-title: "Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace | Документация Майкрософт"
-description: "Часто задаваемые вопросы"
+title: "Вопросы и ответы о публикации и использовании приложений машинного обучения в Azure Marketplace (устаревшая версия) | Документация Майкрософт"
+description: "Вопросы и ответы о публикации приложений машинного обучения в Azure Marketplace (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
 author: bharaths
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8ae758a406dfed48968531ae20a9bbd2383db92
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
 
 
 ---
-# <a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace
+# <a name="deprecated-publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>Вопросы и ответы о публикации и использовании приложений машинного обучения в Azure Marketplace (устаревшая версия)
+
+> [!NOTE]
+> Работа DataMarket и служб данных прекращается. Начиная с 31 марта 2017 г. имеющиеся подписки выводятся из эксплуатации и будут отменены. Поэтому мы не рекомендуем использовать эту статью. 
+> 
+> В качестве альтернативы вы можете публиковать свои эксперименты машинного обучения в [коллекции Cortana Intelligence](https://gallery.cortanaintelligence.com/) и поделиться ими с сообществом, занимающимся анализом данных. Дополнительные сведения см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
+
 ## <a name="questions-about-consuming-from-marketplace"></a>Вопросы об использовании приложений из Marketplace
 **1. Почему, когда я ввожу данные для веб-службы, отображается такое сообщение об ошибке:**
 
@@ -72,6 +80,6 @@ ms.openlocfilehash: f8ae758a406dfed48968531ae20a9bbd2383db92
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

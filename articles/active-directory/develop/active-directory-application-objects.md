@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
+ms.sourcegitcommit: 8f70d9aeb0a407cdb76a5ce25eb620be58bb2659
+ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
 Приложение Azure AD — это более широкое понятие, нежели просто компонент программного обеспечения. Это общий термин, который включает в себя не только программное обеспечение, но и процесс регистрации приложения (также называемый конфигурацией удостоверения) в Azure AD, что позволяет ему принимать участие в обмене данными во время проверки подлинности и авторизации в среде выполнения. По определению приложение можно развернуть в роли [клиента](active-directory-dev-glossary.md#client-application) (потребление ресурсов), [сервера ресурсов](active-directory-dev-glossary.md#resource-server) (предоставление API для клиентов) или в обеих ролях. Протокол общения определяется [потоком предоставления кода авторизации OAuth2.0](active-directory-dev-glossary.md#authorization-grant). Он используется для предоставления клиенту или ресурсу доступа к данным ресурса или разрешения на их защиту. Теперь давайте рассмотрим приложение Azure AD более детально и узнаем, что оно собой представляет. 
 
 ## <a name="application-registration"></a>Регистрация приложения
-При регистрации приложения на [классическом портале Azure][AZURE-Classic-Portal] в клиенте Azure AD создаются два объекта: объект приложения и объект субъекта-службы.
+При регистрации приложения на портале [Azure][AZURE-Portal] в клиенте Azure AD создаются два объекта: объект приложения и объект субъекта-службы.
 
 #### <a name="application-object"></a>Объект приложения
 Объект приложения представляет *определение* вашего приложения Azure AD. Единственный экземпляр объекта приложения размещается в главном клиенте Azure AD приложения (то есть в клиенте, в котором зарегистрировано приложение). Объект приложения предоставляет сведения, связанные с идентификацией приложения. Кроме того, он представляет собой шаблон, на основе которого *определяются* соответствующие объекты субъектов-служб, используемые в среде выполнения. 
@@ -69,10 +69,10 @@ ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.com
+[AZURE-Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

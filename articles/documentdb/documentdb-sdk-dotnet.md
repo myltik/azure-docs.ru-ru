@@ -1,5 +1,5 @@
 ---
-title: "Интерфейсы API и пакеты SDK .NET для DocumentDB | Документация Майкрософт"
+title: "Ресурсы для API .NET и пакетов SDK для .NET (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения об API и пакетах SDK для .NET, в том числе даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET."
 services: documentdb
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 02/15/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
-ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
+ms.sourcegitcommit: de2b914ddb7238c9939066570d8fba78aa5c231e
+ms.openlocfilehash: 73e9c8491520d47bbc60b1556b97918977d29d7f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -50,6 +51,25 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Минимальная пропускная способность секционированных коллекций снижена с 10 100 ЕЗ/с до 2500 ЕЗ/с.
+
+### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Исправление ошибки, из-за которой происходил сбой некоторых запросов между секциями в 32-разрядном хост-процессе.
+* Исправление ошибки, из-за которой в контейнере сеанса не обновлялся маркер для неудачных запросов в режиме шлюза.
+* Исправление ошибки, из-за которой в некоторых случаях запрос с вызовами UDF в проекции завершался сбоем.
+* Исправление производительности на стороне клиента для увеличения пропускной способности операций чтения и записи запросов.
+
+### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Исправление ошибки, из-за которой в контейнере сеанса не обновлялся маркер для неудачных запросов.
+* Добавлена поддержка для работы пакета SDK в 32-разрядных хост-процессах. Обратите внимание, что при использовании запросов между секциями для повышения производительности рекомендуется использовать 64-разрядные хост-процессы.
+* Повышена производительность для сценариев, применяющих запросы с большим количеством значений ключа секции в выражении IN.
+* Заполнена статистика по различным квотам ресурсов в ResourceResponse для запросов на чтение коллекции документов, если задан параметр запроса PopulateQuotaInfo.
+
+### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
+* Незначительное исправление производительности API CreateDocumentCollectionIfNotExistsAsync, представленного в 1.11.0.
+* Исправление производительности в пакете SDK для сценариев, предполагающих большое количество одновременных запросов.
 
 ### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
 * Поддержка новых классов и методов для обработки [веб-канала изменений](documentdb-change-feed.md) документов в коллекции.
@@ -117,7 +137,7 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
   * Оператор Take, позволяющий выполнить операцию SELECT TOP в LINQ.
   * Оператор CompareTo, позволяющий сравнивать диапазоны строк.
   * Условный оператор (?) и оператор объединения (??).
-* **[Исправлено]**. Порождение исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ.  [№ 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Исправлено]**. Порождение исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ.  [№&81;](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151httpswwwnugetorgpackagesmicrosoftazuredocumentdb151"></a><a name="1.5.1"/>[1.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
 * **[Исправлено]** Если операция Select не является последней, поставщик LINQ не использовал проекции и неверно определял операцию SELECT *.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -161,9 +181,9 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
   * Поставщик LINQ поддерживает OrderBy() или OrderByDescending().
   * IndexingPolicy поддерживает Order By. 
     
-        **NB: Possible breaking change** 
+    **Следует учесть: это изменение может быть критическим**. 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    Если имеется существующий код, который предоставляет коллекции с пользовательской политикой индексирования, он должен быть обновлен и должен поддерживать новый класс IndexingPolicy. Если такой политики нет, это изменение на вас не влияет.
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Новые классы HashPartitionResolver и RangePartitionResolver и интерфейс IPartitionResolver для поддержки секционирования данных.
@@ -174,15 +194,6 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * Пакет SDK общей доступности.
 
-> [!NOTE]
-> Изменилось название пакета NuGet при переходе от предварительной версии к общедоступной. Имя изменилось с **Microsoft.Azure.Documents.Client** на **Microsoft.Azure.DocumentDB**
-> .<br/>
-> 
-> 
-
-### <a name="a-name09x-preview09x-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentsclient"></a><a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
-* [Устарело] Пакеты SDK для предварительной версии.
-
 ## <a name="release--retirement-dates"></a>Даты выпуска и выбытия
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
 
@@ -190,23 +201,20 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 
 Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
-> [!WARNING]
-> Все версии пакета SDK .NET для Azure DocumentDB версии ниже **1.0.0** будут удалены **29 февраля 2016 года**. 
-> 
-> 
-
 <br/>
 
-| Версия | Дата выпуска | Дата вывода |
+| Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |15 февраля 2017 г. |--- |
+| [1.11.4](#1.11.4) |6 февраля 2017 г. |--- |
+| [1.11.3](#1.11.3) |26 января 2017 г. |--- |
+| [1.11.1](#1.11.1) |21 декабря 2016 г. |--- |
 | [1.11.0](#1.11.0) |8 декабря 2016 г. |--- |
 | [1.10.0](#1.10.0) |27 сентября 2016 г. |--- |
 | [1.9.5](#1.9.5) |1 сентября 2016 г. |--- |
 | [1.9.4](#1.9.4) |24 августа 2016 г. |--- |
 | [1.9.3](#1.9.3) |15 августа 2016 г. |--- |
 | [1.9.2](#1.9.2) |23 июля 2016 г. |--- |
-| 1.9.1 |Не рекомендуется |--- |
-| 1.9.0 |Не рекомендуется |--- |
 | [1.8.0](#1.8.0) |14 июня 2016 г. |--- |
 | [1.7.1](#1.7.1) |6 мая 2016 г. |--- |
 | [1.7.0](#1.7.0) |26 апреля 2016 г. |--- |
@@ -222,20 +230,12 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 | [1.2.0](#1.2.0) |6 июля 2015 г. |--- |
 | [1.1.0](#1.1.0) |30 апреля 2015 г. |--- |
 | [1.0.0](#1.0.0) |8 апреля 2015 г. |--- |
-| [0.9.3-prelease](#0.9.x-preview) |12 марта 2015 г. |29 февраля 2016 г. |
-| [0.9.2-prelease](#0.9.x-preview) |Январь 2015 г. |29 февраля 2016 г. |
-| [0.9.1-prelease](#0.9.x-preview) |13 октября 2014 г. |29 февраля 2016 г. |
-| [0.9.0-prelease](#0.9.x-preview) |21 августа 2014 г. |29 февраля 2016 г. |
+
 
 ## <a name="faq"></a>Часто задаваемые вопросы
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>Дополнительные материалы
 Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

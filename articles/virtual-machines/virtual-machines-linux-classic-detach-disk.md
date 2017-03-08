@@ -1,5 +1,5 @@
 ---
-title: "Отключение диска от виртуальной машины Linux | Документация Майкрософт"
+title: "Отключение диска от виртуальной машины Linux в Azure | Документация Майкрософт"
 description: "Узнайте, как отключить диск данных от виртуальной машины Azure, созданной с использованием классической модели развертывания."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
+ms.sourcegitcommit: 9bb7878836c0444d3ccc058fd89b8bbd9f6e255a
+ms.openlocfilehash: 3ba234eca45e643a235abf120efc6d8f82af461f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -31,11 +32,6 @@ ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
 Узнать больше об использовании виртуальной машины Linux можно в следующих статьях.
 
 * [Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+* [Команды Azure CLI в режиме управления службами Azure (ASM)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 

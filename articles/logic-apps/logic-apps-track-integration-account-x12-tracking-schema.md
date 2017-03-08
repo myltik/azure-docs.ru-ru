@@ -1,6 +1,6 @@
 ---
-title: "Схемы отслеживания Х12 | Документация Майкрософт"
-description: "Дополнительные сведения о схемах отслеживания X12"
+title: "Схемы отслеживания X12 для мониторинга сообщений B2B в Azure Logic Apps | Документация Майкрософт"
+description: "Используйте схемы отслеживания X12 для мониторинга сообщений из транзакций типа &quot;бизнес — бизнес&quot; (B2B) в учетной записи интеграции Azure."
 author: padmavc
 manager: anneta
 editor: 
@@ -12,15 +12,17 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 4e361282d0311feb12dd13cd9e23a1ca9dff1789
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: c8c7642a28f1dc386a73d014abe13ec36c6cbe69
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="x12-tracking-schemas"></a>Схемы отслеживания X12
+# <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Запуск или включение отслеживания сообщений X12 для мониторинга успешно доставленных сообщений, ошибок и свойств сообщений
 Схемы отслеживания X12 можно использовать в учетной записи интеграции Azure для мониторинга транзакций типа "бизнес-бизнес" (B2B):
 
 * схема отслеживания набора транзакций X12;
@@ -355,9 +357,4 @@ ms.openlocfilehash: 4e361282d0311feb12dd13cd9e23a1ca9dff1789
 * Дополнительные сведения о [настраиваемых схемах отслеживания B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md).
 * Дополнительные сведения об [отслеживании сообщений B2B на портале Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Дополнительные сведения о [Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md).  
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

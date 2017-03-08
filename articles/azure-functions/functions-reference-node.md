@@ -1,6 +1,6 @@
 ---
-title: "Справочник разработчика NodeJS по Функциям Azure | Документация Майкрософт"
-description: "Узнайте, как пользоваться функциями Azure в NodeJS."
+title: "Справочник разработчика JavaScript для Функций Azure | Документация Майкрософт"
+description: "Узнайте, как разрабатывать Функции Azure с помощью JavaScript."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,23 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
+ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
+ms.lasthandoff: 02/07/2017
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Справочник разработчика NodeJS по функциям Azure
+# <a name="azure-functions-javascript-developer-guide"></a>Руководство разработчика JavaScript для Функций Azure
 > [!div class="op_single_selector"]
 > * [Сценарий C#](functions-reference-csharp.md)
 > * [Скрипт F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-Интерфейс Node/JavaScript для Функций Azure позволяет легко экспортировать функцию, которой передается объект `context` , для взаимодействия со средой выполнения, а также для получения и отправки данных с помощью привязок.
+Интерфейс JavaScript для Функций Azure позволяет легко экспортировать функцию, которой передается объект `context`, для взаимодействия со средой выполнения, а также для получения и отправки данных с помощью привязок.
 
 В этой статье предполагается, что вы уже прочли [справочник разработчика по Функциям Azure](functions-reference.md).
 
@@ -138,8 +139,8 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## <a name="node-version-package-management"></a>Управление версиями и пакетами Node
-Версия Node сейчас зафиксирована в значении `5.9.1`. Мы работаем над тем, чтобы добавить поддержку дополнительных версий и настройки для этих версий.
+## <a name="node-version--package-management"></a>Управление версиями и пакетами Node
+Версия Node сейчас зафиксирована в значении `6.5.0`. Мы работаем над тем, чтобы добавить поддержку дополнительных версий и настройки для этих версий.
 
 Чтобы добавить пакеты в функции, передайте файл *package.json* в папку функции, расположенную в файловой системе приложения-функции. Инструкции по передаче файла см. в разделе **Как обновить файлы приложения-функции** в статье [Справочник разработчика по Функциям Azure](functions-reference.md#fileupdate). 
 
@@ -155,7 +156,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library
@@ -194,10 +195,5 @@ function GetEnvironmentVariable(name)
 * [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
 * [Справочник разработчика F# по Функциям Azure](functions-reference-fsharp.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

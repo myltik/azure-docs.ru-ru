@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -98,16 +99,16 @@ azure servicefabric cluster connect --connection-endpoint http://ip:19080 --clie
 ```
 Если вы используете несколько центров сертификации, перечислите их все, разделив запятыми.
 
-Если параметр "Общее имя" в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl` , как показано в следующем примере: 
+Если параметр "Общее имя" в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl-false` , как показано в следующем примере: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-Если вы хотите пропустить проверку центра сертификации, можно добавить параметр --reject-unauthorized, как показано в следующем примере: 
+Если вы хотите пропустить проверку центра сертификации, можно добавить параметр --reject-unauthorized-false, как показано в следующем примере: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 После подключения вы сможете взаимодействовать с кластером с помощью дополнительных команд интерфейса командной строки. 
@@ -168,6 +169,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Дополнительные сведения см. в [документации по OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
 
+<a id="troubleshooting"></a>
 ## <a name="troubleshooting"></a>Устранение неполадок
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>Копирование пакета приложения завершается ошибками
 Проверьте, установлен ли клиент `openssh`. Так как по умолчанию он отсутствует в Ubuntu Desktop, установите его с помощью следующей команды.
@@ -199,10 +201,5 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Настройте среду разработки и разверните приложение Service Fabric в кластер Linux.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

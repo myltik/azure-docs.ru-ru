@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 41239b5164de0d51848431f45f45958af29a9706
-ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -46,12 +47,12 @@ ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
 ## <a name="azure-database-security"></a>Безопасность базы данных Azure
 * [Брандмауэр Azure SQL](../sql-database/sql-database-firewall-configure.md)
 * [Шифрование на уровне ячейки в Azure SQL](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Шифрование соединения в Azure SQL](../sql-database/sql-database-security-guidelines.md)
-* [Проверка подлинности в Azure SQL](../sql-database/sql-database-security-guidelines.md)
+* [Шифрование соединения в Azure SQL](../sql-database/sql-database-control-access.md)
+* [Проверка подлинности в Azure SQL](../sql-database/sql-database-control-access.md)
 * [Постоянное шифрование в Azure SQL](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Шифрование на уровне столбца в Azure SQL](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Прозрачное шифрование данных SQL в Azure SQL](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Аудит баз данных SQL Azure](../sql-database/sql-database-auditing-get-started.md)
+* [Аудит баз данных SQL Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Управление удостоверениями и доступом в Azure
 * [Контроль доступа на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
@@ -72,9 +73,4 @@ ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Прокси приложения Azure](../active-directory/active-directory-application-proxy-enable.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

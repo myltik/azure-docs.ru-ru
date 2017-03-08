@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2793f2b59207d4c329b2fd76eb164b3c4237b9e3
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: c7205f2a743bf2d835e9a1a5e6aad2542a7782ad
 
 
 ---
@@ -116,12 +116,13 @@ ms.openlocfilehash: 2793f2b59207d4c329b2fd76eb164b3c4237b9e3
    
     В. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: **https://\<экземпляр компании SAP NetWeaver\>/sap/saml2/sp/acs/100**.
    
-   > [!NOTE]
-   > Все эти значения можно найти в документе метаданных федерации, предоставленном партнером SAP NetWeaver.
-   > 
-   > 
+    > [!NOTE]
+    > Все эти значения можно найти в документе метаданных федерации, предоставленном партнером SAP NetWeaver.
+    > 
+    > 
    
     d. click **Далее**
+
 4. На странице **Настройка единого входа в SAP NetWeaver** сделайте следующее:
    
     ![Настройка единого входа](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_05.png)
@@ -169,17 +170,18 @@ ms.openlocfilehash: 2793f2b59207d4c329b2fd76eb164b3c4237b9e3
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_07.png) 
@@ -244,6 +246,6 @@ ms.openlocfilehash: 2793f2b59207d4c329b2fd76eb164b3c4237b9e3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Шифрование дисков на виртуальной машине Linux | Документация Майкрософт"
+title: "Шифрование дисков на виртуальной машине Linux в Azure | Документация Майкрософт"
 description: "Сведения о шифровании дисков на виртуальной машине Linux с использованием интерфейса командной строки Azure и модели развертывания Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
-ms.openlocfilehash: 15b3c7c910f5f55da31a8a7113b4d66714f1c908
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -91,7 +92,7 @@ azure keyvault key show myKeyVault myKey
 Зашифруйте диски следующим образом, введя собственные имена параметров в следующих расположениях:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -103,7 +104,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 Интерфейс командной строки Azure не предоставляет подробные сообщения об ошибках в процессе шифрования. Дополнительные сведения об устранении неполадок см. в файле `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. Так как в приведенной выше команде много переменных и могут отсутствовать сведения о том, почему процесс завершается ошибкой, пример всей команды будет выглядеть следующим образом:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -250,7 +251,7 @@ azure keyvault key show myKeyVault myKey
 Зашифруйте виртуальные диски с использованием выходных данных из команд `azure keyvault show` и `azure keyvault key show` следующим образом:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -262,7 +263,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 Так как в приведенной выше команде много переменных, в следующем примере приведена вся команда для справки:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -294,7 +295,7 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 Повторно выполните команду для шифрования виртуальных дисков, в этот раз добавив параметр `--sequence-version` и увеличив значение, применяемое при первом выполнении, следующим образом:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -308,10 +309,5 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об управлении хранилищем ключей Azure, а также об удалении криптографических ключей и хранилищ см. в статье [Управление хранилищем ключей с помощью интерфейса командной строки](../key-vault/key-vault-manage-with-cli.md).
 * Дополнительные сведения о шифровании дисков, а именно о подготовке зашифрованной настраиваемой виртуальной машины к передаче в Azure, см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](../security/azure-security-disk-encryption.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

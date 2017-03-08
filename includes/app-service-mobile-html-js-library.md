@@ -107,7 +107,7 @@ function loadPage(pageNum) {
 
 После этого можно настроить список страниц, используя переменную pages и определенные кнопки пользовательского интерфейса, и загрузить новые данные на каждой странице с помощью метода `loadPage()`.  Чтобы ускорить доступ к уже загруженным записям, добавьте кэширование.
 
-#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>Практическое руководство. Возврат отсортированных данных
+#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Практическое руководство. Возврат отсортированных данных
 Используйте методы запроса `.orderBy()` или `.orderByDescending()`:
 
 ```
@@ -167,6 +167,6 @@ table
 ```
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

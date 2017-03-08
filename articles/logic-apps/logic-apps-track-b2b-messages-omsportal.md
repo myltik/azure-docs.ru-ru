@@ -1,6 +1,6 @@
 ---
-title: "Отслеживание сообщений B2B на портале OMS | Документация Майкрософт"
-description: "Как отслеживать сообщения B2B на портале OMS"
+title: "Отслеживание сообщений B2B на портале Operations Management Suite в Azure | Документация Майкрософт"
+description: "Как отслеживать сообщения B2B на портале Operations Management Suite"
 author: padmavc
 manager: anneta
 editor: 
@@ -15,88 +15,124 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: c73c057c97af9dccf25c724603c597b6792553fd
+ms.sourcegitcommit: 91eb30aaa1ab3891d8e97d48a9a0fe9fa9b2b82b
+ms.openlocfilehash: 3130104427b2a1873690617c6d726375c89876cf
 
 
 ---
-# <a name="tracking-b2b-messages-in-oms-portal"></a>Отслеживание сообщений B2B на портале OMS
-Взаимодействие B2B включает обмен сообщениями между двумя запущенными бизнес-процессами или приложениями. Портал OMS обеспечивает широкие возможности отслеживания сообщений B2B в веб-среде, позволяющие определить, обрабатываются ли сообщения должным образом.  Вы можете отслеживать следующее:
+# <a name="track-b2b-messages-in-the-operations-management-suite-portal"></a>Отслеживание сообщений B2B на портале Operations Management Suite
+Взаимодействие B2B включает обмен сообщениями между двумя запущенными бизнес-процессами или приложениями. Следующие функции отслеживания на веб-портале Operations Management Suite позволяют подтвердить, что сообщения обработаны правильно:
 
-* количество и состояние сообщений;
+* число и состояние сообщений;
 * состояние подтверждений;
 * сопоставление сообщений с подтверждениями;
-* подробное описание ошибки для сбоев;
+* подробное описание ошибок при сбоях;
 * возможности поиска.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
-* Учетная запись интеграции. Вы можете создать [учетную запись интеграции](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) и включить ведение журнала. Соответствующие действия см. [здесь](logic-apps-monitor-b2b-message.md).
-* Приложение логики. Вы можете создать [приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) и включить ведение журнала. Соответствующие действия см. [здесь](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+* Учетная запись интеграции. Вы можете создать [учетную запись интеграции](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) и настроить ведение журнала. Настройка ведения журнала описана в статье [Мониторинг сообщений B2B](logic-apps-monitor-b2b-message.md).
+* Приложение логики. Вы можете создать [приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) и настроить ведение журнала. Настройка ведения журнала описана в разделе [Система диагностики и оповещения Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-## <a name="adding-logic-apps-b2b-solution-to-oms-portal"></a>Добавление решения B2B для приложений логики на портал OMS
+## <a name="add-logic-apps-b2b-solution-to-the-operations-management-suite-portal"></a>Добавление решения B2B Logic Apps на портал Operations Management Suite
 
-1. На портале выберите **Больше служб**, введите в поле поиска **log analytics** и выберите **Log Analytics**
-![Поиск Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png).  
+1. На портале Azure выберите **Больше служб**, введите в поле поиска "log analytics" и выберите **Log Analytics**.   
+![Поиск Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
 
-2. Выберите **Log Analytics**
-![Выбор Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png).
+2. Выберите запись **Log Analytics**.  
+![Выбор записи Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Выберите **OMS Portal** (Портал OMS). Откроется домашняя страница портала OMS![Обзор портала OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png).
+3. Выберите **Портал OMS**. Откроется стартовая страница портала Operations Management Suite.   
+![Просмотр портала Operations Management Suite](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Выберите **Коллекция решений**  .  
+4. Выберите **Коллекция решений**.    
 ![Выбор коллекции решений](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
-5. Выберите **Logic Apps B2B** (B2B для приложений логики)
-![Выбор B2B для приложений логики](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png).
+5. Выберите **Logic Apps B2B**.     
+![Выбор Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
 
-6. Щелкните **Добавить**, чтобы добавить **сообщения B2B для приложений логики ** на домашнюю страницу![Выбор кнопки "Добавить"](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png).
+6. Щелкните **Добавить**, чтобы добавить сообщения **Logic Apps B2B** на домашнюю страницу.  
+![Выбор кнопки "Добавить"](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-7. Перейдите на домашнюю страницу, чтобы просмотреть **сообщения B2B для приложений логики**
-![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png).
+7. На домашней странице появится элемент **Сообщения Logic Apps B2B**.   
+![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
-## <a name="tracking-data-in-oms-portal"></a>Данные отслеживания на портале OMS
+## <a name="track-data-in-the-operations-management-suite-portal"></a>Отслеживание данных на портале Operations Management Suite
 
-1. Опубликуйте сведения об обработке сообщений. На домашней странице обновится количество сообщений![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png).
+1. После обработки сообщений отображается число обновленных сообщений.   
+![Обновленные сообщения](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-2. Если выбрать **Logic Apps B2B Messages** (Сообщения B2B для приложений логики) на домашней странице, откроется страница с состояниями сообщений AS2 и X12.  Данные взяты за последний день.
+2. Выберите **Сообщения Logic Apps B2B** на домашней странице, чтобы увидеть состояние сообщений AS2 и X12.  Данные предоставляются за один день.
 ![Выбор сообщений B2B для приложений логики](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Если выбрать сообщения AS2 или X12 по состоянию, откроется список сообщений![Выбор состояния сообщений AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png).
+3. Выберите, с каким статусом сообщения AS2 или X12 должны отображаться в списке сообщений. На следующем снимке экрана показано состояние сообщения AS2. Свойства состояния для сообщений AS2 и X12 описаны далее в разделе "Описания свойств в списке сообщений".  
+![Выбор состояния сообщений AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+4. Выберите строку в списке сообщений AS2 или X12, чтобы открыть поиск по журналам.  Функция поиска по журналам возвращает все действия с одинаковым идентификатором выполнения.
+![Выбор состояния сообщений](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
-    ![Выбор состояния сообщений X12](media/logic-apps-track-b2b-messages-omsportal/x12messagelist.png)
+## <a name="message-list-property-descriptions"></a>Описания свойств в списке сообщений
 
-4. Если выбрать строку в списке сообщений AS2 или X12, вы перейдете на страницу поиска журналов.  На странице поиска журналов указаны все действия с одинаковым **идентификатором запуска**
-![Выбор состояния сообщения](media/logic-apps-track-b2b-messages-omsportal/logsearch.png).
+#### <a name="as2-message-list-property-descriptions"></a>Описания свойств в списке сообщений AS2
 
-## <a name="queries-in-oms-portal"></a>Запросы на портале OMS
+| Свойство | Описание |
+| --- | --- |
+| Отправитель | Гостевой партнер, настроенный в параметрах получения, или главный партнер, настроенный в параметрах отправки, для соглашения AS2. |
+| Получатель | Главный партнер, настроенный в параметрах получения, или гостевой партнер, настроенный в параметрах отправки, для соглашения AS2. |
+| приложение логики; | Приложение логики, в котором настроены действия AS2. |
+| Состояние | Состояние сообщения AS2. "Успешно" = получено или отправлено нормальное сообщение AS2, MDN не используется; "Успешно" = получено или отправлено нормальное сообщение AS2, MDN используется и успешно получено или отправлено; "Ошибка" = получено недопустимое сообщение AS2, MDN не используется; "Ожидание" = получено или отправлено нормальное сообщение AS2, MDN используется и ожидается функциональное подтверждение. |
+| Ack | Состояние сообщения MDN. |
+| Направление | Направление сообщения AS2. |
+| Идентификатор корреляции | Идентификатор для корреляции всех триггеров и действий в приложении логики. |
+| Идентификатор сообщения |  Идентификатор сообщения AS2, полученный из заголовков сообщения AS2. |
+| Timestamp | Время обработки сообщения действием AS2. |
 
-На странице поиска можно создать запрос, а затем во время поиска отфильтровать результаты с помощью элементов управления аспектами.
+#### <a name="x12-message-list-property-descriptions"></a>Описания свойств в списке сообщений X12
 
-### <a name="how-to-create-a-query"></a>Как создать запрос
+| Свойство | Описание |
+| --- | --- |
+| Отправитель | Гостевой партнер, настроенный в параметрах получения, или главный партнер, настроенный в параметрах отправки, для соглашения AS2. |
+| Получатель | Главный партнер, настроенный в параметрах получения, или гостевой партнер, настроенный в параметрах отправки, для соглашения AS2. |
+| приложение логики; | Приложение логики, в котором настроены действия AS2. |
+| Состояние | Состояние сообщения X12. "Успешно" = получено или отправлено нормальное сообщение X12, функциональное подтверждение не используется; "Успешно" = получено или отправлено нормальное сообщение X12, функциональное подтверждение используется и успешно получено или отправлено; "Ошибка" = получено или отправлено недопустимое сообщение X12; "Ожидание" = получено или отправлено нормальное сообщение X12, функциональное подтверждение используется и ожидается. |
+| Ack | Состояние функционального подтверждения (997).  "Принято" = получено или отправлено положительное функциональное подтверждение; "Отклонено" = получено или отправлено отрицательное функциональное подтверждение; "Ожидание" = функциональное подтверждение ожидается, но еще не получено; "Ожидание" = функциональное подтверждение создано, но его не удалось отправить партнеру. |
+| Направление | Направление сообщения X12. |
+| Идентификатор корреляции | Идентификатор для корреляции всех триггеров и действий в приложении логики. |
+| Тип сообщения |  Тип сообщения EDI X12. |
+| ICN | Контрольный номер обмена для сообщения X12. |
+| TSCN | Контрольный номер набора транзакций для сообщения X12. |
+| Timestamp | Время обработки сообщения действием X12. |
 
-1. На странице поиска в журнале создайте запрос и щелкните **Сохранить**.  [Здесь](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md) описывается, как создать запрос ![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png).
+## <a name="queries-in-the-operations-management-suite-portal"></a>Запросы на портале Operations Management Suite
 
-2. Откроется диалоговое окно **Сохранить условия поиска**.  Укажите **имя**, **категорию** и нажмите кнопку **Сохранить** .  
+На странице поиска можно создать запрос. Результаты поиска можно фильтровать с помощью элементов управления аспектами.
+
+### <a name="create-a-query"></a>Создание запроса
+
+1. На странице поиска в журнале создайте запрос и щелкните **Сохранить**. Откроется диалоговое окно **Сохранение условий поиска**. Создание запросов описано в статье [Отслеживание сообщений B2B на портале Operations Management Suite с помощью запроса](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
+![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
+
+2. В окне **Сохранение условий поиска** введите **имя** и **категорию**, а затем выберите **Сохранить**.   
 ![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
 
-3. Чтобы просмотреть запрос, щелкните **Избранное**  .  
+3. Чтобы просмотреть запрос, щелкните **Избранное**.    
 ![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery3.png)
 
     ![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
 
-### <a name="how-to-use-a-saved-query"></a>Как использовать сохраненный запрос
+### <a name="use-a-saved-query"></a>Использование сохраненного запроса
 
-1. На странице поиска в журнале щелкните **Избранное**, чтобы просмотреть сохраненные запросы.  Выбрав один из них, вы сможете получить результаты этого запроса. ![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
+* На странице поиска в журнале щелкните **Избранное**, чтобы просмотреть сохраненные запросы.  Чтобы просмотреть результаты запроса, выберите нужный запрос.
+![Выбор домашней страницы](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Настраиваемая схема отслеживания](logic-apps-track-integration-account-custom-tracking-schema.md "Learn about Custom Tracking Schema")   
 [Схема отслеживания AS2](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [Схема отслеживания X12](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
-[Дополнительные сведения о Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+[Дополнительные сведения о Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: "Документация по Azure Logic Apps. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как разрабатывать приложения логики для автоматизации и упрощения бизнес-процессов в локальной среде и в облаке. Руководства, шаблоны и справочники по API."
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 80047e6da5a09b4e7856fff9faf85740d86e6de7
+ms.openlocfilehash: 278662adc5bc9a5bf77956f5362ccaec39764fc3
+ms.lasthandoff: 03/02/2017
 
 ---
+
 # <a name="logic-apps-documentation"></a>Документация по службе Logic Apps
 
 Узнайте, как разрабатывать приложения логики, которые упрощают и интегрируют масштабируемые рабочие процессы в облаке. Руководства, шаблоны и справочники по API помогут вам создавать и развертывать автоматизированные бизнес-процессы в локальной среде и в облаке.
@@ -124,6 +137,19 @@ ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>Схемы</h3>
+                        <p><a href="/rest/api/logic/definition-language">Язык определения рабочего процесса</a></p>
+                        <p><a href="/rest/api/logic/actions-and-triggers">Действия и триггеры рабочего процесса</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Журнал схем</h3>
                         <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">Общедоступная версия</a></p>
                         <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Предварительная версия</a></p>
@@ -146,10 +172,5 @@ ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

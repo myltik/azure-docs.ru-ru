@@ -1,5 +1,5 @@
 ---
-title: "Совместное использование Apache Spark и Kafka в HDInsight | Документация Майкрософт"
+title: "Совместное использование Apache Spark и Kafka в Azure HDInsight | Документация Майкрософт"
 description: "Узнайте, как использовать Spark в HDInsight для чтения и записи данных в Kafka в кластере HDInsight. В этом примере используется Scala в блокноте Jupyter для записи случайных данных в Kafka в кластере HDInsight, которые затем считываются с помощью потоковой передачи Spark."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 535e8fc7503e21eea470a1fdb0a10fbc8a18349c
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
+ms.lasthandoff: 02/14/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Использование Apache Spark и Kafka (предварительная версия) в HDInsight
@@ -130,7 +131,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
         curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
 
     > [!IMPORTANT]
-    > При использовании этой команды в Windows PowerShell может возникнуть ошибка использования кавычек в оболочке. В таком случае используйте следующую команду: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+    > При использовании этой команды в Windows PowerShell может возникнуть ошибка использования кавычек в оболочке. В таком случае используйте следующую команду: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
 
 * Вот как получить сведения об __узле Zookeeper__:
 
@@ -183,10 +184,5 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 * [Get started with Apache Kafka on HDInsight (preview)](hdinsight-apache-kafka-get-started.md) (Приступая к работе с Apache Kafka в HDInsight (предварительная версия))
 * [Use MirrorMaker to create a replica of a Kafka on HDInsight cluster (preview)](hdinsight-apache-kafka-mirroring.md) (Создание реплики Kafka в кластере HDInsight с помощью MirrorMaker (предварительная версия))
 * [Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

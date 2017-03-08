@@ -12,32 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 02/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9f7f9dc2eb6332c8f179fc35c9f746cbe5a7985e
-
+ms.sourcegitcommit: 8d8bcb7c85b9f2ea751be9d098c527c58bc8a567
+ms.openlocfilehash: 8ce35169f58378161b67c8f1f93bd2ab6a48d757
 
 ---
+
 # <a name="how-to-use-the-service-bus-wcf-relay-with-net"></a>Как использовать ретранслятор WCF служебной шины с .NET
-В этой статье описано создание службы ретранслятора служебной шины. Примеры написаны на языке C# и используют API службы Windows Communication Foundation (WCF) с расширениями, содержащимися в сборке служебной шины. Дополнительные сведения о ретрансляторе служебной шины см. в обзорной статье [Обмен сообщениями через служебную шину с ретрансляцией](service-bus-relay-overview.md).
+В этой статье описано создание службы ретранслятора служебной шины. Примеры написаны на языке C# и используют API службы Windows Communication Foundation (WCF) с расширениями, содержащимися в сборке служебной шины. Дополнительные сведения о ретрансляторе служебной шины см. в [обзоре ретранслятора Azure](relay-what-is-it.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="what-is-the-service-bus-relay"></a>Описание ретрансляции служебной шины
-Служба [ретранслятора *служебной шины*](service-bus-relay-overview.md) позволяет создавать гибридные приложения, которые можно запускать как в центре обработки данных Azure, так и в локальной корпоративной среде. Ретранслятор служебной шины упрощает работу, позволяя безопасно предоставлять службы Windows Communication Foundation (WCF), используемые в корпоративной сети предприятия и в общедоступном облаке, без необходимости открывать подключения брандмауэра или вносить значительные изменения в инфраструктуру корпоративной сети.
+## <a name="what-is-service-bus-wcf-relay"></a>Что такое ретранслятор WCF служебной шины?
+Служба [*ретранслятора*](relay-what-is-it.md) WCF служебной шины Azure позволяет создавать гибридные приложения, которые можно запускать как в центре обработки данных Azure, так и в локальной корпоративной среде. Ретранслятор служебной шины упрощает работу, позволяя безопасно предоставлять службы Windows Communication Foundation (WCF), используемые в корпоративной сети предприятия и в общедоступном облаке, без необходимости открывать подключения брандмауэра или вносить значительные изменения в инфраструктуру корпоративной сети.
 
 ![Обзор ретранслятора WCF](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
 Ретранслятор служебной шины позволяет размещать службы WCF в уже существующей среде предприятия. Затем можно делегировать прослушивание входящих сеансов и запросов этих служб WCF служебной шине, запущенной в Azure. Таким образом, доступ к этим службам могут получать код приложения, работающего в Azure, мобильные сотрудники или среды партнерских экстрасетей. Служебная шина позволяет безопасно управлять доступом к этим службам с высокой точностью. Это обеспечивает эффективный и безопасный способ предоставления функциональных возможностей приложения и данных из существующих корпоративных решений и использовать их из облака
 
-Данная статья демонстрирует использование ретранслятора служебной шины для создания веб-службы WCF, доступной с помощью привязки канала TCP, который обеспечивает безопасную передачу данных между двумя сторонами.
-
-## <a name="create-a-service-namespace"></a>Создание пространства имен службы
-Прежде чем использовать ретранслятор служебной шины в Azure, необходимо создать пространство имен. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
-
-Создание пространства имен службы:
+В данной статье рассматривается использование ретранслятора служебной шины для создания веб-службы WCF, доступной с помощью привязки канала TCP, который обеспечивает безопасную передачу данных между двумя сторонами.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -70,7 +65,7 @@ ms.openlocfilehash: 9f7f9dc2eb6332c8f179fc35c9f746cbe5a7985e
 
 Контракт определяет одну операцию, `AddNumbers`, которая складывает два числа и возвращает результат. Интерфейс `IProblemSolverChannel` упрощает для клиента управление временем жизни прокси-сервера. Рекомендуется создать этот интерфейс. Очень удобно размещение определения контракта в отдельном файле, так что вы можете к нему обратиться как из проекта Client, так и Service, а также скопировать код в оба проекта.
 
-```
+```csharp
 using System.ServiceModel;
 
 [ServiceContract(Namespace = "urn:ps")]
@@ -85,7 +80,7 @@ interface IProblemSolverChannel : IProblemSolver, IClientChannel {}
 
 При наличии контракта реализация предельно проста.
 
-```
+```csharp
 class ProblemSolver : IProblemSolver
 {
     public int AddNumbers(int a, int b)
@@ -96,9 +91,9 @@ class ProblemSolver : IProblemSolver
 ```
 
 ### <a name="configure-a-service-host-programmatically"></a>Программная настройка узла службы
-После создания контракта и его реализации можно разместить службу. Размещение происходит внутри объекта [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), который отвечает за управление экземплярами службы и в котором размещаются конечные точки, прослушивающие сообщения. Приведенный ниже код настраивает для службы обычную локальную конечную точку и конечную точку служебной шины для параллельного представления внутренних и внешних конечных точек. Замените строку *namespace* именем своего пространства имен, а *yourKey* — ключом SAS, полученным на предыдущем шаге настройки.
+После создания контракта и его реализации можно разместить службу. Размещение происходит внутри объекта [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx), который отвечает за управление экземплярами службы и в котором размещаются конечные точки, прослушивающие сообщения. Приведенный ниже код настраивает для службы обычную локальную конечную точку и конечную точку служебной шины для параллельного представления внутренних и внешних конечных точек. Замените строку *namespace* именем своего пространства имен, а *yourKey* — ключом SAS, полученным на предыдущем шаге настройки.
 
-```
+```csharp
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 
 sh.AddServiceEndpoint(
@@ -119,12 +114,12 @@ Console.ReadLine();
 sh.Close();
 ```
 
-В этом примере вы создаете две конечных точки в рамках одного и того же исполнения контракта. Одна из них является локальной, а вторая проецируется с помощью служебной шины. Основным различием между ними являются привязки ([NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) для локальной и [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) для конечной точки служебной шины) и адреса. Для локальной конечной точки используется локальный сетевой адрес с отдельным портом. Адрес конечной точки служебной шины включает в себя строку `sb`, имя вашего пространства имен и путь solver. Результатом является универсальный код ресурса (URI) `sb://[serviceNamespace].servicebus.windows.net/solver`, определяющий конечную точку службы как конечную точку службы TCP служебной шины с полным внешним DNS-именем. Если в функции `Main` приложения **Service** вместо заполнителей использовать код, будет создана функциональная служба. Если нужно, чтобы ваша служба прослушивала только служебную шину, удалите объявление локальной конечной точки.
+В этом примере вы создаете две конечных точки в рамках одного и того же исполнения контракта. Одна из них является локальной, а вторая проецируется с помощью служебной шины. Основным различием между ними являются привязки ([NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) для локальной и [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) для конечной точки служебной шины) и адреса. Для локальной конечной точки используется локальный сетевой адрес с отдельным портом. Адрес конечной точки служебной шины включает в себя строку `sb`, имя вашего пространства имен и путь solver. Результатом является универсальный код ресурса (URI) `sb://[serviceNamespace].servicebus.windows.net/solver`, определяющий конечную точку службы как конечную точку службы TCP служебной шины с полным внешним DNS-именем. Если в функции `Main` приложения **Service** вместо заполнителей использовать код, будет создана функциональная служба. Если нужно, чтобы ваша служба прослушивала только служебную шину, удалите объявление локальной конечной точки.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Настройка узла службы в файле App.config
 С помощью файла App.config также можно настроить узел. В этом случае код размещения службы выглядит так, как показано в следующем примере.
 
-```
+```csharp
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 sh.Open();
 Console.WriteLine("Press ENTER to close");
@@ -135,7 +130,7 @@ sh.Close();
 Определения конечных точек перемещаются в файл App.config. Пакет NuGet уже добавил в файл App.config ряд определений, являющихся необходимыми расширениями настройки служебной шины. Следующий пример, который является точным эквивалентом кода, приведенного выше, должен появиться прямо под элементом **system.serviceModel**. В этом примере кода предполагается, что пространство имен C# вашего проекта называется **Service**.
 Замените заполнители на пространство имен служб и ключ SAS.
 
-```
+```xml
 <services>
     <service name="Service.ProblemSolver">
         <endpoint contract="Service.IProblemSolver"
@@ -164,13 +159,13 @@ sh.Close();
 
 ### <a name="create-the-client"></a>Создание клиента
 #### <a name="configure-a-client-programmatically"></a>Программная настройка клиента
-Для использования службы вы можете создать клиент WCF, работающий с объектом [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Служебная шина использует модель безопасности на основе маркеров, реализованную с помощью SAS. Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет собой поставщика маркеров безопасности со встроенными методами генерации, которые возвращают ряд хорошо известных поставщиков маркеров. В приведенном ниже примере используется метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) для обработки получения соответствующего маркера SAS. Значения имени и ключа наследуются с портала, как описано в предыдущем разделе.
+Для использования службы вы можете создать клиент WCF, работающий с объектом [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Служебная шина использует модель безопасности на основе маркеров, реализованную с помощью SAS. Класс [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) представляет собой поставщика маркеров безопасности со встроенными методами генерации, которые возвращают ряд хорошо известных поставщиков маркеров. В приведенном ниже примере используется метод [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) для обработки получения соответствующего маркера SAS. Значения имени и ключа наследуются с портала, как описано в предыдущем разделе.
 
 Во-первых, создайте в проекте клиента ссылку или скопируйте в него код контракта `IProblemSolver` из службы.
 
 Затем замените код в методе `Main` клиента, снова подставив имя пространства имен служебной шины и ключ SAS вместо текста заполнителя.
 
-```
+```csharp
 var cf = new ChannelFactory<IProblemSolverChannel>(
     new NetTcpRelayBinding(),
     new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
@@ -189,7 +184,7 @@ using (var ch = cf.CreateChannel())
 #### <a name="configure-a-client-in-the-appconfig-file"></a>Настройка клиента в файле App.config
 В примере кода ниже показано, как настроить клиент с помощью файла App.config.
 
-```
+```csharp
 var cf = new ChannelFactory<IProblemSolverChannel>("solver");
 using (var ch = cf.CreateChannel())
 {
@@ -197,9 +192,9 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-Определения конечных точек перемещаются в файл App.config. Следующий пример, который полностью эквивалентен приведенному выше коду, должен находиться непосредственно под элементом **system.serviceModel**. Здесь снова необходимо заменить заполнители пространством имен служебной шины и ключом SAS.
+Определения конечных точек перемещаются в файл App.config. Следующий пример, который полностью эквивалентен приведенному выше коду, должен находиться непосредственно под элементом `<system.serviceModel>`. Здесь снова необходимо заменить заполнители пространством имен служебной шины и ключом SAS.
 
-```
+```xml
 <client>
     <endpoint name="solver" contract="Service.IProblemSolver"
               binding="netTcpRelayBinding"
@@ -220,18 +215,18 @@ using (var ch = cf.CreateChannel())
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы изучили основы использования службы ретранслятора служебной шины, воспользуйтесь следующими ссылками, чтобы получить дополнительную информацию.
+Вы узнали основные сведения о ретрансляторе служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
-* [Обмен сообщениями через служебную шину с ретрансляцией](service-bus-relay-overview.md)
+* [Что такое ретранслятор Azure?](relay-what-is-it.md)
 * [Обзор архитектуры служебной шины Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-* Скачайте примеры служебной шины со страницы [Примеры Azure][Примеры Azure] или просмотрите [обзор примеров служебной шины][обзор примеров служебной шины].
+* Скачайте примеры для служебной шины со страницы [Примеры Azure][Azure samples] или прочитайте [обзор примеров служебной шины][overview of Service Bus samples].
 
-[Проверка подлинности подписи при общем доступе с помощью служебной шины]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
-[Примеры Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-[обзор примеров служебной шины]: ../service-bus-messaging/service-bus-samples.md
+[Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
+[Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[overview of Service Bus samples]: ../service-bus-messaging/service-bus-samples.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

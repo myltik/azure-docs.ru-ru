@@ -4,6 +4,12 @@
 # Начало работы
 ## [Создание учетной записи и управление ею](media-services-portal-create-account.md)
 ## [Настройка среды разработки](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Подключение программными средствами
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Предоставление видео по запросу
 ### [Портал](media-services-portal-vod-get-started.md)
 ### [Пакет SDK для .NET](media-services-dotnet-get-started.md)
@@ -15,19 +21,18 @@
 
 # Практическое руководство
 ## Управление
-### Управление учетными записями
+### Учетные записи
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Управление сущностями
+### Сущности
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Подключение программными средствами
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Управление конечными точками потоковой передачи](media-services-streaming-endpoints-overview.md)
+### [Конечные точки потоковой передачи](media-services-streaming-endpoints-overview.md)
 #### [Портал](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Практическое руководство. Обновление служб мультимедиа после смены ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
+### Хранилище
+#### [Обновление служб мультимедиа после оборота ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
+#### [Управление ресурсами в нескольких учетных записях хранения](meda-services-managing-multiple-storage-accounts.md)
 ### [Квоты и ограничения](media-services-quotas-and-limitations.md)
 
 ## Передача содержимого
@@ -35,13 +40,22 @@
 #### [Портал](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Отправка больших файлов с помощью Aspera](media-services-upload-files-with-aspera.md)
 ### [Копирование существующих больших двоичных объектов](media-services-copying-existing-blob.md)
 
 ## [Кодирование содержимого](media-services-encode-asset.md)
 ### [Сравнение кодировщиков](media-services-compare-encoders.md)
-### [Коды ошибок](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### [Автоматическое создание схемы скоростей с помощью MES](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Кодирование с помощью Media Encoder Standard
+##### [Портал](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
+##### [Настройка предустановок Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+##### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
 #### Схемы MES
 ##### [Схема Media Encoder Standard](media-services-mes-schema.md)
 ##### [Входные метаданные](media-services-input-metadata-schema.md)
@@ -72,23 +86,18 @@
 ##### [H264 Single Bitrate 720p для Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Кодирование с помощью Media Encoder Standard
-##### [Портал](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
-##### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
-### Рабочий процесс Media Encoder Premium
+### Расширенный рабочий процесс кодировщика мультимедиа
 #### [Форматы и кодеки рабочего процесса Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 #### Кодирование с помощью рабочего процесса Media Encoder Premium
 ##### [Рабочий процесс Media Encoder Premium](media-services-encode-with-premium-workflow.md)
 ##### [Руководства по рабочему процессу Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Создание рабочих процессов кодирования Advanced с помощью конструктора рабочих процессов](media-services-workflow-designer.md)
 ##### [Рабочий процесс Premium с несколькими элементами входных данных](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Создание задачи, формирующей блоки fMP4](media-services-generate-fmp4-chunks.md)
 ### Обработчики мультимедиа
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Коды ошибок](media-services-encoding-error-codes.md)
 ### Не рекомендуется
 #### [Статическая упаковка и шифрование](media-services-static-packaging.md)
 
@@ -98,7 +107,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
-### Учебники по облачным кодировщикам
 #### [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Настройка локальных кодировщиков для использования с облачными кодировщиками](media-services-live-encoders-overview.md)
@@ -114,11 +122,14 @@
 ### [Настройка чистого ключа AES-128 для потока](media-services-protect-with-aes128.md)
 ### [Шифрование содержимого с помощью функции шифрования хранилища посредством REST API AMS](media-services-rest-storage-encryption.md)
 ### [Обзор шаблонов лицензий PlayReady служб мультимедиа](media-services-playready-license-template-overview.md)
+### [Общие сведения о шаблоне лицензии Widevine](media-services-widevine-license-template-overview.md)
 ### [Доставка лицензий DRM](media-services-deliver-keys-and-licenses.md)
 ### [Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure](media-services-licenses-partner-integration.md)
 ### [Дополнительные сведения см. в статье Использование общего динамического шифрования PlayReady и (или) Widevine DRM.](media-services-protect-with-drm.md)
 ### [Использование служб мультимедиа Azure для потоковой передачи содержимого HLS, защищенного с помощью Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC с несколькими компонентами управления цифровыми правами и контролем доступа: пример разработки и реализации в Azure и службах мультимедиа Azure](media-services-cenc-with-multidrm-access-control.md)
+### [Использование Axinom для доставки лицензий Widevine в службы мультимедиа Azure](media-services-axinom-integration.md)
+### [Использование castLabs для доставки лицензий Widevine в службы мультимедиа Azure](media-services-castlabs-integration.md)
 
 ### Доставка ресурсов
 #### Настройка политик доставки ресурсов
@@ -152,17 +163,17 @@
 ### [Обработка мультимедиа](media-services-scale-media-processing-overview.md)
 #### [Портал](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Конечные точки потоковой передачи
 #### [Портал](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Доставка содержимого](media-services-deliver-content-overview.md)
 ### [Динамическая упаковка](media-services-dynamic-packaging-overview.md)
 ### [Обзор фильтров и динамических манифестов](media-services-dynamic-manifest-overview.md)
-### Создание фильтров
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
-### Публикация содержимого
+#### [Создание фильтров с помощью .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Создание фильтров с помощью REST](media-services-rest-dynamic-manifest.md)
+### [Политика кэширования CDN в расширении служб мультимедиа](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
+### Публикация контента
 #### [Портал](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
@@ -177,21 +188,18 @@
 #### [Приложение HTML5 с DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Проигрыватели Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Вставка рекламы на стороне клиента](media-services-inserting-ads-on-client-side.md)
+### [Лицензирование пакета для переноса клиента потоковой передачи Microsoft Smooth Streaming](media-services-sspk.md)
 
 ## Интеграция
-### [Политика кэширования CDN в расширении служб мультимедиа](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Лицензирование пакета для переноса клиента потоковой передачи Microsoft Smooth Streaming](media-services-sspk.md)
-### [Управление ресурсами в нескольких учетных записях хранения](meda-services-managing-multiple-storage-accounts.md)
-### [Использование Axinom для доставки лицензий Widevine в службы мультимедиа Azure](media-services-axinom-integration.md)
-### [Использование castLabs для доставки лицензий Widevine в службы мультимедиа Azure](media-services-castlabs-integration.md)
-### [Общие сведения о шаблоне лицензии Widevine](media-services-widevine-license-template-overview.md)
+### [Функции Azure](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
-## Мониторинг
+## Монитор
 ### Проверка хода выполнения задания
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Портал](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Хранилище очередей для мониторинга уведомлений о заданиях](media-services-dotnet-check-job-progress-with-queues.md)
+### [Мониторинг уведомлений о заданиях с помощью хранилища очередей](media-services-dotnet-check-job-progress-with-queues.md)
+### [Мониторинг уведомлений о заданиях с помощью вызовов webhook](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](media-services-frequently-asked-questions.md)
@@ -210,8 +218,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

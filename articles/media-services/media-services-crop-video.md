@@ -1,5 +1,5 @@
 ---
-title: "Как обрезать видео | Документация Майкрософт"
+title: "Как обрезать видео с помощью Media Encoder Standard в Azure | Документация Майкрософт"
 description: "В этой статье показано, как обрезать видео с помощью стандартного кодировщика служб мультимедиа."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -142,9 +143,4 @@ ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
 См. схемы обучения по службам мультимедиа Azure, которые позволят вам узнать о возможностях, предлагаемых AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

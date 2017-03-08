@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
+ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
+ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
 
 **Примечание.** 
 
-* *Для выполнения действий, описанных в этой статье, требуется машина Docker версии 0.7.0 или более поздней версии*
+* *Для выполнения действий, описанных в этой статье, требуется машина Docker версии 0.9.0-rc2 или более поздней версии.*
 * *Поддержка контейнеров Windows на машинах Docker будет реализована в ближайшем будущем*
 
 ## <a name="create-vms-with-docker-machine"></a>Создание виртуальных машин с помощью машины Docker
@@ -45,10 +45,15 @@ ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
 Чтобы просмотреть параметры и их значения по умолчанию, введите `docker-machine create --driver azure` .
 Также можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/) . 
 
-В приведенном ниже примере используются значения по умолчанию, но в нем не открывается порт 80 в виртуальной машине для доступа к Интернету. 
+В приведенном ниже примере используются [значения по умолчанию](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), но при необходимости можно задать следующие значения. 
+
+* azure-dns в качестве имени, связанного с созданными общедоступным IP-адресом и сертификатами.  В таком случае можно безопасно остановить виртуальную машину, освободить динамический IP-адрес и выполнить повторное подключение, после того как виртуальная машина начнет работу с новым IP-адресом.  Префикс имени должен быть уникальным для этого региона: UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* Открытые порта 80 на виртуальной машине для исходящего доступа к Интернету.
+* Размер виртуальной машины для использования более быстрого хранилища класса Premium.
+* Хранилище класса Premium, используемое для диска виртуальной машины.
 
 ```
-docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## <a name="choose-a-docker-host-with-docker-machine"></a>Выбор узла Docker с помощью машины Docker
@@ -119,6 +124,6 @@ PS C:\> docker-machine ip MyDockerHost
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

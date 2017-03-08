@@ -1,6 +1,6 @@
 ---
 title: "Ограничение доступа через конечные веб-точки в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Restrict access through Internet facing endpoint** (Ограничение доступа через подключенную к Интернету конечную точку)."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Ограничить доступ через конечную веб-точку**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f73681c402d66b52a93863bbade3aafec1ae78f
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -27,23 +28,28 @@ ms.openlocfilehash: 5f73681c402d66b52a93863bbade3aafec1ae78f
 
 > [!NOTE]
 > В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Выполнение рекомендаций
 1. В колонке **Рекомендации** выберите **Ограничить доступ через конечную веб-точку**.
-   ![Restrict access through Internet facing endpoint][1]
+
+   ![Ограничение доступа через подключенную к Интернету конечную точку][1]
 2. Откроется колонка **Restrict access through Internet facing endpoint**(Ограничение доступа через подключенную к Интернету конечную точку). В этой колонке перечислены виртуальные машины с правилами входящего трафика, которые представляют угрозу для безопасности. Выберите виртуальную машину.
+
    ![Выбор виртуальной машины][2]
 3. В колонке **Группа безопасности сети** отображаются сведения о группе безопасности сети, связанные правила входящего трафика и соответствующие виртуальные машины. Выберите **Изменить правила для входящего трафика** , чтобы перейти к изменению правила входящего трафика.
+
    ![Колонка "Группа безопасности сети"][3]
 4. В колонке **Правила безопасности для входящего трафика** выберите правила входящего трафика для изменения. В этом примере выберем **AllowWeb**.
+
    ![Правила безопасности для входящего трафика][4]
-   
+
    Обратите внимание, что можно также выбрать **Правила по умолчанию** , чтобы просмотреть набор правил по умолчанию, который содержат все группы безопасности сети. Эти правила нельзя удалить, но так как у них низкий приоритет, их можно переопределить, создав другие правила. Узнайте больше о [правилах по умолчанию](../virtual-network/virtual-networks-nsg.md#default-rules).
+
    ![Правила по умолчанию][5]
 5. В колонке **AllowWeb** измените свойства правила входящего трафика, указав в качестве **источника** IP-адрес или блок IP-адресов. Чтобы узнать больше о свойствах правила входящего трафика, ознакомьтесь с [правилами группы безопасности сети](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   
+
    ![Изменение правила входящего трафика][6]
 
 ## <a name="see-also"></a>Дополнительные материалы
@@ -69,9 +75,4 @@ ms.openlocfilehash: 5f73681c402d66b52a93863bbade3aafec1ae78f
 [4]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/inbound-security-rules.png
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Создание подсистемы балансировки нагрузки с помощью PowerShell в классической модели развертывания | Документация Майкрософт"
+title: "Создание внутренней подсистемы балансировки нагрузки Azure с помощью классической версии PowerShell | Документация Майкрософт"
 description: "Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью PowerShell."
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 829ed8ac5f4770c7745923edf3c09b29f4ad3ed4
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -189,10 +190,5 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 [Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

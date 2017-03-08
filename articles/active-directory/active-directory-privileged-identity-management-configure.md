@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
-ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
+ms.sourcegitcommit: b52a475008c9d15912c0b363d76118df74112107
+ms.openlocfilehash: b289b9befc67d01689fa87db955b1a10c210a724
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
 * получать отчеты по данным журнала доступа администраторов и изменениям в назначениях администраторов;
 * получать оповещения о доступе к привилегированным ролям;
 
-Управление привилегированными пользователями Azure AD позволяет управлять встроенными ролями Azure AD в организации:  
+Azure AD Privileged Identity Management позволяет управлять встроенными ролями Azure AD в организации, включая следующие роли (но не ограничиваясь ими):  
 
 * глобального администратора;
 * администратора выставления счетов; 
@@ -50,7 +51,7 @@ ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
 Чтобы воспользоваться управлением привилегированными пользователями Azure AD, зайти на [портал Azure](https://portal.azure.com/).
 
 > [!NOTE]
-> Чтобы включить управление привилегированными пользователями Azure AD для каталога, необходимо быть глобальным администратором с учетной записью организации (например, @yourdomain.com),), а не учетной записью Майкрософт (например, @outlook.com),).
+> Чтобы включить Azure AD Privileged Identity Management для каталога, необходимо быть глобальным администратором с учетной записью организации (например, @yourdomain.com), а не учетной записью Майкрософт (например, @outlook.com).
 
 1. Войдите на [портал Azure](https://portal.azure.com/) как глобальный администратор нужного каталога.
 2. Если в организации имеется несколько каталогов, выберите свое имя пользователя в правом верхнем углу на портале Azure. Затем выберите каталог, в котором будет использоваться управление привилегированными пользователями Azure AD.
@@ -117,9 +118,4 @@ ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
 [4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

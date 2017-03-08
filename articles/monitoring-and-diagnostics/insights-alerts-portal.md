@@ -1,8 +1,8 @@
 ---
-title: "Создание оповещений для служб Azure с помощью портала Azure | Документация Майкрософт"
-description: "Используйте портал Azure для создания оповещений Azure, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий."
+title: "Создание оповещений для служб Azure с помощью портала Azure | Документация Майкрософт"
+description: "Узнайте, как активировать сообщения электронной почты, уведомления, вызовы URL-адресов веб-сайтов (webhook) или автоматизированные операции при выполнении заданных условий."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
+ms.lasthandoff: 01/31/2017
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Создание оповещений для служб Azure с помощью портала Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Создание оповещений в Azure Monitor для служб Azure с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Портал](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Обзор
 В этой статье показано, как настроить оповещения Azure с помощью портала Azure.   
@@ -53,10 +54,10 @@ ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Создание правила генерации оповещений на основе метрики с помощью портала Azure
 1. На [портале](https://portal.azure.com/)найдите ресурс, который нужно отслеживать, и выберите его.
 2. В разделе "Мониторинг" выберите **Оповещения** или **Правила генерации оповещений**. Текст и значок для разных ресурсов могут незначительно отличаться.  
-   
+
     ![Мониторинг](./media/insights-alerts-portal/AlertRulesButton.png)
 3. Выберите **Добавить оповещение** и заполните поля.
-   
+
     ![Добавить оповещение](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. Введите **имя** правила генерации оповещений и укажите **описание**, отображаемое также в уведомлениях по электронной почте.
 5. Если вы выбрали **метрику** для отслеживания, то выберите для нее **условие** и **пороговое значение**. Кроме того, выберите **период** времени, в течение которого метрика правила должна выполнять условие, прежде чем будет активировано оповещение. Например, если используется период "PT5M" и оповещение определяет загрузку ЦП выше 80 %, то оно активируется, если ЦП был загружен больше чем на 80 % не меньше 5 минут. После первой активации оповещение активируется повторно, если загрузка ЦП будет ниже 80 % не меньше 5 минут. Измерение загрузки ЦП происходит раз в минуту.   
@@ -81,10 +82,4 @@ ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
 * Узнайте больше о [модулях Runbook службы автоматизации Azure](../automation/automation-starting-a-runbook.md).
 * Ознакомьтесь с [обзором журналов диагностики](monitoring-overview-of-diagnostic-logs.md) , чтобы собирать подробные метрики о службе с высокой частотой.
 * Прочитайте [обзор сбора метрики](insights-how-to-customize-monitoring.md) и узнайте, как можно обеспечить, чтобы служба была доступна и отвечала на запросы.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

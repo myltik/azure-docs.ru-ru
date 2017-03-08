@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
+ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
+ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
 
 
 ---
 # <a name="azure-active-directory-reporting---preview"></a>Отчеты в Azure Active Directory — предварительная версия
-> [!div class="op_single_selector"]
-> * [портал Azure](active-directory-reporting-azure-portal.md)
-> * [Классический портал Azure](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *Данная документация является частью [руководства по отчетам Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -48,15 +44,15 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 Знакомство с этими данными нужно начать с графика входов пользователей в разделе **Обзор**, который можно выбрать в колонке **Пользователи и группы**.
 
- ![Отчеты](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+ ![Отчеты](./media/active-directory-reporting-azure-portal/05.png "Отчеты")
 
 На графике входа еженедельно отображается количество входов всех пользователей за определенный промежуток времени, который по умолчанию составляет 30 дней.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/02.png "Отчеты")
 
 Щелкнув день на графике входов, вы увидите подробный список действий входа.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/03.png "Отчеты")
 
 Каждая строка в списке действий входа содержит подробную информацию о выбранном входе и отвечает на такие вопросы:
 
@@ -75,27 +71,27 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 Знакомство с этими данными нужно начать с трех приложений, которые в отчете за последние 30 дней являются самыми популярными (раздел **Обзор**, который можно выбрать в колонке **Корпоративные приложения**).
 
- ![Отчеты](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+ ![Отчеты](./media/active-directory-reporting-azure-portal/06.png "Отчеты")
 
 В графике ниже (график использования приложений) отображены еженедельные входы в три самых популярных приложения за определенный промежуток времени, который по умолчанию составляет 30 дней.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/78.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/78.png "Отчеты")
 
 Если нужно, вы можете переместить фокус на определенное приложение.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Отчеты")
 
 Щелкнув день на графике использования приложений, вы увидите подробный список действий входа.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Отчеты")
 
 С помощью параметра **Входов** можно полностью отобразить все события входа в ваши приложения.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/85.png "Отчеты")
 
 С помощью средства выбора столбца вы можете выбрать поля данных, которые нужно отобразить.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/column_chooser.png "Отчеты")
 
 ### <a name="filtering-sign-ins"></a>Фильтрация входов
 Чтобы ограничить отображаемые данные, вы можете отфильтровать сведения о входах с помощью следующих полей:
@@ -106,12 +102,12 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 * имя клиента;
 * состояние входа.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/293.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/293.png "Отчеты")
 
 Другой способ фильтрации записей о действиях входа — поиск определенных записей.
 Вы можете искать действия входа по определенным **пользователям**, **группам** или **приложениям**.
 
-![Отчеты](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+![Отчеты](./media/active-directory-reporting-azure-portal/84.png "Отчеты")
 
 ## <a name="audit-logs"></a>Журналы аудита
 Журналы аудита в Azure Active Directory содержат записи о действиях системы (необходимые для соответствия требованиям).
@@ -126,15 +122,15 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 Знакомство с данными аудита следует начать с **журналов аудита** в разделе **Действие** службы **Azure Active Directory**.
 
-![Аудит](./media/active-directory-reporting-azure-portal/61.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/61.png "Аудит")
 
 В журнале аудита доступно представление списка, в котором отображаются субъекты ("кто"), действия ("что") и целевые объекты.
 
-![Аудит](./media/active-directory-reporting-azure-portal/345.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/345.png "Аудит")
 
 Щелкнув элемент в представлении списка, вы получите дополнительные сведения о нем.
 
-![Аудит](./media/active-directory-reporting-azure-portal/873.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/873.png "Аудит")
 
 ### <a name="users-and-groups-audit-logs"></a>Журналы аудита пользователей и групп
 Отчеты аудита, касающиеся пользователей и групп, дают возможность ответить на такие вопросы:
@@ -150,7 +146,7 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 Если нужно только просмотреть данные аудита, связанные с пользователями и группами, отфильтрованное представление вы можете найти, щелкнув элемент **Журналы аудита** в разделе **Действие** колонки **Пользователи и группы**.
 
-![Аудит](./media/active-directory-reporting-azure-portal/93.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/93.png "Аудит")
 
 ### <a name="application-audit-logs"></a>Журналы аудита приложений
 Отчеты аудита, касающиеся приложений, дают возможность ответить на такие вопросы:
@@ -163,7 +159,7 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 Если нужно только просмотреть данные аудита, связанные с приложениями, отфильтрованное представление вы можете найти, щелкнув элемент **Журналы аудита** в разделе **Действие** колонки **Корпоративные приложения**.
 
-![Аудит](./media/active-directory-reporting-azure-portal/134.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/134.png "Аудит")
 
 ### <a name="filtering-audit-logs"></a>Фильтрация журналов аудита
 Чтобы ограничить отображаемые данные, вы можете отфильтровать сведения о входах с помощью следующих полей:
@@ -173,7 +169,7 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 * тип действия;
 * Действие
 
-![Аудит](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/356.png "Аудит")
 
 Содержимое списка **Типа действия** связано с точкой входа в эту колонку.  
 Если точка входа — Azure Active Directory, этот список содержит все типы возможных действий:
@@ -186,16 +182,16 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 * Политика
 * Другие
 
-![Аудит](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/825.png "Аудит")
 
 Будут перечислены действия только выбранного типа.
 Например, если в качестве **типа действия** выбрана **группа**, список **Действие** будет содержать только действия, связанные с группой.   
 
-![Аудит](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/654.png "Аудит")
 
 Другой способ фильтрации — поиск определенных записей журнала аудита.
 
-![Аудит](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+![Аудит](./media/active-directory-reporting-azure-portal/237.png "Аудит")
 
 ## <a name="next-steps"></a>Дальнейшие действия
 См. статью [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).
@@ -203,6 +199,6 @@ ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

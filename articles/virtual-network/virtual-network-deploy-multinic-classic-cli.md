@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальных машин (классическая модель) с несколькими сетевыми интерфейсами с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Сведения о создании виртуальной машины с несколькими сетевыми интерфейсами по классической модели развертывания с помощью интерфейса командной строки Azure."
+title: "Создание виртуальных машин (классическая модель) с несколькими сетевыми картами (Azure CLI 1.0) | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную машину (классическая модель) с несколькими сетевыми картами с помощью интерфейса командной строки Azure (CLI) версии 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
-ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b62421b7289650818748d0016dccfdf42ef0a768
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli"></a>Создание виртуальных машин (классическая модель) с несколькими сетевыми интерфейсами с помощью интерфейса командной строки Azure
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Создание виртуальных машин (классическая модель) с несколькими сетевыми картами с помощью Azure CLI 1.0
+
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 Можно создать виртуальные машины в Azure и подключить к каждой из них несколько сетевых карт. Применение нескольких сетевых карт дает возможность разделять типы трафика между сетевыми картами. Например, одна сетевая карта может обмениваться данными с Интернетом, а другая — только с внутренними ресурсами, не подключенными к Интернету. Возможность разделения сетевого трафика между несколькими сетевыми картами требуется для работы многих виртуальных сетевых устройств, таких как решения для доставки приложений и оптимизации глобальной сети.
@@ -110,7 +113,7 @@ ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
     ipAddress2=$ipAddressPrefix$x
     ```
 
-3. Создайте виртуальную машину. Обратите внимание, что использован параметр `--nic-config` , содержащий список всех сетевых карт с именем, подсетью и IP-адресом.
+3. Создайте виртуальную машину. Обратите внимание, что использован параметр `--nic-config`, содержащий список всех сетевых карт с именем, подсетью и IP-адресом.
 
     ```azurecli
     azure vm create $backendCSName $image $username $password \
@@ -186,9 +189,4 @@ ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

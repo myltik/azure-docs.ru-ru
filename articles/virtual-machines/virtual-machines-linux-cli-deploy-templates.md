@@ -1,5 +1,5 @@
 ---
-title: "Развертывание виртуальной машины и управление ей с помощью шаблонов | Документация Майкрософт"
+title: "Развертывание виртуальных машин Linux с помощью шаблонов Azure | Документация Майкрософт"
 description: "Развертывайте наиболее распространенные конфигурации для виртуальных машин Azure с помощью шаблонов диспетчера ресурсов и интерфейса командной строки Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2770aeaca83364d8d252d04a21c31dda1ce7d59f
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 382ab1e465efd94d7bf9bbf21228a19e126a1f4d
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -25,10 +26,5 @@ ms.openlocfilehash: 2770aeaca83364d8d252d04a21c31dda1ce7d59f
 В этой статье рассказывается, как c помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure выполнять указанные ниже стандартные задачи по развертыванию виртуальных машин Azure и управлению ими. Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Развертывание популярных платформ приложений с помощью шаблонов Azure Resource Manager](virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

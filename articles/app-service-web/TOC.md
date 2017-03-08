@@ -3,8 +3,9 @@
 ## [Что такое служба приложений?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Служба приложений под управлением Linux](app-service-linux-intro.md)
+## [Служба приложений под управлением Linux: вопросы и ответы](app-service-linux-faq.md)
 
-# Начало работы
+# Приступая к работе
 
 ## Веб-приложения
 ### [HTML](app-service-web-get-started-html.md)
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Приложение Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## Приложения API
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Портал Azure](app-service-web-app-azure-portal.md)
 ### [Пакет SDK для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### Приложения ASP.NET
 #### [Создание приложения ASP.NET в Azure с помощью Visual Studio](web-sites-dotnet-get-started.md)
 #### [Создание службы REST с использованием веб-API ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Создание веб-приложения ASP.NET 5 в Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Использование .NET Core в веб-приложениях на платформе Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Приложения Node.js
 #### [Разработка приложений Node.js для службы приложений](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Сборка и развертывание с помощью WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Приложения PHP
-#### [Разработка приложений PHP для службы приложений](app-service-web-php-get-started.md) 
+#### [Разработка приложений PHP для службы приложений](app-service-web-php-get-started.md)    
 #### [Создание веб-приложения PHP-SQL и его развертывание с помощью Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Создание веб-приложения WordPress в службе приложений Azure](web-sites-php-web-site-gallery.md)
 #### [Создание базы данных MySQL и подключение к ней в Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Использование Flask и хранилища таблиц с инструментами Python 2.2 для Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Использование Django и MySQL в Azure с инструментами Python 2.2 для Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Использование Django и базы данных SQL в Azure с инструментами Python 2.2 для Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Приложения Ruby
+#### [Использование Ruby в веб-приложениях на платформе Linux](app-service-linux-using-ruby.md)
 
 ### [Развертывание первого базового веб-приложения в Azure за пять минут](app-service-web-get-started-html.md)
 ### [Введение в тестирование веб-приложений в рабочей среде](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Настройка Python](web-sites-python-configure.md)
 #### [Настройка запуска Node.js в Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Личные домены
 #### [Приобретение и настройка личных доменов](custom-dns-web-site-buydomains-web-app.md)
 #### [Сопоставление личных доменов](web-sites-custom-domain-name.md)
+#### [Миграция активного личного домена](app-service-custom-domain-name-migrate.md)
 #### [Настройка доменов GoDaddy](web-sites-godaddy-custom-domain-name.md)
 #### [Личные домены с диспетчером трафика](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -248,7 +257,7 @@
 ### [Устранение проблем с производительностью веб-приложений](app-service-web-troubleshoot-performance-degradation.md)
 
 # Справочные материалы
-## [Предварительная версия Azure CLI 2.0](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -264,9 +273,3 @@
 # Ресурсы
 ## [Рекомендации по использованию хранилища данных SQL Azure](app-service-best-practices.md)
 ## [Список ресурсов веб-задания](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

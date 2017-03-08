@@ -1,5 +1,5 @@
 ---
-title: "Копирование данных из хранилища BLOB-объектов в базу данных SQL | Документация Майкрософт"
+title: "Копирование данных из хранилища BLOB-объектов в Базу данных SQL Azure | Документация Майкрософт"
 description: "В этом учебнике рассказывается, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из хранилища BLOB-объектов в базу данных SQL."
 keywords: "BLOB-объект, SQL, хранилище BLOB-объектов, копирование данных"
 services: data-factory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 19436167ad8e82f47b147efc65c635d9bf2d2ae5
-ms.openlocfilehash: 0072e1db4758447445b97021e1624c2210fbd0a7
+ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
+ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -123,8 +124,7 @@ ms.openlocfilehash: 0072e1db4758447445b97021e1624c2210fbd0a7
 * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+> [!NOTE]
+> Описанный в этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Он не преобразовывает входные данные в выходные. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [учебнике по созданию первого конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> Можно объединить в цепочку два действия (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Подробные сведения см. в статье [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md). 

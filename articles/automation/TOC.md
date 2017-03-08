@@ -26,6 +26,7 @@
 ### [Отслеживание задания Runbook](automation-runbook-execution.md)
 ### [Изменение параметров Runbook](automation-runbook-settings.md)
 ### [Управление данными службы автоматизации Azure](automation-managing-data.md)
+### [Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Развертывание управления конфигурацией (DSC)
 ### [Настройка требуемого состояния (DSC)](automation-dsc-overview.md)
 ### [Начало работы](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Модули интеграции](automation-integration-modules.md)
 ### [Расписания](automation-schedules.md)
 ### [Переменные](automation-variables.md)
+### [Обновление модулей Azure PowerShell](automation-update-azure-modules.md)
 ## Автоматизация сценариев
 ### [Коллекция Runbook](automation-runbook-gallery.md)
 ### [Запуск и остановка виртуальных машин](automation-solution-startstopvm-graphical.md)
@@ -53,7 +55,10 @@
 ### [Удаление группы ресурсов](automation-scenario-remove-resourcegroup.md)
 ### [Запуск и остановка виртуальных машин в нерабочее время](automation-solution-vm-management.md)
 ### [Интеграция системы управления версиями с помощью GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Мониторинг](automation-manage-send-joblogs-log-analytics.md)
+### [Интеграция системы управления версиями с помощью VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Монитор
+### [Пересылка данных задания службы автоматизации Azure в Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Отмена привязки учетной записи службы автоматизации Azure к Log Analytics](automation-unlink-from-log-analytics.md)
 ## Миграция
 ### [Перенос из Orchestrator](automation-orchestrator-migration.md)
 ### [Перемещение учетной записи службы автоматизации](automation-migrate-account-subscription.md)
@@ -76,8 +81,3 @@
 ## [Обучение работе со службой автоматизации Azure](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Вводный видеоролик о службе автоматизации](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -4,7 +4,7 @@ description: "Обзор пользовательского интерфейса
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
+ms.sourcegitcommit: 3a423e42441c6b3b2f1917ba02f80078c759ec69
+ms.openlocfilehash: 4c114f470631ae6b06968c3cc8601bc1c76bc1da
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -115,7 +116,7 @@ ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
 При выборе режима "Только за пределами приложения" вы должны заранее предоставить сертификаты с платформы, на основе которых создается приложение (APNS или GCM).
 
 ### <a name="see-also"></a>Дополнительные материалы
-* [Служба push-уведомлений Apple — сертификаты](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging — сертификат (http://developer.android.com/google/gcm/index.html) 
+* [Служба push-уведомлений Apple — сертификаты](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging — сертификат](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>Режим доставки "Только в приложении"
 ![Differentiate3][17]
@@ -310,10 +311,5 @@ ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

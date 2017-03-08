@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: c853d61257493d73cd0f8a51a15f0389e1e83cf4
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -109,19 +110,14 @@ ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
 3. Если вы хотите настроить приложение в **режиме, инициированном поставщиком удостоверений**, то на странице диалогового окна **Настроить параметры приложения** выполните следующие действия и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_04.png)
-   
-    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<your-subdomain>.<region>.deputy.com`.
-   
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<your-subdomain>.<region>.deputy.com/exec/devapp/samlacs`.
-   
-    c. Нажмите кнопку **Далее**.
+  1. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<your-subdomain>.<region>.deputy.com`.
+  2. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<your-subdomain>.<region>.deputy.com/exec/devapp/samlacs`.
+  3. Нажмите кнопку **Далее**.
 4. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, то на странице диалогового окна **Настроить параметры приложения** щелкните **Показать дополнительные параметры (необязательно)**, а затем введите **URL-адрес для входа** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_05.png)
-   
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<your-subdomain>.<region>.deputy.com`.
-   
-    b. Нажмите кнопку **Далее**.
+   1. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<your-subdomain>.<region>.deputy.com`.
+   2. Нажмите кнопку **Далее**.
    
    > [!NOTE]
    > Суффикс региона Deputy необязательный, или следует использовать один из следующих: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an.
@@ -130,27 +126,21 @@ ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
 5. На странице **Настройка единого входа в Deputy** выполните следующие действия и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_06.png)
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+   1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
 6. Перейдите по следующему URL-адресу: https://(your-subdomain).deputy.com/exec/config/system_config. Выберите пункт **Параметры безопасности** и нажмите кнопку **Изменить**.
    
     ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 7. На классическом портале Azure на странице "Настройка единого входа в Deputy" скопируйте URL-адрес единого входа SAML. 
 8. На странице **Параметры безопасности** сделайте следующее:
    
-    ![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
-   
-    а. разрешите **вход с помощью учетных записей социальных сетей**;
-   
-    b. откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **OpenSSL Certificate** (Сертификат OpenSSL);
-   
-    c. в текстовом поле SAM SSO URL (URL-адрес единого входа) введите `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`;
-   
-    г) В текстовом поле SAM SSO URL (URL-адрес единого входа) замените `<your subdomain>` на поддомен.
-   
-    д. В текстовом поле SAM SSO URL (URL-адрес единого входа) замените `<saml sso url>` на URL-адрес единого входа SAML, скопированный c классического портала Azure.
-   
-    Е. Щелкните **Сохранить параметры**.
+![Настройка единого входа](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
+
+   1. разрешите **вход с помощью учетных записей социальных сетей**;
+   2. откройте сертификат в кодировке Base64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **OpenSSL Certificate** (Сертификат OpenSSL);
+   3. в текстовом поле SAM SSO URL (URL-адрес единого входа) введите `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`;
+   4. В текстовом поле SAM SSO URL (URL-адрес единого входа) замените `<your subdomain>` на поддомен.
+   5. В текстовом поле SAM SSO URL (URL-адрес единого входа) замените `<saml sso url>` на URL-адрес единого входа SAML, скопированный c классического портала Azure.
+   6. Нажмите кнопку **Сохранить параметры**.
 9. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
@@ -178,25 +168,20 @@ ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_05.png)
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+
+   1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+   2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+   3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+   1. В текстовом поле **Имя** введите **Britta**.  
+   2. В текстовом поле **Фамилия** введите **Simon**.
+   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+   4. В списке **Роль** выберите **Пользователь**.
+   5. Нажмите кнопку **Далее**.
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_07.png)
@@ -204,9 +189,8 @@ ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_08.png)
    
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+   1. Запишите значение поля **Новый пароль**.
+   2. Нажмите **Завершено**.   
 
 ### <a name="creating-a-deputy-test-user"></a>Создание тестового пользователя приложения Deputy
 Чтобы пользователи Azure AD могли выполнять вход в Deputy, они должны быть подготовлены для Deputy. В случае с Deputy подготовка выполняется вручную.
@@ -215,21 +199,18 @@ ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
 1. Войдите на сайт Deputy компании в качестве администратора.
 2. В верхней части области навигации щелкните **People**(Люди).
    
-   ![Люди](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "People")
+   ![Люди](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "Люди")
 3. Нажмите кнопку **Add People** (Добавить людей) и выберите пункт **Add a single person** (Добавить одного человека).
    
-   ![Добавить людей](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Add People")
+   ![Добавить участников](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "добавить участников")
 4. Выполните следующие действия и нажмите кнопку **Save & Invite** (Сохранить и пригласить).
    
-   ![Новый пользователь](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "New User")
+   ![Новый пользователь](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "Новый пользователь")
    
-   а. В текстовом поле **Name** (Имя) введите **Britta** и **Simon**.  
-   
-   b. В текстовое поле **Email** (Электронная почта) введите адрес электронной почты той учетной записи Azure AD, которую нужно подготовить.
-   
-   c. В текстовом поле **Work at** (Место работы) введите название компании.
-   
-   d. Нажмите кнопку **Save & Invite** (Сохранить и пригласить).
+  1. В текстовом поле **Name** (Имя) введите **Britta** и **Simon**.  
+  2. В текстовое поле **Email** (Электронная почта) введите адрес электронной почты той учетной записи Azure AD, которую нужно подготовить.
+  3. В текстовом поле **Work at** (Место работы) введите название компании.
+  4. Нажмите кнопку **Save & Invite** (Сохранить и пригласить).
    
    > [!NOTE]
    > Владелец учетной записи Azure AD получит электронное сообщение со ссылкой для активации учетной записи. Вы можете использовать любые другие средства создания учетной записи пользователя Deputy или API, предоставляемые Deputy для подготовки учетных записей пользователя AAD.
@@ -283,9 +264,4 @@ ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
 [203]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

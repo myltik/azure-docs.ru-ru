@@ -1,6 +1,6 @@
 ---
-title: "Набор веб-служб биномиального распределения | Документация Майкрософт"
-description: "Набор биномиального распределения"
+title: "Набор биномиального распределения Azure (устаревшая версия) | Документация Майкрософт"
+description: "Сведения о наборе биномиального распределения (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 82e679e1565bfb18c09ffd30c8b49a69b67e0aeb
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 4d4a343be86909acf054eaaf9cc4a1b0df5a4209
 
 
 ---
-# <a name="binomial-distribution-suite"></a>Набор биномиального распределения
+# <a name="deprecated-binomial-distribution-suite"></a>Набор биномиального распределения (устаревшая версия)
+
+> [!NOTE]
+> Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
+> 
+> Много полезных примеров экспериментов и API можно найти в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Дополнительные сведения о коллекции см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Набор веб-служб биномиального распределения состоит из трех веб-служб ([Биномиальный генератор](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Калькулятор вероятностей](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Калькулятор квантилей](https://datamarket.azure.com/dataset/aml_labs/bdq5)), предназначенных для создания биномиальных распределений и работы с ними. С их помощью можно создать биномиальное распределение любой длины, рассчитать квантили для любой заданной вероятности, а также вероятность — для заданного квантиля. Каждая служба выдает собственный набор выходных данных (см. описание ниже). В основе набора веб-служб биномиального распределения лежит использование функций qbinom, rbinom и pbinom, которые входят в пакет статистических функций языка R. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -289,6 +296,6 @@ ms.openlocfilehash: 82e679e1565bfb18c09ffd30c8b49a69b67e0aeb
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

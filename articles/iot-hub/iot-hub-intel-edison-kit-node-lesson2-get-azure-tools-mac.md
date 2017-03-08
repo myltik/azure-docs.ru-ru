@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов Azure для начального набора Интернета вещей Azure (MacOS 10.10) | Документация Майкрософт"
+title: "Подключение Intel Edison (Node) к Интернету вещей Azure. Урок 2. Получение инструментов Azure (macOS) | Документация Майкрософт"
 description: "Установка Python и интерфейса командной строки Azure (Azure CLI) на компьютер под управлением macOS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65fa0b6a8f0bc9d7131b1ab04e7ef9111a6a88ea
-ms.openlocfilehash: 556726a27e7529bbe87280e9f0419d91fc3189c3
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: a060d4ef335aaab490b2786b6378831b62de3bde
 
 
 ---
@@ -84,6 +84,6 @@ Azure CLI — это кроссплатформенное средство дл�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "регистрация устройств, включить регистрацию устройств, регистрация устройств и MDM"
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -65,7 +66,7 @@ ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
 
 Вам нужно создать запись DNS CNAME, которая указывает на запись A, связанную с вашей службой регистрации устройств Azure Active Directory. Запись CNAME должна использовать хорошо известный префикс enterpriseregistration, за которым следует суффикс имени участника-пользователя, используемый учетными записями пользователей в вашей организации. Если ваша организация использует несколько суффиксов имени участника-пользователя, следует создать несколько записей CNAME в DNS.
 
-Например, если в вашей организации используется два суффикса имени участника-пользователя, @contoso.com и @region.contoso.com,, то вы создадите следующие записи DNS.
+Например, если в вашей организации используются два суффикса имени участника-пользователя, @contoso.com и @region.contoso.com, то вы создадите следующие записи DNS.
 
 | Запись | Тип | Адрес |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
 * [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

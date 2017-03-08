@@ -1,23 +1,23 @@
 ---
-title: "Документация по Azure для государственных организаций | Документация Майкрософт"
+title: "Обзор документации по Azure для государственных организаций | Документация Майкрософт"
 description: "Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 56d84e26-947e-4f3b-8e33-18247f1c7944
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/25/2016
+ms.date: 01/10/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 48f19f5085108b87d22951da049223ef9d4cd188
-ms.openlocfilehash: ea01213d375d93c47b9fa1e710f1e225adb85f92
+ms.sourcegitcommit: 8e5dd57f4ff55e350aebce339f9f723cc6ca917b
+ms.openlocfilehash: 2a1e9c6e001280451ae01330ee659d1e27c2d89a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -95,10 +95,5 @@ Azure для государственных организаций — это ф
 Дополнительные сведения об изоляции в Microsoft Azure см. в [разделе об изоляции руководства по безопасности Azure](/azure-security-getting-started/#isolation).
 
 Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

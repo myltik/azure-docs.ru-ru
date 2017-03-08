@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
-ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -44,8 +45,8 @@ ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 * Зарезервированные единицы работают для параллелизации всей обработки мультимедиа, включая задания индексирования с использованием индексатора мультимедийных данных Azure.  Однако в отличие от кодировки, задания индексирования не будут обрабатываться быстрее при использовании более производительных зарезервированных единиц.
 * При использовании общего пула, т. е. без зарезервированных единиц, задачи кодирования будут иметь такую же производительность, что и с зарезервированными единицами S1. Однако время, которое задачи могут находиться в очереди, не ограничено, и в каждый момент времени будет выполняться не более чем одна задача.
-* Следующие центры обработки данных не предлагают тип **S2** зарезервированных единиц: Южная Бразилия, Западная Индия, Центральная Индия и Южная Индия.
-* Следующие центры обработки данных не предлагают тип **S3** зарезервированных единиц: Южная Бразилия, Западная Индия и Центральная Индия.
+* Следующие центры обработки данных не предлагают тип **S2** зарезервированных единиц: южная Бразилия и западная Индия.
+* Следующий центр обработки данных не предлагает тип **S3** зарезервированной единицы: западная Индия.
 * Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода.
 
 ## <a name="quotas-and-limitations"></a>Квоты и ограничения
@@ -57,7 +58,7 @@ ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Портал](media-services-portal-scale-media-processing.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -68,10 +69,5 @@ ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

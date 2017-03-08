@@ -1,6 +1,6 @@
 ---
 title: "Создание набора записей и записей зоны DNS с помощью PowerShell | Документация Майкрософт"
-description: "Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью PowerShell"
+description: "Как создавать записи узлов для Azure DNS. Настройка наборов записей и записей с помощью PowerShell"
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fe82db80f0efc02809bbd898e990860c7bcce8da
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 67b780d66eac4199b0a2367f575477191542cfa7
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -24,136 +25,96 @@ ms.openlocfilehash: fe82db80f0efc02809bbd898e990860c7bcce8da
 > [!div class="op_single_selector"]
 > * [Портал Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Интерфейс командной строки Azure](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
-В этой статье показано, как создавать записи и наборы записей с помощью Windows PowerShell. После создания зоны DNS следует добавить записи DNS для домена. Для этого сначала требуется изучить DNS-записи и наборы записей.
+В этой статье показано, как создавать записи и наборы записей с помощью Azure PowerShell.
+
+## <a name="introduction"></a>Введение
+
+Чтобы создавать записи DNS в Azure DNS, нужно понимать, как Azure DNS организует записи DNS в соответствующие наборы записей.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## <a name="verify-that-you-have-the-latest-version-of-powershell"></a>Убедитесь, что у вас установлена последняя версия PowerShell.
-
-Убедитесь, что у вас установлена последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Дополнительные сведения о записях DNS в Azure DNS см. в статье [Зоны и записи DNS](dns-zones-records.md).
 
 ## <a name="create-a-record-set-and-record"></a>Создание набора записей и записи
 
-В этом разделе будет описано, как создать запись и набор записей.
+В этом разделе описывается создание записей DNS в Azure DNS. Для работы с примерами необходимо [установить Azure PowerShell, войти в учетную запись и создать зону DNS](dns-getstarted-create-dnszone.md).
 
-### <a name="1-connect-to-your-subscription"></a>1. Подключение к подписке
+Во всех примерах на этой странице используется запись DNS типа A. Сведения о других типах записей и дополнительную информацию об управлении записями DNS и наборами записей см. в статье [Управление записями и наборами записей DNS с помощью PowerShell](dns-operations-recordsets.md).
 
-Откройте консоль PowerShell и подключитесь к своей учетной записи. Для подключения используйте следующий пример.
+Если вы создаете запись с такими же именем и типом, как у существующей записи, эту новую запись нужно [добавить в существующий набор записей](#add-a-record-to-an-existing-record-set). Если имя и тип новой и существующих записей отличаются, вам нужно [создать другой набор записей](#create-records-in-a-new-record-set). 
 
-```powershell
-Login-AzureRmAccount
-```
+### <a name="create-records-in-a-new-record-set"></a>Создание записей в новом наборе записей
 
-Просмотрите подписки учетной записи.
+Для создания наборов записей используется командлет `New-AzureRmDnsRecordSet`. Создавая набор записей, вам нужно определить для него имя, зону, срок жизни (TTL), тип записей и сами создаваемые записи.
 
-```powershell
-Get-AzureRmSubscription
-```
+Чтобы создать набор записей на вершине зоны (в нашем примере — contoso.com), используйте имя записи "@", включая кавычки. Это общее соглашение при работе с DNS.
 
-Укажите подписку, которую нужно использовать.
+В следующем примере создается набор записей с относительным именем www в зоне DNS contoso.com. Полное доменное имя набора записей — www.contoso.com. Тип записи — A, а срок жизни составляет 3600 секунд. Каждый такой набор содержит одну запись с IP-адресом&1;.2.3.4.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
-Дополнительные сведения о работе с PowerShell см. в статье [Manage Azure resources with PowerShell and Resource Manager](../powershell-azure-resource-manager.md) (Управление ресурсами Azure с помощью PowerShell и Resource Manager).
-
-### <a name="2-create-a-record-set"></a>2. Создание набора записей
-
-Для создания наборов записей используется командлет `New-AzureRmDnsRecordSet`. При создании набора записей необходимо указать его имя, зону, срок жизни и тип записей.
-
-Чтобы создать набор записей на вершине зоны (в нашем примере — contoso.com), используйте имя записи "@",, включая кавычки. Это общее соглашение при работе с DNS.
-
-В следующем примере создается набор записей с относительным именем www в зоне DNS contoso.com. Полное доменное имя набора записей — www.contoso.com. Тип записи — "A", а срок жизни составляет 60 секунд. По завершении этого шага будет создан пустой набор записей www, назначенный переменной *$rs*.
+Чтобы создать другой набор, содержащий несколько записей, сначала создайте локальный массив и добавьте записи.  Затем передайте этот массив в `New-AzureRmDnsRecordSet`:
 
 ```powershell
-$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+$aRecords = @()
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4"
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
+New-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-#### <a name="if-a-record-set-already-exists"></a>Если набор записей уже существует
+### <a name="add-a-record-to-an-existing-record-set"></a>Добавление записи в существующий набор записей
 
-Если набор записей уже существует, команда завершится ошибкой, если не указать параметр *-Overwrite* . Параметр *-Overwrite* активирует запрос подтверждения, который можно отменить с помощью параметра *-Force*.
+Чтобы добавить запись в существующий набор записей, сделайте следующее.
 
-```powershell
-$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
+1. Получите существующий набор записей.
+
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
+
+2. Добавьте новую запись в локальный набор записей. Эта операция выполняется в автономном режиме.
+
+    ```powershell
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
+
+3. Зафиксируйте изменения в службе Azure DNS. 
+
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $rs
+    ```
+
+### <a name="verify-name-resolution"></a>Проверка разрешения имен
+
+Записи DNS, представленные на серверах доменных имен Azure DNS, можно проверить с помощью таких средств DNS, как nslookup, dig или [командлет PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+
+Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам нужно [направить запрос DNS непосредственно к одному из серверов доменных имен для вашей зоны](dns-getstarted-create-dnszone.md#test-name-servers). Обязательно вставьте в следующую команду правильные значения для зоны записей:
+
 ```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-В этом примере следует указать зону с помощью имени зоны и имени группы ресурсов. Кроме того, можно указать объект зоны, возвращенный `Get-AzureRmDnsZone` или `New-AzureRmDnsZone`.
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -Zone $zone [-Tag $tags] [-Overwrite] [-Force]
+Name:    www.contoso.com
+Address:  1.2.3.4
 ```
-
-Командлет `New-AzureRmDnsRecordSet` возвращает локальный объект, представляющий набор записей, созданный в Azure DNS.
-
-### <a name="3-add-a-record"></a>3. Добавление записи
-
-Чтобы использовать созданный набор записей www, в него нужно добавить записи. Записи *A* (IPv4) можно добавить в набор записей www с помощью следующего примера. Этот пример основан на переменной *$rs* , заданной на предыдущем шаге.
-
-Добавление записей в набор записей с помощью `Add-AzureRmDnsRecordConfig` — это операция, выполняемая вне сети. Обновляется только локальная переменная *$rs* .
-
-```powershell
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
-```
-
-### <a name="4-commit-the-changes"></a>4. Фиксация изменений
-
-Зафиксируйте изменения в наборе записей. Выполните командлет `Set-AzureRmDnsRecordSet`, чтобы передать изменения набора записей в Azure DNS.
-
-```powershell
-Set-AzureRmDnsRecordSet -RecordSet $rs
-```
-
-### <a name="5-retrieve-the-record-set"></a>5. Извлечение набора записей
-
-Вы можете извлечь набор записей из Azure DNS с помощью команды `Get-AzureRmDnsRecordSet`, как показано ниже.
-
-    Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-
-
-    Name              : www
-    ZoneName          : contoso.com
-    ResourceGroupName : MyAzureResourceGroup
-    Ttl               : 3600
-    Etag              : 68e78da2-4d74-413e-8c3d-331ca48246d9
-    RecordType        : A
-    Records           : {134.170.185.46, 134.170.188.221}
-    Tags              : {}
-
-
-Можно также использовать программу nslookup или другие инструменты DNS для запроса нового набора записей.
-
-Если вы еще не делегировали домен DNS-серверам Azure, то требуется явно указать имя, сервер и адрес для зоны.
-
-    nslookup www.contoso.com ns1-01.azure-dns.com
-
-    Server: ns1-01.azure-dns.com
-    Address:  208.76.47.1
-
-    Name:    www.contoso.com
-    Addresses:  134.170.185.46
-                134.170.188.221
-
-## <a name="create-a-record-set-of-each-type-with-a-single-record"></a>Создание набора записей каждого типа с одной записью
-
-В следующих примерах показано, как создать набор записей каждого типа. Каждый такой набор содержит одну запись.
-
-[!INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Как управлять зонами DNS с помощью PowerShell](dns-operations-dnszones.md)
+[Делегирование домена в Azure DNS](dns-domain-delegation.md)
 
-[Управление записями и наборами записей DNS с помощью PowerShell](dns-operations-recordsets.md)
+Узнайте, как [управлять записями DNS с помощью PowerShell](dns-operations-dnszones.md).
 
-[Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
+Узнайте, как [управлять записями и наборами записей DNS с помощью PowerShell](dns-operations-recordsets.md).
 
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 8424fb5d107935833e9652ef86e03933ea14c26e
 
 
 ---
@@ -28,8 +28,8 @@ ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
 
 * Установите [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Проверьте, установлен ли компонент [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
-* Получите [маркер аутентификации](../resource-group-authenticate-service-principal.md)
-* Создайте группу ресурсов с помощью [Azure PowerShell](../resource-group-template-deploy.md), [Azure CLI](../resource-group-template-deploy-cli.md) или [портала Azure](../resource-group-template-deploy-portal.md).
+* Получите [маркер аутентификации](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Создайте группу ресурсов с помощью [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) или [портала Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 На выполнение этих действий требуется примерно 30 минут.
 
@@ -225,17 +225,19 @@ ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
         using System.IO;
 2. Добавьте в класс Program этот метод, чтобы получить токен, необходимый для создания учетных данных:
 
-     private static async Task<AuthenticationResult> GetAccessTokenAsync()   {
-
-       var cc = new ClientCredential("{client-id}", "{client-secret}");
-       var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-       if (token == null)
-       {
-         throw new InvalidOperationException("Could not get the token.");
-       }
-       return token;
+   ```
+   private static async Task<AuthenticationResult> GetAccessTokenAsync()
+   {
+     var cc = new ClientCredential("{client-id}", "{client-secret}");
+     var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+     var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+     if (token == null)
+     {
+       throw new InvalidOperationException("Could not get the token.");
      }
+     return token;
+   }
+   ```
 
    Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
 3. Чтобы создать учетные данные, добавьте этот код в метод Main в файле Program.cs.
@@ -294,42 +296,44 @@ ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
 
 1. Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
 
-     public static async void DeleteResourceGroupAsync(
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
 
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
 2. Для вызова только что добавленного метода добавьте этот код в метод Main.
 
-     DeleteResourceGroupAsync(
-
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## <a name="step-6-run-the-console-application"></a>Действие 6. Запуск консольного приложения
 1. Чтобы запустить консольное приложение, нажмите кнопку **Запустить** в Visual Studio, а затем войдите в Azure AD с помощью учетных данных, которые вы используете для подписки.
 2. После появления состояния "Принято" нажмите клавишу **ВВОД** .
 
-   На полное выполнение этого консольного приложения потребуется примерно 5 минут. Прежде чем нажать клавишу "ВВОД" и начать удаление ресурсов, потратьте несколько минут и проверьте на портале Azure, созданы ли эти ресурсы.
+   На полное выполнение этого консольного приложения потребуется примерно&5; минут. Прежде чем нажать клавишу "ВВОД" и начать удаление ресурсов, потратьте несколько минут и проверьте на портале Azure, созданы ли эти ресурсы.
 3. Чтобы отобразить состояние ресурсов, на портале Azure откройте раздел журналов аудита.
 
     ![Поиск журналов аудита на портале Azure](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+* При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

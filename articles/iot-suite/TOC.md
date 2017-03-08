@@ -19,6 +19,7 @@
 ## [Подключение приложения логики к решению для удаленного мониторинга](iot-suite-logic-apps-tutorial.md)
 ## [Настройка предварительно настроенного решения](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Использование динамической телеметрии с решением для удаленного мониторинга](iot-suite-dynamic-telemetry.md)
+## [Создание настраиваемого правила в решении для удаленного мониторинга](iot-suite-custom-rule.md)
 ## [Сведения об устройстве в решении для удаленного мониторинга](iot-suite-remote-monitoring-device-info.md)
 
 # Справочные материалы
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

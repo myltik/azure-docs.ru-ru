@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
 * ambariserverlog
 * ambariagentlog
 
-Для кластеров под управлением Windows создается 3 таблицы:
+Для кластеров под управлением Windows создается&3; таблицы:
 
 * setuplog: журнал событий и исключений, произошедших во время подготовки и настройки кластеров HDInsight.
 * hadoopinstalllog: журнал событий и исключений, произошедших во время установки Hadoop в кластере. Эта таблица может быть полезна при решении проблем, связанных с кластерами, созданными с помощью пользовательских параметров.
@@ -141,7 +142,7 @@ Power Query можно установить, зайдя на страницу [w
 ## <a name="hdinsight-error-codes"></a>Коды ошибок HDInsight
 Сообщения об ошибках, перечисленные в этом разделе, призваны помочь пользователям Hadoop в Azure HDInsight понять возможные ошибки, которые могут возникать при администрировании службы с помощью Azure PowerShell, и уведомить их о действиях, которые можно предпринять для устранения таких ошибок.
 
-Некоторые из этих сообщений об ошибке также могут отображаться на портале Azure, когда он используется для управления кластерами HDInsight. Существуют и другие сообщения об ошибках, которые менее подробны в связи с ограниченными возможностями по устранению таких ошибок в данном контексте. В контекстах, где подобные действия осуществимы, выводятся другие сообщения об ошибках. 
+Некоторые из этих сообщений об ошибке также могут отображаться на портале Azure, когда он используется для управления кластерами HDinsight. Существуют и другие сообщения об ошибках, которые менее подробны в связи с ограниченными возможностями по устранению таких ошибок в данном контексте. В контекстах, где подобные действия осуществимы, выводятся другие сообщения об ошибках. 
 
 ### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Описание.** Предоставьте сведения о Базе данных SQL Azure по меньшей мере для одного компонента, чтобы использовать настраиваемые параметры для хранилищ метаданных Hive и Oozie.
@@ -327,10 +328,5 @@ Power Query можно установить, зайдя на страницу [w
 * [Отладка заданий Tez в HDInsight с помощью представлений Ambari](hdinsight-debug-ambari-tez-view.md)
 * [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

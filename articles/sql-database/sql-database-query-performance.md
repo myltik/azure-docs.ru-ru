@@ -1,5 +1,5 @@
 ---
-title: "Анализ производительности запросов базы данных Azure SQL"
+title: "Анализ производительности запросов для Базы данных SQL Azure | Документация Майкрософт"
 description: "Мониторинг производительности запросов определяет запросы, максимально использующие ресурсы процессора, в базе данных SQL Azure."
 services: sql-database
 documentationcenter: 
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -31,7 +33,6 @@ ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Анализ производительности запросов доступен только с базой данных SQL Azure версии 12.
 * Для анализа производительности запросов в базе данных должно быть активно [хранилище запросов](https://msdn.microsoft.com/library/dn817826.aspx) . Если хранилище запросов не запущено, портал подаст запрос на его включение.
 
 ## <a name="permissions"></a>Разрешения
@@ -176,9 +177,9 @@ ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
 
 Для политики отслеживания доступны следующие параметры.
 
-* **All** : фиксируются все запросы.
-* **Auto** : редкие запросы и запросы с незначительным временем компиляции и выполнения игнорируются. Пороговые значения счетчика, а также времени компиляции и выполнения определяются внутренним образом. Это вариант по умолчанию.
-* **Нет** : хранилище запросов прекращает запись новых запросов, однако по-прежнему собирает статистику выполнения уже записанных запросов.
+* **All** — фиксируются все запросы.
+* **Auto** — редкие запросы и запросы с незначительным временем компиляции и выполнения игнорируются. Пороговые значения счетчика, а также времени компиляции и выполнения определяются внутренним образом. Это вариант по умолчанию.
+* **Нет** — хранилище запросов прекращает запись новых запросов, однако по-прежнему собирает статистику выполнения уже записанных запросов.
 
 Рекомендуем выбрать для всех политик параметр AUTO и настроить удаление через 30 дней:
 
@@ -224,10 +225,5 @@ ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
 [7]: ./media/sql-database-query-performance/annotation-details.png
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

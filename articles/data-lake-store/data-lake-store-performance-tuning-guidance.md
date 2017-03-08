@@ -1,10 +1,10 @@
 ---
-title: "Рекомендации по настройке производительности Data Lake Store | Документация Майкрософт"
-description: "Рекомендации по настройке производительности Data Lake Store"
+title: "Рекомендации по настройке производительности Azure Data Lake Store | Документация Майкрософт"
+description: "Рекомендации по настройке производительности Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
-author: nitinme
-manager: jhubbard
+author: stewu
+manager: amitkul
 editor: cgronlun
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
-ms.author: nitinme
+ms.date: 03/06/2017
+ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 30e6dd65fa2643fdf7ec65601d6391891d48566c
-ms.openlocfilehash: 1238f834edc9452a6a9791d9f3db8d8d50a975a7
+ms.sourcegitcommit: af11866fc812cd8a375557b7bf9df5cdc9bba610
+ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -86,17 +87,12 @@ ms.openlocfilehash: 1238f834edc9452a6a9791d9f3db8d8d50a975a7
 
     | Рабочая нагрузка               | Параметры для настройки задач                                                         |
     |--------------------|------------------------------------------------------------------------------------|
-    | Spark в HDInsight       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-    | Hive в HDInsight    | hive.tez.container.size         |
-    | MapReduce в HDInsight            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-    | Storm в HDInsight| <ul><li>Количество рабочих процессов</li><li>Количество экземпляров исполнителей воронки</li><li>Количество экземпляров исполнителей сита </li><li>Количество задач воронки</li><li>Количество задач сита</li></ul>|
+    | [Spark в HDInsight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+    | [Hive в HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
+    | [MapReduce в HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+    | [Storm в HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Количество рабочих процессов</li><li>Количество экземпляров исполнителей воронки</li><li>Количество экземпляров исполнителей сита </li><li>Количество задач воронки</li><li>Количество задач сита</li></ul>|
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

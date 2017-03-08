@@ -69,15 +69,18 @@
 ## [Развертывание виртуальных машин Linux](azure-stack-linux.md)
 ## [Управление обновлениями](azure-stack-updates.md)
 ## [Разработка для Azure Stack](azure-stack-developer.md)
-## Развертывание поставщика ресурсов SQL или MySQL
-### [Использование баз данных MySQL как PaaS в Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
-### [Развертывание адаптера поставщика ресурсов SQL Server в Azure Stack](azure-stack-sql-resource-provider-deploy.md)
+## Предложение SQL или MySQL как PaaS
+### [Развертывание поставщика ресурсов MySQL](azure-stack-mysql-resource-provider-deploy.md)
+### [Развертывание поставщика ресурсов SQL](azure-stack-sql-resource-provider-deploy.md)
 
-## Планирование и развертывание службы приложений
+## Предложение службы приложений как PaaS
 ### [Обзор службы приложений в Azure Stack](azure-stack-app-service-overview.md)
 ### [Необходимые условия](azure-stack-app-service-before-you-get-started.md)
+### [Развертывание поставщика ресурсов службы приложений](azure-stack-app-service-deploy.md)
 ### [Добавление дополнительных рабочих веб-ролей](azure-stack-app-service-add-worker-roles.md)
-### [Добавление поставщика ресурсов службы приложений в Azure Stack](azure-stack-app-service-deploy.md)
+### [Включение публикации FTP](azure-stack-app-service-enable-ftp.md)
+### [Настройка источников развертывания](azure-stack-app-service-configure-deployment-sources.md)
+
 
 # Устранение неполадок
 ## [Устранение неполадок Azure Stack](azure-stack-troubleshooting.md)
@@ -86,8 +89,3 @@
 ## [Инструменты](azure-stack-tools-paas-services.md)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
-
-
-<!--HONumber=Jan17_HO1-->
-
-

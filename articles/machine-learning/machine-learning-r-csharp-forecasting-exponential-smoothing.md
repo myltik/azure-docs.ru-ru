@@ -1,9 +1,9 @@
 ---
-title: "Экспоненциальное сглаживание прогноза | Документация Майкрософт"
-description: "Веб-служба: прогнозирование на основе метода экспоненциального сглаживания"
+title: "Прогнозирование на основе метода экспоненциального сглаживания в Azure (устаревшая версия) | Документация Майкрософт"
+description: "Веб-служба: прогнозирование на основе метода экспоненциального сглаживания (устаревшая версия)."
 services: machine-learning
 documentationcenter: 
-author: xueshanz
+author: yijichen
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2016
-ms.author: xueshzha
+ms.topic: deprecated
+ms.date: 01/06/2017
+ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 712bfc1ec3bf3dcc8ab3de9a3e610ae86b6f4410
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: c3fc7b8d7ba9faf79d80b55514ef09570e0d1655
 
 
 ---
-# <a name="forecasting---exponential-smoothing"></a>Прогнозирование на основе метода экспоненциального сглаживания
+# <a name="deprecated-forecasting---exponential-smoothing"></a>Прогнозирование на основе метода экспоненциального сглаживания (устаревшая версия)
+
+> [!NOTE]
+> Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
+> 
+> Много полезных примеров экспериментов и API можно найти в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Дополнительные сведения о коллекции см. в статье [Поиск ресурсов в коллекции Cortana Intelligence и обмен ими](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Эта [веб-служба](https://datamarket.azure.com/dataset/aml_labs/ets) использует модель экспоненциального сглаживания (ETS) для формирования прогнозов на основе предоставленных пользователем исторических данных. Увеличится ли в этом году спрос на определенный продукт? Могу ли я предсказать объем продаж в сезон Рождества, чтобы эффективно спланировать товарные запасы? Модели прогнозирования позволяют решать такие задачи. Используя прошлые данные в качестве базы, эти модели анализируют скрытые тенденции и сезонные колебания для прогнозирования будущих тенденций.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -90,7 +97,7 @@ ms.openlocfilehash: 712bfc1ec3bf3dcc8ab3de9a3e610ae86b6f4410
 > 
 > 
 
-В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнение скрипта R][execute-r-script], который создает модель прогнозирования ETS с помощью функций ets и forecast языка R. 
+В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнить сценарий R][execute-r-script], который создает модель прогнозирования ETS с помощью функций ets и forecast языка R. 
 
 ![Ход эксперимента][2]
 
@@ -143,6 +150,6 @@ ms.openlocfilehash: 712bfc1ec3bf3dcc8ab3de9a3e610ae86b6f4410
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

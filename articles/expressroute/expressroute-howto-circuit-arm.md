@@ -1,10 +1,10 @@
 ---
-title: "Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов и PowerShell | Документация Майкрософт"
+title: "Создание и изменение канала ExpressRoute с помощью PowerShell и Azure Resource Manager | Документация Майкрософт"
 description: "В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
@@ -14,20 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: ganesr
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
+ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
+ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
+ms.lasthandoff: 02/03/2017
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Создание и изменение канала ExpressRoute
 > [!div class="op_single_selector"]
-> * [Портал Azure — Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell — Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell — классическая модель](expressroute-howto-circuit-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-circuit-arm.md)
+> * [Классическая модель: PowerShell](expressroute-howto-circuit-classic.md)
+> * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 В этой статье объясняется, как создать канал Azure ExpressRoute, используя командлеты Windows PowerShell и модель развертывания диспетчера ресурсов Azure. В этой статье описывается, как проверить состояние канала, обновить его или удалить и отозвать.
 
@@ -38,6 +40,7 @@ ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
 ## <a name="before-you-begin"></a>Перед началом работы
 * Установите последнюю версию модулей Azure PowerShell (не ниже 1.0). Пошаговые инструкции по настройке компьютера для использования модулей PowerShell см. на странице [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Изучите [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
+
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Войдите в учетную запись Azure и выберите подписку.
@@ -81,7 +84,7 @@ ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
 Убедитесь, что указаны правильный уровень SKU и семейство SKU:
 
 * Уровень SKU определяет, какая надстройка включена — ExpressRoute Standard или ExpressRoute Premium. Укажите *Standard*, чтобы получить SKU Standard, или *Premium*, чтобы получить надстройку Premium.
-* Семейство SKU определяет тип выставления счетов. Выберите *Metereddata* для тарифного плана с оплатой за трафик или *Unlimiteddata* для безлимитного тарифного плана. Обратите внимание, что тип выставления счетов можно изменить с *Metereddata* на *Unlimiteddata*, но не наоборот.
+* Семейство SKU определяет тип выставления счетов. Выберите *Metereddata* для тарифного плана с оплатой за трафик или *Unlimiteddata* для безлимитного тарифного плана. Обратите внимание, что тип выставления счетов можно изменить с *Metereddata* на *Unlimiteddata*, но не наоборот. ****
 
 > [!IMPORTANT]
 > Выставление счетов за использование ExpressRoute начинается после того, как клиент получает служебный ключ. Обязательно выполните эту операцию, как только поставщик услуг подключения будет готов предоставить канал.
@@ -376,14 +379,10 @@ ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 После создания канала обязательно выполните действия, описанные в следующих статьях:
 
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

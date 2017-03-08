@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 Кроме того, это средство позволяет также изменить любой из [опубликованных рабочих процессов](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Чтобы получить копию средства конструктора рабочих процессов, обратитесь в службу mepd@microsoft.com.
+> Чтобы получить конструктор рабочих процессов, обратитесь по адресу mepd@microsoft.com.
 > 
 > 
 
@@ -53,7 +54,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 * Простые рабочие процессы — "Hello World"
 * Создание нескольких выходных MP4-файлов для использования в потоковой передаче мультимедиа Azure
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -64,7 +65,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 * Рабочие процессы с расширенной логикой
 * Графические схемы этапов
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -75,7 +76,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 * Ограничения текущего кодировщика
 * Вопросы и ответы
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
@@ -87,14 +88,9 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-Если вам необходима поддержка или ответы на вопросы по созданию пользовательских рабочих процессов в конструкторе, обращайтесь по адресу электронной почты mepd@microsoft.com.
+Если вам необходима поддержка или ответы на вопросы по созданию пользовательских рабочих процессов в конструкторе, обращайтесь по следующему адресу электронной почты: mepd@microsoft.com.
 
 ## <a name="see-also"></a>См. также
 [Учебные видеоматериалы по расширенному рабочему процессу кодировщика служб мультимедиа Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

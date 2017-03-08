@@ -1,5 +1,5 @@
 ---
-title: "Как использовать инспектор API для трассировки вызовов в Azure API Management"
+title: "Трассировка вызовов с помощью инспектора API в службе управления API Azure | Документация Майкрософт"
 description: "Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 36231c3d2c19e129b301b76dfbbc8417b055fbae
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Как использовать инспектор API для трассировки вызовов в Azure API Management
@@ -69,7 +69,7 @@ ms.openlocfilehash: 36231c3d2c19e129b301b76dfbbc8417b055fbae
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-Данные трассировки можно скачать из указанного местоположения и проанализировать, как показано на следующем этапе.
+Данные трассировки можно скачать из указанного местоположения и проанализировать, как показано на следующем этапе. Обратите внимание, что сохраняются только последние 100 записей журнала и расположения журналов повторно используются в порядке очереди. Поэтому если сделано более 100 вызовов с включенной трассировкой, то в конечном счете начнут перезаписываться данные первых трассировок.
 
 ## <a name="inspect-trace"> </a>Проверка данных трассировки
 Для анализа значений трассировки загрузите файл с результатами трассировки, используя URL-адрес **ocp-apim-trace-location** . Это текстовый файл в формате JSON, который содержит записи, подобные на записи в следующем примере.
@@ -265,10 +265,5 @@ ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

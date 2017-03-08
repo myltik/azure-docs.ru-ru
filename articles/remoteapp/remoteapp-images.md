@@ -40,7 +40,7 @@ ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
 
 Ниже описывает содержимое каждого образа.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (стандартный образ)
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 (стандартный образ)
 Этот образ основан на операционной системе Microsoft Windows Server 2012 R2 для центров обработки данных, и в нем установлены следующие роли и функции, обеспечивающие соответствие требованиям образов шаблонов Azure RemoteApp:
 
 * .NET Framework 4.5, 3.5.1, 3.5

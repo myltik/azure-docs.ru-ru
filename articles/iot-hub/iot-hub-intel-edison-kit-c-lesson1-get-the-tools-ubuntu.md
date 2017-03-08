@@ -1,5 +1,5 @@
 ---
-title: "Получение инструментов для начального набора Интернета вещей Azure (Ubuntu 16.04) | Документация Майкрософт"
+title: "Подключение Intel Edison (C) к Интернету вещей Azure. Урок 1. Получение инструментов (Ubuntu) | Документация Майкрософт"
 description: "Скачайте и установите необходимые инструменты и программное обеспечение для работы с примером приложения на устройстве Edison под управлением Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: add691f1349ab27c057263b9aa0561b84fd8f262
-ms.openlocfilehash: dbf1a2c1af218d4285b2e20a5a6914e2b3cf6864
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: d9c7eee6cb104e3ec0b8faa1bb84f8bbe1ce0640
 
 
 ---
@@ -89,6 +89,6 @@ sudo npm install -g gulp
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

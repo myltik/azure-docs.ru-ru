@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с Data Lake Store | Документация Майкрософт"
+title: "Начало работы с Azure Data Lake Store с помощью PowerShell | Документация Майкрософт"
 description: "Использование Azure PowerShell для создания учетной записи хранения озера данных и выполнения базовых операций"
 services: data-lake-store
 documentationcenter: 
@@ -9,14 +9,15 @@ editor: cgronlun
 ms.assetid: bf85f369-f9aa-4ca1-9ae7-e03a78eb7290
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
-ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ebe8724d73769eb55e40b8af2056880a5a4007ce
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -179,7 +180,7 @@ ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
 
 ### <a name="further-tuning"></a>Дополнительные настройки
 
-Вам могут потребоваться дополнительные настройки, так как вы работаете с файлами разного размера. Вычисления выше подходят, если размер всех или большинства файлов больше 10 ГБ или ближе к этому показателю. Однако если у вас есть множество файлов разных размеров (меньше 10 ГБ), можно уменьшить значение параметра PerFileThreadCount. Сделав так, мы увеличим значение ConcurrentFileCount. Таким образом, если предположить, что большая часть файлов меньше 5 ГБ, можно повторно выполнить вычисления:
+Вам могут потребоваться дополнительные настройки, так как вы работаете с файлами разного размера. Вычисления выше подходят, если размер всех или большинства файлов больше 10 ГБ или ближе к этому показателю. Однако если у вас есть множество файлов разных размеров (меньше&10; ГБ), можно уменьшить значение параметра PerFileThreadCount. Сделав так, мы увеличим значение ConcurrentFileCount. Таким образом, если предположить, что большая часть файлов меньше 5 ГБ, можно повторно выполнить вычисления:
 
     PerFileThreadCount = 10 + ((5GB - 2.5GB) / 256MB) = 20
 
@@ -201,10 +202,5 @@ ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Клиентские инструменты службы хранилища Azure | Документация Майкрософт"
+title: "Инструменты для работы со службой хранилища Azure | Документация Майкрософт"
 description: "Список инструментов, позволяющих просматривать данные в службе хранилища Azure и взаимодействовать с ними."
 services: storage
 documentationcenter: 
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Портал Microsoft Azure</a></td>
@@ -109,7 +109,7 @@ ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -154,7 +154,7 @@ ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Обозреватель хранилищ Azure</a></td>
+    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer;</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -255,6 +255,6 @@ ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

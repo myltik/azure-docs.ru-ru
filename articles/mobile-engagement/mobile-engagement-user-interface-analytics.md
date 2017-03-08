@@ -4,7 +4,7 @@ description: "Научитесь анализировать журналы да�
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: d091163f13e6a3415a8a902734e022b6adab5d5a
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -70,9 +71,9 @@ Azure Mobile Engagement предоставляет набор основных �
 4. Этот элемент отображает значения, используемые для вычисления.
 5. Это спарклайн предыдущих значений удержания. Он позволяет просмотреть предыдущие значения, чтобы получить широкое представление о тенденции развития.
 
-## <a name="see-also"></a>Дополнительные материалы
-* [Основные понятия][Link 6]
-* [Руководство по устранению неполадок — служба][Link 24]
+## <a name="see-also"></a>См. также
+* [Основные понятия Azure Mobile Engagement][Link 6]
+* [Поиск и устранение неполадок в службе][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -168,9 +169,4 @@ Azure Mobile Engagement предоставляет набор основных �
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

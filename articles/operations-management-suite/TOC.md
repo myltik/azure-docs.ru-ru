@@ -19,10 +19,6 @@
 ### [Служба Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Сравнение продуктов для мониторинга](operations-management-suite-monitoring-product-comparison.md)
 ### [Управление оповещениями](operations-management-suite-monitoring-alerts.md)
-## Управление
-### [Планирование и развертывание](operations-management-suite-solutions-creating.md)
-### [Automation resources](operations-management-suite-solutions-resources-automation.md) (Ресурсы службы автоматизации)
-### [Представления](operations-management-suite-solutions-resources-views.md)
 ## Автоматизация
 ### [Обзор службы автоматизации Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Архивация
@@ -35,6 +31,11 @@
 ### [Оценка вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Оценка системных обновлений](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Подключение средств обеспечения безопасности](oms-security-connect-products.md)
+## Создание решений
+### [Решения для управления](operations-management-suite-solutions-creating.md)
+### [Automation resources](operations-management-suite-solutions-resources-automation.md) (Ресурсы службы автоматизации)
+### [Поиск по журналам и оповещения](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Представления](operations-management-suite-solutions-resources-views.md)
 ## [Интеграция с OMS](operations-management-suite-integration.md)
 
 
@@ -65,6 +66,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
+ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
 Сейчас обработчик мультимедиа **Azure Media Video Thumbnail** доступен в предварительной версии.
 
 В этой статье приводятся сведения об обработчике **Azure Media Video Thumbnail** и демонстрируется его использование с пакетом SDK служб мультимедиа для .NET.
+
+## <a name="limitations"></a>Ограничения
+
+В некоторых случаях, если видео не состоит из отличающихся сцен, выходными данными будет всего один снимок.
 
 ## <a name="video-summary-example"></a>Пример сводки видео
 Ниже приведены некоторые примеры возможностей обработчика мультимедиа Azure Media Video Thumbnails.
@@ -262,10 +267,5 @@ ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

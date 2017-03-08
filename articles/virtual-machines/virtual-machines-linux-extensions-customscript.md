@@ -1,5 +1,5 @@
 ---
-title: "Пользовательские сценарии на виртуальных машинах Linux | Документация Майкрософт"
+title: "Выполнение пользовательских сценариев на виртуальных машинах Linux в Azure | Документация Майкрософт"
 description: "Автоматизируйте задачи настройки виртуальных машин Linux с помощью расширения пользовательских сценариев"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bf6c1423ca2f88d7a881c87cf1e7d42302c33a9c
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c1ace33461eff30fbd4b277e1397934fe5a98a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -185,7 +186,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
       ]              
     },
     "protectedSettings": {
@@ -207,7 +208,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 Расширение сценариев Azure создает журнал, который можно найти здесь.
 
 ```bash
-/var/log/azure/customscript/handler.log
+/var/log/azure/custom-script/handler.log
 ```
 
 Состояние выполнения для расширения пользовательских сценариев также можно получить с помощью интерфейса командной строки Azure.
@@ -230,10 +231,5 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения о других расширениях сценариев для виртуальной машины см. в статье [Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

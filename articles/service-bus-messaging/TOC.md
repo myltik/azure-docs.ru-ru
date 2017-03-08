@@ -12,7 +12,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-brokered-tutorial-rest.md)
+### [REST](/rest/api/servicebus/queues)
 ## Использование разделов и подписок
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -39,6 +39,7 @@
 ### [Секционированные очереди и разделы](service-bus-partitioning.md)
 ### [Очереди недоставленных сообщений](service-bus-dead-letter-queues.md)
 ### [Обработка транзакций](service-bus-transactions.md)
+### [Журналы диагностики](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -54,7 +55,7 @@
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](service-bus-powershell-how-to-provision.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Исключения](service-bus-messaging-exceptions.md)
 ## [Квоты](service-bus-quotas.md)
@@ -71,10 +72,5 @@
 ## [Обозреватель служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

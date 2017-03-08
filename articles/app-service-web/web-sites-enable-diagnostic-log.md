@@ -4,7 +4,7 @@ description: "Узнайте, как включить ведение журна�
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -286,9 +287,4 @@ Visual Studio Application Insights предоставляет средства �
 ## <a name="whats-changed"></a>Изменения
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Информацию о смене старого портала на новый см. в [справочнике по навигации на портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

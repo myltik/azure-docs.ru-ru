@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
+ms.sourcegitcommit: 488a3c5f0aa05c5b71bf5d72539cbc4b7c6de1b5
+ms.openlocfilehash: 062878ad877b501ce7f0d5c4f8ce9ca939ffe64d
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Руководство. Интеграция Azure Active Directory с Flatter Files
 Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Flatter Files.  
+
 Интеграция Azure AD с Flatter Files обеспечивает следующие преимущества. 
 
 * С помощью Azure AD вы можете контролировать доступ к Flatter Files. 
@@ -36,9 +38,8 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 * подписка Azure AD;
 * подписка с поддержкой единого входа в Flatter Files.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
@@ -48,12 +49,13 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 
 ## <a name="scenario-description"></a>Описание сценария
 Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
 1. Добавление Flatter Files из коллекции 
-2. Настройка и проверка единого входа в Azure AD.
+2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-flatter-files-from-the-gallery"></a>Добавление Flatter Files из коллекции
+## <a name="add-flatter-files-from-the-gallery"></a>Добавление Flatter Files из коллекции
 Чтобы настроить интеграцию Flatter Files с Azure AD, необходимо добавить Flatter Files из коллекции в список управляемых приложений SaaS.
 
 **Как добавить Flatter Files из коллекции**
@@ -75,27 +77,27 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_01.png)
 
-1. В области результатов выберите **Flatter Files** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7. В области результатов выберите **Flatter Files** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_500.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Flatter Files с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Flatter Files соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Flatter Files.  
+Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в Flatter Files соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Flatter Files.  
+
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Flatter Files.
 
 Чтобы настроить и проверить единый вход Azure AD в Flatter Files, вам потребуется выполнить следующие действия.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Flatter Files](#creating-a-halogen-software-test-user)** требуется для создания во Flatter Files пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 Цель этого раздела — включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложение Flatter Files. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
-
 Для настройки единого входа в приложение Flatter Files вам потребуется зарегистрированный домен. Если у вас нет зарегистрированного домена, обратитесь в службу поддержки Flatter Files по адресу [support@flatterfiles.com](mailto:support@flatterfiles.com).  
 
 **Как настроить единый вход Azure AD в Flatter Files**
@@ -104,24 +106,19 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
    
     ![Настройка единого входа][6] 
 2. На странице **Как пользователи должны входить в Flatter Files?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_02.png) 
+       ![Настройка единого входа](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_02.png) 
 3. На странице диалогового окна **Настроить параметры приложения** нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_03.png) 
+   >[!NOTE]
+   >Приложение Flatter Files использует один и тот же URL-адрес единого входа для всех клиентов: [https://www.flatterfiles.com/site/login/sso/](https://www.flatterfiles.com/site/login/sso/).
+   > 
    
-   > [!NOTE]
-   > Приложение Flatter Files использует один и тот же URL-адрес единого входа для всех клиентов: [https://www.flatterfiles.com/site/login/sso/](https://www.flatterfiles.com/site/login/sso/).
-   > .
-   > 
-   > 
 4. На странице **Настройка единого входа в Flatter Files** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_04.png)  
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
+    1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+    2. Нажмите кнопку **Далее**.
 5. Войдите в приложение Flatter Files с правами администратора.
 6. Щелкните элемент Панель мониторинга. 
    
@@ -129,33 +126,24 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 7. Выберите элемент **Settings** (Параметры), а затем выполните следующие действия на вкладке **Company** (Компания). 
    
     ![Настройка единого входа](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_06.png)  
-   
-    а. Установите флажок **Use SAML 2.0 For Authentication**(Использовать SAML 2.0 для проверки подлинности).
-   
-    b. Нажмите кнопку **Configure SAML** (Настроить SAML).
+    1. Установите флажок **Use SAML 2.0 For Authentication**(Использовать SAML 2.0 для проверки подлинности).
+    2. Нажмите кнопку **Configure SAML** (Настроить SAML).
 8. В диалоговом окне **SAML Configuration** (Настройка SAML) выполните следующие действия. 
    
     ![Настройка единого входа](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_08.png)  
+   1. В поле Domain (Домен) укажите свой зарегистрированный домен.
    
-    а. В поле Domain (Домен) укажите свой зарегистрированный домен.
-   
-   > [!NOTE]
-   > Если у вас нет зарегистрированного домена, обратитесь в службу поддержки Flatter Files по адресу [support@flatterfiles.com](mailto:support@flatterfiles.com).
-   > 
-   > 
-   
-    b. На классическом портале Azure в диалоговом окне "Настройка единого входа в Flatter Files" скопируйте URL-адрес службы единого входа и вставьте его в текстовое поле "URL-адрес поставщика удостоверений".
-   
-    c.  Создайте файл **в кодировке Base-64** из скачанного сертификата.  
-   
-   > [!TIP]
-   > Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
-   > 
-   > 
-   
-    d.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте содержимое сертификата в буфер обмена, а затем вставьте его в текстовое поле **FlatterFiles Identity Provider Certificate** (Сертификат поставщика удостоверений FlatterFiles).
-   
-    д. Нажмите кнопку **Обновить**.
+    >[!NOTE]
+    >Если у вас нет зарегистрированного домена, обратитесь в службу поддержки Flatter Files по адресу [support@flatterfiles.com] (mailto:support@flatterfiles.com). 
+    >    
+   2. На классическом портале Azure в диалоговом окне "Настройка единого входа в Flatter Files" скопируйте URL-адрес службы единого входа и вставьте его в текстовое поле "URL-адрес поставщика удостоверений".
+   3.  Создайте файл в кодировке **Base-64** из загруженного сертификата.  
+ 
+   >[!TIP]
+   >Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+   >  
+   4.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте содержимое сертификата в буфер обмена, а затем вставьте его в текстовое поле **FlatterFiles Identity Provider Certificate** (Сертификат поставщика удостоверений FlatterFiles).
+   5. Нажмите кнопку **Обновить**.
 9. На классическом портале Azure AD выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**. 
    
     ![единого входа Azure AD][10]
@@ -163,7 +151,7 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
     
      ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -183,36 +171,27 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. 
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_05.png)  
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+   1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+   2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+   3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. 
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   д. Нажмите кнопку **Далее**.
+   1. В текстовом поле **Имя** введите **Britta**.  
+   2. В текстовом поле **Фамилия** введите **Simon**.
+   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+   4. В списке **Роль** выберите **Пользователь**.
+   5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите кнопку **Завершить**.   
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_08.png) 
+   1. Запишите значение поля **Новый пароль**.
+   2. Нажмите **Завершено**.   
 
-### <a name="creating-a-flatter-files-test-user"></a>Создание тестового пользователя Flatter Files
+### <a name="create-a-flatter-files-test-user"></a>Создание тестового пользователя Flatter Files
 Цель этого раздела — создать пользователя с именем Britta Simon в Flatter Files.
 
 **Как создать пользователя с именем Britta Simon в Flatter Files**
@@ -225,16 +204,12 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 4. На странице **Добавление пользователя** выполните следующие действия.
    
     ![Создание пользователя Flatter Files](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_10.png)
-   
-    а. В текстовом поле **Имя** введите **Britta**.
-   
-    b. В текстовом поле **Фамилия** введите **Simon**. 
-   
-    В. В текстовом поле **Email Address** (Адрес электронной почты) введите адрес электронной почты пользователя Britta Simon на классическом портале Azure.
-   
-    d. Нажмите кнопку **Submit**(Отправить).   
+   1. В текстовом поле **Имя** введите **Britta**.
+   2. В текстовом поле **Фамилия** введите **Simon**. 
+   3. В текстовом поле **Email Address** (Адрес электронной почты) введите адрес электронной почты пользователя Britta Simon на классическом портале Azure.
+   4. Нажмите кнопку **Submit**(Отправить).   
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Flatter Files.
 
 ![Назначение пользователя][200] 
@@ -255,8 +230,9 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+### <a name="test-single-sign-on"></a>Проверка единого входа
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+
 Щелкните элемент Flatter Files на панели доступа, чтобы автоматически войти в приложение Flatter Files.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
@@ -285,10 +261,5 @@ ms.openlocfilehash: 6f340a4f1c347fafb8d5faa5a35121b5943204bd
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

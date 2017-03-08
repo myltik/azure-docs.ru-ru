@@ -13,11 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cf0baa0bb9dab87a3ac0376a0aa115dca198f790
-ms.openlocfilehash: 82a7dc272d101e6c608209121f3edf1062ad1b5f
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -34,6 +35,10 @@ ms.openlocfilehash: 82a7dc272d101e6c608209121f3edf1062ad1b5f
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Hadoop в кластере HDInsight. Будут работать кластеры либо под управлением Linux, либо под управлением Windows.
+
+  > [!IMPORTANT]
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL представляет собой клиентское приложение JDBC.
 
 Чтобы собрать и запустить пример приложения Java, используемый в этой статье, вам потребуется следующее.
@@ -77,7 +82,7 @@ SQuirreL SQL — клиент JDBC, который можно использов
             Замените **USERNAME** именем учетной записи пользователя SSH для кластера. Замените **CLUSTERNAME** именем кластера HDInsight.
         
         > [!NOTE]
-        > В средах Windows необходимо использовать служебную программу PSCP вместо scp. Ее можно скачать со страницы [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+        > В средах Windows может не быть команды `scp`. В этом случае используйте служебную программу PSCP. Ее можно скачать со страницы [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * Чтобы скачать JAR-файлы, для **HDInsight под управлением Windows** сделайте следующее.
      
@@ -191,10 +196,5 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

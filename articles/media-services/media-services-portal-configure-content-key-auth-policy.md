@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 096d67dc4880f4c0a50e3981485dbe2d8f4c22a7
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -39,7 +40,7 @@ ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
 [Настройка политики авторизации ключей содержимого с помощью интерфейсов REST API служб мультимедиа](media-services-rest-configure-content-key-auth-policy.md)
 
 ### <a name="some-considerations-apply"></a>Важные особенности
-* Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Чтобы узнать больше, ознакомьтесь с [масштабированием службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+* При создании учетной записи AMS в нее добавляется конечная точка потоковой передачи **по умолчанию** в состоянии **Остановлена**. Чтобы начать потоковую передачу содержимого и воспользоваться динамической упаковкой и динамическим шифрованием, конечная точка потоковой передачи должна находиться в состоянии **Выполняется**. 
 * Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительные сведения см. в статье о [кодировании ресурсов](media-services-encode-asset.md).
 * Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут.  Если создать политику ContentKeyAuthorizationPolicy и задать для нее ограничение "по маркеру", а затем протестировать ее, то последующее обновление для использования ограничения "открытая" займет примерно 15 минут.
 
@@ -77,7 +78,7 @@ ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-Вы можете нажать кнопку **импорт XML-файла политики** и выбрать другой XML-файл, который соответствует XML-схеме, определенной [здесь](https://msdn.microsoft.com/library/azure/dn783459.aspx).
+Вы можете нажать кнопку **импорт XML-файла политики** и выбрать другой XML-файл, который соответствует XML-схеме, определенной [здесь](media-services-playready-license-template-overview.md).
 
 ## <a name="next-step"></a>Дальнейшие действия
 Просмотрите схемы обучения работе со службами мультимедиа.
@@ -89,10 +90,5 @@ ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

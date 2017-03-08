@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bf29d754d365320c35cdd44e2116a8b5beb3a27e
+ms.sourcegitcommit: 12868706693a076ead3cfc13ce5901bbc56d588b
+ms.openlocfilehash: 961aef8496a7de264c5d57c7a990c69996c1527e
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -35,88 +36,92 @@ ms.openlocfilehash: bf29d754d365320c35cdd44e2116a8b5beb3a27e
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Scenario")
+![Сценарий](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-panorama9"></a>Включение интеграции приложений для Panorama9
 В этом разделе показано, как включить интеграцию приложений для Panorama9.
 
-### <a name="to-enable-the-application-integration-for-panorama9-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Panorama9, выполните следующие действия:
+**Чтобы включить интеграцию приложений для Panorama9, выполните следующие действия:**
+
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-panorama9-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-panorama9-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-panorama9-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-panorama9-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-panorama9-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-panorama9-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-panorama9-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Panorama9**.
    
-   ![Коллекция приложений](./media/active-directory-saas-panorama9-tutorial/IC790017.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-panorama9-tutorial/IC790017.png "Коллекция приложений")
 7. В области результатов выберите **Panorama9** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
    
-   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configuring-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Panorama9 со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
-Чтобы настроить единый вход для Panorama9, необходимо извлечь значение отпечатка из сертификата.  
-Если вы не знакомы с этой процедурой, посмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+Чтобы настроить единый вход для Panorama9, необходимо извлечь значение отпечатка из сертификата.  
+
+Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
+
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На странице интеграции с приложением **Panorama9** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Panorama9?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Настройка единого входа")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Panorama9** введите URL-адрес, используемый вашими пользователями для входа в Panorama9 (например, *https://dashboard.panorama9.com/saml/access/3262*), и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Panorama9** нажмите кнопку **Скачать сертификат**, а затем сохраните сертификат локально на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на сайт Panorama9 своей компании в качестве администратора.
 6. На панели инструментов вверху щелкните **Manage** (Управление), затем щелкните **Extensions** (Расширения).
    
-   ![расширения.](./media/active-directory-saas-panorama9-tutorial/IC790023.png "Extensions")
+   ![Расширения](./media/active-directory-saas-panorama9-tutorial/IC790023.png "Расширения")
 7. В диалоговом окне **Extensions** (Расширения) щелкните **Single Sign-On** (Единый вход).
    
-   ![Единый вход](./media/active-directory-saas-panorama9-tutorial/IC790024.png "Single Sign-On")
+   ![Единый вход](./media/active-directory-saas-panorama9-tutorial/IC790024.png "Единый вход")
 8. В разделе **Параметры** выполните следующие действия.
    
-   ![Параметры](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
+   ![Параметры](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Параметры")
    
    1. На странице **Настройка единого входа в Panorama9** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **Identity provider URL** (URL-адрес поставщика удостоверений).
-   2. Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Certificate fingerprint** (Отпечаток сертификата).  
+   2. Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Certificate fingerprint** (Отпечаток сертификата).    
+   
+      >[!TIP]
+      >Дополнительные сведения см. в статье [Практическое руководство. Извлечение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
+      > 
       
-      > [!TIP]
-      > Дополнительные сведения можно найти в видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI)
-      > 
-      > 
    3. Щелкните **Сохранить**.
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Настройка единого входа")
    
-   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
 Чтобы пользователи Azure AD могли выполнять вход в Panorama9, они должны быть подготовлены для Panorama9.  
 В случае с Panorama9 подготовка выполняется вручную.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+**Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.**
 1. Выполните вход на сайт компании **Panorama9** в качестве администратора.
 2. На панели инструментов вверху нажмите **Manage** (Управление), а затем **Users** (Пользователи).
    
-   ![Пользователи](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Users")
+   ![Пользователи](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Пользователи")
 3. В нижней части страницы нажмите кнопку **+**.
 4. В разделе «Данные пользователя» выполните следующие действия:
    
-   ![Пользователи](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Users")
+   ![Пользователи](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Пользователи")
    
    1. В текстовом поле **Электронная почта** введите электронный адрес действующего пользователя Azure Active Directory, которого вы хотите подготовить.
    2. Щелкните **Сохранить**.
@@ -124,25 +129,21 @@ ms.openlocfilehash: bf29d754d365320c35cdd44e2116a8b5beb3a27e
 > [!NOTE]
 > Вы можете использовать любые другие инструменты создания учетных записей пользователя Panorama9 или API, предоставляемые Panorama9 для подготовки учетных записей пользователя AAD.
 > 
-> 
+
 
 ## <a name="assigning-users"></a>Назначение пользователей
-Чтобы проверить свою конфигурацию, предоставьте доступ пользователям Azure AD, которые должны использовать приложение, назначив их.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-panorama9-perform-the-following-steps"></a>Чтобы назначить пользователей Panorama9, выполните следующие действия:
+**Чтобы назначить пользователей Panorama9, выполните следующие действия:**
+
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Panorama9** щелкните **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

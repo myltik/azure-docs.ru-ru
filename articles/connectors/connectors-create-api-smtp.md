@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e70351bda39d58b653273a5c3a795a1c6048c2c
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 3a0fdef111fbd4a9f7491e247f2236cf70b89dca
 
 
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Начало работы с соединителем SMTP
 Подключение к SMTP для отправки электронной почты.
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-smtp"></a>Подключение к SMTP
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой. Например, чтобы подключиться к SMTP, сначала необходимо создать *подключение* к SMTP. Чтобы создать подключение, необходимо ввести учетные данные, которые обычно используются для доступа к определенной службе. Таким образом, чтобы создать подключение к SMTP, потребуется ввести имя подключения, адрес SMTP-сервера и учетные данные для входа. Дополнительные сведения о подключениях см. [здесь]().  
@@ -35,7 +35,7 @@ ms.openlocfilehash: 7e70351bda39d58b653273a5c3a795a1c6048c2c
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Использование триггера SMTP
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Так как SMTP не предоставляет триггеры, мы используем триггер **Salesforce - When an object is created** (Salesforce — при создании объекта). Он будет активироваться при создании объекта в Salesforce. В нашем примере мы настроим триггер таким образом, чтобы при каждом создании интереса в Salesforce выполнялось действие *Send Email* через соединитель SMTP. При этом будет отправляться уведомление об этом интересе.
 
@@ -49,7 +49,7 @@ ms.openlocfilehash: 7e70351bda39d58b653273a5c3a795a1c6048c2c
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>Использование действия SMTP
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Теперь, когда триггер добавлен, выполните следующие действия, чтобы добавить действие SMTP, которое будет выполняться при создании интереса в Salesforce.
 
@@ -116,11 +116,11 @@ SMTP предоставляет следующее действие:
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

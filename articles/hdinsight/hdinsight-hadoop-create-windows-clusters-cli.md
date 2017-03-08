@@ -1,6 +1,6 @@
 ---
 title: "Создание кластеров Hadoop под управлением Windows в HDInsight с помощью интерфейса командной строки Azure"
-description: "Научитесь создавать кластеры для Azure HDInsight с помощью интерфейса командной строки Azure."
+description: "Узнайте, как создавать кластеры Hadoop под управлением Windows для Azure HDInsight с помощью интерфейса командной строки Azure."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
+ms.lasthandoff: 02/07/2017
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-cli"></a>Создание кластеров Hadoop под управлением Windows в HDInsight с помощью интерфейса командной строки Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Научитесь создавать кластеры HDInsight с использованием интерфейса командной строки Azure Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
+Узнайте, как создавать кластеры Hadoop под управлением Windows в HDInsight с помощью интерфейса командной строки Azure. 
+
+> [!IMPORTANT]
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Эта статья посвящена только кластерам HDInsight под управлением Windows. Сведения о создании кластеров под управлением Linux см. в статье [Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="prerequisites"></a>Предварительные требования:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +39,7 @@ ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Интерфейс командной строки Azure**.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Требования к контролю доступа
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,7 +51,7 @@ ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
 
 Дополнительные сведения об аутентификации с помощью рабочей или учебной учетной записи см. в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
 
-Выполните следующую команду, чтобы переключиться в режим ARM:
+Переключитесь в режим Azure Resource Manager с помощью следующей команды:
 
     azure config mode arm
 
@@ -55,9 +60,9 @@ ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
     azure hdinsight cluster create -h
 
 ## <a name="create-clusters"></a>Создание кластеров
-Для создания кластера HDInsight необходимо иметь службу управления ресурсами Azure (ARM) и учетную запись хранилища больших двоичных объектов Azure. Чтобы создать кластер HDInsight, необходимо указать следующее:
+Для создания кластера HDInsight необходимо иметь группу управления ресурсами и учетную запись хранилища BLOB-объектов Azure. Чтобы создать кластер HDInsight, необходимо указать следующее:
 
-* **Группа ресурсов Azure**: необходимо создать учетную запись аналитики озера данных в группе "Ресурс Azure". Диспетчер ресурсов Azure позволяет вам работать с ресурсами в приложении в виде группы. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.
+* **Группа ресурсов Azure**. В группе ресурсов Azure необходимо создать учетную запись Data Lake Analytics. Диспетчер ресурсов Azure позволяет вам работать с ресурсами в приложении в виде группы. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.
   
     Для перечисления групп ресурсов в своей подписке выполните следующие действия.
   
@@ -80,7 +85,7 @@ ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
   > 
   > 
   
-    Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Создание, управление и удаление учетной записи хранения][azure-create-storageaccount].
+    Сведения о создании учетной записи хранения Azure с помощью портала Azure см. в статье [Создание, управление и удаление учетной записи хранения][azure-create-storageaccount].
   
     Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
   
@@ -127,18 +132,13 @@ ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
 
 Общие сведения о действиях скрипта см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
 
-## <a name="create-clusters-using-arm-templates"></a>Создание кластеров с помощью шаблонов ARM
-Интерфейс командной строки можно использовать для создания кластеров с помощью вызова шаблонов ARM. См. статью [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+## <a name="create-clusters-using-resource-manager-templates"></a>Создание кластеров с помощью шаблонов Resource Manager
+Интерфейс командной строки можно использовать для создания кластеров с помощью вызова шаблонов Azure Resource Manager. См. статью [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
 * [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md) — узнайте, как программными средствами отправлять задания в HDInsight.
 * [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure](hdinsight-administer-use-command-line.md)
-* [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](../virtual-machines-command-line-tools.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 

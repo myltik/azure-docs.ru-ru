@@ -1,5 +1,5 @@
 ---
-title: "Часто задаваемые вопросы о виртуальных машинах Windows | Документация Майкрософт"
+title: "Часто задаваемые вопросы о виртуальных машинах Windows в Azure | Документация Майкрософт"
 description: "В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Windows, созданных с помощью модели Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 01/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
+ms.sourcegitcommit: cfc58b84ccd671b3a34a399bad11d15c9bc3b713
+ms.openlocfilehash: f338a124537090894773bb6fce1052fc7f590a33
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -46,12 +47,12 @@ ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
 
 При наличии приложения, для которого необходимо использовать букву диска D, можно переназначить буквы дисков, чтобы для временного диска использовался диск, отличный от D. Указания см. в статье [Изменение буквы диска для временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
+
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Как изменить букву временного диска?
 Можно изменить букву диска, переместив файл подкачки и переназначив буквы дисков, но эти действия нужно выполнять в строго определенном порядке. Указания см. в статье [Изменение буквы диска для временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="can-i-add-an-existing-vm-to-an-availability-set"></a>Можно ли добавить существующую виртуальную машину в группу доступности?
 Нет. Чтобы виртуальная машина была частью группы доступности, ее необходимо создать в группе. Добавлять виртуальные машины в группу доступности после создания пока невозможно.
-
 ## <a name="can-i-upload-a-virtual-machine-to-azure"></a>Можно ли передать виртуальную машину в Azure?
 Да. Указания см. в статье [Отправка образа виртуальной машины Windows в Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -62,11 +63,11 @@ ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
 Да. Указания см. в статье [Как создать копию виртуальной машины Windows в модели развертывания диспетчера ресурсов](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Почему в Azure Resource Manager не отображаются регионы центральной и восточной Канады?
+
 При создании виртуальных машин в существующих подписках Azure эти два новых региона не регистрируются автоматически. Регистрация осуществляется автоматически при развертывании виртуальной машины на портале Azure в любом другом регионе с помощью Azure Resource Manager. После развертывания виртуальной машины в любом другом регионе Azure новые регионы станут доступными для последующих виртуальных машин.
 
 ## <a name="does-azure-support-linux-vms"></a>Поддерживает ли Azure виртуальные машины Linux?
 Да. Чтобы быстро создать пробную виртуальную машину Linux, см. статью [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Создав виртуальную машину, могу я добавить к ней сетевой адаптер?
 Нет. Добавить сетевую карту можно только во время создания.
 
@@ -74,18 +75,18 @@ ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
 Да. Длина имени компьютера не должна превышать 15 знаков. Дополнительные сведения об именовании ресурсов см. в статье [Рекомендации по именованию для инфраструктуры](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Какие требования к имени пользователя при создании виртуальной машины?
+
 Длина имени пользователя не должна превышать 20 знаков. Также оно не должно заканчиваться точкой ("."). 
 
-Не допускаются следующие имена пользователей:
 
+Не допускаются следующие имена пользователей:
 <table>
     <tr>
         <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
     </tr>
     <tr>
         <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>
-    <tr>
+    </tr>    <tr>
         <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
@@ -106,7 +107,7 @@ ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
 </table>
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Какие требования к паролю при создании виртуальной машины?
-Длина пароля должна быть от 8 до 123 знаков. Также должны удовлетворяться 3 из следующих 4 требований сложности:
+Длина пароля должна быть от 12 до 123 знаков. Также должны выполняться 3 из следующих 4 требований сложности:
 
 * используются строчные знаки;
 * используются прописные знаки;
@@ -117,15 +118,18 @@ ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
 
 <table>
     <tr>
-        <td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+        <td>abc@123 </td>
+        <td>P@$$w0rd </td>
+        <td>P@ssw0rd </td>
+        <td>P@ssword123 </td>
+        <td>Pa$$word </td>
     </tr>
     <tr>
-        <td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+        <td>pass@word1 </td>
+        <td>Password! </td>
+        <td>Password1 </td>
+        <td>Password22 </td>
+        <td>iloveyou! </td>
     </tr>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

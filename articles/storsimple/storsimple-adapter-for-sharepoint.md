@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 07/11/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6ad7aa62fec678d94898b6f749d51e25e99b4d1f
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -272,9 +273,4 @@ ms.openlocfilehash: 6ad7aa62fec678d94898b6f749d51e25e99b4d1f
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

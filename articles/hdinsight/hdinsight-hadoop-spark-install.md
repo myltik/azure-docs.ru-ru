@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1eaea8001477be2ef2ef788bdf1f1bffcf19efe9
+ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
+ms.openlocfilehash: 4fa808b50b56122976cc176c55937f9443f31097
 
 
 ---
-# <a name="install-and-use-spark-on-hdinsight-hadoop-clusters-using-script-action"></a>Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария
+# <a name="install-and-use-spark-on-windows-based-hdinsight-clusters-using-script-action"></a>Установка и использование Spark в кластерах HDInsight под управлением Windows с помощью действия сценария
+
 > [!IMPORTANT]
-> Теперь эта статья считается устаревшей. Теперь HDInsight предоставляет Spark как тип кластера первого класса для кластеров на основе Windows. Это означает, что теперь можно создать кластер Spark без изменения кластера Hadoop с помощью действия сценария. С помощью типа кластера Spark вы получаете кластер HDInsight версии 3.2 с версией Spark 1.3.1.  Для установки различных версий Spark можно использовать действие сценария. В HDInsight есть пример действия сценария.
->
->
+> Теперь эта статья считается устаревшей. Теперь HDInsight предоставляет Spark как тип кластера первого класса для кластеров под управлением Linux. Это означает, что теперь можно создать кластер Spark без изменения кластера Hadoop с помощью действия сценария. Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Научитесь устанавливать Spark на кластер HDInsight под управлением Windows с помощью действия сценария и выполнять запросы Spark на кластерах HDInsight.
 
@@ -32,7 +31,7 @@ ms.openlocfilehash: 1eaea8001477be2ef2ef788bdf1f1bffcf19efe9
 
 * [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md) — общие сведения о создании кластеров HDInsight.
 * [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md) — создание кластера Spark в HDInsight.
-* [Настройка кластеров HDInsight под управлением Windows с помощью действия скрипта][hdinsight-cluster-customize] — общие сведения о настройке кластеров HDInsight с помощью действия скрипта.
+* [Настройка кластера HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария.
 * [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-spark"></a>Что такое Spark?
@@ -52,8 +51,6 @@ Spark также может использоваться для выполнен
 
 > [!NOTE]
 > Пример сценария работает только с кластером HDInsight версии 3.1 и 3.2. Дополнительную информацию о версиях кластера HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight](hdinsight-component-versioning.md).
->
->
 
 1. Начните создание кластера с помощью параметра **Настраиваемое создание**, как описано в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md). Выберите необходимую версию кластера в соответствии со следующими требованиями.
 
@@ -61,7 +58,7 @@ Spark также может использоваться для выполнен
    * Если вы хотите установить **Spark 1.0.2**, создайте кластер HDInsight 3.1.
 2. На странице **Действия скрипта** мастера щелкните **Добавить действие скрипта** для предоставления сведений о данном действии скрипта, как показано ниже.
 
-    ![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
+    ![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Использование действия сценария для настройки кластера")
 
     <table border='1'>
         <tr><th>Свойство</th><th>Значение</th></tr>
@@ -187,19 +184,15 @@ Spark SQL позволяет использовать Spark для выполн�
 
         libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
-
-
-    >[AZURE.NOTE] Убедитесь, что в файле сохранились пустые строки.
-
+    > [!NOTE]
+    > Убедитесь, что в файле сохранились пустые строки.
 
 1. В папке **SimpleScalaApp** создайте структуру каталогов **\src\main\scala** и вставьте программу Scala (**SimpleApp.scala**), созданную ранее в папке \src\main\scala.
 2. Откройте командную строку, перейдите в каталог SimpleScalaApp и введите следующую команду:
 
         sbt package
 
-
     После компиляции приложения появится файл **simpleapp_2.10-1.0.jar**, созданный в каталоге **\target\scala-2.10** корневой папки SimpleScalaApp.
-
 
 #### <a name="run-the-job-on-the-cluster"></a>Запустите задание на кластере.
 В этом разделе содержатся указания по удаленному подключению к кластеру со Spark и последующему копированию конечной папки проекта SimpleScalaApp. Вы можете использовать команду **spark-submit** для отправки задания в кластер.
@@ -215,33 +208,41 @@ Spark SQL позволяет использовать Spark для выполн�
         Lines with a: 21374, Lines with b: 11430
 
 ## <a name="install-spark-using-azure-powershell"></a>Установка Spark с помощью Azure PowerShell
-В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов Azure PowerShell для HDInsight см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов Azure PowerShell для HDInsight см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Выполните следующие действия:
 
 1. Откройте окно Azure PowerShell и объявите следующие переменные:
 
-        # Provide values for these variables
-        $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
-        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-        $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
-        $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
-        $containerName = $clusterName
-        $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
-        $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+    ```powershell
+    # Provide values for these variables
+    $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
+    $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
+    $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
+    $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
+    $containerName = $clusterName
+    $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
+    $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
+    $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+    ```
+
 2. Укажите такие значения настройки, как узлы в кластере и хранилище для использования по умолчанию.
 
-        # Specify the configuration options
-        Select-AzureSubscription $subscriptionName
-        $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-        $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-        $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-        $config.DefaultStorageAccount.StorageContainerName=$containerName
+    ```powershell
+    # Specify the configuration options
+    Select-AzureSubscription $subscriptionName
+    $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
+    $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
+    $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
+    $config.DefaultStorageAccount.StorageContainerName=$containerName
+    ```
+
 3. Используйте командлет **Add-AzureHDInsightScriptAction** , чтобы добавить действие сценария в конфигурацию кластера. Позже, а именно при создании кластера, действие сценария начнет выполняться.
 
-        # Add a script action to the cluster configuration
-        $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+    ```powershell
+    # Add a script action to the cluster configuration
+    $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+    ```
 
     **Add-AzureHDInsightScriptAction** принимает следующие параметры:
 
@@ -266,10 +267,12 @@ Spark SQL позволяет использовать Spark для выполн�
     <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры, необходимые для скрипта. В приведенном примере сценария не требуется задавать параметры, поэтому этот параметр не указан в приведенном выше фрагменте кода.
     </td></tr>
     </table>
-4. Наконец, приступите к созданию настроенного кластера с установленным Spark.  
+4. Наконец, приступите к созданию настроенного кластера с установленным Spark.
 
-        # Start creating a cluster with Spark installed
-        New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+    ```powershell
+    # Start creating a cluster with Spark installed
+    New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+    ```
 
 При появлении запроса введите учетные данные для кластера. Создание кластера может занять несколько минут.
 
@@ -282,19 +285,19 @@ Spark SQL позволяет использовать Spark для выполн�
 ## <a name="see-also"></a>Дополнительные материалы
 * [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md) — сведения о создании кластеров HDInsight.
 * [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md) — сведения о начале работы с Spark в HDInsight.
-* [Настройка кластеров HDInsight под управлением Windows с помощью действия скрипта][hdinsight-cluster-customize] — сведения о настройке кластеров HDInsight с помощью действия скрипта.
+* [Настройка кластера HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Настройка кластеров HDInsight с помощью действия сценария.
 * [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions.md) — сведения о разработке действий скриптов.
-* [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r] — инструкции по применению настройки кластера для установки и использования R в кластерах HDInsight Hadoop. R — это открытый язык программирования и свободная программная среда для статистических вычислений. Он предоставляет сотни встраиваемых статистических функций и собственный язык программирования, который сочетает аспекты функционального и объектно-ориентированного программирования. Этот проект также обеспечивает обширные графические возможности.
+* Статья [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r] содержит указания по применению настройки кластера для установки и использования R в кластерах HDInsight Hadoop. R — это открытый язык программирования и свободная программная среда для статистических вычислений. Он предоставляет сотни встраиваемых статистических функций и собственный язык программирования, который сочетает аспекты функционального и объектно-ориентированного программирования. Этот проект также обеспечивает обширные графические возможности.
 * [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Используйте настройки кластера для установки Giraph в кластерах HDInsight Hadoop. Giraph позволяет выполнять обработку графов с использованием Hadoop и может использоваться с Azure HDInsight.
 * [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

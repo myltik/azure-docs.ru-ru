@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
 
 
 ---
@@ -26,20 +26,20 @@ ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
 ## <a name="how-do-i-find-and-change-the-settings"></a>Как можно найти и изменить параметры?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-   
+
    ![Открытие страницы "Управление пользователями"](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Все группы**.
-   
+
    ![Открытие колонки группы](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Выберите группу в колонке **Пользователи и группы — Все группы** .
 5. В колонке **Группа — *имя_группы*** выберите **Свойства**.
-   
+
    ![Открытие колонки "Свойства"](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Завершив изменение свойств группы, щелкните **Сохранить**.    
-   
+
    ![Сохранение изменений свойств](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="additional-information"></a>Дополнительная информация
+## <a name="next-steps"></a>Дальнейшие действия
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)
@@ -50,7 +50,6 @@ ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

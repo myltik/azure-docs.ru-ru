@@ -1,10 +1,10 @@
 ---
-title: "Создание и изменение канала ExpressRoute с помощью классической модели развертывания и PowerShell | Документация Майкрософт"
+title: "Создание и изменение канала ExpressRoute с помощью PowerShell и классического портала Azure | Документация Майкрософт"
 description: "В этой статье описана процедура создания и подготовки канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить и отозвать канал."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
@@ -13,36 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
+ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
+ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
+ms.lasthandoff: 02/10/2017
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Создание и изменение канала ExpressRoute
 > [!div class="op_single_selector"]
-> * [Портал Azure — Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell — Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell — классическая модель](expressroute-howto-circuit-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-circuit-arm.md)
+> * [Классическая модель: PowerShell](expressroute-howto-circuit-classic.md)
+> * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 В этой статье пошагово описано, как создать канал Azure ExpressRoute, используя командлеты PowerShell и классическую модель развертывания. В этой статье описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 
 **О моделях развертывания Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Перед началом работы
-### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. Ознакомьтесь со статьями о предварительных условиях и процедурах
+### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>Шаг 1. Ознакомьтесь со статьями о предварительных условиях и процедурах
 Не забудьте изучить [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.  
 
-### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Установите последние версии модулей Azure PowerShell
+### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>Шаг 2. Установите последние версии модулей Azure PowerShell
 Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Войдите в учетную запись Azure и выберите подписку
+### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Шаг 3. Войдите в учетную запись Azure и выберите подписку
 1. В командной строке Windows PowerShell с повышенными привилегиями выполните следующий командлет.
    
         Add-AzureAccount
@@ -55,13 +60,13 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
-### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Импорт модулей PowerShell для ExpressRoute
+### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>Шаг 1. Импорт модулей PowerShell для ExpressRoute
  Чтобы приступить к использованию командлетов ExpressRoute, нужно импортировать модули Azure и ExpressRoute в сеанс PowerShell (если вы еще не сделали это). Импортируйте модули из расположения, в которое они были установлены на локальном компьютере. В зависимости от метода установки модулей их расположение может отличаться от показанного в следующем примере. При необходимости измените пример.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2) Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
+### <a name="step-2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>Шаг 2. Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
 Перед созданием канала ExpressRoute потребуется список поддерживаемых поставщиков услуг подключения, расположений и вариантов пропускной способности.
 
 Командлет PowerShell `Get-AzureDedicatedCircuitServiceProvider` возвращает эти сведения, которые будут использоваться в последующих шагах.
@@ -76,7 +81,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
 Теперь все готово к созданию канала ExpressRoute.         
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Создание канала ExpressRoute
+### <a name="step-3-create-an-expressroute-circuit"></a>Шаг 3. Создание канала ExpressRoute
 В приведенном ниже примере показано, как создать канал ExpressRoute со скоростью 200 Мбит/с каналом через Equinix в Кремниевой долине. Если вы используете другой поставщик и другие параметры, подставьте в запрос соответствующие данные.
 
 > [!IMPORTANT]
@@ -102,7 +107,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4-list-all-the-expressroute-circuits"></a>4. Вывод списка всех каналов ExpressRoute
+### <a name="step-4-list-all-the-expressroute-circuits"></a>Шаг 4. Вывод списка всех каналов ExpressRoute
 Чтобы получить список всех созданных вами каналов ExpressRoute, можно выполнить команду `Get-AzureDedicatedCircuit`.
 
     Get-AzureDedicatedCircuit
@@ -135,7 +140,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Отправка ключа службы поставщику услуг подключения для подготовки
+### <a name="step-5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Шаг 5. Отправка ключа службы поставщику услуг подключения для подготовки
 Параметр *ServiceProviderProvisioningState* предоставляет сведения о текущем состоянии подготовки на стороне поставщика услуг. Параметр *Status* предоставляет состояние на стороне инфраструктуры Майкрософт. Дополнительные сведения о состояниях подготовки канала см. в статье [Рабочие процессы](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 Вновь созданный канал ExpressRoute будет иметь следующее состояние:
@@ -155,7 +160,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
     Status                           : Enabled
 
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Периодическая проверка состояния и статуса ключа канала
+### <a name="step-6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>Шаг 6. Периодическая проверка состояния и статуса ключа канала
 Это позволяет узнать, когда поставщик включил ваш канал. После настройки канала значение параметра *ServiceProviderProvisioningState* изменится на *Provisioned*, как показано в следующем примере.
 
     Get-AzureDedicatedCircuit
@@ -169,7 +174,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7-create-your-routing-configuration"></a>7. Создание конфигурации маршрутизации
+### <a name="step-7-create-your-routing-configuration"></a>Шаг 7. Создание конфигурации маршрутизации
 Пошаговые инструкции см. в статье [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-classic.md).
 
 > [!IMPORTANT]
@@ -177,7 +182,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 > 
 > 
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Связывание виртуальной сети с каналом ExpressRoute
+### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>Шаг 8. Связывание виртуальной сети с каналом ExpressRoute
 Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. в статье [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute с помощью классической модели развертывания см. в статье [Настройка виртуальной сети для ExpressRoute на классическом портале](expressroute-howto-vnet-portal-classic.md).
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Получение состояния канала ExpressRoute
@@ -217,7 +222,7 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
     Status                           : Enabled
 
 
-Подробное описание всех параметров можно получить, выполнив следующую команду:
+Подробное описание всех параметров можно получить, выполнив следующий пример:
 
     get-help get-azurededicatedcircuit -detailed
 
@@ -255,12 +260,13 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 > 
 > 
 
-Обратите внимание на следующее.
+#### <a name="considerations"></a>Рекомендации
 
 * Прежде чем переходить с надстройки Premium на Standard, убедитесь, что к каналу привязано меньше 10 виртуальных сетей. Если этого не сделать, запрос на обновление завершится ошибкой и вам будет выставлен счет по тарифам "Премиум".
 * Все связи с виртуальными сетями в других геополитических регионах необходимо разорвать. Если этого не сделать, запрос на обновление завершится ошибкой и вам будет выставлен счет по тарифам "Премиум".
 * Для частного пиринга таблица маршрутов должна содержать менее 4000 маршрутов. Если в ней больше 4000 маршрутов, сеанс BGP будет удален. Его можно будет снова включить только после того, как количество объявленных префиксов станет меньше 4000.
 
+#### <a name="disable-the-premium-add-on"></a>Отключение надстройки premium
 Вы можете выключить надстройку ExpressRoute "Премиум" для существующего канала с помощью следующего командлета PowerShell.
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
@@ -283,6 +289,8 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 > Уменьшить пропускную способность канала ExpressRoute без прерывания его работы нельзя. Для снижения пропускной способности нужно будет отозвать канал ExpressRoute и повторно подготовить новый канал ExpressRoute.
 > 
 > 
+
+#### <a name="resize-a-circuit"></a>Изменение размера канала
 
 Решив, какой размер вам необходим, вы можете использовать следующую команду для изменения размера канала.
 
@@ -311,11 +319,14 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Отзыв и удаление канала ExpressRoute
-Обратите внимание на следующее.
+
+### <a name="considerations"></a>Рекомендации
 
 * Для успешного выполнения этой операции необходимо разорвать связи между каналом ExpressRoute и всеми виртуальными сетями. Если операция завершится ошибкой, проверьте, не привязаны ли к каналу какие-либо виртуальные сети.
 * Если подготовка поставщика услуг канала ExpressRoute находится в состоянии **Идет подготовка** или **Подготовлено** то свяжитесь с поставщиком услуг, чтобы отозвать канал с его стороны. Мы будем резервировать ресурсы и выставлять вам счета до тех пор, пока поставщик услуг не завершит отзыв канала и не отправит нам соответствующее уведомление.
 * Если поставщик услуг отзовет канал (состояние подготовки поставщика услуг изменится на **Не подготовлено**), то вы можете удалить канал. В результате будет приостановлено выставление счетов за этот канал.
+
+#### <a name="delete-a-circuit"></a>Удаление канала
 
 Для удаления канала ExpressRoute выполните следующую команду:
 
@@ -328,10 +339,5 @@ ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-classic.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

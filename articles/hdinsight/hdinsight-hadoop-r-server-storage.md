@@ -12,18 +12,19 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 089b5691673abce3ffa51b8dff1835f366c51d2e
-ms.openlocfilehash: c8487a14990396dcdd2eac5a7a9adc822bcd5177
+ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
+ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
+ms.lasthandoff: 01/10/2017
 
 
 ---
 # <a name="azure-storage-options-for-r-server-on-hdinsight"></a>Параметры службы хранилища Azure для R Server в HDInsight (предварительная версия)
 Microsoft R Server в кластере HDInsight имеет доступ к хранилищу BLOB-объектов Azure и [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/), используя их для сохранения данных, кода, результирующих объектов после анализа и т. д.
 
-При создании кластера Hadoop в HDInsight нужно указать учетную запись хранения Azure. Из этой учетной записи назначается конкретный контейнер хранилища BLOB-объектов для хранения файловой системы создаваемого кластера, например распределенной файловой системы Hadoop (HDFS). Для повышения производительности кластер HDInsight создается в том же центре обработки данных, где находится заданная вами основная учетная запись хранения. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md "Использование хранилища BLOB-объектов Azure с HDInsight").   
+При создании кластера Hadoop в HDInsight нужно указать учетную запись хранения Azure или Data Lake Store. Определенный контейнер хранилища в этой учетной записи используется для хранения файловой системы создаваемого кластера, например распределенной файловой системы Hadoop (HDFS). Для повышения производительности кластер HDInsight создается в том же центре обработки данных, где находится заданная вами основная учетная запись хранения. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md "Использование хранилища BLOB-объектов Azure с HDInsight").   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>Использование нескольких учетных записей хранения BLOB-объектов Azure
 При необходимости вы можете осуществлять доступ из кластера HDI к нескольким учетным записям хранения Azure или контейнерам. Для этого при создании кластера следует указать дополнительные учетные записи хранения и выполнить описанный здесь процесс их использования в R.  
@@ -31,36 +32,36 @@ Microsoft R Server в кластере HDInsight имеет доступ к хр
 1. Создайте кластер HDInsight с учетной записью хранения **storage1** и контейнером по умолчанию **container1**.
 2. Укажите также дополнительную учетную запись хранения с именем **storage2**.  
 3. Скопируйте файл mycsv.csv в каталог /share и выполните анализ этого файла.  
-   
+
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
 4. В коде R задайте узел имени **default** и определите каталог и файл для обработки.  
-   
+
         myNameNode <- "default"
         myPort <- 0
-   
+
     Расположение данных  
-   
+
         bigDataDirRoot <- "/share"  
-   
+
     Определение контекста вычислений Spark
-   
+
         mySparkCluster <- RxSpark(consoleOutput=TRUE)
-   
+
     Определение контекста вычислений
-   
+
         rxSetComputeContext(mySparkCluster)
-   
+
     Определите распределенную файловую систему Hadoop (HDFS).
-   
+
         hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
-   
+
     Укажите входной файл в HDFS для анализа.
-   
+
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container1@storage1.blob.core.windows.net. Это **учетная запись хранения по умолчанию** , связанная с кластером HDInsight.
+Все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container1@storage1.blob.core.windows.net. Это **учетная запись хранения по умолчанию**, связанная с кластером HDInsight.
 
 Теперь предположим, что вы хотите обработать файл с именем mySpecial.csv, расположенный в каталоге /private контейнера **container2** в учетной записи хранения **storage2**.
 
@@ -101,7 +102,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 ````
 
-Теперь все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container2@storage2.blob.core.windows.net. Это **узел имени** .
+Теперь все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container2@storage2.blob.core.windows.net. Это указанный вами **узел имени**.
 
 Обратите внимание, что в учетной записи хранения **storage2** следует настроить каталог /user/RevoShare/<SSH username> следующим образом.
 
@@ -118,16 +119,15 @@ hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShar
 Доступ к хранилищу озера данных Azure осуществляется с помощью субъекта-службы Azure Active Directory (AAD), связанного с кластером HDInsight.
 
 ### <a name="to-add-a-service-principal"></a>Добавление субъекта-службы
-1. При создании кластера HDInsight выберите на вкладке **Источник данных** вариант **Удостоверение кластера AAD**.
-2. В диалоговом окне **Удостоверение кластера AAD** в разделе **Выбрать субъект-службу AD** выберите **Создать**.
+1. При создании кластера HDInsight выберите на вкладке **Источник данных** параметр **Удостоверение кластера AAD**.
 
-Когда вы присвоите имя и создадите пароль для субъекта-службы, откроется новая вкладка, где можно связать субъект-службу с хранилищами озера данных.
+2. В диалоговом окне **Удостоверение кластера AAD** в разделе **Выбрать субъект-службу AD** щелкните **Создать**.
 
-Обратите внимание, что доступ к Data Lake Store можно добавить и позже, открыв Data Lake Store на портале Azure и выбрав **Обозреватель данных** > **Доступ**.  На следующем примере диалогового окна показано, как можно создать субъект-службу и связать его с хранилищем озера данных rkadl11.
+Присвоив имя и создав пароль для субъекта-службы, щелкните **Управление доступом ADLS**, чтобы связать субъект-службу с хранилищами Data Lake Store.
 
-![Создание субъекта-службы хранилища озера данных 1](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
+Можно также настроить доступ кластера к одному или нескольким дополнительным хранилищам Data Lake Store после создания кластера, открыв запись портала Azure для Data Lake Store и выбрав **Обозреватель данных > Доступ > Добавить**. 
 
-![Создание субъекта-службы хранилища озера данных 2](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png)
+Дополнительные сведения о добавлении доступа кластера HDI к хранилищам Data Lake Store см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>Использование хранилища озера данных с R Server
 Когда вы предоставите доступ к хранилищу озера данных, это хранилище можно будет использовать в R Server на HDInsight так же, как дополнительную учетную запись хранения Azure. Единственное отличие состоит в том, что вместо префикса **wasb://** используется **adl://**.
@@ -185,16 +185,11 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 Основное преимущество файлов Azure заключается в том, что общие папки можно подключить и использовать на любом устройстве с поддерживаемой операционной системой, например Windows или Linux. Например, их можно использовать в другом кластере HDInsight, принадлежащем вам или коллеге, в виртуальной машине Azure, или даже в локальной системе.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь у вас есть вся базовая информация о том, как использовать R-консоль из сеанса SSH и как создать кластер HDInsight c R Server. Далее рекомендуем ознакомиться с другими способами работы с R Server в HDInsight, которые описаны в следующих статьях.
+Теперь, когда вы ознакомились с возможностями службы хранилища Azure, используйте приведенные ниже ссылки, чтобы изучить другие способы работы с R Server в HDInsight.
 
 * [Общие сведения об R Server в HDInsight](hdinsight-hadoop-r-server-overview.md)
 * [Get started with R server on Hadoop (Начало работы с R Server в Hadoop)](hdinsight-hadoop-r-server-get-started.md)
-* [Установка RStudio с R Server в HDInsight (предварительная версия)](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Установка RStudio Server в HDInsight (если установка не была выполнена при создании кластера)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Варианты контекста вычислений для R Server в HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

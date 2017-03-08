@@ -1,5 +1,5 @@
 ---
-title: "Создание полного доменного имени для виртуальной машины на портале Azure | Документация Майкрософт"
+title: "Создание FQDN для виртуальной машины Windows на портале Azure | Документация Майкрософт"
 description: "Узнайте, как создать полное доменное имя (FQDN) для виртуальной машины на основе Resource Manager на портале Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 102/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f556fd0318accc19f0fa56fa7f2a8716ee6f1c02
-ms.openlocfilehash: 72d176803151af5b3c5da50f1f2d72c0dd27f44a
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: e89e5769701f00c6f403bd54cb2b29bcce53bf15
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: 72d176803151af5b3c5da50f1f2d72c0dd27f44a
 Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, такие как IIS, SQL или SharePoint.
 
 Изучите дополнительные сведения об [использовании Resource Manager](../azure-resource-manager/resource-group-overview.md), чтобы получить советы по созданию развертываний Azure.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

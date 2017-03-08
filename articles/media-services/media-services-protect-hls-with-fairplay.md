@@ -1,5 +1,5 @@
 ---
-title: "Защита содержимого HLS с помощью Apple FairPlay и/или Microsoft PlayReady | Документация Майкрософт"
+title: "Защита содержимого HLS с помощью Microsoft PlayReady или Apple FairPlay в Azure | Документация Майкрософт"
 description: "В этой статье приводятся общие сведения и объясняется, как использовать службы мультимедиа Azure для динамического шифрования содержимого HTTP Live Streaming (HLS) с использованием Apple FairPlay. Здесь же рассказывается, как использовать службу доставки лицензий для служб мультимедиа для доставки клиентам лицензий FairPlay."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 61ac849c20fa21181bd41289da896b4d53e0b9c3
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -296,11 +297,9 @@ ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
-                    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-                                            inputAsset.Name,
-                                            encodingPreset));
+                    IJob job = _context.Jobs.Create(String.Format("Encoding {0}", inputAsset.Name));
 
                     var mediaProcessors =
                         _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder Standard")).ToList();
@@ -563,9 +562,4 @@ ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

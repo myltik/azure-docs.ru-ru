@@ -1,7 +1,7 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/18/16-->
 
-#### Установка обычных обновлений с помощью Windows PowerShell для StorSimple
-1. Откройте последовательную консоль устройства и выберите вариант 1 **Войти с полным доступом**. Введите пароль. Пароль по умолчанию — *Password1*. 
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Установка обычных обновлений с помощью Windows PowerShell для StorSimple
+1. Откройте последовательную консоль устройства и выберите вариант 1 **Войти с полным доступом**. Введите пароль. Пароль по умолчанию — *Password1*. 
 2. В командной строке выполните следующую команду:
    
      `Get-HcsUpdateAvailability`
@@ -19,4 +19,8 @@
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

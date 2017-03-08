@@ -1,6 +1,6 @@
 ---
-title: "Репликация виртуальных машин VMware в Azure с помощью Site Recovery и Azure Automation DSC | Документация Майкрософт"
-description: "В этой статье описывается, как использовать Azure Automation DSC для автоматизированного развертывания службы Mobility Service Azure Site Recovery и агента Azure для виртуальных машин и физических компьютеров в Azure."
+title: "Развертывание службы Mobility Service Site Recovery с помощью Azure Automation DSC | Документация Майкрософт"
+description: "В этой статье описывается, как использовать Azure Automation DSC для автоматического развертывания службы Mobility Service Azure Site Recovery и агента Azure для репликации виртуальных машин VMware и физических компьютеров в Azure."
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -12,15 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/06/2017
 ms.author: krnese
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5895b772d411f783480275ee990163f662b7ee2
+ms.sourcegitcommit: 2b9a8b5d7b889926f1cdbb6787fea1579dd21190
+ms.openlocfilehash: 941bc07fa9be765403e8fe541caf660eef15585e
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-by-using-site-recovery-with-azure-automation-dsc"></a>Репликация виртуальных машин VMware в Azure с помощью Site Recovery и Azure Automation DSC
+# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Развертывание службы Mobility Service с помощью Azure Automation DSC для репликации виртуальной машины
 В Operations Management Suite предоставляется комплексное решение для архивации и аварийного восстановления, которое можно использовать в плане обеспечения непрерывности бизнес-процессов.
 
 Мы начали этот путь с Hyper-V, используя реплику Hyper-V. Но мы расширили возможности для поддержки разнородных конфигураций, так как клиенты используют несколько гипервизоров и платформ в своих облаках.
@@ -50,31 +51,31 @@ ms.openlocfilehash: b5895b772d411f783480275ee990163f662b7ee2
 ## <a name="prerequisites"></a>Предварительные требования
 * Репозиторий для хранения пакета установки.
 * Репозиторий для хранения парольной фразы, которую требуется зарегистрировать на сервере управления.
-  
+
   > [!NOTE]
   > Для каждого сервера управления создается уникальная парольная фраза. Если планируется развернуть несколько серверов управления, то необходимо удостовериться, что в файле passphrase.txt хранится правильная парольная фраза.
-  > 
-  > 
+  >
+  >
 * Компонент Windows Management Framework 5.0 (WMF) должен быть установлен на компьютерах, для которых необходимо включить защиту (требование для Automation DSC).
-  
+
   > [!NOTE]
   > Сведения об использовании DSC на компьютерах под управлением Windows с установленным компонентом WMF 4.0 см. в разделе [Использование DSC в отключенных средах](#Use DSC in disconnected environments).
-  > 
-  > 
+  >
+  >
 
 Службу Mobility Service можно установить с помощью командной строки. Соответствующая команда принимает несколько аргументов. Поэтому нам нужны двоичные файлы (после извлечения из пакета установки). Эти файлы необходимо сохранить в расположение, из которого их можно извлечь с помощью конфигурации DSC.
 
 ## <a name="step-1-extract-binaries"></a>Шаг 1. Извлечение двоичных файлов
 1. Чтобы извлечь файлы, необходимые для этой установки, перейдите в следующий каталог на сервере управления.
-   
+
     **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
-   
+
     В этой папке должен быть MSI-файл с таким именем.
-   
+
     **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
-   
+
     Извлеките установщик, используя следующую команду.
-   
+
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
 2. Выберите все файлы и отправьте их в сжатую папку (в формате ZIP).
 
@@ -205,8 +206,8 @@ configuration ASRMobilityService {
 
 > [!NOTE]
 > (Не забудьте заменить CSIP в конфигурации в соответствии с реальным сервером управления, чтобы обеспечить правильное подключение агента. При этом требуется использовать правильную парольную фразу.)
-> 
-> 
+>
+>
 
 ## <a name="step-3-upload-to-automation-dsc"></a>Шаг 3. Передача в Automation DSC
 Так как созданная конфигурация DSC импортирует требуемый модуль ресурса DSC (xPSDesiredStateConfiguration), необходимо импортировать этот модуль в службу автоматизации, прежде чем передать конфигурацию DSC.
@@ -255,8 +256,8 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 ## <a name="step-4-onboard-machines-to-automation-dsc"></a>Шаг 4. Подключение компьютеров к Automation DSC
 > [!NOTE]
 > Для выполнения этого сценария требуется, чтобы на компьютерах Windows была установлена последняя версия WMF. Вы можете скачать и установить правильную версию для своей платформы, перейдя в [Центр загрузки](https://www.microsoft.com/download/details.aspx?id=50395).
-> 
-> 
+>
+>
 
 Теперь вы создадите метаконфигурацию для DSC, которая будет применена к узлам. Чтобы сделать это, необходимо получить URL-адрес конечной точки и первичный ключ для выбранной учетной записи службы автоматизации в Azure. Эти значения можно найти в колонке **Все параметры** (раздел **Ключи**) учетной записи службы автоматизации.
 
@@ -510,11 +511,5 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После развертывания агентов Mobility Service можно [включить репликацию](site-recovery-vmware-to-azure.md#step-6-replicate-applications) для виртуальных машин.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+После развертывания агентов Mobility Service можно [включить репликацию](site-recovery-vmware-to-azure.md#enable-replication) для виртуальных машин.
 

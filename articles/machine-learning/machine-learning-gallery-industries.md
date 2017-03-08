@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: ebee9b7d45cae0259968313b0908be148f47d6b3
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
 
  На каждой странице отрасли отображается список наиболее популярных элементов коллекции, связанных с этой отраслью.
 Щелкните **See all** (Просмотреть все) для просмотра всех ресурсов по конкретной отрасли в коллекции.
-На этой странице можно просмотреть все ресурсы в коллекции или выполнить поиск, задав критерии фильтрации в левой части страницы и указав условия поиска вверху.
+На этой странице можно просмотреть все ресурсы в коллекции. Кроме того, для поиска можно задать условия фильтра в левой части страницы и ввести условия поиска вверху.
 
 ![Расскажите друзьям о том, что вы нашли](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
@@ -53,6 +53,6 @@ ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

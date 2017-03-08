@@ -16,8 +16,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9c6213f0dcb66ae0c53d716abfe84868b87585f1
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 60c1d307ede5d66f8e92b048581148d6c7112dac
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 9c6213f0dcb66ae0c53d716abfe84868b87585f1
 > 
 > 
 
-Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../app-service-logic/app-service-logic-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../logic-apps/logic-apps-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-onedrive"></a>Создание подключения к OneDrive
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к OneDrive, сначала необходимо создать соответствующее *подключение*. Чтобы создать подключение, введите учетные данные, которые используются для доступа к определенной службе. Для создания подключения к OneDrive необходимо использовать учетные данные учетной записи OneDrive.
@@ -48,7 +49,7 @@ ms.openlocfilehash: 9c6213f0dcb66ae0c53d716abfe84868b87585f1
 > 
 
 ## <a name="use-a-trigger"></a>Использование триггера
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Триггеры опрашивают службу с определенным интервалом и частотой. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Триггеры опрашивают службу с определенным интервалом и частотой. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 1. Чтобы открыть список триггеров, в текстовом поле приложения логики введите onedrive.  
    
@@ -69,7 +70,7 @@ ms.openlocfilehash: 9c6213f0dcb66ae0c53d716abfe84868b87585f1
 4. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
 ## <a name="use-an-action"></a>Использование действий
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 1. Щелкните знак "плюс". Отобразятся следующие команды: **Добавить действие**, **Добавить условие** или **Еще**.
    
@@ -131,10 +132,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -157,10 +158,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -194,10 +195,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -245,10 +246,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -272,10 +273,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -321,10 +322,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -342,10 +343,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -369,10 +370,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -395,11 +396,6 @@ BlobMetadata
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
 
 

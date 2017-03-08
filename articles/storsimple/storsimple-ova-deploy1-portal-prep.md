@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -39,8 +40,8 @@ ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
 | **#** | **Шаг** | **Выполняемые действия** | **Документы для изучения** |
 | --- | --- | --- | --- |
 | 1. |**Настройка классического портала Azure** |Перед подготовкой виртуального устройства StorSimple к работе создайте и настройте службу диспетчера StorSimple. |[Развертывание виртуального массива StorSimple — подготовка портала (предварительная версия)](storsimple-ova-deploy1-portal-prep.md) |
-| 2. |**Подготовка виртуального массива к работе** |Для Hyper-V: подготовьте виртуальное устройство StorSimple к работе и установите подключение к нему в главной системе, в которой выполняется Hyper-V на платформе Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2. <br></br> <br></br> В случае с VMware подготовьте локальное виртуальное устройство StorSimple в главной системе под управлением VMware ESXi 5.5 или более поздней версии и установите подключение к нему.<br></br> |[Подготовка виртуального массива в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Подготовка виртуального массива в VMware](storsimple-ova-deploy2-provision-vmware.md) |
-| 3. |**Настройка виртуального массива** |Выполните начальную установку файлового сервера StorSimple, зарегистрируйте его и настройте устройство. Затем подготовьте к работе общие папки SMB. <br></br> <br></br> Выполните начальную установку сервера iSCSI, зарегистрируйте его и настройте устройство. Затем подготовьте к работе тома iSCSI. |[Настройка виртуального массива в качестве файлового сервера](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Настройка виртуального массива в качестве сервера iSCSI](storsimple-ova-deploy3-iscsi-setup.md) |
+| 2. |**Подготовка виртуального массива к работе** |Для Hyper-V: подготовьте виртуальное устройство StorSimple к работе и установите подключение к нему в главной системе, в которой выполняется Hyper-V на платформе Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2. <br></br> <br></br> В случае с VMware подготовьте локальное виртуальное устройство StorSimple в главной системе под управлением VMware ESXi 5.5 или более поздней версии и установите подключение к нему.<br></br> |[Подготовка виртуального массива в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware](storsimple-ova-deploy2-provision-vmware.md) |
+| 3. |**Настройка виртуального массива** |Выполните начальную установку файлового сервера StorSimple, зарегистрируйте его и настройте устройство. Затем подготовьте к работе общие папки SMB. <br></br> <br></br> Выполните начальную установку сервера iSCSI, зарегистрируйте его и настройте устройство. Затем подготовьте к работе тома iSCSI. |[Развертывание виртуального массива StorSimple — установка в качестве файлового сервера](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Настройка виртуального массива в качестве сервера iSCSI](storsimple-ova-deploy3-iscsi-setup.md) |
 
 #### <a name="deployment-videos"></a>Видеоролики о развертывании
 | **Шаг** | **Рекомендуемый видеоролик** |
@@ -137,7 +138,7 @@ ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
 
 Просмотрите видеоролик с пошаговыми инструкциями по началу работы с виртуальным массивом StorSimple.
 
-> [!ВИДЕО https://channel9.msdn.com/Blogs/Windows-Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -164,12 +165,7 @@ ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
 ## <a name="next-step"></a>Дальнейшие действия
 Далее необходимо подготовить виртуальную машину для виртуального устройства StorSimple. Инструкции зависят от используемой ОС сервера виртуальных машин.
 
-* [Подготовка виртуального массива StorSimple в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-* [Подготовка виртуального массива StorSimple в VMware](storsimple-ova-deploy2-provision-vmware.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+* [Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware](storsimple-ova-deploy2-provision-vmware.md)
 
 

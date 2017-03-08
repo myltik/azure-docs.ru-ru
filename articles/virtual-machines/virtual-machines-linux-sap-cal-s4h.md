@@ -26,7 +26,7 @@ ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
 В этой статье мы расскажем, как развернуть платформу S/4 HANA в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0.
 На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений на базе SAP Hana (например, BW/4 HANA) выполняется аналогичным образом. Нужно только выбрать другое решение.
 
-Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 Далее на снимках экрана показана пошаговая инструкция по развертыванию S/4 HANA в Microsoft Azure. Процесс развертывания других решений, таких как BW/4 HANA, аналогичен описанному ниже.
 
@@ -46,8 +46,6 @@ ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic6b.jpg)
 
 На новом портале Azure с левой стороны находится элемент "Подписки". Щелкните его, чтобы просмотреть все активные подписки пользователя.
-
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
 Выберите одну из подписок, а затем щелкните "Сертификаты управления". Это новая концепция использования субъектов-служб для новой модели Azure Resource Manager.
 Продукт SAP CAL еще не адаптирован под эту модель, поэтому запрашивает классическую модель и прежнюю версию портала Azure для работы с сертификатами управления.
@@ -92,7 +90,6 @@ ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Другой вариант — войти на клиентскую виртуальную машину Windows и запустить, например, предварительно настроенный интерфейс SAP GUI.
-
 
 
 

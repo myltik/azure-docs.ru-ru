@@ -3,18 +3,17 @@
 ## [Что такое хранилище данных SQL?](sql-data-warehouse-overview-what-is.md)
 ## [Рабочая нагрузка хранилища данных](sql-data-warehouse-overview-workload.md)
 ## [Распределенные данные](sql-data-warehouse-distributed-data.md)
+## [Часто задаваемые вопросы](sql-data-warehouse-overview-faq.md)
 
 # Начало работы
 
-## Создание хранилища данных SQL
-### [Портал Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Руководство для начинающих](sql-data-warehouse-get-started-tutorial.md)
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
 ## [Получение поддержки](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
-# Практическое руководство:
+# Практическое руководство
 
 ## Архивация и восстановление
 
@@ -32,6 +31,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Установка Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Создание
+### [Портал Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Разработка
 
@@ -78,9 +82,9 @@
 
 ### [Обзор](sql-data-warehouse-overview-load.md)
 ### [Пример данных](sql-data-warehouse-load-sample-databases.md)
+### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP из SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [Фабрика данных](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Руководство по PolyBase](sql-data-warehouse-load-polybase-guide.md)
@@ -103,7 +107,7 @@
 ### [Обзор](sql-data-warehouse-manage-compute-overview.md)
 ### [Портал Azure](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [ИНТЕРФЕЙС REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 
 ## Производительность
@@ -112,7 +116,6 @@
 ### [Сжатие ColumnStore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Запросы](sql-data-warehouse-manage-monitor.md)
 ### [Рабочая нагрузка](sql-data-warehouse-develop-concurrency.md)
-### [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
 ## Безопасность
 
@@ -143,8 +146,3 @@
 ### [Бизнес-аналитика](sql-data-warehouse-partner-business-intelligence.md)
 ### [Интеграция данных](sql-data-warehouse-partner-data-integration.md)
 ### [Управление данными](sql-data-warehouse-partner-data-management.md)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

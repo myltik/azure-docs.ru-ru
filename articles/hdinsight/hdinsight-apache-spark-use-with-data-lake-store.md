@@ -1,6 +1,6 @@
 ---
-title: "Выполнение заданий Spark с данными, хранимыми в Azure Data Lake Store | Документация Майкрософт"
-description: "Выполнение заданий Spark с данными, хранимыми в Azure Data Lake Store"
+title: "Использование Apache Spark для анализа данных в Azure Data Lake Store | Документация Майкрософт"
+description: "Выполнение заданий Spark для анализа данных, сохраненных в Azure Data Lake Store"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/23/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
-ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
+ms.sourcegitcommit: d9efecfaf0b9e461182328b052252b114d78ce39
+ms.openlocfilehash: 840db75456e8383cf4343e2170a55dc50cbb68dd
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -32,6 +33,11 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 * Учетная запись Azure Data Lake Store. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
 * Кластер Azure HDInsight Spark с Data Lake Store в качестве хранилища. Следуйте инструкциям в статье [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+    > [!IMPORTANT]
+       > Если в качестве основного хранилища для кластера используется Data Lake Store, обязательно создавайте кластер Spark 1.6.
+      >
+       >
 
 ## <a name="prepare-the-data"></a>Подготовка данных
 
@@ -77,7 +83,7 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
-    ![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 
 4. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Для этого вставьте следующий фрагмент кода в ячейку и нажмите сочетание клавиш **SHIFT+ВВОД**.
 
@@ -85,47 +91,51 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
     При каждом запуске задания в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)** , а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания этот значок изменится на кружок без заливки.
 
-     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
+     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Состояние задания записной книжки Jupyter")
 
 5. Загрузите пример данных во временную таблицу с помощью файла **HVAC.csv** , скопированного в учетную запись Data Lake Store. Получить доступ к данным в учетной записи хранилища озера данных можно с помощью следующего шаблона URL-адреса.
 
-    Если Data Lake Store используется в качестве хранилища по умолчанию, путь к файлу HVAC.csv будет похож на следующий URL-адрес:
+    * Если Data Lake Store используется в качестве хранилища по умолчанию, путь к файлу HVAC.csv будет похож на следующий URL-адрес:
 
-         adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+            adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+    
+        Можно также использовать сокращенный формат, как показано ниже.
 
-    Если Data Lake Store используется в качестве дополнительного хранилища, файл HVAC.csv будет находиться в расположении, куда он был скопирован, например:
+            adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-        adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+    * Если Data Lake Store используется в качестве дополнительного хранилища, файл HVAC.csv будет находиться в расположении, куда он был скопирован, например:
+
+            adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
      Вставьте приведенный ниже код в пустую ячейку, замените **MYDATALAKESTORE** именем учетной записи Data Lake Store и нажмите клавиши **SHIFT+ВВОД**. Этот пример кода регистрирует данные во временной таблице с именем **hvac**.
 
-         # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
-         hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
+            hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            
+            # Create the schema
+            hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+            
+            # Parse the data in hvacText
+            hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+            
+            # Create a data frame
+            hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+            
+            # Register the data fram as a table to run queries against
+            hvacdf.registerTempTable("hvac")
 
-         # Create the schema
-         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+6. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
-         # Parse the data in hvacText
-         hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-         # Create a data frame
-         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-         # Register the data fram as a table to run queries against
-         hvacdf.registerTempTable("hvac")
-
-6. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
-
-         %%sql
-         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+        %%sql
+        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
 7. После успешного выполнения задания по умолчанию будет показаны следующие табличные данные.
 
-      ![Табличные выходные данные для результата запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Table output of query result")
+      ![Вывод результатов запроса в виде таблицы](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Вывод результатов запроса в виде таблицы")
 
      Результаты также можно просмотреть и в других визуализациях. Например, диаграмма областей для тех же выходных данных будет выглядеть следующим образом.
 
-     ![Диаграмма областей для результата запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Area graph of query result")
+     ![Диаграмма с областями, показывающая результат запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Диаграмма с областями, показывающая результат запроса")
 
 8. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 
@@ -135,9 +145,4 @@ ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 * [Создание автономного приложения Scala для работы в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-create-standalone-application.md)
 * [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

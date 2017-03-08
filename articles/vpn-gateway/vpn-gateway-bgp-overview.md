@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
 ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -55,10 +56,5 @@ BGP позволяет нескольким шлюзам получать и р�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Действия по настройке BGP для межсистемных подключений и подключений между виртуальными сетями описаны в разделе [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md) .
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

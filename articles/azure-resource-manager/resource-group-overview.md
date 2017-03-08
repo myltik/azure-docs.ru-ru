@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
 ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -343,9 +344,4 @@ AutoRest преобразует эти спецификации RESTful API в �
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

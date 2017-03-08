@@ -1,5 +1,5 @@
 ---
-title: "Использование концентраторов событий Azure с Apache Spark в HDInsight для обработки потоковых данных | Документация Майкрософт"
+title: "Потоковая передача данных из концентраторов событий с помощью Apache Spark в Azure HDInsight | Документация Майкрософт"
 description: "Пошаговые инструкции по отправке потока данных в концентратор событий Azure и последующего получения этих событий в Spark с помощью приложения Scala"
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ef0757914828128ed4edf569aeb3716300b17dee
 
 
 ---
-# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight-linux"></a>Потоковая передача Spark. Обработка событий из концентраторов событий Azure с помощью кластера Apache Spark в HDInsight на платформе Linux
+# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight"></a>Потоковая передача Spark. Обработка событий из концентраторов событий Azure с помощью кластера Apache Spark в HDInsight
 Потоковая передача Spark расширяет возможности основного API Spark по созданию масштабируемых, отказоустойчивых приложений для обработки потоковых данных с высокой пропускной способностью. Данные могут поступать из множества источников. В этой статье для приема данных используются концентраторы событий Azure. Концентраторы событий — это высокомасштабируемая система приема, которая может принимать миллионы событий в секунду 
 
 В этом руководстве вы узнаете, как создать концентратор событий Azure, как организовать прием сообщений в него с помощью консольного приложения на языке Java, а также параллельно извлекать их с помощью приложения Spark, написанного на языке Scala. Это приложение принимает данные, которые передаются потоком через концентраторы событий, и перенаправляет их в различные объекты вывода (большой двоичный объект службы хранилища Azure, таблицу Hive и таблицу SQL).
@@ -36,7 +36,7 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
 Необходимо следующее:
 
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Java IDE. В этой статье используется среда IntelliJ IDEA 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
 * Драйвер Microsoft JDBC для SQL Server версии 4.1 или более поздней. Он требуется для записи данных событий в базу данных SQL Server. Его можно установить [отсюда](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
@@ -53,7 +53,7 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
 1. На [портале Azure](https://manage.windowsazure.com) выберите **Создать** > **Служебная шина** > **Концентратор событий** > **Настраиваемое создание**.
 2. В диалоговом окне **Добавить новый концентратор событий** введите **имя концентратора событий**, выберите **регион** для его создания и создайте новое или выберите существующее пространство имен. Щелкните **стрелку** для продолжения.
    
-    ![страница мастера 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Create an Azure Event Hub")
+    ![страница мастера 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Создание концентратора событий Azure")
    
    > [!NOTE]
    > Для сокращения задержек и затрат в поле **Расположение** следует выбрать то же расположение, в котором находится кластер Apache Spark в HDInsight.
@@ -61,7 +61,7 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
    > 
 3. В диалоговом окне **Настроить концентратор событий** введите значения в полях **Количество разделов** и **Хранение сообщений**, а затем щелкните значок с флажком. В этом примере числу разделов присвойте значение 10, а хранению сообщений — 1. Запомните количество разделов, поскольку это значение понадобится позже.
    
-    ![страница мастера 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specify partition size and retention days for Event Hub")
+    ![страница мастера 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Указание размера раздела и срока хранения в днях для концентратора событий")
 4. Щелкните созданный концентратор событий, выберите **Настройка**, а затем создайте две политики доступа для концентратора событий.
    
     <table>
@@ -72,13 +72,13 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
    
     После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики совместного доступа, которые будут использоваться для отправки (**mysendpolicy**) сообщений в этот концентратор событий и их прослушивания (**myreceivepolicy**).
    
-    ![политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Create Event Hub policies")
+    ![политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Создание политик концентратора событий")
 5. На этой же странице запишите ключи политики, созданные для двух политик. Сохраните эти ключи для использования в дальнейшем.
    
-    ![ключи политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Save policy keys")
+    ![ключи политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Сохранение ключей политики")
 6. На странице **Панель мониторинга** в нижней части экрана щелкните **Сведения о подключении**, чтобы получить и сохранить строки подключения для концентратора событий с помощью двух политик.
    
-    ![ключи политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
+    ![ключи политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Сохранение строк подключения политики")
 
 ## <a name="use-a-scala-application-to-send-messages-to-event-hub"></a>Использование приложения Scala для отправки сообщений в концентратор событий
 В этом разделе вы используете локальное автономное приложение Scala для отправки потока событий в концентратор событий Azure, созданный на предыдущем шаге. Это приложение доступно на сайте GitHub по адресу [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Здесь предполагается, что в репозитории GitHub уже созданы разветвления.
@@ -109,7 +109,7 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
 4. Скомпилируйте код приложения с помощью Java 8. Чтобы сделать это, выберите **File** (Файл), **Project Structure** (Структура проекта) и на вкладке **Project** (Проект) в поле Project language level (Уровень языка проекта) установите значение **8 - Lambdas, type annotations, etc.** (8 — лямбды, аннотации типа и т. д.).
    
     ![Структура проекта](./media/hdinsight-apache-spark-eventhub-streaming/java-8-compiler.png)
-5. Откройте узел **pom.xml** , чтобы убедиться, что используется правильная версия Spark. В узле  <properties>  найдите фрагмент кода ниже и проверьте версию Spark.
+5. Откройте узел **pom.xml** , чтобы убедиться, что используется правильная версия Spark. В узле  <properties> найдите фрагмент кода ниже и проверьте версию Spark.
    
         <scala.version>2.10.4</scala.version>
         <scala.compat.version>2.10.4</scala.compat.version>
@@ -129,7 +129,7 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
      1. В окне IntelliJ IDEA, где открыто приложение, щелкните **File** (Файл), выберите **Project Structure** (Структура проекта) и щелкните **Libraries** (Библиотеки). 
      2. Щелкните значок "Добавить" (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java**и перейдите в папку, куда вы скачали JAR-файл драйвера JDBC. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
         
-         ![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
+         ![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
      3. Нажмите кнопку **Применить**.
 7. Создайте выходной JAR-файл. Выполните следующие действия.
    
@@ -205,7 +205,7 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
     <
     {"id":1,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
 
-Запишите идентификатор пакетной службы, указанный в последней строке выходных данных (в данном примере — 1). Чтобы убедиться, что приложение выполняется успешно, зайдите в учетную запись хранения Azure, связанную с кластером. Там должна быть создана папка **/EventCount/EventCount10**. В этой папке должны содержаться большие двоичные объекты, которые записывают число событий, обработанных в течение периода времени, заданного для параметра **batch-interval-in-seconds**.
+Запишите идентификатор пакетной службы, указанный в последней строке выходных данных (в данном примере —&1;). Чтобы убедиться, что приложение выполняется успешно, зайдите в учетную запись хранения Azure, связанную с кластером. Там должна быть создана папка **/EventCount/EventCount10**. В этой папке должны содержаться большие двоичные объекты, которые записывают число событий, обработанных в течение периода времени, заданного для параметра **batch-interval-in-seconds**.
 
 Приложение будет продолжать работу, пока вы не остановите его. Используйте для этого следующую команду:
 
@@ -343,6 +343,6 @@ ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

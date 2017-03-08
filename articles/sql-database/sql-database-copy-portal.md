@@ -3,34 +3,32 @@ title: "Копирование базы данных SQL Azure с помощью
 description: "Создание копии Базы данных SQL Azure"
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: daa6f079-13ed-462f-b346-e201aa61681b
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 57bc3c00a1ea79ac69b62965a77debea91c6002e
+ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
+ms.openlocfilehash: 5da07683a4ca9fe1751debc163a0a5a595b6f82b
+ms.lasthandoff: 02/11/2017
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-the-azure-portal"></a>Копирование базы данных SQL Azure с помощью портала Azure
-> [!div class="op_single_selector"]
-> * [Обзор](sql-database-copy.md)
-> * [Портал Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-Ниже показано, как скопировать базу данных SQL с помощью [портала Azure](https://portal.azure.com) на тот же сервер или на другой сервер.
+Ниже показано, как скопировать базу данных SQL с помощью [портала Azure](https://portal.azure.com) на тот же сервер или на другой сервер. 
+
+> [!NOTE]
+> Кроме того, это можно сделать с помощью [PowerShell](sql-database-copy-powershell.md) или [Transact-SQL](sql-database-copy-transact-sql.md).
+>
 
 Для копирования базы данных SQL необходимо следующее:
 
@@ -47,7 +45,7 @@ ms.openlocfilehash: 57bc3c00a1ea79ac69b62965a77debea91c6002e
    ![База данных SQL](./media/sql-database-copy-portal/sql-database-copy.png)
 4. На странице **Копирование** указывается имя базы данных по умолчанию. Введите другое имя, если нужно (у всех баз данных на сервере должны иметь уникальные имена).
 5. Выберите **целевой сервер**. Целевой сервер — это место, где будет создана копия базы данных. Можно скопировать базу данных на тот же сервер или на другой сервер. Можно выбрать существующий сервер из списка или создать новый. 
-6. После выбора параметра **Целевой сервер** станут доступны параметры **Пул эластичных баз данных** и **Ценовая категория**. Если на сервере организован пул, то базу данных можно скопировать в него.
+6. После выбора параметра **Целевой сервер** станут доступны параметры **Пул эластичных БД** и **Ценовая категория**. Если на сервере организован пул, то базу данных можно скопировать в него.
 7. Нажмите кнопку **ОК** , чтобы запустить процесс копирования.
    
    ![База данных SQL](./media/sql-database-copy-portal/copy-page.png)
@@ -66,15 +64,8 @@ ms.openlocfilehash: 57bc3c00a1ea79ac69b62965a77debea91c6002e
 Сведения о разрешении имен для входа после завершения операции копирования см. в разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* В разделе [Копирование Базы данных SQL Azure](sql-database-copy.md) доступны общие сведения о копировании базы данных SQL Azure.
-* В разделе [Копирование базы данных SQL Azure с помощью PowerShell](sql-database-copy-powershell.md) рассматривается копирование базы данных с помощью PowerShell.
-* В разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md) рассматривается копирование базы данных с помощью Transact-SQL.
-* В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер.
-
-## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Управление именами для входа](sql-database-manage-logins.md)
-* [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-* [Экспорт базы данных в BACPAC](sql-database-export.md)
+* Дополнительные сведения об управлении пользователями и именами для входа при копировании базы данных на другой логический сервер см. в статье [Настройка безопасности Базы данных SQL Azure и управление ею для геовосстановления или отработки отказа](sql-database-geo-replication-security-config.md).
+* Рекомендации по экспорту базы данных в BACPAC-файл с помощью портала Azure см. в [этой статье](sql-database-export-portal.md).
 * [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 * [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -83,10 +74,5 @@ ms.openlocfilehash: 57bc3c00a1ea79ac69b62965a77debea91c6002e
 [2]: ./media/sql-database-copy-portal/copy-ok.png
 [3]: ./media/sql-database-copy-portal/copy-notification.png
 [4]: ./media/sql-database-copy-portal/monitor-copy.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

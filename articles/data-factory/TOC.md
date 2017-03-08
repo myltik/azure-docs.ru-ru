@@ -25,7 +25,7 @@
 
 # Практическое руководство
 ## Перемещение данных
-### [Мастер копирования фабрики данных](data-factory-copy-wizard.md)
+### [Мастер копирования фабрики данных](data-factory-azure-copy-wizard.md)
 #### [Загрузка 1 ТБ в течение 15 минут](data-factory-load-sql-data-warehouse.md)
 ### [Действие копирования](data-factory-data-movement-activities.md)
 #### [Руководство по настройке и производительности](data-factory-copy-activity-performance.md)
@@ -63,6 +63,7 @@
 ### [Действие MapReduce HDInsight](data-factory-map-reduce.md)
 ### [Действие потоковой передачи HDInsight](data-factory-hadoop-streaming-activity.md)
 ### [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+### [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
 ### [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
 ### [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
 ### [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
@@ -84,7 +85,6 @@
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Справочник разработчика фабрики данных Azure](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Ресурсы
@@ -100,8 +100,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Dec16_HO2-->
-
-

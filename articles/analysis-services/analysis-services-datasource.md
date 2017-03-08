@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
+ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,11 +32,16 @@ ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
 ## <a name="data-source-providers"></a>Поставщики источников данных
 При подключении к локальным или облачным источникам данных поддерживаются следующие поставщики источников данных для моделей данных в памяти или моделей данных DirectQuery:
 
-|  | **Источник данных** | **В памяти** | **DirectQuery** |
-| --- | --- | --- | --- |
-| **Облако** |Хранилище данных SQL Azure |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server |
+### <a name="cloud"></a>Облако
+| **Источник данных** | **В памяти** | **DirectQuery** |
+|  --- | --- | --- |
+| Хранилище данных SQL Azure |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server |
 | База данных SQL Azure |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server | |
-| **Локально** (через шлюз) |SQL Server |SQL Server Native Client 11.0 |Поставщик данных .NET Framework для SQL Server |
+
+### <a name="on-premises-via-gateway"></a>Локально (через шлюз)
+|**Источник данных** | **В памяти** | **DirectQuery** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |Поставщик данных .NET Framework для SQL Server |
 | SQL Server |Поставщик Microsoft OLE DB для SQL Server |Поставщик данных .NET Framework для SQL Server | |
 | SQL Server |Поставщик данных .NET Framework для SQL Server |Поставщик данных .NET Framework для SQL Server | |
 | Oracle |Поставщик Microsoft OLE DB для Oracle |Поставщик данных Oracle для .NET | |
@@ -71,10 +77,5 @@ ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При наличии локальных источников данных не забудьте установить [локальный шлюз](analysis-services-gateway.md). Дополнительные сведения об управлении сервером в SSDT или SSMS см. в разделе об [управлении сервером](analysis-services-manage.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

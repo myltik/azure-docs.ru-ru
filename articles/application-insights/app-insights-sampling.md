@@ -1,31 +1,31 @@
 ---
-title: "Выборка данных телеметрии в Application Insights | Документация Майкрософт"
+title: "Выборка данных телеметрии в Azure Application Insights | Документация Майкрософт"
 description: "Как управлять объемом данных телеметрии."
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
+ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
+ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
 
 
 ---
 # <a name="sampling-in-application-insights"></a>Выборка в Application Insights
 
 
-Выборка — это функция [Azure Application Insights](app-insights-overview.md), которая рекомендуется для сокращения трафика телеметрии и хранения. При этом она поддерживает статистически правильный анализ данных приложений. Фильтр выбирает связанные элементы, чтобы вы могли переходить между ними при диагностике.
+Выборка — это функция [Azure Application Insights](app-insights-overview.md), которую мы рекомендуем использовать для сокращения трафика телеметрии и хранения. Эта функция также поддерживает статистически правильный анализ данных приложения. Фильтр выбирает связанные элементы, позволяя переходить между ними при диагностике.
 Отображаемые на портале счетчики метрик перенормированы с учетом выборки, чтобы их влияние на статистику было минимальным.
 
-Выборка сокращает трафик, помогает оставаться в рамках ежемесячной квоты на данные, а также позволяет избежать регулирования.
+Выборка сокращает расходы, связанные с использованием трафика и данных, помогая избежать регулирования.
 
 ## <a name="in-brief"></a>Краткое описание
 * Выборка сохраняет 1 из *n* записей и отклоняет остальные. Например, при частоте выборки 20 % сохраняется 1 из 5 событий. 
@@ -103,6 +103,17 @@ ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     Значение, назначенное сразу после запуска приложения. Не снижайте это значение во время отладки. 
+
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    Разделенный точкой с запятой список типов, которые не должны включаться в выборку. Распознаваемые типы: Dependency, Event, Exception, PageView, Request, Trace. Передаются все экземпляры указанных типов; типы, которые не указаны, включаются в выборку.
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    Разделенный точкой с запятой список типов, которые должны включаться в выборку. Распознаваемые типы: Dependency, Event, Exception, PageView, Request, Trace. Указанные типы включаются в выборку; все экземпляры других типов будут всегда передаваться.
+
+
+Чтобы **отключить** адаптивную выборку, удалите узел AdaptiveSamplingTelemetryProcessor в файле applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Альтернатива: настройка адаптивной выборки в коде
 Вместо настройки выборки в CONFIG-файле вы можете использовать код. Это позволяет указать функцию обратного вызова, которая вызывается каждый раз, когда производится повторная оценка частоты выборки. Это можно использовать, например, чтобы узнать, какая частота выборки используется.
@@ -344,6 +355,6 @@ ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

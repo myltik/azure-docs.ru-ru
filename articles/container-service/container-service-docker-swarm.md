@@ -1,6 +1,6 @@
 ---
-title: "Управление контейнерами службы контейнеров Azure с помощью Docker Swarm | Документация Майкрософт"
-description: "Развертывание контейнеров в Docker Swarm в службе контейнеров Azure"
+title: "Управление кластером Swarm в Azure с помощью API Docker | Документация Майкрософт"
+description: "Развертывание контейнеров в кластер Docker Swarm в Службе контейнеров Azure"
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2c6497ebe50b3493e376a871431fe5e5471479bd
-ms.openlocfilehash: 7c3f2e06f32856aa4aa603117b7f43bb54450da7
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: bd20dc4eb3948d08e3c2dd2ad2bb42d18df67796
 
 
 ---
@@ -119,6 +119,6 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

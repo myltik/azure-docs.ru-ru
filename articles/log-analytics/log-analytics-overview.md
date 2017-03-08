@@ -1,5 +1,5 @@
 ---
-title: "Что такое Log Analytics? | Документация Майкрософт"
+title: "Log Analytics в Operations Management Suite (OMS) | Документация Майкрософт"
 description: "Log Analytics — это служба в Operations Management Suite (OMS), которая помогает собирать и анализировать операционные данные, формируемые ресурсами в облачных и локальных средах.  В этой статье приводится краткий обзор различных компонентов службы Log Analytics и ссылки на подробные материалы."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: bf1455cf3975b925d114acc3e1d4cba55f2a17a9
-ms.openlocfilehash: 3e7e42e2ac2deedf936ffc4d246553f72ee4dcd3
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: dcf61991fcbf989c905aa7c18e73df19afa89c36
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -69,10 +70,5 @@ Log Analytics предъявляет минимальные требования
 * [Создайте бесплатную учетную запись Log Analytics](log-analytics-get-started.md) для тестирования в собственной среде.
 * Просмотрите различные [источники данных](log-analytics-data-sources.md) , доступные для сбора данных в репозиторий OMS.
 * [найдите доступные решения в коллекции решений](log-analytics-add-solutions.md) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

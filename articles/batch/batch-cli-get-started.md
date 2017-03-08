@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с интерфейсом командной строки пакетной службы Azure | Документация Майкрософт"
+title: "Начало работы с интерфейсом командной строки пакетной службы Azure | Документация Майкрософт"
 description: "Ознакомьтесь с командами интерфейса командной строки пакетной службы Azure для управления ресурсами пакетной службы Azure."
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e4a3f3f3bca06e66f39f5acd8b4571b4a498ed83
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-cli"></a>Начало работы с интерфейсом командной строки пакетной службы Azure
+# <a name="manage-batch-resources-with-azure-cli"></a>Управление ресурсами пакетной службы с помощью Azure CLI
+
 Кроссплатформенный интерфейс командной строки Azure позволяет управлять учетными записями пакетной службы и такими ресурсами, как пулы, задания и задачи в командных оболочках Linux, Mac и Windows. С помощью интерфейса командной строки Azure можно создавать и выполнять сценарии для многих однотипных задач, выполняемых с помощью API-интерфейсов пакетной службы, портала Azure и командлетов PowerShell пакетной службы.
 
 В этой статье рассматривается интерфейс командной строки Azure версии 0.10.5.
@@ -270,9 +273,4 @@ ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

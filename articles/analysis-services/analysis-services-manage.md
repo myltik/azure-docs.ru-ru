@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 55a016a0943885a3aaa636316808939777afb0f8
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: fdc4e495fb3fb99022b0f7c487001b2fba42cccc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -30,8 +31,8 @@ ms.openlocfilehash: 55a016a0943885a3aaa636316808939777afb0f8
 ![Получение имени сервера в Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Подключение к серверу в Azure происходит так же, как и подключение к экземпляру сервера в организации. В среде SSMS можно выполнять большое количество задач, таких как обработка данных, создание скрипта обработки, управление ролями и использование PowerShell.
-
+Подключение к серверу в Azure происходит так же, как и подключение к экземпляру сервера в организации. В среде SSMS можно выполнять большое количество задач, таких как обработка данных, создание скрипта обработки, управление ролями и использование PowerShell. [Скачайте и установите SSMS](#download-and-install-ssms).
+  
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
  Разница между порталом и SSMS заключается в методе проверки подлинности при подключении к серверу. Чтобы подключиться к серверу служб Analysis Services Azure, выберите **Проверка подлинности с помощью пароля Active Directory**.
@@ -49,59 +50,25 @@ ms.openlocfilehash: 55a016a0943885a3aaa636316808939777afb0f8
    
     **Проверка подлинности с помощью пароля Active Directory** — для входа используется учетная запись организации. Например, при подключении с компьютера, не присоединенного к домену.
    
-    Примечание. Если параметры проверки подлинности на основе Active Directory не отображаются, возможно, в среде SSMS необходимо [включить проверку подлинности Azure Active Directory](#enable-azure-active-directory-authentication).
+    Примечание. Если параметры проверки подлинности на основе Active Directory не отображаются, то, возможно, требуется выполнить обновление до [последней версии SSMS](#download-and-install-ssms).
    
     ![Подключение в среде SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 Поскольку управление вашим сервером в Azure с помощью SSMS выполняется практически так же, как и локальным сервером, мы не будем вдаваться в подробности. Все необходимые сведения см. в статье [Управление экземплярами служб Analysis Services](https://msdn.microsoft.com/library/hh230806.aspx) на сайте MSDN.
 
-## <a name="server-administrators"></a>Администраторы сервера
-Управление администраторами сервера на портале Azure или в среде SSMS выполняется с помощью параметра **Администраторы служб Analysis Services** в колонке "Управление". Администраторы служб Analysis Services — это администраторы сервера базы данных с правами на выполнение общих задач администрирования базы данных, таких как добавление и удаление баз данных, а также управление пользователями. По умолчанию пользователь, который создает сервер на портале Azure, автоматически добавляется в список администраторов служб Analysis Services.
+## <a name="server-administrators-and-database-users"></a>Администраторы сервера и пользователи базы данных
+В службах Azure Analysis Services существует два типа пользователей, администраторы сервера и пользователи базы данных. Оба типа пользователей должны находиться в Azure Active Directory и иметь настроенный адрес электронной почты организации или имя участника-пользователя. Это отличается от локальных баз данных с табличной моделью, которые поддерживают имена пользователей домена Windows для администраторов сервера и пользователей базы данных. Чтобы узнать больше, ознакомьтесь с разделом [Управление пользователями в службах Azure Analysis Services](analysis-services-manage-users.md).
 
-Полезная информация:
+## <a name="download-and-install-ssms"></a>Скачивание и установка SSMS
+[Скачайте SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-* службы Azure Analysis Services не поддерживают тип удостоверения Windows Live ID;  
-* администраторы служб Analysis Services должны быть действительными пользователями Azure Active Directory;
-* при создании сервера служб Azure Analysis Services с помощью шаблонов Azure Resource Manager администраторы служб Analysis Services добавляются из массива JSON пользователей.
-
-В качестве администраторов служб Analysis Services и администраторов ресурсов Azure (управляют ресурсами для подписки Azure) могут использоваться разные пользователи. Это позволяет поддерживать совместимость с управляющим поведением XMLA и TSML в службах Analysis Services, а также распределять обязанности управления ресурсами Azure и базой данных Analysis Services.
-
-Чтобы просмотреть все роли и типы доступа для своих ресурсов служб Azure Analysis Services, используйте параметр "Управление доступом (IAM)" в колонке "Управление".
-
-## <a name="database-users"></a>Пользователи базы данных
-Пользователи шаблона базы данных Azure Analysis Services должны быть пользователями вашей службы Azure Active Directory. В качестве имен пользователей, указанных для шаблона базы данных, необходимо использовать адрес электронной почты организации или имя участника-пользователя. Это отличается от локальных шаблонов баз данных, которые поддерживают имена пользователей домена Windows.
-
-Пользователей можно добавлять, используя [назначения ролей в Azure Active Directory](../active-directory/role-based-access-control-configure.md) или язык [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) в SQL Server Management Studio.
-
-**Пример скрипта TMSL**
-
-```
-{
-  "createOrReplace": {
-    "object": {
-      "database": "SalesBI",
-      "role": "Users"
-    },
-    "role": {
-      "name": "Users",
-      "description": "All allowed users to query the model",
-      "modelPermission": "read",
-      "members": [
-        {
-          "memberName": "user1@contoso.com",
-          "identityProvider": "AzureAD"
-        },
-        {
-          "memberName": "group1@contoso.com",
-          "identityProvider": "AzureAD"
-        }
-      ]
-    }
-  }
-}
-```
+На странице скачивания вы увидите два варианта:
+ 
+* Релиз-кандидат. Рекомендуется использовать при только подключении к предварительной версии служб Azure Analysis Services. Этот выпуск получает последние обновления и лучше всего работает с предварительной версией служб Azure Analysis Services.
+* Текущий рабочий выпуск. Рекомендуется использовать при подключении и к рабочим серверам, и к предварительной версии служб Azure Analysis Services. При использовании этой версии, возможно, потребуется изменить реестр, чтобы включить аутентификацию Azure Active Directory.
 
 ## <a name="enable-azure-active-directory-authentication"></a>Включение проверки подлинности Azure Active Directory
+
 Чтобы включить компонент проверки подлинности Azure Active Directory для SSMS в реестре, создайте текстовый файл с именем EnableAAD.reg, а затем скопируйте и вставьте в него следующее.
 
 ```
@@ -124,10 +91,5 @@ Windows Registry Editor Version 5.00
 Если вы все еще не развернули табличную модель нового сервера, сейчас самое время это сделать. Дополнительные сведения см. в статье [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Развертывание в службы Azure Analysis Services).
 
 Если модель для сервера развернута, к ней можно подключиться с помощью клиента или браузера. Дополнительные сведения см. в статье [Получение данных из служб Azure Analysis Services](analysis-services-connect.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

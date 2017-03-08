@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
 
 
 ---
@@ -42,7 +42,7 @@ ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
 * **Федеративная идентификация**: удостоверения пользователей существуют как локально, так и в облаке.  При использовании Azure AD Connect пользователи создаются на основе существующих учетных записей Azure AD или объединяются с ними.  
 
 > [!NOTE]
-> Узнайте больше о вариантах синхронизации в статье [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+> Узнайте больше о вариантах синхронизации в статье [Интеграция локальных удостоверений с Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -110,7 +110,7 @@ ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
 ![](./media/hybrid-id-design-considerations/single-forest.png) Сценарии с одним лесом. Очень многие крупные, а иногда и небольшие организации используют несколько лесов, как показано на рисунке 5.
 
 > [!NOTE]
-> Дополнительные сведения о синхронизации с применением Azure AD Connect в различных топологиях локальной среды и Azure AD вы найдете в статье [Топологии Azure AD Connect](active-directory-aadconnect-topologies.md).
+> Дополнительные сведения о синхронизации с применением Azure AD Connect в различных топологиях локальной среды и Azure AD вы найдете в статье [Топологии Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
 > 
 > 
 
@@ -130,7 +130,7 @@ ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
 * Если у пользователя есть связанный почтовый ящик, то есть и другая учетная запись в другом лесу, которая используется для входа.
 
 > [!NOTE]
-> Объекты, которые существуют как локально, так и в облаке, «связаны» по уникальному идентификатору. В контексте синхронизации каталогов такой уникальный идентификатор называется привязкой к источнику (SourceAnchor). В контексте единого входа он имеет имя ImmutableId. [Концепции разработки для Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) содержит дополнительные сведения об использовании SourceAnchor.
+> Объекты, которые существуют как локально, так и в облаке, «связаны» по уникальному идентификатору. В контексте синхронизации каталогов такой уникальный идентификатор называется привязкой к источнику (SourceAnchor). В контексте единого входа он имеет имя ImmutableId. [Концепции разработки для Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) содержит дополнительные сведения об использовании SourceAnchor.
 > 
 > 
 
@@ -216,6 +216,6 @@ ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

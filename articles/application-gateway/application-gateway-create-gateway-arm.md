@@ -1,5 +1,5 @@
 ---
-title: "Создание, запуск или удаление шлюза приложений с помощью Azure Resource Manager | Документация Майкрософт"
+title: "Создание и администрирование шлюза приложений Azure с помощью PowerShell | Документация Майкрософт"
 description: "На этой странице приводятся инструкции по созданию, настройке, запуску и удалению шлюза приложений Azure с помощью диспетчера ресурсов Azure."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: baf389dcdfb38053b9feb976d19b471838f1315e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -299,10 +300,5 @@ DnsSettings              : {
 
 * [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

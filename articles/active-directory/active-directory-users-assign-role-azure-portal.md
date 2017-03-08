@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
 
 
 ---
@@ -26,18 +26,18 @@ ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
 ## <a name="assign-a-role-to-a-user"></a>Назначение роли пользователю
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-   
+
    ![Открытие страницы "Управление пользователями"](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Все пользователи**.
-   
+
    ![Открытие колонки "Все пользователи"](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 4. В колонке **Пользователи и группы — Все пользователи** выберите пользователя из списка.
 5. В колонке для выбранного пользователя щелкните **Роль каталога**, после чего назначьте пользователя для роли из списка **Роль каталога**. Дополнительные сведения о ролях пользователей и администраторов см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
-   
+
       ![Назначение пользователя для роли](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Щелкните **Сохранить**.
 
-## <a name="whats-next"></a>Что дальше?
+## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление пользователей](active-directory-users-create-azure-portal.md)
 * [Сброс пароля пользователя на новом портале Azure](active-directory-users-reset-password-azure-portal.md)
 * [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
@@ -46,7 +46,6 @@ ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью аналитики мультимедиа Azure | Документация Майкрософт"
+title: "Оцифровывание текста с помощью распознавания текста медиа-аналитики Azure | Документация Майкрософт"
 description: "Функция OCR (оптическое распознавание символов) медиа-аналитики Azure позволяет преобразовывать текстовое содержимое в видеофайлах в редактируемый и доступный для поиска цифровой текст.  Это позволяет автоматически извлекать значимые метаданные из видеосигнала файлов мультимедиа."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -36,6 +37,10 @@ ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
 ## <a name="task-configuration"></a>Конфигурация задачи
 Конфигурация задачи (предустановка). При создании задачи с помощью **Azure Media OCR** необходимо указать предустановку конфигурации, используя JSON- или XML-файл. 
 
+>[!NOTE]
+>Подсистема распознавания текста принимает в качестве допустимых входных данных только область изображения от 40 до 32 000 пикселей в высоту и ширину.
+>
+
 ### <a name="attribute-descriptions"></a>Описания атрибутов
 | Имя атрибута | Описание |
 | --- | --- |
@@ -45,20 +50,25 @@ ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
 | DetectRegions |(необязательно) Массив объектов DetectRegion, указывающих области внутри видеокадра, в котором выполняется распознавание текста.<br/>Объект DetectRegion состоит из следующих четырех значений, которые являются целыми числами.<br/>Left — отступ в пикселях от левого края.<br/>Top — отступ в пикселях от верхнего края.<br/>Width — ширина области в пикселях.<br/>Height: высота области в пикселях. |
 
 #### <a name="json-preset-example"></a>Пример предустановки JSON
+
     {
-        'Version':'1.0', 
-        'Options': 
+        "Version":1.0, 
+        "Options": 
         {
-        'Language':'English', 
-            'TimeInterval':'00:00:01.5',
-            'DetectRegions': 
-             [
-                {'Left':'1','Top':'1','Width':'1','Height':'1'},
-                {'Left':'2','Top':'2','Width':'2','Height':'2'}
-             ],
-            'TextOrientation':'Up'
+            "Language":"English", 
+            "TimeInterval":"00:00:01.5",
+            "TextOrientation":"Up",
+            "DetectRegions": [
+                    {
+                       "Left": 10,
+                       "Top": 10,
+                       "Width": 100,
+                       "Height": 50
+                    }
+             ]
         }
     }
+
 
 #### <a name="xml-preset-example"></a>Пример предустановки XML
     <?xml version=""1.0"" encoding=""utf-16""?>
@@ -68,10 +78,10 @@ ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>
              <DetectRegion>
-                   <Left>1</Left>
-                   <Top>1</Top>
-                   <Width>1</Width>
-                   <Height>1</Height>
+                   <Left>10</Left>
+                   <Top>10</Top>
+                   <Width>100</Width>
+                   <Height>50</Height>
             </DetectRegion>
        </DetectRegions>
        <TextOrientation>Up</TextOrientation>
@@ -338,10 +348,5 @@ ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
 
 ## <a name="related-links"></a>Связанные ссылки
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,20 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Как создать учетную запись DocumentDB в базе данных NoSQL с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Портал Azure](documentdb-create-account.md)
-> * [Azure CLI и Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 Чтобы создать базу данных в Microsoft Azure DocumentDB, вам потребуются:
 
@@ -38,9 +39,9 @@ ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
 Не знакомы с DocumentDB? Просмотрите это четырехминутное [видео](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) , в котором Скотт Хансельман (Scott Hanselman) рассказывает, как выполнять наиболее распространенные задачи на веб-портале.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
-2. На навигационной панели щелкните **Создать**, выберите **Базы данных**, а затем щелкните **DocumentDB (NoSQL)**.
+2. На левой навигационной панели щелкните **Создать**, выберите **Базы данных**, а затем щелкните **NoSQL (DocumentDB)**.
 
-   ![Снимок экрана портала Azure, на котором выделены дополнительные службы и DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Снимок экрана портала Azure, на котором выделено меню "Больше служб" и NoSQL (DocumentDB)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. В колонке **Создание учетной записи** укажите желаемую конфигурацию учетной записи DocumentDB.
 
     ![Снимок экрана: выноска "Создать DocumentDB"](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -80,16 +81,11 @@ ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
 
 Создав базу данных и коллекцию, нужно в коллекцию [добавить документы](documentdb-view-json-document-explorer.md).
 
-Когда в коллекции появятся документы, к ним можно [отправлять запросы](documentdb-sql-query.md#executing-sql-queries), созданные с помощью [DocumentDB SQL](documentdb-sql-query.md). Запросы можно отправлять через [обозреватель запросов](documentdb-query-collections-query-explorer.md) на портале, с помощью [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из пакетов [SDK](documentdb-sdk-dotnet.md).
+Когда в коллекции появятся документы, к ним можно [отправлять запросы](documentdb-sql-query.md#ExecutingSqlQueries), созданные с помощью [DocumentDB SQL](documentdb-sql-query.md). Запросы можно отправлять через [обозреватель запросов](documentdb-query-collections-query-explorer.md) на портале, с помощью [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из пакетов [SDK](documentdb-sdk-dotnet.md).
 
 ### <a name="learn-more"></a>Подробнее
 Дополнительные сведения о DocumentDB можно получить из следующих ресурсов:
 
 * [Схема обучения для DocumentDB.](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Иерархическая модель ресурсов и понятия DocumentDB.](documentdb-resources.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

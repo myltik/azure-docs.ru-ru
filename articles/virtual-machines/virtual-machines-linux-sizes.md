@@ -1,5 +1,5 @@
 ---
-title: "Размеры виртуальной машины Linux | Документация Майкрософт"
+title: "Размеры виртуальных машин Linux в Azure | Документация Майкрософт"
 description: "Список различных размеров виртуальных машин Linux в Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 02/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 539e6a8835bf9f999f8855496e39e06bb58cd848
-ms.openlocfilehash: e3a8741f8e8d0dc62de3c0dd48acb93853837a6f
+ms.sourcegitcommit: 2b4debaeaf879b0c79c05420fdbbd8735da1d015
+ms.openlocfilehash: d1b6b5b46b3329471388e178c3ea06f881003c48
+ms.lasthandoff: 02/01/2017
 
 
 ---
-# <a name="sizes-for-virtual-machines-in-azure"></a>Размеры виртуальных машин в Azure
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Размеры виртуальных машин Linux в Azure
 В этой статье описаны доступные размеры и разновидности виртуальных машин Azure, которые можно использовать для запуска приложений и рабочих нагрузок Linux. Здесь также предоставлены рекомендации по развертыванию, которые нужно учитывать при планировании использования этих ресурсов. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
@@ -35,10 +36,5 @@ ms.openlocfilehash: e3a8741f8e8d0dc62de3c0dd48acb93853837a6f
 
 
 [!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

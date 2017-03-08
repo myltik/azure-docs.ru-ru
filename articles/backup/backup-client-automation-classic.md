@@ -1,6 +1,7 @@
 ---
-title: "Развертывание архивации для Windows Server или клиента Windows и управление ею с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell"
+
+title: "Использование PowerShell для управления резервными копиями Windows Server в Azure | Документация Майкрософт"
+description: "Развертывание резервных копий Windows Server и управление ими с помощью PowerShell."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -13,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+ms.author: saurse;markgal;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
+ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Классический](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере Windows Server или клиенте Windows, а также для управления резервным копированием и восстановлением данных.
 
@@ -43,8 +44,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 ## <a name="create-a-backup-vault"></a>создать хранилище архивации;
 > [!WARNING]
 > Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 Вы можете создать новое хранилище службы архивации с помощью командлета **New-AzureRMBackupVault** . Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
@@ -123,8 +124,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Параметры сети
 Если подключение компьютера под управлением Windows к Интернету осуществляется через прокси-сервер, параметры этого прокси-сервера могут сообщаться агенту. В нашем случае прокси-сервер не используется, поэтому мы явным образом удаляем все данные прокси-сервера.
@@ -151,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Резервное копирование файлов и папок
 Для управления всеми резервными копиями с серверов и рабочих станций Windows, которые имеются в службе резервного копирования Azure, применяется соответствующая политика. Политика состоит из трех частей:
@@ -607,7 +608,6 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

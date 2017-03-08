@@ -1,5 +1,7 @@
 ---
-title: "Создание и развертывание приложения для включения индикатора | Документация Майкрософт"
+featureFlags:
+- usabilla
+title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Урок 1. Развертывание приложения | Документация Майкрософт"
 description: "Клонируйте пример приложения Node.js из Github и разверните его с помощью средства Gulp на плате Raspberry Pi 3. Это приложение будет каждые две секунды включать и выключать светодиодный индикатор на компьютере."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -124,7 +126,7 @@ npm install
 Поздравляем! Вы успешно создали первый пример приложения для платы Pi.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Развертывание и запуск примера приложения
-### <a name="install-nodejs-and--on-pi"></a>Установка Node.js и NPM на плату Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Установка Node.js и NPM на устройстве Pi
 Установите Node.js и NPM на плату Pi, выполнив следующую команду.
 
 ```bash
@@ -153,6 +155,6 @@ gulp deploy && gulp run
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

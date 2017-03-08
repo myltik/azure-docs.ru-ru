@@ -17,6 +17,7 @@ ms.author: marsma
 translationtype: Human Translation
 ms.sourcegitcommit: b9041713f3d084fde77a34ef7956a2c59312245e
 ms.openlocfilehash: d48f82d8fea89b45af14dd2154d69889c95a5e2f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -431,9 +432,4 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [Построение и развертывание приложения Node.js в облачной службе Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

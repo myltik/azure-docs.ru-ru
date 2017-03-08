@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/17/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a8d41dcfd51d298784b932184fc8d68a9877a65
-ms.openlocfilehash: 2406a3ba5576635e801f6218e03dd74352d15368
+ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
+ms.openlocfilehash: a0a101c34ffd4adb6816d9db8313d10b0ffbb3ae
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -54,7 +55,7 @@ ms.openlocfilehash: 2406a3ba5576635e801f6218e03dd74352d15368
 1. Добавление SuccessFactors из коллекции.
 2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-successfactors-from-the-gallery"></a>Добавление SuccessFactors из коллекции.
+## <a name="adding-successfactors-from-the-gallery"></a>Добавление SuccessFactors из коллекции
 Чтобы настроить интеграцию SuccessFactors с Azure AD, необходимо добавить SuccessFactors из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить SuccessFactors из коллекции, выполните следующие действия.**
@@ -152,7 +153,7 @@ ms.openlocfilehash: 2406a3ba5576635e801f6218e03dd74352d15368
    
     ![Настройка единого входа на стороне приложения][12]
    
-    а. Установите переключатель **SAML v2 SSO** (Единый вход SAML версии 2).
+    а. Установите переключатель **SAML v2 SSO** (Единый вход SAML версии&2;).
    
     b. Задайте имя утверждающей стороны SAML (например, "Издатель SAML + название компании").
    
@@ -329,9 +330,4 @@ ms.openlocfilehash: 2406a3ba5576635e801f6218e03dd74352d15368
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

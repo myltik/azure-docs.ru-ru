@@ -16,17 +16,13 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e16587c3eb7366c92297455e8a175ab118174526
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: f63bd47c15439e6fedc0f6edf579681697155592
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="sql-database-advisor-using-the-azure-portal"></a>Использование помощника по базам данных SQL на портале Azure
-> [!div class="op_single_selector"]
-> * [Обзор помощника по базам данных SQL](sql-database-advisor.md)
-> * [Портал](sql-database-advisor-portal.md)
-> 
-> 
 
 Используя помощник по базам данных SQL Azure на портале Azure можно просматривать и реализовывать рекомендации для существующих баз данных SQL, которые могут повысить текущую производительность запросов.
 
@@ -152,10 +148,5 @@ ms.openlocfilehash: e16587c3eb7366c92297455e8a175ab118174526
 * [Хранилище запросов](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Контроль доступа на основе ролей](../active-directory/role-based-access-control-configure.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

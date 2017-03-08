@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
 > 
 > 
 
-Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Если все журналы хранятся централизованно, это упрощает анализ и устранение проблем со службами, приложениями и кластером. Для отправки и сбора журналов рекомендуется использовать расширение системы диагностики Azure, которое отправляет журналы в службу хранилища Azure. Можно считывать события из хранилища и помещать их, например, в [эластичный поиск](service-fabric-diagnostic-how-to-use-elasticsearch.md) или другое решение для анализа журналов.
+Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Если все журналы хранятся централизованно, это упрощает анализ и устранение проблем со службами, приложениями и кластером. Для отправки и сбора журналов рекомендуется использовать расширение системы диагностики Azure, которое отправляет журналы в службу хранилища Azure, Azure Application Insights или концентраторы событий Azure. Кроме того, можно считывать события из хранилища или концентраторов событий и помещать их, например, в [Log Analytics](../log-analytics/log-analytics-service-fabric.md) или другое решение для анализа журналов. [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) предоставляется с возможностью полного поиска по журналам и встроенной службой аналитики.
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Источники журналов, которые вы можете собирать
 * **Журналы Service Fabric**. Создаются платформой с помощью [LTTng](http://lttng.org) и отправляются в вашу учетную запись хранения. Журналы могут включать операционные события или события среды выполнения, которые создаются платформой. Эти журналы хранятся в расположении, указанном в манифесте кластера. (Чтобы получить сведения об учетной записи хранения, выполните поиск по тегу **AzureTableWinFabETWQueryable** и найдите **StoreConnectionString**.)
@@ -48,10 +49,5 @@ ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о том, какие события нужно анализировать при устранении неполадок, см. в [документации по LTTng](http://lttng.org/docs) и статье [Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

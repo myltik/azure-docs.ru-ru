@@ -4,7 +4,7 @@ description: "Используйте личное доменное имя для
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f8d2941b30079463954b4f9b8b9dfb10cfa3ea1
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 532a953c02ef40eb55705eac885d74c5574deed5
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -80,9 +81,4 @@ ms.openlocfilehash: 0f8d2941b30079463954b4f9b8b9dfb10cfa3ea1
 <!-- URL List -->
 
 [CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,14 +12,14 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: baf3adaa0bb1e93cccd592648018c84353496cb7
-ms.openlocfilehash: cf2cc63d9b0abbca79e4da340cd76ddb348b6679
+ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
+ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 
 
 ---
@@ -29,6 +29,12 @@ ms.openlocfilehash: cf2cc63d9b0abbca79e4da340cd76ddb348b6679
 
 >  [!NOTE]  
 >  Этот раздел относится к Azure SQL Server, а также к базам данных SQL и хранилища данных SQL, создаваемым на сервере Azure SQL Server. Для простоты база данных SQL используется как для базы данных SQL, так и для хранилища данных SQL. 
+>
+
+> [!TIP]
+> Сведения об использовании аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md). Сведения об использовании аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Административные учетные записи с неограниченным доступом
 В качестве администратора выступают две учетные записи (**администратор сервера** и **администратор Active Directory**). Чтобы определить эти учетные записи администратора для сервера SQL Server, откройте портал Azure и перейдите к его свойствам.

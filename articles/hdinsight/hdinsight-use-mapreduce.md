@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 068cd703d0d06206b3caa72e765dbe51b819ff17
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -168,6 +169,9 @@ HDInsight может запускать задания HiveQL с помощью 
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Удаленная отправка заданий с помощью **Windows PowerShell** |Windows или Linux |Windows |
 | [Удаленный рабочий стол](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Использование команды Hadoop с помощью **удаленного рабочего стола** |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
 
 Хотя платформа MapReduce предоставляет мощные диагностические функции, она может быть сложной для освоения. Некоторые платформы на основе Java упрощают определение приложений MapReduce, а такие технологии, как Pig и Hive, упрощают работу с данными в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
@@ -175,9 +179,9 @@ HDInsight может запускать задания HiveQL с помощью 
 * [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 * [Разработка программ MapReduce с потоковой передачей Python для HDInsight](hdinsight-hadoop-streaming-python.md)
 * [Разработка заданий Scalding MapReduce с Apache Hadoop в HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
-* [Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла Apache log4j][hdinsight-use-hive]
+* [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
-* [Выполнение примеров Hadoop MapReduce в HDInsight на базе Windows][hdinsight-samples]
+* [Запуск примеров HDInsight][hdinsight-samples]
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -187,12 +191,7 @@ HDInsight может запускать задания HiveQL с помощью 
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

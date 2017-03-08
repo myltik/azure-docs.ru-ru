@@ -3,8 +3,8 @@ title: "Использование службы хранилища Azure в пр
 description: "Узнайте, как создать приложение магазина Windows, которое использует BLOB-объекты, очереди, таблицы или хранилище файлов Azure."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 63c4b29d-b2f2-4d7c-b164-a0d38f4d14f6
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 678592957e5740194e9292393231be111d6067a5
+ms.sourcegitcommit: 5b86154414c7745430af11d59355a937fc525d54
+ms.openlocfilehash: 3284f94b28d814b3442d8088f69a301ef4dabc79
 
 
 ---
@@ -42,16 +42,20 @@ ms.openlocfilehash: 678592957e5740194e9292393231be111d6067a5
 ### <a name="using-the-library-with-the-blob-and-queue-services"></a>Использование библиотеки со службами BLOB-объектов и очередей
 На этом этапе приложение готово к вызову служб BLOB-объектов и очередей Azure. Добавьте следующие операторы **using** , чтобы можно было напрямую ссылаться на типы хранилища Azure:
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+```
 
 Далее, добавьте кнопку на страницу. Добавьте следующий код к ее событию **Click** и измените метод обработчика событий с помощью [ключевого слова async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var blobClient = account.CreateCloudBlobClient();
-    var container = blobClient.GetContainerReference("container1");
-    await container.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var blobClient = account.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference("container1");
+await container.CreateIfNotExistsAsync();
+```
 
 В этом коде предполагается, что у вас есть две строковые переменные *accountName* и *accountKey*. Они представляют собой имя вашей учетной записи хранения и связанный ней ключ.
 
@@ -70,11 +74,13 @@ ms.openlocfilehash: 678592957e5740194e9292393231be111d6067a5
 
 После создания ссылки на NuGet-пакет службы данных WCF измените код события **Click** вашей кнопки:
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var tableClient = account.CreateCloudTableClient();
-    var table = tableClient.GetTableReference("table1");
-    await table.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var tableClient = account.CreateCloudTableClient();
+var table = tableClient.GetTableReference("table1");
+await table.CreateIfNotExistsAsync();
+```
 
 Этот код позволяет проверить учетную запись на наличие таблицы с именем *table1* и создать ее в случае отсутствия.
 
@@ -86,6 +92,6 @@ ms.openlocfilehash: 678592957e5740194e9292393231be111d6067a5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

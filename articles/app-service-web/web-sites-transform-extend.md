@@ -4,7 +4,7 @@ description: "Используйте объявления преобразова
 author: cephalin
 writer: cephalin
 editor: mollybos
-manager: wpickett
+manager: erikre
 services: app-service
 documentationcenter: 
 ms.assetid: b441a286-ef38-4abc-b102-cdb249baf5bc
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e10b89aecd12dd9eeb91855242421bf8d7c0a0b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -169,7 +170,7 @@ ms.openlocfilehash: 2e10b89aecd12dd9eeb91855242421bf8d7c0a0b
 Вы можете отключить все частные расширения (кроме предустановленных) для веб-приложения. Это может потребоваться во время разработки или исследования. Для этого нужно добавить параметр приложения с ключом `WEBSITE_PRIVATE_EXTENSIONS` и значением `0`.
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -179,10 +180,5 @@ ms.openlocfilehash: 2e10b89aecd12dd9eeb91855242421bf8d7c0a0b
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

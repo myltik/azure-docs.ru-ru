@@ -1,24 +1,4 @@
 ---
-title: "Таблица ограничений для Stream Analytics"
-description: "В таблице описаны системные ограничения и рекомендуемые размеры для компонентов и подключений Stream Analytics."
-services: stream-analytics
-documentationcenter: NA
-author: jeffstokes72
-manager: paulettm
-editor: cgronlun
-ms.service: stream-analytics
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: big-data
-ms.date: 07/25/2016
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: b4cfc4663dbef820c866846d65b9fa8512c7dcff
-
-
----
 | Идентификатор ограничения | Ограничение | Комментарии |
 | --- | --- | --- |
 | Максимальное количество единиц потоковой передачи на одну подписку для одного региона |50 |Чтобы сделать запрос на увеличение количества единиц потоковой передачи свыше 50 шт., обратитесь в [службу технической поддержки корпорации Майкрософт](https://support.microsoft.com/en-us). |
@@ -27,10 +7,10 @@ ms.openlocfilehash: b4cfc4663dbef820c866846d65b9fa8512c7dcff
 | Максимальное количество операций вывода на задание |60 |Для каждого задания Stream Analytics существует фиксированный предел в 60 операций вывода. |
 | Максимальное количество функций на задание |60 |Для каждого задания Stream Analytics существует фиксированный предел в 60 функций. |
 | Максимальное количество заданий на регион |1500 |У каждой подписки может быть до 1500 заданий в одном географическом регионе. |
+| Большой двоичный объект ссылочных данных (МБ) | 100 | Размер больших двоичных объектов ссылочных данных не может превышать 100 МБ. |
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

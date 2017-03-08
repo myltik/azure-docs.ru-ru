@@ -17,6 +17,7 @@
 ### [Создание шаблонов](resource-group-authoring-templates.md)
 ### [Функции шаблонов](resource-group-template-functions.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
+### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
 ### [Создание нескольких экземпляров типа ресурса](resource-group-create-multiple.md)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 ### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
@@ -26,8 +27,7 @@
 ### [PowerShell](resource-group-template-deploy.md)
 ### [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 ### [Портал](resource-group-template-deploy-portal.md)
-### [REST API](resource-group-template-deploy-rest.md)
-### [Среды для разработки и тестирования](solution-dev-test-environments.md)
+### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Управление
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -36,27 +36,28 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
-### [Использование ссылки на связанные ресурсы](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Контроль доступа
 ### [Создание субъекта-службы с помощью PowerShell](resource-group-authenticate-service-principal.md)
 ### [Создание субъекта-службы с помощью интерфейса командной строки Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Создание субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
-### [Настройка политик управления](resource-manager-policy.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
 ### [Вопросы безопасности](best-practices-resource-manager-security.md)
+## Задание политик ресурсов
+### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
+### [Назначение политик и управление ими](resource-manager-policy-create-assign.md)
+### [Политики тегов ресурсов](resource-manager-policy-tags.md)
+### [Политики хранения](resource-manager-policy-storage.md)
+### [Политики виртуальных машин Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Политики виртуальных машин Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Аудит и устранение неполадок
 ### [Устранение стандартных ошибок развертывания](resource-manager-common-deployment-errors.md)
 ### [Просмотр журналов действий](resource-group-audit.md)
-### [Просмотр операций развертывания с помощью портала](resource-manager-troubleshoot-deployments-portal.md)
-### [Просмотр операций развертывания с помощью PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Просмотр операций развертывания с помощью интерфейса командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Просмотр операций развертывания с помощью REST API](resource-manager-troubleshoot-deployments-rest.md)
+### [Просмотр операций развертывания](resource-manager-deployment-operations.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure CLI 2.0 (предварительная версия)](/cli/azure/resource)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -65,11 +66,7 @@
 
 # Ресурсы
 ## [Запросы на регулирование](resource-manager-request-limits.md)
+## [Отслеживание асинхронных операций](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Jan17_HO1-->
-
-

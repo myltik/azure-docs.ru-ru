@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 41334fb928b18c288f32efb0978150fa24ae14e3
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -30,7 +31,7 @@ Umbraco — это популярная система управления со
 > 
 > — Мортен Кристенсен (Morten Christensen), технический руководитель в Umbraco.
 > 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
 > 
 
@@ -129,10 +130,5 @@ UaaS позволяет клиентам SaaS использовать возм�
 * Чтобы узнать больше об архивации и восстановлении, ознакомьтесь с [обеспечением непрерывности бизнес-процессов](sql-database-business-continuity.md).    
 * Чтобы узнать больше о мониторинге пулов, ознакомьтесь с [мониторингом пулов](sql-database-elastic-pool-manage-portal.md).    
 * Чтобы узнать больше об Umbraco как службе, ознакомьтесь с [Umbraco](https://umbraco.com/cloud).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

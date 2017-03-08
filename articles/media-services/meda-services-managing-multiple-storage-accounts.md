@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
+ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
 * балансирование нагрузки ваших ресурсов-контейнеров между несколькими учетными записями хранения;
 * масштабирование служб мультимедиа для больших объемов обработки содержимого (сейчас действует ограничение в 500 ТБ на одну учетную запись хранения). 
 
-В этом разделе показано, как подключить несколько учетных записей хранения к учетной записи служб мультимедиа с помощью REST API управления службами Azure. Здесь также описывается, как указывать другие учетные записи хранения при создании файлов с помощью пакета SDK служб мультимедиа. 
+В этом разделе показано, как подключить несколько учетных записей хранения к учетной записи служб мультимедиа с помощью [интерфейсов API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). Здесь также описывается, как указывать другие учетные записи хранения при создании файлов с помощью пакета SDK служб мультимедиа. 
 
 ## <a name="considerations"></a>Рекомендации
 При подключении нескольких учетных записей хранения к своей учетной записи служб мультимедиа обратите внимание на следующее.
@@ -34,13 +35,33 @@ ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
 * Все учетные записи хранения, подключенные к учетной записи служб мультимедиа, должны находиться в одном центре обработки данных с учетной записью служб мультимедиа.
 * После подключения учетной записи хранения к указанной учетной записи служб мультимедиа ее невозможно отключить.
 * Основная учетная запись хранения — это запись, указанная во время создания учетной записи служб мультимедиа. Сейчас нельзя изменить учетную запись хранения по умолчанию. 
+* В настоящее время для добавления учетной записи "холодного" хранилища в учетную запись AMS она должна иметь тип большого двоичного объекта и не быть задана как основная.
 
 Дополнительные рекомендации
 
-Службы мультимедиа используют значение свойства **IAssetFile.Name** при создании URL-адресов для потоковой передачи содержимого (например, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). По этой причине кодирование с помощью знака процента не допускается. Значение свойства Name не может содержать [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), а именно: !*'();:@&=+$,/?%#[]".. Кроме того, может использоваться только один символ точки (.). Кроме того, может использоваться только один символ "." для расширения имени файла.
+Службы мультимедиа используют значение свойства **IAssetFile.Name** при создании URL-адресов для потоковой передачи содержимого (например, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). По этой причине кодирование с помощью знака процента не допускается. Значение свойства Name не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
-## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Подключение учетной записи хранения с помощью API REST управления службами Azure
-Сейчас единственным способом подключения нескольких учетных записей хранения является использование [API REST управления службами Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). В примере кода в разделе [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) (Как использовать API REST управления службами мультимедиа) описывается метод **AttachStorageAccountToMediaServiceAccount** , который подключает учетную запись хранения к указанной учетной записи служб мультимедиа. Код в том же разделе определяет метод **ListStorageAccountDetails** , который выводит все учетные записи хранения, подключенные к указанной учетной записи служб мультимедиа.
+## <a name="to-attach-storage-accounts"></a>Присоединение учетных записей хранения  
+
+Чтобы присоединить учетные записи хранения к учетной записи AMS, используйте [интерфейсы API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), как показано в следующем примере.
+
+    $regionName = "West US"
+    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccount1Name = "skystorage1"
+    $storageAccount2Name = "skystorage2"
+    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccounts = @($storageAccount1, $storageAccount2)
+    
+    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+
+### <a name="support-for-cool-storage"></a>Поддержка "холодного" хранилища
+
+В настоящее время для добавления учетной записи "холодного" хранилища в учетную запись AMS она должна иметь тип большого двоичного объекта и не быть задана как основная.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Управление файлами служб мультимедиа в нескольких учетных записях хранения
 В приведенном ниже коде используется последняя версия пакета SDK служб мультимедиа для выполнения следующих задач.
@@ -144,7 +165,7 @@ ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
                     // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("My encoding task",
                         processor,
-                        "H264 Multiple Bitrate 720p",
+                        "Adaptive Streaming",
                         Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
 
                     // Specify the input asset to be encoded.
@@ -253,10 +274,5 @@ ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

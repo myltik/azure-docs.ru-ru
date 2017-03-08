@@ -23,8 +23,11 @@
 ## [Управление удостоверениями](security-identity-management-overview.md)
 ### [Рекомендации по управлению удостоверениями для обеспечения безопасности](azure-security-identity-management-best-practices.md)
 ## Службы PaaS
-### [Рекомендации по обеспечению безопасности Интернета вещей](azure-security-iot-best-practices.md)
+### [Защита развернутых приложений PaaS](security-paas-deployments.md)
+#### [Защита приложений PaaS с помощью SQL](security-paas-applications-using-sql.md)
+#### [Защита приложений PaaS с помощью службы приложений](security-paas-applications-using-app-services.md)
 ### [Обзор системы безопасности Интернета вещей](security-internet-of-things-overview.md)
+### [Рекомендации по обеспечению безопасности Интернета вещей](azure-security-iot-best-practices.md)
 ## Вертикальные отрасли
 ### [Разработка безопасных решений для отрасли здравоохранения](security-health-care-solution.md)
 ## [Архитектура безопасности](azure-security-architecture-overview.md)
@@ -49,8 +52,14 @@
 ## [Консультация по кибербезопасности](azure-security-cyber-services.md)
 ## [Курсы по безопасности от виртуальной академии](security-microsoft-virtual-academy.md)
 ## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+## [Средство моделирования угроз](azure-security-threat-modeling-tool.md)
+###[Аудит и ведение журнала](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[Аутентификация](azure-security-threat-modeling-tool-authentication.md)
+###[Авторизация](azure-security-threat-modeling-tool-authorization.md)
+###[Безопасность обмена данными](azure-security-threat-modeling-tool-communication-security.md)
+###[Управление конфигурацией](azure-security-threat-modeling-tool-configuration-management.md)
+###[Шифрование](azure-security-threat-modeling-tool-cryptography.md)
+###[Управление исключениями](azure-security-threat-modeling-tool-exception-management.md)
+###[Проверка входных данных](azure-security-threat-modeling-tool-input-validation.md)
+###[Конфиденциальные данные](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Управление сеансом](azure-security-threat-modeling-tool-session-management.md)

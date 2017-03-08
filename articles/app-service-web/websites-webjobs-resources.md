@@ -4,7 +4,7 @@ description: "Рекомендуемые ресурсы для обучения 
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 64e2ed7a625aec59f68411d93a5942a546919abb
+ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
+ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 64e2ed7a625aec59f68411d93a5942a546919abb
 
 ## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Начало работы с веб-заданиями и пакетом SDK веб-заданий
 * [Общие сведения о веб-заданиях Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [Веб-задания Azure потрясающие, начните использовать их прямо сейчас!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html)  (Запись блога Троя Ханта (Troy Hunt).)
+* [Веб-задания Azure потрясающие, начните использовать их прямо сейчас!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Запись блога Троя Ханта (Troy Hunt).)
 * [Компоненты веб-заданий Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Информация о пакете SDK веб-заданий](websites-dotnet-webjobs-sdk.md)
 * [Руководство по фоновым заданиям на основе шаблонов и рекомендаций от Майкрософт](/documentation/articles/best-practices-background-jobs/)
@@ -41,8 +42,7 @@ ms.openlocfilehash: 64e2ed7a625aec59f68411d93a5942a546919abb
 * [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Использование табличного хранилища Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [Использование служебной шины Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Использование веб-перехватчиков с помощью пакета SDK веб-заданий с примерами для GitHub, IFTTT и HTTP](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
+* [Использование служебной шины Azure с пакетом SDK для веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Краткий справочник по пакету SDK веб-заданий (скачиваемый PDF-файл)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [Документация по настройке веб-заданий в GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Видеоролики
@@ -133,10 +133,5 @@ ms.openlocfilehash: 64e2ed7a625aec59f68411d93a5942a546919abb
 * [Сайт пользовательских мнений по веб-приложениям Azure](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Используйте хештег #AzureWebJobs.
 * [Сообщение об ошибке или проблеме в веб-задании](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

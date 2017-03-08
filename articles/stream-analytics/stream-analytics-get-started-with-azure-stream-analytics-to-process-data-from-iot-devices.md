@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с Azure Stream Analytics для обработки данных с устройств Интернета вещей | Документация Майкрософт"
+title: "Потоки данных IoT в режиме реального времени и Azure Stream Analytics | Документация Майкрософт"
 description: "Теги и потоки данных датчиков IoT: обработка данных с использованием Stream Analytics в режиме реального времени"
 keywords: "решение IoT, начало работы с IoT"
 services: stream-analytics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
 
 
 ---
@@ -105,7 +105,7 @@ ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Запрос: оповещение для активации рабочего бизнес-процесса
 Теперь давайте детализируем наш запрос. Если требуется отслеживать среднее значение температуры за 30-секундный промежуток времени и отображать результаты только в том случае, если это значение превышает 100 градусов, Для каждого типа датчика нужно написать запрос, как показано ниже, и щелкнуть **Проверить**, чтобы просмотреть результаты. Запрос находится в файле ThresholdAlerting.txt.
 
-![Запрос с 30-секундным фильтром](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Запрос с&30;-секундным фильтром](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Теперь результаты содержат всего 245 строк. В них указаны датчики, для которых среднее значение температуры превышает 100. В этом запросе поток событий сгруппирован по свойству **dspl**, представляющему собой имя датчика, в **"переворачивающемся" окне** длительностью 30 секунд. Во время создания таких временных запросов важно задать способ учета отметок времени. С помощью предложения **TIMESTAMP BY** мы настроили использование столбца **OUTPUTTIME**, чтобы связать время со всеми временными вычислениями. Дополнительные сведения см. в статьях MSDN об [управлении временем](https://msdn.microsoft.com/library/azure/mt582045.aspx) и [функциях для работы с окнами](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
@@ -122,6 +122,6 @@ ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

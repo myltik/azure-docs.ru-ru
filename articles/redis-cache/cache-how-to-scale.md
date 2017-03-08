@@ -17,6 +17,7 @@ ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
 ms.openlocfilehash: 022916bacd93d283a6495a60ca1afa0c27e34e0c
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -188,10 +189,5 @@ ms.openlocfilehash: 022916bacd93d283a6495a60ca1afa0c27e34e0c
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

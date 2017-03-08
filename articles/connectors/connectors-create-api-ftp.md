@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f08180c196a1f573529c9fed52c7ae5c3869da6d
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 2634d0101c1cd4535922e8844f0beb6b523e2dea
 
 
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Начало работы с соединителем FTP
 Соединитель FTP можно использовать для создания и мониторинга файлов на FTP-сервере, а также для управления ими. 
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-ftp"></a>Подключение к FTP
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -35,7 +35,7 @@ ms.openlocfilehash: f08180c196a1f573529c9fed52c7ae5c3869da6d
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Использование триггера FTP
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > Для соединителя FTP требуется доступный через Интернет FTP-сервер, который настроен для работы с пассивным режимом. Кроме того, соединитель FTP **не поддерживает неявную конфигурацию FTPS (FTP через SSL)**. Он поддерживает только явную конфигурацию FTPS (FTP через SSL).  
@@ -61,7 +61,7 @@ ms.openlocfilehash: f08180c196a1f573529c9fed52c7ae5c3869da6d
 > 
 
 ## <a name="use-a-ftp-action"></a>Использование действия FTP
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Добавив триггер, выполните следующие шаги, чтобы добавить действие для получения содержимого нового или измененного файла, найденного с помощью триггера.    
 
@@ -130,10 +130,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -156,10 +156,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -190,10 +190,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -235,10 +235,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -262,10 +262,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -296,10 +296,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -317,10 +317,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -344,10 +344,10 @@ BlobMetadata
 
 | Имя свойства | Тип данных |
 | --- | --- | --- |
-| id |string |
-| Имя |string |
-| displayName |string |
-| path |string |
+| Идентификатор |string |
+| Name (Имя) |string |
+| DisplayName |string |
+| Путь |string |
 | LastModified |string |
 | Размер |целое число |
 | MediaType |string |
@@ -370,11 +370,11 @@ BlobMetadata
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

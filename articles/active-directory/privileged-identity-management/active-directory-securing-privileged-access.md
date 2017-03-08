@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e6c3c516b5d4271c5201d0734e22a83876dd3fa
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 936e152304dc4a4a3bd95c7bfba071a02a20d0dd
 
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Защита привилегированного доступа в Azure AD
 Защита привилегированного доступа — исключительно важный первый шаг для защиты корпоративных ресурсов в современных организациях. Привилегированные учетные записи — это учетные записи, которые администрируют ИТ-системы и управляют ими. Злоумышленники в Интернете обычно используют эти учетные записи для доступа к данным и системам организации. Чтобы защитить привилегированный доступ, необходимо исключить риск доступа злоумышленников к учетным записям и системам.
 
-Многие пользователи начинают получать привилегированный доступ через облачные службы. Это могут быть глобальные администраторы Office 365, администраторы подписок Azure и пользователи, имеющие административный доступ на виртуальных машинах или в приложениях SaaS.
+Многие пользователи начинают получать привилегированный доступ через облачные службы. Это могут быть глобальные администраторы Office&365;, администраторы подписок Azure и пользователи, имеющие административный доступ на виртуальных машинах или в приложениях SaaS.
 
 Корпорация Майкрософт рекомендует придерживаться следующего плана: [Защита привилегированного доступа](https://technet.microsoft.com/library/mt631194.aspx).
 
@@ -36,7 +36,7 @@ Azure Multi-Factor Authentication помогает защитить доступ
 
 Общие сведения о принципах работы Multi-Factor Authentication см. в следующем видео.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 
@@ -75,6 +75,6 @@ Azure Multi-Factor Authentication помогает защитить доступ
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

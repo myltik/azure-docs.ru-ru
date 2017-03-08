@@ -3,7 +3,7 @@ title: "Технические статьи по классическим вир
 description: "Полный список статей Microsoft Azure, посвященных виртуальным машинам Windows в классической модели развертывания"
 services: virtual-machines-windows
 documentationcenter: 
-author: dlepow
+author: cynthn
 manager: timlt
 tags: azure-service-management
 editor: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/05/2016
+ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: bc303bb08366f5bcf86b2ae84db5751ea620d05c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 263b3a1edc94a60e756850b2d917840be87e7a5a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -103,7 +104,7 @@ ms.openlocfilehash: bc303bb08366f5bcf86b2ae84db5751ea620d05c
 [Настройка конечных точек в классической виртуальной машине Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="storage"></a>Хранилище
-[О дисках и виртуальных жестких дисках для виртуальных машин Azure](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[О дисках и виртуальных жестких дисках для виртуальных машин Azure](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Attach a data disk to a Windows virtual machine created with the classic deployment model (Подключение диска данных к виртуальной машине Windows, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -145,7 +146,7 @@ ms.openlocfilehash: bc303bb08366f5bcf86b2ae84db5751ea620d05c
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="reference"></a>Справочные материалы
-[Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
+[Команды Azure CLI в режиме управления службами Azure (ASM)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 [Интерфейс REST API управления службой](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
@@ -163,9 +164,4 @@ ms.openlocfilehash: bc303bb08366f5bcf86b2ae84db5751ea620d05c
 [Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

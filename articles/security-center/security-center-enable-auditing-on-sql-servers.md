@@ -1,6 +1,6 @@
 ---
 title: "Включение аудита для серверов SQL Server в центре безопасности Azure | Документация Майкрософт"
-description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по включению аудита для серверов SQL."
+description: "В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по **включению аудита для серверов SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2a15377af6f6dee3b9d2b9043f9803923ab3f29b
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,23 +30,26 @@ ms.openlocfilehash: 2a15377af6f6dee3b9d2b9043f9803923ab3f29b
 
 > [!NOTE]
 > В документе приводится обзор службы с помощью примера развертывания.  Он не является пошаговым руководством.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Выполнение рекомендаций
 1. В колонке **Рекомендации** выберите **Включить аудит для серверов SQL**.  Откроется колонка **Включить аудит для серверов SQL** .
-   ![Enable auditing on SQL servers][1]
+
+   ![Включение аудита для серверов SQL][1]
 2. Выберите сервер SQL для включения аудита. Откроется колонка **Параметры аудита** .
-   ![Auditing settings][2]
+
+   ![Параметры аудита][2]
 3. В колонке **Настройки аудита** в разделе **Аудит** щелкните **Вкл.**
+
    ![Включение параметров аудита][3]
-4. Следуйте указаниям в разделе [Приступая к работе с аудитом базы данных SQL](../sql-database/sql-database-auditing-get-started.md) , чтобы настроить хранилище для хранения журналов аудита. Учетная запись хранения подписки для сбора данных является учетной записью хранения по умолчанию.
-5. Следуйте указаниям в разделе [Приступая к работе с системой обнаружения угроз базы данных SQL](../sql-database/sql-database-threat-detection-get-started.md) , чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться предупреждения системы безопасности при обнаружении аномальных действий.
+4. Следуйте указаниям в разделе [Configure and manage SQL database auditing in the Azure portal](../sql-database/sql-database-auditing-portal.md) (Настройка аудита базы данных SQL и управление им), чтобы настроить хранилище для хранения журналов аудита. Учетная запись хранения подписки для сбора данных является учетной записью хранения по умолчанию.
+5. Следуйте указаниям в разделе [Приступая к работе с системой обнаружения угроз базы данных SQL](../sql-database/sql-database-threat-detection.md) , чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться предупреждения системы безопасности при обнаружении аномальных действий.
 
 ## <a name="see-also"></a>Дополнительные материалы
 В этой статье показано, как выполнить рекомендацию центра безопасности по включению аудита серверов SQL. Чтобы узнать больше о защите базы данных SQL, ознакомьтесь со следующими статьями.
 
-* [Защита Базы данных SQL](../sql-database/sql-database-security.md)
+* [Защита Базы данных SQL](../sql-database/sql-database-security-overview.md)
 
 Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
@@ -61,9 +65,4 @@ ms.openlocfilehash: 2a15377af6f6dee3b9d2b9043f9803923ab3f29b
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

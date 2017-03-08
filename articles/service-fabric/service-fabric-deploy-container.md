@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 2/17/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -30,9 +31,8 @@ ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
 В этой статье подробно рассматривается создание контейнерных служб в контейнерах Windows.
 
 > [!NOTE]
-> Эта функция для Linux доступна в режиме предварительной версии. Для Windows Server 2016 она пока недоступна. В режиме предварительной версии для Windows Server 2016 эта функция будет доступна в предстоящем выпуске Azure Service Fabric. 
-> 
-> 
+> Эта функция доступна в режиме предварительной версии для Windows Server 2016.
+>  
 
 В Service Fabric реализовано несколько способов использования контейнеров для создания приложений, состоящих из контейнерных микрослужб. 
 
@@ -48,17 +48,46 @@ ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
 Давайте рассмотрим все эти возможности на примере упаковки контейнерной службы, которая будет включена в приложение.
 
 ## <a name="package-a-windows-container"></a>Упаковка контейнера Windows
-При упаковке контейнера вы можете использовать шаблон проекта Visual Studio или [создать пакет приложения вручную](#manually). Если вы используете Visual Studio, шаблон проекта создает для вас структуру пакета приложения и файлы манифеста. Шаблон Visual Studio будет включен в следующий выпуск.
+При упаковке контейнера вы можете использовать шаблон проекта Visual Studio или [создать пакет приложения вручную](#manually).  Если вы используете Visual Studio, шаблон проекта создаст для вас структуру пакета приложения и файлы манифеста.
+
+> [!TIP]
+> Упаковать имеющийся образ контейнера в службу проще всего с помощью Visual Studio.
 
 ## <a name="use-visual-studio-to-package-an-existing-container-image"></a>Упаковка существующего образа контейнера с помощью Visual Studio
-> [!NOTE]
-> В предстоящем выпуске Visual Studio для Service Fabric можно будет добавить контейнер приложения так же, как сейчас добавляется гостевой исполняемый файл. Дополнительные сведения см. в статье [Развертывание гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md). Сейчас нужно упаковывать контейнер вручную, как описано в следующем разделе.
-> 
-> 
+Visual Studio предоставляет шаблон службы Service Fabric для развертывания контейнера файла в кластере Service Fabric.
+
+1. Чтобы создать приложение Service Fabric, выберите **Файл** > **Создать проект**.
+2. Выберите **гостевой контейнер** в качестве шаблона службы.
+3. Выберите **имя образа** и укажите путь к образу в репозитории контейнера (например, https://hub.docker.com), например myrepo/myimage:v1. 
+4. Присвойте службе имя и нажмите кнопку **ОК**.
+5. Если контейнерной службе нужна конечная точка для обмена данными, можно добавить значения протокола, порта и типа в файл ServiceManifest.xml. Например: 
+     
+    `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
+    
+    Если указать `UriScheme`, конечная точка контейнера будет автоматически зарегистрирована в службе именования Service Fabric, что улучшит ее поиск. Порт может быть фиксированным (как показано в приведенном выше примере) или выделяться динамически (поле остается пустым и порт выделяется из диапазона портов назначенного приложения), как и в случае с любой службой.
+    Кроме того, необходимо настроить сопоставление порта контейнера с портом узла, указав политику `PortBinding` в манифесте приложения, как описано ниже.
+6. Если для контейнера требуется управление ресурсами, добавьте `ResourceGovernancePolicy`.
+8. Если для контейнера требуется аутентификация в частном репозитории, добавьте `RepositoryCredentials`.
+7. Теперь можно использовать пакет и опубликовать действие в локальном кластере, если используется Windows Server 2016 с активированной поддержкой контейнеров. 
+8. Когда все будет готово, можно опубликовать приложение на удаленном кластере или вернуть решение в систему управления версиями. 
+
+В качестве примера приложения можно ознакомиться с [примерами кода контейнера Service Fabric на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
+
+## <a name="creating-a-windows-server-2016-cluster"></a>Создание кластера Windows Server 2016
+Чтобы развернуть контейнерное приложение, необходимо создать кластер под управлением Windows Server 2016 с поддержкой контейнеров. Это можно сделать на локальном компьютере разработки или в Azure с помощью Azure Resource Manager (ARM). 
+
+Чтобы развернуть кластер с помощью ARM, выберите параметр образа **Windows Server 2016 with Containers** (Windows Server 2016 с контейнерами) в Azure. Ознакомьтесь со статьей [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Обязательно используйте приведенные ниже параметры ARM.
+
+```xml
+"vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
+"vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
+"vmImageVersion": { "defaultValue": "latest","type": "string"     },  
+```
+Для создания кластера можно также использовать шаблон ARM кластера с&5; узлами, доступный [здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype). Кроме того, можно прочитать [записи блога Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) об использовании Service Fabric и контейнеров Windows.
 
 <a id="manually"></a>
 
-## <a name="manually-package-and-deploy-a-container"></a>Упаковка и развертывание контейнера вручную
+## <a name="manually-package-and-deploy-a-container-image"></a>Упаковка и развертывание образа контейнера вручную
 Упаковка контейнерной службы вручную включает следующие этапы.
 
 1. Публикация контейнеров в репозиторий.
@@ -263,7 +292,7 @@ ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
         <DataPackage Name="FrontendService.Data" Version="1.0" />
         <Resources>
             <Endpoints>
-                <Endpoint Name="Endpoint1" Port="80"  UriScheme="http" />
+                <Endpoint Name="Endpoint1" UriScheme="http" Port="80" Protocol="http"/>
             </Endpoints>
         </Resources>
     </ServiceManifest>
@@ -272,9 +301,6 @@ ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы успешно развернули контейнерную службу, изучите рекомендации по управлению ее жизненным циклом в статье [Жизненный цикл приложения Service Fabric](service-fabric-application-lifecycle.md).
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Общие сведения о Service Fabric и контейнерах](service-fabric-containers-overview.md)
+* В качестве примера приложения можно ознакомиться с [примерами кода контейнера Service Fabric на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 

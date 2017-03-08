@@ -3,7 +3,7 @@ title: "Руководство по Power BI для соединителя Docum
 description: "Используйте этот учебник по Power BI для импорта JSON, создания информативных отчетов и визуализация данных с помощью соединителя DocumentDB и Power BI."
 keywords: "учебник по Power BI, визуализация данных, соединитель Power BI"
 services: documentdb
-author: h0n
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
-ms.author: hawong
+ms.date: 02/14/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
+ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -88,7 +89,7 @@ ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
     Не указывайте имя базы данных, имя коллекции и инструкцию SQL, т. к. эти поля являются необязательными.  Вместо этого мы будем использовать навигатор для выбора базы данных и коллекции для определения источника данных.
    
     ![Учебник по Power BI для соединителя Power BI DocumentDB — окно подключения рабочего стола](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. При подключении к этой конечной точке в первый раз отобразится запрос ключа учетной записи.  Этот ключ можно найти в поле **Первичный ключ** в колонке **[Ключи только для чтения](documentdb-manage-account.md#keys)** на портале Azure. Можно также использовать демонстрационную учетную запись, использующую ключ `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Введите ключ учетной записи и нажмите кнопку **Подключение**.
+7. При подключении к этой конечной точке в первый раз отобразится запрос ключа учетной записи.  Этот ключ можно найти в поле **Первичный ключ** в колонке **[Ключи только для чтения](documentdb-manage-account.md#keys)** на портале Azure. Можно также использовать демонстрационную учетную запись, использующую ключ `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Введите ключ учетной записи и нажмите кнопку **Подключение**.
    
     При создании отчетов мы рекомендуем использовать ключ только для чтения.  Это позволит предотвратить потенциальные угрозы безопасности для главного ключа. Ключ только для чтения можно найти в колонке [Ключи](documentdb-manage-account.md#keys) на портале Azure. Можно также использовать сведения демонстрационной учетной записи, приведенные выше.
    
@@ -212,10 +213,5 @@ ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о Power BI см. в статье [Приступая к работе с Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Дополнительные сведения о DocumentDB см. на [целевой странице документации по DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 02/03/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85e49c3c7f23f90942ca2f9382626369cce7140e
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: cc756c662b97c64ab30a7d5bf2cc325f9e74d905
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 85e49c3c7f23f90942ca2f9382626369cce7140e
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 ## <a name="step-1--configure-development-environment"></a>Шаг 1. Настройка среды разработки
-[Настройка среды разработки ADO.NET](https://msdn.microsoft.com/library/mt718321.aspx)
+[Настройка среды разработки ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-1-configure-development-environment-for-ado-net-development/)
 
 ## <a name="step-2-create-a-sql-database"></a>Шаг 2. Создание базы данных SQL
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md) .  Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.  
@@ -34,21 +35,16 @@ ms.openlocfilehash: 85e49c3c7f23f90942ca2f9382626369cce7140e
 [!INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
 ## <a name="step-4-run-sample-code"></a>Шаг 4. Выполнение примера кода
-* [Подтверждение концепции подключения к SQL с использованием ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
-* [Отказоустойчивое подключение к SQL с помощью ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
+* [Подтверждение концепции подключения к SQL с использованием ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-3-proof-of-concept-connecting-to-sql-using-ado-net/)
+* [Отказоустойчивое подключение к SQL с помощью ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net/)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Создание приложения ASP.NET MVC с аутентификацией и базой данных SQL и его развертывание в службе приложений Azure](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
 * Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
-* Получите дополнительные сведения о [драйвере Microsoft ADO.Net для SQL Server](https://msdn.microsoft.com/library/mt657768.aspx)
+* Получите дополнительные сведения о [драйвере Microsoft ADO.Net для SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server/)
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

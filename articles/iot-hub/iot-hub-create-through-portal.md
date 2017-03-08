@@ -1,142 +1,166 @@
 ---
-title: Use the Azure portal to create an IoT Hub | Microsoft Docs
-description: An overview of how to create and manage Azure IoT hubs through the Azure portal
+title: "Создание Центра Интернета вещей на портале Azure | Документация Майкрософт"
+description: "Сведения о том, как с помощью портала Azure создавать и удалять Центры Интернета вещей Azure, а также управлять ими. Содержит сведения о ценовых категориях, масштабировании, безопасности, а также о настройке обмена сообщениями."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
+ms.lasthandoff: 01/31/2017
+
 
 ---
-# <a name="create-an-iot-hub-using-the-azure-portal"></a>Create an IoT hub using the Azure portal
+# <a name="create-an-iot-hub-using-the-azure-portal"></a>Создание Центра Интернета вещей с помощью портала Azure
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introduction
-This article describes how to find the IoT Hub service in the portal, and how to create and manage IoT hubs.
+## <a name="introduction"></a>Введение
+В этой статье описывается, как найти службу Центра Интернета вещей на портале Azure, а также как создавать Центры Интернета вещей и управлять ими.
 
-## <a name="where-to-find-iot-hubs"></a>Where to find IoT hubs
-There are various places where you can find IoT hubs.
+## <a name="where-to-find-iot-hubs"></a>Где найти центры IoT
+Центры IoT можно встретить в различных местах.
 
-1. **+ New**: **Azure IoT Hub** is an IoT service, and can be found in the category **Internet of Things**, under **+ New**, similar to other services.
-2. IoT hubs can also be accessed through the Marketplace as the hero service under **Internet of Things**.
+1. **+ Создать.** **Центр Интернета вещей** — это служба Интернета вещей. Она находится в категории **Интернет вещей** в меню **+ Создать**, как и другие службы.
+2. Кроме того, центры IoT доступны в Marketplace как основная служба в разделе **Интернет вещей**.
 
-## <a name="create-an-iot-hub"></a>Create an IoT hub
-You can create an IoT hub using the following methods:
+## <a name="create-an-iot-hub"></a>Создание центра IoT
+Центр Интернета вещей можно создать с помощью следующих методов.
 
-* Creating an IoT hub through the **+ New** option leads to the blade shown in the next screen shot. The steps for creating the IoT hub through this method and through the marketplace are identical.
-* Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. The next sections list the several steps involved in creating an IoT hub.
+* При создании центра IoT с помощью параметра **+Создать** отображается колонка, приведенная на следующем снимке экрана. Шаги по созданию центра IoT будут такими же, как и в Marketplace.
+* Создание Центра Интернета вещей в Marketplace. Нажмите кнопку **Создать**. Откроется такая же колонка, как и при использовании параметра **+ Создать**. В следующих разделах перечислены несколько шагов, которые необходимо выполнить при создании центра IoT.
 
-### <a name="choose-the-name-of-the-iot-hub"></a>Choose the name of the IoT hub
-To create an IoT hub, you must name the hub. This name must be unique across the hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub is named as uniquely as possible.
+### <a name="choose-the-name-of-the-iot-hub"></a>Выбор имени центра IoT
+Чтобы создать Центр Интернета вещей, следует указать его имя. Это имя должно быть уникальным для всех Центров Интернета вещей. Дублирование имен в серверной части решения не допускается, поэтому рекомендуется использовать максимально уникальные имена.
 
-### <a name="choose-the-pricing-tier"></a>Choose the pricing tier
-You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
+### <a name="choose-the-pricing-tier"></a>Выбор ценового уровня
+Доступны четыре уровня: **Бесплатный**, **Стандартный 1**, **Стандартный 2** и **Стандартный S3**. Уровень "Бесплатный" позволяет подключить к центру IoT только 500 устройств и отправлять до 8000 сообщений в день.
 
-**Standard S1**: IoT Hubs S1 edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 edition allows up to 400,000 messages per day across all connected devices.
+**Стандартный S1.** Выпуски S1 Центра Интернета вещей предназначены для решений Интернета вещей, включающих в себя большое количество устройств с относительно небольшим объемом передаваемых данных на каждое устройство. Каждая единица выпуска S1 позволяет передавать не более 400 тыс. сообщений в день со всех устройств.
 
-**Standard S2**: IoT Hub S2 edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 edition allows up to 6 million messages per day between all connected devices.
+**Стандартный S2**: выпуск S2 центра IoT предназначен для решений IoT, в которых устройства передают большие объемы данных. Каждая единица выпуска S2 позволяет передавать не более 6 млн сообщений в день со всех устройств.
 
-**Standard S3**: IoT Hub S3 edition is designed for IoT solutions that generate large amounts of data. Each unit of the S3 edition allows up to 300 million messages per day between all connected devices.
+**Стандартный S3**: выпуск S3 центра IoT предназначен для решений IoT, которые создают большие объемы данных. Каждая единица выпуска S3 позволяет передавать не более 300 млн сообщений в день со всех устройств.
 
 ![][4]
 
 > [!NOTE]
-> IoT Hub only allows one free hub per subscription.
+> Центр Интернета вещей позволяет подключить только один центр уровня "Бесплатный" для каждой подписки Azure.
 > 
 > 
 
-### <a name="iot-hub-units"></a>IoT hub units
-An IoT hub unit includes a certain number of messages per day. The total number of messages supported for this hub is the number of units multiplied by the number of messages per day for that tier. For example, if you want the IoT hub to support ingress of 700,000 messages, you choose two S1 tier units.
+### <a name="iot-hub-units"></a>Единицы центров IoT
+Допустимое число сообщений за единицу в сутки зависит от ценовой категории концентратора. Например, если требуется, чтобы центр IoT поддерживал 700 000 входящих сообщений, то следует выбрать две единицы уровня S1.
 
-### <a name="device-to-cloud-partitions-and-resource-group"></a>Device to cloud partitions and resource group
-You can change the number of partitions for an IoT hub. Default partitions are set to 4; however, you can choose a different number of partitions from a drop-down list.
+### <a name="device-to-cloud-partitions-and-resource-group"></a>Разделы «с устройства в облако» и группы ресурсов
+Вы можете изменить количество разделов для центра IoT. По умолчанию используются 4 раздела, но вы можете выбрать другое количество из раскрывающегося списка.
 
-For resource groups, you do not need to explicitly create an empty resource group. When creating a resource, you can choose to either create a new resource group or use an existing resource group.
+Отдельно создавать пустую группу ресурсов необязательно. При создании ресурса можно создать новую группу ресурсов или использовать имеющуюся.
 
 ![][5]
 
-### <a name="choose-subscriptions"></a>Choose subscriptions
-Azure IoT Hub automatically shows the list of subscriptions to which the user account is linked. You can choose one of the options here to associate the IoT hub with that subscription.
+### <a name="choose-subscriptions"></a>Выбор подписок
+Центр Интернета вещей Azure автоматически отображает список подписок, с которыми связана учетная запись пользователя. Центр Интернета вещей можно связать с одним из предложенных вариантов подписок Azure.
 
-### <a name="choose-the-location"></a>Choose the location
-The location option provides a list of the regions in which IoT Hub is offered. IoT Hub is available to deploy in the following locations: Australia East, Australia Southeast, Asia East, Asia Southeast, Europe North, Europe West, Japan East, Japan West, US East, US West.
+### <a name="choose-the-location"></a>Выберите расположение
+Параметр расположения содержит список регионов, в которых предоставляется центр IoT. Центр IoT доступен для развертывания в следующих расположениях: восточная Австралия, юго-восточная Австралия, восточная Азия, юго-восточная Азия, Северная Европа, Западная Европа, восточная Япония, западная Япония, восточная часть США, западная часть США.
 
-### <a name="create-the-iot-hub"></a>Create the IoT hub
-When all previous steps are complete, the IoT hub is ready to be created. Click **Create** to start the back-end process of creating this IoT hub with the specific options, and to deploy it to the location specified.
+### <a name="create-the-iot-hub"></a>Создание центра IoT
+Когда вы выполните все предыдущие шаги, центр IoT будет готов к созданию. Щелкните **Создать** , чтобы запустить серверный процесс создания центра IoT с заданными параметрами и процесс его развертывания в указанном расположении.
 
-It can take a few minutes for the IoT hub to be created as it takes time for the back-end deployment to occur in the appropriate location servers.
+Процесс создания Центра Интернета вещей может занять несколько минут. Это время требуется на развертывание серверной части на серверах в нужном расположении.
 
-## <a name="change-the-settings-of-the-iot-hub"></a>Change the settings of the IoT hub
-You can change the settings of an existing IoT hub after it is created from the IoT Hub blade.
+## <a name="change-the-settings-of-the-iot-hub"></a>Изменение параметров центра IoT
+Вы можете изменить параметры центра IoT после его создания, используя колонку этого центра IoT.
 
 ![][8]
 
-**Shared Access Policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking **Shared Access Policies** under **General**. In this blade, you can either modify existing policies or add a new policy.
+**Политики общего доступа:** эти политики определяют разрешения для подключения устройств и служб к Центру Интернета вещей. Чтобы открыть эти политики, в разделе **Общие** щелкните пункт **Политики общего доступа**. В этой колонке вы сможете изменить существующие политики или добавить новую.
 
-### <a name="create-a-policy"></a>Create a policy
-* Click **Add** to open a blade. Here you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure.
+### <a name="create-a-policy"></a>Создание политики
+* Щелкните **Добавить**, чтобы открыть колонку. Здесь можно ввести новое имя политики и указать разрешения, которые нужно связать с ней. Эта колонка показана на следующем рисунке.
   
-    There are several permissions that can be associated with these shared policies. The first two policies, **Registry read** and **Registry write**, grant read and write access rights to the device identity store or the identity registry. Choosing the write option automatically chooses the read option as well.
+    Для общих политик можно указать несколько разрешений. Первые две политики (**Registry read** (Чтение из реестра) и **Registry write** (Запись в реестр)) предоставляют права чтения и записи для хранилища удостоверений устройства или реестра удостоверений. При выборе права на запись автоматически выбирается и право на чтение.
   
-    The **Service connect** policy grants permission to access the cloud-side endpoints such as the consumer group for services connecting to the IoT hub. The **Device connect** policy grants permissions for sending and receiving messages on the device-side endpoints of the IoT hub.
-* Click **Create** to add this newly created policy to the existing list.
+     Политика **Подключение службы** предоставляет разрешение на доступ к облачным конечным точкам, например, разрешение группам клиентов на подключение служб к центру IoT. А политика **Подключение устройства** предоставляет разрешения на отправку и получение сообщений для конечных точек на стороне устройств центра IoT.
+* Чтобы добавить новую политику к списку уже существующих, нажмите кнопку **Создать** .
 
 ![][10]
 
-## <a name="messaging"></a>Messaging
-Click **Messaging** to display a list of messaging properties for the IoT hub that is being modified. There are two main types of properties that you can modify or copy: **Cloud to Device** and **Device to Cloud**.
-
-* **Cloud to Device** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of one hour. To adjust these values, use the sliders or type the values.
-* **Device to Cloud** settings: This setting has several subsettings, some of which are named/assigned when the IoT hub is created and can only be copied to other subsettings that are customizable. These settings are listed in the next section.
-
-**Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
-
-**Event Hub compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. This Event Hub name and endpoint cannot be customized but is available for use via the **Copy** button.
-
-**Retention Time**: Set to one day by default but can be customized to other values using the drop-down list. This value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
-
-**Consumer Groups**: Consumer Groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs.
-
-> [!NOTE]
-> The default consumer group cannot be edited or deleted.
-> 
-> 
+## <a name="endpoints"></a>Endpoints
+Щелкните **Конечные точки**, чтобы отобразить список конечных точек для редактируемого Центра Интернета вещей. Существует два типа конечных точек: конечные точки, встроенные в Центр Интернета вещей, и конечные точки, добавляемые в Центр Интернета вещей после его создания.
 
 ![][11]
 
-## <a name="pricing-and-scale"></a>Pricing and scale
-The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
+### <a name="built-in-endpoints"></a>Встроенные конечные точки
+Встроенные конечные точки делятся на два типа: **Cloud to device feedback** (Ответ, отправляемый из облака на устройство) и **События**.
 
-* In the current implementation, an IoT hub with a free SKU cannot change tiers to one of the paid SKUs, or vice versa.
-* There can only be one free tier IoT hub in the subscription.
+* **Cloud to device feedback** (Ответ, отправляемый из облака на устройство) имеет два вложенных параметра: **Cloud to Device TTL** (Срок жизни) и **Время хранения** (в часах) для сообщений. При создании Центра Интернета вещей оба этих параметра имеют значение по умолчанию "один час". Чтобы изменить эти параметры, используйте ползунки или введите значения вручную.
+* **События** имеют несколько вложенных параметров, и некоторые из них доступны только для чтения. Эти параметры приведены в следующем списке:
+
+    * **Секции**: значение по умолчанию задается при создании Центра Интернета вещей. Вы можете изменить количество секций, используя этот параметр.
+
+    * **Имя и конечная точка, совместимые с концентратором событий.** При создании Центра Интернета вещей автоматически создается концентратор событий, к которому при некоторых обстоятельствах может потребоваться доступ. Значения имени и конечной точки, совместимых с концентраторами событий, невозможно изменить, но их можно скопировать, щелкнув **Копировать**.
+
+    * **Время хранения**: по умолчанию устанавливается значение "один день", но его можно изменить с помощью раскрывающегося списка. Это значение задается в днях и относится к событиям, передаваемым с устройства в облако.
+
+    * **Группы потребителей** имеют такое же значение, как и в других системах обмена сообщениями, в которых возможны некоторые способы извлечения данных для подключения других приложений и служб к Центру Интернета вещей. Каждый центр IoT создается с одной группой потребителей по умолчанию. С помощью этого параметра можно добавлять и удалять группы потребителей для Центров Интернета вещей.
+
+    > [!NOTE]
+    > Группа потребителей по умолчанию не может быть удалена или изменена.
+    > 
+    > 
+
+### <a name="custom-endpoints"></a>Пользовательские конечные точки
+Пользовательские конечные точки можно добавить в Центр Интернета вещей с помощью портала. В верхней части колонки **Конечные точки** щелкните **Добавить**, чтобы открыть колонку **Добавить конечную точку**. Введите необходимые сведения и нажмите кнопку **ОК**. После этого пользовательская конечная точка появится в основной колонке **Конечные точки**.
+
+![][13]
+
+Дополнительные сведения о пользовательских конечных точках см. в статье [Руководство. Конечные точки Центра Интернета вещей][lnk-devguide-endpoints].
+
+## <a name="routes"></a>Маршруты
+Щелкните **Маршруты**, чтобы управлять тем, как Центр Интернета вещей отправляет сообщения из устройства в облако.
+
+![][14]
+
+Вы можете добавить маршруты для Центра Интернета вещей. Для этого в верхней части колонки **Маршруты*** щелкните **Добавить**, введите необходимые сведения и нажмите кнопку **ОК**. После этого ваш маршрут появится в основной колонке **Маршруты**. Маршрут можно изменить, щелкнув его в списке маршрутов. Чтобы включить маршрут, щелкните его в списке маршрутов и установите переключатель **включения и отключения** в положение **Выкл.** В нижней части колонки нажмите кнопку **ОК**, чтобы сохранить изменения.
+
+![][15]
+
+## <a name="pricing-and-scale"></a>Цены и масштабирование
+Вы можете изменить цену существующего центра IoT с помощью параметров **Цены** , но есть определенные исключения.
+
+* В текущей версии нельзя перенести центр IoT с бесплатного уровня на один из платных, и наоборот.
+* Для каждой подписки Azure можно использовать только один Центр Интернета вещей уровня "Бесплатный".
 
 ![][12]
 
-Moving from a higher tier (S2 or S3) to lower tier (S1 or S2) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed. However, if you change to the S1 tier then the hub is throttled for that day.
+Перемещение с более высокого уровня (S2 или S3) на более низкий уровень (S1 или S2) допускается только при условии, что за текущий день еще не превышено ограничение по количеству сообщений. Например, если количество сообщений за день превышает 400 000, уровень Центра Интернета вещей может измениться. Однако если изменить уровень на S1, Центр Интернета вещей регулируется в зависимости от количества сообщений, полученных на протяжении этого дня.
 
-## <a name="delete-the-iot-hub"></a>Delete the IoT hub
-You can browse to the IoT hub you want to delete by clicking **Browse**, and then choosing the appropriate hub to delete. Click the **Delete** button below the hub name to delete the hub.
+## <a name="delete-the-iot-hub"></a>Удаление центра IoT
+Вы можете найти центр IoT с помощью кнопки **Обзор**и выбрать его для удаления. Чтобы удалить Центр Интернета вещей, нажмите кнопку **Удалить** под его именем.
 
-## <a name="next-steps"></a>Next steps
-Follow these links to learn more about managing Azure IoT Hub:
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения об управлении центром IoT в Azure см. по следующим ссылкам:
 
-* [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
-* [Operations monitoring][lnk-monitor]
+* [Массовое управление удостоверениями устройств Центра Интернета вещей][lnk-bulk]
+* [Метрики Центра Интернета вещей][lnk-metrics]
+* [Мониторинг операций][lnk-monitor]
 
-To further explore the capabilities of IoT Hub, see:
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Developer guide][lnk-devguide]
-* [Simulating a device with the Gateway SDK][lnk-gateway]
-* [Secure your IoT solution from the ground up][lnk-securing]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
+* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Все аспекты безопасности решения Центра Интернета вещей][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
 [5]: ./media/iot-hub-create-through-portal/location1.png
@@ -144,6 +168,9 @@ To further explore the capabilities of IoT Hub, see:
 [10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
 [11]: ./media/iot-hub-create-through-portal/messaging-settings.png
 [12]: ./media/iot-hub-create-through-portal/pricing-error.png
+[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
+[14]: ./media/iot-hub-create-through-portal/routes-list.png
+[15]: ./media/iot-hub-create-through-portal/route-edit.png
 
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
@@ -152,8 +179,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-
-
-<!--HONumber=Oct16_HO2-->
-
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 

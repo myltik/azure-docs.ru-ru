@@ -12,15 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
+ms.sourcegitcommit: 6f2db3b411069b31424627f50336f1ba9750a9f5
+ms.openlocfilehash: 060f684cee6a8f98e5e8fb4a49f0bab92bd4df9c
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Назначение ролей администратора в Azure Active Directory
+> [!div class="op_single_selector"]
+> * [Портал Azure](active-directory-assign-admin-roles-azure-portal.md)
+> * [классический портал Azure](active-directory-assign-admin-roles.md)
+>
+>
+
 С помощью Azure Active Directory (Azure AD) можно назначить несколько администраторов, которые будут выполнять различные функции. У них будет доступ к различным возможностям на портале Azure (обновленном или классическом) и, в зависимости от их роли, они смогут создавать или изменять пользователей, назначать административные роли другим пользователям, сбрасывать пароли пользователей, управлять лицензиями и доменами. У пользователя, которому назначена роль администратора, будут одинаковые разрешения во всех облачных службах, на которые подписана ваша организация, независимо от того, назначена ли роль на портале Office 365, на классическом портале Azure или с помощью модуля Azure AD для Windows PowerShell.
 
 Доступны следующие роли администратора.
@@ -49,6 +56,8 @@ ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
   > В API Microsoft Graph, API Azure AD Graph и Azure AD PowerShell эта роль определяется как "Администратор службы поддержки".
   >
   >
+* **Администратор службы Power BI**. Пользователи с этой ролью имеют глобальные разрешения в Microsoft Power BI при наличии этой службы. Дополнительные сведения см. в записи блога [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/) (Как упростить администрирование Power BI).
+* **Администратор привилегированных ролей**. Пользователи с этой ролью могут управлять технологией Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md), а также обновлять назначения ролей для других пользователей.
 * **Администратор службы SharePoint.** У пользователей с этой ролью есть глобальные разрешения в Microsoft SharePoint Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Администратор службы**: управляет запросами на обслуживание и отслеживает работоспособность службы.
 
@@ -112,6 +121,17 @@ ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
 6. Выберите расположение из раскрывающегося списка **Место использования** .
 7. После завершения нажмите кнопку **Сохранить**.
 
+## <a name="deprecated-roles"></a>Устаревшие роли
+
+Не рекомендуется использовать следующие роли. Они больше не поддерживаются и будут удалены из Azure AD в будущем.
+
+* Администратор отдельных лицензий
+* Создатель проверенного пользователя электронной почты
+* Device Join (Присоединение устройства)
+* Диспетчеры устройств
+* Device Users (Пользователи устройства)
+* Присоединение устройства к рабочей области
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
 * Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
@@ -119,9 +139,4 @@ ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
 * [Управление пользователями](active-directory-create-users.md)
 * [Управление паролями](active-directory-manage-passwords.md)
 * [Управление группами](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

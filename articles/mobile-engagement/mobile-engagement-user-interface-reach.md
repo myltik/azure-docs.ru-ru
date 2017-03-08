@@ -4,7 +4,7 @@ description: "Узнайте, как взаимодействовать с по�
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -81,8 +82,8 @@ ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
 ![Reach2][19]
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Основные понятия][Link 6]
-* [Руководство по устранению неполадок — служба][Link 24]
+* [Основные понятия Azure Mobile Engagement][Link 6]
+* [Поиск и устранение неполадок в службе][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -174,10 +175,5 @@ ms.openlocfilehash: 37c12d1f3c0bbd50b05e7f89d163a3e27a66f71e
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

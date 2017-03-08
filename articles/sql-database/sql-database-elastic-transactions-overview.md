@@ -8,6 +8,7 @@ manager: jhubbard
 editor: torsteng
 ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8efccd03e81bc88c9ec9896a44dee14a29597bd4
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -144,17 +146,12 @@ Azure включает несколько предложений для разм
 * Поддерживаются только базы данных, которые принадлежат к базе данных SQL Azure версии 12.
 * Транзакции между службами WCF не поддерживаются. Например, если у вас есть метод службы WCF, выполняющий транзакцию, включение вызова в область транзакции завершится ошибкой с исключением [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
+## <a name="next-steps"></a>Дальнейшие действия
 Еще не оценили преимущества транзакций эластичной базы данных для приложений Azure? См. [схему документации](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

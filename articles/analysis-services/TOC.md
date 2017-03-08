@@ -16,9 +16,5 @@
 
 # Ресурсы
 ##[Подключения к источникам данных](analysis-services-datasource.md)
-##[Поставщики данных](analysis-services-data-providers.md) 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+##[Поставщики данных](analysis-services-data-providers.md)
+##[Создание ODC-файла](analysis-services-odc.md)

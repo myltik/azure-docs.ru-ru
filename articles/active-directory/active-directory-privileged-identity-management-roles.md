@@ -1,9 +1,9 @@
 ---
-title: "Роли в PIM | Документация Майкрософт"
+title: "Роли в Azure AD Privileged Identity Management | Документация Майкрософт"
 description: "Узнайте, какие роли можно использовать для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
+ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
+ms.openlocfilehash: d21bf547c80c533481254a8a9640b5dcef6a66c2
 
 
 ---
-# <a name="roles-in-azure-ad-privileged-identity-management"></a>Роли в службе управления привилегированными пользователями Azure AD
+# <a name="roles-in-azure-ad-pim"></a>Роли в Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 В Azure AD пользователям организации можно назначать различные административные роли. Назначения ролей регулируют, какие задачи (например, добавление или удаление пользователей или изменение параметров службы) смогут выполнять пользователи в Azure AD, Office 365 и других службах Microsoft Online Services и подключенных приложениях.  
@@ -63,7 +63,7 @@ ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
 ## <a name="roles-not-managed-in-pim"></a>Роли, которыми нельзя управлять в PIM
 Роли в Exchange Online или SharePoint Online, за исключением упомянутых выше, не представлены в Azure AD и поэтому не отображаются в PIM. Дополнительные сведения об изменении детализированных назначений ролей в этих службах Office 365 см. в статье [Роли администраторов в Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Подписки Azure и группы ресурсов также не представлены в Azure AD. Дополнительные сведения об управлении подписками Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md), а сведения об управлении доступом на основе ролей Azure — в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md).
+Подписки Azure и группы ресурсов также не представлены в Azure AD. Дополнительные сведения об управлении подписками Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md), а сведения об управлении доступом на основе ролей Azure — в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -71,7 +71,7 @@ ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
 ## <a name="user-roles-and-signing-in"></a>Роли пользователей и вход в систему
 В некоторых службах и приложениях Майкрософт назначения роли пользователю может быть недостаточно для предоставления этому пользователю прав администратора.
 
-Чтобы получить доступ к классическому порталу Azure, пользователь должен быть администратором служб или соадминистратором подписки Azure, даже если ему не требуется управлять подписками Azure.  Например, для управления параметрами конфигурации Azure AD на классическом портале пользователь должен быть глобальным администратором в Azure AD и соадминистратором подписки Azure.  Сведения о том, как добавлять пользователей в подписки Azure, см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
+Чтобы получить доступ к классическому порталу Azure, пользователь должен быть администратором служб или соадминистратором подписки Azure, даже если ему не требуется управлять подписками Azure.  Например, для управления параметрами конфигурации Azure AD на классическом портале пользователь должен быть глобальным администратором в Azure AD и соадминистратором подписки Azure.  Сведения о том, как добавлять пользователей в подписки Azure, см. в статье [Добавление или изменение ролей администратора Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Для доступа к службам Microsoft Online Services может также потребоваться назначение пользователю лицензии для открытия портала службы или выполнения административных задач.
 
@@ -92,6 +92,6 @@ ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: a6e5253f9242ce5d9e1be06e24ab2e1a70d1b321
-ms.openlocfilehash: 4cc9e33c63d3fdf4a7d9368b11e802063c67bec7
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -38,14 +39,9 @@ ms.openlocfilehash: 4cc9e33c63d3fdf4a7d9368b11e802063c67bec7
  Файл журнала для диска содержит полную информацию о копировании данных на этот диск. Он необходим для добавления дополнительных файлов на диск и будет использоваться для создания задания импорта. Если файл журнала утерян, то необходимо повторить все сеансы копирования для диска.  
   
 ## <a name="see-also"></a>См. также  
- [Настройка средства импорта и экспорта Azure](storage-import-export-tool-setup-v1.md)   
- [Подготовка жестких дисков для задания импорта](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Просмотр состояния задания с помощью файлов журнала копирования](storage-import-export-tool-reviewing-job-status-v1.md)   
+ [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)  (Настройка средства импорта и экспорта Azure)  
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Подготовка жестких дисков к заданию импорта)  
+ [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Просмотр состояния задания с помощью файлов журнала копирования)  
  [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Исправление задания импорта)  
  [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md) (Исправление задания экспорта)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

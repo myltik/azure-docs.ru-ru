@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с Azure Data Lake Analytics с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Узнайте, как использовать интерфейс командной строки Azure для создания учетной записи хранилища озера данных, создания задания аналитики озера данных с помощью U-SQL и отправки задания. "
+description: "Узнайте, как использовать интерфейс командной строки Azure для создания учетной записи Data Lake Analytics, создания задания аналитики озера данных с помощью U-SQL и отправки задания. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Учебник. Приступая к работе с аналитикой озера данных Azure с помощью интерфейса командной строки Azure (CLI)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Учебник. Приступая к работе с аналитикой озера данных Azure с помощью интерфейса командной строки Azure (CLI)
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Узнайте, как с помощью Azure CLI создавать учетные записи Azure Data Lake Analytics, определять задания Data Lake Analytics в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправлять задания в учетные записи Data Lake Analytics. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

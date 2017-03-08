@@ -5,7 +5,7 @@
 
 # Начало работы
 ## [Создание лаборатории](devtest-lab-create-lab.md)
-## [Создание артефактов виртуальной машины](devtest-lab-add-vm-with-artifacts.md)
+## [Создание виртуальной машины](devtest-lab-add-vm.md)
 ## [Создание учебной лаборатории](devtest-lab-training-lab.md)
 ## [Часто задаваемые вопросы](devtest-lab-faq.md)
 
@@ -20,12 +20,21 @@
 ## Управление артефактами
 ### [Добавление репозитория артефактов](devtest-lab-add-artifact-repo.md)
 ### [Создание настраиваемых артефактов](devtest-lab-artifact-author.md)
+### [Управление артефактами](devtest-lab-add-vm-with-artifacts.md)
 
-## Управление базами виртуальных машин
-### [Создание пользовательского образа](devtest-lab-create-template.md)
+## Управление базами и шаблонами виртуальных машин
+### [Создание сред со множеством виртуальных машин с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Настройка образов Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Управление формулами](devtest-lab-manage-formulas.md)
 ### [Сравнение образов и формул](devtest-lab-comparing-vm-base-image-types.md)
+### [Управление формулами](devtest-lab-manage-formulas.md)
+### [Создание пользовательского образа из виртуальной машины](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Создание пользовательского образа виртуального жесткого диска с помощью портала Azure](devtest-lab-create-template.md)
+### [Создание пользовательского образа виртуального жесткого диска с помощью PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [Передача VHD-файла с помощью AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
+### [Передача VHD-файла с помощью PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+### [Передача VHD-файла с помощью обозревателя хранилищ](devtest-lab-upload-vhd-using-storage-explorer.md)
+
+
 
 # Ресурсы
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=devtest-lab)
@@ -33,8 +42,3 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

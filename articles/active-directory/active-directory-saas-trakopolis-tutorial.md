@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36efc9c5ae94ddfd61d1046e153b4b9834632494
+ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
+ms.openlocfilehash: 6d324312f0e2d70a60b7028e77844d50a177191c
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -248,9 +249,4 @@ ms.openlocfilehash: 36efc9c5ae94ddfd61d1046e153b4b9834632494
 [203]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

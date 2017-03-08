@@ -8,16 +8,16 @@ Latest Freshness check:  2015-09-03 , GeneMi.
 -->
 
 
-### Сравнение строки подключения
+### <a name="compare-the-connection-string"></a>Сравнение строки подключения
 В следующей таблице сравниваются строки подключения, необходимые программе на C# для подключения к локальному SQL Server по сравнению с Базой данных SQL Azure в облаке. Различия выделены полужирным шрифтом.
 
 | Строка подключения для<br/>Базы данных SQL Azure | Строка подключения для<br/>Microsoft SQL Server |
 |:--- |:--- |
-| Server=**tcp:**{имя\_вашего\_сервера}**.database.windows.net,1433**;<br/>User ID={ваше\_имя\_для\_входа}**@{имя\_вашего\_сервера}**;<br/>Password={ваш\_пароль};<br/>**Database={имя\_вашей\_базы\_данных};**<br/>**Connection Timeout=30**;<br/>**Encrypt=True**;<br/>**TrustServerCertificate=False**; |Server={имя\_вашего\_сервера};<br/>User ID={ваше\_имя\_для\_входа};<br/>Password={ваш\_пароль}; |
+| Server=**tcp:**{имя_вашего_сервера}**.database.windows.net,1433**;<br/>User ID={имя_пользователя}**@{your_serverName_here}**;<br/>Password={ваш_пароль}.<br/>**Database={имя_вашей_базы_данных};**<br/>**Connection Timeout=30**;<br/>**Encrypt=True**;<br/>**TrustServerCertificate=False**; |Server={имя_вашего_сервера};<br/>User ID={имя_пользователя};<br/>Password={ваш_пароль}. |
 
 Параметр **Database=** является необязательным для SQL Server, но он необходим для Базы данных SQL.
 
-Все параметры подробно рассматриваются в разделе [Свойство .NET ADO SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder_properties.aspx).
+[Свойство .NET ADO SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder_properties.aspx) .
 
 <!--
 These three includes/ files are a sequenced set, but you can pick and choose:
@@ -27,4 +27,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

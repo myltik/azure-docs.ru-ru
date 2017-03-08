@@ -17,4 +17,8 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 * Данные становятся доступны.
 * Вам потребуется перезапустить запросы рабочих нагрузок.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

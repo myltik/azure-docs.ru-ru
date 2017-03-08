@@ -2,7 +2,7 @@
 Диагностика неполадок в облачной службе Microsoft Azure предусматривает сбор файлов журналов служб на виртуальных машинах по мере возникновения проблем. Вы можете использовать запускаемое по запросу расширение AzureVMLogCollector для однократного выполнения операций по сбору журналов из одной или нескольких виртуальных машин облачной службы (из веб-ролей или рабочих ролей) и передачи собранных файлов в учетную запись хранения Azure. Все эти действия выполняются без удаленного входа на виртуальные машины.
 
 > [!NOTE]
-> Описание почти всей информации, которая записывается в журналы, см. в статье http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Описание почти всей информации, которая записывается в журналы, см. по адресу http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 > 
 > 
 
@@ -21,15 +21,15 @@
 
 * **Name**: имя коллекции, которое будет использоваться как имя вложенной папки в ZIP-файле с собранной информацией.
 * **Location**: путь к папке на виртуальной машине, куда будет записан файл.
-* **SearchPattern**: шаблон имен файлов, которые будут собраны. Значение по умолчанию — *.
+* **SearchPattern**: шаблон имен файлов, которые будут собраны. Значение по умолчанию — *.
 * **Recursive**: параметр определяет, будут ли файлы собраны рекурсивно в рамках заданной папки.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Учетная запись, в которую расширение будет сохранять созданные ZIP-файлы.
-* Командлеты Azure PowerShell 0.8.0 или более поздней версии. Дополнительные сведения см. на странице [загрузок Azure](https://azure.microsoft.com/downloads/).
+* Командлеты Azure PowerShell 0.8.0 или более поздней версии. Дополнительные сведения см. на странице [загрузок Azure](https://azure.microsoft.com/downloads/).
 
-## Добавление расширения
-Добавить расширение AzureLogCollector можно с помощью командлетов [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) или интерфейсов [REST API управления службой](https://msdn.microsoft.com/library/ee460799.aspx).
+## <a name="add-the-extension"></a>Добавление расширения
+Добавить расширение AzureLogCollector можно с помощью командлетов [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) или [интерфейсов REST API управления службой](https://msdn.microsoft.com/library/ee460799.aspx).
 
 Для облачных служб существует командлет Azure Powershell с именем **Set-AzureServiceExtension**. Его можно использовать для включения расширения в экземплярах роли облачной службы. При каждом включении расширения с помощью этого командлета запускается операция сбора журналов на указанных экземплярах выбранных ролей.
 
@@ -37,7 +37,7 @@
 
 На внутреннем уровне расширение использует свойства PublicConfiguration и PrivateConfiguration на основе JSON. Ниже приведена примерная структура JSON для открытой и закрытой конфигурации.
 
-### PublicConfiguration
+### <a name="publicconfiguration"></a>PublicConfiguration
     {
         "Instances":  "*",
         "Mode":  "Full",
@@ -59,7 +59,7 @@
         ]
     }
 
-### PrivateConfiguration
+### <a name="privateconfiguration"></a>PrivateConfiguration
     {
 
     }
@@ -71,7 +71,7 @@
 
 Чтобы добавить AzureLogCollector в один или несколько экземпляров облачной службы или виртуальной машины для выбранных ролей, можно выполнить одну из двух описанных ниже процедур. Будет запущена операция сбора данных на каждой виртуальной машине с отправкой собранных файлов в указанную учетную запись Azure.
 
-## Добавление в качестве расширения службы
+## <a name="adding-as-a-service-extension"></a>Добавление в качестве расширения службы
 1. Подключите Azure PowerShell к своей подписке в соответствии с инструкциями.
 2. Укажите имя службы, слот, роли и экземпляры ролей, для которых вы хотите добавить и включить расширение AzureLogCollector.
    
@@ -153,9 +153,14 @@
 * *StorageAccountKey*: имя ключа учетной записи хранения Azure.
 * *AdditionalDataLocationList*: список со следующей структурой:
   
-      { String Name, String Location, String SearchPattern, Bool Recursive }
+      {
+      String Name,
+      String Location,
+      String SearchPattern,
+      Bool   Recursive
+      }
 
-## Добавление в качестве расширения виртуальной машины
+## <a name="adding-as-a-vm-extension"></a>Добавление в качестве расширения виртуальной машины
 Подключите Azure PowerShell к своей подписке в соответствии с инструкциями.
 
 1. Укажите имя службы, виртуальную машину и режим сбора данных.
@@ -185,7 +190,7 @@
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-3. Вызовите файл SetAzureVMLogCollector.ps1 (см. в конце статьи) указанным ниже образом, чтобы включить расширение AzureLogCollector для облачной службы. После выполнения отправленный файл будет размещен по адресу https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+3. Вызовите файл SetAzureVMLogCollector.ps1 (см. в конце статьи) указанным ниже образом, чтобы включить расширение AzureLogCollector для облачной службы. После выполнения отправленный файл будет размещен по адресу https://YouareStorageAccountName.blob.core.windows.net/vmlogs.
 
 Ниже описаны параметры, которые принимает этот сценарий. (Эта часть кода дублируется ниже.)
 
@@ -227,7 +232,7 @@
       }
 ```
 
-## Файлы сценариев PowerShell для расширения
+## <a name="extention-powershell-script-files"></a>Файлы сценариев PowerShell для расширения
 SetAzureServiceLogCollector.ps1
 
     [CmdletBinding(SupportsShouldProcess = $true)]
@@ -475,7 +480,11 @@ SetAzureVMLogCollector.ps1
       Write-Output "VM name is not specified, the extension cannot be enabled"
     }
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете анализировать или копировать журналы, собранные в одном расположении.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

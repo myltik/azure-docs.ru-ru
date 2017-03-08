@@ -1,5 +1,5 @@
 ---
-title: "Замена корпуса устройства StorSimple | Документация Майкрософт"
+title: "Замена корпуса устройства StorSimple серии 8000 | Документация Майкрософт"
 description: "Эта статья описывает снятие и установку основного корпуса или корпуса EBOD устройства StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f2568dac43a0fa870c7b3db7bde3458e7cfafd8
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -59,10 +60,5 @@ ms.openlocfilehash: 0f2568dac43a0fa870c7b3db7bde3458e7cfafd8
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

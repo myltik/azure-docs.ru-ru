@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: vturecek;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97bfd27368c2f317e4edadb38a0685d92ad92b9a
+ms.sourcegitcommit: 7a79b19bf51c89e19ad67421978dacccddeb5119
+ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
 
 
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Отладка приложения Service Fabric с помощью Visual Studio
+> [!div class="op_single_selector"]
+> * [Visual Studio и CSharp](service-fabric-debugging-your-application.md) 
+> * [Eclipse и Java](service-fabric-debugging-your-application-java.md)
+>
+
+
 ## <a name="debug-a-local-service-fabric-application"></a>Отладка локального приложения Service Fabric
 Вы можете сэкономить время и деньги, развернув приложение Azure Service Fabric и выполнив его отладку в кластере для разработки, состоящем из локальных компьютеров. С помощью Visual Studio можно развернуть приложение в локальном кластере и автоматически подключить отладчик ко всем экземплярам приложения.
 
@@ -156,6 +162,6 @@ ms.openlocfilehash: 97bfd27368c2f317e4edadb38a0685d92ad92b9a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

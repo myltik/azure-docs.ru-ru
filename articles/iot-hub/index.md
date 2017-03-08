@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Документация по Центру Интернета вещей Azure. Руководства и справочник по API | Документация Майкрософт"
 description: "Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов IoT, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы."
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
+ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
 
 ---
+
 #<a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
 
 Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов IoT, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы помогут вам установить надежную двустороннюю связь между устройствами IoT и серверной частью решения. 
@@ -127,8 +139,10 @@ ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
                         <h3>Языки</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (служба)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (устройства)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (служба)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (устройства)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (служба)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (устройства)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Node (служба)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Node (устройства)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Пакеты SDK для Центра Интернета вещей Azure</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Пакет SDK для шлюза</a></p>
                     </div>
@@ -157,6 +171,6 @@ ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

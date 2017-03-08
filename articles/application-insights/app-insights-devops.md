@@ -1,5 +1,5 @@
 ---
-title: "Углубленная диагностика веб-приложений и служб с помощью Application Insights | Документация Майкрософт"
+title: "Мониторинг производительности веб-приложения в Azure Application Insights | Документация Майкрософт"
 description: "Как Application Insights встраивается в цикл разработки и операций (DevOps)"
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 9599f0088647c6f017736f5cab36a04ad6024c1d
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
 
 
 ---
@@ -174,6 +174,6 @@ Visual Studio и Eclipse оснащены инструментами для на
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

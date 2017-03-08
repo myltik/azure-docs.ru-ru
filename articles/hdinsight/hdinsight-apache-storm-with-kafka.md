@@ -12,11 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: c6171ad4077e833162bfad31b01abbc9947f8e45
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight
@@ -41,9 +42,9 @@ Apache Kafka — это решение для обмена сообщениям
 
 * Клиент SSH (вам потребуются команды `ssh` и `scp`). Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
   
-  * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X.](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-  * [Использование SSH с HDInsight под управлением Linux в Windows.](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## <a name="create-the-clusters"></a>Создание кластеров
 
@@ -134,9 +135,9 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
    
     Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
    
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X.](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Использование SSH с HDInsight под управлением Linux в Windows.](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Во время подключения SSH к кластеру Kafka используйте следующие команды для получения узлов Zookeeper из Ambari:
 
@@ -206,9 +207,9 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
    
     Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
    
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X.](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Использование SSH с HDInsight под управлением Linux в Windows.](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Чтобы запустить сценарий `set-env-variables.sh`, выполните следующие команды из SSH-подключения к кластеру Storm:
 
@@ -318,10 +319,5 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 Дополнительные примеры топологий, которые можно использовать со Storm в HDInsight, см. в статье [Примеры топологий и компонентов Storm для Apache Storm в HDInsight](hdinsight-storm-example-topology.md).
 
 Сведения о развертывании и мониторинге топологий в HDInsight под управлением Linux см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

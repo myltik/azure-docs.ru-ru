@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
 ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -721,7 +722,7 @@ ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
         }
      },
      "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]"
      }
 
 
@@ -1217,10 +1218,5 @@ ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
 * Инструкции по объединению нескольких шаблонов см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 * Указания по выполнению заданного количества циклов итерации при создании типа см. в разделе [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
 * Указания по развертыванию созданного шаблона см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

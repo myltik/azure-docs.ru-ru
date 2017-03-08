@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -41,13 +42,13 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 В следующих таблицах перечислены основные функции базы данных SQL Azure и SQL Server, представлены сведения о возможности их поддержки и указаны ссылки на дополнительные сведения об использовании функций на каждой платформе. Чтобы получить сведения о функциях Transact-SQL, перейдите по ссылке в таблице для категории функции. Дополнительные сведения о причинах отсутствия поддержки некоторых функций см. в статье [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).
 
-Мы продолжаем расширять функционал версии 12. Поэтому рекомендуем вам почаще посещать нашу веб-страницу с обновлениями служб Azure и при работе с ней пользоваться фильтрами.
+Мы продолжаем расширять функционал версии&12;. Поэтому рекомендуем вам почаще посещать нашу веб-страницу с обновлениями служб Azure и при работе с ней пользоваться фильтрами.
 
 * Фильтруйте обновления по [службе базы данных SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Фильтруйте обновления по [объявлениям об общедоступных версиях](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) функций базы данных SQL.
 
 > [!TIP]
-> Инструкции по тестированию баз данных на совместимость с базой данных SQL Azure см. в [этой статье](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Инструкции по тестированию баз данных на совместимость с базой данных SQL Azure см. в статье [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
 >
 
 | **Компонент** | **SQL Server** | **База данных SQL Azure;** | 
@@ -57,12 +58,12 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 | Группы доступности AlwaysOn | [Поддерживаются](https://msdn.microsoft.com/library/hh510230.aspx) | Не поддерживается. Ознакомьтесь со статьей [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md). |
 | Присоединение базы данных | [Поддерживаются](https://msdn.microsoft.com/library/ms190209.aspx) | Не поддерживается |
 | Роли приложений | [Поддерживаются](https://msdn.microsoft.com/library/ms190998.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Автомасштабирование | Не поддерживается | [Поддерживаются](sql-database-scale-up.md) |
+| Автомасштабирование | Не поддерживается | [Поддерживаются](sql-database-service-tiers.md) |
 | Azure Active Directory | Не поддерживается | [Поддерживаются](sql-database-aad-authentication.md) |
 | Фабрика данных Azure | Не поддерживается. Ознакомьтесь со статьей [Службы SQL Server Integration Services](https://msdn.microsoft.com/library/ms141026.aspx). | [Поддерживаются](https://azure.microsoft.com/services/data-factory/) |
-| Аудит | [Поддерживаются](https://msdn.microsoft.com/library/cc280386.aspx) | [Поддерживаются](sql-database-auditing-get-started.md) |
+| Аудит | [Поддерживаются](https://msdn.microsoft.com/library/cc280386.aspx) | [Поддерживаются](sql-database-auditing.md) |
 | BACPAC-файл (экспорт) | [Поддерживаются](https://msdn.microsoft.com/library/hh213241.aspx) | [Поддерживаются](sql-database-export.md) |
-| BACPAC-файл (импорт) | [Поддерживаются](https://msdn.microsoft.com/library/hh710052.aspx) | [Поддерживаются](sql-database-import.md) |
+| BACPAC-файл (импорт) | [Поддерживаются](https://msdn.microsoft.com/library/hh710052.aspx) | [Поддерживаются](sql-database-import-portal.md) |
 | Инструкции BACKUP и RESTORE | [Поддерживаются](https://msdn.microsoft.com/library/ff848768.aspx) | Не поддерживается |
 | Встроенные функции | [Поддерживаются](https://msdn.microsoft.com/library/ms174318.aspx) | [Большинство](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Запись измененных данных | [Поддерживаются](https://msdn.microsoft.com/library/cc645937.aspx) | Не поддерживается |
@@ -117,7 +118,8 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 | PolyBase | [Поддерживаются](https://msdn.microsoft.com/library/mt143171.aspx) | [Не поддерживается]
 | Управление на основе политик | [Поддерживаются](https://msdn.microsoft.com/library/bb510667.aspx) | Не поддерживается |
 | Предикаты | [Поддерживаются](https://msdn.microsoft.com/library/ms189523.aspx) | [Большинство](https://msdn.microsoft.com/library/ms189523.aspx)
-| Регулятор ресурсов | [Поддерживаются](https://msdn.microsoft.com/library/bb933866.aspx) | [Встроен](sql-database-service-tiers.md) |
+| Службы R | [Поддерживаются](https://msdn.microsoft.com/library/mt604845.aspx)
+| Регулятор ресурсов | [Поддерживаются](https://msdn.microsoft.com/library/bb933866.aspx) | Не поддерживается |
 | Восстановление базы данных из резервной копии | [Поддерживаются](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Только из встроенных резервных копий](sql-database-recovery-using-backups.md) |
 | Безопасность на уровне строк | [Поддерживаются](https://msdn.microsoft.com/library/dn765131.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Инструкции по безопасности | [Поддерживаются](https://msdn.microsoft.com/library/ff848791.aspx) | [Некоторые](https://msdn.microsoft.com/library/ff848791.aspx) |
@@ -132,7 +134,7 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 | SQL Server Integration Services (SSIS); | [Поддерживаются](https://msdn.microsoft.com/library/ms141026.aspx) | Не поддерживаются. Ознакомьтесь со страницей [Фабрика данных](https://azure.microsoft.com/services/data-factory/). |
 | SQL Server PowerShell | [Поддерживаются](https://msdn.microsoft.com/library/hh245198.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Поддерживаются](https://msdn.microsoft.com/library/ms181091.aspx) | Не поддерживается. Ознакомьтесь со статьей о [расширенных событиях](https://msdn.microsoft.com/library/ms181091.aspx). |
-| Репликация SQL Server | [Поддерживаются](https://msdn.microsoft.com/library/ms151198.aspx) | [Только для подписчиков репликации транзакций и репликации моментального снимка](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Репликация SQL Server | [Поддерживаются](https://msdn.microsoft.com/library/ms151198.aspx) | [Только для подписчиков репликации транзакций и репликации моментального снимка](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Поддерживаются](https://msdn.microsoft.com/library/ms159106.aspx) | Не поддерживается |
 | Хранимые процедуры | [Поддерживаются](https://msdn.microsoft.com/library/ms190782.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Системные хранимые функции | [Поддерживаются](https://msdn.microsoft.com/library/ff848780.aspx) | [Некоторые](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -158,9 +160,4 @@ ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 - Ознакомьтесь со сведениями о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб**. Общие сведения об уровнях служб см. в статье [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
 - Общие сведения о методах защиты в базе данных SQL см. в [этой статье](sql-database-security-overview.md).
 - Сведения о доступности драйверов и поддержке для базы данных SQL см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

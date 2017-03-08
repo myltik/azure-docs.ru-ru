@@ -15,8 +15,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
+ms.lasthandoff: 02/22/2017
+
 
 
 ---
@@ -30,7 +32,10 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
 * Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
 
 ## <a name="overview"></a>Обзор
-**Примечание.** В отличие от горизонтального секционирования эти инструкции DDL не требуют определения уровня данных с помощью карты сегментов через клиентскую библиотеку эластичной базы данных.
+
+> [!NOTE]
+> В отличие от горизонтального секционирования эти инструкции DDL не зависят от определения уровня данных с помощью карты сегментов через клиентскую библиотеку эластичной базы данных.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +50,9 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
     SECRET = '<password>'
     [;]
 
-**Примечание.** Убедитесь, что значение *<username>* не содержит суффикс *"@servername"*. 
+> [!NOTE]
+> Убедитесь, что значение `<username>` не содержит суффикс **@servername**. 
+>
 
 ## <a name="create-external-data-sources"></a>Создание внешних источников данных
 Синтаксис:
@@ -58,7 +65,9 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Важно.** Параметру TYPE должно быть присвоено значение **RDBMS**. 
+> [!IMPORTANT]
+> Параметру TYPE должно быть присвоено значение **RDBMS**. 
+>
 
 ### <a name="example"></a>Пример
 В следующем примере демонстрируется использование инструкции CREATE для внешних источников данных. 
@@ -173,18 +182,17 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
 * Эластичные запросы оптимальны, когда основная часть вычислений может быть выполнена в удаленной базе данных. Обычно наиболее эффективны запросы с предикатами выборочных фильтров, дающие возможность вычисления в удаленных базах данных, или соединениями, которые могут быть полностью выполнены в удаленной базе данных. Для других шаблонов запросов может потребоваться загрузка больших объемов данных из удаленной базы данных, и эти шаблоны могут сработать неэффективно. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения о запросах к базам данных с горизонтальным секционированием (или сегментированным базам данных) см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+* Общие сведения об эластичных запросах см. в разделе [Обзор эластичных запросов к базе данных SQL Azure (предварительная версия)](sql-database-elastic-query-overview.md).
+* Руководств по вертикальному секционированию см. в статье [Приступая к работе с межбазовыми запросами (вертикальное секционирование) (предварительная версия)](sql-database-elastic-query-getting-started-vertical.md).
+* Руководство по горизонтальному секционированию (сегментированию) см. в статье [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-getting-started.md).
+* Описание синтаксиса и примеры запросов горизонтально секционированных данных см. в разделе [Отчеты по масштабируемым облачным базам данных (предварительная версия)](sql-database-elastic-query-horizontal-partitioning.md).
+* В описании [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) приведена хранимая процедура, которая выполняет инструкцию Transact-SQL для отдельной удаленной базы данных SQL Azure или набора баз данных, выступающих в качестве сегментов в схеме горизонтального секционирования.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
 
 
 <!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

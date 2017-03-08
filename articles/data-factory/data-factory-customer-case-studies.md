@@ -1,5 +1,5 @@
 ---
-title: "Примеры реальных клиентов | Документация Майкрософт"
+title: "Фабрика данных Azure: примеры реальных клиентов | Документация Майкрософт"
 description: "Узнайте о том, как некоторые из наших клиентов используют фабрику данных Azure."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85bc4e2224bf367473fa9b999d6798d8b1aa6a42
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 12edabc12d499bc07315d1cf103e5cc2fa149cdb
 
 
 ---
-# <a name="customer-case-studies"></a>Примеры реальных клиентов
+# <a name="azure-data-factory---customer-case-studies"></a>Фабрика данных Azure: примеры реальных клиентов
 Фабрика данных представляет собой облачную службу управления информацией, которая автоматизирует перемещение и преобразование данных. Клиенты из многих отраслей используют фабрику данных и другие службы Azure для построения аналитических конвейеров и решения проблем бизнеса.  Узнайте от самих клиентов, как и почему они используют фабрику данных.
 
 ## <a name="milliman"></a>Milliman
@@ -47,6 +47,6 @@ ms.openlocfilehash: 85bc4e2224bf367473fa9b999d6798d8b1aa6a42
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

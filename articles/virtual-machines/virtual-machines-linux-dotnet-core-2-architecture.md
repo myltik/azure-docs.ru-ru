@@ -1,5 +1,5 @@
 ---
-title: "Развертывание вычислительных ресурсов с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
+title: "Развертывание вычислительных ресурсов Linux с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
 description: "Руководство по .NET Core для виртуальных машин Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
+ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
 
 
 ---
@@ -225,7 +225,7 @@ ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
 
 Чтобы добавить в шаблон базу данных SQL Azure, можно использовать мастер добавления нового ресурса в Visual Studio или вставить в шаблон развертывания допустимый объект JSON. Ресурс SQL Server включает имя пользователя и пароль, которые предоставляют права администратора на экземпляре SQL Server. Также добавляется ресурс брандмауэра SQL. По умолчанию к экземпляру SQL Server могут подключаться только приложения, размещенные в Azure. Чтобы разрешить подключение к экземпляру SQL Server для внешних приложений, например SQL Server Management Studio, следует настроить брандмауэр. В нашем примере с магазином можно использовать конфигурацию по умолчанию. 
 
-Просмотреть пример JSON в шаблоне Resource Manager для базы данных Azure SQL можно [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
+Щелкните эту ссылку, чтобы просмотреть пример JSON в шаблоне Resource Manager для [базы данных Azure SQL](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
 ```json
 {
@@ -274,6 +274,6 @@ ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

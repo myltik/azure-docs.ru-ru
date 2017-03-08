@@ -1,5 +1,5 @@
 ---
-title: "Настройка MySQL на виртуальной машине Linux | Документация Майкрософт"
+title: "Настройка MySQL на виртуальной машине Linux в Azure | Документация Майкрософт"
 description: "Узнайте, как установить стек MySQL на виртуальной машине Linux (из семейства ОС Ubuntu или RedHat) в Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d75d1541671fac02e6373ae880137b76f15ec7ae
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 84722fffc5419f866250d4093250839066c54c46
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -177,10 +178,5 @@ ms.openlocfilehash: d75d1541671fac02e6373ae880137b76f15ec7ae
 
 ### <a name="next-step"></a>Дальнейшее действие
 Дополнительные сведения и сведения об использовании MySQL см. [здесь](https://www.mysql.com/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

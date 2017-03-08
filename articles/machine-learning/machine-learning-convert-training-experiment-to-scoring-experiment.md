@@ -1,5 +1,5 @@
 ---
-title: "Преобразование обучающего эксперимента машинного обучения в прогностический эксперимент | Документация Майкрософт"
+title: "Преобразование в прогнозный эксперимент в Машинном обучении Azure | Документация Майкрософт"
 description: "Как преобразовать обучающий эксперимент машинного обучения, используемый для обучения модели прогнозной аналитики, в прогностический эксперимент, который можно опубликовать в качестве веб-службы."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 7fbdaa7238d1c3c5d858e76c38f4691cfa0769a5
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 1ed2ee17e6b4d0256707bc63ac450b33ad9ef162
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -128,9 +129,4 @@ ms.openlocfilehash: 7fbdaa7238d1c3c5d858e76c38f4691cfa0769a5
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

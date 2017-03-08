@@ -17,19 +17,20 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
-ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
+ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
+ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
 
 
 ---
 # <a name="azure-functions-event-hub-bindings"></a>Привязки концентратора событий функций Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Эта статья объясняет, как настроить и запрограммировать привязки [концентратора событий Azure](../event-hubs/event-hubs-overview.md) для Функций Azure. Функции Azure поддерживают привязки триггера и выходные привязки для концентраторов событий Azure.
+Эта статья объясняет, как настроить и запрограммировать привязки [концентратора событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md) для Функций Azure.
+Функции Azure поддерживают привязки триггера и выходные привязки для концентраторов событий Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Если вы еще не работали с концентраторами событий Azure, ознакомьтесь с [обзором концентраторов событий Azure](../event-hubs/event-hubs-overview.md).
+Если вы еще не работали с концентраторами событий Azure, ознакомьтесь с [обзором концентраторов событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
@@ -44,13 +45,14 @@ ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
     "path": "<Name of the Event Hub>",
-    "consumerGroup": "Consumer group to use - see below", 
+    "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup` — необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-overview.md#consumer-groups), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`.  
-`connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.
+`consumerGroup` — необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`.  
+`connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий.
+Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.
 
 [Дополнительные параметры](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) можно указать в файле host.json для дальнейшей настройки триггеров концентратора событий.  
 
@@ -116,9 +118,9 @@ module.exports = function (context, myEventHubMessage) {
 <a name="output"></a>
 
 ## <a name="event-hub-output-binding"></a>Выходная привязка концентратора событий
-Используйте выходную привязку концентратора событий для записи событий в поток событий концентратора событий. Чтобы записывать события в концентратор событий, необходимо иметь разрешение на оправку в него событий. 
+Используйте выходную привязку концентратора событий для записи событий в поток событий концентратора событий. Чтобы записывать события в концентратор событий, необходимо иметь разрешение на оправку в него событий.
 
-Выходная привязка использует следующий объект JSON в массиве `bindings` файла function.json: 
+Выходная привязка использует следующий объект JSON в массиве `bindings` файла function.json:
 
 ```json
 {
@@ -130,12 +132,13 @@ module.exports = function (context, myEventHubMessage) {
 }
 ```
 
-`connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Чтобы отправлять сообщения в поток событий, эта строка подключения должна иметь разрешения на отправку.
+`connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий.
+Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Чтобы отправлять сообщения в поток событий, эта строка подключения должна иметь разрешения на отправку.
 
 ## <a name="output-usage"></a>Использование выходной привязки
 В этом разделе показано, как использовать привязку для вывода концентратора событий в коде функции.
 
-Можно выводить сообщения в настроенный концентратор событий со следующими типами параметров. 
+Можно выводить сообщения в настроенный концентратор событий со следующими типами параметров.
 
 * `out string`
 * `ICollector<string>` (для вывода нескольких сообщений).
@@ -183,7 +186,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
 {
     string message = $"Event Hub message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.Info(message);
     outputEventHubMessage.Add("1 " + message);
     outputEventHubMessage.Add("2 " + message);
 }
@@ -233,7 +236,6 @@ module.exports = function(context) {
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

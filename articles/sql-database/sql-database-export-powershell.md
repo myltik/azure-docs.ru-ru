@@ -1,6 +1,6 @@
 ---
-title: "Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell"
-description: "Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell"
+title: "PowerShell: экспорт базы данных SQL Azure в BACPAC-файл | Документация Майкрософт"
+description: "Экспорт базы данных SQL Azure в BACPAC-файл с помощью PowerShell"
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -10,43 +10,27 @@ ms.assetid: 9439dd83-812f-4688-97ea-2a89a864d1f3
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 08/15/2016
+ms.date: 02/07/2017
 ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ebbb31eb9387d68afab7559a3827682ed2551d5a
-ms.openlocfilehash: de0b000b56ea90caeb1e2aa9a0b8c87e25c7c237
+ms.sourcegitcommit: 3d04be3d2427bc59d24bfaad227730991b61265b
+ms.openlocfilehash: 162147607baa36de0487cebc06e7ada20f3dd0c0
+ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="archive-an-azure-sql-database-to-a-bacpac-file-by-using-powershell"></a>Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell
-> [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-export.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-> * [PowerShell](sql-database-export-powershell.md)
-> 
+# <a name="export-an-azure-sql-database-or-a-sql-server-to-a-bacpac-file-by-using-powershell"></a>Экспорт базы данных SQL Azure или SQL Server в BACPAC-файл с помощью PowerShell
 
-В статье содержатся инструкции по архивации базы данных SQL Azure в [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -файл, хранимый в хранилище BLOB-объектов Azure, с помощью PowerShell.
-
-Когда вам нужно создать архив базы данных SQL Azure, вы можете экспортировать схему базы данных и данные в BACPAC-файл. BACPAC-файл — это просто ZIP-файл с расширением BACPAC. BACPAC-файл можно позже сохранить в хранилище BLOB-объектов или локальном хранилище в локальном расположении. Его можно также импортировать обратно в базу данных SQL Azure или локальный экземпляр SQL Server.
-
-## <a name="considerations"></a>Рекомендации
-
-* Чтобы архив был транзакционно согласованным, необходимо обеспечить отсутствие операций записи во время экспорта или экспортировать данные из [транзакционно согласованной копии](sql-database-copy.md) базы данных SQL Azure.
-* Максимальный размер BACPAC-файла архива в хранилище BLOB-объектов Azure составляет 200 ГБ. Для архивации BACPAC-файла большего размера в локальное хранилище используйте программу командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) . Эта служебная программа поставляется вместе с Visual Studio и SQL Server. Кроме того, вы можете [скачать](https://msdn.microsoft.com/library/mt204009.aspx) последнюю версию SQL Server Data Tools для получения этой служебной программы.
-* Архивация в хранилище Azure уровня "Премиум" с помощью BACPAC-файла не поддерживается.
-* Если операция экспорта длится более 20 часов, она может быть отменена. Для повышения производительности во время экспорта можно сделать следующее.
-  * Временно повысить уровень служб.
-  * Прекратить все операции чтения и записи во время экспорта.
-  * Используйте для всех больших таблиц [кластеризованный индекс](https://msdn.microsoft.com/library/ms190457.aspx) со значениями, отличными от NULL. Без кластеризованных индексов экспорт может завершиться ошибкой, если он длится больше 6–12 часов. Это обусловлено тем, что службам экспорта требуется выполнить проверку таблицы, чтобы экспортировать всю таблицу. Хороший способ определить, оптимизированы ли таблицы для экспорта, — выполнить **DBCC SHOW_STATISTICS** и убедиться, что значение *RANGE_HI_KEY* не равно NULL и имеет хорошее распределение. Дополнительную информацию см. в разделе [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
+В статье содержатся инструкции по экспорту базы данных SQL Azure или SQL Server в BACPAC-файл, сохраняемый в хранилище BLOB-объектов Azure, с помощью PowerShell. Общие сведения об экспорте в BACPAC-файл см. в [этой статье](sql-database-export.md).
 
 > [!NOTE]
-> BACPAC-файлы не предназначены для операций службы архивации и восстановления. База данных SQL Azure автоматически создает резервные копии для каждой пользовательской базы данных. Дополнительные сведения см. в статье [Подробнее о резервном копировании базы данных SQL](sql-database-automated-backups.md).
-> 
-> 
+> Вы также можете экспортировать файл базы данных SQL Azure в BACPAC-файл с помощью [портала Azure](sql-database-export-portal.md), [SQL Server Management Studio](sql-database-export-ssms.md) или [SQLPackage](sql-database-export-sqlpackage.md).
+>
+
+## <a name="prerequisites"></a>Предварительные требования
 
 Для работы с этой статьей необходимо следующее:
 
@@ -121,14 +105,16 @@ ms.openlocfilehash: de0b000b56ea90caeb1e2aa9a0b8c87e25c7c237
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы узнать, как импортировать базу данных Azure SQL с помощью PowerShell, ознакомьтесь с разделом [Импорт BACPAC-файла для создания новой базы данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md).
+* Чтобы узнать об импорте BACPAC-файла в базу данных SQL Azure с помощью SQLPackage, см. [эту статью](sql-database-import-sqlpackage.md).
+* Чтобы узнать об импорте BACPAC-файла в базу данных SQL Azure с помощью портала Azure, см. [эту статью](sql-database-import-portal.md).
+* Описание процесса миграции базы данных SQL Server в базу данных SQL Azure, включая рекомендации по его использованию, см. в [этой статье](sql-database-cloud-migrate.md).
+* Дополнительные сведения о длительном периоде удержания резервных копий базы данных SQL Azure как альтернативе экспорту базы данных для создания архива см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
+* Чтобы узнать об импорте BACPAC-файла в базу данных SQL Server, ознакомьтесь с разделом [Импорт файла BACPAC для создания новой пользовательской базы данных](https://msdn.microsoft.com/library/hh710052.aspx)
+
+
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx)
 * [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

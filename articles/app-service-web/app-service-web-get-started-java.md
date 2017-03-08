@@ -4,7 +4,7 @@ description: "Узнайте, как можно быстро запускать 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения Java в Azure за пять минут (предварительная версия CLI 2.0)
-
-> [!div class="op_single_selector"]
-> * [Первый HTML-сайт](app-service-web-get-started-html-cli-nodejs.md)
-> * [Первое приложение .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Первое приложение PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [Первое приложение Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Первое приложение Python](app-service-web-get-started-python-cli-nodejs.md)
-> * [Первое приложение Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Это руководство поможет вам развернуть простое веб-приложение Java в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
 В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -127,10 +119,5 @@ ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 * Попробуйте [другие способы развертывания кода в Azure](web-sites-deploy.md). 
 * Выведите приложение Azure на следующий уровень. Проверяйте подлинность пользователей. Масштабируйте приложение в зависимости от потребностей. Настраивайте оповещения производительности. И все это — с помощью нескольких действий. См. статью [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

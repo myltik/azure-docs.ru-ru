@@ -4,7 +4,7 @@ description: "Информация о том, как создать веб-пр�
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
 > [!NOTE]
 > Доступна также видеоверсия этого руководства:
 > 
-> [PTVS 2.1: Django app with MySQL][видео] (PTVS 2.1: приложение Django с использованием MySQL).
+> [PTVS 2.1: Django app with MySQL][video] (PTVS 2.1: приложение Django с использованием MySQL).
 > 
 > 
 
@@ -38,7 +39,7 @@ ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
 * Visual Studio 2015
 * [Python 2.7 (32-разрядная версия)] или [Python 3.4 (32-разрядная версия)]
 * [Инструменты Python 2.2 для Visual Studio]
-* [Образцы VSIX средств Python 2.2 для Visual Studio]
+* [примеров VSIX для инструментов Python 2.2 для Visual Studio]
 * [Инструменты пакета SDK для Azure для Visual Studio 2015]
 * Django 1.9 или более поздней версии.
 
@@ -47,7 +48,7 @@ ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
 > 
 > 
 
@@ -157,18 +158,18 @@ ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
 
 <!--Link references-->
 
-[Центр по разработке для Python]: /develop/python/
+[центре разработчиков Python]: /develop/python/
 [облачных служб Azure]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
 [портал Azure]: https://portal.azure.com
-[Средства Python для Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[примеров VSIX для инструментов Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Инструменты пакета SDK для Azure для Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 3.4 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Веб-проекты]: http://go.microsoft.com/fwlink/?LinkId=624027
@@ -176,9 +177,4 @@ ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
 [Документация по Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 [video]: http://youtu.be/oKCApIrS0Lo
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

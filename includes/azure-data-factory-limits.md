@@ -6,9 +6,9 @@
 | конвейеров в фабрике данных |2500 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | наборов данных в фабрике данных |5000 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | параллельных срезов на набор данных |10 |10 |
-| байтов на объект для объектов pipeline <sup>1</sup> |200 КБ |2000 KB |
+| байтов на объект для объектов pipeline <sup>1</sup> |200 КБ |200 КБ |
 | байтов на объект для объектов dataset и linked service <sup>1</sup> |100 КБ |2000 KB |
-| Число ядер кластера HDInsight по запросу в подписке<sup>2</sup> |48 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Число ядер кластера HDInsight по запросу в подписке<sup>2</sup> |60 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Облачные единицы перемещения данных<sup>3</sup> |8 |[Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Число повторных попыток выполнить действие конвейера  |1000 |MaxInt (32 разряда) |
 
@@ -29,6 +29,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

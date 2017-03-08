@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
+ms.date: 02/22/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: fc04923c6a6b4b870011a82fcd9688ca8e0c8a7e
-ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
+ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
+ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -117,21 +118,23 @@ ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
+## <a name="resources"></a>Ресурсы
+
+В данной статье упоминались следующие ресурсы: 
+
+* [подключаемый модуль Aspera Connect](http://downloads.asperasoft.com/connect2/);
+* [справочная документация по Aspera Connect](http://downloads.asperasoft.com/en/documentation/8);
+* [клиент Aspera](http://downloads.asperasoft.com/en/downloads/2);
+* [справочная документация по клиенту Aspera](http://downloads.asperasoft.com/en/documentation/2).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь можно закодировать отправленные ресурсы. Дополнительную информацию см. в статье, посвященной [кодированию ресурсов](media-services-portal-encode.md).
-
-Можно также использовать функции Azure для запуска задания кодирования на основе файла, поступающего в настроенный контейнер. Дополнительные сведения см. в [этом примере](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ). 
+Теперь вы можете [копировать большие двоичные объекты из учетной записи хранения в учетную запись AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

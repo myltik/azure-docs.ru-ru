@@ -4,7 +4,7 @@ description: "Интеграция Azure Mobile Engagement Reach с прилож
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -282,10 +283,5 @@ ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
 [политикам в отношении приложений]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [дополнительным требованиям к приложениям определенных типов]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

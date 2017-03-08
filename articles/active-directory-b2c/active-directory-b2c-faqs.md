@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 
 
 ---
@@ -79,6 +79,9 @@ ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Можно ли с помощью Azure AD Connect перенести в Azure AD B2C удостоверения клиентов, хранящиеся в локальном каталоге Active Directory?
 Нет служба Azure AD Connect не предназначена для работы с Azure AD B2C. В будущем мы планируем предоставлять различные готовые варианты и средства миграции.
 
+### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Может ли приложение открыть страницы Azure AD B2C в iFrame?
+Нет, по соображениям безопасности страницы Azure AD B2C, которые обслуживаются в домене `login.microsftonline.com`, не открываются в iFrame. При любом взаимодействии с клиентами требуется перенаправление в Azure AD B2C.
+
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Работает ли служба Azure AD B2C с системами CRM, например Microsoft Dynamics?
 В настоящее время нет. Мы планируем интеграцию этих систем в будущем.
 
@@ -124,6 +127,6 @@ ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

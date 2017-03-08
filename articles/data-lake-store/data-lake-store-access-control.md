@@ -1,4 +1,3 @@
-
 ---
 title: "Обзор контроля доступа в Data Lake Store | Документация Майкрософт"
 description: "В этой статье описаны принципы контроля доступа в Azure Data Lake Store."
@@ -13,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 756d51e41c43be2e80f8fce1c3965e1723f7cec8
 ms.openlocfilehash: 7cd0c60b3eaaf6c2fd702d4e4b580299cb71c5fc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -339,9 +339,4 @@ GUID отображается, если пользователь не сущес
 ## <a name="see-also"></a>Дополнительные материалы
 
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 01/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 701d82971b7da92fb0946cbfc7f708ad32501ef3
-ms.openlocfilehash: 69b530c085cc99959e66e75f2c8ebb391c9d26f4
+ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
+ms.openlocfilehash: aa2aabee72d1ca381502f9332df7fb88cf2384a2
 
 
 ---
@@ -421,8 +421,8 @@ ms.openlocfilehash: 69b530c085cc99959e66e75f2c8ebb391c9d26f4
 | folderPath |Путь контейнеру и папке в хранилище BLOB-объектов. Пример: myblobcontainer\myblobfolder\ |Да |
 | fileName |Имя большого двоичного объекта. Свойство fileName является необязательным и в нем учитывается регистр знаков.<br/><br/>Если указать имя файла, то действие (включая копирование) работает с определенным большим двоичным объектом.<br/><br/>Если значение fileName не указано, то копируются все большие двоичные объекты в folderPath для входного набора данных.<br/><br/>Если свойство fileName не указано для выходного набора данных, то имя созданного файла будет иметь следующий формат: Data.<Guid>.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.). |Нет |
 | partitionedBy |Необязательное свойство. Его можно использовать, чтобы указать динамические путь к папке и имя файла для временного ряда данных. Например, путь к папке (значение folderPath) каждый час может быть другим. Дополнительные сведения и примеры см. ниже в разделе [Использование свойства partitionedBy](#using-partitionedBy-property). |Нет |
-| свойства |Поддерживаются следующие типы формата: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах [Определение TextFormat](#specifying-textformat), [Определение AvroFormat](#specifying-avroformat), [Указание JsonFormat](#specifying-jsonformat), [Указание OrcFormat](#specifying-orcformat) и [Указание ParquetFormatt](#specifying-parquetformat). Если требуется скопировать файлы между файловыми хранилищами "как есть" (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных. |Нет |
-| compression |Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate** и **BZip2**. Поддерживаемые уровни: **Optimal** и **Fastest**. Дополнительные сведения см. в разделе [Поддержка сжатия](#compression-support). Сейчас для данных в формате **AvroFormat**, **OrcFormat** или **ParquetFormat** параметры сжатия не поддерживаются. Для чтения данных в этих форматах фабрика данных использует в метаданных кодек сжатия. Тем не менее при записи в файл в одном из этих форматов фабрика данных выбирает кодек сжатия по умолчанию для этого формата. Например, SNAPPY для ParquetFormat и ZLIB для OrcFormat. |Нет |
+| свойства | Поддерживаются следующие типы формата: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах о [текстовом формате](#specifying-textformat), [формате Json](#specifying-jsonformat), [формате Avro](#specifying-avroformat), [формате Orc](#specifying-orcformat) и [ формате Parquet](#specifying-parquetformat). <br><br> Если требуется скопировать файлы между файловыми хранилищами **как есть** (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных. |Нет |
+| compression | Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**. Поддерживаемые уровни: **Optimal** и **Fastest**. Дополнительные сведения см. в разделе [Указание сжатия](#specifying-compression). |Нет |
 
 ### <a name="using-partitionedby-property"></a>Использование свойства partitionedBy
 Как упоминалось в предыдущем разделе, динамические значения folderPath и fileName для данных временных рядов можно задать в разделе **partitionedBy** , а также с помощью макросов фабрики данных и системных переменных SliceStart и SliceEnd, указывающих время начала и окончания среза данных.
@@ -524,6 +524,6 @@ ms.openlocfilehash: 69b530c085cc99959e66e75f2c8ebb391c9d26f4
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

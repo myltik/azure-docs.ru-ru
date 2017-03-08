@@ -4,8 +4,12 @@
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-history.png)
 
-Нажмите кнопку **Просмотреть журнал**, чтобы увидеть выходные данные пользовательского скрипта развертывания:
+Нажмите кнопку **Просмотреть журнал** , чтобы увидеть выходные данные пользовательского скрипта развертывания:
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

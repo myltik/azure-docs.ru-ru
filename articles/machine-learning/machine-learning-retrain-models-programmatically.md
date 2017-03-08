@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
+ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 
 
 ---
@@ -44,10 +44,11 @@ ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
 5. Введите "Модель ценза".
 6. В нижней части холста эксперимента нажмите кнопку **Run**(Выполнить).
 7. Щелкните **Set Up Web Service** (Настроить веб-службу) и выберите **Retraining Web Service** (Переобучение веб-службы). 
+
+Ниже приведен исходный эксперимент.
    
    ![Исходный эксперимент][2]
 
-Схема 2. Исходный эксперимент
 
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Создание прогнозного эксперимента и его публикация в виде веб-службы
 Теперь нужно создать прогнозный эксперимент.
@@ -79,7 +80,7 @@ ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
 
 ![Итоговый рабочий процесс после выполнения][4]
 
-Схема 3. Итоговый рабочий процесс после выполнения
+
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Переобучение модели с использованием новых данных и BES
 В этом примере вы создадите приложение повторного обучения на языке C#. Также для этих целей можно использовать образцы кода на R или Python.
@@ -185,6 +186,6 @@ ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a063d7ec6759bb9890d9b541088a8190dfd79aef
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -177,15 +178,62 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 * При восстановлении есть вероятность того, что состояние восстанавливаемой резервной копии старее состояния раздела до потери данных. Из-за этого восстановление следует использовать только в качестве последнего средства для восстановления максимального объема данных.
 * Строка, представляющая собой путь к папке резервного копирования и пути к файлам в этой папке, может содержать больше 255 символов в зависимости от пути FabricDataRoot и длины имени типа приложения. Из-за этого такие методы .NET, как **Directory.Move**, могут породить исключение **PathTooLongException**. Одно из возможных решений — напрямую вызывать интерфейсы API kernel32, такие как **CopyFile**.
 
-## <a name="backup-and-restore-reliable-actors"></a>Резервное копирование и восстановление субъектов Reliable Actors
-Резервное копирование и восстановление субъектов Reliable Actors основаны на функциях, предоставленных службами Reliable Services. Владельцу службы следует создать пользовательскую службу субъекта, производную от **ActorService** (это надежная служба Service Fabric, в которой размещаются субъекты), и затем выполнить архивацию или восстановление, как для Reliable Services, что описано в предыдущих разделах. Поскольку резервные копии будут создаваться для каждого раздела, состояние для всех субъектов в этом определенном разделе будут архивированы (восстановление будет происходить для каждого раздела).
 
-* При создании пользовательской службы субъекта необходимо зарегистрировать пользовательскую службу субъекта при регистрации субъекта. Ознакомьтесь с разделом **ActorRuntime.RegistorActorAsync**.
-* **KvsActorStateProvider** в данный момент поддерживает только полную архивацию. Кроме того, параметр **RestorePolicy.Safe** игнорируется **KvsActorStateProvider**.
+
+
+## <a name="backup-and-restore-reliable-actors"></a>Резервное копирование и восстановление субъектов Reliable Actors
+
+
+Платформа Reliable Actors создана на основе Reliable Services. ActorService, в котором размещены субъекты, является надежной службой с отслеживанием состояния. Таким образом все функции архивации и восстановления, доступные в Reliable Services, также доступны для Reliable Actors (кроме определенных поведений поставщика состояний). Так как резервные копии будут создаваться для каждого раздела, состояния всех субъектов в этом разделе будут архивированы (восстановление будет происходить для каждого раздела). Для выполнения архивации и восстановления владельцу службы следует создать класс пользовательской службы субъектов, а затем выполнить архивацию или восстановление (аналогично Reliable Services), как описано в предыдущих разделах.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo)
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+При создании класса пользовательской службы субъекта необходимо зарегистрировать его, также как при регистрации субъекта.
+
+```
+ActorRuntime.RegisterActorAsync<MyActor>(
+   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+```
+
+Поставщик состояния по умолчанию для Reliable Actors **KvsActorStateProvider**. Добавочная архивация для **KvsActorStateProvider** не включена по умолчанию. Добавочную архивацию можно включить, создав **KvsActorStateProvider** с соответствующим параметром в конструкторе и передав в конструктор ActorService, как показано в следующем фрагменте кода.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+После включения добавочной архивации по одной из следующих причин во время его выполнения может возникнуть ошибка FabricMissingFullBackupException, после чего необходимо будет выполнить полную архивацию перед повторной попыткой запуска добавочной:
+
+* Для реплики никогда не создавалась полная резервная копия, так как она стала первичной.
+* Некоторые записи журнала были усечены с момента последней архивации.
+
+Если добавочная архивация включена, **KvsActorStateProvider** не использует циклический буфер для управления записями журнала и периодически усекает его. Если пользователь не создает резервную копию в течение 45 минут, система автоматически усекает записи журнала. Этот интервал можно настроить, указав **logTrunctationIntervalInMinutes** в конструкторе **KvsActorStateProvider** (как при включении добавочной архивации). Если нужно создать первичную реплику путем отправки всех ее данных, записи журнала также могут усекаться.
+
+При выполнении восстановления из цепочки резервных копий BackupFolderPath (аналогично Reliable Services) должен содержать подкаталоги. Один подкаталог должен содержать полную резервную копию, а остальные — добавочные резервные копии. API восстановления выдаст исключение FabricException с соответствующим сообщением об ошибке при сбое проверки цепочки резервных копий. 
 
 > [!NOTE]
-> Используемый по умолчанию ActorStateProvider (т. е. **KvsActorStateProvider**) **не** очищает папки резервных копий (расположенные в рабочей папке приложения, полученной с помощью ICodePackageActivationContext.WorkDirectory). Это может привести к заполнению вашей рабочей папки. Вам следует явным образом очистить папку резервных копий в обратном вызове архивации после перемещения резервной копии во внешнее хранилище.
-> 
+> Сейчас **KvsActorStateProvider** игнорирует параметр RestorePolicy.Safe. В следующих выпусках планируется поддержка этой функции.
 > 
 
 ## <a name="testing-backup-and-restore"></a>Проверка резервного копирования и восстановления
@@ -226,10 +274,5 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 * [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Конфигурация Reliable Services](service-fabric-reliable-services-configuration.md)
 * [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

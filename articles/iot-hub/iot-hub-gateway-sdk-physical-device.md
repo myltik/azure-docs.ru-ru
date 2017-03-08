@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 199f07ce705036c3d8f9d56115b5df9c8c52dc45
 
 
 ---
@@ -236,10 +236,10 @@ cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-Когда репозиторий пакета SDK для шлюза Интернета вещей полностью скопирован на устройство Raspberry Pi 3, можно выполнить его сборку, используя следующую команду из папки, в которой содержится пакет SDK:
+Когда репозиторий пакета SDK для шлюза IoT будет полностью скопирован на устройство Raspberry Pi 3, можно выполнить его сборку, используя приведенную ниже команду из папки, в которой находится пакет SDK.
 
 ```
-./tools/build.sh --skip-unittests
+./tools/build.sh
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Настройка и запуск примера BLE на устройстве Raspberry Pi 3
@@ -429,11 +429,11 @@ git submodule update --init --recursive
 При запуске примера можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools], для мониторинга сообщений, которые шлюз перенаправляет с устройства SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Отправка сообщений из облака на устройство
-Модуль BLE также поддерживает отправку инструкций из Центра Интернета вещей на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или инструмент [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer).
+Модуль BLE также поддерживает отправку инструкций из Центра Интернета вещей на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) или инструмент [iothub-explorer](https://github.com/Azure/iothub-explorer).
 При использовании устройства Texas Instruments SensorTag можно включить красный или зеленый светодиодные индикаторы или звуковой сигнал, отправив команды из Центра Интернета вещей. Для этого необходимо сначала последовательно отправить два сообщения JSON, приведенные ниже. Затем можно будет отправить команды для включения светодиодных индикаторов или звукового сигнала.
 
-1. Выполните сброс всех светодиодных индикаторов и звуковых сигналов (отключите их):
-  
+1. Выполните сброс всех светодиодных индикаторов и звуковых сигналов (отключите их).
+
     ```json
     {
       "type": "write_once",
@@ -441,7 +441,8 @@ git submodule update --init --recursive
       "data": "AA=="
     }
     ```
-2. Настройте операции ввода-вывода как "удаленные":
+    
+2. Настройте операции ввода-вывода как "удаленные".
   
     ```json
     {
@@ -450,7 +451,10 @@ git submodule update --init --recursive
       "data": "AQ=="
     }
     ```
-* Включить красный светодиодный индикатор:
+    
+Затем можно будет отправить приведенные команды для включения светодиодных индикаторов или звукового сигнала.
+
+* Включение красного светодиодного индикатора.
   
     ```json
     {
@@ -459,7 +463,8 @@ git submodule update --init --recursive
       "data": "AQ=="
     }
     ```
-* Включить зеленый светодиодный индикатор:
+
+* Включение зеленого светодиодного индикатора.
   
     ```json
     {
@@ -468,7 +473,8 @@ git submodule update --init --recursive
       "data": "Ag=="
     }
     ```
-* Включить звуковой сигнал:
+
+* Включение звукового сигнала.
   
     ```json
     {
@@ -501,6 +507,6 @@ git submodule update --init --recursive
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

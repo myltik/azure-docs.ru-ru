@@ -1,5 +1,5 @@
 ---
-title: "Устранение неполадок в службе автоматизации Azure | Документация Майкрософт"
+title: "Устранение распространенных проблем службы автоматизации Azure | Документация Майкрософт"
 description: "В этой статье приведены сведения, которые позволят диагностировать и устранять распространенные ошибки службы автоматизации Azure."
 services: automation
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/24/2017
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: 15a8ff89ae7a7d335c9d8584aaef0b21f092566f
-ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
+ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
+ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 
 
 ---
-# <a name="troubleshoot-azure-automation"></a>Устранение неполадок в службе автоматизации Azure 
+# <a name="troubleshooting-common-issues-in-azure-automation"></a>Устранение распространенных проблем службы автоматизации Azure 
 Эта статья содержит сведения о распространенных ошибках, которые могут возникнуть в службе автоматизации Azure, и возможных решениях по их устранению.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Ошибки, связанные с аутентификацией, при работе с модулями Runbook службы автоматизации Azure
@@ -61,7 +61,7 @@ ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
 
 **Причина ошибки** : если в учетной записи Azure активирована многофакторная проверка подлинности, применять пользователя Azure Active Directory для аутентификации в Azure нельзя.  Вместо этого при проверке подлинности в Azure используйте сертификат или субъект-службу.
 
-**Советы по устранению неполадки.** Сведения об использовании сертификата с командлетами управления службами Azure см. в руководстве по [созданию и добавлению сертификатов для управления службами Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Сведения об использовании субъекта-службы с командлетами диспетчера ресурсов Azure см. в статьях о [создании субъекта-службы с помощью портала Azure](../resource-group-create-service-principal-portal.md) и [аутентификации субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md).
+**Советы по устранению неполадки.** Сведения об использовании сертификата с командлетами управления службами Azure см. в руководстве по [созданию и добавлению сертификатов для управления службами Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Сведения об использовании субъекта-службы с командлетами диспетчера ресурсов Azure см. в статьях о [создании субъекта-службы с помощью портала Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) и [аутентификации субъекта-службы в диспетчере ресурсов Azure](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Распространенные ошибки при работе с модулями Runbook
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Сценарий: сбой модуля Runbook из-за десериализованного объекта
@@ -175,6 +175,6 @@ ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Гибридные локальные и облачные приложения (.NET) | Документация Майкрософт"
+title: "Гибридные локальные и облачные приложения ретранслятора WCF Azure (.NET) | Документация Майкрософт"
 description: "Узнайте, как создать локальное или облачное гибридное приложение .NET с использованием ретранслятора WCF Azure."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,17 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Создание локального или облачного гибридного приложения .NET с использованием ретранслятора WCF Azure
 ## <a name="introduction"></a>Введение
-В этой статье описывается, как создать облачное гибридное приложение с помощью Microsoft Azure и Visual Studio. В этом учебнике предполагается, что у вас нет опыта использования платформы Azure. Менее чем за 30 минут вы получите приложение, которое использует несколько ресурсов Microsoft Azure и выполняется в облаке.
+В этой статье показано, как создать гибридное облачное приложение с помощью Microsoft Azure и Visual Studio. В этом учебнике предполагается, что у вас нет опыта использования платформы Azure. Менее чем за 30 минут вы получите приложение, которое использует несколько ресурсов Microsoft Azure и выполняется в облаке.
 
 Вы узнаете:
 
@@ -36,7 +37,7 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 
 Архитекторы решений начинают использовать облако для упрощения реализации масштабирования и снижения эксплуатационных расходов. При этом они обнаруживают,что существующие активы служб, которые они хотели бы использовать в качестве стандартных блоков для своих решений, находятся за корпоративным брандмауэром, поэтому обращение к ним из облачного решения затруднено. Многие внутренние службы построены или размещены таким образом, который не позволяет легко предоставлять их на границе корпоративной сети.
 
-Ретранслятор Azure предназначен для случаев, когда существующие веб-службы Windows Communication Foundation (WCF) безопасно предоставляются для решений, находящихся вне периметра корпоративной сети, без внесения существенных изменений в инфраструктуру корпоративной сети. Такие службы ретрансляции по-прежнему размещаются внутри существующей среды, однако они делегируют функции прослушивания входящих сеансов и запросов размещенной в облаке службе ретрансляции. Ретранслятор Azure также защищает эти службы от несанкционированного доступа с помощью проверки подлинности с использованием [подписанного URL-адреса](../service-bus-messaging/service-bus-sas-overview.md) (SAS).
+[Ретранслятор Azure](https://azure.microsoft.com/services/service-bus/) предназначен для случаев, когда существующие веб-службы Windows Communication Foundation (WCF) безопасно предоставляются для решений, находящихся вне периметра корпоративной сети, без внесения существенных изменений в инфраструктуру корпоративной сети. Такие службы ретрансляции по-прежнему размещаются внутри существующей среды, однако они делегируют функции прослушивания входящих сеансов и запросов размещенной в облаке службе ретрансляции. Ретранслятор Azure также защищает эти службы от несанкционированного доступа, применяя аутентификацию на основе [подписанного URL-адреса](../service-bus-messaging/service-bus-sas.md) (SAS).
 
 ## <a name="solution-scenario"></a>Сценарий решений
 В этом учебнике вы создадите веб-сайт ASP.NET, который позволит просматривать список продуктов на странице складских запасов.
@@ -50,18 +51,16 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 ![][1]
 
 ## <a name="set-up-the-development-environment"></a>Настройка среды разработки
-Прежде чем начать разработку приложения для Azure, подготовьте нужные инструменты и настройте среду разработки.
+Прежде чем начать разработку приложения для Azure, скачайте нужные инструменты и настройте среду разработки.
 
-1. Установите пакет Azure SDK для .NET с [этой страницы][Get Tools and SDK].
-2. Щелкните **Install the SDK** (Установить пакет SDK) для используемой версии Visual Studio. На описанных в этом учебнике шагах используется Visual Studio 2015.
+1. Установите пакет SDK Azure для .NET, скачав его с [этой страницы](https://azure.microsoft.com/downloads/).
+2. В столбце **.NET** щелкните ссылку, соответствующую используемой версии [Visual Studio](http://www.visualstudio.com). На описанных в этом учебнике шагах используется Visual Studio 2015.
 3. При появлении запроса на выполнение или сохранение файла установки щелкните **Выполнить**.
 4. В **установщике веб-платформы** щелкните **Установить**, чтобы продолжить.
-5. После завершения установки у вас будут все компоненты, необходимые для начала разработки приложения. В состав пакета SDK входят инструменты для эффективной разработки приложений Azure в Visual Studio. Если у вас не установлено приложение Visual Studio, будет автоматически установлена бесплатная версия Visual Studio Express.
+5. После завершения установки у вас будут все компоненты, необходимые для начала разработки приложения. В состав пакета SDK входят инструменты для эффективной разработки приложений Azure в Visual Studio.
 
 ## <a name="create-a-namespace"></a>Создание пространства имен
-Чтобы начать использовать функции ретранслятора Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов Azure в вашем приложении.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+Чтобы начать использовать функции ретранслятора Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов Azure в вашем приложении. Выполните [эти инструкции](relay-create-namespace-portal.md), чтобы создать пространство имен ретранслятора.
 
 ## <a name="create-an-on-premises-server"></a>Создание локального сервера
 Во-первых, нужно создать (макетную) локальную систему каталогов продукции. Она будет довольно простой. Это выглядит как представление фактической локальной системы каталогов продукции в виде полнофункциональной службы, которую мы пытаемся интегрировать.
@@ -69,7 +68,7 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 Этот проект запускается как консольное приложение Visual Studio, используя [пакет NuGet служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) для включения библиотек и параметров конфигурации служебной шины.
 
 ### <a name="create-the-project"></a>Создание проекта
-1. Запустите Microsoft Visual Studio, используя привилегии администратора. Чтобы запустить Visual Studio, используя привилегии администратора, щелкните правой кнопкой мыши значок программы **Visual Studio** и выберите пункт **Запустить от имени администратора**.
+1. Запустите Microsoft Visual Studio, используя привилегии администратора. Для этого щелкните правой кнопкой мыши значок программы Visual Studio и выберите **Запустить от имени администратора**.
 2. В меню **Файл** Visual Studio выберите **Создать**, а затем — **Проект**.
 3. В разделе **Visual C#** области **Установленные шаблоны** щелкните **Консольное приложение**. В поле **Имя** введите **ProductsServer**.
 
@@ -86,7 +85,7 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 9. В поле **Имя** введите **ProductsContract.cs**. Нажмите кнопку **Добавить**.
 10. В **ProductsContract.cs** замените определение пространства имен на приведенный ниже код, определяющий контракт для службы.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System.Collections.Generic;
@@ -122,7 +121,7 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
     ```
 11. В Program.cs замените определение пространства имен на следующий код, добавляющий службу профилей и узел для нее.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System;
@@ -174,9 +173,9 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
         }
     }
     ```
-12. В обозревателе решений дважды щелкните файл **App.config**, чтобы открыть его в редакторе Visual Studio. В нижней части элемента **&lt;system.ServiceModel&gt;** (но в пределах &lt;system.ServiceModel&gt;) добавьте приведенный ниже код XML. Не забудьте заменить *yourServiceNamespace* именем пространства имен, а *yourKey* — ключом SAS, полученным ранее на портале.
+12. В обозревателе решений дважды щелкните файл **App.config**, чтобы открыть его в редакторе Visual Studio. В нижней части элемента `<system.ServiceModel>` (но не выходя за рамки элемента `<system.ServiceModel>`) добавьте приведенный ниже код XML. Не забудьте заменить *yourServiceNamespace* именем пространства имен, а *yourKey* — ключом SAS, полученным ранее на портале.
 
-    ```
+    ```xml
     <system.serviceModel>
     ...
       <services>
@@ -197,9 +196,9 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
       </behaviors>
     </system.serviceModel>
     ```
-13. В файле App.config в элементе **&lt;appSettings&gt;** замените значение строки подключения значением, полученным ранее на портале.
+13. В файле App.config в элементе `<appSettings>` замените значение строки подключения значением, полученным ранее на портале.
 
-    ```
+    ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
@@ -236,22 +235,22 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 ### <a name="modify-the-web-application"></a>Изменение веб-приложения
 1. В Visual Studio замените существующее определение пространства имен в файле на следующий код.
 
-   ```
-   // Declare properties for the products inventory.
+   ```csharp
+    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
-   {
+    {
        public class Product
        {
            public string Id { get; set; }
            public string Name { get; set; }
            public string Quantity { get; set; }
        }
-   }
-   ```
+    }
+    ```
 2. В обозревателе решений разверните папку **Контроллеры** и дважды щелкните файл **HomeController.cs**, чтобы открыть его в Visual Studio.
 3. В файле **HomeController.cs** замените имеющееся определение пространства имен следующим кодом.
 
-    ```
+    ```csharp
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
@@ -278,7 +277,7 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 7. В обозревателе решений разверните папку Views\Home, а затем дважды щелкните файл **Index.cshtml**, чтобы открыть его в редакторе Visual Studio.
    Замените все содержимое файла следующим кодом.
 
-   ```
+   ```html
    @model IEnumerable<ProductsWeb.Models.Product>
 
    @{
@@ -334,7 +333,7 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
    ![][24]
 6. Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен приведенным ниже кодом. Замените *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
 
-   ```
+   ```csharp
    namespace ProductsWeb.Controllers
    {
        using System.Linq;
@@ -441,7 +440,6 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -465,9 +463,4 @@ ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

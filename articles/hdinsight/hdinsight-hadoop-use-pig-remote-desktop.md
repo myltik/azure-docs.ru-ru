@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
 
 
 ---
@@ -26,7 +26,10 @@ ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
 
 Этот документ содержит пошаговое руководство по использованию команды Pig для выполнения операторов Pig Latin через подключение к удаленному рабочему столу, установленное с кластером HDInsight под управлением Windows. Pig Latin позволяет создавать приложения MapReduce, описывая преобразования данных, а не функции сопоставления и приведения.
 
-Вот что вы узнаете в этом документе.
+> [!IMPORTANT]
+> Удаленный рабочий стол доступен только в кластерах HDInsight под управлением операционной системы Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении интерактивных заданий Pig непосредственно в кластере из командной строки: [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) (Использование Pig в HDInsight с помощью SSH).
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
@@ -128,6 +131,6 @@ ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

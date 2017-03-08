@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
 
 Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>1. Определение ключа API администратора службы поиска Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Определение ключа API администратора службы поиска Azure
 После подготовки службы поиска Azure все почти готово к тому, чтобы вы могли отправлять запросы для конечной точки вашей службы, используя пакет SDK для .NET. Для этого сначала нужно получить один из ключей API администратора, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
 1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
@@ -52,7 +53,7 @@ ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>2. Создание экземпляра класса SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Создание экземпляра класса SearchServiceClient
 Чтобы начать использовать пакет SDK для .NET в службе поиска Azure, нужно создать экземпляр класса `SearchServiceClient`. Этот класс имеет несколько конструкторов. Нужный вам конструктор принимает в качестве параметров имя службы поиска и объект `SearchCredentials` . `SearchCredentials` содержит ключ API.
 
 Приведенный ниже код создает новый `SearchServiceClient` с использованием значений для имени службы поиска и ключа API, которые хранятся в файле конфигурации приложения (`app.config` или `web.config`):
@@ -73,7 +74,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>3. Определение индекса службы поиска Azure
+## <a name="define-your-azure-search-index"></a>Определение индекса службы поиска Azure
 Для создания индекса достаточно отправить один вызов в метод `Indexes.Create` . В качестве параметра этот метод принимает объект `Index` , определяющий индекс службы поиска Azure. Вам нужно создать и инициализировать объект `Index` следующим образом:
 
 1. Задайте имя вашего индекса в качестве значения для свойства `Name` объекта `Index`.
@@ -156,7 +157,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>4. Создание индекса
+## <a name="create-the-index"></a>Создание индекса
 Теперь, когда у нас есть инициализированный объект `Index`, мы можем создать индекс, просто вызвав метод `Indexes.Create` для объекта `SearchServiceClient`:
 
 ```csharp
@@ -176,12 +177,7 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>Далее
+## <a name="next-steps"></a>Дальнейшие действия
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

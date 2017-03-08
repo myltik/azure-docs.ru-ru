@@ -1,5 +1,5 @@
 ---
-title: "Создание подсистемы балансировки нагрузки для Интернета в Resource Manager с помощью интерфейса командной строки Azure | Документация Майкрософт"
+title: "Создание доступной в Интернете подсистемы балансировки нагрузки с помощью Azure CLI | Документация Майкрософт"
 description: "Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure."
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: f3e06e802e8a5b98afc96747dee0db4173da40f0
-ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Создание балансировщика нагрузки для Интернета с помощью Azure CLI
@@ -131,7 +132,7 @@ ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
 2. Создайте правило балансировщика нагрузки.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Создайте пробу работоспособности.
@@ -308,9 +309,4 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

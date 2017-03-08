@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -29,11 +30,11 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 Существует два типа веб-тестов:
 
 * [Тест проверки связи с URL-адресом](#create)– простой тест, который вы можете создать на портале Azure.
-* [Многошаговый веб-тест](#multi-step-web-tests)– тест, который вы создаете в Visual Studio Ultimate или Visual Studio Enterprise и загружаете на портал.
+* [Многошаговый веб-тест](#multi-step-web-tests) — тест, который вы создаете в Visual Studio Enterprise и загружаете на портал.
 
 Для одного ресурса приложения можно создать не более 10 веб-тестов.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Создание ресурса для тестовых отчетов
+## <a name="create"></a>1. Создание ресурса для тестовых отчетов
 Пропустите этот шаг, если вы уже [настроили ресурс Application Insights][start] для этого приложения и хотите, чтобы отчеты о доступности отображались в этом же месте.
 
 Зарегистрируйтесь в [Microsoft Azure](http://azure.com), перейдите на [портал Azure](https://portal.azure.com) и создайте ресурс Application Insights.
@@ -42,7 +43,7 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 Щелкните **Все ресурсы** , чтобы открыть колонку обзора для нового ресурса.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Создание теста проверки связи с URL-адресом
+## <a name="setup"></a>2. Создание теста проверки связи с URL-адресом
 В ресурсе Application Insights найдите плитку "Доступность". Щелкните ее, чтобы открыть колонку "Веб-тесты" для вашего приложения, и добавьте веб-тест.
 
 ![Укажите хотя бы URL-адрес своего веб-сайта](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 ### <a name="test-more-urls"></a>Тестирование дополнительных URL-адресов
 Добавьте дополнительные тесты. Например, при тестировании домашней страницы можно также проверить, запущена ли база данных, путем тестирования URL-адреса поиска.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Просмотр результатов веб-теста
+## <a name="monitor"></a>3. Просмотр результатов веб-теста
 Результаты отображаются через 1–2 минуты в колонке "Веб-тест".
 
 ![Сводка по результатам в домашнем разделе](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,40 +76,23 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 В этих диаграммах приводятся результаты всех веб-тестов данного приложения.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>При возникновении сбоев
+## <a name="failures"></a>При возникновении сбоев
 Щелкните красную точку.
 
-![Щелкните красную точку.](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Щелкните красную точку.](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Либо прокрутите экран вниз и щелкните тест с результатом меньше 100 %.
 
-![Открытие конкретного веб-теста](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+С помощью результата веб-теста можно:
 
-Отобразятся результаты теста.
+* изучить ответ, полученный от сервера;
+* открыть данные телеметрии, отправленные приложением сервера при обработке экземпляра запроса, завершившейся сбоем;
+* добавить в журнал проблему или зарегистрировать рабочий элемент в Git или VSTS для отслеживания проблемы; ошибка будет содержать ссылку на это событие;
+* открыть результат веб-теста в Visual Studio.
 
-![Открытие конкретного веб-теста](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Тест проводится из нескольких расположений. Выберите одно, в котором результаты меньше 100 %.
-
-![Открытие конкретного веб-теста](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Прокрутите вниз до пункта **Неудачные тесты** и выберите результат.
-
-Щелкните результат, чтобы проанализировать его на портале и просмотреть причину сбоя.
-
-![Результат выполнения веб-теста](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Можно также скачать файл результатов и изучить его в Visual Studio.
 
 *Кажется, что все работает правильно, но выдается отчет об ошибке?* Проверьте все изображения, скрипты, таблицы стилей и любые другие файлы, загружаемые на страницу. Если не удается загрузить какой-либо компонент, отчет о тесте выдаст ошибку, даже если главная HTML-страница загружается правильно.
 
-### <a name="open-the-server-request-and-exceptions"></a>Переход к сведениям о запросе сервера и исключениях
-
-Со страницы подробных свойств конкретного теста можно открыть отчет по запросу сервера и другие события, например исключения.
-
-![Результат выполнения веб-теста](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Связанные элементы могут не отображаться во время процедуры [выборки](app-insights-sampling.md).
+*Связанные элементы отсутствуют?* Возможно, это из-за [выборки](app-insights-sampling.md) в операции.
 
 ## <a name="multi-step-web-tests"></a>Многошаговые веб-тесты
 Вы можете отслеживать сценарий, который содержит последовательность URL-адресов. Например, в случае наблюдения за интернет-магазином вы можете проверить, что добавление товаров в корзину работает исправно.
@@ -122,7 +106,7 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 Обратите внимание, что в тестах нельзя использовать запрограммированные функции: действия сценария в должны содержаться в виде сценария в WEBTEST-файле.
 
 #### <a name="1-record-a-scenario"></a>1. Запись сценария
-Для записи веб-сеанса используйте Visual Studio Enterprise или Ultimate.
+Для записи веб-сеанса используйте Visual Studio Enterprise.
 
 1. Создайте проект веб-теста производительности.
 
@@ -224,7 +208,7 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 * Параметризуйте маркеры, задав параметр при возврате маркера из структуры проверки подлинности и использовав его в запросе к сайту.
   (Visual Studio попытается параметризовать тест, но не сможет правильно параметризовать маркеры).
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Изменение или отключение теста
+## <a name="edit"></a> Изменение или отключение теста
 Откройте отдельный тест, чтобы изменить или отключить его.
 
 ![Изменение или отключение веб-теста](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -239,7 +223,7 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 По завершении теста на экране отобразится время ответа и число успешных попыток.
 
 ## <a name="automation"></a>Автоматизация
-* [Используйте сценарии PowerShell, чтобы настройка веб-теста](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) выполнялась автоматически.
+* [Используйте сценарии PowerShell, чтобы настройка веб-теста](app-insights-powershell.md#add-an-availability-test) выполнялась автоматически.
 * Настройте вызов [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), активируемый оповещением.
 
 ## <a name="questions-problems"></a>Вопросы? Проблемы?
@@ -273,12 +257,12 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
     К сожалению, эта возможность не поддерживается.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Видео
+## <a name="video"></a>Видео
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Дальнейшие действия
+## <a name="next"></a>Дальнейшие действия
 [Поиск по журналу диагностики в Application Insights][diagnostic]
 
 [Устранение неполадок][qna]
@@ -291,9 +275,4 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
