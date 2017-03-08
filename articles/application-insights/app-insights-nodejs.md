@@ -34,7 +34,7 @@ ms.lasthandoff: 02/23/2017
 
 * подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Создание ресурса Application Insights
+## <a name="add"></a>Создание ресурса Application Insights
 Войдите на [портал Azure][portal] и создайте ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
 
 ![Нажмите "Создать" и "Application Insights"](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/23/2017
 
 ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Установка пакета SDK в приложении
+## <a name="sdk"></a> Установка пакета SDK в приложении
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ appInsights.setup("<instrumentation_key>").start();
 
 Вы можете попробовать пакет SDK, не отправляя данные телеметрии. Для этого сделайте ключ инструментирования непустой строкой.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a>Запуск проекта
+## <a name="run"></a>Запуск проекта
 Запустите приложение и попробуйте им воспользоваться. Открывайте разные страницы, чтобы создать некоторый объем данных телеметрии.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Просмотр своих данных телеметрии
+## <a name="monitor"></a> Просмотр своих данных телеметрии
 Вернитесь на [портал Azure](https://portal.azure.com) и перейдите к своему ресурсу Application Insights.
 
 Поищите данные на странице "Обзор". Сначала вы увидите только одну или две точки. Например:

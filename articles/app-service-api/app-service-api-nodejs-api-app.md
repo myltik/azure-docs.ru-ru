@@ -162,7 +162,7 @@ ms.lasthandoff: 03/01/2017
    
     ![Пользовательский интерфейс Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Создание нового приложения API
+## <a id="createapiapp"></a> Создание нового приложения API
 В этом разделе рассматривается использование портала Azure для создания приложения API. Это приложение API представляет вычислительные ресурсы, предоставляемые Azure для выполнения кода. В следующих разделах описано, как развернуть свой код в новом приложении API.
 
 1. Перейти на [портал Azure](https://portal.azure.com/). 
