@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
 Сведения о том, как создать виртуальную машину с управляемыми дисками, см. в следующих руководствах:
 
 * [Создание виртуальной машины с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Возможности хранилища класса Standard 
 
@@ -152,9 +153,4 @@ ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
 
 * [Создание виртуальной машины с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+* [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

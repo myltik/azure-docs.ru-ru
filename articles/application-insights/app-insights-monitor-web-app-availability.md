@@ -34,7 +34,7 @@ ms.lasthandoff: 02/15/2017
 
 Для одного ресурса приложения можно создать не более 10 веб-тестов.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Создание ресурса для тестовых отчетов
+## <a name="create"></a>1. Создание ресурса для тестовых отчетов
 Пропустите этот шаг, если вы уже [настроили ресурс Application Insights][start] для этого приложения и хотите, чтобы отчеты о доступности отображались в этом же месте.
 
 Зарегистрируйтесь в [Microsoft Azure](http://azure.com), перейдите на [портал Azure](https://portal.azure.com) и создайте ресурс Application Insights.
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/15/2017
 
 Щелкните **Все ресурсы** , чтобы открыть колонку обзора для нового ресурса.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Создание теста проверки связи с URL-адресом
+## <a name="setup"></a>2. Создание теста проверки связи с URL-адресом
 В ресурсе Application Insights найдите плитку "Доступность". Щелкните ее, чтобы открыть колонку "Веб-тесты" для вашего приложения, и добавьте веб-тест.
 
 ![Укажите хотя бы URL-адрес своего веб-сайта](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/15/2017
 ### <a name="test-more-urls"></a>Тестирование дополнительных URL-адресов
 Добавьте дополнительные тесты. Например, при тестировании домашней страницы можно также проверить, запущена ли база данных, путем тестирования URL-адреса поиска.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Просмотр результатов веб-теста
+## <a name="monitor"></a>3. Просмотр результатов веб-теста
 Результаты отображаются через 1–2 минуты в колонке "Веб-тест".
 
 ![Сводка по результатам в домашнем разделе](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/15/2017
 
 В этих диаграммах приводятся результаты всех веб-тестов данного приложения.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>При возникновении сбоев
+## <a name="failures"></a>При возникновении сбоев
 Щелкните красную точку.
 
 ![Щелкните красную точку.](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -208,7 +208,7 @@ ms.lasthandoff: 02/15/2017
 * Параметризуйте маркеры, задав параметр при возврате маркера из структуры проверки подлинности и использовав его в запросе к сайту.
   (Visual Studio попытается параметризовать тест, но не сможет правильно параметризовать маркеры).
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Изменение или отключение теста
+## <a name="edit"></a> Изменение или отключение теста
 Откройте отдельный тест, чтобы изменить или отключить его.
 
 ![Изменение или отключение веб-теста](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -257,12 +257,12 @@ ms.lasthandoff: 02/15/2017
 
     К сожалению, эта возможность не поддерживается.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Видео
+## <a name="video"></a>Видео
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Дальнейшие действия
+## <a name="next"></a>Дальнейшие действия
 [Поиск по журналу диагностики в Application Insights][diagnostic]
 
 [Устранение неполадок][qna]
