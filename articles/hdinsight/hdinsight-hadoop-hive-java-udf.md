@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: ec7e5d3229d623ce08a72439317a6a515ee3e373
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -211,10 +212,5 @@ Hive отлично подходит для работы с данными в HD
 Другие способы работы с Hive см. в статье об [использовании Hive в HDInsight](hdinsight-use-hive.md).
 
 Дополнительные сведения об определяемых пользователем функциях Hive см. в разделе [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Операторы Hive и определяемые пользователем функции) вики-сайта Hive на сайте apache.org.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -18,7 +18,7 @@
 ### [Безопасность](documentation-government-plan-security.md)
 ### [Соответствие требованиям](documentation-government-plan-compliance.md)
 ## Управление
-### [Operations Management Suite](documentation-government-manage-oms.md).
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Подписка](documentation-government-manage-subscriptions.md)
 
 

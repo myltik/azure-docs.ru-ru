@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Отправка образов в реестр контейнеров с помощью интерфейса командной строки Docker
@@ -33,7 +34,7 @@ ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **Реестр контейнеров Azure.** Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [предварительной версии Azure CLI 2.0](container-registry-get-started-azure-cli.md).
+* **Реестр контейнеров Azure.** Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Интерфейс командной строки Docker.** Установите [подсистему Docker](https://docs.docker.com/engine/installation/), чтобы настроить локальный компьютер в качестве узла Docker и получить доступ к командам интерфейса командной строки Docker.
 
 ## <a name="log-in-to-a-registry"></a>Вход в раздел реестра
@@ -114,10 +115,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Теперь, когда вы знаете основы, можно приступать к использованию реестра. Например, разверните образы контейнера в кластер [службы контейнеров Azure](https://azure.microsoft.com/documentation/services/container-service/).
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

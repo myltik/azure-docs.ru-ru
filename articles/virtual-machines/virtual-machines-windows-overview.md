@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -59,8 +59,8 @@ ms.lasthandoff: 02/15/2017
 | Метод | Описание |
 | --- | --- |
 | Портал Azure |Выберите расположение из списка при создании виртуальной машины. |
-| Azure PowerShell |Используйте команду [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| Интерфейс REST API |Используйте операцию [вывода списка расположений](https://msdn.microsoft.com/library/dn790540.aspx). |
+| Azure PowerShell |Используйте команду [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| Интерфейс REST API |Используйте операцию [вывода списка расположений](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>Размер виртуальной машины
 Используемый [размер](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) виртуальной машины зависит от рабочей нагрузки, которую требуется выполнить. Позже выбранный размер определяет разные факторы, например вычислительную мощность, объем памяти и хранилища. Azure предлагает широкий спектр размеров для поддержки разных вариантов использования.
@@ -80,8 +80,8 @@ Azure предоставляет множество [образов из Marketp
 | Метод | Описание |
 | --- | --- |
 | Портал Azure |При выборе используемого образа значения задаются автоматически. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx). Параметр -Location указывает расположение.<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx). Параметр -Location указывает расположение, -PublisherName — издателя.<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx). Параметр -Location указывает расположение, -PublisherName — издателя, а -Offer — предложение. |
-| Интерфейсы API REST |[Получение списка издателей образов](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Получение списка предложений для образа](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Получение списка SKU для образа](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher). Параметр -Location указывает расположение.<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer). Параметр -Location указывает расположение, -PublisherName — издателя.<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku). Параметр -Location указывает расположение, -PublisherName — издателя, а -Offer — предложение. |
+| Интерфейсы API REST |[Получение списка издателей образов](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Получение списка предложений для образа](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Получение списка SKU для образа](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 Вы можете [передать и использовать собственный образ](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В этом случае имя издателя, предложение и SKU не используются.
 
@@ -92,7 +92,7 @@ Azure предоставляет множество [образов из Marketp
 
 * **Выполнение пользовательских скриптов.** [Расширение пользовательских скриптов](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) помогает настроить рабочие нагрузки на виртуальной машине, выполняя скрипт при подготовке виртуальной машины.
 * **Развертывание конфигураций и управление ими.** [Расширение настройки требуемого состояния (DSC) PowerShell](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) позволяет настроить DSC на виртуальной машине для управления конфигурациями и средами.
-* **Сбор данных диагностики.** [Расширение системы диагностики Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) позволяет настроить виртуальную машину для сбора данных диагностики, которые можно использовать для мониторинга состояния работоспособности приложения.
+* **Сбор данных диагностики.** [Расширение системы диагностики Azure](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) позволяет настроить виртуальную машину для сбора данных диагностики, которые можно использовать для мониторинга состояния работоспособности приложения.
 
 ### <a name="related-resources"></a>Связанные ресурсы
 Ресурсы в этой таблице используются в виртуальной машине. Они должны существовать или создаваться вместе с виртуальной машиной.
@@ -117,7 +117,7 @@ Azure предоставляет множество [образов из Marketp
 | Шаблоны |[Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Создание виртуальной машины Windows с помощью PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Клиентские пакеты SDK |[Развертывание ресурсов Azure с помощью языка C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Интерфейсы API REST |[Создание или обновление виртуальной машины](https://msdn.microsoft.com/library/mt163591.aspx) |
+| Интерфейсы API REST |[Создание или обновление виртуальной машины](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 Так или иначе, иногда вы будете сталкиваться с проблемами. В этом случае см. сведения в статье [Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -131,7 +131,7 @@ Azure предоставляет множество [образов из Marketp
 | --- | --- |
 | Портал Azure |В меню концентратора щелкните **Виртуальные машины** и выберите виртуальную машину из списка. В колонке виртуальной машины доступны общие сведения, значения параметров и метрики мониторинга. |
 | Azure PowerShell |Сведения об управлении виртуальными машинами с помощью PowerShell см. в статье [Управление виртуальными машинами Azure с помощью диспетчера ресурсов и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| Интерфейс REST API |Используйте операцию [получения сведений о виртуальной машине](https://msdn.microsoft.com/library/mt163682.aspx) для выполнения соответствующего действия. |
+| Интерфейс REST API |Используйте операцию [получения сведений о виртуальной машине](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) для выполнения соответствующего действия. |
 | Клиентские пакеты SDK |Сведения об управлении виртуальными машинами с помощью C# см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Вход в виртуальную машину

@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Подключение виртуальных машин Azure к службе Log Analytics
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Подключение виртуальных машин Azure к Log Analytics с помощью агента Log Analytics
+
 Для компьютеров Windows и Linux рекомендуемым методом сбора данных журналов и метрик является установка агента Log Analytics.
 
 Проще всего установить агент Log Analytics на виртуальные машины Azure при помощи расширения виртуальной машины Log Analytics.  Использование расширения упрощает процесс установки и автоматически настраивает агент на отправку данных в указанную вами рабочую область службы Log Analytics. Кроме того, агент обновляется автоматически, обеспечивая наличие новейших компонентов и исправлений.
@@ -34,8 +37,8 @@ ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
 
 > [!IMPORTANT]
 > Если настроить службу Log Analytics для индексации данных журналов с помощью [системы диагностики Azure](log-analytics-azure-storage.md), а агент — для сбора данных тех же журналов, то данные журналов будут собираться дважды. Плата взимается за использование обоих источников данных. Если агент уже установлен, то сбор данных журнала должен выполняться только с помощью агента. Настраивать Log Analytics для сбора данных журнала системы диагностики Azure не требуется.
-> 
-> 
+>
+>
 
 Существует три простых способа включить расширение виртуальной машины Log Analytics:
 
@@ -400,10 +403,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 * [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md)
 * [Подключение компьютеров Linux к Log Analytics](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

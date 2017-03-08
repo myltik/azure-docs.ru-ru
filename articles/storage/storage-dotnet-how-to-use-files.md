@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
-ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -Des
 3. Откройте окно PowerShell на виртуальной машине.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Ввод данных учетной записи хранения в виртуальной машине.
-Перед монтированием общего ресурса введите данные учетной записи хранения в виртуальной машине. Это позволит Windows автоматически восстанавливать подключение к общему ресурсу файлов при перезагрузке виртуальной машины. Чтобы сохранить учетные данные, выполните команду `cmdkey` в окне PowerShell на виртуальной машине. Вместо `<storage-account-name>` укажите имя учетной записи хранения, а вместо `<storage-account-key>` — ключ учетной записи хранения.
+Перед монтированием общего ресурса введите данные учетной записи хранения в виртуальной машине. Это позволит Windows автоматически восстанавливать подключение к общему ресурсу файлов при перезагрузке виртуальной машины. Чтобы сохранить учетные данные, выполните команду `cmdkey` в окне PowerShell на виртуальной машине. Вместо `<storage-account-name>` укажите имя учетной записи хранения, а вместо `<storage-account-key>` — ключ учетной записи хранения. Необходимо явно указать домен AZURE, как показано в примере ниже. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 Windows автоматически восстановит подключение к общему ресурсу файлов при перезагрузке виртуальной машины. Вы можете проверить восстановление подключения к файловому ресурсу, выполнив команду `net use` в окне PowerShell.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Так как вы сохранили данные учетной записи хранения на предыдущем этапе, нет необходимости вводить их повторно с помощью команды `net use`. Если вы еще не сохранили учетные данные, включите их в параметры вызова команды `net use` , как показано в следующем примере.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 Теперь можно работать с общим ресурсом хранилища файлов из виртуальной машины, как с обычным диском. Можно выполнять стандартные команды для работы с файлами из интерфейса командной строки, либо просматривать монтированный ресурс и его содержимое с помощью Проводника. Также можно запускать на виртуальной машине код, который получит доступ к ресурсу с использованием стандартных API ввода-вывода Windows, так как они предоставляются [пространствами имен System.IO](http://msdn.microsoft.com/library/gg145019.aspx) в .NET Framework.
@@ -680,9 +681,4 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [Inside Azure File Storage (Хранилище файлов Azure: взгляд изнутри)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

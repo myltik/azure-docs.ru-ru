@@ -1,6 +1,6 @@
 ---
 title: "Создание реестра контейнеров Azure с помощью Azure CLI | Документация Майкрософт"
-description: "Приступите к созданию реестров контейнеров и управлению ими с помощью предварительной версии Azure CLI 2.0"
+description: "Приступите к созданию реестров контейнеров Azure и управлению ими с помощью Azure CLI 2.0."
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,12 +17,13 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Создание реестра контейнеров с помощью Azure CLI
-Команды в [предварительной версии Azure CLI 2.0](https://github.com/Azure/azure-cli) позволяют создавать реестр контейнеров и управлять его параметрами на компьютере Linux, Mac или Windows. Кроме того, эти действия можно выполнять на [портале Azure](container-registry-get-started-portal.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
+Команды в [Azure CLI 2.0](https://github.com/Azure/azure-cli) позволяют создать реестр контейнеров и управлять его параметрами на компьютере Linux, Mac или Windows. Кроме того, эти действия можно выполнять на [портале Azure](container-registry-get-started-portal.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
 
 
 * Общие сведения и основные понятия см. в статье о [реестре контейнеров Azure](container-registry-intro.md).
@@ -34,9 +35,9 @@ ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **Предварительная версия Azure CLI 2.0.** Инструкции по установке предварительной версии Azure CLI 2.0 и началу работы с ней см. [здесь](https://github.com/Azure/azure-cli/blob/master/README.rst). Войдите в свою подписку Azure, выполнив команду `az login`.
-* **Группа ресурсов.** Перед созданием реестра контейнеров создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups) или используйте имеющуюся. Группа ресурсов должна находиться в расположении, где [доступна](https://azure.microsoft.com/regions/services/) служба реестра контейнеров. Примеры кода для создания группы ресурсов с помощью предварительной версии интерфейса командной строки 2.0 см. [здесь](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Учетная запись хранения (необязательно).** Создайте стандартную [учетную запись хранения](../storage/storage-introduction.md) Azure для хранения сведений реестра контейнеров в том же расположении. Учетную запись хранения (если она не задана при создании реестра) можно создать с помощью команды `az acr create`. Примеры кода для создания учетной записи хранения с помощью предварительной версии интерфейса командной строки 2.0 см. [здесь](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Azure CLI 2.0.**. Инструкции по установке Azure CLI 2.0 и началу работы с ним см. [здесь](https://github.com/Azure/azure-cli/blob/master/README.rst). Войдите в свою подписку Azure, выполнив команду `az login`.
+* **Группа ресурсов.** Перед созданием реестра контейнеров создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups) или используйте имеющуюся. Группа ресурсов должна находиться в расположении, где [доступна](https://azure.microsoft.com/regions/services/) служба реестра контейнеров. Примеры кода для создания группы ресурсов с помощью интерфейса командной строки 2.0 см. [здесь](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
+* **Учетная запись хранения (необязательно).** Создайте стандартную [учетную запись хранения](../storage/storage-introduction.md) Azure для хранения сведений реестра контейнеров в том же расположении. Учетную запись хранения (если она не задана при создании реестра) можно создать с помощью команды `az acr create`. Примеры кода для создания учетной записи хранения с помощью интерфейса командной строки 2.0 см. [здесь](https://github.com/Azure/azure-cli-samples/tree/master/storage).
 * **Субъект-служба (необязательно).** Если реестр создан с помощью интерфейса командной строки, по умолчанию доступ к нему не предоставляется. В зависимости от потребностей для реестра можно назначить имеющийся субъект-службу Azure Active Directory (или создать и назначить новый) или включить учетную запись пользователя с правами администратора. См. следующие разделы этой статьи. Дополнительные сведения о доступе к реестру см. в статье [Authenticate with the container registry](container-registry-authentication.md) (Проверка подлинности с помощью реестра контейнеров). 
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров
@@ -66,7 +67,7 @@ az acr create -n myRegistry -g myResourceGroup -l southcentralus
 * `loginServer` — полное доменное имя, которое необходимо указать для [входа в реестр](container-registry-authentication.md). В рассматриваемом примере это `myregistry-contoso.exp.azurecr.io` (все знаки в нижнем регистре).
 
 ## <a name="assign-a-service-principal"></a>Назначение субъекта-службы
-Команды в предварительной версии CLI 2.0 позволяют назначать субъект-службу Azure Active Directory для реестра. В этих примерах субъект-служба имеет роль владельца, но при необходимости можно назначить [другие роли](../active-directory/role-based-access-control-configure.md).
+Команды в интерфейсе командной строки 2.0 позволяют назначить субъект-службу Azure Active Directory для реестра. В этих примерах субъект-служба имеет роль владельца, но при необходимости можно назначить [другие роли](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Создание субъекта-службы и назначение доступа к реестру
 Следующая команда назначает новому субъекту-службе роль владельца для доступа к идентификатору реестра, отправленному с помощью параметра `--scopes`. Укажите надежный пароль с помощью параметра `--password`.
@@ -127,10 +128,5 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отправка первого образа с помощью интерфейса командной строки Docker](container-registry-get-started-docker-cli.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -58,8 +58,3 @@
 ## [Примеры кэша Redis](cache-redis-samples.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/cache/)
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

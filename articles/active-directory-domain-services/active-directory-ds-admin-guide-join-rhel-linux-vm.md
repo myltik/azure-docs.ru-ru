@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: d36b4c1391dad88603ad823055e11c0a4a329c3c
 ms.openlocfilehash: 89e97cb903e04efa77cfc6b02484d28a9ccfe6fb
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -155,9 +156,4 @@ ms.openlocfilehash: 89e97cb903e04efa77cfc6b02484d28a9ccfe6fb
 * [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos (Установка Kerberos)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7: Windows Integration Guide (Red Hat Enterprise Linux 7: руководство по интеграции Windows)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

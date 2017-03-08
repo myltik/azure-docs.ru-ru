@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
 ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -179,10 +180,5 @@ AdlCopy поддерживает копирование данных, содер
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

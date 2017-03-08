@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/27/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
-ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
+ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
+ms.openlocfilehash: 9ec5d45a38aefe24454f8673d5754d65b3800c17
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -30,6 +31,10 @@ ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 
 Кроме того, это руководство доступно в виде записной книжки Jupyter в кластере Spark (на платформе Linux), созданном в HDInsight. Фрагменты кода Python можно выполнять непосредственно в записной книжке. Чтобы выполнить действия в руководстве из записной книжки, создайте кластер Spark, запустите записную книжку Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), а затем запустите записную книжку **Использование средств бизнес-аналитики с Apache Spark в HDInsight.ipynb** в папке **Python**.
 
+> [!NOTE]
+> Возможности подключения к инструментам бизнес-аналитики, описываемые в этой статье, не поддерживаются в Spark 2.1 в Azure HDInsight 3.6 (предварительная версия). Поддерживается только Spark версий 1.6 и 2.0 (HDInsight 3.4 и HDInsight 3.5 соответственно).
+>
+
 **Предварительные требования:**
 
 Необходимо следующее:
@@ -39,7 +44,7 @@ ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 * Компьютер с установленным драйвером ODBC Microsoft Spark (требуется для работы Spark в HDInsight с Tableau). Вы можете скачать драйвер [здесь](http://go.microsoft.com/fwlink/?LinkId=616229).
 * Средства бизнес-аналитики, такие как [Power BI](http://www.powerbi.com/) или [Tableau Desktop](http://www.tableau.com/products/desktop). Вы можете оформить подписку на бесплатную предварительную версию Power BI на сайте [http://www.powerbi.com/](http://www.powerbi.com/).
 
-## <a name="a-namehivetableasave-raw-data-as-a-hive-table"></a><a name="hivetable"></a>Сохранение необработанных данных в виде таблицы Hive
+## <a name="hivetable"></a>Сохранение необработанных данных в виде таблицы Hive
 В этом разделе мы используем записную книжку [Jupyter](https://jupyter.org) , связанную с кластером Apache Spark в HDInsight, для выполнения заданий, которые обрабатывают необработанные демонстрационные данные и сохраняют их как таблицу Hive. В качестве демонстрационных данных выступает CSV-файл (hvac.csv), доступный на всех кластерах по умолчанию.
 
 После сохранения данных в виде таблицы Hive можно переходить к следующему разделу и подключится к таблице Hive с помощью средств бизнес-аналитики, таких как Power BI и Tableau.
@@ -105,7 +110,7 @@ ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
         SELECT * FROM hvac LIMIT 10
 2. Вы можете теперь завершить работу записной книжки для освобождения ресурсов. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 
-## <a name="a-namepowerbiause-power-bi-to-analyze-data-in-the-hive-table"></a><a name="powerbi"></a>Использование Power BI для анализа данных в таблице Hive
+## <a name="powerbi"></a>Использование Power BI для анализа данных в таблице Hive
 После сохранения данных в виде таблицы Hive можно воспользоваться Power BI для подключения к данным и визуализировать их для создания отчетов, панелей мониторинга и т. д.
 
 1. Войдите в [Power BI](http://www.powerbi.com/).
@@ -134,7 +139,7 @@ ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 
    Для одного и того же набора данных можно добавить любое количество представлений с визуализацией и закреплять их на панели мониторинга для получения моментального снимка данных. Кроме того, кластеры Spark в HDInsight подключены к Power BI напрямую. Это означает, что Power BI всегда имеет доступ к актуальным данным из кластера, поэтому вам не требуется планировать обновления для набора данных.
 
-## <a name="a-nametableauause-tableau-desktop-to-analyze-data-in-the-hive-table"></a><a name="tableau"></a>Использование Tableau Desktop для анализа данных в таблицах Hive
+## <a name="tableau"></a>Использование Tableau Desktop для анализа данных в таблицах Hive
 
 > [!NOTE]
 > Этот раздел применим только для кластеров Spark 1.5.2, созданных в Azure HDInsight.
@@ -171,7 +176,7 @@ ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
     ![Визуализация](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Визуализация")
 9. Щелкните **Сохранить** для сохранения рабочего листа. Можно создать панели мониторинга и добавить на них один или несколько листов.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
+## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Сценарии
@@ -206,9 +211,4 @@ ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

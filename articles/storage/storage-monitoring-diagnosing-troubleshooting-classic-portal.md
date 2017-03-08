@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: f197d3070e4265ff1633d6d167412d242a366ccf
-ms.openlocfilehash: 26d670a66fb6a7d4a1f0d50de93bea233c35db6b
+ms.sourcegitcommit: 28dfc25fc58afda13732aa8608c42f7e42c649d6
+ms.openlocfilehash: e51c843a59e8a59de68ee5370cb33d9bef206c19
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -422,7 +423,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 * [Временное увеличение метрики PercentThrottlingError]
 * [Постоянное увеличение метрики PercentThrottlingError]
 
-Метрика **PercentThrottlingError** часто увеличивается одновременно с увеличением числа запросов к хранилищу или при первоначальном нагрузочном тестировании приложения. Это также может проявляться в получении сообщений о состоянии HTTP 503 "Сервер занят" или 500 "Время ожидания операции истекло" в клиенте при операциях с хранилищем.
+Метрика **PercentThrottlingError** часто увеличивается одновременно с увеличением числа запросов к хранилищу или при первоначальном нагрузочном тестировании приложения. Это также может проявляться в получении сообщений о состоянии HTTP&503; "Сервер занят" или&500; "Время ожидания операции истекло" в клиенте при операциях с хранилищем.
 
 #### <a name="a-nametransient-increase-in-percentthrottlingerroratransient-increase-in-percentthrottlingerror"></a><a name="transient-increase-in-PercentThrottlingError"></a>Временное увеличение метрики PercentThrottlingError
 Если в значении метрики **PercentThrottlingError** наблюдаются пиковые скачки, совпадающие с периодами высокой активности приложения, следует реализовать стратегию повторения с экспоненциальной, а не линейной задержкой в клиенте. Это позволит снизить мгновенную нагрузку на секцию и сгладить пиковые скачки трафика. Подробнее о том, как реализовать политики повтора с помощью клиентской библиотеки хранилища, см. в статье <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Пространство имен Microsoft.WindowsAzure.Storage.RetryPolicies</a> на сайте MSDN.
@@ -445,7 +446,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 > 
 
 ### <a name="a-namemetrics-show-an-increase-in-percenttimeouterrorametrics-show-an-increase-in-percenttimeouterror"></a><a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Метрики показывают увеличение значения PercentTimeoutError
-Вы можете наблюдать увеличение метрики **PercentTimeoutError** для одной из служб хранилища. В то же время клиент может получать большое число сообщений о состоянии HTTP 500 "Время ожидания операции истекло" при операциях с хранилищем.
+Вы можете наблюдать увеличение метрики **PercentTimeoutError** для одной из служб хранилища. В то же время клиент может получать большое число сообщений о состоянии HTTP&500; "Время ожидания операции истекло" при операциях с хранилищем.
 
 > [!NOTE]
 > Ошибки времени ожидания могут возникать временно, когда служба хранилища выполняет балансировку нагрузки запросов, перемещая раздел на новый сервер.
@@ -469,11 +470,11 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Источник | Уровень детализации | Уровень детализации | Идентификатор запроса клиента | Operation Text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начинается выполнение операции с расположением «Основное» в режиме расположения PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начало синхронного запроса к https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Начало синхронного запроса к https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh %&2;BmcR6zbudIH2F5Ikm %&2;FyhNYZEmJNQ %&3;D&amp;api-version =&2014;-02-14. |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Waiting for response (Ожидание ответа). |
-| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |При ожидании ответа возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). |
+| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |При ожидании ответа возникло исключение: удаленный сервер вернул ошибку&403; (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Response received. Код состояния = 403; идентификатор запроса = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d; Content-MD5 = ; ETag = . |
-| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |Во время операции возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). |
+| Microsoft.WindowsAzure.Storage |Предупреждение |2 |85d077ab -… |Во время операции возникло исключение: удаленный сервер вернул ошибку&403; (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Проверка необходимости в повторной попытке выполнения операции. Число повторных попыток = 0; код состояния HTTP = 403; исключение = удаленный сервер вернул ошибку 403 (Запрещено). |
 | Microsoft.WindowsAzure.Storage |Информация |3 |85d077ab -… |Следующим установлено расположение «Основное» в соответствием с режимом расположения. |
 | Microsoft.WindowsAzure.Storage |Ошибка |1 |85d077ab -… |Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (403) — запрещено.) |
@@ -482,7 +483,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 * Обычно при создании SAS для немедленного использования клиентом вам не нужно задавать время начала. Если между узлом, генерирующим SAS по текущему времени, и службой хранилища есть небольшая разница во времени, то может возникнуть ситуация, когда служба хранилища получает еще недействительный SAS.
 * Не задавайте для SAS слишком короткий срок действия. Небольшая разница во времени между узлом, генерирующим SAS, и службой хранилища может привести к тому, что срок действия SAS истечет раньше, чем ожидалось.
-* Проверьте, соответствует ли параметр версии в ключе SAS (например, **sv = 2012-02-12**) версии клиентской библиотеки хранилища, которую вы используете. Всегда используйте последнюю версию клиентской библиотеки хранилища. Дополнительные сведения об управлении версиями маркеров SAS см. в статье [Новые возможности службы хранилища Microsoft Azure на TechEd 2014](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+* Проверьте, соответствует ли параметр версии в ключе SAS (например, **sv =&2012;-02-12**) версии клиентской библиотеки хранилища, которую вы используете. Всегда используйте последнюю версию клиентской библиотеки хранилища. Дополнительные сведения об управлении версиями маркеров SAS см. в статье [Новые возможности службы хранилища Microsoft Azure на TechEd&2014;](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 * * Если вы повторно создаете ключи доступа к хранилищу (нажмите **Управление ключами доступа** на любой странице в своей учетной записи хранения на классическом портале Azure), это может привести к тому, что существующие маркеры SAS станут недействительными. Если вы генерируете маркеры SAS с большим сроком действия для кэширования клиентскими приложениями, может возникнуть проблема.
 
 Если вы генерируете маркеры SAS с помощью клиентской библиотеки хранилища, то можете легко создать действительный маркер. Но если вы используете REST API службы хранилища и создаете токены SAS вручную, рекомендуем внимательно прочитать статью о <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">делегировании доступа с помощью подписанного URL-адреса</a> на сайте MSDN.
@@ -565,11 +566,11 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Request start time (Время начала запроса) | 2014-05-30T06:17:48.4473697Z |
 | Operation type (Тип операции)     | GetBlobProperties            |
 | Request status (Состояние запроса)     | SASAuthorizationError        |
-| HTTP status code (Код состояния HTTP)   | 404                          |
+| HTTP status code (Код состояния HTTP)   | 404                            |
 | Authentication type (Тип проверки подлинности)| SAS                          |
 | Service type (Тип службы)       | BLOB-объект                         |
-| Request URL (URL-адрес запроса)        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| Request URL (URL-адрес запроса)         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Идентификатор запроса клиента  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -884,9 +885,4 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

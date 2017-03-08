@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
-ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
+ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -246,13 +246,15 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 ### <a name="solution"></a>Решение
 Проверьте наличие параметра **serverino** в записи /etc/fstab:
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 Проверить, используется ли этот параметр, можно также, просто выполнив команду **sudo mount | grep cifs** и просмотрев ее результат.
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Если параметр **serverino** отсутствует, отключите службу файлов Azure и подключите ее снова, добавив параметр **serverino**.
+
+Другой причиной снижения производительности может быть отключенное кэширование. Чтобы проверить, включено ли кэширование, найдите параметр "cache=".  *cache=none* означает, что кэширование отключено. Повторно подключите общий ресурс, введя команду mount по умолчанию или явно добавив в нее параметр **cache=strict**, чтобы включить режим кэширования по умолчанию или "строгий" режим кэширования соответственно.
 
 <a id="error112"></a>
 ## <a name="error-112---timeout-error"></a>Ошибка 112: ошибка времени ожидания
@@ -263,9 +265,10 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
 Эта ошибка может быть вызвана проблемой при повторном подключении в Linux или другими проблемами, препятствующими повторному подключению, такими как ошибки сети. Если указать жесткое подключение, это вынудит клиента ждать, пока подключение не будет установлено или прервано явным образом. Это может использоваться для предотвращения ошибок из-за истечения времени ожидания сети. Тем не менее пользователи должны понимать, что это может привести к неопределенности времени ожидания, и при необходимости обрабатывать остановку подключения.
 
+
 ### <a name="workaround"></a>Возможное решение
 
-Проблема в Linux была исправлена, но еще не перенесена в дистрибутивы Linux. Если проблема вызвана сбоем повторного подключения в Linux, ее можно обойти, предотвращая переход в состояние простоя. Для этого поместите в файловый ресурс Azure какой-либо файл и перезаписывайте его каждые 30 секунд (или чаще). Это должна быть операция записи, такая как перезапись созданных или измененных данных в файл. В противном случае можно получить кэшированные результаты, в результате чего операция записи не активирует подключение.
+Проблема в Linux была исправлена, но еще не перенесена в дистрибутивы Linux. Если проблема вызвана сбоем повторного подключения в Linux, ее можно обойти, предотвращая переход в состояние простоя. Для этого поместите в файловый ресурс Azure какой-либо файл и перезаписывайте его каждые 30 секунд (или чаще). Это должна быть операция записи, такая как перезапись созданных или измененных данных в файл. В противном случае можно получить кэшированные результаты, в результате чего операция записи не активирует подключение. Вот список популярных ядер Linux, в которых исправлены эти и другие ошибки повторного подключения: 4.4.40 и более поздние версии, 4.8.16 и более поздние версии, 4.9.1 и более поздние версии.
 
 <a id="webjobs"></a>
 

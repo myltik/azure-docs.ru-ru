@@ -36,8 +36,6 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
-### [Использование ссылки на связанные ресурсы](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Контроль доступа
 ### [Создание субъекта-службы с помощью PowerShell](resource-group-authenticate-service-principal.md)
 ### [Создание субъекта-службы с помощью интерфейса командной строки Azure](resource-group-authenticate-service-principal-cli.md)

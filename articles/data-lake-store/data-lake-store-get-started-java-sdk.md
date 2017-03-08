@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -50,7 +51,7 @@ ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 2. Получить идентификатор клиента, секрет клиента и конечную точку маркера для веб-приложения Azure AD.
 3. Настроить для веб-приложения Azure AD доступ к файлу или папке Data Lake Store, к которым вы хотите получать доступ из создаваемого приложения Java.
 
-Инструкции по выполнению этих шагов см. в разделе о [создании приложения Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Инструкции по выполнению этих шагов см. в разделе о [создании приложения Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 Помимо получения маркера Azure Active Directory предоставляет и другие возможности. Вы можете выбрать один из нескольких методов проверки подлинности в соответствии с вашим сценарием, например для приложения, выполняемого в браузере, приложения, распространяемого в виде классического приложения, или серверного приложения, выполняемого в локальной среде или в виртуальной машине Azure. Доступны также различные типы учетных данных, например пароли, сертификаты, метод двухфакторной проверки подлинности и т. д. Кроме того, Azure Active Directory позволяет синхронизировать локальных пользователей Active Directory с облаком. Дополнительные сведения см. в статье [Сценарии аутентификации в Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
@@ -158,10 +159,5 @@ ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

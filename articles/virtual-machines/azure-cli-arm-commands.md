@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
-ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания с помощью Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> В этой статье представлены команды, используемые в режиме Resource Manager в Azure CLI (он иногда называется Azure CLI 1.0). Для работы в модели Resource Manager можно также использовать [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2), интерфейс командной строки нового поколения, поддерживающий различные платформы.
+> В этой статье представлены команды, используемые в режиме Resource Manager в Azure CLI (он иногда называется Azure CLI 1.0). Для работы в модели Resource Manager можно также использовать [Azure CLI 2.0](/cli/azure/install-az-cli2), интерфейс командной строки нового поколения, поддерживающий различные платформы.
 >Узнайте больше о [старом и новом Azure CLI](/cli/azure/old-and-new-clis).
 >
 
@@ -1863,9 +1864,4 @@ ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

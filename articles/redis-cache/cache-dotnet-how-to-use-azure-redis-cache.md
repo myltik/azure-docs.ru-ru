@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
+ms.sourcegitcommit: a3fc1a6bf552ed8c6511c432c0d74b76247ce877
+ms.openlocfilehash: c08d863ef8913b9bad766c6232faaaa0a6cfa950
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,8 +36,8 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 Доступны указанные ниже уровни кэша Redis для Microsoft Azure.
 
 * **Basic** — один узел. Множество размеров вплоть до 53 ГБ.
-* **Стандартный** — два узла: основной и реплика. Множество размеров вплоть до 53 ГБ. СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
-* **Премиум** — два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции уровня "Стандартный", а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
+* **Стандартный** — два узла: основной и реплика. Множество размеров вплоть до 53 ГБ. СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ&99;,9 %.
+* **Премиум** — два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции уровня "Стандартный", а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ&99;,9 %.
 
 Каждый уровень отличается доступными возможностями и ценой. Дополнительные сведения о ценах на кэш см. на [этой странице][Cache Pricing Details].
 
@@ -90,7 +91,7 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 
 Подключение к кэшу Redis для Azure выполняется с помощью класса `ConnectionMultiplexer` . Этот класс предназначен для общего использования и повторного использования клиентским приложением и не нуждается в создании нового экземпляра для каждой отдельной операции. 
 
-Для подключения к кэшу Redis для Azure и получения экземпляра подключенного класса `ConnectionMultiplexer` вызовите статический метод `Connect` и передайте ему конечную точку кэша и ключ, как показано в примере ниже. Используйте в качестве параметра пароля ключ, созданный на портале Azure.
+Для подключения к кэшу Redis для Azure и получения экземпляра подключенного класса `ConnectionMultiplexer` вызовите статический метод `Connect` и передайте ему конечную точку кэша и ключ. Используйте в качестве параметра пароля ключ, созданный на портале Azure.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -106,7 +107,7 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 > 
 > 
 
-Один из способов совместного использования экземпляра `ConnectionMultiplexer` в приложении предполагает наличие статического свойства, которое возвращает подключенный экземпляр (как в приведенном ниже примере). Это помогает потокобезопасно инициализировать только один подключенный экземпляр `ConnectionMultiplexer` . В этих примерах для параметра `abortConnect` задано значение False. Это означает, что вызов завершается успешно, даже если подключение к кэшу Redis для Azure не установлено. Одна из ключевых особенностей `ConnectionMultiplexer` заключается в том, что этот параметр автоматически восстанавливает соединение с кэшем, когда устраняется проблема с сетью или другие проблемы.
+Один из способов совместного использования экземпляра `ConnectionMultiplexer` в приложении предполагает наличие статического свойства, которое возвращает подключенный экземпляр (как в приведенном ниже примере). Этот подход помогает потокобезопасно инициализировать только отдельный подключенный экземпляр `ConnectionMultiplexer`. В этих примерах для параметра `abortConnect` задано значение False. Это означает, что вызов завершается успешно, даже если подключение к кэшу Redis для Azure не установлено. Одна из ключевых особенностей `ConnectionMultiplexer` заключается в том, что этот параметр автоматически восстанавливает соединение с кэшем, когда устраняется проблема с сетью или другие проблемы.
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -140,7 +141,7 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
 
-Теперь нам известно, как соединяться с экземпляром кэша Azure Redis и возвращать ссылку на базу данных кэша, поэтому давайте посмотрим, как работать с кэшем.
+Теперь нам известно, как соединяться с экземпляром кэша Redis для Azure и возвращать ссылку на базу данных кэша, поэтому давайте посмотрим, как работать с кэшем.
 
 <a name="add-object"></a>
 
@@ -154,7 +155,7 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 
 Redis хранит большинство данных в строках Redis, но эти строки могут содержать данные многих типов, включая сериализованные двоичные данные, которые можно использовать при сохранении объектов .NET в кэше.
 
-Если объект существует, вызов метода `StringGet` возвращает его. В противном случае возвращается значение `null`. В этом случае можно извлечь значение из желаемого источника данных и сохранить его в кэше для последующего использования. Это называется шаблоном "кэш на стороне".
+Если объект существует, вызов метода `StringGet` возвращает его. В противном случае возвращается значение `null`. Если возвращается `null`, то можно извлечь значение из желаемого источника данных и сохранить его в кэше для последующего использования. Это называется шаблоном "кэш на стороне".
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -171,7 +172,7 @@ Redis хранит большинство данных в строках Redis, 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
 ## <a name="work-with-net-objects-in-the-cache"></a>Работа с объектами .NET в кэше
-Кэш Azure Redis может кэшировать объекты .NET, а также несложные типы данных, но прежде чем объект .NET можно будет сохранить, он должен быть сериализован. Это ответственность разработчика приложения, что дает разработчику гибкость в выборе сериализатора.
+Кэш Redis для Azure может кэшировать объекты .NET и примитивные типы данных, но прежде чем объект .NET можно будет сохранить в кэше, он должен быть сериализован. За сериализацию объекта .NET отвечает разработчик приложения, что дает ему свободу в выборе сериализатора.
 
 Простой способ сериализации объектов — использовать методы сериализации `JsonConvert` в [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) и выполнять сериализацию в нотацию JSON и из нее. В следующем примере показано получение и задание экземпляра объекта `Employee` .
 
@@ -205,7 +206,7 @@ Redis хранит большинство данных в строках Redis, 
 * Ознакомьтесь с [документацией по клиенту кэша StackExchange.Redis][StackExchange.Redis cache client documentation].
   * Доступ к кэшу Redis для Azure можно получить из многих клиентов Redis и языков разработки. Дополнительные сведения см. на странице [http://redis.io/clients][http://redis.io/clients].
 * Кэш Redis для Azure можно также использовать со сторонними службами и средствами, например с Redsmin и Redis Desktop Manager.
-  * Дополнительные сведения о Redsmin см. в статье [Получение строки подключения Redis для Azure и ее использование с Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin].
+  * Дополнительные сведения о Redsmin см. в статье [How to connect Azure Redis Cache to Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Как подключить кэш Redis для Azure к Redsmin).
   * Вы можете открыть и проверить свои данные в кэше Redis для Azure с помощью графического пользовательского интерфейса [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 * Ознакомьтесь с документацией по [Redis][redis]: прочитайте [статью о типах данных Redis][redis data types] и [пятнадцатиминутное введение в типы данных Redis][a fifteen minute introduction to Redis data types].
 
@@ -277,7 +278,7 @@ Redis хранит большинство данных в строках Redis, 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -295,10 +296,5 @@ Redis хранит большинство данных в строках Redis, 
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

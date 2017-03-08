@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
 ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -104,7 +105,7 @@ ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Включение ограниченного делегирования Kerberos на основе ресурсов для соединителя прокси приложения Azure AD
-Соединитель прокси приложения Azure необходимо настроить для ограниченного делегирования Kerberos, чтобы он мог олицетворять пользователей в управляемом домене. В управляемом домене доменных служб Azure AD у вас нет привилегий администратора домена. Таким образом **традиционное ограниченное делегирование Kerberos на уровне учетной записи нельзя настроить в управляемом домене**. 
+Соединитель прокси приложения Azure необходимо настроить для ограниченного делегирования Kerberos, чтобы он мог олицетворять пользователей в управляемом домене. В управляемом домене доменных служб Azure AD у вас нет привилегий администратора домена. Таким образом **традиционное ограниченное делегирование Kerberos на уровне учетной записи нельзя настроить в управляемом домене**.
 
 Используйте основанное на ресурсах ограниченное делегирование Kerberos, как описано в этой [статье](active-directory-ds-enable-kcd.md).
 
@@ -130,9 +131,4 @@ Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateTo
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Настройка ограниченного делегирования Kerberos в управляемом домене](active-directory-ds-enable-kcd.md)
 * [(Обзор ограниченного делегирования Kerberos)](https://technet.microsoft.com/library/jj553400.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

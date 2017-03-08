@@ -13,16 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
-ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
+ms.sourcegitcommit: c8abf308c20968f184a80b20dc40185b1631105d
+ms.openlocfilehash: 903004ae83d86ddcda13c6f2fce708e71ffa729b
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Настройка кластеров HDInsight с помощью начальной загрузки
-В некоторых случаях требуется изменить файлы конфигурации, которые включают:
+В некоторых случаях требуется изменить файлы конфигурации, к которым относятся:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -40,20 +41,17 @@ ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
 * webhcat-site.xml
 * yarn-site.xml
 
-При повторном развертывании образа изменения в кластере не сохраняются. Дополнительные сведения о повторном развертывании образа см. в статье [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (Перезапуск экземпляра роли из-за обновлений ОС). Чтобы они сохранялись в течение всего времени существования кластера, можно в процессе создания изменить файлы конфигурации кластера HDInsight. Это рекомендуемый способ изменения конфигураций кластера и сохранения состояния между событиями перезапуска, перезагрузки и пересоздания образа Azure. Эти изменения конфигурации применяются до запуска службы, поэтому перезапуск службы не требуется. 
-
-Существуют 3 способа использования начальной загрузки:
+Существуют три способа использования начальной загрузки.
 
 * Использование Azure PowerShell
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * Использование пакета SDK для .NET
 * Использование шаблона Azure Resource Manager
 
-Сведения об установке дополнительных компонентов в кластере HDInsight во время создания см. в разделах:
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+Сведения об установке дополнительных компонентов в кластере HDInsight во время создания см. в следующих разделах:
 
 * [Настройка кластеров HDInsight с помощью действия скрипта (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-* [Настройка кластеров HDInsight с помощью действия скрипта (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## <a name="use-azure-powershell"></a>Использование Azure PowerShell
 Следующий код PowerShell настраивает конфигурацию Hive:
@@ -74,8 +72,8 @@ ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType Hadoop `
-        -OSType Windows `
-        -Version "3.2" `
+        -OSType Linux `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -Config $config 
 
@@ -84,7 +82,7 @@ ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
 **Чтобы проверить изменения, выполните следующие действия:**
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. В левой области щелкните **Обзор**, а затем — **Кластеры HDInsight**.
+2. В меню слева щелкните **Кластеры HDInsight**. Если вы не видите этот пункт, сначала щелкните **Больше служб**.
 3. Щелкните кластер, созданный с помощью сценария PowerShell.
 4. Щелкните **Панель мониторинга** в верхней части колонки, чтобы открыть пользовательский интерфейс Ambari.
 5. Щелкните **Hive** в меню слева.
@@ -244,7 +242,7 @@ ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
         -ClusterSizeInNodes 1 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.2" `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -SshCredential $sshCredential `
         -Config $config
@@ -255,9 +253,4 @@ ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
     #endregion
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

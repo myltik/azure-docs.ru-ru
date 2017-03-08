@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 02/24/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 035ec56b638797d650f73e1112b77991555d5194
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>Защита облачных и локальных ресурсов с помощью сервера Azure Multi-Factor Authentication и AD FS 2.0
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Настройка сервера Многофакторной идентификации Azure для работы с AD FS 2.0
 Эта статья предназначена для организаций, в которых настроена федерация с Azure Active Directory и которым нужно защитить локальные или облачные ресурсы. Вы можете сделать это с помощью сервера Многофакторной идентификации Azure. Его нужно настроить для работы с AD FS, так чтобы двухфакторная проверка подлинности запускалась для важных конечных точек.
 
 Эта статья содержит информацию об использовании сервера Azure Multi-Factor Authentication с AD FS 2.0. Дополнительные сведения о службах AD FS см. в статье [Защита облачных и локальных ресурсов с помощью сервера Многофакторной идентификации Azure со службами федерации Active Directory в Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md).
@@ -115,9 +116,4 @@ ms.openlocfilehash: 035ec56b638797d650f73e1112b77991555d5194
 4. Укажите IP-адрес, диапазон IP-адресов или подсеть, которые нужно внести в список разрешений. Указывая подсеть, выберите соответствующую маску сети и нажмите кнопку **ОК**. Надежный IP-адрес добавлен.
 
 <center>![Настройка](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ccde5cf9a45c79cfd441633722960007aad46088
-ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: bc2a8803bdc875e9f62d9263b16cdbb5cc70ecbf
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="migrate-from-aws-and-other-platforms-to-managed-disks-in-azure"></a>Миграция из AWS и других платформ на управляемые диски Azure
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Переход из Amazon Web Services (AWS) и других платформ на Управляемые диски Azure
 
-Вы можете загрузить в Azure VHD-файлы из AWS или локальных решений виртуализации, чтобы создать виртуальные машины, использующие управляемые диски. Управляемые диски Azure избавляют от необходимости управлять учетными записями хранения для виртуальных машин IaaS Azure. Вам достаточно выбрать класс ("Премиум" или "Стандартный") и размер диска. Azure самостоятельно создаст диск и будет управлять им. 
+Вы можете передать в Azure VHD-файлы из AWS или локальных решений виртуализации, чтобы создать виртуальные машины, использующие Управляемые диски. Управляемые диски Azure избавляют от необходимости управлять учетными записями хранения для виртуальных машин IaaS Azure. Вам достаточно выбрать класс ("Премиум" или "Стандартный") и размер диска. Azure самостоятельно создаст диск и будет управлять им. 
 
 Вы можете передать обобщенные или специализированные виртуальные жесткие диски. 
 **Универсальный виртуальный жесткий диск**. С универсального VHD с помощью Sysprep удалены все сведения вашей личной учетной записи. 
@@ -101,9 +103,4 @@ ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Прежде чем передавать в Azure виртуальный жесткий диск любого типа, следует выполнить инструкции из статьи [Подготовка диска VHD или VHDX для Windows к отправке в Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

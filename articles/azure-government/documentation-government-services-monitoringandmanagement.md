@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
 ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -120,9 +121,4 @@ URL-адреса для Log Analytics отличаются в Azure для го�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

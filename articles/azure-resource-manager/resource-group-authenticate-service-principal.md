@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 31495f402b810c524bd7b906498774302500b732
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
 1. Войдите в свою учетную запись.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
 2. Создайте новое приложение Active Directory. Для этого укажите отображаемое имя, универсальный код ресурса (URI), описывающий приложение, коды URI, идентифицирующие приложение, и пароль для его идентификации.
@@ -152,7 +153,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
 4. Выполните вход от имени субъекта-службы. Для этого укажите, что учетная запись является субъектом-службой, и предоставьте объект учетных данных. 
    
    ```powershell
-   Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
    ```
    
      После этого субъект-служба для созданного вами приложения Active Directory пройдет проверку подлинности.
@@ -220,7 +221,8 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
      Затем создайте сертификат.
   
   ```powershell
-  $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
   ```
 
 Теперь у вас есть сертификат, и вы можете приступить к созданию приложения AD.
@@ -234,7 +236,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
 2. Войдите в учетную запись Azure.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 3. Создайте новое приложение Active Directory. Для этого укажите отображаемое имя, универсальный код ресурса (URI), описывающий приложение, коды URI, идентифицирующие приложение, и пароль для его идентификации.
    
@@ -304,7 +306,7 @@ $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 Для проверки подлинности в сценарии укажите, что учетная запись является субъектом-службой и предоставьте отпечаток сертификата, идентификатор приложения и идентификатор клиента. Чтобы автоматизировать сценарий, эти значения можно сохранить как переменные среды, которые можно получить во время выполнения, или добавить в сценарий.
 
 ```powershell
-Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 ```
 
 После этого субъект-служба для созданного вами приложения Active Directory пройдет проверку подлинности.
@@ -363,10 +365,5 @@ New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -
 * Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).
 * Более подробное описание приложений и субъектов-служб см. в статье [Объекты приложений и объекты участников-служб](../active-directory/active-directory-application-objects.md). 
 * Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии аутентификации в Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

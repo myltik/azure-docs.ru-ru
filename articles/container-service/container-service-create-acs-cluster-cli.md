@@ -1,6 +1,6 @@
 ---
 title: "Развертывание кластера контейнера Docker с помощью Azure CLI | Документация Майкрософт"
-description: "Развертывание кластера Службы контейнеров Azure с использованием предварительной версии интерфейса командной строки Azure 2.0"
+description: "Развертывание кластера Службы контейнеров Azure с использованием Azure CLI 2.0."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,24 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Использование предварительной версии интерфейса командной строки Azure 2.0 для создания кластера Службы контейнеров Azure
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Использование Azure CLI 2.0 для создания кластера Службы контейнеров Azure
 
-Чтобы создать кластер и управлять им в Службе контейнеров Azure, используйте команды `az acs` в предварительной версии интерфейса командной строки Azure 2.0. Вы также можете развернуть кластер Службы контейнеров Azure с помощью [портала Azure](container-service-deployment.md) или с помощью интерфейсов API Службы контейнеров Azure.
+Чтобы создать кластер и управлять им в Службе контейнеров Azure, используйте команды `az acs` в Azure CLI 2.0. Вы также можете развернуть кластер Службы контейнеров Azure с помощью [портала Azure](container-service-deployment.md) или с помощью интерфейсов API Службы контейнеров Azure.
 
 Чтобы получить справку по командам `az acs`, добавьте параметр `-h` в любую команду. Например, `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы создать кластер Службы контейнеров Azure с помощью предварительной версии интерфейса командной строки Azure 2.0, необходимо следующее:
+Чтобы создать кластер Службы контейнеров Azure с помощью Azure CLI 2.0, необходимо следующее:
 * учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/));
-* установленный и настроенный [Azure CLI версии 2.0 (предварительная версия)](/cli/azure/install-az-cli2).
+* установленный и настроенный [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 ## <a name="get-started"></a>Начало работы 
 ### <a name="log-in-to-your-account"></a>Вход в учетную запись
@@ -41,7 +42,7 @@ ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
 az login 
 ```
 
-Следуйте указаниям, чтобы выполнить вход в интерактивном режиме. Другие способы входа см. в статье [Get started with AzureCLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) (Начало работы с Azure CLI 2.0 (предварительная версия)).
+Следуйте указаниям, чтобы выполнить вход в интерактивном режиме. Другие способы входа см. в статье [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) (Приступая к работе с Azure CLI 2.0).
 
 ### <a name="set-your-azure-subscription"></a>Настройка подписки Azure
 
@@ -74,7 +75,7 @@ az group create -n acsrg1 -l "westus"
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Быстрое выполнение `acs create` с использованием значений по умолчанию
-Если у вас есть файл открытого ключа SSH `id_rsa.pub` в расположении по умолчанию (или вы его создали для [OS X и Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), используйте следующую команду:
+Если у вас есть файл открытого ключа RSA (SSH) `id_rsa.pub` в расположении по умолчанию (или вы его создали для [OS X и Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), используйте приведенную ниже команду.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -143,8 +144,3 @@ az acs delete -g acsrg1 -n acs-cluster
 * [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
 * [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
 * [Работа со службой контейнеров Azure и Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 593f2d35730bcc03fb9d925be36c4c1423a31a49
 ms.openlocfilehash: 23b634a6acde9837308815d9973e5da80fcde767
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -64,12 +65,12 @@ ms.openlocfilehash: 23b634a6acde9837308815d9973e5da80fcde767
             "properties": {
               "templateLink": {
                 "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-                "contentVersion": "1.0.0.0",
+                "contentVersion": "1.0.0.0"
               },
               "mode": "Incremental",
               "parametersLink": {
                 "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-                "contentVersion": "1.0.0.0",
+                "contentVersion": "1.0.0.0"
               }
             }
           }
@@ -97,10 +98,5 @@ ms.openlocfilehash: 23b634a6acde9837308815d9973e5da80fcde767
 * Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 * Сведения об автоматизации развертывания см. в статье [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Автоматизация развертывания приложений на виртуальных машинах Azure), которая входит в цикл из четырех частей. Этот цикл охватывает такие аспекты, как архитектура приложения, доступ и безопасность, доступность и масштабирование, а также развертывание приложения.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

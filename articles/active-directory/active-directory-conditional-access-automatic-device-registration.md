@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
 ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -95,10 +96,5 @@ ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
 * [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

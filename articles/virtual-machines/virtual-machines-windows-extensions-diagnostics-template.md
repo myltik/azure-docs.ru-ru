@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: saurabh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e9258143cae9d9f8ba1f357617e2c45cf8487ab9
-ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
+ms.sourcegitcommit: 855ecb73854e20eb52f343e5d190cbcbaa9ad080
+ms.openlocfilehash: 85adb953254496e969fb8d459a0c79592708c835
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure
+# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Использование мониторинга и системы диагностики с виртуальной машиной Windows и шаблонами Azure Resource Manager
 Расширение системы диагностики Azure позволяет использовать возможности мониторинга и диагностики в виртуальной машине Azure под управлением Windows. Чтобы использовать эти возможности на виртуальной машине, необходимо включить расширение в шаблон диспетчера ресурсов Azure. Дополнительные сведения о включении любого расширения в шаблон виртуальной машины см. в статье [Создание шаблонов диспетчера ресурсов Azure с расширениями виртуальных машин](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В этой статье описывается, как добавить расширение системы диагностики Azure в шаблон виртуальной машины Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Добавление расширения системы диагностики Azure в определения ресурсов виртуальной машины
@@ -167,10 +169,5 @@ ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
 * Полный пример шаблона виртуальной машины Windows с расширением системы диагностики см. в разделе [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension).   
 * Разверните шаблон диспетчера ресурсов с использованием [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [командной строки Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Узнайте больше о [создании шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

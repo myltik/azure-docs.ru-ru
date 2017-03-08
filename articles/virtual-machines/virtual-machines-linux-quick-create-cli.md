@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия) | Microsoft Azure"
-description: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)."
+title: "Создание виртуальной машины Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Создание виртуальной машины Linux с помощью Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Создание виртуальной машины Linux с помощью предварительной версии Azure CLI 2.0 (az.py)
-В этой статье рассматривается быстрое развертывание виртуальной машины Linux в Azure с помощью команды [az vm create](/cli/azure/vm#create) в Azure CLI 2.0 (предварительная версия) с использованием как управляемых дисков, так и дисков системных учетных записей хранения.
-
-> [!NOTE] 
-> Azure CLI 2.0 (предварительная версия) — это интерфейс командной строки нового поколения, поддерживающий различные платформы. [Просто попробуйте!](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Сведения о создании виртуальной машины с использованием существующего интерфейса командной строки Azure 1.0, а не предварительной версии CLI 2.0, см. в статье [Create a Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Создание виртуальной машины Linux с помощью интерфейса командной строки Azure).
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Создание виртуальной машины Linux с помощью Azure CLI 2.0
+В этой статье рассматривается быстрое развертывание виртуальной машины Linux в Azure с помощью команды [az vm create](/cli/azure/vm#create) в Azure CLI 2.0 с использованием как управляемых дисков, так и дисков в собственных учетных записях хранения. Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Чтобы создать виртуальную машину, вам потребуется: 
 
 * Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
-* [интерфейс командной строки Azure 2.0 (предварительная версия)](/cli/azure/install-az-cli2), установленный на компьютере;
+* установленный экземпляр [Azure CLI 2.0](/cli/azure/install-az-cli2);
 * выполненный вход в учетную запись Azure (введите [az login](/cli/azure/#login)).
 
 (Вы также можете развернуть виртуальную машину Linux с помощью [портала Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -119,7 +115,7 @@ ops@myVM:~$
 
 ## <a name="using-unmanaged-disks"></a>Использование неуправляемых дисков 
 
-У виртуальных машин, использующих неуправляемые диски хранилища, есть неуправляемые учетные записи хранения. Сначала выполните команду [az group create](/cli/azure/group#create), чтобы создать группу ресурсов для всех развернутых ресурсов.
+Виртуальные машины с неуправляемыми дисками используют неуправляемые учетные записи хранения. Сначала введите [az group create](/cli/azure/group#create), чтобы создать группу ресурсов для всех развертываемых ресурсов.
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -142,7 +138,7 @@ az group create --name nativedisks --location westus
 
 ### <a name="create-your-vm"></a>Создание виртуальной машины 
 
-Теперь вы можете создать виртуальную машину и среду для нее. Не забудьте заменить значение `--public-ip-address-dns-name` уникальным именем. Приведенное ниже имя уже может быть занято.
+Теперь вы можете создать виртуальную машину и среду для нее. Используйте флаг `--use-unmanaged-disk` для создания виртуальной машины с неуправляемыми дисками. Также будет создана неуправляемая учетная запись хранения. Не забудьте заменить значение `--public-ip-address-dns-name` уникальным именем. Приведенное ниже имя уже может быть занято.
 
 ```azurecli
 az vm create \
@@ -153,7 +149,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 Выходные данные выглядят, как показано ниже. Запишите значение `publicIpAddress` или `fqdn` для входа по протоколу **SSH** на виртуальную машину.
@@ -202,10 +198,5 @@ bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  
 * [Создание виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Вы также можете [использовать драйвер Azure `docker-machine` с различными командами для быстрого создания виртуальной машины Linux в качестве узла Docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Если вы используете Java, попробуйте применить метод [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

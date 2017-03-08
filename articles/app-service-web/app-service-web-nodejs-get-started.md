@@ -4,7 +4,7 @@ description: "Сведения о развертывании приложени�
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
-ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 3405fa7bf960ff1ba4b9f789e5e89f3f75fe96d4
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-nodejs-get-started.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-nodejs-get-started.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Node.js]
@@ -300,9 +301,4 @@ ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

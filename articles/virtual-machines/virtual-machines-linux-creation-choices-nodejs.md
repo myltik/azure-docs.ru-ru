@@ -10,14 +10,15 @@ tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cbc3534aa0415a14d8b955dbcd291d2200c276e
-ms.openlocfilehash: 2ffc8d1f8ec924914c624f882bf35a08f0dd5888
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 2ffc8d1f8ec924914c624f882bf35a08f0dd5888
 Виртуальные машины в Azure можно создавать с помощью одной из следующих версий интерфейса командной строки.
 
 - Azure CLI 1.0 — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-creation-choices.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-creation-choices.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 Интерфейс командной строки Azure CLI 1.0 доступен на разных платформах с использованием пакета npm, предоставленных для дистрибутивов пакетов или контейнера Docker. Дополнительные сведения об [установке и настройке интерфейса командной строки Azure](../xplat-cli-install.md). В приведенных ниже руководствах содержатся примеры использования Azure CLI 1.0. В каждой из этих статей подробно описана соответствующая команда быстрого запуска интерфейса командной строки.
 
@@ -130,10 +131,5 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 * Создайте виртуальную машину Linux с помощью [портала](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [интерфейса командной строки](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [шаблона Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * После создания виртуальной машины Linux [добавьте диск данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Способы быстрого [сброса пароля или SSH-ключей и управления пользователями](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

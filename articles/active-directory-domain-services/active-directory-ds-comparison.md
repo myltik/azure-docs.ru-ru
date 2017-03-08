@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
 ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -109,8 +110,8 @@ ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
 
 > [!NOTE]
 > Возможно, вы решите, что вам лучше подходит вариант самостоятельного развертывания. Рассмотрите возможность [отправить отзыв](active-directory-ds-contact-us.md) , который поможет нам понять, какие возможности убедили бы вас выбрать доменные службы Azure AD в будущем. Ваши отзывы помогают нам развивать службу, чтобы она лучше соответствовала потребностям развертываний и вариантам использования.
-> 
-> 
+>
+>
 
 Корпорация Майкрософт опубликовала [рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) , чтобы облегчить самостоятельные установки.
 
@@ -118,10 +119,4 @@ ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
 * [Возможности доменных служб Azure AD](active-directory-ds-features.md)
 * [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
 * [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
+ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,14 +30,11 @@ ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
 
 В случае с DC/OS и Docker Swarm необходимо создать туннель Secure Shell (SSH) к внутренней системе. После установления туннеля можно выполнять команды, которые используют конечные точки HTTP, и просматривать веб-интерфейс кластера из локальной системы. 
 
-> [!NOTE]
-> Поддержка Kubernetes в службе контейнеров Azure сейчас доступна в предварительной версии.
->
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Кластер Kubernetes, DC/OS или Swarm, [развернутый в службе контейнеров Azure](container-service-deployment.md).
-* Файл закрытого ключа SSH, соответствующий открытому ключу, добавленному в кластер во время развертывания. В этих командах предполагается, что закрытый ключ SSH хранится на вашем компьютере в папке `$HOME/.ssh/id_rsa`. Дополнительные сведения см. в статьях [Создание пары из открытого и закрытого ключей SSH для виртуальных машин Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) и [Использование SSH с Windows в Azure](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Если SSH-подключение не работает, может потребоваться [сбросить ключи SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Файл закрытого ключа RSA (SSH), соответствующий открытому ключу, добавленному в кластер во время развертывания. В этих командах предполагается, что закрытый ключ SSH хранится на вашем компьютере в папке `$HOME/.ssh/id_rsa`. Дополнительные сведения см. в статьях [Создание пары из открытого и закрытого ключей SSH для виртуальных машин Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) и [Использование SSH с Windows в Azure](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Если SSH-подключение не работает, может потребоваться [сбросить ключи SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Подключение к кластеру Kubernetes
 
@@ -47,7 +45,7 @@ ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
 > 
 
 ### <a name="install-kubectl"></a>Установка kubectl
-Установите это средство с помощью команды `az acs kubernetes install-cli` в Azure CLI 2.0 (предварительная версия). Чтобы выполнить эту команду, обязательно [установите](/cli/azure/install-az-cli2) последнюю версию Azure CLI 2.0 (предварительная версия) и войдите в учетную запись Azure с помощью команды `az login`.
+Один из способов установки этого инструмента — с помощью команды `az acs kubernetes install-cli` в Azure CLI 2.0. Чтобы выполнить эту команду, обязательно [установите](/cli/azure/install-az-cli2) последнюю версию Azure CLI 2.0 и войдите в учетную запись Azure с помощью команды `az login`.
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +55,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Клиент также можно скачать со страницы [списка выпусков](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+Последнюю версию клиента можно также скачать со страницы [списка выпусков Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Дополнительные сведения см. в разделе [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/) (Установка и настройка kubectl).
 
 ### <a name="download-cluster-credentials"></a>Скачивание учетных данных кластера
 Когда средство `kubectl` будет установлено, скопируйте на локальный компьютер учетные данные кластера. Чтобы получить учетные данные, выполните команду `az acs kubernetes get-credentials`. Передайте имя группы ресурсов и имя ресурса службы контейнеров:
@@ -128,7 +126,7 @@ kubectl proxy
     **PATH_TO_PRIVATE_KEY** (необязательно) — это путь к закрытому ключу, который соответствует открытому ключу, указанному во время создания кластера. Используйте этот параметр с флагом `-i`.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > Для SSH-подключения используется порт 2200, а не стандартный 22. В кластере с несколькими главными виртуальными машинами этот порт используется для подключения к первой главной виртуальной машине.
@@ -203,7 +201,7 @@ export DOCKER_HOST=:2375
 
     ![Журнал событий PuTTY](media/putty4.png)
 
-После настройки туннеля для DC/OS связанная конечная точка будет доступна по такому адресу:
+После настройки туннеля для DC/OS связанные конечные точки будут доступны по такому адресу:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -217,10 +215,5 @@ export DOCKER_HOST=:2375
 * [Работа со службой контейнеров Azure и Kubernetes](container-service-kubernetes-ui.md)
 * [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
 * [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

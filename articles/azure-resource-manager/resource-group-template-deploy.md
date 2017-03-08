@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
 ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -55,7 +56,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 1. Войдите в свою учетную запись Azure.
 
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
     Возвращается сводка по учетной записи.
@@ -229,10 +230,5 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 * Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 * Сведения об автоматизации развертывания см. в статье [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Автоматизация развертывания приложений на виртуальных машинах Azure), которая входит в цикл из четырех частей. Этот цикл охватывает такие аспекты, как архитектура приложения, доступ и безопасность, доступность и масштабирование, а также развертывание приложения.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

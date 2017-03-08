@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной сети с помощью шаблона Resource Manager | Документация Майкрософт"
-description: "Как создать виртуальную сеть с помощью шаблона | Resource Manager"
+title: "Создание виртуальной сети | Шаблон Azure Resource Manager | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную сеть с использованием шаблона Azure Resource Manager."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 69530861-2f97-4a6e-b336-a7baf2690044
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: be3fbc2c14be06cac2b9213ee2da58545e34fc0e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 1e1ca336987082e06f172f7eb89036c64d1fec37
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-virtual-network-using-a-template"></a>Создание виртуальной сети с помощью шаблона
+# <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Создание виртуальной сети с использованием шаблона Azure Resource Manager
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
@@ -241,9 +243,4 @@ Azure предоставляет две модели развертывания:
 - Сведения о подключении виртуальной машины к виртуальной сети см. в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) или [Создание виртуальной машины Linux в Azure с помощью портала](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Вместо создания виртуальной сети и подсети с помощью действий, описанных в этой статье, виртуальную машину можно подключить к имеющейся виртуальной сети и подсети.
 - Сведения об установке подключения между виртуальными сетями см. в статье [Настройка подключения между виртуальными сетями на портале Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Сведения о подключении виртуальной сети к локальной сети с использованием виртуальной частной сети типа "сеть — сеть" или канала ExpressRoute см. в [этой статье](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) и в статье [Связывание виртуальной сети с каналом ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b04ce0fe0db7649cebc7a1eeb2a35f1d53bf9636
-ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
+ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
+ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -23,7 +24,7 @@ ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
 
 Служба управления API помогает защитить доступ к API-интерфейсам (например, осуществляемый клиентом к службе управления API) с помощью сертификатов клиента. Сейчас можно проверить отпечаток сертификата клиента для сопоставления с требуемым значением. Можно также сопоставить отпечаток с существующими сертификатами, отправленными в службу управления API.  
 
-См. дополнительные сведения о [защите серверных служб с помощью аутентификации на основе сертификата клиента](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
+Сведения о защите серверных служб API с помощью сертификата клиента (например, управления API для серверной части) см. в статье [Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
 
 ## <a name="checking-a-thumbprint-against-a-desired-value"></a>Проверка отпечатка на соответствие требуемому значению
 
@@ -59,10 +60,5 @@ ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
 
 *  [Как защитить серверные службы с помощью аутентификации на основе сертификата клиента](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [Как передавать сертификаты](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
 ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,10 +58,5 @@ ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
 * [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

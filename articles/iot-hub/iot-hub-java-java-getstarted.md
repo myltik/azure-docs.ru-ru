@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: 559ecab373adf6441635f2ed0d572ab02159f50c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 Для работы с этим учебником требуется:
 
 * Java SE 8. <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Java для работы с этим руководством в ОС Windows или Linux.
-* Maven 3.  <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Maven для работы с этим руководством в ОС Windows или Linux.
+* Maven 3.  <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить [Maven][lnk-maven] для работы с этим руководством в ОС Windows или Linux.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -258,7 +259,7 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
     ```
     
     > [!NOTE]
-    > Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами 0 и 1.
+    > Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами&0; и&1;.
     > 
     > 
 11. Сохраните и закройте файл App.java.
@@ -471,9 +472,4 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html

@@ -17,6 +17,7 @@ ms.author: scottnap
 translationtype: Human Translation
 ms.sourcegitcommit: 5104c7996de9dc0597e65be31c28a9aaa1243a90
 ms.openlocfilehash: d324290caf5b5a085a2daf67e541c295dffda732
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -347,10 +348,5 @@ ms.openlocfilehash: d324290caf5b5a085a2daf67e541c295dffda732
 4. В колонке "Подключение" можно просмотреть статистику в полях **Входящие данные** и **Исходящие данные**. На следующем снимке экрана отображаются значения, превышающие значения, создаваемые при проверке связи. Это связано с дополнительными передачами файлов. Там будут отображаться ненулевые значения.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

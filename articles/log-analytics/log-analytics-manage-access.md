@@ -1,6 +1,6 @@
 ---
 title: "Управление рабочими областями | Документация Майкрософт"
-description: "Управление рабочими областями в Log Analytics с использованием разных задач администрирования, применяемых к пользователям, учетным записям, рабочим областям и учетным записям Azure."
+description: "Управление рабочими областями в Azure Log Analytics с использованием разных задач администрирования, применяемых к пользователям, учетным записям, рабочим областям и учетным записям Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -97,10 +98,13 @@ ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
   URL-адрес выглядит следующим образом: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`.
 
+Например, чтобы добавить или удалить решения по управлению, при использовании портала Azure пользователь должен быть администратором или участником подписки Azure. Кроме того, пользователю должна быть назначена роль участника или администратора рабочей области OMS на портале OMS.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Управление пользователями на портале OMS
 Управление пользователями и группой осуществляется на вкладке **Управление пользователями**, которую можно открыть, выбрав вкладку **Учетные записи** на странице "Параметры".   
 
 ![управлять пользователями.](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Добавление пользователя в существующую рабочую область
 Следуйте инструкциям ниже, чтобы добавить пользователя или группу в рабочую область.
@@ -295,9 +299,4 @@ ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 * Чтобы добавить агенты и реализовать сбор данных, [подключите компьютеры с Windows к Log Analytics](log-analytics-windows-agents.md) .
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
 * [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md) , чтобы агенты могли взаимодействовать со службой Log Analytics.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

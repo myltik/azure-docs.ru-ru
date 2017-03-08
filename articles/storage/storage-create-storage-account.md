@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
 ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -158,10 +159,5 @@ URL-адрес для доступа к объекту в учетной зап�
 * [Настройка строк подключения службы хранилища Azure](storage-configure-connection-string.md)
 * [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 * Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
