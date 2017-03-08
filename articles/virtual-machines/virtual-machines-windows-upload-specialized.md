@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: fc8cb82e952a05b161f00ef9ebfbd4852d3987d4
+ms.sourcegitcommit: c859b789b564ee79022823e8d796775f58eeeccd
+ms.openlocfilehash: 7acd58989da14ea49374e86edb0dba5762557d79
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="upload-a-specialized-vhd-to-azure-to-use-for-creating-a-new-vm"></a>Отправка специализированных дисков VHD в Azure, используемых для создания виртуальной машины
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>Как передать специализированный виртуальный жесткий диск для создания виртуальной машины в Azure
 
 На специализированном VHD сохраняются учетные записи пользователей, приложения и другие данные о состоянии исходной виртуальной машины. Вы можете передать специализированный VHD в Azure и с его помощью создать виртуальную машину, в которой используются Управляемые диски или неуправляемая учетная запись хранения. Мы рекомендуем использовать [Управляемые диски](../storage/storage-managed-disks-overview.md), чтобы воспользоваться преимуществами, которые они обеспечивают: упрощенное управление и дополнительные функции.
 
@@ -246,7 +248,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 - **Вариант 2.** Используйте специализированный виртуальный жесткий диск, размещенный в вашей учетной записи хранения (неуправляемый диск). 
 
-### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>Вариант 1. Создание управляемого диска на основе неуправляемого специализированного диска
+### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>Вариант 1. Создание управляемого диска на основе специализированного неуправляемого диска
 
 1. Создайте управляемый диск на основе имеющегося специализированного виртуального жесткого диска в своей учетной записи хранения. В этом примере в качестве имени диска используется **myOSDisk1**, диск переносится в хранилище **StandardLRS**, а в качестве универсального кода ресурса (URI) для исходного виртуального жесткого диска используется **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd**.
 
@@ -321,9 +323,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы войти на новую виртуальную машину, найдите ее на [портале](https://portal.azure.com), нажмите кнопку **Подключение**и откройте RDP-файл "Удаленный рабочий стол". Для входа на новую виртуальную машину используйте учетные данные для входа в новую виртуальную машину. Дополнительные сведения см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

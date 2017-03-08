@@ -4,7 +4,7 @@ description: "Дополнительные сведения о том, как в
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Восстановление из резервной копии виртуального массива StorSimple (предварительная версия)
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>Восстановление из набора архивации общих папок и томов на виртуальном массиве StorSimple
+
 ## <a name="overview"></a>Обзор
 Эта статья относится к виртуальному массиву Microsoft Azure StorSimple (также известному как локальное виртуальное устройство StorSimple или виртуальное устройство StorSimple) общедоступной версии, выпущенной в марте 2016 года, или более поздней версии. В этой статье описаны шаги по восстановлению общих ресурсов и томов для виртуального массива StorSimple из набора архивации. Здесь также подробно объясняется, как происходит восстановление на уровне элементов для виртуального массива StorSimple, настроенного в качестве файлового сервера.
 
@@ -104,10 +107,5 @@ ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте, как осуществлять [администрирование виртуального массива StorSimple, используя локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

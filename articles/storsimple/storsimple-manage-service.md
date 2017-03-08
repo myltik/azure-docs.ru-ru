@@ -4,7 +4,7 @@ description: "Сведения о создании и удалении служ�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: byronr
+manager: timlt
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
-ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
+ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
+ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deploy-the-storsimple-manager-service"></a>Развертывание службы диспетчера StorSimple
+# <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Развертывание службы диспетчера StorSimple на классическом портале Azure
+
 ## <a name="overview"></a>Обзор
 Служба диспетчера StorSimple выполняется в Microsoft Azure и подключается к нескольким устройствам StorSimple. После создания службы вы можете использовать ее для управления этими устройствами на классическом портале Microsoft Azure, запущенном в браузере. Это позволит отследить все устройства, которые подключены к службе диспетчера StorSimple из одного центрального расположения, таким образом, снизив административную нагрузку.
 
@@ -99,9 +102,4 @@ ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
 * Узнайте больше о [процессе развертывания StorSimple](storsimple-deployment-walkthrough-u2.md).
 * Узнайте больше об [управлении учетной записью хранения StorSimple](storsimple-manage-storage-accounts.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

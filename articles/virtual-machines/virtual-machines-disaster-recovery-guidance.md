@@ -1,5 +1,5 @@
 ---
-title: "Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure | Документация Майкрософт"
+title: "Сценарии аварийного восстановления для виртуальных машин Azure | Документация Майкрософт"
 description: "Узнайте, что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure."
 services: virtual-machines
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure
 Корпорация Майкрософт прилагает все усилия для того, чтобы наши службы всегда были доступны. Иногда по независящим от нас обстоятельствам происходят незапланированные нарушения работы служб.
 
 Корпорация Майкрософт предоставляет соглашения об уровне обслуживания (SLA) для своих служб, в которых гарантируется их время бесперебойной работы и доступность. Соглашения об уровне обслуживания для отдельных служб Azure можно найти в разделе [Соглашения об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -76,10 +78,5 @@ ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
 Узнайте, как использовать Azure Site Recovery для организации и автоматизации защиты физических компьютеров и виртуальных машин под управлением Windows и Linux, работающих на платформе Hyper-V и VMWare, ознакомившись с разделом [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
 Если инструкции не ясны или вы хотите, чтобы корпорация Майкрософт выполнила эти действия от вашего имени, свяжитесь со [службой поддержки клиентов](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

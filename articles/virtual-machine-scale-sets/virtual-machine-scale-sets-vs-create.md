@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 038259ad4e1c7c6623426f9476ea96d02043fbf9
+ms.sourcegitcommit: 657a249af1840e7bf0711d5ebbe6169258f085b1
+ms.openlocfilehash: 91553d6d3dad76ed256efed7182f0855f0ad10e5
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-virtual-machine-scale-set-using-visual-studio"></a>Развертывание набора масштабирования виртуальных машин с помощью Visual Studio
+# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Как создать масштабируемый набор виртуальных машин с помощью Visual Studio
 В этой статье описывается развертывание шаблонов масштабируемых наборов виртуальных машин с использованием развертывания группы ресурсов Visual Studio.
 
 [Масштабируемые наборы виртуальных машин Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) — вычислительный ресурс Azure для развертывания и управления коллекцией похожих виртуальных машин с легко интегрируемыми параметрами для автоматического масштабирования и балансировки нагрузки. Масштабируемые наборы виртуальных машин можно подготавливать и развертывать с помощью [шаблонов диспетчера ресурсов Azure (ARM)](https://github.com/Azure/azure-quickstart-templates). Шаблоны ARM можно развертывать с помощью интерфейса командной строки Azure, PowerShell, REST, а также непосредственно из Visual Studio. Visual Studio предоставляет набор примеров шаблонов, которые можно развернуть в рамках проекта развертывания группы ресурсов Azure.
@@ -95,9 +97,4 @@ ms.openlocfilehash: 038259ad4e1c7c6623426f9476ea96d02043fbf9
 [edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

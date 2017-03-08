@@ -4,7 +4,7 @@ description: "Описание пользовательского интерфе
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 88abde99af417f325c12aa2f8790d711fd7fd533
+ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
+ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-snapshot-manager-user-interface"></a>Пользовательский интерфейс диспетчера моментальных снимков StorSimple
+# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Управление заданиями архивации и каталогом архивов с помощью пользовательского интерфейса StorSimple Snapshot Manager
+
 ## <a name="overview"></a>Обзор
 Snapshot Manager StorSimple имеет интуитивно понятный пользовательский интерфейс, который можно использовать для создания резервных копий и управления ими. В этом руководстве изложены общие сведения об этом интерфейсе и показано, как использовать каждый из его компонентов. Подробное описание StorSimple Snapshot Manager см. в статье [Что такое диспетчер моментальных снимков StorSimple?](storsimple-what-is-snapshot-manager.md)
 
@@ -448,10 +451,5 @@ Snapshot Manager StorSimple имеет интуитивно понятный п�
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 * Узнайте, как [подключать устройства и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-devices.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

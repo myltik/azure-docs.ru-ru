@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -173,7 +174,7 @@ ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
 
 - Для REST API выполните операцию [вывода списка всех поставщиков ресурсов](https://docs.microsoft.com/rest/api/resources/providers#Providers_List).
 - В PowerShell используйте командлет [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn).
-- В Azure CLI 2.0 (предварительная версия) выполните команду [az provider show](https://docs.microsoft.com/cli/azure/provider#show).
+- Azure CLI 2.0: [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Параметры и переменные
 
@@ -481,7 +482,7 @@ Resource Manager параллельно развертывает все ресу
 
 ![Получение состояния расширения](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-Сведения о расширении также можно получить с помощью команды PowerShell **Get AzureRmVMExtension**, команды CLI Azure 2.0 (предварительная версия) **vm extension get** или команды REST API **Get extension information**.
+Сведения о расширении также можно получить с помощью команды PowerShell **Get AzureRmVMExtension**, команды CLI Azure 2.0 **vm extension get** или команды REST API **Get extension information**.
 
 ## <a name="deployments"></a>Развернутые приложения
 
@@ -498,8 +499,3 @@ Resource Manager параллельно развертывает все ресу
 - Сведения о создании собственного шаблона см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
 - Сведения о развертывании созданного шаблона см. в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
 - Сведения об управлении созданными виртуальными машинами см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

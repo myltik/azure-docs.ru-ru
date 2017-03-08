@@ -4,7 +4,7 @@ description: "Описание диспетчера моментальных с�
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1300262c5306ab76ae90be76dc19639e26665b69
+ms.sourcegitcommit: 43eb76f2d51c586f3cd44d4d34b307257a655182
+ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="what-is-storsimple-snapshot-manager"></a>Что такое диспетчер моментальных снимков StorSimple?
+# <a name="an-introduction-to-storsimple-snapshot-manager"></a>Введение в StorSimple Snapshot Manager
+
 ## <a name="overview"></a>Обзор
 Диспетчер моментальных снимков StorSimple — это оснастка консоли управления (MMC), упрощающая защиту данных и управление архивацией в среде Microsoft Azure StorSimple. Используя диспетчер моментальных снимков StorSimple, вы можете управлять данными Microsoft Azure StorSimple в центре обработки данных и облаке как единым интегрированным решением для хранения. Это в свою очередь позволяет упростить процессы архивации и сократить затраты.
 
@@ -137,10 +140,5 @@ ms.openlocfilehash: 1300262c5306ab76ae90be76dc19639e26665b69
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 * Скачайте [диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

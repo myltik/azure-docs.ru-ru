@@ -4,7 +4,7 @@ description: "Узнайте, как создать запрос на обслу
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 2ebc20fe-f490-4749-8e43-c9fac86f1676
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli;anbacker
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ce19be3454c08bbc041b5f6929c4ad56ffe9b7ea
-ms.openlocfilehash: 5f8124371391f7e2e59bbea474bef1da77686e0c
+ms.sourcegitcommit: 6b0e763769564eaa191c78df05c008150c9a363f
+ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="contact-microsoft-support"></a>Обращение в службу поддержки Майкрософт
+# <a name="contact-microsoft-support-for-your-storsimple"></a>Обращение в службу поддержки Майкрософт по вопросам, связанным со StorSimple
 Если у вас возникли проблемы с решением Microsoft Azure StorSimple, можно обратиться за помощью в службу технической поддержки. В ходе общения со специалистом технической поддержки также может потребоваться запустить сеанс поддержки на устройстве StorSimple. В этой статье описаны следующие операции.
 
 * Создание запроса на техническую поддержку.
@@ -91,10 +93,5 @@ ms.openlocfilehash: 5f8124371391f7e2e59bbea474bef1da77686e0c
 > Сеанс поддержки можно отключить, выполнив команду `Disable-HcsSupportAccess`. Устройство StorSimple также попытается отключить сеанс поддержки на 8 часов после запуска сеанса. Лучше всего изменить учетные данные устройства StorSimple после установления сеанса поддержки.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
