@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 50f75a05cd7e22316be5434c0b37f0f0a2ee8509
 ms.openlocfilehash: 75c7565806c9737a464d9fa3fc34e4d15eb6a16b
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -163,10 +164,5 @@ ms.openlocfilehash: 75c7565806c9737a464d9fa3fc34e4d15eb6a16b
    ![Начало подготовки к работе](./media/active-directory-saas-inbound-synchronization-tutorial/IC750998.png "Начало подготовки к работе")  
 
 Теперь вы можете перейти в раздел **Пользователи** и проверить выполнение импорта пользователя Workday.    
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

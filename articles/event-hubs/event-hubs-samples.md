@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/01/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5b02054546ebf25766be6bb2837aebc502b67a67
-ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -43,9 +44,9 @@ ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
 
 ### <a name="receive-events"></a>Получение событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя [узел обработчика событий](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя [узел обработчика событий](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
 
-## <a name="net-framework"></a>.NET Framework   
+## <a name="net-framework"></a>.NET Framework    
 
 В этих примерах демонстрируются другие функции концентраторов событий Azure, предназначенные для [библиотеки .NET Framework](https://msdn.microsoft.com/library/w0x726c2.aspx).
  
@@ -81,8 +82,3 @@ ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
 - [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
 - [Создание концентратора событий](event-hubs-create.md)
 - [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

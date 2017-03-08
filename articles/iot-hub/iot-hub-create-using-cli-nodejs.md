@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 1be7dc038f1bc864e7c6461b616449d75ecda439
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 * Azure CLI (azure.js) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager, как описано в этой статье.
-* [Azure CLI 2.0 (предварительная версия) (az.py)](iot-hub-create-using-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+* [Azure CLI 2.0 (az.py)](iot-hub-create-using-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
 Для работы с этим учебником требуется:
 
@@ -130,9 +131,4 @@ ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

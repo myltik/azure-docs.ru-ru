@@ -15,20 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dc0797927d75a06117d72f52d7065927e65678b4
-ms.openlocfilehash: 76d6288832b50d187c729afaee9118923517eb94
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: e9be064425ae6b9048098333cc664310e7128314
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="select-linux-vm-images-with-the-azure-cli"></a>Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)
+# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>Поиск образов виртуальных машин Linux с помощью Azure CLI
 В этой статье описывается, как найти сведения об издателях, предложениях, номерах SKU и версиях для каждого расположения, в котором может выполняться развертывание. 
 
 
-## <a name="use-azure-cli-20-preview"></a>Azure CLI 2.0 (предварительная версия)
+## <a name="use-azure-cli-20"></a>Использование Azure CLI 2.0
 
-Если у вас [установлена предварительная версия Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), используйте команду `az vm image list`, чтобы увидеть кэшированный список популярных образов виртуальных машин. Например, в следующем примере команда `az vm image list -o table` отображает приведенный ниже результат.
+Если у вас [установлен Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), используйте команду `az vm image list`, чтобы увидеть кэшированный список популярных образов виртуальных машин. Например, в следующем примере команда `az vm image list -o table` отображает приведенный ниже результат.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list

@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 02/19/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
-ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 7fd5c4edadc6d9cc070dff937a963f9a83ec66c2
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Защита облачных и локальных ресурсов с помощью сервера многофакторной идентификации Azure со службами федерации Active Directory в Windows Server 2012 R2
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-with-ad-fs-in-windows-server-2012-r2"></a>Настройка сервера Многофакторной идентификации Azure для работы с AD FS на платформе Windows Server 2012 R2
 Если вы используете службы федерации Active Directory (AD FS) и хотите защитить облачные или локальные ресурсы, вы можете настроить сервер многофакторной идентификации Azure для работы с AD FS. Эта конфигурация активирует двухфакторную проверку подлинности для важных конечных точек.
 
 Эта статья содержит информацию об использовании сервера Azure Multi-Factor Authentication вместе с AD FS на сервере Windows Server 2012 R2. Дополнительные сведения см. в статье [Защита облачных и локальных ресурсов с помощью сервера многофакторной идентификации Azure и AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
@@ -141,9 +142,4 @@ ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
 
 ## <a name="related-topics"></a>Связанные разделы
 Дополнительные сведения по поиску и устранению ошибок см. в статье [Часто задаваемые вопросы о службе многофакторной идентификации Azure](multi-factor-authentication-faq.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

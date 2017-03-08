@@ -3,8 +3,8 @@ title: "Рекомендации по настройке производите�
 description: "Рекомендации по настройке производительности Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
-author: nitinme
-manager: jhubbard
+author: stewu
+manager: amitkul
 editor: cgronlun
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
-ms.author: nitinme
+ms.date: 03/06/2017
+ms.author: stewu
 translationtype: Human Translation
 ms.sourcegitcommit: af11866fc812cd8a375557b7bf9df5cdc9bba610
 ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -94,9 +95,4 @@ ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
 ## <a name="see-also"></a>Дополнительные материалы
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

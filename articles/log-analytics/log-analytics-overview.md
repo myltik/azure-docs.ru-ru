@@ -17,6 +17,7 @@ ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
 ms.openlocfilehash: dcf61991fcbf989c905aa7c18e73df19afa89c36
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -69,10 +70,5 @@ Log Analytics предъявляет минимальные требования
 * [Создайте бесплатную учетную запись Log Analytics](log-analytics-get-started.md) для тестирования в собственной среде.
 * Просмотрите различные [источники данных](log-analytics-data-sources.md) , доступные для сбора данных в репозиторий OMS.
 * [найдите доступные решения в коллекции решений](log-analytics-add-solutions.md) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

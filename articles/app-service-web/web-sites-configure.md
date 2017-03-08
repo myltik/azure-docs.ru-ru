@@ -17,6 +17,7 @@ ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -177,9 +178,4 @@ ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
 [configure01]: ./media/web-sites-configure/configure01.png
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

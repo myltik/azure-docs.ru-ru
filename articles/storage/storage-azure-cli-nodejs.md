@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
-ms.openlocfilehash: bc90832422a8643afda292d6897a275280cfe690
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -170,9 +171,9 @@ azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a
 azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 ```
 
-В этом примере выполняется асинхронное копирование. Вы можете следить за состоянием операции копирования, выполнив операцию `azure storage blob copy show` .
+В этом примере выполняется асинхронное копирование. Вы можете следить за состоянием операции копирования, выполнив операцию `azure storage blob copy show`.
 
-Обратите внимание, что URL-адрес источника, предоставленный для операции копирования, должен либо быть общедоступным, либо содержать маркер SAS (подписанный URL-адрес).
+Обратите внимание, что URL-адрес источника, предоставленный для операции копирования, должен либо быть общедоступным, либо содержать маркер SAS (подписанный URL-адрес). 
 
 ### <a name="delete-a-blob"></a>Удаление большого двоичного объекта
 Чтобы удалить BLOB-объект, используйте следующую команду:
@@ -240,12 +241,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 * [Команды Azure CLI в режиме Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
 * [Установка Azure CLI](../xplat-cli-install.md)
 
-Кроме того, вы можете применить [Azure CLI 2.0 (предварительная версия)](storage-azure-cli.md) — это интерфейс командной строки нового поколения, написанный на языке Python, для модели развертывания с помощью Resource Manager.
+Кроме того, вы можете применить [Azure CLI 2.0](storage-azure-cli.md). Это интерфейс командной строки нового поколения, написанный на языке Python, для модели развертывания с помощью Resource Manager.
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -19,6 +19,7 @@ ms.author: chrande, glenga
 translationtype: Human Translation
 ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
 ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -194,10 +195,5 @@ function GetEnvironmentVariable(name)
 * [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
 * [Справочник разработчика F# по Функциям Azure](functions-reference-fsharp.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

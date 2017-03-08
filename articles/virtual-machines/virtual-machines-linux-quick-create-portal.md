@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/17/2016
+ms.date: 1/17/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
 ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -103,10 +104,5 @@ ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
 * [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure.](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание защищенной виртуальной машины Linux с помощью шаблона Azure.](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Создание виртуальной машины Linux с нуля с помощью Azure CLI.](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Создание шлюза приложений Azure с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Создание шлюза приложений с помощью Azure CLI в Resource Manager"
+title: "Создание шлюза приложений Azure с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Узнайте, как создать шлюз приложений с помощью Azure CLI 2.0 в Resource Manager"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: d376cd1f62f99d3f611d0d5ccc613c4b649e5c3c
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: 68d3e3ee9b35f2d6d88cde68365cef91d9683462
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Создание шлюза приложений с помощью интерфейса командной строки Azure
+# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Создание шлюза приложений с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
-> * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
-> * [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
+> * [Шаблон Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
+> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
 Шлюз приложений — это балансировщик нагрузки уровня 7. Он отвечает за отработку отказов и эффективную маршрутизацию HTTP-запросов между разными серверами (облачными и локальными). Шлюз приложений выполняет такие функции доставки приложений: балансировка нагрузки HTTP, определение сходства сеансов на основе файлов cookie, разгрузка SSL, применение пользовательских проб работоспособности и поддержка нескольких сайтов.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Предварительные требования. Установка Azure CLI
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
 
-Для выполнения действий, описанных в этой статье, требуется [установить интерфейс командной строки Azure для Mac, Linux и Windows (Azure CLI)](../xplat-cli-install.md), а также [выполнить вход в Azure](../xplat-cli-connect.md). 
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+
+## <a name="prerequisite-install-the-azure-cli-20"></a>Предварительные требования. Установка Azure CLI 2.0
+
+Для выполнения действий, описанных в этой статье, требуется [установить интерфейс командной строки Azure для Mac, Linux и Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Если у вас нет учетной записи Azure, то вам потребуется получить ее. Зарегистрируйтесь, чтобы получить [бесплатную пробную версию](../active-directory/sign-up-organization.md).
@@ -66,8 +73,10 @@ ms.openlocfilehash: d376cd1f62f99d3f611d0d5ccc613c4b649e5c3c
 Откройте **командную строку Microsoft Azure**, и выполните вход. 
 
 ```azurecli
-azure login
+az login -u "username"
 ```
+
+>[ПРИМЕЧАНИЕ] Команду `az login` также можно использовать без параметра для входа на устройство, при котором требуется ввести код на странице aka.ms/devicelogin.
 
 Введя предыдущий пример, вы получите код. В браузере перейдите по адресу https://aka.ms/devicelogin, чтобы продолжить процедуру входа.
 
@@ -81,34 +90,26 @@ azure login
 
 ![Вход выполнен][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Переключение в режим Resource Manager
-
-```azurecli
-azure config mode arm
-```
-
 ## <a name="create-the-resource-group"></a>Создание группы ресурсов
 
 Перед созданием шлюза приложений создается группа ресурсов, которая будет содержать шлюз приложений. Ниже показана команда для создания группы ресурсов.
 
 ```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+az resource group create --name myresourcegroup --location "West US"
 ```
 
-## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
+## <a name="create-a-virtual-network-and-subnet"></a>Создание виртуальной сети и подсети
 
-Сразу после создания группы ресурсов создается виртуальная сеть для шлюза приложений.  В примере ниже использовалось адресное пространство 10.0.0.0/16, определенное в предыдущих заметках о сценарии.
-
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
-```
-
-## <a name="create-a-subnet"></a>Создание подсети
-
-После создания виртуальной сети добавляется подсеть для шлюза приложений.  Если вы планируете использовать шлюз приложений с веб-приложением, размещенным в той же виртуальной сети, что и шлюз приложений, оставьте место для другой подсети.
+Сразу после создания группы ресурсов создается виртуальная сеть для шлюза приложений.  Как видно из предыдущих заметок о сценарии, в примере для виртуальной сети определено адресное пространство 10.0.0.0/16, а для подсети — 10.0.0.0/28.
 
 ```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+az network vnet create \
+--name AdatumAppGatewayVNET \
+--address-prefix 10.0.0.0/16 \
+--subnet-name Appgatewaysubnet \
+--subnet-prefix 10.0.0.0/28 \
+--resource-group AdatumAppGateway \
+--location eastus
 ```
 
 ## <a name="create-the-application-gateway"></a>Создание шлюза приложений
@@ -116,11 +117,30 @@ azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v Ad
 После создания виртуальной сети и подсети можно считать, что все предварительные требования для шлюза приложений соблюдены. Кроме того, далее вам понадобятся ранее экспортированный PFX-сертификат и пароль для сертификата. IP-адреса, используемые для серверной части, — это IP-адреса для внутреннего сервера. Эти значения могут быть частными IP-адресами в виртуальной сети, общедоступными IP-адресами или полными доменными именами для внутренних серверов.
 
 ```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+az network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group AdatumAppGatewayRG \
+--vnet-name AdatumAppGatewayVNET \
+--vnet-address-prefix 10.0.0.0/16 \
+--subnet Appgatewaysubnet \
+--subnet-address-prefix 10.0.0.0/28 \
+--servers 10.0.0.4 10.0.0.5 \
+--cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
+--cert-password P@ssw0rd \
+--capacity 2 \
+--sku-tier Standard \
+--sku-name Standard_Small \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-protocol Http \
+--frontend-port 443 \
+--routing-rule-type Basic \
+--http-settings-port 80
+
 ```
 
 > [!NOTE]
-> Чтобы вывести список параметров, которые можно указать во время создания, выполните следующую команду: **azure network application-gateway create --help**.
+> Чтобы вывести список параметров, которые можно указать во время создания, выполните следующую команду: **az network application-gateway create --help**.
 
 В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Он также настраивает разгрузку SSL. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
 Если на предыдущем шаге вы уже определили для веб-приложения внутренний пул, то после создания шлюза запускается балансировка нагрузки.
@@ -137,9 +157,4 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 [1]: ./media/application-gateway-create-gateway-cli/figure1.png
 [2]: ./media/application-gateway-create-gateway-cli/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli/figure3.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
-ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
+ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
+ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -30,7 +31,7 @@ ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 Существует два разных способа загрузки сервера Azure Multi-Factor Authentication: Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется поставщик Многофакторной идентификации или лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite.
 
 > [!Important]
-> Эти варианты похожи, но очень важно знать, который из них следует использовать. Если у пользователей есть лицензии, которые поставляются с MFA, для загрузки сервера не нужно создавать поставщик Многофакторной идентификации. Вместо этого, чтобы скачать сервер, воспользуйтесь вторым вариантом на странице параметров службы. 
+> Эти варианты похожи, но очень важно знать, который из них следует использовать. Если у пользователей есть лицензии, которые поставляются с MFA (Azure MFA, Azure AD Premium или Enterprise Mobility + Security), для скачивания с сервера не нужно создавать поставщик Многофакторной идентификации. Вместо этого, чтобы скачать сервер, воспользуйтесь вторым вариантом на странице параметров службы. 
 
 ### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Вариант 1. Скачивание сервера Многофакторной идентификации Azure с классического портала Azure
 
@@ -67,7 +68,7 @@ ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 | Требования к серверу Azure Multi-Factor Authentication | Описание |
 |:--- |:--- |
-| Оборудование |<li>200 МБ места на жестком диске</li><li>32- или 64-разрядный процессор</li><li>Не менее 1 ГБ ОЗУ</li> |
+| Оборудование |<li>200 МБ места на жестком диске</li><li>32- или&64;-разрядный процессор</li><li>Не менее&1; ГБ ОЗУ</li> |
 | Программное обеспечение |<li>Windows Server 2008 или более поздняя версия, если узел работает под управлением серверной ОС</li><li>Windows 7 или более поздняя версия, если узел работает под управлением клиентской ОС</li><li>Microsoft .NET Framework 4.0</li><li>IIS 7.0 или более поздняя версия, если вы устанавливаете SDK для пользовательского портала или веб-службы</li> |
 
 ### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Требования к брандмауэру сервера Azure Multi-Factor Authentication
@@ -163,9 +164,4 @@ ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 | [Синхронизация с Active Directory Windows Server](multi-factor-authentication-get-started-server-dirint.md) |Сведения об установке и настройке синхронизации между Active Directory и сервером Azure Multi-Factor Authentication. |
 | [Развертывание веб-службы мобильных приложений сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md) |Сведения об установке и настройке веб-службы сервера Azure Multi-Factor Authentication. |
 | [Расширенные сценарии с использованием Многофакторной идентификации Azure и VPN сторонних поставщиков](multi-factor-authentication-advanced-vpn-configurations.md) | Пошаговые руководства для конфигурации устройств Cisco, Citrix и Juniper VPN. |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

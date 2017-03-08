@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: a49a93b11ab3e965ac1ddaec919bfcbf43381dee
+ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
+ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Включение политики SSL и сквозного режима связи SSL в шлюзе приложений
+# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Обзор сквозного шифрования SSL и политики SSL в шлюзе приложений
 
 Шлюз приложений поддерживает функции моста SSL, после применения которых трафик обычно передается в незашифрованном виде на внутренние серверы. Это позволяет избавить веб-серверы от накладных расходов, связанных с ресурсоемкими операциями шифрования или расшифровки. Однако для некоторых клиентов незашифрованная связь с внутренними серверами — неприемлемый вариант. Причина может быть связана с требованиями безопасности и соответствия или с тем, что приложение может принимать только безопасные подключения. Теперь для таких приложений шлюз приложений поддерживает сквозное шифрование SSL.
 
@@ -53,9 +55,4 @@ ms.openlocfilehash: a49a93b11ab3e965ac1ddaec919bfcbf43381dee
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

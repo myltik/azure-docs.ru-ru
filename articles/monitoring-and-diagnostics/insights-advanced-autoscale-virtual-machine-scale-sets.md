@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
+ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
+ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -243,6 +244,8 @@ ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
 ## <a name="next-steps"></a>Дальнейшие действия
 Воспользуйтесь следующими ссылками, чтобы получить дополнительную информацию об автомасштабировании.
 
+[Устранение неполадок при автомасштабировании масштабируемых наборов виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+
 [Общие метрики автомасштабирования Azure Insights](insights-autoscale-common-metrics.md)
 
 [Рекомендации по автомасштабированию Azure Insights](insights-autoscale-best-practices.md)
@@ -252,9 +255,4 @@ ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
 [Автомасштабирование](insights-cli-samples.md#autoscale)
 
 [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](insights-autoscale-to-webhook-email.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

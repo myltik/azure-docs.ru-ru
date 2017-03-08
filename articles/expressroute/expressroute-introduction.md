@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Microsoft Azure ExpressRoute позволяет переносить локал�
 * Динамическая маршрутизация между вашей сетью и Майкрософт по стандартным протоколам (BGP).
 * Встроенная избыточность в каждом расположении пиринга для более высокой надежности.
 * [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/), обеспечивающие бесперебойное подключение.
-* Качество обслуживания и поддержка нескольких классов служб для специальных приложений, таких как Skype для бизнеса.
+* Поддержка QoS для Skype для бизнеса.
 
 Дополнительные сведения см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 
@@ -108,8 +109,4 @@ ExpressRoute обладает постоянно растущей экосист
   * [Создайте канал ExpressRoute.](expressroute-howto-circuit-portal-resource-manager.md)
   * [Настройка маршрутизации](expressroute-howto-routing-portal-resource-manager.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
 ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -152,10 +153,5 @@ PolicyStat поддерживает подготовку пользовател�
    ![Да](./media/active-directory-saas-policystat-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

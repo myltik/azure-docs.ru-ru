@@ -4,7 +4,7 @@ description: "Управление профилем учетной записи 
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8430f80b9b2ec596d43b0de5e7ef022d4b3261bd
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -55,10 +56,10 @@ ms.openlocfilehash: 8430f80b9b2ec596d43b0de5e7ef022d4b3261bd
    >(Учтите, что при отключении IDFA в iOS идентификатор устройства со временем может меняться, если удалять приложение и устанавливать его снова.)
 
 ## <a name="troubleshooting-guide"></a>Руководство по устранению неполадок
-* [Руководство по устранению неполадок — служба][Link 24]
+* [Поиск и устранение неполадок. Службы][Link 24]
 
-## <a name="see-also"></a>Дополнительные материалы
-* [Документация по пользовательскому интерфейсу — домашняя страница][Link 13]
+## <a name="see-also"></a>См. также
+* [Документация по пользовательскому интерфейсу. Домашняя страница][Link 13]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -157,10 +158,5 @@ ms.openlocfilehash: 8430f80b9b2ec596d43b0de5e7ef022d4b3261bd
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

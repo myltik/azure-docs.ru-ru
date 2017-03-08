@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
+ms.sourcegitcommit: 53973b27ae6531d5c4eaceb862ca5bd2bc5f9249
+ms.openlocfilehash: dec07803397ec5df17dfb57703e276ba071e942a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
 
 Узнайте, как использовать [интерфейс командной строки Azure](../xplat-cli-install.md) для управления кластерами Hadoop в Azure HDInsight. Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux.
 
-В этой статье описывается только использование CLI Azure с HDInsight. Общее руководство по использованию Azure CLI см. в статье [Установка и настройка интерфейса командной строки Azure][azure-command-line-tools].
+В этой статье описывается только использование CLI Azure с HDInsight. Общее руководство по использованию Azure CLI см. в статье [Установка и настройка Azure CLI][azure-command-line-tools].
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -86,10 +87,10 @@ ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы узнали, как выполнять различные административные задачи в кластере HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
 * [Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell][hdinsight-admin-powershell]
 * [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
-* [Как использовать интерфейс командной строки Azure][azure-command-line-tools]
+* [Установка Azure CLI][azure-command-line-tools]
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -105,10 +106,5 @@ ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Список кластеров"
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 

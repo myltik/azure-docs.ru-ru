@@ -136,7 +136,7 @@ azure vm deallocate <resource-group> <vm-name>
 
 Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
 
-> [!NOTE]
+d> [!NOTE]
 > RBAC не ограничивает действия, которые может выполнять пользователь, вошедший в виртуальную машину. Эти разрешения определяются типом учетной записи в гостевой ОС.   
 > 
 > 
@@ -146,7 +146,6 @@ azure vm deallocate <resource-group> <vm-name>
 Если нужно шифровать диски ОС и диски данных, рекомендуем применить [шифрование дисков Azure][disk-encryption]. 
 
 ## <a name="solution-deployment"></a>Развертывание решения
-
 Пример развертывания для этой архитектуры можно найти на портале [GitHub][github-folder]. Он содержит виртуальную сеть, NSG и одну виртуальную машину. Чтобы развернуть эту архитектуру, выполните следующие действия. 
 
 1. Щелкните правой кнопкой мыши показанную ниже кнопку и выберите пункт "Открыть ссылку в новой вкладке" или "Открыть ссылку в новом окне".
@@ -156,7 +155,7 @@ azure vm deallocate <resource-group> <vm-name>
    * Имя **группы ресурсов** уже определено в файле параметров, поэтому выберите **Создать** и введите `ra-single-vm-rg` в текстовом поле.
    * В раскрывающемся списке **Расположение** выберите регион.
    * Не изменяйте поля **Template Root Uri** (Корневой URI шаблона) или **Parameter Root Uri** (Корневой URI параметра).
-   * В раскрывающемся списке **Тип ОС** выберите пункт **Linux**.
+.   * В раскрывающемся списке **Тип ОС** выберите пункт **linux**.
    * Прочтите условия использования и установите флажок **Я принимаю указанные выше условия**.
    * Нажмите кнопку **Приобрести**.
 3. Дождитесь завершения развертывания.
@@ -176,7 +175,7 @@ azure vm deallocate <resource-group> <vm-name>
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
@@ -215,9 +214,4 @@ azure vm deallocate <resource-group> <vm-name>
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Linux в Azure"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

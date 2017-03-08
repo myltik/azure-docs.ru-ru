@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: b13861ce404b8c4215248a2498c5969fc19ad536
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -74,10 +75,5 @@ ms.openlocfilehash: b13861ce404b8c4215248a2498c5969fc19ad536
 [Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

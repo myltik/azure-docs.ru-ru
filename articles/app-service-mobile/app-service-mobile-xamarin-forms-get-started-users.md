@@ -4,7 +4,7 @@ description: "Узнайте, как использовать мобильные
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 65c8ff42c9c34eb51cb26153eff9b45aa0926838
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 30fac48cbacb26b03ce430987997c38c68368385
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 65c8ff42c9c34eb51cb26153eff9b45aa0926838
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Добавление проверки подлинности в переносимую библиотеку классов
-В мобильных приложениях используется метод расширения [LoginAsync][3] в [MobileServiceClient][4] для входа пользователя в систему с применением проверки подлинности в службе приложений. В этом примере используется управляемый сервером поток проверки подлинности, который отображает интерфейс входа поставщика в приложение. Дополнительные сведения см. в разделе [Управляемая сервером проверка подлинности][5]. Чтобы пользователям было удобнее работать с вашим рабочим приложением, попробуйте использовать [управляемую клиентом проверку подлинности][6].
+В мобильных приложениях используется метод расширения [LoginAsync][3] в [MobileServiceClient][4] для входа пользователя в систему с аутентификацией в службе приложений. В этом примере используется управляемый сервером поток проверки подлинности, который отображает интерфейс входа поставщика в приложение. Дополнительные сведения см. в статье [Управляемая сервером проверка подлинности][5]. Чтобы пользователям было удобнее работать с вашим рабочим приложением, попробуйте использовать [управляемую клиентом аутентификацию][6].
 
 Чтобы пройти проверку подлинности в проекте Xamarin Forms, следует определить интерфейс **IAuthenticate** в переносимой библиотеке классов для приложения. Затем добавьте в пользовательский интерфейс, указанный в переносимой библиотеке классов, кнопку **Вход**, которую пользователь нажимает для выполнения проверки подлинности. После успешной проверки подлинности данные загружаются из серверной части мобильного приложения.
 
@@ -322,9 +323,4 @@ ms.openlocfilehash: 65c8ff42c9c34eb51cb26153eff9b45aa0926838
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

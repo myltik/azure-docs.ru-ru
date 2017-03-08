@@ -89,8 +89,3 @@
 ## [Инструменты](azure-stack-tools-paas-services.md)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

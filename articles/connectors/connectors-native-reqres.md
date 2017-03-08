@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -110,10 +111,5 @@ ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь опробуйте платформу и [создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

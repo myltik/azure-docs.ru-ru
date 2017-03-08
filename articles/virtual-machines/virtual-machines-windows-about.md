@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 232e1d1640352be38720e19f713959e84243af72
 ms.openlocfilehash: 1cd2b9d819acd7d422698d3c14a9009a846973f7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -38,10 +39,5 @@ ms.openlocfilehash: 1cd2b9d819acd7d422698d3c14a9009a846973f7
 Опробуйте простую виртуальную машину, быстро создав ее. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Так как это руководство помогает быстро создать виртуальную машину, оно описывает только один из способов создания вместо описания различных инструментов, с помощью которых можно создавать виртуальные машины. Обзор этих средств и ссылки на инструкции см. в статье с описанием [разных способов создания виртуальной машины Windows](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

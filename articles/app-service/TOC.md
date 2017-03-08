@@ -28,20 +28,6 @@
 ### [Приложение Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Распространенные примеры
-## Примеры использования интерфейса командной строки
-### [Создание веб-приложения и развертывание кода из GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Создание веб-приложения с непрерывным развертыванием из GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Создание веб-приложения и развертывание кода из локального репозитория Git](./scripts/app-service-cli-deploy-local-git.md)
-### [Создание веб-приложения и развертывание кода в промежуточной среде](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Создание веб-приложения ASP.NET Core в контейнере Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Сопоставление личного домена с веб-приложением](./scripts/app-service-cli-configure-custom-domain.md)
-### [Масштабирование веб-приложения вручную](./scripts/app-service-cli-scale-manual.md)
-### [Глобальное масштабирование веб-приложения с помощью высокодоступной архитектуры](./scripts/app-service-cli-scale-high-availability.md)
-### [Подключение веб-приложения к базе данных SQL](./scripts/app-service-cli-app-service-sql.md)
-### [Подключение веб-приложения к учетной записи хранения](./scripts/app-service-cli-app-service-storage.md)
-### [Мониторинг веб-приложения с помощью журналов веб-сервера](./scripts/app-service-cli-monitor.md)
-
 # Практическое руководство
 
 ## планирование и разработка

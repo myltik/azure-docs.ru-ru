@@ -18,6 +18,7 @@ ms.author: anhoh
 translationtype: Human Translation
 ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
 ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -522,10 +523,5 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о DocumentDB см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

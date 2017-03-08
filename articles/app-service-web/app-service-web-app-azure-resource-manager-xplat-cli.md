@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 7a03e1417617453c43edcc3787da10d171359757
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
 Дополнительные сведения об управлении группами ресурсов см. в статье об [управлении ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md). 
 
 > [!NOTE] 
-> Попробуйте также [Azure CLI 2.0 (предварительная версия)](https://github.com/Azure/azure-cli). Это интерфейс командной строки нового поколения, написанный на языке Python, для модели развертывания с помощью Resource Manager.
+> Попробуйте также [Azure CLI 2.0](https://github.com/Azure/azure-cli). Это интерфейс командной строки нового поколения, написанный на языке Python, для модели развертывания с помощью Resource Manager.
 >
 >
 
@@ -120,7 +121,7 @@ ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
 ### <a name="configure-an-existing-app"></a>Настройка существующего приложения
 Чтобы изменить параметры и конфигурацию существующего приложения, используйте команду **azure webapp config set**.
 
-Пример 1. Изменение PHP-версии приложения 
+Пример&1;. Изменение PHP-версии приложения 
 
     azure webapp config set --name ContosoWebApp --resource-group ContosoAzureResourceGroup --phpversion 5.6
 
@@ -178,9 +179,4 @@ ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
 * Дополнительные сведения о поддержке интерфейса командной строки в Azure Resource Manager см. в статье об [управлении ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md).
 * Дополнительные сведения об управлении службой приложений с помощью PowerShell см. в статье [Управление веб-приложениями Azure с помощью PowerShell на основе Azure Resource Manager](app-service-web-app-azure-resource-manager-powershell.md).
 * Сведения об использовании службы приложений Azure на платформе Linux см. в статье [Вводные сведения о службе приложений на платформе Linux](app-service-linux-intro.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

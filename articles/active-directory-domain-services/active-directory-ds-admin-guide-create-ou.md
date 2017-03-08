@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
 ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -40,27 +41,27 @@ ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
 
 > [!NOTE]
 > Только члены группы "Администраторы контроллера домена AAD" имеют необходимые разрешения для создания пользовательского подразделения. Выполните следующие действия от имени пользователя, принадлежащего к этой группе.
-> 
-> 
+>
+>
 
 1. На начальном экране щелкните **Администрирование**. Должны открыться средства администрирования AD, установленные на виртуальной машине.
-   
+
     ![Средства администрирования, установленные на сервере](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Щелкните **Центр администрирования Active Directory**.
-   
+
     ![Центр администрирования Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. Чтобы просмотреть домен, щелкните имя домена в левой области (например, contoso100.com).
-   
+
     ![Центр администрирования Active Directory — просмотр домена](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 4. В области **Задачи** справа щелкните **Создать** под узлом доменного имени. В этом примере мы выбираем пункт **Создать** для узла contoso100(local) в правой части области **Задачи**.
-   
+
     ![Центр администрирования Active Directory — новое подразделение](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 5. В списке пунктов должно присутствовать создание подразделения. Щелкните **Подразделение**, чтобы открыть диалоговое окно **Create Organizational Unit** (Создание подразделения).
 6. В диалоговом окне **Create Organizational Unit** (Создание подразделения) укажите **имя** нового подразделения. Добавьте краткое описание подразделения. Кроме того, можно задать значение в поле **Управляется** для подразделения. Нажмите кнопку **ОК**, чтобы создать пользовательское подразделение.
-   
+
     ![Центр администрирования Active Directory — диалоговое окно "Создание подразделения"](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 7. Созданное подразделение должно появиться в центре администрирования Active Directory (ADAC).
-   
+
     ![Центр администрирования Active Directory — созданное подразделение](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>Разрешения и параметры безопасности для созданных подразделений
@@ -73,18 +74,12 @@ ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
 
 > [!WARNING]
 > Учетные записи пользователей, группы, учетные записи служб и объекты-компьютеры, созданные в пользовательских подразделениях, недоступны в клиенте Azure AD. Другими словами, эти объекты не отображаются при использовании пользовательского интерфейса Azure AD или API Graph Azure AD. Они доступны только в управляемом домене доменных служб Azure AD.
-> 
-> 
+>
+>
 
 ## <a name="related-content"></a>Похожий контент
 * [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Администрирование групповой политики в управляемом домене доменных служб Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Центр администрирования Active Directory: приступая к работе](https://technet.microsoft.com/library/dd560651.aspx)
 * [Пошаговое руководство по использованию учетных записей служб](https://technet.microsoft.com/library/dd548356.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

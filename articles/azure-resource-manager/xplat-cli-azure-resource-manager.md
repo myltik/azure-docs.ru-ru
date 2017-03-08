@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -151,10 +152,5 @@ ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
 * Дополнительные сведения об операциях развертывания и устранении неполадок, связанных с развертыванием, см. в статье [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md).
 * Сведения о настройке приложения или скрипта для доступа к ресурсам с помощью интерфейса командной строки см. в статье [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](resource-group-authenticate-service-principal-cli.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: tarcher
 translationtype: Human Translation
 ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
 ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.lasthandoff: 01/19/2017
 
 
 ---
@@ -207,9 +208,4 @@ Microsoft Azure Storage Explorer (предварительная версия) 
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

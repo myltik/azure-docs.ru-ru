@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9d20050dada974c0c2a54399e2db7b9a289f7e89
-ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4531aeb00cff7eee12ab0ab9c7466446fc50d5b1
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight
+# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight на платформе Linux
+
 Узнайте, как анализировать данные о задержке рейсов с помощью Hive в HDInsight под управлением Linux, а затем экспортировать их в Базу данных SQL Azure с помощью Sqoop.
 
 > [!IMPORTANT]
 > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Предварительные требования
-Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Кластер HDInsight**. Действия для создания нового кластера HDInsight см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -61,7 +62,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     Замените **FILENAME** именем ZIP-файла. Замените **USERNAME** именем для входа SSH для кластера HDInsight. Замените CLUSTERNAME именем кластера HDInsight.
    
    > [!NOTE]
-   > Если для аутентификации входа посредством SSH используется пароль, будет предложено ввести пароль. Если используется открытый ключ, может потребоваться использовать параметр `-i` и указать путь к соответствующему закрытому ключу. Пример: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Если для аутентификации входа посредством SSH используется пароль, будет предложено ввести пароль. Если используется открытый ключ, может потребоваться использовать параметр `-i` и указать путь к соответствующему закрытому ключу. Например, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. После завершения передачи подключитесь к кластеру с помощью SSH:
    
@@ -80,7 +81,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
    
     Она извлечет в CSV-файл, размер которого приблизительно 60 МБ.
 
-4. Используйте следующую команду для создания нового каталога в WASB (распределенном хранилище данных, используемом HDInsight) и копирования файла:
+4. Используйте следующую команду для создания каталога в хранилище HDInsight, затем скопируйте данный файл в этот каталог.
    
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -88,15 +89,16 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     ```
 
 ## <a name="create-and-run-the-hiveql"></a>Создание и запуск HiveQL
+
 Выполните следующие действия для импорта данных из CSV-файла в таблицу Hive с именем **Delays**.
 
-1. Для создания и редактирования нового файла **flightdelays.hql**выполните следующее:
+1. Для создания и редактирования нового файла **flightdelays.hql** выполните следующую команду.
    
     ```
     nano flightdelays.hql
     ```
    
-    Используйте следующее в качестве содержимого этого файла:
+    В качестве содержимого файла добавьте следующий текст.
    
     ```hiveql
     DROP TABLE delays_raw;
@@ -160,7 +162,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
 
 2. Нажмите клавиши **Ctrl + X**, а затем **Y** (Да) для сохранения файла.
 
-3. Используйте следующую команду для запуска Hive и выполнения файла **flightdelays.hql** :
+3. Используйте следующую команду для запуска Hive и выполнения файла **flightdelays.hql**.
    
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -175,7 +177,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-5. При появлении командной строки `jdbc:hive2://localhost:10001/>` используйте следующую команду, чтобы извлечь информацию из импортированных данных о задержке рейсов.
+5. При появлении командной строки `jdbc:hive2://localhost:10001/>` используйте приведенный ниже запрос, чтобы извлечь информацию из импортированных данных о задержке рейсов.
    
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -187,20 +189,20 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     GROUP BY origin_city_name;
     ```
    
-    Вы получите список городов, рейсы в которые задержаны из-за погодных условий, а также среднее время задержки. Он будет сохранен в `/tutorials/flightdelays/output`. Позже Sqoop считает данные из этого расположения и экспортирует их в базу данных SQL Azure.
+    Вы получите список городов, рейсы в которых задержаны из-за погодных условий, а также среднее время задержки. Он будет сохранен в `/tutorials/flightdelays/output`. Позже Sqoop считает данные из этого расположения и экспортирует их в базу данных SQL Azure.
 
 6. Чтобы выйти из Beeline, введите `!quit` в командной строке.
 
 ## <a name="create-a-sql-database"></a>Создание базы данных SQL
 
-Если у вас уже имеется база данных SQL, необходимо получить имя сервера. Его можно найти на [портале Azure](https://portal.azure.com) , выбрав **Базы данных SQL**и применив фильтр по имени базы данных, которую следует использовать. Имя сервера указано в столбце **СЕРВЕР** .
+Если у вас уже имеется база данных SQL, необходимо получить имя сервера. Его можно найти на [портале Azure](https://portal.azure.com), выбрав **Базы данных SQL** и применив фильтр по имени базы данных, которую вы хотите использовать. Имя сервера указано в столбце **СЕРВЕР** .
 
 Если у вас еще нет базы данных SQL, создайте ее, ознакомившись с разделом [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md) . Необходимо сохранить имя сервера, используемого для базы данных.
 
 ## <a name="create-a-sql-database-table"></a>Создание таблицы базы данных SQL
 
 > [!NOTE]
-> Существует множество способов подключения к базе данных SQL для создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
+> Существует множество способов подключения к базе данных SQL и создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
 
 
 1. Используйте SSH для подключения к кластеру HDInsight под управлением Linux и выполните следующие действия в сеансе SSH.
@@ -217,7 +219,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
    
-    Должен появиться результат, аналогичный приведенному ниже.
+    Должен появиться результат, аналогичный приведенному ниже тексту.
    
     ```
     locale is "en_US.UTF-8"
@@ -238,7 +240,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     GO
     ```
    
-    Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Будет создана таблица **delays** с кластеризованным индексом (требуется для базы данных SQL).
+    Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Будет создана таблица **delays** с кластеризованным индексом.
    
     Используйте следующую команду для проверки создания таблицы:
    
@@ -264,7 +266,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
    
-    Эта команда должна вывести список баз данных, включая базу данных, в которой вы создали таблицу delays ранее.
+    Эта команда выводит список баз данных, включая базу данных, в которой вы создали таблицу delays ранее.
 
 2. Для экспорта данных из hivesampletable в таблицу mobiledata используйте следующую команду:
    
@@ -272,7 +274,7 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
    
-    Она дает Sqoop указание подключиться к базе данных SQL, к базе данных с таблицей delays, и экспортировать данные из каталога `/tutorials/flightdelays/output` (где хранятся выходные данные запроса Hive, выполненного ранее) в таблицу delays.
+    Sqoop подключается к базе данных, содержащей таблицу delays, и экспортирует данные из каталога `/tutorials/flightdelays/output` в эту таблицу.
 
 3. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
    
@@ -289,11 +291,10 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
     
     Вы увидите список данных в таблице. Введите `exit` для выхода из служебной программы tsql.
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Дальнейшие действия
+## <a id="nextsteps"></a> Дальнейшие действия
 
-Теперь вы знаете, как отправить файл в хранилище больших двоичных объектов, как заполнить таблицу Hive, используя данные из хранилища больших двоичных объектов, как выполнять запросы Hive и как использовать Sqoop для экспорта данных из HDFS в базу данных SQL Azure. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
+Чтобы узнать больше о работе с данными в HDInsight, ознакомьтесь со следующими документами:
 
-* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Использование Oozie с HDInsight][hdinsight-use-oozie]
 * [Использование Sqoop с Hadoop в HDInsight][hdinsight-use-sqoop]
@@ -325,10 +326,5 @@ ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

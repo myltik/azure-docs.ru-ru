@@ -12,19 +12,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/24/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: d67271ebf90ac2a1870787de7cfe6459526fcb37
-ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
-
+ms.sourcegitcommit: 0ac8ca0c5407925728ed0431294a3234b58d6e63
+ms.openlocfilehash: 04506596ba21c3ebef7237eaad8c5d786ad672fe
+ms.lasthandoff: 02/27/2017
 
 ---
+
 # <a name="install-net-on-a-cloud-service-role"></a>Установка .NET для роли облачной службы
 В этой статье описывается установка различных версий платформы .NET Framework для веб-роли и рабочей роли облачной службы, которые не поставляются с гостевой ОС. Например, вы можете использовать эти действия для установки .NET 4.6.1 в семействе версий 4 гостевой ОС Azure, которая не поставляется с любой версией .NET 4.6. Последние сведения о выпусках гостевой ОС см. в статье [Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >Гостевая ОС версии 5 включает .NET 4.6.
+
+>[!IMPORTANT]
+>Пакет SDK для Azure 2.9 содержит ограничение на развертывание .NET 4.6 в гостевой ОС 4 или более ранней версии. Исправление представлено [здесь](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 Процесс установки .NET для веб-роли и рабочей роли предполагает добавление пакета установщика .NET в облачный проект и запуск установщика вместе с другими начальными задачами роли.  
 
@@ -188,23 +192,18 @@ ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
 ## <a name="deploying-your-service"></a>Развертывание службы
 При развертывании службы запускаются начальные задачи и устанавливается платформа .NET Framework (если она еще не установлена). Ваши роли будут в состоянии занятости во время установки платформы и могут даже перезагрузиться, если это потребуется для установки платформы. 
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
-* [Установка платформы .NET Framework][Установка платформы .NET Framework]
-* [Практическое руководство. Определение установленных версий платформы .NET Framework][Практическое руководство. Определение установленных версий платформы .NET Framework]
-* [Устранение неполадок с установкой .NET Framework][Устранение неполадок с установкой .NET Framework]
+## <a name="additional-resources"></a>Дополнительные ресурсы
+* [Установка платформы .NET Framework][Installing the .NET Framework]
+* [Практическое руководство. Определение установленных версий платформы .NET Framework][How to: Determine Which .NET Framework Versions Are Installed]
+* [Устранение неполадок с установкой .NET Framework][Troubleshooting .NET Framework Installations]
 
-[Практическое руководство. Определение установленных версий платформы .NET Framework]: https://msdn.microsoft.com/library/hh925568.aspx
-[Установка платформы .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
-[Устранение неполадок с установкой .NET Framework]: https://msdn.microsoft.com/library/hh925569.aspx
+[How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
+[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
+[Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

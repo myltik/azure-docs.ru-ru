@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 01/03/2016
 ms.author: sdubeymsft
 translationtype: Human Translation
-ms.sourcegitcommit: 40e2eea5c1a11dadb232c6ac7c224ca5fc847c02
-ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 159c891dedb66dfaa238981b395b4bba074c5716
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Чтобы установить и настроить Visual Studio 2015 и пакет Azure SDK, см. сведения в разделе [Предварительные требования] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites).
-* Чтобы настроить Visual Studio для подключения к учетной записи Azure для государственных организаций, выполните [следующие инструкции] (documentation-government-manage-subscriptions.md#connecting-via-visual-studio).
+* Чтобы настроить Visual Studio для подключения к учетной записи Azure для государственных организаций, выполните [следующие инструкции] (documentation-government-manage-subscriptions.md).
 
 ## <a name="open-app-project-in-visual-studio"></a>Открытие проекта приложения в Visual Studio
 * Откройте существующее приложение или проект приложения в Visual Studio, создайте проект, следуя [этим инструкциям] (../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application), или скачайте пример приложения, используя [эти инструкции] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
@@ -42,9 +43,4 @@ ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы получать дополнительные сведения и обновления, подпишитесь на [блог Microsoft Azure для государственных организаций](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

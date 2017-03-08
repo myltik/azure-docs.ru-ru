@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
 ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -178,8 +179,3 @@ ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
 2.  [Цены на DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Ознакомьтесь со сведениями о ценах на подготовку пропускной способности и использование хранилища.
 3.  [Единицы запроса в DocumentDB](documentdb-request-units.md). Узнайте, как потребляется пропускная способность в зависимости от типа операции, например чтение, запись или запрос.
 4.  [Моделирование данных в DocumentDB](documentdb-modeling-data.md). Узнайте, как моделировать данные для DocumentDB.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

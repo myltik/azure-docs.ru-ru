@@ -1,10 +1,10 @@
 ---
-title: "Как настроить статический частный IP-адрес в классическом режиме с помощью интерфейса командной строки | Документация Майкрософт"
-description: "Основные сведения о статических частных IP-адресах (DIP) и об управлении ими в классическом режиме с помощью интерфейса командной строки"
+title: "Настройка частных IP-адресов для виртуальных машин (классическая модель) (Azure CLI 1.0) | Документация Майкрософт"
+description: "Узнайте, как настроить частные IP-адреса для виртуальных машин (классическая модель) с помощью интерфейса командной строки Azure (CLI) версии 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 0d0b896e64dfba0081e2ec23f2181e07226faebe
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-classic-in-azure-cli"></a>Как задать статический частный IP-адрес (классический) в Azure CLI
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Настройка частных IP-адресов для виртуальной машины (классическая модель) с помощью Azure CLI 1.0
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -117,10 +120,5 @@ ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
 * Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .
 * Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
