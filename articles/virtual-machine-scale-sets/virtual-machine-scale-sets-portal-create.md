@@ -16,14 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: negat
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 35d4c8593dd9698017df85675395430f345f4e86
-ms.openlocfilehash: 17054073e921708cc0c9392ed1b94e9579a9f940
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 06e7418111762a0388ce1704ba5abaa9c3a10349
+ms.openlocfilehash: e0853070b5a3f9d44baebecac625a5ad6b9ef755
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-virtual-machine-scale-set-using-the-azure-portal"></a>Создание набора масштабирования виртуальных машин с помощью портала Azure
+# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal"></a>Как создать масштабируемый набор виртуальных машин с помощью портала Azure
 В этом руководстве мы покажем, как на портале Azure всего за несколько минут можно создать набор масштабирования виртуальных машин. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/) , прежде чем начинать работу.
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Выбор образа виртуальной машины из Marketplace

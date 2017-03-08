@@ -4,7 +4,7 @@ description: "Просмотр диаграмм данных о приложен
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
@@ -15,16 +15,17 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Просмотр диаграмм данных о приложении о управление ими
 Раздел «Панель мониторинга» пользовательского интерфейса дает клиентам возможность создавать настраиваемые диаграммы, которые предоставляют точную информацию без необходимости ее поиска в разделе аналитики, позволяя сэкономить время. На панели мониторинга отображаются тенденции приложения и число активных пользователей для разных версий приложения за определенное время (час, день, неделя, месяц, другой заданный период). Ниже показаны тенденции за последние 7 дней.
 
-### <a name="see-also"></a>Дополнительные материалы
-* [Руководство по устранению неполадок — аналитика][Link 21]
+### <a name="see-also"></a>См. также
+* [Руководство по устранению неполадок. Аналитика][Link 21]
 
 ## <a name="dashboard"></a>Панель мониторинга
 * Вы можете добавлять диаграммы на пустую панель мониторинга, выбрав действие «Отправить на панель мониторинга» в меню настроек в виде шестеренки любой диаграммы в разделе аналитики, которую требуется отобразить на панели мониторинга.
@@ -131,10 +132,5 @@ ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
