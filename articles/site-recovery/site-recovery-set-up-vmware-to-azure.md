@@ -17,6 +17,7 @@ ms.author: anoopkv
 translationtype: Human Translation
 ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
 ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.lasthandoff: 02/13/2017
 
 ---
 
@@ -34,7 +35,7 @@ ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
 - Специальная учетная запись на сервере VMware vCenter, которую можно использовать для [автоматического обнаружения](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
 - Виртуальная машина для установки сервера конфигурации.
 
-### <a name="configuration-server-minimum-requirements"></a>Минимальные требования к серверу конфигурации
+## <a name="configuration-server-minimum-requirements"></a>Минимальные требования к серверу конфигурации
 Программное обеспечение сервера конфигурации необходимо развернуть на высокодоступной виртуальной машине VMware. В следующей таблице перечислены минимальные требования к оборудованию, программному обеспечению и сети сервера конфигурации.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -97,9 +98,4 @@ ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Настройка целевой среды](./site-recovery-prepare-target-vmware-to-azure.md) в Azure.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
