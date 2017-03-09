@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: d9264e4268bb0418d64d4da680bd6e8b756a9ea6
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -61,22 +62,27 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
     ![Приложения][3]
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
     ![Приложения][4]
+
 6. В поле поиска введите **RightScale**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+
 7. В области результатов выберите **RightScale** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-    ![Выбор приложения в коллекции](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в RightScale с использованием тестового пользователя Britta Simon.
@@ -99,9 +105,11 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 1. На классическом портале на странице интеграции с приложением **RightScale** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа][6] 
+
 2. На странице **Как пользователи должны входить в RightScale?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+
 3. Если вы хотите настроить приложение в **режиме, инициированном поставщиком удостоверений**, то на странице диалогового окна **Настроить параметры приложения** выполните следующие действия и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
@@ -117,13 +125,15 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
     а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение RightScale, применяя следующий шаблон: `https://login.rightscale.com/`
    
     b. Щелкните **Далее**
+
 2. На странице **Настройка единого входа в RightScale** выполните указанные ниже действия и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
    
-    а. Нажмите **Скачать сертификат**и сохраните файл сертификата в кодировке Base 64 на свой компьютер.
+    а. Нажмите **Скачать сертификат**и сохраните файл сертификата в кодировке Base&64; на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
+
 3. Чтобы настроить для приложения единый вход, нужно войти в клиент приложения RightScale с правами администратора.
    
     а. В меню в верхней части откройте вкладку **Параметры** и выберите **Единый вход**.
@@ -154,14 +164,16 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
    
-    g. Нажмите кнопку **Браузер** , чтобы отправить сертификат, скачанный в шаге 4.
+    g. Нажмите кнопку **Браузер** , чтобы отправить сертификат, скачанный в шаге&4;.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
    
     h. Щелкните **Сохранить**.
+
 4. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
+
 5. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
     ![единого входа Azure AD][11]
@@ -176,13 +188,17 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
+
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
+
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
@@ -192,22 +208,25 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     В. Нажмите кнопку **Далее**.
+
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
+
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
@@ -229,13 +248,17 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
    
     ![Назначение пользователя][201] 
+
 2. В списке приложений выберите **RightScale**.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
     ![Назначение пользователя][203] 
+
 4. В списке пользователей выберите **Britta Simon**.
+
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
@@ -265,9 +288,4 @@ ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
