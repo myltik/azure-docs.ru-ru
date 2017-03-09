@@ -4,7 +4,7 @@ description: "Узнайте, как использовать мобильные
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 
 Если вы не используете скачанный проект сервера, необходимо добавить пакет расширений для push-уведомлений. Дополнительные сведения о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Настройка концентратора уведомлений
+## <a name="configure-hub"></a>Настройка концентратора уведомлений
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Регистрация приложения для работы с push-уведомлениями
@@ -54,10 +54,10 @@ ms.lasthandoff: 03/01/2017
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Настройка серверной части для отправки push-уведомлений
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a name="a-idupdate-serviceaupdate-the-server-to-send-push-notifications"></a><a id="update-service"></a>Обновление сервера для отправки push-уведомлений
+## <a id="update-service"></a>Обновление сервера для отправки push-уведомлений
 Используйте приведенную ниже процедуру, которая соответствует типу вашего серверного проекта &mdash; [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Серверный проект .NET
+### <a name="dotnet"></a>Серверный проект .NET
 1. В Visual Studio щелкните правой кнопкой мыши серверный проект, затем щелкните **Управление пакетами NuGet**, найдите пакет Microsoft.Azure.NotificationHubs и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
 2. Разверните **Контроллеры**, откройте TodoItemController.cs и добавьте следующие операторы using:
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 03/01/2017
     Этот код заставляет центр уведомлений отправить push-уведомление после вставки элемента задачи.
 4. Повторная публикация серверного проекта
 
-### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Серверный проект Node.js
+### <a name="nodejs"></a>Серверный проект Node.js
 1. [Скачайте проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
 2. Замените существующий код в файле todoitem.js следующим кодом:
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 03/01/2017
     При вставке нового элемента todo будет отправляться всплывающее уведомление WNS, содержащее item.text.
 3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
-## <a name="a-idupdate-appaadd-push-notifications-to-your-app"></a><a id="update-app"></a>Добавление push-уведомлений в приложение
+## <a id="update-app"></a>Добавление push-уведомлений в приложение
 Затем приложение необходимо зарегистрировать для получения push-уведомлений при запуске. Если аутентификация уже включена, убедитесь, что пользователь выполняет вход прежде, чем пытается зарегистрироваться для использования push-уведомлений.
 
 1. Откройте файл проекта **App.xaml.cs** и добавьте следующие операторы `using`.
@@ -180,10 +180,10 @@ ms.lasthandoff: 03/01/2017
     Это обеспечит регистрацию кратковременного ChannelURI при каждом запуске приложения.
 4. Перестройте проект приложения UWP. Теперь приложение готово к получению всплывающих уведомлений.
 
-## <a name="a-idtestatest-push-notifications-in-your-app"></a><a id="test"></a>Тестирование push-уведомлений в приложении
+## <a id="test"></a>Тестирование push-уведомлений в приложении
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-## <a name="a-idmoreanext-steps"></a><a id="more"></a>Дальнейшие действия
+## <a id="more"></a>Дальнейшие действия
 Дополнительные сведения о push-уведомлениях:
 
 * [Использование управляемого клиента для мобильных приложений Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  

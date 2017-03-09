@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
+ms.date: 03/08/2017
 ms.author: chackdan
 translationtype: Human Translation
 ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
 ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -71,10 +72,5 @@ Azure Service Fabric позволяет создавать кластеры Serv
 * Создание кластера на основе виртуальных машин или компьютеров под управлением Windows Server: [Create an Azure Service Fabric cluster on-premises or in the cloud](service-fabric-cluster-creation-for-windows-server.md)
 * Создание кластера на основе виртуальных машин или компьютеров под управлением Linux: [Service Fabric в Linux](service-fabric-linux-overview.md)
 * [Сведения о вариантах поддержки Service Fabric](service-fabric-support.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
