@@ -58,33 +58,37 @@
 ## Миграция и перемещение данных
 ### Изучение
 #### [Перенос базы данных](sql-database-cloud-migrate.md)
-#### [Репликация транзакций](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Экспорт базы данных](sql-database-export.md)
 #### [Синхронизация данных](sql-database-get-started-sql-data-sync.md)
 #### [Копирование базы данных SQL](sql-database-copy.md)
 ## Правила брандмауэра, проверка подлинности и авторизация
 ### Изучение
 #### [Контроль доступа](sql-database-control-access.md)
-#### [Брандмауэр](sql-database-firewall-configure.md)
+#### [Правила брандмауэра](sql-database-firewall-configure.md)
 #### [Управление именами для входа](sql-database-manage-logins.md)
+#### [Проверка подлинности Azure AD](sql-database-aad-authentication.md)
+#### [Многофакторная проверка подлинности](sql-database-ssms-mfa-authentication.md)
 ### Рекомендации
 #### [Проверка подлинности и авторизация в SQL](sql-database-control-access-sql-authentication-get-started.md)
 #### [Проверка подлинности и авторизация в Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Защита и обеспечение безопасности данных
 ### Изучение
 #### Аудит
-##### [Аудит](sql-database-auditing-get-started.md)
+##### [Аудит](sql-database-auditing.md)
 ##### [Поддержка клиентов прежних версий и изменения конечных точек с IP-адресами для аудита](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Обнаружение угроз](sql-database-threat-detection-get-started.md)
+#### [Обнаружение угроз](sql-database-threat-detection.md)
 #### Шифрование данных
-##### [Хранилище ключей Azure](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Прозрачное шифрование данных](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Шифрование столбцов](https://msdn.microsoft.com/library/azure/ms179331)
 #### Маскирование данных
-##### Динамическое маскирование данных
-###### [Портал Azure](sql-database-dynamic-data-masking-get-started.md)
+##### [Динамическое маскирование данных](sql-database-dynamic-data-masking-get-started.md)
 ### Рекомендации
-#### [Динамическое маскирование данных с помощью портала Azure](sql-database-dynamic-data-masking-get-started.md)
-##### [Always Encrypted с использованием хранилища сертификатов Windows](sql-database-always-encrypted.md)
+#### [Динамическое маскирование данных с помощью портала Azure](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Настройка аудита с помощью портала Azure](sql-database-auditing-portal.md)
+#### [Настройка аудита с помощью PowerShell](sql-database-auditing-powershell.md)
+#### [Настройка аудита с помощью REST API](sql-database-auditing-rest.md)
+#### [Always Encrypted с использованием сертификата Windows](sql-database-always-encrypted.md)
+#### [Always Encrypted с использованием Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ## Непрерывность бизнес-процессов
 ### Изучение
 #### [Обзор](sql-database-business-continuity.md)
@@ -100,7 +104,7 @@
 #### [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 #### [Обзор активной георепликации](sql-database-geo-replication-overview.md)
 ### Рекомендации
-#### [Портал Azure: резервное копирование и восстановление](sql-database-get-started-backup-recovery.md)
+#### [Портал Azure: резервное копирование и восстановление](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: резервное копирование и восстановление](sql-database-get-started-backup-recovery-powershell.md)
 ## Разработка приложений
 ### Изучение
@@ -157,67 +161,55 @@
 #### [Обновление с помощью PowerShell](sql-database-upgrade-server-powershell.md)
 # Практическое руководство
 ## Создание и управление
-### [Управление базой данных SQL с помощью портала Azure](sql-database-manage-portal.md)
-### [Управление базой данных SQL с помощью PowerShell](sql-database-manage-powershell.md)
-### [Управление базой данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md)
+### [Управление с помощью портала Azure](sql-database-manage-portal.md)
+### [Управление с помощью PowerShell](sql-database-manage-powershell.md)
+### [Управление с помощью SSMS](sql-database-manage-azure-ssms.md)
 ### Серверы
-#### [Создание серверов](sql-database-create-servers.md)
-#### [Просмотр и обновление параметров сервера](sql-database-view-update-server-settings.md)
+#### [Управление с помощью портала Azure](sql-database-manage-servers-portal.md)
+#### [Управление с помощью PowerShell](sql-database-manage-servers-powershell.md)
 ### Отдельные базы данных
-#### [Создание отдельных баз данных](sql-database-create-databases.md)
-#### [Просмотр и обновление параметров базы данных](sql-database-view-update-database-settings.md)
+#### [Управление с помощью портала Azure](sql-database-manage-single-databases-portal.md)
+#### [Управление с помощью PowerShell](sql-database-manage-single-databases-powershell.md)
+#### [Управление с помощью Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Правила файрволла
-#### [Создание правил брандмауэра с помощью портала Azure](sql-database-configure-firewall-settings.md)
-#### [Создание правил брандмауэра с помощью PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Создание правил брандмауэра с помощью REST API](sql-database-configure-firewall-settings-rest.md)
-#### [Создание правил брандмауэра с помощью T-SQL](sql-database-configure-firewall-settings-tsql.md)
+#### [Создание с помощью портала Azure](sql-database-configure-firewall-settings.md)
+#### [Создание с помощью PowerShell](sql-database-configure-firewall-settings-powershell.md)
+#### [Создание с помощью REST API](sql-database-configure-firewall-settings-rest.md)
+#### [Создание с помощью T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Несколько баз данных
 #### [Обновление клиентской библиотеки в клиентских приложениях](sql-database-elastic-scale-upgrade-client-library.md)
 #### Сегментированные базы данных
 ##### [Конфигурация системы безопасности](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Добавление сегмента](sql-database-elastic-scale-add-a-shard.md)
 ##### [Устранение проблем с картой сегментов](sql-database-elastic-database-recovery-manager.md)
-##### [Преобразование существующих масштабированных баз данных в сегментированные базы данных](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Миграция в сегментированные базы данных](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Создание счетчиков производительности для диспетчера карты сегментов](sql-database-elastic-database-perf-counters.md)
 #### Задания обработки эластичных БД
-##### [Как установить службу заданий обработки эластичных БД?](sql-database-elastic-jobs-service-installation.md)
-##### [Создание заданий обработки эластичных баз данных и управление ими с помощью PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Создание заданий обработки эластичных БД и управление ими на портале Azure](sql-database-elastic-jobs-create-and-manage.md)
-##### [Как удалить задания обработки эластичных БД?](sql-database-elastic-jobs-uninstall.md)
+##### [Установка](sql-database-elastic-jobs-service-installation.md)
+##### [Управление с помощью PowerShell](sql-database-elastic-jobs-powershell.md) 
+##### [Управление с помощью портала Azure](sql-database-elastic-jobs-create-and-manage.md)
+##### [Удаление](sql-database-elastic-jobs-uninstall.md)
 #### Пулы эластичных БД
-##### [Создание с помощью портала Azure](sql-database-elastic-pool-create-portal.md)
-##### [Создание с помощью PowerShell](sql-database-elastic-pool-create-powershell.md)
-##### [Создание с помощью C#](sql-database-elastic-pool-create-csharp.md)
 ##### [Управление с помощью портала Azure](sql-database-elastic-pool-manage-portal.md)
 ##### [Управление с помощью PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ##### [Управление с помощью C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Управление с помощью T-SQL](sql-database-elastic-pool-manage-tsql.md)
-##  Проверка подлинности и авторизация
-### [Проверка подлинности Azure AD](sql-database-aad-authentication.md)
-### [Многофакторная проверка подлинности](sql-database-ssms-mfa-authentication.md)
+## Проверка подлинности и авторизация
+### [Настройка проверки подлинности Azure AD](sql-database-aad-authentication-configure.md)
+### [Настройка многофакторной идентификации](sql-database-ssms-mfa-authentication-configure.md)
+## Настройка обнаружения угроз
+### [Настройка обнаружения угроз с помощью портала Azure](sql-database-threat-detection-portal.md)
 ## Шифрование данных
 ### [Прозрачное шифрование данных](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Шифрование столбцов](https://msdn.microsoft.com/library/azure/ms179331)
-## Перенос баз данных
-### Определение совместимости
-#### [Определение совместимости с помощью служебной программы пакета SQL](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Определение совместимости с помощью SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Устранение проблем совместимости
-#### [Устранение проблем совместимости с помощью SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [Устранение проблем совместимости с помощью SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [Устранение проблем совместимости с помощью SMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Перенос с помощью мастера миграции SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## Мониторинг и настройка
 ### [Анализ производительности запросов](sql-database-query-performance.md)
 ### [Помощник по работе с базами данных SQL](sql-database-advisor-portal.md)
 ### [Динамические административные представления](sql-database-monitoring-with-dmvs.md)
 ### [Уровни совместимости](sql-database-compatibility-level-query-performance-130.md)
 ### [Советы по настройке производительности](sql-database-troubleshoot-performance.md)
-### Изменение уровней служб и уровней производительности
-#### [Изменение уровней служб с помощью портала Azure](sql-database-scale-up.md)
-#### [Изменение уровней служб с помощью PowerShell](sql-database-scale-up-powershell.md)
 ### [Создание оповещений](sql-database-insights-alerts-portal.md)
-#### [Мониторинг хранилища OLTP в памяти](sql-database-in-memory-oltp-monitoring.md)
+### [Мониторинг хранилища OLTP в памяти](sql-database-in-memory-oltp-monitoring.md)
 ### Хранилище запросов
 #### [Мониторинг производительности с использованием хранилища запросов](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Сценарии использования хранилища запросов](https://msdn.microsoft.com/library/mt614796.aspx)
@@ -231,31 +223,30 @@
 #### [Копирование с помощью PowerShell](sql-database-copy-powershell.md)
 #### [Копирование с помощью T-SQL](sql-database-copy-transact-sql.md)
 ### Экспорт базы данных в BACPAC-файл
-#### [Экспорт с помощью портала Azure](sql-database-export.md)
-#### [Экспорт с помощью SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Экспорт с помощью служебной программы пакета SQL](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Экспорт с помощью портала Azure](sql-database-export-portal.md)
+#### [Экспорт с помощью служебной программы пакета SQL](sql-database-export-sqlpackage.md)
 #### [Экспорт с помощью PowerShell](sql-database-export-powershell.md)
-### Импорт базы данных из BACPAC-файла
-#### [Импорт с помощью портала Azure](sql-database-import.md)
-#### [Импорт с помощью PowerShell](sql-database-import-powershell.md)
-#### [Импорт с помощью SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Импорт с помощью служебной программы пакета SQL](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Экспорт с помощью SSMS](sql-database-export-ssms.md)
+## Импорт данных
+### [Импорт с помощью портала Azure](sql-database-import-portal.md)
+### [Импорт с помощью PowerShell](sql-database-import-powershell.md)
+### [Импорт с использованием SQLPackage](sql-database-import-sqlpackage.md)
 ### [Загрузка из CSV-файла с помощью BCP](sql-database-load-from-csv-with-bcp.md)
 ## Запрос
 ### [Создание запросов с помощью SSMS](sql-database-connect-query-ssms.md)
 ## Архивация и восстановление
 ### Долгосрочное хранение резервных копий
-#### [Настройка долгосрочного хранения резервных копий](sql-database-configure-long-term-retention.md)
-#### [Просмотр резервных копий в хранилище служб восстановления](sql-database-view-backups-in-vault.md)
-#### [Восстановление после долгосрочного хранения резервных копий](sql-database-restore-from-long-term-retention.md)
-#### [Удаление резервных копий после долгосрочного хранения](sql-database-long-term-retention-delete.md)
+#### [Управление долгосрочным хранением резервных копий с помощью портала Azure](sql-database-manage-long-term-backup-retention-portal.md)
+#### [Управление долгосрочным хранением резервных копий с помощью PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Восстановление удаленной базы данных
 #### [Восстановление удаленной базы данных с помощью портала Azure](sql-database-restore-deleted-database-portal.md)
 #### [Восстановление удаленной базы данных с помощью PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Восстановление до точки во времени
-#### [Восстановление до точки во времени](sql-database-point-in-time-restore.md)
-#### [Просмотр самой старой точки восстановления](sql-database-view-oldest-restore-point.md)
-### [Восстановление из геоизбыточной резервной копии](sql-database-geo-restore.md)
+### Восстановление базы данных до точки во времени
+#### [Восстановление до точки во времени с помощью портала Azure](sql-database-point-in-time-restore-portal.md)
+#### [Восстановление базы данных до точки во времени с помощью PowerShell](sql-database-point-in-time-restore-powershell.md)
+### Восстановление из геоизбыточной резервной копии
+### [Геовосстановление с помощью портала Azure](sql-database-geo-restore-portal.md)
+### [Геовосстановление с помощью PowerShell](sql-database-geo-restore-powershell.md)
 ## Активная георепликация
 ### [Настройка с помощью портала Azure](sql-database-geo-replication-portal.md)
 ### [Настройка с помощью PowerShell](sql-database-geo-replication-powershell.md)
