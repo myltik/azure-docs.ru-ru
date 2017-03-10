@@ -4,7 +4,7 @@ description: "Здесь содержится информация о парам
 services: active-directory
 keywords: "что такое Enterprise State Roaming, корпоративная синхронизация, облако Windows"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0

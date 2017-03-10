@@ -4,7 +4,7 @@ description: "В статье содержится информация о си�
 services: active-directory
 keywords: "параметры enterprise state roaming, облако windows, часто задаваемые вопросы о решении enterprise state roaming"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: swadhwa
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7

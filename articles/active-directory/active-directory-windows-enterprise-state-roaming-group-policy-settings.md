@@ -5,7 +5,7 @@ description: "Здесь содержатся сведения о парамет
 services: active-directory
 keywords: "что такое параметры групповой политики и MDM для службы Enterprise State Roaming, служба Enterprise State Roaming, облако Windows"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252

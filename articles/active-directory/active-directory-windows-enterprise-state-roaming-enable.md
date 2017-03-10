@@ -5,7 +5,7 @@ description: "Часто задаваемые вопросы о параметр
 services: active-directory
 keywords: "Enterprise State Roaming, облака Windows, включение службы Enterprise State Roaming"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
