@@ -12,10 +12,9 @@
 ### [Разрешение имен](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Начало работы
-## [Создание виртуальной сети](virtual-networks-create-vnet-arm-pportal.md)
-## [Развертывание виртуальной машины в виртуальной сети](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Создание первой собственной виртуальной сети](virtual-network-get-started-vnet-subnet.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Планирование и проектирование
 ### [Виртуальные сети](virtual-network-vnet-plan-design-arm.md)
 ### [Группы безопасности сети](virtual-networks-nsg.md)
@@ -146,8 +145,3 @@
 ## [Форум по сетям](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

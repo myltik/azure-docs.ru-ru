@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 3eb5f21eed1c583587cf7642db4e70102c818348
+ms.sourcegitcommit: d72ff7449a87dfa9223b7c5e77446de23502eb84
+ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array--set-up-your-virtual-device-as-an-iscsi-server"></a>Развертывание виртуального массива StorSimple — настройка виртуального устройства в качестве сервера iSCSI
+# <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Развертывание виртуального массива StorSimple. Установка в качестве сервера iSCSI на портале Azure
 
 ![последовательность операций процесса настройки сервера iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
@@ -193,7 +194,7 @@ ms.openlocfilehash: 3eb5f21eed1c583587cf7642db4e70102c818348
 4. В окне **свойств инициатора iSCSI** на вкладке **Конечные объекты** найдите элемент **Обнаруженные конечные объекты**. (Каждый том будет таким обнаруженным объектом.) Устройство должно быть в состоянии **Неактивно**.
    
     ![целевые объекты](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Выберите целевое устройство и нажмите кнопку **Подключить**. После подключения устройства состояние должно измениться на **Подключено**. (Дополнительные сведения об использовании инициатора Microsoft iSCSI см. в статье [Installing and Configuring Microsoft iSCSI Initiator][1] (Установка и настройка инициатора Microsoft iSCSI).
+5. Выберите целевое устройство и нажмите кнопку **Подключить**. После подключения устройства состояние должно измениться на **Подключено**. (Дополнительные сведения об использовании инициатора Microsoft iSCSI см. в статье [Installing and Configuring Microsoft iSCSI Initiator][1] (Установка и настройка инициатора Microsoft iSCSI)).
    
     ![выбор целевого устройства](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. На узле Windows нажмите клавиши Windows + X, а затем щелкните **Выполнить**.
@@ -244,10 +245,5 @@ ms.openlocfilehash: 3eb5f21eed1c583587cf7642db4e70102c818348
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

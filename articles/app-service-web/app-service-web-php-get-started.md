@@ -4,7 +4,7 @@ description: "В этом руководстве описывается, как 
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: mysql
 ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 487fde71fb28d5ee4666be208d3acfc0de27bed9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-php-get-started.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-php-get-started.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [PHP 7.0](http://php.net/downloads.php)
@@ -146,7 +147,7 @@ ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
 * Настройте PHP версии 5.6.4 или более поздней. Ознакомьтесь с полным списком требований к серверу Laravel 5.3 в разделе [Server Requirements](https://laravel.com/docs/5.3#server-requirements) (Требования к серверу). В остальной части списка содержатся расширения, которые включены при установке PHP в Azure. 
 * Укажите переменные среды, необходимые для приложения. Чтобы легко задать переменные среды, в приложении Laravel используется файл `.env`. Но так как он не должен фиксироваться в системе управления версиями (см. раздел о [настройке среды для приложения Laravel](https://laravel.com/docs/5.3/configuration#environment-configuration)), вместо этого вы можете настроить параметры для веб-приложения Azure.
 * Сначала загрузите точку входа приложения Laravel `public/index.php`. Ознакомьтесь с [обзором жизненного цикла Laravel](https://laravel.com/docs/5.3/lifecycle#lifecycle-overview). Другими словами, необходимо задать корневой URL-адрес веб-приложения, указывающий на каталог `public`.
-* Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push`Composer будет контролировать получение требуемых пакетов. Так удобнее. 
+* Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push` Composer будет контролировать получение требуемых пакетов. Так удобнее. 
   Если автоматизация Composer не включена, необходимо просто удалить `/vendor` из файла `.gitignore`, чтобы Git включал ("не игнорировал") все содержимое каталога `vendor` во время выполнения и развертывания кода.
 
 Давайте последовательно выполним эти задачи.
@@ -162,7 +163,7 @@ ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
         php artisan key:generate --show
         az appservice web config appsettings update --settings APP_KEY="<output_of_php_artisan_key:generate_--show>" --name <app_name> --resource-group my-php-app-group
 
-3. Включите отладку Laravel, чтобы устранять все зашифрованные страницы `Whoops, looks like something went wrong.` .
+3. Включите отладку Laravel, чтобы устранять все зашифрованные страницы `Whoops, looks like something went wrong.`.
    
         az appservice web config appsettings update --settings APP_DEBUG=true --name <app_name> --resource-group my-php-app-group
    
@@ -274,10 +275,5 @@ ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
 * [Настройка PHP в веб-приложениях службы приложений Azure](web-sites-php-configure.md)
 * [Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure](web-sites-php-convert-wordpress-multisite.md)
 * [Сайт WordPress корпоративного класса в службе приложений Azure](web-sites-php-enterprise-wordpress.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

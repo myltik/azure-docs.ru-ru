@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
-ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
-
+ms.sourcegitcommit: f3b1593a80e6eedc08005988d485a317951efd33
+ms.openlocfilehash: ad2beff5bbc6aaa18247939ccfe310460f9ccdee
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Виртуальные машины серии A (для ресурсоемких вычислений) и серии H
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Сведения об экземплярах серии H и серии A для ресурсоемких вычислений для Linux
 Здесь приводятся общие сведения и некоторые рекомендации по использованию экземпляров виртуальных машин Azure новой серии H и более ранних размеров A8, A9, A10 и A11 (экземпляров для *ресурсоемких вычислений* ). Эта статья посвящена применению этих размеров на виртуальных машинах Linux. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Основные характеристики, сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -128,10 +129,5 @@ done
 * Дополнительные сведения о доступности и стоимости размеров ВМ, предназначенных для ресурсоемких вычислений, вы найдете на странице с [ценами на виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Чтобы приступить к развертыванию и использованию виртуальных машин Linux для ресурсоемких вычислений с поддержкой RDMA, изучите статью [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

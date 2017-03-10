@@ -4,7 +4,7 @@ description: "В этой статье объясняется, как включ
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5943276236d239e8ee2eba302f52e9445203564d
+ms.sourcegitcommit: 6bfbb0b5eaae3fb3ce45d719ea1d3dec48ed0467
+ms.openlocfilehash: 359aaa1af6765270d9fe0f449007fcb4323b0ad4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="turn-your-storsimple-device-on-or-off"></a>Включение и выключение устройства StorSimple
+# <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Включение и отключение устройства StorSimple серии 8000
 ## <a name="overview"></a>Обзор
 При нормальной работе системы завершать работу устройства Microsoft Azure StorSimple не обязательно. Тем не менее может возникнуть необходимость включить новое устройство или устройство, работу которого требовалось завершить. Как правило, завершение работы требуется в случаях, когда необходимо заменить неисправное оборудование, физически переместить устройство или прекратить его использование. В этом руководстве описывается процедура включения и выключения устройства StorSimple в различных ситуациях.
 
@@ -187,10 +189,5 @@ ms.openlocfilehash: 5943276236d239e8ee2eba302f52e9445203564d
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Contact Microsoft Support](storsimple-contact-microsoft-support.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

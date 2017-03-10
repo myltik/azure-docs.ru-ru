@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
 ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
 
 Дополнительные сведения о функции автономной синхронизации см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
-## <a name="a-namereview-syncareview-the-client-sync-code"></a><a name="review-sync"></a>Просмотр кода синхронизации клиента
+## <a name="review-sync"></a>Просмотр кода синхронизации клиента
 Клиентский проект, скачанный для изучения руководства [Создание приложения iOS], уже содержит код, который поддерживает автономную синхронизацию с использованием локальной базы данных Core Data. В этом разделе приводится краткое содержание материала, уже включенного в код руководства. Общие сведения об этой функции см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
 С помощью функции автономной синхронизации данных в мобильных приложениях конечные пользователи могут взаимодействовать с локальной базой данных даже в тех случаях, когда сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать контекст синхронизации `MSClient` и указать ссылку на локальное хранилище. Затем необходимо сослаться на таблицу с помощью интерфейса **MSSyncTable**.
@@ -48,6 +49,7 @@ ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**. В методе **ToDoTableViewController.viewDidLoad**:
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
@@ -135,7 +137,7 @@ ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
 
 Так как приложение выполняет синхронизацию всякий раз, когда изменяются данные (Objective-C), или при каждом запуске приложения (Objective-C и Swift), то приложение предполагает, что пользователь находится в сети. В следующем разделе будет выполнено обновление приложения, чтобы пользователи могли изменять данные, даже работая в автономном режиме.
 
-## <a name="a-namereview-core-dataareview-the-core-data-model"></a><a name="review-core-data"></a>Обзор модели Core Data
+## <a name="review-core-data"></a>Обзор модели Core Data
 При использовании автономного хранилища Core Data необходимо определить конкретные таблицы и поля в модели данных. Пример приложения уже содержит модель данных с подходящим форматом. В этом разделе мы рассмотрим эти таблицы и покажем, как их использовать.
 
 Откройте **QSDataModel.xcdatamodeld**. Определено четыре таблицы — три используются пакетом SDK, а одна предназначена для самих элементов списка дел.
@@ -202,7 +204,7 @@ ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
 | дата обновления | Дата | (необязательно) Сопоставляется с системным свойством **updatedAt** |
 | версия | Строка | (необязательно) Используется для обнаружения конфликтов, сопоставляется со свойством version |
 
-## <a name="a-namesetup-syncachange-the-sync-behavior-of-the-app"></a><a name="setup-sync"></a>Изменение режима синхронизации приложения
+## <a name="setup-sync"></a>Изменение режима синхронизации приложения
 В этом разделе приложение изменяется так, чтобы оно не синхронизировалось при запуске или при вставке и обновлении элементов. Оно синхронизируется только при выполнении жеста обновления.
 
 **Objective-C**:
@@ -231,7 +233,7 @@ ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>Тестирование приложения
+## <a name="test-app"></a>Тестирование приложения
 В этом разделе описывается подключение к недействительному URL-адресу для имитации сценария автономной работы. При добавлении элементов данных они хранятся в локальном хранилище Core Data, но не синхронизируются с серверной частью мобильного приложения.
 
 1. Измените URL-адрес мобильного приложения в файле **QSTodoService.m** на недействительный и снова запустите приложение:
@@ -285,9 +287,4 @@ ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

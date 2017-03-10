@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 02/28/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 71476ae63d2394e7edefa10b8c71d15c04190290
-ms.openlocfilehash: 299e06bf6d4bd3af5d6dc7496ba9a947f42c19b7
+ms.sourcegitcommit: 02b905b12344f23e0eb3b8d0a1969bf7c491119e
+ms.openlocfilehash: 0f7412d9ed3cacb043a5cf3f21d6109eeeeb074c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 299e06bf6d4bd3af5d6dc7496ba9a947f42c19b7
 
 Прежде чем мы продолжим, вам следует сохранить приведенные ниже ресурсы. Они помогут вам при интеграции отчетов Power BI в пример приложения, а также в собственные приложения.
 
-* [Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Пример веб-приложения рабочей области](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Справочник по API Power BI Embedded](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
 * [Пакет SDK Power BI Embedded для .NET ](http://go.microsoft.com/fwlink/?LinkId=746472) (доступен в NuGet)
 * [Пример внедрения отчета JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
@@ -68,7 +69,7 @@ Checking import state... Succeeded
 На этом этапе у вас есть PBIX-файл отчета Power BI, импортированный в **рабочую область**. Теперь рассмотрим, как запустить пример веб-приложения **Power BI Embedded**.
 
 ## <a name="run-the-sample-web-app"></a>Запуск примера веб-приложения
-Пример веб-приложения представляет собой пример панели мониторинга, на которой отображаются отчеты, импортированные в **рабочую область**. Вот как настроить пример веб-приложения.
+Пример веб-приложения представляет собой приложение, в котором отображаются отчеты, импортированные в **рабочую область**. Вот как настроить пример веб-приложения.
 
 1. В решении **PowerBI-embedded** Visual Studio щелкните веб-приложение **EmbedSample** правой кнопкой мыши и выберите **Назначить запускаемым проектом**.
 2. В файле **web.config** в веб-приложении **EmbedSample** измените параметры приложения **appSettings**: ключ доступа **AccessKey**, имя коллекции рабочих областей **WorkspaceCollection** и идентификатор рабочей области **WorkspaceId**.
@@ -93,7 +94,7 @@ Checking import state... Succeeded
 
 ## <a name="explore-the-sample-code"></a>Изучение примера кода
 
-Пример **Microsoft Power BI Embedded** представляет собой панель мониторинга веб-приложения и показывает, как интегрировать отчеты **Power BI** в приложение. Для демонстрации рекомендаций в нем используется шаблон проектирования "модель-представление-контроллер" (MVC). В этом разделе описаны части примера кода, которые можно изучить в решении веб-приложения **PowerBI-embedded**. Шаблон "модель-представление-контроллер" (MVC) разбивает модель домена, представление и действия на основе ввода пользователя на три различных класса: модель, представление и контроллер. Дополнительные сведения о MVC см. в документации [ASP.NET](http://www.asp.net/mvc).
+Пример **Microsoft Power BI Embedded** представляет собой веб-приложение и показывает, как интегрировать отчеты **Power BI** в приложение. Для демонстрации рекомендаций в нем используется шаблон проектирования "модель-представление-контроллер" (MVC). В этом разделе описаны части примера кода, которые можно изучить в решении веб-приложения **PowerBI-embedded**. Шаблон "модель-представление-контроллер" (MVC) разбивает модель домена, представление и действия на основе ввода пользователя на три различных класса: модель, представление и контроллер. Дополнительные сведения о MVC см. в документации [ASP.NET](http://www.asp.net/mvc).
 
 Пример кода **Microsoft Power BI Embedded** разбивается следующим образом. Каждая часть включает имя файла для решения PowerBI-embedded.sln, поэтому вы легко найдете соответствующий код в примере.
 
@@ -241,13 +242,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > {tableName/fieldName} не может содержать пробелы или специальные знаки. {FieldValue} принимает одно дискретное значение.  
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
-* [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
+[Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)  
+[Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

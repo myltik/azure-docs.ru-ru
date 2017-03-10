@@ -4,7 +4,7 @@ description: "В статье содержится информация о си�
 services: active-directory
 keywords: "параметры enterprise state roaming, облако windows, часто задаваемые вопросы о решении enterprise state roaming"
 documentationcenter: 
-author: femila
+author: tanning
 manager: swadhwa
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 58a583a761a400d8fa0488fbc4fbfec35ec62c41
 ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -172,9 +173,4 @@ ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
 * [Часто задаваемые вопросы о перемещении параметров и данных](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Group policy and MDM settings for settings sync (Параметры групповой политики и управления мобильными устройствами)](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -3,7 +3,7 @@ title: "Подключение присоединенных к домену ус
 description: "Описание настройки групповой политики, которая позволяет присоединять устройства к домену в корпоративной сети."
 services: active-directory
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: 
 tags: azure-classic-portal
@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 7d141adf04cfb99e57c63ba62de4a7dad9ab8326
 ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -63,10 +64,5 @@ ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
 * [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

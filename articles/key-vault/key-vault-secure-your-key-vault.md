@@ -17,6 +17,7 @@ ms.author: ambapat
 translationtype: Human Translation
 ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
 ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -171,7 +172,7 @@ $kv = New-AzureRmKeyVault -VaultName ContosoKeyVault -ResourceGroup ContosoAppRG
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
 # Data plane permissions for Security team
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionToKeys backup,create,delete,get,import,list,restore -PermissionToSecrets all
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets all
 
 # Management plane permissions for Dev/ops
 # Create a new role from an existing role
@@ -179,17 +180,17 @@ $devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from key vault"
-$devlopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
+$devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $role
+New-AzureRmRoleDefinition -Role $devopsrole
 
 # Assign this newly defined role to Dev ops security group
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 Определенную пользовательскую роль можно назначить только подписке, где создана группа ресурсов ContosoAppRG. Если одни и те же пользовательские роли будут использоваться для других проектов в других подписках, в область могут быть добавлены несколько подписок.
@@ -249,10 +250,5 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 Дополнительные сведения об использовании ключей и секретов с помощью хранилища ключей Azure см. в статье [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623.aspx) (О ключах, секретах и сертификатах).
 
 Если у вас возникли вопросы о хранилище ключей, посетите [форумы хранилища ключей Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

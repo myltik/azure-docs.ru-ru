@@ -4,7 +4,7 @@ description: "Узнайте, как использовать мобильные
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
 ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,12 +27,12 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 ## <a name="summary"></a>Сводка
 В этом учебнике вы добавляете проверку подлинности в учебный проект ToDoList для Apache Cordova с помощью поддерживаемого поставщика удостоверений. Этот учебник создан на основе учебника [Начало работы с мобильными службами] , который необходимо изучить в первую очередь.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Теперь можно убедиться, что анонимный доступ к серверной части был отключен. В Visual Studio:
@@ -42,7 +43,7 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 
 Далее следует изменить приложение таким образом, чтобы оно аутентифицировало пользователей, прежде чем запрашивать ресурсы из серверной части мобильного приложения.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 1. Откройте проект в **Visual Studio**, а затем откройте файл `www/index.html` для редактирования.
 2. Найдите мета-тег `Content-Security-Policy` в разделе head.  Добавьте узел OAuth в список допустимых источников.
 
@@ -92,7 +93,7 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 4. В коде, который вы только что добавили, замените `SDK_Provider_Name` именем своего поставщика входа. Например, для Azure Active Directory используйте `client.login('aad')`.
 5. Запустите проект.  Когда инициализация проекта будет завершена, в приложении откроется страница входа OAth для выбранного поставщика аутентификации.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [аутентификации] с использованием службы приложений Azure.
 * Продолжите работу с учебником, добавив в приложение Apache Cordova [push-уведомления] .
 
@@ -110,9 +111,4 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 [Пакет SDK для Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

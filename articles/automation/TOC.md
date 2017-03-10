@@ -1,12 +1,16 @@
 # Обзор
 ## [Что такое служба автоматизации Azure?](automation-intro.md)
-## [Безопасность в службе автоматизации Azure](automation-security-overview.md)
 # Начало работы
 ## [Создание модуля Runbook](automation-first-runbook-graphical.md)
 ## [Создание модуля Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 ## [Создание модуля Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 ## [Управление доступом на основе ролей](automation-role-based-access-control.md)
 # Практическое руководство
+## Настройка проверки подлинности
+### [Проверка подлинности в службе автоматизации Azure](automation-security-overview.md)
+### [Учетная запись запуска от имени Azure](automation-sec-configure-azure-runas-account.md)
+### [Управление службами Azure и Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Создание модулей Runbook
 ### [Типы Runbook](automation-runbook-types.md)
 ### [Создание и импорт модулей Runbook](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Управление данными службы автоматизации Azure](automation-managing-data.md)
 ### [Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Развертывание управления конфигурацией (DSC)
-### [Настройка требуемого состояния (DSC)](automation-dsc-overview.md)
-### [Начало работы](automation-dsc-getting-started.md)
+### [Общие сведения о настройке требуемого состояния (DSC)](automation-dsc-overview.md)
+### [Приступая к работе](automation-dsc-getting-started.md)
 ### [Подключение виртуальных машин для управления](automation-dsc-onboarding.md)
 ### [Компиляция конфигураций DSC](automation-dsc-compile.md)
 ### [Непрерывное развертывание с помощью Chocolatey](automation-dsc-cd-chocolatey.md)
-## Настройка проверки подлинности
-### [Управление службами Azure и Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Учетная запись запуска от имени Azure](automation-sec-configure-azure-runas-account.md)
 ## Ресурсы службы автоматизации
 ### [Сертификаты](automation-certificates.md)
 ### [Подключения](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Обновление модулей Azure PowerShell](automation-update-azure-modules.md)
 ## Автоматизация сценариев
 ### [Коллекция Runbook](automation-runbook-gallery.md)
-### [Запуск и остановка виртуальных машин](automation-solution-startstopvm-graphical.md)
-### [Запуск и остановка виртуальных машин с помощью PowerShell](automation-solution-startstopvm-psworkflow.md)
 ### [Создание виртуальной машины Amazon Web Service](automation-scenario-aws-deployment.md)
 ### [Исправление неполадок с помощью оповещения о виртуальной машине Azure](automation-azure-vm-alert-integration.md)
 ### [Запуск и остановка виртуальной машины с помощью тегов JSON](automation-scenario-start-stop-vm-wjson-tags.md)

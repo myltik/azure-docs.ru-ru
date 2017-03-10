@@ -1,6 +1,7 @@
 
 # Обзор
 ## [Что такое DocumentDB?](documentdb-introduction.md)
+## [Что такое DocumentDB: API для MongoDB?](documentdb-protocol-mongodb.md)
 ## [Ключевые понятия](documentdb-resources.md)
 ## [Глобальное распределение](documentdb-distribute-data-globally.md)
 ## [Анализ совокупной стоимости владения базой данных NoSQL](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [Консольное приложение .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Консольное приложение Java](documentdb-java-get-started.md)
 ### [Консольное приложение Node.js](documentdb-nodejs-get-started.md)
+### [Консольное приложение node.js для API-интерфейсов MongoDB](documentdb-mongodb-samples.md)
 ### [Консольное приложение C++](documentdb-cpp-get-started.md)
 ## Создание веб-приложения
 ### [Веб-приложение .NET](documentdb-dotnet-application.md)
+### [Веб-приложение .NET для API-интерфейсов MongoDB](documentdb-mongodb-application.md)
 ### [Веб-приложение Node.js](documentdb-nodejs-application.md)
 ### [Веб-приложение Java](documentdb-java-application.md)
 ### [Веб-приложения Python Flask](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Управление
 ### [Импорт данных](documentdb-import-data.md)
+### [Импорт в API для MongoDB](documentdb-mongodb-migrate.md)
+### [Подключение к учетной записи MongoDB](documentdb-connect-mongodb-account.md)
+### [Использование MongoChef](documentdb-mongodb-mongochef.md)
+### [Использование Robomongo](documentdb-mongodb-robomongo.md)
 ### [Моделирование данных](documentdb-modeling-data.md)
 ### [Использование геопространственных данных](documentdb-geospatial.md)
 ### [Разработка для нескольких регионов](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Рекомендации
 #### [Архитектура с несколькими источниками](documentdb-multi-region-writers.md)
 #### [Дата и время](documentdb-working-with-dates.md)
-
-## Поддержка DocumentDB для MongoDB
-### [Протокол поддержки для MongoDB](documentdb-protocol-mongodb.md)
-### [Создание учетной записи](documentdb-create-mongodb-account.md)
-### [Подключение к учетной записи](documentdb-connect-mongodb-account.md)
-### [Перенос данных](documentdb-mongodb-migrate.md)
-### [Использование Robomongo](documentdb-mongodb-robomongo.md)
-### [Использование MongoChef](documentdb-mongodb-mongochef.md)
-### [Примеры поддержки протокола](documentdb-mongodb-samples.md)
 
 ## Использование портала
 ### [Создание учетной записи базы данных](documentdb-create-account.md)

@@ -50,7 +50,7 @@ ms.lasthandoff: 03/01/2017
 * Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.  
 * Достаточный объем хранилища в Azure для журналов хранилищ ключей.
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Подключение к подпискам
+## <a id="connect"></a>Подключение к подпискам
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:  
 
     Login-AzureRmAccount
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/01/2017
 
 Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Создание учетной записи хранения для журналов
+## <a id="storage"></a>Создание учетной записи хранения для журналов
 Хотя вы можете использовать и существующую учетную запись хранения для журналов, мы создадим новую учетную запись, которая будет использоваться для сбора данных хранилища ключей. Эти сведения нам нужно будет указать позже. Сейчас же для удобства работы мы сохраним их в переменной с именем **sa**.
 
 Чтобы упростить управление, мы также будем использовать ту же группу ресурсов, которая содержит наше хранилище ключей. Согласно инструкциям из руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) эта группа ресурсов называется **ContosoResourceGroup**. Кроме того, мы будем продолжать использовать регион "Восточная Азия". Замените эти значения собственными.
@@ -80,13 +80,13 @@ ms.lasthandoff: 03/01/2017
 > 
 > 
 
-## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>Определение хранилища ключей для журналов
+## <a id="identify"></a>Определение хранилища ключей для журналов
 В руководстве по началу работы мы присвоили хранилищу ключей имя **ContosoKeyVault**. Мы продолжим использовать это имя, сохранив данные в переменной с именем **kv**.
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Включение ведения журналов
+## <a id="enable"></a>Включение ведения журналов
 Мы включим ведение журналов хранилища ключей с помощью командлета Set-AzureRmDiagnosticSetting и переменных, которые мы создали для новой учетной записи хранения и хранилища ключей. Мы также установим для флага **-Enabled** значение **$true** и зададим категорию AuditEvent (единственная категория для ведения журнала хранилища ключей):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -117,7 +117,7 @@ ms.lasthandoff: 03/01/2017
 * операции с ключами и секретами в хранилище ключей, включая создание, изменение или удаление этих ключей и секретов; операции подписания, проверки, шифрования, расшифровки, упаковки и распаковки ключей; операции получения секретов, списка ключей, а также секретов и их версий.
 * непроверенные запросы, которые приводят к появлению ответа 401 (например, запросы без токена носителя, с недействительным токеном, а также запросы неправильного формата или просроченные запросы).  
 
-## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Доступ к журналам
+## <a id="access"></a>Доступ к журналам
 Журналы хранилища ключей хранятся в контейнере **insights-logs-auditevent** в указанной вами учетной записи хранения. Чтобы получить список всех больших двоичных объектов (BLOB-объектов) в этом контейнере, введите следующее.
 
     Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
@@ -172,7 +172,7 @@ ms.lasthandoff: 03/01/2017
 * Запрос состояния параметров диагностики для ресурса хранилища ключей: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * Отключение ведения журнала для ресурса хранилища ключей: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Интерпретация журналов хранилища ключей
+## <a id="interpret"></a>Интерпретация журналов хранилища ключей
 Отдельные BLOB-объекты хранятся как текст в формате JSON. Вот пример записи журнала после выполнения команды `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -253,11 +253,11 @@ ms.lasthandoff: 03/01/2017
 | SecretList |[Список секретов в хранилище](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Список версий секрета](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Использование Log Analytics
+## <a id="loganalytics"></a>Использование Log Analytics
 
 Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы AuditEvent хранилища ключей Azure. Дополнительные сведения, включая инструкции по настройке, см. в статье [Решение Azure Key Vault Analytics в Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). В этой статье также содержатся инструкции на случай переноса из старого решения Key Vault, которое предлагалось в предварительной версии Log Analytics, где сначала требовалось направить журналы в учетную запись хранения Azure и настроить Log Analytics для чтения из этой учетной записи.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
+## <a id="next"></a>Дальнейшие действия
 Руководство по использованию хранилища ключей Azure в веб-приложении см. в статье [Использование хранилища ключей Azure из веб-приложения](key-vault-use-from-web-application.md).
 
 Справочные материалы по программированию см. в статье [Руководство разработчика хранилища ключей Azure](key-vault-developers-guide.md).

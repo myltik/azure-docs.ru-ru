@@ -1,28 +1,7 @@
 ---
-title: "Создание реестра контейнеров Azure с помощью портала | Документация Майкрософт"
-description: "Приступите к созданию реестров контейнеров и управлению ими на портале Azure"
-services: container-registry
-documentationcenter: 
-author: stevelas
-manager: balans
-editor: dlepow
-tags: 
-keywords: 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
-ms.service: container-registry
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2016
-ms.author: stevelas
-translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+title: Создание реестра контейнеров Azure с помощью портала | Документация Майкрософт description: Приступите к созданию реестров контейнеров и управлению ими на портале Azure services: container-registry documentationcenter: '' author: stevelas manager: balans editor: dlepow tags: ''keywords: ''
 
----
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Создание реестра контейнеров на портале Azure
-На портале Azure можно создать реестр контейнеров и управлять его параметрами. Кроме того, эти действия можно выполнять с помощью команд [предварительной версии Azure CLI 2.0](container-registry-get-started-azure-cli.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry ms.devlang: na ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: na ms.date: 11/14/2016 ms.author: stevelas ---# Создание реестра контейнеров с помощью портала Azure Создание реестра контейнеров и управление его параметрами с помощью портала Azure. Кроме того, эти действия можно выполнять с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
 
 Общие сведения и основные понятия см. в статье о [реестре контейнеров Azure](container-registry-intro.md).
 
@@ -52,7 +31,9 @@ ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
    > [!IMPORTANT]
    > Кроме предоставления доступа с помощью учетной записи пользователя-администратора, реестры контейнеров также поддерживают проверку подлинности с использованием субъектов-служб Azure Active Directory. Дополнительные сведения и рекомендации см. в статье [Authenticate with the container registry](container-registry-authentication.md) (Проверка подлинности с помощью реестра контейнеров).
    
-    д. **Учетная запись хранения.** Создайте [учетную запись хранения](../storage/storage-introduction.md), используя параметры по умолчанию, или выберите имеющуюся в том же расположении. Обратите внимание на то, что классические учетные записи хранения и учетные записи хранения уровня "Премиум" не поддерживаются.
+
+    д. **Учетная запись хранения.** Создайте [учетную запись хранения](../storage/storage-introduction.md), используя параметры по умолчанию, или выберите имеющуюся в том же расположении. Хранилище класса Premium сейчас не поддерживается.
+
 
 ## <a name="manage-registry-settings"></a>Управление параметрами реестра
 После создания реестра откройте на портале колонку **Container Registry (предварительная версия)**, чтобы просмотреть его параметры. Например, здесь можно просмотреть параметры входа в реестр, а также включить или отключить пользователя с правами администратора.
@@ -72,11 +53,5 @@ ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отправка первого образа с помощью интерфейса командной строки Docker](container-registry-get-started-docker-cli.md)
 
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

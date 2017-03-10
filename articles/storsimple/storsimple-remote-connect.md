@@ -4,7 +4,7 @@ description: "Объясняется, как настроить устройст
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 923377aa-f451-4656-87de-5e95a34a6a2a
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
-ms.openlocfilehash: 63bdf5e5cecbb473a18965e311be06abc72cacc7
+ms.sourcegitcommit: 5760c4a381a10fd1619b0239dd38e41d88f495e5
+ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-remotely-to-your-storsimple-device"></a>Удаленное подключение к устройству StorSimple
+# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Удаленное подключение к устройству StorSimple серии 8000
+
 ## <a name="overview"></a>Обзор
 Для подключения к устройству StorSimple можно использовать удаленное взаимодействие Windows PowerShell. При таком способе подключения меню не отображается. (Меню появляется только при подключении к устройству с помощью последовательной консоли.) При использовании удаленного взаимодействия Windows PowerShell вы подключаетесь к конкретному пространству выполнения. Также можно указать язык интерфейса. 
 
@@ -233,10 +236,5 @@ ms.openlocfilehash: 63bdf5e5cecbb473a18965e311be06abc72cacc7
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
 * Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

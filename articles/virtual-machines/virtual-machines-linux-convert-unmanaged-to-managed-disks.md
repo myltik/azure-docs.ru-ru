@@ -1,6 +1,6 @@
 ---
 title: "Преобразование виртуальной машины Linux в Azure с неуправляемыми дисками для использования управляемых дисков | Документация Майкрософт"
-description: "Преобразование виртуальной машины с неуправляемыми дисками для использования Управляемых дисков Azure с помощью Azure CLI 2.0 (предварительная версия)."
+description: "Как преобразовать виртуальную машину с неуправляемыми дисками для использования Управляемых дисков Azure с помощью Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ef59fc785847f09706a565dc0a0471f8c08e7955
-ms.openlocfilehash: 71e0bfb230cc0c385a09243fa195e918bbade865
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -98,9 +99,4 @@ ms.openlocfilehash: 71e0bfb230cc0c385a09243fa195e918bbade865
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о возможностях хранения данных доступны в [обзоре Управляемых дисков Azure](../storage/storage-managed-disks-overview.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

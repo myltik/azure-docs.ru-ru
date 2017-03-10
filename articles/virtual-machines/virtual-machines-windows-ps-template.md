@@ -1,25 +1,30 @@
-<properties
-  pageTitle="Создание виртуальной машины с помощью шаблона Resource Manager | Документация Майкрософт"
-  description="Простое создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell."
-  services="virtual-machines-windows" 
-  documentationcenter=""
-  author="davidmu1"
-  manager="timlt"
-  editor=""
-  tags="azure-resource-manager"/>
+---
+title: "Создание виртуальной машины Windows с помощью шаблона в Azure | Документация Майкрософт"
+description: "Простое создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell."
+services: virtual-machines-windows
+documentationcenter: 
+author: davidmu1
+manager: timlt
+editor: 
+tags: azure-resource-manager
+ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: davidmu
+ms.custom: H1Hack27Feb2017
+translationtype: Human Translation
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: c1c301b5687cf35e93698a66fac7103b0cc90aed
+ms.lasthandoff: 03/01/2017
 
-<tags
-  ms.assetid="19129d61-8c04-4aa9-a01f-361a09466805"
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="01/06/2017"
-  ms.author="davidmu"/>
 
+---
 
-# <a name="create-a-windows-virtual-machine-with-a-resource-manager-template"></a>Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Создание виртуальной машины Windows с использованием шаблона Resource Manager
 
 В этой статье описывается развертывание шаблона Azure Resource Manager с помощью PowerShell. Этот [шаблон](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) позволяет выполнить развертывание одной виртуальной машины под управлением Windows Server в новой виртуальной сети с одной подсетью.
 
@@ -95,10 +100,5 @@ DeploymentDebugLogLevel :
 ## <a name="next-steps"></a>Дальнейшие действия
 * При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

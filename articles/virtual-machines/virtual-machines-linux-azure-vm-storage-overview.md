@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
-ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -47,7 +48,7 @@ ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Создание виртуальной машины на основе управляемого диска
 
-В следующем примере вам понадобится Azure CLI 2.0 (предварительная версия), которую можно установить [здесь].
+В следующем примере вам понадобится Azure CLI 2.0, который можно установить, скачав [отсюда].
 
 Сначала создайте группу ресурсов для управления ресурсами:
 
@@ -238,10 +239,5 @@ Microsoft Cloud Germany обеспечивает дифференцирован�
 
 ## <a name="storage-limits"></a>Ограничения хранилища
 * [Ограничения службы хранилища](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

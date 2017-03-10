@@ -3,7 +3,7 @@ title: "Добавление push-уведомлений в приложение
 description: "Узнайте, как использовать мобильные приложения Azure для отправки push-уведомлений в приложение Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: erikre
+manager: adrianha
 editor: 
 author: ysxu
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
 ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 
 Если вы не используете скачанный проект сервера, необходимо добавить пакет расширений для push-уведомлений. Дополнительные сведения см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure][1].
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 В этом руководстве используется приложение Apache Cordova, разработанное в Visual Studio 2015 и выполняемое в эмуляторе Google Android, а также устройства Android, Windows и iOS.
 
 Для работы с этим учебником необходимы указанные ниже компоненты.
@@ -41,7 +42,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 * для iOS: [участие в программе разработки решений для Apple][7] и устройство iOS (симулятор iOS не поддерживает push-уведомления);
 * для Windows: [учетная запись разработчика приложений для Магазина Windows][8] и устройство Windows 10.
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Настройка концентратора уведомлений
+## <a name="configure-hub"></a>Настройка концентратора уведомлений
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 [Просмотрите видео, в котором показаны действия, описанные в этом разделе.][9]
@@ -49,7 +50,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 ## <a name="update-the-server-project"></a>Обновление серверного проекта
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="a-nameadd-push-to-appamodify-your-cordova-app"></a><a name="add-push-to-app"></a>Изменение приложения Cordova
+## <a name="add-push-to-app"></a>Изменение приложения Cordova
 Убедитесь, что проект приложения Apache Cordova готов для обработки push-уведомлений. Для этого установите подключаемый модуль push-уведомлений Cordova, а также все службы push-уведомлений для конкретной платформы.
 
 #### <a name="update-the-cordova-version-in-your-project"></a>Обновление версии Cordova в проекте
@@ -160,12 +161,12 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 ## <a name="optional-configure-and-run-the-app-on-android"></a>Настройка и запуск приложения в Android (необязательно)
 В этом разделе описано, как включить поддержку push-уведомлений для платформы Android.
 
-#### <a name="a-nameenable-gcmaenable-firebase-cloud-messaging"></a><a name="enable-gcm"></a>Включение Firebase Cloud Messaging
+#### <a name="enable-gcm"></a>Включение Firebase Cloud Messaging
 Так как изначально проект предназначен для платформы Google Android, необходимо включить Firebase Cloud Messaging.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="a-nameconfigure-backendaconfigure-the-mobile-app-backend-to-send-push-requests-using-fcm"></a><a name="configure-backend"></a>Настройка серверной части мобильного приложения для отправки push-запросов с использованием FCM
+#### <a name="configure-backend"></a>Настройка серверной части мобильного приложения для отправки push-запросов с использованием FCM
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 #### <a name="configure-your-cordova-app-for-android"></a>Настройка приложения Cordova для Android
@@ -183,7 +184,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
             wns: {}
         });
 
-#### <a name="a-nameconfigure-deviceaconfigure-your-android-device-for-usb-debugging"></a><a name="configure-device"></a>Настройка устройства Android для отладочного режима USB
+#### <a name="configure-device"></a>Настройка устройства Android для отладочного режима USB
 Перед развертыванием приложения на устройстве Android необходимо включить отладку USB.  На телефоне Android выполните следующие действия:
 
 1. Выберите элементы **Settings** > **About phone** (Параметры > О телефоне), коснитесь пункта **Build number** (Номер сборки) и дождитесь включения режима разработчика (примерно 7 секунд).
@@ -327,7 +328,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 
 После добавления элемента должно отобразиться соответствующее уведомление.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о push-уведомлениях см. в статье о [центрах уведомлений][17].
 * Продолжите работу с руководством и [добавьте проверку подлинности][14] в приложение Apache Cordova, если вы этого еще не сделали.
 
@@ -362,9 +363,4 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
 [21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

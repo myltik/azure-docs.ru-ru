@@ -4,6 +4,7 @@
 # Начало работы
 ## [Создание масштабируемого набора на портале](virtual-machine-scale-sets-portal-create.md)
 ## [Создание масштабируемого набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Создание масштабируемого набора с помощью шаблона Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Практическое руководство
 ## Планирование и проектирование
