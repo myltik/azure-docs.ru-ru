@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js для MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>Шаг 2. Настройка приложения C++
+## <a id="SetupC++"></a>Шаг 2. Настройка приложения C++
 1. Откройте Visual Studio, выберите меню **Файл**, щелкните команду **Создать**, а затем **Проект**. 
 2. В окне **Создание проекта** в области **Установленные** разверните узел **Visual C++**, щелкните **Win32**, а затем **Консольное приложение Win32**. Присвойте проекту имя hellodocumentdb и нажмите кнопку **ОК**. 
    
@@ -79,12 +81,12 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
    
     После добавления пакетов в проект, можно приступить к написанию кода.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>Шаг 3. Копирование сведений о подключении для базы данных DocumentDB из портала Azure
+## <a id="Config"></a>Шаг 3. Копирование сведений о подключении для базы данных DocumentDB из портала Azure
 Откройте [портал Azure](https://portal.azure.com) и просмотрите созданную учетную запись базы данных NoSQL (DocumentDB). Для следующего шага понадобится универсальный код ресурса (URI) и первичный ключ из портала Azure, чтобы установить подключение с помощью фрагмента кода C++. 
 
 ![URI и ключи DocumentDB на портале Azure](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Шаг 4. Подключение к учетной записи DocumentDB
+## <a id="Connect"></a>Шаг 4. Подключение к учетной записи DocumentDB
 1. Добавьте в исходный код после `#include "stdafx.h"` следующие пространства имен и заголовки.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
    
     Теперь, когда у нас есть код для инициализации клиента DocumentDB, мы рассмотрим принципы работы с ресурсами DocumentDB.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>Шаг 5. Создание базы данных и коллекции C++
+## <a id="CreateDBColl"></a>Шаг 5. Создание базы данных и коллекции C++
 Прежде чем выполнить этот шаг, рассмотрим, как взаимодействуют база данных, коллекция и документы, на случай если вы еще не знакомы с принципами работы DocumentDB. [База данных](documentdb-resources.md#databases) представляет собой логический контейнер для хранения документов, распределенных по коллекциям. [Коллекция](documentdb-resources.md#collections) — это контейнер JSON-документов и связанной логики приложения на JavaScript. Дополнительные сведения об иерархической модели ресурсов и основных понятиях DocumentDB см. [здесь](documentdb-resources.md).
 
 Чтобы создать базу данных и соответствующую коллекцию, добавьте следующий код в конец функции main. Так вы создадите базу данных с именем FamilyRegistry и коллекцию FamilyCollection, используя конфигурацию клиента, объявленного на предыдущем шаге.
@@ -115,7 +117,7 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>Шаг 6. Создание документа
+## <a id="CreateDoc"></a>Шаг 6. Создание документа
 [Документы](documentdb-resources.md#documents) относятся к пользовательскому (произвольному) JSON-содержимому. Теперь можно вставить документ в DocumentDB. Документ можно создать, скопировав следующий код в конец функции main. 
 
     try {
@@ -137,7 +139,7 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 
 ![Руководство по C++. Схема, иллюстрирующая иерархические отношения между учетной записью, базой данных, коллекцией и документами](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>Этап 7: запросы ресурсов DocumentDB
+## <a id="QueryDB"></a>Этап 7: запросы ресурсов DocumentDB
 DocumentDB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. Ниже приведен пример кода запроса, где используется синтаксис SQL DocumentDB. Его можно запускать, чтобы запрашивать документы, созданные на предыдущем шаге.
 
 Функция принимает в качестве аргументов уникальный идентификатор или идентификатор ресурса для базы данных и коллекции, а также клиента документов. Добавьте следующий код перед функцией main.
@@ -168,7 +170,7 @@ DocumentDB поддерживает [полнофункциональные за
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>Шаг 8. Замена документа
+## <a id="Replace"></a>Шаг 8. Замена документа
 DocumentDB поддерживает замену JSON-документов, как показано в следующем коде. Добавьте этот код после функции executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ DocumentDB поддерживает замену JSON-документов, ка
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>Шаг 9. Удаление документа
+## <a id="Delete"></a>Шаг 9. Удаление документа
 DocumentDB поддерживает удаление JSON-документов. Чтобы удалить документ, скопируйте код ниже и вставьте его после функции replacedocument. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ DocumentDB поддерживает удаление JSON-документов. 
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>Шаг 10. Удаление базы данных
+## <a id="DeleteDB"></a>Шаг 10. Удаление базы данных
 Удаление созданной базы данных влечет удаление всех ее дочерних ресурсов (коллекций, документов и т. д.).
 
 Скопируйте и вставьте следующий фрагмент кода (функция cleanup) после функции deletedocument, чтобы удалить базу данных и все ее дочерние ресурсы.
@@ -216,7 +218,7 @@ DocumentDB поддерживает удаление JSON-документов. 
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>Шаг 11. Запуск консольного приложения C++
+## <a id="Run"></a>Шаг 11. Запуск консольного приложения C++
 Мы добавили код для создания, запроса, изменения и удаления различных ресурсов DocumentDB.  А теперь мы объединим все это, добавив вызовы различных функций с помощью функции main в hellodocumentdb.cpp, а также некоторые диагностические сообщения.
 
 Чтобы сделать это, замените функцию main приложения кодом ниже. Данные account_configuration_uri и primary_key, скопированные в код на шаге 3, будут перезаписаны, поэтому сохраните соответствующую строку или скопируйте значения на портале. 
@@ -276,7 +278,7 @@ DocumentDB поддерживает удаление JSON-документов. 
 
 Поздравляем! Вы ознакомились с руководством по C++ и создали первое консольное приложение DocumentDB.
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Получение завершенного решения C++ для этого руководства
+## <a id="GetSolution"></a>Получение завершенного решения C++ для этого руководства
 Чтобы собрать решение GetStarted, содержащее все примеры из этой статьи, вам понадобится следующее:
 
 * [учетная запись DocumentDB][documentdb-create-account];
@@ -289,10 +291,5 @@ DocumentDB поддерживает удаление JSON-документов. 
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

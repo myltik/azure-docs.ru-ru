@@ -17,12 +17,12 @@ ms.date: 02/27/2017
 ms.author: anandy;billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
+ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="deloying-active-directory-federation-services-in-azure"></a>Развертывание служб федерации Active Directory в Azure
+# <a name="deploying-active-directory-federation-services-in-azure"></a>Развертывание служб федерации Active Directory в Azure
 В службах федерации Active Directory (AD FS) представлены возможности упрощенной безопасной федерации удостоверений и единого входа. Федерация с Azure AD или O365 дает пользователям возможность выполнять проверку подлинности с использованием локальных учетных данных и получать доступ ко всем ресурсам в облаке. В связи с этим требуется высокодоступная инфраструктура AD FS, обеспечивающая доступ к ресурсам как в локальной, так и в облачной средах. С помощью развертывания AD FS в Azure можно достичь необходимого уровня доступности с минимальными усилиями.
 Ниже перечислены некоторые преимущества развертывания AD FS в Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: "Использование частного реестра контейнеров Docker в Azure | Документация Майкрософт"
+title: "Использование частных реестров контейнеров Docker в Azure | Документация Майкрософт"
 description: "Общие сведения о службе реестра контейнеров Azure, предоставляющей облачные, управляемые и частные реестры Docker."
 services: container-registry
 documentationcenter: 
@@ -16,12 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="what-is-azure-container-registry"></a>Общие сведения о службе реестра контейнеров Azure
+# <a name="introduction-to-private-docker-container-registries"></a>Общие сведения о частных реестрах контейнеров Docker
 > [!NOTE]
 > В настоящее время доступна предварительная версия реестра контейнеров.
 
@@ -68,9 +70,4 @@ ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 * [Отправка первого образа с помощью интерфейса командной строки Docker](container-registry-get-started-docker-cli.md)
 * Сведения о том, как создать рабочий процесс непрерывной интеграции и развертывания с помощью Visual Studio Team Services, службы контейнеров Azure и реестра контейнеров Azure см. в [этом руководстве](../container-service/container-service-setup-ci-cd.md).
 * Сведения о том, как настроить частный реестр Docker в Azure (без общедоступной конечной точки) см. в статье [Развертывание частного реестра Docker в Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

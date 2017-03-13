@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
-ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-Пакет SDK Service Fabric содержит надстройку для Visual Studio, в которой есть шаблоны и средства для создания, развертывания и отладки приложений Service Fabric. Эта статья описывает пошаговый процесс создания первого приложения в Visual Studio.
+Пакет SDK Service Fabric содержит надстройку для Visual Studio, в которой есть шаблоны и средства для создания, развертывания и отладки приложений Service Fabric. Эта статья описывает пошаговый процесс создания первого приложения в Visual Studio 2017 или Visual Studio 2015.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы [настройте среду разработки](service-fabric-get-started.md).

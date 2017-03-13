@@ -16,15 +16,16 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="build-a-java-web-application-using-documentdb"></a>Создание веб-приложения Node.js с использованием DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET для MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -45,7 +46,7 @@ ms.lasthandoff: 12/08/2016
 > 
 > 
 
-## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Необходимые условия для изучения этого учебника по разработке веб-приложения Java
+## <a id="Prerequisites"></a>Необходимые условия для изучения этого учебника по разработке веб-приложения Java
 Для работы с этим учебником необходимы:
 
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
@@ -59,14 +60,14 @@ ms.lasthandoff: 12/08/2016
 
 При первой установке этих средств воспользуйтесь пошаговым руководством по установке, представленным на сайте coreservlets.com в разделе «Быстрый запуск» статьи [Учебник по установке TomCat7 и его использованию с Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
 
-## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
+## <a id="CreateDB"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
 Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись или вы используете эмулятор DocumentDB в этом руководстве, можно перейти к разделу [Шаг 2. Создание приложения Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-idcreatejspastep-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>шагу 2 (создание приложения Java JSP)
+## <a id="CreateJSP"></a>шагу 2 (создание приложения Java JSP)
 Для создания приложения JSP:
 
 1. Во-первых, необходимо создать проект Java. В меню Eclipse выберите **File** (Файл), щелкните **New** (Создать), а затем выберите **Dynamic Web Project** (Динамический веб-проект). Если элемента **Dynamic Web Project** (Динамический веб-проект) нет в списке доступных проектов, откройте меню **File** (Файл), щелкните пункт **New** (Создать), а затем выберите **Project** (Проект), разверните список **Web** (Интернет), выберите **Dynamic Web Project** (Динамический веб-проект) и нажмите кнопку **Next** (Далее).
@@ -88,7 +89,7 @@ ms.lasthandoff: 12/08/2016
    
     ![Привет, мир! — учебник по разработке приложений Java](./media/documentdb-java-application/image12.png)
 
-## <a name="a-idinstallsdkastep-3-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Шаг 3. Установка пакета DocumentDB Java SDK
+## <a id="InstallSDK"></a>Шаг 3. Установка пакета DocumentDB Java SDK
 Самый простой способ извлечь данные из пакета DocumentDB Java SDK и его зависимости — использовать [Apache Maven](http://maven.apache.org/).
 
 Для этого необходимо преобразовать проект в проект Maven, выполнив следующие действия.
@@ -115,7 +116,7 @@ ms.lasthandoff: 12/08/2016
 6. После нажатия кнопки **Ok** Maven установит пакет DocumentDB Java SDK.
 7. Сохраните файл pom.xml.
 
-## <a name="a-iduseserviceastep-4-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Шаг 4. Использование службы DocumentDB в приложении Java
+## <a id="UseService"></a>Шаг 4. Использование службы DocumentDB в приложении Java
 1. Во-первых, необходимо определить объект TodoItem:
    
         @Data
@@ -349,7 +350,7 @@ ms.lasthandoff: 12/08/2016
             return true;
         }
 
-## <a name="a-idwireastep-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Шаг 5. Подключение другой части проекта по разработке приложений Java
+## <a id="Wire"></a>Шаг 5. Подключение другой части проекта по разработке приложений Java
 Теперь после завершения построения битов необходимо создать пользовательский интерфейс и привязать его к нашей DAO.
 
 1. Во-первых, необходимо начать с построения контроллера для вызова DAO:
@@ -721,7 +722,7 @@ ms.lasthandoff: 12/08/2016
 5. Отлично! Теперь осталось протестировать приложение. Запустите приложение локально и добавьте несколько элементов Todo, заполнив имя элемента и категории и нажав кнопку **Add Task**(Добавить задачу).
 6. Как только элемент появится, вы можете проверить его завершение, отметив флажком и щелкнув команду **Update Tasks**(Обновить задачи).
 
-## <a name="a-iddeployastep-6-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Шаг 6. Развертывание приложения Java на веб-сайтах Azure
+## <a id="Deploy"></a>Шаг 6. Развертывание приложения Java на веб-сайтах Azure
 Веб-сайты Azure упрощают развертывание приложений Java с помощью простого экспорта приложения в виде WAR-файла, либо с помощью загрузки через систему управления версиями (например, GIT) или через клиент FTP.
 
 1. Чтобы экспортировать приложение в виде WAR-файла, щелкните правой кнопкой мыши проект в **обозревателе проектов**, выберите **Export** (Экспорт) и щелкните **WAR File** (WAR-файл).
@@ -735,7 +736,7 @@ ms.lasthandoff: 12/08/2016
     После загрузки WAR-файла в каталог веб-приложения среда выполнения обнаруживает, что вы добавили его и автоматически загрузит ее.
 4. Чтобы просмотреть готовый проект, перейдите к http://ИМЯ\_ВАШЕГО\_САЙТА.azurewebsites.net/azure-documentdb-java-sample/ и начните добавлять свои задачи!
 
-## <a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Получение проекта из GitHub
+## <a id="GetProject"></a>Получение проекта из GitHub
 Все примеры в этом учебнике включены в проект [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) на портале GitHub. Чтобы импортировать проект todo в Eclipse, убедитесь, что у вас есть программное обеспечение и ресурсы, перечисленные в разделе [Необходимые условия](#Prerequisites) , а затем выполните следующие действия.
 
 1. Установите [проект Lombok](http://projectlombok.org/). Lombok используется для формирования конструкторов, получателей и заданий в проекте. Дважды щелкните загруженный файл lombok.jar для установки или установите его из командной строки.

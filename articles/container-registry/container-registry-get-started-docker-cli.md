@@ -1,6 +1,6 @@
 ---
-title: "Использование образов Docker в реестре контейнеров Azure | Документация Майкрософт"
-description: "Отправка образов Docker в реестр контейнеров Azure и их получение с помощью интерфейса командной строки Docker"
+title: "Отправка образа Docker в частный реестр Azure | Документация Майкрософт"
+description: "Отправка образов Docker в частный реестр контейнеров в Azure и их получение с помощью интерфейса командной строки Docker"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Отправка образов в реестр контейнеров с помощью интерфейса командной строки Docker
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Отправка первого образа в частный реестр контейнеров Docker с помощью интерфейса командной строки Docker
 В реестре контейнеров Azure хранятся частные образы контейнеров [Docker](http://hub.docker.com), а также осуществляется управление ими (подобно тому, как в [Docker Hub](https://hub.docker.com/) хранятся общедоступные образы Docker). [Интерфейс командной строки Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) позволяет [входить](https://docs.docker.com/engine/reference/commandline/login/) в реестр контейнеров, а также выполнять [отправку](https://docs.docker.com/engine/reference/commandline/push/), [получение](https://docs.docker.com/engine/reference/commandline/pull/) и другие операции. 
 
-Общие сведения и основные понятия см. в статье о [реестре контейнеров Azure](container-registry-intro.md).
+Общие сведения и основные понятия см. в статье [Общие сведения о службе реестра контейнеров Azure](container-registry-intro.md).
 
 
 > [!NOTE]

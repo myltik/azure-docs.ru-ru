@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 
 ## <a name="prerequisites"></a>Предварительные требования
 * **Visual Studio 2013 или 2015**. Для выполнения инструкций ниже использовалась Visual Studio 2015.
+
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Учетная запись хранилища озера данных Azure**. Инструкции по созданию учетной записи см. в статье [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md).
+
 * **Создание приложения Azure Active Directory**. Это приложение будет использоваться для проверки подлинности приложения Data Lake Store в Azure AD. Есть разные способы проверки подлинности приложения с помощью Azure AD: **проверка подлинности пользователя** и **проверка подлинности со взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье, посвященной [проверке подлинности приложений Data Lake Store с помощью Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Создание приложения .NET
@@ -58,9 +62,9 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
    2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** выберите **nuget.org** и установите флажок **Включить предварительные выпуски**.
    3. Найдите и установите следующие пакеты NuGet:
       
-      * `Microsoft.Azure.Management.DataLake.Store` — в этом руководстве используется предварительная версия&0;.12.5.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` — в этом руководстве используется предварительная версия&0;.10.6.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — в этом руководстве используется предварительная версия&2;.2.8.
+      * `Microsoft.Azure.Management.DataLake.Store` — в этом руководстве используется версия 1.0.4.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` — в этом руководстве используется предварительная версия 1.0.1.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — в этом руководстве используется версия 2.2.11.
         
         ![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Создание учетной записи Azure Data Lake")
    4. Закройте **Диспетчер пакетов Nuget**.
@@ -71,7 +75,11 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. Объявите переменные, как показано ниже, и укажите уже имеющиеся имена Data Lake Store и группы ресурсов. Кроме того, убедитесь, что локальный путь и имя файла, которые вы указываете, существуют на компьютере. После объявлений пространств имен добавьте приведенный ниже фрагмент кода.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 В остальных разделах статьи рассматривается использование доступных методов .NET при выполнении таких операций, как проверка подлинности, отправка файла и т. д.
 
 ## <a name="authentication"></a>Аутентификация
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>При использовании проверки подлинности пользователя (рекомендуется для этого руководства)
-Используйте приведенный ниже фрагмент кода для существующего собственного клиентского приложения Azure AD. Мы советуем вам использовать этот подход для быстрого завершения работы с этим руководством.
+
+Примените этот фрагмент кода к существующему собственному приложению Azure AD для **интерактивной** проверки подлинности приложения. Это значит, что вам будет предложено ввести учетные данные Azure. 
+
+Для удобства использования в приведенном ниже фрагменте кода для идентификатора клиента и URI перенаправления используются значения по умолчанию, которые работают в любой подписке Azure. Мы советуем вам использовать этот подход для быстрого завершения работы с этим руководством. В приведенном ниже фрагменте кода просто введите значение для идентификатора клиента. Его можно получить с помощью инструкций, указанных в статье [Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 Некоторые важные моменты касательно этого фрагмента.
 
 * Для быстрого завершения работы с руководством в этом фрагменте кода используется домен Azure AD и идентификатор клиента, доступный по умолчанию для всех подписок Azure. Таким образом, вы можете **использовать в приложении этот фрагмент в исходном виде**.
-* Если вы не хотите использовать свой домен Azure AD и идентификатор клиента приложения, необходимо создать собственное приложение Azure AD и использовать домен Azure AD, идентификатор клиента и URI перенаправления этого приложения. Подробные инструкции см. в разделе [Создание приложения Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
-
-> [!NOTE]
-> Инструкции, доступные по указанным ниже ссылкам, относятся к веб-приложению Azure AD. Однако если вы решите создать собственное клиентское приложение, ваши действия будут такими же. 
-> 
-> 
+* Если вы не хотите использовать свой домен Azure AD и идентификатор клиента приложения, необходимо создать собственное приложение Azure AD и использовать идентификатор клиента Azure AD, идентификатор клиента и URI перенаправления этого приложения. Инструкции см. в статье [Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>При использовании проверки подлинности через секрет клиента со взаимодействием между службами
-Следующий фрагмент можно использовать для проверки подлинности приложения в неинтерактивном режиме с помощью секрета клиента, ключа приложения или субъекта-службы. Примените этот фрагмент кода к существующему [веб-приложению Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Следующий фрагмент можно использовать для проверки подлинности приложения в **неинтерактивном режиме** с помощью секрета клиента, ключа приложения или субъекта-службы. Примените этот фрагмент кода к существующему веб-приложению Azure AD. Инструкции по созданию веб-приложения Azure AD и получению идентификатора и секрета клиента, необходимых в следующем фрагменте кода, см. в статье [Аутентификация между службами в Data Lake Store с помощью Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>При использовании проверки подлинности с помощью сертификата со взаимодействием между службами
-Приведенный ниже фрагмент можно использовать для проверки подлинности приложения в неинтерактивном режиме с помощью сертификата приложения или субъекта-службы. Примените этот фрагмент кода к существующему [веб-приложению Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Приведенный ниже фрагмент можно использовать для проверки подлинности приложения в **неинтерактивном режиме** с помощью сертификата приложения Azure Active Directory или субъекта-службы. Примените этот фрагмент кода к существующему [приложению Azure AD с помощью сертификатов](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET Reference (Справочник по пакету SDK .NET для Data Lake Store)](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST Reference (Справочник по REST для Data Lake Store)](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
