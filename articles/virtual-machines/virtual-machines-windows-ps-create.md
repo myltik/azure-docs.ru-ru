@@ -1,6 +1,6 @@
 ---
 title: "Создание виртуальной машины в Azure с помощью PowerShell | Документация Майкрософт"
-description: "Использование Azure PowerShell и Azure Resource Manager для быстрого создания виртуальной машины под управлением Windows Server."
+description: "Используйте Azure PowerShell и Azure Resource Manager для быстрого создания виртуальной машины Windows Server."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Создание виртуальной машины Windows с помощью Resource Manager и PowerShell
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Создание виртуальной машины Windows с помощью Azure Resource Manager и PowerShell
 
-В этой статье показано, как быстро создать виртуальную машину Azure под управлением Windows Server и связанные с ней ресурсы с помощью [Resource Manager](../azure-resource-manager/resource-group-overview.md) и Azure PowerShell.  
+В этой статье показано, как быстро создать виртуальную машину Azure под управлением Windows Server и связанные с ней ресурсы с помощью [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) и Azure PowerShell.  
 
-Все действия, описанные в этой статье, необходимы для создания виртуальной машины. Их выполнение займет около 30 минут. Заменяйте значения параметров в командах значениями, соответствующими вашей среде.
+Все шаги, описанные в этой статье, необходимы для создания виртуальной машины. Копирование, вставка и выполнение команд займет около 10 минут.
 
 ## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="step-4-create-a-virtual-network"></a>Шаг 4. Создание виртуальной сети
 
-Все виртуальные машины входят в [виртуальную сеть](../virtual-network/virtual-networks-overview.md).
+Все виртуальные машины входят в [виртуальную сеть](virtual-machines-windows-network-overview.md).
 
 1. Создайте подсеть для виртуальной сети. Следующая команда создает подсеть **mySubnet** с префиксом адреса 10.0.0.0/24.
    

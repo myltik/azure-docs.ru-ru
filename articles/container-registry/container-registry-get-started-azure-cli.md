@@ -1,6 +1,6 @@
 ---
-title: "Создание реестра контейнеров Azure с помощью Azure CLI | Документация Майкрософт"
-description: "Приступите к созданию реестров контейнеров Azure и управлению ими с помощью Azure CLI 2.0."
+title: "Создание частного реестра контейнеров Docker с помощью Azure CLI | Документация Майкрософт"
+description: "Приступите к созданию частных реестров контейнеров Docker и управлению ими с помощью Azure CLI 2.0"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/03/2017
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 6ef43ed43358357c94460a27d3e2b2c8530b6c54
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-cli"></a>Создание реестра контейнеров с помощью Azure CLI
+# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Создание частного реестра контейнеров Docker с помощью Azure CLI 2.0
 Команды в [Azure CLI 2.0](https://github.com/Azure/azure-cli) позволяют создать реестр контейнеров и управлять его параметрами на компьютере Linux, Mac или Windows. Кроме того, эти действия можно выполнять на [портале Azure](container-registry-get-started-portal.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
 
 
-* Общие сведения и основные понятия см. в статье о [реестре контейнеров Azure](container-registry-intro.md).
+* Общие сведения и основные понятия см. в статье [Общие сведения о службе реестра контейнеров Azure](container-registry-intro.md).
 * Чтобы получить справку по командам интерфейса командной строки для реестра контейнеров (команды `az acr`), добавьте в любую команду параметр `-h`.
 
 > [!NOTE]
@@ -35,9 +36,9 @@ ms.lasthandoff: 02/22/2017
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **Azure CLI 2.0.**. Инструкции по установке Azure CLI 2.0 и началу работы с ним см. [здесь](https://github.com/Azure/azure-cli/blob/master/README.rst). Войдите в свою подписку Azure, выполнив команду `az login`.
-* **Группа ресурсов.** Перед созданием реестра контейнеров создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups) или используйте имеющуюся. Группа ресурсов должна находиться в расположении, где [доступна](https://azure.microsoft.com/regions/services/) служба реестра контейнеров. Примеры кода для создания группы ресурсов с помощью интерфейса командной строки 2.0 см. [здесь](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Учетная запись хранения (необязательно).** Создайте стандартную [учетную запись хранения](../storage/storage-introduction.md) Azure для хранения сведений реестра контейнеров в том же расположении. Учетную запись хранения (если она не задана при создании реестра) можно создать с помощью команды `az acr create`. Примеры кода для создания учетной записи хранения с помощью интерфейса командной строки 2.0 см. [здесь](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Azure CLI 2.0.** Инструкции по установке Azure CLI 2.0 и началу работы с ним см. [здесь](/cli/azure/install-azure-cli). Войдите в свою подписку Azure, выполнив команду `az login`. Дополнительные сведения см. в статье [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Приступая к работе с Azure CLI 2.0).
+* **Группа ресурсов.** Перед созданием реестра контейнеров создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md#resource-groups) или используйте имеющуюся. Группа ресурсов должна находиться в расположении, где [доступна](https://azure.microsoft.com/regions/services/) служба реестра контейнеров. Справочные материалы по созданию группы ресурсов с помощью CLI 2.0 см. [здесь](/cli/azure/group). 
+* **Учетная запись хранения (необязательно).** Создайте стандартную [учетную запись хранения](../storage/storage-introduction.md) Azure для хранения сведений реестра контейнеров в том же расположении. Учетную запись хранения (если она не задана при создании реестра) можно создать с помощью команды `az acr create`. Справочные материалы по созданию учетной записи хранения с помощью CLI 2.0 см. [здесь](/cli/azure/storage/account). Хранилище класса Premium сейчас не поддерживается.
 * **Субъект-служба (необязательно).** Если реестр создан с помощью интерфейса командной строки, по умолчанию доступ к нему не предоставляется. В зависимости от потребностей для реестра можно назначить имеющийся субъект-службу Azure Active Directory (или создать и назначить новый) или включить учетную запись пользователя с правами администратора. См. следующие разделы этой статьи. Дополнительные сведения о доступе к реестру см. в статье [Authenticate with the container registry](container-registry-authentication.md) (Проверка подлинности с помощью реестра контейнеров). 
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров

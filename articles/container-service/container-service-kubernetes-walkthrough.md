@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: anhowe
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 94a3481d4598701de583969554ed501d2da6dc45
-ms.openlocfilehash: 8282a9d34b8f4aa8db193bb13ba4008137d18e5a
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
+ms.lasthandoff: 03/02/2017
 
 ---
 
-# <a name="azure-container-service---kubernetes-walkthrough"></a>Служба контейнеров Azure. Пошаговое руководство по использованию Kubernetes
+# <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Приступая к работе с кластером Kubernetes в службе контейнеров Azure
 
 
 В этой статье показано, как использовать команды Azure CLI 2.0 для создания кластера Kubernetes. После этого можно использовать программу командной строки `kubectl`, чтобы приступить к работе с контейнерами в кластере.

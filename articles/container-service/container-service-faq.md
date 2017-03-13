@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Часто задаваемые вопросы о Службе контейнеров Azure
+# <a name="container-service-frequently-asked-questions"></a>Часто задаваемые вопросы о службе контейнеров
 
 
 ## <a name="orchestrators"></a>Оркестраторы
@@ -82,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Часто используемые URL-адреса кластера можно просмотреть с помощью портала Azure, обозревателя ресурсов Azure и других средств Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Как узнать, какая версия оркестратора используется в кластере?
+
+* сведения о версии, используемой в DC/OS, см. в [документации по Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-);
+* в Docker Swarm используется `docker version`;
+* в Kubernetes используется `kubectl version`.
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Как обновить оркестратор после развертывания?
+
+В настоящее время служба контейнеров Azure не предоставляет средства для обновления версии оркестратора, развернутого в кластере. Если служба контейнеров поддерживает более позднюю версию, можно развернуть новый кластер. Другим вариантом является использование специальных средств оркестратора (если они доступны) для обновления кластера на месте. Для примера можно ознакомиться с документацией об [обновлении DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Где найти строку SSH-подключения к кластеру?
 

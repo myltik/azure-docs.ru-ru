@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/03/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
-ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
+ms.lasthandoff: 03/06/2017
 
 
 ---
 
-# <a name="get-started-with-windows-containers-in-a-kubernetes-cluster"></a>Приступая к работе с контейнерами Windows в кластере Kubernetes
+# <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Приступая к работе с кластером Kubernetes и контейнерами Windows в службе контейнеров Azure
 
 
 В этой статье показано, как в Службе контейнеров Azure создать кластер Kubernetes, содержащий узлы Windows для запуска контейнеров Windows. 
@@ -59,8 +60,14 @@ ms.lasthandoff: 02/23/2017
 Для [создания кластера Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) с узлами агента Windows можно использовать портал Azure. При создании кластера обратите внимание на следующие параметры.
 
 * В колонке **Основные** из списка **Orchestrator** выберите **Kubernetes**. 
-* В колонке **Master configuration** (Конфигурация главных узлов) введите учетные данные пользователя и субъекта-службы для главных узлов Linux.
+
+  ![Выбор оркестратора Kubernetes](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
+
+* В колонке **Master configuration** (Конфигурация главных узлов) введите учетные данные пользователя и субъекта-службы для главных узлов Linux. Выберите 1, 3 или 5 главных узлов.
+
 * В колонке **Конфигурация агента** из списка **Операционная система** выберите **Windows (preview)** (Windows (предварительная версия)). Введите учетные данные администратора для узлов агента Windows.
+
+  ![Выбор агентов Windows](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
 
 Дополнительные сведения см. в статье [Развертывание кластера службы контейнеров Azure](container-service-deployment.md).
 

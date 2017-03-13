@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -161,6 +162,9 @@ ExpressRoute нельзя настроить как транзитный мар�
 | Южная Индия |12076:51019 |
 | Западная Индия |12076:51018 |
 | Центральная Индия |12076:51017 |
+| **Корея** | |
+| Южная Корея |12076:51028 |
+| Центральная Корея |12076:51029 |
 
 Все объявляемые Майкрософт маршруты будут помечаться значением соответствующего сообщества. 
 
@@ -212,10 +216,5 @@ ExpressRoute нельзя настроить как транзитный мар�
   * Создание и изменение канала ExpressRoute: [классическая модель развертывания](expressroute-howto-circuit-classic.md), [Azure Resource Manager](expressroute-howto-circuit-arm.md).
   * Создание и изменение маршрутизации для канала ExpressRoute: [классическая модель развертывания](expressroute-howto-routing-classic.md), [Resource Manager](expressroute-howto-routing-arm.md).
   * Связывание виртуальной сети с каналом ExpressRoute: [классическая модель развертывания](expressroute-howto-linkvnet-classic.md), [Resource Manager](expressroute-howto-linkvnet-arm.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

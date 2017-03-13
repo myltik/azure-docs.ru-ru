@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
-ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -47,8 +47,8 @@ ms.lasthandoff: 02/16/2017
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>Установка пакета SDK и инструментов
-### <a name="to-use-visual-studio-2017-rc"></a>Для использования версии-кандидата Visual Studio 2017
-Средства Service Fabric являются частью рабочей нагрузки по разработке и управлению в Azure в составе версии-кандидата Visual Studio 2017. Эту рабочую нагрузку необходимо включить при установке Visual Studio.
+### <a name="to-use-visual-studio-2017"></a>Для использования Visual Studio 2017
+Средства Service Fabric являются частью рабочей нагрузки по разработке и управлению в Azure в Visual Studio 2017. Эту рабочую нагрузку необходимо включить при установке Visual Studio.
 Кроме того, необходимо установить пакет SDK Microsoft Azure Service Fabric, используя установщик веб-платформы.
 
 * [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]

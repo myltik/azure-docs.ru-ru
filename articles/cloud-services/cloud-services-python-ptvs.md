@@ -15,20 +15,23 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c03122972228f30d56a8e0636b1c35ac92b42977
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Использование веб-ролей и рабочих ролей Python с помощью средств Python для Visual Studio
 
-В этой статье представлен обзор способов использования веб-ролей и рабочих ролей Python с помощью [инструментов Python для Visual Studio][инструментов Python для Visual Studio]. Вы узнаете, как использовать Visual Studio для создания и развертывания базовой облачной службы, которая использует Python.
+В этой статье представлен обзор способов использования веб-ролей и рабочих ролей Python с помощью [инструментов Python для Visual Studio][Python Tools for Visual Studio]. Вы узнаете, как использовать Visual Studio для создания и развертывания базовой облачной службы, которая использует Python.
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Visual Studio 2013 или 2015
-* [инструментов Python для Visual Studio][инструментов Python для Visual Studio] (PTVS).
-* [Инструменты пакета SDK для Azure для VS 2013][Инструменты пакета SDK для Azure для VS 2013] или [Инструменты пакета SDK для Azure для Visual Studio 2015][Инструменты пакета SDK для Azure для Visual Studio 2015].
-* [Python 2.7 (32-разрядная версия)][Python 2.7 (32-разрядная версия)] или [Python 3.5 (32-разрядная версия)][Python 3.5 (32-разрядная версия)].
+* [Visual Studio 2013, 2015 или 2017](https://www.visualstudio.com/)
+* [Инструменты Python для Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [Инструменты пакета SDK для Azure для VS 2013][Azure SDK Tools for VS 2013] или  
+[Инструменты пакета SDK для Azure для VS 2015][Azure SDK Tools for VS 2015] или  
+[Инструменты пакета SDK для Azure для VS 2017][Azure SDK Tools for VS 2017]
+* [Python 2.7 (32-разрядная версия)][Python 2.7 32-bit] или [Python 3.5 (32-разрядная версия)][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -329,15 +332,15 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 ## <a name="next-steps"></a>Дальнейшие действия
 С дополнительной информацией о работе с веб-ролями и рабочими ролями в средствах Python для Visual Studio можно ознакомиться в документации PTVS:
 
-* [Проекты для облачной службы][Проекты для облачной службы]
+* [Azure Cloud Service Projects for Python][Cloud Service Projects] (Проекты для облачной службы Azure для Python)
 
 Для получения более подробной информации об использовании служб Azure из веб-ролей или рабочих ролей, например об использовании хранилища Azure или служебной шины, рекомендуется обратиться к следующим руководствам:
 
-* [Служба BLOB-объектов][Служба BLOB-объектов]
-* [Служба таблиц][Служба таблиц]
-* [Служба очередей][Служба очередей]
-* [Как использовать очереди служебной шины][Как использовать очереди служебной шины]
-* [Как использовать разделы и подписки служебной шины][Как использовать разделы и подписки служебной шины]
+* [Использование хранилища больших двоичных объектов Azure из Python][Blob Service]
+* [Использование табличного хранилища из Python][Table Service]
+* [Использование хранилища очередей из Python][Queue Service]
+* [Как использовать очереди служебной шины][Service Bus Queues]
+* [Как использовать разделы и подписки служебной шины][Service Bus Topics]
 
 <!--Link references-->
 
@@ -345,27 +348,23 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
 [execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
 [execution model-cloud services]: cloud-services-choose-me.md
-[Центр по разработке для Python]: /develop/python/
+[Python Developer Center]: /develop/python/
 
-[Служба BLOB-объектов]: ../storage/storage-python-how-to-use-blob-storage.md
-[Служба очередей]: ../storage/storage-python-how-to-use-queue-storage.md
-[Служба таблиц]: ../storage/storage-python-how-to-use-table-storage.md
-[Как использовать очереди служебной шины]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Как использовать разделы и подписки служебной шины]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[инструментов Python для Visual Studio]: http://aka.ms/ptvs
-[Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
-[Проекты для облачной службы]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Инструменты пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Инструменты пакета SDK для Azure для Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 (32-разрядная версия)]: https://www.python.org/downloads/
-[Python 3.5 (32-разрядная версия)]: https://www.python.org/downloads/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 
