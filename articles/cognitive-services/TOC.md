@@ -2,6 +2,7 @@
 # Обзор
 ## [Что такое Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 # Начало работы
+## [Создание учетной записи](cognitive-services-apis-create-account.md)
 ## [Краткое руководство по анализу текста](cognitive-services-text-analytics-quick-start.md)
 ## [Краткое руководство по рекомендациям](cognitive-services-recommendations-quick-start.md)
 
@@ -52,8 +53,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

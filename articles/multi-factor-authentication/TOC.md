@@ -1,8 +1,9 @@
 # Обзор
 ## [Что такое Многофакторная идентификация Azure?](multi-factor-authentication.md)
 ## [Принцип работы](multi-factor-authentication-how-it-works.md)
+## [Как получить Azure MFA](multi-factor-authentication-versions-plans.md)
 
-# Приступая к работе
+# Начало работы
 ## [Выбор расположения для развертывания](multi-factor-authentication-get-started.md)
 ## [Многофакторная идентификация (MFA) в облаке](multi-factor-authentication-get-started-cloud.md)
 ## [Локальная Многофакторная идентификация (MFA)](multi-factor-authentication-get-started-server.md)
@@ -20,6 +21,7 @@
 #### [Расширенные конфигурации VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Веб-служба мобильного приложения](multi-factor-authentication-get-started-server-webservice.md)
 #### [Проверка подлинности Windows](multi-factor-authentication-get-started-server-windows.md)
+#### [Обновление сервера MFA](multi-factor-authentication-server-upgrade.md)
 #### [Обновление PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Управление пользователями
@@ -45,8 +47,3 @@
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](multi-factor-authentication-faq.md)
 ### [Задать вопрос](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

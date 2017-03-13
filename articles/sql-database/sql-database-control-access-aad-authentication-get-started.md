@@ -17,13 +17,14 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 25de4caa583f128dd049899de288bd214e5918ba
-ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
+ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
+ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
+ms.lasthandoff: 02/18/2017
 
 
 ---
-# <a name="sql-database-tutorial-azure-ad-authentication-access-and-database-level-firewall-rules"></a>Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных
-Из этого руководства по началу работы вы узнаете, как предоставлять доступ к серверам и базам данных SQL Azure, а также настраивать для них разрешения, используя в SQL Server Management Studio проверку подлинности Azure Active Directory, имена для входа, пользователей и роли баз данных. Вы научитесь выполнять следующие задачи:
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Аутентификация, доступ и правила брандмауэра уровня базы данных в Azure AD
+Из этого руководства вы узнаете, как предоставлять доступ к серверам и базам данных SQL Azure, а также настраивать для них разрешения, применяя в SQL Server Management Studio аутентификацию Azure Active Directory, имена для входа, пользователей и роли баз данных. Вы научитесь выполнять следующие задачи:
 
 - Просматривать разрешения пользователя в базе данных master и пользовательских базах данных.
 - Создавать имена для входа и пользователей на основе проверки подлинности Azure Active Directory.
@@ -36,17 +37,17 @@ ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](https://azure.microsoft.com/free/) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * У вас должна быть возможность подключиться к порталу Azure с помощью учетной записи, которой назначена роль владельца или участника подписки. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
 
 * Вы изучили руководство [по началу работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure, SQL Server Management Studio](sql-database-get-started.md) или [PowerShell](sql-database-get-started-powershell.md). Если это не так, прежде чем продолжить, изучите руководство по предварительным требованиям или выполните скрипт PowerShell, приведенный в конце версии этого руководства для [PowerShell](sql-database-get-started-powershell.md).
 
    > [!NOTE]
-   > Ознакомление со связанным руководством по проверке подлинности SQL Server ([Руководство по базе данных SQL: проверка подлинности SQL Server, имена для входа и учетные записи пользователей, роли базы данных, разрешения, правила брандмауэра на уровне сервера и на уровне базы данных](sql-database-control-access-sql-authentication-get-started.md)) не является обязательным. Однако в упомянутом руководстве описаны понятия, которые здесь не повторяются. Процедуры из этого руководства, связанные с брандмауэрами уровня сервера и базы данных, не обязательно выполнять, если вы их выполнили во время работы со связанным руководством на тех же компьютерах (и с того же IP-адреса). Также при создании снимков экрана в этом руководстве предполагается, что вы ознакомились со связанным руководством. 
+   > Ознакомление со связанным руководством по аутентификации SQL Server ([Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md)) не является обязательным. Однако в упомянутом руководстве описаны понятия, которые здесь не повторяются. Процедуры из этого руководства, связанные с брандмауэрами уровня сервера и базы данных, не обязательно выполнять, если вы их выполнили во время работы со связанным руководством на тех же компьютерах (и с того же IP-адреса). Также при создании снимков экрана в этом руководстве предполагается, что вы ознакомились со связанным руководством. 
    >
 
-* Вы создали и заполнили каталог Azure Active Directory. Дополнительные сведения см. в статьях [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md) (Интеграция локальных удостоверений с Azure Active Directory), [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure Active Directory Cmdlets](https://msdn.microsoft.com/library/azure/jj151815.aspx) (Командлеты для Azure Active Directory) и [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md) (Порты и протоколы, необходимые для гибридной идентификации).
+* Вы создали и заполнили каталог Azure Active Directory. Дополнительные сведения см. в статьях [Интеграция локальных удостоверений с Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure Active Directory Cmdlets](https://msdn.microsoft.com/library/azure/jj151815.aspx) (Командлеты для Azure Active Directory) и [Порты и протоколы, необходимые для гибридной идентификации](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
 > Это руководство поможет вам освоить содержание следующих статей: [Контроль доступа к базе данных SQL Azure](sql-database-control-access.md), [Предоставление доступа к базе данных и управление им](sql-database-manage-logins.md), [Субъекты (компонент Database Engine)](https://msdn.microsoft.com/library/ms181127.aspx), [Роли уровня базы данных](https://msdn.microsoft.com/library/ms189121.aspx), [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md) и [Подключение к базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md). 
@@ -85,7 +86,7 @@ ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
    ![Сохранение выбранной учетной записи администратора AAD](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Чтобы просмотреть сведения о подключении для этого сервера, см. инструкции по [просмотру и обновлению параметров сервера](sql-database-view-update-server-settings.md). В этой серии руководств используется полное имя сервера sqldbtutorialserver.database.windows.net.
+> Сведения о подключении для этого сервера см. в статье [Создание и администрирование серверов баз данных SQL Azure с помощью портала Azure](sql-database-manage-servers-portal.md). В этой серии руководств используется полное имя сервера sqldbtutorialserver.database.windows.net.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Подключение к SQL Server с помощью SQL Server Management Studio (SSMS)
@@ -256,7 +257,7 @@ ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Создание правила брандмауэра уровня базы данных для пользователей базы данных AdventureWorksLT
 
 > [!NOTE]
-> Вам не нужно выполнять эту процедуру, если вы выполнили ее на этом же компьютере и с этого же IP-адреса во время работы со связанным руководством по проверке подлинности SQL Server ([Руководство по базе данных SQL: проверка подлинности SQL Server, имена для входа и учетные записи пользователей, роли базы данных, разрешения, правила брандмауэра на уровне сервера и на уровне базы данных](sql-database-control-access-sql-authentication-get-started.md)).
+> Вам не нужно выполнять эту процедуру, если вы выполнили ее на этом же компьютере и с этого же IP-адреса во время работы со связанным руководством по аутентификации SQL Server ([Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md)).
 >
 
 В этом разделе руководства вы попробуете войти на компьютер с другого IP-адреса, используя новую учетную запись пользователя, создадите правило брандмауэра уровня базы данных от имени администратора сервера, а затем успешно войдете на компьютер с использованием этого нового правила брандмауэра уровня базы данных. 
@@ -313,10 +314,5 @@ ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
 - Дополнительные сведения о субъектах базы данных см. в [этой статье](https://msdn.microsoft.com/library/ms181127.aspx).
 - Дополнительные сведения о ролях баз данных см. в статье [Роли уровня базы данных](https://msdn.microsoft.com/library/ms189121.aspx).
 - Дополнительные сведения о правилах брандмауэра см. в статье [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

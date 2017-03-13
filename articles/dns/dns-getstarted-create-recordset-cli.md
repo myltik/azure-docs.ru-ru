@@ -1,6 +1,6 @@
 ---
-title: "Создание записей DNS с помощью Azure CLI | Документация Майкрософт"
-description: "Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью интерфейса командной строки."
+title: "Создание записей DNS с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Узнайте, как создать записи узла для Azure DNS и настроить наборы записей и записи с помощью Azure CLI 2.0."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -10,21 +10,24 @@ ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/21/2016
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 18a21cdc0f9641356dfaf6f6d93edfcac11af210
-ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: ca713647a9f795d7803c32eac7fba9b5b6ac95cf
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="create-dns-records-using-the-azure-cli"></a>Создание записей DNS с помощью Azure CLI
+# <a name="how-to-create-dns-records-using-the-azure-cli-20"></a>Создание записей DNS с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Интерфейс командной строки Azure](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
 В этой статье показано, как создавать записи и наборы записей с помощью Azure CLI.
 
@@ -36,15 +39,22 @@ ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
 
 Дополнительные сведения о записях DNS в Azure DNS см. в статье [Зоны и записи DNS](dns-zones-records.md).
 
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
+
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+* [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+* [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+
 ## <a name="create-a-record-set-and-record"></a>Создание набора записей и записи
 
-В этом разделе описывается создание записей DNS в Azure DNS. Для работы с этими примерами необходимо [установить Azure CLI, войти в учетную запись и создать зону DNS](dns-getstarted-create-dnszone-cli.md).
+В этом разделе описывается создание записей DNS в Azure DNS. Для работы с этими примерами необходимо [установить Azure CLI 2.0, войти в учетную запись и создать зону DNS](dns-getstarted-create-dnszone-cli.md).
 
-Во всех примерах на этой странице используется запись DNS типа A. Сведения о других типах записей и дополнительную информацию об управлении записями DNS и наборами записей см. в статье [Управление записями и наборами записей DNS с помощью PowerShell](dns-operations-recordsets-cli.md).
+Во всех примерах на этой странице используется запись DNS типа A. Сведения о других типах записей и дополнительную информацию об управлении записями DNS и наборами записей см. в статье [Управление записями и наборами записей DNS с помощью CLI](dns-operations-recordsets-cli.md).
 
 ## <a name="create-a-dns-record"></a>Создание записи DNS
 
-Чтобы создать запись DNS, используйте команду `azure network dns record-set add-record`. Чтобы получить справку, см. `azure network dns record-set add-record -h`.
+Чтобы создать запись DNS, используйте команду `az network dns record-set ? add` (где ? — это тип записи). Чтобы получить справку, см. `az network dns record-set --help`.
 
 Создавая запись, вам нужно определить для нее имя группы ресурсов, имя зоны, имя набора записей, тип записей и сведения о создаваемой записи.
 
@@ -55,16 +65,16 @@ ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
 В следующем примере будет создана запись A с именем *www* в зоне *contoso.com* в группе ресурсов *MyResourceGroup*. IP-адрес записи A — *1.2.3.4*.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Чтобы создать набор записей на вершине зоны (в нашем примере — contoso.com), используйте имя записи "@",, включая кавычки:
+Чтобы создать набор записей на вершине зоны (в нашем примере — contoso.com), используйте имя записи "@", включая кавычки:
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+az network dns record-set a --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
-Параметры, используемые для указания данных записи, различаются в зависимости от типа записи. Например, для записи типа A необходимо указать адрес IPv4, используя параметр `-a <IPv4 address>`. Чтобы получить список параметров для других типов записей, см. `azure network dns record-set add-record -h`. Примеры для каждого типа записи см. в статье [Управление записями и наборами записей DNS с помощью CLI](dns-operations-recordsets-cli.md).
+Параметры, используемые для указания данных записи, различаются в зависимости от типа записи. Например, для записи типа A необходимо указать адрес IPv4, используя параметр `--ipv4-address <IPv4 address>`. Чтобы получить список параметров для других типов записей, см. `az network dns record --help`. Примеры для каждого типа записи см. в статье [Управление записями и наборами записей DNS с помощью CLI](dns-operations-recordsets-cli.md).
 
 
 ## <a name="verify-name-resolution"></a>Проверка разрешения имен
@@ -90,13 +100,8 @@ Address:  1.2.3.4
 
 [Делегирование домена в Azure DNS](dns-domain-delegation.md)
 
-[Как управлять зонами DNS с помощью PowerShell](dns-operations-dnszones-cli.md)
+Ознакомьтесь со статьей [Как управлять зонами DNS в службе DNS Azure с помощью интерфейса командной строки Azure](dns-operations-dnszones-cli.md).
 
-[Управление записями и наборами записей DNS с помощью PowerShell](dns-operations-recordsets-cli.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+Ознакомьтесь со статьей [Управление записями и наборами записей DNS с помощью CLI](dns-operations-recordsets-cli.md).
 
 

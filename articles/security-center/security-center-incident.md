@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 841257fe74dad05d6a25ec35a62e415d6c1917b4
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="handling-security-incident-in-azure-security-center"></a>Обработка инцидентов в центре безопасности Azure
+# <a name="handling-security-incidents-in-azure-security-center"></a>Обработка инцидентов в центре безопасности Azure
 Рассмотрение и исследование оповещений системы безопасности может занять много времени даже у самых опытных аналитиков в сфере безопасности, а многие пользователи даже не знают, с чего начать. Используя [аналитику](security-center-detection-capabilities.md) для связывания данных из разных [оповещений системы безопасности](security-center-managing-and-responding-alerts.md), центр безопасности может предоставить общую картину кампании атак и все соответствующие оповещения. Это позволит вам быстро понять, какие действия выполнил злоумышленник и какие ресурсы затронуты.
 
 В этом документе объясняется, как использовать возможности оповещений системы безопасности в центре безопасности при возникновении инцидентов.
@@ -61,9 +62,4 @@ ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md)
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md)— часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

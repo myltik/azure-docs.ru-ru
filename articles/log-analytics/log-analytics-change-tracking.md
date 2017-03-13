@@ -1,7 +1,7 @@
 ---
-title: "Решение для отслеживания изменений в Log Analytics | Документация Майкрософт"
-description: "Решение для отслеживания изменений конфигурации в службе Log Analytics позволяет легко определять изменения программного обеспечения и служб Windows, возникающие в среде, а выявление таких изменений, в свою очередь, помогает определить проблемы в работе."
-services: operations-management-suite
+title: "Отслеживание изменений с помощью Azure Log Analytics | Документация Майкрософт"
+description: "Решение для отслеживания изменений в Log Analytics помогает выявлять изменения программного обеспечения и служб Windows в среде."
+services: log-analytics
 documentationcenter: 
 author: bandersmsft
 manager: carmonm
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
-ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="change-tracking-solution-in-log-analytics"></a>Решение "Отслеживание изменений" в Log Analytics
+# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Отслеживание изменений программного обеспечения в среде с помощью решения для отслеживания изменений
+
 В этой статье приведены сведения о настройке в Log Analytics решения Change Tracking, позволяющего легко обнаруживать изменения в своей среде. Это решение отслеживает изменения в программном обеспечении Windows и Linux, файлах Windows, службах Windows и управляющих программах Linux, что, в свою очередь, позволяет точно определять проблемы с работоспособностью.
 
 Решение устанавливается для обновления установленного типа агента. На наблюдаемых серверах выполняется считывание информации об изменениях установленного ПО, служб Windows и управляющих программ Linux, после чего данные отправляются в службу Log Analytics в облаке для обработки. К полученным данным применяется логика и облачная служба записывает данные. С помощью сведений на панели мониторинга «Отслеживание изменений» можно без труда обнаружить изменения, внесенные в инфраструктуру серверов.
@@ -90,9 +93,4 @@ ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по отслеживанию изменений.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

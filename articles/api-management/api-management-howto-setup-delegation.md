@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
 ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -173,15 +174,10 @@ var signature = digest.toString('base64');
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [запросите маркер единого входа (SSO)]: http://go.microsoft.com/fwlink/?LinkId=507409
-[create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[Создание пользователя]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [вызова интерфейса REST API для подписки на продукт]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [на приведенном ниже примере кода]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

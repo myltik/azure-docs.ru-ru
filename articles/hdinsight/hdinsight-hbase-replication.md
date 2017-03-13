@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec82fb896bc6c7212660746445af940f52546ad9
-ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
+ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
+ms.openlocfilehash: 83aabe0e5161cd3f94caa996dec29bc020e5308b
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,15 +61,17 @@ ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
 
 ### <a name="configure-one-virtual-network"></a>Настройка одной виртуальной сети
 
-Чтобы создать два кластера HBase в одной виртуальной сети, нажмите расположенную ниже кнопку. Шаблон хранится в общедоступном контейнере больших двоичных объектов Azure.
+Чтобы создать два кластера HBase в одной виртуальной сети, нажмите расположенную ниже кнопку. Шаблон хранится среди [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### <a name="configure-two-virtual-networks-in-the-same-region"></a>Настройка двух виртуальных сетей в одном регионе
 
-Чтобы создать две виртуальные сети с пиринговой связью и два кластера HBase в одном регионе, нажмите расположенную ниже кнопку. Шаблон хранится в общедоступном контейнере больших двоичных объектов Azure.
+Чтобы создать две виртуальные сети с пиринговой связью и два кластера HBase в одном регионе, нажмите расположенную ниже кнопку. Шаблон хранится среди [шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+
 
 В этом случае необходима [пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md). Этот шаблон включает пиринговую связь между виртуальными сетями.   
 
@@ -250,9 +253,4 @@ ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

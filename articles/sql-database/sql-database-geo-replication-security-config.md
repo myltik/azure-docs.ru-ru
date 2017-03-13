@@ -18,10 +18,12 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
 ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
+ms.lasthandoff: 01/07/2017
 
 
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Настройка безопасности Базы данных SQL Azure и управление ею для геовосстановления или отработки отказа 
+
 > [!NOTE]
 > [Активная георепликация](sql-database-geo-replication-overview.md) теперь доступна для всех баз данных и всех уровней обслуживания.
 >  
@@ -101,10 +103,5 @@ ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
 * Дополнительные сведения о пользователях автономной базы данных см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
 * Сведения об использовании и настройке активной георепликации см. в статье [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
 * Сведения об использовании геовосстановления см. в разделе [Геовосстановление](sql-database-recovery-using-backups.md#geo-restore).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

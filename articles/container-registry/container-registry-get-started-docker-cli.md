@@ -1,6 +1,6 @@
 ---
-title: "Использование образов Docker в реестре контейнеров Azure | Документация Майкрософт"
-description: "Отправка образов Docker в реестр контейнеров Azure и их получение с помощью интерфейса командной строки Docker"
+title: "Отправка образа Docker в частный реестр Azure | Документация Майкрософт"
+description: "Отправка образов Docker в частный реестр контейнеров в Azure и их получение с помощью интерфейса командной строки Docker"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Отправка образов в реестр контейнеров с помощью интерфейса командной строки Docker
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Отправка первого образа в частный реестр контейнеров Docker с помощью интерфейса командной строки Docker
 В реестре контейнеров Azure хранятся частные образы контейнеров [Docker](http://hub.docker.com), а также осуществляется управление ими (подобно тому, как в [Docker Hub](https://hub.docker.com/) хранятся общедоступные образы Docker). [Интерфейс командной строки Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) позволяет [входить](https://docs.docker.com/engine/reference/commandline/login/) в реестр контейнеров, а также выполнять [отправку](https://docs.docker.com/engine/reference/commandline/push/), [получение](https://docs.docker.com/engine/reference/commandline/pull/) и другие операции. 
 
-Общие сведения и основные понятия см. в статье о [реестре контейнеров Azure](container-registry-intro.md).
+Общие сведения и основные понятия см. в статье [Общие сведения о службе реестра контейнеров Azure](container-registry-intro.md).
 
 
 > [!NOTE]
@@ -33,7 +35,7 @@ ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **Реестр контейнеров Azure.** Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [предварительной версии Azure CLI 2.0](container-registry-get-started-azure-cli.md).
+* **Реестр контейнеров Azure.** Создайте реестр контейнеров в своей подписке Azure. Это можно сделать на [портале Azure](container-registry-get-started-portal.md) или с помощью [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Интерфейс командной строки Docker.** Установите [подсистему Docker](https://docs.docker.com/engine/installation/), чтобы настроить локальный компьютер в качестве узла Docker и получить доступ к командам интерфейса командной строки Docker.
 
 ## <a name="log-in-to-a-registry"></a>Вход в раздел реестра
@@ -114,10 +116,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Теперь, когда вы знаете основы, можно приступать к использованию реестра. Например, разверните образы контейнера в кластер [службы контейнеров Azure](https://azure.microsoft.com/documentation/services/container-service/).
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

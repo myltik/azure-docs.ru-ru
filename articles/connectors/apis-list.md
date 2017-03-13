@@ -1,6 +1,6 @@
 ---
-title: "Список соединителей для Azure Logic Apps | Документация Майкрософт"
-description: "Полный список управляемых Майкрософт соединителей, которые можно использовать для создания приложений логики."
+title: "Соединители для Azure Logic Apps | Документация Майкрософт"
+description: "Выберите соединители, управляемые корпорацией Майкрософт, для выполнения сборки и создания приложений логики."
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -16,12 +16,13 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
+ms.sourcegitcommit: 671eed117f5577f3fdec2e03b1ba814e0e1a439b
+ms.openlocfilehash: 094d7a9ca2d14e506371488ee880fe8a2ab36707
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="list-of-connectors"></a>Список соединителей
+# <a name="connectors-list"></a>Список соединителей
 Выберите соединитель, чтобы узнать, как быстро создавать рабочие процессы.
 
 ## <a name="standard-connectors"></a>Стандартные соединители
@@ -32,21 +33,21 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 |![Значок API][Bitlyicon]<br/>**Bitly**|![Значок API][BizTalk-Servericon]<br/>**BizTalk Server**|![Значок API][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
 |![Значок API][Campfireicon]<br/>**Campfire**|![Значок API][Cognitive-Services-Text-Analyticsicon]<br/>**Текстовая аналитика<br/>Cognitive Services**|![Значок API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
 |[![API Icon][Delayicon]<br/>**Задержка**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Значок API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
-|![Значок API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Значок API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
-|![Значок API][GitHubicon]<br/>**GitHub**|![Значок API][Google-Calendaricon]<br/>**Google Календарь**|[![API Icon][Google-Driveicon]<br/>**Google Диск**][Google-Drivedoc]|![Значок API][Google-Sheetsicon]<br/>**Таблицы Google**|
-|![Значок API][Google-Tasksicon]<br/>**Задачи Google**|![Значок API][HideKeyicon]<br/>**HideKey**|![Значок API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>запрос**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>ответ**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
-|![Значок API][Insightlyicon]<br/>**Insightly**|![Значок API][Instagramicon]<br/>**Instagram**|![Значок API][Instapapericon]<br/>**Instapaper**|![Значок API][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested-Logic-Appdoc]|
-|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Видео**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for-Businessdoc]|
-|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|![Значок API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-|[![API Icon][Queryicon]<br/>**Запрос**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|![Значок API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**Протокол SFTP**][SFTPdoc]|
-|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Значок API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**Протокол SMTP**][SMTPdoc]
-|![Значок API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Значок API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
-|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![Значок API][Vimeoicon]<br/>**Vimeo**|![Значок API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
-|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Значок API][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![Значок API][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**Файловая система**][FileSystemdoc]|
+|![Значок API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Значок API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**Файловая система**][FileSystemdoc]|
+|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![Значок API][GitHubicon]<br/>**GitHub**|![Значок API][Google-Calendaricon]<br/>**Google Календарь**|[![API Icon][Google-Driveicon]<br/>**Google Диск**][Google-Drivedoc]|
+|![Значок API][Google-Sheetsicon]<br/>**Таблицы Google**|![Значок API][Google-Tasksicon]<br/>**Задачи Google**|![Значок API][HideKeyicon]<br/>**HideKey**|![Значок API][HipChaticon]<br/>**HipChat**|
+|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>запрос**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>ответ**][HTTP-Responsedoc]|
+|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![Значок API][Insightlyicon]<br/>**Insightly**|![Значок API][Instagramicon]<br/>**Instagram**|![Значок API][Instapapericon]<br/>**Instapaper**|
+|![Значок API][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|
+|[![API Icon][Nested-Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Видео**][office365-videodoc]|
+|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for-Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|
+|![Значок API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Запрос**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|
+|![Значок API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**Протокол SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
+|![Значок API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**Протокол SMTP**][SMTPdoc]|![Значок API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|![Значок API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
+|![Значок API][Vimeoicon]<br/>**Vimeo**|![Значок API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Значок API][WordPressicon]<br/>**WordPress**|
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![Значок API][YouTubeicon]<br/>**YouTube**|
 
 ### <a name="integration-account-connectors"></a>Соединители для учетной записи интеграции 
 
@@ -57,12 +58,10 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 | [![API Icon][x12icon]<br/>**Декодирование</br>EDIFACT**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**Кодирование</br>EDIFACT**][EDIFACTencode] | | |
 
 > [!NOTE]
-> Если вы хотите опробовать приложения логики Azure, не регистрируя учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое приложение логики для кратковременного использования. Никаких кредитных карт и обязательств.
-> 
-> 
+> Если вы хотите приступить к работе с Azure Logic Apps, не регистрируя учетную запись Azure, перейдите на страницу [Пробная версия службы приложений Azure](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое кратковременное приложение логики. Никаких кредитных карт и обязательств.
 
 ## <a name="enterprise-connectors"></a>Корпоративные соединители
-Используйте корпоративные соединители, чтобы создавать приложения логики для реализации сценариев B2B, включающих EAI и EDI.  
+Используйте корпоративные соединители, чтобы создавать приложения логики для реализации сценариев B2B, включающих в себя EAI и EDI.  
 
 | корпоративные<br/>соединители |  |
 | --- | --- |
@@ -72,7 +71,7 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### <a name="connectors-can-be-triggers"></a>Соединители могут быть триггерами.
-Некоторые соединители служат триггерами, которые могут уведомлять приложение о возникновении определенных событий. Например, соединитель FTP имеет триггер OnUpdatedFile. Вы можете создать приложение логики, приложение PowerApp или поток, которые прослушивают этот триггер и выполняют определенные действия при его активации.
+Некоторые соединители служат триггерами, которые могут уведомлять приложение о возникновении определенных событий. Например, соединитель FTP имеет триггер OnUpdatedFile. Вы можете создать приложение логики, приложение PowerApp или последовательность, которые ожидают передачи данных от этого триггера и выполняют определенные действия при его активации.
 
 Существует два типа триггеров:  
 
@@ -80,11 +79,11 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 * Триггеры Push. Эти триггеры прослушивают данные в конечной точке или происходящее событие, а затем инициируют новый экземпляр приложения. Один из примеров — соединитель Twitter.
 
 ### <a name="connectors-can-be-actions"></a>Соединители могут быть действиями
-Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
+Соединители можно также использовать в своих приложениях в качестве действий. Действия удобно использовать для поиска данных, которые можно использовать при выполнении своего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Эти задачи можно выполнить с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [См. статью Создание нового приложения логики, подключающего службы SaaS.](../logic-apps/logic-apps-create-a-logic-app.md)  
-* [См. статью о создании пользовательского соединителя.](../logic-apps/logic-apps-create-api-app.md)
+* [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Создание настраиваемых API для приложений логики](../logic-apps/logic-apps-create-api-app.md)
 * [См. статью Мониторинг приложений логики.](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
@@ -105,7 +104,7 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Подключается к корпоративной учетной записи Microsoft OneDrive для отправки, удаления и составления списка файлов, а также выполнения других задач."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Подключается к почтовому ящику Outlook для доступа к почте и выполнения других задач."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Подключается к Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "Соединитель RSS позволяет пользователям публиковать и извлекать элементы веб-канала. а также активировать операции при публикации нового элемента в веб-канале."
+[rssdoc]: ./connectors-create-api-rss.md "Соединитель RSS позволяет публиковать и извлекать элементы веб-канала. Кроме того, он дает возможность активировать операции при публикации нового элемента в веб-канале."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Подключается к учетной записи Salesforce для управления учетными записями, интересами, возможностями и выполнения других задач."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Подключается к Microsoft Project Online."
 [service-busdoc]: ./connectors-create-api-servicebus.md "Может отправлять сообщения из очередей и разделов служебной шины, а также получать сообщения из очередей и подписок служебной шины."
@@ -247,9 +246,4 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 [flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

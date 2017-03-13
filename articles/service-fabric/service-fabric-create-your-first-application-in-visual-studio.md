@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
 > 
 > 
 
-Пакет SDK Service Fabric содержит надстройку для Visual Studio, в которой есть шаблоны и средства для создания, развертывания и отладки приложений Service Fabric. Эта статья описывает пошаговый процесс создания первого приложения в Visual Studio.
+Пакет SDK Service Fabric содержит надстройку для Visual Studio, в которой есть шаблоны и средства для создания, развертывания и отладки приложений Service Fabric. Эта статья описывает пошаговый процесс создания первого приложения в Visual Studio 2017 или Visual Studio 2015.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы [настройте среду разработки](service-fabric-get-started.md).
@@ -122,6 +123,19 @@ ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
 
 Кластер разработки перезапустится после изменения режима. После чего будут удалены все приложения, подготовленные или работающие на кластере.
 
+Режим кластера можно также изменить с помощью PowerShell.
+
+1. Откройте новое окно PowerShell от имени администратора.
+2. Запустите сценарий установки кластера из папки пакета SDK:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Настройка кластера занимает несколько минут. После завершения установки вы увидите примерно такой результат:
+   
+    ![Результат установки кластера][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Очистка.
 Завершая работу, важно помнить, что локальный кластер работает по-настоящему. Если остановить работу отладчика, будет удален экземпляр приложения и отменена регистрация типа приложения. Но кластер при этом будет работать в фоновом режиме. Доступно несколько вариантов управления кластером.
 
@@ -150,9 +164,5 @@ ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95a79ccb83d5a3ba386d5db2fd47f3887a03fa8a
-ms.openlocfilehash: 4abb2fa6591c0e014e8d9563f69f9586e081e7b2
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 01a19f1070c1096b41599705bba246bd0cc45d09
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,10 +28,10 @@ ms.openlocfilehash: 4abb2fa6591c0e014e8d9563f69f9586e081e7b2
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этой статьей требуется существующая виртуальная машина Linux в Azure. Если требуется создать виртуальную машину, используйте один из следующих методов:
 
-- [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json);
+- [Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json);
 - [портал Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Вам также потребуется установить последнюю версию [Azure CLI 1.0](../xplat-cli-install.md) или [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в [активную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/).
+Вам также потребуется установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) или [Azure CLI 1.0](../xplat-cli-install.md) и войти в [активную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="quick-commands"></a>Быстрые команды
@@ -69,16 +70,7 @@ sudo service xrdp restart
 sudo passwd ops
 ```
 
-Выйдите из сеанса SSH и вернитесь к виртуальной машине Linux. Используйте Azure CLI на локальном компьютере, чтобы создать правило группы безопасности сети, чтобы разрешить обмен данными с удаленным рабочим столом. В следующем примере с помощью Azure CLI 1.0 в `myNetworkSecurityGroup` создается правило с именем `myNetworkSecurityGroupRule`, разрешающее трафик на TCP-порту 3389:
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-Или используйте команду [az network nsg rule create](/cli/azure/network/nsg/rule#create) в Azure CLI 2.0 (предварительная версия):
+Выйдите из сеанса SSH и вернитесь к виртуальной машине Linux. Используйте Azure CLI на локальном компьютере, чтобы создать правило группы безопасности сети, чтобы разрешить обмен данными с удаленным рабочим столом. Используйте команду [az network nsg rule create](/cli/azure/network/nsg/rule#create) в Azure CLI 2.0. В следующем примере создается правило `myNetworkSecurityGroupRule` в `myNetworkSecurityGroup`. Это правило разрешает трафик через TCP-порт 3389.
     
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -87,6 +79,15 @@ az network nsg rule create --resource-group myResourceGroup \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 3389 \
     --access allow
+```
+
+Или используйте Azure CLI 1.0.
+
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
 ```
 
 Подключитесь к виртуальной машине Linux с помощью клиента удаленного рабочего стола, который вы обычно используете.
@@ -149,16 +150,7 @@ sudo passwd ops
 
 В следующих примерах создается правило группы безопасности сети с именем `myNetworkSecurityGroupRule`, разрешающее (`allow`) трафик по протоколу `tcp` на порту `3389`.
 
-- Используйте Azure CLI 1.0:
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
-
-- Или используйте команду [az network nsg rule create](/cli/azure/network/nsg/rule#create) в Azure CLI 2.0 (предварительная версия):
+- Используйте команду [az network nsg rule create](/cli/azure/network/nsg/rule#create) в Azure CLI 2.0.
     
     ```azurecli
     az network nsg rule create --resource-group myResourceGroup \
@@ -169,6 +161,14 @@ sudo passwd ops
         --access allow
     ```
 
+- Или используйте Azure CLI 1.0.
+
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Подключение к виртуальной машине Linux с помощью клиента удаленного рабочего стола
 Откройте локальный клиент удаленного рабочего стола и подключитесь с помощью IP-адреса или DNS-имени виртуальной машины Linux. Введите имя пользователя и пароль для учетной записи пользователя на виртуальной машине:
@@ -215,10 +215,5 @@ tail -f /var/log/syslog
 Дополнительные сведения о создании и использовании ключей SSH на виртуальных машинах Linux см. в статье [Создание пары из открытого и закрытого ключей SSH для виртуальных машин Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Сведения об использовании SSH в Windows см. в статье [Использование SSH с Windows в Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

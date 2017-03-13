@@ -1,5 +1,5 @@
 ---
-title: "Настройка среды разработки | Документация Майкрософт"
+title: "Настройка среды разработки для микрослужб Azure | Документация Майкрософт"
 description: "Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После этого вы сможете создавать приложения."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 03/07/2017
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -37,6 +38,7 @@ ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 * Windows 7
 * Windows 8 и Windows 8.1;
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,29 +46,33 @@ ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Установка среды выполнения, пакета SDK и инструментов
-Установщик веб-платформы предлагает две конфигурации для разработки в Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Установка пакета SDK и инструментов
+### <a name="to-use-visual-studio-2017"></a>Для использования Visual Studio 2017
+Средства Service Fabric являются частью рабочей нагрузки по разработке и управлению в Azure в Visual Studio 2017. Эту рабочую нагрузку необходимо включить при установке Visual Studio.
+Кроме того, необходимо установить пакет SDK Microsoft Azure Service Fabric, используя установщик веб-платформы.
 
-Visual Studio 2017 (требуется установка рабочей нагрузки разработки и управления Azure).
+* [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
-* [Установка среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Для использования Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии)
+Для Visual Studio 2015 средства Service Fabric устанавливаются вместе с пакетом SDK с помощью установщика веб-платформы:
 
-Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии).
+* [Установка пакета SDK и средств Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-* [Установка среды выполнения Service Fabric, пакета SDK и средств][full-bundle-vs2015]
-* [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Только установка пакета SDK
+Если вам требуется только пакет SDK, можно установить этот пакет:
+* [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
 > [!WARNING]
-> Во время установки с использованием этих ссылок для запуска или при использовании этих ссылок в браузере Chrome у клиентов возникают ошибки. Это известные проблемы в установщике веб-платформы. Идет работа над их устранением.  В качестве обходного решения воспользуйтесь одной из следующих рекомендаций.
+> Во время установки с использованием этих ссылок для запуска или при использовании этих ссылок в браузере Chrome у клиентов возникают ошибки. Это известные проблемы в установщике веб-платформы. Идет работа над их устранением.  Попробуйте следующие обходные пути.
 >- Перейдите по приведенным выше ссылкам с помощью браузеров Internet Explorer или Edge.
 >- Запустите установщик веб-платформы из меню "Пуск", найдите Service Fabric и установите пакет SDK.
 > 
 > Приносим извинения за неудобства. 
 
 Текущие версии:
-* пакет SDK для Service Fabric 2.4.145;
-* среда выполнения Service Fabric 5.4.145;
-* средства Visual Studio 2015 1.4.41209.
+* пакет SDK для Service Fabric 2.4.164;
+* среда выполнения Service Fabric 5.4.164;
+* средства Visual Studio 2015 1.4.50124.
 
 Список поддерживаемых версий см. в статье [Azure Service Fabric support options](service-fabric-support.md) (Варианты поддержки Azure Service Fabric).
 
@@ -94,9 +100,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка на WebPI Dev15"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Ссылка на WebPI Core SDK"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

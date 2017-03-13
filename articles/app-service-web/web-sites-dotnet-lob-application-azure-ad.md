@@ -4,7 +4,7 @@ description: "Узнайте, как создать бизнес-приложе�
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ad947bdb-4463-43ff-a5e3-91d9b2169b60
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85fcb08be0f1443232919ddfe5e69ff0ef1a47a2
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: a00e3c5ed41aff48a6845c2f07ea3e43580045ee
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -224,7 +225,7 @@ If you need role-based access control (RBAC) for your line-of-business app in Az
     @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;) &lt;/div&gt;
    
    @section Scripts {  @Scripts.Render(&quot;~/bundles/jqueryval&quot;)  <mark>&lt;script&gt;
-        // Код выбора людей или групп      var maxResultsPerPage = 14;      var input = document.getElementById(&quot;AssignedToName&quot;);
+        // People/Group Picker Code      var maxResultsPerPage = 14;      var input = document.getElementById(&quot;AssignedToName&quot;);
    
         // Access token from request header, and tenantID from claims identity
         var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
@@ -328,10 +329,5 @@ If you need role-based access control (RBAC) for your line-of-business app in Az
 * [Примеры и документация Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 * [Поддерживаемые типы маркеров и утверждений](http://msdn.microsoft.com/library/azure/dn195587.aspx)
 
-[Защита приложения с помощью SSL и атрибута авторизации]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

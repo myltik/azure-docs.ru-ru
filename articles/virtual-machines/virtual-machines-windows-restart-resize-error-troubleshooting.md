@@ -1,5 +1,5 @@
 ---
-title: "Неполадки при перезапуске или изменении размера виртуальной машины | Документация Майкрософт"
+title: "Неполадки при перезапуске или изменении размера виртуальной машины в Azure | Документация Майкрософт"
 description: "Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -13,25 +13,27 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
+ms.sourcegitcommit: 287d912ecd397d963afb74135f4469653db2e604
+ms.openlocfilehash: cdbcb470ec0f15196062b5da88b7dc6cc76e3bfb
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure
+# <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Устранение неполадок в развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Сбор журналов аудита
-Для устранения неполадок прежде всего соберите журналы аудита, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные сведения о процессе.
+## <a name="collect-activity-logs"></a>Сбор журналов действий
+Для устранения неполадок прежде всего соберите журналы действий, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные сведения о процессе.
 
-[Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Просмотр операций развертывания с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
+[Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Проблема: ошибка во время запуска остановленной виртуальной машины
 При попытке запустить остановленную виртуальную машину отображается сообщение об ошибке выделения.
@@ -64,10 +66,5 @@ ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок в развертывании](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

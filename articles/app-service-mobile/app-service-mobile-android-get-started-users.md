@@ -4,7 +4,7 @@ description: "Узнайте, как использовать функцию м�
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
 ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -26,10 +27,10 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 ## <a name="summary"></a>Сводка
 В этом руководстве вы добавите аутентификацию в проект быстрого запуска ToDoList для Android с помощью поддерживаемого поставщика удостоверений. Этот учебник создан на основе учебника [Начало работы с мобильными службами] , который необходимо изучить в первую очередь.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>Регистрация приложения для аутентификации и настройка службы приложений Azure
+## <a name="register"></a>Регистрация приложения для аутентификации и настройка службы приложений Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 * В Android Studio откройте проект, при выполнении заданий руководства [Начало работы с мобильными службами]. В меню **Run** (Запуск) щелкните **Run app** (Запустить приложение). Убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния "401 (Не авторизовано)".
@@ -41,7 +42,7 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 ## <a name="add-authentication-to-the-app"></a>Добавление проверки подлинности в приложение
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="a-namecache-tokensacache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Кэширование маркеров проверки подлинности на клиенте
+## <a name="cache-tokens"></a>Кэширование маркеров проверки подлинности на клиенте
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -63,9 +64,4 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 
 <!-- URLs. -->
 [Начало работы с мобильными службами]: app-service-mobile-android-get-started.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -4,7 +4,7 @@ description: "Изучите этот учебник, чтобы начать р
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 tags: 
 keywords: "cordova, javascript, мобильный, клиент"
@@ -19,6 +19,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
 ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -81,9 +82,4 @@ ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 [Пакет SDK для Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

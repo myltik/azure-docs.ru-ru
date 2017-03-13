@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 7126657a08b05dc483eeeb03b83ed4b1f5029f2d
-ms.openlocfilehash: 4a4573864c4fdc811e2574fa37afc6dab27c5cd3
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 3f5a5f908106adab72f7e8ba5a15af58f8e1175d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/17/2017
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#quick-commands) — интерфейс командной строки для классической модели развертывания и модели развертывания с помощью Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 
 ## <a name="quick-commands"></a>Быстрые команды

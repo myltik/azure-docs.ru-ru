@@ -1,12 +1,78 @@
 
 
-## <a name="azure-cli"></a>Инфраструктура CLI Azure
+## <a name="azure-cli-20"></a>Azure CLI 2.0
+
+Если у вас [установлен Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), используйте команду `az vm image list`, чтобы увидеть кэшированный список популярных образов виртуальных машин. Например, в следующем примере команда `az vm image list -o table` отображает приведенный ниже результат.
+
+```
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
+CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
+openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
+RHEL           RedHat                  7.2                 RedHat:RHEL:7.2:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+```
+
+### <a name="finding-all-current-images"></a>Поиск всех текущих образов
+
+Чтобы получить текущий список всех образов, используйте `az vm image list` с параметром `--all`. В отличие от команд Azure CLI 1.0, команда `az vm image list --all` возвращает все образы в регионе **westus** по умолчанию (если не указан определенный аргумент `--location`), поэтому выполнение команды `--all` занимает некоторое время. Если вы собираетесь исследовать данные в интерактивном режиме, используйте команду `az vm image list --all > allImages.json`, которая возвращает список всех образов, доступных в настоящее время в Azure, и сохраняет его как файл для локального использования. 
+
+Можно указать один из нескольких параметров, чтобы ограничить область поиска до определенного расположения, предложения, издателя или номера SKU, если вам известны соответствующие сведения. Если расположение не указано, то возвращаются значения для региона **westus**.
+
+### <a name="find-specific-images"></a>Поиск определенных образов
+
+Используйте `az vm image list` с [фильтром запроса JMESPATH](https://docs.microsoft.com/cli/azure/query-az-cli2) для поиска определенной информации. Например, приведенная ниже команда отображает номера **SKU**, которые доступны для **Debian** (помните, что без параметра `--all` поиск выполняется только в локальном кэше общих образов).
+
+```azurecli
+az vm image list --query '[?contains(offer,`Debian`)]' -o table --all
+```
+
+Результат будет выглядеть следующим образом: 
+```
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
+  Sku  Publisher    Offer    Urn                       Version    UrnAlias
+-----  -----------  -------  ------------------------  ---------  ----------
+    8  credativ     Debian   credativ:Debian:8:latest  latest     Debian
+
+<list shortened for the example>
+```
+
+Если вы знаете, куда выполняется развертывание, то можете использовать результаты общего поиска образов с помощью команд `az vm image list-skus`, `az vm image list-offers` и `az vm image list-publishers`, чтобы найти именно тот образ, который нужен, и где он может быть развернут. Например, если из предыдущего примера известно, что у издателя `credativ` есть предложение Debian, то можно использовать `--location` и другие параметры, чтобы найти именно то, что нужно. Следующий пример выполняет поиск образа Debian 8 в регионе **westeurope**.
+
+```azurecli 
+az vm image show -l westeurope -f debian -p credativ --skus 8 --version 8.0.201701180
+```
+
+Ниже приведен результат.
+
+```json
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/<guid>/Providers/Microsoft.Compute/Locations/westeurope/Publishers/credativ/ArtifactTypes/VMImage/Offers/debian/Skus/8/Versions/8.0.201701180",
+  "location": "westeurope",
+  "name": "8.0.201701180",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+
+## <a name="azure-cli-10"></a>Azure CLI 1.0 
+
 > [!NOTE]
-> В этой статье описывается, как найти и выбрать образы виртуальных машин, используя CLI Azure или Azure PowerShell последней версии. Для начала необходимо изменить режим диспетчера ресурсов. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`. 
-> 
+> В этой статье описывается, как найти и выбрать образы виртуальных машин, используя установленную версию Azure CLI 1.0 или Azure PowerShell, поддерживающую модель развертывания с помощью Azure Resource Manager. Предварительно необходимо переключиться в режим Resource Manager. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`. 
 > 
 
-Для поиска образа, который можно использовать с `azure vm quick-create` или для создания файла шаблона группы ресурсов, проще и быстрее всего воспользоваться командой `azure vm image list`, которой передается расположение, имя издателя (без учета регистра) и предложение (если оно вам известно). Например, вот короткий пример (многие списки достаточно длинные), в котором вам известно, что издателем образа является Canonical, а предложение называется UbuntuServer.
+Быстрее всего найти образ можно, выполнив команду `azure vm image list` и передав в нее расположение, имя издателя (без учета регистра) и предложение (если оно вам известно). Например, вот короткий пример (многие списки достаточно длинные), в котором вам известно, что издателем образа является Canonical, а предложение называется UbuntuServer.
 
 ```azurecli
 azure vm image list westus canonical ubuntuserver
@@ -28,7 +94,7 @@ data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  wes
 
 Столбец **Urn** — это форма, которая передается `azure vm quick-create`.
 
-Однако часто нам неизвестно, какие именно образы доступны. В этом случае можно просмотреть их список, сначала получив список издателей с помощью `azure vm image list-publishers` и указав в качестве расположения центр обработки данных, в котором вы собираетесь использовать группу ресурсов. Например, в приведенном ниже списке содержатся все издатели образов из западной части США (при передаче аргумента расположения необходимо привести стандартное название расположения в нижний регистр и удалить из него все пробелы).
+Однако часто нам неизвестно, какие именно образы доступны. В этом случае можно перейти к образам, выполнив команду `azure vm image list-publishers` и указав в командной строке расположение центра обработки данных. Например, в приведенном ниже списке содержатся все издатели образов из западной части США (при передаче аргумента расположения необходимо привести стандартное название расположения в нижний регистр и удалить из него все пробелы).
 
 ```azurecli
 azure vm image list-publishers
@@ -43,7 +109,7 @@ data:    alertlogic                                      westus
 data:    AlertLogic.Extension                            westus  
 ```
 
-Эти списки часто бывают довольно длинными, поэтому в примере приведен лишь фрагмент. Предложим, мы выяснили, что Canonical — издатель из западной части США. Теперь мы можем найти его предложения, вызвав `azure vm image list-offers` и указав расположение и издателя, как в следующем примере.
+Эти списки часто бывают довольно длинными, поэтому в предыдущем примере приведен лишь фрагмент. Предложим, мы выяснили, что Canonical — издатель из западной части США. Теперь мы можем найти его предложения, вызвав `azure vm image list-offers` и указав расположение и издателя, как в следующем примере.
 
 ```azurecli
 azure vm image list-offers
@@ -62,7 +128,7 @@ data:    canonical  Ubuntu_Snappy_Core_Docker  westus
 info:    vm image list-offers command OK
 ```
 
-Теперь мы знаем, что издатель Canonical из западной части США предлагает **UbuntuServer** для Azure. Однако нам также нужны номера SKU. Для этого мы вызываем команду `azure vm image list-skus` и указываем расположение, издателя и предложение.
+Теперь мы знаем, что издатель Canonical из западной части США предлагает **UbuntuServer** для Azure. Однако нам также нужны номера SKU. Чтобы получить их значения, следует выполнить команду `azure vm image list-skus` и указать обнаруженные расположение, издателя и предложение.
 
 ```azurecli
 azure vm image list-skus
@@ -228,7 +294,3 @@ Windows-Server-Technical-Preview
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -12,15 +12,17 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: a8bc1b0a1011cc2d7719d93fad9db76a7b0f0795
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-java"></a>Приступая к работе с Центром Интернета вещей Azure (Java)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Подключение виртуального устройства к Центру Интернета вещей с помощью Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 В конце этого руководства у вас будет три консольных приложения Java:
@@ -37,7 +39,7 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 Для работы с этим учебником требуется:
 
 * Java SE 8. <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Java для работы с этим руководством в ОС Windows или Linux.
-* Maven 3.  <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Maven для работы с этим руководством в ОС Windows или Linux.
+* Maven 3.  <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить [Maven][lnk-maven] для работы с этим руководством в ОС Windows или Linux.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -57,13 +59,12 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. В командной строке перейдите к папке create-device-identity.
-3. Откройте в текстовом редакторе файл pom.xml из папки create-device-identity и добавьте приведенные ниже зависимости в узел **dependency** . Эта зависимость позволяет использовать в приложении пакет iothub-service-sdk:
+3. Откройте в текстовом редакторе файл pom.xml из папки create-device-identity и добавьте приведенные ниже зависимости в узел **dependency** . Эта зависимость позволяет использовать в приложении пакет iot-service-client:
    
     ```
-    <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.11</version>
+    <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.0.14</version>
     </dependency>
     ```
 4. Сохраните и закройте файл pom.xml.
@@ -71,9 +72,9 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 6. Добавьте в файл следующие инструкции **import** .
    
     ```
-    import com.microsoft.azure.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.iot.service.sdk.Device;
-    import com.microsoft.azure.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+    import com.microsoft.azure.sdk.iot.service.sdk.Device;
+    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
@@ -146,7 +147,7 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.10.0</version> 
+        <version>0.11.0</version> 
     </dependency>
     ```
 4. Сохраните и закройте файл pom.xml.
@@ -157,16 +158,12 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
     import java.io.IOException;
     import com.microsoft.azure.eventhubs.*;
     import com.microsoft.azure.servicebus.*;
-   
-    import java.io.IOException;
+
     import java.nio.charset.Charset;
     import java.time.*;
-    import java.util.Collection;
-    import java.util.concurrent.ExecutionException;
     import java.util.function.*;
-    import java.util.logging.*;
     ```
-7. Добавьте в класс **App** . Замените значения **{youriothubkey}**, **{youreventhubcompatibleendpoint}** и **{youreventhubcompatiblename}** значениями, записанными ранее.
+7. Добавьте приведенную ниже переменную уровня класса в класс **App** . Замените значения **{youriothubkey}**, **{youreventhubcompatibleendpoint}** и **{youreventhubcompatiblename}** значениями, записанными ранее.
    
     ```
     private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
@@ -258,7 +255,7 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
     ```
     
     > [!NOTE]
-    > Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами 0 и 1.
+    > Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами&0; и&1;.
     > 
     > 
 11. Сохраните и закройте файл App.java.
@@ -281,9 +278,9 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.16</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-device-client</artifactId>
+      <version>1.0.20</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -296,13 +293,15 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 6. Добавьте в файл следующие инструкции **import** .
    
     ```
-    import com.microsoft.azure.iothub.DeviceClient;
-    import com.microsoft.azure.iothub.IotHubClientProtocol;
-    import com.microsoft.azure.iothub.Message;
-    import com.microsoft.azure.iothub.IotHubStatusCode;
-    import com.microsoft.azure.iothub.IotHubEventCallback;
-    import com.microsoft.azure.iothub.IotHubMessageResult;
+    import com.microsoft.azure.sdk.iot.device.DeviceClient;
+    import com.microsoft.azure.sdk.iot.device.IotHubClientProtocol;
+    import com.microsoft.azure.sdk.iot.device.Message;
+    import com.microsoft.azure.sdk.iot.device.IotHubStatusCode;
+    import com.microsoft.azure.sdk.iot.device.IotHubEventCallback;
+    import com.microsoft.azure.sdk.iot.device.MessageCallback;
+    import com.microsoft.azure.sdk.iot.device.IotHubMessageResult;
     import com.google.gson.Gson;
+
     import java.io.IOException;
     import java.net.URISyntaxException;
     import java.util.Random;
@@ -352,14 +351,13 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
     
     ```
     private static class MessageSender implements Runnable {
-      public volatile boolean stopThread = false;
     
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
           Random rand = new Random();
     
-          while (!stopThread) {
+          while (true) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
@@ -471,9 +469,4 @@ ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html

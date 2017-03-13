@@ -3,6 +3,7 @@
 ## [Что такое хранилище данных SQL?](sql-data-warehouse-overview-what-is.md)
 ## [Рабочая нагрузка хранилища данных](sql-data-warehouse-overview-workload.md)
 ## [Распределенные данные](sql-data-warehouse-distributed-data.md)
+## [Часто задаваемые вопросы](sql-data-warehouse-overview-faq.md)
 
 # Начало работы
 
@@ -10,6 +11,7 @@
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
 ## [Получение поддержки](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
 # Практическое руководство
 
@@ -114,7 +116,6 @@
 ### [Сжатие ColumnStore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Запросы](sql-data-warehouse-manage-monitor.md)
 ### [Рабочая нагрузка](sql-data-warehouse-develop-concurrency.md)
-### [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
 ## Безопасность
 

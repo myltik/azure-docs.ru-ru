@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 4f1e8850aee2cc9578ce80ceb4a5eecf121c4c60
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -36,7 +37,7 @@ Resource Manager позволяет экспортировать шаблон и
 1. На [портале Azure](https://portal.azure.com) выберите **Создать** > **Хранилище** > **Учетная запись хранения**.
    
       ![создание хранилища](./media/resource-manager-export-template/create-storage.png)
-2. Создайте учетную запись хранения с именем **storage**, добавив свои инициалы и дату. Имя учетной записи хранения должно быть уникальным в среде Azure. Если имя уже используется, отобразится соответствующее сообщение об ошибке. Выберите другой вариант. В поле группы ресурсов укажите для новой группы имя **ExportGroup**. Для других свойств можно использовать значения по умолчанию. Нажмите кнопку **Создать**.
+2. Создайте учетную запись хранения с именем **storage**, добавив свои инициалы и дату. Имя учетной записи хранения должно быть уникальным в среде Azure. Если имя уже используется, отобразится соответствующее сообщение об ошибке. Выберите другой вариант. Для группы ресурсов выберите **Создать** и назовите ее **ExportGroup**. Для других свойств можно использовать значения по умолчанию. Нажмите кнопку **Создать**.
    
       ![указывание значений для хранилища](./media/resource-manager-export-template/provide-storage-values.png)
 
@@ -57,6 +58,7 @@ Resource Manager позволяет экспортировать шаблон и
    1. **Шаблон.** Шаблон, определяющий инфраструктуру решения. При создании учетной записи хранения на портале Resource Manager использовал шаблон, чтобы развернуть ее, и сохранил его для дальнейшего использования.
    2. **Параметры.** Файл параметров, который можно использовать для передачи значений во время развертывания. Он содержит значения, указанные при первом развертывании. Но любое из них можно изменить при повторном развертывании шаблона.
    3. **Интерфейс командной строки.** Файл скрипта интерфейса командной строки Azure, который можно использовать для развертывания шаблона.
+   3. **CLI 2.0.** Файл скрипта интерфейса командной строки Azure, который можно использовать для развертывания шаблона.
    4. **PowerShell.** Файл скрипта Azure PowerShell, который можно использовать для развертывания шаблона.
    5. **.NET.** Класс .NET, который можно использовать для развертывания шаблона.
    6. **Ruby.** Класс Ruby, который можно использовать для развертывания шаблона.
@@ -67,48 +69,49 @@ Resource Manager позволяет экспортировать шаблон и
       
       Обратим на него особое внимание. Шаблон должен иметь примерно такой вид:
       
-        {
-      
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
+      ```json
+      {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "name": {
+            "type": "String"
           },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
+          "accountType": {
+            "type": "String"
+          },
+          "location": {
+            "type": "String"
+          },
+          "encryptionEnabled": {
+            "defaultValue": false,
+            "type": "Bool"
+          }
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "Storage",
+            "name": "[parameters('name')]",
+            "apiVersion": "2016-01-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "encryption": {
+                "services": {
+                  "blob": {
+                    "enabled": "[parameters('encryptionEnabled')]"
+                  }
+                },
+                "keySource": "Microsoft.Storage"
               }
             }
-          ]
-        }
+          }
+        ]
+      }
+      ```
 
 Это фактический шаблон, который используется для создания учетной записи хранения. Обратите внимание, что он содержит параметры, которые позволяют развертывать учетные записи хранения разных типов. Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md). Полный список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
 
@@ -144,25 +147,29 @@ Resource Manager позволяет экспортировать шаблон и
    
      Функция экспорта шаблона поддерживается не для всех типов ресурсов. Если ваша группа ресурсов содержит только учетную запись хранения и виртуальную сеть, как описано в этой статье, при экспорте не возникнут проблемы. Однако если вы создали другие типы ресурсов, может отобразиться сообщение о том, что при экспорте произошла ошибка. Дополнительные сведения об устранении таких ошибок см. в разделе [Устранение проблем при экспорте](#fix-export-issues).
 2. Снова появятся шесть файлов, которые можно использовать для повторного развертывания решения. Но в этот раз шаблон выглядит немного иначе. Этот шаблон содержит только два параметра: по одному для имени учетной записи хранения и имени виртуальной сети.
-   
-        "parameters": {
-          "virtualNetworks_VNET_name": {
-            "defaultValue": "VNET",
-            "type": "String"
-          },
-          "storageAccounts_storagetf05092016_name": {
-            "defaultValue": "storagetf05092016",
-            "type": "String"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "virtualNetworks_VNET_name": {
+      "defaultValue": "VNET",
+      "type": "String"
+    },
+    "storageAccounts_storagetf05092016_name": {
+      "defaultValue": "storagetf05092016",
+      "type": "String"
+    }
+  },
+  ```
    
      Использованные при развертывании шаблоны не извлекались с помощью Resource Manager. Вместо этого был создан новый шаблон на основе текущей конфигурации ресурсов. Например, шаблон задает для расположения и репликации учетной записи хранения следующие значения:
-   
-        "location": "northeurope",
-        "tags": {},
-        "properties": {
-            "accountType": "Standard_RAGRS"
-        },
+
+  ```json 
+  "location": "northeurope",
+  "tags": {},
+  "properties": {
+    "accountType": "Standard_RAGRS"
+  },
+  ```
 3. У вас есть несколько вариантов продолжения работы с этим шаблоном. Вы можете скачать шаблон и работать с ним локально в редакторе JSON или сохранить его в библиотеку и работать с ним на портале.
    
      Если вам удобно работать в редакторе JSON, например [VS Code](resource-manager-vs-code.md) или [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), можно скачать шаблон локально и использовать этот редактор. Если у вас не настроен редактор JSON, можно редактировать шаблон на портале. В оставшейся части этого раздела предполагается, что вы сохранили шаблон в библиотеку на портале. Тем не менее как при работе локально в редакторе JSON, так и при работе на портале вы вносите в шаблон одни и те же изменения синтаксиса.
@@ -197,81 +204,90 @@ Resource Manager позволяет экспортировать шаблон и
    
      ![изменение шаблона](./media/resource-manager-export-template/edit-template.png)
 3. Чтобы можно было передавать значения, которые необходимо указывать при развертывании, введите в разделе **parameters** новые определения параметров. Обратите внимание на значения **allowedValues** для переменной **storageAccount_accountType**. Если случайно указать недопустимое значение, ошибка будет распознана до начала развертывания. Кроме того, обратите внимание, что для имени учетной записи указывается только префикс, длина которого ограничена 11 знаками. Такое ограничение префикса гарантирует, что полное имя не превышает максимальное количество знаков для имени учетной записи хранения. Префикс позволяет применять соглашение об именовании к учетным записям хранения. Сведения о создании уникального имени описаны на следующем шаге.
-   
-        "parameters": {
-          "storageAccount_prefix": {
-            "type": "string",
-            "maxLength": 11
-          },
-          "storageAccount_accountType": {
-            "defaultValue": "Standard_RAGRS",
-            "type": "string",
-            "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-            ]
-          },
-          "virtualNetwork_name": {
-            "type": "string"
-          },
-          "addressPrefix": {
-            "defaultValue": "10.0.0.0/16",
-            "type": "string"
-          },
-          "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "string"
-          },
-          "subnetAddressPrefix": {
-            "defaultValue": "10.0.0.0/24",
-            "type": "string"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "storageAccount_prefix": {
+      "type": "string",
+      "maxLength": 11
+    },
+    "storageAccount_accountType": {
+      "defaultValue": "Standard_RAGRS",
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "virtualNetwork_name": {
+      "type": "string"
+    },
+    "addressPrefix": {
+      "defaultValue": "10.0.0.0/16",
+      "type": "string"
+    },
+    "subnetName": {
+      "defaultValue": "subnet-1",
+      "type": "string"
+    },
+    "subnetAddressPrefix": {
+      "defaultValue": "10.0.0.0/24",
+      "type": "string"
+    }
+  },
+  ```
+
 4. Раздел **variables** шаблона сейчас пуст. В разделе **variables** можно создавать значения, чтобы упростить синтаксис остальной части шаблона. Укажите в этом разделе новое определение переменной. Переменная **storageAccount_name** объединяет префикс параметра с уникальной строкой, созданной на основе идентификатора группы ресурсов. При указании значения параметра больше не нужно подбирать уникальное имя.
-   
-        "variables": {
-          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-        },
+
+  ```json
+  "variables": {
+    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+  },
+  ```
+
 5. Чтобы использовать раздел параметров и переменную в определениях ресурсов, укажите в разделе **resources** новые определения ресурсов. Обратите внимание, что кроме значений, назначенных свойствам, в определениях ресурсов мало что изменилось. Эти свойства соответствуют свойствам экспортированного шаблона. Вы просто назначаете свойства значениям параметров, вместо того чтобы жестко задавать значения. С помощью выражения **resourceGroup().location** для расположения ресурсов определено использование того же расположения, что и для группы ресурсов. Ссылка на переменную, созданную для имени учетной записи хранения, указывается с помощью выражения **variables** .
-   
-        "resources": [
+
+  ```json
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetwork_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('addressPrefix')]"
+          ]
+        },
+        "subnets": [
           {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetwork_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
+            "name": "[parameters('subnetName')]",
             "properties": {
-              "addressSpace": {
-                "addressPrefixes": [
-                  "[parameters('addressPrefix')]"
-                ]
-              },
-              "subnets": [
-                {
-                  "name": "[parameters('subnetName')]",
-                  "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
-                  }
-                }
-              ]
-            },
-            "dependsOn": []
-          },
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccount_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {
-                "accountType": "[parameters('storageAccount_accountType')]"
-            },
-            "dependsOn": []
+              "addressPrefix": "[parameters('subnetAddressPrefix')]"
+            }
           }
         ]
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccount_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "accountType": "[parameters('storageAccount_accountType')]"
+      },
+      "dependsOn": []
+    }
+  ]
+  ```
+
 6. Отредактировав шаблон, нажмите кнопку **ОК**.
 7. Чтобы сохранить изменения в шаблоне, щелкните **Сохранить**.
    
@@ -286,7 +302,7 @@ Resource Manager позволяет экспортировать шаблон и
 
 Замените содержимое файла parameters.json следующим:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
@@ -324,7 +340,7 @@ Resource Manager позволяет экспортировать шаблон и
 ### <a name="connection-string"></a>Строка подключения
 В ресурсе веб-сайтов добавьте определение строки подключения к базе данных.
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -350,7 +366,7 @@ Resource Manager позволяет экспортировать шаблон и
 ### <a name="web-site-extension"></a>Расширение веб-сайта
 В ресурсе веб-сайта добавьте определение кода для установки.
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -382,7 +398,7 @@ Resource Manager позволяет экспортировать шаблон и
 ### <a name="virtual-network-gateway"></a>Шлюз виртуальной сети
 Добавьте тип ресурса шлюза виртуальной сети.
 
-```
+```json
 {
   "type": "Microsoft.Network/virtualNetworkGateways",
   "name": "[parameters('<gateway-name>')]",
@@ -417,7 +433,7 @@ Resource Manager позволяет экспортировать шаблон и
 ### <a name="local-network-gateway"></a>Шлюз локальной сети
 Добавьте тип ресурса шлюза локальной сети.
 
-```
+```json
 {
     "type": "Microsoft.Network/localNetworkGateways",
     "name": "[parameters('<local-network-gateway-name>')]",
@@ -434,7 +450,7 @@ Resource Manager позволяет экспортировать шаблон и
 ### <a name="connection"></a>Подключение
 Добавьте тип ресурса подключения.
 
-```
+```json
 {
     "apiVersion": "2015-06-15",
     "name": "[parameters('<connection-name>')]",
@@ -461,10 +477,5 @@ Resource Manager позволяет экспортировать шаблон и
 * Вы можете развернуть шаблон с помощью [PowerShell](resource-group-template-deploy.md), [интерфейса командной строки Azure](resource-group-template-deploy-cli.md) или [REST API](resource-group-template-deploy-rest.md).
 * Сведения об экспорте шаблона с помощью PowerShell см. в статье [Использование Azure PowerShell с Azure Resource Manager](powershell-azure-resource-manager.md).
 * Сведения об экспорте шаблона с помощью интерфейса командной строки Azure см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](xplat-cli-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

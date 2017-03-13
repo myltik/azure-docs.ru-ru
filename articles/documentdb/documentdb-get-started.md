@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 1622566c34c1ff9c8e83f0356e04743f8a890e96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,7 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Node.js для MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ ms.lasthandoff: 02/23/2017
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a> Шаг 2. Настройка решения Visual Studio
+## <a id="SetupVS"></a> Шаг 2. Настройка решения Visual Studio
 1. Откройте **Visual Studio 2015** у себя на компьютере.
 2. В меню **Файл** выберите пункт **Создать**, а затем — **Проект**.
 3. В диалоговом окне **Новый проект** выберите **Шаблоны** / **Visual C#** / **Консольное приложение**, а затем укажите имя проекта и нажмите кнопку **ОК**.
@@ -81,7 +83,7 @@ ms.lasthandoff: 02/23/2017
 
 Отлично! Теперь, когда мы завершили настройку, начнем писать код. Вы можете найти проект готового кода для этого руководства в [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a> Шаг 3. Подключение к учетной записи DocumentDB
+## <a id="Connect"></a> Шаг 3. Подключение к учетной записи DocumentDB
 Во-первых, добавьте эти ссылки в начало приложения C# в файле Program.cs:
 
     using System;
@@ -214,7 +216,7 @@ ms.lasthandoff: 02/23/2017
 
 Поздравляем! База данных DocumentDB создана.  
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Этап 5: создание коллекции
+## <a id="CreateColl"></a>Этап 5: создание коллекции
 > [!WARNING]
 > С использованием элемента **CreateDocumentCollectionAsync** можно создать новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -271,7 +273,7 @@ ms.lasthandoff: 02/23/2017
 
 Поздравляем! Коллекция документов DocumentDB создана.  
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Шаг 6. Создание документов JSON
+## <a id="CreateDoc"></a>Шаг 6. Создание документов JSON
 Вы можете создать [документ](documentdb-resources.md#documents) с помощью метода [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx), который относится к классу **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, вы можете использовать [средство миграции данных](documentdb-import-data.md) DocumentDB, чтобы импортировать данные в базу данных.
 
 Сначала необходимо создать класс **Family** , который будет представлять объекты, хранящиеся в DocumentDB в этом примере. Мы также создадим подклассы **Parent**, **Child**, **Pet** и **Address**, используемые в классе **Family**. Обратите внимание, документы должны иметь свойство **Id**, сериализуемое как **id** в файле JSON. Для этого после метода **GetStartedDemo** необходимо добавить следующие подклассы.
@@ -432,7 +434,7 @@ ms.lasthandoff: 02/23/2017
 
 ![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
+## <a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
 Служба DocumentDB поддерживает функционально богатые [запросы](documentdb-sql-query.md) документов JSON, хранящихся в каждой коллекции.  Ниже приведены примеры кода разнообразных запросов с использованием как синтаксиса SQL DocumentDB, так и LINQ, которые можно запускать на добавленных на предыдущем шаге документах.
 
 Скопируйте и вставьте метод **ExecuteSimpleQuery** после кода метода **CreateFamilyDocumentIfNotExists**.
@@ -490,7 +492,7 @@ ms.lasthandoff: 02/23/2017
 
 Ключевое слово [FROM](documentdb-sql-query.md#FromClause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Шаг 8. Замена документа JSON
+## <a id="ReplaceDocument"></a>Шаг 8. Замена документа JSON
 DocumentDB поддерживает замену документов JSON.  
 
 Скопируйте и вставьте метод **ReplaceFamilyDocument** после кода метода **ExecuteSimpleQuery**.
@@ -527,7 +529,7 @@ DocumentDB поддерживает замену документов JSON.
 
 Поздравляем! Документ DocumentDB заменен.
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Шаг 9. Удаление документа JSON
+## <a id="DeleteDocument"></a>Шаг 9. Удаление документа JSON
 DocumentDB поддерживает удаление документов JSON.  
 
 Скопируйте и вставьте метод **DeleteFamilyDocument** после кода метода **ReplaceFamilyDocument**.
@@ -559,7 +561,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Документ DocumentDB удален.
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Шаг 10. Удаление базы данных
+## <a id="DeleteDatabase"></a>Шаг 10. Удаление базы данных
 Удаление созданной базы данных приведет к удалению базы данных и всех дочерних ресурсов (коллекций, документов и т. д.).
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** после кода удаления документа, чтобы удалить всю базу данных и все дочерние ресурсы.
@@ -576,7 +578,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! База данных DocumentDB удалена.
 
-## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Шаг 11. Запуск консольного приложения C#
+## <a id="Run"></a>Шаг 11. Запуск консольного приложения C#
 Чтобы создать приложение в режиме отладки, откройте Visual Studio и нажмите клавишу F5.
 
 Должны отобразиться выходные данные вашего приложения. Они должны содержать результаты обработки добавленных запросов. При этом выглядеть они должны примерно так, как показано в примере ниже.
@@ -604,7 +606,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Вы завершили работу с руководством по NoSQL и создали работающее консольное приложение C#.
 
-## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> Получение полного решения NoSQL для этого руководства
+## <a id="GetSolution"></a> Получение полного решения NoSQL для этого руководства
 Если у вас нет времени на выполнение шагов из этого руководства или вы хотите просто скачать примеры кода, это можно сделать на портале [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 Чтобы создать решение GetStarted, требуются следующие компоненты.

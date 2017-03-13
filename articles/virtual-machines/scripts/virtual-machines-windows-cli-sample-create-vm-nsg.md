@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 9ef17544582e944fda2ab8ea8b8098bb83e2ab57
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 69a06ba68e9a92ab63fd7c86a80eb9c4718f6679
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 
 Этот пример работает в оболочке Bash. Сведения о параметрах выполнения скриптов Azure CLI для Windows см. в статье [Использование Azure CLI в Windows](../virtual-machines-windows-cli-options.md).
 
-## <a name="create-vm-sample-with-a-network-security-group"></a>Создание примера виртуальной машины с использованием группы безопасности сети
+## <a name="sample-script"></a>Пример скрипта
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "Создание виртуальной машины с использованием группы безопасности сети")]
 

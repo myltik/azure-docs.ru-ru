@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 040598d55939685e50a3fb7006e27e27097f9224
-ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 278caf2afa889466736f3d98ff4ad292f72e5098
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -28,7 +29,7 @@ ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
 
 В данной статье приведены таблицы со сведениями о поставщиках услуг подключения ExpressRoute, географическом покрытии ExpressRoute, облачных службах Майкрософт, поддерживаемых через ExpressRoute, и системных интеграторах ExpressRoute.
 
-## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Поставщики услуг подключения ExpressRoute
+## <a name="partners"></a>Поставщики услуг подключения ExpressRoute
 ExpressRoute поддерживается во всех регионах и расположениях Azure. На следующей карте обозначены регионы Azure и расположения ExpressRoute. Расположения ExpressRoute соответствуют тем территориям, где Майкрософт взаимодействует с несколькими одноранговыми поставщиками услуг.
 
 ![Карта расположения][0]
@@ -60,7 +61,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 В стандартном номере SKU ExpressRoute подключение между геополитическими регионами не поддерживается. Для поддержки глобальных подключений необходимо включить надстройку ExpressRoute класса "Премиум". Подключение к национальным облачным средам не поддерживается. При необходимости вы можете работать с поставщиками услуг подключения.
 
-## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Расположения поставщиков услуг подключения
+## <a name="locations"></a>Расположения поставщиков услуг подключения
 
 В таблице ниже приведены расположения для подключения и поставщики услуг в каждом расположении. Поставщики услуг и расположения, в которых они предоставляют услуги, перечислены в разделе [Расположения поставщиков услуг подключения](expressroute-locations.md#locations). 
 
@@ -71,9 +72,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Атланта** |Equinix |
 | **Пусан** |LG CNS+, Sejong Telecom |
-| **Ченнай** |SIFY, Tata Communications |
-| **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Ченнай** |Global CloudXchange (GCX), SIFY, Tata Communications |
+| **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
 | **Дублин** |Colt, Telecity Group |
 | **Гонконг** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -124,7 +125,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Берлин** |Colt+, e-shelter, Megaport+ |
 | **Франкфурт** |Colt, Equinix, Interxion |
 
-## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Подключение через других поставщиков услуг
+## <a name="nonpartners"></a>Подключение через других поставщиков услуг
 Вы можете создать подключение, даже если ваш поставщик услуг подключения не указан в предыдущих разделах.
 
 * Узнайте у своего поставщика услуг подключения, подключен ли он к какому-либо Exchange, указанному в таблице выше. Дополнительные сведения об услугах, предлагаемых поставщиками Exchange, см. по ссылкам ниже. Несколько поставщиков услуг подключения уже подключены к серверам Ethernet Exchange.
@@ -168,9 +169,4 @@ ExpressRoute поддерживается во всех регионах и ра
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

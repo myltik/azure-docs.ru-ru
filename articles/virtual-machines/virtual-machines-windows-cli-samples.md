@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: c1cfaec3517dc490d48cb989e28d2c8d3a2bad84
-ms.openlocfilehash: 7003225447425d239cfa75852b5c83bdab97b93b
+ms.sourcegitcommit: cde57732f16d9571af8cc4ae5df3c012579ce831
+ms.openlocfilehash: 29e8a19d4c05ac3c01ecbe43650c6607234c0546
 ms.lasthandoff: 03/01/2017
 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/01/2017
 | [Создание полностью настроенной виртуальной машины](./scripts/virtual-machines-windows-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Создает группу ресурсов, виртуальную машину и все связанные ресурсы.|
 | [Создание высокодоступной виртуальной машины](./scripts/virtual-machines-windows-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Создает несколько виртуальных машин с высокодоступной конфигурацией с балансировкой нагрузки. |
 | [Создание виртуальной машины с помощью NGINX](./scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает виртуальную машину и использует расширение пользовательских скриптов Azure для установки IIS. |
-| [Создание виртуальной машины с IIS с помощью DSC](./scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Создает виртуальную машину и использует расширение настройки требуемого состояния (DSC) для установки IIS. |
+| [Создание виртуальной машины с IIS с помощью DSC](./scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Создает виртуальную машину и использует расширение настройки требуемого состояния (DSC) для установки IIS. |
 |**Сети виртуальных машин**||
 | [Защита сетевого трафика между виртуальными машинами](./scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Создает две виртуальные машины, все связанные ресурсы, а также внешние и внутренние группы безопасности сети (NSG). |
 |**Мониторинг виртуальных машин**||

@@ -1,19 +1,6 @@
 ---
-title: ''
-description: ''
-documentationcenter: ''
-services: ''
-solutions: ''
-writer: kathydav
-editor: tysonn
-manager: jeffreyg
-
-{}
-
----
 > [!NOTE]
 > Для работы с этим учебником требуется учетная запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 > 
 > 
 
-<!---HONumber=AcomDC_0128_2016-->

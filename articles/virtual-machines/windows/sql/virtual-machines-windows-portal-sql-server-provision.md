@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,11 +53,14 @@ ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
    ![Колонка "Виртуальные машины Azure"](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Просмотрите доступные шаблоны SQL Server.
-6. Каждый шаблон определяет версию SQL Server и операционную систему. Выберите один из этих образов из списка. Просмотрите колонку сведений, содержащую описание образа виртуальной машины.
+5. Просмотрите доступные шаблоны SQL Server. Каждый шаблон определяет версию SQL Server и операционную систему. 
+6. Выберите шаблон SQL Server 2016 SP1 Developer на платформе Windows Server 2016.
+
+   > [!TIP]
+   > В этом руководстве используется выпуск Developer, так как это полнофункциональный выпуск SQL Server, предоставляемый бесплатно для тестирования в процессе разработки. Вы оплачиваете только стоимость выполнения виртуальной машины.
    
    > [!NOTE]
-   > В поминутную тарификацию использования виртуальных машин SQL, создаваемых из образов, включена стоимость лицензирования на SQL Server. Есть еще один вариант — использовать собственную лицензию (BYOL) и платить только за виртуальную машину. Имена таких образов содержат префикс {BYOL}. Дополнительные сведения об этом варианте см. в статье [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+   > В поминутную тарификацию использования виртуальных машин SQL, создаваемых из образов, включена стоимость лицензий на SQL Server (за исключением выпусков Developer и Express). Выпуск SQL Server Developer предоставляется бесплатно для разработки и тестирования (не для рабочей среды), а выпуск SQL Express предоставляется бесплатно для упрощенных рабочих нагрузок (требующих менее 1 ГБ памяти и 10 ГБ хранилища). Есть еще один вариант — использовать собственную лицензию (BYOL) и платить только за виртуальную машину. Имена таких образов содержат префикс {BYOL}. Дополнительные сведения об этом варианте см. в статье [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. В разделе **Выбор модели развертывания** выберите **Resource Manager**. Для новых виртуальных машин рекомендуется использовать модель развертывания Resource Manager. Щелкните **Создать**.
@@ -243,14 +247,10 @@ ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 Настроив параметры SQL Server, нажмите кнопку **ОК**.
 
 ### <a name="r-services"></a>Службы R
-Для выпуска SQL Server 2016 Enterprise можно включить [службы R SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Это позволяет использовать в SQL Server 2016 расширенные средства аналитики. Щелкните **Включить** on the **SQL Server Settings** .
+Имеется возможность можно включить [службы R SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Это позволяет использовать в SQL Server 2016 расширенные средства аналитики. Щелкните **Включить** on the **SQL Server Settings** .
 
 ![Включение служб R SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> Для образов SQL Server, которые не относятся к выпуску 2016 Enterprise, параметр служб R отключен.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. Просмотр сводки.
 В колонке **Сводка** просмотрите сводные данные и нажмите кнопку **ОК**, чтобы создать SQL Server, группу ресурсов и ресурсы, указанные для этой виртуальной машины.
@@ -299,10 +299,5 @@ ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 Чтобы получить общие сведения об SQL Server на виртуальных машинах Azure, просмотрите видео [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)(Виртуальные машины Azure — лучшая платформа для SQL Server 2016).
 
 [Ознакомьтесь со схемой обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) по использованию SQL Server в виртуальных машинах Azure.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

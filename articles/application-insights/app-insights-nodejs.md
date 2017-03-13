@@ -1,21 +1,22 @@
 ---
-title: "Добавление пакета SDK Application Insights для отслеживания работы приложения Node.js | Документация Майкрософт"
+title: "Мониторинг приложения Node.js с помощью пакета SDK для Azure Application Insights | Документация Майкрософт"
 description: "Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,22 +32,21 @@ ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 #### <a name="before-you-start"></a>Перед началом работы
 Вам необходимы:
 
-* Visual Studio 2013 или более поздняя версия. Чем новее версия, тем лучше.
 * подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Создание ресурса Application Insights
-Войдите на [портал Azure][portal] и создайте новый ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
+## <a name="add"></a>Создание ресурса Application Insights
+Войдите на [портал Azure][portal] и создайте ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
 
 ![Нажмите "Создать" и "Application Insights"](./media/app-insights-nodejs/01-new-asp.png)
 
-Выберите "Другое" в качестве типа приложения. От выбранного типа приложения зависит содержимое по умолчанию столбцов ресурсов и свойств, отображаемых в [обозревателе метрик][metrics].
+Выберите "Универсальный" в качестве типа приложения. От выбранного типа приложения зависит содержимое по умолчанию столбцов ресурсов и свойств, отображаемых в [обозревателе метрик][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Копирование ключа инструментирования
 Ключ идентифицирует ресурс, и вы установите его в пакет SDK для направления данных ресурсу.
 
 ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Установка пакета SDK в приложении
+## <a name="sdk"></a> Установка пакета SDK в приложении
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ appInsights.setup("<instrumentation_key>").start();
 
 Вы можете попробовать пакет SDK, не отправляя данные телеметрии. Для этого сделайте ключ инструментирования непустой строкой.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a>Запуск проекта
+## <a name="run"></a>Запуск проекта
 Запустите приложение и попробуйте им воспользоваться. Открывайте разные страницы, чтобы создать некоторый объем данных телеметрии.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Просмотр своих данных телеметрии
+## <a name="monitor"></a> Просмотр своих данных телеметрии
 Вернитесь на [портал Azure](https://portal.azure.com) и перейдите к своему ресурсу Application Insights.
 
 Поищите данные на странице "Обзор". Сначала вы увидите только одну или две точки. Например:
@@ -80,7 +80,7 @@ appInsights.setup("<instrumentation_key>").start();
 * Используйте приложение, открывая различные страницы, чтобы создать некоторый объем данных телеметрии.
 * Откройте плитку [Поиск](app-insights-diagnostic-search.md) , чтобы просмотреть отдельные события. Иногда для прохождения событий через конвейер метрики требуется чуть больше времени.
 * Подождите несколько секунд и нажмите **Обновить**. Диаграмма периодически обновляется, однако ее можно обновить и вручную, если вы ждете появления каких-либо данных.
-* См. [Устранение неполадок][qna].
+* Ознакомьтесь с разделом [Устранение неполадок][qna].
 
 ## <a name="publish-your-app"></a>Публикация приложения
 Теперь разверните свое приложение в IIS или Azure и наблюдайте за тем, как накапливаются данные.
@@ -197,9 +197,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

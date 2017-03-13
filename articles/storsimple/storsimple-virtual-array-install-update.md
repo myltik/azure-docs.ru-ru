@@ -4,7 +4,7 @@ description: "В этой статье объясняется, как устан
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 9997a97b-9382-43ed-b56e-61369335c987
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: c192397de12d72a0430f89594d4d18d9c1c71719
+ms.sourcegitcommit: 978dde5857344704ce14e2dd090895f1fe541863
+ms.openlocfilehash: c2d081604c0ca01f47c3ff2aab7477859d280963
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="install-updates-on-your-storsimple-virtual-array"></a>Установка обновлений на виртуальный массив StorSimple
+# <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Установка обновлений на виртуальный массив StorSimple с помощью портала Azure
 
 ## <a name="overview"></a>Обзор
 
@@ -107,10 +109,5 @@ ms.openlocfilehash: c192397de12d72a0430f89594d4d18d9c1c71719
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

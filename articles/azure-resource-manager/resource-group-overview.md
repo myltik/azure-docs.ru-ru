@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -93,10 +93,10 @@ Resource Manager обеспечивает слой согласованного 
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Кроме того, их можно получить, выполнив следующую команду Azure CLI:
+Кроме того, их можно получить, выполнив следующую команду Azure CLI 2.0:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 В возращенном списке можно просмотреть поставщиков ресурсов, которые необходимо использовать.
@@ -107,10 +107,10 @@ azure provider list
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Чтобы получить сведения о поддерживаемых службой Microsoft.Compute типах ресурсов, расположениях и версиях API, выполните следующую команду Azure CLI:
+Чтобы получить сведения о поддерживаемых службой Microsoft.Compute типах ресурсов, расположениях и версиях API, выполните следующую команду Azure CLI 2.0:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Дополнительные сведения см. в статье [Поставщики диспетчера ресурсов, регионы, версии API и схемы](resource-manager-supported-services.md).
@@ -215,10 +215,10 @@ Azure Resource Manager анализирует зависимости, чтобы
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Или выполните следующую команду Azure CLI:
+Или выполните следующую команду Azure CLI 2.0:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 Ресурсы с тегами можно также просмотреть на портале Azure.

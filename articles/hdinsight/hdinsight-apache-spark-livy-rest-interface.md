@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -166,7 +167,7 @@ Livy обеспечивает высокую доступность задани
 3. В разделе **livy-default** добавьте имя свойства `livy.file.local-dir-whitelist` и присвойте ему значение **"/"**, если вы хотите разрешить полный доступ к файловой системе. Если вы хотите разрешить доступ только к конкретному каталогу, то в качестве значения свойства укажите путь к этому каталогу.
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
+## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Сценарии
@@ -190,10 +191,5 @@ Livy обеспечивает высокую доступность задани
 ### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -81,9 +81,10 @@
 #### [Таймеры и напоминания](service-fabric-reliable-actors-timers-reminders.md)
 #### [События](service-fabric-reliable-actors-events.md)
 #### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
-#### [Настройка поставщика состояния](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Настройка KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Настройка параметров подключения](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Настройка ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Миграция из облачных служб
 ### [Сравнение облачных служб и Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio и Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Шаблоны сети кластера](service-fabric-patterns-networking.md)
 #### [Виды узлов и масштабируемые наборы ВМ](service-fabric-cluster-nodetypes.md)
 #### [Масштабирование кластера](service-fabric-cluster-scale-up-down.md)
 #### [Обновление кластера](service-fabric-cluster-upgrade.md)

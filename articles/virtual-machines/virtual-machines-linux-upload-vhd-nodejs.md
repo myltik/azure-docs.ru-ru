@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 34123faec2efc85ff6e6686c79eadc04f7f08a52
-ms.openlocfilehash: aa8161e2ae96ce67a20e87fc1e4b27b6ff24d439
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: aa8161e2ae96ce67a20e87fc1e4b27b6ff24d439
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#quick-commands) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 
 ## <a name="quick-commands"></a>Быстрые команды
@@ -168,7 +169,7 @@ data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w
 info:    storage account keys list command OK
 
 ```
-Запишите значение `key1` , так как оно будет использоваться для работы с учетной записью хранения на следующих шагах.
+Запишите значение `key1`, так как оно будет использоваться для работы с учетной записью хранения на следующих шагах.
 
 ## <a name="create-a-storage-container"></a>Создание контейнера хранилища
 Точно так же, как вы создаете различные каталоги для логической организации локальной файловой системы, вы создаете контейнеры в учетной записи хранения, чтобы упорядочить виртуальные диски и образы. Учетная запись хранения может содержать любое количество контейнеров. 
@@ -246,10 +247,5 @@ azure group deployment create --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После подготовки и передачи пользовательского виртуального диска ознакомьтесь с дополнительными сведениями об [использовании Resource Manager и шаблонов](../azure-resource-manager/resource-group-overview.md). Возможно, вам также потребуется [добавить диск данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для новых виртуальных машин. Если на виртуальных машинах запущены приложения, к которым необходим доступ, [откройте порты и конечные точки](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

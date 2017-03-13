@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ddd676df429c20d1c07cfe64abc9ab69ef11bd8c
-ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,8 +26,9 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js для MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -62,7 +64,7 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idgitcloneastep-2-clone-the-github-project"></a><a id="GitClone"></a>Этап 2. Клонирование проекта GitHub
+## <a id="GitClone"></a>Этап 2. Клонирование проекта GitHub
 [Чтобы приступить к работе с DocumentDB и Java,](https://github.com/Azure-Samples/documentdb-java-getting-started) сначала клонируйте репозиторий GitHub. Например, чтобы получить образец проекта в локальной среде, в локальном каталоге выполните следующую команду.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
@@ -77,7 +79,7 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
         <version>LATEST</version>
     </dependency>
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a> Шаг 3. Подключение к учетной записи DocumentDB
+## <a id="Connect"></a> Шаг 3. Подключение к учетной записи DocumentDB
 Далее вернитесь на [портал Azure](https://portal.azure.com), чтобы получить конечную точку и первичный главный ключ. Конечная точка DocumentDB и первичный ключ необходимы, чтобы предоставить приложению данные о расположении, в котором будет устанавливаться подключение, и сделать подключение вашего приложения доверенным для DocumentDB.
 
 На портале Azure перейдите к учетной записи DocumentDB и щелкните **Ключи**. Скопируйте универсальный код ресурса (URI) с портала и вставьте его в параметр `<your endpoint URI>` в файле Program.java. Затем скопируйте на портале значение поля "Первичный ключ" и вставьте его в параметр `<your key>`.
@@ -97,7 +99,7 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Этап 5: создание коллекции
+## <a id="CreateColl"></a>Этап 5: создание коллекции
 > [!WARNING]
 > Элемент **createCollection** создает коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -116,7 +118,7 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Шаг 6. Создание документов JSON
+## <a id="CreateDoc"></a>Шаг 6. Создание документов JSON
 [Документ](documentdb-resources.md#documents) можно создать с помощью метода [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, вы можете использовать [средство миграции данных](documentdb-import-data.md) DocumentDB, чтобы импортировать данные в базу данных.
 
     // Insert your Java objects as documents 
@@ -139,7 +141,7 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 
 ![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения Java.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
+## <a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
 Служба DocumentDB поддерживает функционально богатые [запросы](documentdb-sql-query.md) документов JSON, хранящихся в каждой коллекции.  Ниже приведен образец кода, который позволяет запросить документы в DocumentDB, используя синтаксис SQL с методом [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -152,7 +154,7 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Шаг 8. Замена документа JSON
+## <a id="ReplaceDocument"></a>Шаг 8. Замена документа JSON
 DocumentDB поддерживает обновление документов JSON с помощью метода [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
 
     // Update a property
@@ -163,17 +165,17 @@ DocumentDB поддерживает обновление документов JS
         andersenFamily,
         null);
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Шаг 9. Удаление документа JSON
+## <a id="DeleteDocument"></a>Шаг 9. Удаление документа JSON
 Аналогичным образом DocumentDB поддерживает удаление документов JSON с помощью метода [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Шаг 10. Удаление базы данных
+## <a id="DeleteDatabase"></a>Шаг 10. Удаление базы данных
 Удаление созданной базы данных влечет удаление всех ее дочерних ресурсов (коллекций, документов и т. д.).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a name="a-idrunastep-11-run-your-java-console-application-all-together"></a><a id="Run"></a>Этап 11. Запуск консольного приложения Java
+## <a id="Run"></a>Этап 11. Запуск консольного приложения Java
 Чтобы запустить приложение в окне консоли, сначала скомпилируйте его с помощью Maven.
     
     mvn package
@@ -192,9 +194,4 @@ DocumentDB поддерживает обновление документов JS
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

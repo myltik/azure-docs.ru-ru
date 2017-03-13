@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
 ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -126,9 +127,4 @@ ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
 * [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Консоль управления групповой политикой](https://technet.microsoft.com/library/cc753298.aspx)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

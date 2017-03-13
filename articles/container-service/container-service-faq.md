@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Часто задаваемые вопросы о Службе контейнеров Azure
+# <a name="container-service-frequently-asked-questions"></a>Часто задаваемые вопросы о службе контейнеров
 
 
 ## <a name="orchestrators"></a>Оркестраторы
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Какие оркестраторы контейнеров поддерживает Служба контейнеров Azure? 
 
-Служба контейнеров Azure поддерживает компоненты DC/OS, Docker Swarm и Kubernetes с открытым кодом. Поддержка DC/OS и Docker Swarm доступна в общедоступной версии, а поддержка Kubernetes сейчас находится на этапе предварительной версии. Дополнительные сведения см. в статье [Общие сведения о Службе контейнеров Azure](container-service-intro.md).
+Служба контейнеров Azure поддерживает компоненты DC/OS, Docker Swarm и Kubernetes с открытым кодом. Дополнительные сведения см. в статье [Общие сведения о Службе контейнеров Azure](container-service-intro.md).
  
-### <a name="do-you-support-swarm-mode"></a>Поддерживается ли режим Swarm? 
+### <a name="do-you-support-docker-swarm-mode"></a>Поддерживается ли режим Docker Swarm? 
 
 Сейчас режим Swarm не поддерживается, но мы планируем добавить его поддержку в будущем. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Поддерживает ли Служба контейнеров Azure контейнеры Windows?  
 
-Сейчас поддерживаются только контейнеры Linux. Мы планируем добавить поддержку контейнеров Windows с оркестраторами DC/OS, Docker Swarm и Kubernetes в будущем. 
+Сейчас для всех оркестраторов поддерживаются только контейнеры Linux. Поддержка контейнеров Windows в Kubernetes находится в на этапе предварительной версии.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Советуете ли вы использовать конкретный оркестратор в Службе контейнеров Azure? 
 Обычно мы не советуем использовать конкретный оркестратор. Если вы уже работали с одним из поддерживаемых оркестраторов, вы можете применить этот опыт в Службе контейнеров Azure. Но на основе тенденций в данных DC/OS эффективно использовать для рабочих нагрузок Интернета вещей и больших данных, Kubernetes подходит для облачных рабочих нагрузок, а Docker Swarm отличается возможностью интеграции со средствами Docker и своей простотой.
@@ -55,29 +57,23 @@ ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
 
 Чтобы создать для кластера пару ключей SSH RSA (открытый и закрытый), используемых для проверки подлинности виртуальных машин, можно воспользоваться стандартными средствами операционной системы. Пошаговые инструкции см. в руководстве для [OS X, Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-Если для развертывания кластера службы контейнеров используются [команды Azure CLI 2.0 (предварительная версия)](container-service-create-acs-cluster-cli.md), ключи SSH создаются автоматически.
+Если для развертывания кластера службы контейнеров используются [команды Azure CLI 2.0](container-service-create-acs-cluster-cli.md), то ключи SSH создаются автоматически.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Как создать субъект-службу для кластера Kubernetes?
 
-Чтобы создать кластер Kubernetes в Службе контейнеров Azure, требуется идентификатор и пароль субъекта-службы Azure Active Directory. Дополнительные сведения см. в статье [Сведения о субъекте-службе Azure Active Directory для кластера Kubernetes в службе контейнеров Azure](container-service-kubernetes-service-principal.md).
+Чтобы создать кластер Kubernetes в Службе контейнеров Azure, требуется идентификатор и пароль субъекта-службы Azure Active Directory. Дополнительные сведения см. в статье [о субъекте-службе для кластера Kubernetes](container-service-kubernetes-service-principal.md).
 
 
-Если для развертывания кластера Kubernetes используются [команды Azure CLI 2.0 (предварительная версия)](container-service-create-acs-cluster-cli.md), учетные данные субъекта-службы создаются автоматически.
+Если для развертывания кластера Kubernetes используются [команды Azure CLI 2.0](container-service-create-acs-cluster-cli.md), то учетные данные субъекта-службы создаются автоматически.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Как увеличить количество главных узлов после создания кластера? 
-После создания кластера число главных узлов фиксировано. Его изменить нельзя. Во время создания кластера в идеале следует выбрать три или пять главных узлов. Это позволит обеспечить высокую доступность.
+После создания кластера число главных узлов фиксировано. Его изменить нельзя. Во время создания кластера рекомендуется выбрать несколько главных узлов. Это позволит обеспечить высокую доступность.
 
-> [!NOTE]
-> В предварительной версии кластер Kubernetes в Службе контейнеров Azure может иметь только один главный узел.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Как увеличить количество агентов после создания кластера? 
 Количество агентов в кластере можно изменить с помощью портала или программ командной строки Azure. Дополнительные сведения см. в статье [Масштабирование кластера Службы контейнеров Azure](container-service-scale.md).
 
-> [!NOTE]
-> В предварительной версии кластер Kubernetes в Службе контейнеров Azure имеет фиксированное количество агентов. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Что такое URL-адреса главных узлов и агентов? 
 URL-адреса ресурсов кластера в Службе контейнеров Azure состоят из указанного префикса DNS-имени и имени региона Azure, выбранного для развертывания. Например, полное доменное имя главного узла имеет следующий формат:
@@ -87,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Часто используемые URL-адреса кластера можно просмотреть с помощью портала Azure, обозревателя ресурсов Azure и других средств Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Как узнать, какая версия оркестратора используется в кластере?
+
+* сведения о версии, используемой в DC/OS, см. в [документации по Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-);
+* в Docker Swarm используется `docker version`;
+* в Kubernetes используется `kubectl version`.
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Как обновить оркестратор после развертывания?
+
+В настоящее время служба контейнеров Azure не предоставляет средства для обновления версии оркестратора, развернутого в кластере. Если служба контейнеров поддерживает более позднюю версию, можно развернуть новый кластер. Другим вариантом является использование специальных средств оркестратора (если они доступны) для обновления кластера на месте. Для примера можно ознакомиться с документацией об [обновлении DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Где найти строку SSH-подключения к кластеру?
 
@@ -114,9 +121,4 @@ ssh userName@masterFQDN –A –p 22
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Узнайте больше о [Службе контейнеров Azure](container-service-intro.md).
-* Разверните кластер службы контейнеров с помощью [портала](container-service-deployment.md) или [Azure CLI 2.0 (предварительная версия)](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* Разверните кластер службы контейнеров с помощью [портала](container-service-deployment.md) или [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).

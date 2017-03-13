@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: 33c658bc15ee266d519a2ca403d2fc0d057b36fd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -27,7 +28,7 @@ ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#quick-commands) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 
 ## <a name="quick-commands"></a>Быстрые команды
@@ -83,10 +84,5 @@ azure network vnet subnet set --resource-group myResourceGroup \
 * [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 * [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Решение &quot;Контейнеры&quot; в Log Analytics | Документация Майкрософт"
-description: "Решение &quot;Контейнеры&quot; в Log Analytics позволяет централизованно просматривать узлы контейнера Docker и управлять ими."
+title: "Решение &quot;Контейнеры&quot; в Azure Log Analytics | Документация Майкрософт"
+description: "Решение &quot;Контейнеры&quot; в Log Analytics позволяет централизованно просматривать узлы контейнеров Docker и Windows, а также управлять ими."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,30 +12,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6cdc0730d7632e41b393c4abb17badc255e21a8d
-ms.openlocfilehash: 0bc5366417f08c63f5fd5588c94381faf6a2397d
+ms.sourcegitcommit: 503cf4afba4575492984891a681c187a8683a553
+ms.openlocfilehash: dc76f22214ab8467705b6420e8362a419a468bd6
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="containers-preview-solution-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
-В этой статье описано, как настроить и использовать решение "Контейнеры" в Log Analytics для централизованного просмотра узлов контейнеров Docker и управления ими. Docker — это система виртуализации программного обеспечения, с помощью которой можно создавать контейнеры, автоматизирующие развертывание программного обеспечения в соответствующей ИТ-инфраструктуре.
+В этой статье описано, как настроить и использовать решение "Контейнеры" в Log Analytics для централизованного просмотра узлов контейнеров Docker и Windows, а также управление ими. Docker — это система виртуализации программного обеспечения, с помощью которой можно создавать контейнеры, автоматизирующие развертывание программного обеспечения в соответствующей ИТ-инфраструктуре.
 
-Благодаря этому решению можно видеть, какие контейнеры работают на узлах контейнеров и какие образы выполняются в контейнерах. Также можно просматривать подробные сведения аудита, в том числе команды, используемые в контейнерах. Кроме того, вы можете устранять неполадки контейнеров, просматривая централизованные журналы и выполняя в них поиск, без необходимости удаленного просмотра узлов Docker. Решение позволяет находить контейнеры, содержащие ошибки и использующие слишком много ресурсов на узле. Также у вас есть возможность централизованно просматривать сведения об использовании и производительности ЦП, памяти, хранилища и сети по контейнерам.
+Благодаря этому решению можно видеть, какие контейнеры работают на узлах контейнеров и какие образы выполняются в контейнерах. Также можно просматривать подробные сведения аудита, в том числе команды, используемые в контейнерах. Кроме того, вы можете устранять неполадки контейнеров, просматривая централизованные журналы и выполняя в них поиск, без необходимости удаленного просмотра узлов Docker или Windows. Решение позволяет находить контейнеры, содержащие ошибки и использующие слишком много ресурсов на узле. Также у вас есть возможность централизованно просматривать сведения об использовании и производительности ЦП, памяти, хранилища и сети по контейнерам. На компьютерах под управлением Windows можно централизовать и сравнивать журналы из Windows Server, Hyper-V и контейнеров Docker.
+
+На схеме ниже показаны связи между разными узлами контейнера и агентами с OMS.
+
+![Схема контейнеров](./media/log-analytics-containers/containers-diagram.png)
 
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
 Решение "Контейнеры" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 
-Docker с OMS можно установить и использовать двумя способами:
+Docker с OMS можно установить и использовать несколькими способами:
 
-* В поддерживаемых операционных системах Linux: установите и запустите Docker, а затем установите и настройте агент OMS для Linux.
+* В поддерживаемых операционных системах Linux установите и запустите Docker, а затем установите и настройте агент OMS для Linux.
 * В CoreOS невозможно запустить агент OMS для Linux. Вместо этого можно запустить контейнерную версию агента OMS для Linux.
+* В Windows Server 2016 и Windows 10 установите модуль и клиент Docker, после чего подключите агент, чтобы собрать сведения и отправить их в Log Analytics.
 
-Ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера можно на портале [GitHub](https://github.com/Microsoft/OMS-docker).
+
+Вы можете ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера на портале [GitHub](https://github.com/Microsoft/OMS-docker).
+
+Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 > [!IMPORTANT]
 > Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-linux-agents.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
@@ -44,13 +53,13 @@ Docker с OMS можно установить и использовать дву
 
 Для мониторинга контейнеров необходимо настроить указанные ниже параметры на узлах контейнера.
 
-## <a name="configure-settings-for-the-linux-container-host"></a>Настройка параметров для узла контейнера Linux
+## <a name="configure-settings-for-a-linux-container-host"></a>Настройка параметров для узла контейнера Linux
 
 В качестве узлов контейнера поддерживаются следующие дистрибутивы Linux (x64):
 
 - Ubuntu 14.04 LTS, 16.04 LTS;
 - CoreOS (стабильный выпуск);
-- Amazon Linux 2016.03;
+- Amazon Linux 2016.09.0;
 - openSUSE 13.2
 - CentOS 7
 - SLES 12
@@ -58,11 +67,12 @@ Docker с OMS можно установить и использовать дву
 
 После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-linux-agents.md).
 
-### <a name="for-all-container-hosts-except-coreos"></a>Для всех узлов контейнера, за исключением CoreOS
+
+### <a name="for-all-linux-container-hosts-except-coreos"></a>Для всех узлов контейнера Linux, за исключением CoreOS
 
 - Дополнительные указания см. в разделе [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Инструкции по установке агента OMS для Linux).
 
-### <a name="for-all-container-hosts-including-coreos"></a>Для всех узлов контейнера, включая CoreOS
+### <a name="for-all-linux-container-hosts-including-coreos"></a>Для всех узлов контейнера Linux, включая CoreOS
 
 Запустите контейнер OMS, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
 
@@ -70,19 +80,83 @@ Docker с OMS можно установить и использовать дву
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-### <a name="switching-from-using-an-installed-agent-to-one-in-a-container"></a>Переход от использования установленного агента к использованию агента в контейнере
+### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Переход от использования установленного агента Linux к использованию агента в контейнере
 Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, необходимо сначала удалить агент OMS. См. раздел [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Шаги по установке агента OMS для Linux).
 
+## <a name="supported-windows-versions"></a>Поддерживаемые версии Windows
+
+- Windows Server 2016
+- Юбилейный выпуск Windows 10 (профессиональный или корпоративный)
+
+### <a name="docker-versions-supported-on-windows"></a>Версии Docker, поддерживаемые в Windows
+
+- Docker 1.12–1.13
+
+### <a name="preparation-before-installing-agents"></a>Подготовка к установке агентов
+
+Настройте службу Docker, прежде чем устанавливать агенты на компьютерах под управлением Windows. Конфигурация позволяет агенту Windows или расширению виртуальной машины Log Analytics использовать TCP-сокет Docker, чтобы агенты могли получить удаленный доступ к управляющей программе Docker и возможность получать данные мониторинга.
+
+Компьютеры под управлением Windows не поддерживают данные о производительности.
+
+Дополнительные сведения о настройке управляющей программы Docker под управлением Windows см. в статье [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) (Модуль Docker в Windows).
+
+#### <a name="to-start-docker-and-verify-its-configuration"></a>Запуск Docker и проверка его конфигурации
+
+1.    Включите канал TCP и именованный канал в Windows PowerShell.
+
+    ```
+    Stop-Service docker
+    dockerd --unregister-service
+    dockerd -H npipe:// -H 0.0.0.0:2375 --register-service
+    Start-Service docker
+    ```
+
+2.    Проверьте конфигурацию, выполнив команду netstat. Должен отобразиться порт 2375.
+
+    ```
+    PS C:\Users\User1> netstat -a | sls 2375
+
+    TCP    127.0.0.1:2375         Win2016TP5:0           LISTENING
+    TCP    127.0.0.1:2375         Win2016TP5:49705       ESTABLISHED
+    TCP    127.0.0.1:2375         Win2016TP5:49706       ESTABLISHED
+    TCP    127.0.0.1:2375         Win2016TP5:49707       ESTABLISHED
+    TCP    127.0.0.1:2375         Win2016TP5:49708       ESTABLISHED
+    TCP    127.0.0.1:49705        Win2016TP5:2375        ESTABLISHED
+    TCP    127.0.0.1:49706        Win2016TP5:2375        ESTABLISHED
+    TCP    127.0.0.1:49707        Win2016TP5:2375        ESTABLISHED
+    TCP    127.0.0.1:49708        Win2016TP5:2375        ESTABLISHED
+    ```
+
+### <a name="install-windows-agents"></a>Установка агентов Windows
+
+Чтобы включить мониторинг контейнеров Windows и Hyper-V, установите агенты на компьютерах Windows, которые являются узлами контейнера. Сведения для компьютеров под управлением Windows в локальной среде см. в статье [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md). Виртуальные машины, запущенные в Azure, следует подключить к Log Analytics с помощью [расширения виртуальной машины](log-analytics-azure-vm-extension.md).
+
+Чтобы убедиться, что решение "Контейнеры" настроено правильно, сделайте следующее:
+
+- Проверьте, был ли пакет управления скачан должным образом, и найдите файл *ContainerManagement.xxx*.
+    - Файлы должны находиться в папке, расположенной по адресу C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+- Проверьте правильность идентификатора рабочей области OMS, выбрав **Панель управления** > **Система и безопасность**.
+    - Откройте **Microsoft Monitoring Agent** и убедитесь, что сведения о рабочей области правильны.
+
+
 ## <a name="containers-data-collection-details"></a>Сведения о сборе данных из контейнеров
-Решение "Контейнеры" собирает различные метрики производительности и данные журналов из узла контейнеров, из контейнеров, в которых включен агент OMS для Linux, а также из агента OMS, запущенного в контейнерах.
+Решение "Контейнеры" собирает различные метрики производительности и данные журналов из узлов контейнеров и контейнеров, в которых включен агент.
 
 В следующей таблице приведены методы сбора данных и другие сведения о сборе данных для решения "Контейнеры".
 
-| платформа | Агент OMS для Linux | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| платформа | [Агент OMS для Linux](log-analytics-linux-agents.md) | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
+| Linux |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
 
-В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типы данных, которые используются при поиске в журналах и в результатах.
+| платформа | [Агент Windows](log-analytics-windows-agents.md) | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
+
+| платформа | [Расширение виртуальной машины Log Analytics](log-analytics-azure-vm-extension.md) | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
+| --- | --- | --- | --- | --- | --- | --- |
+| Таблицы Azure |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
+
+В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типов данных, которые используются при поиске в журналах и в результатах. Тем не менее компьютеры под управлением Windows еще не поддерживают данные о производительности.
 
 | Тип данных | Тип данных, используемый для поиска в журналах | Поля |
 | --- | --- | --- |
@@ -190,9 +264,4 @@ Type=Perf <containerName>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Выполните поиск по журналам](log-analytics-log-searches.md), чтобы просмотреть подробные записи с данными контейнеров.
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

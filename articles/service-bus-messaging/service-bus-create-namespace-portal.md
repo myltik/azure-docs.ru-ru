@@ -1,6 +1,6 @@
 ---
 title: "Создание пространства имен служебной шины с помощью портала Azure | Документация Майкрософт"
-description: "Чтобы начать работу со служебной шиной, необходимо пространство имен. В этой статье показано, как создать его с помощью портала Azure."
+description: "Узнайте, как создать пространство имен служебной шины с помощью портала Azure."
 services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 89610512c264cef4bd52728240ddc0a34091edea
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: ba7093f8a2c06ab4cecf11207174a4871435ae64
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,9 +37,4 @@ ms.openlocfilehash: 89610512c264cef4bd52728240ddc0a34091edea
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

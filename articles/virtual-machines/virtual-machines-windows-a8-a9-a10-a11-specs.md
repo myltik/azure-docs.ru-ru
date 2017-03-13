@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
-ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
+ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
+ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Виртуальные машины серии A (для ресурсоемких вычислений) и серии H
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Сведения об экземплярах серии H и серии A для ресурсоемких вычислений для Windows
 Здесь приводятся общие сведения и некоторые рекомендации по использованию экземпляров виртуальных машин Azure новой серии H и более ранних экземпляров A8, A9, A10 и A11 (экземпляров для *ресурсоемких вычислений* ). Эта статья посвящена использованию таких экземпляров для виртуальных машин Windows. Также доступна версия этой статьи для [виртуальных машин Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Основные характеристики, сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -63,10 +65,5 @@ ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
 * Сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Чтобы приступить к развертыванию и использованию экземпляров для ресурсоемких вычислений с помощью пакета HPC в Windows, см. статью [Настройка кластера Windows RDMA с пакетом HPC Pack и экземплярами A8 и A9 для запуска приложений MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Дополнительные сведения об использовании экземпляров для ресурсоемких вычислений для выполнения приложений MPI с использованием пакетной службы Azure см. в статье [Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе Azure](../batch/batch-mpi.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: squillace
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50f3c56daaa28b1f28e201ec0502a91804313e5f
-ms.openlocfilehash: 111a80548982a1dab529d9dd6fb46eb759b7f908
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: e46490a75b0b759e94ba8b090f394d0ba3366dc4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure и Linux
@@ -36,7 +36,7 @@ Microsoft Azure — это расширяющийся набор интегри�
 
 ## <a name="managed-disks"></a>Управляемые диски
 
-Управляемые диски выполняют создание учетной записи хранения Azure и управление ею в фоновом режиме. При этом вам не нужно беспокоиться об ограничениях масштабируемости учетной записи хранения. Вам просто необходимо указать размер диска и уровень производительности ("Стандартный" или "Премиум"), а создание и управление Azure берет на себя. Даже при добавлении дисков или масштабировании виртуальной машины не нужно беспокоиться об используемом хранилище. Чтобы создать виртуальные машины с управляемой ОС и управляемыми дисками данных, [используйте Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или портала Azure. Если у вас есть виртуальные машины с неуправляемыми дисками, можно [преобразовать виртуальные машины для архивации с помощью Управляемых дисков](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Управляемые диски выполняют создание учетной записи хранения Azure и управление ею в фоновом режиме. При этом вам не нужно беспокоиться об ограничениях масштабируемости учетной записи хранения. Вам просто необходимо указать размер диска и уровень производительности ("Стандартный" или "Премиум"), а создание и управление Azure берет на себя. Даже при добавлении дисков или масштабировании виртуальной машины не нужно беспокоиться об используемом хранилище. Чтобы создать виртуальные машины с управляемыми дисками ОС и данных, [используйте Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или портал Azure. Если у вас есть виртуальные машины с неуправляемыми дисками, можно [преобразовать виртуальные машины для архивации с помощью Управляемых дисков](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
  
 Вы также можете управлять пользовательскими образами в одной учетной записи хранения на каждый регион Azure и использовать их для создания сотен виртуальных машин в одной подписке. Дополнительные сведения об управляемых дисках Azure см. в [этой статье](../storage/storage-managed-disks-overview.md).
  
@@ -80,29 +80,18 @@ Microsoft Azure поддерживает различные дистрибути
 ## <a name="partners"></a>Партнеры
 Корпорация Майкрософт тесно сотрудничает со своими партнерами, чтобы гарантировать обновление и оптимизацию доступных образов для среды выполнения Azure.  С дополнительными сведениями о наших партнерах можно ознакомиться на приведенных ниже страницах Marketplace.
 
-Linux в Azure — [рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-SUSE — [Azure Marketplace — SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-
-Redhat — [Azure Marketplace — RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
-
-Canonical — [Azure Marketplace — Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
-
-Debian — [Azure Marketplace — Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-
-FreeBSD — [Azure Marketplace —FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-
-CoreOS — [Azure Marketplace —CoreOS (стабильная версия)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
-
-RancherOS — [Azure Marketplace —RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
-
-Bitnami — [Bitnami Library для Azure](https://azure.bitnami.com/)
-
-Mesosphere — [Azure Marketplace — Mesosphere DC/OS в Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
-
-Docker — [Azure Marketplace — служба контейнеров Azure с Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-
-Jenkins — [Azure Marketplace — платформа CloudBees Jenkins](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Linux в Azure — [рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* SUSE — [Azure Marketplace — SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
+* Redhat — [Azure Marketplace — RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Canonical — [Azure Marketplace — Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Debian — [Azure Marketplace — Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
+* FreeBSD — [Azure Marketplace —FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* CoreOS — [Azure Marketplace —CoreOS (стабильная версия)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
+* RancherOS — [Azure Marketplace —RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
+* Bitnami — [Bitnami Library для Azure](https://azure.bitnami.com/)
+* Mesosphere — [Azure Marketplace — Mesosphere DC/OS в Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
+* Docker — [Azure Marketplace — служба контейнеров Azure с Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
+* Jenkins — [Azure Marketplace — платформа CloudBees Jenkins](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
 ## <a name="getting-setup-on-azure"></a>Начало установки в Azure
 Чтобы начать работу с Azure, требуется учетная запись Azure, установленный интерфейс командной строки Azure и пара ключей SSH — открытый и закрытый.
@@ -111,7 +100,7 @@ Jenkins — [Azure Marketplace — платформа CloudBees Jenkins](https:/
 Первым шагом к использованию облака Azure является регистрация учетной записи Azure.  Чтобы приступить к работе, перейдите на страницу [регистрации учетной записи Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Установка интерфейса командной строки
-С помощью новой учетной записи Azure можно немедленно приступить к использованию портала Azure, представляющего собой веб-панель администрирования.  Чтобы управлять облаком Azure с помощью командной строки, установите `azure-cli`.  Установите [Azure CLI 2.0 (предварительная версия)](/cli/azure/install) на рабочей станции Mac или Linux.
+С помощью новой учетной записи Azure можно немедленно приступить к использованию портала Azure, представляющего собой веб-панель администрирования.  Чтобы управлять облаком Azure с помощью командной строки, установите `azure-cli`.  Установите [Azure CLI 2.0](/cli/azure/install) на рабочей станции Mac или Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Создание пары ключей SSH
 Теперь вы можете использовать учетную запись Azure, веб-портал Azure и Azure CLI.  Следующим шагом является создание пары ключей SSH, которые используются для подключения по протоколу SSH в Linux без использования пароля.  [Создайте ключи SSH в Linux и Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), чтобы обеспечить возможность входа без пароля и повысить безопасность.

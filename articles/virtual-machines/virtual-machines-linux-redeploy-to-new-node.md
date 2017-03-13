@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
-ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: f421ebdc81ce413d69f62a3b86563ab4a09b747a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,10 +29,18 @@ ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
 
 Можно повторно развернуть виртуальную машину с помощью одного из приведенных способов. Необходимо выбрать один из вариантов для повторного развертывания виртуальной машины:
 
+- [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
-- [Azure CLI 2.0 (предварительная версия)](#azure-cli-20-preview)
 - [Портал Azure](#using-azure-portal)
 
+## <a name="azure-cli-20"></a>Azure CLI 2.0
+Установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в систему с учетной записью Azure, выполнив команду [az login](/cli/azure/#login).
+
+Повторно разверните виртуальную машину, выполнив команду [az vm redeploy](/cli/azure/vm#redeploy). В следующем примере повторно развертывается виртуальная машина `myVM` в группе ресурсов `myResourceGroup`.
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
+```
 
 ## <a name="azure-cli-10"></a>Azure CLI 1.0
 Установите [последнюю версию Azure CLI 1.0](../xplat-cli-install.md), войдите в систему с учетной записью Azure и убедитесь, что используется режим Resource Manager (`azure config mode arm`).
@@ -42,23 +51,9 @@ ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (предварительная версия)
-Установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в систему с учетной записью Azure, выполнив команду [az login](/cli/azure/#login).
-
-Повторно разверните виртуальную машину, выполнив команду [az vm redeploy](/cli/azure/vm#redeploy). В следующем примере повторно развертывается виртуальная машина `myVM` в группе ресурсов `myResourceGroup`.
-
-```azurecli
-az vm redeploy --resource-group myResourceGroup --name myVM 
-```
-
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При проблемах с подключением к виртуальной машине ознакомьтесь со статьями [Устранение неполадок SSH-подключения к виртуальной машине Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и [Подробное описание устранения неполадок SSH](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). При проблемах с доступом к приложению, выполняющемуся в виртуальной машине, ознакомьтесь со статьей [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

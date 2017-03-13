@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: vakarand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
-ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="using-azure-ad-connect-health-for-sync"></a>Использование Azure AD Connect Health для синхронизации
+# <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Мониторинг синхронизации Azure AD Connect с помощью Azure AD Connect Health
 Приведенная ниже документация относится к мониторингу синхронизации Azure AD Connect с помощью Azure AD Connect Health.  Сведения о мониторинге AD FS с помощью Azure AD Connect Health см. в [этой статье](active-directory-aadconnect-health-adfs.md). Кроме того, сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health можно найти [здесь](active-directory-aadconnect-health-adds.md).
 
 ![Azure AD Connect Health для синхронизации](./media/active-directory-aadconnect-health-sync/sync-blade.png)
@@ -117,8 +118,3 @@ ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
 * [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

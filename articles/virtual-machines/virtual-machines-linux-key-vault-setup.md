@@ -1,6 +1,6 @@
 ---
-title: "Настройка Key Vault для виртуальных машин Linux в Azure Resource Manager | Документация Майкрософт"
-description: "Узнайте, как настроить хранилище ключей для использования с виртуальной машиной Azure Resource Manager."
+title: "Настройка Azure Key Vault для виртуальных машин Linux | Документация Майкрософт"
+description: "Как настроить Key Vault для использования с виртуальной машиной Azure Resource Manager c помощью интерфейса командной строки 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -13,49 +13,52 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/24/2017
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 7ccb810fa3178528eb6f41ac7eae842d017d8bbc
-ms.openlocfilehash: 0f24791cf6fc8668b83cfc2eb479f5f13362e217
+ms.sourcegitcommit: 54c3bd47eaedee0d2269ee49143b18dc6b702e1b
+ms.openlocfilehash: 16994b3dfe4945b1b023fa23aafd8541c74ae2e1
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Настройка хранилища ключей для виртуальных машин в Azure Resource Manager
+# <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Как настроить Key Vault для виртуальных машин с помощью Azure CLI 2.0
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+В стеке Azure Resource Manager секреты и сертификаты представляют собой ресурсы, которые предоставляются Key Vault. Чтобы больше узнать о хранилище ключей Azure, ознакомьтесь с разделом [Что такое хранилище ключей Azure?](../key-vault/key-vault-whatis.md) Чтобы Key Vault можно было использовать для виртуальных машин Azure Resource Manager, свойству *EnabledForDeployment* в Key Vault должно быть присвоено значение true. В этой статье показано, как настроить Key Vault для использования с виртуальными машинами Azure с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-В стеке Azure Resource Manager секреты или сертификаты моделируются как ресурсы, которые предоставляются поставщиком ресурсов хранилища ключей. Чтобы больше узнать о хранилище ключей Azure, ознакомьтесь с разделом [Что такое хранилище ключей Azure?](../key-vault/key-vault-whatis.md)
+Чтобы выполнить эти действия, нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
-Чтобы хранилище ключей можно было использовать для виртуальных машин Azure Resource Manager, свойству *EnabledForDeployment* хранилища ключей должно быть задано значение true. Это можно сделать на различных клиентах.
+## <a name="create-a-key-vault"></a>создать хранилище ключей;
+Создайте Key Vault и назначьте политику развертывания с помощью команды [az keyvault create](/cli/azure/keyvault#create). В следующем примере создается Key Vault `myKeyVault` в группе ресурсов `myResourceGroup`.
 
-## <a name="use-cli-to-set-up-key-vault"></a>Использование интерфейса командной строки для настройки хранилища ключей
-Сведения об использовании интерфейса командной строки (CLI) для создания хранилища ключей см. в статье [Управление хранилищем ключей с помощью CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+```azurecli
+az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
+```
 
-Чтобы использовать интерфейс командной строки, необходимо сначала создать хранилище ключей, а затем назначить политику развертывания. Это можно сделать с помощью следующей команды:
+## <a name="update-a-key-vault-for-use-with-vms"></a>Обновление Key Vault для использования с виртуальными машинами
+Установите политику развертывания в существующем Key Vault с помощью команды [az keyvault update](/cli/azure/keyvault#update). В следующем примере обновляется Key Vault `myKeyVault` в группе ресурсов `myResourceGroup`.
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+```azurecli
+az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
+```
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Использование шаблонов для настройки хранилища ключей
-При использовании шаблона свойству `enabledForDeployment` ресурса хранилища ключей нужно задать значение `true`.
+При использовании шаблона свойству `enabledForDeployment` ресурса Key Vault нужно присвоить значение `true`, как показано ниже.
 
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "name": "ContosoKeyVault",
-      "apiVersion": "2015-06-01",
-      "location": "<location-of-key-vault>",
-      "properties": {
-        "enabledForDeployment": "true",
-        ....
-        ....
-      }
+```json
+{
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "ContosoKeyVault",
+    "apiVersion": "2015-06-01",
+    "location": "<location-of-key-vault>",
+    "properties": {
+    "enabledForDeployment": "true",
+    ....
+    ....
     }
+}
+```
 
-Сведения о других параметрах, которые можно настроить при создании хранилища ключей с помощью шаблонов, см. в статье [Создание хранилища ключей](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+## <a name="next-steps"></a>Дальнейшие действия
+Сведения о других параметрах, которые можно настроить при создании Key Vault с помощью шаблонов, см. в разделе [Create a Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/) (Создание Key Vault).
 

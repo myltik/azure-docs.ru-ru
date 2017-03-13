@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 3adbef0d22673d6cd872f583903d0c73469d4fa1
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -68,7 +69,7 @@ ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
         azure site show {app-name}
 
 > [!NOTE] 
-> Ниже указаны команды [Azure CLI 2.0 (предварительная версия)](https://github.com/Azure/azure-cli), которые эквивалентны приведенным выше.
+> Ниже указаны команды [Azure CLI 2.0](https://github.com/Azure/azure-cli), которые эквивалентны приведенным выше.
 >
 >
 
@@ -137,7 +138,7 @@ ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
 Расширения Zend также поддерживаются с помощью ключа **PHP_ZENDEXTENSIONS**. Чтобы включить несколько расширений, включите список разделенных запятыми файлов `.dll` для значения параметра приложения.
 
 ## <a name="how-to-use-a-custom-php-runtime"></a>Практическое руководство. Настраиваемая среда выполнения PHP
-Вместо среды выполнения PHP по умолчанию веб-приложения службы приложений могут использовать среду выполнения PHP, предоставляемую для выполнения скриптов PHP. Предоставляемую среду выполнения можно настроить с помощью файла `php.ini` , также предоставляемого пользователем. Чтобы использовать настраиваемую среду выполнения PHP с веб-приложениями, выполните следующие действия.
+Вместо среды выполнения PHP по умолчанию веб-приложения службы приложений могут использовать среду выполнения PHP, предоставляемую для выполнения скриптов PHP. Предоставляемую среду выполнения можно настроить с помощью файла `php.ini`, также предоставляемого пользователем. Чтобы использовать настраиваемую среду выполнения PHP с веб-приложениями, выполните следующие действия.
 
 1. Получите версию PHP для Windows, совместимую с VC9 или VC11 и непотокобезопасной технологией (nts). Последние версии PHP для Windows можно найти здесь: [http://windows.php.net/download/]. Более старые версии можно найти в архиве здесь: [http://windows.php.net/downloads/releases/archives/].
 2. Измените файл `php.ini` для среды выполнения. Обратите внимание, что все параметры конфигурации, являющиеся директивами system-level-only, не будут учитываться веб-приложениями. (Дополнительные сведения о директивах только системного уровня см. в разделе [Список директив php.ini].)
@@ -203,10 +204,5 @@ ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

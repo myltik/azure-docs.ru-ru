@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: df4b11210aca695a04abf145b6efd9e98c870b67
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Создание и изменение маршрутизации для канала ExpressRoute
 > [!div class="op_single_selector"]
-> * [Портал Azure — Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell — Resource Manager](expressroute-howto-routing-arm.md)
-> * [PowerShell — классическая модель](expressroute-howto-routing-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-routing-arm.md)
+> * [Классическая модель — PowerShell](expressroute-howto-routing-classic.md)
+> * [Видео — частный пиринг](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Видео — общедоступный пиринг](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Видео — пиринг Майкрософт](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -306,10 +310,5 @@ ms.openlocfilehash: df4b11210aca695a04abf145b6efd9e98c870b67
 
 * Дополнительные сведения о рабочих процессах см. в разделе [Рабочие процессы ExpressRoute](expressroute-workflows.md).
 * Дополнительную информацию о пиринге канала см. в статье [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

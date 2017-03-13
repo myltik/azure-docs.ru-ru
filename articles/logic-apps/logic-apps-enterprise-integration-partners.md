@@ -1,11 +1,11 @@
 ---
-title: "Сведения о партнерах и Пакете интеграции Enterprise | Документация Майкрософт"
-description: "Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики."
+title: "Создание партнеров для сообщений B2B с помощью Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте, как добавить партнеры в учетную запись интеграции с помощью Пакета интеграции Enterprise и Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: estfan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2549531d21c8e15e5bbb4321c4119e6aaac53e96
-ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 2a886d1eaf1253b55d8c95786139a2bbdc6f145e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="partners-in-b2b-scenarios"></a>Партнеры в сценариях B2B
+# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Добавление или обновление партнеров в соглашениях B2B в рабочем процессе
 
 Партнеры — это сущности, которые участвуют в обмене сообщениями и транзакциях "бизнес — бизнес" (B2B). Прежде чем создавать партнеров, которые представляют вас и другую организацию в подобных транзакциях, обе стороны должны обменяться информацией, которая идентифицирует и проверяет сообщения, отправляемые друг другу. Обсудив все необходимое, можно приступать к реализации взаимодействия "бизнес — бизнес". Для этого вы можете создать в своей учетной записи интеграции партнеров, которые будут представлять обе стороны.
 
@@ -89,10 +91,5 @@ ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте о соглашениях и Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-agreements.md "Узнайте о соглашениях и Пакете интеграции Enterprise")  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

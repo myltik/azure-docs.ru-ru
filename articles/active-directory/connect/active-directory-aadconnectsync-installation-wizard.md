@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -38,8 +39,8 @@ ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
 
 > [!IMPORTANT]
 > Когда открыт мастер установки, приостанавливаются все операции в модуле синхронизации. Убедитесь, что сразу после внесения изменений в конфигурацию вы завершили работу мастера установки.
-> 
-> 
+>
+>
 
 ## <a name="view-current-configuration"></a>Просмотр текущей конфигурации
 Этот параметр позволяет быстро просмотреть текущие настройки параметров.
@@ -81,7 +82,7 @@ ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
 ## <a name="change-user-sign-in"></a>Изменение параметров входа пользователя
 Этот параметр позволяет заменить синхронизацию паролей на федерацию или наоборот. Нельзя изменить на значение **Не настраивать**.
 
-Дополнительные сведения о входе пользователя см. [здесь](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+Дополнительные сведения о входе пользователя см. [здесь](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о модели конфигурации, используемой в синхронизации Azure AD Connect, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -90,10 +91,4 @@ ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

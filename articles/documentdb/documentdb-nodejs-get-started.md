@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,8 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js для MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +65,7 @@ ms.lasthandoff: 02/23/2017
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupnodeastep-2-setup-your-nodejs-application"></a><a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
+## <a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
 1. Откройте удобный для вас терминал.
 2. Перейдите в папку или каталог, где вы хотите сохранить приложение Node.js.
 3. Создайте два пустых файла JavaScript с помощью следующих команд:
@@ -79,7 +80,7 @@ ms.lasthandoff: 02/23/2017
 
 Отлично! Теперь, когда настройка завершена, можно начать писать код.
 
-## <a name="a-idconfigastep-3-set-your-apps-configurations"></a><a id="Config"></a>Шаг 3. Настройка конфигурации приложения
+## <a id="Config"></a>Шаг 3. Настройка конфигурации приложения
 Откройте файл ```config.js``` в предпочитаемом текстовом редакторе.
 
 Затем cкопируйте и вставьте приведенный ниже фрагмент кода и задайте URI конечной точки и первичный ключ DocumentDB в качестве значений свойств ```config.endpoint``` и ```config.primaryKey```. Обе эти конфигурации можно найти на [портале Azure](https://portal.azure.com).
@@ -176,7 +177,7 @@ ms.lasthandoff: 02/23/2017
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a name="a-idconnecta-step-4-connect-to-a-documentdb-account"></a><a id="Connect"></a> Шаг 4. Подключение к учетной записи DocumentDB
+## <a id="Connect"></a> Шаг 4. Подключение к учетной записи DocumentDB
 Откройте пустой файл ```app.js``` в текстовом редакторе. Скопируйте и вставьте следующий код, чтобы импортировать модуль ```documentdb``` и созданный модуль ```config```.
 
     // ADD THIS PART TO YOUR CODE
@@ -260,7 +261,7 @@ ms.lasthandoff: 02/23/2017
 
 Поздравляем! База данных DocumentDB создана.
 
-## <a name="a-idcreatecollastep-6-create-a-collection"></a><a id="CreateColl"></a>Шаг 6. Создание коллекции
+## <a id="CreateColl"></a>Шаг 6. Создание коллекции
 > [!WARNING]
 > Элемент **CreateDocumentCollectionAsync** создаст коллекцию, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -314,7 +315,7 @@ ms.lasthandoff: 02/23/2017
 
 Поздравляем! Коллекция DocumentDB создана.
 
-## <a name="a-idcreatedocastep-7-create-a-document"></a><a id="CreateDoc"></a>Шаг 7. Создание документа
+## <a id="CreateDoc"></a>Шаг 7. Создание документа
 Вы можете создать [документ](documentdb-resources.md#documents) с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в DocumentDB.
 
 Скопируйте функцию **getFamilyDocument** и вставьте ее после функции **getCollection**, чтобы создать документы, которые содержат данные JSON, сохраненные в объекте ```config```. Теперь нужно снова убедиться в том, что документ с таким идентификатором не существует.
@@ -368,7 +369,7 @@ ms.lasthandoff: 02/23/2017
 
 ![Руководство по Node.js (база данных Node): на схеме представлены иерархические отношения между учетной записью, базой данных, коллекцией и документами.](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Шаг 8. Запросы к ресурсам DocumentDB
+## <a id="Query"></a>Шаг 8. Запросы к ресурсам DocumentDB
 DocumentDB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции.
 
 Скопируйте функцию **queryCollection** и вставьте ее после функции **getFamilyDocument** в файле app.js. DocumentDB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о создании сложных запросов см. на [площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
@@ -425,7 +426,7 @@ DocumentDB поддерживает [полнофункциональные за
 
 Поздравляем! Документы DocumentDB запрошены.
 
-## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Шаг 9. Замена документа
+## <a id="ReplaceDocument"></a>Шаг 9. Замена документа
 DocumentDB поддерживает замену документов JSON.
 
 Скопируйте функцию **replaceFamilyDocument** и вставьте ее после функции **queryCollection** в файле app.js.
@@ -472,7 +473,7 @@ DocumentDB поддерживает замену документов JSON.
 
 Поздравляем! Документ DocumentDB заменен.
 
-## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Шаг 10. Удаление документа
+## <a id="DeleteDocument"></a>Шаг 10. Удаление документа
 DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте функцию **deleteFamilyDocument** и вставьте ее после функции **replaceFamilyDocument**.
@@ -516,7 +517,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Документ DocumentDB удален.
 
-## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Шаг 11. Удаление базы данных Node
+## <a id="DeleteDatabase"></a>Шаг 11. Удаление базы данных Node
 Удаление созданной базы данных приведет к удалению базы данных и всех дочерних ресурсов (коллекций, документов и т. д.).
 
 Скопируйте функцию **cleanup** и вставьте ее после функции **deleteFamilyDocument**, чтобы удалить базу данных и все ее дочерние ресурсы.
@@ -551,7 +552,7 @@ DocumentDB поддерживает удаление документов JSON.
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a name="a-idrunastep-12-run-your-nodejs-application-all-together"></a><a id="Run"></a> Шаг 12. Запуск приложения Node.js
+## <a id="Run"></a> Шаг 12. Запуск приложения Node.js
 Полная последовательность для вызова функций должна выглядеть так:
 
     getDatabase()
@@ -602,7 +603,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Вы ознакомились с руководством по Node.js и создали первое консольное приложение DocumentDB.
 
-## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Получение полного решения для руководства по Node.js
+## <a id="GetSolution"></a>Получение полного решения для руководства по Node.js
 Если вы не располагаете временем, чтобы выполнить шаги из этого руководства, или просто хотите скачать код, это можно сделать на портале [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Чтобы запустить решение GetStarted, которое содержит все примеры из этой статьи, вам понадобится следующее:

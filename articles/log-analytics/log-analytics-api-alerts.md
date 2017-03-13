@@ -1,6 +1,6 @@
 ---
-title: "REST API оповещений в Log Analytics"
-description: "REST API оповещений в Log Analytics позволяет создавать оповещения и управлять ими в Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций."
+title: "Использование REST API оповещений Log Analytics в OMS"
+description: "REST API оповещений Log Analytics позволяет создавать оповещения и управлять ими в Log Analytics — компоненте Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 02/27/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53a7be4d213f3f4c6d01b95355543fc9cd55717f
+ms.sourcegitcommit: db3a68e532775728099854a46d1ad0841e38b4a8
+ms.openlocfilehash: 3161a05a051ba741cf76e149f7b5e5a4324be0a4
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="log-analytics-alert-rest-api"></a>REST API оповещений в Log Analytics
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Создание правил генерации оповещений и управление ими в Log Analytics с помощью REST API
 REST API оповещений в Log Analytics позволяет создавать оповещения и управлять ими в Operations Management Suite (OMS).  В этой статье приводятся сведения об интерфейсе API и примеры выполнения различных операций.
 
 Для поиска в службе Log Analytics используется REST API категории RESTful — к нему можно получить доступ с помощью REST API Azure Resource Manager. В этом документе вы найдете примеры, когда доступ к API из командной строки PowerShell осуществляется через [ARMClient](https://github.com/projectkudu/ARMClient) — инструмент командной строки с открытым исходным кодом, который упрощает вызов API Azure Resource Manager. Использование ARMClient и PowerShell — это один из множества вариантов получения доступа к API поиска по службе Log Analytics. С помощью этих средств можно использовать API диспетчера ресурсов Azure категории RESTful для осуществления вызовов рабочих областей OMS и выполнения команд поиска в них. API будет выдавать результаты поиска в формате JSON, позволяя программно использовать результаты поиска различными способами.
@@ -131,7 +133,7 @@ REST API оповещений в Log Analytics позволяет создава
 
 | Свойство | Описание |
 |:--- |:--- |
-| Оператор |Оператор для сравнения порогового значения. <br> gt — больше <br>  lt = меньше чем |
+| Оператор |Оператор для сравнения порогового значения. <br> gt — больше <br> lt = меньше чем |
 | Значение |Пороговое значение. |
 
 Например, рассмотрим запрос событий с интервалом (свойство Interval) 15 минут, временным диапазоном (свойство TimeSpan) 30 минут и пороговым значением больше 10. В этом случае запрос будет выполняться каждые 15 минут, а оповещение будет создаваться при возврате 10 событий, созданных за 30-минутный период.
@@ -242,17 +244,18 @@ REST API оповещений в Log Analytics позволяет создава
 Ниже приведен полный пример создания оповещения по электронной почте.  Создается новое расписание, а также действие, содержащее пороговое значение и сообщение электронной почты.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $workspaceId    = "MyWorkspace"
-    $searchId       = "51cf0bd9-5c74-6bcb-927e-d1e9080b934e"
+    $resourceGroup  = "MyResourceGroup"    
+    $workspaceName    = "MyWorkspace"
+    $searchId       = "MySearch"
+    $scheduleId     = "MySchedule"
+    $thresholdId    = "MyThreshold"
+    $actionId       = "MyEmailAction"
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule?api-version=2015-03-20 $scheduleJson
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/mythreshold?api-version=2015-03-20 $thresholdJson
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/myemailaction?api-version=2015-03-20 $emailJson
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 ### <a name="webhook-actions"></a>Действия webhook
 Действия webhook запускают процесс путем вызова URL-адреса и, при необходимости, предоставления полезных данных для отправки.  Они похожи на действия исправления, но предназначены для объектов webhook, которые могут вызывать процессы, отличные от модулей Runbook службы автоматизации Azure.  Они также включают дополнительную возможность предоставления полезных данных, доставляемых в удаленный процесс.
@@ -314,10 +317,5 @@ REST API оповещений в Log Analytics позволяет создава
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [REST API для выполнения поиска в журналах](log-analytics-log-search-api.md) в службе Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

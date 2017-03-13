@@ -3,7 +3,7 @@ title: "Добавление имени личного домена в Azure Act
 description: "Сведения о добавлении доменных имен компании в Azure Active Directory и проверке этих имен."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-В вашей организации для работы используется одно или несколько доменных имен, при этом пользователи выполняют вход в корпоративную сеть, используя имя корпоративного домена. При использовании Azure Active Directory (Azure AD) вы также можете добавить имя корпоративного домена. После этого вы сможете назначать в каталоге знакомые имена пользователей, например ‘alice@contoso.com.’. Это очень просто.
+В вашей организации для работы используется одно или несколько доменных имен, при этом пользователи выполняют вход в корпоративную сеть, используя имя корпоративного домена. При использовании Azure Active Directory (Azure AD) вы также можете добавить имя корпоративного домена. После этого вы сможете назначать в каталоге привычные имена пользователей, например alice@contoso.com. Процесс прост:
 
 1. Добавьте имя личного домена в каталог.
 2. Добавьте DNS-запись доменного имени в регистратор доменных имен.
@@ -85,10 +86,5 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 * [Общие сведения об управлении доменами в Azure AD](active-directory-add-domain-concepts.md)
 * [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 * [Сведения об управлении доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

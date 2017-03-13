@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 45de2422e79215ecfbacf5bd15712eb780c49016
-ms.openlocfilehash: c0a99dadc1d588942ade14267bd45eff09080315
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: b28eec9a01c45468e0cc323514d9c2e91ec88bf5
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: c0a99dadc1d588942ade14267bd45eff09080315
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Azure CLI 2.0 (предварительная версия): дополнительные сведения см. в статье [Install Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) (Установка Azure CLI 2.0 (предварительная версия)).
+* Azure CLI 2.0: дополнительные сведения см. в статье [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (Установка Azure CLI 2.0).
 
 * Azure PowerShell: дополнительные сведения см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Для выполнения действий, описанных в этом документе, требуется последняя версия Azure CLI и Azure PowerShell. Если вы используете более старую версию, то команды могут отличаться. Для получения оптимальных результатов используйте предыдущие ссылки, чтобы установить последние версии.
 
-## <a name="a-idwhatisawhat-is-azure-virtual-network"></a><a id="whatis"></a>Что такое виртуальная сеть Azure
+## <a id="whatis"></a>Что такое виртуальная сеть Azure
 
 [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) позволяет создать безопасную, стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволит вам:
 
@@ -257,7 +258,7 @@ __Другие регионы__:
 
 Дополнительные сведения о группах безопасности сети см. в статье [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md). Сведения об управлении маршрутизацией в виртуальной сети Azure см. в статье [Что такое определяемые пользователем маршруты и IP-пересылка?](../virtual-network/virtual-networks-udr-overview.md)
 
-## <a name="a-idtasksatasks-and-information"></a><a id="tasks"></a>Задачи и информация
+## <a id="tasks"></a>Задачи и информация
 
 В этом разделе приведены распространенные задачи, а также информация, которая может понадобиться при использовании HDInsight в виртуальной сети.
 
@@ -354,7 +355,7 @@ __Другие регионы__:
 
 Если у вас возникли проблемы при доступе к службе из HDInsight, см. документацию по службе, чтобы убедиться, чтобы вы включили доступ к сети. Вы также можете проверить доступ к сети, создав виртуальную машину Azure в той же виртуальной сети и с помощью клиентских служебных программ проверив, может ли эта виртуальная машина подключаться к службе через виртуальную сеть.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 
 В следующих примерах демонстрируется, как использовать HDInsight в виртуальной сети Azure.
 
@@ -363,10 +364,5 @@ __Другие регионы__:
 * [Использование Sqoop с Hadoop в HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md). Сведения об использовании Sqoop для передачи данных с помощью SQL Server по виртуальной сети.
 
 Дополнительные сведения о виртуальных сетях Azure см. в статье [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

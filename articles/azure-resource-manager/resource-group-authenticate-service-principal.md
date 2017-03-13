@@ -221,7 +221,8 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
      Затем создайте сертификат.
   
   ```powershell
-  $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
   ```
 
 Теперь у вас есть сертификат, и вы можете приступить к созданию приложения AD.

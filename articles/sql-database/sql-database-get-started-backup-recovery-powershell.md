@@ -17,8 +17,9 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d026933869d98c469855e02a6906ed74f8ee03a3
-ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](https://azure.microsoft.com/free/) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Вам нужно подключиться к Azure, используя учетную запись, которой назначена роль владельца или участника подписки. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
 
@@ -47,7 +48,7 @@ ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
 * Вам нужно изучить руководство [по началу работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure, SQL Server Management Studio](sql-database-get-started.md) или [PowerShell](sql-database-get-started-powershell.md). Либо выполните скрипт PowerShell, приведенный в конце версии этого руководства по использованию [PowerShell](sql-database-get-started-powershell.md), прежде чем продолжать.
 
 > [!TIP]
-> Все задачи, описываемые в руководстве, можно выполнять с помощью [портала Azure](sql-database-get-started-backup-recovery.md).
+> Все задачи, описываемые в руководстве, можно выполнять с помощью [портала Azure](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +115,7 @@ $restoredDb
 
 
 > [!TIP]
-> Сведения об удалении резервных копий с длительным периодом удержания см. в [этой статье](sql-database-long-term-retention-delete.md).
+> Сведения об удалении резервных копий с длительным периодом хранения см. в статье [Настройка долгосрочного хранения создаваемых автоматически резервных копий баз данных в хранилище служб восстановления Azure с помощью PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Создание хранилища служб восстановления
@@ -378,9 +379,4 @@ $restoredDbFromLtr
 - Дополнительные сведения о резервных копиях базы данных, создаваемых автоматически службой, см. в [этой статье](sql-database-automated-backups.md).
 - Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
 - Дополнительные сведения о восстановлении из резервных копий см. в статье [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

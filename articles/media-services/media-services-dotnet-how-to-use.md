@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
 * Учетная запись служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
 * Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
 * .NET Framework 4.5
-* Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 или Visual Studio 2010 с пакетом обновления 1 (SP1) (Professional, Premium, Ultimate или Express).
+* приведенному.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Создание и настройка проекта Visual Studio
 В этом разделе показано, как создать проект в Visual Studio и настроить его для разработки с использованием служб мультимедиа.  В этом случае проект представляет собой консольное приложение Windows на C#, но те же действия для установки применяются для других типов проектов, которые можно создать для приложений служб мультимедиа (например, приложения Windows Forms или веб-приложения ASP.NET).
@@ -40,7 +41,7 @@ ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
 
 Кроме того, на GitHub можно получить новейший код для пакета SDK служб мультимедиа для .NET ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) и [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), создать решение и добавить ссылки на клиентский проект. Обратите внимание, что все необходимые зависимости скачиваются и извлекаются автоматически.
 
-1. Создайте в Visual Studio 2010 с пакетом обновления 1 (или в более новой версии VS) консольное приложение на C#. Введите значения в поля **Имя**, **Расположение** и **Имя решения**, а затем нажмите кнопку "ОК".
+1. Создайте в Visual Studio консольное приложение C#. Введите значения в поля **Имя**, **Расположение** и **Имя решения**, а затем нажмите кнопку "ОК".
 2. Выполните сборку решения.
 3. Используйте **NuGet** для установки и добавьте **расширения пакета SDK служб мультимедиа для .NET**. При установке этого пакета также устанавливается **пакет SDK служб мультимедиа для .NET** и добавляются все остальные необходимые зависимости.
    
@@ -91,10 +92,5 @@ ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

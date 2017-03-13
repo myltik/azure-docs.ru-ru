@@ -1,6 +1,7 @@
+
 ---
 title: "Агент и расширения виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Статья описывает агент, расширения, а также способы установки агента с помощью классической модели развертывания."
+description: "Обзор агента и расширений, а также способов установки агента с помощью классической модели развертывания на виртуальной машине Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -13,23 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
+ms.date: 03/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 383e32eca05888c8bf08f80a413c0b64a9b4fb46
+ms.sourcegitcommit: 4e96285a093dffd43d78071f33cc28763be24804
+ms.openlocfilehash: 96a188344cd75d2e4a097fde9df09e9c302ea679
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-the-virtual-machine-agent-and-extensions"></a>Обзор агента и расширений виртуальной машины
-> [!IMPORTANT] 
+# <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Сведения об агенте и расширениях виртуальной машины для Linux
+> [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании агентов и расширений виртуальных машин с моделью Resource Manager см. [здесь](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

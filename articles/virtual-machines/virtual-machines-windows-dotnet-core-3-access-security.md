@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 62d1a275252b17ae2b9870b281e1dd91239cae5f
-
+ms.sourcegitcommit: 8eeeef0bb33b5b8ed265532d160829c076190fc4
+ms.openlocfilehash: 91c4550f9caadc790d1b6aea8f037e2089ebec3c
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="access-and-security-in-azure-resource-manager-templates"></a>Доступ и безопасность в шаблонах Azure Resource Manager
+# <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Доступ и безопасность в шаблонах Azure Resource Manager для виртуальных машин Windows
+
 Обычно к приложениям, размещенным в Azure, нужен доступ через Интернет или VPN/ExpressRoute-подключение. В нашем примере с приложением музыкального магазина мы открыли доступ к веб-сайту через Интернет по общедоступному IP-адресу. Теперь нужно защитить подключения к приложению и доступ к ресурсам виртуальной машины. Защиту доступа обеспечивает группа безопасности сети. 
 
 В этом документе объясняется, каким образом приложение музыкального магазина защищено на уровне шаблона Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -139,10 +141,5 @@ ms.openlocfilehash: 62d1a275252b17ae2b9870b281e1dd91239cae5f
 <hr>
 
 [Шаг 3. Доступность и масштабирование в шаблонах Azure Resource Manager](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

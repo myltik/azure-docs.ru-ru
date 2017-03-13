@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8b1fbc541b3123961d092c63441b804109865f60
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: fbb561f4bfda27c74ffdc08c1b07f4adb83286ab
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="how-to-delete-an-hdinsight-cluster"></a>Как удалить кластер HDInsight
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Удаление кластера HDInsight с помощью браузера, PowerShell или Azure CLI
 
 Начисление оплаты начинается после создания кластера HDInsight и прекращается только после его удаления. Кластеры оплачиваются поминутно, поэтому всегда следует удалять кластер, когда он больше не нужен. В этом документе вы узнаете, как удалить кластер с помощью портала Azure, Azure PowerShell и Azure CLI.
 
@@ -52,10 +53,5 @@ ms.openlocfilehash: 8b1fbc541b3123961d092c63441b804109865f60
     azure hdinsight cluster delete CLUSTERNAME
 
 Замените **CLUSTERNAME** именем кластера HDInsight.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
