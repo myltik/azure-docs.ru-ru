@@ -1,5 +1,5 @@
 ---
-title: "Синхронизация Azure AD Connect: пользовательский интерфейс Synchronization Service Manager | Документация Майкрософт"
+title: "Операции Synchronization Service Manager Azure AD Connect | Документация Майкрософт"
 description: "Общие сведения о вкладке &quot;Operations&quot; (Операции) в Synchronization Service Manager для Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: fadb15a95edb3ec82b284faa594706963618b9eb
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Синхронизация Azure AD Connect: Synchronization Service Manager
+# <a name="using-the-sync-service-manager-operations-tab"></a>Использование вкладки "Operations" (Операции) в Synchronization Service Manager
 
-![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
 На вкладке "Operations" (Операции) отображаются результаты последних операций. Эта вкладка крайне важна для понимания и устранения неполадок.
 
@@ -59,9 +60,4 @@ ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

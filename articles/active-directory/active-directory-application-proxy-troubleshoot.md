@@ -13,16 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
-ms.openlocfilehash: 325e993138e34f5619e0d208b281b3b40caedb0f
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
+ms.lasthandoff: 02/28/2017
 
 ---
 
 
-# <a name="troubleshoot-application-proxy"></a>Устранение неполадок прокси-сервера приложений
+# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Устранение неполадок и сообщения об ошибках прокси приложения
 Если во время доступа к опубликованному приложению или публикации приложений возникают ошибки, проверьте следующие параметры, чтобы выяснить, правильно ли работает прокси-сервер приложений Microsoft Azure AD.
 
 * Откройте консоль служб Windows и убедитесь, что служба **Соединитель прокси-сервера приложения Microsoft AAD** включена и работает. Вы также можете проверить страницу свойств службы прокси-сервера приложения, как показано на следующем рисунке:   
@@ -156,9 +158,4 @@ ms.openlocfilehash: 325e993138e34f5619e0d208b281b3b40caedb0f
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

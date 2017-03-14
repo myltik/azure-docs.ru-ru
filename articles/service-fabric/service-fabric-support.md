@@ -58,7 +58,7 @@ ms.lasthandoff: 02/15/2017
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Сайт StackOverflow и форум MSDN
 
-[Тег Service Fabric на сайте StackOverflow][stackoverflow] и [форум MSDN по Service Fabric] [ msdn-forum] очень удобно использовать, чтобы задавать вопросы о принципах работы платформы и о том, как выполнять различные задачи с ее помощью.
+[Тег Service Fabric на сайте StackOverflow][stackoverflow] и [форум MSDN по Service Fabric][msdn-forum] очень удобно использовать, чтобы задавать вопросы о принципах работы платформы и о том, как выполнять различные задачи с ее помощью.
 
 ### <a name="azure-feedback-forum"></a>Форум отзывов и предложений по Azure
 

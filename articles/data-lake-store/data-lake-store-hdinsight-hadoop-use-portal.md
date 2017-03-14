@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 0ec19832d395547e8ebd3eee0d44dcf466a2ace7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 8876a37b78fa8a80eba7af133d661c3d7ed425d7
+ms.openlocfilehash: 76e098525951d122799f11bdcd9ee5451c9a3777
+ms.lasthandoff: 03/01/2017
 
 
 ---
