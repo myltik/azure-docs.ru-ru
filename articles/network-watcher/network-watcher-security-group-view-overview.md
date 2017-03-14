@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
-ms.openlocfilehash: 350ba23dbc0e8557f9609f7fb3a15169d26c9b4a
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: de48da2c77c65f3e806474ae37ffd00772622b02
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -29,8 +29,7 @@ ms.lasthandoff: 02/23/2017
 
 На портале правила разделены на следующие категории: действующие правила, правила подсети, правила сетевого интерфейса и правила по умолчанию. Это упрощает представление правил, применяемых к виртуальной машине. С помощью кнопки скачивания можно легко скачать все правила безопасности с любой вкладки и сохранить их в CSV-файл.
 
-> [!NOTE]
-> Сейчас Наблюдатель за сетями находится на этапе предварительной версии. Чтобы использовать функции этого компонента, [его нужно зарегистрировать](network-watcher-create.md#register-the-preview-capability).
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![Представление групп безопасности][1]
 

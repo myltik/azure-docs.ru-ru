@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 665dc43f9861baeef6fa61968a9dc873ce1dfdbf
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 
 На вкладке "Metaverse Search" (Поиск в метавселенной) можно устранять проблемы, связанные с данными. В верхней половине можно создать запрос из нескольких атрибутов. Создав требуемый запрос, щелкните **Search**(Поиск). Результат отображается в нижней сетке. Чтоб выбрать, какие столбцы должны отображаться, можно настроить **Column Settings**(Параметры столбцов).
 
-В результатах поиска выберите объект и щелкните **Properties** (Свойства), чтобы просмотреть [свойства объекта метавселенной](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
+В результатах поиска выберите объект и щелкните **Properties** (Свойства), чтобы просмотреть [свойства объекта метавселенной](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
