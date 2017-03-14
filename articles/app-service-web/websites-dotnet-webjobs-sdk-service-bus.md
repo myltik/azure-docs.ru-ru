@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
@@ -44,7 +44,7 @@ public class Program
 
 [Полный пример кода служебной шины](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) можно найти в репозитории azure-webjobs-sdk-samples на сайте GitHub.com.
 
-## <a name="a-idprerequisitesa-prerequisites"></a><a id="prerequisites"></a> Предварительные требования
+## <a id="prerequisites"></a> Предварительные требования
 Для работы со служебной шиной необходимо установить пакет NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) , а также другие пакеты SDK для веб-заданий. 
 
 Необходимо также задать строку подключения AzureWebJobsServiceBus и строки подключения для хранилища.  Это можно сделать в разделе `connectionStrings` файла App.config, как показано в примере ниже.
@@ -59,7 +59,7 @@ public class Program
 
 Строки подключения также можно задать в среде выполнения Azure. Эти строки переопределят параметры App.config при выполнении веб-задания в Azure. Дополнительные сведения см. в разделе [Начало работы с пакетом SDK для Azure для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-service-bus-queue-message-is-received"></a><a id="trigger"></a> Как вызывать функцию при получении сообщения очереди служебной шины
+## <a id="trigger"></a> Как вызывать функцию при получении сообщения очереди служебной шины
 Чтобы написать функцию, которую пакет SDK для веб-заданий будет вызывать при получении сообщения очереди, используйте атрибут `ServiceBusTrigger` . Конструктор атрибута принимает параметр, который указывает имя очереди для опроса.
 
 ### <a name="how-servicebustrigger-works"></a>Как действует ServicebusTrigger
@@ -99,7 +99,7 @@ public class Program
 ### <a name="types-servicebustrigger-works-with"></a>Типы, с которыми работает атрибут ServiceBusTrigger
 Помимо `string` и типов POCO атрибут `ServiceBusTrigger` можно использовать с массивом байтов или объектом `BrokeredMessage`.
 
-## <a name="a-idcreatea-how-to-create-service-bus-queue-messages"></a><a id="create"></a> Как создавать сообщения очереди служебной шины
+## <a id="create"></a> Как создавать сообщения очереди служебной шины
 Чтобы написать функцию, которая создает новое сообщение очереди, используйте атрибут `ServiceBus` и передайте имя очереди конструктору атрибута. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>Создание одного сообщения очереди в неасинхронной функции
@@ -136,7 +136,7 @@ public class Program
 
 Каждое сообщение очереди создается сразу после вызова метода `Add` .
 
-## <a name="a-idtopicsahow-to-work-with-service-bus-topics"></a><a id="topics"></a>Как работать с разделами служебной шины
+## <a id="topics"></a>Как работать с разделами служебной шины
 Чтобы написать функцию, которую пакет SDK будет вызывать при получении сообщения в раздел служебной шины, используйте атрибут `ServiceBusTrigger` с конструктором, принимающим имя раздела и подписки, как показано в следующем примере кода:
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
@@ -157,7 +157,7 @@ public class Program
 * Упрощена настройка `OnMessageOptions` через `ServiceBusConfiguration.MessageOptions`.
 * Для `ServiceBusTriggerAttribute`/`ServiceBusAttribute` необходимо предоставить разрешение [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) (для сценариев, в которых возможно управление правами). 
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-storage-queues-how-to-article"></a><a id="queues"></a>Связанные разделы, которые описаны в практическом руководстве по работе с очередями хранилища
+## <a id="queues"></a>Связанные разделы, которые описаны в практическом руководстве по работе с очередями хранилища
 Информацию о сценариях SDK для веб-заданий, которые не относятся к служебной шине, см. в статье [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 В этой статье рассматриваются следующие вопросы:
@@ -171,7 +171,7 @@ public class Program
 * Вызов функции вручную
 * Запись журналов
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы со служебной шиной Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в [рекомендуемых ресурсах для веб-заданий Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
 
