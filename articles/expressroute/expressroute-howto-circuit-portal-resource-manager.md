@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/02/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
-ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 46b4e1b149a3e9427e1384abc0d95eb616002ab6
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -123,7 +123,7 @@ ms.lasthandoff: 02/03/2017
 ![Состояние канала ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Изменение канала ExpressRoute
-Некоторые свойства канала ExpressRoute можно изменить, не повлияв на подключение. В настоящее время изменять свойства канала ExpressRoute с помощью портала Azure нельзя. Однако в этих целях можно использовать PowerShell. Дополнительные сведения см. в разделе [Изменение канала ExpressRoute](expressroute-howto-circuit-arm.md#modify).
+Некоторые свойства канала ExpressRoute можно изменить, не повлияв на подключение.
 
 Вы можете выполнять следующие действия без простоя:
 
@@ -133,6 +133,19 @@ ms.lasthandoff: 02/03/2017
 * Параметр **Allow Classic Operations**(Разрешить классические операции) можно включать и отключать.
 
 Дополнительные сведения об ограничениях см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
+
+Чтобы изменить канал ExpressRoute, щелкните **Конфигурация**, как показано на рисунке ниже.
+
+![Изменение канала](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+В колонке "Конфигурация" можно изменить пропускную способность, номер SKU, модель выставления счетов и разрешить классические операции.
+
+> [!IMPORTANT]
+> Уменьшить пропускную способность канала ExpressRoute без прерывания его работы нельзя. Для снижения пропускной способности нужно будет отозвать канал ExpressRoute и повторно подготовить новый канал ExpressRoute.
+> 
+> Отключение надстройки уровня "Премиум" может завершиться ошибкой, если используется больше ресурсов, чем разрешено для канала уровня "Стандартный".
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Отзыв и удаление канала ExpressRoute
 Канал ExpressRoute можно удалить, щелкнув значок **Удалить** . Обратите внимание на следующее.

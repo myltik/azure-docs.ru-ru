@@ -15,14 +15,14 @@ ms.workload: azure-government
 ms.date: 02/13/2017
 ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
-ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 21c2a0faad87b84058093f02c831b374a644b4b6
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="available-services-on-azure-government"></a>Доступные службы в Azure для государственных организаций
-В Azure для государственных организаций постоянно увеличивается число доступных служб.  Эти службы развертываются с помощью кода, используемого в общедоступной версии Azure.  В этом разделе перечислены службы, которые в настоящее время доступны в Azure для государственных организаций, а также описаны два основных типа данных:
+В Azure для государственных организаций постоянно увеличивается число доступных служб.  Эти службы развертываются с помощью кода, используемого в общедоступной версии Azure.  В этом разделе перечислены службы, которые в настоящее время доступны в Azure для государственных организаций, а также описаны два основных типа сведений.
 
 * **Различия** — различия из-за возможностей, которые еще не развернуты, или свойств (например, URL-адреса), которые являются уникальными для среды государственных организаций.  
 * **Рекомендации** — сведения о реализации для государственных организаций, гарантирующие обеспечение уровня требований для данных.
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2017
 
 Актуальный список служб см. в таблице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/). 
 
-В приведенных ниже таблицах службы, указанные как поддерживающие Resource Manager, имеют поставщики ресурсов и могут управляться с помощью PowerShell. Подробные сведения о поставщиках Resource Manager, версиях API и схемах см. [здесь](../azure-resource-manager/resource-manager-supported-services.md). Службы, указанные как доступные на портале, могут управляться с помощью [портала Azure для государственных организаций](https://portal.azure.us/). 
+В приведенных ниже таблицах службы, указанные как поддерживающие Resource Manager, имеют поставщики ресурсов и могут управляться с помощью PowerShell. Дополнительные сведения о поставщиках Resource Manager, версиях API и схемах см. [здесь](../azure-resource-manager/resource-manager-supported-services.md). Службы, указанные как доступные на портале, могут управляться с помощью [портала Azure для государственных организаций](https://portal.azure.us/). 
 
 
 ## <a name="computedocumentation-government-computemd"></a>[Среда выполнения приложений](documentation-government-compute.md)
@@ -95,6 +95,12 @@ ms.lasthandoff: 02/21/2017
 | [Кэш Redis](documentation-government-services-database.md#azure-redis-cache) | Да | Да |
 
 
+## <a name="intelligence--analyticsdocumentation-government-services-intelligenceandanalyticsmd"></a>[Аналитика](documentation-government-services-intelligenceandanalytics.md)
+
+| служба | Доступность диспетчера ресурсов | Microsoft Azure |
+| --- | --- | --- |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Да | Да |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | Нет | Нет (портал администрирования Office 365) |
 
 
 ## <a name="internet-of-things-iot"></a>Интернет вещей.
@@ -122,7 +128,6 @@ ms.lasthandoff: 02/21/2017
 | Azure Active Directory | Да | Да |
 | [хранилище ключей;](documentation-government-services-securityandidentity.md#key-vault) | Да | Нет (ожидается вскоре) |
 | Многофакторная идентификация | Да | Да |
-| InTune | Да | Нет |
 
 
 ## <a name="intelligence--analytics"></a>Аналитика

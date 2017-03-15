@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 08ebf8f6f5a2adab90c7de1084bfb5e4aed77fd3
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: a7d6cad6faa5fc3a64fe416b44a03ad3992c7862
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="identity-registry"></a>Реестр удостоверений
+# <a name="understand-identity-registry-in-your-iot-hub"></a>Общие сведения о реестре удостоверений в Центре Интернета вещей
 ## <a name="overview"></a>Обзор
 Каждый Центр Интернета вещей имеет реестр удостоверений, в котором содержатся сведения об устройствах с разрешением на подключение к Центру Интернета вещей. Перед подключением устройства к Центру Интернета вещей в реестр удостоверений нужно добавить запись об этом устройстве. Устройство также должно пройти аутентификацию в Центре Интернета вещей на основе учетных данных, хранящихся в реестре удостоверений.
 
@@ -165,9 +167,4 @@ ms.openlocfilehash: 08ebf8f6f5a2adab90c7de1084bfb5e4aed77fd3
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

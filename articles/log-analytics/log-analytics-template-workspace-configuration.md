@@ -1,31 +1,34 @@
-
-
 ---
-title: Использование шаблонов Azure Resource Manager для создания и настройки рабочей области Log Analytics | Microsoft Docs
-description: Шаблоны Azure Resource Manager вы можете применить для создания и настройки рабочих областей Log Analytics.
+title: "Использование шаблонов Azure Resource Manager для создания и настройки рабочей области Log Analytics | Документация Майкрософт"
+description: "Шаблоны Azure Resource Manager вы можете применить для создания и настройки рабочих областей Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/01/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
+ms.lasthandoff: 03/03/2017
+
 
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Управление Log Analytics с помощью шаблонов Azure Resource Manager
-Шаблоны диспетчера ресурсов Azure (../azure-resource-manager/resource-group-authoring-templates.md) можно применить для создания и настройки рабочих областей Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
+[Шаблоны Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) можно использовать, чтобы создавать и настраивать рабочие области Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
 
 * Создание рабочей области
 * Добавление решения
 * Создание сохраненных поисковых запросов
 * Создание группы компьютеров
-* Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+* Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
 * Сбор счетчиков производительности с компьютеров под управлением Linux и Windows
 * Сбор событий из системного журнала с компьютеров Linux 
 * Сбор событий из журналов событий Windows
@@ -38,17 +41,17 @@ ms.author: richrund
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Создание и настройка рабочей области Log Analytics
 Этот пример шаблона иллюстрирует следующие задачи.
 
-1. Создание рабочей области
+1. Создание рабочей области, а также настройка хранения данных.
 2. Добавление решений в рабочую область
 3. Создание сохраненных поисковых запросов
 4. Создание группы компьютеров
-5. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+5. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
 6. Сбор счетчиков производительности логического диска с компьютеров под управлением Linux ("Процент использования индексных дескрипторов"; "Свободно мегабайт"; "Процент используемого места"; "Количество обращений к диску (в секунду)"; "Количество обращений чтения или записи (в секунду))"
 7. Сбор событий из системного журнала с компьютеров Linux
 8. Сбор событий (ошибок и предупреждений) из журнала событий приложений с компьютеров Windows
 9. Сбор данных счетчика производительности "Доступный объем памяти" (в МБ) с компьютеров Windows
 10. Сбор пользовательского журнала 
-11. Сбор журналов IIS и журналов событий Windows, которые система диагностики Azure записывает в учетную запись хранилища
+11. Сбор журналов IIS и журналов событий Windows, которые система диагностики Azure записывает в учетную запись хранилища
 
 ```
 {
@@ -65,11 +68,20 @@ ms.author: richrund
       "type": "string",
       "allowedValues": [
         "Free",
-        "Standard",
-        "Premium"
+        "Standalone",
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standard, or Premium"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+    }
+      },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
       }
     },
     "location": {
@@ -118,7 +130,8 @@ ms.author: richrund
       "properties": {
         "sku": {
           "Name": "[parameters('serviceTier')]"
-        }
+        },
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
@@ -444,7 +457,5 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Развертывание агентов на виртуальных машинах Azure с помощью шаблонов Resource Manager](log-analytics-azure-vm-extension.md)
-
-<!--HONumber=Oct16_HO2-->
 
 

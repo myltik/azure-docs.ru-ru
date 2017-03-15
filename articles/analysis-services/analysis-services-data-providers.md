@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03720b926e3a75c5443308f510b38132144318ff
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -32,8 +32,17 @@ ms.lasthandoff: 02/09/2017
 Клиентские приложения Майкрософт, такие как Power BI Desktop и Excel, устанавливают все три поставщика данных. Однако в зависимости от версии Excel или от того, обновляются ли новые версии Excel и Power BI Desktop ежемесячно, установленные поставщики данных могут не обновиться до последней версии, требуемой службой Azure Analysis Service. Это же касается и пользовательских приложений или других интерфейсов, таких как AsCmd, TOM, ADOMD.NET. Для этих приложений поставщики данных требуется устанавливать вручную. Поставщики данных, устанавливаемые вручную, включены в пакеты дополнительных компонентов SQL Server в качестве распространяемых пакетов. Однако они зависят от версии SQL Server, поэтому версия в пакетах может быть не последней.  
 
 Поставщики данных для клиентских подключений отличаются от поставщиков данных, требуемых для подключения с сервера служб Analysis Services Azure к источнику данных. Дополнительные сведения о подключениях к источнику данных см. в [этой статье](analysis-services-datasource.md).
- 
-## <a name="download-the-latest-data-providers"></a>Скачивание самых новых поставщиков данных  
+
+## <a name="download-the-latest-preview-data-providers"></a>Скачивание самых новых поставщиков данных (**предварительные версии**)  
+Используйте следующие поставщики данных для получения последних исправлений ошибок и обновлений. Рекомендуется использовать эти поставщики данных при подключении к предварительной версии служб Azure Analysis Services или к службам SQL Server vNext Analysis Services.
+
+[Предварительная версия MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_OLEDB.msi)</br>
+[Предварительная версия MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x86/SQL_AS_OLEDB.msi)</br>
+[Предварительная версия AMO](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_AMO.msi)</br>
+[Предварительная версия ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
+
+## <a name="download-the-latest-rtm-data-providers"></a>Скачивание самых новых поставщиков данных (**RTM**)  
+Используйте следующие поставщики данных, если вам требуются в рабочей среде полностью выпущенные и поддерживаемые версии.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>

@@ -1,6 +1,6 @@
 ---
-title: "Добавление пользовательского кода в приложения логики с помощью Функций Azure | Документация Майкрософт"
-description: "Создание пользовательского кода для Azure Logic Apps с помощью Функций Azure"
+title: "Применение пользовательского кода в Azure Logic Apps с помощью Функций Azure | Документация Майкрософт"
+description: "Узнайте, как создавать и выполнять пользовательский код для Azure Logic Apps с помощью Функций Azure."
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,25 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c63dde728eaaf8237970e05cc524c6220b69a074
-ms.openlocfilehash: 8b68f017a2c7a17603508438b0d4bd760bec4f78
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
+ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="add-custom-code-to-azure-logic-apps-with-azure-functions"></a>Добавление пользовательского кода в Azure Logic Apps с помощью Функций Azure
 
-Настраиваемые фрагменты кода C# или Node.js можно выполнять с помощью Функций Azure в приложениях логики. 
+# <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Добавление и выполнение пользовательского кода для приложений логики с помощью Функций Azure
+
+Для выполнения пользовательских фрагментов кода C# или Node.js в приложениях логики можно с помощью Функций Azure создать пользовательские функции. 
 [Функции Azure](../azure-functions/functions-overview.md) позволяют производить в Microsoft Azure вычисления без использования серверов. Они полезны для выполнения следующих задач:
 
 * Расширенные функции форматирования или вычисления полей в приложениях логики.
 * Выполнение вычислений в рабочем процессе.
 * Расширение функциональных возможностей приложения логики с помощью функций, поддерживаемых в C# или Node.js.
 
-## <a name="create-functions-for-logic-apps"></a>Создание функций для приложений логики
+## <a name="create-custom-functions-for-your-logic-apps"></a>Создание пользовательских функций для приложений логики
 
 Мы рекомендуем создавать новые функции на портале функций Azure с помощью шаблона **Generic Webhook - Node** или **Generic Webhook - C#**. В результате создается автоматически заполняемый шаблон, который принимает `application/json` из приложения логики. Функции, которые создаются из этих шаблонов, обнаруживаются автоматически и отображаются в конструкторе приложений логики в разделе **Azure Functions in my region** (Функции Azure в моем регионе).
 

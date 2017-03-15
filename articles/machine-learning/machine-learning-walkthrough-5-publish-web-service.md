@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: dd5ce9de46d4089d285268125f2b63f1117d48c7
+ms.sourcegitcommit: ac5dfa34c867ecf2f38ebe33d7f5cf6610c33472
+ms.openlocfilehash: 005d96d66843b50d9c7003ae5264896718c37151
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -113,6 +114,10 @@ ms.openlocfilehash: dd5ce9de46d4089d285268125f2b63f1117d48c7
 ![Настройка веб-службы][5]  
 
 ### <a name="deploy-as-a-new-web-service"></a>Развертывание в качестве новой веб-службы
+
+> [!NOTE] 
+> Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
+
 Чтобы развернуть новую веб-службу, полученную на основе нашего эксперимента, выполните следующее.
 
 1. Щелкните под холстом действие **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [New]** (Развернуть веб-службу [новую]). Студия машинного обучения откроет страницу **развертывания эксперимента** в веб-службах машинного обучения Azure.
@@ -225,9 +230,4 @@ ms.openlocfilehash: dd5ce9de46d4089d285268125f2b63f1117d48c7
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

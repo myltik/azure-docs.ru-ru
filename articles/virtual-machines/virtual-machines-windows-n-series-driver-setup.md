@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bf470737f961219250c37d890ed81eb62409626
-ms.openlocfilehash: feb9370f0241fd860749d32f5db5842cb18463f1
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 57d7475db8183cfaad017fc934210d0481868d5f
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms"></a>Установка драйверов GPU для виртуальных машин серии N
+# <a name="set-up-gpu-drivers-for-n-series-windows-vms"></a>Установка драйверов GPU для виртуальных машин Windows серии N
 Чтобы воспользоваться преимуществами возможностей GPU виртуальных машин Azure серии N под управлением Windows Server, необходимо установить графические драйверы NVIDIA на каждую виртуальную машину после развертывания. Также доступна версия этой статьи для [виртуальных машин Linux](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Основные характеристики, сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -67,10 +69,5 @@ ms.openlocfilehash: feb9370f0241fd860749d32f5db5842cb18463f1
 
 * Разработчики приложений с ускорением GPU, предназначенные для графических процессоров NVIDIA Tesla, могут также скачать и установить [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

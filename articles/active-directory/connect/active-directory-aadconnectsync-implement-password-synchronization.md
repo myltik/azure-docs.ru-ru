@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2eba5ecc41342b62601750c19e4bffd8b6e78b51
-ms.openlocfilehash: 7ff2d29b52848f21534b5d540fb3908710534f69
+ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
+ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -135,135 +136,9 @@ ms.openlocfilehash: 7ff2d29b52848f21534b5d540fb3908710534f69
 Дополнительные сведения о безопасности и FIPS см. в записи блога [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/) (Синхронизация паролей, шифрование и соответствие FIPS в AAD).
 
 ## <a name="troubleshooting-password-synchronization"></a>Устранение неполадок синхронизации паролей
-Неполадки синхронизации паролей могут возникать либо в подмножестве пользователей, либо у всех.
-
-* Если проблемы возникли с отдельными объектами, см. раздел [Устранение неполадок синхронизации паролей, связанных с одним объектом](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-* Если пароли не синхронизируются, см. раздел [Устранение неполадок, связанных с синхронизацией паролей](#troubleshoot-issues-where-no-passwords-are-synchronized).
-
-### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>Устранение неполадок синхронизации паролей, связанных с одним объектом
-Проблемы, связанные с синхронизацией паролей, можно легко устранить, просмотрев состояние объекта.
-
-Запустите оснастку **Пользователи и компьютеры Active Directory**. Найдите пользователя и снимите флажок **Потребовать смены пароля пользователя при следующем входе в систему** .
-
-![Повышение производительности в Active Directory с помощью синхронизации паролей](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-
-Если флажок установлен, пользователь должен войти в систему и сменить пароль. Временные пароли не синхронизируются с Azure AD.
-
-Если в Active Directory этот флажок снят, далее необходимо отследить пользователя в модуле синхронизации. Отследив пользователя от локального Active Directory до Azure AD, вы сможете убедиться в отсутствии ошибок в объекте.
-
-1. Запустите **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Щелкните **Соединители**.
-3. Выберите **соединитель Active Directory** , к которому относится пользователь.
-4. Выберите **Search Connector Space**(Поиск пространства соединителя).
-5. Найдите нужного пользователя.
-6. Откройте вкладку **Журнал обращений и преобразований** и убедитесь, что по крайней мере для одного правила синхронизации параметр **Синхронизация паролей** имеет значение **True**. В конфигурации по умолчанию правило синхронизации имеет имя **In from AD - User AccountEnabled**.  
-    ![Сведения о журнале обращений и преобразований пользователя](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. Затем [отследите пользователя](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) от метавселенной до пространства соединителя Azure AD. Объект пространства соединителя должен содержать правило исходящих подключений, в котором параметр **Синхронизация паролей** имеет значение **True**. В конфигурации по умолчанию это будет правило синхронизации с именем **Out to AAD - User Join**.  
-    ![Свойства пространства соединителя пользователя](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. Чтобы просмотреть сведения о синхронизации паролей объекта за прошедшую неделю, щелкните **Журнал**.  
-    ![Сведения журнала объекта](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
-    Если журнал объекта пуст, то Azure AD Connect не сможет считать хэш паролей из Active Directory. Проверьте журнал событий на наличие ошибок.
-
-В столбце "Состояние" могут содержаться перечисленные ниже значения.
-
-| Состояние | Description (Описание) |
-| --- | --- |
-| Успешно |Пароль успешно синхронизирован |
-| FilteredByTarget |Для пароля установлено значение **Пользователь должен изменить пароль при следующем входе**. Пароль не синхронизирован. |
-| NoTargetConnection |Объект отсутствует в метавселенной или в пространстве соединителя Azure AD. |
-| SourceConnectorNotPresent |Объект не найден в локальном пространстве соединителя Active Directory. |
-| TargetNotExportedToDirectory |Объект в пространстве соединителя Azure AD еще не экспортирован. |
-| MigratedCheckDetailsForMoreInfo |Запись журнала создана до выхода версии 1.0.9125.0 и отображается в исходном состоянии. |
-
-### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>Устранение неполадок, связанных с синхронизацией паролей
-Начните с выполнения скрипта, описанного в разделе [Получение состояния параметров синхронизации паролей](#get-the-status-of-password-sync-settings). В этом разделе рассматривается конфигурация синхронизации паролей.  
-![Выходные данные сценария PowerShell из параметров синхронизации паролей](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-Если в Azure AD не включена функция синхронизации паролей или не добавлено состояние канала синхронизации, запустите мастер установки Azure AD Connect. Выберите **Настроить параметры синхронизации** и снимите флажок "Синхронизация паролей". Это позволит временно отключить функцию. Затем снова запустите мастер установки и включите синхронизацию паролей. Запустите скрипт снова и проверьте правильность конфигурации.
-
-Если конфигурация недопустима, тогда запустите скрипт, описанный в разделе [Запуск полной синхронизации всех паролей](#trigger-a-full-sync-of-all-passwords). Кроме того, этот скрипт можно использовать, если конфигурация правильная, но пароли не синхронизируются.
-
-Если вы установили Azure AD Connect с пользовательскими настройками, необходимо убедиться, что учетной записи, используемой соединителем AD, предоставлены разрешения Replicate Directory Changes (Репликация изменений каталога) и Replicate Directory Changes All (Репликация всех изменений каталога). Список всех разрешений, необходимых для этой учетной записи, см. в разделе [Создание учетной записи AD DS](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). Без этих разрешений учетная запись не будет иметь разрешения на чтение хэша паролей в Active Directory.
-
-Затем проверьте журнал событий приложения. Если возникла глобальная проблема с синхронизацией паролей и служба работает, как проверено на предыдущих шагах, должна существовать ошибка с дополнительными сведениями.
-
-#### <a name="get-the-status-of-password-sync-settings"></a>Получение состояния параметров синхронизации паролей
-```
-Import-Module ADSync
-$connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
-$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-{
-    if ($aadConnectors.Count -eq 1)
-    {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-        Write-Host
-        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-        foreach ($adConnector in $adConnectors)
-        {
-            Write-Host
-            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            Write-Host
-            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-            Write-Host
-            $pingEvents =
-                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-                    Sort-Object { $_.Time } -Descending
-            if ($pingEvents -ne $null)
-            {
-                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-            }
-            else
-            {
-                Write-Warning "No ping event found within last 3 hours."
-            }
-            Write-Host
-            Write-Host "Password sync channel status END ------------------------------------------------------- "
-            Write-Host
-        }
-    }
-    else
-    {
-        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-    }
-}
-Write-Host
-if ($aadConnectors -eq $null)
-{
-    Write-Warning "No Azure AD Connector was found."
-}
-if ($adConnectors -eq $null)
-{
-    Write-Warning "No AD DS Connector was found."
-}
-Write-Host
-```
-
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>Запуск полной синхронизации всех паролей
-Полную синхронизацию всех паролей можно активировать с помощью следующего скрипта:
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-```
-
+При возникновении проблем с синхронизацией паролей см. статью [Устранение неполадок синхронизации паролей с помощью службы синхронизации Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
