@@ -75,7 +75,6 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Создание группы безопасности сети и правила RDP
 Чтобы войти на виртуальную машину по протоколу удаленного рабочего стола, необходимо настроить правило безопасности, которое разрешает доступ по этому протоколу через порт 3389. Так как VHD для новой виртуальной машины создан на основе имеющейся специализированной виртуальной машины, то и существующую учетную запись (у которой есть разрешение на вход по протоколу удаленного рабочего стола) можно использовать для обеих этих виртуальных машин.
-
 В этом примере для NSG задается имя **myNsg**, а для правила протокола удаленного рабочего стола — имя **myRdpRule**.
 
 ```powershell
@@ -85,7 +84,6 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
@@ -96,7 +94,6 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ## <a name="set-the-vm-name-and-size"></a>Задание имени и размера виртуальной машины
 
 В этом примере для имени виртуальной машины задается значение myVM, а для ее размера — Standard_A2.
-
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -134,7 +131,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 2. Добавьте в конфигурацию диск ОС. В этом примере для диска устанавливается размер **128 ГБ**, а управляемый диск подключается в качестве диска ОС **Windows**.
     
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 

@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
-ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: e9ff351232f68c81122efb74275a1f255b51b72f
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="extend-your-experiment-with-r"></a>Расширение возможностей эксперимента с помощью R
-Вы можете расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль [Выполнить сценарий R][execute-r-script].
+Вы можете расширить функциональные возможности Студии машинного обучения Azure с помощью языка R, используя модуль [Выполнение скрипта R][execute-r-script].
 
 Этот модуль принимает несколько входных наборов данных и выдает один выходной набор данных. Вы можете ввести сценарий R в качестве значения параметра **R-скрипт** в модуле [Выполнить сценарий R][execute-r-script].
 
@@ -29,10 +30,10 @@ ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
 
     dataset1 <- maml.mapInputPort(1)
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## <a name="listing-all-currently-installed-packages"></a>Вывод списка всех установленных пакетов
-Список установленных пакетов может меняться. Чтобы получить полный актуальный список установленных пакетов, включая описание каждого пакета, введите следующий код в модуле [Выполнить сценарий R][execute-r-script]:
+Список установленных пакетов может меняться. Список установленных пакетов см. в статье [R Packages Supported by Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt741980.aspx) (Пакеты R, поддерживаемые в Машинном обучении Azure).
+
+Чтобы получить полный актуальный список установленных пакетов, введите следующий код в модуле [Выполнение скрипта R][execute-r-script]:
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
@@ -42,17 +43,20 @@ ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
 
 ![Скачивание выходных данных модуля "Преобразовать в CSV"](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
+
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>Импорт пакетов
-Вы также можете импортировать пакеты, которые еще не установлены из промежуточного репозитория Студии машинного обучения Microsoft Azure, с помощью следующих команд в модуле [Выполнить сценарий R][execute-r-script] и ZIP-архива пакета:
+Чтобы импортировать пакеты, которые еще не установлены, выполните следующие команды в модуле [Выполнение скрипта R][execute-r-script]:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
 
-`my_favorite_package.zip` здесь содержит ZIP-архив вашего пакета.
+Ваш пакет содержится в файле `my_favorite_package.zip`.
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <!--
 
@@ -511,9 +515,4 @@ To get the complete list of packages that are currently available, see the secti
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

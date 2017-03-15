@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/16/2017
 
 * [Пакет SDK Azure для .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003)
 
-## <a name="a-idconvertaenable-webjobs-deployment-for-an-existing-console-application-project"></a><a id="convert"></a>Включение развертывания веб-заданий для существующего проекта консольного приложения
+## <a id="convert"></a>Включение развертывания веб-заданий для существующего проекта консольного приложения
 Существует два варианта.
 
 * [Включение автоматического развертывания с веб-проектом](#convertlink).
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/16/2017
   
     Настройка существующего проекта приложения консоли для развертывания в качестве веб-задания без ссылки на веб-проект. Используйте этот параметр, если нужно запустить веб-задание в веб-приложении самостоятельно, без веб-приложения, запущенного в веб-приложении. Это может понадобиться для независимого масштабирования ресурсов веб-заданий ресурсов веб-приложений.
 
-### <a name="a-idconvertlinka-enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> Включение автоматического развертывания веб-заданий с помощью веб-проекта
+### <a id="convertlink"></a> Включение автоматического развертывания веб-заданий с помощью веб-проекта
 1. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Добавить** > **Существующий проект как веб-задание Azure**.
    
     ![Существующий проект как веб-задание Azure](./media/websites-dotnet-deploy-webjobs/eawj.png)
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/16/2017
     ![Выбор проекта в диалоговом окне "Добавление веб-задания Azure"](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 3. Заполните диалоговое окно [Добавление веб-задания Azure](#configure) и щелкните кнопку **ОК**. 
 
-### <a name="a-idconvertnolinka-enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> Включение развертывания веб-заданий без веб-проекта
+### <a id="convertnolink"></a> Включение развертывания веб-заданий без веб-проекта
 1. Щелкните правой кнопкой мыши проект консольного приложения в **обозревателе решений** и выберите **Опубликовать как веб-задание Azure**. 
    
     ![Опубликовать как веб-задание Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
@@ -79,7 +79,7 @@ ms.lasthandoff: 02/16/2017
    
    Откроется мастер **веб-публикации** .  Если вы не хотите сразу выполнить публикацию, закройте мастер. Указанные параметры сохраняются до момента [развертывания проекта](#deploy).
 
-## <a name="a-idcreateacreate-a-new-webjobs-enabled-project"></a><a id="create"></a>Создание нового проекта с поддержкой веб-заданий
+## <a id="create"></a>Создание нового проекта с поддержкой веб-заданий
 Чтобы создать проект с поддержкой веб-заданий, можно использовать шаблон проекта приложения консоли и включить развертывание веб-заданий, как показано в [предыдущем разделе](#convert). В качестве альтернативы можно использовать шаблон создания проекта с поддержкой веб-заданий:
 
 * [Использование шаблона создания проекта веб-заданий для отдельного веб-задания](#createnolink)
@@ -94,13 +94,13 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-### <a name="a-idcreatenolinka-use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> Использование шаблона создания проекта веб-заданий для отдельного веб-задания
+### <a id="createnolink"></a> Использование шаблона создания проекта веб-заданий для отдельного веб-задания
 1. Щелкните **Файл** > **Создать проект**, а затем в диалоговом окне **Новый проект** выберите **Облако** > **Веб-задание Microsoft Azure**.
    
     ![Диалоговое окно "Новый проект", отображающее шаблон веб-заданий](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Следуйте инструкциям, показанным ранее, чтобы [сделать проект приложения консоли независимым проектом веб-заданий](#convertnolink).
 
-### <a name="a-idcreatelinka-use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> Использование шаблона создания проекта с поддержкой веб-заданий для веб-задания, связанного с веб-проектом
+### <a id="createlink"></a> Использование шаблона создания проекта с поддержкой веб-заданий для веб-задания, связанного с веб-проектом
 1. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Добавить** > **Новый проект веб-задания Azure**.
    
     ![Запись меню "Новый проект веб-задания Azure"](./media/websites-dotnet-deploy-webjobs/nawj.png)
@@ -108,7 +108,7 @@ ms.lasthandoff: 02/16/2017
     Откроется диалоговое окно [Добавление веб-задания Azure](#configure) .
 2. Заполните диалоговое окно [Добавление веб-задания Azure](#configure) и щелкните кнопку **ОК**.
 
-## <a name="a-idconfigureathe-add-azure-webjob-dialog"></a><a id="configure"></a>Диалоговое окно "Добавление веб-заданий Azure"
+## <a id="configure"></a>Диалоговое окно "Добавление веб-заданий Azure"
 Диалоговое окно **Добавление веб-заданий Azure** позволяет ввести имя веб-задания и параметры планирования для веб-задания. 
 
 ![Диалоговое окно "Добавление веб-заданий Azure"](./media/websites-dotnet-deploy-webjobs/aaw2.png)
@@ -128,7 +128,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-## <a name="a-idpublishsettingsawebjob-publish-settingsjson"></a><a id="publishsettings"></a>webjob-publish-settings.json
+## <a id="publishsettings"></a>webjob-publish-settings.json
 При настройке консольного приложения для развертывания веб-заданий Visual Studio устанавливает пакет NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) и сохраняет сведения о планировании в файле *webjob-publish-settings.json* в папке *Properties* проекта веб-заданий. Вот пример этого файла:
 
         {
@@ -148,7 +148,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-## <a name="a-idwebjobslistawebjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
+## <a id="webjobslist"></a>webjobs-list.json
 При связывании проекта с поддержкой веб-заданий с веб-проектом Visual Studio сохраняет имя проекта веб-заданий в файле *webjobs-list.json* в папке веб-проекта *Properties*. Список может содержать несколько проектов веб-заданий, как показано в следующем примере:
 
         {
@@ -165,7 +165,7 @@ ms.lasthandoff: 02/16/2017
 
 Вы можете изменить этот файл напрямую, и Visual Studio предоставит IntelliSense. Схема файла сохранена на сайте [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) , и ее можно просмотреть здесь.
 
-## <a name="a-iddeployadeploy-a-webjobs-project"></a><a id="deploy"></a>Развертывание проекта веб-заданий
+## <a id="deploy"></a>Развертывание проекта веб-заданий
 Проект веб-заданий, связанный с веб-проектом, развертывается автоматически с веб-проектом. Информацию о развертывании веб-проектов см. в разделе [Развертывание приложения в службе приложений Azure](web-sites-deploy.md).
 
 Чтобы развернуть проект веб-заданий, щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Опубликовать как веб-задание Azure**. 
@@ -174,7 +174,7 @@ ms.lasthandoff: 02/16/2017
 
 Для независимого веб-задания отобразится тот же мастер **веб-публикации** , который использовался для веб-проектов, но некоторые параметры будут недоступны для изменения.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 В этой статье показано, как развернуть WebJob с помощью Visual Studio. Дополнительные сведения о развертывании веб-заданий Azure см. в статье [Документация по веб-заданиям Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 

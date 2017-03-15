@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/14/2017
 ms.author: fboylu
 translationtype: Human Translation
 ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
 ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -235,10 +236,5 @@ PBIX-файл, поставляемый с загрузкой генератор
 
 * [Средство оценки затрат Azure Microsoft (в сети)](https://azure.microsoft.com/pricing/calculator/)
 * [Средство оценки затрат Azure Microsoft (на рабочем столе)](http://www.microsoft.com/download/details.aspx?id=43376)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
