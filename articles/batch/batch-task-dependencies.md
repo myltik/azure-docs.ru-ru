@@ -1,6 +1,6 @@
 ---
-title: "Настройка задач, зависящих от других задач, с помощью пакетной службы Azure | Документация Майкрософт"
-description: "Создание задач, которые зависят от успешного выполнения других задач обработки по модели MapReduce и аналогичных рабочих нагрузок данных большого размера в пакетной службе Azure."
+title: "Использование зависимостей для выполнения задач на основе завершения других задач с помощью пакетной службы Azure | Документация Майкрософт"
+description: "Создание задач, которые зависят от выполнения других задач, для обработки по модели MapReduce и аналогичных рабочих нагрузок больших данных в пакетной службе Azure."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 32293e15b6f610a3613d6b666bdd0eea0495b2b8
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: d7cca5d71d3db45599b47328755c53a023e9c4ae
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="task-dependencies-in-azure-batch"></a>Зависимости задач в пакетной службе Azure
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Создание зависимостей для выполнения задач, которые зависят от других задач
+
 Функция зависимости задач пакетной службы Azure хорошо подходит для обработки:
 
 * рабочих нагрузок MapReduce в облаке;
@@ -166,9 +169,4 @@ new CloudTask("4", "cmd.exe /c echo 4")
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Схема: зависимость "один к одному""
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Схема: зависимость "один ко многим""
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Схема: зависимость диапазона идентификаторов задач"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

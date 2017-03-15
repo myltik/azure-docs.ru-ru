@@ -13,15 +13,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 2/25/2017
 ms.author: ronitr; giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 2882c41ced74c35e28a9237f3f08b6e6f687b846
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: fb56545df42e997e5960eec73ae59e9334731392
+ms.openlocfilehash: 8c6fa92764cb720a0c71a24d839d3e73ce3ba447
+ms.lasthandoff: 03/02/2017
 
 
 ---
+
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Настройка аудита базы данных SQL и управление им на портале Azure
 
 Здесь описывается настройка аудита и управление им на портале Azure. Сведения о настройке аудита и управлении им с помощью PowerShell см. в разделе [Настройка аудита базы данных SQL и управление им с помощью PowerShell](sql-database-auditing-powershell.md). Сведения о настройке аудита и управлении им с помощью REST API см. в разделе [Настройка аудита базы данных SQL и управление им с помощью REST API](sql-database-auditing-rest.md).
@@ -45,7 +46,9 @@ ms.lasthandoff: 02/17/2017
     <a id="storage-screenshot"></a>
     ![Область навигации][4]
 6. Настроить события аудита можно с помощью [PowerShell](sql-database-auditing-powershell.md) или [REST API](sql-database-auditing-rest.md).
-7. Щелкните **Сохранить**.
+7. После настройки параметров аудита можно включить новую функцию "Обнаружение угроз (предварительная версия)" и указать адреса электронной почты для получения предупреждений системы безопасности. Функция "Обнаружение угроз" позволяет настроить упреждающие оповещения об аномальной активности в базах данных, которая может указывать на потенциальные угрозы безопасности. Дополнительные сведения см. в статье [Обнаружение угроз для базы данных SQL](sql-database-threat-detection.md).
+8. Щелкните **Сохранить**.
+
 
 ## <a name="table-auditing"></a>Аудит таблиц
 

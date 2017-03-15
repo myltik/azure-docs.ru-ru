@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 3/9/2017
 ms.author: markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
 ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
+ms.lasthandoff: 01/23/2017
 
 
 ---
@@ -320,9 +321,4 @@ ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
 * [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 * Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 * Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

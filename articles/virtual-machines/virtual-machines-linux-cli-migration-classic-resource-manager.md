@@ -101,7 +101,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 
 Если вы хотите перенести их в существующую виртуальную сеть в модели развертывания с помощью Resource Manager, используйте следующую команду.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 Когда операция подготовки успешно завершится, вы сможете просмотреть подробные выходные данные о состоянии миграции виртуальных машин, чтобы убедиться, что все они находятся в состоянии `Prepared` .
 

@@ -1,5 +1,5 @@
 ---
-title: "Синхронизация Azure AD Connect: пользовательский интерфейс Synchronization Service Manager | Документация Майкрософт"
+title: "Соединители в пользовательском интерфейсе Synchronization Service Manager Azure AD Connect | Документация Майкрософт"
 description: "Получите общие сведения о вкладке &quot;Соединители&quot; в диспетчере службы синхронизации для Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: f6fece979025cb9d4bb3cefdadcdbc929ed12719
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 55adbf800c6312371d937ed2da98a4a5ce704e51
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Синхронизация Azure AD Connect: Synchronization Service Manager
+# <a name="using-connectors-with-the-auzre-ad-connect-sync-service-manager"></a>Использование соединителей с Synchronization Service Manager Auzre AD Connect
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -112,9 +113,4 @@ ms.openlocfilehash: f6fece979025cb9d4bb3cefdadcdbc929ed12719
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

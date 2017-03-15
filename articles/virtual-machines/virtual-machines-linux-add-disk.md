@@ -32,8 +32,8 @@ ms.lasthandoff: 02/21/2017
 Использование управляемых дисков:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 Использование неуправляемых дисков:
@@ -53,8 +53,8 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 Если вам просто нужен новый диск в виртуальной машине, можно использовать команду `az vm disk attach`.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>Подключение существующего диска 

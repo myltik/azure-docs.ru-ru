@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 8245c9d86d7a37bfb12c06b1cb2cbe9dae01d653
-ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
+ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
+ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -59,14 +60,22 @@ ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+Условие запроса также может находиться в одном идентификаторе устройства или в списке идентификаторов устройств, как показано ниже.
+
+**Примеры**
+```
+queryCondition = "deviceId = 'MyDevice1'"
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+В статье [Справочник по языку запросов Центр Интернета вещей для двойников устройств и заданий][lnk-query] подробно рассматривается язык запросов Центра Интернета вещей.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Задания для обновления свойств устройств-двойников
 Запрос HTTP 1.1 ниже предполагает обновление свойств устройства-двойника с использованием задания:
@@ -82,8 +91,7 @@ ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
@@ -159,9 +167,4 @@ ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

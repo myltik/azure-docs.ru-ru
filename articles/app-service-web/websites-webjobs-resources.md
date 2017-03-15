@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
 ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/31/2017
 
 Панель мониторинга веб-заданий на портале Azure предоставляет широкие возможности управления и полный контроль над выполнением веб-заданий, включая возможность вызова отдельных функций в рамках самого веб-задания. Информационная панель также показывает состояние исполняемой среды и записи журнала. 
 
-## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Начало работы с веб-заданиями и пакетом SDK веб-заданий
+## <a name="getstarted"></a>Начало работы с веб-заданиями и пакетом SDK веб-заданий
 * [Общие сведения о веб-заданиях Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Веб-задания Azure потрясающие, начните использовать их прямо сейчас!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Запись блога Троя Ханта (Troy Hunt).)
 * [Компоненты веб-заданий Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/31/2017
 
 См. также разделы [Развертывание веб-заданий](#deploy) и [Тестирование и отладка веб-заданий](#debug).
 
-## <a name="a-namedeployadeploying-webjobs"></a><a name="deploy"></a>Развертывание веб-заданий
+## <a name="deploy"></a>Развертывание веб-заданий
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [Как развернуть веб-задания с использованием портала Azure](web-sites-create-web-jobs.md)
 * [Включение предоставления веб-заданий Azure из командной строки или постоянно](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
@@ -65,14 +65,14 @@ ms.lasthandoff: 01/31/2017
   * [Введение в средства для работы с веб-заданиями для Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
   * [Средства для работы с веб-заданиями и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescheduleascheduling-webjobs"></a><a name="schedule"></a>Планирование веб-заданий
+## <a name="schedule"></a>Планирование веб-заданий
 * [Диалоговое окно "Добавление веб-заданий Azure"](websites-dotnet-deploy-webjobs.md#configure)
 * [Создание запланированного веб-задания на портале Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Подключение задания планировщика к веб-заданию](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Планирование веб-заданий Azure с помощью выражений cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Планирование отдельных функций веб-задания с помощью TimerTrigger из пакета SDK веб-заданий](websites-dotnet-webjobs-sdk.md#schedule)
 
-## <a name="a-namedebugatesting-and-debugging-webjobs"></a><a name="debug"></a>Проверка и отладка веб-заданий
+## <a name="debug"></a>Проверка и отладка веб-заданий
 * [Новые функции для разработки и отладки для веб-заданий Azure в Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
 * [Просмотр панели мониторинга веб-заданий](websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Запись журналов с использованием пакета SDK веб-заданий и просмотр журналов на панели мониторинга](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
@@ -84,13 +84,13 @@ ms.lasthandoff: 01/31/2017
 * Видеоролики
   * [Средства для работы с веб-заданиями и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescaleascaling-webjobs"></a><a name="scale"></a>Масштабирование веб-заданий
+## <a name="scale"></a>Масштабирование веб-заданий
 * [Масштабирование приложения с помощью веб-сайтов Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * [Служба приложений Azure: конструирование веб-приложений для бизнеса c широкими возможностями масштабирования](https://channel9.msdn.com/Events/Build/2014/3-626). Охватывает масштабирование веб-приложений с веб-заданиями, в том числе пакет SDK веб-заданий.
 * Видеоролики
   * [Масштабирование веб-заданий](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 
-## <a name="a-nameadditionalaadditional-webjobs-resources"></a><a name="additional"></a>Дополнительные ресурсы по веб-заданиям
+## <a name="additional"></a>Дополнительные ресурсы по веб-заданиям
 * [Общедоступная запись в блоге о веб-заданиях Azure Магнуса Мортенссона (Magnus Mårtensson)](http://magnusmartensson.com/azure-webjobs-ga)
 * [Запуск веб-заданий Powershell в службе приложений Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Получение уведомлений после завершения веб-заданий, инициированных Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/31/2017
   * [Видеопрограммы по веб-заданиям Azure от Магнуса Мортенссона (Magnus Mårtensson)](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
   * [Серия видеопрограмм по веб-заданиям Azure на канале 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-nameadditionalsdkaadditional-webjobs-sdk-resources"></a><a name="additionalsdk"></a>Дополнительные ресурсы по пакету SDK для веб-заданий
+## <a name="additionalsdk"></a>Дополнительные ресурсы по пакету SDK для веб-заданий
 * [Заметки о выпуске пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
 * [Исходный код пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk)
 * [Исходный код расширений пакета SDK для веб-заданий](https://github.com/Azure/azure-webjobs-sdk-extensions) с [подробным руководством по модели расширения](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)  
@@ -114,17 +114,17 @@ ms.lasthandoff: 01/31/2017
 * Видеоролики
   * [Серия видеопрограмм по веб-заданиям Azure на канале 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-namesamplesasample-webjob-applications"></a><a name="samples"></a>Примеры приложений веб-заданий
+## <a name="samples"></a>Примеры приложений веб-заданий
 * [Примеры приложений, предлагаемых командой разработчиков веб-заданий на GitHub](https://github.com/azure/azure-webjobs-sdk-samples)
 * [Простое веб-приложение Azure с ядром на веб-заданиях с использованием SDK веб-заданий](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)
 * [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). Демонстрирует применение веб-заданий по расписанию или при наступлении определенных событий. См. запись блога [Rebuilding the SiteMonitR using Azure WebJobs SDK](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs) (Повторное создание SiteMonitR с помощью пакета SDK для веб-заданий Azure).
 
-## <a name="a-nameblogsablogs"></a><a name="blogs"></a>Блоги
+## <a name="blogs"></a>Блоги
 * [Блог Azure](/blog)
 * [Блог Amit Apple](http://blog.amitapple.com/). Ориентирован на задания WebJob (не SDK).
 * [Блог Магнуса Мортенссона (Magnus Mårtensson)](http://magnusmartensson.com/)
 
-## <a name="a-namegethelpagetting-help-with-webjobs"></a><a name="gethelp"></a>Справочная информация о веб-заданиях
+## <a name="gethelp"></a>Справочная информация о веб-заданиях
 * [StackOverflow для веб-заданий](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow для SDK веб-заданий](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [StackOverflow для функций Azure](http://stackoverflow.com/questions/tagged/azure-functions)

@@ -215,7 +215,7 @@ if __name__ == '__main__':
 
 Списковое выражение вызывает функцию `upload_file_to_container` для каждого файла в коллекциях, а затем заполняются две коллекции [ResourceFile][py_resource_file]. Функция `upload_file_to_container` показана ниже.
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>Шаг 8. Удаление контейнеров
 Так как вы платите за данные, которые находятся в службе хранилища Azure, рекомендуется всегда удалять все большие двоичные объекты, которые больше не нужны для выполнения заданий пакетной службы. В *python_tutorial_client.py* это можно сделать, вызвав [BlockBlobService.delete_container][py_delete_container] трижды:
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)
