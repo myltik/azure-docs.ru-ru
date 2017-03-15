@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
-ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
    
    Если вы планируете последовательное скачивание, получите имена MP4-файлов в ресурсе.  
 4. Создайте URL-адрес файла манифеста или URL-адреса MP4-файлов. 
+
+
+>[!NOTE]
+>Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 
 ### <a name="use-media-services-net-sdk"></a>Использование пакета SDK служб мультимедиа для .NET
 Создание URL-адресов потоковой передачи 
@@ -173,10 +178,5 @@ ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
 ## <a name="see-also"></a>См. также
 [Доставка актива путем загрузки](media-services-deliver-asset-download.md)
 [Настройка политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET](media-services-dotnet-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
