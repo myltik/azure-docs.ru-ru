@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
-ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 7d21ab1180fcd6df39a5dcc5c095c9521c00f6fd
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/02/2017
 
 На портале Azure в области **Интегрировать** функции для шаблона должен отображаться **Режим** **Веб-перехватчик**, а **Тип webhook** — **Generic JSON** (Универсальный JSON). 
 
-Функции веб-перехватчика принимают запрос и передают его методу в виде переменной `data` . Для доступа к свойствам рабочей нагрузки можно использовать запись с точками типа `data.foo`. Вот пример простой функции JavaScript, которая преобразует значение DateTime в строку даты:
+Функции веб-перехватчика принимают запрос и передают его методу в виде переменной `data` . Для доступа к свойствам рабочей нагрузки можно использовать запись с точками типа `data.function-name`. Вот пример простой функции JavaScript, которая преобразует значение DateTime в строку даты:
 
 ```
 function start(req, res){
