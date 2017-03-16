@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 8377c936e37b464c2d566f9482ebda63a1e374df
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -38,19 +39,14 @@ ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Учетная запись хранения Azure.** Ознакомьтесь со статьей [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account).
-* **Visual Studio 2013 или 2015**.
+* **Visual Studio 2013, Visual Studio 2015 или Visual Studio 2017**.
 
 ### <a name="access-control-requirements"></a>Требования к контролю доступа
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Создание кластеров
-1. Откройте Visual Studio 2013 или 2015.
-2. Создайте новый проект Visual Studio со следующими параметрами.
-   
-   | Свойство | Значение |
-   | --- | --- |
-   | Шаблон |Templates/Visual C#/Windows/Console Application |
-   | Имя |CreateHDICluster |
+1. Откройте Visual Studio 2017.
+2. Создайте консольное приложение Visual C#.
 3. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**.
 4. Чтобы установить пакеты, выполните в консоли следующую команду:
    
@@ -92,7 +88,7 @@ ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
                 private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.4";
+                private const string NewClusterVersion = "3.5";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
                 private const string NewClusterSshUserName = "sshuser";
@@ -381,10 +377,5 @@ ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
 * [Выполнение заданий Pig в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
