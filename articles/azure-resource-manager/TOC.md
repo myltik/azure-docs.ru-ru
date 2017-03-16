@@ -38,7 +38,8 @@
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ## Контроль доступа
 ### [Создание субъекта-службы с помощью PowerShell](resource-group-authenticate-service-principal.md)
-### [Создание субъекта-службы с помощью интерфейса командной строки Azure](resource-group-authenticate-service-principal-cli.md)
+### [Создание субъекта-службы с помощью Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Создание субъекта-службы с помощью Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Создание субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)

@@ -29,7 +29,7 @@
 ### [Просмотр событий в журнале действий](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Настройка webhook для оповещений о журнале действий](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Архивация журнала действий](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
-### [Потоковая передача журнала действий в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+### [Потоковая передача журналов действий в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 ### [Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md)
 ## Управление журналами диагностики
 ### [Архив](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
@@ -37,6 +37,8 @@
 ### [Активация параметров диагностики с помощью шаблонов Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Использование REST API
 ### [Пошаговое руководство по использованию REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Использование системы диагностики Azure
+### [Отправка в Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)

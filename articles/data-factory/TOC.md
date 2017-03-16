@@ -62,12 +62,12 @@
 ### [Действие Pig HDInsight](data-factory-pig-activity.md)
 ### [Действие MapReduce HDInsight](data-factory-map-reduce.md)
 ### [Действие потоковой передачи HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Действие HDInsight Spark](data-factory-spark.md)
 ### [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
 ### [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
 ### [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
 ### [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
 ### [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
-### [Вызов программ Spark](data-factory-spark.md)
 ### [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Разработка
 ### [Шаблон Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
