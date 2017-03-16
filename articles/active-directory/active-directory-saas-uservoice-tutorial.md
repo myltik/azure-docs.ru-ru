@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 592fc838645dbc05b710b1bd83fd7c0135688844
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Scenario")
+![Сценарий](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-uservoice"></a>Включение интеграции приложений для UserVoice 
 В этом разделе показано, как включить интеграцию приложений для UserVoice.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **UserVoice**.
    
-    ![Коллекция приложений](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Коллекция приложений")
 
 7. В области результатов выберите **UserVoice** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -75,33 +76,33 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **UserVoice** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Настройка единого входа")
 
 2. На странице **Как пользователи будут входить в UserVoice?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Настройка единого входа")
 
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в UserVoice** введите свой URL-адрес в формате *https://\<имя_клиента\>.UserVoice.com*, а затем нажмите кнопку **Далее**.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в UserVoice** щелкните **Скачать сертификат**, а затем сохраните файл сертификата локально как **c:\\UserVoice.cer**.
    
-    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на веб-сайт UserVoice вашей компании в качестве администратора.
 
 6. На панели инструментов в меню в верхней части экрана щелкните "Параметры", а затем — "Веб-портал".
    
-    ![Параметры](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Параметры](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Параметры")
 
 7. На вкладке **Web portal** (Веб-портал) в разделе **User authentication** (Проверки подлинности пользователя) щелкните **Edit** (Изменить), чтобы открыть диалоговую страницу **Edit User Authentication** (Изменение проверки подлинности пользователя).
    
-    ![Веб-портал](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web portal")
+    ![Веб-портал](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Веб-портал")
 
 8. На странице **Изменение проверки подлинности пользователя** выполните следующие действия.
    
-    ![Изменение проверки подлинности пользователя](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Edit user authentication")
+    ![Изменение проверки подлинности пользователя](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Изменение проверки подлинности пользователя")
    
     а. Выберите **Единый вход (SSO)**.
  
@@ -120,7 +121,7 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнять вход в UserVoice, они должны быть подготовлены для UserVoice.  
@@ -131,21 +132,21 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 
 2. Перейдите в меню **Параметры**.
    
-    ![Параметры](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Параметры](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Параметры")
 
 3. Выберите пункт **Общие**.
 
 4. Выберите пункт **Агенты и разрешения**.
    
-    ![Агенты и разрешения](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agents and permissions")
+    ![Агенты и разрешения](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Агенты и разрешения")
 
 5. Нажмите кнопку **Добавить администраторов**.
    
-    ![Добавить администраторов](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Add admins")
+    ![Добавление администраторов](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Добавление администраторов")
 
 6. В диалоговом окне **Пригласить администраторов** выполните следующие действия.
    
-    ![Пригласить администраторов](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
+    ![Пригласить администраторов](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Пригласить администраторов")
    
     а. В текстовом поле "Электронная почта" введите адрес электронной почты учетной записи, которую вы хотите подготовить, а затем нажмите кнопку **Добавить**.
    
@@ -163,17 +164,12 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **UserVoice** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

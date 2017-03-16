@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 
 Ниже представлена процедура рабочего процесса [обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Здесь мы покажем, как настроить среду обработки и анализа данных, загрузить данные в хранилище SQL, а также изучить данные с помощью хранилища данных SQL и IPython Notebook и спроектировать признаки в модель. Затем мы рассмотрим, как создать и развернуть модель в службе машинного обучения Azure.
 
-## <a name="a-namedatasetathe-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Набор данных "Поездки такси Нью-Йорка"
+## <a name="dataset"></a>Набор данных "Поездки такси Нью-Йорка"
 Данные о поездках такси Нью-Йорка содержатся в сжатых CSV-файлах размером около 20 ГБ (примерно 48 ГБ в несжатом виде), которые включают в себя сведения о более 173 млн отдельных поездок и платежах за каждую поездку. В каждой записи о поездке содержатся данные о расположении пунктов посадки и высадки, а также времени, анонимизированный номер лицензии водителя и номер медальона (уникальный идентификатор такси). Данные включают в себя все поездки за 2013 год и предоставляются в виде следующих двух наборов данных за каждый месяц:
 
 1. CSV-файл **trip_data.csv** содержит подробные сведения о поездке, например число пассажиров, пункты отправления и назначения, продолжительность поездки и ее расстояние. Вот несколько примеров записей:
@@ -51,10 +52,10 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 * hack\_license и
 * pickup\_datetime.
 
-## <a name="a-namemltasksaaddress-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Определение трех типов задач прогнозирования
+## <a name="mltasks"></a>Определение трех типов задач прогнозирования
 На основе *tip\_amount* мы сформулировали три проблемы прогнозирования, чтобы проиллюстрировать три типа задач моделирования.
 
-1. **Двоичная классификация:** спрогнозировать, были ли оставлены чаевые после поездки, т. е. значение *tip\_amount* больше 0 $ является позитивным примером, а значение *tip\_amount* 0 $ является негативным примером.
+1. **Двоичная классификация:** спрогнозировать, были ли оставлены чаевые после поездки, т. е. значение *tip\_amount* больше&0; $ является позитивным примером, а значение *tip\_amount*&0; $ является негативным примером.
 2. **Мультиклассовая классификация**: спрогнозировать диапазон суммы чаевых за поездку. Мы разделяем *tip\_amount* на пять ячеек или классов:
    
         Class 0 : tip_amount = $0
@@ -64,7 +65,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
         Class 4 : tip_amount > $20
 3. **Задача регрессии**: спрогнозировать сумму чаевых, выплаченных за поездку.  
 
-## <a name="a-namesetupaset-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Настройка среды обработки и анализа данных Azure для расширенной аналитики
+## <a name="setup"></a>Настройка среды обработки и анализа данных Azure для расширенной аналитики
 Чтобы настроить среду обработки и анализа данных в Azure, выполните следующие шаги.
 
 **Создайте собственную учетную запись хранилища BLOB-объектов Azure**
@@ -84,7 +85,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 * **Имя пользователя**
 * **Пароль**
 
-**Установите Visual Studio 2015 и SQL Server Data Tools.** Инструкции можно найти в статье [Установка Visual Studio 2015 и SSDT для хранилища данных SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Установите Visual Studio и SQL Server Data Tools.** Инструкции можно найти в статье [Установка Visual Studio 2015 и SSDT для хранилища данных SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Установите подключение к своему хранилищу данных SQL Azure с помощью Visual Studio.** Инструкции приведены в шагах 1 и 2 статьи [Подключение к хранилищу данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
@@ -103,7 +104,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 
 **Создайте рабочую область Машинного обучения Azure, используя подписку Azure.** Инструкции можно найти в статье [Создание рабочей области машинного обучения Azure](machine-learning-create-workspace.md).
 
-## <a name="a-namegetdataaload-the-data-into-sql-data-warehouse"></a><a name="getdata"></a>Загрузка данных в хранилище данных SQL
+## <a name="getdata"></a>Загрузка данных в хранилище данных SQL
 Откройте командную консоль Windows PowerShell. Выполните следующие команды PowerShell, чтобы скачать файлы примеров сценариев SQL, доступные на сайте Github, в локальный каталог, указанный с помощью параметра *-DestDir*. Значение параметра *-DestDir* можно изменить и указать любой другой локальный каталог. Если *-DestDir* отсутствует, он будет создан в рамках сценария PowerShell.
 
 > [!NOTE]
@@ -338,7 +339,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 
 ![][20]
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-azure-sql-data-warehouse"></a><a name="dbexplore"></a>Изучение данных и проектирование признаков в хранилище данных SQL Azure
+## <a name="dbexplore"></a>Изучение данных и проектирование признаков в хранилище данных SQL Azure
 В этом разделе мы исследуем данные и создадим признаки, используя SQL-запросы для хранилища данных SQL Azure с помощью **средств работы с данными Visual Studio**. Все SQL-запросы, используемые в этом разделе, можно найти в примере скрипта *SQLDW_Explorations.sql*. Этот файл скачан в локальный каталог во время выполнения сценария PowerShell. Кроме того, его также можно взять на веб-сайте [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Но в файл с Github не включены данные хранилища SQL Azure.
 
 Подключитесь к хранилищу данных SQL Azure с помощью Visual Studio, используя имя входа и пароль хранилища данных SQL, и откройте **обозреватель объектов SQL** для подтверждения импорта базы данных и таблиц. Получите файл *SQLDW_Explorations.sql*.
@@ -564,7 +565,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 1. Сохранить окончательный SQL-запрос для извлечения и выборки данных, скопировать и вставить этот запрос непосредственно в модуль [Импорт данных][import-data] в Машинном обучении Azure.
 2. Сохранить выбранные и спроектированные данные, которые планируется использовать для построения модели в новой таблице хранилища данных SQL, и использовать новую таблицу в модуле [Импорт данных][import-data] в Машинном обучении Azure. Это уже сделано на одном из предыдущих шагов сценария PowerShell. Данные можно считать прямо из этой таблицы в модуле "Импорт данных".
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Просмотр данных и проектирование характеристик в IPython Notebook
+## <a name="ipnb"></a>Просмотр данных и проектирование характеристик в IPython Notebook
 В этом разделе мы изучим данные и спроектируем признаки, используя как Python, так и SQL-запросы, для созданного ранее хранилища данных SQL. Пример файла IPython Notebook с именем **SQLDW_Explorations.ipynb** и файла скрипта Python **SQLDW_Explorations_Scripts.py** скачаны в локальный каталог. Они также доступны на веб-сайте [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). В сценариях Python эти два файла идентичны. Файл сценария Python предоставляется, если нет сервера IPython Notebook. Эти два примера файлов Python предназначены для использования с **Python 2.7**.
 
 Необходимые данные хранилища данных SQL Azure в примере IPython Notebook и файле сценария Python, скачанные на локальный компьютер, уже включены во время выполнения сценария PowerShell. Они выполняются без изменений.
@@ -804,7 +805,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Построение моделей в компоненте машинного обучения Azure
+## <a name="mlmodel"></a>Построение моделей в компоненте машинного обучения Azure
 Теперь мы готовы перейти к построению и развертыванию модели в [машинном обучении Azure](https://studio.azureml.net). Данные готовы для любой из задач прогнозирования, определенных ранее:
 
 1. **Двоичная классификация**: спрогнозировать, были ли выплачены чаевые за поездку.
@@ -853,7 +854,7 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 > 
 > 
 
-## <a name="a-namemldeployadeploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Развертывание моделей в службе Машинного обучения Azure
+## <a name="mldeploy"></a>Развертывание моделей в службе Машинного обучения Azure
 Когда модель готова, ее можно легко развернуть в виде веб-службы непосредственно из эксперимента. Дополнительные сведения о развертывании веб-служб Azure ML см. в статье [Развертывание веб-службы Машинного обучения Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 Чтобы развернуть новую веб-службу, необходимо выполнить такие действия.
@@ -920,9 +921,4 @@ ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
-ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
+ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
+ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Часто задаваемые вопросы о службе управления API Azure
@@ -44,13 +45,13 @@ ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
 * [Почему происходит ошибка проверки подлинности при попытке клонировать репозиторий Git?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Работает ли управление API с Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Можно ли перенести экземпляр службы управления API из одной подписки в другую?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [Существуют ли ограничения на импорт API или известные проблемы, связанные с этим процессом?](#api-management-api-import-restrictions)
+* [Существуют ли ограничения на импорт API или известные проблемы, связанные с этим процессом?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Как задать вопрос рабочей группе службы управления API Microsoft Azure?
 С нами можно связаться одним из следующих способов:
 
 * Свои вопросы вы можете разместить на нашем [форуме MSDN для службы управления API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* <Отправьте сообщение электронной почты по адресу mailto:apimgmt@microsoft.com>.
+* Отправьте сообщение электронной почты по адресу <mailto:apimgmt@microsoft.com>.
 * Отправьте нам запрос на функцию на [форуме отзывов Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Что означает, если функция пребывает в предварительной версии?
@@ -62,7 +63,7 @@ ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
 * Использование обычной проверки подлинности HTTP. Дополнительные сведения см. в разделе [Настройка параметров API](api-management-howto-create-apis.md#configure-api-settings).
 * использовать взаимную проверку подлинности SSL, как описано в статье [Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management](api-management-howto-mutual-certificates.md).
 * использовать разрешенный список IP-адресов во внутренних службах. Если у вас есть экземпляр службы управления API уровня "Стандартный" или "Премиум", IP-адрес шлюза остается неизменным. Можно задать список разрешений и включить в него этот IP-адрес. IP-адрес экземпляра службы управления API можно узнать на панели мониторинга на портале Azure.
-* подключить экземпляр службы управления API к виртуальной сети Azure. Дополнительные сведения см. в статье [Настройка VPN-подключений в службе управления API Azure](api-management-howto-setup-vpn.md).
+* подключить экземпляр службы управления API к виртуальной сети Azure. 
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Как скопировать экземпляр службы управления API в новый экземпляр?
 Существует несколько способов сделать это. Вы можете:
@@ -149,9 +150,4 @@ IP-адрес (или адреса в случае развертывания в
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Существуют ли ограничения на импорт API или известные проблемы, связанные с этим процессом?
 [Известные проблемы и ограничения](api-management-api-import-restrictions.md) для форматов Open API (Swagger), WSDL и WADL.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

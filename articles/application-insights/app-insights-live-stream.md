@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c453774b04c7005ce5948617beea8770b499b88d
-ms.openlocfilehash: 2da6d02055616db5f9854481054ff12c69dc4801
+ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
+ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -23,11 +24,15 @@ ms.openlocfilehash: 2da6d02055616db5f9854481054ff12c69dc4801
 # <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>Динамический поток метрик: мгновенные метрики для подробного отслеживания
 Live Metrics Stream показывает метрики [Application Insights](app-insights-overview.md) прямо в данный момент, почти в реальном времени, с задержкой в одну секунду. Такой мгновенный мониторинг очень полезен при выпуске новой сборки, когда необходимо убедиться, что все работает правильно, а также при изучении инцидентов в режиме реального времени.
 
-![В колонке обзора щелкните Live Stream (Динамический поток).](./media/app-insights-live-stream/live-stream.png)
-
 В отличие от [обозревателя метрик](app-insights-metrics-explorer.md), Live Metrics Stream отображает фиксированный набор метрик. Данные сохраняются только на то время, пока они отображаются на диаграмме, а затем удаляются.
 
 Данные Live Metrics Stream бесплатны: плата за них не взимается.
+
+![Видео о службе Live Metrics Stream](./media/app-insights-live-stream/youtube.png) [видео о службе Live Metrics Stream](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+
+![В колонке обзора щелкните Live Stream (Динамический поток).](./media/app-insights-live-stream/live-stream.png)
+
+
 
 ## <a name="live-failures"></a>Динамические ошибки
 
@@ -38,6 +43,11 @@ Live Metrics Stream показывает метрики [Application Insights](a
 
 Динамический поток метрик входит в состав последней версии [пакета SDK для Application Insights для веб-приложений](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
 
+## <a name="filter-by-server-instance"></a>Фильтрация по экземпляру сервера
+
+Если требуется отслеживать определенный экземпляр роли сервера, можно применить фильтрацию по серверу.
+
+![Выборка динамических ошибок](./media/app-insights-live-stream/live-stream-filter.png)
 
 
 ## <a name="troubleshooting"></a>Устранение неполадок
@@ -49,10 +59,5 @@ Live Metrics Stream показывает метрики [Application Insights](a
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отслеживание использования Application Insights.](app-insights-overview-usage.md)
 * [Использование диагностического поиска](app-insights-diagnostic-search.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

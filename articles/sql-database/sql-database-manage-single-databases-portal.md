@@ -16,8 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 319e22e2fb423e0fe1fabf95d0018d4fa3232e0b
-ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
+ms.sourcegitcommit: 5e01db2676e3515f41bf98d23595e6509c0d6805
+ms.openlocfilehash: c5f50213be9cd20c82acf8dd94463e7dce0a0195
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -49,6 +50,7 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
     ![Колонка нового примера базы данных](./media/sql-database-get-started/new-sample-db-blade.png)
 
 ## <a name="change-the-service-tier-and-performance-level-of-a-single-database"></a>Изменение уровня служб и уровня производительности отдельной базы данных
+
 Откройте колонку «База данных SQL» для базы данных, которую необходимо масштабировать.
 
 1. На [портале Azure](https://portal.azure.com) щелкните **Больше служб** > **Базы данных SQL**.
@@ -59,12 +61,11 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
 
 4. Выберите новый уровень обслуживания и нажмите кнопку **Выбрать**.
    
-   После нажатия кнопки **Выбрать** будет отправлен запрос на изменение ценовой категории. В зависимости от размера базы данных операция может занять некоторое время (см. сведения в начале этой статьи).
+   После нажатия кнопки **Выбрать** будет отправлен запрос на изменение ценовой категории. Операция может занять некоторое время в зависимости от размера базы данных. Дополнительные сведения см. в статье [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-service-tiers.md).
    
    > [!NOTE]
    > Изменение ценовой категории базы данных не приводит к изменению максимального размера баз данных. Чтобы изменить максимальный размер базы данных, используйте [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) или [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
-   > 
-   > 
+   >  
    
    ![выберите ценовую категорию](./media/sql-database-manage-single-database-portal/choose-tier.png)
 5. Справа вверху щелкните значок уведомления (колокольчик).
@@ -80,9 +81,4 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
 * Чтобы узнать, как выполнять задачи управления с использованием SQL Server Management Studio, ознакомьтесь со статьей [Управление базой данных SQL Azure с помощью SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Сведения о службе Базы данных SQL см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md). 
 * Сведения о серверах и функциях базы данных Azure см. в статье [Возможности базы данных SQL Azure](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

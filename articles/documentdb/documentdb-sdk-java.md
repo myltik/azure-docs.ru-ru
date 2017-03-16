@@ -1,5 +1,5 @@
 ---
-title: "Пакет SDK и интерфейсы API Java для DocumentDB | Документация Майкрософт"
+title: "Ресурсы для API Java и пакетов SDK для Java (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения о пакете SDK и интерфейсах API для Java, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Java."
 services: documentdb
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: rnagpal
+ms.date: 02/22/2017
+ms.author: khdang
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
+ms.sourcegitcommit: 64858123a75686ba460de5e0f26b143c29f9f067
+ms.openlocfilehash: 7b7afa0ac55327b83e7ea8983a5e25782bda9f07
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -42,12 +43,45 @@ ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
 
 <tr><td>**Участие в разработке пакета SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Java](documentdb-java-get-started.md)</td></tr>
+
+<tr><td>**Учебник по веб-приложениям**</td><td>[Разработка веб-приложений с использованием DocumentDB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Текущая поддерживаемая среда выполнения**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* Исправлена ошибка в конфигурации обработчика запросов, которая могла вызывать исключения для запросов в режиме шлюза.
+* Исправлены некоторые ошибки в контейнере сеансов, которые могли вызывать исключение Owner resource not found (Ресурс владельца не найден) для запросов сразу после создания коллекции.
+
+### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+* Добавлена поддержка статистических запросов (COUNT, MIN, MAX, SUM и AVG). Дополнительные сведения см. в разделе [Статистические функции](documentdb-sql-query.md#Aggregates).
+* Добавлена поддержка веб-канала изменений.
+* Добавлена поддержка сведений о квотах коллекций посредством RequestOptions.setPopulateQuotaInfo.
+* Добавлена поддержка ведения журнала сценариев хранимых процедур посредством RequestOptions.setScriptLoggingEnabled.
+* Исправлена ошибка, из-за которой запросы в режиме DirectHttps переставали отвечать при обнаружении ошибок регулирования.
+* Исправлена ошибка в режиме согласованности сеанса.
+* Исправлена ошибка, которая могла приводить к порождению исключения NullReferenceException в HttpContext при высокой частоте запросов.
+* Повышена производительность режима DirectHttps.
+
+### <a name="a-name194194httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb194"></a><a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+* Добавлена поддержка прокси-сервера на основе экземпляра простого клиента с помощью API ConnectionPolicy.setProxy().
+* Добавлен API DocumentClient.close() для правильного завершения работы экземпляра DocumentClient.
+* Повышена производительность запросов в режиме прямого подключения за счет получения плана запроса от машинной сборки, а не шлюза.
+* Задан параметр FAIL_ON_UNKNOWN_PROPERTIES = false, чтобы пользователям не нужно было определять JsonIgnoreProperties в POJO.
+* Выполнен рефакторинг ведения журнала для использования SLF4J.
+* Исправлено несколько ошибок в модуле чтения данных согласованности.
+
+### <a name="a-name193193httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb193"></a><a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+* Исправлена ошибка в управлении подключениями для предотвращения утечек в режиме прямого подключения.
+* Исправлена ошибка в запросе TOP, которая могла порождать исключение NullReferenece.
+* Повышена производительности за счет сокращения числа сетевых вызовов к внутренним кэшам.
+* В DocumentClientException добавлены код состояния, ActivityID и универсальный код ресурса (URI) для более удобного устранения неполадок.
+
+### <a name="a-name192192httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb192"></a><a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+* Исправлена проблема в управлении подключениями для повышения стабильности.
+
 ### <a name="a-name191191httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb191"></a><a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
 * Добавлена поддержка уровня согласованности BoundedStaleness.
 * Добавлена поддержка прямого подключения для операций CRUD с секционированными коллекциями.
@@ -122,7 +156,12 @@ ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
 
 | Версия | Дата выпуска | Дата вывода |
 | --- | --- | --- |
-| [1.9.1](#1.9.1) |28 октября 2016 г. |--- |
+| [1.9.6](#1.9.6) |21 февраля 2017 г. |--- |
+| [1.9.5](#1.9.5) |31 января 2017 г. |--- |
+| [1.9.4](#1.9.4) |24 ноября 2016 г. |--- |
+| [1.9.3](#1.9.3) |30 октября 2016 г. |--- |
+| [1.9.2](#1.9.2) |28 октября 2016 г. |--- |
+| [1.9.1](#1.9.1) |26 октября 2016 г. |--- |
 | [1.9.0](#1.9.0) |3 октября 2016 г. |--- |
 | [1.8.1](#1.8.1) |30 июня 2016 г. |--- |
 | [1.8.0](#1.8.0) |14 июня 2016 г. |--- |
@@ -149,10 +188,5 @@ ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
 
 ## <a name="see-also"></a>См. также
 Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

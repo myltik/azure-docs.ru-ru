@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
+ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
+ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -109,7 +110,7 @@ ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
 * Настройте политику безопасности для подписки Azure. См. дополнительные сведения в статье [Настройка политик безопасности в центре безопасности Azure](security-center-policies.md).
 * Используйте рекомендации в центре безопасности для защиты ресурсов в Azure. Дополнительные сведения об этой функции см. в статье [Управление рекомендациями по безопасности в центре безопасности Azure](security-center-recommendations.md).
 * Изучайте текущие оповещения центра безопасности и управляйте ими. Дополнительные сведения см. в статье [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md).
-* Ознакомьтесь с [возможностями расширенного обнаружения угроз](security-center-detection-capabilities.md), которые включены в [уровень "Стандартный"](security-center-pricing.md) центра безопасности. Уровень "Стандартный" доступен в режиме бесплатной пробной версии в течение 90 дней.
+* Ознакомьтесь с [возможностями расширенного обнаружения угроз](security-center-detection-capabilities.md), которые включены в [уровень "Стандартный"](security-center-pricing.md) центра безопасности. Уровень "Стандартный" предоставляется бесплатно первые 60 дней.
 * Если у вас есть вопросы, см. [часто задаваемые вопросы о центре безопасности Azure](security-center-faq.md).
 
 <!--Image references-->
@@ -123,9 +124,4 @@ ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/welcome.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

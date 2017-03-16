@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
+ms.sourcegitcommit: 14028332ecc17478230d035206e8e00f6af67f7b
+ms.openlocfilehash: 8b6bf676dfa0df45d59763db70655d85fa08809a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
 
 Как правило, пользователи службы совместной работы B2B подключаются через процедуру отправки приглашения и последующей активации. Вот как это работает.
 
-1. Предположим, пользователь Джон Доу (John Doe) из компании WoodGrove хочет добавить пользователя Сэма Угла (Sam Oogle), используя его адрес электронной почты Gmail (gsamoogle@gmail.com).
+1. Предположим, пользователь Джон Доу (John Doe) из компании WoodGrove хочет добавить пользователя Сэма Угла (Sam Oogle), используя его адрес электронной почты Gmail gsamoogle@gmail.com.
 
 2. Джон переходит на портал WoodGrove (portal.azure.com) или на панель доступа (myapps.microsoft.com), входит в систему и добавляет пользователя в каталог (или группу, или приложение) WoodGrove.
 
@@ -93,10 +94,7 @@ ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
 * [API службы совместной работы Azure Active Directory B2B и настройка](active-directory-b2b-api.md)
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
+
+* [Auditing and reporting a B2B collaboration user](active-directory-b2b-auditing-and-reporting.md) (Аудит и создание отчетов для пользователей службы совместной работы B2B)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

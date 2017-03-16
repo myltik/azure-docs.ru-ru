@@ -1,6 +1,6 @@
 ---
-title: "Настройка частного статического IP-адреса | Портал Azure | Классическая модель | Документация Майкрософт"
-description: "Основные сведения о статических частных IP-адресах и управлении ими в классическом режиме с помощью портала Azure"
+title: "Настройка частных IP-адресов для (классических) виртуальных машин с помощью портала Azure | Документация Майкрософт"
+description: "Узнайте, как настроить частные IP-адреса для (классических) виртуальных машин с помощью портала Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 446a7dd37e6a58875ba0202cb512b4cc661e0c93
-ms.openlocfilehash: 162b65cb9cfa9129279c78312eafd73b0ffd8d6e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: bde6de3495c2909b63b1f85e420a4ff5e7ac2c1a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-classic-in-the-azure-portal"></a>Настройка статического частного (классического) IP-адреса в портале Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Настройка частных IP-адресов для (классической) виртуальной машины с помощью портала Azure
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -79,10 +82,5 @@ ms.openlocfilehash: 162b65cb9cfa9129279c78312eafd73b0ffd8d6e
 * Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .
 * Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

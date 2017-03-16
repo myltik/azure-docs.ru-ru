@@ -13,15 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 94d2de0d18863872510ed03a5701f4fc6d133659
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: c47e9263e1eefe8d1c3c0e164a186f095ca88a80
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="manage-azure-batch-accounts-and-quotas-with-batch-management-net"></a>Управление квотами и учетными записями пакетной службы Azure с помощью библиотеки .NET для управления пакетной службой
+# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Управление учетными записями и квотами пакетной службы с помощью клиентской библиотеки .NET для управления пакетной службой
+
 > [!div class="op_single_selector"]
 > * [Портал Azure](batch-account-create-portal.md)
 > * [Библиотека .NET для управления пакетной службой](batch-management-dotnet.md)
@@ -225,9 +228,4 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

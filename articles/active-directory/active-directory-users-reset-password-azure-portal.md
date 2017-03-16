@@ -1,5 +1,5 @@
 ---
-title: "Сброс пароля пользователя в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Сброс паролей в Azure Active Directory | Документация Майкрософт"
 description: "В этом разделе описывается, как сбросить пароль пользователя в Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: a5e48f43751e90f41ffd61049a17af3ff48d132e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Сброс пароля пользователя в предварительной версии Azure Active Directory
+# <a name="reset-the-password-for-a-user-in-azure-active-directory---public-preview"></a>Сброс пароля пользователя в общедоступной предварительной версии Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-users-reset-password-azure-portal.md)
 > * [классическом портале Azure](active-directory-create-users-reset-password.md)
@@ -47,9 +49,4 @@ ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 * [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
 * [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 * [Удаление пользователя из Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

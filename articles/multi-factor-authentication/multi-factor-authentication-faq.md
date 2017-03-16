@@ -1,6 +1,6 @@
 ---
-title: "Часто задаваемые вопросы о службе Azure Multi-Factor Authentication"
-description: "Содержит список часто задаваемых вопросов и ответов о Azure Multi-Factor Authentication. Multi-factor Authentication — это метод проверки личности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Данный метод обеспечивает дополнительный уровень защиты входа пользователей в систему и транзакций."
+title: "Часто задаваемые вопросы о службе многофакторной идентификации Azure | Документация Майкрософт"
+description: "Часто задаваемые вопросы и ответы о Многофакторной идентификации Azure. Multi-factor Authentication — это метод проверки личности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Данный метод обеспечивает дополнительный уровень защиты входа пользователей в систему и транзакций."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c83a7216d9763994fd5006dd9cd40883337ba4a
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: dfbb5e2358cd857c2a16ded5d4d82c1f246cbe20
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-multi-factor-authentication-faq"></a>Часто задаваемые вопросы о службе Azure Multi-Factor Authentication
+# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Часто задаваемые вопросы о Многофакторной идентификации Azure
 Это ответы на часто задаваемые вопросы о Azure Multi-Factor Authentication и использовании службы Multi-Factor Authentication, включая вопросы о модели выставления счетов и удобстве использования.
 
 ## <a name="general"></a>Общие сведения
@@ -61,6 +62,8 @@ ms.openlocfilehash: 0c83a7216d9763994fd5006dd9cd40883337ba4a
 При использовании модели "на пользователя" или "на проверку подлинности" плата за использование Azure MFA выполняется по мере использования. Счета за этот ресурс выставляются в корпоративной подписке Azure, как и счета за виртуальные машины, веб-сайты и т. д.
 
 При использовании модели лицензирования лицензии Azure Multi-Factor Authentication приобретаются и затем назначаются пользователям, так же, как в Office 365 и других продуктах, распространяемых по подписке.
+
+Дополнительные сведения о получении службы Azure MFA см. в разделе [Как получить службу многофакторной идентификации Azure](multi-factor-authentication-how-it-works.md).
 
 **В. Существует ли бесплатная версия Azure Multi-Factor Authentication для администраторов?**
 
@@ -160,16 +163,9 @@ ms.openlocfilehash: 0c83a7216d9763994fd5006dd9cd40883337ba4a
 ## <a name="next-steps"></a>Дальнейшие действия
 Если на этой странице нет ответа на ваш вопрос, оставьте его в разделе с комментариями ниже. Вы также можете использовать другие методы получения помощи.
 
-**В. Где я могу получить справочные сведения о службе Azure Multi-Factor Authentication?**
-
 * В [базе знаний службы технической поддержки Майкрософт](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) можно искать решения распространенных технических проблем.
 * [На форумах по Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)вы можете искать и просматривать ответы участников сообщества на технические вопросы, а также задавать собственные.
 * Если вы являетесь клиентом устаревшей версии PhoneFactor и у вас есть вопросы по сбросу пароля или вам нужна помощь, используйте ссылку [сброс пароля](mailto:phonefactorsupport@microsoft.com) , чтобы открыть обращение в службу поддержки.
 * Обратитесь в специализированную [службу поддержки клиентов сервера многофакторной идентификации Azure (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Вы можете облегчить нам задачу, если при обращении предоставите максимально полные сведения о проблеме. Вы можете сообщить нам, на какой странице возникла ошибка, а также какой точный код ошибки, идентификатор сеанса и идентификатор пользователя, получившего эту ошибку.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 6aeeaeef928d483c48f988c71ed8bc8367749229
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
+![Сценарий](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-wikispaces"></a>Включение интеграции приложений для Wikispaces
 В этом разделе показано, как включить интеграцию приложений для Wikispaces.
@@ -49,19 +50,19 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Wikispaces**.
    
-    ![Коллекция приложений](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Коллекция приложений")
 
 7. В области результатов выберите **Wikispaces** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -73,19 +74,19 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Wikispaces** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в Wikispaces?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Настройка единого входа")
 
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Wikispaces** введите свой URL-адрес в формате *http://company.wikispaces.net*, а затем нажмите кнопку **Далее**.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в Wikispaces** щелкните **Скачать метаданные**, а затем сохраните файл метаданных на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Настройка единого входа")
 
 5. Отправьте файл метаданных в группу поддержки Wikispaces.
    
@@ -96,7 +97,7 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнять вход в Wikispaces, они должны быть подготовлены для работы с Wikispaces.  
@@ -107,15 +108,15 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 
 2. Перейдите в раздел **Участники**.
    
-    ![Участники](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
+    ![Участники](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Участники")
 
 3. Щелкните **Пригласить пользователей**.
    
-    ![Пригласить пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invite People")
+    ![Приглашение участников](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "приглашение участников")
 
 4. В разделе **Пригласить пользователей** выполните следующие действия.
    
-    ![Приглашение пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
+    ![Приглашение участников](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "приглашение участников")
    
     а. Введите **имя пользователя или электронный адрес** для действующей учетной записи AAD, которую вы хотите подготовить, в соответствующие текстовые поля.
    
@@ -139,17 +140,12 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 
 2. На странице интеграции с приложением **Wikispaces** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

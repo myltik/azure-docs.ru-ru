@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5f9783232e9b03ca3777a000ffc189863d0956ab
-ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
+ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
+ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -38,9 +39,9 @@ ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
 
 * Требования к программному обеспечению
   * Windows Server 2012 R2, Windows Server 2016 или Windows 10.
-*   Минимальные требования к оборудованию
-  * ОЗУ&2; ГБ.
-  * 10 ГБ свободного дискового пространства.
+*    Минимальные требования к оборудованию
+  *    ОЗУ&2; ГБ.
+  *    10 ГБ свободного дискового пространства.
 
 ## <a name="installing-the-documentdb-emulator"></a>Установка эмулятора DocumentDB
 Эмулятор DocumentDB можно загрузить и установить из [центра загрузки Майкрософт](https://aka.ms/documentdb-emulator). 
@@ -117,7 +118,7 @@ ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
 
 При подключении к эмулятору с помощью пакетов SDK для Python и Node.js проверка SSL отключена.
 
-## <a name="a-idcommand-lineadocumentdb-emulator-command-line-tool-reference"></a><a id="command-line"></a>Справочник программы командной строки эмулятора DocumentDB
+## <a id="command-line"></a>Справочник программы командной строки эмулятора DocumentDB
 С помощью командной строки из папки установки можно запускать и останавливать эмулятор, настраивать параметры и выполнять другие операции.
 
 ### <a name="command-line-syntax"></a>Синтаксис для командной строки
@@ -223,7 +224,7 @@ ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
 * Эмулятор DocumentDB не поддерживает переопределение квот для службы, которые возможны в службе Azure DocumentDB (например, ограничения на размер документа, увеличение хранилища для секционированных коллекций).
 * Поскольку локальная версия эмулятора DocumentDB может не всегда отражать свежие изменения в службе Azure DocumentDB, для точной оценки необходимой пропускной способности (RU) для приложения используйте [планировщик ресурсов DocumentDB](https://www.documentdb.com/capacityplanner).
 
-## <a name="a-idset-partitioncountachange-the-number-of-collections"></a><a id="set-partitioncount"></a>Изменение количества коллекций
+## <a id="set-partitioncount"></a>Изменение количества коллекций
 
 По умолчанию с помощью эмулятора DocumentDB можно создать до 25 односекционных коллекций или одну секционированную коллекцию. Изменив значение **PartitionCount**, можно создать до 250 односекционных или 10 секционированных коллекций. А также можно комбинировать оба типа коллекций, при этом количество отдельных секций не должно превышать 250 (из расчета, что 1 секционированная коллекция = 25 односекционных коллекций).
 
@@ -249,9 +250,11 @@ ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
 
 - В случае аварийного завершения эмулятора DocumentDB соберите файлы дампа из папки c:\Users\user_name\AppData\Local\CrashDumps, сожмите их, вложите в электронное сообщение и отправьте по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
+- При возникновении сбоев в DocumentDB.StartupEntryPoint.exe выполните следующую команду из командной строки администратора: `lodctr /R` 
+
 - Если возникли проблемы с подключением, [соберите файлы трассировки](#trace-files), сожмите их, вложите в электронное сообщение и отправьте по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-### <a name="a-idtrace-filesacollect-trace-files"></a><a id="trace-files"></a>Сбор файлов трассировки
+### <a id="trace-files"></a>Сбор файлов трассировки
 
 Для сбора отладочных трассировок выполните следующие команды в командной строке с правами администратора.
 
@@ -268,9 +271,4 @@ ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о DocumentDB можно найти в статье [Знакомство с DocumentDB: база данных NoSQL JSON](documentdb-introduction.md).
 * Чтобы начать разработку с помощью эмулятора DocumentDB, загрузите один из [поддерживаемых пакетов SDK для DocumentDB](documentdb-sdk-dotnet.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

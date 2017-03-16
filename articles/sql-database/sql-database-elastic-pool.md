@@ -11,19 +11,20 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/01/2017
+ms.date: 02/24/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
-ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
+ms.sourcegitcommit: 1cac55acd88babc4ca4b04d2cafc6fa25f1393f0
+ms.openlocfilehash: 59f09d9529e8a97d8a0a4c7d9984a6fed850a57d
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="what-is-an-azure-sql-elastic-pool"></a>Что такое эластичный пул Azure SQL?
-Эластичному пулу SQL предоставляется заданное количество единиц eDTU по фиксированной цене на логическом сервере Azure, которые совместно используют базы данных в пуле на этом сервере. Пулы эластичных БД SQL обеспечивают простое и экономически выгодное решение для управления целевыми показателями производительности для нескольких баз данных с совершенно разными и непредсказуемыми моделями функционирования.
+Эластичному пулу SQL предоставляется заданное количество единиц eDTU по фиксированной цене на логическом сервере Azure, которые совместно используют базы данных в пуле на этом сервере. Пулы эластичных БД SQL обеспечивают простое и экономически выгодное решение для управления целевыми показателями производительности для нескольких баз данных с совершенно разными и непредсказуемыми моделями функционирования. Вы также можете создать эластичный пул Azure и управлять им с помощью с [портала Azure](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [языка C#](sql-database-elastic-pool-manage-csharp.md) и REST API.
 
 > [!NOTE]
 > Пулы эластичных БД общедоступны во всех регионах Azure, кроме западной Индии, где сейчас доступна только предварительная версия.  Общедоступные пулы эластичных БД появятся в этом регионе в самое ближайшее время.
@@ -61,7 +62,7 @@ ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
 
 ## <a name="elastic-pool-properties"></a>Свойства пулов эластичных БД
 
-В следующих таблицах описаны ограничения для пулов эластичных БД и баз данных в составе пула.
+В следующих таблицах описаны ограничения для эластичных пулов и баз данных в составе пула.
 
 ### <a name="limits-for-elastic-pools"></a>Пределы пулов эластичных БД
 | Свойство | Описание |
@@ -98,14 +99,12 @@ ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
 ### <a name="active-geo-replication"></a>Активная георепликация
 Для приложений c более высокими требованиями к восстановлению по сравнению с возможностями геовосстановления настройте активную георепликацию. Это можно сделать на [портале Azure](sql-database-geo-replication-portal.md), а также с помощью [PowerShell](sql-database-geo-replication-powershell.md) или [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Видеокурс о возможностях эластичной базы данных SQL Azure на сайте Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+## <a name="next-steps"></a>Дальнейшие действия
+
+* Вы также можете создать эластичный пул Azure и управлять им с помощью с [портала Azure](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [языка C#](sql-database-elastic-pool-manage-csharp.md) и REST API. 
+* Руководство по использованию эластичных пулов см. в [этой статье](sql-database-elastic-pool-guidance.md).
+* Мы рекомендуем просмотреть [видеокурс о возможностях эластичной базы данных SQL Azure на сайте Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

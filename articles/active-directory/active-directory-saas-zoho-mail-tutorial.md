@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
-ms.author: markvi
+ms.date: 02/22/2017
+ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
-ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
+ms.sourcegitcommit: fd79688a66c2b3919b11c0b06d268b60e1d93a8f
+ms.openlocfilehash: 60165d0cd7fea3cd0861f36d9a4a245cedabe07a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-zoho-mail-tutorial/IC789600.png "Scenario")
+![Сценарий](./media/active-directory-saas-zoho-mail-tutorial/IC789600.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-zoho-mail"></a>Включение интеграции приложений для Zoho Mail
 В этом разделе показано, как включить интеграцию приложений для Zoho Mail.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-zoho-mail-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-zoho-mail-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-zoho-mail-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-zoho-mail-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-zoho-mail-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-zoho-mail-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Zoho Mail**.
    
-    ![Коллекция приложений](./media/active-directory-saas-zoho-mail-tutorial/IC789601.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-zoho-mail-tutorial/IC789601.png "Коллекция приложений")
 
 7. В области результатов выберите **Zoho Mail** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -75,15 +76,15 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Zoho Mail** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в Zoho Mail?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Настройка единого входа")
 
 3. На странице **Настройка URL-адреса приложения** выполните следующие действия.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Настройка URL-адреса приложения")
    
     а. В текстовом поле **URL-адрес входа в Zoho Mail** введите URL-адрес в следующем формате: `http://<company name>.ZohoMail.com`.
    
@@ -91,21 +92,21 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 
 4. На странице **Настройка единого входа в Zoho Mail** щелкните **Скачать сертификат**, а затем сохраните файл сертификата на компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789606.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789606.png "Настройка единого входа")
 
 5. В другом окне браузера войдите на свой корпоративный сайт Zoho Mail в качестве администратора.
 
 6. Перейдите в раздел **Панель управления**.
    
-    ![Панель управления](./media/active-directory-saas-zoho-mail-tutorial/IC789607.png "Control Panel")
+    ![Панель управления](./media/active-directory-saas-zoho-mail-tutorial/IC789607.png "Панель управления")
 
 7. Щелкните вкладку **Проверка подлинности SAML** .
    
-    ![Проверка подлинности SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789608.png "SAML Authentication")
+    ![Аутентификация SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789608.png "Аутентификация SAML")
 
 8. В разделе **Информация о проверке подлинности SAML** сделайте следующее:
    
-    ![Информация о проверке подлинности SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "SAML Authentication Details")
+    ![Параметры аутентификации SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "Параметры аутентификации SAML")
    
     а. На странице диалогового окна **Настройка единого входа в Zoho Mail** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес входа**.
    
@@ -128,7 +129,7 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнить вход в Zoho Mail, они должны быть подготовлены для Zoho Mail.  
@@ -141,11 +142,11 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 
 3. Щелкните **User Details (Сведения о пользователе) \> Add User (Добавить пользователя)**.
    
-    ![Добавить пользователя](./media/active-directory-saas-zoho-mail-tutorial/IC789611.png "Add User")
+    ![Добавление пользователя](./media/active-directory-saas-zoho-mail-tutorial/IC789611.png "Добавление пользователя")
 
 4. В диалоговом окне **Добавление пользователей** сделайте следующее:
    
-    ![Добавить пользователя](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Add User")
+    ![Добавление пользователя](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Добавление пользователя")
    
     а. Заполните текстовые поля **First Name** (Имя), **Last Name** (Фамилия), **Email ID** (Адрес электронной почты) и **Password** (Пароль) данными действующей учетной записи Azure Active Directory, которую нужно подготовить.
    
@@ -169,17 +170,12 @@ ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
 
 2. На странице интеграции с приложением **Zoho Mail** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

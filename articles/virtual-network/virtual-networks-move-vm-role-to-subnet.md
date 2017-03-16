@@ -1,10 +1,10 @@
 ---
-title: "Перемещение виртуальной машины или экземпляра роли в другую подсеть"
-description: "Узнайте, как переместить виртуальные машины и экземпляры ролей в другую подсеть"
+title: "Перемещение (классической) виртуальной машины или экземпляра роли облачных служб в другую подсеть с помощью Azure PowerShell | Документация Майкрософт"
+description: "Узнайте, как переместить (классические) виртуальные машины и экземпляры ролей облачных служб в другую подсеть с помощью PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 264e02fa48486acd7a9701c497c4e1fa95a1ce4e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b094f8338394ef2e84cad3070936d715411326a4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-move-a-vm-or-role-instance-to-a-different-subnet"></a>Перемещение виртуальной машины или экземпляра роли в другую подсеть
-С помощью PowerShell можно переместить виртуальные машины из одной подсети в другую в той же виртуальной сети (VNet). Экземпляры ролей можно перемещать путем редактирования CSCFG вместо использования PowerShell.
+# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Перемещение (классической) виртуальной машины или экземпляра роли облачных служб в другую подсеть с помощью PowerShell
+С помощью PowerShell можно переместить (классические) виртуальные машины из одной подсети в другую в той же виртуальной сети (VNet). Экземпляры ролей можно перемещать путем редактирования файла CSCFG вместо использования PowerShell.
 
 > [!NOTE]
-> В этой статье содержатся сведения, относящиеся только к классическим развертываниям Azure.
+> В этой статье описывается процесс перемещения виртуальных машин, развернутых только с помощью классической модели развертывания.
 > 
 > 
 
@@ -57,9 +59,4 @@ ms.openlocfilehash: 264e02fa48486acd7a9701c497c4e1fa95a1ce4e
            </InstanceAddress>
         </AddressAssignments>
     </NetworkConfiguration> 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

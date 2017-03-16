@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e8b484ec7eff26919d4fb3869baf9f358c2522cb
-ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
+ms.sourcegitcommit: d7e635f7e84ac53399309bf4ec8a7fa9e70e3728
+ms.openlocfilehash: aa18efb0c622ae38eea0de28f25c72788e6d0f20
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -41,9 +42,14 @@ ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 ### <a name="refresh-tokens"></a>Маркеры обновления
 Когда клиентское приложение обращается за маркером доступа для доступа к защищенному ресурсу, оно получает и маркер обновления, и маркер доступа. Маркер обновления используется для получения новой пары маркеров доступа и обновления, когда истечет срок действия маркера доступа. Маркеры обновления привязаны одновременно и к пользователю, и клиентскому приложению. Они могут быть отозваны, и при каждом использовании проверяется их действительность.
 
-Важно различать конфиденциальные и общедоступные клиентские приложения. Конфиденциальные — это такие клиентские приложения, которые могут безопасно хранить клиентский пароль, с помощью которого можно подтвердить, что запросы поступают от клиентского приложения, а не от вредоносного субъекта. Так как такие последовательности достаточно безопасные, для них по умолчанию устанавливается более продолжительное время жизни маркеров, и этот срок нельзя изменить с помощью политик.
+Важно различать конфиденциальные и общедоступные клиентские приложения. Дополнительные сведения о различных типах клиентов см. в разделе [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
-Из-за ограничений среды выполнения, в которых запущены приложения, общедоступные клиентские приложения не могут безопасно хранить пароль клиента. Для ресурсов можно определить политики, которые запрещают маркерам обновления из общедоступных клиентских приложений, которые старше указанного периода, получать новую пару маркеров доступа и обновления (максимальное время неактивности для маркеров обновления).  Кроме того, с помощью политик можно определить период времени, по истечении которого маркеры обновления больше не принимаются (максимальный возраст маркеров обновления).  Настроив время жизни маркера обновления, вы можете управлять частотой, с которой пользователь должен повторно вводить учетные данные при использовании общедоступного клиентского приложения.
+#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Время жизни маркера для маркеров обновления конфиденциального клиента
+Конфиденциальные — это такие клиентские приложения, которые могут безопасно хранить клиентский пароль (секрет), с помощью которого можно подтвердить, что запросы поступают от клиентского приложения, а не от вредоносного субъекта. Например, веб-приложение является конфиденциальным клиентом, так как оно может хранить секрет клиента на веб-сервере, и потому он остается невидимым. Так как такие последовательности достаточно безопасные, для них по умолчанию устанавливается более продолжительное время жизни маркеров, и этот срок нельзя изменить с помощью политик.
+
+#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Время жизни маркера для маркеров обновления общедоступного клиента 
+
+Общедоступные клиенты не могут обеспечить безопасное хранение клиентского пароля (секрета). Например, приложение iOS или Android не может замаскировать секрет от владельца ресурса, и поэтому считается общедоступным клиентом.  Для ресурсов можно определить политики, которые запрещают маркерам обновления из общедоступных клиентских приложений, которые старше указанного периода, получать новую пару маркеров доступа и обновления (максимальное время неактивности для маркеров обновления).  Кроме того, с помощью политик можно определить период времени, по истечении которого маркеры обновления больше не принимаются (максимальный возраст маркеров обновления).  Настроив время жизни маркера обновления, вы можете управлять частотой, с которой пользователь должен повторно вводить учетные данные при использовании общедоступного клиентского приложения.
 
 ### <a name="id-tokens"></a>Маркеры идентификации
 Маркеры идентификации передаются веб-сайтам и собственным клиентам. Они содержат данные профиля пользователя. Маркер идентификации привязан одновременно и к пользователю, и клиентскому приложению. Маркеры идентификации считаются действительными до истечения срока действия.  Как правило, в веб-приложениях длительность пользовательского сеанса согласовывается со временем жизни маркера идентификации, выданного этому пользователю.  Изменяя время жизни маркера идентификации, вы можете управлять частотой завершения пользовательского сеанса в веб-приложении. А также — частотой, с которой пользователю нужно выполнять проверку подлинности в Azure AD (в автоматическом или интерактивном режиме).
@@ -70,7 +76,7 @@ ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 | Максимальный возраст однофакторного маркера сеанса |MaxAgeSessionSingleFactor** |Маркеры сеанса (постоянные и временные) |Пока не будет отозван |10 минут |Пока не будет отозван* |
 | Максимальный возраст многофакторного маркера сеанса |MaxAgeSessionMultiFactor*** |Маркеры сеанса (постоянные и временные) |Пока не будет отозван |10 минут |Пока не будет отозван* |
 
-* *Максимальная длительность, которую можно явно задать для этих атрибутов, — 365 дней.
+* *Максимальная длительность, которую можно явно задать для этих атрибутов, —&365; дней.
 * **Если не задано значение для MaxAgeSessionSingleFactor, этот параметр принимает значение MaxAgeSingleFactor. Если оба параметра не заданы, свойство принимает значение по умолчанию (Until-revoked).
 * ***Если не задано значение для MaxAgeSessionMultiFactor, этот параметр принимает значение MaxAgeMultiFactor. Если оба параметра не заданы, свойство принимает значение по умолчанию (Until-revoked).
 
@@ -187,103 +193,135 @@ ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 
 1. Чтобы начать, скачайте последнюю [предварительную версию командлетов Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Получив командлеты Azure AD PowerShell, выполните команду Connect для входа в учетную запись администратора Azure AD. Это действие нужно выполнять при каждом запуске сеанса.
-   
-     Connect-AzureAD -Confirm
+
+    ```PowerShell
+    Connect-AzureAD -Confirm
+    ```
+
 3. Выполните следующую команду для просмотра всех политик, которые созданы в организации.  Эту команду следует использовать после большинства операций в наших примерах.  Также она позволит получить **идентификатор объекта** нужной политики. 
    
-     Get-AzureADPolicy
+    ```PowerShell
+    Get-AzureADPolicy
+    ```
 
 ### <a name="sample-managing-a-organizations-default-policy"></a>Пример. Управление политикой организации по умолчанию
 В этом примере мы создадим для всей организации политику, которая позволяет пользователям реже вводить учетные данные. 
 
 Для этого мы создадим политику времени жизни для однофакторных маркеров обновления и применим ее к организации. Эта политика будет распространяться на все приложения в организации и на все субъекты-службы, для которых не установлены отдельные политики. 
 
-1. **Создание политики времени жизни маркеров** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Создайте политику времени жизни маркеров.
 
 Если для параметра срока действия однофакторного маркера обновления установить значение until-revoked, маркер будет действовать неограниченно долго — пока не будет отозван.  Мы создадим политику со следующим определением:
 
-        @("{
-          `"TokenLifetimePolicy`":
-              {
-                 `"Version`":1, 
-                 `"MaxAgeSingleFactor`":`"until-revoked`"
-              }
-        }")
+```PowerShell
+@('{
+    "TokenLifetimePolicy":
+    {
+        "Version":1, 
+        "MaxAgeSingleFactor":"until-revoked"
+    }
+}')
+```
 
 Выполните следующую команду, чтобы создать эту политику: 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
 
 Чтобы просмотреть созданную политику и получить для нее идентификатор объекта (ObjectID), выполните следующую команду:
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Обновление политики**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-update-the-policy"></a>2) Обновите политику.
 
 Предположим, вы решили, что созданная политика для службы не соответствует строгим требованиям, и хотите, чтобы однофакторные маркеры обновления истекали через 2 дня. Выполните следующую команду: 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+```
 
-&nbsp;&nbsp;3. **Готово!** 
+#### <a name="3-youre-done"></a>3. Готово! 
 
 ### <a name="sample-creating-a-policy-for-web-sign-in"></a>Пример: создание политики для входа в веб-службы
+
 В этом примере мы создадим политику, в соответствии с которой пользователи должны будут чаще выполнять проверку подлинности в веб-приложении. Эта политика определит время жизни для маркеров доступа и идентификатора, а также максимальный возраст многофакторного маркера сеанса для субъекта-службы веб-приложения.
 
-1. **Создание политики времени жизни маркеров**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Создайте политику времени жизни маркеров.
 
 Эта политика для входа в веб-службы определит время жизни для маркеров доступа и идентификатора, а также максимальный возраст многофакторного маркера сеанса (2 часа).
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
 Чтобы просмотреть созданную политику и получить для нее идентификатор объекта (ObjectID), выполните следующую команду:
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Назначение политики для субъекта-службы.**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-assign-the-policy-to-your-service-principal"></a>2) Назначьте политику для субъекта-службы.
 
 Теперь мы сопоставим новую политику с субъектом-службой.  Вам потребуется также получить доступ к идентификатору **ObjectId** субъекта-службы. Для этого можно запросить [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) или открыть [песочницу Graph](https://graphexplorer.cloudapp.net/) и войти в учетную запись Azure AD, чтобы просмотреть список всех субъектов-служб в своей организации. 
 
 Получив идентификатор **ObjectId**, выполните следующую команду:
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.    **Готово!** 
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
- 
+#### <a name="3-youre-done"></a>3. Готово! 
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Пример: создание политики для собственных приложений, вызывающих веб-API
 В этом примере мы создадим политику, которая требует реже выполнять проверку подлинности, а также увеличивает длительность периода, в течение которого пользователи могут оставаться неактивными без необходимости повторной проверки подлинности. Политика будет применяться к веб-API каждый раз, когда собственные приложения обращаются к этому интерфейсу как к ресурсу.
 
-1. **Создание политики времени жизни маркеров** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Создайте политику времени жизни маркеров. 
 
 Эта команда создает строгую политику для веб-API. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
 Чтобы просмотреть созданную политику и получить для нее идентификатор объекта (ObjectID), выполните следующую команду:
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Назначение политики для веб-API**
+#### <a name="2-assign-the-policy-to-your-web-api"></a>2) Назначьте политику для веб-API.
 
 Теперь мы сопоставим новую политику с приложением.  Вам потребуется также получить доступ к идентификатору **ObjectId** приложения. Получить **ObjectId** для приложения проще всего на [портале Azure](https://portal.azure.com/). 
 
 Получив идентификатор **ObjectId**, выполните следующую команду:
 
-    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Готово!** 
+#### <a name="3-youre-done"></a>3. Готово! 
 
 ### <a name="sample-managing-an-advanced-policy"></a>Пример: управление расширенной политикой
 В этом примере мы создадим несколько политик для демонстрации системы приоритетов, а также представим методы управления несколькими политиками, примененными к нескольким объектам. Это даст вам некоторое представление о приоритетности политик (см. выше) и позволит реализовывать более сложные сценарии. 
 
-1. **Создание политики времени жизни маркеров**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Создайте политику времени жизни маркеров.
 
 Пока все было достаточно просто. Мы создали для организации политику по умолчанию, которая определяет для однофакторного маркера обновления время жизни в 30 дней. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
 Чтобы просмотреть созданную политику и получить ее идентификатор объекта (ObjectID), выполните следующую команду:
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Назначение политики для субъекта-службы**
+#### <a name="2-assign-the-policy-to-a-service-principal"></a>2) Назначьте политику для субъекта-службы.
 
 Теперь у нас есть политика, примененная ко всей организации.  Предположим, мы хотим сохранить эту политику со сроком действия 30 дней для определенного субъекта-службы, но изменить максимальное ограничение стандартной политики для организации, указав значение until-revoked (пока не будет отозван). 
 
@@ -291,84 +329,104 @@ ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 
 Получив идентификатор **ObjectId**, выполните следующую команду:
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Задайте значение false для флага IsOrganizationDefault, используя следующую команду**. 
+#### <a name="3-set-the-isorganizationdefault-flag-to-false"></a>3. Задайте значение false для флага IsOrganizationDefault.
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
-&nbsp;&nbsp;4.    **Создайте новую политику организации по умолчанию**.
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+```
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
+#### <a name="4-create-a-new-organization-default-policy"></a>4. Создайте новую политику организации по умолчанию.
 
-&nbsp;&nbsp;5.     **Готово!** 
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
+#### <a name="5-youre-done"></a>5. Готово! 
 
 Теперь ваша исходная политика связана с субъектом-службой, а организации назначена новая политика по умолчанию.  Важно помнить, что политики, примененные к субъектам-службам, имеют более высокий приоритет, чем политики по умолчанию для организации. 
 
 ## <a name="cmdlet-reference"></a>Справочник по командлетам
+
 ### <a name="manage-policies"></a>Управление политиками
-Управлять политиками можно с помощью следующих командлетов.</br></br>
+
+Управлять политиками можно с помощью следующих командлетов.
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
+
 Создает новую политику.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```PowerShell
+New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -Definition |Переведенный в строку массив JSON, который содержит все правила политики. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |Строка c именем политики. |-DisplayName MyTokenPolicy |
-| -IsOrganizationDefault |Если присвоено значение true, политика устанавливается как политика по умолчанию для организации. Если присвоено значение false — параметр игнорируется. |-IsOrganizationDefault $true |
-| -Type |Тип политики. Для политик времени жизни маркеров всегда используйте значение TokenLifetimePolicy. |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [необязательно] |Задает альтернативный идентификатор политики. |-AlternativeIdentifier myAltId |
+| <code>&#8209;Definition</code> |Переведенный в строку массив JSON, который содержит все правила политики. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |Строка c именем политики. |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |Если присвоено значение true, политика устанавливается как политика по умолчанию для организации. Если присвоено значение false — параметр игнорируется. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |Тип политики. Для политик времени жизни маркеров всегда используйте значение TokenLifetimePolicy. | `-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Необязательный параметр] |Задает альтернативный идентификатор политики. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Возвращает полный список политик Azure AD или одну указанную политику. 
 
-    Get-AzureADPolicy 
+```PowerShell
+Get-AzureADPolicy 
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId [необязательно] |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
+| <code>&#8209;ObjectId</code> [Необязательный параметр] |Идентификатор объекта политики, который нужно получить. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Возвращает список приложений и субъектов-служб, связанных с политикой.
 
-    Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
+```PowerShell
+Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy> 
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта политики, который нужно получить. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Обновляет существующую политику.
 
-    Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string> 
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
-| -DisplayName |Строка c именем политики. |-DisplayName MyTokenPolicy |
-| -Definition [необязательно] |Переведенный в строку массив JSON, который содержит все правила политики. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsOrganizationDefault [необязательно] |Если присвоено значение true, политика устанавливается как политика по умолчанию для организации. Если присвоено значение false — параметр игнорируется. |-IsOrganizationDefault $true |
-| -Type [необязательно] |Тип политики. Для политик времени жизни маркеров всегда используйте значение TokenLifetimePolicy. |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [необязательно] |Задает альтернативный идентификатор политики. |-AlternativeIdentifier myAltId |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта политики, который нужно получить. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |Строка c именем политики. |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Необязательный параметр] |Переведенный в строку массив JSON, который содержит все правила политики. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Необязательный параметр] |Если присвоено значение true, политика устанавливается как политика по умолчанию для организации. Если присвоено значение false — параметр игнорируется. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Необязательный параметр] |Тип политики. Для политик времени жизни маркеров всегда используйте значение TokenLifetimePolicy. |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Необязательный параметр] |Задает альтернативный идентификатор политики. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Удаляет указанную политику.
 
-     Remove-AzureADPolicy -ObjectId <object id of policy>
+```PowerShell
+ Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта политики, который нужно получить. | `-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -378,35 +436,41 @@ ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Связывает указанную политику с приложением.
 
-    Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
-| -RefObjectId |Идентификатор объекта (ObjectID) политики. |-RefObjectId &lt;значение ObjectID для политики&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |Идентификатор объекта для политики. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Возвращает политику, назначенную для приложения.
 
-    Get-AzureADApplicationPolicy -ObjectId <object id of application>
+```PowerShell
+Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта для приложения. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Удаляет политику из приложения.
 
-    Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
-| -PolicyId |Идентификатор объекта (ObjectID) политики. |-PolicyId &lt;значение ObjectID для политики&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |Идентификатор объекта для политики. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -416,39 +480,40 @@ ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Связывает указанную политику с субъектом-службой.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
-| -RefObjectId |Идентификатор объекта (ObjectID) политики. |-RefObjectId &lt;значение ObjectID для политики&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |Идентификатор объекта для политики. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Возвращает все политики, связанные с указанной субъектом-службой.
 
-    Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
+```PowerShell
+Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
+| <code>&#8209;ObjectId</code> |Идентификатор объекта для приложения. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Удаляет политику из указанной субъекта-службы.
 
-    Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
-| -PolicyId |Идентификатор объекта (ObjectID) политики. |-PolicyId &lt;значение ObjectID для политики&gt; |
-
-
-
-
-<!--HONumber=Dec16_HO4-->
+| <code>&#8209;ObjectId</code> |Идентификатор объекта для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |Идентификатор объекта для политики. | `-PolicyId <ObjectId of Policy>` |
 
 

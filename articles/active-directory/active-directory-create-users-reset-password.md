@@ -12,22 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user"></a>Сброс пароля для пользователя
+# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Сброс пароля пользователя на классическом портале Azure
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-users-reset-password-azure-portal.md)
-> * [Классический портал Azure](active-directory-create-users-reset-password.md)
+> * [классический портал Azure](active-directory-create-users-reset-password.md)
 >
 >
 
-Отвечаете ли вы на запрос пользователя, которому необходимо сбросить пароль после блокировки, или просто выполняете рутинные процедуры по обеспечению безопасности, иногда вам может потребоваться сбросить пароль пользователя. В Azure Active Directory (Azure AD) это очень просто.
+Azure Active Directory (Azure AD) упрощает процесс сброса пароля пользователя, если пользователь забыл пароль и доступ к его учетной записи заблокирован или при выполнении рутинной процедуры по обеспечению безопасности. 
 
 1. Откройте свой каталог.
 2. Перейдите на вкладку **Пользователи** , а затем выберите отображаемое имя пользователя, которое нужно изменить.
@@ -40,9 +42,4 @@ ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
 * [Администрирование Azure AD](active-directory-administer.md)
 * [Управление паролями в Azure AD](active-directory-manage-passwords.md)
 * [Управление группами в Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

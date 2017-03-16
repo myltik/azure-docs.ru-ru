@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
+ms.sourcegitcommit: 1e0ef693f8176e61bf18e0a37be9bde1cc5d03a2
+ms.openlocfilehash: 8f6eca0c23e6886fd302ab8371a99c8b366f8d75
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,17 +36,16 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
 Чтобы настроить интеграцию Azure AD с Predictix Ordering, вам потребуется:
 
 * подписка Azure AD;
-* подписка Predictix Ordering с поддержкой единого входа.
+* подписка на Predictix Ordering с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
@@ -53,9 +53,9 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление приложения Predictix Ordering из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. Настройка и проверка единого входа Azure AD.
 
-## <a name="adding-predictix-ordering-from-the-gallery"></a>Добавление приложения Predictix Ordering из коллекции
+## <a name="add-predictix-ordering-from-the-gallery"></a>Добавление приложения Predictix Ordering из коллекции
 Чтобы настроить интеграцию Predictix Ordering с Azure AD, необходимо добавить приложение Predictix Ordering из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Predictix Ordering из коллекции, выполните указанные ниже действия.**
@@ -80,25 +80,25 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Predictix Ordering с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Predictix Ordering соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Predictix Ordering.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в Predictix Ordering соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Predictix Ordering.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Predictix Ordering.
 
-Чтобы настроить и проверить единый вход Azure AD в Predictix Ordering, выполните следующие стандартные действия.
+Чтобы настроить и проверить единый вход Azure AD в Predictix Ordering, выполните действия в следующих стандартных блоках:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Predictix Ordering](#creating-a-predictix-price-reporting-test-user)** требуется для создания в Predictix Ordering пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить пользователю Britta Simon использовать единый вход Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Predictix Ordering.
+### <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
+В данном разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Predictix Ordering.
 
-**Чтобы настроить единый вход Azure AD в Predictix Ordering, выполните указанные ниже действия.**
+**Чтобы настроить единый вход Azure AD в Predictix Ordering, сделайте следующее:**
 
 1. На классическом портале на странице интеграции с приложением **Predictix Ordering** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
@@ -109,34 +109,26 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_04.png) 
-   
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, применяемый пользователями для входа в приложение Predictix Ordering, в следующем формате: **https://\<имя_компании-ценовая_категория\>.ordering.predictix.com/sso/request**.
-   
-    b. click **Далее**
+  1. В текстовом поле **URL-адрес входа** введите URL-адрес, применяемый пользователями для входа в приложение Predictix Ordering, в следующем формате: **https://\<имя_компании-ценовая_категория\>.ordering.predictix.com/sso/request**.
+  2. Нажмите кнопку **Далее**.
 4. На странице **Настройка единого входа в Predictix Ordering** выполните следующие действия.
    
-    ![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png)
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
+    ![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png) 
+  1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+  2. Нажмите кнопку **Далее**.
 5. Для настройки единого входа в приложении обратитесь в службу поддержки Predictix Ordering и предоставьте следующие сведения:
-   
-    • скачанный сертификат;
-   
-    • **идентификатор сущности**
-   
-    • **URL-адрес единого входа SAML**
-   
-    • **URL-адрес службы единого выхода**
-6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+  * Скачанный сертификат
+  * **идентификатор сущности**
+  * **URL-адрес единого входа SAML**
+  * **URL-адрес службы единого выхода**
+6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
     ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -153,39 +145,33 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_05.png) 
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_06.png) 
+  1. В текстовом поле **Имя** введите **Britta**.  
+  2. В текстовом поле **Фамилия** введите **Simon**.
+  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+  4. В списке **Роль** выберите **Пользователь**.
+  5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+  1. Запишите значение поля **Новый пароль**.
+  2. Нажмите **Завершено**.   
 
-### <a name="creating-an-predictix-ordering-test-user"></a>Создание тестового пользователя в Predictix Ordering
+### <a name="create-an-predictix-ordering-test-user"></a>Создание тестового пользователя в Predictix Ordering
 В этом разделе описано, как создать пользователя Britta Simon в приложении Predictix Ordering. Чтобы добавить пользователей в Predictix Ordering, обратитесь в службу поддержки Predictix Ordering.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив доступ к Predictix Ordering.
 
 ![Назначение пользователя][200] 
@@ -206,7 +192,7 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув плитку Predictix Ordering на панели доступа, вы автоматически войдете в приложение Predictix Ordering.
@@ -232,9 +218,4 @@ ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
 [203]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

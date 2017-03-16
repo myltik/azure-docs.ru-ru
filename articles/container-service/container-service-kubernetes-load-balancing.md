@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 545ec23bc720dc1a17ce3d084642e96c2397d482
-ms.openlocfilehash: e61638db3c6c3acdc58f374b94b28d855161cf59
+ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
+ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -127,9 +128,9 @@ ms.openlocfilehash: e61638db3c6c3acdc58f374b94b28d855161cf59
 
 Чтобы выполнить балансировку нагрузки трафика HTTP или HTTPS в веб-приложениях контейнера и управлять сертификатами для протокола TLS, можно использовать ресурс [Ingress](https://kubernetes.io/docs/user-guide/ingress/) Kubernetes. Ingress — это коллекция правил, которые обеспечивают входящие подключения для доступа к службам кластера. Для работы ресурса Ingress в кластере Kubernetes должен быть запущен [контроллер Ingress](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers).
 
-Служба контейнеров Azure не реализует контроллер Ingress Kubernetes автоматически. Доступны несколько реализаций контроллера. Сейчас мы рекомендуем настроить в [контроллере Ingress Nginx](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) правила Ingress и выполнить балансировку нагрузки трафика HTTP и HTTPS. 
+Служба контейнеров Azure не реализует контроллер Ingress Kubernetes автоматически. Доступны несколько реализаций контроллера. Сейчас мы рекомендуем настроить в [контроллере Ingress Nginx](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx) правила Ingress и выполнить балансировку нагрузки трафика HTTP и HTTPS. 
 
-Дополнительные сведения и примеры см. в [документации по контроллеру Ingress Nginx](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md).
+Дополнительные сведения см. в [документации по контроллеру Ingress Nginx](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md).
 
 > [!IMPORTANT]
 > При использовании контроллера Ingress Nginx в Службе контейнеров Azure необходимо предоставить развертывание контроллера как службу с помощью `type: LoadBalancer`. При этом Azure Load Balancer будет настроен для маршрутизации трафика в контроллер. Дополнительные сведения см. в предыдущем разделе.
@@ -140,10 +141,5 @@ ms.openlocfilehash: e61638db3c6c3acdc58f374b94b28d855161cf59
 * Ознакомьтесь с [документацией по Kubernetes LoadBalancer](https://kubernetes.io/docs/user-guide/load-balancer/)
 * Узнайте больше о [контроллерах Ingress Kubernetes](https://kubernetes.io/docs/user-guide/ingress/)
 * Ознакомьтесь с [примерами Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

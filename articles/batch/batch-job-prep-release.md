@@ -1,5 +1,5 @@
 ---
-title: "Использование задач подготовки и освобождения заданий с помощью пакетной службы Azure | Документация Майкрософт"
+title: "Создание задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure | Документация Майкрософт"
 description: "Используйте задачи подготовки на уровне задания для минимизации передачи данных на вычислительные узлы пакетной службы Azure и задачи снятия для очистки узла после завершения задания."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3b34a9665bfab85abbd633d01139ba2da2249bbf
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="run-job-preparation-and-completion-tasks-on-azure-batch-compute-nodes"></a>Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Выполнение задач подготовки и задач завершения заданий на вычислительных узлах пакетной службы
+
  Для заданий пакетной службы Azure часто требуется определенная настройка перед выполнением задач и определенные действия по обслуживанию после завершения задач задания. Вам может понадобиться скачать входные данные общих задач на вычислительные узлы или отправить выходные данные задачи в службу хранилища Azure после завершения задания. Для выполнения этих операций можно использовать задачи **подготовки задания** и **прекращения задания**.
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>Сведения о задачах подготовки и снятия заданий
@@ -222,9 +225,4 @@ Sample complete, hit ENTER to exit...
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

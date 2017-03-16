@@ -13,15 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
+ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
+ms.openlocfilehash: ab027e1f21e8c2c33829f833395a6872cb7bcdd8
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Часто задаваемые вопросы об IoT Suite
+
+### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Где можно найти исходный код для предварительно настроенных решений?
+Исходный код хранится в следующих репозиториях GitHub:
+* [Предварительно настроенное решение для удаленного мониторинга][lnk-remote-monitoring-github]
+* [Предварительно настроенное решение по диагностическому обслуживанию][lnk-predictive-maintenance-github]
+
+### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Как обновить до последней версии предварительно настроенное решение удаленного мониторинга, которое использует функции управления устройствами Центра Интернета вещей?
+* При развертывании предварительно настроенного решения с сайта https://www.azureiotsuite.com/ всегда развертывается новый экземпляр последней его версии.
+* При развертывании предварительно настроенного решения с помощью командной строки можно обновить существующее развертывание, добавив новый код. См. сведения о [развертывании в облаке][lnk-cloud-deployment] в [репозитории][lnk-remote-monitoring-github] GitHub.
+
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Как добавить поддержку нового метода устройства в предварительно настроенное решение для удаленного мониторинга?
+См. сведения в разделе [Добавление в симулятор поддержки для нового метода][lnk-add-method] статьи [Настройка предварительно настроенного решения][lnk-customize].
+
+### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Почему виртуальное устройство игнорирует изменения требуемых свойств?
+В предварительно настроенном решении для мониторинга код виртуального устройства использует только требуемые свойства **Desired.Config.TemperatureMeanValue** и **Desired.Config.TelemetryInterval**, чтобы обновить сообщаемые свойства. Все прочие запросы на изменение требуемых свойств игнорируются.
+
+### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Почему устройство не отображается в списке устройств на панели мониторинга решения?
+Для возврата списка устройств на панели мониторинга решения используется запрос. В настоящее время запрос не может возвращать более 10 000 устройств. Попробуйте ограничить условие поиска для запроса.
+
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>В чем разница между удалением группы ресурсов на портале Azure и нажатием кнопки "Удалить" в предварительно настроенном решении на сайте azureiotsuite.com?
 * Если удалить предварительно настроенное решение на сайте [azureiotsuite.com][lnk-azureiotsuite], будут удалены все ресурсы, подготовленные при создании этого решения. Если вы добавляли в группу ресурсов дополнительные ресурсы, они также будут удалены. 
 * Если удалить группу ресурсов на [портале Azure][lnk-azure-portal], будут удалены ресурсы в этой группе. Вам также придется удалить приложение Azure Active Directory, связанное с предварительно настроенным решением, на[ классическом портале Azure][lnk-classic-portal].
@@ -77,9 +97,8 @@ ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
+[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance

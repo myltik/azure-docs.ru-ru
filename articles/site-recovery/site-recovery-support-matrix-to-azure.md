@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
+ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [Репликация на принадлежащий клиенту вторичный сайт](site-recovery-support-matrix-to-sec-site.md)
 
 
-В этой статье кратко перечислены поддерживаемые конфигурации и компоненты Azure Site Recovery для репликации и восстановления в Azure. Дополнительные сведения о необходимых компонентах Azure Site Recovery приведены в [рекомендациях по Site Recovery](site-recovery-best-practices.md).
+В этой статье кратко перечислены поддерживаемые конфигурации и компоненты Azure Site Recovery для репликации и восстановления в Azure. Дополнительные сведения о необходимых компонентах Azure Site Recovery см. [здесь](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Поддержка вариантов развертывания
@@ -64,7 +65,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Поддержка версий ОС для реплицируемых виртуальных машин
 
-При репликации в Azure защищенные виртуальные машины должны соответствовать [требованиям Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+При репликации в Azure защищенные виртуальные машины должны соответствовать [требованиям Azure](#failed-over-azure-vm-requirements).
 В таблице ниже представлены сведения о поддержке реплицируемых операционных систем в различных сценариях развертывания при использовании Azure Site Recovery. Эта поддержка относится к любой рабочей нагрузке, выполняемой в указанной ОС.
 
  **VMware или физический сервер** | **Hyper-V (без Virtual Machine Manager)** | **Hyper-V (с Virtual Machine Manager)**
@@ -147,7 +148,7 @@ RDM | Да<br/><br/> Недоступно для физических серве
 
 **Служба хранилища Azure** | **VMware или физический сервер** | **Hyper-V (без Virtual Machine Manager)** | **Hyper-V (с Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Да | Да | Да 
+LRS | Да | Да | Да
 GRS | Да | Да | Да
 "Холодное" хранилище | Нет | Нет | Нет
 "Горячее" хранилище| Нет | Нет | Нет
@@ -206,10 +207,5 @@ GRS | Да | Да | Да
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Подготовка к развертыванию](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Проверьте, соблюдены ли предварительные требования](site-recovery-prereq.md)
 

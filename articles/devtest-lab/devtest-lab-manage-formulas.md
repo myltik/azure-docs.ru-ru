@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
+ms.sourcegitcommit: 52590f0c47954d115f39cbe988e04a0ed3feb94d
+ms.openlocfilehash: cd3352ae30734cce116fda5a838f95e5e0b86a8a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -95,7 +96,7 @@ ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
 7. Нажмите кнопку **ОК** , чтобы создать формулу.
 
 ## <a name="use-a-formula-to-provision-a-vm"></a>Использование формулы для подготовки виртуальной машины
-После создания формулы на ее основе можно создать виртуальную машину. В разделе [Добавление виртуальной машины с артефактами](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) описаны шаги этого процесса.
+После создания формулы на ее основе можно создать виртуальную машину. В статье [Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs](devtest-lab-add-vm-with-artifacts.md) описаны шаги этого процесса.
 
 ## <a name="modify-a-formula"></a>Изменение формулы
 Чтобы изменить формулу, выполните указанные ниже действия.
@@ -133,10 +134,5 @@ ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После создания формулы, которая служит для создания виртуальных машин, можно [добавить виртуальную машину в лабораторию](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
