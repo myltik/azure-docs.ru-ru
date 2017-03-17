@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 9e62ed235d872738bc1a99ad33d977745c8b2d08
-ms.openlocfilehash: 417ea0aa6315683f72239fafed0caad5c71ad2d6
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 10f07b5eb649739ff1288ebb2703186fd75930cc
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -163,7 +163,7 @@ SendGrid обеспечивает дополнительные функции э
 
 В следующих примерах показаны фильтры нижних колонтитулов и отслеживания щелчков:
 
-### <a name="footer"></a>Нижний колонтитул
+### <a name="footer-settings"></a>Параметры нижнего колонтитула
     msg.SetFooterSetting(
                          true,
                          "Some Footer HTML",

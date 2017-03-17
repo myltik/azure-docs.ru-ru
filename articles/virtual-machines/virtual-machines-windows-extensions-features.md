@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: 88ccd06cf3098c3df014422e5f4dc54ceb955d3c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: d7cb13d751bc9153669ce0d96b42fcda3024f6f0
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Обзор расширений и компонентов виртуальной машины под управлением Windows 
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Обзор расширений и компонентов виртуальной машины под управлением Windows
 
 Расширения виртуальных машин Azure — это небольшие приложения, которые выполняют задачи настройки и автоматизации после развертывания виртуальных машин Azure. Например, если на виртуальной машине нужно установить программное обеспечение, настроить антивирусную защиту или конфигурацию Docker, это можно сделать с помощью расширения виртуальной машины (далее — расширение ВМ). Расширения ВМ Azure можно запускать с помощью интерфейса командной строки Azure, PowerShell, шаблонов Azure Resource Manager или портала Azure. Расширения можно использовать при развертывании новой виртуальной машины или запускать на любой из существующих систем.
 
@@ -121,7 +121,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 На следующем рисунке показана установки расширения Microsoft Antimalware с помощью портала Azure.
 
-![Расширение защиты от вредоносных программ](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Установка расширения защиты от вредоносных программ](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
 

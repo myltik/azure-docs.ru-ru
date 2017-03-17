@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/24/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 691e2e9156a825e64890f035b23cb2526d502107
-ms.openlocfilehash: c7d8cea9a15ec79356c89f628ef9d8e8ccbaaec3
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41b75cf3059cd3758f1bce149ad8fcad4e5644ac
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,15 +28,10 @@ ms.openlocfilehash: c7d8cea9a15ec79356c89f628ef9d8e8ccbaaec3
 
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как выполнить репликацию глобальной базы данных программным путем, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
 
-> [!NOTE]
-> Глобальное распределение баз данных DocumentDB является общедоступным и автоматически включается для всех вновь создаваемых учетных записей DocumentDB. Мы работаем над включением глобального распределения для всех существующих учетных записей, но до того момента, если вам необходимо включить эту функцию для своей учетной записи, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , и мы активируем ее для вас.
-> 
-> 
+## <a id="addregion"></a>Добавление регионов глобальной базы данных
+Служба DocumentDB доступна в большинстве [регионов Azure][azureregions]. После выбора уровня согласованности по умолчанию для учетной записи базы данных вы можете связать один или несколько регионов (в зависимости от выбранного уровня согласованности по умолчанию и потребностей глобального распространения).
 
-## <a name="a-idaddregionaadd-global-database-regions"></a><a id="addregion"></a>Добавление регионов глобальной базы данных
-Система DocumentDB доступна в большинстве [регионов Azure][azureregions]. После выбора уровня согласованности по умолчанию для учетной записи базы данных вы можете связать один или несколько регионов (в зависимости от выбранного уровня согласованности по умолчанию и потребностей глобального распространения).
-
-1. На навигационной панели [портала Azure](https://portal.azure.com/) щелкните **NoSQL (DocumentDB)**.
+1. В левой панели на [портале Azure](https://portal.azure.com/) щелкните **NoSQL (DocumentDB)**.
 2. В колонке **NoSQL (DocumentDB)** выберите учетную запись базы данных, которую нужно изменить.
 3. В меню колонки учетной записи щелкните **Глобальная репликация данных**.
 4. В колонке **Глобальная репликация данных** выберите регионы для добавления или удаления и нажмите кнопку **Сохранить**. Добавление регионов оплачивается. Для получения дополнительной информации перейдите на [страницу цен](https://azure.microsoft.com/pricing/details/documentdb/) или прочитайте статью [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md).
@@ -65,7 +61,7 @@ While all regions associated with your DocumentDB database account can serve rea
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
+## <a id="next"></a>Дальнейшие действия
 Сведения об управлении согласованностью глобально реплицируемой учетной записи см. в статье [Уровни согласованности в DocumentDB](documentdb-consistency-levels.md).
 
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как программным путем выполнить репликацию данных в нескольких регионах, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
@@ -80,9 +76,4 @@ While all regions associated with your DocumentDB database account can serve rea
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/en-us/regions/#services
 [offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

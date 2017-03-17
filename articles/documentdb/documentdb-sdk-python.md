@@ -1,5 +1,5 @@
 ---
-title: "Ресурсы для API Python и пакетов SDK для Python (Azure DocumentDB) | Документация Майкрософт"
+title: "Пакет SDK и интерфейсы API для Python (Azure DocumentDB) | Документы Майкрософт"
 description: "Сведения о пакете SDK и интерфейсах API для Python, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Python."
 services: documentdb
 documentationcenter: python
@@ -14,13 +14,15 @@ ms.devlang: python
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4c83bcbf3e5849afd15060947ef5f0faab17ce19
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>Интерфейсы API и пакеты SDK для DocumentDB
+# <a name="documentdb-python-sdk-release-notes-and-resources"></a>Пакет SDK для DocumentDB Python: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -33,7 +35,6 @@ ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 > 
 > 
 
-## <a name="documentdb-python-api-and-sdk"></a>Пакет SDK и API для DocumentDB на Python
 <table>
 
 <tr><td>**Скачать пакет SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
@@ -138,10 +139,5 @@ ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 
 ## <a name="see-also"></a>Дополнительные материалы
 Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,16 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: cab8a4de9d8d98d77094da5d73f29237829e743a
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager
-Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен концентраторов событий с концентратором событий и включить архив для этого концентратора событий. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен, имеющее тип "Концентратор событий", с одним концентратором событий и включить для него функцию архивации. Здесь вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -73,7 +74,7 @@ ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-Число дней хранения сообщений в концентраторе событий. 
+Число дней для хранения сообщений в концентраторе событий. 
 
 ```json
 "messageRetentionInDays":{
@@ -88,7 +89,7 @@ ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-Число секций в концентраторе событий.
+Число секций, создаваемых в концентраторе событий.
 
 ```json
 "partitionCount":{
@@ -133,7 +134,7 @@ ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
 ```
 
 ### <a name="archivetime"></a>archiveTime
-Интервал времени, согласно которому архив начинает архивировать данные в хранилище BLOB-объектов Azure.
+Интервал времени, согласно которому архив концентратора событий начинает архивировать данные в хранилище BLOB-объектов Azure.
 
 ```json
 "archiveTime":{
@@ -175,7 +176,7 @@ ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-Контейнер больших двоичных объектов для архивации данных событий.
+Контейнер BLOB-объектов, в котором необходимо архивировать данные события.
 
 ```json
  "blobContainerName":{
@@ -201,7 +202,7 @@ ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
 ```
 
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
-Создает пространство имен типа **EventHub** с концентратором событий и включает архив.
+Создает пространство имен типа **EventHub** с одним концентратором событий и включает архив.
 
 ```json
 "resources":[  
@@ -257,7 +258,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]
@@ -276,9 +277,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 [Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

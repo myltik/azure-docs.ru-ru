@@ -1,5 +1,5 @@
 ---
-title: "Работа с геопространственными данными в Azure DocumentDB | Документация Майкрософт"
+title: "Работа с геопространственными данными в Azure DocumentDB | Документы Майкрософт"
 description: "Узнайте, как создать, индексировать и запрашивать пространственные объекты в Azure DocumentDB."
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: f78c0fc1959f72164508af9d8945744b67fac68b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="working-with-geospatial-data-in-azure-documentdb"></a>Работа с геопространственными данными в Azure DocumentDB
+# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>Работа с геопространственными данными и данными расположений GeoJSON в DocumentDB
 Эта статья содержит вводную информацию о геопространственной функциональности [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). После прочтения этой статьи вы сможете ответить на следующие вопросы:
 
 * Как хранить пространственные данные в Azure DocumentDB?
@@ -387,10 +389,5 @@ DocumentDB поддерживает также выполнение обратн
 * Освойте геопространственные запросы на [Игровой площадке запросов DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 * Узнайте подробнее о [Запросах в DocumentDB](documentdb-sql-query.md)
 * Узнайте подробнее о [Политиках индексирования DocumentDB](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
