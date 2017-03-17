@@ -1,6 +1,6 @@
 ---
 title: "Масштабирование кластера службы контейнеров Azure | Документация Майкрософт"
-description: "Инструкции по масштабированию кластера службы контейнеров Azure с помощью интерфейса командной строки Azure или портала Azure."
+description: "Масштабирование узлов агентов в кластере DC/OS, Docker Swarm или Kubernetes в Службе контейнеров Azure с помощью Azure CLI или портала Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 022e34811de9d2023d113c43d6f85842812dfee3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Масштабирование кластера службы контейнеров Azure
+# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Масштабирование узлов агента в кластере службы контейнеров
 После того как вы [развернете кластер службы контейнера Azure](container-service-deployment.md), может потребоваться изменить число узлов агента. Например, будут нужны дополнительные узлы агентов для запуска большего количества контейнеров или экземпляров приложения. 
 
-Количество узлов агентов в кластере DC/OS, Docker Swarm или Kubernetes можно изменить с помощью портала Azure или Azure CLI 2.0. Azure CLI 2.0 — это [интерфейс командной строки нового поколения](/cli/azure/old-and-new-clis) для модели развертывания Resource Manager.
+Количество узлов агентов в кластере DC/OS, Docker Swarm или Kubernetes можно изменить с помощью портала Azure или Azure CLI 2.0. 
 
 ## <a name="scale-with-the-azure-portal"></a>Масштабирование с помощью портала Azure
 

@@ -15,16 +15,16 @@ ms.workload: azure-government
 ms.date: 12/06/2016
 ms.author: MeganYount
 translationtype: Human Translation
-ms.sourcegitcommit: 14fb62669e15873770ef9b8470e34db70f1ca2ca
-ms.openlocfilehash: 2b89d78e20cccee81c9581e762e4c61bacd84fd4
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0233aa66bc4f4f135456ec15bd09756e63192b14
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="azure-government-intelligence--analytics"></a>Аналитика Azure для государственных организаций
 В этой статье описаны службы аналитики, важные отличия и рекомендации для среды Azure для государственных организаций.
 
-## <a name="azure-hdinsight"></a>Azure HDInsight
+## <a name="hdinsight"></a>HDInsight
 В Azure для государственных организаций используется общедоступная версия HDInsight на платформе Linux Standard. В <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>этом видеоролике</a> демонстрируется, как с помощью HDInsight создавать решения, нацеленные на обработку данных, в Azure для государственных организаций.
 
 Выпуск HDInsight на платформе Linux Premium ожидается в ближайшее время.
@@ -41,7 +41,7 @@ URL-адреса для Log Analytics отличаются в Azure для го�
 | --- | --- | --- |
 | Кластер HDInsight | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
-Дополнительные сведения см. в [общедоступной документации по Azure HDInsight](../hdinsight/hdinsight-hadoop-introduction.md).
+Дополнительные сведения см. в [общедоступной документации по HDInsight](../hdinsight/hdinsight-hadoop-introduction.md).
 
 ## <a name="power-bi"></a>Power BI
 Общедоступная версия Power BI US Government входит в состав подписок Office 365 US Government Community. Дополнительные сведения о Power BI US Government можно просмотреть <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>здесь</a>. В <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>этом видеоролике</a> демонстрируется, как с помощью Power BI создавать решения, нацеленные на обработку данных, в Azure для государственных организаций.
@@ -57,5 +57,5 @@ URL-адреса для Power BI в версии US Government отличают�
 | URL-адрес Power BI | app.powerbi.com | app.powerbigov.us |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций</a>.
+Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
 

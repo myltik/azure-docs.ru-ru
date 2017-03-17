@@ -1,5 +1,5 @@
 ---
-title: "Секционированные очереди и разделы | Документация Майкрософт"
+title: "Создание секционированных очередей и разделов служебной шины Azure | Документация Майкрософт"
 description: "В этой статье описывается, как секционировать очереди и разделы служебной шины с помощью нескольких брокеров сообщений."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/22/2016
 ms.author: sethm;hillaryc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b169b3501ac938c1c0d621909dfc82418a7146e
-ms.openlocfilehash: 7da16e2bca1332b63709ecff39af7124656db98a
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: af2024f059efa9cb51d6e52b599c00d71f941423
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 7da16e2bca1332b63709ecff39af7124656db98a
 
 Можно создавать очереди и разделы служебной шины размером в 1, 2, 3, 4 или 5 ГБ (по умолчанию — 1 ГБ). Если секционирование включено, то для каждого гигабайта служебной шиной создается 16 секций. Поэтому при создании очереди размером 5 ГБ с 16 разделами максимальный размер очереди составит 80 ГБ (5 \* 16). Чтобы просмотреть максимальный размер секционированной очереди или раздела, откройте соответствующую запись на [портале Azure][Azure portal].
 
-Создать секционированную очередь или раздел можно несколькими способами. При создании очереди или раздела из приложения можно включить секционирование очереди или раздела, задав значение [true] для свойства [QueueDescription.EnablePartitioningQueueDescription.EnablePartitioning][] или [TopicDescription.EnablePartitioningTopicDescription.EnablePartitioning]****, соответственно. Эти свойства должны быть заданы при создании очереди или раздела. Для существующей очереди или раздела изменить эти свойства невозможно. Например:
+Создать секционированную очередь или раздел можно несколькими способами. При создании очереди или раздела из приложения можно включить секционирование очереди или раздела, задав значение true для свойства [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] или [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] **true**, соответственно. Эти свойства должны быть заданы при создании очереди или раздела. Для существующей очереди или раздела изменить эти свойства невозможно. Например:
 
 ```csharp
 // Create partitioned topic
@@ -142,9 +143,4 @@ committableTransaction.Commit();
 [OperationTimeout]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

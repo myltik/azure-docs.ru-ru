@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,13 +29,10 @@ ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
 Как загрузить код для этой статьи
 
 * Требуется Visual Studio 2012 или более поздней версии. 
+* Скачайте образец [Средства для эластичной базы данных SQL Azure — интеграция с Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) на сайте MSDN. Распакуйте образец в выбранную папку.
 * Запустите Visual Studio. 
-* В Visual Studio выберите последовательно «Файл» -> «Создать проект». 
-* В диалоговом окне "Создать проект" перейдите в раздел **Образцы в сети** для **Visual C#** и введите "эластичная база данных" в поле поиска в правом верхнем углу.
-  
-    ![Entity Framework и образец приложения эластичной базы данных][1] 
-  
-    Выберите образец **Средства для эластичной базы данных SQL Azure — интеграция с Entity Framework**. Примите условия лицензии, после чего пример будет загружен. 
+* Откройте Visual Studio, выберите "Файл" -> "Открыть проект или решение". 
+* В диалоговом окне **Открытие проекта** перейдите к скачанному образцу и выберите **EntityFrameworkCodeFirst.sln**, чтобы его открыть. 
 
 Чтобы запустить пример, необходимо создать три пустые базы данных в службе Azure SQL Database:
 
@@ -266,9 +264,4 @@ ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

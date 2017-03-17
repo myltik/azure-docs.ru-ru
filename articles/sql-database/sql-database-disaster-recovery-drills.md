@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
-ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
 
 #### <a name="recovery"></a>Восстановление
 * Убедитесь, что конфигурация приложения в регионе аварийного восстановления указывает на бывшую базу данных-получатель, которая станет полностью доступной новой базой данных-источником.
-* Выполните [плановую отработку отказа](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) , чтобы база данных-получатель стала новой базой данных-источником.
+* Выполните [плановую отработку отказа](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) , чтобы база данных-получатель стала новой базой данных-источником.
 * Следуйте инструкциям в руководстве [по настройке базы данных после восстановления](sql-database-disaster-recovery.md) , чтобы завершить восстановление.
 
 #### <a name="validation"></a>Проверка
@@ -64,9 +65,4 @@ ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
 * Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md)
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -25,6 +26,9 @@ ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
 
 * Есть обучающий и прогнозный эксперименты, развернутые в качестве веб-службы, готовой к эксплуатации.
 * Есть новые данные, которые нужно использовать в прогнозной веб-службе, чтобы оценить их.
+
+> [!NOTE] 
+> Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
 
 Вам необходимо выполнить шаги ниже, начав с существующих веб-службы и экспериментов:
 
@@ -190,9 +194,4 @@ ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

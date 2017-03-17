@@ -1,6 +1,6 @@
 ---
 
-title: "Поиск и устранение проблем лицензирования группы в Azure Active Directory | Документация Майкрософт"
+title: "Устранение проблем лицензирования группы в Azure Active Directory | Документация Майкрософт"
 description: "Как определить и устранить проблемы назначения лицензий с помощью группового лицензирования Azure Active Directory"
 services: active-directory
 keywords: "Лицензирование Azure AD"
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 9a434cf35d7934dc5eb759851fb65ad2a9f06eef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
+ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-problems-for-a-group-in-azure-active-directory"></a>Поиск и устранение проблем лицензирования группы в Azure Active Directory
+# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Поиск и устранение проблем назначения лицензии при использовании групп в Azure Active Directory
 
 
 При работе с групповым лицензированием в Azure Active Directory (Azure AD) мы сталкиваемся с пользователями с состоянием ошибки лицензирования. В этой статье объясняется, почему пользователи могут перейти в это состояние. При назначении лицензий непосредственно отдельным пользователям без использования группы лицензирования операция назначения может завершиться сбоем. Например, когда администратор выполняет командлет PowerShell `Set-MsolUserLicense` для пользователя, эта операция может завершиться сбоем по ряду причин, связанных с бизнес-логикой, например из-за недостаточного числа лицензий или конфликта между двумя планами обслуживания, которые нельзя назначать одновременно. Пользователь, выполняющий команду, немедленно получает сообщение об проблеме.

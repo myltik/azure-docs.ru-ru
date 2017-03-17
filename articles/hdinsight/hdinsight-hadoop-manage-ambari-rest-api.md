@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 509053c87e84a4dbff78eee503dcf3af149b6f1e
-ms.openlocfilehash: 81d2a746b5e1df2cfd5b8fc465045cb92af01358
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
+ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/16/2017
 
 Apache Ambari упрощает управление кластером Hadoop и его мониторинг за счет удобного пользовательского веб-интерфейса и интерфейса REST API. Ambari предоставляется с кластерами HDInsight, которые работают под управлением операционной системы Linux, и используется для мониторинга кластера и внесения изменений в его конфигурацию. Из этого документа вы узнаете об основных принципах работы с REST API Ambari.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>Что такое Ambari
+## <a id="whatis"></a>Что такое Ambari
 
 [Apache Ambari](http://ambari.apache.org) упрощает управление Hadoop, предоставляя простой в использовании веб-интерфейс, который можно использовать для подготовки и мониторинга кластеров Hadoop, а также управления их функционированием. Разработчики могут интегрировать эти возможности в своих приложениях с помощью [интерфейсов REST API Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -293,7 +293,55 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 > [!NOTE]
 > Командлет `Get-AzureRmHDInsightCluster`, доступный в [Azure PowerShell](https://docs.microsoft.com/powershell/), также возвращает сведения о хранилище для кластера.
 
-## <a name="example-update-ambari-configuration"></a>Пример: изменение конфигурации Ambari
+
+## <a name="example-get-configuration"></a>Пример. Получение конфигурации
+
+1. Получите конфигурации, которые доступны для кластера.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    ```
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+        -Credential $creds
+    ```
+
+    Этот пример возвращает документ JSON с текущей конфигурацией (идентифицируется по значению *tag*) для компонентов, установленных в кластере. Ниже приведен пример фрагмента данных, возвращаемых из типа кластера Spark.
+   
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
+
+2. Извлеките конфигурацию для интересующего вас компонента. В следующем примере замените `INITIAL` значением тега, возвращенным из предыдущего запроса.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
+        -Credential $creds
+    $resp.Content
+    ```
+
+    Этот пример возвращает документ JSON, содержащий текущую конфигурацию для компонента `core-site`.
+
+## <a name="example-update-configuration"></a>Пример. Обновление конфигурации
 
 1. Получите текущую конфигурацию, которую Ambari хранит в виде "требуемой конфигурации":
 
@@ -354,7 +402,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
     * Удаляет элементы `href`, `version` и `Config`, так как они не нужны для отправки новой конфигурации.
 
-    * Добавляет новый элемент `tag` со значением `version#################`. Числовая часть основана на текущей дате. Каждая конфигурация должна иметь уникальное значение tag.
+    * Добавляет элемент `tag` со значением `version#################`. Числовая часть основана на текущей дате. Каждая конфигурация должна иметь уникальное значение tag.
      
     Наконец, данные сохраняются в документе `newconfig.json`. Структура документа должна выглядеть следующим образом:
      

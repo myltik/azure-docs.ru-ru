@@ -1,5 +1,5 @@
 ---
-title: "Иерархическая модель ресурсов и понятия DocumentDB | Документация Майкрософт"
+title: "Модель ресурсов и понятия Azure DocumentDB | Документы Майкрософт"
 description: "Ознакомьтесь с иерархической моделью базы данных, коллекций, определяемых пользователем функций (UDF), документов, разрешений на управление ресурсами DocumentDB и т. д."
 keywords: "иерархическая модель, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
-ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>Иерархическая модель ресурсов и понятия DocumentDB
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>Иерархическая модель ресурсов и основные понятия DocumentDB
 Объекты базы данных, которыми управляет DocumentDB, называются **ресурсами**. Каждый ресурс однозначно идентифицируется своими логическим URI. Разработчики могут взаимодействовать с ресурсами, используя стандартные команды HTTP, заголовки запросов/ответов и коды состояний. 
 
 Прочитав данную статью, вы сможете ответить на следующие вопросы.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,8 +33,8 @@ ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
 
 > [!WARNING]
 > При отмене выбора атрибутов необходимо соблюдать осторожность, чтобы снять флажки только тех из них, которые абсолютно невозможно синхронизировать. Отмена выбора других атрибутов может отрицательно повлиять на функции.
-> 
-> 
+>
+>
 
 ## <a name="office-365-proplus"></a>Office 365 профессиональный плюс.
 | Имя атрибута | Пользователь | Комментарий |
@@ -421,7 +422,7 @@ ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
 
 | Имя атрибута | Пользователь | Контакт | Группа | Комментарий |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Производный от cloudAnchor в Azure AD. Это новый атрибут в Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Производный от cloudAnchor в Azure AD. Это новый атрибут в Exchange 2016 и Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Серверный архив: позволяет клиентам архивировать почту. |
 | msExchBlockedSendersHash |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
 | msExchSafeRecipientsHash |X | | |Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов. |
@@ -458,10 +459,4 @@ ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

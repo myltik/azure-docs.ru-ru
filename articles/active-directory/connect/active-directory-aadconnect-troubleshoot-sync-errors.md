@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
-ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -206,13 +207,15 @@ b. Атрибут userPrincipalName не соответствует требуе
 Если атрибут превышает установленное в схеме Azure AD значение размера, длины и количества, то во время синхронизации возникнет ошибка **LargeObject** или **ExceededAllowedLength**. Как правило, эта ошибка возникает для следующих атрибутов:
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto;
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Возможные сценарии
-1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жестким является ограничение в 50 сертификатов, но рекомендуется иметь меньше 25 сертификатов.
-2. Атрибут thmubnailPhoto, заданный в Active Directory, слишком большой для синхронизации в Azure AD.
-3. При автоматическом заполнении в AD объекту назначено более&500; атрибутов proxyAddresses.
+1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жесткий предел — 15 сертификатов.
+2. Атрибут userSMIMECertificat хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жесткий предел — 15 сертификатов.
+3. Атрибут thmubnailPhoto, заданный в Active Directory, слишком большой для синхронизации в Azure AD.
+4. При автоматическом заполнении в AD объекту назначено более&500; атрибутов proxyAddresses.
 
 ### <a name="how-to-fix"></a>Как устранить
 1. Убедитесь, что атрибут, повлекший ошибку, не превысил установленное ограничение.
@@ -220,9 +223,4 @@ b. Атрибут userPrincipalName не соответствует требуе
 ## <a name="related-links"></a>Связанные ссылки
 * [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx) (Поиск объектов Active Directory в центре администрирования Active Directory)
 * [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) (Как запросить объект с помощью модуля Azure Active Directory для PowerShell)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

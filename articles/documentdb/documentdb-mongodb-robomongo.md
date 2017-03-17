@@ -1,6 +1,6 @@
 ---
-title: "Использование Robomongo для MongoDB с Azure DocumentDB | Документация Майкрософт"
-description: "Узнайте, как использовать Robomongo с учетной записью DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии."
+title: "Использование Robomongo для MongoDB с Azure DocumentDB | Документы Майкрософт"
+description: "Узнайте, как использовать Robomongo с учетной записью &quot;DocumentDB: API для MongoDB&quot;."
 keywords: Robomongo
 services: documentdb
 author: AndrewHoh
@@ -13,24 +13,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 141154f9e8236e595f77bd4880c4f63d480da445
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: a8db7fbde5d6cd01b558ec351719bae361710efd
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-robomongo-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Использование Robomongo с учетной записью DocumentDB с поддержкой протокола MongoDB
-Для подключения с помощью Robomongo к учетной записи Azure DocumentDB с поддержкой протокола MongoDB вам потребуется:
+# <a name="use-robomongo-with-a-documentdb-api-for-mongodb-account"></a>Использование Robomongo с учетной записью "DocumentDB: API для MongoDB"
+Чтобы подключиться к учетной записи Azure "DocumentDB: API для MongoDB" с помощью Robomongo, необходимо:
 
 * скачать и установить [Robomongo](https://robomongo.org/);
-* подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи DocumentDB с поддержкой протокола MongoDB;
+* подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи "DocumentDB: API для MongoDB".
 
 ## <a name="connect-using-robomongo"></a>Подключение с использованием Robomongo
-Чтобы добавить к подключениям Robomongo MongoDB учетную запись DocumentDB с поддержкой протокола MongoDB, сделайте следующее.
+Чтобы добавить к подключениям Robomongo MongoDB учетную запись "DocumentDB: API для MongoDB", сделайте следующее.
 
-1. Извлеките сведения о подключении DocumentDB с поддержкой протокола MongoDB. Ознакомьтесь с инструкциями [здесь](documentdb-connect-mongodb-account.md).
+1. Извлеките сведения о подключении учетной записи"DocumentDB: API для MongoDB". Ознакомьтесь с инструкциями [здесь](documentdb-connect-mongodb-account.md).
 
     ![Снимок экрана, колонка строки подключения](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
 2. Запустите *Robomongo.exe*.
@@ -50,10 +51,5 @@ ms.openlocfilehash: 141154f9e8236e595f77bd4880c4f63d480da445
 7. Наконец, нажмите кнопку **Test** (Проверить), чтобы проверить возможность подключения, затем нажмите кнопку **Save** (Сохранить).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Изучите [примеры](documentdb-mongodb-samples.md)использования DocumentDB с поддержкой протокола MongoDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Ознакомьтесь с [примерами](documentdb-mongodb-samples.md) DocumentDB: API для MongoDB.
 

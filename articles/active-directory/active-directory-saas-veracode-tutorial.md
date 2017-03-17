@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 8c8ac0af8a39afdd9755040d21585185ceca890e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-veracode-tutorial/IC802903.png "Scenario")
+![Сценарий](./media/active-directory-saas-veracode-tutorial/IC802903.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-veracode"></a>Включение интеграции приложений для Veracode 
 В этом разделе показано, как включить интеграцию приложений для Veracode.
@@ -48,19 +49,19 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-veracode-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-veracode-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-veracode-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-veracode-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-veracode-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-veracode-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Veracode**.
    
-    ![Коллекция приложений](./media/active-directory-saas-veracode-tutorial/IC802904.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-veracode-tutorial/IC802904.png "Коллекция приложений")
 
 7. В области результатов выберите **Veracode** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -71,36 +72,36 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 Приложение Veracode ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML** .  
 На следующем снимке экрана приведен пример.
 
-![Атрибуты](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+![Атрибуты](./media/active-directory-saas-veracode-tutorial/IC802906.png "Атрибуты")
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Veracode** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802907.png "Настройка единого входа")
 
 2. На странице **Как пользователи будут входить в Veracode?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802908.png "Настройка единого входа")
 
 3. На странице **Настроить параметры приложения** нажмите кнопку **Далее**.
    
-    ![Настройка параметров приложения](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configure App Settings")
+    ![Настройка параметров приложения](./media/active-directory-saas-veracode-tutorial/IC802909.png "Настройка параметров приложения")
 
 4. На странице **Настройка единого входа в Veracode** щелкните **Скачать сертификат**, а затем сохраните файл сертификата локально на компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802910.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на веб-сайт Veracode вашей компании в качестве администратора.
 
 6. В верхнем меню нажмите **Settings** (Параметры), а затем выберите **Admin** (Администратор).
    
-    ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802911.png "Administration")
+    ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802911.png "Администрирование")
 
 7. Щелкните вкладку **SAML** .
 
 8. В разделе **Параметры SAML для организации** выполните следующие действия.
    
-    ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administration")
+    ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802912.png "Администрирование")
    
     а. На странице **Настройка единого входа в Veracode** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **Издатель**.
    
@@ -110,7 +111,7 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 
 9. В разделе **Self Registration Settings** (Параметры саморегистрации) выполните следующие действия, а затем нажмите кнопку **Сохранить**.
    
-    ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administration")
+    ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802913.png "Администрирование")
    
     а. Для параметра **New User Activation** (Активация нового пользователя) выберите значение **No Activation Required** (Активация не требуется).
    
@@ -130,15 +131,15 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 
 10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-veracode-tutorial/IC802914.png "Настройка единого входа")
 
 11. В меню в верхней части экрана выберите пункт **Атрибуты** to open the **SAML Token Атрибуты** .
     
-    ![Атрибуты](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-veracode-tutorial/IC795920.png "Атрибуты")
 
 12. Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
     
-    ![Атрибуты](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-veracode-tutorial/IC802906.png "Атрибуты")
     
     | Имя атрибута | Значение атрибута |
     |:--- |:--- |
@@ -176,17 +177,12 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 
 2. На странице интеграции с приложением **Veracode** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-veracode-tutorial/IC802915.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-veracode-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-veracode-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
+ms.sourcegitcommit: 4c2de5227388a1f23af84048a83564816ae329bd
+ms.openlocfilehash: 6f7e787f18a9ffa77430c86931196c638f000cc8
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="customize-a-preconfigured-solution"></a>Настройка предварительно настроенного решения
 Предварительно настроенные решения, входящие в состав набора IoT Azure, показывают, какие службы работают вместе в составе набора, формируя комплексное решение. Начиная с этой стартовой точки, есть несколько мест, в которых можно выполнить настройку и расширение решений для их адаптации к конкретным сценариям. В следующих разделах описываются эти точки настройки.
 
-## <a name="finding-the-source-code"></a>Поиск исходного кода
+## <a name="find-the-source-code"></a>Поиск исходного кода
 Исходный код для предварительно настроенного решения можно найти в GitHub в следующих репозиториях:
 
 * Удаленный мониторинг: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
@@ -32,7 +33,7 @@ ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 
 Исходный код для предварительно настроенных решений предоставляется для демонстрации шаблонов и методов, используемых для реализации полной функциональности решения IoT с помощью Azure IoT Suite. Дополнительные сведения о том, как создавать и развертывать решения, можно найти в репозиториях GitHub.
 
-## <a name="changing-the-preconfigured-rules"></a>Изменение предварительно настроенных правил
+## <a name="change-the-preconfigured-rules"></a>Изменение предварительно настроенных правил
 Решение удаленного мониторинга включает в себя три задания [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) для обработки логики сведений об устройстве, телеметрии и правил в решении.
 
 Три задания Stream Analytics и их синтаксис подробно описаны в [пошаговом руководстве по работе с настроенным решением для удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md). 
@@ -53,26 +54,161 @@ ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 > 
 > 
 
-## <a name="adding-your-own-rules"></a>Добавление собственных правил
+## <a name="add-your-own-rules"></a>Добавление собственных правил
 Наряду с изменением предварительно настроенных заданий Stream Analytics на портале Azure можно добавлять новые задания или новые запросы для существующих заданий.
 
-## <a name="customizing-devices"></a>Настройка устройств
+## <a name="customize-devices"></a>Настройка устройств
 Одно из наиболее распространенных действий расширения — работа с устройствами, относящимися к вашему сценарию. Существует несколько способов работы с устройствами. В число этих методов входят изменение виртуального устройства для соответствия вашему сценарию или подключение физического устройства к решению с помощью [пакета SDK устройства Интернета вещей][IoT Device SDK].
 
-Пошаговое руководство по добавлению устройств см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)](iot-suite-connecting-devices.md) и [примере удаленного мониторинга пакета SDK для языка C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring), который предназначен для работы с предварительно настроенным решением удаленного мониторинга.
+Пошаговые инструкции по добавлению устройств см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)](iot-suite-connecting-devices.md). Также вы можете использовать [пример пакета SDK для удаленного мониторинга](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Этот пример предназначен для работы с предварительно настроенным решением для удаленного мониторинга.
 
-### <a name="creating-your-own-simulated-device"></a>Создание собственного виртуального устройства
-В [исходный код решения удаленного мониторинга](https://github.com/Azure/azure-iot-remote-monitoring) включен симулятор .NET. Этот симулятор подготавливается как часть решения, и его можно настроить для отправки различных метаданных, телеметрии и для ответа на различные команды.
+### <a name="create-your-own-simulated-device"></a>Создание собственного виртуального устройства
+В [исходный код решения удаленного мониторинга](https://github.com/Azure/azure-iot-remote-monitoring) включен симулятор .NET. Этот симулятор подготавливается как часть решения, и его можно настроить для отправки разных метаданных и данных телеметрии, а также для реагирования на разные команды и методы.
 
 Симулятор предварительно настроенного решения удаленного мониторинга имитирует устройство охлаждения, которое выдает данные телеметрии о температуре и влажности. Изменить симулятор можно в проекте [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) при создании разветвления в репозитории GitHub.
 
 ### <a name="available-locations-for-simulated-devices"></a>Доступные расположения для виртуальных устройств
 Расположения по умолчанию находятся в Редмонде (Сиэтле), штат Вашингтон, США. Эти расположения можно изменить в файле [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
-### <a name="building-and-using-your-own-physical-device"></a>Построение и использование собственного (физического) устройства
+### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>Добавление обработчика изменения для требуемого свойства в симуляторе
+На портале решения вы можете задать значение для требуемого свойства устройства. Обработку запроса на изменение свойства должно выполнять само устройство, получая новое значение требуемого свойства. Чтобы добавить поддержку для изменения значений свойства через требуемое свойство, необходимо добавить в симулятор соответствующий обработчик.
+
+Симулятор содержит обработчики для свойств **SetPointTemp** и **TelemetryInterval**, для изменения которых можно установить нужные значения на портале решения.
+
+В следующем примере представлен обработчик требуемого свойства **SetPointTemp** в классе **CoolerDevice**:
+
+```csharp
+protected async Task OnSetPointTempUpdate(object value)
+{
+    var telemetry = _telemetryController as ITelemetryWithSetPointTemperature;
+    telemetry.SetPointTemperature = Convert.ToDouble(value);
+
+    await SetReportedPropertyAsync(SetPointTempPropertyName, telemetry.SetPointTemperature);
+}
+```
+
+Этот метод изменяет температуру для точки телеметрии и передает информацию об изменении в Центр Интернета вещей, устанавливая значение сообщаемого свойства.
+
+Вы можете добавить собственные обработчики для требуемых свойств, используя шаблон из предыдущего примера.
+
+Также следует привязать требуемое свойство к обработчику, как показано в следующем примере из конструктора **CoolerDevice**:
+
+```csharp
+_desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdate);
+```
+
+Обратите внимание, что **SetPointTempPropertyName** — это константа, определенная как Config.SetPointTemp.
+
+### <a name="add-support-for-a-new-method-to-the-simulator"></a>Добавление в симулятор поддержки для нового метода
+Вы можете изменить симулятор, добавив поддержку нового [метода (прямой метод)][lnk-direct-methods]. Нужно выполнить два основных действия.
+
+- Симулятор должен уведомлять Центр Интернета вещей в предварительно настроенном решении, передавая сведения о методе.
+- Симулятор должен содержать код для обработки вызова метода, запускаемого из панели **Сведения об устройстве** в обозревателе решений или с помощью задания.
+
+Удаленный мониторинг предварительно настроенного решения использует *сообщаемые свойства* для передачи в Центр Интернета вещей подробных сведений о поддерживаемых методах. Серверная часть решения сохраняет список всех методов, поддерживаемых для каждого устройства, а также журнал вызовов этих методов. Эти сведения об устройствах и вызовах методов можно посмотреть на портале решения.
+
+Чтобы уведомить Центр Интернета вещей о поддержке метода, устройство добавляет сведения о методе в узел **SupportedMethods** в сообщаемых свойствах:
+
+```json
+"SupportedMethods": {
+  "<method signature>": "<method description>",
+  "<method signature>": "<method description>"
+}
+```
+
+Подпись метода имеет следующий формат: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Например, если метод **InitiateFirmwareUpdate** ожидает строковый параметр с именем **FwPackageURI**, сообщить об этом можно с помощью такой подписи метода:
+
+```
+InitiateFirmwareUpate--FwPackageURI-string: "description of method"
+```
+
+Список поддерживаемых типов параметров см. в описании класса **CommandTypes** в проекте инфраструктуры.
+
+Чтобы удалить метод, установите в сообщаемых свойствах значение `null` для подписи метода.
+
+> [!NOTE]
+> Серверная часть решения обновляет сведения о поддерживаемых методах только при получении от устройства сообщений типа *сведения об устройстве*.
+> 
+> 
+
+В следующем примере кода из класса **SampleDeviceFactory**, реализованного в проекте Common, демонстрируется добавление метода в список поддерживаемых методов **SupportedMethods** в сообщаемых свойствах, отправленных устройством:
+
+```csharp
+device.Commands.Add(new Command(
+    "InitiateFirmwareUpdate",
+    DeliveryType.Method,
+    "Updates device Firmware. Use parameter 'FwPackageUri' to specifiy the URI of the firmware file, e.g. https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin",
+    new[] { new Parameter("FwPackageUri", "string") }
+));
+```
+
+Этот фрагмент кода добавляет сведения о методе **InitiateFirmwareUpdate**, в том числе текст, отображаемый на портале решения, и подробные сведения о параметрах метода.
+
+При запуске симулятор отправляет сообщаемые свойства, включая список поддерживаемых методов, в Центр Интернета вещей.
+
+Добавьте в симулятор обработчик для каждого поддерживаемого метода. Существующие обработчики можно увидеть в классе **CoolerDevice** в проекте Simulator.WebJob. В следующем примере представлен обработчик для метода **InitiateFirmwareUpdate**:
+
+```csharp
+public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodRequest, object userContext)
+{
+    if (_deviceManagementTask != null && !_deviceManagementTask.IsCompleted)
+    {
+        return await Task.FromResult(BuildMethodRespose(new
+        {
+            Message = "Device is busy"
+        }, 409));
+    }
+
+    try
+    {
+        var operation = new FirmwareUpdate(methodRequest);
+        _deviceManagementTask = operation.Run(Transport).ContinueWith(async task =>
+        {
+            // after firmware completed, we reset telemetry
+            var telemetry = _telemetryController as ITelemetryWithTemperatureMeanValue;
+            if (telemetry != null)
+            {
+                telemetry.TemperatureMeanValue = 34.5;
+            }
+
+            await UpdateReportedTemperatureMeanValue();
+        });
+
+        return await Task.FromResult(BuildMethodRespose(new
+        {
+            Message = "FirmwareUpdate accepted",
+            Uri = operation.Uri
+        }));
+    }
+    catch (Exception ex)
+    {
+        return await Task.FromResult(BuildMethodRespose(new
+        {
+            Message = ex.Message
+        }, 400));
+    }
+}
+```
+
+Имя для метода обработчика должно состоять из строки `On`, за которой следует имя метода. Параметр **methodRequest** содержит все параметры, передаваемые при вызове этого метода из серверной части решения. Возвращаемое значение должно иметь тип **Task&lt;MethodResponse&gt;**. Вспомогательный метод **BuildMethodResponse** служит для создания возвращаемого значения.
+
+В методе обработчика можно выполнить следующее.
+
+- Запустить асинхронную задачу.
+- Получить требуемые свойства от *двойника устройства*, хранящегося в Центре Интернета вещей.
+- Обновить одно сообщаемое свойство с помощью метода **SetReportedPropertyAsync** из класса **CoolerDevice**.
+- Обновить несколько сообщаемых свойств, создав экземпляр **TwinCollection** и вызвав для него метод **Transport.UpdateReportedPropertiesAsync**.
+
+Предыдущий пример обновления микропрограммы выполняет следующие действия.
+
+- Проверяет, что устройство способно принимать запрос на обновление микропрограммы.
+- Асинхронно запускает операцию обновления микропрограммы и сбрасывает данные телеметрии по завершении этой операции.
+- Немедленно возвращает сообщение "Принято обновление микропрограммы", подтверждая получение запроса устройством.
+
+### <a name="build-and-use-your-own-physical-device"></a>Построение и использование собственного (физического) устройства
 [Пакеты SDK для IoT Azure](https://github.com/Azure/azure-iot-sdks) предоставляют библиотеки для подключения различных типов устройств (языков и операционных систем) к решениям IoT.
 
-## <a name="modifying-dashboard-limits"></a>Изменение ограничений панели мониторинга
+## <a name="modify-dashboard-limits"></a>Изменение ограничений панели мониторинга
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>Количество устройств, отображаемых в раскрывающемся списке панели мониторинга
 Количество по умолчанию — 200. Это количество можно изменить в файле [DashboardController.cs][lnk-dashboard-controller].
 
@@ -82,7 +218,7 @@ ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 ### <a name="time-period-of-telemetry-graph"></a>Период времени графика телеметрии
 Значение по умолчанию — 10 минут. Это значение можно изменить в файле [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-setting-up-application-roles"></a>Настройка ролей приложений вручную
+## <a name="manually-set-up-application-roles"></a>Настройка ролей приложений вручную
 В следующей процедуре описывается, как добавлять роли приложения **Admin** и **ReadOnly** в предварительно настроенное решение. Обратите внимание, что такие решения, подготовленные на сайте azureiotsuite.com, уже включают роли **Admin** и **ReadOnly**.
 
 Члены роли **ReadOnly** могут просматривать панель мониторинга и список устройств, но им не разрешено добавлять устройства, изменять атрибуты устройств и отправлять команды.  Члены роли **Admin** имеют полный доступ ко всем функциям в решении.
@@ -93,7 +229,7 @@ ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 4. Щелкните **Приложения**.
 5. Щелкните имя приложения, совпадающее с именем предварительно настроенного решения. Если приложение отсутствует в списке, выберите в раскрывающемся списке **Показать** пункт **Приложения, которыми владеет моя компания** и установите флажок.
 6. Внизу страницы щелкните **Управление манифестом**, а затем — **Скачать манифест**.
-7. При этом на ваш локальный компьютер будет загружен JSON-файл.  Откройте этот файл для редактирования в любом текстовом редакторе.
+7. Эта процедура загружает JSON-файл на ваш локальный компьютер. Откройте этот файл для редактирования в любом текстовом редакторе.
 8. В третьей строке JSON-файла вы можете видеть следующее:
    
    ```
@@ -150,9 +286,4 @@ ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

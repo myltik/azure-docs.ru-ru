@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
-ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a4a770ec6f258c62864cd3fcc79b33b5cac38ace
+ms.openlocfilehash: 8f05957e8c40dee8ceb7fb1355d8d8776935cf5a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/16/2017
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
-2. В этом примере пользователь UserA имеет права администратора для подписки SubscriptionA, а пользователь UserB — права администратора для подписки SubscriptionB.
+2. В этом примере пользователь UserA имеет права администратора для подписки SubscriptionA, а пользователь UserB — права администратора для подписки SubscriptionB. Обе подписки связаны с одним и тем же клиентом Azure Active Directory. Нельзя создать пиринг между подписками, связанными с разными клиентами Azure Active Directory.
 3. На портале щелкните **Обзор** и выберите **Виртуальные сети**. Щелкните виртуальную сеть, с которой вы настраиваете пиринговую связь.
 4. В колонке выбранной виртуальной сети щелкните **Управление доступом**, затем щелкните **Добавить**, как показано на следующем рисунке:
 

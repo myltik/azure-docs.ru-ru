@@ -1,5 +1,5 @@
 ---
-title: "Справочник по поиску в Log Analytics | Документация Майкрософт"
+title: "Справочник по поиску в Azure Log Analytics | Документация Майкрософт"
 description: "В этом справочнике по поиску в Log Analytics описывается язык запросов и общие возможности синтаксиса запросов, которые можно использовать при поиске данных и фильтрации выражений для сужения области поиска."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
-ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a294ef357ea3c656e4e6392e89ad1d90b829e2cb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -254,7 +256,7 @@ SampleValue:[0..2]
 ```
 
 ### <a name="regular-expressions"></a>Регулярные выражения
-С помощью ключевого слова регулярного выражения можно указать условие поиска для поля с регулярным выражением.
+С помощью ключевого слова регулярного выражения можно указать условие поиска для поля с регулярным выражением.  Полное описание синтаксиса, который можно использовать в регулярных выражениях, см. в статье [Фильтрование поиска по журналам в Log Analytics с помощью регулярных выражений](log-analytics-log-searches-regex.md).
 
 **Синтаксис**
 
@@ -581,7 +583,29 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### <a name="in"></a>IN
-Синтаксис:
+Ключевое слово **IN** позволяет выбрать значение в списке.  В зависимости от используемого синтаксиса это может быть простой список предоставленных значений или список значений агрегирования.
+
+Синтаксис 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+Описание. Этот синтаксис позволяет включить все значения в простой список.
+
+
+
+Примеры:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+Синтаксис 2:
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
@@ -757,7 +781,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 | UserName |Событие |Имя пользователя события Windows (обычно это NT AUTHORITY\LOCALSYSTEM) |
 | SampleValue |PerfHourly |Среднее значение для почасовой статистической обработки счетчика производительности. |
 | Min |PerfHourly |Минимальное значение в почасовом интервале для почасовой статистической обработки счетчика производительности. |
-| max |PerfHourly |Максимальное значение в почасовом интервале для почасовой статистической обработки счетчика производительности. |
+| Max |PerfHourly |Максимальное значение в почасовом интервале для почасовой статистической обработки счетчика производительности. |
 | Percentile95 |PerfHourly |Значение 95-го процентиля для почасового интервала почасовой статистической обработки счетчика производительности. |
 | SampleCount |PerfHourly |Количество необработанных выборок счетчиков производительности, использованных для создания этой записи почасовой статистической обработки. |
 | Threat |ProtectionStatus |Имя обнаруженной вредоносной программы. |
@@ -810,9 +834,4 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 
 * Подробные сведения, собираемые решениями, описаны в статье [о поиске по журналам](log-analytics-log-searches.md) .
 * Чтобы расширить возможности поиска по журналам, см. статью [Настраиваемые поля в службе Log Analytics](log-analytics-custom-fields.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

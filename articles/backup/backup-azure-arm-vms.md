@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
-ms.openlocfilehash: 981c8652629e96f482d9a62b70b0f0992517019f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: 72f1ed52c9e0f39009efc54967d7cc68517182a3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="back-up-azure-vms-to-a-recovery-services-vault"></a>Резервное копирование виртуальных машин Azure в хранилище служб восстановления
+# <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Архивация виртуальных машин Azure в хранилище служб восстановления
 > [!div class="op_single_selector"]
 > * [Резервное копирование виртуальных машин в хранилище служб восстановления](backup-azure-arm-vms.md)
 > * [Резервное копирование виртуальных машин в хранилище архивации](backup-azure-vms.md)
@@ -60,7 +61,7 @@ ms.lasthandoff: 02/16/2017
 
   ![Задание резервного копирования активировано](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. В списке **Элементы архивации** нажмите кнопку с многоточием (**...**), чтобы открыть контекстное меню.
+3. В списке **Элементы архивации** нажмите кнопку с многоточием **...**, чтобы открыть контекстное меню.
 
   ![Контекстное меню](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
@@ -74,11 +75,11 @@ ms.lasthandoff: 02/16/2017
 
   Откроется колонка "Моментальная архивация".
 
-  ![показана колонка "Моментальная архивация"](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![Показана колонка "Моментальная архивация"](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
 5. В колонке "Моментальная архивация" щелкните значок календаря и с помощью элементов управления календарем выберите последний день сохранения этой точки восстановления, а затем нажмите кнопку **Архивировать**.
 
-  ![установка последнего дня сохранения точки восстановления моментальной архивации](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+  ![Установка последнего дня сохранения точки восстановления моментальной архивации](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Уведомления о развертывании извещают о том, что задание архивации запущено и что ход его выполнения можно отслеживать на странице заданий архивации. В зависимости от размера виртуальной машины создание начального архива может занять некоторое время.
 

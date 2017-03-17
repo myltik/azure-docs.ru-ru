@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
 ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
 >
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении запросов Hive непосредственно в кластере из командной строки: [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
+## <a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 * Клиентский компьютер под управлением Windows 10, Windows 8 или Windows 7.
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Подключение к удаленному рабочему столу
+## <a id="connect"></a>Подключение к удаленному рабочему столу
 Запустите протокол удаленного рабочего стола для кластера HDInsight, а затем выполните подключение, следуя инструкциям раздела [Подключение к кластерам HDInsight с использованием RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idhiveause-the-hive-command"></a><a id="hive"></a>Использование команды Hive
+## <a id="hive"></a>Использование команды Hive
 После подключения к рабочему столу для кластера HDInsight сделайте следующее для работы с Hive:
 
 1. На рабочем столе HDInsight запустите **командную строку Hadoop**.
@@ -95,10 +97,10 @@ ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
 
      В результате операции должны быть возвращены три строки, в которых столбец t4 содержит значение **[ERROR]** .
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
+## <a id="summary"></a>Сводка
 Как видите, с помощью команды Hive можно с легкостью выполнять интерактивные запросы Hive в кластере HDInsight, отслеживать состояние задания и получать выходные данные.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 Общая информация о Hive в HDInsight:
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
@@ -142,9 +144,4 @@ ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Использование mongoimport и mongorestore с Azure DocumentDB | Документация Майкрософт"
-description: "Узнайте, как использовать mongoimport и mongorestore для импорта данных в учетную запись DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии."
+description: "Узнайте, как использовать mongoimport и mongorestore для импорта данных в учетную запись &quot;DocumentDB: API для MongoDB&quot;."
 keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
@@ -13,16 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2af8691326550c631e6668890cb0d6b893fa7740
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="migrate-data-to-documentdb-by-using-mongoimport-and-mongorestore"></a>Перенос данных в DocumentDB с помощью mongoimport и mongorestore
-Чтобы перенести данные в учетную запись Azure DocumentDB с поддержкой протокола MongoDB, сделайте следующее:
+> [!div class="op_single_selector"]
+> * [Импорт в DocumentDB](documentdb-import-data.md)
+> * [Импорт в API для MongoDB](documentdb-mongodb-migrate.md)
+>
+>
+
+Чтобы перенести данные в учетную запись Azure "DocumentDB: API для MongoDB", сделайте следующее:
 
 * Скачайте файл *mongoimport.exe* или *mongorestore.exe* из [центра скачивания MongoDB](https://www.mongodb.com/download-center).
 * Получите [поддержку DocumentDB для строки подключения MongoDB](documentdb-connect-mongodb-account.md).
@@ -42,7 +49,7 @@ ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
 
     ![Колонка "Строка подключения"](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongoimport"></a>Импорт данных в DocumentDB с поддержкой протокола MongoDB с помощью mongoimport
+## <a name="import-data-to-api-for-mongodb-with-mongoimport"></a>Импорт данных в API для MongoDB с помощью mongoimport
 
 Чтобы импортировать данные в учетную запись DocumentDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.  
 
@@ -54,7 +61,7 @@ ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
 
     mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
 
-## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongorestore"></a>Импорт данных в DocumentDB с поддержкой протокола MongoDB с помощью mongorestore
+## <a name="import-data-to-api-for-mongodb-with-mongorestore"></a>Импорт данных в API для MongoDB с помощью mongorestore
 
 Чтобы восстановить данные в учетной записи DocumentDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.
 
@@ -67,10 +74,5 @@ ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения см. в [примерах использования DocumentDB с поддержкой протокола MongoDB](documentdb-mongodb-samples.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Дополнительные сведения см. в [примерах использования DocumentDB: API для MongoDB](documentdb-mongodb-samples.md).
 

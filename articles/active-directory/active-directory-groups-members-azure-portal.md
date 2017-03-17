@@ -1,6 +1,6 @@
 ---
 title: "Управление участниками группы в предварительной версии Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как управлять пользователями и устройствами, которые входят в группу в Azure Active Directory."
+description: "Сведения о том, как добавлять или удалять пользователей и устройства, которые входят в группу в Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c0c411f6e2f51fa2d55d46ff92153dc8882bb38
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="manage-the-members-for-a-group-in-azure-active-directory-preview"></a>Управление участниками группы в предварительной версии Azure Active Directory
+# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Управление участниками групп в клиенте Azure Active Directory
 В этой статье объясняется, как управлять участниками группы в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md)
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>Как можно найти участников и управлять ими?
@@ -53,9 +55,4 @@ ms.openlocfilehash: 7c0c411f6e2f51fa2d55d46ff92153dc8882bb38
 * [Управление параметрами группы](active-directory-groups-settings-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

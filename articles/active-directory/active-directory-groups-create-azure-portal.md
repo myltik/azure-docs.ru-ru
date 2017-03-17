@@ -1,6 +1,6 @@
 ---
-title: "Создание группы в предварительной версии Azure Active Directory | Документация Майкрософт"
-description: "Узнайте, как создать группу в Azure Active Directory и добавить в нее пользователей (участников)."
+title: "Создание группы пользователей в предварительной версии Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как создать группу в Azure Active Directory и добавить в нее пользователей"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
-ms.openlocfilehash: ab74ff51f6dd1af91c4ec4d5de570ca30fb963bd
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-new-group-in-azure-active-directory-preview"></a>Создание группы в предварительной версии Azure Active Directory
+# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Создание группы и добавление в нее пользователей в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-groups-create-azure-portal.md)
 > * [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
@@ -58,9 +60,4 @@ ms.openlocfilehash: ab74ff51f6dd1af91c4ec4d5de570ca30fb963bd
 * [Управление участниками группы](active-directory-groups-members-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

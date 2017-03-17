@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной машины со статическим общедоступным IP-адресом c помощью шаблона | Документация Майкрософт"
-description: "Сведения о создании виртуальной машины со статическим общедоступным IP-адресом через Azure Resource Manager с помощью шаблона."
+title: "Создание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную машину со статическим общедоступным IP-адресом с помощью шаблона Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: d551085a-c7ed-4ec6-b4c3-e9e1cebb774c
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 0aa12ea5fd7df7bee57aa7bcacd4c1fe4d6542b8
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-a-template"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона
+# <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона Azure Resource Manager
 
 > [!div class="op_single_selector"]
 - [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
@@ -203,10 +205,5 @@ ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

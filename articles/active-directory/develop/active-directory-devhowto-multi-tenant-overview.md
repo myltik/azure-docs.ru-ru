@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -163,6 +164,10 @@ ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Мультитенантные приложения и кэширование маркеров доступа
 Мультитенантные приложения также могут получать маркеры доступа для вызова API, защищенных службой Azure AD.  Распространенной ошибкой при использовании библиотеки проверки подлинности Active Directory (ADAL) с мультитенантным приложением является начальный запрос маркера для пользователя с помощью точки "/common", получение ответа, а затем запрос последующего маркера для того же пользователя с помощью той же точки "/common".  Так как ответ от Azure AD приходит из клиента, а не из "/common", то ADAL кэширует маркер как полученный из клиента. Последующий вызов точки "/common" для получения маркера доступа для пользователя не записывается в кэш (происходит промах кэша), и пользователю предлагается выполнить вход повторно.  Во избежание промахов кэша убедитесь, что последующие вызовы для выполнившего вход пользователя осуществляются в конечную точку клиента.
 
+## <a name="next-steps"></a>Дальнейшие действия
+В этой статье было показано, как создать приложение, поддерживающее вход пользователя с любого клиента Azure Active Directory. После включения единого входа между своим приложением и Azure Active Directory вы также можете обновить приложение для доступа к API, которые предоставляются ресурсами Майкрософт, например Office 365. Это позволит вам предлагать своим пользователям персонализированные возможности при работе с приложением, например отображать контекстную информацию, такую как изображение профиля или следующая встреча из календаря. Дополнительные сведения о вызовах API к службам Azure Active Directory и Office 365 (например Exchange, SharePoint, OneDrive, OneNote, Планировщик, Excel и др.) см. в статье [Overview of Microsoft Graph][MSFT-Graph-overview] (Обзор Microsoft Graph).
+
+
 ## <a name="related-content"></a>Связанная информация
 * [Примеры мультитенантных приложений][AAD-Samples-MT]
 * [Рекомендации по фирменной символике для приложений][AAD-App-Branding]
@@ -170,7 +175,7 @@ ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 * [Объекты приложения и субъекта-службы в Azure Active Directory][AAD-App-SP-Objects]
 * [Интеграция приложений с Azure Active Directory][AAD-Integrating-Apps]
 * [Обзор платформы согласия][AAD-Consent-Overview]
-* [Microsoft Graph permission scopes (Области действия разрешений Microsoft Graph)][MSFT-Graph-AAD]
+* [Microsoft Graph permission scopes (Области действия разрешений Microsoft Graph)][MSFT-Graph-permision-scopes]
 * [Области разрешений | Основные понятия API Graph][AAD-Graph-Perm-Scopes]
 
 Оставляйте свои замечания и пожелания в разделе ниже. Они помогают нам улучшать содержимое веб-сайта.
@@ -189,7 +194,8 @@ ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -235,10 +241,5 @@ ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

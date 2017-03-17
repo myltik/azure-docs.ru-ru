@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
-ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1e66ce0af4d3d33b584f9f3a881c34aa04e783b7
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -37,14 +38,14 @@ ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
 * **Кластер Azure HDInsight** с доступом к учетной записи Data Lake Store. См. статью [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Убедитесь, что вы включили удаленный рабочий стол для кластера.
 
 ## <a name="do-you-learn-fast-with-videos"></a>Учитесь быстрее с помощью видео?
-[Просмотрите это видео](https://mix.office.com/watch/1liuojvdx6sie) об использовании Distcp для копирования данных между большими двоичными объектами службы хранилища Azure и Data Lake Store.
+[Просмотрите это видно](https://mix.office.com/watch/1liuojvdx6sie) об использовании Distcp для копирования данных между большими двоичными объектами службы хранилища Azure и хранилищем озера данных Azure.
 
-## <a name="use-distcp-from-remote-desktop-windows-cluster-or-ssh-linux-cluster"></a>Использование Distcp на удаленном рабочем столе (кластер Windows) или через SSH (кластер Linux)
+## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Использование Distcp из кластера HDInsight на платформе Linux
+
 В состав кластера HDInsight входит служебная программа Distcp, которую можно использовать для копирования данных из различных источников в кластер HDInsight. При настройке кластера HDInsight для использования хранилища озера данных в качестве дополнительного хранилища служебную программу Distcp можно использовать для копирования данных в учетную запись хранилища озера данных и из нее без дополнительной настройки. В этом разделе мы рассмотрим, как использовать служебную программу Distcp.
 
-1. Если у вас кластер Windows, удаленно подключитесь к кластеру HDInsight, у которого есть доступ к учетной записи хранилища озера данных. Инструкции см. в разделе [Подключение к кластерам по протоколу RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). Откройте командную строку Hadoop на рабочем столе кластера.
+1. На своем настольном компьютере используйте SSH, чтобы подключиться к кластеру. См. раздел [Подключение к кластеру HDInsight на основе Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Выполните команды в командной строке SSH.
 
-    Если у вас кластер Linux, используйте протокол SSH для подключения к кластеру. См. раздел [Подключение к кластеру HDInsight на основе Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Выполните команды в командной строке SSH.
 2. Проверьте, доступны ли вам BLOB-объекты хранилища Azure (WASB). Выполните следующую команду:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -100,7 +101,7 @@ ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
 
 ### <a name="copying-large-datasets"></a>Копирование больших наборов данных
 
-Если размер перемещаемого набора данных очень большой (например, больше 1 ТБ) или в наборе много различных папок, рекомендуем использовать несколько заданий DistCp. Вряд ли это увеличит производительность, однако будет создано несколько заданий. В результате, если возникнет сбой одного из заданий, нужно будет перезапустить только это задание, а не все задание по перемещению.
+Если размер перемещаемого набора данных очень большой (например, больше&1; ТБ) или в наборе много различных папок, рекомендуем использовать несколько заданий DistCp. Вряд ли это увеличит производительность, однако будет создано несколько заданий. В результате, если возникнет сбой одного из заданий, нужно будет перезапустить только это задание, а не все задание по перемещению.
 
 ### <a name="limitations"></a>Ограничения
 
@@ -117,9 +118,4 @@ ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 31c6cb19827279995502c68ed6d86d23ef9eacd0
-ms.openlocfilehash: 5d98f086b4ccee300b18c8271f940272f618e93e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 5d98f086b4ccee300b18c8271f940272f618e93e
 - Настройка мониторинга инфраструктуры Azure с помощью расширения Datadog. Дополнительную информацию см. в [блоге Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Настройка узла Docker на виртуальной машине Azure с помощью расширения Docker. Дополнительные сведения см. в статье [Использование расширения виртуальной машины Docker для развертывания среды](virtual-machines-linux-dockerextension.md).
 
-Помимо расширений, созданных для конкретных процессов, существует расширение пользовательских сценариев для виртуальных машин под управлением Windows и Linux. Расширение пользовательских сценариев для Linux позволяет запустить на виртуальной машине любой сценарий Bash. Это может пригодиться при проектировании развертывания Azure, для которого требуется дополнительная настройка, которую невозможно выполнить собственными средствами Azure. Дополнительные сведения см. в статье [Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux](virtual-machines-linux-extensions-customscript.md).
+Помимо расширений, созданных для конкретных процессов, существует расширение пользовательских сценариев для виртуальных машин под управлением Windows и Linux. Расширение пользовательских сценариев для Linux позволяет запустить на виртуальной машине любой сценарий Bash. Пользовательские сценарии могут пригодиться при проектировании развертывания Azure, для которого требуется дополнительная настройка, ее невозможно выполнить собственными средствами Azure. Дополнительные сведения см. в статье [Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux](virtual-machines-linux-extensions-customscript.md).
 
 Следуя инструкциям из статьи [Automating application deployments to Azure virtual machines](virtual-machines-linux-dotnet-core-1-landing.md) (Автоматизация развертывания приложений в виртуальных машинах Azure), вы можете выполнить пример комплексного развертывания приложения, используя расширения виртуальной машины.
 
@@ -74,7 +75,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
   --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-Вы увидите примерно такой результат:
+Выходные данные должны быть похожи на приведенные ниже.
 
 ```azurecli
 info:    Executing command vm extension set
@@ -85,15 +86,15 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Портал Azure
 
-Расширения ВМ можно устанавливать на существующие виртуальные машины с помощью портала Azure. Для этого выберите виртуальную машину, выберите **Расширения** и щелкните **Добавить**. Вы увидите список доступных расширений. Выберите нужное расширение и следуйте инструкциям в мастере.
+Расширения ВМ можно устанавливать на существующие виртуальные машины с помощью портала Azure. Для этого выберите виртуальную машину, выберите **Расширения** и щелкните **Добавить**. Выберите нужное расширение из списка доступных расширений и следуйте инструкциям мастера.
 
 На рисунке ниже показана установка расширения пользовательских сценариев для Linux с помощью портала Azure.
 
-![Расширение пользовательских сценариев](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Установка расширения пользовательских сценариев](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Шаблоны Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
 
-Расширения ВМ можно добавлять в шаблоны Azure Resource Manager. Так они смогут выполняться при развертывании соответствующего шаблона. Развертывая расширение вместе с шаблоном, можно создать полностью настроенное развертывание Azure. Например, ниже представлен код JSON из шаблона Resource Manager, который развертывает набор виртуальных машин с балансировкой нагрузки и базу данных SQL Azure, а затем устанавливает на каждой виртуальной машине приложение .NET Core. Расширение ВМ отвечает за установку программного обеспечения.
+Расширения ВМ можно добавлять в шаблоны Azure Resource Manager. Так они смогут выполняться при развертывании соответствующего шаблона. Развертывая расширение вместе с шаблоном, можно создать полностью настроенное развертывание Azure. Например, ниже представлен код JSON из шаблона Resource Manager. Шаблон развертывает набор виртуальных машин с балансировкой нагрузки и базу данных SQL Azure, а затем устанавливает на каждой виртуальной машине приложение .NET Core. Расширение ВМ отвечает за установку программного обеспечения.
 
 Дополнительные сведения вы можете получить, ознакомившись с полным [шаблоном Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -222,7 +223,7 @@ info:    vm extension get command OK         :
 
 ### <a name="rerun-a-vm-extension"></a>Повторный запуск расширения ВМ
 
-В некоторых случаях может потребоваться повторный запуск расширения ВМ. Для этого следует сначала удалить расширение, затем повторно запустить его любым удобным способом. Чтобы удалить расширение, выполните в Azure CLI следующую команду: Замените в примере имена-параметры собственными значениями.
+В некоторых случаях может потребоваться повторный запуск расширения ВМ. Можно сначала удалить расширение, затем повторно запустить его любым удобным способом. Чтобы удалить расширение, выполните в Azure CLI следующую команду: Замените в примере имена-параметры собственными значениями.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
@@ -243,9 +244,4 @@ azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.A
 | Расширение для доступа к виртуальной машине |Восстанавливает доступ к виртуальной машине Azure. |[Расширение для доступа к виртуальной машине](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Расширение системы диагностики Azure |Управляет системой диагностики Azure. |[Расширение системы диагностики Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Расширение Azure VM Access |Управляет пользователями и учетными данными. |[Расширение VM Access для Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

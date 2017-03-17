@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/04/2017
+ms.date: 02/23/2017
 ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
-ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
+ms.sourcegitcommit: 76234592c0eda9f8317b2e9e5e8c8d3fbfca20c7
+ms.openlocfilehash: 8d7d447a6bfb537a6901455f28bb8d8cbd0832b5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -48,14 +49,15 @@ ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 > [!WARNING]
 > Настройка порта обратного прокси-сервера в подсистеме балансировки нагрузки обеспечит адресацию извне кластера всех микрослужб в этом кластере, которые предоставляют конечную точку HTTP.
-> 
-> 
+>
+>
+
 
 ## <a name="uri-format-for-addressing-services-via-the-reverse-proxy"></a>Формат универсального кода ресурса (URI) для адресации служб через обратный прокси-сервер
 Обратный прокси-сервер использует определенный формат универсального кода ресурса (URI), чтобы определять, в какую секцию службы следует переслать входящий запрос.
 
 ```
-http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
+http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
 * **http(s).** Обратный прокси-сервер можно настроить для приема трафика HTTP или HTTPS. В случае трафика HTTPS функцию моста SSL выполняет обратный прокси-сервер. Запросы, которые пересылаются обратным прокси-сервером к службам в кластере, передаются по протоколу HTTP. **Обратите внимание, что в настоящее время службы HTTPS не поддерживаются.**
@@ -65,6 +67,10 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **Suffix path** . Фактический URL-адрес службы, к которой вы подключаетесь, например *myapi/values/add/3*
 * **PartitionKey.** Для секционированной службы это вычисляемый ключ секции, к которой вы подключаетесь. Обратите внимание, что это *не* идентификатор GUID секции. Этот параметр не является обязательным для служб, использующих схему одноэлементного секционирования.
 * **PartitionKind.** Схема секционирования службы. Это может иметь значение "Int64Range" (Диапазон Int64) или "Named" (Именованная). Этот параметр не является обязательным для служб, использующих схему одноэлементного секционирования.
+* **ListenerName.** Конечные точки, представляемые службой, имеют следующий вид: {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. Если служба представляет несколько точек, данный параметр определяет, к которой из них будет направлен клиентский запрос. При наличии только одного прослушивателя потребность в данном параметре отсутствует.
+* **TargetReplicaSelector.** Данный параметр определяет, каким образом должна быть выбрана целевая реплика или экземпляр.
+  * Если целевая служба является службой с отслеживанием состояния, указанный выше параметр может иметь значения PrimaryReplica, RandomSecondaryReplica или RandomReplica. Если параметр не указан, по умолчанию используется значение PrimaryReplica.
+  * Если целевая служба является службой без отслеживания состояния, обратный прокси-сервер выбирает случайный экземпляр раздела службы, к которому направляется запрос.
 * **Timeout.**. Время ожидания для HTTP-запроса к службе, созданного обратным прокси-сервером от имени клиентского запроса. По умолчанию это значение равно 60 секундам. Данный параметр является необязательным.
 
 ### <a name="example-usage"></a>Пример использования
@@ -87,12 +93,12 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 Если служба использует схему секционирования Uniform Int64, для обращения к секции службы необходимо использовать параметры строки запроса *PartitionKey* и *PartitionKind*.
 
 * Извне: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Изнутри: `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Изнутри: `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`.
 
 Укажите путь к ресурсу после имени службы в URL-адресе, чтобы обратиться к предоставленным службой ресурсам.
 
-* Извне: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Изнутри: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Извне: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`.
+* Изнутри: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`.
 
 Затем шлюз перешлет эти запросы по URL-адресу службы.
 
@@ -132,7 +138,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 Получив шаблон для кластера, который вы хотите развернуть (из коллекции примеров или создав шаблон Resource Manager), вы можете включить в нем обратный прокси-сервера, выполнив следующие действия.
 
 1. Определите порт обратного прокси-сервера в разделе [Parameters](../azure-resource-manager/resource-group-authoring-templates.md) шаблона.
-   
+
     ```json
     "SFReverseProxyPort": {
         "type": "int",
@@ -143,30 +149,9 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
     },
     ```
 2. Укажите порт для каждого типа узлов в **разделе типов ресурсов** [Cluster](../azure-resource-manager/resource-group-authoring-templates.md)
-   
-    Порт для apiVersion версии до 2016-09-01 идентифицируется по имени параметра ***httpApplicationGatewayEndpointPort***.
-   
-    ```json
-    {
-        "apiVersion": "2016-03-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-   
-    Порт для apiVersion версии 2016-09-01 или более поздней идентифицируется по имени параметра ***reverseProxyEndpointPort***.
-   
+
+    Порт идентифицируется по имени параметра ***reverseProxyEndpointPort***
+
     ```json
     {
         "apiVersion": "2016-09-01",
@@ -186,7 +171,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
     }
     ```
 3. Для обращения к обратному прокси-серверу извне кластера Azure настройте **правила Azure Load Balancer** для порта, указанного на шаге 1.
-   
+
     ```json
     {
         "apiVersion": "[variables('lbApiVersion')]",
@@ -229,32 +214,8 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         ]
     }
     ```
-4. Чтобы настроить SSL-сертификаты для порта обратного прокси-сервера, добавьте сертификат в свойство httpApplicationGatewayCertificate. Это свойство можно найти в разделе **типов ресурсов** в подразделе [Cluster](../azure-resource-manager/resource-group-authoring-templates.md).
-   
-    Сертификат для apiVersion версии до 2016-09-01 идентифицируется по имени параметра ***httpApplicationGatewayCertificate***.
-   
-    ```json
-    {
-        "apiVersion": "2016-03-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "httpApplicationGatewayCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-    Сертификат для apiVersion версии 2016-09-01 или более поздней идентифицируется по имени параметра ***reverseProxyCertificate***.
-   
+4. Чтобы настроить SSL-сертификаты для порта обратного прокси-сервера, добавьте сертификат в свойство ***reverseProxyCertificate*** в подразделе **Cluster** [раздела типа ресурсов](../resource-group-authoring-templates.md)
+
     ```json
     {
         "apiVersion": "2016-09-01",
@@ -276,6 +237,61 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
     }
     ```
 
+### <a name="supporting-reverse-proxy-certificate-different-from-cluster-certificate"></a>Различие поддержки сертификата обратного прокси-сервера и сертификата кластера
+ Если сертификат обратного прокси-сервера отличается от сертификата, используемого для защиты кластера, тогда сертификат, указанный выше, должен быть установлен на виртуальной машине и добавлен в список управления доступом (ACL) для доступа к нему из Service Fabric. Для этого вы можете использовать **virtualMachineScaleSets** в [разделе типа ресурсов](../resource-group-authoring-templates.md). Чтобы выполнить установку, нужно добавить этот сертификат в osProfile, а чтобы поместить его в список управления доступом, необходимо добавить сертификат в раздел расширения шаблона.
+
+  ```json
+  {
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    ....
+      "osProfile": {
+          "adminPassword": "[parameters('adminPassword')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "computernamePrefix": "[parameters('vmNodeType0Name')]",
+          "secrets": [
+            {
+              "sourceVault": {
+                "id": "[parameters('sfReverseProxySourceVaultValue')]"
+              },
+              "vaultCertificates": [
+                {
+                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
+                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
+                }
+              ]
+            }
+          ]
+        }
+   ....
+   "extensions": [
+          {
+              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
+              "properties": {
+                      "type": "ServiceFabricNode",
+                      "autoUpgradeMinorVersion": false,
+                      ...
+                      "publisher": "Microsoft.Azure.ServiceFabric",
+                      "settings": {
+                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+                        "dataPath": "D:\\\\SvcFab",
+                        "durabilityLevel": "Bronze",
+                        "testExtension": true,
+                        "reverseProxyCertificate": {
+                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
+                        },
+                  },
+                  "typeHandlerVersion": "1.0"
+              }
+          },
+      ]
+    }
+  ```
+> [!NOTE]
+> Перед включением обратного прокси-сервера в существующем кластере с сертификатами, отличающимися от сертификата кластера, необходимо установить сертификат прокси-сервера, а также поместить его в список управления доступом в кластере. Например, развертывание [шаблона Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) с использованием описанных выше параметров должно быть завершено до начала развертывания для включения обратного прокси-сервера с помощью шагов 1–4.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Пример обмена данными по протоколу HTTP между службами представлен в [примере проекта на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 * [Удаленное взаимодействие службы с Reliable Services](service-fabric-reliable-services-communication-remoting.md)
@@ -284,9 +300,4 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

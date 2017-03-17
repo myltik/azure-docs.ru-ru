@@ -15,14 +15,16 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/20/2016
-ms.author: wesmc
+ms.author: wesmc, glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 29fa4620885ec787f362966f732510fded600d53
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-twilio-output-binding"></a>Выходная привязка Twilio для функций Azure
+# <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Отправка SMS-сообщений из Функций Azure с использованием привязки для вывода Twilio
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 В этой статье описано, как настроить привязки Twilio и использовать их с функциями Azure. 
@@ -31,7 +33,7 @@ ms.openlocfilehash: 29fa4620885ec787f362966f732510fded600d53
 
 Функции Azure поддерживают выходные привязки Twilio, позволяя вашим функциям отправлять текстовые SMS-сообщения с помощью нескольких строк кода и учетной записи [Twilio](https://www.twilio.com/). 
 
-## <a name="functionjson-for-azure-notification-hub-output-binding"></a>Файл function.json для выходной привязки центра уведомлений Azure
+## <a name="functionjson-for-the-twilio-output-binding"></a>Файл function.json для привязки для вывода Twilio
 Файл function.json содержит следующие свойства:
 
 * `name` — имя переменной, используемое в коде функции для текстового SMS-сообщения Twilio.
@@ -155,10 +157,5 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

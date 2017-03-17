@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
+ms.sourcegitcommit: ed8ef101a0757fd32585f5b3249e49d4fb0e09b4
+ms.openlocfilehash: ea3aa0b94c6a74747f7efa8633d5b6bfff75a230
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -58,7 +59,7 @@ ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 | Руководство по устранению неполадок для федеративных приложений, использующих протокол SAML |[Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
 | Настройка срока действия сертификата приложения и способы обновления сертификатов |[Управление сертификатами для федеративного единого входа в Azure Active Directory](active-directory-sso-certs.md) |
 
-Функция федеративного единого входа доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к федеративным приложениям](#managing-access-to-applications).
+Функция федеративного единого входа доступна для всех выпусков Azure AD, и ее можно использовать для&10; приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к федеративным приложениям](#managing-access-to-applications).
 
 ### <a name="password-based-single-sign-on-account-sharing-and-sso-for-non-federated-apps"></a>Единый вход на основе пароля: совместное использование учетных записей и единый вход для нефедеративных приложений
 Чтобы включить единый вход для приложений, которые не поддерживают федерацию, Azure AD предоставляет функции управления паролями. Они обеспечивают безопасное хранение паролей для приложений SaaS и автоматический вход в эти приложения. Используя эти функции, можно с легкостью задать необходимые учетные данные для новых учетных записей и совместно с другими использовать общие учетные записи. Пользователям не обязательно знать учетные данные учетных записей, к которым им предоставлен доступ.
@@ -70,7 +71,7 @@ ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 | Автоматическое изменение пароля для определенных приложений с определенной периодичностью |[Automated Password Rollover (preview) (Автоматическая смена пароля (предварительная версия))](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Руководства по развертыванию и устранению неполадок для расширения управления паролями Azure AD с использованием Internet Explorer |[Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)<br /><br />[Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
-Функция единого входа на основе паролей доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications). Автоматическая смена пароля — это функция [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
+Функция единого входа на основе паролей доступна для всех выпусков Azure AD, и ее можно использовать для&10; приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications). Автоматическая смена пароля — это функция [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="app-proxy-single-sign-on-and-remote-access-to-on-premises-applications"></a>Прокси приложения: единый вход в локальные приложения и удаленный доступ к ним
 Если вам необходимо предоставить безопасный удаленный доступ к приложениям для пользователей и устройств за пределами частной сети, для этого можно использовать прокси приложения Azure AD.
@@ -83,7 +84,7 @@ ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 | Рекомендации по использованию прокси приложения в определенных сценариях |[Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)<br /><br />[Работа с приложениями, поддерживающими утверждения, в прокси приложения](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей](active-directory-application-proxy-connectors.md) |
 | Руководство по устранению неполадок прокси приложения |[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
 
-Прокси приложения доступно для всех выпусков Azure AD, и его можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications).
+Прокси приложения доступно для всех выпусков Azure AD, и его можно использовать для&10; приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications).
 
 Возможно, вас также заинтересуют [доменные службы Azure AD](../active-directory-domain-services/active-directory-ds-overview.md), с помощью которых можно переносить локальные приложения в Azure, поддерживая их методы идентификации.
 
@@ -109,7 +110,7 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 | Общие сведения о возможностях условного доступа, предлагаемых в Azure AD, Office 365 и Intune |[Управление рисками с помощью условного доступа](active-directory-conditional-access.md) |
 | Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Работа с условным доступом](active-directory-application-proxy-conditional-access.md) |
 | Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств |[Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Включение автоматической регистрации присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Действия для устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Действия для устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
-| Использование приложения Azure Authenticator версии для Android для политик, связанных с многофакторной проверкой подлинности |[Azure Authenticator для Android](active-directory-conditional-access-azure-authenticator-app.md) |
+| Использование приложения Microsoft Authenticator для двухфакторной проверки подлинности |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 Условный доступ — это функция [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -138,7 +139,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 | Получение уведомлений о сбоях при подготовке |[Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md) |
 | Ограничение количества пользователей, которые будут подготовлены для работы с приложением, на основе значений их атрибутов |[Подготовка приложений на основе атрибутов с использованием фильтров области](active-directory-saas-scoping-filters.md) |
 
-Автоматическая подготовка пользователей доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для управления отбором пользователей для подготовки](#managing-access-to-applications).
+Автоматическая подготовка пользователей доступна для всех выпусков Azure AD, и ее можно использовать для&10; приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для управления отбором пользователей для подготовки](#managing-access-to-applications).
 
 ### <a name="building-applications-that-integrate-with-azure-ad"></a>Создание приложений, которые интегрируются с Azure AD
 Если ваша организация разрабатывает и обслуживает бизнес-приложения или вы являетесь разработчиком приложений для клиентов, которые используют Azure Active Directory, следующие руководства помогут вам интегрировать приложения с Azure AD. 
@@ -209,10 +210,5 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 [Доменные службы Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

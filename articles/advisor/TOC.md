@@ -8,14 +8,11 @@
 
 # Приступая к работе
 ## [Приступая к работе с Advisor](advisor-get-started.md)
-
+# Справочные материалы
+## [REST](https://docs.microsoft.com/rest/api/advisor)
 # Сопутствующие материалы
 ## [Центр безопасности](https://azure.microsoft.com/services/security-center/)
 ## [Помощник по базам данных SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Кэш Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [Службы приложений](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
  
-
-<!--HONumber=Nov16_HO4-->
-
-

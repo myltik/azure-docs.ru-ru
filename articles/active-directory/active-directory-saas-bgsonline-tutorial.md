@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
+ms.sourcegitcommit: 4a07f946d396a9263d5b00202cd5229ddc86d1be
+ms.openlocfilehash: 6af7b7777a0ea0b0eba3f499b2e34f30d5bc1ea0
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,17 +36,16 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 Чтобы настроить интеграцию Azure AD с BGS Online, вам потребуется:
 
 * подписка Azure AD;
-* подписка BGS Online с поддержкой единого входа.
+* подписка на BGS Online с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
@@ -53,7 +53,7 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
 1. Добавление BGS Online из коллекции
-2. Настройка и проверка единого входа в Azure AD.
+2. Настройка и проверка единого входа Azure AD.
 
 ## <a name="adding-bgs-online-from-the-gallery"></a>Добавление BGS Online из коллекции
 Чтобы настроить интеграцию BGS Online с Azure AD, необходимо добавить BGS Online из коллекции в список управляемых приложений SaaS.
@@ -80,25 +80,25 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/tutorial_bgsonline_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD.
+## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в BGS Online с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в BGS Online соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в BGS Online.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь BGS Online соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в BGS Online.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве **имени пользователя** в BGS Online.
 
-Чтобы настроить и проверить единый вход Azure AD в BGS Online, вам потребуется выполнить действия в следующих стандартных блоках.
+Чтобы настроить и проверить единый вход Azure AD в BGS Online, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя BGS Online](#creating-a-bgsonline-test-user)** нужно для того, чтобы в BGS Online также существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
 В этом разделе описано, как на классическом портале включить единый вход Azure AD и настроить его в приложении BGS Online.
 
-**Чтобы настроить единый вход Azure AD в BGS Online, выполните следующие действия.**
+**Чтобы настроить единый вход Azure AD в BGS Online, сделайте следующее:**
 
 1. На странице интеграции с приложением **BGS Online** на классическом портале щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
@@ -109,30 +109,24 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-bgsonline-tutorial/tutorial_bgsonline_04.png) 
-   
-    а. В текстовом поле **Идентификатор** введите URL-адрес, используемый пользователями для входа в приложение BGS Online. Для рабочей среды используйте шаблон `https://<company name>.millwardbrown.report`, а для тестовой среды — `https://millwardbrown.marketingtracker.nl/mt5/`.
-   
-    b. В текстовом поле **URL-адрес ответа** для рабочей среды используйте шаблон `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx`, а для тестовой среды — `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`.
-   
-    c. click **Далее**
+  1. В текстовом поле **Идентификатор** введите URL-адрес, используемый пользователями для входа в приложение BGS Online. Для рабочей среды используйте шаблон `https://<company name>.millwardbrown.report`, а для тестовой среды — `https://millwardbrown.marketingtracker.nl/mt5/`.
+  2. В текстовом поле **URL-адрес ответа** для рабочей среды используйте шаблон `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx`, а для тестовой среды — `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`.
+  3. Нажмите кнопку **Далее**.
 4. На странице **Настройка единого входа в BGS Online** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-bgsonline-tutorial/tutorial_bgsonline_05.png)
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+  * Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
 5. Чтобы настроить единый вход для своего приложения, обратитесь к [группе поддержки](mailTo:bgsdashboardteam@millwardbrown.com) BGS Online и предоставьте следующие сведения:
-   
-    • скачанный файл **метаданных**
-   
-    • **URL-адрес единого входа SAML**
-6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+  * Скачанный файл **метаданных**.
+  * **URL-адрес единого входа SAML**
+6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![Единый вход в Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -149,39 +143,33 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_05.png) 
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_06.png)   
+  1. В текстовом поле **Имя** введите **Britta**.  
+  2. В текстовом поле **Фамилия** введите **Simon**.
+  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+  4. В списке **Роль** выберите **Пользователь**.
+  5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-bgsonline-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+  1. Запишите значение поля **Новый пароль**.
+  2. Нажмите **Завершено**.   
 
-### <a name="creating-an-bgs-online-test-user"></a>Создание тестового пользователя BGS Online
+### <a name="create-an-bgs-online-test-user"></a>Создание тестового пользователя BGS Online
 В этом разделе описано, как создать пользователя Britta Simon в BGS Online. Обратитесь к [группе поддержки](mailTo:bgsdashboardteam@millwardbrown.com) BGS Online, чтобы добавить пользователей в платформе BGS Online.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив доступ к BGS Online.
 
 ![Назначение пользователя][200] 
@@ -202,7 +190,7 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент "BGS Online" на панели доступа, вы автоматически войдете в приложение BGS Online.
@@ -228,9 +216,4 @@ ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 [203]: ./media/active-directory-saas-bgsonline-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-bgsonline-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-bgsonline-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

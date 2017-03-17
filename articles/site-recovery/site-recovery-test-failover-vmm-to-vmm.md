@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 1c3a3a3e9381e20382bb537299b04993180ee729
-ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
+ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
+ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Тестовая отработка отказа (из облака VMM в облако VMM) в Site Recovery
+> [!div class="op_single_selector"]
+> * [Тестовая отработка отказа в Azure](./site-recovery-test-failover-to-azure.md)
+> * [Тестовая отработка отказа (между VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 В данной статье содержатся сведения и инструкции по тестовой отработке отказа или тренировке аварийного восстановления виртуальных машин и физических серверов, защищенных с помощью Site Recovery, с использованием локального сайта под управлением VMM в качестве сайта восстановления. 
 
@@ -67,6 +72,8 @@ ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
 ## <a name="run-a-test-failover"></a>Запуск тестовой отработки отказа
 В этой процедуре описывается, как запустить тестовую отработку отказа для плана восстановления. В качестве альтернативы на вкладке **Виртуальные машины** можно запустить отработку отказа для одной виртуальной машины или физического сервера.
 
+![Тестирование отработки отказа](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. Выберите **Планы восстановления** > *имя_плана_восстановления*. Последовательно выберите пункты **Тип отработки отказа** > **Test Тип отработки отказа**.
 1. В колонке **Тестовая отработка отказа** укажите, каким способом виртуальные машины должны подключаться к сетям после тестовой отработки отказа. Дополнительные сведения см. в разделе [Параметры сети в Site Recovery](#network-options-in-site-recovery).
 1. Ход выполнения отработки отказа можно отслеживать на вкладке **Задания** . 
@@ -100,9 +107,4 @@ ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После успешной тестовой отработки отказа можно попробовать выполнить [отработку отказа](site-recovery-failover.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

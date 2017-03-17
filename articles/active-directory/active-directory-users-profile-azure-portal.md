@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/24/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8930a73c334265c828cd01ca1910201b231f3b
+ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
+ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: bf8930a73c334265c828cd01ca1910201b231f3b
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-   ![Открытие страницы "Управление пользователями"](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
+   ![Открытие пользователей и групп](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Пользователи**.
 
    ![Открытие колонки "Пользователи"](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
@@ -43,9 +44,4 @@ ms.openlocfilehash: bf8930a73c334265c828cd01ca1910201b231f3b
 * [Назначение пользователю ролей администратора в предварительной версии Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Добавление или изменение данных профиля пользователя в предварительной версии Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Удаление пользователя из каталога в предварительной версии Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

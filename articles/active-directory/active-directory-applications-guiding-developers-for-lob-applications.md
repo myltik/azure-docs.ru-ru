@@ -1,5 +1,5 @@
 ---
-title: "Разработка бизнес-приложений для Azure AD | Документация Майкрософт"
+title: "Разработка приложений для Azure AD | Документация Майкрософт"
 description: "Эта статья, предназначенная для ИТ-специалистов, содержит рекомендации по интеграции приложений Azure с Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-and-applications-develop-line-of-business-apps"></a>Azure AD и приложения: разработка бизнес-приложений
+# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Разработка бизнес-приложений для Azure Active Directory
 Это руководство содержит сведения о разработке бизнес-приложений для Azure Active Directory (AD). Оно предназначено специально для глобальных администраторов Active Directory и Office 365.
 
 ## <a name="overview"></a>Обзор
@@ -80,9 +81,4 @@ ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
 * [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 * [Управление доступом к приложениям с помощью Azure AD](active-directory-managing-access-to-apps.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

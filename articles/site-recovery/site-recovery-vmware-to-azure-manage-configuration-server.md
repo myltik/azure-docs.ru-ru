@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 0e49b7dded14ab6b76c7c73af714af5f5c854bbc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
+ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -104,11 +104,32 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  Если вы используете развернутые серверы обработки, подключенные к серверу конфигурации, необходимо [исправить параметры прокси-сервера на всех серверах обработки](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) в развернутой службе.
+  Если вы используете развернутые серверы обработки, подключенные к серверу конфигурации, необходимо [исправить параметры прокси-сервера на всех серверах обработки](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) в развернутой службе.
+
+## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Повторная регистрация сервера конфигурации в том же хранилище служб восстановления
+  1. Войдите на сервер конфигурации.
+  2. Запустите файл cspsconfigtool.exe с помощью ярлыка.
+  3. Откройте вкладку **Vault Registration** (Регистрация хранилища).
+  4. Скачайте новый файл регистрации на портале и укажите его в качестве входных данных для средства.
+        ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
+  5. Укажите сведения о прокси-сервере и нажмите кнопку **Register** (Зарегистрировать).  
+  6. Откройте командную строку PowerShell с правами администратора.
+  7. Выполните следующую команду
+
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
+
+  >[!WARNING]
+  Если вы используете серверы обработки масштабирования, подключенные к серверу конфигурации, вам необходимо [повторно зарегистрировать все серверы обработки масштабирования](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) в развернутой службе.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Регистрация сервера конфигурации в другом хранилище служб восстановления.
 1. Войдите на сервер конфигурации.
 2. В командной строке от имени администратора выполните команду:
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
@@ -152,11 +173,11 @@ net stop dra
 1. Войдите на сервер конфигурации от имени администратора.
 2. Откройте последовательно "Панель управления" > "Программы" > "Удалить программы".
 3. Удалите программы в следующей последовательности:
+  * агент служб восстановления Microsoft Azure.
   * Microsoft Azure Site Recovery Mobility Service/Master Target Server (Microsoft Azure Site Recovery Mobility Service/главный целевой сервер)
-  * Microsoft Azure Site Recovery Configuration Server/Process Server (Север конфигурации Microsoft Azure Site Recovery/сервер обработки)
-  * Microsoft Azure Site Recovery Configuration Server Dependencies (Зависимости сервера конфигурации Microsoft Azure Site Recovery)
-  * Microsoft Azure Recovery Services Agent (Агент служб восстановления Microsoft Azure)
   * Microsoft Azure Site Recovery Provider (Поставщик Microsoft Azure Site Recovery)
+  * серверы конфигурации и обработки Microsoft Azure Site Recovery;
+  * зависимости сервера конфигурации Microsoft Azure Site Recovery;
   * MySQL Server 5.5
 4. Выполните следующую команду из командной строки с правами администратора:
   ```

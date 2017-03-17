@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Выражения политики в службе управления API
@@ -35,12 +36,12 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 > -   Чтобы скачать инструкции политики, используемые в этом видеоролике, перейдите к репозиторию GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
-##  <a name="a-namesyntaxa-syntax"></a><a name="Syntax"></a> Синтаксис  
+##  <a name="Syntax"></a> Синтаксис  
  Выражения с одним оператором заключаются в элементы `@(expression)`, где `expression` — оператор выражения C# правильного формата.  
   
  Выражения с несколькими операторами заключаются в элементы `@{expression}`. Все ветви кода в выражениях с несколькими операторами должны заканчиваться оператором `return`.  
   
-##  <a name="a-namepolicyexpressionsexamplesa-examples"></a><a name="PolicyExpressionsExamples"></a> Примеры  
+##  <a name="PolicyExpressionsExamples"></a> Примеры  
   
 ```  
 @(true)  
@@ -51,7 +52,7 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -66,13 +67,13 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 }  
 ```  
   
-##  <a name="a-namepolicyexpressionsusagea-usage"></a><a name="PolicyExpressionsUsage"></a> Использование  
+##  <a name="PolicyExpressionsUsage"></a> Использование  
  Выражения можно использовать в качестве значений атрибутов или текстовых значений в любой [политике](api-management-policies.md) управления API, если в справочнике по политике не указано иное.  
   
 > [!IMPORTANT]
 >  Обратите внимание, что при использовании выражений политики выполняется только ограниченная проверка выражений политики во время ее определения. Так как выражения выполняются шлюзом во время выполнения во входящем или исходящем конвейере, любое исключение выполнения, создаваемое выражениями политики, приведет к ошибке среды выполнения в вызове API.  
   
-##  <a name="a-nameclrtypesa-net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Типы .NET Framework, допустимые в выражениях политики  
+##  <a name="CLRTypes"></a> Типы .NET Framework, допустимые в выражениях политики  
  В следующей таблице перечислены типы .NET Framework и их члены, допустимые в выражениях политики.  
   
 |Тип CLR|Поддерживаемые методы|  
@@ -166,12 +167,12 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 |System.Xml.Linq.XText|Поддерживаются все методы|  
 |System.Xml.XmlNodeType|Все|  
   
-##  <a name="a-namecontextvariablesa-context-variable"></a><a name="ContextVariables"></a> Переменная контекста  
+##  <a name="ContextVariables"></a> Переменная контекста  
  Переменная с именем `context` неявно доступна в каждом [выражении](api-management-policy-expressions.md#Syntax) политики. Ее члены предоставляют сведения, относящиеся к переменной `\request`. Все члены `context` доступны только для чтения.  
   
 |Переменная контекста|Допустимые методы, свойства и значения параметров|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Развертывание<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Tracing: логическое значение<br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: строка)|  
+|context|Api: IApi<br /><br /> Развертывание<br /><br /> LastError<br /><br /> Операция<br /><br /> Продукт<br /><br /> Запрос<br /><br /> RequestId: строка<br /><br /> Ответ<br /><br /> Подписка<br /><br /> Tracing: логическое значение<br /><br /> Пользователь<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: строка)|  
 |context.Api|Id: строка<br /><br /> Name: строка<br /><br /> Path: строка<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: строка<br /><br /> ServiceName: строка|  
 |context.LastError|Source: строка<br /><br /> Reason: строка<br /><br /> Message: строка<br /><br /> Scope: строка<br /><br /> Section: строка<br /><br /> Path: строка<br /><br /> PolicyId: строка<br /><br /> Дополнительные сведения о переменной context.LastError см. в разделе [Error handling](api-management-error-handling-policies.md) (Обработка ошибок).|  
@@ -201,8 +202,4 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
 

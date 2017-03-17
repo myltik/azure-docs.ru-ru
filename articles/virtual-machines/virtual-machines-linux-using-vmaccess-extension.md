@@ -1,6 +1,6 @@
 ---
-title: "Сброс настроек доступа с помощью расширения VMAccess и Azure CLI 2.0 (предварительная версия) | Документация Майкрософт"
-description: "Как управлять пользователями и сбросить параметры доступа на виртуальных машинах Linux, используя расширение VMAccess и Azure CLI 2.0 (предварительная версия)."
+title: "Сброс настроек доступа с помощью расширения VMAccess и Azure CLI 2.0 | Документация Майкрософт"
+description: "В этой статье показано, как управлять пользователями и сбросить параметры доступа на виртуальных машинах Linux, используя расширение VMAccess и Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -16,32 +16,25 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 98646daf5a4d2c9aca7dfc02a36f39d12f749443
-ms.openlocfilehash: 7752b486bda4a68b14ff3e8aaf1a369a649c83b5
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 4fac98d37dde195af69d8bd03fd796c6eeae3734
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20-preview"></a>Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Linux с помощью расширения VMAccess и Azure CLI 2.0 (предварительная версия)
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Linux с помощью расширения VMAccess и Azure CLI 2.0
 На диске в виртуальной машине Linux имеются ошибки. Вы каким-то образом сбросили пароль пользователя root для виртуальной машины Linux или случайно удалили закрытый ключ SSH. Если бы такое случилось раньше, вам пришлось бы ехать в центр данных и открывать KVM-консоль для доступа к серверу. Расширение Azure VMAccess можно представить как KVM-коммутатор, который позволяет открывать консоль для сброса разрешений на доступ к Linux или обслуживания дисков.
 
-В этой статье показано, как использовать расширение Azure VMAcesss для проверки или восстановления диска, сброса разрешений пользователей на доступ, управления учетными записями пользователей или сброса конфигурации SSHD в Linux.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-- [Azure CLI 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](#ways-to-use-the-vmaccess-extension) — интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
+В этой статье показано, как использовать расширение Azure VMAcesss для проверки или восстановления диска, сброса разрешений пользователей на доступ, управления учетными записями пользователей или сброса конфигурации SSHD в Linux. Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Использование расширения VMAccess
 Расширение VMAccess для виртуальных машин Linux можно использовать двумя способами:
 
-* с помощью Azure CLI 2.0 (предварительная версия) и необходимых параметров;
+* С помощью Azure CLI 2.0 и необходимых параметров.
 * [с помощью необработанных файлов JSON, которые расширение VMAccess обрабатывает](#use-json-files-and-the-vmaccess-extension) для выполнения операций.
 
-В следующих примерах используется команда [az vm access](/cli/azure/vm/access) с соответствующими параметрами. Чтобы выполнить эти действия, нужно установить последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+В следующих примерах используется команда [az vm access](/cli/azure/vm/access) с соответствующими параметрами. Чтобы выполнить эти действия, нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 ## <a name="reset-ssh-key"></a>Сброс ключа SSH
 В следующем примере сбрасывается ключ SSH для пользователя `azureuser` на виртуальной машине `myVM`.

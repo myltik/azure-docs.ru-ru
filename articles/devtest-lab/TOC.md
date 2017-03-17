@@ -5,17 +5,20 @@
 
 # Начало работы
 ## [Создание лаборатории](devtest-lab-create-lab.md)
+## [Создание формул](devtest-lab-create-formulas.md)
 ## [Создание виртуальной машины](devtest-lab-add-vm.md)
+## [Управление базовыми политиками лаборатории](devtest-lab-get-started-with-lab-policies.md)
 ## [Создание учебной лаборатории](devtest-lab-training-lab.md)
 ## [Часто задаваемые вопросы](devtest-lab-faq.md)
 
 # Практическое руководство:
 ## Управление лабораториями
 ### [Добавление владельцев и пользователей лаборатории](devtest-lab-add-devtest-user.md)
-### [Определение политик лаборатории](devtest-lab-set-lab-policy.md)
+### [Управление всеми политиками лаборатории](devtest-lab-set-lab-policy.md)
 ### [Предоставление прав политикам](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Настройка управления затратами](devtest-lab-configure-cost-management.md)
 ### [Настройка виртуальных сетей](devtest-lab-configure-vnet.md)
+### [Сведения об общем IP-адресе](devtest-lab-shared-ip.md)
 
 ## Управление артефактами
 ### [Добавление репозитория артефактов](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [Передача VHD-файла с помощью AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Передача VHD-файла с помощью PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Передача VHD-файла с помощью обозревателя хранилищ](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Ресурсы
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=devtest-lab)

@@ -13,11 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
-ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.lasthandoff: 03/15/2017
 
 ---
-#<a name="application-gateway-documentation"></a>Документация по шлюзу приложений
+# <a name="application-gateway-documentation"></a>Документация по шлюзу приложений
 
 Узнайте, как развертывать шлюз приложений, контроллер доставки приложений (ADC) в качестве службы. Руководства, справочники по API и другая документация, в которой показано, как настроить маршрутизацию на уровне приложений и службы балансировки нагрузки для создания масштабируемых веб-интерфейсов с высоким уровнем доступности.
 
@@ -125,7 +126,7 @@ ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
                     <div class="cardText">
                         <h3>Командная строка</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Предварительная версия Azure CLI 2.0</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -162,10 +163,5 @@ ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
     </li>
 </ul>    
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

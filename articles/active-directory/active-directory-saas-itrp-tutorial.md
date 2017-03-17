@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
-ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
+ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
+ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scenario")
+![Сценарий](./media/active-directory-saas-itrp-tutorial/IC775551.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-itrp"></a>Включение интеграции приложений для ITRP
 В этом разделе показано, как включить интеграцию приложений для ITRP.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-itrp-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-itrp-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-itrp-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-itrp-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-itrp-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-itrp-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **ITRP**.
    
-    ![Коллекция приложений](./media/active-directory-saas-itrp-tutorial/IC775565.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-itrp-tutorial/IC775565.png "Коллекция приложений")
 
 7. В области результатов выберите **ITRP** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -76,19 +77,19 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **ITRP** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC771709.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в ITRP?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775567.png "Настройка единого входа")
 
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в ITRP** введите свой URL-адрес в формате *https://\<имя_клиента\>.ITRP.com*, а затем нажмите кнопку **Далее**.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-itrp-tutorial/IC775568.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в ITRP** нажмите кнопку **Скачать сертификат**, а затем сохраните файл сертификата локально в формате **c:\\ITRP.cer**.
    
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775569.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт ITRP в качестве администратора.
 
@@ -98,13 +99,13 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 
 7. В левой области навигации нажмите **Единый вход**.
    
-    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775571.png "Single Sign-On")
+    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775571.png "Единый вход")
 
 8. В разделе конфигурации единого входа выполните следующие действия.
    
-    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
+    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775572.png "Единый вход")
     
-    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
+    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775573.png "Единый вход")
    
     а. Нажмите **Включить**.
    
@@ -123,7 +124,7 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775574.png "Настройка единого входа")
    
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -135,19 +136,19 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 
 2. На панели инструментов в верхней части экрана нажмите **Записи**.
    
-    ![Администратор](./media/active-directory-saas-itrp-tutorial/IC775575.png "Admin")
+    ![Администратор](./media/active-directory-saas-itrp-tutorial/IC775575.png "Администратор")
 
 3. В контекстном меню выберите пункт **Пользователи**.
    
-    ![Пользователи](./media/active-directory-saas-itrp-tutorial/IC775587.png "People")
+    ![Люди](./media/active-directory-saas-itrp-tutorial/IC775587.png "Люди")
 
 4. Нажмите **Добавить пользователя** ("+").
    
-    ![Администратор](./media/active-directory-saas-itrp-tutorial/IC775576.png "Admin")
+    ![Администратор](./media/active-directory-saas-itrp-tutorial/IC775576.png "Администратор")
 
 5. В диалоговом окне "Добавить пользователя" выполните следующие действия.
    
-    ![Пользователь](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")
+    ![Пользователь](./media/active-directory-saas-itrp-tutorial/IC775577.png "Пользователь")
    
     а. Введите атрибуты **Name** (Имя) и **Email** (Адрес электронной почты) действующей учетной записи AAD, которую вы хотите подготовить.
    
@@ -166,17 +167,12 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 
 2. На странице интеграции с приложением **ITRP** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-itrp-tutorial/IC775588.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-itrp-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-itrp-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

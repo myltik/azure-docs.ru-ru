@@ -1,5 +1,6 @@
 ---
-title: "Создание расширенных правил членства в группе с помощью атрибутов в предварительной версии Azure Active Directory | Документация Майкрософт"
+
+title: "Управление участниками группы на основе атрибутов в предварительной версии Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как создать расширенные правила для динамического членства в группе, используя поддерживаемые операторы и параметры выражений правила."
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
-ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 16dd02934d4bd18f87f6508dce6c6829fe6aa0ac
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Создание расширенных правил членства в группе с помощью атрибутов в предварительной версии Azure Active Directory
-Портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах предварительной версии Azure Active Directory (Azure AD) на основе атрибутов. [Что есть в предварительной версии?](active-directory-preview-explainer.md) В этой статье подробно описываются атрибуты правил и синтаксис для создания этих расширенных правил.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Создание правил на основе атрибутов для динамического членства в группах в предварительной версии Azure Active Directory
+Портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах предварительной версии Azure Active Directory (Azure AD) на основе атрибутов. [Что есть в предварительной версии?](active-directory-preview-explainer.md) 
+
+В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства.
 
 ## <a name="to-create-the-advanced-rule"></a>Создание расширенного правила
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -85,7 +90,7 @@ ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 | --- | --- | --- |
 | Ошибка: атрибут не поддерживается. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>Свойство должно соответствовать одному из свойств [в списке поддерживаемых свойств](#supported-properties). |
 | Ошибка: не поддерживается оператор для атрибута. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/>Свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error в регулярном выражении. |
+| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")  — ошибка в регулярном выражении. |
 | Ошибка: неправильный формат двоичного выражения. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 | Ошибка: неизвестная ошибка при настройке динамического членства. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 
@@ -109,7 +114,7 @@ ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 * -eq
 * -ne
 * -notStartsWith
-* -startsWith
+* -StartsWith
 * -contains
 * -notContains
 * -match
@@ -151,7 +156,7 @@ ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
 | otherMails |Любое строковое значение. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| proxyAddresses |SMTP: alias@domain, smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Атрибуты расширения и настраиваемые атрибуты
 Атрибуты расширения и настраиваемые атрибуты поддерживаются в правилах динамического членства.
@@ -188,9 +193,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
-| displayName |Любое строковое значение. |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Любое строковое значение. |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Любое строковое значение. |(device.OSVersion -eq "9.1") |
+| displayName |Любое строковое значение |(device.displayName -eq "Rob Iphone”) |
+| deviceOSType |Любое строковое значение |(device.deviceOSType -eq "IOS") |
+| deviceOSVersion |Любое строковое значение |(device.OSVersion -eq "9.1") |
 | isDirSynced |true, false, null |(device.isDirSynced -eq "true") |
 | isManaged |true, false, null |(device.isManaged -eq "false") |
 | isCompliant |true, false, null |(device.isCompliant -eq "true") |
@@ -203,9 +208,4 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [Управление параметрами группы](active-directory-groups-settings-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

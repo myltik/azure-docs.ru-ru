@@ -1,6 +1,6 @@
 ---
-title: "Интеграция Enterprise с EDIFACT | Документация Майкрософт"
-description: "Сведения об использовании соглашений EDIFACT для создания приложений логики"
+title: "Использование сообщений EDIFACT для интеграции с предприятием в Azure Logic Apps | Документация Майкрософт"
+description: "Обмен сообщениями EDIFACT для интеграции с предприятием с помощью Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,24 +12,28 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: jonfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 30c26d1fb2dfb7c458789e70f4f8d1a6c39cd0ca
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c5ed4f7413bf8a0b4fd188ca451d4a60b761e886
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="enterprise-integration-with-edifact"></a>Интеграция Enterprise с EDIFACT
+# <a name="exchange-edifact-messages-with-logic-apps"></a>Обмен сообщениями EDIFACT с помощью приложений логики
+
 > [!NOTE]
-> В этой статье описываются функции EDIFACT приложений логики. Дополнительные сведения см. в статье, посвященной интеграции с [X12](logic-apps-enterprise-integration-x12.md).
-> 
-> 
+> В этой статье описываются функции EDIFACT в Azure Logic Apps. Дополнительные сведения см. в статье [Интеграция Enterprise с X12](logic-apps-enterprise-integration-x12.md).
 
 ## <a name="create-an-edifact-agreement"></a>Создание соглашения EDIFACT
 Прежде чем начать обмен сообщениями EDIFACT, необходимо создать соглашение EDIFACT и сохранить его в учетной записи интеграции. Ниже последовательно описывается создание соглашения EDIFACT.
 
-### <a name="heres-what-you-need-before-you-get-started"></a>Вот что понадобится для начала работы
+### <a name="before-you-get-started"></a>Необходимые условия
+
+Вам понадобятся следующие компоненты:
+
 * В подписке Azure должна быть определена [учетная запись интеграции](../logic-apps/logic-apps-enterprise-integration-accounts.md).  
 * В учетной записи интеграции должны быть определены по крайней мере два [партнера](logic-apps-enterprise-integration-partners.md).  
 
@@ -194,10 +198,5 @@ ms.openlocfilehash: 30c26d1fb2dfb7c458789e70f4f8d1a6c39cd0ca
 
 ## <a name="learn-more"></a>Подробнее
 * [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

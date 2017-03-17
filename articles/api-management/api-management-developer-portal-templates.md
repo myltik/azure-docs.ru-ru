@@ -15,20 +15,28 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
+ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Настройка портала разработчика в службе управления API Azure с помощью шаблонов
-Служба управления API Azure предоставляет несколько функций настройки, которые позволяют администраторам [настраивать внешний вид портала разработчика](api-management-customize-portal.md), а также содержимое страниц портала разработчика с помощью набора шаблонов, которые регулируют содержимое самих страниц. С помощью синтаксиса [DotLiquid](http://dotliquidmarkup.org/) и указанного набора локализованных строковых ресурсов, значков и элементов управления на странице можно гибко настраивать содержимое страниц по своему усмотрению с использованием этих шаблонов.
+
+Существуют три основных способа настройки портала разработчика в службе управления Azure API.
+
+* [Изменение содержимого статических страниц и элементов макета страницы.][modify-content-layout]
+* [Обновление стилей, которые используются для элементов страницы на портале разработчика][customize-styles].
+* [Изменение шаблонов, используемых для страниц, созданных порталом][portal-templates] (описывается в этом руководстве).
+
+Шаблоны используются для настройки содержимого страниц портала разработчика, создаваемых системой (например, документы API, продукты, аутентификация пользователей и т. д.). С помощью синтаксиса [DotLiquid](http://dotliquidmarkup.org/) и указанного набора локализованных строковых ресурсов, значков и элементов управления на странице можно гибко настраивать содержимое страниц по своему усмотрению.
 
 ## <a name="developer-portal-templates-overview"></a>Обзор шаблонов портала разработчика
-Управление шаблонами портала разработчика осуществляют администраторы службы управления API на портале разработчика. Для управления шаблонами разработчика перейдите к экземпляру службы управления API на портале Azure и щелкните **Портал разработчика** на панели инструментов.
+Чтобы изменить шаблоны, войдите на **портал разработчика** в качестве администратора. Чтобы открыть его, войдите на портал Azure и щелкните **Портал издателя** на панели инструментов для вашего экземпляра службы управления API.
 
-![Портал разработчика][api-management-browse]
+![Портал издателя][api-management-management-console]
 
-Если вы уже находитесь на портале публикации, можно открыть портал разработчика, щелкнув **Портал разработчика**.
+Затем щелкните **Портал разработчика** в правом верхнем углу. 
 
 ![Меню портала разработчика][api-management-developer-portal-menu]
 
@@ -181,6 +189,9 @@ ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
 ## <a name="next-steps"></a>Дальнейшие действия
 Справочную информацию о шаблонах портала разработчика, строковых ресурсах, значках и элементах управления страницы см. в разделе [Azure API Management Templates](api-management-developer-portal-templates-reference.md) (Шаблоны в службе управления API).
 
+[modify-content-layout]: api-management-modify-content-layout.md
+[customize-styles]: api-management-customize-styles.md
+[portal-templates]: api-management-developer-portal-templates.md
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png
@@ -188,6 +199,7 @@ ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
 [api-management-template]: ./media/api-management-developer-portal-templates/api-management-template.png
 [api-management-template-data]: ./media/api-management-developer-portal-templates/api-management-template-data.png
 [api-management-developer-portal-menu]: ./media/api-management-developer-portal-templates/api-management-developer-portal-menu.png
+[api-management-management-console]: ./media/api-management-developer-portal-templates/api-management-management-console.png
 [api-management-browse]: ./media/api-management-developer-portal-templates/api-management-browse.png
 [api-management-user-profile-templates]: ./media/api-management-developer-portal-templates/api-management-user-profile-templates.png
 [api-management-save-template]: ./media/api-management-developer-portal-templates/api-management-save-template.png
@@ -206,10 +218,5 @@ ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

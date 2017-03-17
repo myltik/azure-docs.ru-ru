@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 84b64fd79da641987d5346d90bb77bde154b58c4
-ms.openlocfilehash: 6c89e59fc948606860439b12987676c453732f55
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 9e0a007a910b6ba887800184fb66bf9198b13adc
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-networking-infrastructure-guidelines"></a>Рекомендации по сетевой инфраструктуре Azure
+# <a name="azure-networking-infrastructure-guidelines-for-windows-vms"></a>Рекомендации по сетевой инфраструктуре Azure для виртуальных машин Windows 
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Эта статья посвящена действиям по планированию виртуальной сети в Azure и подключения к существующим локальным средам.
@@ -102,10 +105,5 @@ ms.openlocfilehash: 6c89e59fc948606860439b12987676c453732f55
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

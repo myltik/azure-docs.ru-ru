@@ -1,6 +1,6 @@
 ---
-title: "Добавление нескольких каталогов Azure Active Directory и управление ими | Документация Майкрософт"
-description: "Инструкции и рекомендации по добавлению каталогов Azure Active Directory и управлению ими (здесь каталоги рассматриваются как полностью независимые ресурсы)."
+title: "Характеристики каталогов Azure Active Directory | Документация Майкрософт"
+description: "Управление каталогами Azure Active Directory как полностью независимыми ресурсами."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Добавление нескольких каталогов Azure Active Directory и управление ими
+# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>Сведения о взаимодействии нескольких каталогов Azure Active Directory
 В системе Azure Active Directory (Azure AD) каждый каталог является полностью независимым ресурсом: равноправным, полнофункциональным и логически независимым от других каталогов, которыми вы управляете. Между каталогами нет связи типа «родительский объект — дочерний объект». Такая независимость каталогов подразумевает и независимость ресурсов, административную независимость и независимость синхронизации.
 
 ## <a name="resource-independence"></a>Независимость ресурсов
@@ -49,9 +51,4 @@ ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Общие сведения о лицензировании Azure AD и рекомендации по работе с этой службой см. в статье [Что такое лицензирование Azure Active Directory?](active-directory-licensing-what-is.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

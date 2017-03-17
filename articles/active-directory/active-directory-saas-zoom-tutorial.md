@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
+ms.sourcegitcommit: f5640d84774898e1c51c5dcfa52aab781cddf044
+ms.openlocfilehash: eb4966d74ffc4360605f6c88570bfb7833abaef1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-zoom-tutorial/IC784693.png "Scenario")
+![Сценарий](./media/active-directory-saas-zoom-tutorial/IC784693.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-zoom"></a>Включение интеграции приложений для Zoom
 В этом разделе показано, как включить интеграцию приложений для Zoom.
@@ -47,16 +48,16 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-zoom-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-zoom-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-zoom-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-zoom-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-zoom-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-zoom-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Zoom**.
    
-   ![Коллекция приложений](./media/active-directory-saas-zoom-tutorial/IC784694.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-zoom-tutorial/IC784694.png "Коллекция приложений")
 7. В области результатов выберите **Zoom** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Zoom](./media/active-directory-saas-zoom-tutorial/IC784695.png "Zoom")
@@ -69,24 +70,24 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Zoom** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784696.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784696.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Zoom?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784697.png "Настройка единого входа")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Zoom** введите URL-адрес в формате *http://company.zoom.us* и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-zoom-tutorial/IC784698.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Zoom** щелкните **Скачать сертификат**, а затем сохраните файл сертификата на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784699.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784699.png "Настройка единого входа")
 5. В другом окне браузера войдите на свой корпоративный сайт Zoom в качестве администратора.
 6. Выберите вкладку **Единый вход** .
    
-   ![Единый вход](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single sign-on")
+   ![Единый вход](./media/active-directory-saas-zoom-tutorial/IC784700.png "Единый вход")
 7. Откройте вкладку **Security Control** (Контроль безопасности) и перейдите к параметрам **единого входа**.
-8. В разделе "Единый вход" выполните следующие действия.
+8. В разделе "Единый вход" выполните следующие действия:
    
-   ![Единый вход](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
+   ![Единый вход](./media/active-directory-saas-zoom-tutorial/IC784701.png "Единый вход")
    
    1. На странице диалогового окна **Настройка единого входа в Zoom** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **URL-адрес страницы входа**.
    2. На странице диалогового окна **Настройка единого входа в Zoom** классического портала Azure скопируйте значение поля **URL-адрес службы единого выхода** и вставьте его в текстовое поле **URL-адрес страницы выхода**.
@@ -101,7 +102,7 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
    6. Щелкните **Сохранить**.
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784702.png "Configure single sign-on")
+   ![Настройка единого входа](./media/active-directory-saas-zoom-tutorial/IC784702.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнять вход в Zoom, они должны быть подготовлены для Zoom.  
@@ -112,10 +113,10 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 2. Откройте вкладку **Account Management** (Управление учетными записями), а затем щелкните **User Management** (Управление пользователями).
 3. В разделе «Управление пользователями» щелкните **Добавить пользователей**.
    
-   ![Управление пользователями](./media/active-directory-saas-zoom-tutorial/IC784703.png "User management")
+   ![Управление пользователями](./media/active-directory-saas-zoom-tutorial/IC784703.png "Управление пользователями")
 4. На странице **Добавление пользователей** сделайте следующее:
    
-   ![Добавление пользователей](./media/active-directory-saas-zoom-tutorial/IC784704.png "Add users")
+   ![Добавление пользователей](./media/active-directory-saas-zoom-tutorial/IC784704.png "Добавление пользователей")
    
    1. В поле **User Type** (Тип пользователя) задайте значение **Basic** (Базовый).
    2. В текстовом поле **Электронные адреса** введите адрес действующей учетной записи AAD, которую требуется подготовить.
@@ -133,16 +134,11 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Zoom** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-zoom-tutorial/IC784705.png "Assign users")
+   ![Назначение пользователей](./media/active-directory-saas-zoom-tutorial/IC784705.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-zoom-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-zoom-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -169,7 +169,7 @@
 ## [Интерфейс командной строки Azure](/cli/azure/storage)
 ## .NET
 ### [Диспетчер ресурсов](/dotnet/api/microsoft.azure.management.storage)
-### [Перемещение данных](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [Перемещение данных](/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [BLOB-объекты, очереди, таблицы и файлы](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)

@@ -54,6 +54,9 @@
 ### [Запуск и остановка виртуальных машин в нерабочее время](automation-solution-vm-management.md)
 ### [Интеграция системы управления версиями с помощью GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Интеграция системы управления версиями с помощью VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Решения
+### [Отслеживание изменений](../log-analytics/log-analytics-change-tracking.md)
+### [Управление обновлениями](../operations-management-suite/oms-solution-update-management.md)
 ## Монитор
 ### [Пересылка данных задания службы автоматизации Azure в Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Отмена привязки учетной записи службы автоматизации Azure к Log Analytics](automation-unlink-from-log-analytics.md)

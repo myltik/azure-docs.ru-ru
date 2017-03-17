@@ -1,6 +1,6 @@
 ---
-title: "Сборка и развертывание приложений логики Azure в Visual Studio | Документация Майкрософт"
-description: "Создание проектов Visual Studio для проектирования, создания и развертывания приложений логики в Azure."
+title: "Создание, сборка и развертывание приложений логики в Visual Studio с помощью Azure Logic Apps | Документация Майкрософт"
+description: "Узнайте, как создавать проекты Visual Studio для проектирования, создания и развертывания приложений логики с помощью Azure Logic Apps."
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,17 +12,21 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: bbee0bae5a20375f0de8adaedadd682dc051fb64
-ms.openlocfilehash: d1b0ca953e5ee40129f00b78ad1a46514270d448
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5dfff8620d66eca0d54763efbc5702e4b4d122d1
+ms.lasthandoff: 03/14/2017
 
 ---
-# <a name="build-and-deploy-azure-logic-apps-in-visual-studio"></a>Создание и развертывание приложений логики Azure в Visual Studio
 
-Хотя [портал Azure](https://portal.azure.com/) позволяет легко проектировать и администрировать приложения логики, вы также можете использовать Visual Studio для создания и развертывания приложений логики. Расширенные средства Visual Studio позволяют создавать приложения логики с помощью конструктора Logic Apps, настраивать шаблоны развертывания и автоматизации, а также развертывать приложения в любой среде.
+# <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Проектирование, создание и развертывание приложений логики Azure в Visual Studio
+
+Хотя [портал Azure](https://portal.azure.com/) позволяет легко создавать и администрировать приложения логики с помощью службы Azure Logic Apps, вы также можете использовать Visual Studio для проектирования, создания и развертывания приложений логики. Расширенные средства Visual Studio, такие как конструктор приложений логики, позволяют создавать приложения логики, настраивать шаблоны развертывания и автоматизации, а также развертывать приложения в любой среде. 
+
+Если вы еще не знакомы с Azure Logic Apps, то см. статью [Создание нового приложения логики, подключающего службы SaaS](logic-apps-create-a-logic-app.md).
 
 ## <a name="installation-steps"></a>Шаги установки
 
@@ -39,7 +43,7 @@ ms.openlocfilehash: d1b0ca953e5ee40129f00b78ad1a46514270d448
 
 После установки необходимых компонентов выполните следующие действия.
 
-1. Откройте Visual Studio 2015. Откройте меню **Средства** и выберите пункт **Расширения и обновления**.
+1. Откройте Visual Studio. Откройте меню **Средства** и выберите пункт **Расширения и обновления**.
 2. Разверните категорию **В сети**, чтобы выполнить поиск в Интернете.
 3. Найдите **средства Azure Logic Apps Tools для Visual Studio**. Если потребуется, выполните поиск по названию **Logic Apps**.
 4. Нажмите кнопку **Скачать**, чтобы скачать и установить это расширение.
@@ -69,7 +73,7 @@ ms.openlocfilehash: d1b0ca953e5ee40129f00b78ad1a46514270d448
 
     ![Файл развертывания](./media/logic-apps-deploy-from-vs/deployment.png)
 
-## <a name="create-your-logic-app-in-logic-app-designer"></a>Создание приложения логики в конструкторе Logic App
+## <a name="create-your-logic-app-with-logic-app-designer"></a>Создание приложения логики с помощью конструктора приложений логики
 
 Когда у вас будет проект группы ресурсов Azure, который содержит приложение логики, вы можете открыть в Visual Studio конструктор Logic App для создания рабочего процесса. 
 
@@ -156,7 +160,7 @@ Visual Studio добавляет в файл ресурсов ресурс `Micr
 
 Если на момент сохранения приложение логики содержит какие-либо ошибки, они отобразятся в окне **Вывод** Visual Studio.
 
-## <a name="deploy-your-logic-app"></a>Развертывание приложения логики
+## <a name="deploy-your-logic-app-from-visual-studio"></a>Развертывание приложения логики из Visual Studio
 
 Когда настройка приложения логики будет завершена, вы можете развернуть его, выполнив несколько простых действий напрямую из Visual Studio. 
 
@@ -201,13 +205,8 @@ Visual Studio добавляет в файл ресурсов ресурс `Micr
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Если вы еще не знакомы с Azure Logic Apps, см. [это руководство](logic-apps-create-a-logic-app.md).
+* [Управление Logic Apps с помощью Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 * [Примеры приложений логики и распространенные сценарии](logic-apps-examples-and-scenarios.md)
 * Узнайте, как можно [автоматизировать бизнес-процессы с помощью Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694).
 * Изучите вопросы [интеграции систем с Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

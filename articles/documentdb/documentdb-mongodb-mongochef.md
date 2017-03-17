@@ -1,6 +1,6 @@
 ---
 title: "Использование MongoChef для MongoDB с Azure DocumentDB | Документация Майкрософт"
-description: "Узнайте, как использовать MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии."
+description: "Узнайте, как использовать MongoChef с учетной записью &quot;DocumentDB: API для MongoDB&quot;."
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
@@ -13,30 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Использование MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB
-Для подключения с помощью MongoChef к учетной записи Azure DocumentDB с поддержкой протокола MongoDB вам потребуется:
+# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>Использование MongoChef с учетной записью "DocumentDB: API для MongoDB"
+
+Чтобы подключиться к учетной записи Azure "DocumentDB: API для MongoDB", необходимо:
 
 * скачать и установить [MongoChef](http://3t.io/mongochef)
-* подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи DocumentDB с поддержкой протокола MongoDB;
+* подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи "DocumentDB: API для MongoDB";
 
 ## <a name="create-the-connection-in-mongochef"></a>создать подключение в MongoChef.
-Чтобы добавить в диспетчер подключений MongoChef учетную запись DocumentDB с поддержкой протокола MongoDB, сделайте следующее.
+Чтобы добавить в диспетчер подключений MongoChef учетную запись "DocumentDB: API для MongoDB", сделайте следующее.
 
-1. Извлеките сведения о подключении DocumentDB с поддержкой протокола MongoDB. Ознакомьтесь с инструкциями [здесь](documentdb-connect-mongodb-account.md).
+1. Извлеките сведения о подключении учетной записи"DocumentDB: API для MongoDB". Ознакомьтесь с инструкциями [здесь](documentdb-connect-mongodb-account.md).
 
     ![Снимок экрана, колонка строки подключения](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Щелкните **Connect** (Подключиться), чтобы открыть диспетчер подключений, и нажмите кнопку **New Connection** (Новое подключение).
 
     ![Снимок экрана диспетчера подключений MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. В окне **New Connection** (Новое подключение) на вкладке **Server** (Сервер) введите узел (полное доменное имя) учетной записи DocumentDB с поддержкой протокола MongoDB и порт для подключения.
+3. В окне **New Connection** (Новое подключение) на вкладке **Server** (Сервер) введите узел (полное доменное имя) учетной записи "DocumentDB: API для MongoDB" и порт для подключения.
 
     ![Снимок экрана диспетчера подключений MongoChef, вкладка серверов](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. В окне **New Connection** (Новое подключение) на вкладке **Authentication** (Аутентификация) выберите режим аутентификации **Standard (MONGODB-CR or SCARM-SHA-1)** (Стандартная (MONGODB CR или SCARM-SHA-1)), а также введите имя пользователя и пароль.  Подтвердите базу данных по умолчанию для проверки подлинности (admin) или укажите другое значение.
@@ -114,10 +116,5 @@ ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
     ![Снимок экрана Mongo Chef, результаты запроса](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Изучите [примеры](documentdb-mongodb-samples.md)использования DocumentDB с поддержкой протокола MongoDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Ознакомьтесь с [примерами](documentdb-mongodb-samples.md) DocumentDB: API для MongoDB.
 

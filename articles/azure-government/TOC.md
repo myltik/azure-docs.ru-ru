@@ -37,6 +37,7 @@
 ### [Безопасность и идентификация](documentation-government-services-securityandidentity.md)
 ### [Мониторинг и управление](documentation-government-services-monitoringandmanagement.md)
 ### [Интернет и мобильные устройства](documentation-government-services-webandmobile.md)
+### [Службы мультимедиа](documentation-government-services-media.md)
 
 
 # Ресурсы

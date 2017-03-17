@@ -1,6 +1,6 @@
 ---
-title: "Оценка приложений и микрослужб Azure Service Fabric | Документация Майкрософт"
-description: "Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric."
+title: "Оценка приложений Service Fabric в Azure Log Analytics с помощью PowerShell | Документация Майкрософт"
+description: "Решение Service Fabric в Log Analytics можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric с помощью PowerShell."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
-ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
+ms.sourcegitcommit: 6d20dc322a2493b9dd9a3fd843512befc1e90100
+ms.openlocfilehash: a822e7eb85eca42cba85d191e1effd7240deb1af
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Решение Service Fabric в Log Analytics)
+# <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Оценка приложений и микрослужб Azure Service Fabric с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Диспетчер ресурсов](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
 >
 >
@@ -636,9 +637,4 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
