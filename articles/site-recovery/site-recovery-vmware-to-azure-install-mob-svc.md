@@ -12,21 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: f3f9bc205cd038ae636face742292cb28654fd39
-ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
+ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
+ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="installing-mobility-service-vmwarephysical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
-Службу Mobility Service необходимо развернуть на каждом компьютере (виртуальной машине VMware или физическом сервере), для которого требуется выполнить репликацию в Azure. Она фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки.  Службу Mobility Service можно развернуть на серверах, защиту которых необходимо обеспечить, одним из следующих методов.
+Службу Mobility Service необходимо развернуть на каждом компьютере (виртуальной машине VMware или физическом сервере), для которого требуется выполнить репликацию в Azure. Она фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Службу Mobility Service можно развернуть на серверах, защиту которых необходимо обеспечить, одним из следующих методов.
+
+
 1. [Установка с помощью инструментов развертывания программного обеспечения, таких как System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md).
 2. [Установка с помощью службы автоматизации Azure и настройки требуемого состояния (DSC)](site-recovery-automate-mobility-service-install.md).
 3. [Ручная установка с помощью графического пользовательского интерфейса (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-the-graphical-user-interface).
 4. [Ручная установка Mobility Service с помощью командной строки](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-command-line).
 5. [Принудительная установка Mobility Service с помощью Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-using-push-install-from-azure-site-recovery).
+
+
+>[!IMPORTANT]
+> Начиная с версии 9.7.0.0, на виртуальных машинах Windows установщик Mobility Service также устанавливает последнюю доступную версию [агента виртуальной машины](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). Это гарантирует, что при отработке отказа виртуальной машины в Azure она будет соответствовать приведенным ниже предварительным требованиям для использования любого расширения виртуальной машины.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом установки службы Mobility Service на своих серверах вручную выполните следующие предварительные требования.
@@ -77,9 +84,4 @@ ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После установки службы Mobility Service на портале Azure нажмите кнопку **+Replicate** (+ Реплицировать), чтобы включить защиту этих виртуальных машин.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

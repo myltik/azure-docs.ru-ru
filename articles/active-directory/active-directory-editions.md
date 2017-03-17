@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -144,7 +145,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 **Дополнительные сведения:**
 
-* [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md)
+* [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Подключение (механизм синхронизации, позволяющий организовать совместный доступ к локальным каталогам через Azure Active Directory)
 **Тип:** общие функции
@@ -241,7 +242,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 ## <a name="premium-features"></a>Функции уровня "Премиум"
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>Самостоятельное управление группами, самостоятельное добавление приложений, динамические группы
+#### <a name="self-service-group"></a>Самостоятельное управление группами, самостоятельное добавление приложений, динамические группы
 **Тип:** функции уровня "Премиум"
 
 **Доступность.**
@@ -273,7 +274,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 * [Что такое Многофакторная идентификация Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Сервер "MIM CAL + MIM"
+#### <a name="mim-cal-mim-server"></a>Сервер "MIM CAL + MIM"
 Права на программное обеспечение Microsoft Identity Manager Server предоставляются вместе с лицензиями на любой выпуск Windows Server. Так как Microsoft Identity Manager работает в операционной системе Windows Server, то при использовании на сервере допустимой лицензионной копии Windows Server можно установить и использовать на этом сервере Microsoft Identity Manager. Для Microsoft Identity Manager Server не требуется отдельной лицензии.
 
 **Тип:** функции уровня "Премиум"
@@ -344,7 +345,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 | ![Проверка][12] |![Проверка][12] |![Проверка][12] |![Проверка][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>Автоматическая регистрация в MDM, самостоятельное восстановление BitLocker, присоединение дополнительных локальных администраторов к устройствам под управлением Windows 10 с помощью присоединения к Azure AD
+#### <a name="mdm-auto-enrollment"></a>Автоматическая регистрация в MDM, самостоятельное восстановление BitLocker, присоединение дополнительных локальных администраторов к устройствам под управлением Windows 10 с помощью присоединения к Azure AD
 **Тип:** присоединение к Azure Active Directory — только функции Windows 10
 
 **Доступность.**
@@ -384,9 +385,4 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

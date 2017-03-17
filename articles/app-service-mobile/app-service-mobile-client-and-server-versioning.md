@@ -4,7 +4,7 @@ description: "Список пакетов SDK клиента и сведения
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d1ef7821eee67f4b9ace01af7e41bd7fdd28b5e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,12 +64,12 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0.
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="a-name100amobile-services-client-and-server"></a><a name="1.0.0"></a>Клиент и сервер мобильных служб
+## <a name="1.0.0"></a>Клиент и сервер мобильных служб
 Пакеты SDK клиента в таблице ниже совместимы с **мобильными службами**.
 
 Примечание. Пакеты SDK для клиента мобильных служб *не* отправляют значение заголовка для `ZUMO-API-VERSION`. Если служба получает этот заголовок или значение строки запроса, будет возвращена ошибка, если только вы явно не отказались от проверки версий (см. выше).
 
-### <a name="a-namemobileservicesclientsa-mobile-services-client-sdks"></a><a name="MobileServicesClients"></a> Пакеты SDK для клиента мобильных *служб*
+### <a name="MobileServicesClients"></a> Пакеты SDK для клиента мобильных *служб*
 | Платформа клиента | Version (версия) | Значение заголовка версии |
 | --- | --- | --- |
 | Управляемый клиент (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |Недоступно |
@@ -91,8 +92,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0.
 | Любое значение |Истина |200 – OK |
 | Любое значение |False/не указан |400 – неверный запрос |
 
-## <a name="a-name200aazure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Клиент и сервер мобильных приложений Azure
-### <a name="a-namemobileappsclientsa-mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> Пакеты SDK для клиента мобильных *приложений*
+## <a name="2.0.0"></a>Клиент и сервер мобильных приложений Azure
+### <a name="MobileAppsClients"></a> Пакеты SDK для клиента мобильных *приложений*
 Проверка версии была добавлена, начиная со следующих версий пакета SDK для клиента **мобильных приложений Azure**:
 
 | Платформа клиента | Version (версия) | Значение заголовка версии |
@@ -127,12 +128,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0.
 [Клиенты мобильных приложений]: #MobileAppsClients
 
 
-[пакет SDK для сервера мобильных приложений]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Перенос существующей мобильной службы Azure в службу приложений Azure]: app-service-mobile-migrating-from-mobile-services.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
