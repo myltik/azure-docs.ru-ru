@@ -49,6 +49,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Шаблон](virtual-networks-create-vnetpeering-arm-template-click.md)
 
+### [Сетевые интерфейсы](virtual-network-network-interface.md)
+
+### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md) (раздел "Общедоступные IP-адреса")
+
 ### Виртуальные машины
 
 #### Статические общедоступные IP-адреса
@@ -123,9 +127,9 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Справочные материалы
-## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (классическая модель)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Интерфейс командной строки Azure](/cli/azure/)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Интерфейс командной строки Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj157182.aspx)
