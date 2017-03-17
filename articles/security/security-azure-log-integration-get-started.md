@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/07/2017
+ms.date: 03/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
-ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f5f5597e09128236fd659b68c70d587d87a0832a
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="get-started-with-azure-log-integration-preview"></a>Приступая к работе со службой интеграции журналов Azure (предварительная версия)
+# <a name="get-started-with-azure-log-integration"></a>Приступая к работе со службой интеграции журналов Azure
 Служба интеграции журналов Azure позволяет интегрировать необработанные журналы из ресурсов Azure с локальными системами SIEM (Security Information and Event Management). С помощью такой интеграции вы можете иметь доступ ко всем своим ресурсам, локальным или облачным, на единой панели мониторинга, что позволяет выполнять статистическую обработку, сопоставление и анализ, а также предупреждать о событиях безопасности, связанных с приложениями.
 
 В этом учебнике рассматривается установка службы интеграции журналов Azure и интеграция журналов из службы хранилища Azure, журналов аудита Azure и оповещений центра безопасности Azure. Предполагаемое время выполнения заданий этого учебника: один час.
@@ -129,15 +129,22 @@ ms.lasthandoff: 02/24/2017
 
 ## <a name="integrate-azure-active-directory-audit-logs"></a>Интеграция журналов аудита Azure Active Directory
 1. Откройте окно командной строки и с помощью команды **cd** перейдите в каталог **c:\Program Files\Microsoft Azure Log Integration**.
-2. Выполните команду .\AZLOG.exe authorizedirectoryreader <TenantID> Пример: 
+2. Выполните команду, указав идентификатор клиента. Для выполнения команды необходимо быть членом роли администратора клиента.
 
-.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+AZLOG.exe authorizedirectoryreader tenantId
 
-3. Проверьте следующие папки, в которых должны создаваться JSON-файлы журнала аудита Azure Active Directory: 
-* **C:\Users\azlog\AzureActiveDirectoryJson**   
+Пример
+
+AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
+
+3. Проверьте следующие папки, в которых должны создаваться JSON-файлы журнала аудита Azure Active Directory:
+* **C:\Users\azlog\AzureActiveDirectoryJson**  
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 4. Перенаправьте стандартный соединитель пересылки файлов SIEM в соответствующую папку, чтобы передавать данные экземпляру SIEM. Может потребоваться сопоставить некоторые поля согласно используемому продукту SIEM.
+
+[Список событий, регистрируемых в настоящее время как события аудита в Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 В случае проблем при установке и настройке создайте [запрос в службу поддержки](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), указав "Интеграция журнала" в качестве службы, для которой запрашивается поддержка.
 

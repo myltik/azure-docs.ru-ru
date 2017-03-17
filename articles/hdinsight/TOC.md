@@ -53,6 +53,7 @@
 ### [Варианты хранилищ](hdinsight-hadoop-r-server-storage.md)
 ### [Установка RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Контексты вычислений](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR и SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Использование Spark для обработки в памяти
 ### [С помощью Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [С помощью инструментов бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)

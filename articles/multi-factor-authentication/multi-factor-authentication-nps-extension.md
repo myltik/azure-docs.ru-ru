@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/23/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 68f1088a7303b5eddecc9ff99f7330c0462baafc
-ms.openlocfilehash: 9fb517a08fb56a1adb9e23f820aa2e4aa20eacf6
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="augment-your-existing-authentication-infrastructure-with-the-nps-extension-for-azure-multi-factor-authentication---public-preview"></a>Включение расширения NPS для многофакторной идентификации Azure (общедоступная предварительная версия) в существующую инфраструктуру проверки подлинности
+# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Интеграция имеющейся инфраструктуры NPS со службой Многофакторной идентификации Azure (общедоступная предварительная версия)
 
 Расширение сервера политики сети (NPS) для MFA Azure добавляет облачные функции многофакторной идентификации в инфраструктуру проверки подлинности на базе существующих серверов. Расширение NPS позволяет добавить телефонный звонок, текстовое сообщение или запрос на подтверждение в мобильном приложении в существующий процесс проверки подлинности, позволяя обойтись без установки, настройки и поддержания новых серверов. 
  
@@ -155,9 +156,4 @@ Windows Server 2008 R2 SP1 или более поздней версии, в 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Научитесь интегрировать MFA Azure с [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [проверкой подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md) и [проверкой подлинности LDAP](multi-factor-authentication-get-started-server-ldap.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

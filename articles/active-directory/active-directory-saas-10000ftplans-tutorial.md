@@ -1,5 +1,5 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Novatus | Документация Майкрософт"
+title: "Руководство по интеграции Azure Active Directory с 10,000ft Plans | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход Azure Active Directory в 10,000ft Plans."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
-ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
+ms.sourcegitcommit: 2a1f3df856116e372518b2f88460b3c6905c4c9a
+ms.openlocfilehash: 584ddcfc53afee6a8ff11a03d662d8acf58e4820
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -112,7 +113,7 @@ ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
     b. В текстовом поле **Идентификатор** введите `https://app.10000ft.com/saml/metadata`.
 
     > [!NOTE] 
-    > Значение для **идентификатора** отличается, если у вас есть личный домен. Если вам требуется помощь, обратитесь в [службу поддержки 10,000ft Plans](mailto:support@10000ft.com).  
+    > Значение для **идентификатора** отличается, если у вас есть личный домен. Если вам требуется помощь, обратитесь в [службу поддержки&10;,000ft Plans](mailto:support@10000ft.com).  
 
     c. Щелкните **Далее**
 
@@ -124,7 +125,7 @@ ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
     а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
-2. Чтобы получить данные единого входа, настроенные для вашего приложения, обратитесь в [службу поддержки 10,000ft Plans](mailto:support@10000ft.com), прикрепите скачанный файл сертификата и укажите URL-адрес издателя, URL-адрес единого входа SAML и URL-адрес единого выхода.
+2. Чтобы получить данные единого входа, настроенные для вашего приложения, обратитесь в [службу поддержки&10;,000ft Plans](mailto:support@10000ft.com), прикрепите скачанный файл сертификата и укажите URL-адрес издателя, URL-адрес единого входа SAML и URL-адрес единого выхода.
 3. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
@@ -184,7 +185,7 @@ ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-10000ft-plans-test-user"></a>Создание тестового пользователя 10,000ft Plans
-Цель этого раздела — создать пользователя с именем Britta Simon в 10,000ft Plans. Приложение 10,000ft Plans поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+Цель этого раздела — создать пользователя с именем Britta Simon в 10,000ft Plans. Приложение&10;,000ft Plans поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
 В этом разделе никакие действия с вашей стороны не требуются. При попытке получить доступ к 10,000ft Plans будет создан пользователь (если он еще не создан). 
 
@@ -239,9 +240,4 @@ ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

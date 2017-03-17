@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
-ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Политики преобразования службы управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nametransformationpoliciesa-transformation-policies"></a><a name="TransformationPolicies"></a> Политики преобразования  
+##  <a name="TransformationPolicies"></a> Политики преобразования  
   
 -   [Преобразование JSON в XML](api-management-transformation-policies.md#ConvertJSONtoXML) – преобразует текст запроса или ответа в формате JSON в формат XML.  
   
@@ -44,7 +45,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   [Преобразование XML с помощью XSLT](api-management-transformation-policies.md#XSLTransform) — применяет преобразование данных в формате XSL в формат XML в тексте запроса или ответа.  
   
-##  <a name="a-nameconvertjsontoxmla-convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Преобразование JSON в XML  
+##  <a name="ConvertJSONtoXML"></a> Преобразование JSON в XML  
  Политика `json-to-xml` преобразует текст запроса или ответа в формате JSON в формат XML.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -87,7 +88,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-nameconvertxmltojsona-convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Преобразование XML в JSON  
+##  <a name="ConvertXMLtoJSON"></a> Преобразование XML в JSON  
  Политика `xml-to-json` преобразует текст запроса или ответа в формате XML в формат JSON. Эту политику можно использовать для модернизации интерфейсов API, основанных на серверных веб-службах (только XML).  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -131,7 +132,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namefindandreplacestringinbodya-find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Поиск и замена строки в тексте  
+##  <a name="Findandreplacestringinbody"></a> Поиск и замена строки в тексте  
  Политика `find-and-replace` отыскивает подстроку запроса или ответа и заменяет ее на другую подстроку.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -166,7 +167,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namemaskurlscontenta-mask-urls-in-content"></a><a name="MaskURLSContent"></a> Маскировка URL-адресов в содержимом  
+##  <a name="MaskURLSContent"></a> Маскировка URL-адресов в содержимом  
  Политика `redirect-content-urls` перезаписывает (маскирует) ссылки в тексте ответа так, чтобы каждая из них указывала на эквивалентную ссылку через шлюз. Используйте в разделе outbound, чтобы перезаписать ссылки текста ответа так, чтобы они указывали на шлюз. Используйте в разделе inbound для обратного эффекта.  
   
 > [!NOTE]
@@ -197,7 +198,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namesetbackendservicea-set-backend-service"></a><a name="SetBackendService"></a> Задание внутренней службы  
+##  <a name="SetBackendService"></a> Задание внутренней службы  
  Используйте политику `set-backend-service` для перенаправления входящего запроса во внутреннюю службу, отличную от указанной в параметрах API для этой операции. Эта политика изменяет базовый URL-адрес внутренней службы входящего запроса на URL-адрес, указанный в политике.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -254,7 +255,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namesetbodya-set-body"></a><a name="SetBody"></a> Задание текста  
+##  <a name="SetBody"></a> Задание текста  
  Используйте политику `set-body`, чтобы задать текст сообщения для входящих и исходящих запросов. Для доступа к тексту сообщения можно использовать свойство `context.Request.Body` или `context.Response.Body` в зависимости от того, где находится политика: в разделе inbound или outbound.  
   
 > [!IMPORTANT]
@@ -330,13 +331,71 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   </when>  
 </choose>  
 ```  
-  
+
+### <a name="using-liquid-templates-with-set-body"></a>Использование шаблонов Liquid с политикой set-body 
+В политике `set-body` можно настроить использование языка шаблонов [Liquid](https://shopify.github.io/liquid/basics/introduction/) для преобразования текста запроса или ответа. Это может быть очень эффективным, когда требуется полностью изменить формат сообщения.
+
+> [!IMPORTANT]
+> Реализация шаблонов Liquid, используемая в политике `set-body`, настраивается в режиме C#. Это особенно важно при выполнении действий, таких как фильтрация. Например, если применяется фильтр по дате, то необходимо использовать стиль Pascal и форматирование даты C#, как в следующем примере:
+>
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> Чтобы с помощью шаблона Liquid правильно выполнить привязку к тексту XML, используйте политику `set-header`. Задайте для Content-Type значение application/xml или text/xml (или любой другой тип, заканчивающийся на +xml). Для текста JSON значение должно быть application/json или text/json (или любой другой тип, заканчивающийся на +json).
+
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Преобразование JSON в SOAP с помощью шаблона Liquid
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### <a name="tranform-json-using-a-liquid-template"></a>Преобразование JSON с помощью шаблона Liquid
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### <a name="elements"></a>Элементы  
   
 |Имя|Описание|Обязательно|  
 |----------|-----------------|--------------|  
 |set-body|Корневой элемент. Содержит текст или выражения, которые возвращают текст.|Да|  
+
+### <a name="properties"></a>Свойства  
   
+|Имя|Описание|Обязательно|значение по умолчанию|  
+|----------|-----------------|--------------|-------------|  
+|шаблон|Используется для изменения режима шаблона, в котором будет выполняться политика set-body. В настоящее время поддерживается только одно значение:<br /><br />- liquid — политика set-body будет использовать подсистему шаблонов Liquid. |Нет|liquid|  
+
+Для доступа к сведениям о запросе и ответе шаблон Liquid можно привязать к объекту context с помощью следующих свойств: <br />
+<pre>context.
+Request.
+Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+URL-адрес.
+Scheme Host Port Path Query QueryString ToUri ToString
+
+OriginalUrl.
+Scheme Host Port Path Query QueryString ToUri ToString
+</pre>
+
+
+
 ### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -344,7 +403,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namesethttpheadera-set-http-header"></a><a name="SetHTTPheader"></a> Установка HTTP-заголовка  
+##  <a name="SetHTTPheader"></a> Установка HTTP-заголовка  
  Политика `set-header` назначает значение имеющемуся заголовку ответа и/или запроса или добавляет новый заголовок ответа и/или запроса.  
   
  Вставляет список HTTP-заголовков в HTTP-сообщение. Если эта политика находится во входящем конвейере, она устанавливает HTTP-заголовки для запроса, передаваемого в целевую службу. Если эта политика находится в исходящем конвейере, она устанавливает HTTP-заголовки для ответа, отправляемого клиенту шлюза.  
@@ -401,7 +460,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namesetquerystringparametera-set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Настройка параметра строки запроса  
+##  <a name="SetQueryStringParameter"></a> Настройка параметра строки запроса  
  Политика `set-query-parameter` добавляет, заменяет значение или удаляет параметр строки запроса. Можно использовать для передачи параметров запроса, ожидаемых внутренней службой, которые являются необязательными или никогда не присутствуют в запросе.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -461,7 +520,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namerewriteurla-rewrite-url"></a><a name="RewriteURL"></a> Перезапись URL-адреса  
+##  <a name="RewriteURL"></a> Перезапись URL-адреса  
  Политика `rewrite-uri` преобразовывает URL-адрес запроса из его общедоступной формы в форму, ожидаемую веб-службой, как показано в следующем примере.  
   
 -   Открытый URL — `http://api.example.com/storenumber/ordernumber`.  
@@ -539,7 +598,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **Области политики:** product, API, operation.  
   
-##  <a name="a-namexsltransforma-transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Преобразование XML с помощью XSLT  
+##  <a name="XSLTransform"></a> Преобразование XML с помощью XSLT  
  Политика `Transform XML using an XSLT` применяет преобразование данных в формате XSL в формат XML в тексте запроса или ответа.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -574,7 +633,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   <outbound>  
       <base />  
       <xsl-transform>  
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -582,7 +641,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-        </xsl:stylesheet>  
+          </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -605,9 +664,4 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

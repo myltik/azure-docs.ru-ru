@@ -1,5 +1,5 @@
 ---
-title: "Выполнение параллельных задач для максимального использования ресурсов узла с помощью пакетной службы Azure | Документация Майкрософт"
+title: "Параллельное выполнение задач для эффективного использования вычислительных ресурсов пакетной службы Azure | Документация Майкрософт"
 description: "Вы можете увеличить эффективность и снизить стоимость, используя меньшее количество вычислительных узлов. Это возможно благодаря параллельному выполнению задач на каждом узле в пуле пакетной службы Azure."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: 8080c8c43d1e88381cd49bdac6a5f36b6cd82709
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: c4053ded725ad7ab2acc6d5d54e8343ffb961408
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="maximize-azure-batch-compute-resource-usage-with-concurrent-node-tasks"></a>Повышение эффективности вычислительных ресурсов в пакетной службе Azure благодаря параллельному выполнению задач на узлах
+# <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Параллельное выполнение задач для эффективного использования вычислительных узлов пакетной службы 
+
 Выполняя несколько задач одновременно на каждом вычислительном узле в пуле пакетной службы Azure, можно увеличить использование ресурсов при меньшем количестве узлов в пуле. Для некоторых рабочих нагрузок это позволит сократить время выполнения заданий и уменьшить затраты.
 
 Во многих случаях выгоднее использовать все ресурсы узла для выполнения одной задачи. Но для нескольких ситуаций совместное использование ресурсов несколькими задачами дает следующие преимущества:
@@ -143,9 +146,4 @@ Duration: 00:08:48.2423500
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

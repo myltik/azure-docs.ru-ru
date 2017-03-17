@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
-ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -46,7 +47,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 Прежде чем начать работу по этим разделам, необходимо обеспечить наличие следующего:
 
 * Подписка Azure. Если у вас ее нет, см. статью [о получении бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Рекомендуется] Visual Studio 2013 или 2015. Если вы еще не установили одну из этих версий, можно скачать бесплатный выпуск Community [отсюда](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Нажмите кнопку **Скачайте Community 2015** в разделе Visual Studio. 
+* [Рекомендуется] Visual Studio 2013 или более поздней версии. Если вы еще не установили одну из этих версий, можно скачать бесплатную версию Community с сайта [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
 > Чтобы отправлять запросы озера данных Azure, вместо Visual Studio можно также использовать портал Azure. Инструкции о том, как сделать это с помощью Visual Studio и на портале, см. в разделе **Обработка данных с использованием U-SQL**. 
@@ -145,8 +146,8 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 
 ![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="a-nameingestadata-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
-Данные большого двоичного объекта Azure расположены по адресу **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих скриптах подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data_{\*\}}.csv**. 
+### <a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
+Данные большого двоичного объекта Azure расположены по адресу **wasb://container_name@blob_storage_account_name.blob.core.windows.net/имя_большого_двоичного_объекта**, и их можно извлечь, используя **Extractors.Csv()**. В следующих скриптах подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data_{\*\}}.csv**. 
 
     ///Read in Trip data
     @trip0 =
@@ -169,7 +170,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище Azure Data Lake с помощью **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/имя_папки/имя_файла**_ или в учетной записи хранилища BLOB-объектов Azure с помощью **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**. 
+В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище Azure Data Lake с помощью **swebhdfs://имя_хранилища_Data_Lake.azuredatalakestorage.net/имя_папки/имя_файла**_ или в учетной записи хранилища BLOB-объектов Azure с помощью **wasb://container_name@blob_storage_account_name.blob.core.windows.net/имя_большого_двоичного_объекта**. 
 
     // change data types
     @trip =
@@ -207,7 +208,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 
  ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="a-namequalityadata-quality-checks"></a><a name="quality"></a>Проверка качества данных
+### <a name="quality"></a>Проверка качества данных
 После считывания таблиц trip и fare можно проверить качество данных следующим образом. Полученные файлы в формате CSV можно поместить в хранилище BLOB-объектов Azure или хранилище озера данных Azure. 
 
 Узнайте количество медальонов и их уникальные номера:
@@ -279,7 +280,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 
 
 
-### <a name="a-nameexploreadata-exploration"></a><a name="explore"></a>Исследование данных
+### <a name="explore"></a>Просмотр данных
 Чтобы лучше узнать все аспекты данных, можно провести некоторые исследования.
 
 Получите распределение поездок с чаевыми и без них:
@@ -346,7 +347,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
     USING Outputters.Csv(); 
 
 
-### <a name="a-namejoinajoin-trip-and-fare-tables"></a><a name="join"></a>Объединение таблиц trip и fare
+### <a name="join"></a>Объединение таблиц trip и fare
 Таблицы trip и fare можно объединить по medallion, hack_license и pickup_time.
 
     //join trip and fare table
@@ -388,7 +389,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
     USING Outputters.Csv();
 
 
-### <a name="a-namesampleadata-sampling"></a><a name="sample"></a>Выборка данных
+### <a name="sample"></a>Выборка данных
 Сначала мы случайным образом выберем 0,1 % данных из объединенной таблицы:
 
     //random select 1/1000 data for modeling purpose
@@ -428,7 +429,7 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
     USING Outputters.Csv(); 
 
 
-### <a name="a-namerunarun-u-sql-jobs"></a><a name="run"></a>Выполнение заданий U-SQL
+### <a name="run"></a>Выполнение заданий U-SQL
 Завершив редактировать сценарии U-SQL, вы можете отправить их на сервер, используя учетную запись Аналитики озера данных Azure. Выберите вкладку **Data Lake**, щелкните **Отправить задание**, а затем выберите свою учетную запись в поле **Analytics Account** (Учетная запись Аналитики), значение параметра **Параллелизм** и нажмите кнопку **Отправить**.  
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
@@ -685,10 +686,5 @@ ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 * [Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
 * [Процесс обработки и анализа данных группы на практике: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 * [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

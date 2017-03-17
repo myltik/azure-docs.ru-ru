@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 851dd4a2a76eff0e2f95c9a0a7280986cfb3e26a
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b01825022189722c9c0d396984a1a369a5d57584
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="example-azure-infrastructure-walkthrough"></a>Пошаговое руководство по примеру инфраструктуры Azure
+# <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Пошаговое руководство по примеру инфраструктуры Azure для виртуальных машин Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 В этой статье рассматривается создание примера инфраструктуры приложений. Мы подробно рассмотрим проектирование инфраструктуры для простого интернет-магазина, учтя все рекомендации и решения по соглашениям об именовании, группам доступности, виртуальным сетям и балансировщикам нагрузки, и фактически развернем виртуальные машины.
@@ -120,10 +123,5 @@ Adventure Works Cycles хочет создать приложение интер
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

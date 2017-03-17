@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/22/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 5d1ace8c6dab1655b0c2b512376b69444434f1ad
-ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
+ms.sourcegitcommit: 47c897afd6321a59f540d1f0cb86602d4ea18ed1
+ms.openlocfilehash: 5aed4eb336d55c2954da563422972644e25d0140
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -37,6 +38,7 @@ ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
 
 ## <a name="log-analytics"></a>Служба Log Analytics
 * [Документация по Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
+* [REST API Log Analytics](/rest/api/loganalytics)
 * [API сборщика данных HTTP для Log Analytics](../log-analytics/log-analytics-data-collector-api.md)
 * [API поиска по журналам](../log-analytics/log-analytics-log-search-api.md)
 * [API оповещений](../log-analytics/log-analytics-api-alerts.md)
@@ -55,10 +57,5 @@ ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с вариантами [интеграции со службами OMS](operations-management-suite-integration.md).
 * Создайте пользовательское решение в OMS (ожидается в ближайшее время).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

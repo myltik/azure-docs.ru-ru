@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bc60476253fd3e646fbd08cd6749e06fb403959c
-ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 391943c6057081b48594d74898d798e5365509d3
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -308,6 +309,11 @@ ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
 ### <a name="creating-a-amazon-web-services-aws-test-user"></a>Создание тестового пользователя Amazon Web Services
 Цель этого раздела — создать пользователя с именем Britta Simon в Amazon Web Services.
 
+> [!NOTE]
+> Приложение AWS поддерживает JIT-подготовку пользователей с помощью SAML. Это включено по умолчанию, поэтому не нужно выполнять подготовку пользователей в AWS.
+> 
+> 
+
 ### <a name="to-create-a-user-called-britta-simon-in-amazon-web-services-aws-perform-the-following-steps"></a>Чтобы создать пользователя с именем Britta Simon в Amazon Web Services, выполните следующие действия:
 1. Войдите на сайт компании **Amazon Web Services** в качестве администратора.
 
@@ -421,10 +427,5 @@ ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

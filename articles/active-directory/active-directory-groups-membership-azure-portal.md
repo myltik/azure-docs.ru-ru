@@ -1,6 +1,6 @@
 ---
-title: "Управление группами, в которые входит ваша группа, в предварительной версии Azure Active Directory | Документация Майкрософт"
-description: "В Azure Active Directory группы могут содержать другие группы.  Вот как можно управлять членством такого типа."
+title: "Управление группами, к которым относится ваша группа, в предварительной версии Azure Active Directory | Документация Майкрософт"
+description: "В Azure Active Directory группы могут содержать другие группы. Вот как можно управлять членством такого типа."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1968862a68d86c0f42e86ecb1f23aeebd264076c
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 8e0563f3490186a19dd9418ebf7beac7dd8dd046
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="manage-the-groups-your-group-is-a-member-of-in-azure-active-directory-preview"></a>Управление группами, в которые входит ваша группа, в предварительной версии Azure Active Directory
-В предварительной версии Azure Active Directory группы могут содержать другие группы. [Что есть в предварительной версии?](active-directory-preview-explainer.md)  Вот как можно управлять членством такого типа.
+# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Управление тем, к каким группам относится группа в клиенте Azure Active Directory
+В предварительной версии Azure Active Directory группы могут содержать другие группы. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Вот как можно управлять членством такого типа.
 
 ## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Как можно узнать, участником каких групп является моя группа?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -53,9 +55,4 @@ ms.openlocfilehash: 1968862a68d86c0f42e86ecb1f23aeebd264076c
 * [Управление параметрами группы](active-directory-groups-settings-azure-portal.md)
 * [Управление участниками группы](active-directory-groups-members-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

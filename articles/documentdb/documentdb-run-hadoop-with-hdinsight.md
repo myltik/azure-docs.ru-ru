@@ -1,5 +1,5 @@
 ---
-title: "Выполнение задания Hadoop с помощью DocumentDB и HDInsight | Документация Майкрософт"
+title: "Выполнение задания Hadoop с помощью Azure DocumentDB и HDInsight | Документы Майкрософт"
 description: "Узнайте, как выполнять простые задания Hive, Pig и MapReduce с помощью DocumentDB и Azure HDInsight."
 services: documentdb
 author: dennyglee
@@ -14,14 +14,15 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: f7b508071e76deb47bfbaf397ce168ebc78aa068
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 9304acd9f99b7f492a37bc4243ed8fb617998c6f
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="a-namedocumentdb-hdinsightarun-a-hadoop-job-using-documentdb-and-hdinsight"></a><a name="DocumentDB-HDInsight"></a>Запуск задания Hadoop с помощью DocumentDB и HDInsight
+# <a name="DocumentDB-HDInsight"></a> Выполнение задания Apache Hive, Pig или Hadoop с помощью DocumentDB и HDInsight
 В этом руководстве содержатся сведения о выполнении заданий MapReduce [Apache Hive][apache-hive], [Apache Pig][apache-pig] и [Apache Hadoop][apache-hadoop] в Azure HDInsight с помощью соединителя Hadoop DocumentDB. Соединитель Hadoop позволяет DocumentDB функционировать в качестве источника и приемника для заданий Hive, Pig и MapReduce. В этом учебнике DocumentDB будет использоваться как источник данных и назначение для заданий Hadoop.
 
 После изучения этого учебника вы сможете ответить на следующие вопросы.
@@ -44,7 +45,7 @@ ms.lasthandoff: 01/30/2017
 
 Нет времени на подробное изучение материала и просто хотите получить все примеры сценариев PowerShell для Hive, Pig и MapReduce? Не проблема. Они находятся [здесь][documentdb-hdinsight-samples]. В загружаемый пакет входят HQL-, PIG- и YAVA-файлы для этих примеров.
 
-## <a name="a-namenewestversionanewest-version"></a><a name="NewestVersion"></a>Последняя версия
+## <a name="NewestVersion"></a>Последняя версия
 <table border='1'>
     <tr><th>Версия соединителя Hadoop</th>
         <td>1.2.0</td></tr>
@@ -60,7 +61,7 @@ ms.lasthandoff: 01/30/2017
         </td></tr>
 </table>
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="Prerequisites"></a>Предварительные требования
+## <a name="Prerequisites"></a>Предварительные требования
 Перед выполнением инструкций в этом учебнике убедитесь в наличии следующих ресурсов.
 
 * Учетная запись DocumentDB, база данных и коллекция с документами внутри. Дополнительные сведения можно найти в статье [Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C][getting-started]. Импортируйте демонстрационные данные в свою учетную запись DocumentDB с помощью [средства импорта DocumentDB][documentdb-import-data].
@@ -74,7 +75,7 @@ ms.lasthandoff: 01/30/2017
 >
 >
 
-## <a name="a-nameprovisionhdinsightastep-1-create-a-new-hdinsight-cluster"></a><a name="ProvisionHDInsight"></a>Шаг 1. Создание кластера HDInsight
+## <a name="ProvisionHDInsight"></a>Шаг 1. Создание кластера HDInsight
 В этом руководстве для настройки кластера HDInsight используется действие скрипта на портале Azure. Там мы создадим настраиваемый кластер HDInsight. Инструкции по использованию командлетов PowerShell или пакета SDK .NET для HDInsight можно найти в статье [Настройка кластеров с помощью действия сценария][hdinsight-custom-provision].
 
 1. Войдите на [портал Azure][azure-portal].
@@ -140,7 +141,7 @@ ms.lasthandoff: 01/30/2017
 11. Создайте новую **группу ресурсов** или используйте имеющуюся в подписке Azure.
 12. Установите флажок **Закрепить на панели мониторинга**, чтобы отследить его развертывание и нажмите кнопку **Создать**.
 
-## <a name="a-nameinstallcmdletsastep-2-install-and-configure-azure-powershell"></a><a name="InstallCmdlets"></a>Шаг 2. Установка и настройка Azure PowerShell
+## <a name="InstallCmdlets"></a>Шаг 2. Установка и настройка Azure PowerShell
 1. Установите Azure PowerShell. Инструкции можно найти [здесь][powershell-install-configure].
 
    > [!NOTE]
@@ -161,7 +162,7 @@ ms.lasthandoff: 01/30/2017
 
     ![Схема для Azure PowerShell][azure-powershell-diagram]
 
-## <a name="a-namerunhiveastep-3-run-a-hive-job-using-documentdb-and-hdinsight"></a><a name="RunHive"></a>Шаг 3. Выполнение задания Hive с помощью DocumentDB и HDInsight
+## <a name="RunHive"></a>Шаг 3. Выполнение задания Hive с помощью DocumentDB и HDInsight
 > [!IMPORTANT]
 > Все переменные, обозначенные символами < >, должны быть заполнены с помощью параметров конфигурации.
 >
@@ -262,7 +263,7 @@ ms.lasthandoff: 01/30/2017
 
    ![Результаты запроса Hive][image-hive-query-results]
 
-## <a name="a-namerunpigastep-4-run-a-pig-job-using-documentdb-and-hdinsight"></a><a name="RunPig"></a>Шаг 4. Выполнение задания Pig с помощью DocumentDB и HDInsight
+## <a name="RunPig"></a>Шаг 4. Выполнение задания Pig с помощью DocumentDB и HDInsight
 > [!IMPORTANT]
 > Все переменные, обозначенные символами < >, должны быть заполнены с помощью параметров конфигурации.
 >
@@ -349,7 +350,7 @@ ms.lasthandoff: 01/30/2017
 
     ![Результаты запроса Pig][image-pig-query-results]
 
-## <a name="a-namerunmapreduceastep-5-run-a-mapreduce-job-using-documentdb-and-hdinsight"></a><a name="RunMapReduce"></a>Шаг 5. Выполнение задания MapReduce с помощью DocumentDB и HDInsight
+## <a name="RunMapReduce"></a>Шаг 5. Выполнение задания MapReduce с помощью DocumentDB и HDInsight
 1. Задайте следующие переменные в области сценариев PowerShell.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
@@ -390,7 +391,7 @@ ms.lasthandoff: 01/30/2017
 
       ![Результаты запроса MapReduce][image-mapreduce-query-results]
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Дальнейшие действия
+## <a name="NextSteps"></a>Дальнейшие действия
 Поздравляем! Вы только что выполнили свои первые задания Hive, Pig и MapReduce с помощью Azure DocumentDB и HDInsight.
 
 Теперь у нас есть соединитель Hadoop с открытым исходным кодом. Если вас заинтересовал этот процесс, вы можете продолжить на сайте [GitHub][documentdb-github].

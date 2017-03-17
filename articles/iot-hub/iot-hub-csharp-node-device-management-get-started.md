@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0a4dc9c39d864dcfd52121ed4e4fa2393b56f872
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -50,7 +51,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 
 Для работы с этим учебником требуется:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 или Visual Studio 2017.
 * Node.js версии 0.12.x или более поздней. <br/>  В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Node.js для работы с этим учебником в ОС Windows или Linux.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
@@ -61,7 +62,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Активация удаленной перезагрузки на устройстве с помощью прямого метода
 В этом разделе создается консольное приложение .NET (с помощью C#), которое инициирует удаленную перезагрузку на устройстве с помощью прямого метода и использует запросы двойника устройства для поиска значения времени последней перезагрузки этого устройства.
 
-1. В Visual Studio добавьте в текущее решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения** . Назовите проект **TriggerReboot**.
+1. В Visual Studio добавьте в новое решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения (.NET Framework)**. Убедитесь, что указана версия платформы .NET 4.5.1 или более поздняя версия. Назовите проект **TriggerReboot**.
 
     ![Новый проект классического приложения Windows на языке Visual C#][img-createapp]
 
@@ -251,8 +252,3 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

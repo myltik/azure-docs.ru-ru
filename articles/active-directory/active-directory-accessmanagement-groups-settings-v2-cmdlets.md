@@ -1,5 +1,5 @@
 ---
-title: "Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Документация Майкрософт"
+title: "Командлеты Azure Active Directory PowerShell для управления группами в Azure AD | Документы Майкрософт"
 description: "На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory."
 keywords: "Azure AD, Azure Active Directory, PowerShell, группы, управление группами"
 services: active-directory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,12 +30,12 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
 >
 >
 
-В следующем документе представлены примеры использования PowerShell для управления группами в Azure Active Directory (Azure AD).  Также в нем содержатся сведения о том, как выполнить настройки предварительной версии модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
+В следующем документе представлены примеры использования PowerShell для управления группами в Azure Active Directory (Azure AD).  Также в нем содержатся сведения о том, как выполнить настройки предварительной версии модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Установка модуля Azure AD PowerShell
-Чтобы установить предварительную версию модуля AzureAD PowerShell , воспользуйтесь следующими командами:
+Чтобы установить модуль AzureAD PowerShell, воспользуйтесь следующими командами:
 
-    PS C:\Windows\system32> install-module azureadpreview
+    PS C:\Windows\system32> install-module azuread
 
 Чтобы проверить, установлена ли предварительная версия модуля, воспользуйтесь следующей командой:
 
@@ -44,10 +45,10 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Теперь можно начать использование командлетов в модуле. Полное описание командлетов в предварительной версии модуля AzureAD см. в [электронной справочной документации](https://msdn.microsoft.com/library/azure/mt757216.aspx).
+Теперь можно начать использование командлетов в модуле. Полное описание командлетов в модуле AzureAD см. в [электронной справочной документации](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 ## <a name="connecting-to-the-directory"></a>Подключение к каталогу
-Прежде чем приступить к управлению группами с помощью командлетов предварительной версии Azure AD PowerShell, необходимо подключить сеанс PowerShell к каталогу, которым вы хотите управлять. Для этого воспользуйтесь следующей командой:
+Прежде чем приступить к управлению группами с помощью командлетов Azure AD PowerShell, необходимо подключить сеанс PowerShell к каталогу, которым вы хотите управлять. Для этого воспользуйтесь следующей командой:
 
     PS C:\Windows\system32> Connect-AzureAD
 
@@ -57,7 +58,7 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
     -------                       ----------- ------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 
-Теперь можно начать использование командлетов предварительной версии AzureAD для управления группами в каталоге.
+Теперь можно начать использование командлетов Azure AD для управления группами в каталоге.
 
 ## <a name="retrieving-groups"></a>Получение сведений о группах
 Для получения сведений о существующих группах из каталога можно воспользоваться командлетом Get-AzureADGroups. Чтобы получить сведения о всех группах в каталоге, используйте командлет без параметров:
@@ -225,13 +226,8 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260) (Командлеты Azure Active Directory).
+Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](https://docs.microsoft.com/en-us/powershell/azuread/) (Командлеты Azure Active Directory).
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

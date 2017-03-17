@@ -55,6 +55,8 @@
 #### [Необходимые условия](azure-stack-app-service-before-you-get-started.md)
 #### [Развертывание поставщика ресурсов службы приложений](azure-stack-app-service-deploy.md)
 #### [Добавление дополнительных рабочих веб-ролей](azure-stack-app-service-add-worker-roles.md)
+#### [Настройка источников развертывания](azure-stack-app-service-configure-deployment-sources.md)
+#### [Включение FTP в службе приложений в Azure Stack](azure-stack-app-service-enable-ftp.md)
 ### Заполнение Marketplace
 #### [Обзор Marketplace](azure-stack-marketplace.md)
 #### [Скачивание элементов Marketplace](azure-stack-download-azure-marketplace-item.md)
@@ -110,6 +112,7 @@
 
 # Устранение неполадок
 ## [Известные проблемы](azure-stack-troubleshooting.md)
+## [Диагностика в Azure Stack](azure-stack-diagnostics.md)
 
 # Ресурсы
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

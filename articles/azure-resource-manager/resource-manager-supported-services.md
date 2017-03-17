@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/27/2016
-ms.author: magoedte;tomfitz
+ms.date: 03/06/2017
+ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 53e57807e97671bd279c03ada4c147fc1e7f1e45
-ms.openlocfilehash: c7bfc5584c11a7e69aedeb93f143a78d97c9369a
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c645a8aa317b12d52f0246d0f9205294d56b6a0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -162,48 +163,41 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 ### <a name="powershell"></a>PowerShell
 Следующий пример демонстрирует получение всех доступных поставщиков ресурсов.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 
 В следующем примере показано, как получить типы ресурсов для определенного поставщика ресурсов.
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
-
-Выходные данные должны быть следующего вида.
-
-    ResourceTypeName                Locations                                         
-    ----------------                ---------                                         
-    sites/extensions                {Brazil South, East Asia, East US, Japan East...} 
-    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} .
-    ...
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+```
 
 Для регистрации поставщика ресурсов укажите пространство имен:
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```
 
 ### <a name="azure-cli"></a>Интерфейс командной строки Azure
 Следующий пример демонстрирует получение всех доступных поставщиков ресурсов.
 
-    azure provider list
+```azurecli
+az provider list
+```
 
-Выходные данные должны быть следующего вида.
+Просмотреть информацию для определенного поставщика ресурсов можно с помощью следующей команды:
 
-    info:    Executing command provider list
-    + Getting registered providers
-    data:    Namespace                        Registered
-    data:    -------------------------------  -------------
-    data:    Microsoft.ApiManagement          Unregistered
-    data:    Microsoft.AppService             Registered
-    data:    Microsoft.Authorization          Registered
-    ...
-
-Сохранить информацию для определенного поставщика ресурсов в файл можно с помощью следующей команды.
-
-    azure provider show Microsoft.Web -vv --json > c:\temp.json
+```azurecli
+az provider show --namespace Microsoft.Web
+```
 
 Для регистрации поставщика ресурсов укажите пространство имен:
 
-    azure provider register -n Microsoft.ServiceBus
+```azurecli
+az provider register --namespace Microsoft.ServiceBus
+```
 
 ## <a name="supported-regions"></a>Поддерживаемые регионы
 При развертывании ресурсов обычно требуется указать для них регион. Диспетчер ресурсов поддерживается во всех регионах, однако развертываемые вами ресурсы могут поддерживаться не во всех регионах. Кроме того, на вашу подписку могут налагаться ограничения, которые препятствуют использованию определенных регионов, поддерживающих ресурс. Эти ограничения могут быть связаны с аспектами налогообложения в стране вашего проживания или с политикой, установленной администратором вашей подписки, где разрешен лишь ограниченный перечень регионов. 
@@ -229,40 +223,17 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 ### <a name="powershell"></a>PowerShell
 В следующем примере показано, как получить поддерживаемые регионы для веб-сайтов.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
-Выходные данные должны быть следующего вида.
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
+В следующем примере показано, как получить поддерживаемые расположения для веб-сайтов.
 
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
-    Central US
-    East US 2
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+```
 
-### <a name="azure-cli"></a>Интерфейс командной строки Azure
-Следующий пример возвращает все поддерживаемые расположения для каждого типа ресурсов.
-
-    azure location list
-
-Вы также можете отфильтровать полученные расположения с помощью такой служебной программы JSON, как [jq](https://stedolan.github.io/jq/).
-
-    azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
-
-Возвращаемые данные:
-
-    {
-      "name": "Microsoft.Web/sites",
-      "location": "Brazil South,East Asia,East US,Japan East,Japan West,North Central US,
-            North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
-    }
 
 ## <a name="supported-api-versions"></a>Поддерживаемые версии API
 При развертывании шаблона нужно указать версию API, используемую для создания каждого ресурса. Версия API соответствует версии операций API REST, выполняемых поставщиком ресурсов. При появлении в поставщике ресурсов новых возможностей выпускается новая версия REST API. Следовательно, версия API, которая указывается в шаблоне, влияет на то, какие свойства можно указать в шаблоне. Как правило, при создании шаблонов следует выбирать последнюю версию API. Для существующих шаблонов можно решить, хотите ли вы продолжать использовать более раннюю версию API или хотите обновить шаблон до последней версии, чтобы воспользоваться новыми возможностями.
@@ -276,35 +247,34 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 ### <a name="powershell"></a>PowerShell
 В следующем примере показано, как получить доступные версии API для конкретного типа ресурса.
 
+```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 Выходные данные должны быть следующего вида.
 
-    2015-08-01
-    2015-07-01
-    2015-06-01
-    2015-05-01
-    2015-04-01
-    2015-02-01
-    2014-11-01
-    2014-06-01
-    2014-04-01-preview
-    2014-04-01
+```powershell
+2015-08-01
+2015-07-01
+2015-06-01
+2015-05-01
+2015-04-01
+2015-02-01
+2014-11-01
+2014-06-01
+2014-04-01-preview
+2014-04-01
+```
 
-### <a name="azure-cli"></a>Интерфейс командной строки Azure
-Сохранить информацию для поставщика ресурсов (включая доступные версии API) в файл можно с помощью следующей команды.
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
+Получить доступные версии API для поставщика ресурсов можно с помощью следующей команды:
 
-    azure provider show Microsoft.Web -vv --json > c:\temp.json
-
-Затем откройте этот файл и найдите в нем элемент **apiVersions** .
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о создании шаблонов Resource Manager см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 * Сведения о развертывании ресурсов см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

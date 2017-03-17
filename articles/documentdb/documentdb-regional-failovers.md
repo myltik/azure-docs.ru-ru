@@ -1,5 +1,5 @@
 ---
-title: "Отработка отказа между регионами в Azure DocumentDB | Документация Майкрософт"
+title: "Отработка отказа между регионами в Azure DocumentDB | Документы Майкрософт"
 description: "Сведения о том, как работает ручной и автоматический переход на другой ресурс в Azure DocumentDB."
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
-ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="regional-failovers-in-azure-documentdb"></a>Отработка отказа между регионами в Azure DocumentDB
+# <a name="automatic-regional-failovers-for-business-continuity-in-documentdb"></a>Автоматическая отработка отказа между регионами для обеспечения непрерывности бизнес-процессов в DocumentDB
 Azure DocumentDB упрощает глобальное распространение данных, предлагая полностью управляемые учетные [записи базы данных в нескольких регионах](documentdb-distribute-data-globally.md), которые обеспечивают четкие компромиссы между согласованностью, доступностью и производительностью с соответствующими гарантиями. Учетные записи DocumentDB обеспечивают высокий уровень доступности, задержки в единицы миллисекунд, [четко определенные уровни согласованности](documentdb-consistency-levels.md), прозрачную региональную отработку отказа с API многосетевого подключения, а также возможность эластично масштабировать пропускную способность и хранилище по всему миру. 
 
 Azure DocumentDB поддерживает явную отработку отказа и отработку отказа на основе политик, что позволяет управлять поведением комплексной системы в случае сбоев. В этой статье мы рассмотрим следующие вопросы:
@@ -33,7 +35,7 @@ Azure DocumentDB поддерживает явную отработку отка
 
 >[!ВИДЕО https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Настройка приложений в нескольких регионах
+## <a id="ConfigureMultiRegionApplications"></a>Настройка приложений в нескольких регионах
 Прежде чем углубляться в режимы отработки отказа, рассмотрим, как настроить приложение, чтобы воспользоваться преимуществами доступности нескольких регионов и меньше зависеть от отработок отказа между регионами.
 
 * Сначала разверните приложение в нескольких регионах.
@@ -69,7 +71,7 @@ Azure DocumentDB поддерживает явную отработку отка
 
 Теперь давайте рассмотрим, как служба DocumentDB обрабатывает региональные сбои путем автоматического перехода на другой ресурс. 
 
-## <a name="a-idautomaticfailoversaautomatic-failovers"></a><a id="AutomaticFailovers"></a>Автоматический переход на другой ресурс
+## <a id="AutomaticFailovers"></a>Автоматический переход на другой ресурс
 В редких случаях регионального сбоя Azure DocumentDB автоматически инициирует переход на другой ресурс для всех учетных записей DocumentDB, находящихся в пострадавшем регионе. 
 
 **Что произойдет, если произойдет сбой региона чтения?**
@@ -96,7 +98,7 @@ Azure DocumentDB поддерживает явную отработку отка
 * Можно запросить этот регион для вычисления нереплицированных записей во время сбоя путем сравнения с данными, доступными в текущем регионе записи. В зависимости от потребностей приложения можно выполнить слияние и (или) разрешение конфликтов и записать последний набор изменений обратно в текущий регион записи. 
 * После завершения слияния изменений пострадавший регион можно вернуть обратно в оперативный режим, удалив и повторно добавив регион в учетную запись DocumentDB. После того как регион будет добавлен обратно, можно снова настроить его в качестве региона записи путем выполнения ручного перехода на другой ресурс на портале Azure или [программно](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
-## <a name="a-idmanualfailoversamanual-failovers"></a><a id="ManualFailovers"></a>Ручной переход на другой ресурс
+## <a id="ManualFailovers"></a>Ручной переход на другой ресурс
 
 Помимо автоматического перехода на другой ресурс текущий регион записи данной учетной записи DocumentDB можно динамически изменять вручную на один из существующих регионов чтения. Ручной переход на другой ресурс можно запустить на портале Azure или [программно](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
@@ -114,15 +116,10 @@ Azure DocumentDB поддерживает явную отработку отка
 
 В этой статье мы рассмотрели, как работает ручной и автоматический переход на другой ресурс в Azure DocumentDB и как можно сделать учетные записи DocumentDB и приложения глобально доступными. С помощью поддержки глобальной репликации Azure DocumentDB можно сократить совокупную задержку и обеспечить высокую доступность даже в случае сбоев региона. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Дальнейшие действия
+## <a id="NextSteps"></a>Дальнейшие действия
 * Дополнительные сведения о поддержке [глобального распространения](documentdb-distribute-data-globally.md) в DocumentDB
 * Дополнительные сведения о [глобальной согласованности в DocumentDB](documentdb-consistency-levels.md)
 * Разработка с использованием нескольких регионов с помощью [пакета SDK Azure DocumentDB](documentdb-developing-with-multiple-regions.md)
 * Сведения о разработке [архитектуры записи в нескольких регионах](documentdb-multi-region-writers.md) с помощью Azure DocumentDB
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
-ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -139,7 +139,7 @@ Microsoft Azure очень серьезно относится к обеспеч
 > Шифрование дисков Azure доступно для следующих версий сервера Linux: Ubuntu, CentOS, SUSE, SUSE Linux Enterprise Server (SLES) и Red Hat Enterprise Linux.
 
 > [!NOTE]
-> Сейчас шифрование диска ОС Linux поддерживается для следующих дистрибутивов Linux: RHEL 7.2, CentOS 7.2n, Ubuntu 16.04.
+> Сейчас шифрование диска ОС Linux поддерживается для следующих дистрибутивов Linux: RHEL 7.2, RHEL 7.3, CentOS 7.2n и Ubuntu 16.04.
 >
 > Все ресурсы (хранилище ключей, учетная запись хранения, виртуальная машина и т. д.) должны относиться к одному региону и одной подписке Azure.
 
@@ -537,7 +537,7 @@ Microsoft Azure очень серьезно относится к обеспеч
  ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-in-azure"></a>Включение шифрования на виртуальной машине IaaS под управлением Linux, которая уже существует или работает в Azure
-Включить шифрование дисков на существующих или работающих виртуальных машинах IaaS под управлением Linux в Azure можно с помощью [шаблона Resource Manager](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+Включить шифрование дисков на существующих или работающих виртуальных машинах IaaS под управлением Linux в Azure можно с помощью [шаблона Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. В шаблоне быстрого запуска Azure щелкните **Развертывание в Azure**, введите параметры шифрования в колонке **Параметры** и нажмите кнопку **ОК**.
 

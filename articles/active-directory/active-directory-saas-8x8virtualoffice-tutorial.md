@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
+ms.sourcegitcommit: 149896e820d7873752fc40ee8270a8fc00ee0b0c
+ms.openlocfilehash: 96c5d5aafaff24d618f930a1b5fcedcc5c52a9a9
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
 Интеграция 8x8 Virtual Office с Azure AD обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к 8x8 Virtual Office.
-* Вы можете включить автоматический вход пользователей в 8x8 Virtual Office (единый вход) под учетной записью Azure AD.
+* Вы можете включить автоматический вход пользователей в 8x8 Virtual Office (единый вход) под учетной записью Azure AD.
 * Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -35,25 +36,24 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
 Чтобы настроить интеграцию Azure AD с 8x8 Virtual Office, вам потребуется:
 
 * подписка Azure AD;
-* подписка на 8x8 Virtual Office с поддержкой единого входа.
+* подписка на 8x8 Virtual Office с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
 > 
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+    To test the steps in this tutorial, you should follow these recommendations:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого руководства — показать, как выполнить проверку единого входа Microsoft Azure AD в тестовой среде.
+Цель этого руководства — научить вас проверять единый вход Microsoft Azure AD в тестовой среде.
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление 8x8 Virtual Office из коллекции.
-2. Настройка и проверка единого входа в Microsoft Azure AD
+2. Настройка и проверка единого входа Microsoft Azure AD.
 
 ## <a name="adding-8x8-virtual-office-from-the-gallery"></a>Добавление 8x8 Virtual Office из коллекции.
 Чтобы настроить интеграцию приложения 8x8 Virtual Office с Azure AD, необходимо добавить это приложение из коллекции в список управляемых приложений SaaS.
@@ -80,23 +80,23 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
    
     ![Выбор приложения в коллекции](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_0001.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Microsoft Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Microsoft Azure AD в 8x8 Virtual Office с использованием тестового пользователя Britta Simon.
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Настройка и проверка единого входа Microsoft Azure AD
+Цель этого раздела — показать, как настроить и проверить единый вход Microsoft Azure AD в 8x8 Virtual Office с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в 8x8 Virtual Office соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в 8x8 Virtual Office.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в 8x8 Virtual Office соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в 8x8 Virtual Office.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в 8x8 Virtual Office.
 
-Чтобы настроить и проверить единый вход Microsoft Azure AD в 8x8 Virtual Office, вам потребуется выполнить действия в следующих стандартных блоках:
+Чтобы настроить и проверить единый вход Microsoft Azure AD в 8x8 Virtual Office, вам потребуется выполнить действия в следующих стандартных блоках:
 
 1. **[Настройка единого входа Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы позволить пользователям использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Microsoft Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя 8x8 Virtual Office](#creating-a-8x8-virtual-office-test-user)** требуется для создания пользователя Britta Simon в 8x8 Virtual Office, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Настройка единого входа Microsoft Azure AD
-В этом разделе описано, как включить единый вход Microsoft Azure AD на классическом портале и настроить его в приложении 8x8 Virtual Office.
+### <a name="configuring-microsoft-azure-ad-sso"></a>Настройка единого входа Microsoft Azure AD
+В этом разделе описано, как включить единый вход Microsoft Azure AD на классическом портале и настроить его в приложении 8x8 Virtual Office.
 
 **Чтобы настроить единый вход Microsoft Azure AD в 8x8 Virtual Office, сделайте следующее:**
 
@@ -109,17 +109,13 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
 3. На странице диалогового окна **Настроить параметры приложения** выполните следующие действия, а затем нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_04.png)
-   
-    а. В текстовом поле **URL-адрес ответа** введите: `https://sso.8x8.com/saml2`.
-   
-    b. Щелкните **Далее**
+  1. В текстовом поле **URL-адрес ответа** введите: `https://sso.8x8.com/saml2`.
+  2. Нажмите кнопку **Далее**.
 4. На странице **Настройка единого входа в 8x8 Virtual Office** выполните следующие действия и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_05.png)
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
+  1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+  2. Нажмите кнопку **Далее**.
 5. Войдите в клиент 8x8 Virtual Office от имени администратора.
 6. На панели приложения выберите **Virtual Office Account Mgr** (Диспетчер учетных записей Virtual Office).
    
@@ -141,16 +137,15 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
     ![Настройка на стороне приложения](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
     
     ![Настройка на стороне приложения](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_007.png)
-12. Нажмите кнопку **Browse** (Обзор), чтобы отправить сертификат, скачанный из Azure AD.
-13. Нажмите кнопку **Сохранить** .
-14. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+12. Нажмите кнопку **Browser** (Обзор), чтобы отправить сертификат, скачанный из Azure AD, а затем нажмите кнопку **Сохранить**.
+13. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
     
     ![единого входа Azure AD][10]
-15. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
+14. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
-    ![единого входа Azure AD][11]
+    ![Единый вход в Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -170,48 +165,37 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_05.png)
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_06.png)
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+  1. В текстовом поле **Имя** введите **Britta**.  
+  2. В текстовом поле **Фамилия** введите **Simon**.
+  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+  4. В списке **Роль** выберите **Пользователь**.
+  5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_07.png)
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_08.png)
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+  1. Запишите значение поля **Новый пароль**.
+  2. Нажмите **Завершено**.   
 
-### <a name="creating-a-8x8-virtual-office-test-user"></a>Создание тестового пользователя 8x8 Virtual Office
-Цель этого раздела — создать пользователя с именем Britta Simon в приложении 8x8 Virtual Office. Приложение 8x8 Virtual Office поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+### <a name="create-a-8x8-virtual-office-test-user"></a>Создание тестового пользователя 8x8 Virtual Office
+Цель этого раздела — создать пользователя с именем Britta Simon в приложении 8x8 Virtual Office. Приложение&8;x8 Virtual Office поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
 В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к приложению 8x8 Virtual Office (если он еще не создан). 
 
-> [!NOTE]
-> Чтобы создать пользователя вручную, необходимо обратиться в службу поддержки 8x8 Virtual Office.
-> 
+>[!NOTE]
+>Чтобы создать пользователя вручную, необходимо обратиться в службу поддержки 8x8 Virtual Office. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к 8x8 Virtual Office.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Цель этого раздела — предоставить пользователю Britta Simon доступ к 8x8 Virtual Office, чтобы он мог использовать единый вход Azure.
 
 ![Назначение пользователя][200]
 
@@ -231,7 +215,7 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 Цель этого раздела — проверить конфигурацию единого входа Microsoft Azure AD с помощью панели доступа.
 
 Щелкнув элемент 8x8 Virtual Office на панели доступа, вы автоматически войдете в приложение 8x8 Virtual Office.
@@ -257,9 +241,4 @@ ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
 [203]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

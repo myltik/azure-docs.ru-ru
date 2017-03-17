@@ -1,5 +1,5 @@
 ---
-title: "Настройка группы доступности AlwaysOn на виртуальной машине Azure с помощью PowerShell"
+title: "Настройка группы доступности AlwaysOn на виртуальной машине Azure с помощью PowerShell | Документы Майкрософт"
 description: "В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также применяется PowerShell для создания группы доступности Always On в Azure."
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 9504b2f74fa0161b6c4dfb6a510913256b99629a
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4d14b4f54957ae31e736211671cba816f8dea629
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -563,10 +564,5 @@ ms.openlocfilehash: 9504b2f74fa0161b6c4dfb6a510913256b99629a
 Решение SQL Server Always On на основе группы доступности в Azure успешно создано. Инструкции по настройке прослушивателя для этой группы доступности см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

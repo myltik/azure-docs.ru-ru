@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
-ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
+ms.sourcegitcommit: 86742dc7ee1429a0cdb23f4da3fa58341468afbc
+ms.openlocfilehash: 8d75ee95bcaf506c2378bb9cf34da576fb1c83e1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-work-com-tutorial/IC794105.png "Scenario")
+![Сценарий](./media/active-directory-saas-work-com-tutorial/IC794105.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-workcom"></a>Включение интеграции приложений для Work.com
 В этом разделе показано, как включить интеграцию приложений для Work.com.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-work-com-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-work-com-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-work-com-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-work-com-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-work-com-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-work-com-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Work.com**.
    
-    ![Коллекция приложений](./media/active-directory-saas-work-com-tutorial/IC794106.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-work-com-tutorial/IC794106.png "Коллекция приложений")
 
 7. В области результатов выберите **Work.com** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
@@ -80,47 +81,47 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 1. Войдите в клиент Work.com от имени администратора.
 2. Перейдите в раздел **Настройка**.
    
-    ![Настройка](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
+    ![Настройка](./media/active-directory-saas-work-com-tutorial/IC794108.png "Настройка")
 
 3. В области навигации слева в разделе **Administer** (Администрирование) щелкните **Domain Management** (Управление доменами), чтобы развернуть соответствующий раздел, а затем щелкните **My Domain** (Мой домен), чтобы открыть страницу **My Domain** (Мой домен). 
    
-    ![Мой домен](./media/active-directory-saas-work-com-tutorial/IC767825.png "My Domain")
+    ![Мой домен](./media/active-directory-saas-work-com-tutorial/IC767825.png "Мой домен")
 
 4. Чтобы проверить правильность настройки домена, убедитесь, что он находится на этапе **Step 4 Deployed to Users** (Шаг 4. Развернут для пользователей), и просмотрите раздел **My Domain Settings** (Параметры моего домена).
    
-    ![Домен развернут для пользователя](./media/active-directory-saas-work-com-tutorial/IC784377.png "Doman Deployed to User")
+    ![Домен, развернутый для пользователя](./media/active-directory-saas-work-com-tutorial/IC784377.png "Домен, развернутый для пользователя")
 
 5. В другом окне веб-браузера войдите на классический портал Azure.
 
 6. На странице интеграции с приложением **Work.com** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794109.png "Настройка единого входа")
 
 7. На странице **Как пользователи должны входить в Work.com** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794110.png "Настройка единого входа")
 
 8. На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Work.com** введите URL-адрес, используемый пользователями для входа в ваше приложение Work.com (например, *http://company.my.salesforce.com*), и нажмите кнопку **Далее**. 
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-work-com-tutorial/IC794111.png "Настройка URL-адреса приложения")
 
 9. На странице **Настройка единого входа в Work.com** нажмите кнопку **Скачать сертификат**, чтобы скачать сертификат, а затем сохраните файл сертификата на локальном компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794112.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794112.png "Настройка единого входа")
 
 10. Войдите в клиент Work.com.
 
 11. Перейдите в раздел **Настройка**.
     
-    ![Настройка](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
+    ![Настройка](./media/active-directory-saas-work-com-tutorial/IC794108.png "Настройка")
 
 12. Разверните меню **Управление безопасностью**, а затем щелкните **Параметры единого входа**.
     
-    ![Параметры единого входа](./media/active-directory-saas-work-com-tutorial/IC794113.png "Single Sign-On Settings")
+    ![Параметры единого входа](./media/active-directory-saas-work-com-tutorial/IC794113.png "Параметры единого входа")
 
 13. На странице диалогового окна **Параметры единого входа** сделайте следующее:
     
-    ![SAML включен](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML Enabled")
+    ![Включение SAML](./media/active-directory-saas-work-com-tutorial/IC781026.png "Включение SAML")
     
     а. Установите флажок **SAML включен**.
     
@@ -128,7 +129,7 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 
 14. В разделе **Параметры единого входа SAML** сделайте следующее:
     
-    ![Параметры единого входа SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "SAML Single Sign-On Setting")
+    ![Параметры единого входа SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Параметры единого входа SAML")
     
     а. В текстовом поле **Имя** введите имя конфигурации.  
        
@@ -157,19 +158,19 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 
 15. В левой области навигации классического портала Work.com щелкните **Domain Management** (Управление доменами), чтобы развернуть соответствующий раздел, и щелкните **My Domain** (Мой домен), чтобы открыть страницу **My Domain** (Мой домен). 
     
-    ![Мой домен](./media/active-directory-saas-work-com-tutorial/IC794115.png "My Domain")
+    ![Мой домен](./media/active-directory-saas-work-com-tutorial/IC794115.png "Мой домен")
 
 16. На странице **My Domain** (Мой домен) в разделе **Login Page Branding** (Фирменная символика страницы входа) нажмите кнопку **Edit** (Изменить).
     
-    ![Фирменная символика страницы входа](./media/active-directory-saas-work-com-tutorial/IC767826.png "Login Page Branding")
+    ![Фирменная символика страницы входа](./media/active-directory-saas-work-com-tutorial/IC767826.png "Фирменная символика страницы входа")
 
 17. На странице **Login Page Branding** (Фирменная символика страницы входа) в разделе **Authentication Service** (Служба аутентификации) отображается имя **SAML SSO Settings** (Параметры единого входа SAML). Выберите его, а затем нажмите кнопку **Сохранить**.
     
-    ![Фирменная символика страницы входа](./media/active-directory-saas-work-com-tutorial/IC784366.png "Login Page Branding")
+    ![Фирменная символика страницы входа](./media/active-directory-saas-work-com-tutorial/IC784366.png "Фирменная символика страницы входа")
 
 18. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-work-com-tutorial/IC794116.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure Active Directory могли входить систему, их необходимо подготовить для Work.com.  
@@ -180,18 +181,18 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 
 2. Перейдите в раздел **Настройка**.
    
-    ![Настройка](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
+    ![Настройка](./media/active-directory-saas-work-com-tutorial/IC794108.png "Настройка")
 3. Выберите **Manage Users \> Users** (Управление пользователями > Пользователи).
    
-    ![Управление пользователями](./media/active-directory-saas-work-com-tutorial/IC784369.png "Manage Users")
+    ![Управление пользователями](./media/active-directory-saas-work-com-tutorial/IC784369.png "Управление пользователями")
 
 4. Щелкните **Новый пользователь**.
    
-    ![Все пользователи](./media/active-directory-saas-work-com-tutorial/IC794117.png "All Users")
+    ![Все пользователи](./media/active-directory-saas-work-com-tutorial/IC794117.png "Все пользователи")
 
 5. В разделе "Изменить пользователя" выполните следующие действия.
    
-    ![Изменить пользователя](./media/active-directory-saas-work-com-tutorial/IC794118.png "User Edit")
+    ![Изменение пользователя](./media/active-directory-saas-work-com-tutorial/IC794118.png "Изменение пользователя")
    
     а. Введите значения атрибутов **Фамилия**, **Псевдоним**, **Электронный адрес**, **Имя пользователя** и **Псевдоним** данными действующей учетной записи Azure Active Directory, которую нужно подготовить.
    
@@ -212,19 +213,14 @@ ms.openlocfilehash: 69d94659f4eff72e1c449fd915616d81fd4712de
 
 2. На странице интеграции с приложением Work.com нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-work-com-tutorial/IC794119.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-work-com-tutorial/IC794119.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-work-com-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-work-com-tutorial/IC767830.png "Да")
 
 Подождите 10 минут и убедитесь, что учетная запись синхронизирована с Work.com.
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

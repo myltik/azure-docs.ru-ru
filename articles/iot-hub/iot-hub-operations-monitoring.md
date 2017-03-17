@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
-ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 796bf9b1219b7f0e2c68688c5f5b51163ef4b49b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -165,6 +165,26 @@ ms.lasthandoff: 02/08/2017
         "details": "ExternalEndpointDisabled"
     }
 
+## <a name="view-events"></a>Просмотр событий
+
+Чтобы быстро проверить, что Центр Интернета вещей создает события мониторинга, можно использовать *iothub-explorer*. Инструкции по его установке см. в репозитории GitHub [iothub-explorer][lnk-iothub-explorer].
+
+1. Убедитесь, что на портале для категории мониторинга **Подключения** задано значение **Подробные сведения**.
+
+1. В командной строке выполните следующую команду для чтения из конечной точки мониторинга:
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. В другой командной строке выполните следующую команду для имитации устройства, отправляющего сообщения в облако:
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. В первой командной строке события мониторинга отображаются после подключения имитированного устройства к Центру Интернета вещей.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
@@ -182,4 +202,5 @@ ms.lasthandoff: 02/08/2017
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 

@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
-ms.openlocfilehash: 4489cf32a5aa5cfaf29e6e8aa6cf71bf6076ee84
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b6904df752ad02831ddfa3da07fd40a46103da99
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-architecture-with-azure-resource-manager-templates"></a>Архитектура приложений с использованием шаблонов Azure Resource Manager
+# <a name="application-architecture-with-azure-resource-manager-templates-for-windows-vms"></a>Архитектура приложений с использованием шаблонов Azure Resource Manager для виртуальных машин Windows
+
 При разработке развертывания Azure Resource Manager необходимую вычислительную мощность нужно сопоставлять с ресурсами и службами Azure. Если приложение содержит несколько конечных точек http, базы данных и службы кэша, следует рационально распределить ресурсы Azure между всеми этими компонентами. Например, приложение "Магазин музыки" содержит веб-приложение, размещенное на виртуальной машине, и базу данных SQL на основе базы данных Azure SQL. 
 
 В этом документе описана конфигурация вычислительных ресурсов для такого приложения, представленная в шаблоне Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -270,10 +273,5 @@ ms.openlocfilehash: 4489cf32a5aa5cfaf29e6e8aa6cf71bf6076ee84
 <hr>
 
 [Шаг 2. Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

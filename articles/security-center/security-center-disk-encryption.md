@@ -1,23 +1,7 @@
----
-title: "Шифрование виртуальной машины Azure | Документация Майкрософт"
-description: "Этот документ поможет вам зашифровать виртуальную машину Azure после получения оповещения из центра безопасности Azure."
-services: security, security-center
-documentationcenter: na
-author: TomShinder
-manager: swadhwa
-editor: 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
-ms.service: security
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/27/2016
-ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+le--- title: Шифрование виртуальной машины Azure | Документация Майкрософт. description: Эта статья поможет вам зашифровать виртуальную машину Azure после получения оповещения из центра безопасности Azure.
+services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Шифрование виртуальной машины Azure
@@ -26,14 +10,14 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 ![Рекомендации по шифрованию дисков](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Сведения в этом документе относятся к предварительной версии Центра безопасности Azure.
+> Сведения, содержащиеся в этой статье, относятся к шифрованию виртуальных машин без использования ключа шифрования ключей (необходимого для резервного копирования виртуальных машин с помощью службы архивации Azure). Дополнительные сведения об использовании ключа шифрования ключей для поддержки службы архивации Azure для зашифрованных виртуальных машин Azure см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).
 >
 >
 
 Для шифрования виртуальных машин Azure, которые определены центром безопасности Azure как требующие шифрования, мы рекомендуем выполнить следующие действия:
 
 * Установите и настройте Azure PowerShell. Это позволит вам выполнять команды PowerShell, чтобы установить необходимые компоненты для шифрования виртуальных машин Azure.
-* Получите и выполните скрипт Azure PowerShell с необходимыми компонентами для шифрования дисков Azure.
+* Получите и выполните скрипт Azure PowerShell с необходимыми компонентами для шифрования дисков Azure. 
 * Зашифруйте свои виртуальные машины.
 
 Этот документ поможет вам зашифровать виртуальные машины, даже если у вас недостаточно или совсем нет опыта работы с Azure PowerShell.
@@ -178,9 +162,3 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — сведения об управлении оповещениями системы безопасности и реагировании на них.
 * [Часто задаваемые вопросы о Центре безопасности Azure](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности Azure и соответствию требованиям.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

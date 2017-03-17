@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 1f4e0904c9025ce0b21d904acc7b959e823039ef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 0591b536a9be901085074f4b49fc65b097382835
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Что такое лицензии групп в Azure Active Directory?
+# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Основы группового лицензирования в Azure Active Directory
 
 Облачные службы Майкрософт, такие как Office 365, Enterprise Mobility + Security, Dynamics CRM и другие аналогичные продукты, требуют назначения лицензий каждому пользователю, которому нужен доступ к этим службам. Управление лицензиями предоставляется администраторам с помощью одного из порталов управления (Office, Azure) и командлетов PowerShell. Состояние назначения лицензий хранится в Azure Active Directory — базовой инфраструктуре, обеспечивающей управление удостоверениями для всех облачных служб Майкрософт.
 
@@ -58,6 +59,6 @@ ms.lasthandoff: 02/22/2017
 
 * [Назначение лицензий группе в Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Поиск и устранение проблем лицензирования группы в Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Как перевести пользователей с отдельными лицензиями на использование лицензий групп в Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Дополнительные сценарии использования лицензий групп в Azure Active Directory](active-directory-licensing-group-advanced.md)
+* [Как перевести отдельных лицензированных пользователей на групповое лицензирование в Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Дополнительные сценарии лицензирования на основе группы в Azure Active Directory](active-directory-licensing-group-advanced.md)
 

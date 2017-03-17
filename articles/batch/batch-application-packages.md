@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/30/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
-ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 9c7073e55b98406fc8f9db9a40bf1a6ffc626f47
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="application-deployment-with-azure-batch-application-packages"></a>Развертывание приложения с помощью пакетов приложений пакетной службы Azure
+# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Развертывание приложений на вычислительных узлах с помощью пакетов приложений пакетной службы
+
 Использование пакетов приложений пакетной службы Azure обеспечивает простое управление приложениями задач и их развертывание на вычислительных узлах в пуле. С помощью пакетов приложений вы можете передать несколько версий приложений, выполняемых вашими задачами (в том числе вспомогательные файлы), а также управлять ими, а затем автоматически развернуть одно или несколько таких приложений на вычислительных узлах в пуле.
 
 Из этой статьи вы узнаете, как передать пакеты приложений на портале Azure, а также управлять ими, а затем установить их на вычислительных узлах пула с помощью библиотеки [.NET для пакетной службы][api_net].
@@ -348,9 +351,4 @@ foreach (ApplicationSummary app in applications)
 [10]: ./media/batch-application-packages/app_pkg_10.png "Выбор колонки учетной записи хранения на портале Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Колонка "Обновление пакета" на портале Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Диалоговое окно для подтверждения удаления пакета на портале Azure"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

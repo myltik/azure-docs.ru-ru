@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 0868eb2269b3675a132e106cd66740b0ce52b00a
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/28/2017
 8. После завершения установки на **панели управления** появится **Microsoft Monitoring Agent**. Здесь можно просмотреть конфигурацию и проверить, подключен ли агент к Operational Insights (OMS). При подключении к OMS агент выдает следующее сообщение: **Microsoft Monitoring Agent успешно подключен к службе Microsoft Operations Management Suite.**
 
 ## <a name="install-the-agent-using-the-command-line"></a>Установка агента с помощью командной строки
-- Измените, а затем используйте следующий пример для установки агента с помощью командной строки.
+- Измените, а затем используйте следующий пример для установки агента с помощью командной строки. В примере выполняется полностью автоматическая установка.
 
     >[!NOTE]
     Для обновления агента необходимо использовать API сценариев службы Log Analytics. Сведения об обновлении агента см. в следующем разделе.
@@ -84,6 +84,8 @@ ms.lasthandoff: 02/28/2017
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
+
+Агент использует IExpress в качестве самоизвлечения с помощью команды `/c`. Воспользуйтесь параметрами командной строки в разделе [Параметры командной строки для IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) и затем обновите пример в соответствии со своими потребностями.
 
 ## <a name="upgrade-the-agent-and-add-a-workspace-using-a-script"></a>Обновление агента и добавление рабочей области с помощью сценария
 Можно обновить агент и добавить рабочую область с помощью API сценариев службы Log Analytics, как показано в следующем примере команды PowerShell.

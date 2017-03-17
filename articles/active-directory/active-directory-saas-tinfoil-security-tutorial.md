@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: e3a93cc039d4e24d19f2df2d859c5899cd2a402e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Configure Single Sign-On")
+![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Настройка единого входа")
 
 ## <a name="enabling-the-application-integration-for-tinfoil-security"></a>Включение интеграции приложений для Tinfoil Security
 В этом разделе показано, как включить интеграцию приложений для Tinfoil Security.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Tinfoil Security**.
    
-    ![Коллекция приложений](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Коллекция приложений")
 
 7. В области результатов выберите **Tinfoil Security** и щелкните **Завершить**, чтобы добавить приложение.
    
@@ -75,11 +76,11 @@ ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Tinfoil Security** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Настройка единого входа")
 
 2. На странице **Как пользователи будут входить в Tinfoil Security** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Настройка единого входа")
 
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес ответа Tinfoil Security** введите свой URL-адрес службы Assertion Consumer Service (ACS) для Tinfoil Security (например, *https://www.tinfoilsecurity.com/saml/consume*), а затем нажмите кнопку **Далее**.
    
@@ -88,25 +89,25 @@ ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
     > 
     > 
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в Tinfoil Security** щелкните **Скачать сертификат**, а затем сохраните файл сертификата локально как **c:\\Tinfoil Security.cer**.
    
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Tinfoil Security в качестве администратора.
 
 6. На панели инструментов в верхней части экрана щелкните **Моя учетная запись**.
    
-    ![Панель мониторинга](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Dashboard")
+    ![Панель мониторинга](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Панель мониторинга")
 
 7. Выберите пункт **Безопасность**.
    
-    ![Безопасность](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Security")
+    ![Безопасность](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Безопасность")
 
 8. На странице настроек **Единый вход** выполните следующие действия.
    
-    ![Единый вход](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Single Sign-On")
+    ![Единый вход](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Единый вход")
    
     а. Выберите **Включить SAML**.
    
@@ -127,15 +128,15 @@ ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
 
 9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Настройка единого входа")
 
 10. В меню в верхней части экрана выберите пункт **Атрибуты** to open the **SAML Token Атрибуты** .
     
-    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Атрибуты")
 
 11. Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
     
-    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Атрибуты")
     
     а. Щелкните **добавить атрибут пользователя**.
 
@@ -167,17 +168,12 @@ ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Tinfoil Security** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

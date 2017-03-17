@@ -1,6 +1,6 @@
 ---
-title: "Использование шаблонов Visual Studio для быстрого запуска проекта пакетной службы в Azure | Документация Майкрософт"
-description: "Узнайте, как эти шаблоны проектов Visual Studio помогут реализовать и выполнить ресурсоемкие рабочие нагрузки в пакетной службе Azure"
+title: "Приступая к созданию решений пакетной службы с помощью шаблонов проектов Visual Studio в Azure | Документация Майкрософт"
+description: "Узнайте, как шаблоны проектов Visual Studio помогут реализовать и выполнить ресурсоемкие рабочие нагрузки в пакетной службе Azure."
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Шаблоны проектов Visual Studio для пакетной службы Azure
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Использование шаблонов проектов Visual Studio для быстрого начала работы с решениями пакетной службы
+
 Шаблоны Visual Studio **Диспетчер заданий** и **Обработчик задач** для пакетной службы содержат код, позволяющий максимально упростить внедрение и выполнение ресурсоемких рабочих нагрузок в пакетной службе. Здесь представлено описание этих шаблонов, а также рекомендации по их использованию.
 
 > [!IMPORTANT]
@@ -451,9 +454,4 @@ parameters.json. Если он найден, он загружается в ка
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

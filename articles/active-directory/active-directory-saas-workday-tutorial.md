@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: e6b1c8cbf45fea4f5af16231003ccc07a2a53233
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 3. Настройка подготовки учетных записей пользователей
 4. Настройка подготовки учетных записей пользователей
 
-![Сценарий](./media/active-directory-saas-workday-tutorial/IC782919.png "Scenario")
+![Сценарий](./media/active-directory-saas-workday-tutorial/IC782919.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-workday"></a>Включение интеграции приложений для Workday
 В этом разделе показано, как включить интеграцию приложений для Salesforce.
@@ -46,19 +47,19 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-workday-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-workday-tutorial/IC700994.png "Приложения")
 
 4. Чтобы открыть **коллекцию приложений**, щелкните **Добавить приложение**, затем — **Добавить приложение для использования моей организацией**.
    
-    ![Что необходимо сделать?](./media/active-directory-saas-workday-tutorial/IC700995.png "What do you want to do?")
+    ![Что необходимо сделать? ](./media/active-directory-saas-workday-tutorial/IC700995.png "Что необходимо сделать?")
 
 5. В **поле поиска** введите **Workday**.
    
-    ![Workday](./media/active-directory-saas-workday-tutorial/IC701021.png "Workday")
+    ![Рабочий день](./media/active-directory-saas-workday-tutorial/IC701021.png "рабочий день")
 
 6. В области результатов выберите **Workday** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-    ![Workday](./media/active-directory-saas-workday-tutorial/IC701022.png "Workday")
+    ![Рабочий день](./media/active-directory-saas-workday-tutorial/IC701022.png "рабочий день")
 
 ## <a name="configuring-single-sign-on"></a>Настройка единого входа
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Workday со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
@@ -68,15 +69,15 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Workday** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782920.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782920.png "Настройка единого входа")
 
 2. На странице **Как пользователи должны входить в Workday** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782921.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782921.png "Настройка единого входа")
 
-3. На странице **Настроить URL-адрес приложения** выполните следующие действия, а затем нажмите кнопку **Далее**.
+3. На странице **Настроить URL-адрес приложения** выполните следующие действия и нажмите кнопку **Далее**.
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-workday-tutorial/IC782957.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-workday-tutorial/IC782957.png "Настройка URL-адреса приложения")
    
     а. В текстовом поле **URL-адрес входа** введите URL-адрес, с помощью которого пользователи входят в Workday, в следующем формате: `https://impl.workday.com/<tenant>/login-saml2.htmld`.
    
@@ -89,7 +90,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 4. На странице **Настройка единого входа в Workday** нажмите кнопку **Скачать сертификат**, чтобы скачать сертификат, а затем сохраните файл сертификата на локальном компьютере.
  
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782922.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782922.png "Настройка единого входа")
 
 5. В другом окне браузера войдите на свой корпоративный сайт Workday в качестве администратора.
 
@@ -99,15 +100,15 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 7. Перейдите в раздел **Администрирование учетной записи**.
    
-    ![Администрирование учетной записи](./media/active-directory-saas-workday-tutorial/IC782924.png "Account Administration")
+    ![Администрирование учетной записи](./media/active-directory-saas-workday-tutorial/IC782924.png "Администрирование учетной записи")
 
 8. Выберите **Изменение настройки клиента — безопасность**.
    
-    ![Изменение параметров безопасности клиента](./media/active-directory-saas-workday-tutorial/IC782925.png "Edit Tenant Security")
+    ![Изменение параметров безопасности клиента](./media/active-directory-saas-workday-tutorial/IC782925.png "Изменение параметров безопасности клиента")
 
 9. В разделе **URL-адреса перенаправления** выполните следующие действия.
    
-    ![URL-адреса перенаправления](./media/active-directory-saas-workday-tutorial/IC7829581.png "Redirection URLs")
+    ![URL-адреса перенаправления](./media/active-directory-saas-workday-tutorial/IC7829581.png "URL-адреса перенаправления")
    
     а. Нажмите кнопку **Добавить строку**.
    
@@ -124,7 +125,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 1. В разделе **Настройка SAML** выполните следующие действия.
    
-    ![Настройка SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "SAML Setup")
+    ![Настройка SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Настройка SAML")
    
     а.  Установите флажок **Включить проверку подлинности SAML**.
    
@@ -132,7 +133,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 2. В разделе Поставщики удостоверений SAML" выполните следующие действия.
    
-    ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829271.png "SAML Identity Providers")
+    ![Поставщики удостоверений SAML](./media/active-directory-saas-workday-tutorial/IC7829271.png "Поставщики удостоверений SAML")
    
     а. В текстовом поле «Имя поставщика удостоверений» введите имя поставщика (например, *SPInitiatedSSO*).
    
@@ -144,16 +145,16 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
     д. Щелкните **Identity Provider Public Key Certificate** (Сертификат открытого ключа поставщика удостоверений), а затем нажмите кнопку **Создать**. 
 
-    ![Создание](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
+    ![Создание](./media/active-directory-saas-workday-tutorial/IC782928.png "Создание")
 
     Е. Щелкните **Create x509 Public Key**(Создать открытый ключ x509). 
 
-    ![Создать](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
+    ![Создание](./media/active-directory-saas-workday-tutorial/IC782929.png "Создание")
 
 
 1. В разделе **View x509 Public Key** (Просмотр открытого ключа x509) сделайте следующее. 
    
-    ![View x509 Public Key](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key") 
+    ![Просмотр открытого ключа x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Просмотр открытого ключа x509") 
    
     а. В текстовом поле **Имя** введите имя сертификата (например, *PPE\_SP*).
    
@@ -181,7 +182,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 2. Выполните следующие действия: 
    
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO configuration")
+    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC7829351111.png "Настройка единого входа")
    
     а.  Установите флажок **Пара закрытых ключей x509**.
    
@@ -195,19 +196,19 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
    
     Е. Для параметра **Authentication Request Signature Method** (Метод подписи запроса аутентификации) выберите значение **SHA256**. 
    
-    ![Метод подписи запроса проверки подлинности](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method") 
+    ![Метод подписи запроса аутентификации](./media/active-directory-saas-workday-tutorial/IC782932.png "Метод подписи запроса аутентификации") 
    
     g. Нажмите кнопку **ОК**. 
    
-    ![ОК](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+    ![ОК](./media/active-directory-saas-workday-tutorial/IC782933.png "ОК")
 
 3. На странице **Настройка единого входа в Workday** классического портала Azure нажмите кнопку **Далее**. 
    
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782934.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782934.png "Настройка единого входа")
 
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**. 
    
-    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-workday-tutorial/IC782935111.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы подготовить тестового пользователя в Workday, необходимо обратитесь в службу поддержки Workday.  
@@ -221,17 +222,12 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 2. На странице интеграции с приложением **Workday** щелкните **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-workday-tutorial/IC782935.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-workday-tutorial/IC782935.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-workday-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-workday-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

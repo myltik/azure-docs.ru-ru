@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/11/2017
 
 Ниже представлены рекомендации по оптимизации производительности во время импорта.
 
-* Выберите наивысший уровень служб и производительности, который позволяет ваш бюджет, чтобы увеличить производительность передачи данных. Чтобы сэкономить деньги, вы можете уменьшить производительность после завершения миграции. Ознакомьтесь с соответствующими разделами, чтобы узнать об изменении уровня служб и производительности отдельной базы данных с помощью [портала Azure](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [PowerShell](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database) и [Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database).
+* Выберите наивысший уровень служб и производительности, который позволяет ваш бюджет, чтобы увеличить производительность передачи данных. Чтобы сэкономить деньги, вы можете уменьшить производительность после завершения миграции. 
 * Минимизируйте расстояние между BACPAC-файлом и целевым центром обработки данных.
 * Отключите автоматическую статистику во время миграции.
 * Выполните секционирование таблиц и индексов.

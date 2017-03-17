@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 28846f2effd26c5b7ca7a79fba52d8ba1cb4ea91
-ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
+ms.sourcegitcommit: 7c91ae265dd86e8d7f206c1ada021c40fd8c4479
+ms.openlocfilehash: cb3b7cfefe22176e17064ad6cbb9df4da8c57c0f
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,13 +25,19 @@ ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
 
 В этой статье содержатся ответы на часто задаваемые вопросы о приложении Microsoft Authenticator. Если вы не нашли ответ на свой вопрос, то перейдите на [форум приложения Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Сведения об определенных функциях приложения также можно найти в разделе часто задаваемых вопросов статьи [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md) (Вход с помощью телефона, а не пароля).
 
-Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Azure Multi-Factor Authentication. Приложение Microsoft Authenticator доступно для Windows Phone, Android и iOS.
+Приложение Microsoft Authenticator пришло на смену приложению Azure Authenticator. Это приложение, рекомендуемое при использовании Azure Multi-Factor Authentication. Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
-### <a name="what-happened-to-the-azure-authenticator-multi-factor-auth-and-microsoft-account-apps"></a>Что случилось с Azure Authenticator, Multi-Factor Auth и приложением учетной записи Майкрософт?
-Теперь вместо них используется приложение Microsoft Authenticator. Приложение Azure Authenticator обновлено до Microsoft Authenticator. Если вы используете Multi-Factor Auth или приложение учетной записи Майкрософт, установите Microsoft Authenticator и снова добавьте учетные записи. При этом важно сначала добавить учетные записи в новое приложение и лишь затем удалять старые приложения.
 
-Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Для чего используются коды в приложении? Почему их значение уменьшается в обратном порядке?
+
+При открытии приложения Microsoft Authenticator вы увидите добавленные учетные записи и шести- или восьмизначную цифру рядом с каждой из них. Вы можете увидеть тридцатисекундный таймер, ведущий обратный отсчет.
+
+Эти коды используются при входе в учетную запись. После ввода имени пользователя и пароля может появиться запрос на ввод проверочного кода. Откройте приложение Microsoft Authenticator и скопируйте код, отображаемый в настоящее время. Чтобы войти в систему, введите этот код на странице входа.
+
+Благодаря тому, что он изменяется каждые тридцать секунд, вы никогда не будете использовать один и тот же код дважды. Этот код не нужно запоминать, в отличие от пароля. Суть в том, что только пользователь с доступом к телефону будет знать проверочный код.
+
+Для использования этих кодов не требуется подключение к Интернету или какие-либо другие данные, поэтому вам не нужно волноваться о наличии телефонной службы для входа в систему или о том, что приложение будет использовать ваш тарифный план. После закрытия приложение продолжает работать в фоновом режиме, не потребляя заряд аккумулятора. Вы можете закрыть приложение и игнорировать его до следующего входа в систему.  
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Я уже использую приложение Microsoft Authenticator для кодов безопасности. Как перейти к использованию push-уведомлений одним щелчком?
 Подтверждение входа через push-уведомление доступно только для личных или рабочих и учебных учетных записей Майкрософт, но не для сторонних учетных записей, таких как Google или Facebook. Если у вас есть рабочие или учебные учетные записи Майкрософт, то вы можете отключить эту функцию в своей организации.
@@ -87,10 +94,5 @@ ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
 * [Сведения о двухфакторной проверке подлинности](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) для учетной записи Майкрософт.
 * [Проблемы с двухфакторной проверкой подлинности](multi-factor-authentication-end-user-troubleshoot.md) для вашей рабочей или учебной учетной записи?
 * [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md) (Вход с помощью телефона, а не пароля).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

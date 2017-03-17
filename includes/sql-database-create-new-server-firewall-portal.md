@@ -35,8 +35,3 @@ articles/sql-data-warehouse-get-started-provision.md
 > [!Tip]
 > Подробное руководство см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../articles/sql-database/sql-database-get-started.md).    
 >
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Очереди, разделы и подписки служебной шины | Документация Майкрософт"
+title: "Обзор очередей сообщений, разделов и подписок служебной шины | Документация Майкрософт"
 description: "Общие сведения о сущностях обмена сообщениями в служебной шине."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 60a914e4706414891863c5d1d07846898936815b
-ms.openlocfilehash: cd3b8b73db87a6b15b5a408609417ff2d2ca0a86
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: b4c551e1d0511c868c8a54d1307529436c107945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -165,10 +166,5 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 * [Руководство по обмену сообщениями через посредника служебной шины на основе REST](service-bus-brokered-tutorial-rest.md)
 * [Пример фильтров разделов](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 * [Brokered Messaging: Advanced Filters (Обмен сообщениями через брокер: расширенные фильтры)](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

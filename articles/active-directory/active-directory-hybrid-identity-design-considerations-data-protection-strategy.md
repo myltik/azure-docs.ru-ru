@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: d4f5d9dbe60e549d270e190e626a87a66696f07c
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -168,10 +169,5 @@ Azure AD может помочь ИТ-специалистам идентифи�
 
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

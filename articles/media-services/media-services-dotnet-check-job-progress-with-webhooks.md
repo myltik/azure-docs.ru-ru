@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a13850cf09424f7e4402204d97d1f6755d691550
-ms.openlocfilehash: 0d3f6dc80141d26cace60f177b35d527fd294261
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,8 +30,8 @@ ms.lasthandoff: 02/22/2017
 
 * Учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Учетная запись служб мультимедиа. Инструкции по созданию учетной записи служб мультимедиа см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
-* .NET Framework 4.0 или более поздняя версия.
-* Visual Studio 2010 с пакетом обновления 1 (SP1) (Professional, Premium, Ultimate или Express) или более поздняя версия.
+* .NET Framework 4.0 или более поздней версии.
+* приведенному.
 * Общие сведения об [использовании Функций Azure](../azure-functions/functions-overview.md). Посмотрите также статью [Привязки HTTP и webhook в функциях Azure](../azure-functions/functions-bindings-http-webhook.md).
 
 В этой статье вы узнаете, как:
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/22/2017
     
 * Добавьте объект webhook в задачу кодирования и укажите URL-адрес объекта webhook, а также секретный ключ, соответствующий этому объекту. В приведенном примере код, создающий задание кодирования, является консольным приложением.
 
-## <a name="getting-webhook-notifications"></a>Получение уведомлений webhook
+## <a name="setting-up-webhook-notification-azure-functions"></a>Настройка функций Azure "уведомления webhook"
 
 В коде этого раздела показана реализация функции Azure, которая является объектом webhook. В этом примере функция прослушивает обратный вызов webhook из уведомлений служб мультимедиа и публикует выходной ресурс после завершения задания.
 
@@ -56,7 +56,20 @@ ms.lasthandoff: 02/22/2017
 
 Определение функции Azure служб мультимедиа с использованием .NETможно найти [здесь](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
-В следующем примере кода показаны определения трех файлов, связанных с функцией Azure: function.json, project.json и run.csx.
+В следующем примере кода показаны определения параметров функций Azure и трех файлов, связанных с функцией Azure: function.json, project.json и run.csx.
+
+### <a name="application-settings"></a>Параметры приложения 
+
+В следующей таблице приведены параметры, которые используются функцией Azure, определенной в этом разделе. 
+
+|Имя|Определение|Пример| 
+|---|---|---|
+|AMSAccount|Имя учетной записи AMS. |juliakomediaservices|
+|AMSKey |Ключ учетной записи AMS. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |Имя учетной записи хранения, связанной учетной записью AMS.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Ключ учетной записи хранения, связанной учетной записью AMS.|
+|SigningKey |Ключ подписи.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | Адрес конечной точки объекта webhook. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>function.json
 
@@ -410,7 +423,6 @@ ms.lasthandoff: 02/22/2017
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.None);
-
 
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(newAsset);

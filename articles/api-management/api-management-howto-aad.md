@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
+ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
+ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
 ## <a name="overview"></a>Обзор
-В этом руководстве показывается, как включить доступ к порталу разработчика для всех пользователей в одной или нескольких службах каталогов Active Directory Azure. В этом руководстве также показано, как управлять группами пользователей Azure Active Directory путем добавления внешних групп, содержащих пользователей Azure Active Directory.
+В этом руководстве показывается, как включить доступ к порталу разработчика для пользователей из каталога Active Directory Azure. В этом руководстве также показано, как управлять группами пользователей Azure Active Directory путем добавления внешних групп, содержащих пользователей Azure Active Directory.
 
 > Для выполнения шагов в этом руководстве вам сначала потребуется Azure Active Directory для создания приложения.
 > 
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory
-Чтобы начать работу, щелкните **Publisher portal** (Портал издателя) на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
+Чтобы начать работу, щелкните **Портал издателя** на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -58,7 +59,7 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 ![Свойства нового приложения Azure Active Directory][api-management-new-aad-application-2]
 
-Нажмите кнопку с галочкой, чтобы сохранить и создать новое приложение, и переключитесь на вкладку **Настройка**, чтобы настроить новое приложение.
+Нажмите кнопку с галочкой, чтобы сохранить и создать приложение, и переключитесь на вкладку **Настройка**, чтобы настроить новое приложение.
 
 ![Новое приложение Azure Active Directory создано][api-management-new-aad-app-created]
 
@@ -90,7 +91,7 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 ![Идентификатор клиента][api-management-client-id]
 
-Вернитесь в конфигурацию Azure Active Directory, щелкните раскрывающийся список **Выбрать длительность** в разделе **Ключи** и укажите интервал. В данном примере используется интервал **1 год** .
+Вернитесь в конфигурацию Azure Active Directory, щелкните раскрывающийся список **Выбрать длительность** в разделе **Ключи** и укажите интервал. В данном примере используется интервал **1 год**.
 
 ![Ключ][api-management-aad-key-before-save]
 
@@ -110,19 +111,24 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 ![Allowed Tenants][api-management-client-allowed-tenants]
 
-В разделе **Разрешенные клиенты** можно указывать несколько доменов. Прежде чем какой-либо пользователь сможет выполнить вход из домена, отличного от домена, в котором было зарегистрировано приложение, глобальный администратор этого другого домена должен предоставить разрешение для доступа приложения к данным каталога. Чтобы предоставить разрешение, глобальный администратор должен войти в приложение и нажать кнопку **Принять**. В следующем примере в раздел **Разрешенные клиенты** был добавлен домен `miaoaad.onmicrosoft.com`, и глобальный администратор этого домена впервые выполняет вход.
-
-![Разрешения][api-management-permissions-form]
-
-> Если администратор, не являющийся глобальным, попытается выполнить вход до того, как глобальный администратор предоставит разрешения, то попытка входа завершится неудачно и появится экран сообщения об ошибке.
-> 
-> 
 
 После указания требуемой конфигурации нажмите кнопку **Сохранить**.
 
 ![Сохранить][api-management-client-allowed-tenants-save]
 
 После сохранения изменений пользователи в указанной Azure Active Directory могут входить на портал разработчика, выполняя действия, приведенные в разделе [Вход на портал разработчика с помощью учетной записи Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
+
+В разделе **Разрешенные клиенты** можно указывать несколько доменов. Прежде чем какой-либо пользователь сможет выполнить вход из домена, отличного от домена, в котором было зарегистрировано приложение, глобальный администратор этого другого домена должен предоставить разрешение для доступа приложения к данным каталога. Чтобы предоставить разрешение, глобальный администратор должен перейти по адресу `https://<URL of your developer portal>/aadadminconsent` (например, https://contoso.portal.azure-api.net/aadadminconsent), ввести имя домена клиента Active Directory, доступ к которому требуется предоставить, и щелкнуть "Отправить". В следующем примере глобальный администратор `miaoaad.onmicrosoft.com` пытается предоставить разрешение определенному порталу разработчика. 
+
+![Разрешения][api-management-aad-consent]
+
+На следующем экране глобальному администратору будет предложено подтвердить предоставление разрешения. 
+
+![Разрешения][api-management-permissions-form]
+
+> Если администратор, не являющийся глобальным, попытается выполнить вход до того, как глобальный администратор предоставит разрешения, то попытка входа завершится неудачно и появится экран сообщения об ошибке.
+> 
+> 
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Добавление внешней группы Active Directory Azure
 После включения доступа для пользователей в Azure Active Directory вы можете добавлять группы Azure Active Directory в управление API, чтобы упростить управление связью разработчиков в такой группе с требуемыми продуктами.
@@ -147,7 +153,7 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 ![Список групп Azure Active Directory][api-management-aad-groups-list]
 
-Нажмите кнопку **Добавить** , чтобы проверить имя группы и добавить ее. В данном примере добавляется внешняя группа **Разработчики Contoso 5** . 
+Нажмите кнопку **Добавить** , чтобы проверить имя группы и добавить ее. В данном примере добавляется внешняя группа **Разработчики Contoso 5**. 
 
 ![Группа добавлена][api-management-aad-group-added]
 
@@ -155,7 +161,7 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 После настройки группы Azure Active Directory в одном продукте ее можно включать на вкладке **Видимость** для других продуктов в этом экземпляре службы управления API.
 
-Чтобы просмотреть и настроить свойства внешних групп после их добавления, щелкните имя группы на вкладке **Группы** .
+Чтобы просмотреть и настроить свойства внешних групп после их добавления, щелкните имя группы на вкладке **Группы**.
 
 ![Управление группами][api-management-groups]
 
@@ -204,6 +210,7 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 [api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
 [api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
+[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
 [api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
 [api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
 [api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
@@ -234,10 +241,5 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

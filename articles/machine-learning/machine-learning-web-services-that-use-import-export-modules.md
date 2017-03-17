@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/31/2017
 9. Найдите объявление запроса и обновите значения параметров веб-службы, которые передаются в модули *Импорт данных* и *Экспорт данных*. В этом случае будет использоваться исходный запрос, но определяться имя новой таблицы.
    
         var request = new BatchExecutionRequest() 
-        {           
+        {            
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -119,6 +119,10 @@ ms.lasthandoff: 01/31/2017
 По завершении выполнения новая таблица добавляется в базу данных, содержащую результаты оценки.
 
 ### <a name="deploy-a-new-web-service"></a>Развертывание новой веб-службы
+
+> [!NOTE] 
+> Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
+
 Для развертывания новой веб-службы и создания использующего ее приложения выполните следующие действия:
 
 1. В нижней части холста эксперимента нажмите кнопку **Run**(Выполнить).
@@ -132,7 +136,7 @@ ms.lasthandoff: 01/31/2017
 9. Найдите объявление *scoreRequest* и обновите значения параметров веб-службы, которые передаются в модули *Импорт данных* и *Экспорт данных*. В этом случае будет использоваться исходный запрос, но определяться имя новой таблицы.
    
         var scoreRequest = new
-        {       
+        {        
             Inputs = new Dictionary<string, StringTable>()
             {
             },

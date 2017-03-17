@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
-ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 39b0b15dba098c0ddc59e39a81bfb6809f8cb2eb
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,6 +39,7 @@ Azure AD Connect позволяет настроить федерацию меж
 | [Добавление нового сервера AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Добавление к ферме AD FS дополнительных серверов AD FS после начальной установки. |
 | [Добавление нового WAP-сервера AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Добавление к ферме AD FS дополнительных серверов WAP после начальной установки. |
 | [Добавление нового федеративного домена](active-directory-aadconnect-federation-management.md#addfeddomain) |Добавление нового домена в федерацию с Azure AD. |
+| [Обновление SSL-сертификата](active-directory-aadconnectfed-ssl-update.md)| Обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS)|
 | **Действия после установки** | |
 | [Добавление настраиваемого логотипа компании или иллюстрации](active-directory-aadconnect-federation-management.md#customlogo) |Персонализация входа в систему путем настройки эмблемы, которая будет отображаться на странице входа в AD FS. |
 | [Добавление описания входа в систему](active-directory-aadconnect-federation-management.md#addsignindescription) |Изменение текста для описания входа на странице входа в AD FS. |

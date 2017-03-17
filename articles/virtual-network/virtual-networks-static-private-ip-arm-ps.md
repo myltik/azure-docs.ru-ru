@@ -1,6 +1,6 @@
 ---
-title: "Настройка статического частного IP-адреса и управление им с помощью PowerShell | Документация Майкрософт"
-description: "Сведения о настройке статического частного IP-адреса и управление им с помощью PowerShell при использовании Azure Resource Manager."
+title: "Настройка частных IP-адресов для виртуальных машин с помощью Azure PowerShell | Документация Майкрософт"
+description: "Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 75dbe164bf0fb4b3aff95954ce619781bbafaa5c
-ms.openlocfilehash: 3b966921bccb8e2bd29412c6e4aa200c606b4bf8
+ms.sourcegitcommit: b1eb8aa6bc822932b9f2abd1c448aca96069fefa
+ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="set-and-manage-a-static-private-ip-address-using-powershell"></a>Настройка статического частного IP-адреса и управление им с помощью PowerShell
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Настройка частных IP-адресов для виртуальной машины с помощью PowerShell
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -32,8 +35,8 @@ Azure предоставляет две модели развертывания:
 
 Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в соответствии с указаниями, представленными в этом документе, сначала постройте тестовую среду, как описано в статье [Создание виртуальной сети](virtual-networks-create-vnet-arm-ps.md).
 
-## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Указание статического частного IP-адреса при создании виртуальной машины
-Чтобы создать виртуальную машину с именем *DNS01* в подсети *FrontEnd* виртуальной сети *TestVNet* со статическим частным IP-адресом *192.168.1.101*, выполните следующие действия:
+## <a name="create-a-vm-with-a-static-private-ip-address"></a>Создание виртуальной машины со статическим частным IP-адресом
+Чтобы создать виртуальную машину с именем *DNS01* в подсети *FrontEnd* виртуальной сети *TestVNet* со статическим частным IP-адресом *192.168.1.101*, выполните следующие действия.
 
 1. Задайте переменные для учетной записи хранения, расположения, группы ресурсов и используемых учетных данных. Понадобится ввести имя пользователя и пароль для виртуальной машины. Учетная запись хранения и группа ресурсов уже должны существовать.
 
@@ -92,7 +95,7 @@ Azure предоставляет две модели развертывания:
         RequestId           : [Id]
         StatusCode          : OK 
 
-## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Получение сведений о статическом частном IP-адресе виртуальной машины
+## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Получение сведений о статическом частном IP-адресе сетевого интерфейса
 Чтобы просмотреть сведения о статическом частном IP-адресе виртуальной машины, созданной с помощью приведенного выше скрипта, выполните следующую команду PowerShell и обратите внимание на значения *PrivateIpAddress* и *PrivateIpAllocationMethod*.
 
 ```powershell
@@ -139,7 +142,7 @@ Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Удаление статического частного IP-адреса виртуальной машины
+## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Удаление статического частного IP-адреса из сетевого интерфейса
 Чтобы удалить статический частный IP-адрес, добавленный на виртуальную машину в приведенном выше сценарии, выполните следующие команды PowerShell:
 
 ```powershell
@@ -188,7 +191,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-to-an-existing-vm"></a>Добавление статического частного IP-адреса для существующей виртуальной машины
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Добавление статического частного IP-адреса в сетевой интерфейс
 Чтобы добавить статический частный IP-адрес для виртуальной машины, созданной с помощью приведенного ранее скрипта, выполните следующие команды:
 
 ```powershell
@@ -197,15 +200,31 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Изменение метода распределения для частного IP-адреса, назначенного сетевому интерфейсу
+
+Частный IP-адрес назначается сетевой карте с помощью статического или динамического метода распределения. Динамические IP-адреса можно изменить после запуска виртуальной машины, ранее пребывавшей в состоянии "Остановлено" ("Освобождено"). Это может вызвать проблемы, если в виртуальной машине размещается служба, требующая один и тот же IP-адрес даже после перезапуска виртуальной машины, пребывающей в состоянии "Остановлено" ("Освобождено"). Статические IP-адреса хранятся до удаления виртуальной машины. Чтобы изменить метод распределения IP-адреса, выполните следующий скрипт, который изменяет метод распределения с динамического на статический. Если метод распределения для текущего частного IP-адреса *статический*, измените его на *динамический* перед выполнением скрипта.
+
+```powershell
+$RG = "TestRG"
+$NIC_name = "testnic1"
+
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName $RG -Name $NIC_name
+$nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
+Set-AzureRmNetworkInterface -NetworkInterface $nic 
+$IP = $nic.IpConfigurations[0].PrivateIpAddress
+
+Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
+```
+
+Если имя сетевой карты вам неизвестно, можно просмотреть список сетевых карт в группе ресурсов, введя следующую команду:
+
+```powershell
+Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .
 * Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

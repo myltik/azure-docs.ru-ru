@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 02/26/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
+ms.sourcegitcommit: 0f767b96fa8f8f9d1a22709633bee64f0477ffb3
+ms.openlocfilehash: 46fbe3233af22605d4cd89227b91313128e523f9
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Учебник. Интеграция Azure Active Directory с ADP GlobalView
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением ADP GlobalView.  
+
 Интеграция Azure AD с ADP GlobalView обеспечивает следующие преимущества.
 
 * С помощью Azure AD вы можете контролировать доступ к ADP GlobalView.
@@ -34,26 +36,26 @@ ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
 Чтобы настроить интеграцию Azure AD с ADP GlobalView, вам потребуется:
 
 * подписка Azure AD;
-* подписка ADP GlobalView с поддержкой единого входа.
+* подписка на ADP GlobalView с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Цель этого руководства — научить вас проверять единый вход Azure AD в тестовой среде.  
+
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление ADP GlobalView из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. Настройка и проверка единого входа Azure AD.
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Добавление ADP GlobalView из коллекции
+## <a name="add-adp-globalview-from-the-gallery"></a>Добавление ADP GlobalView из коллекции
 Чтобы настроить интеграцию ADP GlobalView с Azure AD, необходимо добавить ADP GlobalView из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить ADP GlobalView из коллекции, выполните следующие действия:**
@@ -78,24 +80,29 @@ ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в ADP GlobalView с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в ADP GlobalView соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ADP GlobalView.  
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в ADP GlobalView соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ADP GlobalView.  
+
 Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в ADP GlobalView.
 
 Чтобы настроить и проверить единый вход Azure AD в ADP GlobalView, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя ADP GlobalView](#creating-a-adp-globalview-test-user)** требуется для создания пользователя Britta Simon в ADP GlobalView, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение ADP GlobalView.
+### <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении ADP GlobalView.
 
-Приложение ADP GlobalView ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию атрибутов токена SAML. На следующем снимке экрана приведен пример. Утверждение всегда будет носить имя **PersonImmutableID** и иметь значение, которое было сопоставлено с ExtensionAttribute2, содержащим EmployeeID пользователя. Здесь выполняется сопоставление пользователя из Azure AD с ADP GlobalView по значению EmployeeID, однако его можно сопоставить с другим значением, учитывая параметры приложения. Вместе со службой поддержки ADP GlobalView выполните действия по использованию правильного идентификатора пользователя и его сопоставлению с утверждением **PersonImmutableID** . Также можно сопоставить утверждения электронной почты и идентификатора пользователя, как показано на рисунке.
+Приложение ADP GlobalView ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию атрибутов токена SAML. 
+
+На следующем снимке экрана приведен пример. Утверждение всегда будет носить имя **PersonImmutableID** и иметь значение, которое было сопоставлено с ExtensionAttribute2, содержащим EmployeeID пользователя. Здесь выполняется сопоставление пользователя из Azure AD с ADP GlobalView по значению EmployeeID, однако его можно сопоставить с другим значением, учитывая параметры приложения. 
+
+Вместе со службой поддержки ADP GlobalView выполните действия по использованию правильного идентификатора пользователя и его сопоставлению с утверждением **PersonImmutableID**. Также можно сопоставить утверждения электронной почты и идентификатора пользователя, как показано на рисунке.
 
 ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_02.png) 
 
@@ -112,80 +119,65 @@ ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) 
-
-    а. В текстовое поле **Идентификатор** введите URL-адрес, используемый для определения приложения ADP GlobalView, которое применяет один из следующих шаблонов — `https://<server name>.globalview.adp.com/federate2` или `https://<server name>.globalview.adp.com/federate`.
-
-
-    b. В текстовое поле **URL-адрес ответа** введите URL-адрес, используемый Azure AD для публикации ответа в адрес приложения ADP GlobalView с использованием одного из следующих шаблонов: `https://<server name>.globalview.adp.com/federate2/sp/ACS.saml2` или `https://<server name>.globalview.adp.com/federate/sp/ACS.saml2`.
-
-    c. Нажмите кнопку **Далее**.
-
-
-1. На странице **Configure single sign-on at ADP GlobalView** (Настройка единого входа в ADP GlobalView) сделайте следующее:
+  1. В текстовое поле **Идентификатор** введите URL-адрес, используемый для определения приложения ADP GlobalView, которое применяет один из следующих шаблонов — `https://<server name>.globalview.adp.com/federate2` или `https://<server name>.globalview.adp.com/federate`.
+  2. В текстовое поле **URL-адрес ответа** введите URL-адрес, используемый Azure AD для публикации ответа в адрес приложения ADP GlobalView с использованием одного из следующих шаблонов: `https://<server name>.globalview.adp.com/federate2/sp/ACS.saml2` или `https://<server name>.globalview.adp.com/federate/sp/ACS.saml2`.
+  3. Нажмите кнопку **Далее**.
+4. На странице **Configure single sign-on at ADP GlobalView** (Настройка единого входа в ADP GlobalView) сделайте следующее:
    
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png) 
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-2. Для настройки единого входа для своего приложения обратитесь в службу поддержки ADP GlobalView и предоставьте следующие сведения: 
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png)   
+  1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+  2. Нажмите кнопку **Далее**.
+5. Для настройки единого входа для своего приложения обратитесь в службу поддержки ADP GlobalView и предоставьте следующие сведения: 
    
    * скачанный **сертификат**;
    * **идентификатор сущности**;
    * **URL-адрес единого входа SAML**;
    * **URL-адрес службы единого выхода**.
 
-    > [AZURE.NOTE] Когда специалисты по **ADP GlobalView** настроят экземпляр, узнайте у них значение **RelayState**. Выполните следующие действия, чтобы настроить его. После этой настройки проверьте интеграцию. Обратите внимание, что эта настройка имеет важное значение для работы интеграции приложения.
+    >[!NOTE]
+    >Когда специалисты по **ADP GlobalView** настроят экземпляр, узнайте у них значение **RelayState**. Выполните следующие действия, чтобы настроить его. После этой настройки проверьте интеграцию. Обратите внимание, что эта конфигурация имеет важное значение для поддержки интеграции приложения.
+    >
 
-1. Чтобы настроить значение RelayState в Azure AD, выполните следующие действия. 
+6. Чтобы настроить значение RelayState в Azure AD, выполните следующие действия.   
+ 1. Войдите на [портал управления Azure](https://portal.azure.com) с учетной записью администратора.
+ 2. В области навигации слева щелкните **Больше служб**. 
    
-    а. Войдите на [портал управления Azure](https://portal.azure.com) с учетной записью администратора.
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_07.png)  
+ 3. В текстовое поле **Поиск** введите **Azure Active Directory**, а затем щелкните связанную ссылку.
    
-    b. В области навигации слева щелкните **Больше служб**. 
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_08.png)  
+ 4. Щелкните **Корпоративные приложения**.
    
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_07.png)
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_09.png) 
+ 5. В разделе **Управление** щелкните **Все приложения**.
    
-    c. В текстовое поле **Поиск** введите **Azure Active Directory**, а затем щелкните связанную ссылку.
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_10.png) 
+ 6. В текстовое поле **Поиск** введите **ADP eTime**, а затем щелкните связанную ссылку. 
    
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_08.png)
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_11.png) 
+ 7. В разделе **Управление** щелкните **Единый вход**.
    
-    d. Щелкните **Корпоративные приложения**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_09.png)
-   
-    д. В разделе **Управление** щелкните **Все приложения**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_10.png)
-   
-    Е. В текстовое поле **Поиск** введите **ADP eTime**, а затем щелкните связанную ссылку. 
-   
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_11.png)
-   
-    ж. В разделе **Управление** щелкните **Единый вход**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_12.png)
-   
-    h. Выберите **Показать дополнительные параметры URL-адресов**.
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_12.png)  
+ 8. Выберите **Показать дополнительные параметры URL-адресов**.
    
     ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_13.png)
-   
-    i. В текстовое поле **Состояние ретранслятора** введите значение в следующем формате:
+ 9. В текстовое поле **Состояние ретранслятора** введите значение в следующем формате:
    
     `https://<server name>.globalview.adp.com/gvolution/session/<instance name>/sso` 
    
-    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_14.png)
-   
-    j. Сохраните параметры.
-2. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+    ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_14.png)  
+ 10. Сохраните параметры.
+7. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
-3. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
+8. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
     ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
-В списке пользователей выберите **Britta Simon**.
+
+* В списке пользователей выберите **Britta Simon**.
 
 ![Создание пользователя Azure AD][20]
 
@@ -203,47 +195,36 @@ ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_04.png) 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_05.png)  
+ 1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».  
+ 2. В текстовом поле **Имя пользователя** введите **BrittaSimon**. 
+ 3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png)  
+ 1. В текстовом поле **Имя** введите **Britta**.    
+ 2. В текстовом поле **Фамилия** введите **Simon**. 
+ 3. В текстовом поле **Отображаемое имя** введите **Britta Simon**. 
+ 4. В списке **Роль** выберите **Пользователь**. 
+ 5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_08.png)  
+ 1. Запишите значение поля **Новый пароль**.  
+ 2. Нажмите **Завершено**.   
 
-### <a name="creating-a-adp-globalview-test-user"></a>Создание тестового пользователя ADP GlobalView
+### <a name="create-a-adp-globalview-test-user"></a>Создание тестового пользователя ADP GlobalView
 Цель этого раздела — создать пользователя с именем Britta Simon в приложении ADP GlobalView. Обратитесь в службу поддержки ADP GlobalView, чтобы добавить пользователей в учетную запись ADP GlobalView. 
 
-> [!NOTE]
-> Чтобы создать пользователя вручную, необходимо обратиться в службу поддержки ADP GlobalView.
-> 
+>[!NOTE]
+>Чтобы создать пользователя вручную, необходимо обратиться в службу поддержки ADP GlobalView.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к ADP GlobalView.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Цель этого раздела — предоставить пользователю Britta Simon доступ к ADP GlobalView, чтобы он мог использовать единый вход Azure.
 
 ![Назначение пользователя][200] 
 
@@ -263,8 +244,9 @@ ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+### <a name="test-single-sign-on"></a>Проверка единого входа
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+
 Щелкнув элемент ADP GlobalView на панели доступа, вы автоматически войдете в приложение ADP GlobalView.
 
 ## <a name="additional-resources"></a>дополнительные ресурсы.
@@ -288,9 +270,4 @@ ms.openlocfilehash: 748704129f417d28c838e71434dfeab376ea0d8e
 [203]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

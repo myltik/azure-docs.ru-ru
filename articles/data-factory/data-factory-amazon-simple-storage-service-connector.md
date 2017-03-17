@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
+ms.sourcegitcommit: bf5010537d222045b5bf13d85cab6c48c9659ed0
+ms.openlocfilehash: b055342d8e11e4d38688681b36ef9a1f717fdf15
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
 Чтобы скопировать данные из Amazon S3, убедитесь, что вы предоставили перечисленные ниже разрешения.
 
 * **S3:GetObject** и **s3:GetObjectVersion** для операций с объектами Amazon S3.
-* **S3:ListBucket** и **s3:ListAllMyBuckets** (используются только в мастере копирования) для операций в контейнере Amazon S3.
+* **s3:ListBucket** для операций в контейнере Amazon S3. Если вы используете мастер копирования, также требуется **s3:ListAllMyBuckets**.
 
 Полный список разрешений Amazon S3 с дополнительной информацией см. в статье, посвященной [назначению разрешений в политике](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -238,8 +239,9 @@ ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
 | key |Ключ объекта S3. |string |Нет |
 | prefix |Префикс для ключа объекта S3. Выбираются объекты, ключи которых начинаются с этого префикса. Применяется, только если ключ пустой. |string |Нет |
 | версия |Версия объекта S3, если включено управление версиями S3. |string |Нет |
-| свойства |Поддерживаются следующие типы формата: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах [Определение TextFormat](#specifying-textformat), [Определение AvroFormat](#specifying-avroformat), [Указание JsonFormat](#specifying-jsonformat), [Указание OrcFormat](#specifying-orcformat) и [Указание ParquetFormatt](#specifying-parquetformat). Если требуется скопировать файлы между файловыми хранилищами "как есть" (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных. |Нет | |
-| compression |Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate** и **BZip2**. Поддерживаемые уровни: **Optimal** и **Fastest**. Сейчас для данных в формате **AvroFormat** или **OrcFormat** параметры сжатия не поддерживаются. Дополнительные сведения см. в разделе [Поддержка сжатия](#compression-support). |Нет | |
+| свойства | Поддерживаются следующие типы формата: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Свойству **type** в разделе format необходимо присвоить одно из этих значений. Дополнительные сведения см. в разделах о [текстовом формате](#specifying-textformat), [формате Json](#specifying-jsonformat), [формате Avro](#specifying-avroformat), [формате Orc](#specifying-orcformat) и [ формате Parquet](#specifying-parquetformat). <br><br> Если требуется скопировать файлы между файловыми хранилищами **как есть** (двоичное копирование), можно пропустить раздел форматирования в определениях входного и выходного наборов данных. |Нет | |
+| compression | Укажите тип и уровень сжатия данных. Поддерживаемые типы: **GZip**, **Deflate**, **BZip2** и **ZipDeflate**. Поддерживаемые уровни: **Optimal** и **Fastest**. Дополнительные сведения см. в разделе [Указание сжатия](#specifying-compression). |Нет | |
+
 
 > [!NOTE]
 > Свойства bucketName и key указывают расположение объекта S3, где контейнер — это корневой контейнер для объектов S3, а ключ — это полный путь к объекту S3.
@@ -339,9 +341,4 @@ ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
 Ознакомьтесь со следующими статьями:
 
 * [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
-ms.openlocfilehash: 879207512b7c61d48dcd25342ab88121258ba853
+ms.sourcegitcommit: 65eef5df67adc089f52d8478fd1bb37a481d7d2a
+ms.openlocfilehash: 8d0b9f142ef274667692009bf8dafeb1f2f0f9c7
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -41,6 +42,7 @@ ms.openlocfilehash: 879207512b7c61d48dcd25342ab88121258ba853
 ## <a name="configuration-prerequisites"></a>Предварительные требования для настройки
 * Прежде чем приступать к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
 * Вам потребуется активный канал ExpressRoute. Приступая к работе, [создайте канал ExpressRoute](expressroute-howto-circuit-arm.md) ; он должен быть затем включен на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
+* Если вы планируете использовать общий ключ или хэш MD5, используйте его на обеих сторонах туннеля и ограничьте максимальное число символов до 25.
 
 Эти инструкции распространяются только на каналы от поставщиков, предоставляющих услуги подключения второго уровня. Если вы работаете с поставщиком, предлагающим услуги третьего уровня (обычно IPVPN, типа MPLS), ваш поставщик услуг подключения выполнит настройку и управление конфигурацией самостоятельно. 
 
@@ -189,10 +191,5 @@ ms.openlocfilehash: 879207512b7c61d48dcd25342ab88121258ba853
 * Дополнительную информацию о рабочих процессах ExpressRoute см. в статье [Процедуры ExpressRoute для подготовки каналов и состояний каналов](expressroute-workflows.md).
 * Дополнительную информацию о пиринге канала см. в статье [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md).
 * Подробнее о работе с виртуальными сетями см. в статье [Обзор виртуальных сетей](../virtual-network/virtual-networks-overview.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

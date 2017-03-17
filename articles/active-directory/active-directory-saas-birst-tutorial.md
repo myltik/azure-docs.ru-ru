@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
+ms.sourcegitcommit: c9aa91bb61a097dbe70415e7d118a781ea3c607f
+ms.openlocfilehash: 55187dda51da35966148956f8fa8fbc1dce6f0b0
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
 Интеграция Azure AD с приложением Birst Agile Business Analytics обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к Birst Agile Business Analytics.
-* Вы можете включить автоматический вход пользователей в Birst Agile Business Analytics (единый вход) с использованием учетной записи Azure AD.
+* Вы можете включить автоматический вход пользователей в Birst Agile Business Analytics (единый вход) с использованием учетной записи Azure AD.
 * Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -45,7 +46,7 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
@@ -53,9 +54,9 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление Birst Agile Business Analytics из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. Настройка и проверка единого входа Azure AD.
 
-## <a name="adding-birst-agile-business-analytics-from-the-gallery"></a>Добавление Birst Agile Business Analytics из коллекции
+## <a name="add-birst-agile-business-analytics-from-the-gallery"></a>Добавление Birst Agile Business Analytics из коллекции
 Чтобы настроить интеграцию Birst Agile Business Analytics с Azure AD, необходимо добавить Birst Agile Business Analytics из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Birst Agile Business Analytics из коллекции, сделайте следующее:**
@@ -80,25 +81,25 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-birst-tutorial/tutorial_birst_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-В этом разделе описано, как настроить и проверить единый вход Azure AD в Birst Agile Business Analytics с использованием тестового пользователя Britta Simon.
+## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
+В этом разделе описано, как настроить и проверить единый вход Azure AD в Birst Agile Business Analytics с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Birst Agile Business Analytics соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Birst Agile Business Analytics.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в Birst Agile Business Analytics соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Birst Agile Business Analytics.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Birst Agile Business Analytics.
 
 Чтобы настроить и проверить единый вход Azure AD в Birst Agile Business Analytics, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Birst Agile Business Analytics](#creating-a-birst-agile-business-analytics-test-user)** требуется для создания пользователя Britta Simon в Birst Agile Business Analytics, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Birst Agile Business Analytics.
+### <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Birst Agile Business Analytics.
 
-**Чтобы настроить единый вход Azure AD в Birst Agile Business Analytics, сделайте следующее:**
+**Чтобы настроить единый вход Azure AD в Birst Agile Business Analytics, сделайте следующее:**
 
 1. На классическом портале Azure на странице интеграции с приложением **Birst Agile Business Analytics** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
@@ -109,35 +110,28 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
 3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png) 
-
-    а. В текстовое поле "URL-адрес входа" введите URL-адрес, используемый для входа в приложение Birst Agile Business Analytics, в формате **https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID**.
-    URL-адрес зависит от центра обработки данных, в котором расположена учетная запись Birst. Для центра обработки данных в США используйте **https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID**, а для центра обработки данных в Европе — **https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID**.
-
-    b. Нажмите кнопку **Далее**.
-
-
-1. На странице **Configure single sign-on at Birst Agile Business Analytics** (Настройка единого входа в Birst Agile Business Analytics) сделайте следующее:
+  1. В текстовое поле "URL-адрес для входа" введите URL-адрес, используемый для входа в приложение Birst Agile Business Analytics, в формате https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID.
+   URL-адрес зависит от центра обработки данных, в котором расположена учетная запись Birst. Для центра обработки данных в США используйте https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID, а для центра обработки данных в Европе — https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID.
+  2. Нажмите кнопку **Далее**.
+4. На странице **Configure single sign-on at Birst Agile Business Analytics** (Настройка единого входа в Birst Agile Business Analytics) сделайте следующее:
    
-    ![Настройка единого входа](./media/active-directory-saas-birst-tutorial/tutorial_birst_05.png) 
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-2. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Birst Agile Business Analytics по адресу [info@birst.com](emailTo:info@birst.com) и вложите в сообщение электронной почты скачанный файл сертификата. Также укажите URL-адрес единого входа SAML, URL-адрес выхода и URL-адрес издателя, чтобы настроить их для интеграции единого входа.
+   ![Настройка единого входа](./media/active-directory-saas-birst-tutorial/tutorial_birst_05.png)   
+  1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+  2. Нажмите кнопку **Далее**.
+5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Birst Agile Business Analytics по адресу [info@birst.com](emailTo:info@birst.com) и вложите в сообщение электронной почты скачанный файл сертификата. Также укажите URL-адрес единого входа SAML, URL-адрес выхода и URL-адрес издателя, чтобы настроить их для интеграции единого входа.
 
-> [!NOTE]
-> Укажите в письме к команде Birst, что для интеграции необходимо использовать алгоритм SHA256 (SHA1 не будет поддерживаться) при настройке единого входа на соответствующем сервере, например **app2101** .
-> 
-> 
+ >[!NOTE]
+ >Укажите в письме к команде Birst, что для интеграции необходимо использовать алгоритм SHA256 (SHA1 не будет поддерживаться) при настройке единого входа на соответствующем сервере, например **app2101** .
+ >  
 
-1. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
-2. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
+7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![Единый вход в Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 В списке пользователей выберите **Britta Simon**.
@@ -159,46 +153,35 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
+  1. В текстовом поле **Имя** введите **Britta**.  
+  2. В текстовом поле **Фамилия** введите **Simon**.
+  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+  4. В списке **Роль** выберите **Пользователь**.
+  5. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-birst-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+  1. Запишите значение поля **Новый пароль**.
+  2. Нажмите **Завершено**.   
 
-### <a name="creating-a-birst-agile-business-analytics-test-user"></a>Создание тестового пользователя Birst Agile Business Analytics
+### <a name="create-a-birst-agile-business-analytics-test-user"></a>Создание тестового пользователя Birst Agile Business Analytics
 В этом разделе описано, как создать пользователя с именем Britta Simon в Birst Agile Business Analytics. Для добавления пользователей в учетную запись Birst следует обращаться в службу поддержки Birst Agile Business Analytics. 
 
-> [!NOTE]
-> Если вам нужно создать пользователя вручную, обратитесь в службу поддержки Birst Agile Business Analytics.
-> 
+>[!NOTE]
+>Если вам нужно создать пользователя вручную, обратитесь в службу поддержки Birst Agile Business Analytics.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход в Azure, предоставив ему доступ к Birst Agile Business Analytics.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Цель этого раздела — предоставить пользователю Britta Simon доступ к Birst Agile Business Analytics, чтобы он мог использовать единый вход Azure.
 
 ![Назначение пользователя][200] 
 
@@ -218,8 +201,8 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+### <a name="test-single-sign-on"></a>Проверка единого входа
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Birst Agile Business Analytics на панели доступа, вы автоматически войдете в приложение Birst Agile Business Analytics.
 
@@ -244,9 +227,4 @@ ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
 [203]: ./media/active-directory-saas-birst-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

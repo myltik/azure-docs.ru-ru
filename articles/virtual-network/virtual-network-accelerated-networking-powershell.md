@@ -4,7 +4,7 @@ description: "Сведения о настройке повышения прои
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 2dd6e9ba1d08d3528cdf8194e1e338422361d1d5
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="accelerated-networking-for-a-virtual-machine"></a>Повышение производительности сети для виртуальной машины
+# <a name="accelerated-networking-for-a-virtual-machine-using-powershell"></a>Повышение производительности сети для виртуальной машины с использованием PowerShell
 > [!div class="op_single_selector"]
 > * [Портал Azure](virtual-network-accelerated-networking-portal.md)
 > * [PowerShell](virtual-network-accelerated-networking-powershell.md)
@@ -125,10 +127,5 @@ ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
 13. Щелкните правой кнопкой мыши кнопку Windows и выберите **Диспетчер устройств**. Убедитесь, что в списке **сетевых адаптеров**, который нужно развернуть, есть виртуальный адаптер **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**, как показано на следующем рисунке.
     
     ![Диспетчер устройств](./media/virtual-network-accelerated-networking-powershell/image2.png)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

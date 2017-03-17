@@ -1,6 +1,6 @@
 ---
-title: "Оптимизация среды с помощью решения Service Fabric в Log Analytics | Документация Майкрософт"
-description: "Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric."
+title: "Оценка приложений Service Fabric в Log Analytics на портале Azure | Документация Майкрософт"
+description: "Решение Service Fabric в Log Analytics можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric на портале Azure."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Решение Service Fabric в Log Analytics)
+# <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
+
 > [!div class="op_single_selector"]
-> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Диспетчер ресурсов](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 В этой статье описывается, как с помощью решений Service Fabric в Log Analytics определять и устранять неполадки в кластере Service Fabric.
 
@@ -79,11 +81,11 @@ ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
 * Перейдите к параметрам на левой панели и последовательно выберите "Данные" >> "Счетчики производительности Windows" >> "Добавить выбранные счетчики производительности": ![Service Fabric](./media/log-analytics-service-fabric/7.png).
 * В функции поиска по журналам используйте следующие запросы, чтобы получить основные метрики производительности узлов:
   </br>
-  
+
     а. Сравните среднее использование ЦП на всех узлах за последний час, чтобы определить проблемные узлы и промежуток времени, в течение которого для узла зарегистрирован пик:
-  
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Просмотрите аналогичные графики для доступной памяти на каждом узле, используя этот запрос:
@@ -115,8 +117,8 @@ ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
 > [!NOTE]
 > Если вы выбираете группу ресурсов, используя существующую рабочую область Log Analytics, выберите значение "Использовать существующую" и найдите группу ресурсов, содержащую рабочую область OMS. В противном случае создайте новую.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 После развертывания этого шаблона вы увидите учетную запись хранения, подключенную к рабочей области Log Analytics. В нашем случае в рабочую область Exchange, созданную выше, добавлена еще одна учетная запись хранения.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -144,15 +146,9 @@ ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
 
 > [!NOTE]
 > Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 06/23/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
+ms.sourcegitcommit: f2d009477a614c3b2876ce98a355d3775abf772b
+ms.openlocfilehash: 04f2d5d8e501ebf41cf95ea925d238f64b096c1d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -75,7 +76,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
 | --- | --- |
 | enabledForDeployment |Логический<br />Необязательно<br />**true** или **false**.<br /><br />Указывает, позволяет ли хранилище развертывать виртуальную машину или Service Fabric. |
 | enabledForTemplateDeployment |Логический<br />Необязательно<br />**true** или **false**.<br /><br />Указывает, позволяет ли хранилище использовать развертывания шаблона диспетчера ресурсов. Дополнительные сведения см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md). |
-| enabledForVolumeEncryption |Логический<br />Необязательно<br />**true** или **false**.<br /><br />Указывает, позволяет ли хранилище шифровать тома. |
+| enabledForDiskEncryption |Логический<br />Необязательно<br />**true** или **false**.<br /><br />Указывает, позволяет ли хранилище шифровать тома. |
 | tenantId |Строка<br />Обязательно<br />**Глобальный уникальный идентификатор.**<br /><br />Идентификатор клиента для подписки. Его можно извлечь с помощью командлета PowerShell [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) или команды Azure CLI **azure account show** . |
 | accessPolicies |Массив,<br />Обязательно<br />[Объект accessPolicies](#accesspolicies)<br /><br />Массив, содержащий до 16 объектов и определяющий разрешения для пользователя или субъекта-службы. |
 | sku |Объект<br />Обязательно<br />[Объект sku](#sku)<br /><br />SKU для хранилища ключей. |
@@ -169,7 +170,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -201,7 +202,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {
@@ -240,10 +241,5 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
 ## <a name="next-steps"></a>Дальнейшие действия
 * Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md).
 * Пример ссылки на секрет хранилища ключей при развертывании шаблонов см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

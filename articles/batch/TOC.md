@@ -1,6 +1,7 @@
 # Обзор
 ## [Что такое пакетная служба Azure?](batch-technical-overview.md)
 ## [Обзор возможностей](batch-api-basics.md)
+## [API-интерфейсы и средства](batch-apis-tools.md)
 ## [Квоты и ограничения](batch-quota-limit.md)
 # Начало работы
 ## [Создание учетной записи пакетной службы](batch-account-create-portal.md)
@@ -25,7 +26,8 @@
 ### [Журналы диагностики пакетной службы](batch-diagnostics.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Интерфейс командной строки Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)

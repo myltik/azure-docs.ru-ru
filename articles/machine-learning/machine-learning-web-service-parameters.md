@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
-ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -67,6 +68,9 @@ ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
 6. Щелкните **Выполнить**. 
 7. Щелкните **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [Classic]** (Развернуть веб-службу [классическую]) или **Deploy Web Service [New]** (Развернуть веб-службу [новую]), чтобы развернуть ее.
 
+> [!NOTE] 
+> Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
+
 Теперь пользователь веб-службы может указать новое расположение для модуля [Export Data][writer] (Экспорт данных) при доступе к веб-службе.
 
 ## <a name="more-information"></a>Дополнительные сведения
@@ -84,10 +88,5 @@ ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

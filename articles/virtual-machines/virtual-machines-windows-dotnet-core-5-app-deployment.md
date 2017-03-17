@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b4fb534cf18fd17f636e88cc31d6c997a9f09e45
-ms.openlocfilehash: e72afd857025773b3aadc3de124b4e79ec6cd512
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 495ee4a14e779099f828db0c08068bc3772cd7d4
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-deployment-with-azure-resource-manager-templates"></a>Развертывание приложений с использованием шаблонов Azure Resource Manager
+# <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Развертывание приложений с использованием шаблонов Azure Resource Manager для виртуальных машин Windows
+
 Как только все инфраструктурные требования Azure будут определены и на их основе будет создан шаблон развертывания, можно приступать фактическому развертыванию приложения. Развертывание приложения в данном случае сводится к установке фактических двоичных файлов приложения в ресурсы Azure. Чтобы развернуть приложение магазина музыки, на каждой виртуальной машине необходимо установить и настроить .NET Core и IIS. Вам потребуется установить двоичные файлы магазина музыки на виртуальную машину и предварительно создать базу данных музыкального магазина.
 
 В этом документе описана автоматизация развертывания и настройки приложений на виртуальных машинах Azure с помощью расширений виртуальных машин. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -124,10 +127,5 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 <hr>
 
 [Ознакомьтесь с другими шаблонами Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

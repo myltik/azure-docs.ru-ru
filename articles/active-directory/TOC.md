@@ -79,9 +79,12 @@
 ### [Вход, представляющий риск](active-directory-reporting-security-risky-sign-ins.md)
 ### [События риска](active-directory-reporting-risk-events.md)
 ### [Именованные сети](active-directory-known-networks-azure-portal.md)
-### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
 ### [Перенос отчетов](active-directory-reporting-migration.md)
 ### [Сохранение](active-directory-reporting-retention.md)
+### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
+### Устранение неполадок
+#### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Отсутствующие данные в файлах для скачивания](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Программный доступ
 #### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
 #### [Примеры аудита](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
 
 ## Управление устройствами
-### [Регистрация устройств](active-directory-conditional-access-device-registration-overview.md)
-#### [Управление автоматической регистрацией](active-directory-conditional-access-automatic-device-registration.md)
+### [Регистрация устройств](active-directory-device-registration-overview.md)
+#### [Управление автоматической регистрацией](active-directory-device-registration.md)
 #### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Часто задаваемые вопросы](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
+#### [Часто задаваемые вопросы](active-directory-device-registration-faq.md)
 #### Устранение неполадок
-##### [Устранение неполадок в Windows 10 и Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Устранение неполадок для клиентов Windows нижнего уровня](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Устранение неполадок в Windows 10 и Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Устранение неполадок для клиентов Windows нижнего уровня](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Присоединение к Azure AD](active-directory-azureadjoin-overview.md)
 #### [План](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [Поддерживаемые приложения](active-directory-conditional-access-supported-apps.md)
 #### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
 #### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
-#### [Локальное развертывание](active-directory-conditional-access-on-premises-setup.md)
 #### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
 #### [Устранение неполадок](active-directory-conditional-access-device-remediation.md)
 #### [Справочные материалы](active-directory-conditional-access-technical-reference.md)
