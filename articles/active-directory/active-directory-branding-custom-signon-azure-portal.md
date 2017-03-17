@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -81,9 +82,4 @@ ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Добавление фирменной символики компании для конкретного языка](active-directory-branding-localize-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

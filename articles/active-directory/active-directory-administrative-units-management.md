@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: f54b28df432788cb42027133de09c3579fa41a18
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -39,9 +40,4 @@ ms.openlocfilehash: f54b28df432788cb42027133de09c3579fa41a18
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Выпуски Azure Active Directory](active-directory-editions.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
