@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -236,10 +237,5 @@ ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
 * [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
 * [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 * [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

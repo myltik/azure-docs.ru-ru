@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
 ms.openlocfilehash: d17fa0ffb0c55d49487804cd28d8903107069f06
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -56,9 +57,4 @@ ms.openlocfilehash: d17fa0ffb0c55d49487804cd28d8903107069f06
 
 ## <a name="next-steps"></a>Дальнейшие действия
  Хотите узнать больше о защите идентификации Azure AD? Ознакомьтесь со статьей [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -17,6 +17,7 @@ ms.author: dhanyahk
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -242,10 +243,5 @@ ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
 ## <a name="whats-next"></a>Что дальше?
 * [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Добавление фирменной символики компании на страницах  входа и панели доступа](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
