@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 760c248c92948af2c7e9ae54b0c42f396f0376f6
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-active-directory-password-reset-for-it-administrators"></a>Сброс паролей Azure Active Directory для ИТ-администраторов
 > [!IMPORTANT]
-> Вы здесь, потому что вам требуется сбросить пароль Azure или Office&365;?  В таком случае [пропустите этот раздел](#users-how-to-manage-your-own-password).
+> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -118,8 +118,8 @@ ms.lasthandoff: 02/24/2017
 | Раздел |  |
 | --- | --- |
 | Где можно просмотреть отчеты о сбросе паролей? |[Общие сведения об отчетах об управлении паролями](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Где можно просмотреть, как пользователи используют сброс паролей в организации? |[Просмотр действий по сбросу пароля](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Где можно узнать, сколько пользователей регистрируется и для чего? |[Просмотр действий по регистрации сброса паролей](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Где можно просмотреть, как пользователи используют сброс паролей в организации? |[Просмотр действий по сбросу пароля](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| Где можно узнать, сколько пользователей регистрируется и для чего? |[Просмотр действий по регистрации сброса паролей](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | Как получить отчеты о сбросе паролей из API? |[Создание приложения Azure AD для доступа к API отчетов](active-directory-reporting-api-getting-started.md) |
 | Какие данные отчетов о сбросе паролей доступны через API? |[События сброса паролей и регистрации, доступные в API отчетов](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/24/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Как работает управление паролями**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.

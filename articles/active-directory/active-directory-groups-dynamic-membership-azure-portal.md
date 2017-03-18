@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 16dd02934d4bd18f87f6508dce6c6829fe6aa0ac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6ef550047a28a6070cad5da2e00cf18fbca3f9fa
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -191,14 +191,27 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
 Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
 
-| Свойства | Допустимые значения | Использование |
-| --- | --- | --- |
-| displayName |Любое строковое значение |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Любое строковое значение |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Любое строковое значение |(device.OSVersion -eq "9.1") |
-| isDirSynced |true, false, null |(device.isDirSynced -eq "true") |
-| isManaged |true, false, null |(device.isManaged -eq "false") |
-| isCompliant |true, false, null |(device.isCompliant -eq "true") |
+| Свойства              | Допустимые значения                  | Использование                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| displayName             | Любое строковое значение                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Любое строковое значение                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Любое строковое значение                | (device.OSVersion -eq "9.1")                                |
+| isDirSynced             | true, false, null                 | (device.isDirSynced -eq "true")                             |
+| isManaged               | true, false, null                 | (device.isManaged -eq "false")                              |
+| isCompliant             | true, false, null                 | (device.isCompliant -eq "true")                             |
+| deviceCategory          | Любое строковое значение.                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Любое строковое значение.                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | Любое строковое значение.                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Любое строковое значение.                | (device.deviceOwnership -eq "")                             |
+| domainName              | Любое строковое значение.                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Любое строковое значение.                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true, false, null                 | (device.deviceOSType -eq "true")                            |
+| managementType          | Любое строковое значение.                | (device.managementType -eq "")                              |
+| organizationalUnit      | Любое строковое значение.                | (device.organizationalUnit -eq "")                          |
+| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+
+
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В следующих статьях содержатся дополнительные сведения о группах в Azure Active Directory.

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: e4a4e1968ec43b76bfa9bd938804ef23e37477e5
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3aa3a2fce46f37b06b60472d296e21fd10e070dc
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="how-to-troubleshoot-password-management"></a>Устранение неполадок, связанных с управлением паролями
 > [!IMPORTANT]
-> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -1502,7 +1502,7 @@ ms.lasthandoff: 02/24/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Как работает управление паролями**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
