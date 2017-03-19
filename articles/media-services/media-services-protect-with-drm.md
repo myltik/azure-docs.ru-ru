@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 03/16/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -88,17 +88,17 @@ ms.lasthandoff: 02/16/2017
 
 Инструкции по выполнению шифрования см. в статье [Порядок кодирования ресурса с использованием стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Создание ключа содержимого и связывание его с закодированным ресурсом-контейнером
+## <a id="create_contentkey"></a>Создание ключа содержимого и связывание его с закодированным ресурсом-контейнером
 В службах мультимедиа ключ содержимого содержит ключ, который используется для шифрования ресурса-контейнера.
 
 Дополнительные сведения см. в статье [Создание ContentKey с использованием .NET](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Настройка политики авторизации ключа содержимого
+## <a id="configure_key_auth_policy"></a>Настройка политики авторизации ключа содержимого
 Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Чтобы получить ключ содержимого, клиент (проигрыватель) должен соответствовать заданной для этого ключа политике авторизации. Для политики авторизации ключа содержимого можно задать одно или несколько из ограничений авторизации: открытая авторизация или с ограничением по маркеру.
 
 Дополнительные сведения см. в разделе [Настройка политики авторизации ключа содержимого](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Настройка политики доставки для ресурса-контейнера
+## <a id="configure_asset_delivery_policy"></a>Настройка политики доставки для ресурса-контейнера
 Настройте политику доставки для ресурса-контейнера. Вот некоторые элементы, входящие в конфигурацию политики доставки:
 
 * URL-адрес для приобретения лицензии DRM.
@@ -107,7 +107,7 @@ ms.lasthandoff: 02/16/2017
 
 Дополнительные сведения см. в разделе [Настройка политик доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Создание указателя потоковой передачи по запросу для получения URL-адреса для потоковой передачи
+## <a id="create_locator"></a>Создание указателя потоковой передачи по запросу для получения URL-адреса для потоковой передачи
 При использовании протоколов Smooth, DASH или HLS вам потребуется предоставить пользователю URL-адрес для потоковой передачи.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ ms.lasthandoff: 02/16/2017
 
 Для проверки потоковой передачи можно использовать [проигрыватель AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) .
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Пример
+## <a id="example"></a>Пример
 В следующем примере показаны функциональные возможности, появившиеся в версии 3.5.2 пакета SDK служб мультимедиа Azure для .NET (в частности, возможность указывать шаблон лицензии Widevine и отправлять запрос на лицензию Widevine из служб мультимедиа Azure). Для установки пакета использовалась следующая команда пакета NuGet:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -160,6 +160,9 @@ ms.lasthandoff: 02/16/2017
               </appSettings>
         </configuration>
 7. Замените код в файле Program.cs кодом, приведенным в этом разделе.
+
+    >[!NOTE]
+    >Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 
     Обязательно обновите переменные, чтобы они указывали на папки, в которых находятся входные файлы.
 
@@ -276,20 +279,10 @@ ms.lasthandoff: 02/16/2017
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
@@ -484,7 +477,6 @@ ms.lasthandoff: 02/16/2017
 
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
-
 
                 private static string ConfigureWidevineLicenseTemplate()
                 {

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/04/2017
 | Роли приложений | [Поддерживаются](https://msdn.microsoft.com/library/ms190998.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Автомасштабирование | Не поддерживается | [Поддерживаются](sql-database-service-tiers.md) |
 | Azure Active Directory | Не поддерживается | [Поддерживаются](sql-database-aad-authentication.md) |
-| Фабрика данных Azure | Не поддерживается. Ознакомьтесь со статьей [Службы SQL Server Integration Services](https://msdn.microsoft.com/library/ms141026.aspx). | [Поддерживаются](https://azure.microsoft.com/services/data-factory/) |
+| Фабрика данных Azure | [Поддерживаются](../data-factory/data-factory-introduction.md) | [Поддерживаются](../data-factory/data-factory-introduction.md) |
 | Аудит | [Поддерживаются](https://msdn.microsoft.com/library/cc280386.aspx) | [Поддерживаются](sql-database-auditing.md) |
 | BACPAC-файл (экспорт) | [Поддерживаются](https://msdn.microsoft.com/library/hh213241.aspx) | [Поддерживаются](sql-database-export.md) |
 | BACPAC-файл (импорт) | [Поддерживаются](https://msdn.microsoft.com/library/hh710052.aspx) | [Поддерживаются](sql-database-import-portal.md) |
