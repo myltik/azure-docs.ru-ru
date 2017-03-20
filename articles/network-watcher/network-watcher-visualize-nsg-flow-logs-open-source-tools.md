@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 437bbb47a490ecc66c5820eccfc8db8ec28d76be
-ms.openlocfilehash: 0a5aaf64f22e6c116165a63b77618b535dfd3797
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -26,6 +26,8 @@ ms.lasthandoff: 02/24/2017
 Журналы потоков для групп безопасности сети содержат информацию о входящем и исходящем IP-трафике групп безопасности сети. Эти журналы потоков отображают сведения о входящем и исходящем потоках на основе правил, сетевой карте, к которой относится поток, 5 кортежах потока (исходные IP-адрес и порт, конечные IP-адрес и порт, тип протокола), а также информацию о том, был поток запрещен или разрешен.
 
 Данные журналы потоков могут быть трудны для анализа вручную и получения информации. Однако существует несколько инструментов с открытым кодом, которые могут помочь визуализировать эти данные. В этой статье описывается решение для визуализации этих журналов с помощью Elastic Stack, что позволит быстро индексировать и визуализировать журналы потоков на панели мониторинга Kibana.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Сценарий
 
@@ -156,7 +158,7 @@ ms.lasthandoff: 02/24/2017
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Установка подключаемого модуля ввода Logstash для хранилища BLOB-объектов Azure
 
-Этот подключаемый модуль Logstash позволит обращаться непосредственно к журналам потоков из заданной для них учетной записи хранения. Для установки этого подключаемого модуля выполните следующую команду.
+Этот подключаемый модуль Logstash позволит обращаться непосредственно к журналам потоков из заданной для них учетной записи хранения. Чтобы установить этот подключаемый модуль, из каталога установки Logstash по умолчанию (в этом случае — /usr/share/logstash/bin) выполните следующую команду:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -230,7 +232,7 @@ sudo /etc/init.d/logstash start
 1. "Flow Tuples" (Кортежи потоков) — в этой таблице показаны сведения, содержащиеся в каждом кортеже потока, а также соответствующие NSG и правило.
 
   ![Рисунок&7;][7]
-  
+
 С помощью строки запроса в верхней части панели мониторинга можно отфильтровать ее содержимое по любому параметру потоков, включая идентификатор подписки, группы ресурсов, правило или любую другую интересующую вас переменную. Дополнительные сведения о запросах и фильтрах Kibana см. в [официальной документации](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html).
 
 ## <a name="conclusion"></a>Заключение
@@ -252,5 +254,4 @@ sudo /etc/init.d/logstash start
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-
 

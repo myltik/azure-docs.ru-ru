@@ -1,6 +1,6 @@
 ---
-title: "Вертикальное масштабирование виртуальных машин Azure c помощью службы автоматизации Azure | Документация Майкрософт"
-description: "Как вертикально масштабировать виртуальную машину Windows в ответ на предупреждения мониторинга c помощью службы автоматизации Azure"
+title: "Вертикальное масштабирование виртуальных машин Windows c помощью службы автоматизации Azure | Документация Майкрософт"
+description: "Вертикальное масштабирование виртуальной машины Windows в ответ на оповещения мониторинга c помощью службы автоматизации Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -17,13 +17,15 @@ ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0a888f945a39a8bb88a730a226af6ec21d133f44
-ms.openlocfilehash: 0075160ea9c0dae991fc2344c46d216a8203bec3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 861552da68c2268c42122b0da6633c7935bb3502
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="how-to-vertically-scale-virtual-machines-with-azure-automation"></a>Как вертикально масштабировать виртуальные машины c помощью службы автоматизации Azure
+
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Вертикальное масштабирование виртуальных машин Windows с помощью службы автоматизации Azure
+
 Вертикальное масштабирование — это процесс увеличения или уменьшения объема ресурсов виртуальной машины в зависимости от рабочей нагрузки. В Azure это можно сделать, изменив размер виртуальной машины. Вертикальное масштабирование можно использовать в следующих сценариях:
 
 * если виртуальная машина используется редко, вы можете уменьшить ее размер, чтобы сократить ежемесячные затраты;

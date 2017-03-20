@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 13b77c10dfe42d39ad3802f0be1b3f6fe75788e5
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -42,6 +42,8 @@ ms.lasthandoff: 02/28/2017
 Если вы изменили путь, чтобы включить содержимое, на которое указывает ссылка, но при этом хотите перенаправлять пользователей по внутренней ссылке пути, см. инструкции в записи блога [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/) (Настройка правильной ссылки на приложения прокси приложений на панели доступа Azure AD и в средстве запуска приложений Office 365).
 
 ## <a name="connector-errors"></a>Ошибки соединителя
+
+Воспользуйтесь [средством проверки портов соединителей прокси-службы приложения Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/), чтобы проверить, сможет ли ваш соединитель подключиться к прокси-службе приложения. Как минимум следует убедиться, что для региона Central US (Центральная часть США) и ближайшего к вам региона отображаются все зеленые флажки. Учитывайте также, что большее число зеленых флажков означает большую устойчивость. 
 
 Если при установке мастера создания соединителя произойдет сбой регистрации, его причину можно проверить двумя способами. Вы можете просмотреть записи в журнале событий в разделе **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin** или выполнить следующую команду Windows PowerShell.
 
