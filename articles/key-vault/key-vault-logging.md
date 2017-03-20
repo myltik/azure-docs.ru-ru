@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,6 +64,11 @@ ms.lasthandoff: 03/01/2017
 Затем укажите подписку, связанную с хранилищем ключей, данные которого будут регистрироваться. Для этого введите следующую команду:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
+
+> [!NOTE]
+> Этот шаг очень важен и особенно полезен, если с учетной записью связано несколько подписок. Если вы пропустите этот шаг, то при регистрации Microsoft.Insights может появиться сообщение об ошибке. 
+>   
+>
 
 Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
@@ -120,8 +125,13 @@ ms.lasthandoff: 03/01/2017
 ## <a id="access"></a>Доступ к журналам
 Журналы хранилища ключей хранятся в контейнере **insights-logs-auditevent** в указанной вами учетной записи хранения. Чтобы получить список всех больших двоичных объектов (BLOB-объектов) в этом контейнере, введите следующее.
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+Сначала создайте переменную для имени контейнера. Она будет использоваться для выполнения действий в этом пошаговом руководстве.
 
+    $container = 'insights-logs-auditevent'
+
+Чтобы получить список всех больших двоичных объектов (BLOB-объектов) в этом контейнере, введите следующее.
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 Вы получите приблизительно такой результат:
 
 **Универсальный код ресурса (URI) контейнера: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**

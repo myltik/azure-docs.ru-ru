@@ -161,7 +161,7 @@ ms.lasthandoff: 02/16/2017
 В элементе `properties` для `config/connectionstrings` каждая строка подключения также определяется как пара "имя:значение" с определенным форматом `“<name>” : {“value”: “…”, “type”: “…”}`. Возможные значения для элемента `type`: `MySql`, `SQLServer`, `SQLAzure` и `Custom`.
 
 > [!TIP]
-> Чтобы открыть полный список типов строк подключения, выполните следующую команду в Azure PowerShell: \[[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType").
+> Чтобы открыть полный список типов строк подключения, выполните следующую команду в Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType").
 > 
 > 
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 02/16/2017
 Кнопка **Развертывание в Azure** — это отлично, но она позволяет развернуть шаблон группы ресурсов в azuredeploy.json только в том случае, если azuredeploy.json уже помещен в GitHub. Пакет SDK для Azure .NET также предоставляет средства для развертывания любого файла шаблона JSON непосредственно с локального компьютера. Для этого сделайте следующее.
 
 1. В Visual Studio выберите **Файл** > **Создать** > **Проект**.
-2. Выберите **Visual C# > ****Облако** > **Группа ресурсов Azure**, а затем нажмите кнопку **ОК**.
+2. Выберите **Visual C#** > **Облако** > **Группа ресурсов Azure**, а затем нажмите кнопку **ОК**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. В разделе **Выберите шаблон Azure** выберите **Пустой шаблон** и нажмите кнопку **ОК**.

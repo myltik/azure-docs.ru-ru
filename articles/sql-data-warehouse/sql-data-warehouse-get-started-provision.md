@@ -16,8 +16,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
-ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 Для начала работы необходимы перечисленные ниже компоненты и данные.
 
 * **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Azure Free Trial] или [денег на счете в Azure][MSDN Azure Credits] MSDN.
-* **Сервер SQL Azure**. Дополнительные сведения см. в разделе о [создании логического сервера базы данных SQL Azure с помощью портала Azure][Create an Azure SQL Database logical server with the Azure portal].
+* **Сервер SQL Azure.** Дополнительные сведения см. в статье [Создание базы данных SQL Azure и отправка к ней запросов с помощью портала Azure][Create an Azure SQL database in the Azure portal].
 
 > [!NOTE]
 > Создание хранилища данных SQL может привести к дополнительным расходам.  Дополнительные сведения см. на странице [с ценами на хранилище данных SQL][SQL Data Warehouse pricing].
@@ -82,11 +83,11 @@ ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 Мы рекомендуем также ознакомиться со статьей [Рекомендации по использованию хранилища данных SQL Azure][Best practices].
 
 <!--Article references-->
-[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Create an Azure SQL database in the Azure portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
 [resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
-[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: sql-data-warehouse-overview-what-is.md
 [Подписка]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
@@ -99,9 +100,4 @@ ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

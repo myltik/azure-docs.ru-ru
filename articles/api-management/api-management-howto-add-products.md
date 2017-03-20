@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
 ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -151,9 +152,4 @@ ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

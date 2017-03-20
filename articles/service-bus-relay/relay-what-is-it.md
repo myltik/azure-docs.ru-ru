@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/09/2017
 ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -41,12 +42,9 @@ ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript, NodeJS*** | |x |
-| **Java*** | |x |
+| **JavaScript, NodeJS** | |x |
 | **Открытый протокол на основе стандартов** | |x |
 | **Несколько моделей программирования RPC** | |x |
-
-* В соответствии с выпуском общедоступной версии
 
 ## <a name="hybrid-connections"></a>через гибридные подключения
 [Гибридные подключения ретранслятора Azure](relay-hybrid-connections-protocol.md) являются безопасным решением на основе открытых протоколов, возникшим вследствие развития существующих возможностей ретранслятора. Его можно реализовать на любой платформе и на любом языке с поддержкой WebSocket, что явно включает в себя API WebSocket в распространенных веб-браузерах. Гибридные подключения основаны на протоколах HTTP и WebSockets.
@@ -62,10 +60,5 @@ ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
 * [Создание пространства имен](relay-create-namespace-portal.md)
 * [Приступая к работе с .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Приступая к работе с Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
-ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -53,8 +53,8 @@ ms.lasthandoff: 03/01/2017
 
    ![Колонка "Виртуальные машины Azure"](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Просмотрите доступные шаблоны SQL Server. Каждый шаблон определяет версию SQL Server и операционную систему. 
-6. Выберите шаблон SQL Server 2016 SP1 Developer на платформе Windows Server 2016.
+5. Просмотрите доступные образы SQL Server. Каждый образ определяет версию SQL Server и операционную систему. 
+6. Выберите образ SQL Server 2016 SP1 Developer на платформе Windows Server 2016.
 
    > [!TIP]
    > В этом руководстве используется выпуск Developer, так как это полнофункциональный выпуск SQL Server, предоставляемый бесплатно для тестирования в процессе разработки. Вы оплачиваете только стоимость выполнения виртуальной машины.
@@ -97,7 +97,7 @@ ms.lasthandoff: 03/01/2017
     ![Колонка "Основные" в SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2) Выбор размера виртуальной машины.
-Чтобы изменить **размер** виртуальной машины, выберите нужное значение в колонке **Выбор размера**. В колонке изначально отображаются рекомендуемые размеры виртуальных машин в зависимости от выбранного шаблона. Размер также определяет ежемесячные затраты на работу виртуальной машины.
+Чтобы изменить **размер** виртуальной машины, выберите нужное значение в колонке **Выбор размера**. В колонке изначально отображаются рекомендуемые размеры виртуальных машин в зависимости от выбранного образа. Размер также определяет ежемесячные затраты на работу виртуальной машины.
 
 ![Варианты размеров виртуальной машины SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
