@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -107,7 +107,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 2. Запустите пример топологии, используя следующую команду:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > В предыдущих версиях HDInsight использовалось имя класса топологии `storm.starter.WordCountTopology` вместо `org.apache.storm.starter.WordCountTopology`.

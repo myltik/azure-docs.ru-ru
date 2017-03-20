@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -128,13 +129,8 @@ ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
 ## <a name="alerts"></a>Оповещения
 Как и для других метрик, вы можете [установить оповещение](app-insights-alerts.md), которое предупредит о выходе показаний счетчика производительности за установленные пределы. Откройте колонку "Оповещения" и щелкните "Добавить оповещение".
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Дальнейшие действия
+## <a name="next"></a>Дальнейшие действия
 * [Отслеживание зависимостей](app-insights-asp-net-dependencies.md)
 * [Отслеживание исключений](app-insights-asp-net-exceptions.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

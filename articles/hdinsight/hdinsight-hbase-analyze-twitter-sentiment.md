@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
-ms.openlocfilehash: dd47e9c8f5c440c72acb60877d556476fe187ddf
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 8f8b84d600082336fe3659cefa6598210861ce86
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/23/2017
     <tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
     </table>
 
-* **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в статье [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013/2015/2017. Инструкции см. в статье [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## <a name="create-a-twitter-application-id-and-secrets"></a>Создание идентификатора и секретов приложения Twitter
 В интерфейсах API потоковой передачи Twitter для авторизации запросов используется протокол [OAuth](http://oauth.net/) . Первый шаг для начала использования OAuth состоит в создании нового приложения на сайте разработчиков Twitter.

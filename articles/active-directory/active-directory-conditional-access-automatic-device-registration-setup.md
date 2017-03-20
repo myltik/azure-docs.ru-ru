@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 010219c4da683b1e4b96d688a12e0f75c930a546
-ms.openlocfilehash: 8afaf239717c32ca9c81b2da033faf585348e6f2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -565,9 +565,9 @@ Azure AD Connect выполняет следующие функции:
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Azure Active Directory automatic device registration FAQ](active-directory-conditional-access-automatic-device-registration-faq.md) (Часто задаваемые вопросы об автоматической регистрации устройств)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md) (Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров под управлением Windows 10 и Windows Server 2016)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md) (Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров под управлением ОС, отличных от Windows 10)
+* [Azure Active Directory automatic device registration FAQ](active-directory-device-registration-faq.md) (Часто задаваемые вопросы об автоматической регистрации устройств)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md) (Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров под управлением Windows 10 и Windows Server 2016)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md) (Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров под управлением ОС, отличных от Windows 10)
 * [Условный доступ в Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 

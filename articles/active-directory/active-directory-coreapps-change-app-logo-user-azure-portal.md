@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 541efc3bdc192d21fd75aa4de9d902adb70b6407
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -44,9 +45,4 @@ ms.openlocfilehash: 541efc3bdc192d21fd75aa4de9d902adb70b6407
 * [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
 * [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Отключение входа пользователя в корпоративное приложение](active-directory-coreapps-disable-app-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

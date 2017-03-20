@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5bb92f427a07949d6057553ac8dde309e1a0aa11
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -289,10 +290,5 @@ ms.openlocfilehash: 5bb92f427a07949d6057553ac8dde309e1a0aa11
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

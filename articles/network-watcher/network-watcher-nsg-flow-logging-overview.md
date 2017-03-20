@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 318d141d7769d063555c394ada91a2714be77f64
-ms.openlocfilehash: 6635079e568634285e0ffeb1c2334d66db3cc633
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c24c2c4e297497e106691d62be76ad0591bb33de
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -26,9 +26,11 @@ ms.lasthandoff: 02/22/2017
 
 Журналы потоков для групп безопасности сети — это компонент Наблюдателя за сетями, который позволяет просматривать сведения о входящем и исходящем IP-трафике через группу безопасности сети. Эти журналы потоков записываются в формате JSON. В них отображаются входящие и исходящие потоки по каждому правилу, сетевая карта, с которой связан поток, сведения о 5 кортежах потока (исходный и конечный IP-адреса, исходный и конечный порты, протокол), а также сведения о состоянии трафика (разрешен или запрещен).
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ![Обзор журналов потоков][1]
 
-Хотя журналы потоков нацелены на группы безопасности сети, они не отображается так же, как другие журналы. Журналы потоков хранятся только в пределах учетной записи хранения и используют путь для ведения журнала, как показано в следующем примере.
+Хотя журналы потоков нацелены на группы безопасности сети, они не отображаются так же, как другие журналы. Журналы потоков хранятся только в пределах учетной записи хранения и используют путь для ведения журнала, как показано в следующем примере.
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json

@@ -1,6 +1,6 @@
 ---
 
-title: "Начало работы с лицензированием Azure Active Directory на портале Azure | Документация Майкрософт"
+title: "Начало работы с лицензированием в предварительной версии Azure Active Directory | Документация Майкрософт"
 description: "Описание процедуры и принципа работы лицензирования Azure Active Directory, а также рекомендации по началу работы, включая сведения о лицензировании Office 365, Microsoft Intune, а также выпусков Azure Active Directory Premium и Basic."
 services: active-directory
 keywords: "Лицензирование Azure AD"
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dbe9072cd561f550883cd514a6d25381d095ba8
-ms.openlocfilehash: 648b1d51a5e414e67bda475dcef1419ee1692868
+ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
+ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="get-started-with-azure-active-directory-licensing-in-the-azure-portal"></a>Начало работы с лицензированием Azure Active Directory на портале Azure
+# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Самостоятельное лицензирование и лицензирование пользователей в предварительной версии Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -152,9 +154,4 @@ Azure Active Directory (Azure AD) — это служба идентифика�
 * [Назначение группы приложениям](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Прямое приобретение лицензий Azure AD Premium](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

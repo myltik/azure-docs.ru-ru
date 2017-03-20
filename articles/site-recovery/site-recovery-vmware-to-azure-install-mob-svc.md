@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
-ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 7e82ac74a8aef4e3cc8aff4dea3c572dcb9d9c40
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -82,6 +82,30 @@ ms.lasthandoff: 02/23/2017
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+> [!NOTE]
 После установки службы Mobility Service на портале Azure нажмите кнопку **+Replicate** (+ Реплицировать), чтобы включить защиту этих виртуальных машин.
+
+## <a name="uninstall-mobility-service-on-windows-servers"></a>Удаление службы Mobility Service на серверах Windows
+Существует два способа удаления службы Mobility Service на сервере Windows Server.
+
+### <a name="uninstall-using-graphical-user-interface"></a>Удаление с помощью графического интерфейса пользователя
+1. Откройте "Панель управления", выберите "Программы".
+2. Выберите **Microsoft Azure Site Recovery Mobility Service/главный целевой сервер** и нажмите кнопку "Удалить".
+
+### <a name="uninstall-using-command-line"></a>Удаление с помощью командной строки
+1. Откройте командную строку с правами администратора.
+2. Выполните следующую команду для удаления службы Mobility Service.
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## <a name="uninstall-mobility-service-on-linux-computers"></a>Удаление службы Mobility на компьютерах Linux
+1. Войдите на сервер Linux с правами **ROOT**.
+2. В разделе **Терминал** перейдите к /user/local/ASR.
+3. Выполните следующую команду, чтобы удалить службу Mobility Service.
+
+```
+uninstall.sh -Y
+```
 

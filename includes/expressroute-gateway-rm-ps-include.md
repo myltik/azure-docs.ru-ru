@@ -72,8 +72,3 @@
 Используйте следующую команду, чтобы удалить шлюз.
 
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5c26aaea6acfab8c4c60478968e0b68543086a9d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -101,6 +102,8 @@ ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 ## <a name="considerations"></a>Рекомендации
 * Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
+* Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
+
 
 ## <a name="download-sample"></a>Скачивание образца
 Скачать и запустить пример вы можете [здесь](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -129,6 +132,7 @@ ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 
 ## <a name="code-example"></a>Примеры кода
+
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -524,10 +528,5 @@ ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
