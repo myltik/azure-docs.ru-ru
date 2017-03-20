@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
 ms.openlocfilehash: 5d1ceabeeee8cef0170b928703488845f70656ef
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -131,10 +132,5 @@ ms.openlocfilehash: 5d1ceabeeee8cef0170b928703488845f70656ef
 
 ### <a name="windows-integrated-authentication-for-federated-tenants"></a>Встроенная проверка подлинности Windows для федеративных клиентов
 При использовании библиотеки аутентификации Active Directory (ADAL) (с исходной конечной точкой Azure AD) в приложениях для Windows вы могли воспользоваться преимуществом так называемого предоставления утверждения языка разметки заявлений системы безопасности (SAML). С его помощью пользователи федеративных клиентов Azure AD могут проходить аутентификацию в локальном экземпляре Active Directory автоматически, без необходимости ввода учетных данных. На данный момент предоставление утверждения SAML не поддерживается в конечной точке версии 2.0.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
