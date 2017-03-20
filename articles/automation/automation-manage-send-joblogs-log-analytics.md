@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2017
+ms.date: 03/03/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 83ae00afbcbb5d3ff38ee1f934e3b2f8d1c8f624
-ms.openlocfilehash: 95a6933d64428255eb061e7077c3e0768c72e207
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e166b82e547975a5d44465231da057a9465f81c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -126,7 +126,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 | Caller_s |Сторона, инициировавшая операцию.  Допустимые значения: электронный адрес или system для запланированных заданий. |
 | Tenant_g | GUID, идентифицирующий клиента для вызывающего объекта. |
 | JobId_g |GUID, представляющий собой идентификатор задания Runbook. |
-| ResultType |Состояние задания Runbook.  Возможные значения:<br>Started<br>- Остановлена<br>Приостановлено<br>Сбой<br>- Succeeded. |
+| ResultType |Состояние задания Runbook.  Возможные значения:<br>Started<br>- Остановлена<br>Приостановлено<br>Сбой<br>Завершено |
 | Категория | Классификация типа данных.  Для службы автоматизации значением является JobLogs. |
 | OperationName | Указывает тип операции, выполняемой в Azure.  Для службы автоматизации значением является Job. |
 | Ресурс | Имя учетной записи службы автоматизации |
@@ -176,7 +176,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 2. Создайте запрос на поиска оповещения в журнале. Для этого в поле запроса введите следующее условие поиска: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`. Можно также применить группирование по RunbookName с помощью: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    Если вы настроили для рабочей области журналы из более чем одной учетной записи службы автоматизации или подписки, то можете группировать оповещения по подписке или учетной записи службы автоматизации.  Имя учетной записи службы автоматизации можно получить из поля "Ресурс" для поиска JobLogs.  
-3. Чтобы открыть экран **Добавить правило оповещения**, щелкните **Оповещение** в верхней части страницы. Дополнительные сведения о параметрах для настройки оповещения см. в разделе [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+3. Чтобы открыть экран **Добавить правило оповещения**, щелкните **Оповещение** в верхней части страницы. Дополнительные сведения о параметрах для настройки оповещения см. в разделе [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Поиск всех заданий, завершенных с ошибками
 Помимо оповещений о сбоях можно узнать, когда задание Runbook вызывает устранимую ошибку. В этих случаях PowerShell создает поток сообщений об ошибках, но устранимые ошибки не приводят к приостановке или сбою задания.    

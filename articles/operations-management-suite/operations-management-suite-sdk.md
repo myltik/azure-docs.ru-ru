@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 47c897afd6321a59f540d1f0cb86602d4ea18ed1
-ms.openlocfilehash: 5aed4eb336d55c2954da563422972644e25d0140
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,13 +40,14 @@ ms.lasthandoff: 02/23/2017
 * [Документация по Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
 * [REST API Log Analytics](/rest/api/loganalytics)
 * [API сборщика данных HTTP для Log Analytics](../log-analytics/log-analytics-data-collector-api.md)
-* [API поиска по журналам](../log-analytics/log-analytics-log-search-api.md)
-* [API оповещений](../log-analytics/log-analytics-api-alerts.md)
+* [REST API поиска по журналам](../log-analytics/log-analytics-log-search-api.md)
+* [REST API оповещений](../log-analytics/log-analytics-api-alerts.md)
 * [Командлеты PowerShell для Log Analytics](https://msdn.microsoft.com/library/mt188224.aspx)
 * [Библиотека .NET для Log Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview)
 
 ## <a name="service-map"></a>Схема услуги
 * [Документация по схеме услуги](operations-management-suite-service-map.md)
+* [REST API схемы услуг](https://docs.microsoft.com/rest/api/servicemap/)
 
 ## <a name="site-recovery"></a>Site Recovery
 * [Командлеты PowerShell для Site Recovery ](https://msdn.microsoft.com/library/mt637930.aspx)
@@ -56,6 +57,6 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с вариантами [интеграции со службами OMS](operations-management-suite-integration.md).
-* Создайте пользовательское решение в OMS (ожидается в ближайшее время).
+* Создайте [пользовательское решение в OMS](operations-management-suite-solutions-creating.md).
 
 

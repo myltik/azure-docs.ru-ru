@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: cf0cd5202288a9da55e0f8409a51ea904eeb2d55
-ms.openlocfilehash: 775ef958846ad2a780abb761d1c3934e671d5f1c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -49,6 +49,8 @@ ms.lasthandoff: 03/01/2017
 
 > [!NOTE]
 > Для развертывания новых веб-служб или управления ими необходимо назначить роль участника или администратора той подписке, в которую развертывается веб-служба. Чтобы пригласить в рабочую область машинного обучения других пользователей, необходимо назначить им роли участников или администраторов подписки, чтобы они могли развертывать веб-службы или управлять ими. 
+> 
+>Дополнительные сведения о настройке прав доступа см. в статье [Просмотр назначенных прав доступа для пользователей и групп на портале Azure (общедоступная предварительная версия)](../active-directory/role-based-access-control-manage-assignments.md).
 
 ## <a name="use-the-azure-classic-portal"></a>Использование классического портала Azure
 
