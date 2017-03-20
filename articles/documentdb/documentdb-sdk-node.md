@@ -1,5 +1,5 @@
 ---
-title: "Ресурсы для API Node.js и пакетов SDK для Node.js (Azure DocumentDB) | Документация Майкрософт"
+title: "Ресурсы, интерфейсы API и пакеты SDK Node.js для Azure DocumentDB | Документация Майкрософт"
 description: "Сведения об API и пакете SDK для Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB Node.js."
 services: documentdb
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8ffbf7807bdd3d0f9147dcd0237a999386553c37
-ms.openlocfilehash: b84597fb44b28f827a14a1c1b319a766b8a0b4dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>Интерфейсы API и пакеты SDK для DocumentDB
+# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>Пакет SDK Node.js для DocumentDB: заметки о выпуске и материалы
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/23/2017
 > 
 > 
 
-## <a name="documentdb-nodejs-api-and-sdk"></a>API и пакет SDK для DocumentDB Node.js
 <table>
 
 <tr><td>**Скачать пакет SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
