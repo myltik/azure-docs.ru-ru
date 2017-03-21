@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) — это комплексное решен�
 
 **Azure AD. Введение в динамическое членство для групп**
 
-> [!ВИДЕО https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups/player]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups/player]
 >
 >
 
