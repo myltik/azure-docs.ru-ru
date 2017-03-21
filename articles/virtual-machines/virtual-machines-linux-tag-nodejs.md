@@ -17,7 +17,7 @@ ms.date: 02/28/2017
 ms.author: memccror
 translationtype: Human Translation
 ms.sourcegitcommit: 2ec95674901130c9c24de331257e40311c88cb6a
-ms.openlocfilehash: 8fad89189ba6836c5748c656457ab25564147550
+ms.openlocfilehash: 90cde1f0d0b503284c26c1032eb59bc52fa6e789
 ms.lasthandoff: 03/01/2017
 
 
@@ -28,21 +28,19 @@ ms.lasthandoff: 03/01/2017
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Отметка тегами с помощью интерфейса командной строки Azure
-Чтобы начать работу, вам нужно установить последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войти в учетную запись Azure, выполнив команду [az login](/cli/azure/#login).
-
-Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Сначала [установите и настройте интерфейс командной строки Azure](../xplat-cli-azure-resource-manager.md). При этом обязательно включите режим Resource Manager (`azure config mode arm`).
 
 Вы можете просмотреть все свойства определенной виртуальной машины, включая теги, с помощью следующей команды:
 
-        az vm show --resource-group MyResourceGroup --name MyTestVM
+        azure vm show -g MyResourceGroup -n MyTestVM
 
-Чтобы добавить новый тег виртуальной машины через Azure CLI, можно применить команду `azure vm update` с параметром тега **--set**:
+Чтобы добавить новый тег виртуальной машины через интерфейс командной строки Azure, можно применить команду `azure vm set` с параметром тега **-t**:
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
-Чтобы удалить теги, используйте в команде `azure vm update` параметр **--remove**.
+Чтобы удалить все теги, используйте в команде `azure vm set` параметр **–T**.
 
-        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
+        azure vm set – g MyResourceGroup –n MyTestVM -T
 
 
 Теперь, когда мы применили теги к ресурсам с помощью Azure CLI и портала, рассмотрим сведения об использовании, чтобы увидеть теги на портале выставления счетов.

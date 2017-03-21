@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
-ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d9d65d8fb5fd7b1ff226e96fe33f8b0757d7a12e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Автоматизация развертывания приложений в виртуальных машинах Azure
+# <a name="automating-application-deployments-to-linux-virtual-machines"></a>Автоматизация развертывания приложений в виртуальных машинах Linux 
+
 Эта серия из четырех статей подробно описывает развертывание и настройку ресурсов и приложений Azure с помощью шаблонов Azure Resource Manager. В этой серии мы развернем пример шаблона и рассмотрим шаблон развертывания. Цель этой серии — рассказать о взаимосвязях между ресурсами Azure и показать практические примеры развертывания полностью интегрированных шаблонов Azure Resource Manager. Предполагается, что у читателя есть базовый уровень знаний об Azure Resource Manager. Прежде чем работать с этим руководством, предлагаем вам ознакомиться с основными понятиями Azure Resource Manager. 
 
 ## <a name="music-store-application"></a>Приложение музыкального магазина
@@ -69,10 +72,5 @@ ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
 [Шаг 3. Доступность и масштабирование в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Шаг 4. Развертывание приложений с использованием шаблонов Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

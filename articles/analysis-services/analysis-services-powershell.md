@@ -12,11 +12,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/28/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: ef3f31c633eeba92f343e2126626bd029aebbf64
-ms.openlocfilehash: 170657601a0ea6b0c0ebabfd34befdce290cebd8
+ms.sourcegitcommit: c0dd85570f052c4a9651faecbaeb3eaa181f9017
+ms.openlocfilehash: b00b2cf1d3a54bba716d7470643aa1a5e6a58633
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,13 +38,13 @@ ms.openlocfilehash: 170657601a0ea6b0c0ebabfd34befdce290cebd8
 
 |Командлет|Описание| 
 |------------|-----------------| 
-|Get-AzureRmAnalysisServicesServer|Возвращает сведения об экземпляре сервера.|  
-|New-AzureRmAnalysisServicesServer|Создает новый экземпляр сервера.|
-|Remove-AzureRmAnalysisServicesServer|Удаляет экземпляр сервера.|  
-|Suspend-AzureRmAnalysisServicesServe|Приостанавливает работу экземпляра сервера.| 
-|Resume-AzureRmAnalysisServicesServer|Возобновляет работу экземпляра сервера.|  
-|Set-AzureRmAnalysisServicesServer|Изменяет экземпляр сервера.|   
-|Test-AzureRmAnalysisServicesServer|Проверяет существование экземпляра сервера.| 
+|[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/get-azurermanalysisservicesserver)|Возвращает сведения об экземпляре сервера.|  
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/new-azurermanalysisservicesserver)|Создает новый экземпляр сервера.|
+|[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/remove-azurermanalysisservicesserver)|Удаляет экземпляр сервера.|  
+|[Suspend-AzureRmAnalysisServicesServe](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/suspend-azurermanalysisservicesserver)|Приостанавливает работу экземпляра сервера.| 
+|[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/resume-azurermanalysisservicesserver)|Возобновляет работу экземпляра сервера.|  
+|[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/set-azurermanalysisservicesserver)|Изменяет экземпляр сервера.|   
+|[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|Проверяет существование экземпляра сервера.| 
 
 ## <a name="database-operations"></a>Операции с базой данных
 Для операций с базами данных служб Azure Analysis Services используется тот же модуль [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx), что и для служб SQL Server Analysis Services. Однако для предварительной версии служб Azure Analysis Services поддерживаются не все командлеты. 
@@ -64,8 +65,3 @@ ms.openlocfilehash: 170657601a0ea6b0c0ebabfd34befdce290cebd8
 ## <a name="related-information"></a>Связанные сведения
 * [Создание скриптов PowerShell в службах Analysis Services](https://msdn.microsoft.com/library/hh213141.aspx)
 * [Tabular Model Programming for Compatibility Level 1200](https://msdn.microsoft.com/library/mt712541.aspx) (Программирование табличной модели для уровня совместимости 1200)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: fda7455320e1c043f1f5aa2a92b72329fc20e76a
-ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
+ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
+ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -40,7 +41,7 @@ ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
 ## <a name="scheduler-configuration"></a>Конфигурация планировщика
 Чтобы увидеть текущие параметры конфигурации, откройте PowerShell и выполните командлет `Get-ADSyncScheduler`. Отобразятся данные примерно следующего вида:
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
 Если при запуске этого командлета отображается сообщение **The sync command or cmdlet is not available** (Команда синхронизации или командлет недоступны), то модуль PowerShell не загружается. Эта проблема может произойти при запуске Azure AD Connect на контроллере домена или на сервере с более высокими уровнями ограничений PowerShell, чем предусмотрено параметрами по умолчанию. Если отображается это сообщение об ошибке, выполните команду `Import-Module ADSync` , чтобы сделать командлет доступным.
 
@@ -52,7 +53,8 @@ ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
 * **PurgeRunHistoryInterval**. Срок хранения журнала операций. Проверить эти журналы можно в Synchronization Service Manager. По умолчанию они хранятся в течение 7 дней.
 * **SyncCycleEnabled**. Указывает, если в рамках своей работы планировщик выполняется процессы импорта, синхронизации и экспорта.
 * **MaintenanceEnabled**. Показывает, включен ли процесс обслуживания. Обновляет сертификаты и ключи и очищает журнал операций.
-* **IsStagingModeEnabled**. Показано, включен ли [промежуточный режим](active-directory-aadconnectsync-operations.md#staging-mode) . Если включить этот параметр, то операции экспорта не будут выполняться, но по-прежнему будут выполняться операции импорта и синхронизации.
+* **StagingModeEnabled**. Показано, включен ли [промежуточный режим](active-directory-aadconnectsync-operations.md#staging-mode) . Если включить этот параметр, то операции экспорта не будут выполняться, но по-прежнему будут выполняться операции импорта и синхронизации.
+* **SchedulerSuspended**. Задается службой Connect во время обновления, чтобы временно блокировать выполнение планировщика.
 
 Некоторые из этих параметров можно изменить с помощью `Set-ADSyncScheduler`. Можно изменить следующие параметры.
 
@@ -61,6 +63,8 @@ ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
+
+В предыдущих сборках Azure AD Connect параметр **isStagingModeEnabled** предоставлялся в командлете Set-ADSyncScheduler. Установка этого свойства **не поддерживается**. Свойство **SchedulerSuspended** следует изменять только с помощью Connect. Установка этого свойства напрямую через PowerShell **не поддерживается**.
 
 Конфигурация планировщика хранится в Azure AD. Если используется промежуточный сервер, то любые изменения на сервере-источнике также отражаются на промежуточном сервере (кроме IsStagingModeEnabled).
 
@@ -169,9 +173,4 @@ Get-ADSyncConnectorRunStatus
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

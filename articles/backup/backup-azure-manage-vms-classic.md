@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: bea1012fcd63b15ebfb5137dcfbd7e868c4e060f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: d00235d788dbe1674eac219a7c708a8ecd53ccc5
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="manage-and-monitor-azure-virtual-machine-backups"></a>Управление резервными копиями виртуальных машин Azure и их мониторинг
+# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Управление распространенными заданиями службы архивации Azure и активация оповещений на классическом портале
 > [!div class="op_single_selector"]
 > * [Управление архивацией виртуальных машин Azure](backup-azure-manage-vms.md)
 > * [Управление архивацией классических виртуальных машин](backup-azure-manage-vms-classic.md)
@@ -239,7 +240,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 1. Оповещения активируются на всех виртуальных машинах в хранилище службы архивации. Оповещения нельзя настроить для определенного набора виртуальных машин в хранилище службы архивации.
 2. Эта функция предоставляется в предварительной версии. [Дополнительные сведения](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
-3. Вы получите оповещения от "alerts-noreply@mail.windowsazure.com". В настоящее время невозможно изменить отправителя электронной почты.
+3. Вы получите оповещения с адреса alerts-noreply@mail.windowsazure.com. В настоящее время невозможно изменить отправителя электронной почты.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Восстановление виртуальных машин Azure](backup-azure-restore-vms.md)

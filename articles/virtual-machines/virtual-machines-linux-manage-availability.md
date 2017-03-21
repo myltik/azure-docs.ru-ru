@@ -1,5 +1,5 @@
 ---
-title: "Управление доступностью виртуальных машин Linux | Документация Майкрософт"
+title: "Управление доступностью виртуальных машин Linux в Azure | Документация Майкрософт"
 description: "Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Linux в Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2016
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c18781ba99276e0aceee0d1d6f4fdf80568fca60
-ms.openlocfilehash: 3c305ed5b1ba35088983050f4a5c0ac56ab3888b
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 73829ac6b0fecfcb524738ecde36b1b524ccb120
+ms.lasthandoff: 03/03/2017
 
 
 ---
 
-# <a name="manage-the-availability-of-virtual-machines"></a>Управление доступностью виртуальных машин
+# <a name="manage-the-availability-of-linux-virtual-machines"></a>Управление доступностью виртуальных машин Linux
+
 Изучите способы настройки нескольких виртуальных машин и управления ими для обеспечения высокой доступности приложения Linux в Azure. Вы также можете [управлять доступностью виртуальных машин Windows](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -33,10 +36,5 @@ ms.openlocfilehash: 3c305ed5b1ba35088983050f4a5c0ac56ab3888b
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы больше узнать о балансировке нагрузки виртуальных машин, ознакомьтесь с разделом [Балансировка нагрузки виртуальных машин](virtual-machines-linux-load-balance.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 3/01/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
 > [!div class="op_single_selector"]
 > * [Управление доступом по пользователям или группам](role-based-access-control-manage-assignments.md)
 > * [Управление доступом по ресурсам](role-based-access-control-configure.md)
-> 
-> 
 
 С помощью управления доступом на основе ролей (RBAC) в предварительной версии Azure Active Directory можно управлять доступом к ресурсам Azure. [Что есть в предварительной версии?](active-directory-preview-explainer.md)
 
@@ -57,13 +56,9 @@ ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
 2. Выберите **Удалить** и щелкните **Да** для подтверждения.
     ![Снимок экрана: удаление назначения доступа](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="related-topics"></a>Связанные разделы
+## <a name="next-steps"></a>Дальнейшие действия
+
 * Приступите к управлению доступом на основе ролей, чтобы [использовать назначение ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md)
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Использование аналитики хранилища для сбора данных журналов и метрик | Документация Майкрософт"
+title: "Использование аналитики службы хранилища Azure для сбора данных журналов и метрик | Документация Майкрософт"
 description: "Аналитика хранилища позволяет отслеживать данные метрик для всех служб хранилища, а также для сбора журналов по хранилищам BLOB-объектов, очередей и таблиц."
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="storage-analytics"></a>Аналитика службы хранилища
-## <a name="overview"></a>Обзор
+# <a name="storage-analytics"></a>аналитики хранилища
+
 Аналитика хранилища Azure ведет журналы и предоставляет данные метрик для учетной записи хранения. Эти данные можно использовать для трассировки запросов, анализа тенденций использования и диагностики проблем учетной записи хранения.
 
 Для использования аналитики хранилища ее необходимо включить отдельно для каждой из отслеживаемых служб. Ее можно включить на [портале Azure](https://portal.azure.com). Дополнительные сведения см. в статье [Мониторинг учетной записи хранения на портале Azure](storage-monitor-storage-account.md). Аналитику хранилища также можно включить программно через REST API или клиентскую библиотеку. Чтобы включить аналитику хранилища для каждой службы, используйте операции [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) и [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx).
@@ -150,7 +151,7 @@ ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
 
 | Уровень метрик | Имена таблиц | Поддерживаемые версии |
 | --- | --- | --- |
-| Часовые метрики, основное расположение |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Только версии до 15.08.2013 г. Таблицы с такими именами по-прежнему поддерживаются, но рекомендуется перейти на использование таблиц, приведенных ниже. |
+| Часовые метрики, основное расположение |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Только версии до 15.08.2013 г. Таблицы с такими именами по-прежнему поддерживаются, но рекомендуется перейти на использование таблиц, приведенных ниже. |
 | Часовые метрики, основное расположение |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Все версии, включая 15.08.2013 г. |
 | Минутные метрики, основное расположение |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Все версии, включая 15.08.2013 г. |
 | Часовые метрики, вторичное расположение |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Все версии, включая 15.08.2013 г. Должна быть включена геоизбыточная репликация с доступом для чтения. |
@@ -163,7 +164,7 @@ ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
 Доступ ко всем данным в таблицах метрик можно получить с помощью API службы таблиц, включая API-интерфейсы .NET, предоставленные в управляемой библиотеке Azure. Администратор учетной записи хранения может читать и удалять сущности таблиц, но не может создавать или обновлять их.
 
 ## <a name="billing-for-storage-analytics"></a>Оплата аналитики хранилища
-Аналитика хранилища включается владельцем учетной записи хранения. По умолчанию она отключена. Все данные метрик записываются службами учетной записи хранения. В результате каждая из операций записи, выполняемая аналитикой хранилища, тарифицируется. Кроме того, объем хранилища, используемый данными метрик, также тарифицируется.
+Все данные метрик записываются службами учетной записи хранения. В результате каждая из операций записи, выполняемая аналитикой хранилища, тарифицируется. Кроме того, объем хранилища, используемый данными метрик, также тарифицируется.
 
 Плата взимается за следующие действия, выполняемые аналитикой хранилища:
 
@@ -191,10 +192,5 @@ ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
 * [Информация о метриках аналитики хранилища](https://msdn.microsoft.com/library/hh343258.aspx)
 * [Схема таблицы метрик аналитики хранилища](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Операции с протоколированием и сообщения о состоянии аналитик хранилища](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
