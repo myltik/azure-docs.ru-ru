@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 52d76bb967471ae49b55b0fcb930c223984b39e3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -120,9 +121,4 @@ iothub-explorer help
 
 ## <a name="azure-storage-issues"></a>Проблемы со службой хранилища Azure
 [Обозреватель служб хранилища Microsoft Azure (предварительная версия)](http://storageexplorer.com) — это автономное приложение от корпорации Майкрософт, которое можно использовать для работы с данными из службы хранилища Azure на платформе Windows, macOS и Linux. Используя этот инструмент, можно подключаться к таблице и просматривать данные в ней. Его можно использовать для устранения неполадок в вашей службе хранилища Azure.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
