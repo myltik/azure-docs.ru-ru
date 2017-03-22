@@ -4,18 +4,19 @@ description: "Быстро получайте доступ к телеметри
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
 ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
 ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -72,16 +73,11 @@ ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
 * Выберите **Тренд** , чтобы просмотреть тренды запросов, невыполненных запросов или среднего времени ответа за последние 24 часа.
 * Выберите имя ресурса Application Insights в верхнем левом углу подробного представления CodeLens, чтобы изменить ресурс, который является источником данных CodeLens.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Дальнейшие действия
+## <a name="next"></a>Дальнейшие действия
 |  |  |
 | --- | --- |
 | **[Работа с Application Insights в Visual Studio](app-insights-visual-studio.md)**<br/>Поиск телеметрии, просмотр данных в CodeLens и настройка Application Insights — все это в Visual Studio |![Щелкните проект правой кнопкой мыши и последовательно выберите пункты "Application Insights" и "Поиск".](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Добавление данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. |![Visual studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual studio](./media/app-insights-visual-studio-codelens/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

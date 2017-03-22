@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/10/2017
 ms.author: saurse;trinadhk;markgal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="use-azure-backup-to-replace-your-tape-infrastructure"></a>Использование службы архивации Azure для замены ленточной инфраструктуры
+# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Перенос долгосрочного хранения данных с магнитной ленты в облако Azure
 Пользователи службы архивации Azure и System Center Data Protection Manager могут:
 
 * создавать резервные копии данных по расписанию, которое лучше всего соответствует потребностям организации;
@@ -77,9 +79,4 @@ ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
 
 * [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 * [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

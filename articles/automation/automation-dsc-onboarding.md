@@ -148,7 +148,7 @@ $VM | Update-AzureVM
 
 1. Убедитесь, что на компьютерах, которые будут подключены к службе автоматизации Azure DSC, установлена последняя версия [WMF 5](http://aka.ms/wmf5latest) .
 2. Создайте папку с необходимыми метаконфигурациями DSC, как указано ниже в разделе [**Создание метаконфигураций DSC**](#generating-dsc-metaconfigurations) .
-3. Удаленно примените метаконфигурации PowerShell DSC на компьютерах, которые нужно подключить. **Для выполнения этой команды на компьютере должна быть установлена последняя версия [WMF 5](http://aka.ms/wmf5latest) **.
+3. Удаленно примените метаконфигурации PowerShell DSC на компьютерах, которые нужно подключить. **Для выполнения этой команды на компьютере должна быть установлена последняя версия [WMF 5](http://aka.ms/wmf5latest)**.
 
     ```powershell
     Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2

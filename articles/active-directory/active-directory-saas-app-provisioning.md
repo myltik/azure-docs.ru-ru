@@ -17,6 +17,7 @@ ms.author: asmalser
 translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: 1bee9573e23e1c814626d19a3df1eb7ab12486ab
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -112,10 +113,5 @@ Azure AD готовит пользователей для приложения S
 * [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
 * [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 * [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

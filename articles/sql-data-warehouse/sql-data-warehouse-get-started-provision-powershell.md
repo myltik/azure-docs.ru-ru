@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 58ba34f8f99b7cd2b6a9a199bc70d79431405100
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 Для начала работы необходимы перечисленные ниже компоненты и данные.
 
 * **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Azure Free Trial] или [денег на счете в Azure][MSDN Azure Credits] MSDN.
-* **Сервер Azure SQL Server.** Сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][Create an Azure SQL Database logical server with the Azure Portal] или [Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра][Create an Azure SQL Database logical server with PowerShell].
+* **Сервер Azure SQL Server.** Дополнительные сведения см. в статье [Создание базы данных SQL Azure и отправка к ней запросов с помощью портала Azure][Create an Azure SQL database in the Azure Portal] или [Руководство по подготовке базы данных SQL Azure и доступу к ней с помощью портала PowerShell][Create an Azure SQL database with PowerShell].
 * **Группа ресурсов**. Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте новую группу ресурсов](../azure-resource-manager/resource-group-portal.md).
 * **PowerShell версии 1.0.3 или более поздней.** Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**.  Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][Microsoft Web Platform Installer].  Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][How to install and configure Azure PowerShell].
 
@@ -65,7 +66,7 @@ ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 
 * **RequestedServiceObjectiveName** — количество запрашиваемых единиц [DWU][DWU].  Поддерживаемые значения: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 и DW6000.
 * **DatabaseName**: имя создаваемого хранилища данных SQL.
-* **ServerName**: имя сервера, который используется для создания (должен быть версии 12).
+* **ServerName**: имя сервера, который используется для создания (должен быть версии&12;).
 * **ResourceGroupName**: используемая группа ресурсов.  Чтобы найти доступные группы ресурсов, входящие в вашу подписку, используйте командлет Get-AzureResource.
 * **Edition**: для создания хранилища данных необходим выпуск DataWarehouse.
 
@@ -84,7 +85,7 @@ ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-load-with-bcp.md
@@ -94,8 +95,8 @@ ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database
+[Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
@@ -108,9 +109,4 @@ ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

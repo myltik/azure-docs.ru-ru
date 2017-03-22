@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/28/2017
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Чтобы создать пример проекта, понадобится программа **Visual Studio 2015** . Бесплатные и пробные версии Visual Studio можно найти на странице [Обзор продуктов Visual Studio 2015][visual_studio].
+Вам понадобится **Visual Studio 2015 или более поздней версии** для создания примера проекта. Бесплатные и пробные версии Visual Studio можно найти на странице [обзора продуктов Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
 Пример [DotNetTutorial][github_dotnettutorial] — это один из многих примеров кода в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория последовательно выберите **Clone or download > Download ZIP ** (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла решение будет сохранено в такую папку:
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/28/2017
 [Обозреватель пакетной службы Azure][github_batchexplorer] — это бесплатная служебная программа, которая содержится в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Хотя его не обязательно использовать при работе по этому руководству, этот обозреватель может пригодиться во время разработки и отладки решений пакетной службы.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Общие сведения о примере проекта DotNetTutorial
-Пример кода *DotNetTutorial* представляет собой решение Visual Studio 2015, состоящее из двух проектов: **DotNetTutorial** и **TaskApplication**.
+Пример кода *DotNetTutorial* представляет собой решение Visual Studio, состоящее из двух проектов: **DotNetTutorial** и **TaskApplication**.
 
 * **DotNetTutorial** — это клиентское приложение, которое взаимодействует с пакетной службой и службой хранилища, чтобы выполнять параллельную рабочую нагрузку на вычислительных узлах (виртуальных машинах). DotNetTutorial работает на локальной рабочей станции.
 * **TaskApplication** — это программа, которая запускается на вычислительных узлах в Azure, чтобы выполнять фактическую работу. В этом примере `TaskApplication.exe` анализирует текст во входном файле, скачанном из службы хранилища Azure. Затем он создает текстовый файл (выходной файл), который содержит список из трех наиболее часто употребляемых слов во входном файле. После создания выходного файла программа TaskApplication отправляет файл в службу хранилища Azure. Теперь его может загрузить клиентское приложение. TaskApplication выполняется параллельно на нескольких вычислительных узлах в пакетной службе.
@@ -792,7 +792,7 @@ Sample complete, hit ENTER to exit...
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Создание контейнеров в службе хранилища Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Отправка файлов приложения и входных данных в контейнеры"

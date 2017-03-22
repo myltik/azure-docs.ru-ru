@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -29,11 +30,13 @@ ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
 ## <a name="related-documentation"></a>Дополнительная документация
 Если вы еще не ознакомились с документацией по [интеграции локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md), см. разделы, на которые ведут ссылки в таблице ниже.
 
-| Раздел |
+|Раздел |Ссылка|  
 | --- | --- |
-| Установка с помощью стандартных параметров |
-| Установка с помощью настроенных параметров |
-| Обновление из DirSync |
+|Загрузка Azure AD Connect | [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Обновление из DirSync | [Azure AD Connect: обновление DirSync](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|После установки | [Проверка установки и назначение лицензий ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Установка со стандартными параметрами
 При использовании стандартных параметров мастер установки запрашивает учетные данные администратора предприятия в AD DS, поэтому у вашего локального каталога Active Directory можно настроить необходимые разрешения для Azure AD Connect. Если вы выполняете обновление из DirSync, учетные данные администратора предприятия в AD DS применяются для сброса пароля учетной записи, используемой средством DirSync. Кроме того, вам требуются учетные данные глобального администратора в Azure AD.
@@ -45,7 +48,7 @@ ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
 | Подключение к AD DS |Учетные данные локальной службы Active Directory |Член группы администраторов предприятия в Active Directory |<li>Создание [учетной записи](#active-directory-account) в Active Directory и назначение ей разрешений. Эта созданная учетная запись используется для чтения и записи данных каталога во время синхронизации.</li> |
 
 ### <a name="enterprise-admin-credentials"></a>Учетные данные администратора предприятия
-Эти учетные данные используются только во время установки и не используются после ее завершения. Здесь используются учетные данные администратора предприятия, а не администратора домена, чтобы гарантировать задание разрешений в Active Directory во всех доменах.
+Эти учетные данные используются только во время установки и не используются после ее завершения. Именно учетные данные администратора предприятия, а не администратора домена, должны использоваться для настройки разрешений в Active Directory во всех доменах.
 
 ### <a name="global-admin-credentials"></a>Учетные данные глобального администратора
 Эти учетные данные используются только во время установки и не используются после ее завершения. Эти учетные данные применяются для создания [учетной записи Azure AD](#azure-ad-service-account) , используемой для синхронизации изменений в Azure AD. Эта учетная запись включает также функцию синхронизации в службе Azure AD.
@@ -84,9 +87,9 @@ ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
 | Функция | Разрешения |
 | --- | --- |
 | Синхронизация паролей |<li>Репликация изменений каталога</li>  <li>Репликация всех изменений каталога |
-| Гибридное развертывание Exchange |Запишите разрешения в атрибуты, описанные в статье [Гибридная обратная запись Exchange](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) для пользователей, групп и контактов. |
+| Гибридное развертывание Exchange |Запишите разрешения в атрибуты, описанные в статье [Гибридная обратная запись Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) для пользователей, групп и контактов. |
 | Обратная запись паролей |Запишите разрешения в атрибуты, описанные в статье [Приступая к работе с компонентами управления паролями](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) для пользователей. |
-| Обратная запись устройств |Разрешения, предоставленные с помощью сценария PowerShell, как описано в статье об [обратной записи устройств](../active-directory-aadconnect-feature-device-writeback.md). |
+| Обратная запись устройств |Разрешения, предоставленные с помощью сценария PowerShell, как описано в статье об [обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md). |
 | Обратная запись групп |Объекты группы чтения, создания, обновления и удаления в подразделении, где должны располагаться группы рассылки. |
 
 ## <a name="upgrade"></a>Обновление
@@ -130,10 +133,5 @@ ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

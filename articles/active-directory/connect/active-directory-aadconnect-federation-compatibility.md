@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/01/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: cb06c5bd74816777ec7c5836d362d509a265bd9c
-ms.openlocfilehash: 9e16fd3112b093f22ed99829c223a3a80e008f28
+ms.sourcegitcommit: 1f004b499eb01009ae824ece74d06a03474c4d53
+ms.openlocfilehash: 93a159001fabad513295b0958cf7918b0ed2d1b7
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,8 @@ Azure Active Directory предоставляет возможность еди�
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager версии&7;.1](#dell-one-identity-cloud-access-manager-v71) 
 * [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
-* [Sailpoint IdentityNow](#sailpoint-identitynow) 
+* [Sailpoint IdentityNow](#sailpoint-identitynow)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
 > [!IMPORTANT]
 > Поскольку это сторонние продукты, Майкрософт не предоставляет поддержку по развертыванию, конфигурации, устранению неполадок, рекомендациям, а также другим проблемам и вопросам, касающимся этих поставщиков удостоверений. Для получения поддержки и по вопросам, касающимся этих поставщиков удостоверений, обращайтесь непосредственно к ним.
@@ -344,10 +346,17 @@ Sailpoint IdentityNow реализует широко используемый �
 
 Дополнительные сведения см. [на сайте Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
 
+## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
+NetIQ Access Manager реализует широко использующийся стандарт удостоверений WS Federation/WS-Trust для предоставления инфраструктуры единого входа и платформы обмена атрибутами.
 
+Далее приводится таблица поддержки сценария реализации единого входа:
 
+| Клиент | Поддержка | Исключения |
+| --- | --- | --- |
+| Веб-клиенты, такие как Exchange Web Access и SharePoint Online |Поддерживаются |None|
+| Полнофункциональные клиентские приложения, такие как Lync, подписка Office Subscription, CRM |Поддерживаются |None|
+| Полнофункциональные почтовые клиенты, такие как Outlook и ActiveSync |Поддерживаются |None |
 
-
-<!--HONumber=Jan17_HO3-->
+Дополнительные сведения о NetIQ Access Manager см. в [соответствующем разделе на сайте NetIQ](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m).
 
 

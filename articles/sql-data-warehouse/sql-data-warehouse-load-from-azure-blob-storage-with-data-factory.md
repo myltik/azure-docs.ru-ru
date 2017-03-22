@@ -16,6 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: barbkess
+ms.custom: loading
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 4f8d038a606ce518d2c9ba232049ce5bea02dd4c

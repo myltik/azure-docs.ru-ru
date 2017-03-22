@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c292772cb21c90bf4373803bfcaa47787c3980b5
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -58,7 +59,7 @@ ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
         ]
     }
 
-Файл можно найти в wasbs://processjson@hditutorialdata.blob.core.windows.net/. Дополнительные сведения об использовании хранилища Azure Blob с HDInsight приведены в разделе [Использование HDFS-совместимого хранилища Azure Blob с Hadoop в HDInsight](hdinsight-hadoop-use-blob-storage.md). При желании можно скопировать файл в контейнер по умолчанию кластера.
+Файл можно найти в wasbs://processjson@hditutorialdata.blob.core.windows.net/. Дополнительные сведения об использовании хранилища Azure Blob с HDInsight приведены в разделе [Использование HDFS-совместимой службы хранилища с Hadoop в HDInsight](hdinsight-hadoop-use-blob-storage.md). При желании можно скопировать файл в контейнер по умолчанию кластера.
 
 В этом руководстве используется консоль Hive.  Инструкции по открытию консоли Hive приведены в разделе [Использование Hive с Hadoop в HDInsight с помощью удаленного рабочего стола](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -142,7 +143,7 @@ SerDe — лучший выбор для синтаксического анал
 
 **Для использования пользовательских SerDe выполните следующие действия:**
 
-1. Установите [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Если вы собираетесь использовать развертывание HDInsight в Windows, выберите версию JDK для 64-разрядной Windows
+1. Установите [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Если вы собираетесь использовать развертывание HDInsight в Windows, выберите версию JDK для&64;-разрядной Windows
    
    > [!WARNING]
    > JDK 1.8 не будет работать с этим SerDe.
@@ -173,7 +174,7 @@ SerDe — лучший выбор для синтаксического анал
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+   ![Добавление JAR в проект][image-hdi-hivejson-addjar]
 
 Теперь мы можем использовать SerDe для выполнения запросов к документу JSON.
 
@@ -257,9 +258,4 @@ SerDe — лучший выбор для синтаксического анал
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

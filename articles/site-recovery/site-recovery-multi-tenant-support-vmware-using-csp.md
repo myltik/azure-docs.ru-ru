@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/21/2017
 ms.author: manayar
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -193,9 +194,4 @@ ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
     ![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     Для большинства операций управления подойдет роль "Участник". Пользователь с этим уровнем доступа может выполнять практически все действия, кроме изменения уровня доступа (для этого требуется уровень доступа "Владелец"). При необходимости уровни доступа можно настраивать.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

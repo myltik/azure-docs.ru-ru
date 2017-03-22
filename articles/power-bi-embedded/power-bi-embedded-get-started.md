@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Начало работы с Microsoft Power BI Embedded
+
 **Power BI Embedded** — это служба Azure, которая позволяет разработчикам приложений добавлять интерактивные отчеты Power BI в свои приложения. **Power BI Embedded** работала с существующими приложениями, вам не нужно изменять способ, с помощью которого пользователи выполняют вход.
 
 Ресурсы для **Microsoft Power BI Embedded** подготавливаются через [API-интерфейсы ARM Azure](https://msdn.microsoft.com/library/mt712306.aspx). В нашем примере подготавливаемый ресурс — это **коллекция рабочих областей Power BI**.
@@ -30,6 +30,7 @@ ms.lasthandoff: 02/22/2017
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Создание коллекции рабочей области
+
 **Коллекция рабочей области** — это ресурс и контейнер Azure верхнего уровня для содержимого, которое будет внедрено в приложение. **Коллекцию рабочей области** можно создать двумя способами:
 
 * вручную с помощью портала Azure;
@@ -56,6 +57,7 @@ ms.lasthandoff: 02/22/2017
 <a name="view-access-keys"/>
 
 ## <a name="view-power-bi-api-access-keys"></a>Просмотр ключей доступа для вызова API Power BI
+
 Сведения, необходимые для вызова REST API Power BI, включают в себя такой важный элемент, как **ключи доступа**. Эти ключи используются для создания **маркеров приложения** для проверки подлинности запросов к API. Чтобы просмотреть **ключи доступа**, в **колонке параметров** щелкните **Ключи доступа**. Дополнительные сведения о **маркерах приложений** см. в статье [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,7 +76,8 @@ ms.lasthandoff: 02/22/2017
 
 После создания коллекции рабочих областей необходимо создать рабочую область для размещения отчетов и наборов данных. Чтобы создать рабочую область, необходимо использовать [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Создание наборов данных и отчетов Power BI для внедрения в приложение
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Создание наборов данных и отчетов Power BI для внедрения в приложение с помощью Power BI Desktop
+
 Теперь, когда вы создали экземпляр Power BI для приложения и получили **ключи доступа**, можно приступать к созданию наборов данных и отчетов Power BI для внедрения. Наборы данных и отчеты можно создавать с помощью **Power BI Desktop**. [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662) можно скачать бесплатно. Или же, чтобы быстро приступить к работе, можно скачать [PBIX-файл с примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
@@ -95,20 +98,25 @@ ms.lasthandoff: 02/22/2017
 > [!NOTE]
 > **Power BI Embedded** предусматривает дополнительные API. С их помощью можно изменять сервер и базу данных, на которые указывает ваш набор данных, а также указывать данные учетной записи службы для подключения к базе данных. Дополнительные сведения см. в статьях [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) (Публикация SetAllConnections) и [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Исправление источника данных шлюза).
 
-## <a name="next-steps"></a>Дальнейшие действия
-С помощью приведенных выше инструкций вы создали коллекцию рабочей области, отчет и набор данных. Теперь пора переходить к написанию кода для **Power BI Embedded**. Чтобы помочь вам, мы создали пример веб-приложения. Он приведен в статье [Начало работы с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md). Из статьи вы узнаете:
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Создание наборов данных и отчетов Power BI с помощью API
 
-* подготовить содержимое;
-  * создать рабочую область;
-  * как импортировать файл PBIX;
-  * как обновить строки подключения и указать учетные данные для наборов данных;
-* как безопасно внедрить отчет.
+### <a name="datsets"></a>Наборы данных
+
+Вы можете создавать наборы данных в Power BI Embedded с помощью REST API. Затем данные можно передать в свой набор данных. Это позволит работать с данными без использования Power BI Desktop. Дополнительные сведения см. в статье о [публикации наборов данных](https://msdn.microsoft.com/library/azure/mt778875.aspx).
+
+### <a name="reports"></a>Отчеты
+
+С помощью API JavaScript можно создать отчет на основе набора данных прямо в приложении. Дополнительные сведения см. в статье [Создание отчета из набора данных в Power BI Embedded](power-bi-embedded-create-report-from-dataset.md).
 
 ## <a name="see-also"></a>См. также
-* [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
-* [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)  
+[Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Внедрение отчета в Power BI Embedded](power-bi-embedded-embed-report.md)  
+[Создание отчета из набора данных в Power BI Embedded](power-bi-embedded-create-report-from-dataset.md)
+[Сохранение отчетов в Power BI Embedded](power-bi-embedded-save-reports.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Пример внедрения JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
 
 

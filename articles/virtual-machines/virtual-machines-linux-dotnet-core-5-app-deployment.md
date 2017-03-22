@@ -1,5 +1,5 @@
 ---
-title: "Автоматизация развертывания приложений с помощью расширений виртуальных машин | Документация Майкрософт"
+title: "Автоматизация развертывания приложений с помощью расширений виртуальной машины | Документация Майкрософт"
 description: "Руководство по .NET Core для виртуальных машин Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b4ddeb091c2c6d2fdfd32d0094567f9e9d8914a7
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 031943c4d7b7736d249b507e2e59f0cc9896a54e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-deployment-with-azure-resource-manager-templates"></a>Развертывание приложений с использованием шаблонов Azure Resource Manager
+# <a name="application-deployment-with-azure-resource-manager-templates-for-linux-vms"></a>Развертывание приложений с использованием шаблонов Azure Resource Manager для виртуальных машин Linux
+
 Как только все инфраструктурные требования Azure будут определены и на их основе будет создан шаблон развертывания, можно приступать фактическому развертыванию приложения. Развертывание приложения в данном случае сводится к установке фактических двоичных файлов приложения в ресурсы Azure. Чтобы развернуть пример приложения магазина музыки, на каждой виртуальной машине необходимо установить и настроить .NET Core, NGINX и Supervisor. Вам потребуется установить двоичные файлы магазина музыки на виртуальную машину и предварительно создать базу данных музыкального магазина.
 
 В этом документе описана автоматизация развертывания и настройки приложений на виртуальных машинах Azure с помощью расширений виртуальных машин. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -119,10 +122,5 @@ sudo service supervisor start
 <hr>
 
 [Ознакомьтесь с другими шаблонами Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

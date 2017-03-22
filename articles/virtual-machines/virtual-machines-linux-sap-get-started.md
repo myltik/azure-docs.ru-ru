@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 9e64fc5425db5ffde6af493e961edfcac527b6df
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="using-sap-on-azure-virtual-machines-vms"></a>Использование SAP на виртуальных машинах Azure
+# <a name="using-sap-on-azure-linux-virtual-machines-vms"></a>Использование SAP на виртуальных машинах Linux в Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -69,7 +70,7 @@ ms.lasthandoff: 01/26/2017
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -240,7 +241,7 @@ ms.lasthandoff: 01/26/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 Выбрав Microsoft Azure партнером по готовым облачным решениям SAP, вы сможете с уверенностью выполнять критически важные рабочие нагрузки SAP на масштабируемой и совместимой платформе, проверенной многими компаниями.  Воспользуйтесь масштабируемостью и гибкостью Azure, а также сэкономьте денежные средства. Благодаря расширенному партнерству Майкрософт и SAP на платформе Azure в полной мере поддерживается трехуровневый сценарий для приложений SAP (среда разработки, среда тестирования и производственная среда). Мы осуществляем поддержку SAP NetWeaver, SAP S4/HANA, Linux, Windows, SAP HANA и SQL. 
@@ -330,7 +331,7 @@ ms.lasthandoff: 01/26/2017
 
 [Это руководство можно найти здесь.](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Планирование и реализация
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Планирование и реализация
 Заголовок: SAP NetWeaver на виртуальных машинах Linux — руководство по планированию и реализации
 
 Сводка: если вы планируете использовать SAP NetWeaver на виртуальных машинах Azure, сначала ознакомьтесь с этим документом. Это руководство по планированию и реализации поможет вам оценить возможности развертывания существующей или планируемой системы на основе SAP NetWeaver в среде виртуальных машин Azure. В нем рассмотрено несколько сценариев развертывания SAP NetWeaver, а также описаны настройки SAP, связанные с Azure. В документе перечислены и описаны все необходимые параметры, которые нужно указать на стороне SAP и Azure для запуска гибридной среды SAP. Также рассматриваются действия, которые можно предпринять для обеспечения высокой доступности систем на основе SAP NetWeaver в среде IaaS.
@@ -339,7 +340,7 @@ ms.lasthandoff: 01/26/2017
 
 [Это руководство можно найти здесь.] [planning-guide]
 
-## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Развертывание
+## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Развертывание
 Заголовок: SAP NetWeaver на виртуальных машинах Linux — руководство по развертыванию
 
 Сводка: этот документ содержит пошаговые инструкции по развертыванию программного обеспечения SAP NetWeaver на виртуальных машинах Azure. В документе рассмотрены три сценария развертывания с акцентом на активации расширений мониторинга Azure для SAP. Также приведены рекомендации по устранению неполадок в расширениях мониторинга Azure для SAP. Для работы с документом вам нужно ознакомиться с руководством по планированию и реализации.
@@ -348,7 +349,7 @@ ms.lasthandoff: 01/26/2017
 
 [Это руководство можно найти здесь.] [deployment-guide]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Руководство по развертыванию СУБД
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Руководство по развертыванию СУБД
 Заголовок: SAP NetWeaver на виртуальных машинах Linux — руководство по развертыванию СУБД
 
 Сводка: в этом документе рассматриваются вопросы планирования и реализации систем СУБД, которые должны работать вместе с SAP. В первой части перечислены и описаны общие рекомендации. Следующие разделы документа посвящены развертыванию в Azure разных СУБД, поддерживаемых SAP. Описаны следующие СУБД: SQL Server, SAP ASE и Oracle. В этих разделах обсуждаются некоторые моменты, которые следует учитывать при запуске систем SAP на платформе Azure вместе с этими СУБД. Также рассмотрены методы резервного копирования и обеспечения высокой доступности, поддерживаемые разными СУБД при развертывании в Azure и используемые с приложениями SAP.

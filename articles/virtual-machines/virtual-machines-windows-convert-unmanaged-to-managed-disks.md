@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
-ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
+ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -48,17 +48,6 @@ ms.lasthandoff: 02/27/2017
 2.    Скопируйте VHD с операционной системой в учетную запись хранения, для которой никогда не применялось шифрование SSE. Чтобы скопировать диск в другую учетную запись хранения, используйте [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Создайте новую виртуальную машину, которая использует управляемые диски, и в процессе создания присоедините к ней этот VHD-файл в качестве диска операционной системы.
 
-
-## <a name="before-you-begin"></a>Перед началом работы
-Если вы используете PowerShell, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. Выполните следующую команду, чтобы установить ее.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
-
-
-
 ## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a>Переключение виртуальных машин, входящих в группу доступности, на использование управляемой группы доступности с управляемыми дисками
 
 Если виртуальные машины, которые вы хотите переключить на управляемые диски, входят в группу доступности, необходимо сначала преобразовать эту группу доступности в управляемую группу доступности.
@@ -87,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Переключение существующих виртуальных машин Azure на использование управляемых дисков в хранилище того же класса
 
 > [!IMPORTANT]
-> После выполнения следующей процедуры создается один блочный BLOB-объект, размещенный в контейнере по умолчанию /vhds. Этот объект хранится в файле с именем VMName.xxxxxxx.status. Не удаляйте этот оставшийся объект состояния. В дальнейшем эта проблема будет решена.
+> После выполнения следующей процедуры создается один большой двоичный объект, размещенный в контейнере по умолчанию /vhds. Этот объект хранится в файле с именем VMName.xxxxxxx.status. Этот файл создается в Azure, только если на виртуальной машине установлены [расширения виртуальных машин](virtual-machines-windows-classic-agents-and-extensions.md). Не удаляйте этот оставшийся объект состояния. В дальнейшем эта проблема будет решена.
 
 В этом разделе описывается, как можно переключить существующие виртуальные машины Azure с неуправляемых дисков в учетных записях хранения на управляемые диски в хранилище того же класса. Этот процесс позволяет перейти от неуправляемых дисков класса Premium (SSD) на управляемые диски класса Premium, или от неуправляемых дисков класса Standard (HDD) на управляемые диски класса Standard. 
 
@@ -149,7 +138,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 1. Остановите виртуальную машину и отмените ее подготовку.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  Перенесите все диски в хранилище класса Premium.
 
@@ -168,7 +157,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 1. Запустите виртуальную машину.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 Вы можете также использовать для хранения дисков произвольное сочетание хранилищ класса Standard и класса Premium.

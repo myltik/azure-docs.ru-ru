@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1c8f8a958a6ea6ea096d4a55479879aab7c7e96d
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Доступность и масштабирование в шаблонах Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-linux-vms"></a>Параметры доступности и масштабирования в шаблонах Azure Resource Manager для виртуальных машин Linux
+
 Доступность и масштабирование обозначают время непрерывной работы и возможность соответствия требованиям к ресурсам. Если приложение должно быть доступным 99,9 % времени, его архитектура должна поддерживать несколько параллельных ресурсов вычислений. Например, вместо одного веб-сайта конфигурация с высоким уровнем доступности содержит несколько экземпляров одного сайта и использует технологию балансировки. В этой конфигурации один экземпляр приложения может быть отключен для обслуживания, а другой продолжать работать. Масштабирование, в свою очередь, обозначает возможность приложения удовлетворять требованиям. Приложение балансировки нагрузки позволяет добавлять и удалять экземпляры из пула для масштабирования приложения в соответствии с требованиями.
 
 В этой статье описано, как настроить развертывание приложения музыкального магазина, чтобы обеспечить доступность и масштабирование. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -261,10 +264,5 @@ ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
 <hr>
 
 [Шаг 4. Развертывание приложений с использованием шаблонов Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

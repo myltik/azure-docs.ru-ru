@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/18/2017
 ms.author: pajosh;markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: b6ddaf7dc26d0efac782752e55594262531e794a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: 5de5d42037aee5b0ef7745ea5d0cc748a7b5a60e
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="backup-and-restore-encrypted-vms-using-azure-backup"></a>Резервное копирование и восстановление зашифрованных виртуальных машин с помощью службы архивации Azure
+# <a name="how-to-back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Архивация и восстановление зашифрованных виртуальных машин с помощью службы архивации Azure
 В этой статье рассматриваются действия по резервному копированию и восстановлению виртуальных машин с помощью службы архивации Azure. Кроме того, здесь приведены поддерживаемые сценарии, предварительные требования и сведения об устранении неполадок при возникновении ошибок.
 
 ## <a name="supported-scenarios"></a>Поддерживаемые сценарии

@@ -13,13 +13,13 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c70b3b23fa95af6614c34bd951943f0559409220
-ms.openlocfilehash: cf43790c329ef156ae17579d2281c861533ec201
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -47,8 +47,9 @@ ms.lasthandoff: 02/21/2017
 
 * **SQL Server Management Studio.** Скачать и установить последнюю версию среды SQL Server Management Studio (SSMS) можно в статье [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). При подключении к базе данных SQL Azure всегда используйте последнюю версию SSMS, так как постоянно выпускаются новые возможности.
 
-* **Изучение руководства по началу работы.** Вы изучили руководство [по началу работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure, SQL Server Management Studio](sql-database-get-started.md) или [PowerShell](sql-database-get-started-powershell.md). Если это не так, прежде чем продолжить, изучите руководство по предварительным требованиям или выполните скрипт PowerShell, приведенный в конце версии этого руководства для [PowerShell](sql-database-get-started-powershell.md).
+* **Базовый сервер и базы данных**. Для установки и настройки сервера и двух баз данных, используемых в данном руководстве, нажмите кнопку **Развертывание в Azure**. При нажатии кнопки открывается колонка **Deploy from a template** (Развертывание из шаблона). Создайте группу ресурсов и предоставьте **пароль для входа администратора** для создаваемого сервера.
 
+   [![Скачивание](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 ## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Вход на портал Azure с помощью учетной записи Azure

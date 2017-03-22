@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Создание новой базы данных SQL Azure
+## <a name="create-a-new-azure-sql-database"></a>Создание новой базы данных SQL Azure
 Чтобы создать новую базу данных SQL Azure на новом или существующем логическом сервере базы данных SQL Azure, выполните следующие действия на портале Azure.
 
 1. Если вы еще этого не сделали, подключитесь к [порталу Azure](http://portal.azure.com).
@@ -18,7 +18,7 @@ articles/sql-database/sql-database-get-started-tutorial.md
 3. Щелкните **База данных SQL (новая база данных)**.
    
      ![Новая база данных](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
-4. Нажмите кнопку **Создать**, чтобы создать новую базу данных в службе баз данных SQL.
+4. Нажмите кнопку **Создать** , чтобы создать новую базу данных в службе баз данных SQL.
    
      ![Новая база данных](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 5. Укажите значения для следующих свойств сервера:
@@ -33,7 +33,7 @@ articles/sql-database/sql-database-get-started-tutorial.md
    * "Ценовая категория" — если вы только начинаете работу, используйте значение по умолчанию S0.
    * "Параметры сортировки" — это значение используется, только если выбрана пустая база данных.
      
-        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![Новая база данных](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 6. Щелкните **Создать**. В области уведомлений вы увидите, что развертывание началось.
    
     ![Новая база данных](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
@@ -41,4 +41,3 @@ articles/sql-database/sql-database-get-started-tutorial.md
    
      ![Новая база данных](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0907_2016-->

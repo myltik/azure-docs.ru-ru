@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: d1f4b7806f72dc2632ba981781097b19e89d07f3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -56,10 +57,10 @@ Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ## <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
 Прежде чем начать работу над решением, необходимо войти в учетную запись.
 
-Чтобы войти в учетную запись Azure, используйте командлет **Add-AzureRmAccount**.
+Чтобы войти в учетную запись Azure, используйте командлет **Login-AzureRmAccount**.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он загружает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
@@ -273,10 +274,5 @@ Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\
 * Сведения о развертывании шаблонов см. в статье [Развертывание приложения с использованием шаблона Azure Resource Manager](resource-group-template-deploy.md).
 * Существующие ресурсы можно переместить в новую группу ресурсов. Примеры см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](resource-group-move-resources.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
