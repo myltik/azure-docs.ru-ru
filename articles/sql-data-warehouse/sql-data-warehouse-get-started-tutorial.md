@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -25,7 +25,8 @@ ms.lasthandoff: 02/03/2017
 
 Из этого руководства вы узнаете, как подготовить и загрузить данные в хранилище данных SQL Azure, а также получите основные сведения о масштабировании, приостановке и настройке. После завершения работы с документом вы будете уметь использовать запросы и просматривать хранилища данных.
 
-**Предполагаемое время выполнения.**. Работа с этим комплексным руководством и примером кода занимает около 30 минут при условии, что все предварительные требования выполнены. 
+<seg>
+  **Предполагаемое время выполнения**. Работа с этим комплексным руководством и примером кода занимает около 30 минут при условии, что все предварительные требования выполнены.</seg> 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 02/03/2017
 
     **Источник**: пустая база данных.
 
-    **Сервер**: выберите сервер, который мы создали во время прохождения раздела "Предварительные требования".
+    **Сервер**: выберите сервер, созданный в разделе [Предварительные требования].
 
     **Параметры сортировки**: оставьте параметры сортировки по умолчанию (SQL_Latin1_General_CP1_CI_AS).
 
@@ -94,7 +95,7 @@ ms.lasthandoff: 02/03/2017
 
 ### <a name="get-connection-information"></a>Получение сведений о подключении
 
-Подключение к хранилищу данных SQL выполняется через логический сервер SQL Server, созданный в разделе "Предварительные требования".
+Подключение к хранилищу данных SQL выполняется через логический сервер SQL Server, созданный в разделе [Предварительные требования].
 
 1. Выберите хранилище данных на панели мониторинга или найдите его в списке ресурсов.
 
@@ -104,7 +105,7 @@ ms.lasthandoff: 02/03/2017
 
     ![Выбор имени сервера](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. Откройте SSMS. С помощью обозревателя объектов подключитесь к этому серверу, используя учетные данные администратора сервера, созданные в разделе "Предварительные требования".
+3. Откройте SSMS. С помощью обозревателя объектов подключитесь к этому серверу, используя учетные данные администратора сервера, созданные в разделе [Предварительные требования].
 
     ![Подключение с помощью SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
@@ -415,13 +416,13 @@ ms.lasthandoff: 02/03/2017
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Импорт данных из хранилища BLOB-объектов Azure
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+Хранилище данных SQL поддерживает ключевую инструкцию CREATE TABLE AS SELECT (CTAS). Эта инструкция создает таблицу на основе результатов инструкции Select. В новой таблице содержатся те же столбцы и типы данных, которые были выведены инструкцией Select.  Это элегантный способ импорта данных из хранилища BLOB-объектов Azure в хранилище данных SQL.
 
-1. Run this script to import your data.
+1. Запустите этот скрипт для импорта данных.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +497,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. Просмотрите данные при загрузке.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   Вы загружаете несколько гигабайт данных и сжимаете их в высокопроизводительные кластеризованные индексы Columnstore. Выполните следующий запрос, использующий динамические административные представления, для отображения состояния загрузки. После запуска запроса сделайте перерыв, пока хранилище данных SQL выполняет объемное задание обработки.
     
     ```sql
     SELECT
@@ -528,62 +529,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. Просмотрите все запросы в системе.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Посмотрите, как данные упорядоченно загружаются в хранилище данных SQL Azure.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![Просмотр загрузки данных](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>Повышение производительности запросов
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+Существует несколько способов повышения производительности запросов и обеспечения высокоскоростной производительности, заложенной в хранилище данных SQL.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Влияние масштабирования на производительность запросов 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+Один из способов повышения производительности запросов заключается в масштабировании ресурсов путем изменения уровня обслуживания DWU для хранилища данных. Каждый уровень обслуживания стоит дороже, но вы можете выполнить обратное масштабирование или приостановить ресурсы в любое время. 
 
-In this step, you compare performance at two different DWU settings.
+На этом шаге сравнивается производительность при двух различных настройках DWU.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+Сначала давайте уменьшим масштаб до 100 DWU, чтобы получить представление о производительности одного вычислительного узла.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. Перейдите на портал и выберите хранилище данных SQL.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. Выберите пункт "Масштаб" в колонке "Хранилище данных SQL". 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![Масштабирование хранилища данных на портале](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. Уменьшите производительность 100 DWU и нажмите кнопку "Сохранить".
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Масштабирование и сохранение](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. Подождите завершения операции масштабирования.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > При изменении масштаба запросы не выполняются. Процедура масштабирования **прерывает** выполняющиеся запросы. Вы можете перезапустить их после завершения операции.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. Выполните операцию сканирования данных о поездках, выбрав первый миллион записей для всех столбцов. Если вы хотите побыстрее перейти к следующему шагу, выберите меньшее число строк. Запишите время, затраченное на выполнение этой операции.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Выполните масштабирование хранилища данных обратно до 400 DWU. Помните, что каждые 100 DWU — это дополнительный вычислительный узел в хранилище данных SQL Azure.
 
-7. Run the query again! You should notice a significant difference. 
+7. Выполните запрос повторно. Вы заметите существенную разницу. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> Хранилище данных SQL использует массовую параллельную обработку. При сканировании и выполнении аналитических функций в миллионах строк с помощью запросов используется реальная мощность хранилища данных SQL Azure.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Влияние статистики на производительность запросов
 
-1. Run a query that joins the Date table with the Trip table
+1. Выполните запрос, который объединит таблицу дат с таблицей поездок.
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +615,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    Выполнение этого запроса занимает некоторое время, так как прежде чем выполнить соединение, хранилище данных SQL распределяет данные. Соединениям не нужно распределять данные, если они предназначены для объединения данных тем же образом, которым происходит их распределение. Для этого вопроса следует ознакомиться с более подробной информацией. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. Статистика имеет значение. 
+3. Используйте следующий оператор для создания статистики по столбцам соединения.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +626,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > Хранилище данных SQL не управляет статистикой автоматически. Статистика важна для производительности запросов, поэтому мы настоятельно рекомендуем создавать и обновлять статистику.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **Статистику рекомендуется вести в столбцах, которые являются частью объединения, используются в предложении WHERE или GROUP BY**.
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. Снова выполните запрос из раздела "Предварительные требования" и понаблюдайте за различиями в производительности. Хотя различия в производительности запроса не будут столь значительными, как при масштабировании, вы должны заметить ускорение. 
 
-## Next steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-You're now ready to query and explore. Check out our best practices or tips.
+Теперь можно выполнить запрос и изучить данные. Ознакомьтесь с нашими советами и рекомендациями.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+Если изучения данных на сегодня достаточно, не забудьте приостановить экземпляр хранилища. В рабочей среде вы можете добиться огромной экономии, приостанавливая и масштабируя хранилище в соответствии с потребностями своего бизнеса.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Приостановить](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>Полезные ссылки
 
-[Concurrency and Workload Management][]
+[Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][]
 
-[Best practices for Azure SQL Data Warehouse][]
+[Рекомендации по использованию хранилища данных SQL Azure][]
 
-[Query Monitoring][]
+[Мониторинг рабочей нагрузки с помощью динамических административных представлений][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][] (10 лучших рекомендаций по созданию реляционного хранилища данных большого объема)
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Migrating data to Azure SQL Data Warehouse in practice][] (Перенос данных в хранилище данных SQL Azure на практике)
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Рекомендации по использованию хранилища данных SQL Azure]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Мониторинг рабочей нагрузки с помощью динамических административных представлений]: sql-data-warehouse-manage-monitor.md
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (10 лучших рекомендаций по созданию реляционного хранилища данных большого объема)
+[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/ (Перенос данных в хранилище данных SQL Azure на практике)
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Предварительные требования]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

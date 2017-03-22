@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: dc9234760b0dfb5d109fc86ac47a89c8fcf7d991
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -101,40 +102,22 @@ Service Fabric предоставляет пакеты SDK для создани
 
 3. Щелкните найденный узел, а затем щелкните в меню "Действия" пункт **Отключить (перезапустить)** . Это действие перезапускает один из пяти узлов в локальном кластере и выполняет принудительную отработку отказа с переходом на одну из вторичных реплик, запущенных на другом узле. После этого обратите внимание на выходные данные тестового клиента: счетчик будет увеличиваться несмотря на отработку отказа.
 
-## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Сборка и развертывание приложения с помощью подключаемого модуля Eclipse Neon
+## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Создание и развертывание приложения с помощью подключаемого модуля Eclipse Neon
 
-Если вы установили [подключаемый модуль Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) для Eclipse Neon, его можно использовать для создания, сборки и развертывания приложений Service Fabric на базе Java.  При установке Eclipse выберите **интегрированную среду разработки Eclipse для разработчиков Java**.
-
-### <a name="create-the-application"></a>Создание приложения
-
-Подключаемый модуль Service Fabric можно добавить в Eclipse.
-
-1. В Eclipse выберите **File > Other > Service Fabric** (Файл > Другое > Service Fabric). Появится набор параметров, включающий субъекты и контейнеры.
-
-    ![Шаблоны Service Fabric в Eclipse][sf-eclipse-templates]
-
-2. В нашем примере используется служба без отслеживания состояния.
-
-3. Вам будет предложено подтвердить использование перспективы Service Fabric для оптимизации Eclipse при использовании в проектах Service Fabric. Щелкните "Yes" (Да).
-
-### <a name="deploy-the-application"></a>Развертывание приложения
-Шаблоны Service Fabric включают набор задач Gradle для сборки и развертывания приложений, которые можно активировать с помощью Eclipse.
-
-1. Выберите **Run > Run Configurations** (Запуск > Конфигурации запуска).
-2. Укажите среду: **локальная** или **облачная**. По умолчанию используется **локальная** среда. Для развертывания в удаленном кластере выберите **облачную** среду.
-3. Убедитесь, что в профилях публикации указаны нужные сведения, изменив файл `local.json` или `cloud.json` соответствующим образом.
-4. Щелкните **Выполнить**.
-
-Приложение будет собрано и развернуто через несколько секунд. Его состояние можно отслеживать в Service Fabric Explorer.
+Service Fabric можно использовать для создания, сборки и развертывания приложения Service Fabric на Java с помощью Eclipse. При установке Eclipse выберите **интегрированную среду разработки Eclipse для разработчиков Java**. Кроме того, в настоящее время Service Fabric поддерживает подключаемый модуль Eclipse **Neon**. Подробную документацию см. в статье [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Добавление дополнительных служб в существующее приложение
 
+### <a name="using-command-line-utility"></a>Использование служебной программы командной строки
 Чтобы добавить службу в приложение, созданное с использованием `yo`, сделайте следующее:
 1. Перейдите в корневой каталог существующего приложения.  Например, `cd ~/YeomanSamples/MyApplication`, если `MyApplication` является приложением, созданным с помощью Yeoman.
 2. Запустите `yo azuresfjava:AddService`
 
+### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Использование подключаемого модуля Service Fabric Eclipse для Java на платформе Linux
+Сведения о добавлении службы в имеющееся приложение, созданное с помощью подключаемого модуля Eclipse для Service Fabric, см. в [этой документации](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java)
 * [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md)
 * [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
 * [Устранение неполадок при развертывании](service-fabric-azure-cli.md#troubleshooting)
@@ -144,9 +127,4 @@ Service Fabric предоставляет пакеты SDK для создани
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

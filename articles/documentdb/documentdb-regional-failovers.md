@@ -33,7 +33,7 @@ Azure DocumentDB поддерживает явную отработку отка
 
 Узнайте больше об отработке отказа между регионами в этом видео из цикла "Пятница с Azure" от Скотта Хенсельмана (Scott Hanselman) и главного технического руководителя Картика Рамана (Karthik Raman).
 
->[!ВИДЕО https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a id="ConfigureMultiRegionApplications"></a>Настройка приложений в нескольких регионах
 Прежде чем углубляться в режимы отработки отказа, рассмотрим, как настроить приложение, чтобы воспользоваться преимуществами доступности нескольких регионов и меньше зависеть от отработок отказа между регионами.

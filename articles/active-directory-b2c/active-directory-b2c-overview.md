@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -55,8 +56,8 @@ Azure Active Directory B2C — это комплексное облачное �
 
 * См. страницу [цен на Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Ознакомьтесь с [примерами кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) для Azure Active Directory B2C. 
-* См. материалы на сайте Stack Overflow (Переполнение стека) по тегам [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) или [adal](http://stackoverflow.com/questions/tagged/adal).
-* Сообщите нам свое мнение через сайт [пользовательских мнений](https://feedback.azure.com/forums/169401-azure-active-directory/). В заголовке сообщения укажите «AzureADB2C:», чтобы мы смогли его найти.
+* См. материалы на сайте Stack Overflow (Переполнение стека) по тегу [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Сообщите нам свое мнение через сайт [пользовательских мнений](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 * См. статью [Azure AD B2C: протоколы проверки подлинности](active-directory-b2c-reference-protocols.md).
 * См. статью [Azure AD B2C: справочник по маркерам](active-directory-b2c-reference-tokens.md).
 * См. статью [Azure Active Directory B2C: часто задаваемые вопросы](active-directory-b2c-faqs.md).
@@ -64,10 +65,5 @@ Azure Active Directory B2C — это комплексное облачное �
 
 ## <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

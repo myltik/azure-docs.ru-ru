@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,8 +55,9 @@ ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-Если у вас нет ни одного из этих продуктов, Visual Studio 2015 будет установлен автоматически при установке пакета SDK для Azure.
+Если у вас нет ни одного из этих продуктов, Visual Studio может быть установлен автоматически при установке пакета SDK для Azure.
 
 ## <a name="application-architecture"></a>Архитектура приложения
 Приложение хранит рекламу в базе данных SQL, используя Entity Framework Code First для создания таблиц и доступа к данным. Для каждого рекламного объявления база данных хранит два URL-адреса: один для полноразмерного изображения, другой для эскиза.
@@ -76,7 +78,7 @@ ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
     По умолчанию Visual Studio автоматически восстанавливает содержимое пакета NuGet, которое не включено в *ZIP*-файл. Если пакеты не восстановлены, установите их вручную, перейдя к диалоговому окну **Управление пакетами NuGet** для решения и нажав кнопку **Восстановить** вверху справа.
 5. В **обозревателе решений** в качестве запускаемого проекта должен быть выбран **ContosoAdsCloudService**.
-6. Если вы используете Visual Studio 2015, измените строку подключения SQL Server в файле приложения *Web.config* в проекте ContosoAdsWeb и в файле *ServiceConfiguration.Local.cscfg* проекта ContosoAdsCloudService. В каждом файле измените (localdb)\v11.0 на (localdb)\MSSQLLocalDB.
+6. Если вы используете Visual Studio 2015 или более поздней версии, измените строку подключения SQL Server в файле приложения *Web.config* в проекте ContosoAdsWeb и в файле *ServiceConfiguration.Local.cscfg* проекта ContosoAdsCloudService. В каждом файле измените (localdb)\v11.0 на (localdb)\MSSQLLocalDB.
 7. Для запуска приложения нажмите сочетание клавиш CTRL+F5.
 
     Когда запускаете локально проект облачной службы, Visual Studio автоматически вызывает *эмулятор вычислений* Azure и *эмулятор хранилища* Azure. Эмулятор хранилища использует ресурсы компьютера для эмуляции сред рабочей и веб-ролей. Эмулятор хранилища использует базу данных [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) для эмуляции работы хранилища Azure в облаке.
@@ -364,7 +366,7 @@ ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
     </connectionStrings>
     ```
 
-    Если вы используете Visual Studio 2015, замените v11.0 на MSSQLLocalDB.
+    Если вы используете Visual Studio 2015 или более поздней версии, замените v11.0 на MSSQLLocalDB.
 2. Сохраните изменения.
 3. В проекте ContosoAdsCloudService щелкните правой кнопкой мыши ContosoAdsWeb в разделе **Роли**, а затем выберите **Свойства**.
 
@@ -381,7 +383,7 @@ ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
    * Имя: ContosoAdsDbConnectionString
    * Тип: строка
-   * Значение. Вставьте ту же строку подключения, которая была использована для проекта веб-роли. (Этот пример предназначен для Visual Studio 2013, не забудьте изменить источник данных при копировании этого примера для Visual Studio 2015.)
+   * Значение. Вставьте ту же строку подключения, которая была использована для проекта веб-роли. (Этот пример предназначен для Visual Studio 2013, не забудьте изменить источник данных при копировании этого примера для Visual Studio 2015 или более поздней версии.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -769,9 +771,4 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 * [Как выбрать поставщика облачных служб](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

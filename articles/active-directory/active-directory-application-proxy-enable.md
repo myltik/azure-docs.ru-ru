@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
-ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c979e6328f09618642aa7a432c873c7ce20c072b
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -46,6 +47,7 @@ ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
   | 9091 |Включение автоматического обновления сертификатов доверия соединителя. |
   
     Если брандмауэр инициирует трафик в соответствии с отправляющими его пользователями, откройте эти порты для трафика, поступающего от служб Windows, которые работают как сетевая служба. Кроме того, не забудьте включить порт 8080 для NT AUTHORITY\SYSTEM.
+* Воспользуйтесь [средством проверки портов соединителей прокси-службы приложения Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/), чтобы проверить, сможет ли ваш соединитель подключиться к прокси-службе приложения. Как минимум следует убедиться, что для региона Central US (Центральная часть США) и ближайшего к вам региона отображаются все зеленые флажки. Учитывайте также, что большее число зеленых флажков означает большую устойчивость. 
 * Если ваша организация использует прокси-серверы для подключения к Интернету, изучите сведения об их настройке в записи блога [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Работа с имеющимися локальными прокси-серверами).
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Шаг 1. Включение прокси приложения в Azure AD
@@ -87,10 +89,5 @@ ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
 Теперь вы можете [публиковать приложения с помощью прокси приложения](active-directory-application-proxy-publish.md).
 
 При наличии приложений, находящихся в отдельных сетях или разных расположениях, можно использовать группы соединителей для организации других соединителей в логических устройствах. См. дополнительные сведения о [работе с соединителями прокси приложения](active-directory-application-proxy-connectors.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -10,11 +10,11 @@ articles/sql-database/sql-database-get-started-tutorial.md
 ## Connecting to the Azure Portal with a subscription
 
 -->
-## Подключение к порталу Azure с помощью подписки
-Если у вас есть подписка на Microsoft Azure, выполните следующие действия, чтобы подключиться к порталу Azure. Если у вас нет учетной записи Microsoft Azure, перейдите по одной из ссылок ниже, чтобы получить учетную запись. Затем выполните следующие действия, чтобы подключиться к порталу Azure.
+## <a name="connecting-to-the-azure-portal-with-a-subscription"></a>Подключение к порталу Azure с помощью подписки
+Если у вас есть подписка Microsoft Azure, выполните следующие действия, чтобы подключиться к порталу Azure. Если у вас нет учетной записи Microsoft Azure, перейдите по одной из ссылок ниже, чтобы получить учетную запись. Затем выполните следующие действия, чтобы подключиться к порталу Azure.
 
 1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
-2. Войдите на портал [Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
+2. Войдите на [портал Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
 3. Когда появится страница входа, введите учетные данные своей подписки.
    
    ![вход][1]
@@ -29,5 +29,3 @@ articles/sql-database/sql-database-get-started-tutorial.md
 <!--
 
 -->
-
-<!---HONumber=AcomDC_0413_2016-->
