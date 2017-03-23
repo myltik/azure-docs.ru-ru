@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: garbrad
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,8 +58,8 @@ ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
               nsupdate $nsupdatecmds
         fi
 
-        #done
-        exit 0;
+        
+        
 
 Для выполнения безопасных обновлений динамических DNS можно также использовать команду *nsupdate* . Например, при использовании DNS-сервера Bind [создается](http://linux.yyz.us/nsupdate/)пара открытого и закрытого ключей.  DNS-сервер [настраивается](http://linux.yyz.us/dns/ddns-server.html) с использованием открытой части ключа, что делает возможным проверку подписи запроса. Чтобы подписать запрос на обновление динамических DNS, в средстве *nsupdate* необходимо указать пару ключей с помощью параметра *-k*.
 
@@ -67,10 +68,5 @@ ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
 При необходимости в виртуальные машины можно добавить суффикс поиска DNS. DNS-суффикс указан в файле */etc/resolv.conf* . Большинство дистрибутивов Linux управляет содержимым этого файла автоматически, поэтому его обычно нельзя изменить. Тем не менее, вы можете переопределить суффикс с помощью команды *supersede* DHCP-клиента. Для этого в файле */etc/dhcp/dhclient.conf*добавьте:
 
         supersede domain-name <required-dns-suffix>;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

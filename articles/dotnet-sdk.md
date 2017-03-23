@@ -2,7 +2,7 @@
 title: "Информация о пакете Azure SDK для NET"
 description: "Узнайте, что включено в пакет SDK для Azure для .NET."
 documentationcenter: .net
-author: tdykstra
+author: juliako
 manager: wpickett
 editor: mollybos
 services: 
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
 ms.openlocfilehash: 5f61a5422fc36b2468585e601823f292680142ec
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 5f61a5422fc36b2468585e601823f292680142ec
 
 Пакет Azure SDK для .NET также содержит [клиентские библиотеки для использования служб Azure](http://go.microsoft.com/fwlink/?LinkId=510472). Эти библиотеки устанавливаются отдельно при использовании NuGet.
 
-## <a name="a-idincludedawhats-included-in-the-azure-sdk-for-net"></a><a id="included"></a>Что входит в состав пакета Azure SDK для .NET?
+## <a id="included"></a>Что входит в состав пакета Azure SDK для .NET?
 Пакет Azure SDK для .NET устанавливает следующие программы:
 
 * [Выпуск Visual Studio Community 2015](#vwd)
@@ -42,41 +43,41 @@ ms.openlocfilehash: 5f61a5422fc36b2468585e601823f292680142ec
 * [Microsoft ASP.NET и пакет Web Tools для Visual Studio](#wte)
 * [Средства озера данных Microsoft Azure для Visual Studio](#datalake)
 
-### <a name="a-idvwdavisual-studio-community-edition-2015"></a><a id="vwd"></a>Выпуск Visual Studio Community 2015
+### <a id="vwd"></a>Выпуск Visual Studio Community 2015
 Если на компьютере не установлен Visual Studio, пакет SDK установит [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### <a name="a-idstgemulatoramicrosoft-azure-storage-emulator"></a><a id="stgemulator"></a>Эмулятор хранилища Microsoft Azure
+### <a id="stgemulator"></a>Эмулятор хранилища Microsoft Azure
 [Эмулятор хранилища Microsoft Azure](http://msdn.microsoft.com/library/hh403989.aspx) использует экземпляр SQL Server и локальную файловую систему для эмуляции хранилища Azure (запросы, таблицы, двоичные объекты), что позволяет проводить тестирование локально.
 
-### <a name="a-idstgtoolsamicrosoft-azure-storage-tools"></a><a id="stgtools"></a>Средства хранилища Microsoft Azure
+### <a id="stgtools"></a>Средства хранилища Microsoft Azure
 Будет установлена программа командной строки [AzCopy](http://aka.ms/AzCopy), которую можно использовать для переноса данных в учетную запись хранения Azure и из нее.
 
-### <a name="a-idauthamicrosoft-azure-authoring-tools"></a><a id="auth"></a>Средства создания Microsoft Azure
+### <a id="auth"></a>Средства создания Microsoft Azure
 В их состав входят:
 
 * [Средство командной строки CSPack](http://msdn.microsoft.com/library/gg432988.aspx) для создания пакетов развертывания.
 * [Средство командной строки CSEncrypt](http://msdn.microsoft.com/library/hh404001.aspx) для шифрования паролей, используемых для доступа к экземплярам ролей облачных служб через подключение к удаленному рабочему столу.
 * Исполнимые двоичные файлы, которые требуются проектам облачных служб для коммуникации со средой выполнения и диагностики. Эти файлы недоступны в пакетах NuGet.
 
-### <a name="a-idemulatoramicrosoft-azure-emulator"></a><a id="emulator"></a>Эмулятор Microsoft Azure
+### <a id="emulator"></a>Эмулятор Microsoft Azure
 [Эмулятор Azure](http://msdn.microsoft.com/library/dn339018.aspx) имитирует среду облачной службы, чтобы вы могли тестировать проекты облачных служб на локальном компьютере перед их развертыванием в Azure.
 
-### <a name="a-idhdinsightahdinsight-tools-for-visual-studio-and-microsoft-hive-odbc-driver"></a><a id="hdinsight"></a>Средство HDInsight для Visual Studio и драйвер ODBC для Microsoft Hive
+### <a id="hdinsight"></a>Средство HDInsight для Visual Studio и драйвер ODBC для Microsoft Hive
 Средства HDInsight в обозревателе серверов позволяют перемещаться по базам данных Hive и связанным хранилищам учетных записей кластеров HDInsight, создавать таблицы, а также создавать и отправлять запросы Hive. Дополнительную информацию см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-### <a name="a-idlibrariesamicrosoft-azure-libraries-for-net"></a><a id="libraries"></a>Библиотеки Microsoft Azure для .NET
+### <a id="libraries"></a>Библиотеки Microsoft Azure для .NET
 В их состав входят:
 
 * Пакеты NuGet для хранилища Azure, сервисной шины и кэширования, которые сохраняются на компьютере, чтобы в Visual Studio можно было создать новые проекты облачных служб без доступа в Интернет.
 * Дополнение для Visual Studio, позволяющее запускать проекты [службы кэша](http://msdn.microsoft.com/library/dn386103.aspx) локально в Visual Studio.
 
-### <a name="a-idmobileamicrosoft-azure-mobile-app-sdk"></a><a id="mobile"></a>Пакет SDK для мобильных приложений Microsoft Azure
+### <a id="mobile"></a>Пакет SDK для мобильных приложений Microsoft Azure
 Инструменты для работы с [Мобильным приложением службы приложений Azure](app-service-mobile/app-service-mobile-value-prop.md).
 
-### <a name="a-idpsamicrosoft-azure-powershell"></a><a id="ps"></a>Установка Microsoft Azure PowerShell
+### <a id="ps"></a>Установка Microsoft Azure PowerShell
 Azure PowerShell позволяет [автоматизировать создание и развертывание среды Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-### <a name="a-idtoolsamicrosoft-azure-tools-for-microsoft-visual-studio"></a><a id="tools"></a>Пакет Microsoft Azure Tools для Microsoft Visual Studio
+### <a id="tools"></a>Пакет Microsoft Azure Tools для Microsoft Visual Studio
 Это позволяет работать с ресурсами Azure, в первую очередь с облачными службами и виртуальными машинами:
 
 * [создавать, открывать и публиковать проекты облачных служб](cloud-services/cloud-services-dotnet-get-started.md);
@@ -88,7 +89,7 @@ Azure PowerShell позволяет [автоматизировать созда
 * [удаленно запускать в режиме отладки облачные службы и виртуальные машины](http://msdn.microsoft.com/library/ff683670.aspx).
 * [Автоматизация подготовки ресурсов с помощью проектов развертывания группы ресурсов Azure](https://msdn.microsoft.com/library/dn872471.aspx)
 
-### <a name="a-idwteamicrosoft-app-service-tools-for-visual-studio"></a><a id="wte"></a>Средства службы приложений Microsoft для Visual Studio
+### <a id="wte"></a>Средства службы приложений Microsoft для Visual Studio
 Это позволит вам работать с веб-сайтами Azure:
 
 * [Публиковать веб-проекты на веб-сайтах Azure](app-service-web/web-sites-dotnet-get-started.md).
@@ -103,10 +104,10 @@ Azure PowerShell позволяет [автоматизировать созда
 > 
 > 
 
-## <a name="a-iddatalakeamicrosoft-azure-data-lake-tools-for-visual-studio"></a><a id="datalake"></a>Средства озера данных Microsoft Azure для Visual Studio
+## <a id="datalake"></a>Средства озера данных Microsoft Azure для Visual Studio
 Дополнительные сведения см. в статье [Учебник. Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="a-idnotincludedawhats-not-included-when-you-install-the-azure-sdk-for-net"></a><a id="notincluded"></a>Что не входит в состав пакета Azure SDK для .NET?
+## <a id="notincluded"></a>Что не входит в состав пакета Azure SDK для .NET?
 Есть некоторые компоненты, которые не включены в установочный пакет SDK, но могут вам понадобиться при разработке для Azure. Наиболее важные из них:
 
 * [Клиентские библиотеки](http://go.microsoft.com/fwlink/?LinkId=510472)
@@ -120,7 +121,7 @@ Azure PowerShell позволяет [автоматизировать созда
   
     Шаблоны проектов мобильных приложений Azure доступны только в Visual Studio 2013 с обновлением 2 и более поздних версиях. При этом недоступны в Visual Studio 2012 и более ранних версиях, а также в Visual Studio 2013 с пакетом обновлений 1 или более ранних версиях, даже после установки Azure SDK для .NET.
 
-## <a name="a-idfaqafrequently-asked-questions"></a><a id="faq"></a>Часто задаваемые вопросы
+## <a id="faq"></a>Часто задаваемые вопросы
 * [Многие компоненты Azure уже входят в состав Visual Studio. Нужно ли мне установить пакет Azure SDK для .NET?](#azinvs)
 * [Мне нужна клиентская библиотека. Нужно ли устанавливать пакет Azure SDK для .NET, чтобы получить ее?](#clientlib)
 * [Где можно найти предыдущие версии пакета SDK для Azure для .NET?](#olderversions)
@@ -128,26 +129,26 @@ Azure PowerShell позволяет [автоматизировать созда
 * [С какими версиями гостевых ОС совместим пакет SDK для Azure для .NET?](#guestos)
 * [Как удалить пакет SDK для Azure для .NET?](#uninstall)
 
-### <a name="a-idazinvsamany-azure-features-are-already-in-visual-studio-do-i-need-to-install-the-azure-sdk-for-net"></a><a id="azinvs"></a>Многие компоненты Azure уже входят в состав Visual Studio. Нужно ли мне установить пакет Azure SDK для .NET?
+### <a id="azinvs"></a>Многие компоненты Azure уже входят в состав Visual Studio. Нужно ли мне установить пакет Azure SDK для .NET?
 Рекомендуется устанавливать пакет SDK чтобы вести разработку для Azure с использованием современных средств. Если вы не хотите устанавливать пакет SDK, вы можете сделать это, если выполняются следующие условия:
 
 * установлено последнее [обновление для Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5);
 * вы разрабатываете только для веб-сайтов или мобильных служб Azure, а не для облачных служб или виртуальных машин;
 * приложение не использует службу хранилища либо оно ее использует, но у вас нет необходимости в эмуляторе хранилища или средстве AzCopy.
 
-### <a name="a-idclientlibai-want-a-client-library-do-i-have-to-install-the-azure-sdk-for-net-to-get-it"></a><a id="clientlib"></a>Мне нужна клиентская библиотека. Нужно ли устанавливать пакет Azure SDK для .NET, чтобы получить ее?
+### <a id="clientlib"></a>Мне нужна клиентская библиотека. Нужно ли устанавливать пакет Azure SDK для .NET, чтобы получить ее?
 Пакет SDK устанавливает только клиентские библиотеки, поэтому можно создать проект облачной службы, даже если вы не подключены к Интернету. Самые последние версии клиентских библиотек доступны в виде пакетов NuGet на сайте [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472). Дополнительные сведения см. в разделе [Что не входит в состав пакета Azure SDK для .NET?](#notincluded) ранее в этом же документе.
 
-### <a name="a-idolderversionsawhere-can-i-find-older-versions-of-the-azure-sdk-for-net"></a><a id="olderversions"></a>Где можно найти предыдущие версии пакета SDK для Azure для .NET?
+### <a id="olderversions"></a>Где можно найти предыдущие версии пакета SDK для Azure для .NET?
 Предыдущие версии пакета размещены на странице загрузки [пакета Azure SDK для .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) .
 
-### <a name="a-idlifecycleawhats-the-lifecycle-policy-for-versions-of-the-azure-sdk-for-net"></a><a id="lifecycle"></a>Какова политика поддержки жизненного цикла пакета SDK для Azure для .NET?
+### <a id="lifecycle"></a>Какова политика поддержки жизненного цикла пакета SDK для Azure для .NET?
 См. [Политика поддержки жизненного цикла облачных служб Microsoft Azure](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq).
 
-### <a name="a-idguestosawhich-guest-os-versions-is-the-azure-sdk-for-net-compatible-with"></a><a id="guestos"></a>С какими версиями гостевых ОС совместим пакет SDK для Azure для .NET?
+### <a id="guestos"></a>С какими версиями гостевых ОС совместим пакет SDK для Azure для .NET?
 См. [Таблицу совместимости версий гостевых ОС и Azure SDK](http://msdn.microsoft.com/library/ee924680.aspx).
 
-### <a name="a-iduninstallahow-do-i-uninstall-the-azure-sdk-for-net"></a><a id="uninstall"></a>Как удалить пакет SDK для Azure для .NET?
+### <a id="uninstall"></a>Как удалить пакет SDK для Azure для .NET?
 Каждый элемент, описанный в данной статье в разделе [Что входит в состав пакета SDK для Azure для .NET](#included) , является отдельной программой в списке установленных программ на панели управления Windows **Программы и компоненты**.  Групповое удаление данных элементов невозможно, необходимо удалять каждую программу по отдельности.
 
 Если у вас уже установлен пакет SDK для Azure для .NET, и вы устанавливаете новую версию, нет никакой необходимости в удалении старой. В большинстве случаев установка пакета SDK обновляет существующую программу, а не добавляет новую взамен старой.
@@ -162,19 +163,14 @@ Azure PowerShell позволяет [автоматизировать созда
 > 
 > 
 
-## <a name="a-idversionsaversions"></a><a id="versions"></a>Версии
+## <a id="versions"></a>Версии
 Чтобы узнать, какая версия является текущей или скачать более ранние версии, см. страницу [Журнал версий пакета SDK для Azure для .NET](https://azure.microsoft.com/downloads/archive-net-downloads/).
 
-## <a name="a-idresourcesaresources"></a><a id="resources"></a>Ресурсы
+## <a id="resources"></a>Ресурсы
 Чтобы скачать пакет Azure для SDK для .NET или клиентскую библиотеку, см. [страницу скачивания Azure](https://azure.microsoft.com/downloads/).
 
 Исходный код пакета Azure SDK для .NET, включая клиентские библиотеки, размещен по адресу [GitHub.com/Azure](https://github.com/azure/).
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](https://azure.microsoft.com/documentation/api/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
