@@ -26,11 +26,11 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью портала Azure
 
 > [!div class="op_single_selector"]
-- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
+> * [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 

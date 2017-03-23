@@ -32,13 +32,13 @@ Azure предоставляет две модели развертывания:
 В этой статье описывается создание виртуальной сети с помощью модели развертывания Resource Manager с использованием PowerShell. Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
 
 > [!div class="op_single_selector"]
-- [Портал](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
-- [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
-- [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
+> * [Портал](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
+> * [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
+> * [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
