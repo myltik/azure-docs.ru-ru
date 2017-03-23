@@ -26,12 +26,12 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
-- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
+> * [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2017
 
 Эту задачу можно выполнить с помощью Azure CLI 1.0 (в этой статье) или [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
 
-## <a name="a-name--createastep-1---start-your-script"></a><a name = "create"></a>Шаг 1. Запуск скрипта
+## <a name = "create"></a>Шаг 1. Запуск скрипта
 Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Чтобы изменить скрипт для работы в вашей среде, сделайте следующее:
 
 Измените значения следующих переменных на основе значений, которые нужно использовать для своего развертывания. Приведенные ниже значения соответствуют сценарию, используемому в этой статье.
