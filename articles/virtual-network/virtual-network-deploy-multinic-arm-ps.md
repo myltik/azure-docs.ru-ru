@@ -26,11 +26,11 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-deploy-multinic-arm-cli.md)
-- [Шаблон](virtual-network-deploy-multinic-arm-template.md)
-- [PowerShell (классическая модель)](virtual-network-deploy-multinic-classic-ps.md)
-- [Интерфейс командной строки Azure (классическая модель)](virtual-network-deploy-multinic-classic-cli.md)
+> * [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
+> * [Интерфейс командной строки Azure](virtual-network-deploy-multinic-arm-cli.md)
+> * [Шаблон](virtual-network-deploy-multinic-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-network-deploy-multinic-classic-ps.md)
+> * [Интерфейс командной строки Azure (классическая модель)](virtual-network-deploy-multinic-classic-cli.md)
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 

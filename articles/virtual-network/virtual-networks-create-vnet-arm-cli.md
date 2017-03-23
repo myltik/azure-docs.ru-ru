@@ -38,13 +38,13 @@ Azure предоставляет две модели развертывания:
     Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
 
 > [!div class="op_single_selector"]
-- [Портал](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
-- [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
-- [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
+> * [Портал](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
+> * [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
+> * [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -65,22 +65,22 @@ Azure предоставляет две модели развертывания:
 
     ```azurecli
     az network vnet create \
-        --name TestVNet \
-        --resource-group TestRG \
-        --location centralus \
-        --address-prefix 192.168.0.0/16 \
-        --subnet-name FrontEnd \
-        --subnet-prefix 192.168.1.0/24
+    --name TestVNet \
+    --resource-group TestRG \
+    --location centralus \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name FrontEnd \
+    --subnet-prefix 192.168.1.0/24
     ```
 
     Ожидаемые выходные данные:
-   
+    
     ```json
     {
         "newVNet": {
             "addressSpace": {
             "addressPrefixes": [
-                "192.168.0.0/16"
+            "192.168.0.0/16"
             ]
             },
             "dhcpOptions": {
@@ -100,7 +100,7 @@ Azure предоставляет две модели развертывания:
                 "resourceGroup": "TestRG"
             }
             ]
-        }
+            }
     }
     ```
 
@@ -121,20 +121,20 @@ Azure предоставляет две модели развертывания:
 
     В результате будут возвращены следующие выходные данные:
 
-            Where      Name      Group
-            ---------  --------  -------
-            centralus  TestVNet  TestRG
+        Where      Name      Group
+
+        centralus  TestVNet  TestRG
 
 4. Создайте подсеть.
 
     ```azurecli
     az network vnet subnet create \
-        --address-prefix 192.168.2.0/24 \
-        --name BackEnd \
-        --resource-group TestRG \
-        --vnet-name TestVNet
+    --address-prefix 192.168.2.0/24 \
+    --name BackEnd \
+    --resource-group TestRG \
+    --vnet-name TestVNet
     ```
-   
+
     Ожидаемые выходные данные:
 
     ```json
@@ -168,11 +168,11 @@ Azure предоставляет две модели развертывания:
     --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
     -o table
     ```
-   
+
     Ожидаемые выходные данные:
-   
+
         Name      Where      Group    Status       SubnetCount
-        --------  ---------  -------  ---------  -------------
+
         TestVNet  centralus  TestRG   Succeeded              2
 
 6. Запросите свойства подсетей.
@@ -188,7 +188,7 @@ Azure предоставляет две модели развертывания:
     Ожидаемые выходные данные:
 
         Name      CIDR            Status
-        --------  --------------  ---------
+
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
