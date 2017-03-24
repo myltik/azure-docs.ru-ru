@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/10/2017
 > [!NOTE]
 > Если вы уже знаете, как использовать серверы Hadoop на платформе Linux, но не знакомы с HDInsight, см. статью [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md).
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
+## <a id="prereq"></a>Предварительные требования
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 02/10/2017
 
 * Клиент SSH. Клиент SSH должен входить в состав операционных систем Linux, Unix и Mac OS. Пользователи Windows должны загрузить отдельный клиент, например [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Подключение по SSH
+## <a id="ssh"></a>Подключение по SSH
 
 Подключитесь с помощью команды SSH, используя полное доменное имя (FQDN) кластера HDInsight. Полное доменное имя — это имя, присвоенное кластеру, заканчивающееся на **.azurehdinsight.net**. Например, следующая команда позволяет подключиться к кластеру с именем **myhdinsight**:
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 02/10/2017
 
 Дополнительные сведения об использовании PuTTY см. в статье [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="a-idhadoopause-hadoop-commands"></a><a id="hadoop"></a>Использование команд Hadoop
+## <a id="hadoop"></a>Использование команд Hadoop
 
 1. После подключения к кластеру HDInsight используйте следующую команду **Hadoop** , чтобы запустить задание MapReduce:
    
@@ -109,11 +110,11 @@ ms.lasthandoff: 02/10/2017
         wretched        6
         wriggling       1
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
+## <a id="summary"></a>Сводка
 
 Как видите, команды Hadoop позволяют с легкостью выполнять задания MapReduce в кластере HDInsight и просматривать выходные данные задания.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 
 Общая информация о заданиях MapReduce в HDInsight:
 

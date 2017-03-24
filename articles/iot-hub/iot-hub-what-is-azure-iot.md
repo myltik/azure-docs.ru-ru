@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
+ms.lasthandoff: 01/24/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Центр Интернета вещей Azure — это служба Azure, обеспечивающая надежный и защищенный двунаправленный обмен данными между серверной частью вашего решения и миллионами устройств. В результате серверная часть решения может:
 
 * получать данные телеметрии с ваших устройств;
@@ -46,9 +48,4 @@ ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -29,7 +31,7 @@ ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
 
 Пример сценария, используемый в данном разделе, создает кластер Solr с определенной конфигурацией. Если вы хотите настроить кластер Solr на использование других коллекций, сегментов, схем, реплик и т. п., необходимо соответствующим образом изменить скрипт и двоичные файлы Solr.
 
-## <a name="a-namewhatisawhat-is-solr"></a><a name="whatis"></a>Что такое Solr
+## <a name="whatis"></a>Что такое Solr
 [Apache Solr](http://lucene.apache.org/solr/features.html) — это корпоративная платформа поиска, предоставляющая эффективные инструменты полнотекстового поиска данных. Если Hadoop обеспечивает хранение огромных объемов данных и управление ими, то Apache Solr предоставляет возможности поиска для быстрого извлечения этих данных. Этот раздел содержит инструкции по настройке кластера HDInsight для установки Solr.
 
 > [!WARNING]
@@ -47,7 +49,7 @@ ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
 * Делает пользователя **solrusr** владельцем `/usr/hdp/current/solr`.
 * Добавляет конфигурацию [Upstart](http://upstart.ubuntu.com/) , которая запускает Solr при перезапуске узла кластера. Solr также автоматически запускается на узлах кластера после установки.
 
-## <a name="a-nameinstallainstall-solr-using-script-actions"></a><a name="install"></a>Установка Solr с помощью действий сценария
+## <a name="install"></a>Установка Solr с помощью действий сценария
 Пример сценария для установки Solr в кластер HDInsight доступен по следующему адресу.
 
     https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -71,7 +73,7 @@ ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
 3. В нижней части раздела **Действия скрипта** нажмите кнопку **Выбрать**, чтобы сохранить конфигурацию. Наконец, в нижней части колонки **Дополнительная конфигурация** нажмите кнопку **Выбрать**, чтобы сохранить дополнительные настройки.
 4. Продолжите подготовку кластера к работе, как описано в статье [Подготовка кластеров HDInsight на основе Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="a-nameusesolrahow-do-i-use-solr-in-hdinsight"></a><a name="usesolr"></a>Как использовать Solr в HDInsight
+## <a name="usesolr"></a>Как использовать Solr в HDInsight
 ### <a name="indexing-data"></a>Индексирование данных
 Необходимо начать с индексирования системой Solr нескольких файлов данных. Затем можно использовать Solr для выполнения запросов поиска в индексированных данных. Выполните следующие действия, чтобы добавить пример данных в Solr и создать запрос к ним.
 
@@ -307,9 +309,4 @@ ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

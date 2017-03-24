@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -62,7 +63,7 @@ Ambari — это служебная программа для управлен
 
 Добавляя таблицы в соответствии с инструкциями, вы можете щелкать значок обновления в правом верхнем углу обозревателя базы данных, чтобы обновлять список.
 
-## <a name="a-namehivequeryaquery-editor"></a><a name="hivequery"></a>Редактор запросов
+## <a name="hivequery"></a>Редактор запросов
 
 Чтобы выполнить запрос Hive, выполните следующие действия в представлении Hive.
 
@@ -225,7 +226,7 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 * [Использование Python с Hive и Pig в HDInsight](hdinsight-python.md)
 * [Добавление пользовательских UDF Hive в HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 Общая информация о Hive в HDInsight.
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
