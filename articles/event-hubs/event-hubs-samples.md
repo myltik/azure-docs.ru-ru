@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 03/07/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: f3c8f6e52b8713bcdb58d55e8bbc2301a7c316e4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 03/03/2017
 
 ### <a name="send-events"></a>Отправка событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender) показано, как написать консольное приложение для .NET Core, которое отправляет события в концентратор событий.
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) показано, как написать консольное приложение для .NET Core, которое отправляет события в концентратор событий.
 
 ### <a name="receive-events"></a>Получение событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя [узел обработчика событий](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя `Event Processor Host`.
 
 ## <a name="net-framework"></a>.NET Framework    
 

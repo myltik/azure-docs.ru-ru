@@ -17,13 +17,13 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 03467542669d9719d2634d20d4c0e7bba265ac6f
-ms.openlocfilehash: dff2c67f5e529d40d31e9bad1af00938ddf547b8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="scenario-exception-handling-and-logging-errors-for-logic-apps"></a>Сценарий обработки исключений и ведения журнала ошибок для приложений логики
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Сценарий обработки исключений и ведения журнала ошибок для приложений логики
 
 В этом сценарии описано, как улучшить поддержку для обработки исключений в приложении логики. Мы использовали пример из реальной жизни, который можно считать ответом на вопрос "Поддерживает ли Azure Logic Apps обработку исключений и ошибок?".
 
@@ -429,9 +429,7 @@ ms.lasthandoff: 03/02/2017
 
 #### <a name="logic-apps-exception-management-api"></a>API управления исключениями приложений логики
 
-Приложение API на основе Azure Logic Apps с открытым исходным кодом, которое мы создали для управления исключениями, поддерживает следующие функциональные возможности.
-
-Это приложение содержит два контроллера:
+Приложение API на основе Azure Logic Apps с открытым исходным кодом, которое мы создали для управления исключениями, поддерживает следующие возможности, включая два контроллера:
 
 * **ErrorController** добавляет запись об ошибке (документ) в коллекцию DocumentDB;
 * **LogController** добавляет запись журнала (документ) в коллекцию DocumentDB.

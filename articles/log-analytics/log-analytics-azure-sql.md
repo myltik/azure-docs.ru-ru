@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 503cf4afba4575492984891a681c187a8683a553
-ms.openlocfilehash: 9d8fd7ec594671e1ea7bf06459494f1c3a1adbdf
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 0184e95ca56e4bc4ffbe860da2b7a5cae9b5a043
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="connected-sources"></a>Подключенные источники
 
-В отличие от большинства других решений Log Analytics решение для мониторинга SQL Azure не использует агенты для подключения к службе Log Analytics.
+Решение для мониторинга SQL Azure не использует агенты для подключения к службе Log Analytics.
 
 В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
 
@@ -42,7 +42,8 @@ ms.lasthandoff: 02/23/2017
 | [Агенты Windows](log-analytics-windows-agents.md) | Нет | Решение не использует прямые агенты Windows. |
 | [Агенты Linux](log-analytics-linux-agents.md) | Нет | Решение не использует прямые агенты Linux. |
 | [Группы управления SCOM](log-analytics-om-agents.md) | Нет | Решение не использует прямое подключение агента SCOM к Log Analytics. |
-| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Да | Данные метрик Azure отправляются в Log Analytics с использованием учетной записи хранения. |
+| [Учетная запись хранения Azure](log-analytics-azure-storage.md) | Нет | Log Analytics не считывает данные из учетной записи хранения. |
+| [Настройка системы диагностики Azure для входа в Application Insights](log-analytics-azure-storage.md) | Да | Данные метрик Azure отправляются в Log Analytics из Azure непосредственно. |
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -54,7 +55,7 @@ ms.lasthandoff: 02/23/2017
 
 Чтобы добавить решение для мониторинга SQL Azure в рабочую область, сделайте следующее.
 
-1. Добавьте решение для мониторинга SQL Azure в рабочую область, как описано в статье [Добавление решений для управления Operations Management Suite (OMS)](log-analytics-add-solutions.md).
+1. Решение для анализа Azure SQL необходимо добавить в рабочую область из [Azure Мarketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 2. На портале Azure щелкните **Создать** (знак +), а затем в списке ресурсов выберите **Мониторинг и управление**.  
     ![Мониторинг и управление](./media/log-analytics-azure-sql/monitoring-management.png)
 3. В списке **Мониторинг и управление** щелкните **Показать все**.

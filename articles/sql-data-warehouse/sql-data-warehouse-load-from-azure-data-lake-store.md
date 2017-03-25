@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 3aa72480898e00cab8ee48e646ea63ade01f347f
-ms.openlocfilehash: 31c7337bdf9dd302ea2f7c5dd0af9d668b23acb2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ ms.lasthandoff: 02/22/2017
 >[!NOTE] 
 > Вам нужно получить из приложения Active Directory идентификатор клиента, ключ и значение конечной точки маркера OAuth2.0, чтобы подключаться к Azure Data Lake из хранилища данных SQL. Чтобы узнать, как получить эти значения, см. статью по приведенной выше ссылке.
 
-* SQL Server Management Studio или SQL Server Data Tools. Загрузка и подключение SSMS описаны [здесь](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms.md).
+* SQL Server Management Studio или SQL Server Data Tools. Загрузка и подключение SSMS описаны [здесь](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms).
 
 * Хранилище данных SQL Azure. Чтобы создать его, выполните инструкции из этой статьи: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
@@ -56,7 +57,7 @@ PolyBase использует внешние объекты T-SQL для опр�
 ###  <a name="create-a-credential"></a>Создание учетных данных
 Чтобы открыть Azure Data Lake Store, нужно создать главный ключ базы данных для шифрования секрета учетных данных, который мы будем использовать на следующем шаге.
 Затем вы создадите учетные данные для базы данных, которые содержат учетные данные для субъекта-службы, настроенные в AAD. Если вы ранее пользовались PolyBase для подключения к большим двоичным объектам Microsoft Azure Storage Blob, обратите внимание на отличия в синтаксисе учетных данных.
-Для подключения к Azure Data Lake Store необходимо создать приложение Azure Active Directory, а затем учетные данные для базы данных.
+Для подключения к Azure Data Lake Store необходимо **сначала** создать приложение Azure Active Directory, затем создать ключ доступа и предоставить этому приложению доступ к ресурсу Azure Data Lake. Соответствующие инструкции приведены [здесь](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -72,7 +73,7 @@ CREATE MASTER KEY;
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADL_User
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
@@ -95,7 +96,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
     LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
-    CREDENTIAL = AzureStorageCredential
+    CREDENTIAL = ADLCredential
 );
 ```
 

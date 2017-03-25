@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -44,7 +45,7 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 
 Этот учебник поможет веб-разработчикам понять принципы создания веб-приложений в Azure. Дополнительные сведения о веб-приложениях Azure см. в статье [Обзор веб-приложений](../app-service-web/app-service-web-overview.md).
 
-## <a name="a-idpackagesaadd-nuget-packages"></a><a id="packages"></a>Добавление пакетов NuGet
+## <a id="packages"></a>Добавление пакетов NuGet
 Существует два пакета, которые необходимо установить для веб-приложения.
 
 * Библиотека проверки подлинности Active Directory содержит методы для взаимодействия с Azure Active Directory и управления удостоверениями пользователей.
@@ -58,7 +59,7 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
     Install-Package Microsoft.Azure.KeyVault
 
 
-## <a name="a-idwebconfigamodify-webconfig"></a><a id="webconfig"></a>Изменение файла Web.Config
+## <a id="webconfig"></a>Изменение файла Web.Config
 Существует три параметра приложения, которые необходимо добавить в файл web.config следующим образом.
 
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
@@ -71,7 +72,7 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 
 Если вы не собираетесь размещать приложения как веб-приложения Azure, добавьте фактические значения идентификатора клиента, секрета клиента и URI секрета в файл Web.config. В противном случае оставьте значения-заполнители, так как мы добавим фактические значения на портале Azure, чтобы получить дополнительный уровень безопасности.
 
-## <a name="a-idgettokenaadd-method-to-get-an-access-token"></a><a id="gettoken"></a>Добавление метода для получения маркера доступа
+## <a id="gettoken"></a>Добавление метода для получения маркера доступа
 Для использования API хранилища ключей требуется маркер доступа. Клиент хранилища ключей обрабатывает вызовы API хранилища ключей, но вам необходимо предоставить ему функцию, которая возвращает маркер доступа.  
 
 Ниже приведен код для получения маркера доступа из Azure Active Directory. Этот код можно расположить в любом месте приложения. Я добавлю его в класс Utils или EncryptionHelper.  
@@ -103,7 +104,7 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 > 
 > 
 
-## <a name="a-idappstartaretrieve-the-secret-on-application-start"></a><a id="appstart"></a>Получение секрета при запуске приложения
+## <a id="appstart"></a>Получение секрета при запуске приложения
 Теперь нам требуется, чтобы код вызвал API хранилища ключей и получил секрет. Следующий фрагмент кода можно поместить в любом месте, при условии что он вызывается перед тем, как его необходимо использовать. Я поместил код в событии запуска приложения в файле Global.asax, чтобы он выполнялся один раз при запуске, а секрет становился доступным для приложения.
 
     //add these using statements
@@ -120,7 +121,7 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 
 
 
-## <a name="a-idportalsettingsaadd-app-settings-in-the-azure-portal-optional"></a><a id="portalsettings"></a>Добавление параметров приложения на портале Azure (необязательно)
+## <a id="portalsettings"></a>Добавление параметров приложения на портале Azure (необязательно)
 Если у вас есть веб-приложение Azure, теперь вы можете добавить фактические значения параметров приложений на портале Azure. При этом фактические значения не будут размещены в файле web.config, а будут защищены с помощью портала, где предоставляются отдельные возможности управления доступом. Эти значения будут заменены на значения, введенные в файле web.config. Убедитесь, что имена совпадают.
 
 ![Параметры приложения на портале Azure][1]
@@ -133,10 +134,8 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 3. Добавьте код в веб-приложение, чтобы использовать сертификат
 4. Добавьте сертификат в веб-приложение
 
-**Получение или создание сертификата** Для наших целей будет создан тестовый сертификат. Вот несколько команд, которые можно использовать в командной строке разработчика для создания сертификата. Задайте каталог, в котором будут созданы файлы сертификата.
-
-    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
-    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+**Получение или создание сертификата** Для наших целей будет создан тестовый сертификат. Вот несколько команд, которые можно использовать в командной строке разработчика для создания сертификата. Измените каталог, в котором будут созданы файлы сертификата.  Кроме того, для начальной и конечной даты сертификата используется текущая дата плюс один год.
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Запишите дату окончания и пароль для PFX-файла (в этом примере: 07/31/2016 и test123). Они вам потребуются позднее.
 
@@ -147,12 +146,12 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $x509.Import("C:\data\KVWebApp.cer")
     $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+
+    # If you used different dates for makecert then adjust these values
     $now = [System.DateTime]::Now
+    $yearfromnow = $now.AddYears(1)
 
-    # this is where the end date from the cert above is used
-    $yearfromnow = [System.DateTime]::Parse("2016-07-31")
-
-    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
 
     $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
@@ -231,15 +230,10 @@ ms.openlocfilehash: 1c94e442576d28a6e40bcc3a0720ed31db722af5
 
 **Добавление сертификата в хранилище ключей в качестве секрета** Вместо отправки сертификата непосредственно в службу веб-приложения вы можете сохранить его в хранилище ключей в секрете, а затем развернуть его оттуда. Этот двухэтапный процесс описан в записи блога, посвященной [развертыванию сертификата веб-приложения Azure из хранилища ключей](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
+## <a id="next"></a>Дальнейшие действия
 Справочные материалы по программированию см. в [справочнике по API клиента C# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

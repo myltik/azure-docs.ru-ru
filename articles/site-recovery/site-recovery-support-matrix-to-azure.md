@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
-ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/22/2017
 **Hyper-V (с Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 и System Center Virtual Machine Manager 2012 R2.
 
   >[!Note]
-  > В настоящее время облако System Center Virtual Machine Manager 2016, сочетающее узлы Windows Server 2016 и Windows Server 2012 R2, не поддерживается.
+  > В настоящее время облако System Center Virtual Machine Manager 2016, сочетающее узлы Windows Server 2016 и Windows Server 2012 R2, не поддерживается. 
 
 ### <a name="host-servers"></a>Серверы узлов
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/22/2017
 **Hyper-V (с Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 с последними обновлениями.<br/><br/> Узлами Windows Server 2016 должен управлять сервер System Center Virtual Machine Manager 2016.
 
   >[!Note]
-  >В настоящее время сайт Hyper-V, сочетающий узлы под управлением Windows Server 2016 и 2012 R2, не поддерживается.
+  >В настоящее время сайт Hyper-V, сочетающий узлы под управлением Windows Server 2016 и 2012 R2, не поддерживается. В настоящее время не поддерживается восстановление виртуальных машин, размещенных на узле Windows Server 2016, в альтернативное расположение.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Поддержка версий ОС для реплицируемых виртуальных машин
 

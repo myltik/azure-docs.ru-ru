@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 015b152b2e807de6ad92d141d3c8bad6bb8d8eba
-ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8245ff39ce191e741fdc54fee0ca039e8571ba8e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
 > [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Описание установки и настройки MongoDB с помощью модели развертывания Resource Manager см. в [этой статье](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-[MongoDB][MongoDB] — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье рассматривается создание виртуальной машины Windows Server с помощью [классического портала Azure][AzurePortal]. После этого перед установкой и настройкой MongoDB нужно создать и подключить к виртуальной машине диск данных. Если у вас есть виртуальная машина в Azure, которую вы хотите использовать, то можете перейти непосредственно к [установке и настройке MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
+[MongoDB][MongoDB] — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье рассматривается создание виртуальной машины Windows Server с помощью [портала Azure][AzurePortal]. После этого перед установкой и настройкой MongoDB нужно создать и подключить к виртуальной машине диск данных. Если у вас есть виртуальная машина в Azure, которую вы хотите использовать, то можете перейти непосредственно к [установке и настройке MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 
 ## <a name="create-a-virtual-machine-running-windows-server"></a>Создание виртуальной машины под управлением Windows Server
 Чтобы создать виртуальную машину, выполните указанные ниже действия.
@@ -34,8 +35,8 @@ ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
 
 > [!NOTE]
 > При создании виртуальной машины можно добавить конечную точку для MongoDB и настроить ее следующим образом: присвоить ей имя **Mongo**, в качестве протокола использовать **TCP**, а в качестве общедоступного и частного портов задать порт **27017**.
-> 
-> 
+>
+>
 
 ## <a name="attach-a-data-disk"></a>Присоединение диска данных
 Чтобы предоставить хранилище для виртуальной машины, подключите диск данных, а затем инициализируйте, чтобы его можно было использовать в Windows. Можно подключить существующий диск или пустой диск.
@@ -52,10 +53,8 @@ ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: https://portal.azure.com/
 
-
-
-<!--HONumber=Jan17_HO2-->
-
+<!-- Classic portal. Removed 03/07/2017 -->
+<!-- [AzurePortal]: http://manage.windowsazure.com  -->
 

@@ -12,15 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 03/08/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 150e7a1b2f86594d91b044b1b697f035ed1d270b
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-net"></a>Отправка сообщений из облака на устройство с помощью Центра Интернета вещей (.NET)
+# <a name="send-messages-from-the-cloud-to-your-simulated-device-with-iot-hub-net"></a>Отправка сообщений из облака в виртуальное устройство с помощью Центра Интернета вещей (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Введение
@@ -40,13 +41,13 @@ ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
 * **SendCloudToDevice**, которое отправляет сообщение из облака в приложение виртуального устройства с помощью Центра Интернета вещей, а затем получает подтверждение о его доставке.
 
 > [!NOTE]
-> Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств Azure IoT. Пошаговые указания по связыванию устройства с кодом из этого руководства, а также по подключению к Центру Интернета вещей Azure см. в [центре разработчиков для Интернета вещей Azure].
+> В Центре Интернета вещей реализована поддержка для пакетов SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе [пакетов SDK для устройств Azure IoT]. Пошаговые инструкции по связыванию устройства с кодом из этого руководства, а также по подключению к Центру Интернета вещей Azure см. в [руководстве для разработчиков Центра Интернета вещей].
 > 
 > 
 
 Для работы с этим учебником требуется:
 
-* Microsoft Visual Studio 2015;
+* Visual Studio 2015 или Visual Studio 2017
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Получение сообщений в приложении виртуального устройства
@@ -96,7 +97,7 @@ ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
 2. В обозревателе решений щелкните правой кнопкой мыши решение и выберите пункт **Управление пакетами NuGet для решения...**. 
    
     Это действие откроет окно **Управление пакетами NuGet**.
-3. Выполните поиск `Microsoft Azure Devices`и щелкните **Установить**, после чего примите условия использования. 
+3. Найдите **Microsoft.Azure.Devices**, щелкните **Установить** и примите условия использования. 
    
     После этого будут выполнены скачивание, установка и добавление ссылки на [пакет SDK NuGet для служб Azure IoT].
 
@@ -115,7 +116,7 @@ ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
    
-    Этот метод отправляет на устройство с идентификатором `myFirstDevice`новое сообщение, передаваемое из облака на устройство. Измените этот параметр соответствующим образом, если вы использовали значение, отличное от указанного в разделе [Приступая к работе с Центром Интернета вещей Azure (Node)].
+    Этот метод отправляет на устройство с идентификатором `myFirstDevice`новое сообщение, передаваемое из облака на устройство. Измените этот параметр соответствующим образом, если вы использовали значение, отличное от указанного в инструкциях о [Приступая к работе с Центром Интернета вещей Azure (Node)].
 7. Наконец, добавьте следующие строки в метод **Main** :
    
         Console.WriteLine("Send Cloud-to-Device message\n");
@@ -125,7 +126,7 @@ ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
         Console.ReadLine();
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
-8. В Visual Studio щелкните правой кнопкой мыши свое решение и выберите пункт **Назначить запускаемые проекты**. Щелкните **Несколько запускаемых проектов**, а затем выберите действие **Запуск** для **ProcessDeviceToCloudMessages**, **SimulatedDevice** и **SendCloudToDevice**.
+8. В Visual Studio щелкните правой кнопкой мыши свое решение и выберите пункт **Назначить запускаемые проекты**. Щелкните **Несколько запускаемых проектов**, а затем выберите действие **Запуск** для **ReadDeviceToCloudMessages**, **SimulatedDevice** и **SendCloudToDevice**.
 9. Нажмите клавишу **F5**. Должны запуститься все три приложения. Выберите окна **SendCloudToDevice** и нажмите клавишу **ВВОД**. Приложение виртуального устройства должно получить сообщение.
    
    ![Приложение получает сообщение][21]
@@ -176,7 +177,7 @@ ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
 
 Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по Azure IoT Suite].
 
-Дополнительные сведения о разработке решений с помощью Центра Интернета вещей см. в [руководстве разработчика для Центра Интернета вещей].
+Дополнительные сведения о разработке решений с помощью Центра Интернета вещей см. в [руководстве для разработчиков Центра Интернета вещей].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -190,14 +191,8 @@ ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
-[руководстве разработчика для Центра Интернета вещей]: iot-hub-devguide.md
+[руководстве для разработчиков Центра Интернета вещей]: iot-hub-devguide.md
 [Приступая к работе с Центром Интернета вещей Azure (Node)]: iot-hub-csharp-csharp-getstarted.md
-[центре разработчиков для Интернета вещей Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[документации по Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[документации по Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[пакетов SDK для устройств Azure IoT]: iot-hub-devguide-sdks.md

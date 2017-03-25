@@ -13,17 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 28a6858729adbef439625864abc2fd7aa77fab35
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>Передача виртуального жесткого диска Windows с локальной виртуальной машины в Azure
 В этой статье показано, как создать и передать виртуальный жесткий диск (VHD) Windows, который затем можно использовать для создания виртуальной машины Azure. Виртуальный жесткий диск можно передать с универсальной или специализированной виртуальной машины. 
+
+Полные пошаговые инструкции по подготовке, передаче и созданию виртуальной машины с помощью Управляемых дисков приведены в разделах [Создание виртуальной машины на основе универсального диска VHD, переданного в Azure, с использованием Управляемых дисков](virtual-machines-windows-upload-generalized-managed.md) и [Как передать специализированный виртуальный жесткий диск для создания виртуальной машины в Azure](virtual-machines-windows-upload-specialized.md).
 
 Дополнительные сведения о дисках и виртуальных жестких дисках в Azure см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин Azure](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

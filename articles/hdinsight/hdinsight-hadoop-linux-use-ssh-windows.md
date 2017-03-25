@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -111,7 +111,7 @@ SSH — это служебная программа для входа в сис
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Интерфейс командной строки Azure для Mac, Linux и Windows
 
-Вы можете использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md), чтобы создать новый кластер с помощью команды `azure hdinsight cluster create`.
+Вы можете использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../cli-install-nodejs.md), чтобы создать новый кластер с помощью команды `azure hdinsight cluster create`.
 
 Дополнительную информацию об использовании этой команды см. в статье [Подготовка кластеров Hadoop под управлением Linux в HDInsight с помощью настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -222,7 +222,7 @@ SSH — это служебная программа для входа в сис
 
 6. Теперь можно будет проходить аутентификацию на сервере с новой учетной записью пользователя и закрытым ключом.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Туннелирование SSH
+## <a id="tunnel"></a>Туннелирование SSH
 
 Протокол SSH может использоваться для туннелирования локальных запросов, например веб-запросов, к кластеру HDInsight. Запрос будет затем перенаправлен к запрошенному ресурсу, как если бы исходил от головного узла кластера HDInsight.
 

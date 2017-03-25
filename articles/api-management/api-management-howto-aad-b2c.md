@@ -1,6 +1,6 @@
 ---
 title: "Авторизация учетных записей разработчиков с помощью Azure Active Directory B2C в службе управления API Azure | Документация Майкрософт"
-description: "Узнайте, как авторизовать пользователей с помощью Azure Active Directory B2C в службе управления API."
+description: "Сведения об авторизации пользователей с помощью Azure Active Directory B2C в службе управления API."
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -15,111 +15,104 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: c772f242f36e401c3b9f4b9be2366139c8a871f8
-ms.openlocfilehash: 6a8505e52c2f422375063d6a780a6a205d768462
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: eb7deb1a79d9db9ac5cfbea69b8d3c564eb55577
+ms.lasthandoff: 03/09/2017
 
 ---
-# <a name="how-to-authorize-developer-accounts-using-azure-active-directory-b2c-in-azure-api-management"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory B2C в управлении API Azure
+# <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Как авторизовать учетные записи разработчиков с помощью Azure Active Directory B2C в службе управления API Azure
 ## <a name="overview"></a>Обзор
 Azure Active Directory B2C — это облачное решение, позволяющее управлять удостоверениями в веб-приложениях и мобильных приложениях, с которыми взаимодействуют клиенты. Его можно использовать для управления доступом к порталу разработчика. В этом руководстве объясняется, как настроить службу управления API для интеграции с Azure Active Directory B2C. Сведения о предоставлении доступа к порталу разработчика с помощью классической службы Azure Active Directory см. в статье [Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure].
 
 > [!NOTE]
-> Чтобы выполнить инструкции из этого руководства, вам понадобятся клиент Azure Active Directory B2C для создания приложения и подготовленные политики регистрации и входа. Дополнительные сведения см. в статье [Azure Active Directory B2C: регистрация и вход пользователей в приложения].
-> 
-> 
+> Для выполнения шагов в этом руководстве вам сначала потребуется клиент Azure Active Directory B2C для создания в нем приложения. Кроме того, необходимо настроить политики регистрации и входа. Дополнительные сведения см. в статье [Azure Active Directory B2C: регистрация и вход пользователей в приложения].
 
-## <a name="how-to-authorize-developer-accounts-using-azure-active-directory-b2c"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory B2C
+## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Авторизация учетных записей разработчиков с помощью Azure Active Directory B2C
 
-Чтобы начать работу, щелкните **Портал издателя** на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
+1. Чтобы начать работу, щелкните **Портал издателя** на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
 
-![Портал издателя][api-management-management-console]
+   ![Портал издателя][api-management-management-console]
 
-> [!NOTE]
-> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
-> 
-> 
+   > [!NOTE]
+   > Если вы еще не создали экземпляр службы управления API, см. сведения в разделе [Создание экземпляра управления API][Create an API Management service instance] руководства [Начало работы со службой управления Azure API][Get started with Azure API Management].
 
-Выберите **Безопасность** в меню **Управление API**. На вкладке **Удостоверения** выберите **Azure Active Directory B2C**.
+2. В меню **Управление API** выберите **Безопасность**. На вкладке **Удостоверения** выберите **Azure Active Directory B2C**.
 
-![Внешние удостоверения][api-management-howto-aad-b2c-security-tab]
+  ![Внешние удостоверения 1][api-management-howto-aad-b2c-security-tab]
 
-Запишите **URL-адрес перенаправления** и переключитесь на Azure Active Directory B2C на портале Azure.
+3. Запишите **URL-адрес перенаправления** и переключитесь на Azure Active Directory B2C на портале Azure.
 
-![Внешние удостоверения][api-management-howto-aad-b2c-security-tab-reply-url]
+  ![Внешние удостоверения 2][api-management-howto-aad-b2c-security-tab-reply-url]
 
-Нажмите кнопку **Приложения**.
+4. Нажмите кнопку **Приложения**.
 
-![Регистрация нового приложения][api-management-howto-aad-b2c-portal-menu]
+  ![Регистрация нового приложения 1][api-management-howto-aad-b2c-portal-menu]
 
-Нажмите кнопку **Добавить**, чтобы создать новое приложение Azure Active Directory B2C.
+5. Нажмите кнопку **Добавить**, чтобы создать новое приложение Azure Active Directory B2C.
 
-![Регистрация нового приложения][api-management-howto-aad-b2c-add-button]
+  ![Регистрация нового приложения 2][api-management-howto-aad-b2c-add-button]
 
-В колонке **Новое приложение** введите имя для приложения. Выберите **Да** под параметром **Веб-приложения и веб-API** и **Да** под параметром **Разрешить неявный поток**. Скопируйте **URL-адрес перенаправления** в разделе **Azure Active Directory B2C** на вкладке **Удостоверения** портала издателя и вставьте его в текстовое поле **URL-адрес ответа**. 
+6. В колонке **Новое приложение** введите имя для приложения. Выберите **Да** под параметром **Веб-приложения и веб-API** и **Да** под параметром **Разрешить неявный поток**. Скопируйте **URL-адрес перенаправления** в разделе **Azure Active Directory B2C** на вкладке **Удостоверения** портала издателя и вставьте его в текстовое поле **URL-адрес ответа**.
 
-![Регистрация нового приложения][api-management-howto-aad-b2c-app-details]
+  ![Регистрация нового приложения 3][api-management-howto-aad-b2c-app-details]
 
-Нажмите кнопку **Создать** . Когда приложение будет создано, оно появится в колонке **Приложения**. Щелкните имя приложения, чтобы просмотреть сведения о нем. 
+7. Нажмите кнопку **Создать** . Когда приложение будет создано, оно появится в колонке **Приложения**. Щелкните имя приложения, чтобы просмотреть сведения о нем.
 
-![Регистрация нового приложения][api-management-howto-aad-b2c-app-created]
+  ![Регистрация нового приложения 4][api-management-howto-aad-b2c-app-created]
 
-В колонке **Свойства** скопируйте в буфер обмена **Идентификатор приложения**.
+8. В колонке **Свойства** скопируйте в буфер обмена **Идентификатор приложения**.
 
-![Идентификатор приложения API.][api-management-howto-aad-b2c-app-id]
+  ![Идентификатор приложения 1][api-management-howto-aad-b2c-app-id]
 
-Вернитесь на портал издателя и вставьте скопированный идентификатор в текстовое поле **Идентификатор клиента**.
+9. Вернитесь на портал издателя и вставьте скопированный идентификатор в текстовое поле **Идентификатор клиента**.
 
-![Идентификатор приложения API.][api-management-howto-aad-b2c-client-id]
+  ![Идентификатор приложения 2][api-management-howto-aad-b2c-client-id]
 
-Вернитесь на портал Azure, щелкните раздел **Ключи**, а затем нажмите кнопку **Создать ключ**. Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию и отобразить **Ключ приложения**. Скопируйте этот ключ в буфер обмена. 
+10. Вернитесь на портал Azure, щелкните раздел **Ключи**, а затем нажмите кнопку **Создать ключ**. Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию и отобразить **Ключ приложения**. Скопируйте этот ключ в буфер обмена.
 
-![Ключ приложения][api-management-howto-aad-b2c-app-key]
+  ![Ключ приложения 1][api-management-howto-aad-b2c-app-key]
 
-Вернитесь на портал издателя и вставьте скопированный ключ в текстовое поле **Секрет клиента** .
+11. Вернитесь на портал издателя и вставьте скопированный ключ в текстовое поле **Секрет клиента** .
 
-![Ключ приложения][api-management-howto-aad-b2c-client-secret]
+  ![Ключ приложения 2][api-management-howto-aad-b2c-client-secret]
 
-Укажите в поле **Разрешенный клиент** имя домена клиента Azure Active Directory B2C.
+12. Укажите имя домена клиента Azure Active Directory B2C в поле **Разрешенный клиент**.
 
-![Разрешенный клиент][api-management-howto-aad-b2c-allowed-tenant]
+  ![Разрешенный клиент][api-management-howto-aad-b2c-allowed-tenant]
 
-Укажите **политику регистрации** и **политику входа**. Дополнительно можно также указать **политику редактирование профиля** и **политику сброса пароля**. 
+13. Укажите **политику регистрации** и **политику входа**. Дополнительно можно также указать **политику редактирования профиля** и **политику сброса пароля**.
 
-![Политики][api-management-howto-aad-b2c-policies]
+  ![Политики][api-management-howto-aad-b2c-policies]
 
-> Дополнительные сведения о политиках см. в статье [Azure Active Directory B2C: расширяемая инфраструктура политик].
->
->
+  > [!NOTE]
+  > Дополнительные сведения о политиках см. в статье [Azure Active Directory B2C: расширяемая инфраструктура политик].
 
-После указания требуемой конфигурации нажмите кнопку **Сохранить**.
+14. После указания требуемой конфигурации нажмите кнопку **Сохранить**.
 
-После сохранения изменений разработчики смогут создавать новые учетные записи и входить на портал разработчика с помощью AAD B2C. 
+  После сохранения изменений разработчики смогут создавать новые учетные записи и входить на портал разработчика с помощью Azure Active Directory B2C.
 
-## <a name="how-to-sign-up-for-a-developer-account-using-azure-active-directory-b2c"></a>Регистрация учетных записей разработчиков с помощью Azure Active Directory B2C
+## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Регистрация учетных записей разработчиков с помощью Azure Active Directory B2C
 
-Чтобы зарегистрировать учетную запись разработчика с помощью Azure Active Directory B2C, откройте новое окно браузера и перейдите на портал разработчика. Нажмите кнопку **Зарегистрироваться**.
+1. Чтобы зарегистрировать учетную запись разработчика с помощью Azure Active Directory B2C, откройте новое окно браузера и перейдите на портал разработчика. Нажмите кнопку **Зарегистрироваться**.
 
-![Портал разработчика][api-management-howto-aad-b2c-dev-portal]
+   ![Портал разработчика 1][api-management-howto-aad-b2c-dev-portal]
 
-Выберите регистрацию с помощью **Azure Active Directory B2C**. 
+2. Выберите регистрацию с помощью **Azure Active Directory B2C**.
 
-![Портал разработчика][api-management-howto-aad-b2c-dev-portal-b2c-button]
+   ![Портал разработчика 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-Вы будете перенаправлены к политике регистрации, настроенной в предыдущем разделе. Там вы сможете выбрать регистрацию с помощью адреса электронной почты или учетной записи социальных сетей. 
+3. Вы будете перенаправлены к политике регистрации, настроенной в предыдущем разделе. Выберите регистрацию с помощью адреса электронной почты или существующей учетной записи социальных сетей.
 
-> [!NOTE]
-> Если Azure Active Directory B2C является единственным активным параметром на вкладке **Удостоверения** на портале издателя, вы будете сразу перенаправлены к политике регистрации.
->
->
+   > [!NOTE]
+   > Если Azure Active Directory B2C является единственным активным параметром на вкладке **Удостоверения** на портале издателя, вы будете сразу перенаправлены к политике регистрации.
 
-![Портал разработчика][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   ![Портал разработчика][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
-После завершения регистрации вы будете перенаправлены обратно на портал разработчика. Теперь вы вошли на портал разработчика вашего экземпляра службы управления API.
+   После завершения регистрации вы будете перенаправлены обратно на портал разработчика. Теперь вы вошли на портал разработчика вашего экземпляра службы управления API.
 
-![Регистрация завершена][api-management-registration-complete]
+    ![Регистрация завершена][api-management-registration-complete]
 
-## <a name="next-step"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 *  [Azure Active Directory B2C: регистрация и вход пользователей в приложения]
 *  [Azure Active Directory B2C: расширяемая инфраструктура политик]
@@ -195,10 +188,10 @@ Azure Active Directory B2C — это облачное решение, позв
 [Azure Active Directory B2C: регистрация и вход пользователей в приложения]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
 [Azure Active Directory B2C: расширяемая инфраструктура политик]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
-[Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Microsoft]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Microsoft]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Azure Active Directory B2C: организация регистрации и входа для потребителей с учетными записями Google+]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
 [Azure Active Directory B2C: регистрация и вход пользователей с учетными записями Facebook]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Azure Active Directory B2C: регистрация и вход пользователей с помощью учетных записей LinkedIn]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Azure Active Directory B2C: регистрация и вход пользователей с помощью учетных записей LinkedIn]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1
@@ -207,5 +200,4 @@ Azure Active Directory B2C — это облачное решение, позв
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
 

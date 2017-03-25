@@ -1,5 +1,5 @@
 ---
-title: "Ресурсы для API .NET и пакетов SDK для .NET (Azure DocumentDB) | Документация Майкрософт"
+title: "Пакет SDK и ресурсы для .NET (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения об API и пакетах SDK для .NET, в том числе даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET."
 services: documentdb
 documentationcenter: .net
@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
-ms.openlocfilehash: c92a54c40c329e519832f2f8de71aa5d8e15a090
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2de833df26de9a9e160dd0cfcc1589eb0ebb7d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>Интерфейсы API и пакеты SDK для DocumentDB
+# <a name="documentdb-net-sdk-download-and-release-notes"></a>Пакет SDK для DocumentDB .NET: скачивание и заметки о выпуске
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/22/2017
 > 
 > 
 
-## <a name="documentdb-net-api-and-sdk"></a>API и пакеты SDK для DocumentDB .NET
 <table>
 
 <tr><td>**Скачивание пакета SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -51,6 +51,12 @@ ms.lasthandoff: 02/22/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+* Добавлена поддержка LINQ для статистических запросов (COUNT, MIN, MAX, SUM и AVG).
+* Исправление ошибки утечки памяти для объекта ConnectionPolicy, вызываемой использованием обработчика событий.
+* Исправление ошибки, из-за которой метод UpsertAttachmentAsync не работал, когда использовался тег ETag.
+* Исправление ошибки, из-за которой продолжение запросов orderBy между секциями не работало при сортировке по полю строки.
 
 ### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
 * Добавлена поддержка статистических запросов (COUNT, MIN, MAX, SUM и AVG). Дополнительные сведения см. в разделе [Статистические функции](documentdb-sql-query.md#Aggregates).
@@ -206,6 +212,7 @@ ms.lasthandoff: 02/22/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.12.1](#1.12.1) |14 марта 2017 г. |--- |
 | [1.12.0](#1.12.0) |15 февраля 2017 г. |--- |
 | [1.11.4](#1.11.4) |6 февраля 2017 г. |--- |
 | [1.11.3](#1.11.3) |26 января 2017 г. |--- |

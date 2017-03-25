@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/06/2017
+ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 20183f482b7c7ec10c2b1f2d759b160434c9174c
-ms.openlocfilehash: 208a38aea6b4673f93c4c1fe4252c788e1f3425b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ef58f595ff58b9156df813cf92e2306654a8b3ed
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,4 +119,9 @@ ms.lasthandoff: 02/16/2017
 ## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>Какие инструменты доступны для отслеживания задержки репликации между базой данных-источником и получателем геореплицируемых данных?
 Задержка репликации между базой данных-источником и получателем геореплицируемых данных в реальном времени отображается в динамическом административном представлении. Дополнительные сведения см. в статье [sys.dm_geo_replication_link_status (база данных SQL Azure)](https://msdn.microsoft.com/library/mt575504.aspx).
 
+## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Перенос базы данных на другой сервер в пределах одной подписки
+* На [портале Azure](https://portal.azure.com) щелкните **Базы данных SQL**, выберите базу данных из списка и щелкните **Копировать**. Дополнительные сведения см. в статье [Копирование базы данных SQL Azure](sql-database-copy.md).
+
+## <a name="to-move-a-database-between-subscriptions"></a>Перенос базы данных из одной подписки в другую
+* На [портале Azure](https://portal.azure.com)щелкните **Серверы SQL Server** и выберите из списка сервер, на котором размещена ваша база данных. Щелкните **Перенести**и выберите ресурсы, которые нужно перенести, а также подписку, в которую их нужно переместить.
 

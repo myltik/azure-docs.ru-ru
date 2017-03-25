@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/18/2016
+ms.date: 3/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
-ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 146fcd9788bab55e4abd9e70dcfe25741f041d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,16 +28,18 @@ ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 ### <a name="variations"></a>Варианты
 Продукты (виртуальные машины), доступные в Azure для государственных организаций.
 
-| Продукты (виртуальные машины) | Правительство штата Вирджиния | Правительство штата Айова |
-| --- | --- | --- |
-| A0–A7 |Да |Да |
-| Серия D |Да |Нет |
-| Серия Dv2 |Да |Да |
-| Серия DS |Да |Нет |
-| Серия F |Да |Да |
-| Серия FS |Нет |Нет |
-| Серия G |Да |Нет |
-| Серия GS |Да |Нет |
+| Продукты (виртуальные машины) | Правительство штата Вирджиния | Правительство штата Айова | Восточная часть US DoD | Западная часть US DoD
+| --- | --- | --- |--- |--- |
+| A0–A7 |Да |Да |Да |Да |Да |
+| Av2 |Да |Да |Да |Да |Да |
+| Серия D |Да |Нет |Нет |Нет |
+| Серия Dv2 |Да |Да |Да |Да |
+| Серия DS |Да |Нет |Нет |Нет |
+| Серия DSv2 |Да |Нет |Да |Да |
+| Серия F |Да |Да |Да |Да |
+| Серия FS |Да |Нет |Да |Да |
+| Серия G |Да |Нет |Нет |Нет |
+| Серия GS |Да |Нет |Нет |Нет |
 
 ### <a name="data-considerations"></a>Рекомендации по работе с данными
 Информация ниже определяет границу службы Azure для государственных организаций для виртуальных машин Azure.
@@ -47,10 +50,5 @@ ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

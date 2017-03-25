@@ -13,15 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1cde5b9ee4c716af07d427d4d0eb3f0775d456ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Безопасность на уровне строк в Power BI Embedded
+
 Безопасность на уровне строк можно использовать для ограничения доступа пользователей к определенным данным отчета или набора данных. При этом несколько различных пользователей могут работать в одном и том же отчете, но видеть разные данные. В Power BI Embedded теперь поддерживаются наборы данных, для которых настроена безопасность на уровне строк.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
@@ -35,6 +37,7 @@ ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 **Правила**. У ролей есть правила, представляющие собой фактические фильтры, которые будут применяться к данным. Это может быть просто "Страна — США" или что-то гораздо более динамичное.
 
 ### <a name="example"></a>Пример
+
 Далее в этой статье представлен пример настройки безопасности на уровне строк, а затем ее применения во встроенном приложении. В нашем примере используется PBIX-файл с [примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
@@ -81,7 +84,8 @@ ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**Примечание**. При использовании режима DirectQuery для данных необходимо включить двунаправленную перекрестную фильтрацию, выбрав два следующих параметра:
+> [!NOTE]
+> При использовании режима DirectQuery для данных необходимо включить двунаправленную перекрестную фильтрацию, выбрав два следующих параметра:
 
 1. **Файл** -> **Параметры и настройки** -> **Функции предварительной версии** -> **Включить кроссфильтрацию в обоих направлениях для DirectQuery**;
 2. **Файл** -> **Параметры и настройки** -> **DirectQuery** -> **Разрешить неограниченные меры в режиме DirectQuery**.
@@ -112,11 +116,11 @@ ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Дополнительные материалы
-[Безопасность на уровне строк (RLS) в Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-
-
-
-<!--HONumber=Jan17_HO1-->
+[Безопасность на уровне строк (RLS) в Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
+[Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Пример внедрения JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
 
 

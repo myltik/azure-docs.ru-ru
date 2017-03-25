@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 625f4cc08ba023309ac4a9a8b7834d9ab4f4c116
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
 ## <a name="enable-the-extension"></a>Включение расширения
 Расширение можно включить с помощью [портала Azure](https://portal.azure.com/#), Azure PowerShell или сценариев интерфейса командной строки Azure.
 
-Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, выполните эти [инструкции в блоге Azure](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL-адрес блога Windows"/).
+Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, выполните эти [инструкции в блоге Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 В данной статье рассматривается включение и настройка расширения с помощью команд Azure CLI. Это позволит считывать и просматривать данные непосредственно из таблицы хранилища.
 
@@ -147,10 +148,5 @@ ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
 
 ## <a name="known-issues"></a>Известные проблемы
 * В текущей версии (2.3) диагностического расширения Linux доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

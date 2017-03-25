@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
-ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Хранимая процедура](data-factory-stored-proc-activity.md)
-> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
-> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Действие Hive](data-factory-hive-activity.md) 
+> * [Действие Pig](data-factory-pig-activity.md)
+> * [Действие MapReduce](data-factory-map-reduce.md)
+> * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Действие Spark](data-factory-spark.md)
+> * [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+> * [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
+> * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
+> * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается **действие U-SQL в Data Lake Analytics**, которое запускает сценарий **U-SQL** в связанной службе вычислений **Azure Data Lake Analytics**. 
 
@@ -78,7 +81,7 @@ ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
 
 | Тип пользователя | Срок действия |
 |:--- |:--- |
-| Учетные записи пользователей, управление которыми НЕ осуществляется с помощью Azure Active Directory (@hotmail.com, @live.com, и т. д.) |12 часов |
+| Учетные записи пользователей, которые не управляются с помощью Azure Active Directory (@hotmail.com, @live.com и т. д.) |12 часов |
 | Учетные записи пользователей, которые управляются Azure Active Directory (AAD) |14 дней после последнего запуска среза. <br/><br/>90 дней, если срез, основанный на связанной службе на основе OAuth, выполняется по крайней мере раз в 14 дней. |
 
 Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** также можно задавать программно с помощью кода, приведенного в следующем разделе. 
@@ -299,10 +302,5 @@ OUTPUT @rs1
 ```
 
 В этом случае входные файлы по-прежнему берутся из папки /datalake/input, а выходные файлы создаются в папке /datalake/output. Имена файлов присваиваются динамически, на основе времени начала среза.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

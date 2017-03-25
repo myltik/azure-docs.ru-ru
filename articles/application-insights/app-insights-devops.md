@@ -4,18 +4,19 @@ description: "Как Application Insights встраивается в цикл �
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -156,7 +157,7 @@ Visual Studio и Eclipse оснащены инструментами для на
 ![Аннотации к сборке](./media/app-insights-devops/070.png)
 
 ### <a name="work-items"></a>Рабочие элементы
-При появлении оповещения Application Insights может автоматически создавать в системе отслеживания работы рабочий элемент (в настоящее время поддерживается только в Visual Studio Team Services).
+При появлении оповещения Application Insights может автоматически создавать в системе отслеживания работы рабочий элемент.
 
 ## <a name="but-what-about"></a>А как насчет...?
 * [Конфиденциальность и хранение](app-insights-data-retention-privacy.md) — данные телеметрии хранятся на защищенных серверах Azure.
@@ -170,10 +171,5 @@ Visual Studio и Eclipse оснащены инструментами для на
 * Инструментирование уже работающего веб-приложения. При этом вы получаете всю встроенную телеметрию производительности. Эта функция доступна для [Java](app-insights-java-live.md) и [серверов IIS](app-insights-monitor-performance-live-website-now.md), а также для [веб-приложений Azure](app-insights-azure.md).
 * Инструментирование проекта во время разработки. Это можно сделать для приложений [ASP.NET](app-insights-asp-net.md) или [Java](app-insights-java-get-started.md), а также для [Node.js](app-insights-nodejs.md) и узлов [других типов](app-insights-platforms.md). 
 * Инструментирование [любой веб-страницы](app-insights-javascript.md) с помощью добавления небольшого фрагмента кода.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

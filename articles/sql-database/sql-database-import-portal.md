@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
-ms.openlocfilehash: e77a3ba82e7620e23441d9296ebed46d41cb525c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: ca15248d7ac5232e6308d8188332975f1d21c09b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e77a3ba82e7620e23441d9296ebed46d41cb525c
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы импортировать базу данных SQL из BACPAC-файла, необходимо следующее:
+Чтобы импортировать базу данных SQL из BACPAC-файла, необходимо следующее.
 
 * Подписка Azure. 
 * Сервер базы данных SQL Azure версии&12;. Если у вас отсутствует сервер версии&12;, создайте его в соответствии с инструкциями в следующей статье: [Создание первой базы данных SQL Azure](sql-database-get-started.md).
@@ -83,9 +84,4 @@ ms.openlocfilehash: e77a3ba82e7620e23441d9296ebed46d41cb525c
 [4]: ./media/sql-database-import/create.png
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

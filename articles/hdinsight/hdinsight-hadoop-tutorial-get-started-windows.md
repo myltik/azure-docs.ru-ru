@@ -17,8 +17,9 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 8a925c38a561d11f1c0e394b8c993f739e912f54
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -157,8 +158,8 @@ ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
 2. Щелкните меню **Power Query**, выберите **Из других источников**, а затем щелкните **From Azure HDInsight** (Из Azure HDInsight).
    
     ![Меню "Импорт" в Power Query для Excel, открытое для Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
-3. В поле **Имя учетной записи** введите имя учетной записи хранилища BLOB-объектов Azure, связанной с вашим кластером, и нажмите кнопку **ОК**. (Это учетная запись хранения, которую вы ранее создали в этом учебнике.)
-4. В поле **Ключ учетной записи** введите ключ для учетной записи хранилища BLOB-объектов Azure, а затем щелкните **Сохранить**.
+3. В поле **Имя учетной записи** введите имя учетной записи службы хранилища Azure, связанной с вашим кластером, и нажмите кнопку **ОК**. (Это учетная запись хранения, которую вы ранее создали в этом учебнике.)
+4. В поле **Ключ учетной записи** введите ключ для учетной записи службы хранилища Azure, а затем щелкните **Сохранить**.
 5. В области справа дважды щелкните имя большого двоичного объекта. По умолчанию имя большого двоичного объекта совпадает с именем кластера.
 6. Найдите **stdout** в столбце **Имя**. Проверьте, чтобы GUID в соответствующем столбце **Путь к папке** совпадал с GUID, который вы скопировали ранее. Совпадение предполагает, что выходные данные соответствуют отправленному заданию. Щелкните **Двоичный** в столбце слева от **stdout**.
    
@@ -190,7 +191,7 @@ ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
 
 * [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive][1]
 * [Начало работы в экосистеме Hadoop с песочницей Hadoop на виртуальной машине][hdinsight-emulator]
-* [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage]
+* [Использование службы хранилища Azure с HDInsight][hdinsight-storage]
 * [Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell][hdinsight-admin-powershell]
 * [Отправка данных в HDInsight][hdinsight-upload-data]
 * [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce]
@@ -252,10 +253,5 @@ ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

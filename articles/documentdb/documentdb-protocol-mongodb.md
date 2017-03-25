@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6c143a18883c99a24264d3174df7ec214d696fb5
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f173fa709f2a7a21042752ba4b5ac936d01fe300
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/08/2017
 Теперь базы данных DocumentDB можно использовать как хранилище данных для приложений, написанных для MongoDB. Это означает, что используя имеющиеся [драйверы](https://docs.mongodb.org/ecosystem/drivers/) для баз данных MongoDB, приложение, написанное для MongoDB, теперь может взаимодействовать с DocumentDB и использовать базы данных DocumentDB вместо баз данных MongoDB. Чаще всего, чтобы перейти с использования MongoDB к DocumentDB, нужно просто изменить строку подключения. Эта возможность позволяет пользователям легко создавать и запускать приложения базы данных MongoDB в облаке Azure, используя полностью управляемые и масштабируемые базы данных NoSQL DocumentDB и продолжая применять знакомые навыки и средства для MongoDB.
 
 ## <a name="what-is-the-benefit-of-using-documentdb-api-for-mongodb"></a>Преимущества использования DocumentDB: API для MongoDB
-**Отсутствие сервера управления.** DocumentDB — это полностью управляемая служба. Это означает, что вам не нужно самостоятельно управлять какой-либо инфраструктурой или виртуальными машинами. DocumentDB доступна в более 20 [регионах Azure](https://azure.microsoft.com/regions/services/).
+**Отсутствие сервера управления.** DocumentDB — это полностью управляемая служба. Это означает, что вам не нужно самостоятельно управлять какой-либо инфраструктурой или виртуальными машинами. DocumentDB доступна в более 30 [регионах Azure](https://azure.microsoft.com/regions/services/).
 
 **Безграничные возможности масштабирования.** DocumentDB позволяет выполнять эластическое масштабирование пропускной способности и хранилища независимо друг от друга. Вы можете без труда добавить емкость, чтобы обрабатывать миллионы запросов в секунду.
 
@@ -49,8 +49,15 @@ ms.lasthandoff: 03/08/2017
 Подробные инструкции см. в документации по [созданию учетной записи](documentdb-create-mongodb-account.md) и [подключению к ней](documentdb-connect-mongodb-account.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
+Материалы по "DocumentDB: API для MongoDB" интегрированы в общую документацию по DocumentDB, но ниже приводится несколько ссылок, которые помогут вам приступить к работе.
 * Инструкции по получению сведений о строке подключения для учетной записи MongoDB см. в [этом руководстве](documentdb-connect-mongodb-account.md).
 * Сведения о создании подключения между базой данных DocumentDB и приложением MongoDB в MongoChef см. в [этом руководстве](documentdb-mongodb-mongochef.md).
-* Ознакомьтесь с [примерами](documentdb-mongodb-samples.md) DocumentDB: API для MongoDB.
+* При импорте данных в API для базы данных MongoDB следуйте инструкциям в статье [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](documentdb-mongodb-migrate.md).
+* Создайте свое первое приложение API для MongoDB с помощью [Node.js](documentdb-mongodb-samples.md).
+* Создайте свое первое веб-приложение API для MongoDB с помощью [.NET](documentdb-mongodb-application.md).
+* Подключитесь к учетной записи API для MongoDB с помощью [Robomongo](documentdb-mongodb-robomongo.md).
+* С помощью [команды GetLastRequestStatistics и метрик портала Azure](documentdb-request-units.md#GetLastRequestStatistics) узнайте, сколько единиц запроса (ЕЗ) используют ваши операции.
+* Узнайте, как [настроить параметры чтения для глобально распределенных приложений](documentdb-distribute-data-globally.md#ReadPreferencesAPIforMongoDB).
 
 

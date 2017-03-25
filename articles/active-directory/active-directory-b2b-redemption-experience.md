@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a063918766ccff6f5d0ec8a344160b912657d55a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/17/2017
 ## <a name="social-id-user-first-time-redemption"></a>Активация приглашения с помощью внешнего идентификатора пользователя
 Служба совместной работы Azure AD B2B позволяет с легкостью использовать для активации любой адрес электронной почты. Взгляните на процесс активации, в котором для службы совместной работы B2B используется внешний адрес (не принадлежащий корпорации Майкрософт). В этом случае процедура будет более сложной, так как в процессе активации может потребоваться создать учетную запись. Просмотрите следующий видеоролик:
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
