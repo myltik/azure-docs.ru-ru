@@ -227,10 +227,11 @@
 ## Управление
 ### Создание центра IoT 
 #### [Использование портала](iot-hub-create-through-portal.md)
+#### [Использование PowerShell](iot-hub-create-using-powershell.md)
 #### [Использование CLI 2.0](iot-hub-create-using-cli.md)
 #### [Использование CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Использование REST API](iot-hub-rm-rest.md)
-#### [Использование PowerShell](iot-hub-rm-template-powershell.md)
+#### [Использование шаблона с помощью PowerShell](iot-hub-rm-template-powershell.md)
 #### [Использование шаблона из .NET](iot-hub-rm-template.md)
 ### [Настройка передачи файлов](iot-hub-configure-file-upload.md)
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)

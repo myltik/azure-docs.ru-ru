@@ -25,9 +25,9 @@
 #### [Обновление PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Управление пользователями
-### [Назначение лицензий](multi-factor-authentication-get-started-assign-licenses.md)
 ### [Включение и отключение MFA](multi-factor-authentication-get-started-user-states.md)
 ### [Параметры пользователя и устройства](multi-factor-authentication-manage-users-and-devices.md)
+### [Руководство пользователя MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Интеграция
 ### [Службы федерации](multi-factor-authentication-get-started-adfs.md)

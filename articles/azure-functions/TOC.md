@@ -22,14 +22,16 @@
 #### [Привязки мобильных приложений](functions-bindings-mobile-apps.md)
 #### [Привязка к выходным данным концентратора уведомлений](functions-bindings-notification-hubs.md)
 #### [Триггеры и привязки служебной шины, используемые для очередей и разделов](functions-bindings-service-bus.md)
+#### [Привязки SendGrid](functions-bindings-sendgrid.md)
 #### Привязки хранилища
 ##### [Привязки больших двоичных объектов](functions-bindings-storage-blob.md)
 ##### [Привязки очередей](functions-bindings-storage-queue.md)
 ##### [Привязки таблиц](functions-bindings-storage-table.md)
+##### [Привязки SendGrid](functions-bindings-sendgrid.md)
 #### [Триггер таймера](functions-bindings-timer.md)
 #### [Привязка к выходным данным Twilio](functions-bindings-twilio.md)
-### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md) 
-### [Тестирование функций Azure](functions-test-a-function.md)
+### [Создание приложения-функции на портале Azure](functions-create-function-app-portal.md) 
+### [Testing Azure Functions](functions-test-a-function.md)
 ### [Локальная разработка и отладка](functions-run-local.md)
 ### [Рекомендации по функциям Azure](functions-best-practices.md)
 ### [Выполнение запланированной задачи очистки с помощью функций Azure](functions-scenario-database-table-cleanup.md)
@@ -50,8 +52,3 @@
 ## [Переполнение стека](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Репозиторий GitHub для Функций Azure](https://github.com/Azure/Azure-Functions/) 
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
