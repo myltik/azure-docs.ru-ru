@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 140dd5f165b88a1b0d0771b0360769a340d082cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9ce257eac44e51b7303016d993bc8d71e270629e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -36,12 +36,55 @@ Operations Management Suite (OMS) предоставляет возможнос�
 
 ## <a name="extension-schema"></a>Схема расширения
 
-В следующем объекте JSON показана схема для расширения агента OMS. Расширение требует идентификатор и ключ из целевой рабочей области OMS, которые находятся на портале OMS. Так как ключ рабочей области должен рассматриваться в качестве конфиденциальных данных, его следует хранить в защищенной конфигурации параметров. Данные защищенных параметров расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине. Обратите внимание, что **workspaceId** и **workspaceKey** чувствительны к регистру.
+В следующем объекте JSON показана схема для расширения агента OMS. Расширение требует идентификатор и ключ из целевой рабочей области OMS, которые находятся на портале OMS. Так как ключ рабочей области должен рассматриваться в качестве конфиденциальных данных, его следует хранить в защищенной конфигурации параметров. Данные защищенных параметров расширения виртуальной машины Azure зашифрованы. Они расшифровываются только на целевой виртуальной машине. Обратите внимание, что в **workspaceId** и **workspaceKey** учитывается регистр знаков.
 
 ```json
 {
     "type": "extensions",
-    "name": "Microsoft.EnterpriseCloud.Monitoring",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
+### <a name="property-values"></a>Значения свойств
+
+| Имя | Значение и пример |
+| ---- | ---- |
+| версия_API | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
+| typeHandlerVersion | 1.0 |
+| workspaceID (пример) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (пример) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+## <a name="template-deployment"></a>Развертывание шаблона
+
+Расширения виртуальной машины Azure можно развернуть с помощью шаблонов Azure Resource Manager. Для запуска расширения агента OMS во время развертывания шаблона Azure Resource Manager в нем можно использовать схему JSON, описанную в предыдущем разделе. Пример шаблона, включающего в себя расширение виртуальной машины агента OMS, можно найти в [коллекции быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+JSON для расширения виртуальной машины можно вложить в ресурс виртуальной машины или поместить в корень или на верхний уровень JSON-файла шаблона Resource Manager. Размещение JSON влияет на значения имени и типа ресурса. Дополнительные сведения см. в разделе [Указание имени и типа дочернего ресурса в шаблоне Resource Manager](../azure-resource-manager/resource-manager-template-child-resource.md). 
+
+В следующем примере предполагается, что расширение OMS вложено в ресурс виртуальной машины. При вложении ресурса расширения JSON помещается в объект `"resources": []` виртуальной машины.
+
+
+```json
+{
+    "type": "extensions",
+    "name": "OMSExtension",
     "apiVersion": "[variables('apiVersion')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -62,20 +105,31 @@ Operations Management Suite (OMS) предоставляет возможнос�
 }
 ```
 
-### <a name="property-values"></a>Значения свойств
+При размещении JSON расширения в корне шаблона имя ресурса содержит ссылку на родительскую виртуальную машину, а тип отражает вложенную конфигурацию. 
 
-| Имя | Значение и пример |
-| ---- | ---- |
-| версия_API | 2015-06-15 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
-| workspaceID (пример) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey (пример) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
-
-## <a name="template-deployment"></a>Развертывание шаблона
-
-Расширения виртуальной машины Azure можно развернуть с помощью шаблонов Azure Resource Manager. Для запуска расширения агента OMS во время развертывания шаблона Azure Resource Manager в нем можно использовать схему JSON, описанную в предыдущем разделе. Пример шаблона, включающего в себя расширение виртуальной машины агента OMS, можно найти в [коллекции быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "<parentVmResource>/OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
 
 ## <a name="powershell-deployment"></a>Развертывание с помощью PowerShell
 

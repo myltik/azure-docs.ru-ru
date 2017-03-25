@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 18d70fc1dc85efe699e6ec498e024a0b8d3525f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4505bb5f572add13c21df06fc7997358eaae6352
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/27/2017
 * **Виртуальная машина Azure, созданная в рамках модели развертывания с помощью Resource Manager**. Если вы еще не создали виртуальную машину Linux, для этого можно использовать [портал](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [интерфейс командной строки Azure (Azure CLI)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [шаблоны Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
   
     Настройте виртуальную машину согласно своим требованиям. Например, [добавьте диски данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), примените обновления и установите приложения. 
-* **Azure CLI**. Установите [Azure CLI](../xplat-cli-install.md) на локальном компьютере.
+* **Azure CLI**. Установите [Azure CLI](../cli-install-nodejs.md) на локальном компьютере.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Шаг 1. Удалите агент Linux для Azure
 Сначала на виртуальной машине Linux выполните команду **waagent** с параметром **deprovision**. Эта команда удаляет файлы и данные перед подготовкой виртуальной машины к использованию. Дополнительные сведения см. в [руководстве пользователя агента Linux для Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

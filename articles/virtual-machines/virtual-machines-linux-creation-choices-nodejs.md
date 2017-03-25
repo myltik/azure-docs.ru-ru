@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c3959babbfa6d7d512248e262060d44390de28a4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/27/2017
 - Azure CLI 1.0 — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
 - [Azure CLI 2.0](virtual-machines-linux-creation-choices.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
-Интерфейс командной строки Azure CLI 1.0 доступен на разных платформах с использованием пакета npm, предоставленных для дистрибутивов пакетов или контейнера Docker. Дополнительные сведения об [установке и настройке интерфейса командной строки Azure](../xplat-cli-install.md). В приведенных ниже руководствах содержатся примеры использования Azure CLI 1.0. В каждой из этих статей подробно описана соответствующая команда быстрого запуска интерфейса командной строки.
+Интерфейс командной строки Azure CLI 1.0 доступен на разных платформах с использованием пакета npm, предоставленных для дистрибутивов пакетов или контейнера Docker. Дополнительные сведения об [установке и настройке интерфейса командной строки Azure](../cli-install-nodejs.md). В приведенных ниже руководствах содержатся примеры использования Azure CLI 1.0. В каждой из этих статей подробно описана соответствующая команда быстрого запуска интерфейса командной строки.
 
 * [Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   

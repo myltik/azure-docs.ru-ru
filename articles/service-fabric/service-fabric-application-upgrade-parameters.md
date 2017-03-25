@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
-ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
-ms.lasthandoff: 01/07/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -64,6 +64,10 @@ ms.lasthandoff: 01/07/2017
 [Руководство по обновлению приложений Service Fabric с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md) поможет вам выполнить поэтапное обновление приложения с помощью Visual Studio.
 
 [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
+
+[Руководство по обновлению приложения с помощью Azure CLI в Linux](service-fabric-azure-cli.md#upgrading-your-application) поможет вам выполнить обновление приложения с помощью Azure CLI.
+
+[Обновление приложения с помощью подключаемого модуля Eclipse Service Fabric](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
 Узнайте, как использовать [сериализацию данных](service-fabric-application-upgrade-data-serialization.md), чтобы обеспечить совместимость обновлений приложения.
 

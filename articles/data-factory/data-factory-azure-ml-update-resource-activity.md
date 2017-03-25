@@ -14,13 +14,26 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
-ms.openlocfilehash: c06b8d6010ca6ddf562df99dcb7bf61ad9648f07
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: f78c735ec9a0bb34921e2ce03a4b96478480bcd0
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Обновление моделей машинного обучения Azure с помощью действия "Обновить ресурс"
+
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Действие Hive](data-factory-hive-activity.md) 
+> * [Действие Pig](data-factory-pig-activity.md)
+> * [Действие MapReduce](data-factory-map-reduce.md)
+> * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Действие Spark](data-factory-spark.md)
+> * [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+> * [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
+> * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
+> * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
+
 Эта статья дополняет основную статью, посвященную интеграции фабрики данных Azure и машинного обучения Azure: [Создание прогнозирующих конвейеров с помощью машинного обучения Azure и фабрики данных Azure](data-factory-azure-ml-batch-execution-activity.md). Перед прочтением этой статьи ознакомьтесь с основной статьей, если вы еще этого не сделали. 
 
 ## <a name="overview"></a>Обзор

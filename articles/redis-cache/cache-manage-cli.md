@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
-ms.openlocfilehash: 940210325c28252de2f38cfe56e56d4c3ecd28ed
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ae8e531c32b49e121b1c43b15071c138aaacf498
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: 940210325c28252de2f38cfe56e56d4c3ecd28ed
 Для создания экземпляров кэша Redis для Azure и управления ими с помощью Azure CLI необходимо выполнить следующие действия.
 
 * Необходимо иметь учетную запись Azure. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/) всего за пару минут.
-* [Установка Azure CLI](../xplat-cli-install.md).
+* [Установка Azure CLI](../cli-install-nodejs.md).
 * Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login` . Чтобы разобраться в различиях и сделать правильный выбор, изучите статью [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
 * Перед выполнением любой из указанных ниже команд переключите Azure CLI в режим диспетчера ресурсов, выполнив команду `azure config mode arm`. Дополнительные сведения см. в разделе [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../xplat-cli-azure-resource-manager.md).
 
@@ -266,9 +267,4 @@ ms.openlocfilehash: 940210325c28252de2f38cfe56e56d4c3ecd28ed
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

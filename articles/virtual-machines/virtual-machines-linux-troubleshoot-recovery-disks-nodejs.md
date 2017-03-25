@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 214d968c95fec4695f22152cca53a369299b6e10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5dba93fdf9b0f0ca73b47743aa0188dd47094a3f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/27/2017
 4. Отключите и отсоедините виртуальный жесткий диск от виртуальной машины, на которой выполняется устранение неполадок.
 5. Создайте другую виртуальную машину, используя исходный виртуальный жесткий диск.
 
-Убедитесь, что у вас установлена [последняя версия Azure CLI 1.0](../xplat-cli-install.md), выполнен вход в систему и используется режим Resource Manager.
+Убедитесь, что у вас установлена [последняя версия Azure CLI 1.0](../cli-install-nodejs.md), выполнен вход в систему и используется режим Resource Manager.
 
 ```azurecli
 azure config mode arm

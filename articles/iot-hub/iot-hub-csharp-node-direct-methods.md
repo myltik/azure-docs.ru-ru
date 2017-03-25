@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/10/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-direct-methods-netnode"></a>Использование прямых методов (.NET или Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-По завершении работы с этим руководством у вас будет два консольных приложения — для .NET и Node.js:
+В этом руководстве мы разработаем консольное приложение .NET и Node.js.
 
 * **CallMethodOnDevice.sln**, внутреннее приложение для .NET, которое вызывает метод в приложении имитации устройства и выводит ответ;
 * **TwinSimulatedDevice.js** — это приложение Node.js, имитирующее устройство, которое подключается к Центру Интернета вещей с созданным ранее удостоверением устройства и отвечает на метод, вызванный облаком.
@@ -33,9 +34,9 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 > 
 > 
 
-Для работы с этим учебником требуется:
+Для работы с этим руководством необходимы указанные ниже компоненты.
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 или Visual Studio 2017.
 * Node.js версии 0.10.x или более поздней.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
@@ -56,7 +57,7 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. В текстовом редакторе создайте файл **SimulatedDevice.js** в папке **simulateddevice**.
+3. В текстовом редакторе создайте в папке **simulateddevice** файл **SimulatedDevice.js**.
 4. Добавьте следующие инструкции `require` в начало файла **SimulatedDevice.js** :
    
     ```
@@ -148,17 +149,18 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 ## <a name="run-the-applications"></a>Запуск приложений
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать прослушивать вызовы метода из Центра Интернета вещей:
+1. В обозревателе решений Visual Studio щелкните правой кнопкой мыши решение и выберите пункт **Назначить запускаемые проекты**. Щелкните **Один запускаемый проект**, а затем в раскрывающемся меню выберите проект **CallMethodOnDevice**.
+
+2. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать прослушивать вызовы метода из Центра Интернета вещей:
    
     ```
     node SimulatedDevice.js
     ```
-   
-    ![][7]
-2. Теперь, когда устройство подключено и ожидает вызовов методов, запустите приложение .NET **CallMethodOnDevice** для вызова метода в приложении виртуального устройства. В консоли отобразится ответ устройства.
+   Подождите, пока откроется виртуальное устройство:  ![][7]
+3. Теперь, когда устройство подключено и ожидает вызовов методов, запустите приложение .NET **CallMethodOnDevice** для вызова метода в приложении виртуального устройства. В консоли отобразится ответ устройства.
    
     ![][8]
-3. Устройство отреагирует на метод и выведет сообщение, а приложение, вызвавшее метод, выведет ответ устройства:
+4. Устройство отреагирует на метод, выведя следующее сообщение:
    
     ![][9]
 
@@ -177,8 +179,8 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 [8]: ./media/iot-hub-csharp-node-direct-methods/netserviceapp.png
 [9]: ./media/iot-hub-csharp-node-direct-methods/methods-output.png
 
-[10]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp1.png
-[11]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp2.png
+[10]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp1.png
+[11]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp2.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
@@ -198,9 +200,4 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Начало работы с Центром Интернета вещей]: iot-hub-node-node-getstarted.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

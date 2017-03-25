@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3f1d941f08141df34e5557391ee6740de4cbb7d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 66834674e37d3b46a4a754b2b743cb223a6961d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: a3f1d941f08141df34e5557391ee6740de4cbb7d
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Интерфейс командной строки Azure**. См. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md).
+* **Интерфейс командной строки Azure**. См. статью [Установка и настройка интерфейса командной строки Azure](../cli-install-nodejs.md).
   * Для выполнения этой демонстрации загрузите и установите **предварительный выпуск** [программ CLI Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) .
 * **Пройдите проверку подлинности**с помощью следующей команды:
   
@@ -198,10 +199,5 @@ ms.openlocfilehash: a3f1d941f08141df34e5557391ee6740de4cbb7d
 * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
 * [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

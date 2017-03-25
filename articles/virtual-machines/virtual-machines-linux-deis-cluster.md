@@ -17,9 +17,9 @@ ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/01/2017
 
 * Активная подписка Azure. Если у вас ее нет, можно получить бесплатную ознакомительную версию на сайте [azure.com](https://azure.microsoft.com/).
 * Рабочий или учебный идентификатор для использования групп ресурсов Azure. Если у вас имеется личная учетная запись и для входа вы используете идентификатор Майкрософт, необходимо [создать рабочий идентификатор на основе вашего личного идентификатора](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Либо, в зависимости от клиентской операционной системы, [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [Azure CLI для Mac, Linux и Windows](../xplat-cli-install.md).
+* Либо, в зависимости от клиентской операционной системы, [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [Azure CLI для Mac, Linux и Windows](../cli-install-nodejs.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL используется для создания необходимых сертификатов.
 * Клиент Git, например [Git Bash](https://git-scm.com/).
 * Чтобы протестировать пример приложения, также необходим DNS-сервер. Можно использовать любые DNS-серверы или службы, которые поддерживают записи A с подстановочным знаком.
@@ -250,7 +250,7 @@ ms.lasthandoff: 03/01/2017
 [Установка Azure CLI][azure-command-line-tools]  
 [Использование Azure PowerShell с Azure Resource Manager][powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 

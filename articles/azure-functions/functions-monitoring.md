@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -78,7 +79,7 @@ ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
 
 ### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Мониторинг файлов журнала приложения-функции с помощью Azure CLI
 
-Чтобы начать работу, [установите Azure CLI](../xplat-cli-install.md).
+Чтобы начать работу, [установите Azure CLI](../cli-install-nodejs.md).
 
 Войдите в учетную запись Azure, используя следующую команду или другие варианты, описанные в статье [Войдите в Azure из командной строки Azure](../xplat-cli-connect.md).
 
@@ -124,10 +125,5 @@ ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
 
 * [Тестирование функции](functions-test-a-function.md)
 * [Масштабирование функции](functions-scale.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

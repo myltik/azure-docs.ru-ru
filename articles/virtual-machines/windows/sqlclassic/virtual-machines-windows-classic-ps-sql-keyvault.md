@@ -1,5 +1,5 @@
 ---
-title: "Автоматическая настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель) | Документы Майкрософт"
+title: "Интеграция Key Vault с SQL Server на виртуальных машинах Windows в Azure (классическая модель) | Документация Майкрософт"
 description: "Узнайте, как автоматизировать настройку шифрования SQL Server для использования с хранилищем ключей Azure. В этой статье описываются способы использования интеграции хранилища ключей Azure с виртуальными машинами SQL Server, созданными в классической модели развертывания."
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,9 +17,9 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 763b8b57c5914e7be39256d58de1b6769dbbaf9d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: e0950a5c2c7d40751664c0c5a60facef68a79b2a
+ms.lasthandoff: 03/15/2017
 
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель)

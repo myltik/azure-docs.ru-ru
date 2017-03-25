@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: b171f51d2bdaa9056429fd214809cf7123ba6326
-ms.openlocfilehash: 50a0dfdd9c71dcf54bed7a72f7fdf5a7db532572
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: acfb9345b789df7664075ef0fb6280beedf0dfb9
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,7 +40,7 @@ Azure предоставляет две модели развертывания:
 
 Чтобы создать виртуальную сеть с помощью интерфейса командной строки Azure, сделайте следующее:
 
-1. Установите и настройте интерфейс командной строки Azure, следуя инструкциям в [этой статье](../xplat-cli-install.md).
+1. Установите и настройте интерфейс командной строки Azure, следуя инструкциям в [этой статье](../cli-install-nodejs.md).
 
 2. Создайте виртуальную сеть и подсеть.
 
@@ -120,4 +120,4 @@ Azure предоставляет две модели развертывания:
 
 - Сведения о подключении виртуальной машины к виртуальной сети см. в статье о [создании виртуальной машины Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). Вместо создания виртуальной сети и подсети с помощью действий, описанных в этой статье, виртуальную машину можно подключить к имеющейся виртуальной сети и подсети.
 - Сведения об установке подключения между виртуальными сетями см. в статье [Настройка подключения между виртуальными сетями на портале Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-- Сведения о подключении виртуальной сети к локальной сети с использованием виртуальной частной сети типа "сеть — сеть" или канала ExpressRoute см. в статьях [Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью имеющегося подключения VPN-шлюза](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) и [Подключение виртуальной сети к каналу ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+- Сведения о подключении виртуальной сети к локальной сети с использованием виртуальной частной сети типа "сеть — сеть" или канала ExpressRoute см. в статьях [Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) и [Подключение виртуальной сети к каналу ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

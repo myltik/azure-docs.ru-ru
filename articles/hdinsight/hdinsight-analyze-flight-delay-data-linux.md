@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 4531aeb00cff7eee12ab0ab9c7466446fc50d5b1
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5f0fc28d034306476c5504a65ddb81193e3e589c
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight на платформе Linux
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/01/2017
 
 * **База данных SQL Azure**. Вы используете базу данных SQL Azure в качестве конечного хранилища данных. Если у вас еще нет базы данных SQL, см. статью [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md).
 
-* **Интерфейс командной строки Azure**. Если вы еще не установили интерфейс командной строки Azure, см. статью [Установка Azure CLI](../xplat-cli-install.md).
+* **Интерфейс командной строки Azure**. Если вы еще не установили интерфейс командной строки Azure, см. статью [Установка Azure CLI](../cli-install-nodejs.md).
 
 ## <a name="download-the-flight-data"></a>Скачивание данных о рейсах
 

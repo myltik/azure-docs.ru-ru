@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecb848efd8516ae43d07f8c6ebbf3868b8e20757
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -38,6 +38,12 @@ ms.lasthandoff: 02/28/2017
 В этой статье описывается, как добавить решения для управления в рабочую область с помощью портала Azure Marketplace. После добавления решения данные собираются с серверов в вашей инфраструктуре и отправляются в службу OMS. Обычно обработка в OMS занимает от нескольких минут до часа. Обработанные данные можно просмотреть в службе OMS.
 
 Если решение для управления больше не нужно, его можно удалить. При удалении решения для управления его данные не отправляются в OMS. Если используется ценовая категория "Бесплатный", удаление решения может уменьшить объем используемых данных, что поможет не превысить ежедневную квоту данных.
+
+## <a name="view-available-management-solutions"></a>Просмотр доступных решений для управления
+
+В Azure Мarketplace доступен ряд [административных решений (решений для управления) для Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+Эти решения для управления можно установить из Azure Мarketplace, щелкнув ссылку для **скачивания** в нижней части каждого решения.
 
 ## <a name="add-a-management-solution"></a>Добавление решения для управления
 1. Войдите на [портал Azure](https://portal.azure.com), используя подписку Azure, если вы еще этого не сделали.
@@ -172,7 +178,7 @@ ms.lasthandoff: 02/28/2017
 | Оценка защиты от вредоносных программ |Windows |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Да](./media/log-analytics-add-solutions/oms-bullet-green.png) |ежечасно |
 | Безопасность и аудит <sup>1</sup> | Windows и Linux | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Некоторые](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | Различная |
 
-<sup>1</sup> Решение Security and Audit может собирать журналы от агентов Windows, Linux и Operations Manager. Сведения о сборе данных приведены в разделе [Источники данных](#data-sources).
+<sup>1</sup> Решение для защиты и аудита может собирать журналы от агентов Windows, Linux и Operations Manager. Сведения о сборе данных приведены в разделе [Источники данных](#data-sources).
 
 - syslog
 - Журналы событий безопасности Windows

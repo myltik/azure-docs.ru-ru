@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
-ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +65,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 Если эта команда возвращает `Succeeded`, значит, развертывание завершено, и вы сможете установить подключение SSH к виртуальной машине на следующем шаге.
 
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
-Установите последнюю версию [Azure CLI 1.0](../xplat-cli-install.md) и войдите в систему с учетной записью Azure. Убедитесь, что для создания виртуальной машины используется режим Resource Manager (`azure config mode arm`).
+Установите последнюю версию [Azure CLI 1.0](../cli-install-nodejs.md) и войдите в систему с учетной записью Azure. Убедитесь, что для создания виртуальной машины используется режим Resource Manager (`azure config mode arm`).
 
 Приведенный ниже пример создает группу ресурсов `myResourceGroup` в расположении `West US` и развертывает виртуальную машину с расширением виртуальной машины Docker для Azure. [Шаблон Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) используется для развертывания среды.
 

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ed8ef101a0757fd32585f5b3249e49d4fb0e09b4
-ms.openlocfilehash: ea3aa0b94c6a74747f7efa8633d5b6bfff75a230
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Указатель статей по управлению приложениями в Azure Active Directory
 В этой статье представлен полный список всех статей о различных функциях приложений в Azure Active Directory (Azure AD).
 
-Здесь приведено краткое описание каждой основной функции, а также рекомендованные статьи в зависимости от искомых сведений. 
+Здесь приведено краткое описание каждой основной функции, а также рекомендованные статьи в зависимости от искомых сведений.
 
 ## <a name="overview-articles"></a>Обзор статей
 Статьи в этом разделе подходят в качестве отправных точек для тех, кому необходимо краткое описание функций управления приложениями в Azure AD.
@@ -100,7 +100,7 @@ ms.lasthandoff: 02/23/2017
 | Руководство по реализации единого входа с использованием сторонних поставщиков удостоверений |[Список совместимых сторонних поставщиков удостоверений, которых можно использовать для реализации единого входа](https://aka.ms/ssoproviders) |
 | Каким образом пользователи Windows 10 могут получить преимущества единого входа с помощью присоединения к Azure AD |[Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect доступно для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Функция самостоятельного сброса пароля Azure AD поддерживается в выпусках [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) и [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/). Компонент обратной записи паролей в локальную службу AD — это функция [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) . 
+Azure AD Connect доступно для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Функция самостоятельного сброса пароля Azure AD поддерживается в выпусках [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) и [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/). Компонент обратной записи паролей в локальную службу AD — это функция [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="conditional-access-enforce-additional-security-requirements-for-high-risk-apps"></a>Условный доступ: принудительное выполнение дополнительных требований к безопасности для приложений с высоким уровнем риска
 После настройки единого входа для приложений и ресурсов можно дополнительно защитить важные приложения путем принудительного выполнения требований к безопасности при каждой операции входа. Например, Azure AD можно использовать, чтобы принудить пользователей проходить многофакторную проверку подлинности при каждом доступе к определенному приложению вне зависимости от того, поддерживает ли приложение эту функцию. Другой распространенный пример условного доступа — это требование, чтобы пользователи были подключены к доверенной сети организации для доступа к особо важным приложениям.
@@ -108,8 +108,8 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 | Путеводитель по статьям |  |
 |:---:| --- |
 | Общие сведения о возможностях условного доступа, предлагаемых в Azure AD, Office 365 и Intune |[Управление рисками с помощью условного доступа](active-directory-conditional-access.md) |
-| Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Работа с условным доступом](active-directory-application-proxy-conditional-access.md) |
-| Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств |[Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Включение автоматической регистрации присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Действия для устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Действия для устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Включение условного доступа для определенных типов ресурсов |[Условный доступ к приложениям SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Условный доступ к службам Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Условный доступ к локальным приложениям](active-directory-conditional-access.md)<br /><br />[Работа с условным доступом](active-directory-application-proxy-conditional-access.md) |
+| Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств |[Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Включение автоматической регистрации присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Действия для устройств Windows 8.1](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />— [Действия для устройств Windows 7](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
 | Использование приложения Microsoft Authenticator для двухфакторной проверки подлинности |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 Условный доступ — это функция [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -142,7 +142,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 Автоматическая подготовка пользователей доступна для всех выпусков Azure AD, и ее можно использовать для&10; приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для управления отбором пользователей для подготовки](#managing-access-to-applications).
 
 ### <a name="building-applications-that-integrate-with-azure-ad"></a>Создание приложений, которые интегрируются с Azure AD
-Если ваша организация разрабатывает и обслуживает бизнес-приложения или вы являетесь разработчиком приложений для клиентов, которые используют Azure Active Directory, следующие руководства помогут вам интегрировать приложения с Azure AD. 
+Если ваша организация разрабатывает и обслуживает бизнес-приложения или вы являетесь разработчиком приложений для клиентов, которые используют Azure Active Directory, следующие руководства помогут вам интегрировать приложения с Azure AD.
 
 | Путеводитель по статьям |  |
 |:---:| --- |
@@ -178,7 +178,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 Предварительная версия службы совместной работы B2B в настоящее время доступна для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Панель доступа: портал для доступа к приложениям и функциям самообслуживания
-На панели доступа Azure AD конечные пользователи могут запускать приложения и получать доступ к функциям самообслуживания, которые позволяют управлять приложениями и членством в группах. Помимо панели доступа в списке ниже приведены и другие варианты получения доступа к приложениям с поддержкой единого входа. 
+На панели доступа Azure AD конечные пользователи могут запускать приложения и получать доступ к функциям самообслуживания, которые позволяют управлять приложениями и членством в группах. Помимо панели доступа в списке ниже приведены и другие варианты получения доступа к приложениям с поддержкой единого входа.
 
 | Путеводитель по статьям |  |
 |:---:| --- |
@@ -210,5 +210,4 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 [Доменные службы Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
 

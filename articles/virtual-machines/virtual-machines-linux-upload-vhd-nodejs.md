@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 97b5e4c3bda8d66297a43b4e430fec92d9588686
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/27/2017
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для отправки виртуальной машины в Azure. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](#requirements).
 
-Войдите в [Azure CLI 1.0](../xplat-cli-install.md) и перейдите в режим Resource Manager.
+Войдите в [Azure CLI 1.0](../cli-install-nodejs.md) и перейдите в режим Resource Manager.
 
 ```azurecli
 azure config mode arm
@@ -102,7 +102,7 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
   * Создайте учетную запись хранения и контейнер для хранения пользовательского образа и созданных виртуальных машин.
   * После создания всех виртуальных машин можно спокойно удалить образ.
 
-Войдите в [Azure CLI 1.0](../xplat-cli-install.md) и перейдите в режим Resource Manager.
+Войдите в [Azure CLI 1.0](../cli-install-nodejs.md) и перейдите в режим Resource Manager.
 
 ```azurecli
 azure config mode arm

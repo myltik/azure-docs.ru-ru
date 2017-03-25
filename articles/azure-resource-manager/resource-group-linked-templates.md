@@ -1,5 +1,5 @@
 ---
-title: "Связанные шаблоны в Resource Manager | Документация Майкрософт"
+title: "Связывание шаблонов для развертывания Azure | Документация Майкрософт"
 description: "Описывает, как использовать связанные шаблоны в шаблоне диспетчера ресурсов Azure для создания решения модульных шаблонов. Показывает, как передавать значения параметров, указывать файл параметров и динамически создаваемые URL-адреса."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
-ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a6c3e0150a60777d9f824cb1e0768bd44a8c981e
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Использование связанных шаблонов в диспетчере ресурсов Azure
+# <a name="using-linked-templates-when-deploying-azure-resources"></a>Использование связанных шаблонов в при развертывании ресурсов Azure
 Один шаблон Azure Resource Manager можно связать с другим шаблоном, что позволяет разбивать развертывания на несколько целевых шаблонов с определенным назначением. Как и при разбивке приложения на несколько классов, декомпозиция развертывания гораздо удобнее в контексте тестирования, повторного использования и удобства чтения.  
 
 Можно передавать параметры из основного шаблона в связанный шаблон. Кроме того, эти параметры можно напрямую сопоставить с параметрами или переменными, предоставляемыми вызывающим шаблоном. Связанный шаблон может также передать выходную переменную в исходный шаблон, что позволяет активировать двусторонний обмен данными между шаблонами.
 
 ## <a name="linking-to-a-template"></a>Создание связи с шаблоном
-Чтобы создать связь между двумя шаблонами, добавьте ресурс развертывания в основном шаблоне, который указывает на связанный шаблон. Задайте для свойства **templateLink** URI связанного шаблона. Значения параметров для связанного шаблона можно предоставить, указав значения непосредственно в шаблоне или привязав их к файлу параметров. В следующем примере используется свойство **parameters** для непосредственного указания значения параметра.
+Чтобы создать связь между двумя шаблонами, добавьте ресурс развертывания в основном шаблоне, который указывает на связанный шаблон. Задайте для свойства **templateLink** URI связанного шаблона. Значения параметров для связанного шаблона можно указать непосредственно в шаблоне или в файле параметров. В следующем примере используется свойство **parameters** для непосредственного указания значения параметра.
 
 ```json
 "resources": [ 
@@ -87,7 +88,7 @@ ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
 ],
 ```
 
-Несмотря на то, что маркер передается в защищенной строке, универсальный код ресурса (URI) связанного шаблона, включающий в себя маркер SAS, добавляется в журнал операций развертывания для данной группы ресурсов. Чтобы снизить риск раскрытия, задайте срок действия маркера.
+Несмотря на то, что маркер передается в защищенной строке, универсальный код ресурса (URI) связанного шаблона, включающий в себя маркер SAS, добавляется в журнал операций развертывания. Чтобы снизить риск раскрытия, задайте срок действия маркера.
 
 Resource Manager обрабатывает каждый связанный шаблон как отдельное развертывание. В журнале развертывания группы ресурсов отображаются отдельные операции развертывания для родительских и вложенных шаблонов.
 
@@ -308,26 +309,36 @@ Resource Manager обрабатывает каждый связанный шаб
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-В интерфейсе командной строки Azure (Azure CLI) происходит получение маркера для контейнера и развертывание шаблонов с помощью следующего кода. В настоящее время необходимо указывать имя развертывания, если вы используете универсальный код ресурса (URI) шаблоны, который содержит маркер SAS.  
+В Azure CLI 2.0 осуществляется получение маркера для контейнера и развертывание шаблонов с помощью следующего кода.
 
+```azurecli
+seconds='@'$(( $(date +%s) + 1800 ))
+expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name storagecontosotemplates \
+    --query connectionString)
+token=$(az storage container generate-sas \
+    --name templates \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name parent.json \
+    --output tsv \
+    --connection-string $connection)
+parameter='{"containerSasToken":{"value":"?'$token'"}}'
+az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
-expiretime=$(date -I'minutes' --date "+30 minutes")  
-azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
-azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
-```
-
-Вам будет предложено предоставить маркер SAS в качестве параметра. К маркеру нужно добавить префикс **?**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о том, как определить порядок развертывания ресурсов, см. в статье [Определение зависимостей в шаблонах Azure Resource Manager](resource-group-define-dependencies.md).
 * Сведения о том, как определить один ресурс и создать несколько экземпляров, см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

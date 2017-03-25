@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 >Узнайте больше о [старом и новом Azure CLI](/cli/azure/old-and-new-clis).
 >
 
-Чтобы начать работу, [установите интерфейс командной строки Azure](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md).
+Чтобы начать работу, [установите интерфейс командной строки Azure](../cli-install-nodejs.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md).
 
 Чтобы просмотреть текущий синтаксис и параметры команд в командной строке в режиме диспетчера ресурсов, введите `azure help`. Для получения справки по определенной команде введите `azure help [command]`. Вы также найдете примеры для командной строки в документации по созданию отдельных служб Azure и управлению ими.
 

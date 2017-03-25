@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 2e2978f6e81b3f584eb73ce10fb373b62f7b85ff
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -305,7 +305,7 @@ catch (StorageException storageException)
 
 **Дерево решений по устранению неполадок**
 
-- - -
+---
 Относится ли ваша проблема к производительности одной из служб хранилища?
 
 * [Метрики содержат высокие значения AverageE2ELatency и низкие значения AverageServerLatency]
@@ -313,39 +313,39 @@ catch (StorageException storageException)
 * [Метрики содержат высокие значения AverageServerLatency]
 * [При доставке сообщений в очередь возникают неожиданные задержки]
 
-- - -
+---
 Связана ли неполадка с доступностью одной из служб хранилища?
 
 * [Метрики указывают на увеличение значения PercentThrottlingError]
 * [Метрики указывают на увеличение значения PercentTimeoutError]
 * [Метрики показывают увеличение значения PercentNetworkError]
 
-- - -
-Получает ли клиентское приложение ответ HTTP 4XX (например, с кодом 404) от службы хранилища?
+---
+ Получает ли клиентское приложение ответ HTTP 4XX (например, с кодом 404) от службы хранилища?
 
 * [Клиент получает сообщения «HTTP 403 (запрещено)»]
 * [Клиент получает сообщения «HTTP 404 (не найдено)»]
 * [Клиент получает сообщения HTTP 409 (конфликт)]
 
-- - -
-[Метрики содержат низкие значения PercentSuccess, или в записях журналов аналитики присутствуют операции с состоянием транзакции ClientOtherErrors]
+---
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Метрики объема показывают неожиданное увеличение использования объема хранилища]
 
-- - -
-[Происходит неожиданный перезапуск виртуальных машин, имеющих большое количество виртуальных жестких дисков]
+---
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Проблема связана с использованием эмулятора хранения на этапе разработки или тестирования]
 
-- - -
-[Возникают проблемы при установке пакета SDK для Azure для .NET]
+---
+[You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [Возникла другая проблема со службой хранилища]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Метрики содержат высокие значения AverageE2ELatency и низкие значения AverageServerLatency
 На приведенной ниже иллюстрации из средства мониторинга на [портале Azure](https://portal.azure.com) показана ситуация, когда значение метрики **AverageE2ELatency** значительно выше значения метрики **AverageServerLatency**.
 

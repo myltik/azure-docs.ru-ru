@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: af1bb9618492827bfae5f55a30fd165dbd5be11e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c8d5fe6177b36aa73febe308b47b1fc330181924
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="retrieve-network-watcher"></a>Извлечение Наблюдателя за сетями
 
-Сначала необходимо извлечь экземпляр Наблюдателя за сетями. Переменная `$networkWatcher` передается в командлет `Get-AzureRmNetworkWatcherTopology`.
+Сначала необходимо получить экземпляр Наблюдателя за сетями. Переменная `$networkWatcher` передается в командлет `Get-AzureRmNetworkWatcherTopology`.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -137,7 +137,7 @@ Resources       : [
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Ознакомьтесь со статьей [Visualizing Network Security Group flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Визуализация журналов потоков для групп безопасности сети с помощью Power BI).
+Дополнительные сведения см. в статье [Визуализация журналов потоков для групп безопасности сети с помощью Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 
 
