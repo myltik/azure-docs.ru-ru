@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
 ## <a name="enable-the-extension"></a>Включение расширения
 Расширение можно включить с помощью [портала Azure](https://portal.azure.com/#), Azure PowerShell или сценариев интерфейса командной строки Azure.
 
-Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, выполните эти [инструкции в блоге Azure](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL-адрес блога Windows"/).
+Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, выполните эти [инструкции в блоге Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 В данной статье рассматривается включение и настройка расширения с помощью команд Azure CLI. Это позволит считывать и просматривать данные непосредственно из таблицы хранилища.
 
@@ -54,7 +55,7 @@ ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
 ## <a name="prerequisites"></a>Предварительные требования
 * **Агент Linux для Azure 2.0.6 или более поздней версии**.
   Обратите внимание на то, что большинство образов в коллекции виртуальных машин Azure на базе Linux включает версию 2.0.6 или более позднюю. Узнать, какая версия установлена на виртуальной машине, можно с помощью команды **WAAgent -version** . Если на виртуальной машине используется версия до 2.0.6, обновите ее, следуя этим [указаниям на сайте GitHub](https://github.com/Azure/WALinuxAgent "инструкции") .
-* **Azure CLI**. Чтобы настроить среду интерфейса командной строки Azure на компьютере, воспользуйтесь [этим руководством](../xplat-cli-install.md) . После установки интерфейса командной строки Azure для доступа к его командам можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, командная строка). Например:
+* **Azure CLI**. Чтобы настроить среду интерфейса командной строки Azure на компьютере, воспользуйтесь [этим руководством](../cli-install-nodejs.md) . После установки интерфейса командной строки Azure для доступа к его командам можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, командная строка). Например:
   
   * Выполните команду **azure vm extension set --help** , чтобы получить более подробные справочные сведения.
   * Выполните команду **azure login** для входа Azure.
@@ -147,10 +148,5 @@ ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
 
 ## <a name="known-issues"></a>Известные проблемы
 * В текущей версии (2.3) диагностического расширения Linux доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

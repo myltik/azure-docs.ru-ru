@@ -159,6 +159,7 @@
 #### [Использование Excel](machine-learning-consuming-from-excel.md)
 #### [Использование надстройки Excel](machine-learning-excel-add-in-for-web-services.md)
 #### [Использование шаблона веб-приложений](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Использование пула пакетной службы](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Примеры
 ### [Примеры экспериментов](machine-learning-sample-experiments.md)

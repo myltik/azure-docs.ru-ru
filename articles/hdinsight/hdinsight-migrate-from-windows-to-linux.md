@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: bf6ef38ba28d11d7894a30115174582903f84580
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -86,7 +87,7 @@ ms.lasthandoff: 03/02/2017
 При желании также можно использовать командлет Azure PowerShell `Start-AzureStorageBlobCopy`, чтобы скопировать большие двоичные объекты между учетными записями хранения вне HDInsight. Дополнительные сведения см. в разделе "Управление большими двоичными объектами Azure" статьи "Использование Azure PowerShell с хранилищем Azure".
 
 ## <a name="client-side-technologies"></a>Технологии на стороне клиента
-В общем случае клиентские технологии, такие как [командлеты Azure PowerShell](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md) или [пакет SDK .NET для Hadoop](https://hadoopsdk.codeplex.com/), продолжат работать точно так же в кластерах под управлением Linux, так как они используют интерфейсы REST API, которые одинаковы для обоих типов ОС кластеров.
+В общем случае клиентские технологии, такие как [командлеты Azure PowerShell](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md) или [пакет SDK .NET для Hadoop](https://hadoopsdk.codeplex.com/), продолжат работать точно так же в кластерах под управлением Linux, так как они используют интерфейсы REST API, которые одинаковы для обоих типов ОС кластеров.
 
 ## <a name="server-side-technologies"></a>Технологии на стороне сервера
 В следующей таблице приведены рекомендации по миграции серверных компонентов, которые являются специфичными для Windows.
@@ -94,7 +95,7 @@ ms.lasthandoff: 03/02/2017
 | Если вы используете эту технологию... | Выполните это действие... |
 | --- | --- |
 | **PowerShell** (сценарии на стороне сервера, включая действия сценариев, используемые во время создания кластера) |Перепишите эти сценарии как скрипты Bash. Сведения о действиях сценариев см. в разделах [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) и [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Azure CLI** (сценарии на стороне сервера) |Хотя интерфейс командной строки Azure доступен в Linux, он не предустановлен на головных узлах кластера HDInsight. Если он необходим для создания сценариев на стороне сервера, обратитесь к разделу [Установка Azure CLI](../xplat-cli-install.md) для получения сведений об установке Azure CLI на платформах под управлением Linux. |
+| **Azure CLI** (сценарии на стороне сервера) |Хотя интерфейс командной строки Azure доступен в Linux, он не предустановлен на головных узлах кластера HDInsight. Если он необходим для создания сценариев на стороне сервера, обратитесь к разделу [Установка Azure CLI](../cli-install-nodejs.md) для получения сведений об установке Azure CLI на платформах под управлением Linux. |
 | **Компоненты .NET** |.NET не поддерживается полностью в кластерах HDInsight под управлением Linux. В кластерах Storm в HDInsight под управлением Linux, созданных после 28 октября 2016 года, предусмотрена поддержка топологий Storm на C# при помощи платформы SCP.NET. Дополнительная поддержка .NET будет добавлена в будущих обновлениях. |
 | **Компоненты Win32 или другая технология, которая существует только для Windows** |Точные действия зависят от компонента или технологии. Возможно, вам удастся найти версию, которая совместима с Linux; возможно, потребуется найти альтернативное решение или переписать этот компонент. |
 

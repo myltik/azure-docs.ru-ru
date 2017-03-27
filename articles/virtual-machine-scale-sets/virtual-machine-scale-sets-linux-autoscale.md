@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 3c00742d9686b986841d676872cc93b58827a8e8
-ms.openlocfilehash: b87b507118244f0f275f54cd65cea13a92cdaec6
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fefd6f08d3150a28f73d7733fb397f7db38aef95
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/09/2017
 
 Дополнительные сведения о ресурсах Resource Manager см. в статье [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание).
 
-Перед началом выполнения действий в этом учебнике [установите Azure CLI](../xplat-cli-install.md).
+Перед началом выполнения действий в этом учебнике [установите Azure CLI](../cli-install-nodejs.md).
 
 ## <a name="step-1-create-a-resource-group-and-a-storage-account"></a>Шаг 1. Создание группы ресурсов и учетной записи хранения
 

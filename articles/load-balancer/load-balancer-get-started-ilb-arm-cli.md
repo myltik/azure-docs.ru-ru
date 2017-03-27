@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Настройка интерфейса командной строки для использования Resource Manager
 
-1. Если вы никогда не использовали Azure CLI, см. статью [Установка Azure CLI](../xplat-cli-install.md). Следуйте инструкциям до того момента, где выбираются учетная запись и подписка Azure.
+1. Если вы никогда не использовали Azure CLI, см. статью [Установка Azure CLI](../cli-install-nodejs.md). Следуйте инструкциям до того момента, где выбираются учетная запись и подписка Azure.
 2. Выполните команду **azure config mode** , чтобы переключиться в режим Resource Manager, как показано ниже.
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

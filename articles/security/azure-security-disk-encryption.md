@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -177,7 +177,7 @@ Microsoft Azure очень серьезно относится к обеспеч
   > Шифрование дисков Azure не поддерживается в [пакете SDK для Azure PowerShell версии 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). При возникновении ошибок, связанных с использованием Azure PowerShell 1.1.0, ознакомьтесь с записью блога [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Ошибки шифрования дисков Azure, связанные с Azure PowerShell 1.1.0).
 
 * Чтобы запустить какую-либо команду Azure CLI и связать ее с подпиской Azure, необходимо сначала установить Azure CLI.
-  * Чтобы установить Azure CLI и связать его с подпиской Azure, изучите статью [Установка Azure CLI](../xplat-cli-install.md).
+  * Чтобы установить Azure CLI и связать его с подпиской Azure, изучите статью [Установка Azure CLI](../cli-install-nodejs.md).
   * Чтобы использовать Azure CLI для Mac, Linux и Windows с Azure Resource Manager, ознакомьтесь с разделом [Команды Azure CLI в режиме Resource Manager](../virtual-machines/azure-cli-arm-commands.md).
 * Решение шифрования дисков Azure использует внешний предохранитель ключа BitLocker для виртуальных машин IaaS под управлением Windows. Если ваши виртуальные машины объединены в домен, не применяйте групповые политики, требующие использования предохранителей TPM. Сведения о групповой политике "Разрешить использование BitLocker без совместимого TPM" см. в [справке по групповым политикам BitLocker](https://technet.microsoft.com/library/ee706521).
 * Чтобы создать приложение Azure AD, создать или настроить имеющееся хранилище ключей, а также включить шифрование, требуется сценарий PowerShell для шифрования дисков Azure, который находится [здесь](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -338,7 +338,7 @@ Microsoft Azure очень серьезно относится к обеспеч
 | ARM | Диспетчер ресурсов Azure |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) является общепризнанной отраслевой технологией шифрования томов Windows, используемой при шифровании дисков на виртуальных машинах IaaS под управлением Windows. |
 | BEK | Ключи шифрования BitLocker (BEK) используются для шифрования загрузочного тома ОС и томов данных. Ключи BitLocker хранятся в хранилище ключей в виде секретов. |
-| Интерфейс командной строки | Ознакомьтесь с разделом [Интерфейс командной строки Azure](../xplat-cli-install.md). |
+| Интерфейс командной строки | Ознакомьтесь с разделом [Интерфейс командной строки Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) — прозрачная подсистема шифрования дисков на платформе Linux, используемая для шифрования дисков виртуальных машин IaaS под управлением Linux. |
 | KEK | Ключ шифрования ключей представляет собой асимметричный ключ (RSA 2048), который применяется для защиты секрета или помещения его в оболочку. Вы можете использовать защищенный HSM-ключ или ключ с программной защитой. Дополнительные сведения см. в документации по [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | Командлеты PS | Ознакомьтесь с [командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs). |
@@ -560,7 +560,7 @@ Microsoft Azure очень серьезно относится к обеспеч
 > _KeyEncryptionKeyURL_ является необязательным параметром. Вы можете добавить собственный ключ шифрования ключей, чтобы дополнительно защитить ключ шифрования данных (секрет в виде парольной фразы) в своем хранилище ключей.
 
 #### <a name="cli-commands"></a>Команды интерфейса командной строки
-Можно включить шифрование дисков для зашифрованного виртуального жесткого диска, установив [интерфейс командной строки](../xplat-cli-install.md) и используя его команды. Чтобы с помощью команд интерфейса командной строки включить шифрование на виртуальных машинах IaaS под управлением Linux, которые уже существуют или работают в Azure, сделайте следующее.
+Можно включить шифрование дисков для зашифрованного виртуального жесткого диска, установив [интерфейс командной строки](../cli-install-nodejs.md) и используя его команды. Чтобы с помощью команд интерфейса командной строки включить шифрование на виртуальных машинах IaaS под управлением Linux, которые уже существуют или работают в Azure, сделайте следующее.
 
 1. Задайте политики доступа в хранилище ключей.
 

@@ -16,9 +16,9 @@ ms.date: 10/10/2016
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 844f7d6fa4191a54d14010adf974401d3a94ba69
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -64,6 +64,12 @@ ms.lasthandoff: 02/28/2017
    ![Подключено](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Включение расширения виртуальной машины с помощью PowerShell
+Настраивая виртуальную машину с помощью PowerShell, вам нужно указать **идентификатор** и **ключ** рабочей области. Обратите внимание, что для имен свойств в конфигурации JSON следует **учитывать регистр**.
+
+Идентификатор и ключ можно найти на странице **Параметры** портала OMS или с помощью PowerShell, как показано в предыдущем примере.
+
+![Идентификатор рабочей области и первичный ключ](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
+
 Существуют разные команды для классических виртуальных машин Azure и виртуальных машин, созданных с помощью Resource Manager. Ниже представлено несколько примеров для виртуальных машин обоих типов.
 
 Для классических виртуальных машин используйте следующий пример команды PowerShell:
@@ -115,9 +121,6 @@ $location = $vm.Location
 
 
 ```
-При настройке виртуальной машины с помощью PowerShell необходимо указать **идентификатор рабочей области** и **первичный ключ**. Идентификатор и ключ можно найти на странице **Параметры** портала OMS или с помощью PowerShell, как показано в предыдущем примере.
-
-![Идентификатор рабочей области и первичный ключ](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Развертывание расширения виртуальной машины с помощью шаблона
 С помощью Azure Resource Manager можно создать простой шаблон (в формате JSON), определяющий развертывание и конфигурацию приложения. Этот шаблон, который также называется шаблоном диспетчера ресурсов, предоставляет декларативный способ определения развертывания. Такой шаблон позволяет повторно развертывать приложение в течение его жизненного цикла и гарантирует согласованное развертывание ресурсов.
@@ -363,7 +366,20 @@ $location = $vm.Location
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
-## <a name="troubleshooting-windows-virtual-machines"></a>Устранение неполадок на виртуальных машинах Windows
+## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Устранение неполадок с расширением Log Analytics для виртуальной машины
+Если что-то не работает должным образом, как правило, вы должны получить сообщение, отправленное либо порталом Azure, либо средствами Azure PowerShell.
+
+1. Войдите на [портал Azure](http://portal.azure.com).
+2. Найдите виртуальную машину и откройте сведения о ней.
+3. Щелкните **Расширения**, чтобы проверить, включено ли расширение OMS.
+
+   ![Представление расширения виртуальной машины](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
+
+4. Щелкните расширение *MicrosoftMonitoringAgent*(Windows) или *OmsAgentForLinux*(Linux), чтобы просмотреть подробные сведения. 
+
+   ![Сведения о расширении виртуальной машины](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
+
+### <a name="troubleshooting-windows-virtual-machines"></a>Устранение неполадок на виртуальных машинах Windows
 Если расширение агента виртуальной машины *Microsoft Monitoring Agent* не устанавливается или не создает отчеты, можно выполнить следующие действия для решения проблемы.
 
 1. Следуя инструкции в статье базы знаний [KB 2965986](https://support.microsoft.com/kb/2965986#mt1), убедитесь, что агент виртуальной машины установлен и работает правильно.
@@ -383,7 +399,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 Подробные сведения см. в статье об [устранении неполадок расширений для виртуальных машин Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="troubleshooting-linux-virtual-machines"></a>Устранение неполадок на виртуальных машинах Linux
+### <a name="troubleshooting-linux-virtual-machines"></a>Устранение неполадок на виртуальных машинах Linux
 Если расширение агента виртуальной машины *Агент OMS для Linux* не устанавливается или не создает отчеты, можно выполнить следующие действия для решения проблемы.
 
 1. Если состояние расширения *неизвестно*, убедитесь, что агент виртуальной машины Azure установлен и работает правильно, просмотрев файл журнала агента ВМ `/var/log/waagent.log`.

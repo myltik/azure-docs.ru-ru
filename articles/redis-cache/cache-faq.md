@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 256d215deb2224dca188e373a1bf2cf7fc55be1f
-ms.openlocfilehash: 9089a14f1f0b1fa5265f616e0bd9f0f30aff0c60
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 705e64d52d796ae861465f71de397d11bf14086e
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -59,6 +59,7 @@ ms.lasthandoff: 02/17/2017
 * [Как выполнять команды Redis?](#how-can-i-run-redis-commands)
 * [Почему в кэше Redis для Azure отсутствует ссылка на библиотеку классов MSDN, как в некоторых других службах Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [Можно ли использовать кэш Redis для Azure как кэш сеанса PHP?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [Что такое базы данных Redis?](#what-are-redis-databases)
 
 ## <a name="security-faqs"></a>Часто задаваемые вопросы о безопасности
 * [Когда следует включать порт, не являющийся портом SSL, для подключения к Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
@@ -263,6 +264,16 @@ StackExchange.Redis имеет много параметров. В этом ра
 >
 
 Дополнительные сведения об использовании кэша Redis в качестве кэша сеанса PHP с клиентом PhpRedis см. в разделе [Обработчик сеанса PHP](https://github.com/phpredis/phpredis#php-session-handler).
+
+### <a name="what-are-redis-databases"></a>Что такое базы данных Redis?
+
+Базы данных Redis — это просто логическое разделение данных внутри одного экземпляра Redis. Кэш-память совместно используется всеми базами данных, и фактический объем памяти, используемый определенной базой данных, зависит от пар "ключ-значение", хранящихся в ней. Например, объем кэша C6 составляет 53 ГБ. Вы можете предоставить все 53 ГБ одной базе данных или разделить их между несколькими базами данных. 
+
+> [!NOTE]
+> При использовании кэша Redis для Azure уровня "Премиум" с включенной кластеризацией доступна только база данных 0. Это внутреннее ограничение Redis, и оно не относится к кэшу Redis для Azure. Дополнительные сведения см. в разделе [Нужно ли вносить изменения в клиентское приложение, чтобы использовать кластеризацию?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering).
+> 
+> 
+
 
 <a name="cache-ssl"></a>
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1818f48b94754589a2dc5d89c2ba24d2ff2681bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,13 +40,13 @@ ms.lasthandoff: 03/01/2017
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0](app-service-web-nodejs-sails.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-nodejs-sails.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git.](http://www.git-scm.com/downloads)
-* [Интерфейс командной строки Azure](../xplat-cli-install.md)
+* [Интерфейс командной строки Azure](../cli-install-nodejs.md)
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,12 +28,12 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 
 Будет открыто новое окно со следующими вкладками. В данном разделе описываются эти вкладки.
 
-## <a name="quick-start-quick-startquickstart"></a>Быстрый запуск (![Быстрый запуск][QuickStart])
+## <a name="quickstart-quickstartquickstart"></a>Быстрый запуск (![Быстрый запуск][Quickstart])
 В зависимости от версии служб BizTalk не все параметры в списке могут быть доступны. 
 
 <table border="1">
     <tr>
-        <td><strong>Получить инструменты</strong></td>
+        <td><strong>Получение инструментов</strong></td>
         <td>Загрузите пакет SDK служб BizTalk для установки шаблонов проектов Visual Studio на локальном компьютере, предназначенном для разработки. Эти шаблоны создают проекты Visual Studio для <strong>служб BizTalk</strong> (мост) и <strong>артефактов служб BizTalk</strong> (преобразование), которые развертываются в службе BizTalk.
         <br/><br/>В разделах 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Использование пакета SDK для служб BizTalk в Azure</a> и <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Установка пакета SDK служб BizTalk Azure</a> содержатся инструкции по началу работы.
@@ -67,7 +68,7 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 </tr>
 
 <tr>
-<td><strong>Сведения о подключении</strong> пространства имен контроля доступа</td>
+<td><strong>Сведения о подключении</strong> пространства имен управления доступом</td>
 <td>При выборе команды "Сведения о подключении" отображаются параметры "Пространство имен управления доступом", "Издатель по умолчанию" и "Ключ по умолчанию". Вы можете скопировать эти значения.
 <br/><br/>
 Вы также можете открыть портал контроля доступа. Дополнительную информацию о портале контроля доступа см. в статье <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Инструкции по созданию пространства имен Access Control</a>.</td>
@@ -117,11 +118,11 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 <td>Изменение имени пользователя и пароля, которые используются для входа в базу данных отслеживания.</td>
 </tr>
 <tr>
-<td><strong>Обновление сертификата SSL</strong></td>
+<td><strong>Обновление SSL-сертификата</strong></td>
 <td>Может изменить службу BizTalk так, чтобы в ней использовался другой SSL-сертификат. При <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">создании службы BizTalk</a> автоматически создается самозаверяющий сертификат SSL.</td>
 </tr>
 <tr>
-<td><strong>Загрузить сертификат</strong></td>
+<td><strong>Скачивание сертификата</strong></td>
 <td>SSL-сертификат, который используется службой BizTalk, можно загрузить на локальный компьютер.</td>
 </tr>
 <tr>
@@ -159,13 +160,13 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Пояснение требований</a> представлены сведения о базе данных отслеживания.</td>
 </tr>
 <tr>
-<td><strong>Мониторинг и архивирование хранилища</strong></td>
+<td><strong>Хранилище для мониторинга и архивации</strong></td>
 <td>Имя учетной записи хранения Azure, в которой хранятся выходные данные мониторинга службы BizTalk.
 <br/><br/>В разделе 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Пояснение требований</a> представлены сведения о об учетной записи хранения.</td>
 </tr>
 <tr>
-<td><strong>Название подписки</strong></td>
+<td><strong>Имя подписки</strong></td>
 <td>Выводит список подписки, на котором размещена служба BizTalk. Эта подписка обеспечивает доступ к классическому порталу Azure.</td>
 </tr>
 <tr>
@@ -188,7 +189,7 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">настройке компонентов для обмена сообщениями EDI на портале служб BizTalk</a>.</td>
 </tr>
 <tr>
-<td><strong>Сведения о подключении</strong> пространства имен контроля доступа</td>
+<td><strong>Сведения о подключении</strong> пространства имен управления доступом</td>
 <td>Отображает пространство имен Access Control, значения "Издатель по умолчанию" и "Ключ по умолчанию", которые можно скопировать.
 <br/><br/>
 Вы также можете открыть портал контроля доступа. Работа с этим порталом аналогична использованию параметра Active Directory в области навигации слева.
@@ -243,13 +244,13 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
    ![Метрика загрузки ЦП активна][EnabledMetric]
 6. Чтобы удалить метрику из диаграммы и списка, выберите **Удалить метрики** на панели задач. Чтобы вернуть метрику в список, выберите **Добавить метрики** на панели задач, отметьте нужную метрику и установите флажок, чтобы вернуться на вкладку **Монитор**. Выберите затененный кружок, чтобы включить метрику.
 
-## <a name="a-namemetricsaavailable-metrics"></a><a name="Metrics"></a>Доступные метрики
+## <a name="Metrics"></a>Доступные метрики
 Доступны следующие счетчики производительности и метрики.
 
 <table border="1">
 
 <tr>
-<td><strong>Задержка полного цикла</strong></td>
+<td><strong>Задержка кругового пути</strong></td>
 <td>Отображает среднее значение времени в миллисекундах (мс), необходимое для обработки сообщений с момента получения до момента завершения обработки службой BizTalk во всех мостах. Учитываются только успешно обработанные сообщения.<br/><br/>
 При наступлении следующих событий создается отметка времени.
 <ul>
@@ -325,7 +326,7 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 
 [Службы BizTalk: резервное копирование и восстановление](biztalk-backup-restore.md) предоставляет подробную информацию. 
 
-## <a name="a-namehybridconnectionsahybrid-connections"></a><a name="HybridConnections"></a>Гибридные подключения
+## <a name="HybridConnections"></a>Гибридные подключения
 Гибридные подключения связывают приложения Azure (например, веб-приложения или мобильные приложения в службе приложений Azure), с локальным ресурсом, который использует статический порт TCP (например, SQL Server, MySQL, веб-API для HTTP и большинство настраиваемых веб-служб). Управление гибридными подключениями в службах BizTalk осуществляется на классическом портале Azure.
 
 Сведения о создании гибридных подключений в службе приложений Azure см. в статье [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
@@ -346,14 +347,9 @@ ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
 * [Службы BizTalk: диаграмма состояния службы BizTalk](biztalk-service-state-chart.md)  
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

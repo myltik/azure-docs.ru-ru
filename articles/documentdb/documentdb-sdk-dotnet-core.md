@@ -1,5 +1,5 @@
 ---
-title: "Интерфейсы API и пакеты SDK для DocumentDB .NET Core | Документация Майкрософт"
+title: "Интерфейс API, пакет SDK и ресурсы для .NET Core (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения об API и пакетах SDK для .NET Core, в том числе даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET Core."
 services: documentdb
 documentationcenter: .net
@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
-ms.openlocfilehash: a2972c7c7fead727e6147212b211d102faf01a29
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 492444304c42a270e638050506e04297c8b17e51
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>Интерфейсы API и пакеты SDK для DocumentDB
+# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>Пакет SDK .NET Core для DocumentDB: заметки о выпуске и материалы
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/22/2017
 > 
 > 
 
-## <a name="documentdb-net-core-api-and-sdk"></a>API и пакеты SDK для DocumentDB .NET Core
 <table>
 
 <tr><td>**Скачивание пакета SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
@@ -56,6 +56,13 @@ ms.lasthandoff: 02/22/2017
 
 > [!NOTE] 
 > Пакет SDK для DocumentDB .NET Core несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name111111httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore111"></a><a name="1.1.1"/>[1.1.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.1)
+
+* Добавлена поддержка LINQ для статистических запросов (COUNT, MIN, MAX, SUM и AVG).
+* Исправление ошибки утечки памяти для объекта ConnectionPolicy, вызываемой использованием обработчика событий.
+* Исправление ошибки, из-за которой метод UpsertAttachmentAsync не работал, когда использовался тег ETag.
+* Исправление ошибки, из-за которой продолжение запросов orderBy между секциями не работало при сортировке по полю строки.
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
 
@@ -82,6 +89,7 @@ ms.lasthandoff: 02/22/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |14 марта 2017 г. |--- |
 | [1.1.0](#1.1.0) |16 февраля 2017 г. |--- |
 | [1.0.0](#1.0.0) |21 декабря 2016 г. |--- |
 | [0.1.0-preview](#0.1.0-preview) |15 ноября 2016 г. |31 декабря 2016 г. |

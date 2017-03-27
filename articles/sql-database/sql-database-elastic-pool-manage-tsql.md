@@ -16,14 +16,14 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
-ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a3acd5f4ec63061254b550737ae9fb4d39b343c6
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="monitor-and-manage-an-elastic-pool-with-transact-sql"></a>Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL
-В этой статье показано, как с помощью Transact-SQL администрировать масштабируемые [эластичные пулы](sql-database-elastic-pool.md).  Вы также можете создать эластичный пул Azure и управлять им на [портале Azure](https://portal.azure.com/), с помощью [PowerShell](sql-database-elastic-pool-manage-powershell.md) REST API или [C#] (см. инструкции по [созданию и администрированию эластичного пула с помощью C#](sql-database-elastic-pool-manage-csharp.md)). Вы также можете использовать [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), чтобы создавать новые базы данных в эластичных пулах и перемещать базы данных в пулы и обратно.
+В этой статье показано, как с помощью Transact-SQL администрировать масштабируемые [эластичные пулы](sql-database-elastic-pool.md).  Для создания эластичных пулов Azure и управления ими можно также использовать [портал Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), REST API или [C#](sql-database-elastic-pool-manage-csharp.md). Вы также можете использовать [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), чтобы создавать новые базы данных в эластичных пулах и перемещать базы данных в пулы и обратно.
 
 
 Для создания и перемещения баз данных в эластичные пулы и обратно используйте команды [Create Database (база данных SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) и [Alter Database (база данных SQL Azure)](https://msdn.microsoft.com/library/mt574871.aspx). Прежде чем использовать эти команды, следует создать пул эластичных БД. Эти команды влияют только на базы данных. С помощью команд T-SQL нельзя внести изменения при создании новых пулов и настройке свойств пула (таких как минимальное и максимальное количество eDTU).

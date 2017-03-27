@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -32,7 +34,7 @@ ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
-## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>Отображение данных
+## <a name="data"></a>Отображение данных
 Прежде чем приступать к созданию приложения, рассмотрим структуру данных и тип анализа, который мы будем использовать в отношении данных. 
 
 В этой статье мы используем пример файла данных **HVAC.csv** , доступный в учетной записи хранения Azure, которую вы связали с кластером HDInsight. В этой учетной записи хранения файл находится в папке **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Скачайте и откройте CSV-файл, чтобы получить моментальный снимок данных.  
@@ -43,7 +45,7 @@ ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
 
 Эти сведения используются для прогнозирования того, будет ли температура здания выше или ниже относительно целевой температуры на основе идентификатора системы и ее возраста.
 
-## <a name="a-nameappawrite-a-machine-learning-application-using-spark-mllib"></a><a name="app"></a>Создание приложения машинного обучения с помощью Spark MLlib
+## <a name="app"></a>Создание приложения машинного обучения с помощью Spark MLlib
 В этом приложении мы используем конвейер машинного обучения Spark для выполнения классификации документов. В конвейере мы разбиваем документ на слова, преобразуем слова в вектор числовой функции и, наконец, создаем модель прогнозирования с помощью характеристического вектора и меток. Выполните следующие действия, чтобы создать приложение.
 
 1. На начальной панели [портала Azure](https://portal.azure.com/)щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, последовательно щелкнув **Просмотреть все** > **Кластеры HDInsight**.   
@@ -193,10 +195,10 @@ ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
    В первой строке прогноза видно, что при использовании системы кондиционирования с идентификатором 20 и возрастом 25 лет здание будет горячим (**прогноз = 1.0**). Первое значение параметра DenseVector (0,49999) соответствует прогнозу 0,0, а второе значение (0,5001) — прогнозу 1,0. В выходных данных видно, что, даже если второе значение лишь незначительно выше, модель показывает **прогноз =&1;.0**.
 4. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 
-## <a name="a-nameanacondaause-anaconda-scikit-learn-library-for-machine-learning"></a><a name="anaconda"></a>Использование библиотеки scikit-learn Anaconda для машинного обучения
+## <a name="anaconda"></a>Использование библиотеки scikit-learn Anaconda для машинного обучения
 Кластеры Apache Spark в HDInsight включают библиотеки Anaconda. Они также включают библиотеку **scikit-learn** для машинного обучения. Кроме того, библиотека включает различные наборы данных, которые можно использовать для создания примеров приложений прямо в записной книжке Jupyter. Примеры использования библиотеки scikit-learn см. на странице: [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
+## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Сценарии
@@ -233,9 +235,4 @@ ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

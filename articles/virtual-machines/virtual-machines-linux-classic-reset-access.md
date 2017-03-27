@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ccd4dda3d7077c9884331c7bfa8021ade398ea42
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,14 +45,14 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
 ## <a name="prerequisites"></a>Предварительные требования
 Выполните следующие действия:
 
-* Вам также нужно [установить интерфейс командной строки Azure](../xplat-cli-install.md) и [подключиться к своей подписке](../xplat-cli-connect.md) для использования ресурсов Azure, связанных с вашей учетной записью.
+* Вам также нужно [установить интерфейс командной строки Azure](../cli-install-nodejs.md) и [подключиться к своей подписке](../xplat-cli-connect.md) для использования ресурсов Azure, связанных с вашей учетной записью.
 * Задайте режим, необходимый для классической модели развертывания, введя в командной строке следующее:
     ``` 
         azure config mode asm
     ```
 * Имейте при себе новый пароль или набор ключей SSH, если хотите сбросить один из них. они не нужны, если вы хотите сбросить конфигурацию SSH.
 
-## <a name="a-namepwresetcliareset-the-password"></a><a name="pwresetcli"></a>Сброс пароля
+## <a name="pwresetcli"></a>Сброс пароля
 1. Создайте на локальном компьютере файл с именем PrivateConf.json с такими строками. Замените строку **myUserName** и **myP@ssW0rd** своим именем пользователя и паролем и установите собственную дату окончания срока действия.
 
     ```   
@@ -68,7 +69,7 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
     ```
 
-## <a name="a-namesshkeyresetcliareset-the-ssh-key"></a><a name="sshkeyresetcli"></a>Сброс ключа SSH
+## <a name="sshkeyresetcli"></a>Сброс ключа SSH
 1. Создайте файл с именем PrivateConf.json с таким содержимым. Замените значение строк **myUserName** и **mySSHKey** собственными данными.
 
     ```   
@@ -81,7 +82,7 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
    
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="a-nameresetbothcliareset-both-the-password-and-the-ssh-key"></a><a name="resetbothcli"></a>Сброс пароля и ключа SSH
+## <a name="resetbothcli"></a>Сброс пароля и ключа SSH
 1. Создайте файл с именем PrivateConf.json с таким содержимым. Замените значение строк **myUserName**, **mySSHKey** и **myP@ssW0rd** собственными данными.
 
     ``` 
@@ -98,7 +99,7 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namecreatenewsudocliacreate-a-new-sudo-user-account"></a><a name="createnewsudocli"></a>Создание новой учетной записи пользователя sudo
+## <a name="createnewsudocli"></a>Создание новой учетной записи пользователя sudo
 
 Если вы забыли имя пользователя, вы можете воспользоваться расширением VMAccess для создания нового имени с полномочиями sudo. В этом случае существующие имя пользователя и пароль останутся без изменений.
 
@@ -108,7 +109,7 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
 
 Также вы можете использовать сценарий для [Сброса пароля и ключа SSH](#resetbothcli) для создания нового пользователя с доступом как по паролю, так и по ключу SSH.
 
-## <a name="a-namesshconfigresetcliareset-the-ssh-configuration"></a><a name="sshconfigresetcli"></a>Сброс конфигурации SSH
+## <a name="sshconfigresetcli"></a>Сброс конфигурации SSH
 Если конфигурация SSH нарушена, вы можете потерять доступ к виртуальной машине. Чтобы сбросить конфигурацию до состояния по умолчанию, вы можете использовать расширение VMAccess. Для этого вам необходимо просто установить ключ "reset_ssh" в значение "True". Расширение перезапускает SSH-сервер, открывает порт SSH в вашей виртуальной машине и сбрасывает настройки SSH до значений по умолчанию. Учетная запись пользователя (имя, пароль или ключи SSH) останется без изменений.
 
 > [!NOTE]
@@ -130,7 +131,7 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namedeletecliadelete-a-user"></a><a name="deletecli"></a>Удаление пользователя
+## <a name="deletecli"></a>Удаление пользователя
 Чтобы удалить учетную запись пользователя без выполнения входа в виртуальную машину, вы можете воспользоваться таким сценарием.
 
 1. Создайте файл с именем PrivateConf.json с таким содержимым, подставив имя пользователя, которое необходимо удалить, вместо **removeUserName**. 
@@ -147,14 +148,14 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namestatuscliadisplay-the-status-of-the-vmaccess-extension"></a><a name="statuscli"></a>Отображение состояния расширения VMAccess
+## <a name="statuscli"></a>Отображение состояния расширения VMAccess
 Чтобы отобразить состояние расширения VMAccess, запустите следующую команду.
 
 ```
         azure vm extension get
 ```
 
-## <a name="a-namecheckdiskacheck-consistency-of-added-disks"></a><a name='checkdisk'></a>Проверка согласованности добавленных дисков
+## <a name='checkdisk'></a>Проверка согласованности добавленных дисков
 Для запуска служебной программы fsck на всех дисках виртуальной машины Linux необходимо сделать следующее.
 
 1. Создайте файл с именем PublicConf.json с таким содержимым. Проверка диска принимает логическое значение, указывающее, нужно ли выполнять проверку дисков, подключенных к виртуальной машине. 
@@ -171,7 +172,7 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
     ```
 
-## <a name="a-namerepairdiskarepair-disks"></a><a name='repairdisk'></a>Восстановление дисков
+## <a name='repairdisk'></a>Восстановление дисков
 Чтобы восстановить диски, которые не подключаются или при подключении которых возникают ошибки конфигурации, используйте расширение VMAccess для сброса конфигурации подключения на виртуальной машине Linux. При этом подставьте имя своего диска вместо **myDisk**.
 
 1. Создайте файл с именем PublicConf.json с таким содержимым. 
@@ -193,10 +194,5 @@ ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
 * Сведения об использовании командлетов Azure PowerShell или шаблонов Azure Resource Manager для сброса пароля или ключа SSH, исправления конфигурации SSH и проверки согласованности диска см. в [документации по расширению VMAccess на портале GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * Для сброса пароля или ключа SSH для виртуальной машины Linux, развернутой в классической модели развертывания, можно также использовать [портал Azure](https://portal.azure.com) . Использовать портал для виртуальной машины Linux, развернутой в модели развертывания Resource Manager, пока невозможно.
 * В статье [Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) приводятся дополнительные сведения об использовании расширений для виртуальных машин Azure.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

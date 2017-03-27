@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 7877662f43b83d6d60c3ef836d14b291245d8d42
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fe1143a2c6966a547caab6b9bd35d78a91446e34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,12 +44,12 @@ ms.lasthandoff: 03/01/2017
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0](app-service-web-php-get-started.md) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](app-service-web-php-get-started.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [PHP 5.6.29](http://php.net/downloads.php)
 * [Редактор](https://getcomposer.org/download/)
-* [Интерфейс командной строки Azure](../xplat-cli-install.md)
+* [Интерфейс командной строки Azure](../cli-install-nodejs.md)
 * [Git.](http://www.git-scm.com/downloads)
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/01/2017
 * Настройте PHP версии 5.6.4 или более поздней. Ознакомьтесь с полным списком требований к серверу Laravel 5.3 в разделе [Server Requirements](https://laravel.com/docs/5.3#server-requirements) (Требования к серверу). В остальной части списка содержатся расширения, которые включены при установке PHP в Azure. 
 * Укажите переменные среды, необходимые для приложения. Чтобы легко задать переменные среды, в приложении Laravel используется файл `.env`. Но так как он не должен фиксироваться в системе управления версиями (см. раздел о [настройке среды для приложения Laravel](https://laravel.com/docs/5.3/configuration#environment-configuration)), вместо этого вы можете настроить параметры для веб-приложения Azure.
 * Сначала загрузите точку входа приложения Laravel `public/index.php`. Ознакомьтесь с [обзором жизненного цикла Laravel](https://laravel.com/docs/5.3/lifecycle#lifecycle-overview). Другими словами, необходимо задать корневой URL-адрес веб-приложения, указывающий на каталог `public`.
-* Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push`Composer будет контролировать получение требуемых пакетов. Так удобнее. 
+* Включите расширение Composer в Azure при наличии файла composer.json. Таким образом, во время развертывания с помощью `git push` Composer будет контролировать получение требуемых пакетов. Так удобнее. 
   Если автоматизация Composer не включена, необходимо просто удалить `/vendor` из файла `.gitignore`, чтобы Git включал ("не игнорировал") все содержимое каталога `vendor` во время выполнения и развертывания кода.
 
 Давайте последовательно выполним эти задачи.
@@ -137,7 +137,7 @@ ms.lasthandoff: 03/01/2017
    
         php artisan key:generate --show
         azure site appsetting add APP_KEY="<output_of_php_artisan_key:generate_--show>"
-3. Включите отладку Laravel, чтобы устранять все зашифрованные страницы `Whoops, looks like something went wrong.` .
+3. Включите отладку Laravel, чтобы устранять все зашифрованные страницы `Whoops, looks like something went wrong.`.
    
         azure site appsetting add APP_DEBUG=true
    

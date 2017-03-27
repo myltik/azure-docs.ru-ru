@@ -1,29 +1,30 @@
 # Обзор
 ## [Что такое диспетчер трафика](traffic-manager-overview.md)
-## [Как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md)
-## [Конечные точки диспетчера трафика](traffic-manager-endpoint-types.md)
-## [Мониторинг и отработка отказов конечной точки диспетчера трафика](traffic-manager-monitoring.md)
 ## [Методы маршрутизации трафика](traffic-manager-routing-methods.md)
-## [Вложенные профили](traffic-manager-nested-profiles.md)
-## [Рекомендации по производительности для диспетчера трафика](traffic-manager-performance-considerations.md)
-## [Поддержка Azure Resource Manager](traffic-manager-powershell-arm.md)
+### [Иерархия страны или региона, используемая диспетчером трафика](traffic-manager-geographic-regions.md)
+## [Типы конечных точек](traffic-manager-endpoint-types.md)
+## [Мониторинг конечных точек](traffic-manager-monitoring.md)
+## [Часто задаваемые вопросы](traffic-manager-FAQs.md)
 
 # Начало работы
-## [Управление конечными точками](traffic-manager-manage-endpoints.md)
-## [Управление профилями](traffic-manager-manage-profiles.md)
-## [Указание своего интернет-домена для диспетчера трафика](traffic-manager-point-internet-domain.md)
+## [Создание профиля диспетчера трафика](traffic-manager-create-profile.md)
 
 # Практическое руководство
-## [Настройка метода маршрутизации](traffic-manager-configure-routing-method.md)
-## [Проверка настроек](traffic-manager-testing-settings.md)
+
+## [Настройка метода географической маршрутизации](traffic-manager-configure-geographic-routing-method.md)
+## [Настройка метода приоритетной маршрутизации](traffic-manager-configure-priority-routing-method.md)
+## [Настройка метода взвешенной маршрутизации](traffic-manager-configure-weighted-routing-method.md)
+## [Настройка маршрутизации производительности](traffic-manager-configure-performance-routing-method.md)
+## [Управление конечными точками](traffic-manager-manage-endpoints.md)
+## [Управление профилями](traffic-manager-manage-profiles.md)
+## [Проверка параметров диспетчера трафика](traffic-manager-testing-settings.md)
 ## [Комбинирование служб балансировки нагрузки](traffic-manager-load-balancing-azure.md)
-## [Использование сетевых ресурсов](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Устранение неполадок
-### [Устранение неполадок, вызывающих ограничение возможностей конечной точки](traffic-manager-troubleshooting-degraded.md)
+## [Измерение производительности диспетчера трафика](traffic-manager-performance-considerations.md)
+## [Использование PowerShell для управления диспетчером трафика](traffic-manager-powershell-arm.md)
+## [Указание своего интернет-домена для диспетчера трафика](traffic-manager-point-internet-domain.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Интерфейс командной строки Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

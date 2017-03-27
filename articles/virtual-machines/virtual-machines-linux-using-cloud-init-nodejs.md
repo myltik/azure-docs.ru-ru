@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 7d804c93933fd53b0a74696391e3ade228e66560
-ms.openlocfilehash: 4895bd1a47a918df8029ef0d2e0343d9b0da0903
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdd446dbacb531c3778d232446231bfae08c74ac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей.  Сценарии cloud-init вызываются во время создания виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI).  Для работы с этой статьей потребуется:
 
 * Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
-* [Интерфейс командной строки Azure](../xplat-cli-install.md) с выполненным входом (с помощью команды `azure login`).
+* [Интерфейс командной строки Azure](../cli-install-nodejs.md) с выполненным входом (с помощью команды `azure login`).
 * Интерфейс командной строки Azure *нужно* переключить в режим Azure Resource Manager `azure config mode arm`.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи

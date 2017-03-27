@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Предварительные требования
 
-Если это еще не сделано, можно получить [бесплатную пробную подписку Azure](https://azure.microsoft.com/pricing/free-trial/) и подключить [Azure CLI 1.0](../articles/xplat-cli-install.md) [к учетной записи Azure](../articles/xplat-cli-connect.md). Убедитесь, что Azure CLI работает в режиме Resource Manager следующим образом:
+Если это еще не сделано, можно получить [бесплатную пробную подписку Azure](https://azure.microsoft.com/pricing/free-trial/) и подключить [Azure CLI 1.0](../articles/cli-install-nodejs.md) [к учетной записи Azure](../articles/xplat-cli-connect.md). Убедитесь, что Azure CLI работает в режиме Resource Manager следующим образом:
 
 ```azurecli
 azure config mode arm

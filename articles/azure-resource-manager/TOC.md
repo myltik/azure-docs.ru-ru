@@ -7,14 +7,13 @@
 
 # Начало работы
 ## [Экспорт шаблона](resource-manager-export-template.md)
-## [Пошаговое руководство по шаблонам](resource-manager-template-walkthrough.md)
+## [Создание первого шаблона](resource-manager-create-first-template.md)
 ## [Использование Visual Studio с Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Использование VS Code с Resource Manager](resource-manager-vs-code.md)
 
 # Практическое руководство
 ## Создание шаблонов
 ### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
-### [Создание шаблонов](resource-group-authoring-templates.md)
+### [Разделы шаблона](resource-group-authoring-templates.md)
 ### [Функции шаблонов](resource-group-template-functions.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
 ### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Схемы шаблонов](https://github.com/Azure/azure-resource-manager-schemas)
+## [Формат шаблона](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Ресурсы

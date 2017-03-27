@@ -102,7 +102,7 @@
 ### [Перенос данных](sql-data-warehouse-migrate-data.md)
 ### [Переход на использование хранилища класса Premium](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Приостановка и масштабирование
+## Управление вычислительными ресурсами
 
 ### [Обзор](sql-data-warehouse-manage-compute-overview.md)
 ### [Портал Azure](sql-data-warehouse-manage-compute-portal.md)

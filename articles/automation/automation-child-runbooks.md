@@ -17,6 +17,7 @@ ms.author: magoedte;bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,7 +69,7 @@ ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
 В следующем примере с помощью командлета Start-AzureRmAutomationRunbook с параметром -wait запускается дочерний модуль Runbook с параметрами и ожидается его завершение. После завершения его выходные данные собираются из дочернего модуля Runbook.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Сравнение методов вызова дочернего Runbook
@@ -86,10 +87,5 @@ ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 * [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

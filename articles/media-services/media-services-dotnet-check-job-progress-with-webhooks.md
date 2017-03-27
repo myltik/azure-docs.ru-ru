@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c3a7c0196b3ff1a7bd939f4224cb109ce71872f2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,8 +30,6 @@ ms.lasthandoff: 03/07/2017
 
 * Учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Учетная запись служб мультимедиа. Инструкции по созданию учетной записи служб мультимедиа см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
-* .NET Framework 4.0 или более поздней версии.
-* приведенному.
 * Общие сведения об [использовании Функций Azure](../azure-functions/functions-overview.md). Посмотрите также статью [Привязки HTTP и webhook в функциях Azure](../azure-functions/functions-bindings-http-webhook.md).
 
 В этой статье вы узнаете, как:
@@ -54,7 +52,7 @@ ms.lasthandoff: 03/07/2017
 
 В следующем коде метод **VerifyWebHookRequestSignature** проверяет сообщение уведомления. Цель этой проверки — убедиться, что сообщение отправлено с помощью служб мультимедиа Azure и что оно не было подделано. Подпись не обязательно использовать для Функций Azure, так как в ней используется значение **кода** в качестве параметра запроса, передаваемого по протоколу TLS. 
 
-Определение функции Azure служб мультимедиа с использованием .NETможно найти [здесь](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+Определение разных функций Azure для служб мультимедиа .NET (включая приведенные в этом разделе) см. [здесь](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 В следующем примере кода показаны определения параметров функций Azure и трех файлов, связанных с функцией Azure: function.json, project.json и run.csx.
 
@@ -115,6 +113,10 @@ ms.lasthandoff: 03/07/2017
 ### <a name="runcsx"></a>run.csx
 
 В следующем коде C# показано определение функции Azure, которая является объектом webhook. Функция прослушивает обратный вызов webhook из уведомлений служб мультимедиа и публикует выходной ресурс после завершения задания. 
+
+
+>[!NOTE]
+>Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"

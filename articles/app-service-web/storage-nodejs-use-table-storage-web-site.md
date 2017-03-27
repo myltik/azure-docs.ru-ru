@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0183c2c88819dfc67886676fd8c69b246537b6
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="nodejs-web-app-using-the-azure-table-service"></a>Веб-приложение Node.js, использующее службу таблиц Azure
 ## <a name="overview"></a>Обзор
-В этом руководстве показано, как использовать службу таблиц на базе службы управления данными Azure для хранения данных и доступа к ним из приложения [node], размещенного в среде веб-приложений [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Этот учебный курс разработан для читателей, обладающих определенным опытом использования Node и [Git.].
+В этом руководстве показано, как использовать службу таблиц на базе службы управления данными Azure для хранения данных и доступа к ним из приложения [node], размещенного в среде веб-приложений [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Этот учебный курс разработан для читателей, обладающих определенным опытом использования Node и [Git].
 
 Вы узнаете:
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
 * [node] версии 0.10.24 или выше
-* [Git.]
+* [Git]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -562,12 +563,12 @@ ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
-[Git.]: http://git-scm.com
+[Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [for free]: http://windowsazure.com
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
-[интерфейс командной строки Azure]: ../xplat-cli-install.md
+[интерфейс командной строки Azure]:../cli-install-nodejs.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
@@ -591,9 +592,4 @@ ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

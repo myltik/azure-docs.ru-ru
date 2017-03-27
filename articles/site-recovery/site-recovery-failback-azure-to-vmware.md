@@ -1,5 +1,5 @@
 ---
-title: "Восстановление размещения виртуальных машин VMware из Azure в локальной среде | Документация Майкрософт"
+title: "Восстановление размещения виртуальных машин VMware из Azure в локальную среду | Документация Майкрософт"
 description: "Сведения о восстановлении размещения на локальном сайте после отработки отказа виртуальных машин VMware и физических серверов с переносом в Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,22 +12,24 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/05/2016
+ms.date: 03/27/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
-ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Восстановление размещения виртуальных машин VMware и физических серверов на локальном сайте
 > [!div class="op_single_selector"]
-> * [Портал Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Классический портал Azure](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Классический портал Azure (прежняя версия)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Восстановление размещения виртуальных машин VMware или физических компьютеров из Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Восстановление размещения виртуальных машин Hyper-V из Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
-В этой статье описывается, как восстановить размещение виртуальных машин Azure на локальном сайте с переносом из Azure. Когда вы будете готовы к восстановлению размещения виртуальных машин VMware или физических серверов Windows и Linux, для которых была выполнена отработка отказа с локального сайта в Azure, следуйте инструкциям, изложенным в этом [руководстве](site-recovery-vmware-to-azure-classic.md).
+В этой статье описывается, как восстановить размещение виртуальных машин Azure из Azure на локальный сайт. Когда вы будете готовы к восстановлению размещения виртуальных машин VMware или физических серверов Windows либо Linux после того, как вы восстановили их защиту, следуя инструкциям в этом [руководстве](site-recovery-how-to-reprotect.md), выполните инструкции в этой статье.
+
+>[!NOTE]
+>Если вы используете классический портал Azure, ознакомьтесь с приведенными [здесь](site-recovery-failback-azure-to-vmware-classic.md) инструкциями для расширенной архитектуры восстановления размещения VMware из Azure и с [этими](site-recovery-failback-azure-to-vmware-classic-legacy.md) инструкциями для устаревшей архитектуры.
 
 ## <a name="overview"></a>Обзор
 На схеме в этом разделе показана архитектура восстановления размещения для этого сценария.

@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 6d376b9db07a46c467bd772959de3f7acf9c123d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>Подключение приложения MongoDB к учетной записи DocumentDB с помощью строки подключения MongoDB
+# <a name="connect-an-application-to-documentdb-api-for-mongodb"></a>Подключение приложения к DocumentDB: API для MongoDB
 Здесь содержатся сведения о подключении приложения MongoDB к учетной записи Azure DocumentDB с помощью строки подключения MongoDB. Подключив приложение MongoDB к базе данных Azure DocumentDB, вы сможете использовать базу данных в качестве хранилища данных для приложения MongoDB. 
 
 В этом руководстве описаны два способа получения строки подключения.
 
-- [Метод "Быстрый запуск"](#QuickStartConnection) для использования с драйверами .NET, Node.js, Java, Python или оболочкой MongoDB.
+- [Метод "Быстрый запуск"](#QuickstartConnection) для использования с драйверами .NET, Node.js, Java, Python или оболочкой MongoDB.
 - [Метод с использованием пользовательской строки подключения](#GetCustomConnection) для других драйверов.
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/08/2017
 - Учетная запись Azure. Если у вас нет учетной записи, вы можете создать [бесплатную учетную запись Azure](https://azure.microsoft.com/free/). 
 - Учетная запись DocumentDB. Дополнительные сведения см. в статье [Создание учетной записи DocumentDB с поддержкой протокола MongoDB с помощью портала Azure](documentdb-create-mongodb-account.md).
 
-## <a id="QuickStartConnection"></a>Получение строки подключения MongoDB с помощью метода быстрого запуска
+## <a id="QuickstartConnection"></a>Получение строки подключения MongoDB с помощью метода быстрого запуска
 1. В браузере войдите на [портал Azure](https://portal.azure.com).
 2. В колонке **NoSQL (DocumentDB)** выберите учетную запись "DocumentDB: API для MongoDB". 
 3. На **левой панели навигации** в колонке учетной записи щелкните **Быстрый запуск**. 

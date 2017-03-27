@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: c3540d86a12935cea100248f7f6669df34ae2209
-ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 81f814ebb977f0f192d450b9c75aab84d2e1c069
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,10 +28,10 @@ ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
 В этом пошаговом руководстве описывается, как реализовать рабочую роль Azure, которая передает данные телеметрии с помощью класса EventSource .NET. Система диагностики Azure используется для сбора данных телеметрии и хранения их в учетной записи хранения Azure. При создании рабочей роли Visual Studio автоматически включает систему диагностики 1.0 как часть решения в пакете SDK для Azure для .NET версии 2.4 и более поздней. В следующих указаниях описывается процесс создания рабочей роли, отключение системы диагностики 1.0 в решении и развертывание системы диагностики 1.2 или 1.3 в рабочей роли.
 
 ### <a name="prerequisites"></a>Предварительные требования
-В данной статье предполагается, что у вас есть подписка Azure и вы используете Visual Studio 2013 с пакетом SDK для Azure. Если у вас нет подписки Azure, можно зарегистрироваться для получения [бесплатной пробной версии][Free Trial]. Следует обязательно [установить и настроить Azure PowerShell версии 0.8.7 или более поздней][Install and configure Azure PowerShell version 0.8.7 or later].
+В данной статье предполагается, что у вас есть подписка Azure и вы используете Visual Studio с пакетом SDK для Azure. Если у вас нет подписки Azure, можно зарегистрироваться для получения [бесплатной пробной версии][Free Trial]. Следует обязательно [установить и настроить Azure PowerShell версии 0.8.7 или более поздней][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Шаг 1. Создание рабочей роли
-1. Запустите **Visual Studio 2013**.
+1. Запустите **Visual Studio**.
 2. Создайте новый проект **облачной службы Azure** из шаблона **Cloud**, предназначенного для .NET Framework 4.5.  Назовите проект WadExample и нажмите кнопку «ОК».
 3. Выберите **рабочую роль** и нажмите кнопку «ОК». После этих действий будет создан новый проект.
 4. В **обозревателе решений** дважды щелкните файл свойств **WorkerRole1**.
@@ -173,7 +174,7 @@ namespace WorkerRole1
 Командлеты PowerShell для управления диагностикой в веб-роли или в рабочей роли: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension и Remove-AzureServiceDiagnosticsExtension.
 
 1. Откройте Azure PowerShell.
-2. Выполните сценарий для установки системы диагностики в своей рабочей роли (замените *StorageAccountKey* ключом для своей учетной записи хранения wadexample):
+2. Выполните сценарий для установки системы диагностики в рабочую роль (замените *StorageAccountKey* ключом для своей учетной записи хранения wadexample, а *config_path* — путем к файлу *WadExample.xml*).
 
 ```powershell
 $storage_name = "wadexample"
@@ -204,9 +205,4 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

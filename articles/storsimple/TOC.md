@@ -161,6 +161,7 @@
 
 ### Устранение неполадок
 #### [Проблемы с развертыванием](storsimple-troubleshoot-deployment.md)
+#### [Использование средств диагностики](storsimple-8000-diagnostics.md)
 #### [Проблемы с работоспособностью](storsimple-troubleshoot-operational-device.md)
 #### [Замена оборудования](storsimple-hardware-component-replacement.md)
 ##### [Замена контроллера устройства](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [Использование диспетчера данных StorSimple](storsimple-data-manager-ui.md)
 
 ## Практическое руководство
-### [Использование .NET для преобразования данных](storsimple-data-manager-dotnet-jobs.md)
+### [Запуск заданий с помощью .NET ](storsimple-data-manager-dotnet-jobs.md)
+### [Запуск заданий с помощью службы автоматизации](storsimple-data-manager-job-using-automation.md)
+### [Изменение стандартного пути больших двоичных объектов](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple для партнеров
 ## Обзор
@@ -235,10 +238,5 @@
 ## [Блог службы поддержки](http://blogs.msdn.com/b/storsimple/)
 ## [Уведомления сторонних производителей](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

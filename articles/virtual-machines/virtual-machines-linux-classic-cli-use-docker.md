@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f79f6fb82a74d6195491f243dc79db0c6753a894
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
 * Используйте команды локального Docker для управления своим контейнерами на узле виртуальных машин Docker в Azure.
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>Установка интерфейса командной строки Azure (Azure CLI)
-Сведения об установке и настройке интерфейса командной строки Azure см. в статье [Установка Azure CLI](../xplat-cli-install.md). Чтобы подтвердить установку, введите `azure` в командной строке, и через некоторое время отобразится рисунок ASCII интерфейса командной строки Azure, в котором перечислены основные доступные вам команды. Если установка прошла без ошибок, вы можете ввести `azure help vm` и увидеть в списке команд docker.
+Сведения об установке и настройке интерфейса командной строки Azure см. в статье [Установка Azure CLI](../cli-install-nodejs.md). Чтобы подтвердить установку, введите `azure` в командной строке, и через некоторое время отобразится рисунок ASCII интерфейса командной строки Azure, в котором перечислены основные доступные вам команды. Если установка прошла без ошибок, вы можете ввести `azure help vm` и увидеть в списке команд docker.
 
 > [!NOTE]
 > В Docker имеются инструменты для Windows, [Docker Machine](https://docs.docker.com/installation/windows/), позволяющие также автоматизировать создание клиента Docker, который можно использовать для работы с виртуальными машинами Azure в качестве узлов Docker.
@@ -181,9 +182,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [руководству пользователя Docker]: https://docs.docker.com/userguide/
 
 [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure]:virtual-machines-linux-docker-compose-quickstart.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
-ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 Действия по настройке и код, используемые для ввода модели машинного обучения в эксплуатацию в рамках этого руководства, можно выполнять как в кластере HDInsight Spark 1.6, так и в кластере Spark 2.0. В записных книжках Jupyter также содержится код для выполнения этих процедур.
 
 ### <a name="notebook-for-spark-16"></a>Записная книжка для Spark 1.6
-Записная книжка Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) показывает, как применять сохраненную модель в кластерах HDInsight с помощью Python. 
+Записная книжка Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) показывает, как применять сохраненную модель в кластерах HDInsight с помощью Python. 
 
 ### <a name="notebook-for-spark-20"></a>Записная книжка для Spark 2.0
 Чтобы изменить записную книжку Jupyter для Spark 1.6 для использования в кластере HDInsight Spark 2.0, замените файл кода Python [этим файлом](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Этот код показывает, как использовать модели, созданные в Spark 2.0.

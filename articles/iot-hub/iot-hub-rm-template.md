@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
-ms.openlocfilehash: 49c7506b35f661509346dfd8305f10c0d63422eb
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c9ff71b3b4f1d2190f112b81835cdd98ceb3357e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/09/2017
 
 Для работы с этим учебником требуется:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 или Visual Studio 2017.
 * Активная учетная запись Azure. <br/>Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 * [Учетная запись хранения Azure][lnk-storage-account], в которой можно хранить файлы шаблона Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
@@ -42,9 +42,9 @@ ms.lasthandoff: 02/09/2017
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Подготовка проекта Visual Studio
-1. Создайте в Visual Studio проект Visual C# Windows с помощью шаблона проекта **Консольное приложение** . Дайте проекту имя **CreateIoTHub**.
+1. В Visual Studio создайте проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения (.NET Framework)**. Дайте проекту имя **CreateIoTHub**.
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
-3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и найдите **Microsoft.Azure.Management.ResourceManager**. Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и на странице **Обзор** найдите **Microsoft.Azure.Management.ResourceManager**. Выберите пакет, щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Щелкните **Установить**, на странице **Просмотр изменений** нажмите кнопку **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
 5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом:
    

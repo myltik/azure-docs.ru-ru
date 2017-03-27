@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 70614f7d97466fb7e8a2f325d744f5e1632640a6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 
 ## <a name="getting-ready"></a>Подготовка
 
-Чтобы использовать Azure CLI 1.0 с группами ресурсов Azure, вам понадобится подходящая версия Azure CLI, а также учетная запись Azure. Если у вас нет Azure CLI 1.0, [установите его](../xplat-cli-install.md).
+Чтобы использовать Azure CLI 1.0 с группами ресурсов Azure, вам понадобится подходящая версия Azure CLI, а также учетная запись Azure. Если у вас нет Azure CLI 1.0, [установите его](../cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-10-version"></a>Обновление версии Azure CLI 1.0
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/27/2017
     azure --version
     0.10.4 (node: 4.2.4)
 
-Если у вас не установлена версия 0.10.4 или более поздняя, [установите Azure CLI 1.0](../xplat-cli-install.md) либо выполните обновление c помощью одного из встроенных установщиков или команды **npm** (введите `npm update -g azure-cli` для обновления или `npm install -g azure-cli` для установки).
+Если у вас не установлена версия 0.10.4 или более поздняя, [установите Azure CLI 1.0](../cli-install-nodejs.md) либо выполните обновление c помощью одного из встроенных установщиков или команды **npm** (введите `npm update -g azure-cli` для обновления или `npm install -g azure-cli` для установки).
 
 ### <a name="set-your-azure-account-and-subscription"></a>Настройка учетной записи и подписки Azure
 

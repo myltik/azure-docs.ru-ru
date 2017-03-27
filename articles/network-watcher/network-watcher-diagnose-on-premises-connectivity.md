@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c232e334e60f9205076ba09d9f561c9fb1b42a4c
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -59,7 +59,7 @@ VPN-шлюз Azure позволяет создать гибридное реше
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Устранение неполадок с помощью Наблюдателя за сетями Azure
 
-Чтобы диагностировать подключение, подключитесь к Azure PowerShell и выполните командлет `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Дополнительные сведения об использовании этого командлета можно найти в разделе "Устранение неполадок шлюза виртуальной сети и подключений с помощью Наблюдателя за сетями Azure и PowerShell". Для завершения командлетом этой операции может потребоваться несколько минут. 
+Чтобы диагностировать подключение, подключитесь к Azure PowerShell и выполните командлет `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Дополнительные сведения об использовании этого командлета см. в статье [Устранение неполадок шлюза виртуальной сети и подключений с помощью Наблюдателя за сетями Azure и PowerShell](network-watcher-troubleshoot-manage-powershell.md). Для завершения командлетом этой операции может потребоваться несколько минут. 
 
 После выполнения командлета можно перейти к расположению хранения, указанному в командлете, чтобы получить подробную информацию о проблеме и просмотреть журналы. Наблюдатель за сетями Azure создает ZIP-папку, которая содержит приведенные ниже файлы.
 
@@ -116,3 +116,4 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 Научитесь проверять подключения VPN-шлюза с помощью PowerShell и службы автоматизации Azure, ознакомившись с разделом [Мониторинг VPN-шлюзов с помощью средства устранения неполадок наблюдателя за сетями Azure](network-watcher-monitor-with-azure-automation.md).
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
+

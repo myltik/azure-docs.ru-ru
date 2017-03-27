@@ -25,3 +25,4 @@
 ## [Доступность регионов](https://azure.microsoft.com/regions/services/)
 ## [Цены](https://azure.microsoft.com/pricing/details/container-registry/)
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

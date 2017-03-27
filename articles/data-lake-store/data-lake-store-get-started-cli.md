@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 >
 
 > [!NOTE]
-> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы советуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Они имеют повышенную производительность, так как используют несколько потоков для параллельной передачи данных.
+> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы рекомендуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Они имеют повышенную производительность, так как используют несколько потоков для параллельной передачи данных.
 > 
 >  
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Интерфейс командной строки Azure CLI** — сведения об установке и настройке CLI Azure см. в статье [Установка Azure CLI](../xplat-cli-install.md). Обязательно перезагрузите компьютер после установки интерфейса командной строки.
+* **Интерфейс командной строки Azure CLI** — сведения об установке и настройке CLI Azure см. в статье [Установка Azure CLI](../cli-install-nodejs.md). Обязательно перезагрузите компьютер после установки интерфейса командной строки.
 
 ## <a name="authentication"></a>Аутентификация
 В этой статье используется более простой подход к проверке подлинности в службе Data Lake Store, в которую выполняется вход от имени пользователя. Уровень доступа к учетной записи Data Lake Store и файловой системе зависит от уровня доступа пользователя, который вошел в систему. Существуют разные способы проверки подлинности в Data Lake Store, включая **проверку подлинности пользователя** и **проверку подлинности с взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье, посвященной [проверке подлинности приложений Data Lake Store с помощью Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
@@ -178,10 +179,5 @@ ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[azure-command-line-tools]: ../xplat-cli-install.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[azure-command-line-tools]: ../cli-install-nodejs.md
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
-ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,6 +49,7 @@ ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
 * [ошибка авторизации](#authorization-failed).
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed);
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink);
 * [InvalidTemplate](#invalidtemplate);
 * [MissingSubscriptionRegistration](#noregisteredproviderfound);
@@ -122,6 +124,40 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
   ```
 
 Если вам не удастся найти в этом или альтернативном регионе подходящий SKU, который соответствует потребностям вашей компании, обратитесь в [службу поддержки Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+### <a name="disallowedoperation"></a>DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+Если возникла эта ошибка, значит, вы используете подписку, которой запрещен доступ к любым службам Azure, кроме Azure Active Directory. Подписка такого типа может использоваться, когда требуется доступ к классическому порталу, но запрещено развертывание ресурсов. Чтобы устранить эту проблему, необходимо использовать подписку, которая имеет разрешение на развертывание ресурсов.  
+
+Чтобы просмотреть доступные подписки с помощью PowerShell, используйте следующую команду.
+
+```powershell
+Get-AzureRmSubscription
+```
+
+Чтобы выбрать текущую подписку, введите приведенную ниже команду.
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+Чтобы просмотреть доступные подписки с помощью Azure CLI 2.0, используйте следующую команду.
+
+```azurecli
+az account list
+```
+
+Чтобы выбрать текущую подписку, введите приведенную ниже команду.
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Эта ошибка может появится в результате ошибок нескольких различных типов.
@@ -387,19 +423,19 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 Чтобы узнать, зарегистрирован ли поставщик, используйте команду `azure provider list` .
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Чтобы зарегистрировать поставщик ресурсов, используйте команду `azure provider register` и укажите *пространство имен* , которое следует зарегистрировать.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-Чтобы просмотреть поддерживаемые расположения и версии API для поставщика ресурсов, используйте следующую команду:
+Чтобы просмотреть поддерживаемые расположения и версии API для типа ресурса, используйте следующую команду.
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -410,18 +446,23 @@ azure provider show -n Microsoft.Compute --json > compute.json
 Проверить квоты ядер в своей подписке можно с помощью команды `azure vm list-usage` в интерфейсе командной строки Azure. В примере ниже показано, что квота ядер для бесплатной пробной учетной записи равна 4:
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Возвращаемые данные:
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 При развертывании шаблона, создающего более четырех ядер в западной части США, возникнет ошибка развертывания, аналогичная следующей:
@@ -479,13 +520,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 В **PowerShell** укажите идентификатор политики как параметр **Id**, чтобы получить сведения о политике, заблокировавшей развертывание.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-В **Azure CLI** укажите имя определения политики.
+В **Azure CLI 2.0** укажите имя определения политики.
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 Дополнительные сведения о политиках см. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
@@ -522,21 +563,13 @@ azure policy definition show regionPolicyDefinition --json
 
    Эти сведения помогут определить, правильно ли задано то или иное значение в шаблоне.
 
-- Инфраструктура CLI Azure
+- Azure CLI 2.0
 
-   В интерфейсе командной строки Azure CLI (Azure CLI) для параметра **--debug-setting** задайте значение All, ResponseContent или RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Просмотрите содержимое добавленных в журнал запроса и ответа с помощью следующей команды.
+   Для просмотра операций развертывания выполните следующую команду.
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   Эти сведения помогут определить, правильно ли задано то или иное значение в шаблоне.
 
 - Вложенный шаблон
 
@@ -662,7 +695,7 @@ Resource Manager выявляет циклические зависимости 
 | Автоматизация |[Советы по устранению неполадок при возникновении типичных ошибок в службе автоматизации Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting (Устранение неполадок, связанных с Microsoft Azure Stack)](../azure-stack/azure-stack-troubleshooting.md) |
 | Фабрика данных |[Устранение неполадок фабрики данных](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Устранение распространенных проблем при развертывании служб в Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Service Fabric |[Мониторинг и диагностика приложений Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
 | Site Recovery |[Мониторинг и устранение неполадок защиты виртуальных машин и физических серверов](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Хранилище |[Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[Устранение неполадок в развертывании устройства StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
@@ -672,9 +705,4 @@ Resource Manager выявляет циклические зависимости 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
 * Дополнительные сведения об определении ошибок во время развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-deployment-operations.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

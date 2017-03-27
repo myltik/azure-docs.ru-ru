@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/09/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,6 +31,8 @@ ms.lasthandoff: 02/09/2017
 
 * Подготовьте в своей подписке Azure предварительно настроенное решение для удаленного мониторинга.
 * Создайте учетную запись SendGrid для отправки сообщений электронной почты, которые будут запускать бизнес-процесс. Бесплатную пробную учетную запись можно создать на сайте [SendGrid](https://sendgrid.com/) , нажав кнопку **Try for Free**(Попробовать бесплатно). После регистрации бесплатной пробной учетной записи необходимо создать в SendGrid [ключ API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) , который предоставляет разрешения на отправку электронной почты. Ключ API используется далее в этом учебнике.
+
+Для работы с этим руководством вам понадобится Visual Studio 2015 или Visual Studio 2017, чтобы изменять действия на серверной стороне предварительно настроенных решений.
 
 Если вы уже подготовили предварительно настроенное решение для удаленного мониторинга, то перейдите к группе ресурсов для этого решения на [портале Azure][lnk-azureportal]. Имя группы ресурсов совпадает с именем решения, которое было выбрано при подготовке решения для удаленного мониторинга. В группе ресурсов можно просмотреть все подготовленные ресурсы Azure для вашего решения (за исключением приложения Azure Active Directory, которое можно найти на классическом портале Azure). На следующем рисунке показан пример колонки **Группа ресурсов** для предварительного настроенного решения для удаленного мониторинга:
 
@@ -117,8 +119,8 @@ ms.lasthandoff: 02/09/2017
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. Сохраните изменения в решении и закройте Visual Studio.

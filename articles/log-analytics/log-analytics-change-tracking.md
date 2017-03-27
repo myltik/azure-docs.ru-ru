@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/13/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/28/2017
 Для установки и настройки решений используйте указанные ниже данные.
 
 * Агент [Windows](log-analytics-windows-agents.md) [Operations Manager](log-analytics-om-agents.md) или [Linux](log-analytics-linux-agents.md) должен быть установлен на каждом компьютере, для которого требуется выполнять отслеживание изменений.
-* Решение "Отслеживание изменений" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
+* Решение для отслеживания изменений необходимо добавить в рабочую область OMS из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
 ### <a name="configure-windows-files-to-track"></a>Настройка отслеживания файлов Windows
 Чтобы настроить отслеживание изменений в файлах на компьютере Windows, сделайте следующее:
@@ -66,7 +66,21 @@ ms.lasthandoff: 02/28/2017
 
 | платформа | Direct Agent | Агент SCOM | Агент Linux | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows и Linux |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) | От 15 минут до 1 часа, в зависимости от типа изменения. |
+| Windows и Linux |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) | От 5 до 50 минут с учетом типа изменения. Дополнительную информацию см. ниже. |
+
+
+В следующей таблице указана частота сбора данных для типов изменений.
+
+| **тип изменения** | **frequency** | **Отправляет** **ли** **агент сведения об обнаруженных изменениях?** |
+| --- | --- | --- |
+| Реестр Windows | 50 минут | Нет |
+| Файловый ресурс Windows | 30 минут | Да. Если изменения не происходят в течение 24 часов, отправляется моментальный снимок. |
+| Файловый ресурс Linux | 15 минут | Да. Если изменения не происходят в течение 24 часов, отправляется моментальный снимок. |
+| Службы Windows | 30 минут | Да, каждые 30 минут, при обнаружении изменений. Каждые 24 часа отправляется моментальный снимок независимо от изменений. Следовательно, моментальный снимок отправляется даже при отсутствии изменений. |
+| Управляющие программы Linux | 5 мин | Да. Если изменения не происходят в течение 24 часов, отправляется моментальный снимок. |
+| Программное обеспечение Windows | 30 минут | Да, каждые 30 минут, при обнаружении изменений. Каждые 24 часа отправляется моментальный снимок независимо от изменений. Следовательно, моментальный снимок отправляется даже при отсутствии изменений. |
+| Программное обеспечение Linux | 5 мин | Да. Если изменения не происходят в течение 24 часов, отправляется моментальный снимок. |
+
 
 ## <a name="use-change-tracking"></a>Использование функции отслеживания изменений
 После установки решения сводку изменений для отслеживаемых серверов можно просмотреть в OMS на странице **Обзор** с помощью плитки **Отслеживание изменений**.

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 2714bfbf2bf35b11ca1ba6ab8b7e4e6bf5431f45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 36c245b98868682c24a87bba6628de492e620012
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -51,10 +52,11 @@ ms.openlocfilehash: 2714bfbf2bf35b11ca1ba6ab8b7e4e6bf5431f45
 ## <a name="hdinsight-mapreduce-activity"></a>Действие MapReduce HDInsight
 Действие MapReduce HDInsight в конвейере фабрики данных выполняет программы MapReduce для вашего собственного кластера HDInsight или кластера HDInsight по запросу под управлением Windows или Linux. Дополнительные сведения об этом действии см. в разделе [Действие MapReduce](data-factory-map-reduce.md).
 
-Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см. в разделе [Вызов программ Spark из фабрики данных](data-factory-spark.md).
-
 ## <a name="hdinsight-streaming-activity"></a>Действие потоковой передачи HDInsight
 Действие потоковой передачи HDInsight в конвейере фабрики данных выполняет программы потоковой передачи Hadoop для вашего собственного кластера HDInsight или кластера HDInsight по запросу под управлением Windows или Linux. Дополнительные сведения об этом действии см. в разделе [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md).
+
+## <a name="hdinsight-spark-activity"></a>Действие HDInsight Spark
+Действие HDInsight Spark в конвейере фабрики данных выполняет программы Spark в вашем кластере HDInsight. Дополнительные сведения см. в разделе [Вызов программ Spark из фабрики данных](data-factory-spark.md). 
 
 ## <a name="machine-learning-activities"></a>Действия машинного обучения
 Фабрика данных Azure позволяет легко создавать конвейеры, в которых для прогнозной аналитики используется опубликованная веб-служба Машинного обучения Azure. С помощью [действия выполнения пакета](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) в конвейере фабрики данных Azure можно вызывать веб-службу Машинного обучения Azure, чтобы создавать прогнозы по данным в пакете.
@@ -95,10 +97,5 @@ C помощью действия хранимой процедуры SQL Serve
 | [Хранимая процедура](data-factory-stored-proc-activity.md) |Azure SQL, хранилище данных Azure SQL или SQL Server |
 | [Аналитика озера данных U-SQL](data-factory-usql-activity.md) |Аналитика озера данных Azure |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] или пакетная служба Azure |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

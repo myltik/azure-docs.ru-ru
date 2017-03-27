@@ -78,8 +78,8 @@
 ### [Измерение использования](logic-apps-pricing.md)
 
 # Справочные материалы
-## [Язык определения рабочего процесса](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Действия и триггеры рабочего процесса](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
+## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Журнал схем

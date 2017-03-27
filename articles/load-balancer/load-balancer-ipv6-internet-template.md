@@ -1,5 +1,5 @@
 ---
-title: "Развертывание подсистемы балансировки нагрузки для Интернета с поддержкой IPv6 с помощью шаблона Azure | Документация Майкрософт"
+title: "Развертывание подсистемы балансировки нагрузки с доступом к Интернету и поддержкой IPv6 с помощью шаблона Azure | Документация Майкрософт"
 description: "Узнайте, как реализовать поддержку IPv6 для Azure Load Balancer и виртуальных машин с балансировкой нагрузки."
 services: load-balancer
 documentationcenter: na
@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -132,9 +133,4 @@ Azure Load Balancer является балансировщиком нагруз
 | lbName |Укажите имя балансировщика нагрузки. Это имя отображается на портале, а также используется интерфейсом командной строки и командами PowerShell. |
 
 Остальные переменные в шаблоне содержат производные значения, которые назначаются, когда Azure создает ресурсы. Не изменяйте эти переменные.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

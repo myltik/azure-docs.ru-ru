@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 03/10/2017
 ms.author: nkolli;giridham;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d1e68b0e73c60542de566c32c92caf0b3c4630c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -61,11 +62,13 @@ ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
 ## <a name="prerequisites"></a>Предварительные требования
 Для подготовки службы архивации Azure к резервному копированию данных DPM необходимо выполнить перечисленные ниже действия.
 
-1. **Создание хранилища службы архивации.** Создайте хранилище в консоли службы архивации Azure.
+1. **Создание хранилища архивации**
+
+  > [!IMPORTANT]
+  > Начиная с марта 2017 года классический портал больше нельзя использовать для создания хранилищ службы архивации. Имеющиеся хранилища службы архивации по-прежнему поддерживаются. Вы также [можете использовать Azure PowerShell, чтобы создать новые](./backup-client-automation-classic.md#create-a-backup-vault). Однако мы советуем создавать хранилища служб восстановления для всех развертываний, так как все новые улучшения будут применяться только к этим хранилищам.
+
 2. **Скачивание учетных данных хранилища.** В службе архивации Azure передайте в хранилище созданные вами сертификаты управления.
 3. **Установка агента службы архивации Azure и регистрация сервера.** В службе архивации Azure установите агент на каждый сервер DPM и зарегистрируйте сервер DPM в хранилище архивации.
-
-[!INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
 [!INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -102,9 +105,4 @@ ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
 > Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

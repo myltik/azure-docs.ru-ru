@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ ms.lasthandoff: 02/28/2017
 
 ![Колонка учетной записи пакетной службы на портале Azure][account_blade]
 
-* **URL-адрес учетной записи** — при разработке приложения с использованием [API-интерфейсов пакетной](batch-technical-overview.md#batch-development-apis) вам понадобится URL-адрес учетной записи для доступа к ресурсам пакетной службы. Вот формат URL-адреса учетной записи пакетной службы:
+* **URL-адрес учетной записи** — при разработке приложения с использованием [API-интерфейсов пакетной](batch-apis-tools.md#batch-development-apis) вам понадобится URL-адрес учетной записи для доступа к ресурсам пакетной службы. Вот формат URL-адреса учетной записи пакетной службы:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 02/28/2017
 Помимо портала Azure, создавать учетные записи пакетной службы и управлять ими можно с помощью следующих средств:
 
 * [командлеты PowerShell для пакетной службы;](batch-powershell-cmdlets-get-started.md)
-* [Интерфейс командной строки Azure](../xplat-cli-install.md)
+* [Интерфейс командной строки Azure](../cli-install-nodejs.md)
 * [Библиотека .NET для управления пакетной службой](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия

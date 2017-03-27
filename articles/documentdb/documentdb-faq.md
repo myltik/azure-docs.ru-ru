@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: cf8db132c7f541017744505bf0fca9393db8b3f9
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8ebc1aa663f298d1f3f495523d85bda8777d5d29
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -122,6 +122,26 @@ DocumentDB поддерживает транзакции LINQ посредств
 
 ### <a name="is-a-local-instance-of-documentdb-available"></a>Доступен ли локальный экземпляр DocumentDB?
 Да. [Эмулятор Azure DocumentDB](documentdb-nosql-local-emulator.md) предоставляет высокоточную эмуляцию службы DocumentDB. Его функциональные возможности аналогичны Azure DocumentDB, включая поддержку создания документов JSON и выполнения запросов к ним, подготовку и масштабирование коллекций, а также выполнение хранимых процедур и триггеров. С помощью эмулятора DocumentDB можно разрабатывать и тестировать приложения. Чтобы развернуть эти приложения в глобальной среде Azure, потребуется лишь изменить один параметр конфигурации для конечной точки подключения к DocumentDB.
+
+## <a name="database-questions-about-developing-against-api-for-mongodb"></a>База данных: вопросы о разработке с использованием API для MongoDB
+### <a name="what-is-documentdbs-api-for-mongodb"></a>Что такое API DocumentDB для MongoDB?
+API Microsoft Azure DocumentDB для MongoDB — это слой совместимости, который позволяет приложениям легко и прозрачно взаимодействовать с ядром собственной СУБД DocumentDB с помощью существующих API MongoDB Apache и драйверов, которые поддерживаются сообществом разработчиков. Существующие инструменты MongoDB и актуальные навыки позволяют разработчикам создавать приложения, использующие DocumentDB. В этих приложениях будут задействованы преимущества уникальных возможностей DocumentDB, которые включают автоматическое индексирование, поддержку резервного копирования, финансово подкрепленные соглашения об уровне обслуживания и т. д.
+
+### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>Как подключиться к API для базы данных MongoDB?
+Чтобы быстро подключиться к API DocumentDB для MongoDB, откройте [портал Azure](https://portal.azure.com). Перейдите к своей учетной записи. В учетной записи на *панели навигации слева* щелкните *Быстрый запуск*. *Быстрый запуск* позволяет оперативно получить фрагменты кода для подключения к базе данных. 
+
+В DocumentDB строгие требования к безопасности и стандарты. Для учетных записей DocumentDB требуется проверка подлинности и безопасный обмен данными через *SSL*. Поэтому вы должны использовать TLSv1.2.
+
+Дополнительные сведения см. в статье [Подключение приложения MongoDB к учетной записи DocumentDB с помощью строки подключения MongoDB](documentdb-connect-mongodb-account.md).
+
+### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>Существуют ли дополнительные коды ошибок API для базы данных MongoDB?
+В API для MongoDB есть собственные коды ошибок, помимо типовых кодов ошибок MongoDB.
+
+
+| Ошибка               | Код  | Описание  | Решение  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | Общее количество единиц запроса превысило подготовленное количество для коллекции и было отрегулировано. | Попробуйте масштабировать пропускную способность коллекции на портале Azure или повторите попытку. |
+| ExceededMemoryLimit | 16501 | Так как в этой службе несколько клиентов, операция превысила выделенную память для клиента. | Уменьшите область операции, применив более строгие критерии запроса, или обратитесь в службу поддержки с [портала Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Например: &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

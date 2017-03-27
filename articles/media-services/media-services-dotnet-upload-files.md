@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/12/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
-ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 08dfdb54db0655bc025f8c268988804b069f70c6
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -35,10 +36,10 @@ ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 > [!NOTE]
 > Действительны следующие условия.
 > 
-> * Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак "." для расширения имени файла.
+> * Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [зарезервированные знаки, используемые для кодировки URL-адресов](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак "." для расширения имени файла.
 > * Длина имени не должна превышать 260 знаков.
 > * Существует ограничение на максимальный размер файла, который могут обработать службы мультимедиа. Подробные сведения об этом см. [здесь](media-services-quotas-and-limitations.md).
->
+> * Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 > 
 
 При создании ресурсов можно указать следующие параметры шифрования. 
@@ -60,13 +61,8 @@ ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 В этом разделе показано, как использовать пакет SDK служб мультимедиа для .NET, а также расширения пакета SDK служб мультимедиа для .NET для передачи файлов в ресурс-контейнер служб мультимедиа.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Передача одного файла с помощью пакета SDK служб мультимедиа для .NET
-В следующем примере кода пакет SDK для .NET используется для выполнения таких задач: 
+Следующий пример кода использует пакет SDK для .NET для отправки одного файла. Свойства AccessPolicy и Locator создаются и удаляются с помощью функции Upload. 
 
-* Создает пустой актив.
-* Создает экземпляр AssetFile, который нужно связать с активом.
-* Создает экземпляр AccessPolicy, определяющий разрешения и длительность доступа к активам.
-* Создает экземпляр локатора, который предоставляет доступ к активам.
-* Передает один файл мультимедиа в службы мультимедиа. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
@@ -77,29 +73,18 @@ ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Передача нескольких файлов с помощью пакета SDK служб мультимедиа для .NET
 В следующем примере кода показано, как создать актив и отправить несколько файлов.
@@ -182,7 +167,7 @@ ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 * Замените для NumberOfConcurrentTransfers значение по умолчанию (2) более высоким значением, например 5. Задание этого свойства влияет на все экземпляры **CloudMediaContext**. 
 * Оставьте для ParallelTransferThreadCount значение по умолчанию (10).
 
-## <a name="a-idingestinbulkaingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Массовый прием ресурсов с помощью пакета SDK служб мультимедиа для .NET
+## <a id="ingest_in_bulk"></a>Массовый прием ресурсов с помощью пакета SDK служб мультимедиа для .NET
 Передача больших файлов ресурсов может оказаться узким местом при создании ресурса. Массовый прием ресурсов предполагает отделение создания ресурса от процесса передачи. Чтобы использовать массовый прием ресурсов, создайте манифест (IngestManifest), описывающий ресурс и связанные с ним файлы. Затем воспользуйтесь методом передачи по своему усмотрению, чтобы передать связанные файлы в контейнер больших двоичных объектов манифеста. Службы мультимедиа Microsoft Azure отслеживают контейнер больших двоичных объектов, связанный с манифестом. После загрузки файла в контейнер больших двоичных объектов службы мультимедиа Microsoft Azure завершает создание ресурса на основе конфигурации ресурса в манифесте (IngestManifestAsset).
 
 Для создания новой сущности IngestManifest вызовите метод Create, предоставляемый коллекцией IngestManifests в классе CloudMediaContext. Этот метод создаст новую сущность IngestManifest с указанным именем манифеста.
@@ -314,10 +299,5 @@ ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 Передав ресурс в службы мультимедиа, перейдите к статье [Получение экземпляра процессора мультимедиа][How to Get a Media Processor].
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
