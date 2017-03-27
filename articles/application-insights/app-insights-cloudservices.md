@@ -4,7 +4,7 @@ description: "Эффективное отслеживание веб-ролей 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.workload: tbd
-ms.date: 11/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 42e4fe54eec414549f09b93a3e12ea130eeee68f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -98,19 +99,19 @@ ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 
 Если требуется изменить уровень диагностических сведений, отправляемых в Application Insights, это можно сделать, [напрямую изменив CSCFG-файлы](app-insights-azure-diagnostics.md).
 
-## <a name="a-namesdkainstall-the-sdk-in-each-project"></a><a name="sdk"></a>Установка пакета SDK в каждый проект
+## <a name="sdk"></a>Установка пакета SDK в каждый проект
 Этот параметр позволяет добавить пользовательские данные бизнес-телеметрии в любую роль для более тщательного анализа того, как приложение используется и работает.
 
-В Visual Studio добавьте пакет SDK для Application Insights в каждый проект облачного приложения.
+В Visual Studio настройте пакет SDK для Application Insights для каждого проекта облачного приложения.
 
-1. Измените пакеты NuGet проекта.
+1. **Веб-роли**: щелкните проект правой кнопкой мыши и выберите **Настроить Application Insights** или **Добавить > Телеметрия Application Insights**.
    
-    ![Щелкните проект правой кнопкой мыши и выберите пункт "Управление пакетами Nuget"](./media/app-insights-cloudservices/03-nuget.png)
-2. **Веб-роли**: добавьте [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK содержит модули, которые собирают данные HTTP-запросов и добавляют контекст сервера, например информацию о роли.
-   
-    **Рабочие роли**: добавьте [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. **Рабочие роли**: 
+ * щелкните проект правой кнопкой мыши и выберите **Управление пакетами Nuget**.
+ * Добавьте [Application Insights для Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
    
     ![Поиск Application Insights](./media/app-insights-cloudservices/04-ai-nuget.png)
+
 3. Настройте пакет SDK для отправки данных в ресурсы Application Insights.
    
     В соответствующей функции запуска задайте ключ инструментирования из параметра конфигурации, заданного в CSCFG-файле.
@@ -245,9 +246,4 @@ ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

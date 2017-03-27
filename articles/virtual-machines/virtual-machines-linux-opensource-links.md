@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 80630ec6762ccd00e1e199460703a128f96c1c37
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/31/2017
 * [Вход на виртуальную машину Linux через классический портал Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="set-up"></a>Настройка
-* [Установка интерфейса командной строки Azure (Azure CLI)](../xplat-cli-install.md)
+* [Установка интерфейса командной строки Azure (Azure CLI)](../cli-install-nodejs.md)
 
 ## <a name="tutorials"></a>Учебники
 * [Установка стека LAMP на виртуальную машину Linux в Azure](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

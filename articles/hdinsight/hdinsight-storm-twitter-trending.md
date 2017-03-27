@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 63b280ea-5c07-4dc8-a35f-dccf5a96ba93
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 53c18f6bb294c42456a0a4cd3c2a83812e9b13d0
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -129,10 +131,5 @@ Trident — это высокоуровневая абстракция, кот�
 Дополнительные примеры Storm для HDinsight:
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

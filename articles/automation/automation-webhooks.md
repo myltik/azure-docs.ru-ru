@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: deb32f98bbfc0032ffbdcf168a2b4c42f1c4ae76
-ms.openlocfilehash: 4cf402877d5ddee8f4944a104163a55025013cc0
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/23/2017
 
 > [!NOTE]
 > Значения входных параметров вводятся вместе с заданием Runbook.  Это означает, что любые входные данные, предоставленные клиентом в запросе Webhook, будут записаны в журнал и станут доступны любому пользователю с доступом к заданию автоматизации.  По этой причине необходимо соблюдать осторожность при указании критических данных в вызовах Webhook.
-> 
+>
 
 ## <a name="security"></a>Безопасность
 Безопасность объекта Webhook зависит от безопасности URL-адреса, который содержит токен безопасности, позволяющий вызывать объект Webhook. Служба автоматизации Azure не выполняет проверку подлинности для запроса, если он выполняется с правильным URL-адресом. По этой причине объекты Webhook не следует применять для модулей Runbook, которые выполняют важные функции, без использования дополнительной проверки запроса.
@@ -267,6 +267,4 @@ ms.lasthandoff: 02/23/2017
 * Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
 * Сведения о просмотре состояния задания Runbook см. в статье [Выполнение модуля Runbook в службе автоматизации Azure](automation-runbook-execution.md).
 * Узнать, как использовать службу автоматизации Azure для выполнения действий на основе оповещений Azure, можно в статье [Обработка оповещений виртуальной машины Azure с помощью модулей Runbook службы автоматизации](automation-azure-vm-alert-integration.md).
-* Как вызывать Runbook из оповещения OMS Log Analytics, см. в статье [Реагирование на проблемы в Log Analytics с использованием оповещений](../log-analytics/log-analytics-alerts.md#runbook-actions).
-
 

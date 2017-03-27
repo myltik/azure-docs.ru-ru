@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/14/2017
 Интерфейс командной строки Azure (Azure CLI) — это одно из нескольких средств для развертывания ресурсов, а также управления ими с помощью Resource Manager. В этой статье описываются стандартные методы управления ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure в режиме Azure Resource Manager. Сведения о развертывании ресурсов с помощью интерфейса командной строки см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и интерфейса командной строки Azure](resource-group-template-deploy-cli.md). Общие сведения о ресурсах Azure и Resource Manager см. в статье [Общие сведения об Azure Resource Manager](resource-group-overview.md).
 
 > [!NOTE]
-> Чтобы управлять ресурсами Azure с помощью интерфейса командной строки Azure, необходимо установить [интерфейс командной строки Azure](../xplat-cli-install.md) и [войти в Azure](../xplat-cli-connect.md) с помощью команды `azure login`. Убедитесь, что интерфейс командной строки работает в режиме Resource Manager (выполните команду `azure config mode arm`). Если все это уже сделано, у вас все готово для работы.
+> Чтобы управлять ресурсами Azure с помощью интерфейса командной строки Azure, необходимо установить [интерфейс командной строки Azure](../cli-install-nodejs.md) и [войти в Azure](../xplat-cli-connect.md) с помощью команды `azure login`. Убедитесь, что интерфейс командной строки работает в режиме Resource Manager (выполните команду `azure config mode arm`). Если все это уже сделано, у вас все готово для работы.
 > 
 > 
 

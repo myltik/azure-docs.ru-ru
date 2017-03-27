@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/14/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 41b75cf3059cd3758f1bce149ad8fcad4e5644ac
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cc393967fec1a98a4dd596a156c7a12e88959b04
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="how-to-perform-documentdb-global-database-replication-using-the-azure-portal"></a>Выполнение репликации глобальной базы данных DocumentDB с помощью портала Azure
+# <a name="how-to-perform-global-database-replication-using-the-azure-portal"></a>Выполнение репликации глобальной базы данных с помощью портала Azure
 
-Узнайте, как с помощью портала Azure выполнить репликацию данных в нескольких регионах, чтобы обеспечить глобальную доступность данных в Azure DocumentDB.
+Узнайте, как с помощью портала Azure выполнить репликацию данных в нескольких регионах, чтобы обеспечить глобальную доступность данных в Azure DocumentDB и API для MongoDB.
 
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как выполнить репликацию глобальной базы данных программным путем, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
 
@@ -60,6 +60,41 @@ While all regions associated with your DocumentDB database account can serve rea
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
+
+### <a name="verifying-your-regional-setup-in-api-for-mongodb"></a>Проверка региональных настроек в API для MongoDB
+Самый простой способом еще раз проверить глобальную конфигурацию в API для MongoDB — это выполнить команду *isMaster()* из оболочки Mongo.
+
+Из оболочки Mongo:
+
+   ```
+      db.isMaster()
+   ```
+   
+Пример результатов:
+
+   ```JSON
+      {
+         "_t": "IsMasterResponse",
+         "ok": 1,
+         "ismaster": true,
+         "maxMessageSizeBytes": 4194304,
+         "maxWriteBatchSize": 1000,
+         "minWireVersion": 0,
+         "maxWireVersion": 2,
+         "tags": {
+            "region": "South India"
+         },
+         "hosts": [
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         ],
+         "setName": "globaldb",
+         "setVersion": 1,
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+      }
+   ```
 
 ## <a id="next"></a>Дальнейшие действия
 Сведения об управлении согласованностью глобально реплицируемой учетной записи см. в статье [Уровни согласованности в DocumentDB](documentdb-consistency-levels.md).

@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: e762497c67e04aa4186094a203796278355de36f
-ms.openlocfilehash: 5da58eebde8ea0d615514755af1c378d16f60bfc
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 51edde1be97885b92fe48f65d3f477c73cd19338
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/27/2017
 
 
 ## <a name="create-supporting-resources"></a>Создание вспомогательных ресурсов
-Войдите в [интерфейс командной строки Azure](../xplat-cli-install.md) и перейдите в режим Resource Manager.
+Войдите в [интерфейс командной строки Azure](../cli-install-nodejs.md) и перейдите в режим Resource Manager.
 
 ```azurecli
 azure config mode arm

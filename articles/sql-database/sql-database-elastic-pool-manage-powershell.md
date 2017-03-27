@@ -16,15 +16,15 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ffcf0f0aa80f0a6b65cbef65e361e4830fcca3ff
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
 # <a name="create-and-manage-an-elastic-pool-with-powershell"></a>Создание эластичного пула и управление им с помощью PowerShell
-В этой статье показано, как с помощью PowerShell создавать масштабируемые [эластичные пулы](sql-database-elastic-pool.md) и управлять ими.  Вы также можете создать эластичный пул Azure и управлять им на [портале Azure](https://portal.azure.com/), с помощью REST API или [C#] (см. статью [Мониторинг пула эластичных баз данных и управление им с помощью C#](sql-database-elastic-pool-manage-csharp.md)). Вы также можете использовать [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), чтобы создавать новые базы данных в эластичных пулах и перемещать базы данных в пулы и обратно.
+В этой статье показано, как с помощью PowerShell создавать масштабируемые [эластичные пулы](sql-database-elastic-pool.md) и управлять ими.  Для создания эластичных пулов Azure и управления ими можно также использовать [портал Azure](https://portal.azure.com/), REST API или [C#](sql-database-elastic-pool-manage-csharp.md). Вы также можете использовать [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), чтобы создавать новые базы данных в эластичных пулах и перемещать базы данных в пулы и обратно.
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 

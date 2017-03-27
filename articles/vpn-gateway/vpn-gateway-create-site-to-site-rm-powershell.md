@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 1d0addd4f04fb597e7962c21ccbcb61e165a6c1e
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,6 +26,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Классическая модель — портал Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Классическая модель — классический портал](vpn-gateway-site-to-site-create.md)
 >
 >
@@ -51,7 +53,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 * Подписка Azure. Если у вас нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или зарегистрировать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial).
 * Последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-namelogina1-connect-to-your-subscription"></a><a name="Login"></a>1. Подключение к подписке
+## <a name="Login"></a>1. Подключение к подписке
 Для работы с командлетами диспетчера ресурсов необходимо перейти в режим PowerShell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
 Откройте консоль PowerShell и подключитесь к своей учетной записи. Для подключения используйте следующий пример.
@@ -66,7 +68,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## <a name="a-namevneta2-create-a-virtual-network-and-a-gateway-subnet"></a><a name="VNet"></a>2. Создание виртуальной сети и подсети шлюза
+## <a name="VNet"></a>2. Создание виртуальной сети и подсети шлюза
 В примерах используется подсеть шлюза с маской подсети /28. Хотя можно создать подсеть шлюза размером /29, рекомендуется создать подсеть большего размера, включающую несколько адресов, выбрав по крайней мере значение /28 или /27. Таким образом, у вас будет достаточно адресов, чтобы добавить дополнительные конфигурации в будущем.
 
 Если у вас уже есть виртуальная сеть с подсетью шлюза c длиной префикса&29; бит (/29) или больше, сразу переходите к разделу [Добавление локального сетевого шлюза](#localnet).
@@ -94,7 +96,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
     New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
     -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="a-namegatewaysubnetato-add-a-gateway-subnet-to-a-virtual-network-you-have-already-created"></a><a name="gatewaysubnet"></a>Добавление подсети шлюза в уже созданную виртуальную сеть
+### <a name="gatewaysubnet"></a>Добавление подсети шлюза в уже созданную виртуальную сеть
 Этот шаг требуется только в том случае, если вам нужно добавить подсеть шлюза в созданную ранее виртуальную сеть.
 
 Подсеть шлюза можно создать с помощью примера, указанного ниже. Обязательно присвойте подсети шлюза имя "GatewaySubnet". Если будет присвоено другое имя, вы создадите подсеть, но Azure не будет рассматривать ее как подсеть шлюза.
@@ -111,7 +113,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## <a name="3-a-namelocalnetaadd-your-local-network-gateway"></a>3) <a name="localnet"></a>Добавление локального сетевого шлюза
+## 3) <a name="localnet"></a>Добавление локального сетевого шлюза
 В виртуальной сети термин "шлюз локальной сети" обычно означает локальное расположение. Присвойте этому расположению имя (чтобы определить расположение в среде Azure), а также укажите префикс адресного пространства для шлюза локальной сети.
 
 С помощью указанного префикса IP-адреса служба Azure может определить, какой трафик отправлять в локальное расположение. Это значит, что вам нужно будет указать каждый префикс адреса, который необходимо связать со шлюзом локальной сети. При изменении локальной сети вы с легкостью можете обновить эти префиксы.
@@ -134,7 +136,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 ### <a name="to-modify-ip-address-prefixes-for-your-local-network-gateway"></a>Изменение префиксов IP-адресов для локального сетевого шлюза
 Иногда префиксы адресов шлюза локальной сети могут изменяться. Действия по изменению префиксов IP-адресов зависят от того, создано ли подключение через VPN-шлюз. См. раздел [Изменение префиксов IP-адресов для локального сетевого шлюза](#modify) этой статьи.
 
-## <a name="a-namepublicipa4-request-a-public-ip-address-for-the-vpn-gateway"></a><a name="PublicIP"></a>4. Запрос общедоступного IP-адреса для VPN-шлюза
+## <a name="PublicIP"></a>4. Запрос общедоступного IP-адреса для VPN-шлюза
 Затем вам нужно запросить общедоступный IP-адрес, который будет выделен для VPN-шлюза виртуальной сети Azure. Он отличается от IP-адреса, назначенного VPN-устройству. Этот адрес присваивается VPN-шлюзу Azure отдельно. Указать необходимый вам IP-адрес нельзя. Он выделяется для шлюза динамически. Этот IP-адрес будет использоваться при настройке локального VPN-устройства для подключения к шлюзу.
 
 VPN-шлюз Azure для модели развертывания, в которой используется диспетчер ресурсов, в настоящее время поддерживает только общедоступные IP-адреса, которые выделяются динамически. Однако это не значит, что IP-адрес изменится. IP-адрес VPN-шлюза Azure изменяется только после его удаления и повторного создания. Общедоступный IP-адрес шлюза остается прежним после изменения размера, сброса или обновления VPN-шлюза Azure, а также после других процедур по его обслуживанию.
@@ -143,14 +145,14 @@ VPN-шлюз Azure для модели развертывания, в котор
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
-## <a name="a-namegatewayipconfiga5-create-the-gateway-ip-addressing-configuration"></a><a name="GatewayIPConfig"></a>5. Создание конфигурации IP-адресации шлюза
+## <a name="GatewayIPConfig"></a>5. Создание конфигурации IP-адресации шлюза
 Конфигурация шлюза определяет используемые подсеть и общедоступный IP-адрес. Используйте следующий пример, чтобы создать конфигурацию шлюза.
 
     $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
     $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 
-## <a name="a-namecreategatewaya6-create-the-virtual-network-gateway"></a><a name="CreateGateway"></a>6. Создание шлюза виртуальной сети
+## <a name="CreateGateway"></a>6. Создание шлюза виртуальной сети
 На этом этапе вы создадите шлюз виртуальной сети. Обратите внимание, что создание шлюза может занять некоторое время — 45 минут или больше.
 
 Используйте следующие значения:
@@ -163,14 +165,14 @@ VPN-шлюз Azure для модели развертывания, в котор
         -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-## <a name="a-nameconfigurevpndevicea7-configure-your-vpn-device"></a><a name="ConfigureVPNDevice"></a>7. Настройка устройства VPN
+## <a name="ConfigureVPNDevice"></a>7. Настройка устройства VPN
 На этом этапе вам понадобится общедоступный IP-адрес шлюза виртуальной сети для настройки локального VPN-устройства. Обратитесь к производителю устройства, чтобы получить конкретные сведения о конфигурации. Дополнительные сведения также см. в статье о [VPN-устройствах](vpn-gateway-about-vpn-devices.md).
 
 Чтобы найти общедоступный IP-адрес шлюза виртуальной сети, используйте следующий пример.
 
     Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## <a name="a-namecreateconnectiona8-create-the-vpn-connection"></a><a name="CreateConnection"></a>8. Создание VPN-подключения
+## <a name="CreateConnection"></a>8. Создание VPN-подключения
 Далее вам нужно создать VPN-подключение типа "сеть — сеть" между шлюзом виртуальной сети и VPN-устройством. Обязательно подставьте собственные значения. Общий ключ должен соответствовать значению, использованному в конфигурации VPN-устройства. Обратите внимание, что для подключения типа "сеть — сеть" параметр `-ConnectionType` имеет значение *IPsec*.
 
 Задайте переменные.
@@ -186,25 +188,20 @@ VPN-шлюз Azure для модели развертывания, в котор
 
 Через некоторое время будет установлено подключение.
 
-## <a name="a-nametoverifyato-verify-a-vpn-connection"></a><a name="toverify"></a>Проверка VPN-подключения
+## <a name="toverify"></a>Проверка VPN-подключения
 Существует несколько разных способов для проверки VPN-подключения.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="a-namemodifyato-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>Изменение префиксов IP-адресов для локального сетевого шлюза
+## <a name="modify"></a>Изменение префиксов IP-адресов для локального сетевого шлюза
 Если вам нужно изменить префиксы для шлюза локальной сети, сделайте следующее. Мы приводим два набора инструкций. Выбор тех или других инструкций зависит от того, создано ли у вас подключение через шлюз.
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="a-namemodifygwipaddressato-modify-the-gateway-ip-address-for-a-local-network-gateway"></a><a name="modifygwipaddress"></a>Изменение IP-адреса шлюза для локального сетевого шлюза
+## <a name="modifygwipaddress"></a>Изменение IP-адреса шлюза для локального сетевого шлюза
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 *  Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Сведения о BGP см. в статьях [Обзор использования BGP с VPN-шлюзами Azure](vpn-gateway-bgp-overview.md) и [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

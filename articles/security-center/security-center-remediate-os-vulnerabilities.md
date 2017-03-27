@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7680aafcefbe6f1e6e3b55137da2e46b42df5a9b
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c88dc19cdacc94b9b81adcdbf69f22aac8f6eabe
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/04/2017
   - "Результат вычисления" — результат анализа: проверка пройдена или нет.
 
 ## <a name="see-also"></a>Дополнительные материалы
-В этой статье объясняется, как выполнить рекомендацию центра безопасности "Remediate OS vulnerabilities" (Исправить уязвимости ОС). Набор правил конфигурации можно просмотреть [здесь](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Центр безопасности использует CCE (перечисление общей конфигурации) для назначения уникальных идентификаторов для правил конфигурации. Посетите сайт [CCE](http://cce.mitre.org) , чтобы получить дополнительную информацию.
+В этой статье объясняется, как выполнить рекомендацию центра безопасности "Remediate OS vulnerabilities" (Исправить уязвимости ОС). Набор правил конфигурации можно просмотреть [здесь](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Центр безопасности использует CCE (перечисление общей конфигурации) для назначения уникальных идентификаторов для правил конфигурации. Посетите сайт [CCE](https://nvd.nist.gov/cce/index.cfm) , чтобы получить дополнительную информацию.
 
 Дополнительные сведения о Центре безопасности см. в следующих статьях:
 

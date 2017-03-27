@@ -5,7 +5,7 @@
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Установите последнюю версию интерфейса командной строки Azure для Windows, Linux или Mac. Дополнительные сведения см. в статье [Установка Azure CLI](../articles/xplat-cli-install.md).
+* Установите последнюю версию интерфейса командной строки Azure для Windows, Linux или Mac. Дополнительные сведения см. в статье [Установка Azure CLI](../articles/cli-install-nodejs.md).
 
 ### <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
 
@@ -54,9 +54,4 @@ azure group create -n myresourcegroup --location "West US"
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

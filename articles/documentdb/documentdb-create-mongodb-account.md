@@ -1,29 +1,16 @@
 ---
-title: "Создание учетной записи DocumentDB для использования с приложениями MongoDB | Документация Майкрософт"
-description: "В этом руководстве вы узнаете, как создать учетную запись DocumentDB с поддержкой протокола MongoDB, доступную в предварительной версии."
-keywords: "приложения mongodb, приложение mongodb"
-services: documentdb
-author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 413f3ae1-a68e-43be-b0d7-fa2987644f3e
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/24/2016
-ms.author: anhoh
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-create-account
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 1c9e8d5a00445b31c81547df7bd2dbc55f8feac2
-ms.openlocfilehash: e9176ec520b05e5613eab610fbc96144e9405d07
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 21a388894278c9086b40812e5cfa7dc9b662a5ef
+ms.lasthandoff: 03/10/2017
+
 
 
 ---
 
-# <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>Создание учетной записи DocumentDB для использования с приложениями MongoDB
+# <a name="create-a-documentdb-account-with-mongodb-api"></a>Создание учетной записи DocumentDB с помощью API MongoDB
 Теперь базы данных DocumentDB можно использовать как хранилище данных для приложений, написанных для MongoDB. Чтобы использовать эту возможность, требуются учетные записи Azure и DocumentDB. В этом руководстве описано, как создать учетную запись DocumentDB для использования с приложениями MongoDB. 
 
 Учетную запись DocumentDB с поддержкой учетной записи MongoDB можно создать с помощью портала Azure или интерфейса командной строки Azure с шаблонами Azure Resource Manager. Из этой статьи вы узнаете, как создать учетную запись DocumentDB с поддержкой учетной записи MongoDB с помощью портала Azure. Сведения о том, как создать учетную запись с помощью интерфейса командной строки Azure с Azure Resource Manager, см. в статье [Автоматизация управления учетными записями Azure DocumentDB с помощью Azure CLI 2.0](documentdb-automation-resource-manager-cli.md).

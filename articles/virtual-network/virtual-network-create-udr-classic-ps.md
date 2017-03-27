@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 39dafb04f2b155790d58db524a3ff52960891e16
-ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Управление маршрутизацией и использование виртуальных модулей (классический режим) с помощью PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
-- [Шаблон](virtual-network-create-udr-arm-template.md)
-- [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
-- [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+> * [Шаблон](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
+> * [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -52,11 +53,6 @@ ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
     -Label "Route table for front end subnet"
     ```
 
-    Выходные данные:
-   
-        Name         Location   Label                          
-        ----         --------   -----                          
-        UDR-FrontEnd West US    Route table for front end subnet
 2. Чтобы создать маршрут в таблице маршрутов для отправки всего трафика, предназначенного для серверной подсети (192.168.2.0/24), в виртуальную машину **FW1** (192.168.0.4), выполните следующую команду:
 
     ```powershell
@@ -65,16 +61,7 @@ ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
-   
-    Выходные данные:
-   
-        Name     : UDR-FrontEnd
-        Location : West US
-        Label    : Route table for frontend subnet
-        Routes   : 
-                   Name                 Address Prefix    Next hop type        Next hop IP address
-                   ----                 --------------    -------------        -------------------
-                   RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
+
 3. Чтобы сопоставить таблицу маршрутов с подсетью **FrontEnd**, выполните следующую команду:
 
     ```powershell
@@ -97,8 +84,10 @@ ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
 2. Чтобы создать маршрут в таблице маршрутов для отправки всего трафика, предназначенного для интерфейсной подсети (192.168.1.0/24), в виртуальную машину **FW1** (192.168.0.4), выполните следующую команду:
 
     ```powershell
-    Get-AzureRouteTable UDR-BackEnd `
-    |Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+    Get-AzureRouteTable UDR-BackEnd
+    | Set-AzureRoute `
+    -RouteName RouteToFrontEnd `
+    -AddressPrefix 192.168.1.0/24 `
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
@@ -122,18 +111,10 @@ ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
     | Get-AzureIPForwarding
     ```
 
-    Выходные данные:
-   
-        Disabled
 2. Чтобы включить IP-пересылку для виртуальной машины *FW1*, выполните следующую команду:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Set-AzureIPForwarding -Enable
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

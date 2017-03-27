@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -145,10 +145,25 @@ ms.lasthandoff: 02/06/2017
 
 Если выбран параметр **DN is anchor**(Различаемое имя служит привязкой), то нужно использовать тип объекта, используемого как источник ссылки. Ссылаться на объект другого типа нельзя.
 
+>[!NOTE]
+Обновление за март 2017 г. : теперь вы можете использовать * для импорта всех возможных типов участников.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+После импорта вы увидите нечто похожее:
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### <a name="global-parameters"></a>Глобальные параметры
 Страница «Глобальные параметры» используется для настройки импорта изменений, формата даты и времени и метода проверки пароля.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ *или**любой параметр** не может использоваться во время операций экспорта и удаления.
 
 Универсальный соединитель SQL поддерживает следующие способы импорта изменений.
 

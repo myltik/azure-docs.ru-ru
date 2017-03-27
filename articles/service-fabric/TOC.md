@@ -109,11 +109,11 @@
 #### [Шаблоны сети кластера](service-fabric-patterns-networking.md)
 #### [Виды узлов и масштабируемые наборы ВМ](service-fabric-cluster-nodetypes.md)
 #### [Масштабирование кластера](service-fabric-cluster-scale-up-down.md)
+#### [Масштабирование кластера программным способом](service-fabric-cluster-programmatic-scaling.md)
 #### [Обновление кластера](service-fabric-cluster-upgrade.md)
 #### [Удаление кластера](service-fabric-cluster-delete.md)
 #### [Контроль доступа](service-fabric-cluster-security-roles.md)
 #### [Настройка кластера](service-fabric-cluster-fabric-settings.md)
-#### [Защита кластера с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
 #### [Добавление или изменение сертификатов кластера](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Пробное бесплатное использование кластера Party Cluster](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Управление жизненным циклом приложения
 ### [Обзор](service-fabric-application-lifecycle.md)
-### [Настройка непрерывной интеграции](service-fabric-set-up-continuous-integration.md)
+### [Настройка непрерывной интеграции с помощью VSTS](service-fabric-set-up-continuous-integration.md)
+### [Развертывание приложения Linux Java с помощью Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Развертывание или удаление приложений
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

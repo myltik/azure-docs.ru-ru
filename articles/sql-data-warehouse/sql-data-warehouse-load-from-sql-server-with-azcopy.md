@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a4ad30d1aa0ec273b6b875b0d2d037005ac159
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 21b4cc704e271ac220fd606305f8f97c9b2593bb
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -31,7 +33,7 @@ ms.openlocfilehash: f3a4ad30d1aa0ec273b6b875b0d2d037005ac159
 * Установленная служебная программа командной строки SQLCMD.
 
 > [!NOTE]
-> Вы можете скачать служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][Центр загрузки Майкрософт].
+> Вы можете скачать служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][Microsoft Download Center].
 > 
 > 
 
@@ -58,7 +60,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Дополнительные сведения о создании таблицы в хранилище данных SQL и параметрах, доступных в предложении WITH, см. в статьях, посвященных [таблицам в хранилище данных SQL][таблицы в хранилище данных SQL] и [синтаксису инструкции CREATE TABLE][синтаксис инструкции CREATE TABLE].
+> Дополнительные сведения о создании таблицы в хранилище данных SQL и параметрах, доступных в предложении WITH, см. в статьях, посвященных [таблицам в хранилище данных SQL][Table Overview] и [синтаксису инструкции CREATE TABLE][CREATE TABLE syntax].
 > 
 > 
 
@@ -116,7 +118,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Шаг 4. Создание статистики для вновь загруженных данных
-Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в статье, посвященной [управлению статистикой таблиц в хранилище данных SQL][управление статистикой таблиц в хранилище данных SQL]. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
+Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в статье [Управление статистикой таблиц в хранилище данных SQL][Statistics]. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
 
 Выполните следующие операторы CREATE STATISTICS из командной строки sqlcmd:
 
@@ -160,27 +162,22 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Общие сведения о загрузке см. в статье [Загрузка данных в хранилище данных SQL][Загрузка данных в хранилище данных SQL].
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][Проектные решения и методики программирования для хранилища данных SQL].
+Общие сведения о загрузке см. в статье [Загрузка данных в хранилище данных SQL][Load data into SQL Data Warehouse].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load.md
-[Проектные решения и методики программирования для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
-[Обзор таблиц]: ./sql-data-warehouse-tables-overview.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Синтаксис CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 

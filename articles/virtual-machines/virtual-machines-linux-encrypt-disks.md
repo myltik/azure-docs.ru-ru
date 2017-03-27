@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c6acdf97ee5e947ac48866c003480e393dd4bf35
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/31/2017
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для шифрования виртуальных дисков на вашей виртуальной машине. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](#overview-of-disk-encryption).
 
-Кроме того, потребуется установить [последнюю версию интерфейса командной строки Azure](../xplat-cli-install.md) и выполнить вход в систему в режиме Resource Manager, как показано ниже.
+Кроме того, потребуется установить [последнюю версию интерфейса командной строки Azure](../cli-install-nodejs.md) и выполнить вход в систему в режиме Resource Manager, как показано ниже.
 
 ```azurecli
 azure config mode arm
@@ -157,7 +157,7 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 * обновление криптографических ключей на уже зашифрованных виртуальных машинах Linux.
 
 ## <a name="create-the-azure-key-vault-and-keys"></a>Создание хранилища ключей Azure и ключей
-Для выполнения указаний из оставшейся части этого руководства потребуется установить [последнюю версию интерфейса командной строки Azure](../xplat-cli-install.md) и выполнить вход в систему в режиме Resource Manager, как показано ниже.
+Для выполнения указаний из оставшейся части этого руководства потребуется установить [последнюю версию интерфейса командной строки Azure](../cli-install-nodejs.md) и выполнить вход в систему в режиме Resource Manager, как показано ниже.
 
 ```azurecli
 azure config mode arm

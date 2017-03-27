@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
-ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 6cf48883d397a4b04e707111306d4596cd7af683
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -35,8 +35,8 @@ ms.lasthandoff: 02/09/2017
 ## <a name="install-and-configure-the-solution"></a>Установка и настройка решения
 Установите и настройте решение хранилища ключей Azure, выполнив следующие указания:
 
-1. Включите ведение журнала диагностики для мониторинга ресурсов Key Vault, используя портал или PowerShell. 
-2. Включите решение хранилища ключей Azure, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md). 
+1. Включите решение Azure Key Vault из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md). 
+2. Включите ведение журнала диагностики для мониторинга ресурсов Key Vault, используя [портал](#enable-key-vault-diagnostics-in-the-portal) или [PowerShell](#enable-key-vault-diagnostics-using-powershell). 
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Включение диагностики Key Vault на портале
 
@@ -76,7 +76,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 | Таблицы Azure |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Да](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | при получении |
 
 ## <a name="use-azure-key-vault"></a>Использование хранилища ключей Azure
-После установки решения просмотрите данные Key Vault, щелкнув элемент **Хранилище ключей Azure** на странице **Обзор** в службе Log Analytics.
+[Установив решение](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) просмотрите данные Key Vault, щелкнув плитку **Azure Key Vault** на странице **Обзор** в службе Log Analytics.
 
 ![изображение плитки "Хранилище ключей Azure"](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 

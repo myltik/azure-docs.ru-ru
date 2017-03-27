@@ -82,7 +82,6 @@
 
 ### [Перенос из IIS](web-sites-migration-from-iis-server.md)
 ### [Тестирование в рабочей среде](app-service-web-test-in-production-get-start.md)
-### [Выполнение тестов производительности](app-service-web-app-performance-test.md) 
 
 ## Подключение к БД и ресурсам        
 

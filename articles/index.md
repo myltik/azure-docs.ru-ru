@@ -4,9 +4,9 @@ hide_bc: true
 title: "Документация по Microsoft Azure | Microsoft Docs"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 359cb51a6107d6556ba261d19bfb1b8b31405d34
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dc4b5b0613a76a90c566dedf3ff41be1f68f744
+ms.lasthandoff: 03/22/2017
 
 ---
 <div id="main" class="v2">
@@ -49,17 +49,17 @@ ms.lasthandoff: 03/14/2017
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/get-started/">
+                <a href="https://azure.microsoft.com/en-us/community/training/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Пятиминутное видео по началу работы</h3>
+                                    <h3>Бесплатные видеоуроки PluralSight. Работа с Azure</h3>
                                 </div>
                             </div>
                         </div>
@@ -601,13 +601,7 @@ ms.lasthandoff: 03/14/2017
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Службы BizTalk</p>
+                                                <p>Приложения логики</p>
                                             </a>
                                         </li>
                                         <li>
@@ -638,6 +632,12 @@ ms.lasthandoff: 03/14/2017
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Фабрика данных</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
+                                                <p>Службы BizTalk</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1820,25 +1820,6 @@ ms.lasthandoff: 03/14/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Службы BizTalk</h3>
-                                                    <p>Простая интеграция предприятия и облака</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1927,6 +1908,25 @@ ms.lasthandoff: 03/14/2017
                                                 <div class="cardText">
                                                     <h3>Фабрика данных</h3>
                                                     <p>Координация преобразования и перемещения данных и управление ими</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/biztalk-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/BizTalkServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Службы BizTalk</h3>
+                                                    <p>Простая интеграция предприятия и облака</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2724,7 +2724,7 @@ ms.lasthandoff: 03/14/2017
                                                     <a href="https://github.com/Microsoft/DockerToolsDocs">Инструменты Docker</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Начало работы</a>
+                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Загрузка для Visual Studio</a>

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: f179a19dd3a126d23c33520a428a8c3a644f4171
-ms.openlocfilehash: 08a1399e702dbf9222b8412950ee62509b53ef76
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: acf5ae8dc98213fe435f8feafe4a8ef246f545b9
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -28,43 +28,21 @@ ms.lasthandoff: 02/21/2017
 
 В этой статье описывается создание виртуальной машины с помощью модели развертывания Azure Resource Manager с использованием PowerShell. Для ресурсов, созданных с помощью классической модели развертывания, нельзя назначить несколько IP-адресов. Дополнительные сведения о моделях развертывания Azure см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
+## <a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
 
 Вы можете создать пример виртуальной машины с несколькими IP-адресами, как описано в нашем сценарии. Измените имена переменных и типы IP-адресов в соответствии с требованиями этой реализации.
 
-1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-2. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Это может занять несколько минут.
-
-3. Выполните этапы 1–4 статьи [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md). Не выполняйте этап 5 (создание ресурса общедоступного IP-адреса и сетевого интерфейса). Если вы изменили имена каких-либо переменных, используемых в этой статье, изменяйте их также при выполнении остальных этапов. Чтобы создать виртуальную машину Linux, используйте операционную систему Linux, а не Windows.
-4. Создайте переменную для хранения объекта подсети, созданного на этапе 4 (создание виртуальной сети) статьи о создании виртуальной машины Windows. Для этого выполните следующую команду:
+1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+2. Выполните этапы 1–4 статьи [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Не выполняйте этап 5 (создание ресурса общедоступного IP-адреса и сетевого интерфейса). Если вы изменили имена каких-либо переменных, используемых в этой статье, изменяйте их также при выполнении остальных этапов. Чтобы создать виртуальную машину Linux, используйте операционную систему Linux, а не Windows.
+3. Создайте переменную для хранения объекта подсети, созданного на этапе 4 (создание виртуальной сети) статьи о создании виртуальной машины Windows. Для этого выполните следующую команду:
 
     ```powershell
     $SubnetName = $mySubnet.Name
     $Subnet = $myVnet.Subnets | Where-Object { $_.Name -eq $SubnetName }
     ```
-5. Определите IP-конфигурации, которые необходимо назначить сетевому интерфейсу. Конфигурации можно добавлять, удалять или изменять по мере необходимости. В сценарии описаны следующие конфигурации.
+4. Определите IP-конфигурации, которые необходимо назначить сетевому интерфейсу. Конфигурации можно добавлять, удалять или изменять по мере необходимости. В сценарии описаны следующие конфигурации.
 
     **IPConfig-1**
 
@@ -73,7 +51,7 @@ ms.lasthandoff: 02/21/2017
     - IP-конфигурацию с ресурсом общедоступного IP-адреса и динамическим частным IP-адресом.
 
     ```powershell
-    $myPublicIp1     = New-AzureRmPublicIpAddress -Name "myPublicIp1" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Static
+    $myPublicIp1    = New-AzureRmPublicIpAddress -Name "myPublicIp1" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Static
     $IpConfigName1  = "IPConfig-1"
     $IpConfig1      = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName1 -Subnet $Subnet -PublicIpAddress $myPublicIp1 -Primary
     ```
@@ -82,7 +60,6 @@ ms.lasthandoff: 02/21/2017
 
     > [!NOTE]
     > За общедоступные IP-адреса взимается номинальная плата. Дополнительные сведения о ценах на IP-адреса см. на странице [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses). Число общедоступных IP-адресов, которые можно использовать в одной подписке, ограничено. Сведения об ограничениях см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md#networking-limits).
-    >
 
     **IPConfig-2**
 
@@ -105,7 +82,7 @@ ms.lasthandoff: 02/21/2017
     $IpConfigName3 = "IpConfig-3"
     $IpConfig3 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName3 -Subnet $Subnet
     ```
-6. Создайте сетевой интерфейс, используя IP-конфигурации, определенные на предыдущем шаге, с помощью следующей команды:
+5. Создайте сетевой интерфейс, используя IP-конфигурации, определенные на предыдущем шаге, с помощью следующей команды:
 
     ```powershell
     $myNIC = New-AzureRmNetworkInterface -Name myNIC -ResourceGroupName $myResourceGroup `
@@ -114,27 +91,26 @@ ms.lasthandoff: 02/21/2017
     > [!NOTE]
     > Хотя в этом руководстве все IP-конфигурации назначаются одному сетевому адаптеру, вы также можете назначить несколько IP-конфигураций любому сетевому адаптеру, связанному с виртуальной машиной. Дополнительные сведения о создании виртуальной машины с несколькими сетевыми интерфейсами см. в [этой статье](virtual-network-deploy-multinic-arm-ps.md).
 
-7. Выполните этап 6 статьи [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md). 
+6. Выполните этап 6 статьи [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
     > [!WARNING]
     > Этап 6 создания виртуальной машины завершается сбоем, если:
     > - вы изменили переменную $myNIC при выполнении этапа 6 этой статьи;
     > - вы не завершили предыдущие этапы этой статьи и статьи о создании виртуальной машины Windows.
     >
-8. Просмотрите частные IP-адреса и ресурсы общедоступных IP-адресов, назначенные сетевому интерфейсу. Для этого выполните следующую команду:
+7. Просмотрите частные IP-адреса и ресурсы общедоступных IP-адресов, назначенные сетевому интерфейсу. Для этого выполните следующую команду:
 
     ```powershell
     $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-9. Добавьте в операционную систему виртуальной машины частные IP-адреса, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи. Не добавляйте в операционную систему общедоступные IP-адреса.
+8. Добавьте в операционную систему виртуальной машины частные IP-адреса, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи. Не добавляйте в операционную систему общедоступные IP-адреса.
 
-## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Добавление IP-адресов в виртуальную машину
+## <a name="add"></a>Добавление IP-адресов в виртуальную машину
 
 Выполнив следующие шаги, вы сможете добавить к сетевой карте частные и общедоступные IP-адреса. В примерах, приводимых в следующих разделах, предполагается, что у вас уже есть виртуальная машина с тремя IP-конфигурациями, описанными в [сценарии](#Scenario) в этой статье, но это не является обязательным требованием.
 
-1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-2. Зарегистрируйтесь для использования общедоступной предварительной версии, выполнив шаг 2 в разделе **Создание виртуальной машины с несколькими IP-адресами**.
-3. Измените значения переменных со знаком "$" на имя сетевого интерфейса, к которому необходимо добавить IP-адрес, а также имя группы ресурсов и расположения, где находится сетевой интерфейс.
+1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+2. Измените значения переменных со знаком "$" на имя сетевого интерфейса, к которому необходимо добавить IP-адрес, а также имя группы ресурсов и расположения, где находится сетевой интерфейс.
 
     ```powershell
     $NICname         = "myNIC"
@@ -147,12 +123,12 @@ ms.lasthandoff: 02/21/2017
     ```powershell
     Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
     ```
-4. Создайте переменную и назначьте ее существующему сетевому интерфейсу, выполнив следующую команду:
+3. Создайте переменную и назначьте ее существующему сетевому интерфейсу, выполнив следующую команду:
 
     ```powershell
     $myNIC = Get-AzureRmNetworkInterface -Name $NICname -ResourceGroupName $myResourceGroup
     ```
-5. В следующих командах измените параметры *myVNet* и *mySubnet* на имена виртуальной сети и подсети, к которым подключен сетевой интерфейс. Чтобы получить объекты виртуальной сети и подсети, к которым подключен сетевой интерфейс, выполните следующие команды:
+4. В следующих командах измените параметры *myVNet* и *mySubnet* на имена виртуальной сети и подсети, к которым подключен сетевой интерфейс. Чтобы получить объекты виртуальной сети и подсети, к которым подключен сетевой интерфейс, выполните следующие команды:
 
     ```powershell
     $myVnet = Get-AzureRMVirtualnetwork -Name myVNet -ResourceGroupName $myResourceGroup
@@ -163,13 +139,13 @@ ms.lasthandoff: 02/21/2017
     $mynic.IpConfigurations
     ```
     В возращенных выходных данных найдите текст, похожий на следующий:
-
-        Subnet   : {
-                     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
-
+    ```powershell
+    Subnet   : {
+                 "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+    ```
     В полученных выходных данных *myVnet* — это имя виртуальной сети, а *mySubnet* —имя подсети, к которой подключен сетевой интерфейс.
 
-6. Выполните действия, описанные в одном из следующих разделов, с учетом задач.
+5. Выполните действия, описанные в одном из следующих разделов, с учетом задач.
 
     **Добавление частного IP-адреса**
 
@@ -177,9 +153,8 @@ ms.lasthandoff: 02/21/2017
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
-     $myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
+    $myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
     ```
-
     Вы можете создать любое количество конфигураций, указывая для них уникальные имена и уникальные частные IP-адреса (если используются статические IP-адреса).
 
     Добавьте в операционную систему виртуальной машины частный IP-адрес, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи.
@@ -192,63 +167,63 @@ ms.lasthandoff: 02/21/2017
     > За общедоступные IP-адреса взимается номинальная плата. Дополнительные сведения о ценах на IP-адреса см. на странице [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses). Число общедоступных IP-адресов, которые можно использовать в одной подписке, ограничено. Сведения об ограничениях см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md#networking-limits).
     >
 
-    **Связывание ресурса общедоступного IP-адреса с новой IP-конфигурацией**
+    - **Связывание ресурса общедоступного IP-адреса с новой IP-конфигурацией**
     
-    Чтобы добавить общедоступный IP-адрес в новую IP-конфигурацию, необходимо добавить и частный IP-адрес, так как все IP-конфигурации должны иметь частный IP-адрес. В конфигурацию можно добавить имеющийся ресурс общедоступного IP-адреса или создать новый. Чтобы создать ресурс, выполните следующую команду:
+        Чтобы добавить общедоступный IP-адрес в новую IP-конфигурацию, необходимо добавить и частный IP-адрес, так как все IP-конфигурации должны иметь частный IP-адрес. В конфигурацию можно добавить имеющийся ресурс общедоступного IP-адреса или создать новый. Чтобы создать ресурс, выполните следующую команду:
     
-    ```powershell
-    $myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
-    -Location $location -AllocationMethod Static
-    ```
+        ```powershell
+        $myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
+        -Location $location -AllocationMethod Static
+        ```
 
-     Чтобы создать новую IP-конфигурацию с частным динамическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIp3*, выполните следующую команду:
+         Чтобы создать новую IP-конфигурацию с частным динамическим IP-адресом и связанным ресурсом общедоступного IP-адреса *myPublicIp3*, выполните следующую команду:
 
-    ```powershell
-    Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
-     $myNIC -Subnet $Subnet -PublicIpAddress $myPublicIp3
-    ```
+        ```powershell
+        Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
+         $myNIC -Subnet $Subnet -PublicIpAddress $myPublicIp3
+        ```
 
-    **Связывание ресурса общедоступного IP-адреса с существующей IP-конфигурацией**
+    - **Связывание ресурса общедоступного IP-адреса с существующей IP-конфигурацией**
 
-    Ресурс общедоступного IP-адреса может быть связан только с такой IP-конфигурацией, у которой еще нет такого ресурса. Чтобы определить, связан ли с конкретной IP-конфигурацией какой-либо общедоступный IP-адрес, выполните следующую команду:
+        Ресурс общедоступного IP-адреса может быть связан только с такой IP-конфигурацией, у которой еще нет такого ресурса. Чтобы определить, связан ли с конкретной IP-конфигурацией какой-либо общедоступный IP-адрес, выполните следующую команду:
 
-    ```powershell
-    $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
-    ```
+        ```powershell
+        $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
+        ```
 
-    Найдите в возвращаемых данных строку, похожую на приведенную ниже.
+        Должен появиться результат, аналогичный приведенному ниже.<br>
 
-        Name       PrivateIpAddress PublicIpAddress                                           Primary
-        ----       ---------------- ---------------                                           -------
-        IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
-        IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
-        IpConfig-3 10.0.0.6                                                                     False
+            Name       PrivateIpAddress PublicIpAddress                                           Primary
+            
+            IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
+            IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
+            IpConfig-3 10.0.0.6                                                                     False
 
-    Столбец **PublicIpAddress** для IP-конфигурации *IpConfig-3* пуст. Это означает, что в настоящее время с этой конфигурацией не связан никакой общедоступный IP-адрес. Вы можете добавить к конфигурации IpConfig-3 имеющийся ресурс общедоступного IP-адреса или создать новый ресурс, выполнив следующую команду:
+        Столбец **PublicIpAddress** для IP-конфигурации *IpConfig-3* пуст. Это означает, что в настоящее время с этой конфигурацией не связан никакой общедоступный IP-адрес. Вы можете добавить к конфигурации IpConfig-3 имеющийся ресурс общедоступного IP-адреса или создать новый ресурс, выполнив следующую команду:
 
-    ```powershell
-    $myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
-    -Location $location -AllocationMethod Static
-    ```
+        ```powershell
+        $myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
+        -Location $location -AllocationMethod Static
+        ```
 
-    Чтобы связать ресурс общедоступного IP-адреса с имеющейся IP-конфигурацией с именем *IPConfig-3*, выполните следующую команду:
+        Чтобы связать ресурс общедоступного IP-адреса с имеющейся IP-конфигурацией с именем *IPConfig-3*, выполните следующую команду:
     
-    ```powershell
-    Set-AzureRmNetworkInterfaceIpConfig -Name IpConfig-3 -NetworkInterface $mynic -Subnet $Subnet -PublicIpAddress $myPublicIp3
-    ```
+        ```powershell
+        Set-AzureRmNetworkInterfaceIpConfig -Name IpConfig-3 -NetworkInterface $mynic -Subnet $Subnet -PublicIpAddress $myPublicIp3
+        ```
 
-7. Настройте для сетевого интерфейса IP-конфигурацию, выполнив следующую команду:
+6. Настройте для сетевого интерфейса IP-конфигурацию, выполнив следующую команду:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $myNIC
     ```
 
-8. Просмотрите частные IP адреса и ресурсы общедоступных IP-адресов, назначенные сетевому адаптеру. Для этого введите следующую команду.
+7. Просмотрите частные IP адреса и ресурсы общедоступных IP-адресов, назначенные сетевому адаптеру. Для этого введите следующую команду.
 
     ```powershell   
     $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-9. Добавьте в операционную систему виртуальной машины частный IP-адрес, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи. Не добавляйте в операционную систему общедоступный IP-адрес.
+8. Добавьте в операционную систему виртуальной машины частный IP-адрес, выполнив действия, соответствующие вашей операционной системе, как описано в разделе [Добавление IP-адресов в операционную систему виртуальной машины](#os-config) этой статьи. Не добавляйте в операционную систему общедоступный IP-адрес.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 

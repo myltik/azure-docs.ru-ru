@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 13b77c10dfe42d39ad3802f0be1b3f6fe75788e5
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/03/2017
 * Откройте средство просмотра событий и найдите события для соединителя прокси приложения в узле **Журналы приложений и служб** > **Microsoft** > **AadApplicationProxy** > **Соединитель** > **Администратор**.
 * При необходимости доступны более подробные журналы, если включить журналы аналитики и отладки, а также журнал сеансов соединителя прокси-сервера приложения.
 
-Дополнительные сведения об инструменте устранения неполадок Azure AD см. в разделе [Troubleshooting tool to validate connector networking prerequisites] (Проверка предварительных требований соединителя к сети с помощью инструмента устранения неполадок): https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites.
+См. дополнительные сведения о [средстве для устранения неполадок Azure AD для проверки условий, необходимых для работы соединителя в сети](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>Страница не отображается правильно
 Даже если вы не получаете сообщения о конкретных ошибках, все равно возможны проблемы с отображением или работой приложения. Это может произойти если вы опубликовали путь к статье, но приложение требует содержимое, которое находится за пределами этого пути.

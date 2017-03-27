@@ -1,6 +1,6 @@
 ---
-title: "Управление маршрутизацией и виртуальными модулями с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Сведения о том, как управлять маршрутизацией и виртуальными модулями с помощью интерфейса командной строки Azure."
+title: "Управление маршрутизацией и виртуальными модулями с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Сведения о том, как управлять маршрутизацией и виртуальными модулями с помощью Azure CLI 2.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,225 +13,225 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 03/12/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: 6d03903d662ecac24fd4afc47134ce9f39af484f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 317c05f9f8faa335cdd3588c3b50a89948066d11
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="create-user-defined-routes-udr-using-the-azure-cli"></a>Создание определяемых пользователем маршрутов с помощью интерфейса командной строки Azure
+# <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Создание определяемых пользователем маршрутов с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 - [PowerShell](virtual-network-create-udr-arm-ps.md)
 - [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
 - [Шаблон](virtual-network-create-udr-arm-template.md)
-- [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
-- [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
+- [PowerShell (классическое развертывание)](virtual-network-create-udr-classic-ps.md)
+- [Интерфейс командной строки (классическое развертывание)](virtual-network-create-udr-classic-cli.md)
 
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи 
+
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки. 
+
+- [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager. 
+- [Azure CLI 2.0](#Create-the-UDR-for-the-front-end-subnet) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
+
+[!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
+
+[!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
-
-> [!IMPORTANT]
-> Прежде чем приступить к работе с ресурсами Azure, обратите внимание на то, что в настоящее время в Azure существует две модели развертывания: классическая модель развертывания и модель развертывания с помощью Azure Resource Manager. Обязательно изучите [модели и инструменты развертывания](../azure-resource-manager/resource-manager-deployment-model.md) , прежде чем приступить к работе с какими бы то ни было ресурсами Azure. Для просмотра документации о средствах развертывания выбирайте соответствующие вкладки в верхней части данной статьи.
->
-
-В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете создавать определяемые пользователем маршруты на основе [классической модели развертывания](virtual-network-create-udr-classic-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
 Для приведенных ниже примеров команд интерфейса командной строки Azure требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в том виде, в котором они представлены в этом документе, сначала создайте тестовую среду, развернув [этот шаблон](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), нажмите **Deploy to Azure**(Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
-[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## <a name="create-the-udr-for-the-front-end-subnet"></a>Создание определяемого пользователем маршрута для интерфейсной подсети
 Чтобы создать таблицу маршрутов и маршрут, необходимые для подсети переднего плана, на основании приведенного выше сценария, выполните следующие действия.
 
-1. Чтобы создать таблицу маршрутов для интерфейсной подсети, выполните следующую команду:
+1. Создайте таблицу маршрутов для интерфейсной подсети, выполнив команду [az network route-table create](/cli/azure/network/route-table#create).
 
     ```azurecli
-    azure network route-table create -g TestRG -n UDR-FrontEnd -l uswest
+    az network route-table create \
+    --resource-group testrg \
+    --location centralus \
+    --name UDR-FrontEnd
     ```
-   
+    
     Выходные данные:
-   
-        info:    Executing command network route-table create
-        info:    Looking up route table "UDR-FrontEnd"
-        info:    Creating route table "UDR-FrontEnd"
-        info:    Looking up route table "UDR-FrontEnd"
-        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        routeTables/UDR-FrontEnd
-        data:    Name                            : UDR-FrontEnd
-        data:    Type                            : Microsoft.Network/routeTables
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        info:    network route-table create command OK
-   
+    
+    ```json
+    {
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
+    "location": "centralus",
+    "name": "UDR-FrontEnd",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg",
+    "routes": [],
+    "subnets": null,
+    "tags": null,
+    "type": "Microsoft.Network/routeTables"
+    }
+    ```
+
+2. Создайте маршрут, который отправляет весь трафик, направляемый во внутреннюю подсеть (192.168.2.0/24), на виртуальную машину **FW1** (192.168.0.4), с помощью команды [az network route-table route create](/cli/azure/network/route-table/route#create).
+
+    ```azurecli 
+    az network route-table route create \
+    --resource-group testrg \
+    --name RouteToBackEnd \
+    --route-table-name UDR-FrontEnd \
+    --address-prefix 192.168.2.0/24 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 192.168.0.4
+    ```
+
+    Выходные данные:
+
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd/routes/RouteToBackEnd",
+    "name": "RouteToBackEnd",
+    "nextHopIpAddress": "192.168.0.4",
+    "nextHopType": "VirtualAppliance",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg"
+    }
+    ```
+    
     Параметры
-   
-   * **-g (или --resource-group)**. Имя группы ресурсов, в которой будет создан определяемый пользователем маршрут. В данном сценарии это *TestRG*.
-   * **-l (или --location)**. Регион Azure, в котором будет создан новый определяемый пользователем маршрут. В нашем случае это *westus*.
-   * **-n (или --name)**. Имя нового определяемого пользователем маршрута. В данном сценарии это *UDR-FrontEnd*.
-2. Чтобы создать маршрут в таблице маршрутов для отправки всего трафика, предназначенного для серверной подсети (192.168.2.0/24), в виртуальную машину **FW1** (192.168.0.4), выполните следующую команду:
+    
+    * **--route-table-name**. Имя таблицы маршрутов, куда будет добавлен маршрут. В данном сценарии это *UDR-FrontEnd*.
+    * **--address-prefix**. Префикс адреса для подсети, в которую адресованы пакеты. В данном сценарии это *192.168.2.0/24*.
+    * **--next-hop-type**. Тип объекта, куда будет отправляться трафик. Возможные значения: *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* или *None*.
+    * **--next-hop-ip-address**. IP-адрес следующего прыжка. В нашем случае это *192.168.0.4*.
+
+3. Выполните команду [az network vnet subnet update](/cli/azure/network/vnet/subnet#update), чтобы сопоставить созданную ранее таблицу маршрутов с подсетью **FrontEnd**.
 
     ```azurecli
-    azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
+    az network vnet subnet update \
+    > --resource-group testrg \
+    > --vnet-name testvnet \
+    > --name FrontEnd \
+    > --route-table UDR-FrontEnd
     ```
-   
-    Выходные данные:
-   
-        info:    Executing command network route-table route create
-        info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
-        info:    Creating route "RouteToBackEnd" in a route table "UDR-FrontEnd"
-        info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
-        data:    Id                              : /subscriptions/[Subscription Id]/TestRG/providers/Microsoft.Network/
-        routeTables/UDR-FrontEnd/routes/RouteToBackEnd
-        data:    Name                            : RouteToBackEnd
-        data:    Provisioning state              : Succeeded
-        data:    Next hop type                   : VirtualAppliance
-        data:    Next hop IP address             : 192.168.0.4
-        data:    Address prefix                  : 192.168.2.0/24
-        info:    network route-table route create command OK
-   
-    Параметры
-   
-   * **-r (или --route-table-name)**. Имя таблицы маршрутов, куда будет добавлен маршрут. В данном сценарии это *UDR-FrontEnd*.
-   * **-a (или --address-prefix)**. Префикс адреса для подсети, в которую адресованы пакеты. В данном сценарии это *192.168.2.0/24*.
-   * **-y (или --next-hop-type)**. Тип объекта, куда будет отправляться трафик. Возможные значения: *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* или *None*.
-   * **-p (или --next-hop-ip-address**). IP-адрес следующего прыжка. В нашем случае это *192.168.0.4*.
-3. Чтобы сопоставить созданную выше таблицу маршрутов с подсетью **FrontEnd**, выполните следующую команду:
 
-    ```azurecli
-    azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -r UDR-FrontEnd
-    ```
-   
     Выходные данные:
-   
-        info:    Executing command network vnet subnet set
-        info:    Looking up the subnet "FrontEnd"
-        info:    Looking up route table "UDR-FrontEnd"
-        info:    Setting subnet "FrontEnd"
-        info:    Looking up the subnet "FrontEnd"
-        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        virtualNetworks/TestVNet/subnets/FrontEnd
-        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-        data:    ProvisioningState               : Succeeded
-        data:    Name                            : FrontEnd
-        data:    Address prefix                  : 192.168.1.0/24
-        data:    Network security group          : [object Object]
-        data:    Route Table                     : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        routeTables/UDR-FrontEnd
-        data:    IP configurations:
-        data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConf
-        igurations/ipconfig1
-        data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConf
-        igurations/ipconfig1
-        data:    
-        info:    network vnet subnet set command OK
-   
+
+    ```json
+    {
+    "addressPrefix": "192.168.1.0/24",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/FrontEnd",
+    "ipConfigurations": null,
+    "name": "FrontEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg",
+    "resourceNavigationLinks": null,
+    "routeTable": {
+        "etag": null,
+        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
+        "location": null,
+        "name": null,
+        "provisioningState": null,
+        "resourceGroup": "testrg",
+        "routes": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
+        }
+    }
+    ```
+    
     Параметры
-   
-   * **-e (или --vnet-name)**. Имя виртуальной сети, в которой расположена подсеть. В данном сценарии это *TestVNet*.
+    
+    * **--vnet-name**. Имя виртуальной сети, в которой расположена подсеть. В данном сценарии это *TestVNet*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Создание определяемого пользователем маршрута для серверной подсети
+
 Чтобы создать таблицу маршрутов и маршрут, необходимые для серверной подсети, на основании приведенного выше сценария, выполните следующие действия:
 
 1. Чтобы создать таблицу маршрутов для серверной подсети, выполните следующую команду:
 
-    ```azurecli
-    azure network route-table create -g TestRG -n UDR-BackEnd -l westus
-    ```
+        ```azurecli
+        az network route-table create \
+        --resource-group testrg \
+        --name UDR-BackEnd \
+        --location centralus
+        ```
 
 2. Чтобы создать маршрут в таблице маршрутов для отправки всего трафика, предназначенного для интерфейсной подсети (192.168.1.0/24), в виртуальную машину **FW1** (192.168.0.4), выполните следующую команду:
 
-    ```azurecli
-    azure network route-table route create -g TestRG -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -y VirtualAppliance -p 192.168.0.4
-    ```
+        ```azurecli
+        az network route-table route create \
+        --resource-group testrg \
+        --name RouteToFrontEnd \
+        --route-table-name UDR-BackEnd \
+        --address-prefix 192.168.1.0/24 \
+        --next-hop-type VirtualAppliance \
+        --next-hop-ip-address 192.168.0.4
+        ```
 
 3. Чтобы сопоставить таблицу маршрутов с подсетью **BackEnd**, выполните следующую команду:
 
-    ```azurecli
-    azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -r UDR-BackEnd
-    ```
+        ```azurecli
+        az network vnet subnet update \
+        --resource-group testrg \
+        --vnet-name testvnet \
+        --name BackEnd \
+        --route-table UDR-BackEnd
+        ```
+
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>Включение IP-пересылки на FW1
+
 Чтобы включить IP-пересылку в сетевом интерфейсе, используемом **FW1**, выполните следующие действия:
 
-1. Выполните следующую команду и проверьте значение параметра **Enable IP forwarding** (Включить IP-пересылку). Оно должно быть равно *false*.
+1. Выполните команду [az network nic show](/cli/az/network/nic#show) с фильтром JMESPATH, чтобы отобразить текущее значение **enable-ip-forwarding** для параметра **enableIpForwarding**. Оно должно быть равно *false*.
 
-    ```azurecli
-    azure network nic show -g TestRG -n NICFW1
-    ```
+        ```azurecli
+        az network nic show \
+        --resource-group testrg \
+        --nname nicfw1 \
+        --query 'enableIpForwarding' -o tsv
+        ```
 
-    Выходные данные:
-   
-        info:    Executing command network nic show
-        info:    Looking up the network interface "NICFW1"
-        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        networkInterfaces/NICFW1
-        data:    Name                            : NICFW1
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    MAC address                     : 00-0D-3A-30-95-B3
-        data:    Enable IP forwarding            : false
-        data:    Tags                            : displayName=NetworkInterfaces - DMZ
-        data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
-        virtualMachines/FW1
-        data:    IP configurations:
-        data:      Name                          : ipconfig1
-        data:      Provisioning state            : Succeeded
-        data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        publicIPAddresses/PIPFW1
-        data:      Private IP address            : 192.168.0.4
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        virtualNetworks/TestVNet/subnets/DMZ
-        data:    
-        info:    network nic show command OK
+        Output:
+
+        ```bash
+        false
+        ```
+
 2. Чтобы включить IP-пересылку, выполните следующую команду:
 
-    ```azurecli
-    azure network nic set -g TestRG -n NICFW1 -f true
-    ```
-   
+        ```azurecli
+        az network nic update \
+        > --resource-group testrg \
+        > --name nicfw1 \
+        > --ip-forwarding true
+        ```
+
+    Вы можете изучить выходные данные, передаваемые потоком в консоль, или просто повторить проверку для конкретного значения **enableIpForwarding**.
+
+        ```azurecli
+        az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
+        ```
+
     Выходные данные:
-   
-        info:    Executing command network nic set
-        info:    Looking up the network interface "NICFW1"
-        info:    Updating network interface "NICFW1"
-        info:    Looking up the network interface "NICFW1"
-        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        networkInterfaces/NICFW1
-        data:    Name                            : NICFW1
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    MAC address                     : 00-0D-3A-30-95-B3
-        data:    Enable IP forwarding            : true
-        data:    Tags                            : displayName=NetworkInterfaces - DMZ
-        data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
-        virtualMachines/FW1
-        data:    IP configurations:
-        data:      Name                          : ipconfig1
-        data:      Provisioning state            : Succeeded
-        data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        publicIPAddresses/PIPFW1
-        data:      Private IP address            : 192.168.0.4
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-        virtualNetworks/TestVNet/subnets/DMZ
-        data:    
-        info:    network nic set command OK
-   
+
+        ```bash
+        true
+        ```
+    
     Параметры
-   
-   * **-f (или --enable-ip-forwarding)**. Значение *true* или *false*.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+    
+    * **--ip-forwarding**. Значение *true* или *false*.
 
 

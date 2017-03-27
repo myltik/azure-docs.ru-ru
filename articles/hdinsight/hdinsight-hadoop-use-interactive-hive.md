@@ -10,6 +10,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +20,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 6971e123b388eab689e02a5c67809509c2ad29c6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -63,10 +65,5 @@ Interactive Hive (также называемый [Live Long and Process](https:
 * [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md)
 * [Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

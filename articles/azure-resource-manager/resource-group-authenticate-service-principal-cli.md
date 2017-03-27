@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a99b55c98f29356fb78e053434f6f3fc5c9d0efc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
 * Не требуется изменять учетные данные приложения в случае изменения ваших обязанностей. 
 * Можно использовать сертификат, чтобы автоматизировать аутентификацию при выполнении автоматического сценария.
 
-В этой статье показано, как настроить использование собственных учетных данных и удостоверения для приложения с помощью [интерфейса командной строки Azure (Azure CLI) для Mac, Linux и Windows](../xplat-cli-install.md).
+В этой статье показано, как настроить использование собственных учетных данных и удостоверения для приложения с помощью [интерфейса командной строки Azure (Azure CLI) для Mac, Linux и Windows](../cli-install-nodejs.md).
 
 В Azure CLI доступно два варианта проверки подлинности для приложения AD:
 
@@ -372,10 +373,5 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).
 * Дополнительные сведения об использовании сертификатов и Azure CLI см. в статье [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Проверка подлинности на основе сертификата для субъектов-служб Azure из командной строки Linux). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

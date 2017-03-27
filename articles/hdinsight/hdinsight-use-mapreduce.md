@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 8be0f2f30f815277c4953c223d91c2571c2521a5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/17/2017
 
 В этой статье рассказывается о том, как с помощью Curl запускать задания MapReduce в Hadoop в кластере HDInsight. Мы запустим простую операцию подсчета слов, реализованную как задание MapReduce на Java.
 
-## <a name="a-idwhatisawhat-is-mapreduce"></a><a id="whatis"></a>Что такое MapReduce
+## <a id="whatis"></a>Что такое MapReduce
 
 Hadoop MapReduce — это программная платформа для написания заданий, обрабатывающих большие объемы данных. Входные данные разбиваются на независимые блоки, которые затем обрабатываются параллельно на узлах кластера. Задание MapReduce состоят из двух функций.
 
@@ -61,7 +62,7 @@ Hadoop MapReduce — это программная платформа для н
 
 * [Разработка заданий Python MapReduce](hdinsight-hadoop-streaming-python.md)
 
-## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>Сведения о демонстрационных данных
+## <a id="data"></a>Сведения о демонстрационных данных
 
 В этом примере в качестве демонстрационных данных вы будете использовать блокноты Леонардо да Винчи, которые предоставляются в виде текстового документа в кластере HDInsight.
 
@@ -75,7 +76,7 @@ Hadoop MapReduce — это программная платформа для н
 > Предыдущий синтаксис **wasbs:///** используется для обращения к файлам, которые хранятся в контейнере хранилища по умолчанию для вашего кластера HDInsight. Если вы указали дополнительные учетные записи хранения при подготовке кластера и хотите обращаться к файлам из этих учетных записей, это можно сделать, указав имя контейнера и адрес учетной записи хранения. Например, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 
-## <a name="a-idjobaabout-the-example-mapreduce"></a><a id="job"></a>Сведения о примере MapReduce
+## <a id="job"></a>Сведения о примере MapReduce
 
 Задание MapReduce, используемое в данном примере, находится в файле **wasbs://example/jars/hadoop-mapreduce-examples.jar** и предоставляется с кластером HDInsight. Это задание является примером операции подсчета слов, которая будет выполняться в файле **davinci.txt**.
 
@@ -158,7 +159,7 @@ public class WordCount {
 
 Инструкции по написанию собственного задания MapReduce см. в статье [Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
-## <a name="a-idrunarun-the-mapreduce"></a><a id="run"></a>Запуск MapReduce
+## <a id="run"></a>Запуск MapReduce
 
 HDInsight может запускать задания HiveQL с помощью различных методов. Используйте следующую таблицу, чтобы решить, какой метод подходит вам, а затем перейдите по ссылке, чтобы открыть пошаговое руководство.
 
@@ -172,7 +173,7 @@ HDInsight может запускать задания HiveQL с помощью 
 > [!IMPORTANT]
 > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 
 Хотя платформа MapReduce предоставляет мощные диагностические функции, она может быть сложной для освоения. Некоторые платформы на основе Java упрощают определение приложений MapReduce, а такие технологии, как Pig и Hive, упрощают работу с данными в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
@@ -181,15 +182,14 @@ HDInsight может запускать задания HiveQL с помощью 
 * [Разработка заданий Scalding MapReduce с Apache Hadoop в HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 * [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
-* [Запуск примеров HDInsight][hdinsight-samples]
+
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

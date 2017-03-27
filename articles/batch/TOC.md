@@ -11,6 +11,7 @@
 ## Разработка
 ### [Пакеты приложений](batch-application-packages.md)
 ### [Автомасштабирование вычислительных узлов](batch-automatic-scaling.md)
+### [Проверка подлинности Azure AD](batch-aad-auth.md)
 ### [Параллельные задачи узла](batch-parallel-node-tasks.md)
 ### [Эффективные запросы на вывод списка](batch-efficient-list-queries.md)
 ### [Задачи для подготовки и выполнения заданий](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Примеры кода Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Блог](https://blogs.technet.microsoft.com/windowshpc/)
 

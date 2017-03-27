@@ -13,12 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
-ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
+ms.lasthandoff: 03/18/2017
 
 ---
 
-#<a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
+# <a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
 
 Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов IoT, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы помогут вам установить надежную двустороннюю связь между устройствами IoT и серверной частью решения. 
 
@@ -141,8 +142,8 @@ ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (устройства)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (служба)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (устройства)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Node (служба)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Node (устройства)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Node (служба)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Node (устройства)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Пакеты SDK для Центра Интернета вещей Azure</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Пакет SDK для шлюза</a></p>
                     </div>
@@ -167,10 +168,5 @@ ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

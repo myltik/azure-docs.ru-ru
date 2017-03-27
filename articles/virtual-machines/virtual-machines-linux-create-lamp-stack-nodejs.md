@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 2/21/2017
 ms.author: juluk
 translationtype: Human Translation
-ms.sourcegitcommit: 59af3469a5b2d5cca68bf18dca1aa1e3ab684adb
-ms.openlocfilehash: 0675b6471e37e89e426df85e2fb696fcff2927fd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c216b573e91894f2b9e17bf870c03b7d2a0f7161
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>Развертывание стека LAMP с помощью Azure CLI 1.0
-Эта статья содержит указания по развертыванию веб-сервера Apache, MySQL и PHP (стека LAMP) в Azure. Вам потребуется учетная запись Azure (можно [получить бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)) и [Azure CLI](../xplat-cli-install.md), который [подключен к вашей учетной записи Azure](../xplat-cli-connect.md).
+Эта статья содержит указания по развертыванию веб-сервера Apache, MySQL и PHP (стека LAMP) в Azure. Вам потребуется учетная запись Azure (можно [получить бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)) и [Azure CLI](../cli-install-nodejs.md), который [подключен к вашей учетной записи Azure](../xplat-cli-connect.md).
 
 ## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.

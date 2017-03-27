@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 116344308a1173994ec85bcb8a7112ce158f4f60
-ms.openlocfilehash: d4cb0ad3ad88aad6cabc67b32d048da9ed797d07
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 711407f7dd9e6d442e3f04a23962487f4808e8e2
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -51,14 +51,14 @@ ms.lasthandoff: 02/24/2017
 
 ### <a name="spark-16-notebooks"></a>Записные книжки для Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку с использованием нескольких различных алгоритмов.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку с использованием нескольких различных алгоритмов.
 
 ### <a name="spark-20-notebooks"></a>Записные книжки для Spark 2.0
 Задачи регрессии и классификации, реализованные с помощью кластера Spark 2.0, находятся в отдельных записных книжках и используют другой набор данных:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку в кластерах Spark 2.0 на примере набора данных о расстояниях и ценах на такси в Нью-Йорке, описанного [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Эту записную книжку можно использовать в качестве отправной точки для быстрого изучения кода, предоставленного для Spark 2.0. В следующей записной книжке списка приведен более детальный анализ данных о поездках в такси по Нью-Йорку (см. примечания после списка сравнения этих записных книжек). 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере набора данных о расстояниях и ценах на такси в Нью-Йорке, который описан [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере известного набора данных о расписании вылетов авиакомпании за 2011 и 2012 гг. До моделирования мы дополнили набор данных об авиарейсах набором данных о погоде в аэропортах (скорость ветра, температура, высота над уровнем моря и т. д.), чтобы включить в модель эту информацию о погоде.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Содержит сведения о том, как выполнять просмотр данных, моделирование и оценку в кластерах Spark 2.0 на примере набора данных о расстояниях и ценах на такси в Нью-Йорке, описанного [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Эту записную книжку можно использовать в качестве отправной точки для быстрого изучения кода, предоставленного для Spark 2.0. В следующей записной книжке списка приведен более детальный анализ данных о поездках в такси по Нью-Йорку (см. примечания после списка сравнения этих записных книжек). 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере набора данных о расстояниях и ценах на такси в Нью-Йорке, который описан [здесь](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb). Демонстрирует, как можно выполнять структурирование данных (Spark SQL и операции с кадрами данных), просмотр данных, моделирование и оценку на примере известного набора данных о расписании вылетов авиакомпании за 2011 и 2012 гг. До моделирования мы дополнили набор данных об авиарейсах набором данных о погоде в аэропортах (скорость ветра, температура, высота над уровнем моря и т. д.), чтобы включить в модель эту информацию о погоде.
 
 <!-- -->
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/24/2017
 <!-- -->
 
 > [!NOTE]
-Выполнение записных книжек Spark 2.0 с наборами данных о поездках в такси по Нью-Йорку и задержке рейсов может занять примерно 10 минут или больше (в зависимости от размера кластера HDI). В первой записной книжке из приведенного выше списка показаны многие аспекты исследования и визуализации данных, а также обучения модели машинного обучения. За счет уменьшения набора данных о поездках в такси по Нью-Йорку, в котором данные о поездках и тарифах на них объединены в один файл [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb), выполнение и завершение этой записной книжки занимает значительно меньше времени (2–3 минуты), и поэтому ее хорошо использовать в качестве отправной точки для быстрого изучения кода, предоставленного для Spark 2.0. 
+Выполнение записных книжек Spark 2.0 с наборами данных о поездках в такси по Нью-Йорку и задержке рейсов может занять примерно 10 минут или больше (в зависимости от размера кластера HDI). В первой записной книжке из приведенного выше списка показаны многие аспекты исследования и визуализации данных, а также обучения модели машинного обучения. За счет уменьшения набора данных о поездках в такси по Нью-Йорку, в котором данные о поездках и тарифах на них объединены в один файл [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb), выполнение и завершение этой записной книжки занимает значительно меньше времени (2–3 минуты), и поэтому ее хорошо использовать в качестве отправной точки для быстрого изучения кода, предоставленного для Spark 2.0. 
 
 <!-- -->
 
@@ -970,7 +970,7 @@ R-sqr = 0.759661334921
 ### <a name="gradient-boosting-trees-regression"></a>Регрессия с применением градиентного бустинга деревьев
 Приведенный в этом разделе код предназначен для обучения, анализа и сохранения модели градиентного бустинга деревьев, с помощью которой можно спрогнозировать суму чаевых за поездку в такси по Нью-Йорку.
 
-**Обучение и анализ **
+**Обучение и анализ**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

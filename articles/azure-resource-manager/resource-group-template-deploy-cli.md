@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
-ms.openlocfilehash: ccbb918a3377094395a27a9b7a63f213c5085027
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b084c722b75152b8a2b867f21d546abd04a96f04
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -29,96 +30,86 @@ ms.openlocfilehash: ccbb918a3377094395a27a9b7a63f213c5085027
 > 
 > 
 
-В этой статье объясняется, как использовать интерфейс командной строки Azure и шаблоны Resource Manager для развертывания ресурсов в Azure.  Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
+В этом разделе объясняется, как использовать [Azure CLI 2.0](/cli/azure/install-az-cli2) и шаблоны Resource Manager для развертывания ресурсов в Azure.  Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
 
-> [!TIP]
-> Справку по отладке ошибок во время развертывания можно получить в следующих статьях.
-> 
-> * Статья [Просмотр операций развертывания с помощью Azure Resource Manager](resource-manager-deployment-operations.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
-> * [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md) — руководство по устранению распространенных ошибок при развертывании.
-> 
-> 
+## <a name="deploy"></a>Развернуть
 
-## <a name="quick-steps-to-deployment"></a>Быстрое развертывание
-Чтобы быстро приступить к выполнению развертывания, воспользуйтесь следующими командами:
+* Чтобы быстро приступить к развертыванию, используйте следующие команды для развертывания локального шаблона со встроенными параметрами.
 
-```
-azure group create -n examplegroup -l "West US"
-azure group deployment create -f "c:\MyTemplates\example.json" -e "c:\MyTemplates\example.params.json" -g examplegroup -n exampledeployment
-```
+  ```azurecli
+  az login
+  az account set --subscription {subscription-id}
 
-Эти команды создают группу ресурсов и развертывают в ней шаблон. Файл шаблона и файл параметров являются локальными. Если это вам подходит, то все необходимое готово к развертыванию ресурсов. Тем не менее, существуют дополнительные параметры, с помощью которых можно указать развертываемые ресурсы. В оставшейся части этой статьи описаны все доступные во время развертывания параметры. 
+  az group create --name ExampleGroup --location "Central US"
+  az group deployment create \
+      --name ExampleDeployment \
+      --resource-group ExampleGroup \
+      --template-file storage.json \
+      --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+  ```
+
+  Развертывание может занять несколько минут. По завершении появится сообщение следующего вида.
+
+  ```azurecli
+  "provisioningState": "Succeeded",
+  ```
+  
+* Выполнять команду `az account set` требуется только в том случае, если вы хотите использовать подписку, отличную от вашей подписки по умолчанию. Чтобы просмотреть все подписки и их идентификаторы, используйте следующий командлет.
+
+  ```azurecli
+  az account list
+  ```
+
+* Для развертывания внешнего шаблона используйте параметр **template-uri**.
+   
+   ```azurecli
+   az group deployment create \
+       --name ExampleDeployment \
+       --resource-group ExampleGroup \
+       --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
+       --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+   ```
+
+* Чтобы передать значения параметров из файла, используйте следующую команду.
+
+   ```azurecli
+   az group deployment create \
+       --name ExampleDeployment \
+       --resource-group ExampleGroup \
+       --template-file storage.json \
+       --parameters @storage.parameters.json
+   ```
+
+   Файл параметров должен быть в указанном ниже формате.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+        "storageNamePrefix": {
+            "value": "contoso"
+        },
+        "storageSKU": {
+            "value": "Standard_GRS"
+        }
+     }
+   }
+   ```
+
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-## <a name="deploy"></a>Развернуть
-Информацию об использовании интерфейса командной строки Azure с Resource Manager см. в статье [Use the Azure CLI to manage Azure resources and resource groups](xplat-cli-azure-resource-manager.md) (Использование интерфейса командной строки Azure для управления ресурсами и группами ресурсов Azure).
+Чтобы использовать полный режим, используйте параметр mode.
 
-1. Войдите в свою учетную запись Azure. После предоставления учетных данных команда возвращает результат вашего входа.
-   
-   ```
-   azure login
-   ```
-2. Если у вас несколько подписок, укажите подписку, которую вы хотите использовать для развертывания.
-   
-   ```
-   azure account set <YourSubscriptionNameOrId>
-   ```
-4. При развертывании шаблона необходимо указать группу ресурсов, которая будет содержать развернутые ресурсы. Если у вас уже есть группа ресурсов, в которую можно развернуть шаблон, пропустите этот шаг и используйте существующую группу. 
-   
-     Чтобы создать группу ресурсов, укажите ее имя и расположение. Следует указать расположение группы ресурсов, так как она хранит метаданные ресурсов. Для соответствия требованиям вам, возможно, нужно указать, где хранятся эти метаданные. Обычно мы рекомендуем указывать расположение, в котором будет храниться большинство ресурсов. Используя одно и то же расположение, можно упростить шаблон.
-   
-   ```
-   azure group create -n ExampleResourceGroup -l "West US"
-   ```
-
-     Появится сводка по новой группе ресурсов.
-   
-5. Проверьте развернутую службу перед ее выполнением. Для этого выполните команду **azure group template validate**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
-   
-   ```
-   azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
-   ```
-6. Чтобы развернуть ресурсы в группе ресурсов, выполните команду **azure group deployment create** и укажите необходимые параметры. имя развертывания, имя группы ресурсов, путь или URL-адрес шаблона, а также другие необходимые вам параметры. Если параметр **mode** не указан, используется значение по умолчанию **Incremental**. Чтобы выполнить полное развертывание, установите для параметра **mode** значение **Complete**. Будьте внимательны при использовании полного режима, так как вы можете случайно удалить ресурсы, которые находятся не в шаблоне.
-   
-     Для развертывания локального шаблона используйте параметр **template-file**.
-   
-   ```
-   azure group deployment create --resource-group examplegroup --template-file "c:\MyTemplates\example.json"
-   ```
-   
-     Для развертывания внешнего шаблона используйте параметр **template-uri**.
-   
-   ```
-   azure group deployment create --resource-group examplegroup --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/example.json"
-   ```
-   
-     В двух предыдущих примерах не указаны значения параметров. Варианты передачи значений параметров в рассматриваются в разделе [Параметры](#parameters). Пока что указать значения параметров будет предложено посредством следующего синтаксиса.
-
-   ```
-   info:    Executing command group deployment create
-   info:    Supply values for the following parameters
-   firstParameters:  <type here>
-   ```
-
-      После развертывания ресурсов вы увидите сводку по развертыванию. Сводка содержит значение **ProvisioningState**, указывающее, успешно ли выполнено развертывание.
-
-   ```
-   + Initializing template configurations and parameters
-   + Creating a deployment
-   info:    Created template deployment "example"
-   + Waiting for deployment to complete
-   +
-   +
-   data:    DeploymentName     : example
-   data:    ResourceGroupName  : examplegroup
-   data:    ProvisioningState  : Succeeded
-   ```
-7. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **debug-setting** . Можно задать регистрацию в журнале содержимого запроса или содержимого ответа (или и того, и другого) при операции развертывания.
-   
-   ```
-   azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g examplegroup -n exampleDeployment
-   ```
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --mode Complete \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+```
 
 ## <a name="deploy-template-from-storage-with-sas-token"></a>Развертывание шаблона из хранилища с помощью маркера SAS
 Шаблоны можно добавить в учетную запись хранения и создать ссылки на них во время развертывания с помощью маркера SAS.
@@ -129,69 +120,67 @@ azure group deployment create -f "c:\MyTemplates\example.json" -e "c:\MyTemplate
 > 
 
 ### <a name="add-private-template-to-storage-account"></a>Добавление частного шаблона в учетную запись хранения
-Ниже приведены действия по настройке учетной записи хранения для шаблонов.
-
-1. Создайте группу ресурсов.
+Приведенные ниже команды позволяют настроить контейнер учетной записи хранения и передать шаблон.
    
-   ```
-   azure group create -n "ManageGroup" -l "westus"
-   ```
-2. Создайте учетную запись хранения. Имя учетной записи хранения должно быть уникальным в Azure, поэтому введите собственное имя для учетной записи.
-   
-   ```
-   azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
-   ```
-3. Задайте переменные для учетной записи хранения и ключа.
-   
-   ```
-   export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
-   export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
-   ```
-4. Создайте контейнер. Разрешение имеет значение **Off** , это означает, что контейнер доступен только владельцу.
-   
-   ```
-   azure storage container create --container templates -p Off 
-   ```
-5. Добавьте свой шаблон в контейнер.
-   
-   ```
-   azure storage blob upload --container templates -f c:\MyTemplates\azuredeploy.json
-   ```
+```azurecli
+az group create --name "ManageGroup" --location "South Central US"
+az storage account create \
+    --resource-group ManageGroup \
+    --location "South Central US" \
+    --sku Standard_LRS \
+    --kind Storage \
+    --name {your-unique-name}
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+az storage container create \
+    --name templates \
+    --public-access Off \
+    --connection-string $connection
+az storage blob upload \
+    --container-name templates \
+    --file vmlinux.json \
+    --name vmlinux.json \
+    --connection-string $connection
+```
 
 ### <a name="provide-sas-token-during-deployment"></a>Предоставление маркера SAS во время развертывания
-Чтобы развернуть частный шаблон в учетной записи хранения, извлеките маркер SAS и добавьте его в универсальный код ресурса (URI) для шаблона.
-
-1. Создайте маркер SAS с разрешениями на чтение и сроком действия, чтобы ограничить доступ. Задайте срок действия, достаточный для выполнения развертывания. Извлеките полный универсальный код ресурса (URI) шаблона с маркером SAS.
+Чтобы развернуть частный шаблон в учетной записи хранения, создайте маркер SAS и добавьте его в универсальный код ресурса (URI) для шаблона. Задайте срок действия, достаточный для выполнения развертывания.
    
-   ```
-   expiretime=$(date -I'minutes' --date "+30 minutes")
-   fullurl=$(azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $expiretimetime --json  | jq ".url")
-   ```
-2. Разверните шаблон, указав универсальный код ресурса (URI), который включает в себя маркер SAS.
-   
-   ```
-   azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
-   ```
+```azurecli
+seconds='@'$(( $(date +%s) + 1800 ))
+expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name templates \
+    --name vmlinux.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name vmlinux.json \
+    --output tsv \
+    --connection-string $connection)
+az group deployment create --resource-group ExampleGroup --template-uri $url?$token
+```
 
 Пример использования маркера SAS со связанными шаблонами см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 
-## <a name="parameters"></a>Параметры
+## <a name="debug"></a>Отладка
 
-Для предоставления значений параметров доступны следующие способы: 
+Чтобы просмотреть сведения об операциях для развертывания, завершившегося сбоем, используйте следующую команду.
    
-- Использование встроенных параметров. Каждый параметр имеет следующий формат: `"ParameterName": { "value": "ParameterValue" }`. В приведенном ниже примере показаны параметры с escape-символами.
+```azurecli
+az group deployment operation list --resource-group ExampleGroup --name vmlinux --query "[*].[properties.statusMessage]"
+```
 
-   ```   
-   azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
-   ```
-- Использование файла параметров.
-
-  ```    
-  azure group deployment create -f "c:\MyTemplates\example.json" -e "c:\MyTemplates\example.params.json" -g ExampleResourceGroup -n ExampleDeployment
-  ```
-      
-
-[!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
+Советы по устранению распространенных ошибок развертывания см. в разделе [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -200,10 +189,5 @@ azure group deployment create -f "c:\MyTemplates\example.json" -e "c:\MyTemplate
 * Дополнительные сведения об использовании ссылки на хранилище ключей для безопасной передачи значений см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 * Сведения об автоматизации развертывания см. в статье [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Автоматизация развертывания приложений на виртуальных машинах Azure), которая входит в цикл из четырех частей. Этот цикл охватывает такие аспекты, как архитектура приложения, доступ и безопасность, доступность и масштабирование, а также развертывание приложения.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

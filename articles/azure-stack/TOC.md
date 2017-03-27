@@ -32,6 +32,7 @@
 ### [Мониторинг работоспособности и оповещений](azure-stack-monitor-health.md)
 ### [Управление сетевыми ресурсами](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Управление ресурсами хранилища](azure-stack-manage-storage-accounts.md)
+### [Управление виртуальными машинами Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Безопасность и соответствие требованиям
 ## Практическое руководство
@@ -86,7 +87,6 @@
 #### [Управление с помощью портала](azure-stack-kv-manage-portal.md)
 #### [Управление с помощью PowerShell](azure-stack-kv-manage-powershell.md)
 ### Практическое руководство
-#### [Развертывание виртуальной машины с помощью пароля](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Создание виртуальной машины с помощью сертификата](azure-stack-kv-push-secret-into-vm.md)
 #### [Пример приложения для хранилища ключей](azure-stack-kv-sample-app.md)
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f5c04525437aefeccbe58e06b084433d0413dc1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +66,7 @@ Socket.IO обеспечивает связь в режиме реального
 > 
 > 
 
-1. Установите интерфейс командной строки Azure (Azure CLI) и подключитесь к своей подписке Azure. Ознакомьтесь со статьей [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md).
+1. Установите интерфейс командной строки Azure (Azure CLI) и подключитесь к своей подписке Azure. Ознакомьтесь со статьей [Установка и настройка интерфейса командной строки Azure](../cli-install-nodejs.md).
 2. Если вы настраиваете репозиторий в Azure впервые, потребуется создать для него учетные данные для входа. В интерфейсе командной строки Azure введите команду:
    
         azure site deployment user set [username] [password]
@@ -283,7 +284,7 @@ Socket.IO обеспечивает связь в режиме реального
 [веб-приложениям службы приложений]: http://go.microsoft.com/fwlink/?LinkId=529714
 [цен на веб-приложения]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Создание приложения для разговора Node.js с Socket.IO в облачной службе Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Служба приложений Azure и существующие службы Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [центре по разработке для Node.js]: /develop/nodejs/
 [Пробное использование службы приложений]: https://azure.microsoft.com/try/app-service/
@@ -299,9 +300,4 @@ Socket.IO обеспечивает связь в режиме реального
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 88e8ead2b22bf53510c9c6008e34647272326690
-ms.openlocfilehash: 32d93f1ff6cf4ae78051b7208e38b6915509210f
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,7 +81,7 @@ ms.lasthandoff: 01/25/2017
 ![Портал Azure — центры уведомлений](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> Строку подключения можно также получить с помощью командлета **Get-AzureSbNamespace** в [Azure PowerShell](/powershell/azureps-cmdlets-docs) или команды **azure sb namespace show** в [интерфейсе командной строки Azure](../xplat-cli-install.md).
+> Строку подключения можно также получить с помощью командлета **Get-AzureSbNamespace** в [Azure PowerShell](/powershell/azureps-cmdlets-docs) или команды **azure sb namespace show** в [интерфейсе командной строки Azure](../cli-install-nodejs.md).
 > 
 > 
 

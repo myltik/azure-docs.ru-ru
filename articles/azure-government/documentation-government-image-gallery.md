@@ -15,14 +15,18 @@ ms.workload: azure-government
 ms.date: 10/20/2016
 ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: f245bf964664a0817ba26580aea9990b1767da82
-ms.openlocfilehash: 9b2fee2e98c11ef0468cef3f2bdc81e15698a6fe
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: e2d82497c2ceaa9a6c0a1592b5785449f095f85c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-government-marketplace-images"></a>Образы с сайта Marketplace Azure для государственных организаций
 ## <a name="overview"></a>Обзор
 Сайт Marketplace Microsoft Azure для государственных организаций предлагает возможности, аналогичные общедоступному порталу Azure.  Клиенты могут по желанию развертывать образы, предварительно созданные корпорацией Майкрософт, или передавать свои собственные виртуальные жесткие диски.  Это обеспечивает гибкость в развертывании собственных стандартных образов при необходимости.
+
+## <a name="variations"></a>Варианты
+* В настоящее время образы Marketplace не поддерживаются в регионе DoD
 
 Ниже приводится список образов, доступных на сайте Marketplace Azure для государственных организаций.  Некоторые из готовых образов включают повременную оплату лицензирования для конкретного программного обеспечения.  Ознакомьтесь с информацией на странице <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Цены на виртуальные машины</a> для получения дополнительных рекомендаций и взаимодействия с рабочей группой вашей учетной записи Майкрософт или торговым посредником при определении конкретных цен на использование Azure Government.
 
@@ -251,9 +255,4 @@ ms.openlocfilehash: 9b2fee2e98c11ef0468cef3f2bdc81e15698a6fe
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

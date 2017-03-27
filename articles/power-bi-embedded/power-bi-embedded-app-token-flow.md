@@ -13,18 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 93027f0f5467e0b21c47bbcbc84c67cdd50b26b8
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-embedded"></a>Аутентификация и авторизация в Power BI Embedded
+
 Вместо явной проверки подлинности пользователей служба Power BI Embedded использует для проверки подлинности и авторизации **ключи** и **маркеры приложений**. В этой модели ваше приложение управляет проверкой подлинности и авторизацией пользователей. При необходимости приложение создает и отправляет маркеры приложений, которые сообщают службе о том, что необходимо подготовить запрошенный отчет. Этот подход не требует использования Azure Active Directory для проверки подлинности и авторизации пользователей, хотя вы можете это сделать.
 
 ## <a name="two-ways-to-authenticate"></a>Два метода проверки подлинности
+
 **Ключи** можно использовать для всех вызовов REST API в Power BI Embedded. Их можно найти на **портале Azure**, щелкнув **Все параметры**, а затем выбрав **Ключи доступа**. С ключом следует обращаться как с паролем. Эти ключи предоставляют разрешение на выполнение любого вызова REST API в определенной коллекции рабочих областей.
 
 Чтобы использовать ключ для вызова REST, добавьте следующий заголовок авторизации:            
@@ -39,7 +42,7 @@ ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
 
 | Утверждение | Описание |
 | --- | --- |
-| **ver** |Версия маркера приложения. Текущая версия — 0.2.0. |
+| **ver** |Версия маркера приложения. Текущая версия —&0;.2.0. |
 | **aud** |Целевой получатель маркера. Для Power BI Embedded используйте адрес https://analysis.windows.net/powerbi/api |
 | **iss** |Строка, указывающая приложение, которое выдает маркер |
 | **type** |Тип маркера приложения, который создается. Сейчас поддерживается только тип **embed** |
@@ -48,16 +51,106 @@ ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
 | **rid** |Идентификатор отчета, для которого выдается маркер |
 | **username** (необязательно) |Используется с RLS. Это строка, которая помогает идентифицировать пользователя при применении правил RLS |
 | **roles** (необязательно) |Строка, содержащая роли, которые выбираются при применении правил безопасности на уровне строк. При выборе нескольких ролей их нужно передавать в виде массива строк. |
+| **scp** (необязательно) |Строка, содержащая области разрешений. При выборе нескольких ролей их нужно передавать в виде массива строк. |
 | **exp** (необязательно) |Указывает время истечения срока действия маркера. Его следует передавать в качестве метки времени Unix |
 | **nbf** (необязательно) |Указывает, когда маркер станет допустимым. Его следует передавать в качестве метки времени Unix |
 
 Пример маркера приложения будет выглядеть следующим образом:
 
-![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-coded.png)
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsInR5cGUiOiJlbWJlZCIsIndjbiI6Ikd1eUluQUN1YmUiLCJ3aWQiOiJkNGZlMWViMS0yNzEwLTRhNDctODQ3Yy0xNzZhOTU0NWRhZDgiLCJyaWQiOiIyNWMwZDQwYi1kZTY1LTQxZDItOTMyYy0wZjE2ODc2ZTNiOWQiLCJzY3AiOiJSZXBvcnQuUmVhZCIsImlzcyI6IlBvd2VyQklTREsiLCJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiZXhwIjoxNDg4NTAyNDM2LCJuYmYiOjE0ODg0OTg4MzZ9.v1znUaXMrD1AdMz6YjywhJQGY7MWjdCR3SmUSwWwIiI
+```
 
-Когда он будет декодирован, то станет выглядеть следующим образом:
+После декодирования он станет выглядеть примерно следующим образом:
 
-![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-decoded.png)
+```
+Header
+
+{
+    typ: "JWT",
+    alg: "HS256:
+}
+
+Body
+
+{
+  "ver": "0.2.0",
+  "wcn": "SupportDemo",
+  "wid": "ca675b19-6c3c-4003-8808-1c7ddc6bd809",
+  "rid": "96241f0f-abae-4ea9-a065-93b428eddb17",
+  "iss": "PowerBISDK",
+  "aud": "https://analysis.windows.net/powerbi/api",
+  "exp": 1360047056,
+  "nbf": 1360043456
+}
+
+```
+
+В пакете SDK доступны методы, которые упрощают создание маркеров приложений. Например, для .NET это класс [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) и методы [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_).
+
+Методы для пакета SDK для .NET см. в статье [Класс Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
+
+## <a name="scopes"></a>Области действия
+
+При использовании маркеров внедрения может потребоваться ограничить использование ресурсов, к которым предоставляется доступ. Для этого можно создать маркер с заданной областью разрешений.
+
+Ниже приведены доступные области для Power BI Embedded.
+
+|Область|Описание|
+|---|---|
+|Dataset.Read|Предоставляет разрешение на чтение указанного набора данных.|
+|Dataset.Write|Предоставляет разрешение на запись в указанном наборе данных.|
+|Dataset.ReadWrite|Предоставляет разрешение на чтение и запись в указанном наборе данных.|
+|Report.Read|Предоставляет разрешение на просмотр указанного отчета.|
+|Report.ReadWrite|Предоставляет разрешение на просмотр и редактирование указанного отчета.|
+|Workspace.Report.Create|Предоставляет разрешение на создание нового отчета в заданной рабочей области.|
+|Workspace.Report.Copy|Предоставляет разрешение на клонирование существующего отчета в заданной рабочей области.|
+
+Вы можете указать несколько областей, разделяя их пробелами, как показано ниже.
+
+```
+string scopes = "Dataset.Read Workspace.Report.Create";
+```
+
+**Обязательные утверждения — области**
+
+scp: {scopesClaim} scopesClaim может быть строкой или массивом строк, в котором указаны допустимые разрешения для ресурсов в рабочей области (отчет, набор данных и т. д.).
+
+Декодированный маркер с определенными областями будет выглядеть следующим образом.
+
+```
+Header
+
+{
+    typ: "JWT",
+    alg: "HS256:
+}
+
+Body
+
+{
+  "ver": "0.2.0",
+  "wcn": "SupportDemo",
+  "wid": "ca675b19-6c3c-4003-8808-1c7ddc6bd809",
+  "rid": "96241f0f-abae-4ea9-a065-93b428eddb17",
+  "scp": "Report.Read",
+  "iss": "PowerBISDK",
+  "aud": "https://analysis.windows.net/powerbi/api",
+  "exp": 1360047056,
+  "nbf": 1360043456
+}
+
+```
+
+### <a name="operations-and-scopes"></a>Операции и области
+
+|Операция|Целевой ресурс|Разрешения для маркеров|
+|---|---|---|
+|Создайте (в памяти) новый отчет на основе набора данных.|Выборка|Dataset.Read|
+|Создайте (в памяти) новый отчет на основе набора данных и сохраните этот отчет.|Выборка|*Dataset.Read<br>* Workspace.Report.Create|
+|Просмотр и изменение (в памяти) существующего отчета. Report.Read подразумевает наличие Dataset.Read. Эта операция не предоставляет разрешения на сохранение изменений.|Отчет|Report.Read|
+|Изменение и сохранение существующего отчета.|Отчет|Report.ReadWrite|
+|Сохранение копии отчета ("Сохранить как").|Отчет|*Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>Вот как выглядит процедура
 1. Скопируйте ключи API для своего приложения. Их можно получить на **портале Azure**.
@@ -84,13 +177,12 @@ ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
 ![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>См. также
-* [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
-* [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
-* [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)
 
-
-
-
-<!--HONumber=Nov16_HO3-->
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)  
+[Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)  
+[Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)  
+[Репозиторий PowerBI-CSharp на сайте GitHub](https://github.com/Microsoft/PowerBI-CSharp)  
+У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
 
 

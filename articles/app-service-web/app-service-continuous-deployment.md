@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 904a2251328ec7b2a6ed6f3c91e2aaba33076860
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8f4bfb71e25691b3c3eec51186e533202a0f9db0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/07/2017
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Использование PowerShell для Azure]: /powershell/azureps-cmdlets-docs
-[Средства командной строки Azure для Mac и Linux]: ../xplat-cli-install.md
+[Средства командной строки Azure для Mac и Linux]:../cli-install-nodejs.md
 [Документация по Git]: http://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo (Создание репозитория GitHub)

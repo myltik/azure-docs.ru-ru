@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -49,8 +50,8 @@ ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 В следующем разделе приведены сведения о том, как можно просмотреть таблицы ARP, видимые на граничных маршрутизаторах ExpressRoute. 
@@ -83,8 +84,8 @@ ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-azure-public-peering"></a>Таблицы ARP для общедоступного пиринга Azure
@@ -105,8 +106,8 @@ ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           64.0.0.1   ffff.eeee.dddd
+          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Таблицы ARP для пиринга Майкрософт
@@ -127,8 +128,8 @@ ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
 ## <a name="how-to-use-this-information"></a>Как использовать эти сведения
@@ -142,19 +143,29 @@ ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Таблица ARP в случае проблем на стороне локальной сети или поставщика услуг подключения
-* В таблице ARP будет отображаться только одна запись. Это будет сопоставление MAC-адреса и IP-адреса, используемого на стороне сети Майкрософт. 
+В случае проблем с локальной средой или поставщиком услуг подключения в таблице ARP может быть отображена только одна запись или локальный MAC-адрес может быть отображен не полностью. Это будет сопоставление MAC-адреса и IP-адреса, используемого на стороне сети Майкрософт. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
+или
+       
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------   
+         0 On-Prem           65.0.0.1   Incomplete
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 > [!NOTE]
-> Отправьте запрос в службу поддержки своего поставщика услуг подключения, чтобы устранить подобные проблемы. 
+> Отправьте запрос в службу поддержки своего поставщика услуг подключения, чтобы устранить подобные проблемы. Если в таблице ARP нет IP-адресов интерфейсов, сопоставленных с MAC-адресами, ознакомьтесь со следующими сведениями.
 > 
+> 1. Если первый IP-адрес подсети /30 назначен для связи между маршрутизатором MSEE-PR и MSEE используется интерфейсом MSEE-PR, Azure всегда использует второй IP-адрес для маршрутизаторов MSEE.
+> 2. Убедитесь, что клиентские (C-тег) и служебные теги (S-тег) виртуальной сети соответствуют паре MSEE-PR и MSEE.
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Таблица ARP в случае проблем на стороне сети Майкрософт
@@ -167,10 +178,5 @@ ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
   * Получение таблицы маршрутов для определения того, какие префиксы объявляются в ExpressRoute.
 * Проверка передачи данных путем просмотра входящих и выходящих байтов.
 * Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , если у вас по-прежнему возникают проблемы.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

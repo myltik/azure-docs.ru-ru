@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7c6ca3789e9a5dcde799d9ef40b58bd2f3c8966c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -98,7 +99,7 @@ class Program
 > 
 
 ## <a name="other-methods"></a>Другие методы
-* [Интерфейс командной строки Azure](../xplat-cli-install.md)
+* [Интерфейс командной строки Azure](../cli-install-nodejs.md)
   
     При отправке большого двоичного объекта определите свойство *cacheControl* с помощью параметра `-p`.  В этом примере устанавливается срок жизни&3600; секунд (1 час).
   
@@ -118,10 +119,5 @@ class Program
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Ознакомьтесь с дополнительными сведениями о заголовке *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
 * [Узнайте, как управлять сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure](cdn-manage-expiration-of-cloud-service-content.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

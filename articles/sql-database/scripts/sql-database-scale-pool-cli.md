@@ -1,0 +1,64 @@
+---
+title: "Скрипт Azure CLI. Масштабирование эластичного пула | Документация Майкрософт"
+description: "Пример скрипта Azure CLI. Масштабирование пула эластичных баз данных"
+services: sql-database
+documentationcenter: sql-database
+author: janeng
+manager: jstrauss
+editor: carlrab
+tags: azure-service-management
+ms.assetid: 
+ms.service: sql-database
+ms.custom: sample
+ms.devlang: CLI
+ms.topic: article
+ms.tgt_pltfrm: sql-database
+ms.workload: database
+ms.date: 03/14/2017
+ms.author: janeng
+translationtype: Human Translation
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 01e0c45556b67b844a4e4ab5e0eb8644e8673dd1
+ms.lasthandoff: 03/10/2017
+
+---
+
+# <a name="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli"></a>Масштабирование эластичного пула в базе данных SQL Azure с помощью Azure CLI
+
+Этот пример сценария интерфейса командной строки создает эластичные пулы и перемещает базы данных в составе пулов, а также изменяет уровни производительности. 
+
+Перед выполнением этого скрипта убедитесь, что установлено подключение к Azure, выполнив команду `az login`. 
+
+Этот пример работает в оболочке Bash. Сведения о параметрах выполнения скриптов Azure CLI для Windows см. в статье [Использование Azure CLI в Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+
+## <a name="sample-script"></a>Пример скрипта
+
+[!code-azurecli[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Перемещение базы данных между пулами")]
+
+## <a name="clean-up-deployment"></a>Очистка развертывания
+
+После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
+
+```azurecli
+az group delete --name myResourceGroup
+```
+
+## <a name="script-explanation"></a>Описание скрипта
+
+Для создания группы ресурсов, логического сервера, базы данных SQL и правил брандмауэра этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
+
+| Команда | Примечания |
+|---|---|
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Создает логический сервер, на котором размещена база данных SQL. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | Создает пул эластичных баз данных на логическом сервере. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Создает базу данных SQL на логическом сервере. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pools#update) | Обновляет пул эластичных баз данных. В этом примере также изменяется назначенная eDTU. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+
+Дополнительные примеры сценариев интерфейса командной строки для Базы данных SQL Azure см. в [документации по Базе данных SQL](../sql-database-cli-samples.md).
+

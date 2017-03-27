@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
-ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ea363667db5a4ef0dd6c3f06a13f3f8f6c192714
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,10 +31,10 @@ ms.lasthandoff: 02/27/2017
 
 В этом примере показан типичный раздел ресурсов шаблона для создания указанного числа виртуальных машин.
 
-```
+```json
 "resources": [
   { 
-    "apiVersion": "2016-03-30", 
+    "apiVersion": "2016-04-30-preview", 
     "type": "Microsoft.Compute/virtualMachines", 
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
@@ -63,10 +63,6 @@ ms.lasthandoff: 02/27/2017
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -75,10 +71,6 @@ ms.lasthandoff: 02/27/2017
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -165,7 +157,7 @@ ms.lasthandoff: 02/27/2017
 При развертывании ресурсов с помощью шаблона необходимо указать версию API, которую следует использовать. В примере ниже показан ресурс виртуальной машины, использующий такой элемент apiVersion:
 
 ```
-"apiVersion": "2016-03-30",
+"apiVersion": "2016-04-30-preview",
 ```
 
 Версия API, которая указывается в шаблоне, влияет на то, какие свойства можно указать в шаблоне. Как правило, при создании шаблонов следует выбирать последнюю версию API. Для существующих шаблонов можно решить, хотите ли вы продолжать использовать более раннюю версию API или хотите обновить шаблон до последней версии, чтобы воспользоваться новыми возможностями.
@@ -236,15 +228,20 @@ ms.lasthandoff: 02/27/2017
 },
 ```
 
-Обратите внимание, что в примере при указании некоторых значений для ресурса используется индекс цикла. Например, если введенное число экземпляров равно трем, определение результатов для виртуального жесткого диска на дисках с именами myOSDisk1, myOSDisk2 и myOSDisk3 будет следующим:
+Обратите внимание, что в примере при указании некоторых значений для ресурса используется индекс цикла. Например, если введенное число экземпляров равно трем, то именами дисков ОС будут myOSDisk1, myOSDisk2 и myOSDisk3.
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.windows.net/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>В этом примере для виртуальных машин используются управляемые диски.
+>
+>
 
 При создании цикла для одного ресурса в шаблоне может потребоваться использовать цикл при создании других ресурсов или получении к ним доступа. Например, несколько виртуальных машин не могут использовать сетевой интерфейс. Поэтому если шаблон циклически создает три виртуальные машины, он также циклически создает три сетевых интерфейса. При назначении сетевого интерфейса виртуальной машине для его идентификации используется индекс цикла.
 
@@ -278,23 +275,7 @@ Resource Manager параллельно развертывает все ресу
 }
 ```
 
-Чтобы задать это свойство, необходим сетевой интерфейс. Поэтому требуется зависимость. Зависимость также необходимо задать, если один ресурс (дочерний) определен внутри другого ресурса (родительского). Например, параметры диагностики и расширения пользовательского скрипта определены как дочерние ресурсы виртуальной машины. Их нельзя создать, пока существует виртуальная машина. Таким образом, оба ресурса помечаются как зависимые от виртуальной машины. 
-
-Вы, возможно, зададитесь вопросом, почему ресурс виртуальной машины не имеет зависимости от учетной записи хранения. Виртуальная машина содержит элементы, которые указывают на учетную запись хранения.
-
-```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
-```
-
-В этом случае предполагается, что учетная запись хранения уже существует. Если учетная запись хранения развертывается в том же шаблоне, необходимо задать зависимость от учетной записи хранения.
+Чтобы задать это свойство, необходим сетевой интерфейс. Поэтому требуется зависимость. Зависимость также необходимо задать, если один ресурс (дочерний) определен внутри другого ресурса (родительского). Например, параметры диагностики и расширения пользовательского скрипта определены как дочерние ресурсы виртуальной машины. Их нельзя создать, пока существует виртуальная машина. Таким образом, оба ресурса помечаются как зависимые от виртуальной машины.
 
 ## <a name="profiles"></a>Профили
 
@@ -334,83 +315,64 @@ Resource Manager параллельно развертывает все ресу
 },
 ```
 
-Параметры конфигурации диска назначаются с помощью элемента osDisk. В примере ниже определяется расположение хранилища для дисков, режим кэширования дисков, а также то, что диски создаются из [образа платформы](virtual-machines-windows-cli-ps-findimage.md).
+Параметры конфигурации диска ОС назначаются с помощью элемента osDisk. В примере определяется новый управляемый диск с режимом кэширования **ReadWrite** и указывается, что диск создается из [образа платформы](virtual-machines-windows-cli-ps-findimage.md).
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-existing-disks"></a>Создание новых виртуальных машин из существующих дисков
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Создание виртуальных машин из существующих управляемых дисков
 
 Если вы хотите создать виртуальные машины из существующих дисков, удалите элементы imageReference и osProfile и определите параметры диска.
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-В этом примере URI указывает на существующие файлы виртуального жесткого диска, а не на расположение новых файлов. Для элемента createOption задано значение для подключения существующих дисков.
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>Создание виртуальных машин из управляемого образа
 
-### <a name="create-new-virtual-machines-from-a-custom-image"></a>Создание новой виртуальной машины из пользовательского образа
-
-Если вы хотите создать виртуальную машину из [пользовательского образа](virtual-machines-windows-upload-image.md), удалите элемент imageReference и определите параметры диска.
+Если вы хотите создать виртуальную машину из управляемого образа, измените элемент imageReference и определите приведенные ниже параметры диска.
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.windows.net/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-В этом примере URI виртуального жесткого диска указывает на место, где хранятся новые диски, а URI образа указывает на пользовательский образ, который необходимо использовать.
-
 ### <a name="attach-data-disks"></a>Присоединение дисков данных
 
-При необходимости к виртуальным машинам можно добавить диски данных. [Число дисков](virtual-machines-windows-sizes.md) зависит от размера диска операционной системы, который используется. Если размер виртуальных машин установлен как Standard_DS1_v2, максимальное количество дисков данных, которые к ним можно добавить, равно двум. В примере ниже к каждой виртуальной машине добавляется один диск данных.
+При необходимости к виртуальным машинам можно добавить диски данных. [Число дисков](virtual-machines-windows-sizes.md) зависит от размера диска операционной системы, который используется. Если размер виртуальных машин установлен как Standard_DS1_v2, максимальное количество дисков данных, которые к ним можно добавить, равно двум. В примере ниже к каждой виртуальной машине добавляется один управляемый диск данных.
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-В этом примере виртуальный жесткий диск является новым файлом, созданным для диска. Можно задать URI для существующего виртуального жесткого диска и установить для параметра createOption значение **Attach**.
 
 ## <a name="extensions"></a>расширения.
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 03/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c5daac3b8374927c094e79299ce52031181ea24d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,14 +27,18 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 Сейчас фабрика данных Azure поддерживает только перемещение данных из Salesforce в другие [поддерживаемые хранилища-приемники](data-factory-data-movement-activities.md#supported-data-stores-and-formats), но не наоборот.
 
 ## <a name="supported-versions"></a>Поддерживаемые версии
-Этот соединитель поддерживает следующие выпуски Salesforce: Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition.
+Этот соединитель поддерживает следующие выпуски Salesforce: Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition. Он также поддерживает копирование из рабочей среды Salesforce, песочницы и пользовательского домена.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Требуется включить разрешения API. Дополнительные сведения о включении доступа к API в Salesforce с помощью набора разрешений см. [здесь](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/).
 * Чтобы скопировать данные из Salesforce в локальное хранилище данных, в локальной среде необходимо установить шлюз управления данными версии не ниже 2.0.
 
 ## <a name="salesforce-request-limits"></a>Ограничения запросов Salesforce
-Для Salesforce установлены ограничения на общее число запросов API и одновременных запросов API. Дополнительные сведения см. в разделе "API Request Limits" (Ограничения запросов API) статьи об [ограничениях для разработчика Salesforce](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf). Обратите внимание, что если количество одновременных запросов превышает ограничение, выполняется регулирование и возникают случайные ошибки. В случае превышения ограничения на общее число запросов учетная запись Salesforce блокируется на 24 часа. Кроме того, в обоих случаях вы можете получить ошибку REQUEST_LIMIT_EXCEEDED.
+Для Salesforce установлены ограничения на общее число запросов API и одновременных запросов API. Обратите внимание на следующее.
+* Если количество одновременных запросов превышает ограничение, выполняется регулирование и возникают случайные ошибки.
+* В случае превышения ограничения на общее число запросов учетная запись Salesforce блокируется на 24 часа.
+
+Кроме того, в обоих случаях вы можете получить ошибку REQUEST_LIMIT_EXCEEDED. Дополнительные сведения см. в разделе "API Request Limits" (Ограничения запросов API) статьи об [ограничениях для разработчика Salesforce](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
 ## <a name="copy-data-wizard"></a>Мастер копирования данных
 Самый простой способ создать конвейер, копирующий данные из Salesforce в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
@@ -55,56 +60,60 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 
 В этом примере используется связанная служба **Salesforce**. Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Свойства связанной службы Salesforce](#salesforce-linked-service-properties).  Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности).
 
+```JSON
+{
+    "name": "SalesforceLinkedService",
+    "properties":
     {
-        "name": "SalesforceLinkedService",
-        "properties":
+        "type": "Salesforce",
+        "typeProperties":
         {
-            "type": "Salesforce",
-            "typeProperties":
-            {
-                "username": "<user name>",
-                "password": "<password>",
-                "securityToken": "<security token>"
-            }
+            "username": "<user name>",
+            "password": "<password>",
+            "securityToken": "<security token>"
         }
     }
-
+}
+```
 **Связанная служба хранения Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+    }
+}
+```
 **Входной набор данных Salesforce**
 
-    {
-        "name": "SalesforceInput",
-        "properties": {
-            "linkedServiceName": "SalesforceLinkedService",
-            "type": "RelationalTable",
-            "typeProperties": {
-                "tableName": "AllDataType__c"  
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "SalesforceInput",
+    "properties": {
+        "linkedServiceName": "SalesforceLinkedService",
+        "type": "RelationalTable",
+        "typeProperties": {
+            "tableName": "AllDataType__c"  
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
+}
+```
 
 Если для параметра **external** задать значение **true**, то фабрика данных воспримет этот набор данных как внешний, который создан не в результате какого-либо действия в фабрике данных.
 
@@ -119,24 +128,25 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1).
 
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties":
         {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties":
-            {
-                "folderPath": "adfgetstarted/alltypes_c"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "folderPath": "adfgetstarted/alltypes_c"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 **Конвейер с действием копирования**
 
@@ -144,54 +154,54 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 
 Список свойств, поддерживаемых RelationalSource, см. в разделе [Свойства типа RelationalSource](#relationalsource-type-properties).
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-            "start":"2016-06-01T18:00:00",
-            "end":"2016-06-01T19:00:00",
-            "description":"pipeline with copy activity",
-            "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+        {
+            "name": "SalesforceToAzureBlob",
+            "description": "Copy from Salesforce to an Azure blob",
+            "type": "Copy",
+            "inputs": [
             {
-                "name": "SalesforceToAzureBlob",
-                "description": "Copy from Salesforce to an Azure blob",
-                "type": "Copy",
-                "inputs": [
-                {
-                    "name": "SalesforceInput"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "AzureBlobOutput"
-                }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "OldestFirst",
-                    "retry": 0,
-                    "timeout": "01:00:00"
-                }
+                "name": "SalesforceInput"
             }
-            ]
+            ],
+            "outputs": [
+            {
+                "name": "AzureBlobOutput"
+            }
+            ],
+            "typeProperties": {
+                "source": {
+                    "type": "RelationalSource",
+                    "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
         }
+        ]
     }
-
+}
+```
 > [!IMPORTANT]
 > Имя API для любых настраиваемых объектов должно содержать приставку __c.
->
 >
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
@@ -202,7 +212,8 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
 | type |Для свойства type нужно задать значение **Salesforce**. |Да |
-| username |Укажите имя пользователя для учетной записи пользователя. |Да |
+| environmentUrl | Укажите URL-адрес экземпляра Salesforce. <br><br> — URL-адрес по умолчанию — https://login.salesforce.com. <br> — Чтобы скопировать данные из песочницы, укажите URL-адрес https://test.salesforce.com. <br> — Чтобы скопировать данные из пользовательского домена, укажите URL-адрес, например https://[домен].my.salesforce.com. |Нет |
+| Имя пользователя |Укажите имя пользователя для учетной записи пользователя. |Да |
 | password |Укажите пароль для учетной записи пользователя. |Да |
 | securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). |Да |
 
@@ -244,8 +255,10 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Получение данных с использованием предложения WHERE в столбце даты и времени
 При указании запроса SOQL или SQL обратите внимание на различие в формате даты и времени. Например:
 
-* **Пример SOQL**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd).
-* **Пример SQL**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **Пример SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Пример SQL**:
+    * **Использование мастера копирования для указания запроса:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Использование редактирования JSON для указания запроса (соответствующие escape-символы):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Извлечение данных из отчета Salesforce
 Из отчетов Salesforce можно извлекать данные, указывая запросы в формате `{call "<report name>"}`, например: `"query": "{call \"TestReport\"}"`.
@@ -253,8 +266,8 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Восстановление удаленных записей из корзины Salesforce
 Чтобы запросить из корзины Salesforce обратимо удаленные записи, укажите в своем запросе **"IsDeleted = 1"**. Например,
 
-* чтобы запросить только удаленные записи, укажите "select * from MyTable__c **where IsDeleted= 1**"
-* Чтобы запросить все записи, включая существующие и удаленные, укажите "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
+* чтобы запросить только удаленные записи, укажите "select *from MyTable__c**where IsDeleted= 1**"
+* Чтобы запросить все записи, включая существующие и удаленные, укажите "select *from MyTable__c**where IsDeleted = 0 or IsDeleted = 1**"
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -287,9 +300,4 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь с [руководством по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -7,9 +7,6 @@
 ## Назначение IP-адресов
 ### [Диспетчер ресурсов](virtual-network-ip-addresses-overview-arm.md)
 ### [Классический](virtual-network-ip-addresses-overview-classic.md)
-## Виртуальные машины
-### [Сетевые интерфейсы](virtual-network-network-interface-overview.md)
-### [Разрешение имен](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Начало работы
 ## [Создание первой собственной виртуальной сети](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Доступ к спискам управления
 #### [Классический портал](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Разрешение имен для виртуальных машин и облачных служб](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Управление
 ### Группы безопасности сети
