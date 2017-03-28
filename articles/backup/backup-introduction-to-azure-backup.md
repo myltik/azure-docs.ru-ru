@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -92,7 +92,7 @@ ms.lasthandoff: 03/02/2017
 | Агент службы архивации Azure |Нет (только агент для Windows) |
 | System Center DPM |Согласованность на уровне файлов только на узле Hyper-V<br/> (недоступно для виртуальной машины Azure) |
 | Сервер службы архивации Azure |Согласованность на уровне файлов только на узле Hyper-V<br/> (недоступно для виртуальной машины Azure) |
-| Служба архивации виртуальных машин Azure IaaS |Да |
+| Служба архивации виртуальных машин Azure IaaS |Да (согласованное резервное копирование с помощью [платформы для предварительного и последующего выполнения скриптов](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Использование службы архивации Azure для виртуальных машин хранилища класса "Премиум"
 Служба архивации Azure может защищать виртуальные машины хранилища класса "Премиум". Хранилище Azure "Премиум" — это хранилище на основе твердотельных накопителей (SSD), которое обеспечивает поддержку интенсивных рабочих нагрузок ввода и вывода данных. Хранилище класса "Премиум" хорошо подходит для рабочих нагрузок виртуальных машин. Дополнительные сведения о хранилище класса Premium см. в статье [Хранилище класса «Премиум»: высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage.md).

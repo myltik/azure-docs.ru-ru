@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 746f697076566ce3edd970336b005e53dc4d2d39
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 89a9e29261e338aceb4ff6feb55cf344afeeb3d4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,53 +26,59 @@ ms.lasthandoff: 03/15/2017
 
 Это краткое руководство поможет вам развернуть первое веб-приложение Node.js в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) за считаные минуты.
 
-Прежде чем начать работу с этим руководством, убедитесь, что на вашем компьютере [установлен Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Перед началом работы убедитесь, что вы установили Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-# <a name="create-a-nodejs-web-app"></a>Создание веб-приложения Node.js
-2. Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
+## <a name="log-in-to-azure"></a>Вход в Azure
+Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
    
-3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
+## <a name="create-a-resource-group"></a>Создание группы ресурсов   
+Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
+Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
 
-3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Стандартный". Этот уровень требуется для запуска контейнеров Linux.
+## <a name="create-an-app-service-plan"></a>Создание плана службы приложений
+Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Стандартный" для запуска контейнера Linux. 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
+```
 
-4. Создайте веб-приложение, указав уникальное имя вместо заполнителя `<app_name>`.
+## <a name="create-a-web-app"></a>Создание веб-приложения
+Создайте веб-приложение, указав уникальное имя вместо заполнителя `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Настройте для контейнера Linux использование образа Node.js 6.9.3 по умолчанию.
+## <a name="configure-the-linux-container"></a>Настройка контейнера Linux
+Настройте для контейнера Linux использование образа Node.js 6.9.3 по умолчанию.
 
-    ```azurecli
-    az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
+```
 
-4. Разверните пример приложения Node.js из GitHub.
+## <a name="deploy-sample-application"></a>Разверните пример приложения
+Разверните пример приложения Node.js из GitHub.
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
-    ```
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
+```
 
-5. Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
+## <a name="browse-to-web-app"></a>Перейдите к веб-приложению
+Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Поздравляем, ваше первое веб-приложение Node.js работает в службе приложений Azure в режиме реального времени.
 

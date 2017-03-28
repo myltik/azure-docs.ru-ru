@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c0c1eb80685d18794bcae7acaa16b777ff21b3e6
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -24,10 +25,11 @@ ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
 
 ![Пример окна трендов](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-> [!NOTE]
-> Средство "Тренды Application Insights" доступно в Visual Studio 2015 с обновлением 3 и более поздними обновлениями, а также в [расширении средств анализа для разработчиков](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) 5.209 и более поздних версий.
-> 
-> 
+## <a name="configure-your-web-app-for-application-insights"></a>Настройка веб-приложения для использования с Application Insights
+
+Если вы еще не сделали это, [настройте веб-приложение для использования с Application Insights](app-insights-overview.md). Так вы настроите отправку данных телеметрии на портал Application Insights. Средство "Тренды Application Insights" будет считывать поступающие данные телеметрии.
+
+Средство "Тренды Application Insights" доступно в Visual Studio 2015 с обновлением 3 и выше.
 
 ## <a name="open-application-insights-trends"></a>Открытие средства "Тренды Application Insights"
 Открыть окно трендов Application Insights можно одним из следующих способов:
@@ -99,16 +101,11 @@ ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
 > 
 > 
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Дальнейшие действия
+## <a name="next"></a>Дальнейшие действия
 |  |  |
 | --- | --- |
 | **[Работа с Application Insights в Visual Studio](app-insights-visual-studio.md)**<br/>Поиск телеметрии, просмотр данных в CodeLens и настройка Application Insights — все это в Visual Studio |![Щелкните проект правой кнопкой мыши и последовательно выберите пункты "Application Insights" и "Поиск".](./media/app-insights-visual-studio-trends/34.png) |
 | **[Добавление данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

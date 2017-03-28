@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4969b43831a3813a4e76c6447c252a9c458f371a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -37,7 +37,14 @@ ms.lasthandoff: 12/08/2016
 <br>
 
 ## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Задача 5. Включение синхронизации паролей для доменных служб AAD для синхронизированного клиента Azure AD
-Клиент Azure AD для вашей организации настраивается на синхронизацию с локальным каталогом с помощью Azure AD Connect. По умолчанию Azure AD Connect не синхронизирует хэши учетных данных NTLM и Kerberos с Azure AD. Чтобы воспользоваться доменными службами Azure AD, нужно настроить Azure AD Connect для синхронизации хэшей учетных данных, необходимых для проверки подлинности NTLM и Kerberos. Для включения синхронизации требуемых хэшей учетных данных с клиентом Azure AD необходимо выполнить следующие действия.
+Клиент Azure AD для вашей организации настраивается на синхронизацию с локальным каталогом с помощью Azure AD Connect. По умолчанию Azure AD Connect не синхронизирует хэши учетных данных NTLM и Kerberos с Azure AD. Чтобы воспользоваться доменными службами Azure AD, нужно настроить Azure AD Connect для синхронизации хэшей учетных данных, необходимых для проверки подлинности NTLM и Kerberos. 
+
+> [!WARNING]
+> При каждом включении доменных служб Azure AD необходимо включать синхронизацию паролей доменных служб AAD. Возможно, вы уже включили доменные службы Azure AD для своего каталога Azure AD, а затем выключили их. Тем не менее при следующем включении доменных служб Azure AD для каталога вам все равно нужно включить синхронизацию паролей.
+>
+>
+
+Для включения синхронизации требуемых хэшей учетных данных с клиентом Azure AD необходимо выполнить следующие действия.
 
 ### <a name="install-or-update-azure-ad-connect"></a>Установка или обновление Azure AD Connect
 Установите последнюю рекомендуемую версию службы Azure AD Connect на компьютере, присоединенном к домену. Если служба Azure AD Connect уже установлена, необходимо обновить установку до последней версии. Убедитесь, что вы используете последнюю версию Azure AD Connect. Так вы избежите возникновения известных проблем и ошибок, которые уже могли быть исправлены в обновлении.

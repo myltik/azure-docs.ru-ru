@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
-ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/01/2017
 * [инструментирование веб-приложения во время выполнения;](app-insights-monitor-performance-live-website-now.md)
 * [облачных служб Azure](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Шаг 1. Добавление пакета SDK Application Insights
+## <a name="ide"></a> Шаг 1. Добавление пакета SDK Application Insights
 
 В обозревателе решений щелкните проект веб-приложения правой кнопкой мыши и выберите пункт **Добавить**, **Телеметрия Application Insights...** или **Настроить Application Insights**.
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 03/01/2017
 5. Кроме того, можно добавить пакет SDK Application Insights в свое приложение. В этом случае во время отладки можно будет просмотреть данные телеметрии в Visual Studio. Позже вы сможете вернуться на эту страницу настроек или можете дождаться, когда приложение будет развернуто, и [переключиться на данные телеметрии во время выполнения](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> Шаг 2. Запуск приложения
+## <a name="run"></a> Шаг 2. Запуск приложения
 Запустите приложение, нажав клавишу F5. Откройте разные страницы, чтобы создать некоторый объем данных телеметрии.
 
 В Visual Studio вы увидите число записанных в журнал событий.
@@ -124,7 +124,7 @@ ms.lasthandoff: 03/01/2017
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> Как работает команда "Добавить Application Insights"?
+## <a name="land"></a> Как работает команда "Добавить Application Insights"?
 Application Insights отправляет данные телеметрии из приложения на портал Application Insights (размещенный в Azure).
 
 ![Диаграмма перемещения данных телеметрии](./media/app-insights-asp-net/01-scheme.png)
@@ -197,6 +197,10 @@ Application Insights отправляет данные телеметрии из
 Если используется Visual Studio Team Services, можно настроить [добавление маркера заметки](app-insights-annotations.md) к диаграммам при выпуске новой версии. На следующем рисунке показано, как появляется этот маркер.
 
 ![Снимок экрана, где показана диаграмма с примером заметки о новом выпуске](./media/app-insights-asp-net/release-annotation.png)
+
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 **[Работа с Application Insights в Visual Studio](app-insights-visual-studio.md)**<br/>Содержит сведения об отладке с помощью телеметрии, о поиске по журналу диагностики и детализации кода.
