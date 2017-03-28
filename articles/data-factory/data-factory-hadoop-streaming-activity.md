@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
-ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2748838279462a493983c397454cbcf13b2a82e6
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Преобразование данных с помощью действия потоковой передачи Hadoop в фабрике данных Azure
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Хранимая процедура](data-factory-stored-proc-activity.md)
-> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
-> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Действие Hive](data-factory-hive-activity.md) 
+> * [Действие Pig](data-factory-pig-activity.md)
+> * [Действие MapReduce](data-factory-map-reduce.md)
+> * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Действие Spark](data-factory-spark.md)
+> * [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+> * [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
+> * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
+> * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
 Можно использовать действие HDInsightStreamingActivity для вызова задания потоковой передачи Hadoop из конвейера фабрики данных Azure. В следующем фрагменте JSON показан синтаксис для использования действия HDInsightStreamingActivity в JSON-файле конвейера. 
 
@@ -90,7 +93,7 @@ ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
 2. Задайте в качестве типа действия значение **HDInsightStreaming**.
 3. Для свойства **mapper** укажите имя исполняемого файла mapper. В этом примере таким файлом является cat.exe.
 4. Для свойства **reducer** укажите имя исполняемого файла reducer. В этом примере таким файлом является wc.exe.
-5. Для свойства типа **input** укажите входной файл (включая местоположение) для свойства mapper. В примере "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" adfsample — это контейнер больших двоичных объектов, example/data/Gutenberg — это папка, а davinci.txt — это большой двоичный объект.
+5. Для свойства типа **input** укажите входной файл (включая местоположение) для свойства mapper. В примере "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" adfsample — это контейнер BLOB-объектов, example/data/Gutenberg — это папка, а davinci.txt — это двоичный большой объект.
 6. Для свойства типа **output** укажите выходной файл (включая местоположение) для reducer. Результат задания потоковой передачи Hadoop записывается в расположение, заданное для этого свойства.
 7. В разделе **filePaths** укажите пути для исполняемых файлов mapper и reducer. В примере adfsample/example/apps/wc.exe adfsample — это контейнер больших двоичных объектов, example/apps — это папка, а wc.exe — это исполняемый файл.
 8. Для свойства **fileLinkedService** укажите связанную службу хранилища Azure, которая представляет хранилище Azure, где хранятся указанные в разделе filePaths файлы.
@@ -220,10 +223,5 @@ ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
 * [Действие MapReduce](data-factory-map-reduce.md)
 * [Вызов программ Spark](data-factory-spark.md)
 * [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

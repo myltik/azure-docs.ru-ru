@@ -3,7 +3,7 @@ title: "Создание и передача виртуального жестк
 description: "Узнайте, как создать и передать виртуальный жесткий диск (VHD) Azure, содержащий операционную систему RedHat Linux."
 services: virtual-machines-linux
 documentationcenter: 
-author: SuperScottz
+author: szarkos
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,357 +13,482 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2016
-ms.author: mingzhan
+ms.date: 03/10/2017
+ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 968b7af74977428e12a109fab382efeeeffae9de
-ms.openlocfilehash: 5127e61dc45ccf3048dd18cf11d5b0915125f814
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: bc04b875a2ff302cdc51f28071d57d891a62b7b1
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Подготовка виртуальной машины на основе Red Hat для Azure
-В этой статье вы узнаете, как подготовить виртуальную машину Red Hat Enterprise Linux (RHEL) для использования в Azure. В статье описываются версии RHEL 6.7, 7.1 и 7.2. Низкоуровневые оболочки для подготовки, о которых идет речь в статье, — это Hyper-V, Kernel-based Virtual Machine (KVM) и VMware. Подробнее о требованиях к участникам в программе Red Hat Cloud Access см. на [веб-сайте Red Hat Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) и в статье [Запуск RHEL в Azure](https://access.redhat.com/articles/1989673).
+В этой статье вы узнаете, как подготовить виртуальную машину Red Hat Enterprise Linux (RHEL) для использования в Azure. В статье описывается RHEL 6.7 или более поздние версии и RHEL 7.1 или более поздние версии. Низкоуровневые оболочки для подготовки, о которых идет речь в статье, — это Hyper-V, Kernel-based Virtual Machine (KVM) и VMware. Подробнее о требованиях к участникам в программе Red Hat Cloud Access см. на [веб-сайте Red Hat Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) и в статье [Запуск RHEL в Azure](https://access.redhat.com/articles/1989673).
 
-[Подготовка виртуальной машины RHEL 6.7 в диспетчере Hyper-V](#rhel67hyperv)
-
-[Подготовка виртуальной машины RHEL 7.1/7.2 в диспетчере Hyper-V](#rhel7xhyperv)
-
-[Подготовка виртуальной машины RHEL 6.7 в KVM](#rhel67kvm)
-
-[Подготовка виртуальной машины RHEL 7.1/7.2 в KVM](#rhel7xkvm)
-
-[Подготовка виртуальной машины RHEL 6.7 в VMWare](#rhel67vmware)
-
-[Подготовка виртуальной машины RHEL 7.1/7.2 в VMWare](#rhel7xvmware)
-
-[Подготовка виртуальной машины RHEL 7.1/7.2 из файла kickstart](#rhel7xkickstart)
+* [Подготовка виртуальной машины RHEL 6 в диспетчере Hyper-V](#prepare-a-rhel-6-virtual-machine-from-hyper-v-manager)
+* [Подготовка виртуальной машины RHEL 7 в диспетчере Hyper-V](#prepare-a-rhel-7-virtual-machine-from-hyper-v-manager)
+* [Подготовка виртуальной машины RHEL 6 в KVM](#prepare-a-rhel-6-virtual-machine-from-kvm)
+* [Подготовка виртуальной машины RHEL 7 в KVM](#prepare-a-rhel-7-virtual-machine-from-kvm)
+* [Подготовка виртуальной машины RHEL 6 в VMware](#prepare-a-rhel-6-virtual-machine-from-vmware)
+* [Подготовка виртуальной машины RHEL 7 в VMware](#prepare-a-rhel-7-virtual-machine-from-vmware)
+* [Подготовка виртуальной машины RHEL 7 из файла kickstart](#prepare-a-rhel-7-virtual-machine-from-a-kickstart-file)
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Подготовка виртуальной машины под управлением Red Hat в диспетчере Hyper-V
+
 ### <a name="prerequisites"></a>Предварительные требования
 В этом разделе предполагается, что вы уже установили на виртуальный жесткий диск (VHD) образ RHEL (из ISO-файла, полученного на веб-сайте Red Hat). Дополнительные сведения о том, как использовать диспетчер Hyper-V для установки образа операционной системы, см. в статье [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Замечания по установке RHEL**
 
-* Дополнительные сведения о подготовке Linux для Azure см. в разделе [Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes).
-* Более новый формат VHDX не поддерживается в Azure. Вы можете преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета PowerShell **convert-vhd** .
-* Виртуальные жесткие диски должны создаваться как "фиксированные", так как динамические виртуальные жесткие диски не поддерживаются.
-* При установке системы Linux мы рекомендуем использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. Для дисков данных можно использовать LVM или [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Не настраивайте раздел подкачки на диске с ОС. Вы можете настроить агент Linux для создания файла подкачки на временном диске с ресурсами. Дополнительные сведения об этом приводятся далее.
+* Формат VHDX не поддерживается в Azure, поддерживается только **постоянный VHD**.  Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd. Если вы используете VirtualBox, при создании диска по умолчанию нужно выбрать **фиксированный размер** вместо динамически выделяемого.
+* Azure поддерживает только виртуальные машины поколения 1. Виртуальную машину первого поколения можно преобразовать из формата VHDX в формат VHD, а также переключить с динамически расширяемого диска на диск фиксированного размера. Но вы не можете изменить поколение виртуальной машины. Дополнительные сведения см. в статье о том, [как выбрать поколение для виртуальной машины в Hyper-V](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Максимально допустимый размер виртуального жесткого диска составляет 1023 ГБ.
+* При установке системы Linux *рекомендуется* использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM c клонированными виртуальными машинами, особенно если диск с OC может быть подключен к другой идентичной виртуальной машине в целях устранения неполадок. Для дисков данных можно использовать [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Требуется поддержка ядра для монтирования файловых систем UDF. При первой загрузке в Azure конфигурация подготовки передается в виртуальную машину Linux через UDF-носитель, подключенный к гостевой машине. Агент Azure Linux должен иметь возможность подключать файловую систему UDF для считывания конфигурации и подготовки виртуальной машины.
+* Версии ядра Linux ниже 2.6.37 не поддерживают NUMA в Hyper-V с виртуальными машинами большего размера. Эта проблема влияет в основном на дистрибутивы более ранних версий, в которых используется исходное ядро Red Hat 2.6.32, и была исправлена в RHEL 6.6 (kernel-2.6.32-504). В системах под управлением модифицированных ядер старше версии 2.6.37 или ядер RHEL старше 2.6.32-504 в командной строке ядра необходимо задать параметр загрузки `numa=off` в файле grub.conf. Дополнительные сведения см. в статье базы знаний Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов.  Дополнительные сведения описаны далее.
 * Все VHD-диски должны иметь размер, кратный 1 МБ.
-* Когда вы используете команду **qemu-img** , чтобы преобразовать образы дисков в формат VHD, обратите внимание, что в версии 2.2.1 и более поздних версиях этой команды есть ошибка. которая приводит к созданию неправильно отформатированного диска VHD. Эта ошибка должна быть устранена в следующем выпуске qemu-img. Сейчас мы рекомендуем использовать qemu-img 2.2.0 или более ранней версии.
 
-### <a id="rhel67hyperv"> </a>Подготовка виртуальной машины RHEL 6.7 в диспетчере Hyper-V
+### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Подготовка виртуальной машины RHEL 6 в диспетчере Hyper-V
+
 1. В диспетчере Hyper-V выберите виртуальную машину.
+
 2. Щелкните **Подключение** , чтобы открыть окно консоли для виртуальной машины.
-3. Удалите NetworkManager, выполнив следующую команду:
 
-   # <a name="sudo-rpm--e---nodeps-networkmanager"></a>sudo rpm -e --nodeps NetworkManager
-   Обратите внимание: если пакет еще не установлен, эта команда завершится сбоем с сообщением об ошибке. Это ожидаемое поведение.
-4. Создайте файл с именем **network** в каталоге `/etc/sysconfig/`. Файл должен содержать следующий текст:
+3. В RHEL 6 NetworkManager может мешать работе агента Linux для Azure. Установите пакет, выполнив следующую команду:
+   
+        # sudo rpm -e --nodeps NetworkManager
 
-     NETWORKING=yes   HOSTNAME=localhost.localdomain
-5. Создайте файл с именем **ifcfg-eth0** в каталоге `/etc/sysconfig/network-scripts/`. Файл должен содержать следующий текст:
+4. Создайте или измените файл `/etc/sysconfig/network`, добавив следующий текст:
+   
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
+5. Создайте или измените файл `/etc/sysconfig/network-scripts/ifcfg-eth0`, добавив следующий текст:
+   
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+
 6. Переместите или удалите правила udev во избежание создания статических правил для интерфейса Ethernet. Эти правила приводят к появлению проблем при клонировании виртуальной машины в Microsoft Azure или Hyper-V:
 
-   # <a name="sudo-mkdir--m-0700-varlibwaagent"></a>sudo mkdir -m 0700 /var/lib/waagent
-   # <a name="sudo-mv-libudevrulesd75-persistent-net-generatorrules-varlibwaagent"></a>sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
-   # <a name="sudo-mv-etcudevrulesd70-persistent-netrules-varlibwaagent"></a>sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+
 7. Убедитесь, что сетевая служба запускается во время загрузки, выполнив следующую команду:
 
-   # <a name="sudo-chkconfig-network-on"></a>sudo chkconfig network on
+        # sudo chkconfig network on
+
 8. Зарегистрируйте подписку Red Hat, чтобы активировать установку пакетов из репозитория RHEL, запустив следующую команду:
 
-   # <a name="sudo-subscription-manager-register---auto-attach---usernamexxx---passwordxxx"></a>sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+        # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+
 9. Пакет WALinuxAgent `WALinuxAgent-<version>` был отправлен в репозиторий дополнений Red Hat. Включите репозиторий дополнений, выполнив следующую команду:
 
-   # <a name="subscription-manager-repos---enablerhel-6-server-extras-rpms"></a>subscription-manager repos --enable=rhel-6-server-extras-rpms
+        # subscription-manager repos --enable=rhel-6-server-extras-rpms
+
 10. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/boot/grub/menu.lst` в текстовом редакторе и укажите для ядра по умолчанию следующие параметры:
+    
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    
+    Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки.
+    
+    Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
+    
+        rhgb quiet crashkernel=auto
+    
+    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.  При желании можно настроить параметр `crashkernel`, однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 
-     console=ttyS0  earlyprintk=ttyS0  rootdelay=300  numa=off
+    >[!Important]
+    Для RHEL 6.5 и более ранних версий необходимо также указать параметр ядра `numa=off`. См. посвященный Red Hat [раздел 436883](https://access.redhat.com/solutions/436883).
 
-    Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Это приведет к отключению NUMA в связи с неисправностью версии ядра, используемого RHEL 6.
-
-    Кроме того, рекомендуем удалить следующие параметры:
-
-     rhgb quiet crashkernel=auto
-
-    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
-
-    При желании можно настроить параметр crashkernel, однако учтите, что он сокращает объем доступной памяти на виртуальной машине на 128 МБ и более. Это может оказаться проблемой на виртуальных машинах небольшого размера.
 11. Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки. Обычно это сделано по умолчанию. Измените файл /etc/ssh/sshd_config, включив в него следующую строку:
 
-     ClientAliveInterval 180
+        ClientAliveInterval 180
+
 12. Установите агент Linux для Azure, выполнив следующую команду:
 
-    # <a name="sudo-yum-install-walinuxagent"></a>sudo yum install WALinuxAgent
-    # <a name="sudo-chkconfig-waagent-on"></a>sudo chkconfig waagent on
-    Обратите внимание, что установка пакета WALinuxAgent приведет к удалению пакетов NetworkManager и NetworkManager-gnome, если они еще не были удалены, как описано в шаге 2.
+        # sudo yum install WALinuxAgent
+        # sudo chkconfig waagent on
+
+    Установка пакета WALinuxAgent приведет к удалению пакетов NetworkManager и NetworkManager-gnome, если они еще не были удалены, как описано в шаге 3.
+
 13. Не создавайте пространство подкачки на диске с ОС.
+
     Агент Linux для Azure может автоматически настраивать размер области подкачки с использованием локального диска с ресурсами, подключенного к виртуальной машине после подготовки в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле /etc/waagent.conf:
 
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## ПРИМЕЧАНИЕ. Задайте для этого параметра нужное значение.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 14. Отмените регистрацию подписки (при необходимости), выполнив следующую команду:
 
-    # <a name="sudo-subscription-manager-unregister"></a>sudo subscription-manager unregister
+        # sudo subscription-manager unregister
+
 15. Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
-16. В диспетчере Hyper-V выберите **Действие > Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.  
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
-### <a id="rhel7xhyperv"> </a>Подготовка виртуальной машины RHEL 7.1/7.2 в диспетчере Hyper-V
+16. В диспетчере Hyper-V выберите **Действие > Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
+
+
+### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Подготовка виртуальной машины RHEL 7 в диспетчере Hyper-V
+
 1. В диспетчере Hyper-V выберите виртуальную машину.
+
 2. Щелкните **Подключение** , чтобы открыть окно консоли для виртуальной машины.
-3. Создайте файл с именем **network** в каталоге `/etc/sysconfig/`. Файл должен содержать следующий текст:
 
-     NETWORKING=yes   HOSTNAME=localhost.localdomain
-4. Создайте файл с именем **ifcfg-eth0** в каталоге `/etc/sysconfig/network-scripts/`. Файл должен содержать следующий текст:
+3. Создайте или измените файл `/etc/sysconfig/network`, добавив следующий текст:
+   
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
+4. Создайте или измените файл `/etc/sysconfig/network-scripts/ifcfg-eth0`, добавив следующий текст:
+   
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+        NM_CONTROLLED=no
+
 5. Убедитесь, что сетевая служба запускается во время загрузки, выполнив следующую команду:
 
-   # <a name="sudo-chkconfig-network-on"></a>sudo chkconfig network on
+        # sudo chkconfig network on
+
 6. Зарегистрируйте подписку Red Hat, чтобы активировать установку пакетов из репозитория RHEL, запустив следующую команду:
 
-   # <a name="sudo-subscription-manager-register---auto-attach---usernamexxx---passwordxxx"></a>sudo subscription-manager register --auto-attach --username=XXX --password=XXX
-7. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр **GRUB_CMDLINE_LINUX**. Например:
+        # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-     GRUB_CMDLINE_LINUX="rootdelay=300   console=ttyS0   earlyprintk=ttyS0"
+7. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр `GRUB_CMDLINE_LINUX`, например:
+   
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+   
+   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Также будут отключены новые соглашения об именовании RHEL 7 для сетевых карт. Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
+   
+        rhgb quiet crashkernel=auto
+   
+    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт. При желании можно настроить параметр `crashkernel`, однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 
-   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Кроме того, рекомендуем удалить следующие параметры:
-
-     rhgb quiet crashkernel=auto
-
-   Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
-   При желании можно настроить параметр crashkernel, однако учтите, что он сокращает объем доступной памяти на виртуальной машине на 128 МБ и более. Это может оказаться проблемой на виртуальных машинах небольшого размера.
 8. После внесения изменений в файл `/etc/default/grub`выполните следующую команду, чтобы повторно создать конфигурацию grub:
 
-   # <a name="sudo-grub2-mkconfig--o-bootgrub2grubcfg"></a>sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
 9. Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки. Обычно это сделано по умолчанию. Измените файл `/etc/ssh/sshd_config` , добавив в него следующую строку:
 
-     ClientAliveInterval 180
+        ClientAliveInterval 180
+
 10. Пакет WALinuxAgent `WALinuxAgent-<version>` был отправлен в репозиторий дополнений Red Hat. Включите репозиторий дополнений, выполнив следующую команду:
 
-    # <a name="subscription-manager-repos---enablerhel-7-server-extras-rpms"></a>subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
+
 11. Установите агент Linux для Azure, выполнив следующую команду:
 
-    # <a name="sudo-yum-install-walinuxagent"></a>sudo yum install WALinuxAgent
-    # <a name="sudo-systemctl-enable-waagentservice"></a>sudo systemctl enable waagent.service
+        # sudo yum install WALinuxAgent
+        # sudo systemctl enable waagent.service
+
 12. Не создавайте пространство подкачки на диске с ОС. Агент Linux для Azure может автоматически настраивать размер области подкачки с использованием локального диска с ресурсами, подключенного к виртуальной машине после подготовки в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле `/etc/waagent.conf`:
 
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## ПРИМЕЧАНИЕ. Задайте для этого параметра нужное значение.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 13. Чтобы отменить регистрацию подписки, выполните следующую команду:
 
-    # <a name="sudo-subscription-manager-unregister"></a>sudo subscription-manager unregister
+        # sudo subscription-manager unregister
+
 14. Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
-15. В диспетчере Hyper-V выберите **Действие > Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.  
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
+15. В диспетчере Hyper-V выберите **Действие > Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Подготовка виртуальной машины под управлением Red Hat в KVM
-### <a id="rhel67kvm"> </a>Подготовка виртуальной машины RHEL 6.7 в KVM
-1. Загрузите KVM-образ RHEL 6.7 с веб-сайта Red Hat.
+### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>Подготовка виртуальной машины RHEL 6 в KVM
+
+1. Скачайте образ KVM RHEL 6 с веб-сайта Red Hat.
+
 2. Задайте пароль пользователя root.
 
-   Создайте зашифрованный пароль и скопируйте выходные данные команды:
+    Создайте зашифрованный пароль и скопируйте выходные данные команды:
 
-   # <a name="openssl-passwd--1-changeme"></a>openssl passwd -1 changeme
-   Установите корневой пароль с помощью Guestfish:
+        # openssl passwd -1 changeme
 
-   # <a name="guestfish---rw--a-image-name"></a>guestfish --rw -a <image-name>
-   > <fs> run <fs> list-filesystems <fs> mount /dev/sda1 / <fs> vi /etc/shadow <fs> exit
-   >
-   >
+    Установите корневой пароль с помощью Guestfish:
+        
+        # guestfish --rw -a <image-name>
+        > <fs> run
+        > <fs> list-filesystems
+        > <fs> mount /dev/sda1 /
+        > <fs> vi /etc/shadow
+        > <fs> exit
 
    Во втором поле привилегированного пользователя замените "!!" зашифрованным паролем.
+
 3. Создайте виртуальную машину в KVM из образа qcow2, укажите тип диска **qcow2** и задайте для модели устройства интерфейса виртуальной сети значение **virtio**. Затем запустите виртуальную машину и войдите в систему как привилегированный пользователь.
-4. Создайте файл с именем **network** в каталоге `/etc/sysconfig/`. Файл должен содержать следующий текст:
 
-     NETWORKING=yes   HOSTNAME=localhost.localdomain
-5. Создайте файл с именем **ifcfg-eth0** в каталоге `/etc/sysconfig/network-scripts/`. Файл должен содержать следующий текст:
+4. Создайте или измените файл `/etc/sysconfig/network`, добавив следующий текст:
+   
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
+5. Создайте или измените файл `/etc/sysconfig/network-scripts/ifcfg-eth0`, добавив следующий текст:
+   
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+
 6. Переместите (или удалите) правила udev, чтобы не создавать статические правила для интерфейса Ethernet. Эти правила приводят к появлению проблем при клонировании виртуальной машины в Microsoft Azure или Hyper-V:
 
-   # <a name="mkdir--m-0700-varlibwaagent"></a>mkdir -m 0700 /var/lib/waagent
-   # <a name="mv-libudevrulesd75-persistent-net-generatorrules-varlibwaagent"></a>mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
-   # <a name="mv-etcudevrulesd70-persistent-netrules-varlibwaagent"></a>mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+
 7. Убедитесь, что сетевая служба запускается во время загрузки, выполнив следующую команду:
 
-   # <a name="chkconfig-network-on"></a>chkconfig network on
+        # chkconfig network on
+
 8. Зарегистрируйте подписку Red Hat, чтобы активировать установку пакетов из репозитория RHEL, запустив следующую команду:
 
-   # <a name="subscription-manager-register---auto-attach---usernamexxx---passwordxxx"></a>subscription-manager register --auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
+
 9. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/boot/grub/menu.lst` в текстовом редакторе и укажите для ядра по умолчанию следующие параметры:
+    
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    
+    Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки.
+    
+    Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
+    
+        rhgb quiet crashkernel=auto
+    
+    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.  При желании можно настроить параметр `crashkernel`, однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+    >[!Important]
+    Для RHEL 6.5 и более ранних версий необходимо также указать параметр ядра `numa=off`. См. посвященный Red Hat [раздел 436883](https://access.redhat.com/solutions/436883).
 
-   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Это приведет к отключению NUMA в связи с неисправностью версии ядра, используемого RHEL 6.
-
-   Кроме того, рекомендуем удалить следующие параметры:
-
-     rhgb quiet crashkernel=auto
-
-   Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
-   При желании можно настроить параметр crashkernel, однако учтите, что он сокращает объем доступной памяти на виртуальной машине на 128 МБ и более. Это может оказаться проблемой на виртуальных машинах небольшого размера.
 10. Добавьте модули Hyper-V в initramfs:  
 
-    Измените файл `/etc/dracut.conf` и добавьте содержимое: add_drivers+="hv_vmbus hv_netvsc hv_storvsc".
+    Измените файл `/etc/dracut.conf` , добавив в него следующее содержимое:
+
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Повторно создайте initramfs:
 
-        # dracut –f -v
+        # dracut -f -v
+
 11. Удаление cloud-init:
 
-    # <a name="yum-remove-cloud-init"></a>yum remove cloud-init
+        # yum remove cloud-init
+
 12. Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки:
 
-    # <a name="chkconfig-sshd-on"></a>chkconfig sshd on
+        # chkconfig sshd on
+
     Измените файл /etc/ssh/sshd_config, включив в него следующие строки:
 
-     PasswordAuthentication yes  ClientAliveInterval 180
+        PasswordAuthentication yes
+        ClientAliveInterval 180
 
-    Перезапустите sshd:
-
-    # <a name="service-sshd-restart"></a>service sshd restart
 13. Пакет WALinuxAgent `WALinuxAgent-<version>` был отправлен в репозиторий дополнений Red Hat. Включите репозиторий дополнений, выполнив следующую команду:
 
-    # <a name="subscription-manager-repos---enablerhel-6-server-extras-rpms"></a>subscription-manager repos --enable=rhel-6-server-extras-rpms
+        # subscription-manager repos --enable=rhel-6-server-extras-rpms
+
 14. Установите агент Linux для Azure, выполнив следующую команду:
 
-    # <a name="yum-install-walinuxagent"></a>yum install WALinuxAgent
-    # <a name="chkconfig-waagent-on"></a>chkconfig waagent on
+        # yum install WALinuxAgent
+        # chkconfig waagent on
+
 15. Агент Linux для Azure может автоматически настраивать размер области подкачки с использованием локального диска с ресурсами, подключенного к виртуальной машине после подготовки в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле **/etc/waagent.conf**:
 
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## ПРИМЕЧАНИЕ. Задайте для этого параметра нужное значение.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 16. Отмените регистрацию подписки (при необходимости), выполнив следующую команду:
 
-    # <a name="subscription-manager-unregister"></a>subscription-manager unregister
+        # subscription-manager unregister
+
 17. Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-    # <a name="waagent--force--deprovision"></a>waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 18. Завершите работу виртуальной машины в KVM.
+
 19. Конвертируйте образ qcow2 в формат VHD.
+
     Для начала конвертируйте образ в формат RAW:
 
-    # <a name="qemu-img-convert--f-qcow2-o-raw-rhel-67qcow2-rhel-67raw"></a>qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
+        # qemu-img convert -f qcow2 -O raw rhel-6.8.qcow2 rhel-6.8.raw
+
     Убедитесь, что размер образа в формате RAW соответствует 1 МБ. Если это не так, округлите размер до 1 МБ:
 
-    # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-67raw--"></a>size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
-               gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
-    # <a name="qemu-img-resize-rhel-67raw-roundedsize"></a>qemu-img resize rhel-6.7.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
+
     Конвертируйте диск в формате RAW в виртуальный жесткий диск фиксированного размера:
 
-    # <a name="qemu-img-convert--f-raw--o-subformatfixed--o-vpc-rhel-67raw-rhel-67vhd"></a>qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
 
-### <a id="rhel7xkvm"> </a>Подготовка виртуальной машины RHEL 7.1/7.2 в KVM
-1. Скачайте KVM-образ RHEL 7.1 (или 7.2) с веб-сайта Red Hat. В этом примере мы используем RHEL 7.1.
+
+### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>Подготовка виртуальной машины RHEL 7 в KVM
+
+1. Скачайте образ KVM RHEL 7 с веб-сайта Red Hat. В этом примере мы используем RHEL 7.
+
 2. Задайте пароль пользователя root.
 
-   Создайте зашифрованный пароль и скопируйте результат выполнения команды:
+    Создайте зашифрованный пароль и скопируйте результат выполнения команды:
 
-   # <a name="openssl-passwd--1-changeme"></a>openssl passwd -1 changeme
-   Задайте пароль пользователя root с помощью guestfish.
+        # openssl passwd -1 changeme
 
-   # <a name="guestfish---rw--a-image-name"></a>guestfish --rw -a <image-name>
-   > <fs> run <fs> list-filesystems <fs> mount /dev/sda1 / <fs> vi /etc/shadow <fs> exit
-   >
-   >
+    Задайте пароль пользователя root с помощью guestfish.
+
+        # guestfish --rw -a <image-name>
+        > <fs> run
+        > <fs> list-filesystems
+        > <fs> mount /dev/sda1 /
+        > <fs> vi /etc/shadow
+        > <fs> exit
 
    Во втором поле привилегированного пользователя замените "!!" зашифрованным паролем.
+
 3. Создайте виртуальную машину в KVM из образа qcow2, укажите тип диска **qcow2** и задайте для модели устройства интерфейса виртуальной сети значение **virtio**. Затем запустите виртуальную машину и войдите в систему как привилегированный пользователь.
-4. Создайте файл с именем **network** в каталоге `/etc/sysconfig/`. Файл должен содержать следующий текст:
 
-     NETWORKING=yes   HOSTNAME=localhost.localdomain
-5. Создайте файл с именем **ifcfg-eth0** в каталоге `/etc/sysconfig/network-scripts/`. Файл должен содержать следующий текст:
+4. Создайте или измените файл `/etc/sysconfig/network`, добавив следующий текст:
+   
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
+5. Создайте или измените файл `/etc/sysconfig/network-scripts/ifcfg-eth0`, добавив следующий текст:
+   
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+        NM_CONTROLLED=no
+
 6. Убедитесь, что сетевая служба запускается во время загрузки, выполнив следующую команду:
 
-   # <a name="chkconfig-network-on"></a>chkconfig network on
+        # chkconfig network on
+
 7. Зарегистрируйте подписку Red Hat, чтобы активировать установку пакетов из репозитория RHEL, запустив следующую команду:
 
-   # <a name="subscription-manager-register---auto-attach---usernamexxx---passwordxxx"></a>subscription-manager register --auto-attach --username=XXX --password=XXX
-8. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр **GRUB_CMDLINE_LINUX**. Например:
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-     GRUB_CMDLINE_LINUX="rootdelay=300   console=ttyS0   earlyprintk=ttyS0"
+8. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр `GRUB_CMDLINE_LINUX`, например:
+   
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+   
+   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Также будут отключены новые соглашения об именовании RHEL 7 для сетевых карт. Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
+   
+        rhgb quiet crashkernel=auto
+   
+    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт. При желании можно настроить параметр `crashkernel`, однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 
-   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Кроме того, рекомендуем удалить следующие параметры:
-
-     rhgb quiet crashkernel=auto
-
-   Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
-   При желании можно настроить параметр crashkernel, однако учтите, что он сокращает объем доступной памяти на виртуальной машине на 128 МБ и более. Это может оказаться проблемой на виртуальных машинах небольшого размера.
 9. После внесения изменений в файл `/etc/default/grub`выполните следующую команду, чтобы повторно создать конфигурацию grub:
 
-   # <a name="grub2-mkconfig--o-bootgrub2grubcfg"></a>grub2-mkconfig -o /boot/grub2/grub.cfg
+        # grub2-mkconfig -o /boot/grub2/grub.cfg
+
 10. Добавьте модули Hyper-V в initramfs:
 
     Измените файл `/etc/dracut.conf` , добавив в него следующее содержимое:
 
-     add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Повторно создайте initramfs:
 
-    # <a name="dracut-f--v"></a>dracut –f -v
+        # dracut -f -v
+
 11. Удаление cloud-init:
 
-    # <a name="yum-remove-cloud-init"></a>yum remove cloud-init
+        # yum remove cloud-init
+
 12. Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки:
 
-    # <a name="systemctl-enable-sshd"></a>systemctl enable sshd
-    Измените файл /etc/ssh/sshd_config, включив в него следующие строки:
+        # systemctl enable sshd
 
-     PasswordAuthentication yes  ClientAliveInterval 180
+Измените файл /etc/ssh/sshd_config, включив в него следующие строки:
 
-    Перезапустите sshd:
+        PasswordAuthentication yes
+        ClientAliveInterval 180
 
-     systemctl restart sshd
 13. Пакет WALinuxAgent `WALinuxAgent-<version>` был отправлен в репозиторий дополнений Red Hat. Включите репозиторий дополнений, выполнив следующую команду:
 
-    # <a name="subscription-manager-repos---enablerhel-7-server-extras-rpms"></a>subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
+
 14. Установите агент Linux для Azure, выполнив следующую команду:
 
-    # <a name="yum-install-walinuxagent"></a>yum install WALinuxAgent
+        # yum install WALinuxAgent
+
     Включите службу waagent:
 
-    # <a name="systemctl-enable-waagentservice"></a>systemctl enable waagent.service
+        # systemctl enable waagent.service
+
 15. Не создавайте пространство подкачки на диске с ОС. Агент Linux для Azure может автоматически настраивать размер области подкачки с использованием локального диска с ресурсами, подключенного к виртуальной машине после подготовки в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле `/etc/waagent.conf`:
 
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## ПРИМЕЧАНИЕ. Задайте для этого параметра нужное значение.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 16. Отмените регистрацию подписки (при необходимости), выполнив следующую команду:
 
-    # <a name="subscription-manager-unregister"></a>subscription-manager unregister
+        # subscription-manager unregister
+
 17. Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 18. Остановите работу виртуальной машины в KVM.
+
 19. Конвертируйте образ qcow2 в формат VHD.
 
     Для начала конвертируйте образ в формат RAW:
 
-    # <a name="qemu-img-convert--f-qcow2-o-raw-rhel-71qcow2-rhel-71raw"></a>qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
+        # qemu-img convert -f qcow2 -O raw rhel-7.3.qcow2 rhel-7.3.raw
+
     Убедитесь, что размер образа в формате RAW соответствует 1 МБ. Если это не так, округлите размер до 1 МБ:
 
-    # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-71raw--"></a>size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
-               gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
-    # <a name="qemu-img-resize-rhel-71raw-roundedsize"></a>qemu-img resize rhel-7.1.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
+            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-7.3.raw $rounded_size
+
     Конвертируйте диск в формате RAW в виртуальный жесткий диск фиксированного размера:
 
-    # <a name="qemu-img-convert--f-raw--o-subformatfixed--o-vpc-rhel-71raw-rhel-71vhd"></a>qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Подготовка виртуальной машины под управлением Red Hat в VMware
 ### <a name="prerequisites"></a>Предварительные требования
@@ -373,306 +498,349 @@ ms.openlocfilehash: 5127e61dc45ccf3048dd18cf11d5b0915125f814
 * Не настраивайте раздел подкачки на диске с ОС. Вы можете настроить агент Linux для создания файла подкачки на временном диске с ресурсами. Дополнительные сведения приведены далее.
 * При создании виртуального жесткого диска выберите параметр **Store virtual disk as a single file**(Сохранять виртуальный диск как один файл).
 
-### <a id="rhel67vmware"> </a>Подготовка виртуальной машины RHEL 6.7 в VMWare
-1. Удалите NetworkManager, выполнив следующую команду:
+### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>Подготовка виртуальной машины RHEL 6 в VMware
+1. В RHEL 6 NetworkManager может мешать работе агента Linux для Azure. Установите пакет, выполнив следующую команду:
+   
+        # sudo rpm -e --nodeps NetworkManager
 
-   # <a name="sudo-rpm--e---nodeps-networkmanager"></a>sudo rpm -e --nodeps NetworkManager
-   Обратите внимание: если пакет еще не установлен, эта команда завершится сбоем с сообщением об ошибке. Это ожидаемое поведение.
 2. Создайте файл с именем **network** в каталоге /etc/sysconfig/. Файл должен содержать следующий текст:
 
-     NETWORKING=yes   HOSTNAME=localhost.localdomain
-3. Создайте файл с именем **ifcfg-eth0** в каталоге /etc/sysconfig/network-scripts/. Файл должен содержать следующий текст:
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
+3. Создайте или измените файл `/etc/sysconfig/network-scripts/ifcfg-eth0`, добавив следующий текст:
+   
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+
 4. Переместите (или удалите) правила udev, чтобы не создавать статические правила для интерфейса Ethernet. Эти правила приводят к появлению проблем при клонировании виртуальной машины в Microsoft Azure или Hyper-V:
 
-   # <a name="sudo-mkdir--m-0700-varlibwaagent"></a>sudo mkdir -m 0700 /var/lib/waagent
-   # <a name="sudo-mv-libudevrulesd75-persistent-net-generatorrules-varlibwaagent"></a>sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
-   # <a name="sudo-mv-etcudevrulesd70-persistent-netrules-varlibwaagent"></a>sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+
 5. Убедитесь, что сетевая служба запускается во время загрузки, выполнив следующую команду:
 
-   # <a name="sudo-chkconfig-network-on"></a>sudo chkconfig network on
+        # sudo chkconfig network on
+
 6. Зарегистрируйте подписку Red Hat, чтобы активировать установку пакетов из репозитория RHEL, запустив следующую команду:
 
-   # <a name="sudo-subscription-manager-register---auto-attach---usernamexxx---passwordxxx"></a>sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+        # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+
 7. Пакет WALinuxAgent `WALinuxAgent-<version>` был отправлен в репозиторий дополнений Red Hat. Включите репозиторий дополнений, выполнив следующую команду:
 
-   # <a name="subscription-manager-repos---enablerhel-6-server-extras-rpms"></a>subscription-manager repos --enable=rhel-6-server-extras-rpms
-8. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /boot/grub/menu.lst в текстовом редакторе и убедитесь, что ядро по умолчанию включает следующие параметры:
+        # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-     console=ttyS0   earlyprintk=ttyS0   rootdelay=300   numa=off
+8. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр `GRUB_CMDLINE_LINUX`, например:
+   
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+   
+   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Также будут отключены новые соглашения об именовании RHEL 7 для сетевых карт. Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
+   
+        rhgb quiet crashkernel=auto
+   
+    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт. При желании можно настроить параметр `crashkernel`, однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 
-   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Это приведет к отключению NUMA в связи с неисправностью версии ядра, используемого RHEL 6.
-   Кроме того, рекомендуем удалить следующие параметры:
-
-     rhgb quiet crashkernel=auto
-
-   Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
-   При желании можно настроить параметр crashkernel, однако учтите, что он сокращает объем доступной памяти на виртуальной машине на 128 МБ и более. Это может оказаться проблемой на виртуальных машинах небольшого размера.
 9. Добавьте модули Hyper-V в initramfs:
 
-     Измените файл `/etc/dracut.conf` , добавив в него следующее содержимое:
+    Измените файл `/etc/dracut.conf` , добавив в него следующее содержимое:
 
-         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
-     Повторно создайте initramfs:
+    Повторно создайте initramfs:
 
-         # dracut –f -v
+        # dracut -f -v
+
 10. Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки. Обычно это сделано по умолчанию. Измените файл `/etc/ssh/sshd_config` , добавив в него следующую строку:
 
-     ClientAliveInterval 180
+    ClientAliveInterval 180
+
 11. Установите агент Linux для Azure, выполнив следующую команду:
 
-    # <a name="sudo-yum-install-walinuxagent"></a>sudo yum install WALinuxAgent
-    # <a name="sudo-chkconfig-waagent-on"></a>sudo chkconfig waagent on
-12. Не создавайте пространство подкачки на диске с ОС:
+        # sudo yum install WALinuxAgent
+        # sudo chkconfig waagent on
 
-    Агент Linux для Azure может автоматически настраивать размер области подкачки с использованием локального диска с ресурсами, подключенного к виртуальной машине после подготовки в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле `/etc/waagent.conf`:
+12. Не создавайте пространство подкачки на диске ОС. Агент Linux для Azure может автоматически настроить пространство подкачки, используя локальный ресурс диск, подключенный к виртуальной машине после ее подготовки для работы в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле `/etc/waagent.conf`:
 
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## ПРИМЕЧАНИЕ. Задайте для этого параметра нужное значение.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 13. Отмените регистрацию подписки (при необходимости), выполнив следующую команду:
 
-    # <a name="sudo-subscription-manager-unregister"></a>sudo subscription-manager unregister
+        # sudo subscription-manager unregister
+
 14. Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 15. Завершите работу виртуальной машины и конвертируйте файл VMDK в формат VHD.
 
     Для начала конвертируйте образ в формат RAW:
 
-    # <a name="qemu-img-convert--f-vmdk-o-raw-rhel-67vmdk-rhel-67raw"></a>qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
+        # qemu-img convert -f vmdk -O raw rhel-6.8.vmdk rhel-6.8.raw
+
     Убедитесь, что размер образа в формате RAW соответствует 1 МБ. Если это не так, округлите размер до 1 МБ:
 
-    # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-67raw--"></a>size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
-             gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
-    # <a name="qemu-img-resize-rhel-67raw-roundedsize"></a>qemu-img resize rhel-6.7.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
+
     Конвертируйте диск в формате RAW в виртуальный жесткий диск фиксированного размера:
 
-    # <a name="qemu-img-convert--f-raw--o-subformatfixed--o-vpc-rhel-67raw-rhel-67vhd"></a>qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
 
-### <a id="rhel7xvmware"> </a>Подготовка виртуальной машины RHEL 7.1/7.2 в VMWare
-1. Создайте файл с именем **network** в каталоге /etc/sysconfig/. Файл должен содержать следующий текст:
+### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>Подготовка виртуальной машины RHEL 7 в VMware
+1. Создайте или измените файл `/etc/sysconfig/network`, добавив следующий текст:
+   
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-     NETWORKING=yes   HOSTNAME=localhost.localdomain
-2. Создайте файл с именем **ifcfg-eth0** в каталоге /etc/sysconfig/network-scripts/. Файл должен содержать следующий текст:
+2. Создайте или измените файл `/etc/sysconfig/network-scripts/ifcfg-eth0`, добавив следующий текст:
+   
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+        NM_CONTROLLED=no
 
-     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
 3. Убедитесь, что сетевая служба запускается во время загрузки, выполнив следующую команду:
 
-   # <a name="sudo-chkconfig-network-on"></a>sudo chkconfig network on
+        # sudo chkconfig network on
+
 4. Зарегистрируйте подписку Red Hat, чтобы активировать установку пакетов из репозитория RHEL, запустив следующую команду:
 
-   # <a name="sudo-subscription-manager-register---auto-attach---usernamexxx---passwordxxx"></a>sudo subscription-manager register --auto-attach --username=XXX --password=XXX
-5. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр **GRUB_CMDLINE_LINUX**. Например:
+        # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-     GRUB_CMDLINE_LINUX="rootdelay=300   console=ttyS0   earlyprintk=ttyS0"
+5. Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл `/etc/default/grub` в текстовом редакторе и измените параметр `GRUB_CMDLINE_LINUX`, например:
+   
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+   
+   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Также будут отключены новые соглашения об именовании RHEL 7 для сетевых карт. Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
+   
+        rhgb quiet crashkernel=auto
+   
+    Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт. При желании можно настроить параметр `crashkernel`, однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 
-   Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Кроме того, рекомендуем удалить следующие параметры:
-
-     rhgb quiet crashkernel=auto
-
-   Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
-   При желании можно настроить параметр crashkernel, однако учтите, что он сокращает объем доступной памяти на виртуальной машине на 128 МБ и более. Это может оказаться проблемой на виртуальных машинах небольшого размера.
 6. После внесения изменений в файл `/etc/default/grub`выполните следующую команду, чтобы повторно создать конфигурацию grub:
 
-   # <a name="sudo-grub2-mkconfig--o-bootgrub2grubcfg"></a>sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
 7. Добавьте модули Hyper-V в initramfs:
 
-   Измените файл `/etc/dracut.conf`, добавив в него следующее содержимое:
+    Измените файл `/etc/dracut.conf`, добавив в него следующее содержимое:
 
-     add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
-   Повторно создайте initramfs:
+    Повторно создайте initramfs:
 
-   # <a name="dracut-f--v"></a>dracut –f -v
+        # dracut -f -v
+
 8. Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки. Обычно это сделано по умолчанию. Измените файл `/etc/ssh/sshd_config` , добавив в него следующую строку:
 
-     ClientAliveInterval 180
+        ClientAliveInterval 180
+
 9. Пакет WALinuxAgent `WALinuxAgent-<version>` был отправлен в репозиторий дополнений Red Hat. Включите репозиторий дополнений, выполнив следующую команду:
 
-   # <a name="subscription-manager-repos---enablerhel-7-server-extras-rpms"></a>subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
+
 10. Установите агент Linux для Azure, выполнив следующую команду:
 
-    # <a name="sudo-yum-install-walinuxagent"></a>sudo yum install WALinuxAgent
-    # <a name="sudo-systemctl-enable-waagentservice"></a>sudo systemctl enable waagent.service
+        # sudo yum install WALinuxAgent
+        # sudo systemctl enable waagent.service
+
 11. Не создавайте пространство подкачки на диске с ОС. Агент Linux для Azure может автоматически настраивать размер области подкачки с использованием локального диска с ресурсами, подключенного к виртуальной машине после подготовки в Azure. Следует отметить, что локальный диск ресурсов является временным диском и должен быть очищен при отмене подготовки виртуальной машины. После установки агента Linux для Azure (см. предыдущий шаг) измените соответствующим образом следующие параметры в файле `/etc/waagent.conf`:
 
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## ПРИМЕЧАНИЕ. Задайте для этого параметра нужное значение.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 12. Чтобы отменить регистрацию подписки, выполните следующую команду:
 
-    # <a name="sudo-subscription-manager-unregister"></a>sudo subscription-manager unregister
+        # sudo subscription-manager unregister
+
 13. Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 14. Завершите работу виртуальной машины и конвертируйте файл VMDK в формат VHD.
 
     Для начала конвертируйте образ в формат RAW:
 
-    # <a name="qemu-img-convert--f-vmdk-o-raw-rhel-71vmdk-rhel-71raw"></a>qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
+        # qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
+
     Убедитесь, что размер образа в формате RAW соответствует 1 МБ. Если это не так, округлите размер до 1 МБ:
 
-    # <a name="mb10241024"></a>MB=$((1024*1024))
-    # <a name="sizeqemu-img-info--f-raw---output-json-rhel-71raw--"></a>size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
-              gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # <a name="roundedsizesizemb--1mb"></a>rounded_size=$((($size/$MB + 1)*$MB))
-    # <a name="qemu-img-resize-rhel-71raw-roundedsize"></a>qemu-img resize rhel-7.1.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
+            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-7.3.raw $rounded_size
+
     Конвертируйте диск в формате RAW в виртуальный жесткий диск фиксированного размера:
 
-    # <a name="qemu-img-convert--f-raw--o-subformatfixed--o-vpc-rhel-71raw-rhel-71vhd"></a>qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Подготовка виртуальной машины под управлением Red Hat из ISO-образа с помощью автоматического использования файла kickstart
-### <a id="rhel7xkickstart"> </a>Подготовка виртуальной машины RHEL 7.1/7.2 из файла kickstart
+### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Подготовка виртуальной машины RHEL 7 из файла kickstart
 
 1.  Создайте файл kickstart, содержащий приведенное ниже содержимое, и сохраните файл. Дополнительные сведения об установке kickstart см. [здесь](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
-          # Kickstart for provisioning a RHEL 7 Azure VM
+        # Kickstart for provisioning a RHEL 7 Azure VM
 
-          # System authorization information
+        # System authorization information
           auth --enableshadow --passalgo=sha512
 
-          # Use graphical install
-          text
+        # Use graphical install
+        text
 
-          # Do not run the Setup Agent on first boot
-          firstboot --disable
+        # Do not run the Setup Agent on first boot
+        firstboot --disable
 
-          # Keyboard layouts
-          keyboard --vckeymap=us --xlayouts='us'
+        # Keyboard layouts
+        keyboard --vckeymap=us --xlayouts='us'
 
-          # System language
-          lang en_US.UTF-8
+        # System language
+        lang en_US.UTF-8
 
-          # Network information
-          network  --bootproto=dhcp
+        # Network information
+        network  --bootproto=dhcp
 
-          # Root password
-          rootpw --plaintext "to_be_disabled"
+        # Root password
+        rootpw --plaintext "to_be_disabled"
 
-          # System services
-          services --enabled="sshd,waagent,NetworkManager"
+        # System services
+        services --enabled="sshd,waagent,NetworkManager"
 
-          # System timezone
-          timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
+        # System timezone
+        timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-          # Partition clearing information
-          clearpart --all --initlabel
+        # Partition clearing information
+        clearpart --all --initlabel
 
-          # Clear the MBR
-          zerombr
+        # Clear the MBR
+        zerombr
 
-          # Disk partitioning information
-          part /boot --fstype="xfs" --size=500
-          part / --fstyp="xfs" --size=1 --grow --asprimary
+        # Disk partitioning information
+        part /boot --fstype="xfs" --size=500
+        part / --fstyp="xfs" --size=1 --grow --asprimary
 
-          # System bootloader configuration
-          bootloader --location=mbr
+        # System bootloader configuration
+        bootloader --location=mbr
 
-          # Firewall configuration
-          firewall --disabled
+        # Firewall configuration
+        firewall --disabled
 
-          # Enable SELinux
-          selinux --enforcing
+        # Enable SELinux
+        selinux --enforcing
 
-          # Don't configure X
-          skipx
+        # Don't configure X
+        skipx
 
-          # Power down the machine after install
-          poweroff
+        # Power down the machine after install
+        poweroff
 
-          %packages
-          @base
-          @console-internet
-          chrony
-          sudo
-          parted
-          -dracut-config-rescue
+        %packages
+        @base
+        @console-internet
+        chrony
+        sudo
+        parted
+        -dracut-config-rescue
 
-          %end
+        %end
 
-          %post --log=/var/log/anaconda/post-install.log
+        %post --log=/var/log/anaconda/post-install.log
 
-          #!/bin/bash
+        #!/bin/bash
 
-          # Register Red Hat Subscription
-          subscription-manager register --username=XXX --password=XXX --auto-attach --force
+        # Register Red Hat Subscription
+        subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-          # Install latest repo update
-          yum update -y
+        # Install latest repo update
+        yum update -y
 
-          # Enable extras repo
-          subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # Enable extras repo
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-          # Install WALinuxAgent
-          yum install -y WALinuxAgent
+        # Install WALinuxAgent
+        yum install -y WALinuxAgent
 
-          # Unregister Red Hat subscription
-          subscription-manager unregister
+        # Unregister Red Hat subscription
+        subscription-manager unregister
 
-          # Enable waaagent at boot-up
-          systemctl enable waagent
+        # Enable waaagent at boot-up
+        systemctl enable waagent
 
-          # Disable the root account
-          usermod root -p '!!'
+        # Disable the root account
+        usermod root -p '!!'
 
-          # Configure swap in WALinuxAgent
-          sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
-          sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
+        # Configure swap in WALinuxAgent
+        sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
+        sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-          # Set the cmdline
-          sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
+        # Set the cmdline
+        sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-          # Enable SSH keepalive
-          sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
+        # Enable SSH keepalive
+        sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-          # Build the grub cfg
-          grub2-mkconfig -o /boot/grub2/grub.cfg
+        # Build the grub cfg
+        grub2-mkconfig -o /boot/grub2/grub.cfg
 
-          # Configure network
-          cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
-          DEVICE=eth0
-          ONBOOT=yes
-          BOOTPROTO=dhcp
-          TYPE=Ethernet
-          USERCTL=no
-          PEERDNS=yes
-          IPV6INIT=no
-          NM_CONTROLLED=yes
-          EOF
+        # Configure network
+        cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+        NM_CONTROLLED=no
+        EOF
 
-          # Deprovision and prepare for Azure
-          waagent -force -deprovision
+        # Deprovision and prepare for Azure
+        waagent -force -deprovision
 
-          %end
+        %end
+
 2. Поместите файл kickstart в место, доступное для системы установки.
+
 3. В диспетчере Hyper-V создайте новую виртуальную машину. На странице **Подключить виртуальный жесткий диск** выберите параметр **Подключить виртуальный жесткий диск позднее** и выполните инструкции в мастере создания виртуальной машины.
-4. Откройте параметры виртуальной машины: А.  Загрузите новый виртуальный жесткий диск на виртуальную машину. Выберите параметры **VHD Format** (Формат VHD) и **Фиксированный размер**.
+
+4. Откройте параметры виртуальной машины:
+
+    а.  Загрузите новый виртуальный жесткий диск на виртуальную машину. Выберите параметры **VHD Format** (Формат VHD) и **Фиксированный размер**.
     b.  Подключите установочный ISO-образ к DVD-дисководу.
     c.  В BIOS выберите загрузку с компакт-диска.
+
 5. Запустите виртуальную машину. Когда отобразится руководство по установке, нажмите клавишу **TAB** , чтобы настроить параметры загрузки.
+
 6. Введите `inst.ks=<the location of the kickstart file>` в конце параметров загрузки и нажмите клавишу **ВВОД**.
+
 7. Дождитесь завершения процесса установки. По окончании процесса виртуальная машина завершит работу автоматически. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
 ## <a name="known-issues"></a>Известные проблемы
-Существуют две известные проблемы, которые могут возникнуть при использовании RHEL 7.1 в Hyper-V и Azure.
-
-### <a name="disk-io-freeze"></a>Зависание дискового ввода-вывода
-Эта проблема может возникать при частых операциях ввода-вывода, связанных с диском RHEL 7.1 в Hyper-V и Azure.   
-
-Частота появления:
-
-проблема возникает периодически. Однако она встречается чаще при большом количестве операций дискового ввода-вывода в Hyper-V и Azure.   
-
-[AZURE.NOTE] Эту проблему Red Hat уже устранила. Чтобы установить соответствующие исправления, выполните следующую команду:
-
-    # sudo yum update
-
 ### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Не удалось включить драйвер Hyper-V в начальный электронный диск при использовании низкоуровневой оболочки Hyper V
+
 В некоторых случаях установщики Linux могут не включать драйверы для Hyper-V в начальный электронный диск (initrd или initramfs), если только не обнаружат, что он работает в среде Hyper-V.
 
 Если для подготовки образа Linux используется другая система виртуализации (например, Virtualbox, Xen и пр.), вам может потребоваться выполнить повторную сборку initrd, чтобы убедиться, что на начальном электронном диске доступны по крайней мере модули ядра hv_vmbus и hv_storvsc. Это известная проблема по крайней мере в системах на основе предшествующего дистрибутива Red Hat.
@@ -681,11 +849,11 @@ ms.openlocfilehash: 5127e61dc45ccf3048dd18cf11d5b0915125f814
 
 Измените файл `/etc/dracut.conf` , добавив в него следующее содержимое:
 
-        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
 Повторно создайте initramfs:
 
-        # dracut –f -v
+        # dracut -f -v
 
 Дополнительные сведения см. в описании [повторного создания initramfs](https://access.redhat.com/solutions/1958).
 
@@ -693,9 +861,4 @@ ms.openlocfilehash: 5127e61dc45ccf3048dd18cf11d5b0915125f814
 Теперь виртуальный жесткий диск Red Hat Enterprise Linux можно использовать для создания новых виртуальных машин Azure. Если вы загружаете VHD-файл в Azure впервые, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Чтобы получить дополнительные сведения о низкоуровневых оболочках, сертифицированных для запуска Red Hat Enterprise Linux, посетите [веб-сайт Red Hat](https://access.redhat.com/certified-hypervisors).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

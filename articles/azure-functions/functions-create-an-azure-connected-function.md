@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Создание функции, выполняющей запись в очередь
 
-Перед подключением к очереди хранилища необходимо создать функцию, загружающую очередь сообщений. Эта функция JavaScript использует триггер с таймером, записывающий сообщение в очередь каждые 10 секунд. Если у вас нет учетной записи Azure, [попробуйте использовать Функции Azure](https://functions.azure.com/try) или [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
+Перед подключением к очереди хранилища необходимо создать функцию, загружающую очередь сообщений. Эта функция JavaScript использует триггер с таймером, записывающий сообщение в очередь каждые 10 секунд. Если у вас нет учетной записи Azure, попробуйте использовать [Функции Azure](https://functions.azure.com/try) или [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
 
 1. Войдите на портал Azure и найдите свое приложение-функцию.
 
@@ -125,7 +126,7 @@ ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
     ![Добавление привязки в таблицу службы хранилища Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Введите `TableItem` в поле **Имя таблицы** и `functionbindings` — в поле **Имя параметра таблицы**, выберите **подключение к учетной записи хранения** или создайте его и нажмите кнопку **Сохранить**.
+2. Введите `functionbindings` в поле **Имя таблицы** и `myTable` — в поле **Имя параметра таблицы**, выберите **подключение к учетной записи хранения** или создайте его и нажмите кнопку **Сохранить**.
 
     ![Настройка привязки таблицы службы хранилища](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о функциях Azure см. в следующих статьях.
+Дополнительные сведения о функциях Azure см. в следующих статьях:
 
 * [Справочник разработчика по функциям Azure](functions-reference.md)  
   Справочник программиста по созданию функций, а также определению триггеров и привязок.
@@ -190,10 +191,5 @@ ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
   Обсуждение планов обслуживания, доступных для использования с функциями Azure (включая план потребления), а также выбор подходящего плана. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

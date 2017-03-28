@@ -8,9 +8,11 @@ tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
+ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/07/2017
@@ -18,6 +20,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
 ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -143,8 +146,3 @@ ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
 - Сведения об удаленной отладке приложений Spark с помощью набора средств в HDInsight см. в статье [Удаленная отладка приложений Spark в кластере HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 - Сведения об использовании средств HDInsight для Eclipse для создания приложений Spark см. в статье [Использование HDInsight в наборе средств Azure для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md).
 - Просмотрите видеоролик [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha) (Использование средств HDInsight для Eclipse для создания приложений Spark).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

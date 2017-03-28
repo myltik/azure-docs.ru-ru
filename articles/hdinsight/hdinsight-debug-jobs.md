@@ -9,6 +9,7 @@ author: mumian
 documentationcenter: 
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -144,183 +145,183 @@ Power Query можно установить, зайдя на страницу [w
 
 Некоторые из этих сообщений об ошибке также могут отображаться на портале Azure, когда он используется для управления кластерами HDinsight. Существуют и другие сообщения об ошибках, которые менее подробны в связи с ограниченными возможностями по устранению таких ошибок в данном контексте. В контекстах, где подобные действия осуществимы, выводятся другие сообщения об ошибках. 
 
-### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Описание.** Предоставьте сведения о Базе данных SQL Azure по меньшей мере для одного компонента, чтобы использовать настраиваемые параметры для хранилищ метаданных Hive и Oozie.
 * **Устранение.** Пользователь должен указать допустимое хранилище метаданных SQL Azure и повторить запрос.  
 
-### <a name="a-idazureregionnotsupportedaazureregionnotsupported"></a><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
+### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **Описание.** Не удалось создать кластер в регионе *имя_вашего_региона*. Выберите допустимую область HDInsight и повторите запрос.
 * **Устранение.** Клиент должен создать кластерный регион, который сейчас поддерживает кластеры: Юго-Восточная Азия, Западная Европа, Северная Европа, восточная часть США или западная часть США.  
 
-### <a name="a-idclustercontainerrecordnotfoundaclustercontainerrecordnotfound"></a><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
+### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Описание.** Серверу не удалось найти запрошенную запись кластера.  
 * **Устранение.** Повторите операцию.
 
-### <a name="a-idclusterdnsnameinvalidreservedwordaclusterdnsnameinvalidreservedword"></a><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
+### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Описание.** Недопустимое DNS-имя кластера *ваше_DNS_имя*. Убедитесь, что имя начинается и оканчивается цифрой или буквой и не содержит специальных символов отличных от "-"  
 * **Устранение.** Используйте для кластера допустимое DNS-имя, которое начинается с цифры или буквы и заканчивается на цифру или букву и при этом не содержит специальных символов, кроме дефиса "-", а затем повторите операцию.
 
-### <a name="a-idclusternameunavailableaclusternameunavailable"></a><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
+### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 * **Описание.** Недоступное имя кластера *имя_вашего_кластера*. Выберите другое имя.  
 * **Устранение.** Пользователь должен указать уникальное имя кластера, которое не существует, а затем повторить попытку. Если пользователь использует портал, в процессе создания кластера он увидит в пользовательском интерфейсе уведомление о том, что такое имя кластера уже существует.
 
-### <a name="a-idclusterpasswordinvalidaclusterpasswordinvalid"></a><a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
+### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
 * **Описание.** Недопустимый пароль кластера. Пароль должен быть не короче 10 символов и содержать по крайней мере одну цифру, строчную букву, прописную букву и специальный символ без пробелов, а также не может включать имя пользователя.  
 * **Устранение.** Укажите допустимый пароль кластера и повторите операцию.
 
-### <a name="a-idclusterusernameinvalidaclusterusernameinvalid"></a><a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
+### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
 * **Описание.** Недопустимое имя пользователя для кластера. Убедитесь, что имя пользователя не содержит специальных символов или пробелов.  
 * **Устранение.** Укажите допустимое имя пользователя для кластера и повторите операцию.
 
-### <a name="a-idclusterusernameinvalidreservedwordaclusterusernameinvalidreservedword"></a><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
+### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
 * **Описание.** Недопустимое DNS-имя кластера *ваше_DNS_имя_кластера*. Убедитесь, что имя начинается и оканчивается цифрой или буквой и не содержит специальных символов отличных от "-"  
 * **Устранение.** Укажите допустимое имя пользователя для кластера DNS и повторите операцию.
 
-### <a name="a-idcontainernamemismatchwithdnsnameacontainernamemismatchwithdnsname"></a><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
+### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
 * **Описание.** Имя контейнера в URI *URI_вашего_контейнера* и DNS-имя *ваше_DNS_имя* в тексте запроса должны быть одинаковыми.  
 * **Устранение.** Убедитесь, что DNS-имя и имя контейнера одинаковы, и повторите операцию.
 
-### <a name="a-iddatanodedefinitionnotfoundadatanodedefinitionnotfound"></a><a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
+### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
 * **Описание.** Недопустимая конфигурация кластера. Не удалось найти определения узлов данных в размерах узлов.  
 * **Устранение.** Повторите операцию.
 
-### <a name="a-iddeploymentdeletionfailureadeploymentdeletionfailure"></a><a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
+### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **Описание.** Ошибка при удалении развертывания для кластера  
 * **Устранение.** Повторите операцию удаления.
 
-### <a name="a-iddnsmappingnotfoundadnsmappingnotfound"></a><a id="DnsMappingNotFound"></a>DnsMappingNotFound
+### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
 * **Описание.** Ошибка конфигурации службы. Не удалось найти требуемые сведения о сопоставлении DNS.  
 * **Устранение.** Удалите кластер и создайте новый.
 
-### <a name="a-idduplicateclustercontainerrequestaduplicateclustercontainerrequest"></a><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
+### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
 * **Описание.** Попытка создать повторяющийся контейнер кластера. Для контейнера *имя_вашего_контейнера* существует запись, но теги eTag не совпадают.
 * **Устранение.** Укажите уникальное имя для контейнера и повторите операцию создания.
 
-### <a name="a-idduplicateclusterinhostedserviceaduplicateclusterinhostedservice"></a><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
+### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
 * **Описание.** Размещенная служба *имя_вашей_размещенной_службы* уже содержит кластер. Размещенная служба не может содержать несколько кластеров.  
 * **Устранение.** Разместите узел кластера в другой размещенной службе.
 
-### <a name="a-idfailuretoupdatedeploymentstatusafailuretoupdatedeploymentstatus"></a><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
+### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **Описание.** Серверу не удалось обновить состояние развертывания кластера.  
 * **Устранение.** Повторите операцию. Если ошибка повторится несколько раз, обратитесь в службу поддержки.
 
-### <a name="a-idhdirestoreclusteralteredahdirestoreclusteraltered"></a><a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
+### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **Описание.** Кластер *имя_вашего_кластера* удален в процессе обслуживания. Создайте кластер снова.
 * **Устранение.** Создайте кластер повторно.
 
-### <a name="a-idheadnodeconfignotfoundaheadnodeconfignotfound"></a><a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
+### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
 * **Описание.** Недопустимая конфигурация кластера. Требуемые настройки головного узла не найдены в размерах узлов.
 * **Устранение.** Повторите операцию.
 
-### <a name="a-idhostedservicecreationfailureahostedservicecreationfailure"></a><a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
+### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Описание.** Не удалось создать размещенную службу *имя_вашей_размещенной_службы*. Повторите запрос.  
 * **Устранение.** Повторите запрос.
 
-### <a name="a-idhostedservicehasproductiondeploymentahostedservicehasproductiondeployment"></a><a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
+### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
 * **Описание.** Размещенная служба *имя_вашей_размещенной_службы* уже содержит рабочее развертывание. Размещенная служба не может содержать несколько рабочих развертываний. Повторите запрос с другим именем кластера.
 * **Устранение.** Воспользуйтесь другим именем кластера и повторите запрос.
 
-### <a name="a-idhostedservicenotfoundahostedservicenotfound"></a><a id="HostedServiceNotFound"></a>HostedServiceNotFound
+### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
 * **Описание.** Не удалось найти размещенную службу *имя_вашей_размещенной_службы* для кластера.  
 * **Устранение.** Если кластер находится в состоянии ошибки, удалите его и повторите попытку.
 
-### <a name="a-idhostedservicewithnodeploymentahostedservicewithnodeployment"></a><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
+### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
 * **Описание.** Размещенная служба *имя_вашей_размещенной_службы* не имеет связанного развертывания.  
 * **Устранение.** Если кластер находится в состоянии ошибки, удалите его и повторите попытку.
 
-### <a name="a-idinsufficientresourcescoresainsufficientresourcescores"></a><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
+### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
 * **Описание.** В подписке с идентификатором *ИД_вашей_подписки* не осталось ядер для создания кластера *имя_вашего_кластера*. Требуется: *resourcesRequired*. Доступно: *resourcesAvailable*.  
 * **Устранение.** Освободите ресурсы в своей подписке или увеличьте количество ресурсов, доступных для подписки, а затем попробуйте создать кластер снова.
 
-### <a name="a-idinsufficientresourceshostedservicesainsufficientresourceshostedservices"></a><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
+### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
 * **Описание.** В подписке с идентификатором *ИД_вашей_подписки* нет квоты на новую размещенную службу для создания кластера *имя_вашего_кластера*.  
 * **Устранение.** Освободите ресурсы в своей подписке или увеличьте количество ресурсов, доступных для подписки, а затем попробуйте создать кластер снова.
 
-### <a name="a-idinternalerrorretryrequestainternalerrorretryrequest"></a><a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
+### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
 * **Описание.** Сервер обнаружил внутреннюю ошибку. Повторите запрос.  
 * **Устранение.** Повторите запрос.
 
-### <a name="a-idinvalidazurestoragelocationainvalidazurestoragelocation"></a><a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
+### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
 * **Описание.** Недопустимое расположение хранилища Azure *имя_региона_данных*. Убедитесь, что регион указан правильно, и повторите попытку.
 * **Устранение.** Выберите расположение хранилища, которое поддерживает HDInsight, убедитесь, что кластер находится в совмещенном расположении, и повторите операцию.
 
-### <a name="a-idinvalidnodesizefordatanodeainvalidnodesizefordatanode"></a><a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
+### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
 * **Описание.** Недопустимый размер виртуальной машины для узлов данных. Для всех узлов данных поддерживается только размер "Большая ВМ".  
 * **Устранение.** Укажите поддерживаемый размер узла данных и повторите операцию.
 
-### <a name="a-idinvalidnodesizeforheadnodeainvalidnodesizeforheadnode"></a><a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
+### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
 * **Описание.** Недопустимый размер виртуальной машины для головного узла. Для головного узла поддерживается только размер "Виртуальная машина ExtraLarge".  
 * **Устранение.** Укажите поддерживаемый размер для головного узла и повторите операцию.
 
-### <a name="a-idinvalidrightsfordeploymentdeletionainvalidrightsfordeploymentdeletion"></a><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
+### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
 * **Описание.** Используемый идентификатор подписки *ИД_вашей_подписки* не имеет достаточных разрешений для выполнения операции удаления для кластера *имя_вашего_кластера*.  
 * **Устранение.** Если кластер находится в состоянии ошибки, отключите его и повторите попытку.  
 
-### <a name="a-idinvalidstorageaccountblobcontainernameainvalidstorageaccountblobcontainername"></a><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
+### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
 * **Описание.** Недопустимое имя контейнера двоичных объектов большого размера для внешней учетной записи хранения *имя_вашего_контейнера*. Убедитесь, что имя начинается с буквы и содержит только строчные буквы, цифры и дефис.  
 * **Устранение.** Укажите допустимое имя контейнера больших двоичных объектов и повторите операцию.
 
-### <a name="a-idinvalidstorageaccountconfigurationsecretkeyainvalidstorageaccountconfigurationsecretkey"></a><a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
+### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
 * **Описание.** Для конфигурации внешней учетной записи хранения *имя_вашей_учетной_записи_хранения* требуется задавать данные секретного ключа.  
 * **Устранение.** Укажите допустимый секретный ключ для учетной записи хранения и повторите операцию.
 
-### <a name="a-idinvalidversionheaderformatainvalidversionheaderformat"></a><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
+### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
 * **Описание.** Формат заголовка версии *ваш_заголовок_версии* отличается от допустимого формата гггг-мм-дд.  
 * **Устранение.** Укажите допустимый формат для заголовка версии и повторите запрос.
 
-### <a name="a-idmorethanoneheadnodeamorethanoneheadnode"></a><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
+### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **Описание.** Недопустимая конфигурация кластера. Обнаружена конфигурация с несколькими головными узлами.  
 * **Устранение.** Измените конфигурацию таким образом, чтобы был указан только один головной узел.
 
-### <a name="a-idoperationtimedoutretryrequestaoperationtimedoutretryrequest"></a><a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
+### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Описание.** Не удалось завершить операцию в течение допустимого времени или в пределах максимального количества повторных попыток. Повторите запрос.  
 * **Устранение.** Повторите запрос.
 
-### <a name="a-idparameternulloremptyaparameternullorempty"></a><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
+### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
 * **Описание.** Параметр *имя_вашего_параметра* не может быть пустым или иметь значение null.  
 * **Устранение.** Укажите допустимое значение для этого параметра.
 
-### <a name="a-idpreclustercreationvalidationfailureapreclustercreationvalidationfailure"></a><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
+### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
 * **Описание.** Недопустимые входные данные для запроса на создание кластера. Убедитесь, что указаны правильные входные значения, и повторите запрос.  
 * **Устранение.** Убедитесь, что указаны правильные входные значения, и повторите запрос.
 
-### <a name="a-idregioncapabilitynotavailablearegioncapabilitynotavailable"></a><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
+### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
 * **Описание.** Недоступна поддержка региона *имя_вашего_региона* и идентификатора подписки *ИД_вашей_подписки*.  
 * **Устранение.** Укажите регион, который поддерживает кластеры HDInsight. Поддерживаемые регионы: Юго-Восточная Азия, Западная Европа, Северная Европа, Восток США или Запад США.
 
-### <a name="a-idstorageaccountnotcolocatedastorageaccountnotcolocated"></a><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
+### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 * **Описание.** Учетная запись хранения *имя_вашей_учетной_записи_хранения* находится в регионе *имя_текущего_региона*. Этот регион должен совпадать с регионом кластера *имя_региона_вашего_кластера*.  
 * **Устранение.** Укажите учетную запись хранения в том же регионе, где находится ваш кластер, или, если ваши данные уже находятся в этой учетной записи хранения, создайте кластер в регионе имеющейся учетной записи хранения. Если работа ведется на портале, пользователь заблаговременно получит уведомление об этой проблеме в пользовательском интерфейсе.
 
-### <a name="a-idsubscriptionidnotactiveasubscriptionidnotactive"></a><a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
+### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 * **Описание.** Указанный идентификатор подписки* ИД_вашей_подписки* неактивен.  
 * **Устранение.** Повторно активируйте свою подписку или получите новую допустимую подписку.
 
-### <a name="a-idsubscriptionidnotfoundasubscriptionidnotfound"></a><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
+### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
 * **Описание.** Не удалось найти идентификатор подписки *ИД_вашей_подписки*.  
 * **Устранение.** Убедитесь, что указан допустимый идентификатор подписки, а затем повторите операцию.
 
-### <a name="a-idunabletoresolvednsaunabletoresolvedns"></a><a id="UnableToResolveDNS"></a>UnableToResolveDNS
+### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **Описание.** Не удается разрешить DNS *URL_вашего_DNS*. Убедитесь, что для конечной точки большого двоичного объекта указан полный URL-адрес.  
 * **Устранение.** Укажите допустимый URL-адрес большого двоичного объекта. Этот URL-адрес ДОЛЖЕН быть полностью допустимым, начинаться с префикса *http://* и заканчиваться доменом *.com*.
 
-### <a name="a-idunabletoverifylocationofresourceaunabletoverifylocationofresource"></a><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
+### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 * **Описание.** Невозможно проверить расположение ресурса *URL_вашего_DNS*. Убедитесь, что для конечной точки большого двоичного объекта указан полный URL-адрес.  
 * **Устранение.** Укажите допустимый URL-адрес большого двоичного объекта. Этот URL-адрес ДОЛЖЕН быть полностью допустимым, начинаться с префикса *http://* и заканчиваться доменом *.com*.
 
-### <a name="a-idversioncapabilitynotavailableaversioncapabilitynotavailable"></a><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
+### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 * **Описание.** Недоступна поддержка версии *указанная_версия* и идентификатора подписки *ИД_вашей_подписки*.  
 * **Устранение.** Выберите доступную версию и повторите операцию.
 
-### <a name="a-idversionnotsupportedaversionnotsupported"></a><a id="VersionNotSupported"></a>VersionNotSupported
+### <a id="VersionNotSupported"></a>VersionNotSupported
 * **Описание.** Версия *указанная_версия* не поддерживается.
 * **Устранение.** Выберите поддерживаемую версию и повторите операцию.
 
-### <a name="a-idversionnotsupportedinregionaversionnotsupportedinregion"></a><a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
+### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
 * **Описание.** Версия *указанная_версия* недоступна в регионе Azure *указанный_регион*.  
 * **Устранение.** Выберите версию, которая поддерживается в указанном регионе, и повторите операцию.
 
-### <a name="a-idwasbaccountconfignotfoundawasbaccountconfignotfound"></a><a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
+### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
 * **Описание.** Недопустимая конфигурация кластера. Требуемая конфигурация учетной записи WASB не найдена во внешних учетных записях.  
 * **Устранение.** Убедитесь, что учетная запись существует и правильно указана в конфигурации, а затем повторите операцию.
 

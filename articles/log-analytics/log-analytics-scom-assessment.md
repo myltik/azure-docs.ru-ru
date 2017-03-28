@@ -1,10 +1,10 @@
 ---
-title: "Оптимизация среды с помощью решения для оценки System Center Operations Manager в Log Analytics | Документация Майкрософт"
+title: "Оптимизация среды System Center Operations Manager с помощью Azure Log Analytics | Документация Майкрософт"
 description: "Решение для оценки System Center Operations Manager можно использовать для оценки риска и работоспособности серверных сред на регулярной основе."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 45ba55083ecca1995e343dc1da1497df43f70e10
-ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
+ms.lasthandoff: 03/11/2017
 
 
 ---
 
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Оптимизация среды с помощью решения для оценки System Center Operations Manager (предварительная версия) в Log Analytics
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Оптимизация среды с помощью решения для оценки System Center Operations Manager (предварительная версия)
 
-Решение для оценки System Center Operations Manager можно использовать для оценки риска и работоспособности серверных сред SCOM на регулярной основе. Эта статья поможет вам установить, настроить и использовать данное решение таким образом, чтобы в случае проблем вы могли принять корректирующие меры. 
+Решение для оценки System Center Operations Manager можно использовать для оценки риска и работоспособности серверных сред SCOM на регулярной основе. Эта статья поможет вам установить, настроить и использовать данное решение таким образом, чтобы в случае проблем вы могли принять корректирующие меры.
 
 Это решение предоставляет приоритетный список рекомендаций, относящихся к развернутой серверной инфраструктуре. Рекомендации сгруппированы в четырех приоритетных областях, помогающих быстро оценить риски и принять корректирующие меры.
 
@@ -43,12 +45,17 @@ ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 
 Для установки и настройки решений используйте указанные ниже данные.
 
-- Один сервер управления Operations Manager из группы управления следует настроить для подключения к OMS. Чтобы подключить сервер управления Operations Manager к Log Analytics, ознакомьтесь со статьей [Подключение Operations Manager к Log Analytics](log-analytics-om-agents.md#connecting-operations-manager-to-oms).
-    - Если нужно отслеживать несколько серверов управления в группе управления с помощью группы компьютеров под управлением OMS, убедитесь, что оценки настроена для запуска на одном сервере управления. Дополнительные сведения см. в разделе [Настройка правила оценки](#configure-the-assessment-rule).
-- Чтобы использовать решение оценки в OMS, его необходимо установить. Дополнительные сведения об установке решений см. в статье [Добавление решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
-- При использовании агента Operations Manager с оценкой System Center Operations Manager необходимо использовать учетную запись запуска от имени Operations Manager. Дополнительные сведения см. в разделе [Учетные записи запуска от имени в Operations Manager для службы OMS](#operations-manager-run-as-accounts-for-oms).
-    >[!NOTE]
-    После добавления решения на сервер SCOM добавляется файл AdvisorAssessment.exe. Данные конфигурации считываются и отправляются на обработку в службу OMS в облаке. К полученным данным применяется логика и облачная служба записывает данные.
+ - Чтобы использовать решение оценки в OMS, его необходимо установить. Установите решение из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
+
+ - После добавления решения в рабочую область элемент "Оценка System Center Operations Manager" на панели мониторинга отобразит сообщение о том, что требуется дополнительная настройка. Щелкните этот элемент и выполните инструкции по настройке, указанные на странице.
+
+ ![Элемент "Оценка System Center Operations Manager" на панели мониторинга](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
+
+ Настроить System Center Operations Manager можно с помощью сценария, выполнив действия, описанные на странице настройки решения в OMS.
+
+ Вместо этого, чтобы настроить оценку с помощью консоли SCOM, выполните следующие действия в указанном порядке.
+1. [Установите учетную запись запуска от имени для оценки System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms).  
+2. [Настройте правило оценки System Center Operations Manager](#configure-the-assessment-rule).
 
 # <a name="system-center-operations-manager-assessment-data-collection-details"></a>Сведения о сборе данных оценки System Center Operations Manager
 
@@ -58,7 +65,7 @@ ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Да](./media/log-analytics-scom-assessment/oms-bullet-green.png)  | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Да](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7 дней |
+| Windows |  ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Да](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Нет](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7 дней |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Учетные записи запуска от имени в Operations Manager для службы OMS
 
@@ -73,7 +80,11 @@ ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 3. Создайте учетную запись запуска от имени Windows с помощью мастера. Использовать следует идентифицированную учетную запись, для которой выполнены все перечисленные ниже предварительные условия.
 
     >[!NOTE]
-    Учетная запись запуска от имени должна соответствовать следующим требованиям. Она должна быть участником учетной записи домена локальной группы администраторов на всех серверах в среде (т. е. участником всех ролей Operations Manager: сервер управления, база данных OpsMgr, хранилище данных, создание отчетов, веб-консоль, шлюз). Она должна быть ролью администратора Operation Manager для оцениваемой группы управления, т. е. ролью SysAdmin на всех серверах или экземплярах SQL Server, используемых Operations Manager.
+    Учетная запись запуска от имени должна соответствовать следующим требованиям.
+    - Это должна быть учетная запись домена, входящая в группу локальных администраторов на всех серверах в среде (все роли Operations Manager: сервер управления, база данных Operations Manager, хранилище данных, создание отчетов, веб-консоль, шлюз).
+    - Это должна быть роль администратора Operations Manager для оцениваемой группы.
+    - Выполните [этот сценарий](#sql-script-to-grant-granular-permissions-to-the-run-as-account), чтобы предоставить детализированные разрешения учетной записи запуска экземпляра SQL, используемого Operations Manager.
+      Примечание. Если эта учетная запись уже имеет права системного администратора, пропустите выполнения сценария.
 
 4. В разделе **Безопасность распространения** выберите **Более безопасно**.
 5. Укажите сервер управления, на который распространяется учетная запись.
@@ -82,7 +93,7 @@ ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 5. Он должен называться *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
 6. Щелкните его правой кнопкой мыши и обновите свойства профиля. Добавьте в него учетную запись запуска от имени, созданную на шаге 3.
 
-### <a name="sql-script-granting-permissions-to-the-run-as-account"></a>Сценарий SQL для предоставления разрешений учетной записи запуска от имени
+### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Сценарий SQL для предоставления детализированных разрешений учетной записи запуска от имени
 
 Выполните следующий сценарий SQL, чтобы предоставить необходимые разрешения для учетной записи запуска от имени экземпляра SQL, используемого Operations Manager.
 
@@ -144,8 +155,8 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 1. В рабочей области **Разработка** консоли Operations Manager в области **Правила** найдите правило *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*.
 2. В результатах поиска выберите тот, который содержит текст *Тип: сервер управления*.
 3. Щелкните правой кнопкой мыши правило, а затем выберите **Переопределения** > **Для конкретного объекта данного класса: сервер управления**.
-4.  Из списка выберите сервер управления, на котором должно выполняться правило.
-5.  Обязательно измените значение переопределения для параметра **Включено** на **True**.  
+4.    Из списка выберите сервер управления, на котором должно выполняться правило.
+5.    Обязательно измените значение переопределения для параметра **Включено** на **True**.  
     ![Параметр переопределения](./media/log-analytics-scom-assessment/rule.png)
 
 Оставаясь в этом окне, настройте частоту выполнения, следуя приведенной ниже процедуре.
@@ -257,7 +268,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 *Где запускается процесс AdvisorAssessment.exe?* AdvisorAssessment.exe выполняется в службе работоспособности сервера управления, на котором включено правило оценки. С помощью этого процесса осуществляется обнаружение всей среды посредством удаленного сбора данных.
 
-*Сколько времени требуется для сбора данных?* Время сбора данных на сервере составляет примерно 1 час. В средах, содержащих много экземпляров или баз данных Operations Manager, это может занять больше времени.
+*Сколько времени требуется для сбора данных?* Время сбора данных на сервере составляет примерно&1; час. В средах, содержащих много экземпляров или баз данных Operations Manager, это может занять больше времени.
 
 *Что делать, если мною установлен интервал оценки менее 1440 минут?* Оценка предварительно настроена для выполнение не реже, чем раз в день. Если переопределить значение интервала и указать значение меньше 1440 минут, то оценка будет выполняться с интервалом в 1440 минут.
 
@@ -277,9 +288,4 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Используйте [поиск в журналах](log-analytics-log-searches.md), чтобы просмотреть подробные данные оценки System Center Operations Manager и соответствующие рекомендации.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

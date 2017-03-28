@@ -1,5 +1,5 @@
 ---
-title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Урок 1. Получение инструментов (Windows) | Документация Майкрософт"
+title: "Подключение Raspberry Pi (Node) к Azure IoT. Урок 2. Получение инструментов (Windows) | Документация Майкрософт"
 description: "С помощью этой статьи вы установите Python и интерфейс командной строки Azure (Azure CLI) в Windows 7 и более поздних версиях."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 822ec5c36203a6de5efb25249c2c4a93794b759d
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b2ed91fa40247f188b5f461439807e0dfa573152
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -71,10 +72,5 @@ Azure CLI — это кроссплатформенное средство дл�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание Центра Интернета вещей и регистрация Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
 ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -223,8 +224,8 @@ ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
+[mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -240,12 +241,7 @@ ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: /powershell/azureps-cmdlets-docs
-[Azure CLI]: ../xplat-cli-install.md
+[Azure CLI]:../cli-install-nodejs.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn/cdn-overview.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

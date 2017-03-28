@@ -13,29 +13,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/14/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 691e2e9156a825e64890f035b23cb2526d502107
-ms.openlocfilehash: c7d8cea9a15ec79356c89f628ef9d8e8ccbaaec3
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cc393967fec1a98a4dd596a156c7a12e88959b04
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="how-to-perform-documentdb-global-database-replication-using-the-azure-portal"></a>Выполнение репликации глобальной базы данных DocumentDB с помощью портала Azure
+# <a name="how-to-perform-global-database-replication-using-the-azure-portal"></a>Выполнение репликации глобальной базы данных с помощью портала Azure
 
-Узнайте, как с помощью портала Azure выполнить репликацию данных в нескольких регионах, чтобы обеспечить глобальную доступность данных в Azure DocumentDB.
+Узнайте, как с помощью портала Azure выполнить репликацию данных в нескольких регионах, чтобы обеспечить глобальную доступность данных в Azure DocumentDB и API для MongoDB.
 
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как выполнить репликацию глобальной базы данных программным путем, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
 
-> [!NOTE]
-> Глобальное распределение баз данных DocumentDB является общедоступным и автоматически включается для всех вновь создаваемых учетных записей DocumentDB. Мы работаем над включением глобального распределения для всех существующих учетных записей, но до того момента, если вам необходимо включить эту функцию для своей учетной записи, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , и мы активируем ее для вас.
-> 
-> 
+## <a id="addregion"></a>Добавление регионов глобальной базы данных
+Служба DocumentDB доступна в большинстве [регионов Azure][azureregions]. После выбора уровня согласованности по умолчанию для учетной записи базы данных вы можете связать один или несколько регионов (в зависимости от выбранного уровня согласованности по умолчанию и потребностей глобального распространения).
 
-## <a name="a-idaddregionaadd-global-database-regions"></a><a id="addregion"></a>Добавление регионов глобальной базы данных
-Система DocumentDB доступна в большинстве [регионов Azure][azureregions]. После выбора уровня согласованности по умолчанию для учетной записи базы данных вы можете связать один или несколько регионов (в зависимости от выбранного уровня согласованности по умолчанию и потребностей глобального распространения).
-
-1. На навигационной панели [портала Azure](https://portal.azure.com/) щелкните **NoSQL (DocumentDB)**.
+1. В левой панели на [портале Azure](https://portal.azure.com/) щелкните **NoSQL (DocumentDB)**.
 2. В колонке **NoSQL (DocumentDB)** выберите учетную запись базы данных, которую нужно изменить.
 3. В меню колонки учетной записи щелкните **Глобальная репликация данных**.
 4. В колонке **Глобальная репликация данных** выберите регионы для добавления или удаления и нажмите кнопку **Сохранить**. Добавление регионов оплачивается. Для получения дополнительной информации перейдите на [страницу цен](https://azure.microsoft.com/pricing/details/documentdb/) или прочитайте статью [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md).
@@ -65,7 +61,42 @@ While all regions associated with your DocumentDB database account can serve rea
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
+### <a name="verifying-your-regional-setup-in-api-for-mongodb"></a>Проверка региональных настроек в API для MongoDB
+Самый простой способом еще раз проверить глобальную конфигурацию в API для MongoDB — это выполнить команду *isMaster()* из оболочки Mongo.
+
+Из оболочки Mongo:
+
+   ```
+      db.isMaster()
+   ```
+   
+Пример результатов:
+
+   ```JSON
+      {
+         "_t": "IsMasterResponse",
+         "ok": 1,
+         "ismaster": true,
+         "maxMessageSizeBytes": 4194304,
+         "maxWriteBatchSize": 1000,
+         "minWireVersion": 0,
+         "maxWireVersion": 2,
+         "tags": {
+            "region": "South India"
+         },
+         "hosts": [
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         ],
+         "setName": "globaldb",
+         "setVersion": 1,
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+      }
+   ```
+
+## <a id="next"></a>Дальнейшие действия
 Сведения об управлении согласованностью глобально реплицируемой учетной записи см. в статье [Уровни согласованности в DocumentDB](documentdb-consistency-levels.md).
 
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как программным путем выполнить репликацию данных в нескольких регионах, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
@@ -80,9 +111,4 @@ While all regions associated with your DocumentDB database account can serve rea
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/en-us/regions/#services
 [offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

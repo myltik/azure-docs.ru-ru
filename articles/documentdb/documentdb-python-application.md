@@ -1,7 +1,7 @@
 ---
-title: "Разработка веб-приложений Python Flask с использованием DocumentDB | Документация Майкрософт"
+title: "Руководство по веб-приложению Python Flask для Azure DocumentDB | Документация Майкрософт"
 description: "Изучите учебник по использованию DocumentDB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений."
-keywords: "Разработка приложений, руководство по базе данных, python flask, веб-приложение python, разработка веб-приложения python, documentdb, azure, Microsoft azure"
+keywords: "Разработка приложений, Python Flask, веб-приложение Python, разработка веб-приложения Python"
 services: documentdb
 documentationcenter: python
 author: syamkmsft
@@ -15,15 +15,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="python-flask-web-application-development-with-documentdb"></a>Разработка веб-приложений Python Flask с использованием DocumentDB
+# <a name="build-a-python-flask-web-application-using-documentdb"></a>Создание веб-приложения Python Flask с использованием DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET для MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -71,7 +74,7 @@ ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 <br/>
- Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
+Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>Шаг 2. Создание веб-приложения Python Flask
 1. В меню Visual Studio **Файл** выберите **Создать**, а затем щелкните **Проект**.
@@ -410,9 +413,4 @@ def vote():
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

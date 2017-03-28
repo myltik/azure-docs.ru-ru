@@ -8,15 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
-ms.openlocfilehash: c0349b5890a75c6ffaa6b7eca93baa3101912cf6
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 23bdde763de6f437a0dec74c51722cbcfc19b141
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -46,7 +48,7 @@ ms.openlocfilehash: c0349b5890a75c6ffaa6b7eca93baa3101912cf6
 > [!IMPORTANT]
 > В HDInsight 3.4 и более поздних версий используется только операционная система Linux. См. дополнительные сведения о [прекращении сопровождения HDInsight в ОС Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-В HDInsight 3.4 и более поздних версий использует Mono для запуска топологий C#. Большинство возможностей будут нормально работать с Mono, но мы рекомендуем просмотреть документ о [совместимости Mono](http://www.mono-project.com/docs/about-mono/compatibility/), чтобы определить потенциальные проблемы с совместимостью.
+В HDInsight 3.4 и более поздних версий использует Mono для запуска топологий C#. Большинство возможностей будут нормально работать с Mono. Тем не менее вам следует просмотреть документ о [совместимости Mono](http://www.mono-project.com/docs/about-mono/compatibility/), чтобы определить потенциальные проблемы с совместимостью.
 
 Топологии C# должны быть рассчитаны на использование с .NET 4.5.
 
@@ -57,17 +59,17 @@ ms.openlocfilehash: c0349b5890a75c6ffaa6b7eca93baa3101912cf6
 > [!IMPORTANT]
 > Эти компоненты написаны на языке Java, но их можно свободно использовать из топологии C#.
 
-Ниже перечислены компоненты, которые потребуются вам в первую очередь:
+В этом примере используются следующие компоненты:
 
 * __EventHubSpout__: считывает данные из концентраторов событий Azure;
 * __EventHubBolt__: записывает данные в концентраторы событий;
 * __EventHubSpoutConfig__: используется для настройки EventHubSpout;
 * __EventHubBoltConfig__: используется для настройки EventHubBolt;
-* __UnicodeEventDataScheme__: позволяет настроить для объекта spout использование кодировки UTF-8 при чтении из концентраторов событий. Если этот параметр не используется, объект spout по умолчанию использует кодировку String.
+* __UnicodeEventDataScheme__: позволяет настроить для объекта spout использование кодировки UTF-8 при чтении из концентраторов событий. Кодировка по умолчанию — String.
 
 ### <a name="example-spout-usage"></a>Пример использования объекта spout
 
-SCP.NET предоставляет специальные методы для добавления EventHubSpout в топологию. С ними добавить объект spout будет проще, чем с использованием универсальных методов для добавления компонента Java. В следующем примере показано, как создается новый объект spout с использованием методов __SetEventHubSpout__ и EventHubSpoutConfig, предоставляемых в SCP.NET:
+SCP.NET предоставляет методы для добавления EventHubSpout в топологию. С ними добавить объект spout будет проще, чем с использованием универсальных методов для добавления компонента Java. В следующем примере показано, как создается объект spout с использованием методов __SetEventHubSpout__ и EventHubSpoutConfig, предоставляемых в SCP.NET.
 
 ```csharp
 topologyBuilder.SetEventHubSpout(
@@ -86,12 +88,12 @@ topologyBuilder.SetEventHubSpout(
     eventHubPartitions);
 ```
 
-В предыдущем примере создается новый компонент spout с именем __EventHubSpout__ и настраивается его взаимодействие с концентратором событий. Обратите внимание, что для этого компонента задается указание параллелизма, равное числу разделов в концентраторе событий. Это позволяет Storm создать по экземпляру компонента для каждой секции.
+В предыдущем примере создается новый компонент spout с именем __EventHubSpout__ и настраивается его взаимодействие с концентратором событий. Для этого компонента задается указание параллелизма, равное числу разделов в концентраторе событий. Это позволяет Storm создать по экземпляру компонента для каждой секции.
 
 > [!WARNING]
-> Начиная с 1 января 2017 г. методы SetEventHubSpout и EventHubSpoutConfig создают объект spout, использующий кодировку String для считывания данных из концентраторов событий. Если вам нужна кодировка UTF-8, см. следующий пример.
+> Начиная с 1 января 2017 г. методы SetEventHubSpout и EventHubSpoutConfig создают объект spout, использующий кодировку String для считывания данных из концентраторов событий.
 
-Также для создания объекта spout можно использовать универсальный метод JavaCompoentConstructor. Ниже приведен пример создания объекта spout с помощью метода JavaComponentConstructor. Также он демонстрирует, как настроить объект spout для использования кодировки UTF-8 вместо String при чтении данных:
+Также для создания объекта spout можно использовать универсальный метод JavaComponentConstructor. Ниже приведен пример создания объекта spout с помощью метода JavaComponentConstructor. Также он демонстрирует, как настроить объект spout для использования кодировки UTF-8 вместо String при чтении данных.
 
 ```csharp
 // Create an instance of UnicodeEventDataScheme
@@ -131,7 +133,7 @@ topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions)
 
 ### <a name="example-bolt-usage"></a>Пример использования объекта bolt
 
-Для создания экземпляра bolt необходимо использовать метод JavaComponmentConstructor. Следующий пример демонстрирует создание и настройку нового экземпляра EventHubBolt:
+Для создания экземпляра bolt необходимо использовать метод JavaComponentConstructor. Следующий пример демонстрирует создание и настройку нового экземпляра EventHubBolt:
 
 ```csharp
 //Create constructor for the Java bolt
@@ -159,7 +161,7 @@ topologyBuilder.SetJavaBolt(
 ```
 
 > [!NOTE]
-> В этом примере используется выражение Clojure, передаваемое в виде строки, вместо создания отдельных объектов EventHubBoltConfig с помощью JavaComponentConstructor, как было предложено выше в примере с объектом spout. Можно использовать любой из этих методов по своему усмотрению.
+> В этом примере используется выражение Clojure, передаваемое в виде строки, вместо создания объектов EventHubBoltConfig с помощью JavaComponentConstructor, как было предложено выше в примере с объектом spout. Работает каждый из этих методов. Можно использовать любой из этих методов по своему усмотрению.
 
 ## <a name="download-the-completed-project"></a>Скачивание полного примера проекта
 
@@ -170,7 +172,7 @@ topologyBuilder.SetJavaBolt(
 * [Кластер Apache Storm в HDInsight версии 3.5](hdinsight-apache-storm-tutorial-get-started.md).
 
     > [!WARNING]
-    > Для примера, используемого в этом документе, требуется Storm в HDInsight версии 3.5. Существуют изменения в именах классов, используемых для основных компонентов Storm, между версиями в старых кластерах и версией Storm, входящий в состав HDInsight 3.5. Версия этого примера, которая работает с более старыми кластерами, доступна здесь: [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
+    > Для примера, используемого в этом документе, требуется Storm в HDInsight версии 3.5. Это не будет работать с более старыми версиями HDInsight из-за критических изменений имени класса. Версия этого примера, которая работает с более старыми кластерами, доступна здесь: [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
 
 * [Концентратор событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
@@ -187,15 +189,15 @@ topologyBuilder.SetJavaBolt(
 
 Воронка и сито распространяются в виде отдельного файла архива Java (JAR) с именем **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**, где #.# — это версия файла.
 
-Версию JAR-файла, пригодную для работы со Storm в HDInsight версии 3.5, можно скачать на странице [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+Для использования этого решения HDInsight 3.5 используйте JAR-файл версии 0.9.5 со страницы [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
 
-Создайте новый каталог `eventhubspout` и сохраните файл в него.
+Создайте каталог `eventhubspout` и сохраните в него файл.
 
 ## <a name="configure-event-hubs"></a>Настройка концентраторов событий Azure
 
 Служба концентраторов событий используется в качестве источника данных для этого примера. Используйте сведения в разделе **Создание концентратора событий** статьи [Приступая к работе с концентраторами событий](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-1. Создав концентратор событий, просмотрите его колонку на портале Azure и щелкните **Политики общего доступа**. Чтобы добавить следующие политики, щелкните **+ Add** (+ Добавить).
+1. Создав концентратор событий, просмотрите его колонку на портале Azure и щелкните **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить**, чтобы добавить следующие политики.
    
    | Имя | Разрешения |
    | --- | --- |
@@ -210,7 +212,7 @@ topologyBuilder.SetJavaBolt(
 
 1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-2. Скачайте решение из [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Откройте решение, чтобы просмотреть код для проекта **EventHubWriter**. Это может занять несколько минут.
+2. Скачайте решение из [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 3. В проекте **EventHubWriter** откройте файл **App.config**. Используйте сведения из концентратора событий, настроенного ранее, чтобы указать значения следующих ключей:
    
@@ -226,9 +228,9 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="configure-the-eventhubreader"></a>Настройка EventHubReader
 
-1. Откройте проект **EventHubReader**, чтобы просмотреть код. Это может занять несколько минут.
+1. Откройте проект **EventHubReader**.
 
-2. Для **EventHubWriter** откройте файл **App.config**. Используйте сведения из концентратора событий, настроенного ранее, чтобы указать значения следующих ключей:
+2. Для **EventHubReader** откройте файл **App.config**. Используйте сведения из концентратора событий, настроенного ранее, чтобы указать значения следующих ключей:
    
    | Ключ | Значение |
    | --- | --- |
@@ -250,7 +252,7 @@ topologyBuilder.SetJavaBolt(
    
     ![изображение диалогового окна отправки](./media/hdinsight-storm-develop-csharp-event-hub-topology/submit.png)
 
-3. После отправки топологии отобразится **средство просмотра топологий Storm** . Выберите топологию **EventHubReader** в левой части диалогового окна, чтобы просмотреть статистику для топологии. Сейчас она должна быть пустой, так как в службу концентраторов событий еще не записано ни одно событие.
+3. После отправки топологии отобразится **средство просмотра топологий Storm**. Чтобы просмотреть статистику для топологии, выберите топологию **EventHubReader** в левой панели.
    
     ![пример представления хранилища](./media/hdinsight-storm-develop-csharp-event-hub-topology/topologyviewer.png)
 
@@ -262,14 +264,13 @@ topologyBuilder.SetJavaBolt(
 
 7. В **средстве просмотра топологий Storm** выберите топологию **EventHubReader**.
 
-8. В графическом представлении дважды щелкните компонент **LogBolt**. Для сита откроется страница **Component Summary** (Сводка компонентов).
+8. Чтобы открыть страницу **Сводка компонентов** для объекта bolt, дважды щелкните компонент **LogBolt** на схеме.
 
 9. В разделе **Executors** (Исполнители) выберите одну из ссылок в столбце **Порт**. Отобразятся данные, записанные компонентом. Записанные данные аналогичны приведенным ниже:
    
-        2016-10-20 13:26:44.186 m.s.s.b.ScpNetBolt [INFO] Processing tuple: source: com.microsoft.eventhubs.spout.EventHubSpout:7, stream: default, id: {5769732396213255808=520853934697489134}, [{"deviceId":3,"deviceValue":1379915540}]
-        2016-10-20 13:26:44.234 m.s.s.b.ScpNetBolt [INFO] Processing tuple: source: com.microsoft.eventhubs.spout.EventHubSpout:7, stream: default, id: {7154038361491319965=4543766486572976404}, [{"deviceId":3,"deviceValue":459399321}]
-        2016-10-20 13:26:44.335 m.s.s.b.ScpNetBolt [INFO] Processing tuple: source: com.microsoft.eventhubs.spout.EventHubSpout:6, stream: default, id: {513308780877039680=-7571211415704099042}, [{"deviceId":5,"deviceValue":845561159}]
-        2016-10-20 13:26:44.445 m.s.s.b.ScpNetBolt [INFO] Processing tuple: source: com.microsoft.eventhubs.spout.EventHubSpout:7, stream: default, id: {-2409895457033895206=5479027861202203517}, [{"deviceId":8,"deviceValue":2105860655}]
+        2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
+        2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
+        2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
 
 ## <a name="stop-the-topologies"></a>Остановка топологий
 
@@ -288,10 +289,5 @@ topologyBuilder.SetJavaBolt(
 * [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Руководство по программированию для SCP](hdinsight-storm-scp-programming-guide.md)
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -36,8 +36,8 @@
 #### [Установка .NET в роли облачной службы с помощью задачи](cloud-services-dotnet-install-dotnet.md)
 
 ### Настройка удаленного рабочего стола
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Портал](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Классический портал.](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Развертывание
@@ -115,8 +115,3 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -15,15 +15,17 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 358a2a4fd448660c3a8ef0d11d7d373dd7d9a569
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 8d283531fc7905e9691feccca25fffd27499e2bb
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Приступая к работе с Raspberry Pi 3 (Node.js)
+# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-nodejs"></a>Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью Node.js
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -130,10 +132,5 @@ ms.openlocfilehash: 358a2a4fd448660c3a8ef0d11d7d373dd7d9a569
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 Если в ходе какого-либо урока у вас возникнут проблемы, то решение можно найти в статье [Troubleshooting](iot-hub-raspberry-pi-kit-node-troubleshooting.md) (Устранение неполадок).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

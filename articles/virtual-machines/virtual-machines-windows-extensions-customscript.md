@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: f9ea0d14a99a7881b816606058e5ad72a0fef499
-ms.openlocfilehash: 01adbd43c5c77c3a80c5141e06a2ab14a49b8454
+ms.sourcegitcommit: bd67dc463daee2d7763e722f079930d8712fe478
+ms.openlocfilehash: 81a08a3cbd14c4a61efe68d9dd9fcd032dd1e1cd
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -97,14 +98,13 @@ ms.openlocfilehash: 01adbd43c5c77c3a80c5141e06a2ab14a49b8454
 ## <a name="powershell-deployment"></a>Развертывание с помощью PowerShell
 
 Выполнив команду `Set-AzureRmVMCustomScriptExtension`, расширение пользовательских сценариев можно добавить на существующую виртуальную машину. Дополнительные сведения см. в статье о [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
-
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
--VMName myVM `
--Location myLocation `
--FileUri myURL `
--Run 'myScript.ps1' `
--Name DemoScriptExtension
+    -VMName myVM `
+    -Location myLocation `
+    -FileUri myURL `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
 ```
 
 ## <a name="troubleshoot-and-support"></a>Устранение неполадок и поддержка
@@ -118,25 +118,35 @@ Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myE
 ```
 
 Выходные данные выполнения расширения регистрируются в файле, расположенном в следующем каталоге на целевой виртуальной машине.
-
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-Сам сценарий скачивается в следующий каталог на целевой виртуальной машине.
-
+Указанные файлы скачиваются в указанный ниже каталог на целевой виртуальной машине.
 ```cmd
-C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
+`<n>` — десятичное целое число, которое может измениться между выполнениями расширения.  Значение `1.*` соответствует фактическому текущему значению `typeHandlerVersion` расширения.  Например, фактическим каталогом может быть `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+
+При выполнении команды `commandToExecute` расширение установит этот каталог (например, `...\Downloads\2`) в качестве текущего рабочего каталога. Это позволяет использовать относительные пути для поиска файлов, скачанных с помощью свойства `fileURIs`. Примеры приведены в следующей таблице.
+
+Так как со временем абсолютный путь для скачивания может измениться, в строке `commandToExecute` лучше указывать относительные пути к сценариям или файлам, когда это возможно. Например:
+```json
+    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+```
+
+Для файлов, скачанных с помощью списка свойств `fileUris`, сохраняются данные пути после первого сегмента универсального кода ресурса (URI).  Как показано в следующей таблице, скачанные файлы распределяются по подкаталогам в соответствии со структурой значений `fileUris`.  
+
+#### <a name="examples-of-downloaded-files"></a>Примеры скачанных файлов
+
+| Универсальный код ресурса (URI) в fileUris | Относительное расположение скачанных файлов | Абсолютное расположение скачанных файлов* |
+| ---- | ------- |:--- |
+| `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
+| `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
+
+\* Как было отмечено выше, абсолютные пути каталогов изменятся в течение времени существования виртуальной машины, но не в рамках одного выполнения расширения CustomScript.
 
 ### <a name="support"></a>Поддержка
 
-Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт поддержки Azure](https://azure.microsoft.com/en-us/support/options/) и щелкните "Получить поддержку". Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow] (https://azure.microsoft.com/en-us/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт поддержки Azure](https://azure.microsoft.com/en-us/support/options/) и щелкните "Получить поддержку". Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4feb0eb81823835e8e0b701463d85b27f5598019
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -50,11 +51,14 @@ ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
    
     Отправляйте последующие вызовы API на адрес https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+    >[!NOTE]
+    >Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
+
 ## <a name="access-control-address"></a>Адрес контроля доступа
 Адрес для контроля доступа к службам мультимедиа: https://wamsprodglobal001acs.accesscontrol.windows.net. Для северного Китая используется другой адрес: https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
 
 ## <a name="getting-an-access-token"></a>Получение маркера доступа
-Для прямого доступа к службам мультимедиа с помощью REST API необходимо получить маркер доступа из ACS и использовать его при каждом HTTP-запросе, отправляемом в службу. Этот маркер похож на другие маркеры, предоставляемые ACS на основе утверждений доступа в заголовке HTTP-запроса и использующие протокол OAuth версии 2. Для непосредственного подключения к службам мультимедиа не нужно выполнять другие предварительные требования.
+Для прямого доступа к службам мультимедиа с помощью REST API необходимо получить маркер доступа из ACS и использовать его при каждом HTTP-запросе, отправляемом в службу. Этот маркер похож на другие маркеры, предоставляемые ACS на основе утверждений доступа в заголовке HTTP-запроса и использующие протокол OAuth версии&2;. Для непосредственного подключения к службам мультимедиа не нужно выполнять другие предварительные требования.
 
 В следующем примере показан заголовок и текст HTTP-запроса, используемого для получения маркера.
 
@@ -182,10 +186,5 @@ ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -2,12 +2,16 @@
 ## [Что такое наборы масштабирования виртуальных машин?](virtual-machine-scale-sets-overview.md)
 
 # Начало работы
-## [Создание масштабируемого набора на портале](virtual-machine-scale-sets-portal-create.md)
-## [Создание масштабируемого набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Развертывание масштабируемого набора с помощью портала](virtual-machine-scale-sets-portal-create.md)
+## [Развертывание масштабируемого набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Развертывание масштабируемого набора с помощью шаблона Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Практическое руководство
 ## Планирование и проектирование
 ### [Рекомендации по проектированию](virtual-machine-scale-sets-design-overview.md)
+## Запись шаблонов масштабируемых наборов
+### [Развертывание простого масштабируемого набора](virtual-machine-scale-sets-mvss-start.md)
+### [Развертывание масштабируемого набора в существующей виртуальной сети](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Развернуть
 ### [Масштабируемый набор с помощью портала](virtual-machine-scale-sets-portal-create.md)
@@ -35,6 +39,9 @@
 
 ## Устранение неполадок
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
+
+## Часто задаваемые вопросы
+### [Вопросы и ответы о масштабируемых наборах](virtual-machine-scale-sets-faq.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

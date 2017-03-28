@@ -10,15 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8bea5c13b8657be737cdc135b2d46bd0068b6b88
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,17 +33,11 @@ ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 
 Для работы с этим руководством и использования инструментов Data Lake в Visual Studio потребуется следующее:
 
-* Кластер Azure HDInsight: для выполнения инструкций этого раздела подойдет кластер под управлением Linux или Windows. Информация о создании кластера приведена в одном из следующих разделов.
-  
-  * [Приступая к работе с HDInsight под управлением Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
-  * [Приступая к работе с HDInsight под управлением Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+* Кластер Azure HDInsight. Сведения о создании кластера см. в статье [Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 * Рабочая станция со следующим ПО:
   
-  * Windows 8.1, Windows 8 или Windows 7;
-  * Одна из следующих версий Visual Studio:
-    
-    * Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
-    * Visual Studio 2015 (Community/Enterprise)
+  * Windows 10, Windows 8.1, Windows 8 или Windows 7.
+  * Visual Studio 2013, 2015, 2017.
     
     > [!NOTE]
     > Сейчас доступна только английская версия инструментов Data Lake для Visual Studio.
@@ -49,7 +45,8 @@ ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
     > 
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Установка инструментов Data Lake для Visual Studio
-Инструменты Data Lake можно установить с помощью [установщика веб-платформы](https://www.microsoft.com/web/downloads/). Необходимо выбрать установщик, который соответствует вашей версии Visual Studio. Если на вашем компьютере не установлена программа Visual Studio, вы можете установить последние версии Visual Studio Community и пакета Azure SDK с помощью [установщика веб-платформы](https://www.microsoft.com/web/downloads/).
+
+Инструменты Data Lake устанавливаются по умолчанию для Visual Studio 2017. Вы можете установить их с помощью [установщика веб-платформы](https://www.microsoft.com/web/downloads/). Необходимо выбрать установщик, который соответствует вашей версии Visual Studio. Если на вашем компьютере не установлена программа Visual Studio, вы можете установить последние версии Visual Studio Community и пакета Azure SDK с помощью [установщика веб-платформы](https://www.microsoft.com/web/downloads/).
 
 ![Установщик веб-платформы инструментов Data Lake для Visual Studio.][1]
 
@@ -128,7 +125,7 @@ ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
    
     ![Инструменты Data Lake. Создание таблицы Hive с помощью инструментов HDInsight для Visual Studio][7]
 
-### <a name="a-namerunqueriesavalidate-and-run-hive-queries"></a><a name="run.queries"></a>Проверка и выполнение запросов Hive
+### <a name="run.queries"></a>Проверка и выполнение запросов Hive
 Существует два способа создания и выполнения запросов Hive:
 
 * Создание ad-hoc-запросов
@@ -278,9 +275,4 @@ ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 [hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

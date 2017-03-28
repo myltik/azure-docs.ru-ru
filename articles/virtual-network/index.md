@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c69489141c704965b2406210b3e2c20842c34a6c
-ms.openlocfilehash: 2b130d8b29270e08d432af9a117592c8ce7bac57
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="virtual-network-documentation"></a>Документация по виртуальной сети
@@ -124,9 +125,9 @@ ms.openlocfilehash: 2b130d8b29270e08d432af9a117592c8ce7bac57
                 <div class="card">
                     <div class="cardText">
                         <h3>Командная строка</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (классическая модель)</a></p>
-                        <p><a href="/cli/azure">Интерфейс командной строки Azure</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (классическая модель)</a></p>
+                        <p><a href="/cli/azure/network">Интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -159,10 +160,5 @@ ms.openlocfilehash: 2b130d8b29270e08d432af9a117592c8ce7bac57
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

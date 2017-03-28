@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3827e74433a859e65071a1041c5ed6c8253db8df
-ms.openlocfilehash: be17b2de227ef6d93f8d326ff060c3c4788eb622
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 0d998b5347a9da6dd209b0ba106792ab5c34164d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Установка SAP HANA на сервере SAP HANA в Azure (крупные экземпляры)
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Как установить и настроить SAP HANA (крупные экземпляры) в Azure
 
 Установку SAP HANA вы выполняете самостоятельно. Это можно сделать сразу после получения нового сервера SAP HANA в Azure (крупные экземпляры). Обратите внимание, что согласно политике SAP, установку SAP HANA должен выполнять сертифицированный установщик SAP HANA (сдавший экзамен на установку SAP HANA в рамках сертификации технологического партнера SAP) или системный интегратор с сертификатом SAP.
 
@@ -80,10 +82,5 @@ map\_<hostname of SAP HANA on Azure (Large Instances) tenant> = <NAT IP Address 
 
 Для SAP HANA в Azure (крупные экземпляры) синхронизации времени в Azure не применяется к вычислительным единицам в стеках больших экземпляров. Это не относится к приложениям SAP, выполняемым в Azure обычным образом (на виртуальных машинах), так как Azure гарантирует правильную синхронизацию системного времени. Соответственно, потребуется отдельный сервер времени, который будут использовать серверы приложений SAP, работающие на виртуальных машинах Azure, и экземпляры баз данных SAP HANA, работающие на HANA (крупные экземпляры). Для инфраструктуры хранения в стеках крупных экземпляров время синхронизируется с серверами NTP.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

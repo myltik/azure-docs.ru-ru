@@ -12,70 +12,68 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7faa27220bcc07fff0bb2a77e7b90c386cc5ae1e
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Действие "Хранимая процедура SQL Server"
-> [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md)
-> [Хранимая процедура](data-factory-stored-proc-activity.md)
-> [Сценарий U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
-> [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
->
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Действие Hive](data-factory-hive-activity.md) 
+> * [Действие Pig](data-factory-pig-activity.md)
+> * [Действие MapReduce](data-factory-map-reduce.md)
+> * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Действие Spark](data-factory-spark.md)
+> * [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+> * [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
+> * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
+> * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
-С помощью действия "Хранимая процедура SQL Server" в [конвейере](data-factory-create-pipelines.md) фабрики данных можно вызвать хранимую процедуру в одном из следующих хранилищ данных.
+Действия преобразования данных в [конвейере](data-factory-create-pipelines.md) фабрики данных позволяют преобразовать необработанные данные и переработать их в прогнозы и аналитику. Действие хранимой процедуры — это одно из действий преобразования данных, которые поддерживает фабрика данных. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
 
-* База данных SQL Azure
-* Хранилище данных SQL Azure  
-* База данных SQL Server в вашей организации или на виртуальной машине Azure. Шлюз управления данными необходимо установить на том же компьютере, на котором размещена база данных, или на отдельном компьютере во избежание конкуренции за ресурсы с базой данных. Шлюз управления данными — это программное обеспечение, которое обеспечивает безопасное и управляемое подключение локальных источников данных и источников данных, расположенных на виртуальных машинах Azure, к облачным службам. Сведения о шлюзе управления данными см. в статье [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md).
+C его помощью можно вызвать хранимую процедуру в одном из следующих хранилищ данных: база данных SQL Azure, хранилище данных SQL Azure, база данных SQL Server вашего предприятия или виртуальная машина Azure.  Если вы используете SQL Server, установите шлюз управления данными на том же компьютере, на котором размещена база данных, или на отдельном компьютере, имеющем доступ к базе данных. Шлюз управления данными — это компонент, который обеспечивает безопасное и управляемое подключение локальных источников данных или данных виртуальной машины Azure к облачным службам. Дополнительные сведения см. в статье [Шлюз управления данными](data-factory-data-management-gateway.md).
 
-Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
+В следующем пошаговом руководстве используется действие "Хранимая процедура SQL Server" в конвейере для вызова хранимой процедуры в базе данных SQL Azure. 
 
 ## <a name="walkthrough"></a>Пошаговое руководство
 ### <a name="sample-table-and-stored-procedure"></a>Образец таблицы и хранимая процедура
 1. Создайте следующую **таблицу** в базе данных SQL Azure с помощью SQL Server Management Studio или другого подходящего инструмента. Столбец datetimestamp содержит дату и время создания соответствующего идентификатора.
 
-        CREATE TABLE dbo.sampletable
-        (
-            Id uniqueidentifier,
-            datetimestamp nvarchar(127)
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.sampletable
+    (
+        Id uniqueidentifier,
+        datetimestamp nvarchar(127)
+    )
+    GO
 
-        CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
-        GO
-
+    CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+    GO
+    ```
     Id — уникальный идентификатор, а столбец datetimestamp содержит дату и время создания соответствующего идентификатора.
+    
     ![Пример данных](./media/data-factory-stored-proc-activity/sample-data.png)
 
-   > [!NOTE]
-   > В этом примере используется база данных SQL Azure, но работает она точно так же, как в случае с хранилищем данных SQL Azure и базой данных SQL Server.
-   >
-   >
+    В этом примере хранимая процедура находится в базе данных SQL Azure. Если хранимая процедура находится в хранилище данных SQL Azure и базе данных SQL Server, используется аналогичный подход. В случае с базой данных SQL Server необходимо установить [шлюз управления данными](data-factory-data-management-gateway.md).
 2. Создайте следующую **хранимую процедуру**, вставляющую данные в таблицу **sampletable**.
 
-        CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-        AS
+    ```SQL
+    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    AS
 
-        BEGIN
-            INSERT INTO [sampletable]
-            VALUES (newid(), @DateTime)
-        END
+    BEGIN
+        INSERT INTO [sampletable]
+        VALUES (newid(), @DateTime)
+    END
+    ```
 
    > [!IMPORTANT]
    > **Имя** и **регистр** параметра (в этом примере — DateTime) должны соответствовать имени и регистру параметра, указанного в конвейере или действии JSON. Убедитесь, что в определении хранимой процедуры в качестве префикса для параметра используется символ **@** .
-   >
-   >
 
 ### <a name="create-a-data-factory"></a>Создать фабрику данных
 1. Войдите на [портал Azure](https://portal.azure.com/).
@@ -93,6 +91,7 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
 7. Выберите **Закрепить на панели мониторинга**, чтобы при следующем входе фабрика данных отобразилась на панели мониторинга.
 8. В колонке **Создание фабрики данных** нажмите кнопку **Создать**.
 9. Созданная фабрика данных появится на **панели мониторинга** портала Azure. Ее содержимое отобразится на соответствующей странице.
+
    ![Домашняя страница фабрики данных](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Создание связанной службы SQL Azure
@@ -104,13 +103,13 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
    ![Новое хранилище данных](media/data-factory-stored-proc-activity/new-data-store.png)
 3. Внесите следующие изменения в сценарий JSON:
 
-   1. Замените **&lt;serverName&gt;** именем сервера Базы данных SQL.
-   2. Замените **&lt;databasename&gt;** базой данных, в которой создана таблица и хранимая процедура.
-   3. Замените **&lt;username@servername&gt;** учетной записью пользователя, у которой есть доступ к базе данных.
-   4. Замените **&lt;password&gt;** паролем к учетной записи пользователя.
+   1. Замените `<servername>` именем сервера базы данных SQL Azure.
+   2. Замените `<databasename>` базой данных, в которой создана таблица и хранимая процедура.
+   3. Замените `<username@servername>` учетной записью пользователя, у которой есть доступ к базе данных.
+   4. Замените `<password>` паролем к учетной записи пользователя.
 
       ![Новое хранилище данных](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
-4. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд. Экземпляр AzureSqlLinkedService должен отображаться в иерархическом представлении слева.
+4. Чтобы развернуть связанную службу, нажмите кнопку **Развернуть** на панели команд. Экземпляр AzureSqlLinkedService должен отображаться в иерархическом представлении слева.
 
     ![иерархическое представление со связанными службами](media/data-factory-stored-proc-activity/tree-view.png)
 
@@ -120,21 +119,23 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
     ![иерархическое представление со связанными службами](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Скопируйте и вставьте следующий скрипт JSON в редактор JSON.
 
-        {                
-            "name": "sprocsampleout",
-            "properties": {
-                "type": "AzureSqlTable",
-                "linkedServiceName": "AzureSqlLinkedService",
-                "typeProperties": {
-                    "tableName": "sampletable"
-                },
-                "availability": {
-                    "frequency": "Hour",
-                    "interval": 1
-                }
+    ```JSON
+    {                
+        "name": "sprocsampleout",
+        "properties": {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "sampletable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
             }
         }
-3. Нажмите кнопку **Развернуть** на панели команд, чтобы развернуть набор данных. Набор данных должен отображаться в иерархическом представлении.
+    }
+    ```
+3. Чтобы развернуть набор данных, нажмите кнопку **Развернуть** на панели команд. Набор данных должен отображаться в иерархическом представлении.
 
     ![иерархическое представление со связанными службами](media/data-factory-stored-proc-activity/tree-view-2.png)
 
@@ -142,40 +143,44 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
 Теперь создадим конвейера с помощью действия SqlServerStoredProcedure.
 
 1. Нажмите **... Дополнительно** на панели команд и выберите **Новый конвейер**.
-2. Скопируйте и вставьте следующий фрагмент JSON. Для параметра **storedProcedureName** установлено значение **sp_sample**. Имя и регистр параметра **DateTime** должны совпадать с именем и регистром параметра в определении хранимой процедуры.  
+2. Скопируйте и вставьте следующий фрагмент JSON.   
 
-        {
-            "name": "SprocActivitySamplePipeline",
-            "properties": {
-                "activities": [
-                    {
-                        "type": "SqlServerStoredProcedure",
-                        "typeProperties": {
-                            "storedProcedureName": "sp_sample",
-                            "storedProcedureParameters": {
-                                "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-                            }
-                        },
-                        "outputs": [
-                            {
-                                "name": "sprocsampleout"
-                            }
-                        ],
-                        "scheduler": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        },
-                        "name": "SprocActivitySample"
-                    }
-                ],
-                 "start": "2016-08-02T00:00:00Z",
-                 "end": "2016-08-02T05:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "SprocActivitySamplePipeline",
+        "properties": {
+            "activities": [
+                {
+                    "type": "SqlServerStoredProcedure",
+                    "typeProperties": {
+                        "storedProcedureName": "sp_sample",
+                        "storedProcedureParameters": {
+                            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "sprocsampleout"
+                        }
+                    ],
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "SprocActivitySample"
+                }
+            ],
+             "start": "2016-08-02T00:00:00Z",
+             "end": "2016-08-02T05:00:00Z",
+            "isPaused": false
         }
+    }
+    ```
+
+    Для параметра **storedProcedureName** установлено значение **sp_sample**. Имя и регистр параметра **DateTime** должны совпадать с именем и регистром параметра в определении хранимой процедуры.
 
     Если для параметра необходимо передать значение null, используйте синтаксис param1: null (все символы в нижнем регистре).
-3. Щелкните **Развернуть** на панели инструментов для развертывания конвейера.  
+3. Чтобы развернуть конвейер, щелкните **Развернуть** на панели инструментов.  
 
 ### <a name="monitor-the-pipeline"></a>Мониторинг конвейера
 1. Щелкните **X**, чтобы закрыть колонки редактора фабрики данных и вернуться в колонку фабрики данных. Затем щелкните **Схема**.
@@ -184,10 +189,10 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
 2. В **представлении схемы**вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 
     ![плитка "Схема"](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
-3. В представлении схемы дважды щелкните набор данных **sprocsampleout**. Отобразятся срезы в состоянии "Готово". Должно отобразиться пять срезов, так как из JSON срез создается каждый час в периоде между временем начала и окончания.
+3. В представлении схемы дважды щелкните набор данных `sprocsampleout`. Отобразятся срезы в состоянии "Готово". Должно отобразиться пять срезов, так как из JSON срез создается каждый час в периоде между временем начала и окончания.
 
     ![плитка "Схема"](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. Если срез находится в состоянии **Готово**, выполните запрос **select ** from sampletable* к Базе данных SQL Azure, чтобы убедиться, что хранимая процедура вставила данные в таблицу.
+4. Если срез находится в состоянии **Готово**, выполните запрос `select * from sampletable` к базе данных SQL Azure, чтобы убедиться, что хранимая процедура вставила данные в таблицу.
 
    ![Выходные данные](./media/data-factory-stored-proc-activity/output.png)
 
@@ -199,31 +204,35 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
 >
 
 ## <a name="json-format"></a>Формат JSON
+Ниже приведен формат JSON для определения действия хранимой процедуры:
+
+```JSON
+{
+    "name": "SQLSPROCActivity",
+    "description": "description",
+    "type": "SqlServerStoredProcedure",
+    "inputs":  [ { "name": "inputtable"  } ],
+    "outputs":  [ { "name": "outputtable" } ],
+    "typeProperties":
     {
-        "name": "SQLSPROCActivity",
-        "description": "description",
-        "type": "SqlServerStoredProcedure",
-        "inputs":  [ { "name": "inputtable"  } ],
-        "outputs":  [ { "name": "outputtable" } ],
-        "typeProperties":
+        "storedProcedureName": "<name of the stored procedure>",
+        "storedProcedureParameters":  
         {
-            "storedProcedureName": "<name of the stored procedure>",
-            "storedProcedureParameters":  
-            {
-                "param1": "param1Value"
-                …
-            }
+            "param1": "param1Value"
+            …
         }
     }
+}
+```
 
 ## <a name="json-properties"></a>Свойства JSON
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
-| name |Имя действия. |Да |
+| name | Имя действия. |Да |
 | Описание |Текст, описывающий, для чего используется действие |Нет |
-| type |SqlServerStoredProcedure |Да |
-| inputs |необязательный параметр. При указании входного набора данных он должен быть доступен (в состоянии "Готово") для выполнения действия хранимой процедуры. Входной набор данных не может потребляться в хранимой процедуре в качестве параметра. Он используется только для проверки зависимости перед запуском действия хранимой процедуры. |Нет |
-| outputs |Для действия хранимой процедуры необходимо указать выходной набор данных. Выходной набор данных указывает **расписание** для действия хранимой процедуры (ежечасно, еженедельно, ежемесячно и т. д.). <br/><br/>Выходной набор данных должен использовать **связанную службу**, ссылающуюся на Базу данных SQL Azure, хранилище данных SQL Azure или базу данных SQL Server, в которых следует запускать хранимую процедуру. <br/><br/>Выходной набор данных может использоваться для передачи результатов хранимой процедуры для дальнейшей обработки с помощью другого действия ([цепочки действий](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) в конвейере. Тем не менее фабрика данных не записывает выходные данные хранимой процедуры в этот набор данных автоматически. Выходные данные записывает сама хранимая процедура в таблицу SQL, на которую указывает выходной набор данных. <br/><br/>В некоторых случаях выходной набор данных может быть **фиктивным набором данных**. Он используется, только чтобы задать расписание выполнения действия хранимой процедуры. |Да |
+| type | Нужно задать значение **SqlServerStoredProcedure** | Да |
+| inputs | необязательный параметр. При указании входного набора данных он должен быть доступен (в состоянии "Готово") для выполнения действия хранимой процедуры. Входной набор данных не может потребляться в хранимой процедуре в качестве параметра. Он используется только для проверки зависимости перед запуском действия хранимой процедуры. |Нет |
+| outputs | Для действия хранимой процедуры необходимо указать выходной набор данных. Выходной набор данных указывает **расписание** для действия хранимой процедуры (ежечасно, еженедельно, ежемесячно и т. д.). <br/><br/>Выходной набор данных должен использовать **связанную службу**, ссылающуюся на Базу данных SQL Azure, хранилище данных SQL Azure или базу данных SQL Server, в которых следует запускать хранимую процедуру. <br/><br/>Выходной набор данных может использоваться для передачи результатов хранимой процедуры для дальнейшей обработки с помощью другого действия ([цепочки действий](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) в конвейере. Тем не менее фабрика данных не записывает выходные данные хранимой процедуры в этот набор данных автоматически. Выходные данные записывает сама хранимая процедура в таблицу SQL, на которую указывает выходной набор данных. <br/><br/>В некоторых случаях выходной набор данных может быть **фиктивным набором данных**. Он используется, только чтобы задать расписание выполнения действия хранимой процедуры. |Да |
 | storedProcedureName |Укажите имя хранимой процедуры в базе данных SQL Azure или хранилище данных SQL Azure, представленной связанной службой, которую использует выходная таблица. |Да |
 | storedProcedureParameters |Указываемые значения для параметров хранимой процедуры. Если для параметра необходимо передать значение null, используйте синтаксис param1: null (все символы в нижнем регистре). Чтобы научиться использовать это свойство, см. пример ниже. |Нет |
 
@@ -232,29 +241,97 @@ ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
 
 ![Пример данных 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
+**Таблица:**
 
-    AS
+```SQL
+CREATE TABLE dbo.sampletable2
+(
+    Id uniqueidentifier,
+    datetimestamp nvarchar(127),
+    scenario nvarchar(127)
+)
+GO
 
-    BEGIN
-        INSERT INTO [sampletable]
-        VALUES (newid(), @DateTime, @Scenario)
-    END
+CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
+```
 
-Теперь передайте параметр Scenario и значение из действия хранимой процедуры. Раздел typeProperties в предыдущем примере выглядит как следующий фрагмент кода.
+**Хранимая процедура:**
 
-    "typeProperties":
+```SQL
+CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+
+AS
+
+BEGIN
+    INSERT INTO [sampletable2]
+    VALUES (newid(), @DateTime, @Scenario)
+END
+```
+
+Теперь передайте параметр **Scenario** и значение из действия хранимой процедуры. Раздел **typeProperties** в предыдущем примере выглядит как следующий фрагмент кода:
+
+```JSON
+"typeProperties":
+{
+    "storedProcedureName": "sp_sample",
+    "storedProcedureParameters":
     {
-        "storedProcedureName": "sp_sample",
-        "storedProcedureParameters":
-        {
-            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
-            "Scenario": "Document sample"
+        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+        "Scenario": "Document sample"
+    }
+}
+```
+
+**Набор данных фабрики данных:**
+
+```JSON
+{
+    "name": "sprocsampleout2",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "sampletable2"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
 
+**Конвейер фабрики данных**
 
-
-<!--HONumber=Nov16_HO3-->
-
-
+```JSON
+{
+    "name": "SprocActivitySamplePipeline2",
+    "properties": {
+        "activities": [
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureParameters": {
+                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+                        "Scenario": "Document sample"
+                    }
+                },
+                "outputs": [
+                    {
+                        "name": "sprocsampleout2"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SprocActivitySample"
+            }
+        ],
+        "start": "2016-10-02T00:00:00Z",
+        "end": "2016-10-02T05:00:00Z"
+    }
+}
+```

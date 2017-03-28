@@ -1,5 +1,5 @@
 ---
-title: "Дополнительный раздел. Изменение режима включения и отключения светодиодного индикатора | Документация Майкрософт"
+title: "Подключение Raspberry Pi (Node) к Интернету вещей Azure. Урок 4. Изменение приложения | Документация Майкрософт"
 description: "Настроив сообщения, вы сможете изменять режим включения и отключения светодиодного индикатора."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: dd74474d315c94ae3f2d3e69f8696f9be8508499
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 53c9408bedc6c61cdb0e755b46b3090e8723e271
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,10 +101,5 @@ gulp deploy && gulp run
 
 ### <a name="summary"></a>Сводка
 В этом дополнительном разделе показано, как настроить сообщения таким образом, чтобы пример приложения мог управлять включением и отключением светодиодного индикатора разными способами.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

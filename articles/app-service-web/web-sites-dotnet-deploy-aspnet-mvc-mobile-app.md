@@ -4,7 +4,7 @@ description: "В этом учебнике объясняется, как раз
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 0752c802-8609-4956-a755-686116913645
 ms.service: app-service
@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin;riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b23dfdcf99cab46bb4cedc690e00d29d37b3a044
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Развертывание мобильного веб-приложения ASP.NET MVC 5 в службе приложений Azure
-Этот учебник поможет вам освоить основы создания адаптированного для мобильных устройств веб-приложения ASP.NET MVC 5, а также его развертывания в службе приложений Azure. Для работы с этим руководством требуется [Visual Studio Express 2013 для Web][Visual Studio Express 2013] или профессиональный выпуск Visual Studio, если он у вас уже есть. Конечно, вы можете использовать [Visual Studio 2015] , но снимки экрана будут отличаться, и вам нужно будет использовать шаблоны 4.x ASP.NET.
+Этот учебник поможет вам освоить основы создания адаптированного для мобильных устройств веб-приложения ASP.NET MVC 5, а также его развертывания в службе приложений Azure. Для работы с этим руководством вам потребуется [Visual Studio Express 2013 для Web][Visual Studio Express 2013] или профессиональный выпуск Visual Studio, если она у вас уже есть. Конечно, вы можете использовать [Visual Studio 2015] , но снимки экрана будут отличаться, и вам нужно будет использовать шаблоны 4.x ASP.NET.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-youll-build"></a>Что вы создадите
-В данном руководстве предстоит добавить компоненты для мобильных устройств в простое приложение списка конференции, приведенное в [начальном проекте][StarterProject]. На следующем снимке экрана показаны сеансы ASP.NET в готовом приложении, отображаемые в эмуляторе браузера в средствах разработчика F12 Internet Explorer 11.
+В данном руководстве вам предстоит добавить компоненты для мобильных устройств в простое приложение списка конференции, которое доступно в [начальном проекте][StarterProject]. На следующем снимке экрана показаны сеансы ASP.NET в готовом приложении, отображаемые в эмуляторе браузера в средствах разработчика F12 Internet Explorer 11.
 
 ![][FixedSessionsByTag]
 
-Вы можете воспользоваться инструментами разработчика F12 для Internet Explorer 11 и инструментом [Fiddler][Fiddler], чтобы упростить отладку своего приложения. 
+При помощи инструментов разработчика F12 в Internet Explorer 11 и [инструмента Fiddler][Fiddler] можно упростить отладку своего приложения. 
 
 ## <a name="skills-youll-learn"></a>Чему вы научитесь
 В этом учебнике вы узнаете:
@@ -48,17 +49,17 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 Кроме того, понадобится эмулятор браузера для мобильного устройства. Можно использовать любое из следующих средств:
 
-* Эмулятор браузера в [инструментах разработчика F12 для Internet Explorer 11][EmulatorIE11] (используется на всех снимках экрана браузера мобильного устройства). Он содержит предустановки строк агента пользователя для Windows Phone 8, Windows Phone 7 и Apple iPad.
+* Эмулятор браузера в [инструментах разработчика F12 Internet Explorer 11][EmulatorIE11] (используется в снимках экрана всех браузеров мобильного устройства). Он содержит предустановки строк агента пользователя для Windows Phone 8, Windows Phone 7 и Apple iPad.
 * Эмулятор браузера в [Google Chrome DevTools][EmulatorChrome]. Содержит предустановки для многих устройств Android, а также Apple iPhone, Apple iPad и Amazon Kindle Fire. Также поддерживает эмуляцию событий прикосновения.
-* [Эмулятор Opera для мобильных устройств][EmulatorOpera]
+* [Эмулятор Opera Mobile][EmulatorOpera]
 
 К этой статье прилагаются следующие проекты Visual Studio с исходным кодом C\#.
 
-* [Скачать начальный проект][StarterProject]
-* [Скачать завершенный проект][CompletedProject]
+* [Скачивание начального проекта][StarterProject]
+* [Скачивание полного проекта][CompletedProject]
 
-## <a name="a-namebkmkdeploystarterprojectadeploy-the-starter-project-to-an-azure-web-app"></a><a name="bkmk_DeployStarterProject"></a>Развертывание начального проекта в веб-приложении Azure
-1. Скачайте начальный [проект приложения списка конференции][StarterProject].
+## <a name="bkmk_DeployStarterProject"></a>Развертывание начального проекта в веб-приложении Azure
+1. Скачайте [начальный проект][StarterProject] приложения списка конференции.
 2. Затем в проводнике Windows щелкните загруженный ZIP-файл правой кнопкой мыши и выберите *Свойства*.
 3. В диалоговом окне **Свойства** нажмите кнопку **Разблокировать**. Разблокировка устраняет предупреждение системы безопасности, выводимое при попытке использовать *ZIP-файл* , загруженный из Интернета.
 4. Щелкните ZIP-файл правой кнопкой мыши и выберите **Извлечь все** , чтобы распаковать файл. 
@@ -106,7 +107,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 Представление тегов ASP.NET адаптировано под размер экрана. Bootstrap делает это для вас автоматически. Однако вы можете изменить это представление, чтобы оно лучше подходило для браузера мобильного устройства. Например, столбец **Дата** читать неудобно. Позже из этого руководства вы узнаете, как изменить представление *AllTags*, чтобы адаптировать его для мобильных устройств.
 
-## <a name="a-namebkmkbootstrapa-bootstrap-css-framework"></a><a name="bkmk_bootstrap"></a> Платформа начальной загрузки CSS
+## <a name="bkmk_bootstrap"></a> Платформа начальной загрузки CSS
 Встроенная поддержка начальной загрузки — это новая функция в шаблонах MVC 5. Вы уже видели, как она моментально улучшает различные виды в приложении. Например, панель навигации в верхней части автоматически сворачивается, если ширина браузера меньше. Попробуйте изменить размер окна классического браузера, и вы увидите, как изменится вид и поведение панели навигации. Это элемент динамического веб-дизайна, встроенный в Bootstrap.
 
 Чтобы увидеть, как бы выглядело веб-приложение без поддержки начальной загрузки, откройте *App\_Start\\BundleConfig.cs* и закомментируйте строки, содержащие *bootstrap.js* и *bootstrap.css*. Следующий код показывает последние два оператора метода `RegisterBundles` после изменения:
@@ -134,7 +135,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 В следующем разделе вы узнаете, как обеспечить представления для браузеров мобильных устройств.
 
-## <a name="a-namebkmkoverrideviewsa-override-the-views-layouts-and-partial-views"></a><a name="bkmk_overrideviews"></a> Переопределение представлений, макетов и частичных представлений
+## <a name="bkmk_overrideviews"></a> Переопределение представлений, макетов и частичных представлений
 Вы можете переопределить любое представление (включая макеты и частичные представления) для браузеров мобильных устройств вообще, для отдельного браузера мобильных устройств или для любого конкретного браузера. Чтобы создать вид для мобильных устройств, можно скопировать файл представления и добавить расширение *.Mobile* к имени файла. Например, чтобы создать мобильное представление *Index*, скопируйте *Views\\Home\\Index.cshtml* в *Views\\Home\\Index.Mobile.cshtml*.
 
 В этом разделе для мобильных устройств будет создан специальный файл макета.
@@ -162,7 +163,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-## <a name="a-namebkmkbrowserviewsa-create-browser-specific-views"></a><a name="bkmk_browserviews"></a> Создание представлений для браузера
+## <a name="bkmk_browserviews"></a> Создание представлений для браузера
 Кроме представлений для мобильных устройств и настольных компьютеров вы также можете создавать представления для отдельных браузеров. Например, можно создать представления, адаптированные специально для браузера устройства iPhone или Android. В этом разделе вы узнаете, как создать макет для браузера iPhone и версию представления *AllTags* для iPhone.
 
 Откройте файл *Global.asax* и добавьте следующий код в нижнюю часть метода `Application_Start`.
@@ -229,10 +230,10 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 В этом разделе мы рассмотрели, как создавать макеты и представления для мобильных устройств, а также как создавать макеты и представления для конкретных устройств, таких как iPhone.
 При этом главное преимущество платформы Bootstrap CSS – это динамический макет, позволяющий применять одну таблицу стилей в браузерах настольных компьютеров, телефонов и планшетных устройств, создавая единый стиль отображения и поведения. В следующем разделе вы узнаете, как воспользоваться платформой Bootstrap для создания представлений, адаптированных для мобильных устройств.
 
-## <a name="a-namebkmkimprovespeakerslista-improve-the-speakers-list"></a><a name="bkmk_Improvespeakerslist"></a> Улучшение списка докладчиков
+## <a name="bkmk_Improvespeakerslist"></a> Улучшение списка докладчиков
 Как вы только что увидели, представление *Speakers* удобно для чтения, но ссылки слишком малы, и касаться их на мобильном устройстве трудно. В этом разделе вы узнаете, как создать представление *AllSpeakers*, адаптированное для мобильных устройств. Оно содержит большие, удобные для касания ссылки, а также поле поиска, позволяющее быстро находить докладчиков.
 
-Вы можете воспользоваться стилем [группы связанного списка][стилем группы связанного списка] начальной загрузки, чтобы улучшить представление *Speakers*. В *Views\\Home\\AllSpeakers.cshtml* замените содержимое файла Razor кодом, приведенным ниже.
+Вы можете воспользоваться стилем [группы связанного списка][linked list group] начальной загрузки, чтобы улучшить представление *Speakers*. В *Views\\Home\\AllSpeakers.cshtml* замените содержимое файла Razor кодом, приведенным ниже.
 
      @model IEnumerable<string>
 
@@ -255,7 +256,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 ![][AllSpeakersFixed]
 
-Стиль [группы связанного списка][стилем группы связанного списка] начальной загрузки делает поле каждой ссылки полностью интерактивным, что значительно удобней для пользователя. Переключитесь в представление для настольного компьютера, чтобы проверить единый стиль отображения и поведения.
+Стиль [группы связанного списка][linked list group] начальной загрузки делает поле каждой ссылки полностью интерактивным, что значительно удобней для пользователя. Переключитесь в представление для настольного компьютера, чтобы проверить единый стиль отображения и поведения.
 
 ![][AllSpeakersFixedDesktop]
 
@@ -284,7 +285,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
         }
     </div>
 
-Обратите внимание, что к обоим тегам (`<form>` и `<input>`) были применены стили начальной загрузки. Элемент `<span>` добавляет [glyphicon][glyphicon] начальной загрузки в поле поиска.
+Обратите внимание, что к обоим тегам (`<form>` и `<input>`) были применены стили начальной загрузки. Элемент `<span>` добавляет глиф начальной загрузки [glyphicon][glyphicon] в поле поиска.
 
 В папку *Scripts* добавьте файл JavaScript с именем *filter.js*. Откройте файл и вставьте в него следующий код:
 
@@ -326,7 +327,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 ![][AllSpeakersFixedSearchBySC]
 
-## <a name="a-namebkmkimprovetagsa-improve-the-tags-list"></a><a name="bkmk_improvetags"></a> Улучшение списка тегов
+## <a name="bkmk_improvetags"></a> Улучшение списка тегов
 Как и представление *Speakers*, представление *Tags* удобно для чтения, но ссылки слишком малы, и касаться их на мобильном устройстве трудно. Вы можете исправить представление *Tags* таким же образом, как вы сделали с представлением *Speakers*, внеся описанные выше изменения в код. Но при этом необходимо использовать следующий синтаксис метода `Html.ActionLink` в *Views\\Home\\AllTags.cshtml*.
 
     @Html.ActionLink(tag, 
@@ -347,7 +348,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 > 
 > 
 
-## <a name="a-namebkmkimprovedatesa-improve-the-dates-list"></a><a name="bkmk_improvedates"></a> Улучшение списка дат
+## <a name="bkmk_improvedates"></a> Улучшение списка дат
 Вы можете улучшить представление *Dates* таким же образом, как вы сделали с представлениями *Speakers* и *Tags*, внеся описанные выше изменения в код. Но при этом необходимо использовать следующий синтаксис метода `Html.ActionLink` в *Views\\Home\\AllDates.cshtml*.
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
@@ -359,7 +360,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 ![][AllDatesFixed]
 
-Вы также можете улучшить представление *Dates* , упорядочив отображение значений даты и времени по дате. Вы можете это сделать с помощью стиля [панелей][панелей] начальной загрузки. Замените содержимое файла *Views\\Home\\Claims.cshtml* следующим кодом.
+Вы также можете улучшить представление *Dates* , упорядочив отображение значений даты и времени по дате. Вы можете это сделать с помощью стиля [панелей][panels] начальной загрузки. Замените содержимое файла *Views\\Home\\Claims.cshtml* следующим кодом.
 
     @model IEnumerable<DateTime>
 
@@ -387,7 +388,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
         </div>
     }
 
-Этот код создает отдельный тег `<div class="panel panel-primary">` для каждой отличной даты в списке и, как и ранее, использует [группу связанного списка][стилем группы связанного списка] для соответствующих ссылок. Вот как выглядит браузер мобильного устройства при выполнении этого кода:
+Этот код создает отдельный тег `<div class="panel panel-primary">` для каждой отличной даты в списке и, как и ранее, использует [группу связанного списка][linked list group] для соответствующих ссылок. Вот как выглядит браузер мобильного устройства при выполнении этого кода:
 
 ![][AllDatesFixed2]
 
@@ -395,7 +396,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 ![][AllDatesFixed2Desktop]
 
-## <a name="a-namebkmkimprovesessionstablea-improve-the-sessionstable-view"></a><a name="bkmk_improvesessionstable"></a> Улучшение представления SessionsTable
+## <a name="bkmk_improvesessionstable"></a> Улучшение представления SessionsTable
 В этом разделе вы узнаете, как адаптировать представление *SessionsTable* для мобильных устройств. Для этого необходимо внести более обширные изменения, чем описанные выше.
 
 В браузере мобильного устройства коснитесь кнопки **Тег**, а затем введите `asp` в поле поиска.
@@ -441,9 +442,9 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 Этот код выполняет 3 действия:
 
-* использует [настраиваемую группу связанного списка][настраиваемую группу связанного списка] начальной загрузки для форматирования данных сеанса по вертикали, чтобы все эти данные можно было читать в браузере мобильного устройства (используя классы, такие как list-group-item-text);
-* применяет к макету [систему сетки][систему сетки], чтобы элементы сеанса отображались в классическом браузере по горизонтали, а в браузере мобильного устройства — по вертикали (используя класс col-md-4);
-* использует [динамические служебные программы][динамические служебные программы], чтобы скрыть теги сеансов при просмотре в браузере мобильного устройства (используя класс hidden-xs).
+* использует [настраиваемую группу связанного списка][custom linked list group] начальной загрузки для форматирования данных сеанса по вертикали, чтобы все эти данные можно было читать в браузере мобильного устройства (используя классы, такие как list-group-item-text);
+* применяет к макету [систему сетки][grid system], чтобы элементы сеанса отображались в классическом браузере по горизонтали, а в браузере мобильного устройства — по вертикали (используя класс col-md-4);
+* использует [динамические служебные программы][responsive utilities], чтобы скрыть теги сеансов при просмотре в браузере мобильного устройства (используя класс hidden-xs).
 
 Вы также можете коснуться ссылки на заголовок, чтобы перейти к соответствующему сеансу. На рисунке ниже приведены изменения кода.
 
@@ -455,7 +456,7 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 
 Обратите внимание, что в классическом браузере теги отображаются. Также вы можете видеть, что используемая система сетки Bootstrap, упорядочивает элементы сеанса в два столбца. Если вы увеличите браузер, то увидите, что упорядочение изменится на три столбца.
 
-## <a name="a-namebkmkimprovesessionbycodea-improve-the-sessionbycode-view"></a><a name="bkmk_improvesessionbycode"></a> Улучшение представления SessionByCode
+## <a name="bkmk_improvesessionbycode"></a> Улучшение представления SessionByCode
 Наконец, вы можете исправить представление *SessionByCode* , чтобы адаптировать его для мобильных устройств.
 
 В браузере мобильного устройства коснитесь кнопки **Тег**, а затем введите `asp` в поле поиска.
@@ -524,32 +525,32 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 * развертывание приложения ASP.NET MVC 5 в веб-приложении службы приложений;
 * использование Bootstrap для создания динамического веб-макета в приложении MVC 5;
 * переопределение макетов, представлений и частичных представлений, как глобально, так и для отдельного представления;
-* управления макетом и принудительное частичное переопределение с помощью свойства `RequireConsistentDisplayMode` ;
+* управления макетом и принудительное частичное переопределение с помощью свойства `RequireConsistentDisplayMode`;
 * создание представлений для конкретных браузеров, таких как браузер iPhone;
 * применение стиля Bootstrap в коде Razor.
 
 ## <a name="see-also"></a>См. также
 * [9 основных принципов динамического веб-дизайна](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 * [Bootstrap][BootstrapSite]
-* [Официальный блог начальной загрузки][Официальный блог начальной загрузки]
-* [Учебник по начальной загрузке Twitter от Tutorial Republic][Учебник по начальной загрузке Twitter от Tutorial Republic]
-* [Игровая площадка начальной загрузки][Игровая площадка начальной загрузки]
-* [Рекомендации от W3C по веб-приложениям для мобильных устройств][Рекомендации от W3C по веб-приложениям для мобильных устройств]
-* [Проектные рекомендации от W3C по запросам мультимедиа][Проектные рекомендации от W3C по запросам мультимедиа]
+* [Официальный блог о начальной загрузке][Official Bootstrap Blog]
+* [Учебник по начальной загрузке Twitter от Tutorial Republic][Twitter Bootstrap Tutorial from Tutorial Republic]
+* [Интерактивная площадка начальной загрузки][The Bootstrap Playground]
+* [Рекомендации от W3C по веб-приложениям для мобильных устройств][W3C Recommendation Mobile Web Application Best Practices]
+* [Проектные рекомендации от W3C по запросам мультимедиа][W3C Candidate Recommendation for media queries]
 
 ## <a name="whats-changed"></a>Изменения
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- Internal Links -->
-[Развертывание начального проекта в веб-приложении Azure]: #bkmk_DeployStarterProject
-[Платформа начальной загрузки CSS]: #bkmk_bootstrap
-[Переопределение представлений, макетов и частичных представлений]: #bkmk_overrideviews
-[Создание представлений для браузера]:#bkmk_browserviews
-[Улучшение списка докладчиков]: #bkmk_Improvespeakerslist
-[Улучшение списка тегов]: #bkmk_improvetags
-[Улучшение списка дат]: #bkmk_improvedates
-[Улучшение представления SessionsTable]: #bkmk_improvesessionstable
-[Улучшение представления SessionByCode]: #bkmk_improvesessionbycode
+[Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
+[Bootstrap CSS Framework]: #bkmk_bootstrap
+[Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
+[Create Browser-Specific Views]:#bkmk_browserviews
+[Improve the Speakers List]: #bkmk_Improvespeakerslist
+[Improve the Tags List]: #bkmk_improvetags
+[Improve the Dates List]: #bkmk_improvedates
+[Improve the SessionsTable View]: #bkmk_improvesessionstable
+[Improve the SessionByCode View]: #bkmk_improvesessionbycode
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
@@ -563,17 +564,17 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-[стилем группы связанного списка]: http://getbootstrap.com/components/#list-group-linked
+[linked list group]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
-[панелей]: http://getbootstrap.com/components/#panels
-[настраиваемую группу связанного списка]: http://getbootstrap.com/components/#list-group-custom-content
-[систему сетки]: http://getbootstrap.com/css/#grid
-[динамические служебные программы]: http://getbootstrap.com/css/#responsive-utilities
-[Официальный блог начальной загрузки]: http://blog.getbootstrap.com/
-[Учебник по начальной загрузке Twitter от Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
-[Игровая площадка начальной загрузки]: http://www.bootply.com/
-[Рекомендации от W3C по веб-приложениям для мобильных устройств]: http://www.w3.org/TR/mwabp/
-[Проектные рекомендации от W3C по запросам мультимедиа]: http://www.w3.org/TR/css3-mediaqueries/
+[panels]: http://getbootstrap.com/components/#panels
+[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
+[grid system]: http://getbootstrap.com/css/#grid
+[responsive utilities]: http://getbootstrap.com/css/#responsive-utilities
+[Official Bootstrap Blog]: http://blog.getbootstrap.com/
+[Twitter Bootstrap Tutorial from Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+[The Bootstrap Playground]: http://www.bootply.com/
+[W3C Recommendation Mobile Web Application Best Practices]: http://www.w3.org/TR/mwabp/
+[W3C Candidate Recommendation for media queries]: http://www.w3.org/TR/css3-mediaqueries/
 
 <!-- Images -->
 [DeployClickPublish]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
@@ -608,10 +609,5 @@ ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
 [SessionsTableFixedTagASP.NETDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

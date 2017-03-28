@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2016
+ms.date: 02/24/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b0c3c5dfd695b28b75bf44c9f835b34966413a9a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 Поставщик Azure Multi Factor Authentication требуется, если вы хотите скачать пакет SDK.
 
 > [!IMPORTANT]
-> Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS.  Если вы решили создать для этой цели поставщик Azure Multi-Factor Authentication и у вас уже есть лицензии, не забудьте создать поставщик на базе модели **На включенного пользователя**. Свяжите поставщик с каталогом, содержащим лицензии Azure MFA, Azure AD Premium или EMS.  В таком случае с вас будет взиматься плата, только если количество уникальных пользователей пакета SDK превысит количество лицензий, которыми вы владеете.
+> Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS.  Если вы решили создать для этой цели поставщик Azure Multi-Factor Authentication и у вас уже есть лицензии, не забудьте создать поставщик на базе модели **На включенного пользователя**. Свяжите поставщик с каталогом, содержащим лицензии Azure MFA, Azure AD Premium или EMS.  При такой конфигурации с вас будет взиматься плата, только если количество уникальных пользователей, использующих двухфакторную проверку подлинности, превысит количество лицензий, которыми вы владеете.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Создание поставщика многофакторной идентификации
 Ниже показано, как создать поставщик Azure Multi Factor Authentication.
@@ -46,7 +47,7 @@ ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
    ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 7. Заполните перечисленные ниже поля и нажмите кнопку **Создать**.
    1. **Имя** — имя поставщика Multi-Factor Authentication.
-   2. **Модель использования** – выберите, хотите ли вы включить отдельных пользователей или оплачивать каждую проверку. Выберите один из способов:
+   2. **Модель использования** — выберите один из вариантов:
       * "На проверку подлинности" — покупательская модель, в которой оплачивается каждая проверка подлинности. Обычно используется в сценариях, использующих Azure Multi-Factor Authentication в потребительском приложении.
       * "На включенного пользователя" — покупательская модель, в которой оплачивается каждый включенный пользователь. Обычно используется для доступа сотрудников к таким приложениям, как Office 365. Выберите этот параметр, если некоторые пользователи уже имеют лицензию на Azure MFA.
    3. **Каталог** — клиент Azure Active Directory, с которым связан поставщик Multi-Factor Authentication. Обратите внимание на такие моменты:
@@ -56,10 +57,5 @@ ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
         ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. После нажатия кнопки "Создать" будет создан поставщик Multi-Factor Authentication и появится сообщение **Поставщик Multi-Factor Authentication успешно создан**. Нажмите кнопку **ОК**.
    ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

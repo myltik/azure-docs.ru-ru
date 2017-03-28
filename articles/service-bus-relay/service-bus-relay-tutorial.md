@@ -515,7 +515,7 @@ namespace Microsoft.ServiceBus.Samples
 Однако одно из основных различий заключается в том, что клиентское приложение использует для подключения к службе ретрансляции канал, а служба — вызов **ServiceHost**. Код для выполнения этих задач приведен в примере после описания последовательности выполнения действий.
 
 ### <a name="to-implement-a-client-application"></a>Реализация клиентского приложения
-1. Установите режим подключения **AutoDetect**. Добавьте следующий код в метод ** приложения `Main()`EchoClient**.
+1. Установите режим подключения **AutoDetect**. Добавьте следующий код в метод `Main()` приложения **EchoClient**.
 
     ```csharp
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;

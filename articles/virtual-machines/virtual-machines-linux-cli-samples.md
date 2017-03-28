@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5a73094c90b2a7400a664a827e07d5ada2184952
-ms.openlocfilehash: 372f6413903fbf7344871a136ffcddcadfc81782
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 59dfe13e70a5a20da4965f8a698380dc78b21028
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="azure-virtual-machine-cli-samples"></a>Примеры CLI виртуальной машины Azure
+# <a name="azure-cli-samples-for-linux-virtual-machines"></a>Примеры Azure CLI для виртуальных машин Linux
 
 В следующей таблице содержатся ссылки на скрипты Bash, созданные с помощью Azure CLI.
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/27/2017
 |**Сети виртуальных машин**||
 | [Защита сетевого трафика между виртуальными машинами](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает две виртуальные машины, все связанные ресурсы, а также внешние и внутренние группы безопасности сети (NSG). |
 |**Мониторинг виртуальных машин**||
-| [Мониторинг виртуальной машины с помощью Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает виртуальную машину, устанавливает агент Operations Management Suite и регистрирует виртуальную машину в рабочей области OMS.  |
+| [Мониторинг виртуальной машины с помощью Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Создает виртуальную машину, устанавливает агент Operations Management Suite и регистрирует виртуальную машину в рабочей области OMS.  |
 |**Устранение неполадок в виртуальных машинах**||
 | [Устранение неполадок диска операционной системы виртуальных машин](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Подключает диск операционной системы из одной виртуальной машины в качестве диска данных ко второй виртуальной машине. |
 | | |

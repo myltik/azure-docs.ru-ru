@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/20/2017
 
 В этом примере приложение работает с [очередями Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) и [большими двоичными объектами Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). В руководстве показано, как развернуть приложение в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) и [Базе данных SQL Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
-## <a name="a-idprerequisitesaprerequisites"></a><a id="prerequisites"></a>Предварительные требования
+## <a id="prerequisites"></a>Предварительные требования
 Предполагается, что у вас есть опыт работы с проектами [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) в Visual Studio.
 
 Учебник написан для Visual Studio 2013. Если у вас еще нет Visual Studio, это ПО будет установлено автоматически при установке пакета Azure SDK для .NET.
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/20/2017
 >
 >
 
-## <a name="a-idlearnawhat-youll-learn"></a><a id="learn"></a>Содержание обучения
+## <a id="learn"></a>Содержание обучения
 В учебнике показано, как выполнять следующие задачи.
 
 * Подготовка компьютера к разработке для Azure путем установки пакета Azure SDK.
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/20/2017
 * Отправка файлов и сохранение их в службе больших двоичных объектов Azure.
 * Использование пакета SDK веб-заданий Azure для работы с очередями и большими двоичными объектами хранилища Azure.
 
-## <a name="a-idcontosoadsaapplication-architecture"></a><a id="contosoads"></a>Архитектура приложения
+## <a id="contosoads"></a>Архитектура приложения
 Пример приложения использует [рабочий шаблон на основе очередей](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) для разгрузки процессора от задач создания эскизов для обработки внутреннего сервера
 
 Приложение хранит рекламу в базе данных SQL, используя Entity Framework Code First для создания таблиц и доступа к данным. Для каждого рекламного объявления база данных хранит два URL-адреса: один для полноразмерного изображения, другой для эскиза.
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/20/2017
 
 Инструкции учебника применимы к пакету Azure SDK для .NET 2.7.1 или более поздней версии.
 
-## <a name="a-idstorageacreate-an-azure-storage-account"></a><a id="storage"></a>Создание учетной записи хранения Azure
+## <a id="storage"></a>Создание учетной записи хранения Azure
 Учетная запись хранилища Azure обеспечивает ресурсы для хранения данных очередей и больших двоичных объектов в облаке. Она также используется пакетом SDK веб-заданий для хранения данных журналов для панели мониторинга.
 
 В реальном приложении обычно создают отдельные учетные записи для данных приложения и данных журналов, а также отдельные учетные записи для тестовых данных и рабочих данных. В этом учебнике будет использоваться одна учетная запись.
@@ -100,7 +100,7 @@ ms.lasthandoff: 01/20/2017
 
     ![Новая учетная запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
-## <a name="a-iddownloadadownload-the-application"></a><a id="download"></a>Загрузка приложения
+## <a id="download"></a>Загрузка приложения
 1. Загрузите и распакуйте [готовое решение](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb).
 2. Запустите Visual Studio.
 3. В меню **Файл** выберите **Открыть > Решение или проект**, перейдите к скачанному решению и откройте файл решения.
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/20/2017
     По умолчанию Visual Studio автоматически восстанавливает содержимое пакета NuGet, которое не включено в *ZIP*-файл. Если пакеты не восстановлены, установите их вручную, перейдя к диалоговому окну **Управление пакетами для NuGet решения** и нажав кнопку **Восстановить** вверху справа.
 5. В **обозревателе решений** выберите **ContosoAdsWeb** в качестве запускаемого проекта.
 
-## <a name="a-idconfigurestorageaconfigure-the-application-to-use-your-storage-account"></a><a id="configurestorage"></a>Настройка приложения для использования учетной записи хранения
+## <a id="configurestorage"></a>Настройка приложения для использования учетной записи хранения
 1. Откройте файл приложения *Web.config* в проекте ContosoAdsWeb.
 
     Файл содержит строку подключения SQL и строку подключения хранилища Azure для работы с большими двоичными объектами и очередями.
@@ -153,7 +153,7 @@ ms.lasthandoff: 01/20/2017
 7. Замените обе строки подключения к хранилищу скопированной ранее строкой подключения.
 8. Сохраните изменения.
 
-## <a name="a-idrunarun-the-application-locally"></a><a id="run"></a>Локальный запуск приложения
+## <a id="run"></a>Локальный запуск приложения
 1. Чтобы запустить внешний сервер приложения, нажмите клавиши CTRL+F5.
 
     Откроется домашняя страница браузера по умолчанию. (Запускается веб-проект, поскольку он стал запускаемым проектом.)
@@ -183,7 +183,7 @@ ms.lasthandoff: 01/20/2017
 
 Вы запустили приложение на локальном компьютере, и оно использует базу данных SQL Server, расположенную на компьютере, но она работает с очередями и большими двоичными объектами в облаке. В следующем разделе вы запустите приложение в облаке с помощью облачной базы данных, а также облачных больших двоичных объектов и очередей.  
 
-## <a name="a-idrunincloudarun-the-application-in-the-cloud"></a><a id="runincloud"></a>Запуск приложения в облаке
+## <a id="runincloud"></a>Запуск приложения в облаке
 Чтобы запустить приложение в облаке, выполните следующие действия:
 
 * Развертывание веб-приложений. Visual Studio автоматически создаст новое веб-приложение в службе приложений и экземпляр базы данных SQL.
@@ -308,7 +308,7 @@ ms.lasthandoff: 01/20/2017
 >
 >
 
-## <a name="a-idcreateacreate-the-application-from-scratch"></a><a id="create"></a>Создание приложения с самого начала
+## <a id="create"></a>Создание приложения с самого начала
 В этом разделе предстоит выполнить следующие задачи:
 
 * Создание решения Visual Studio с веб-проектом.
@@ -407,7 +407,7 @@ ms.lasthandoff: 01/20/2017
 
 Теперь вы можете создать, запустить и развернуть приложение, как показано ранее в этом учебнике. Однако перед этим остановите веб-задание, которое все еще выполняется в первом веб-приложении, на котором произведено развертывание. В противном случае такое веб-задание обработает сообщения очереди, созданные локально или запущенные приложением в новом веб-приложении, поскольку все они используют одну учетную запись хранения.
 
-## <a name="a-idcodeareview-the-application-code"></a><a id="code"></a>Просмотр кода приложения
+## <a id="code"></a>Просмотр кода приложения
 В следующих разделах объясняется код, связанный с работой с пакетом SDK веб-заданий и большими двоичными объектами и очередями Azure.
 
 > [!NOTE]
@@ -636,7 +636,7 @@ ms.lasthandoff: 01/20/2017
 
         <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
-### <a name="a-idprogramcsacontosoadswebjob---programcs"></a><a id="programcs"></a>ContosoAdsWebJob - Program.cs
+### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 При запуске веб-задания метод `Main` вызывает метод пакета `JobHost.RunAndBlock` SDK веб-заданий, чтобы начать выполнение инициированных функций в текущем потоке.
 
         static void Main(string[] args)
@@ -645,7 +645,7 @@ ms.lasthandoff: 01/20/2017
             host.RunAndBlock();
         }
 
-### <a name="a-idgeneratethumbnailacontosoadswebjob---functionscs---generatethumbnail-method"></a><a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail
 Пакет SDK веб-заданий вызывает этот метод при получении сообщения очереди. Метод создает эскиз и помещает URL-адрес эскиза в базу данных.
 
         public static void GenerateThumbnail(

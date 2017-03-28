@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 165ab7363efaf90eaab41098f71e2f1b846c346e
-ms.openlocfilehash: 5ac292729d236bd539e71ba431283ca417ea3980
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
+ms.lasthandoff: 01/14/2017
 
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Обновление REST API службы поиска Azure до версии 2016-09-01
 Если вы используете предварительную версию 2015-02-28 или 2015-02-28-Preview [REST API службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) или более раннюю, эта статья поможет вам обновить приложения для использования следующей общедоступной версии API 2016-09-01.
 
 Версия 2016-09-01 REST API содержит некоторые изменения из более ранних версий. Эти отличия в основном обратно совместимы, поэтому изменение кода потребует минимальных усилий в зависимости от версии, которая использовался ранее. В разделе [Действия по обновлению](#UpgradeSteps) вы найдете инструкции о том, как изменить код для использования новой версии API.
+
+> [!NOTE]
+> Экземпляр службы поиска Azure поддерживает несколько версий REST API, включая последнюю. Можно продолжать использовать версию, которая больше не является последней, но рекомендуется выполнить перенос кода, чтобы использовать последнюю версию.
 
 <a name="WhatsNew"></a>
 
@@ -63,10 +67,5 @@ ms.openlocfilehash: 5ac292729d236bd539e71ba431283ca417ea3980
 Будем рады вашим отзывам о службе поиска Azure. Если вы столкнулись с проблемами, то всегда можете обратиться за помощью на [форуме по службе поиску Azure на сайте MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) или [StackOverflow](http://stackoverflow.com/). Если вы задаете вопрос о службе поиска Azure на сайте StackOverflow, обязательно добавьте к нему `azure-search`.
 
 Благодарим вас за использование поиска Azure!
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -183,10 +185,5 @@ Apache Storm поддерживает несколько языков и даж�
 
 * [Использование Python для потоковой передачи заданий MapReduce.](hdinsight-hadoop-streaming-python.md)
 * [Использование определяемых пользователем функций Python (UDF) в Pig и Hive.](hdinsight-python.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

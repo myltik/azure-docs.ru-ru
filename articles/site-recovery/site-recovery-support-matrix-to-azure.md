@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [Репликация на принадлежащий клиенту вторичный сайт](site-recovery-support-matrix-to-sec-site.md)
 
 
-В этой статье кратко перечислены поддерживаемые конфигурации и компоненты Azure Site Recovery для репликации и восстановления в Azure. Дополнительные сведения о необходимых компонентах Azure Site Recovery приведены в [рекомендациях по Site Recovery](site-recovery-best-practices.md).
+В этой статье кратко перечислены поддерживаемые конфигурации и компоненты Azure Site Recovery для репликации и восстановления в Azure. Дополнительные сведения о необходимых компонентах Azure Site Recovery см. [здесь](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Поддержка вариантов развертывания
@@ -49,7 +50,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 **Hyper-V (с Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 и System Center Virtual Machine Manager 2012 R2.
 
   >[!Note]
-  > В настоящее время облако System Center Virtual Machine Manager 2016, сочетающее узлы Windows Server 2016 и Windows Server 2012 R2, не поддерживается.
+  > В настоящее время облако System Center Virtual Machine Manager 2016, сочетающее узлы Windows Server 2016 и Windows Server 2012 R2, не поддерживается. 
 
 ### <a name="host-servers"></a>Серверы узлов
 
@@ -60,11 +61,11 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 **Hyper-V (с Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 с последними обновлениями.<br/><br/> Узлами Windows Server 2016 должен управлять сервер System Center Virtual Machine Manager 2016.
 
   >[!Note]
-  >В настоящее время сайт Hyper-V, сочетающий узлы под управлением Windows Server 2016 и 2012 R2, не поддерживается.
+  >В настоящее время сайт Hyper-V, сочетающий узлы под управлением Windows Server 2016 и 2012 R2, не поддерживается. В настоящее время не поддерживается восстановление виртуальных машин, размещенных на узле Windows Server 2016, в альтернативное расположение.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Поддержка версий ОС для реплицируемых виртуальных машин
 
-При репликации в Azure защищенные виртуальные машины должны соответствовать [требованиям Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+При репликации в Azure защищенные виртуальные машины должны соответствовать [требованиям Azure](#failed-over-azure-vm-requirements).
 В таблице ниже представлены сведения о поддержке реплицируемых операционных систем в различных сценариях развертывания при использовании Azure Site Recovery. Эта поддержка относится к любой рабочей нагрузке, выполняемой в указанной ОС.
 
  **VMware или физический сервер** | **Hyper-V (без Virtual Machine Manager)** | **Hyper-V (с Virtual Machine Manager)**
@@ -147,7 +148,7 @@ RDM | Да<br/><br/> Недоступно для физических серве
 
 **Служба хранилища Azure** | **VMware или физический сервер** | **Hyper-V (без Virtual Machine Manager)** | **Hyper-V (с Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Да | Да | Да 
+LRS | Да | Да | Да
 GRS | Да | Да | Да
 "Холодное" хранилище | Нет | Нет | Нет
 "Горячее" хранилище| Нет | Нет | Нет
@@ -206,10 +207,5 @@ GRS | Да | Да | Да
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Подготовка к развертыванию](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Проверьте, соблюдены ли предварительные требования](site-recovery-prereq.md)
 

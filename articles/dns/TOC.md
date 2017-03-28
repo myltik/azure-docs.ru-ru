@@ -4,13 +4,11 @@
 
 # Начало работы
 
-## [Создание зоны DNS](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Интерфейс командной строки Azure](dns-getstarted-create-dnszone-cli.md)
-
-## [Создание записей DNS](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Интерфейс командной строки Azure](dns-getstarted-create-recordset-cli.md)
+## Создание зоны и записи DNS
+### [Портал](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
+### [Azure CLI 2.0](dns-getstarted-cli.md)
 
 ## [Делегирование своего домена в Azure DNS](dns-domain-delegation.md)
 ## [Создание пользовательских записей DNS для веб-приложения](dns-web-sites-custom-domain.md)

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
+ms.sourcegitcommit: 5046ec3f6a29fb4791cd6badc67c2111a9e3ab2c
+ms.openlocfilehash: 132ecec8aef2f166753214fce410237103583c08
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -186,9 +187,7 @@ ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
 | --- | --- | --- |
 | type |Для свойства type необходимо задать значение **Web** |Да |
 | URL-адрес |URL-адрес источника Web |Да |
-| authenticationType |Анонимная или обычная. |Да |
-| userName |Имя пользователя для обычной проверки подлинности. |Да (для обычной проверки подлинности) |
-| пароль |Пароль для обычной проверки подлинности. |Да (для обычной проверки подлинности) |
+| authenticationType |Анонимная. |Да |
 
 ### <a name="using-anonymous-authentication"></a>Использовать анонимную проверку подлинности
 
@@ -202,25 +201,6 @@ ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
         {
             "authenticationType": "Anonymous",
             "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-### <a name="using-basic-authentication"></a>Использовать обычную проверку подлинности
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "http://myit.mycompany.com/",
-            "userName": "Administrator",
-            "password": "password"
         }
     }
 }
@@ -296,9 +276,4 @@ ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

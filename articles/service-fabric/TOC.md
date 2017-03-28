@@ -54,7 +54,6 @@
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Архитектура](service-fabric-reliable-services-platform-architecture.md)
 #### [Жизненный цикл Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
 #### [Использование надежных коллекций](service-fabric-work-with-reliable-collections.md)
@@ -78,12 +77,13 @@
 #### [Жизненный цикл и сборка мусора](service-fabric-reliable-actors-lifecycle.md)
 #### [Полиморфизм](service-fabric-reliable-actors-polymorphism.md)
 #### [Повторный вход](service-fabric-reliable-actors-reentrancy.md)
+#### [События](service-fabric-reliable-actors-events.md) 
 #### [Таймеры и напоминания](service-fabric-reliable-actors-timers-reminders.md)
-#### [События](service-fabric-reliable-actors-events.md)
 #### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
-#### [Настройка поставщика состояния](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Настройка KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Настройка параметров подключения](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Настройка ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Миграция из облачных служб
 ### [Сравнение облачных служб и Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -106,13 +106,14 @@
 ##### [Портал Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio и Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Шаблоны сети кластера](service-fabric-patterns-networking.md)
 #### [Виды узлов и масштабируемые наборы ВМ](service-fabric-cluster-nodetypes.md)
 #### [Масштабирование кластера](service-fabric-cluster-scale-up-down.md)
+#### [Масштабирование кластера программным способом](service-fabric-cluster-programmatic-scaling.md)
 #### [Обновление кластера](service-fabric-cluster-upgrade.md)
 #### [Удаление кластера](service-fabric-cluster-delete.md)
 #### [Контроль доступа](service-fabric-cluster-security-roles.md)
 #### [Настройка кластера](service-fabric-cluster-fabric-settings.md)
-#### [Защита кластера с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
 #### [Добавление или изменение сертификатов кластера](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Пробное бесплатное использование кластера Party Cluster](http://aka.ms/tryservicefabric)
 
@@ -130,7 +131,8 @@
 
 ## Управление жизненным циклом приложения
 ### [Обзор](service-fabric-application-lifecycle.md)
-### [Настройка непрерывной интеграции](service-fabric-set-up-continuous-integration.md)
+### [Настройка непрерывной интеграции с помощью VSTS](service-fabric-set-up-continuous-integration.md)
+### [Развертывание приложения Linux Java с помощью Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Развертывание или удаление приложений
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
@@ -164,7 +166,6 @@
 ### [Диагностика в Reliable Services с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 ### [Диагностика в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Устранение распространенных неполадок](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Масштабирование приложений
 ### [Секционирование Reliable Services](service-fabric-concepts-partitioning.md)
@@ -179,7 +180,6 @@
 #### [Использование контролируемого хаоса](service-fabric-controlled-chaos.md)
 #### [Использование тестовых действий](service-fabric-testability-actions.md)
 #### [При выполнении рабочих нагрузок](service-fabric-testability-workload-tests.md)
-#### [Путем вызова потери данных](service-fabric-use-data-loss-api.md)
 #### [Использование тестовых сценариев](service-fabric-testability-scenarios.md)
 #### [Использование API-интерфейсов для изменения состояния узла](service-fabric-node-transition-apis.md)
 ### [Нагрузочный тест приложения](service-fabric-vso-load-test.md)

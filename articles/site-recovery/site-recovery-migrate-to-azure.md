@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/27/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -26,6 +26,9 @@ ms.lasthandoff: 02/23/2017
 В этой статье представлены общие сведения о переносе виртуальных машин и физических серверов в Azure с помощью службы Azure Site Recovery.
 
 Служба Azure Site Recovery помогает реализовать стратегию BCDR. Она управляет процессами репликации локальных физических серверов и виртуальных машин в облако (Azure) или дополнительный центр обработки данных. При возникновении сбоев в исходном расположении происходит отработка отказа с выполнением перехода в дополнительное расположение. Это обеспечивает доступность приложений и рабочих нагрузок. При восстановлении нормального режима работы исходного расположения происходит переключение на него. Дополнительные сведения см. в статье [Что такое Site Recovery?](site-recovery-overview.md) Site Recovery можно также использовать, чтобы перенести существующие локальные рабочие нагрузки в Azure, ускорив переход в облако для получения массы возможностей, предлагаемых в Azure.
+
+Сведения о том, как выполнить миграцию, см. в этом видео:
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 В этой статье описывается развертывание на [портале Azure](https://portal.azure.com). [Классический портал Azure](https://manage.windowsazure.com/) можно использовать для обслуживания имеющихся хранилищ Site Recovery, но не для их создания.
 

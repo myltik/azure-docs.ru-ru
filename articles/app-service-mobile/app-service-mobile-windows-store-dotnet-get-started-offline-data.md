@@ -3,7 +3,7 @@ title: "Включение автономной синхронизации дл�
 description: "Узнайте, как использовать мобильное приложение Azure для кэширования и синхронизации автономных данных в приложении универсальной платформы Windows (UWP)."
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7da4d87c6225754fe878a1812701c4dbafaea07a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -35,11 +36,11 @@ ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
 
 * Visual Studio 2013 в Windows 8.1 или более поздней версии;
 * Выполнение заданий на странице [Создание приложения для Windows][create a windows app].
-* [хранилище SQLite для мобильных служб Azure][Хранилище SQLite nuget];
+* [Хранилище SQLite для мобильных служб Azure][sqlite store nuget]
 * [SQLite для разработки универсальной платформы Windows](http://www.sqlite.org/downloads)
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Обновление клиентского приложения для поддержки автономных функций
-Автономные функции мобильных приложений Azure позволяют взаимодействовать с локальной базой данных в случае автономной работы. Для использования этих функций в приложении необходимо инициализировать [SyncContext][synccontext] в локальном хранилище. Затем необходимо сослаться на таблицу с помощью интерфейса [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite используется как локальное хранилище на устройстве.
+Автономные функции мобильных приложений Azure позволяют взаимодействовать с локальной базой данных в случае автономной работы. Чтобы использовать эти функции в приложении, необходимо инициализировать [SyncContext][synccontext] в локальном хранилище. Затем необходимо сослаться на таблицу с помощью интерфейса [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite используется как локальное хранилище на устройстве.
 
 1. Установите [среду выполнения SQLite для универсальной платформы Windows](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. В Visual Studio откройте диспетчер пакетов NuGet для проекта приложения UWP, созданного в руководстве [Создание приложения Windows].
@@ -50,7 +51,7 @@ ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
 4. Откройте файл MainPage.xaml.cs и раскомментируйте определение `#define OFFLINE_SYNC_ENABLED`.
 5. В Visual Studio нажмите клавишу **F5** , чтобы выполнить сборку и запустить клиентское приложение. Приложение работает так же, как и до включения автономной синхронизации. Тем не менее, локальная база данных теперь заполняется данными, которые можно использовать в автономном сценарии.
 
-## <a name="a-nameupdate-syncaupdate-the-app-to-disconnect-from-the-backend"></a><a name="update-sync"></a>Обновление приложения для отключения от серверной части
+## <a name="update-sync"></a>Обновление приложения для отключения от серверной части
 В этом разделе вы разорвете связь с серверной частью мобильного приложения для имитации автономного режима. При добавлении элементов данных обработчик исключений сообщает, что приложение работает в автономном режиме. В этом состоянии новые элементы добавляются в локальное хранилище и будут синхронизированы с серверной частью мобильного приложения при следующей отправке данных в подключенном состоянии.
 
 1. Измените файл App.xaml.cs в общем проекте. Закомментируйте инициализацию **MobileServiceClient** и добавьте следующую строку, использующую недопустимый URL-адрес мобильного приложения:
@@ -64,7 +65,7 @@ ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
 5. В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных в **Azure**->**Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому. Убедитесь, что данные в серверной базе данных не изменились.
 6. (Необязательно.) Воспользуйтесь инструментом REST, например Fiddler или Postman, чтобы выполнить запрос к мобильной серверной части с помощью запроса GET вида `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="a-nameupdate-online-appaupdate-the-app-to-reconnect-your-mobile-app-backend"></a><a name="update-online-app"></a>Обновление приложения для повторного подключения к серверной части мобильного приложения
+## <a name="update-online-app"></a>Обновление приложения для повторного подключения к серверной части мобильного приложения
 В этом разделе вы повторно подключите приложение к серверной части мобильного приложения. Эти изменения моделируют повторное подключение сети в приложении.
 
 При первом запуске приложения обработчик событий `OnNavigatedTo` вызывает `InitLocalStoreAsync`. Этот метод, в свою очередь, вызывает `SyncAsync` для синхронизации локального хранилища с серверной базой данных. Приложение пытается выполнить синхронизацию при запуске.
@@ -91,12 +92,12 @@ ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
 В следующих статьях приводятся дополнительные сведения о функции автономной синхронизации мобильных приложений.
 
 * [Автономная синхронизация данных в мобильных приложениях Azure]
-* [Использование управляемого клиента для мобильных приложений Azure][8]
+* [Использование пакета SDK .NET для мобильных приложений Azure][8]
 
 <!-- Anchors. -->
-[Обновление приложения для поддержки автономных функций]: #enable-offline-app
-[Обновление режима синхронизации приложения]: #update-sync
-[Обновление приложения для повторного подключения серверной части мобильных приложений]: #update-online-app
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your Mobile Apps backend]: #update-online-app
 [Next Steps]:#next-steps
 
 <!-- Images -->
@@ -108,24 +109,19 @@ ms.openlocfilehash: c24e9940f8ce9e2a97a9ef88b1ecb09cd6b07c39
 <!-- URLs. -->
 [Автономная синхронизация данных в мобильных приложениях Azure]: app-service-mobile-offline-data-sync.md
 [create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite для Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
-[SQLite для Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite для Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
-[Хранилище SQLite nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx
 [IMobileServiceTableQuery]: https://msdn.microsoft.com/library/azure/dn250631(v=azure.10).aspx
 [IMobileServicesSyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext(v=azure.10).aspx
 [MobileServicePushFailedException]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception(v=azure.10).aspx
-[Состояние]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
+[Status]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
 [CancelledByNetworkError]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
 [PullAsync.]: https://msdn.microsoft.com/library/azure/mt667558(v=azure.10).aspx
 [PushAsync.]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync.]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

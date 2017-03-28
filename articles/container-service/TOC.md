@@ -15,6 +15,7 @@
 ### [Открытие общего доступа в DC/OS](container-service-enable-public-access.md)
 ### [Балансировка нагрузки контейнеров DC/OS](container-service-load-balancing.md)
 ### [Оркестратор для пользователей или приложений в DC/OS](container-service-application-specific-marathon.md)
+### [Добавление общего файлового ресурса](container-service-dcos-fileshare.md)
 ### Отслеживание DC/OS
 #### [Отслеживание с помощью ELK](container-service-monitoring-elk.md)
 #### [Отслеживание с помощью OMS](container-service-monitoring-oms.md)

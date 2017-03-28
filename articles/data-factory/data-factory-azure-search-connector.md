@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/08/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 55c988bf74ff0f2e519e895a735dc68f3dc99855
 ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
+ms.lasthandoff: 12/21/2016
 
 ---
 
@@ -37,11 +38,11 @@ ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
 
 В примере ниже используется следующее:
 
-1.  Связанная служба типа [AzureSqlDW](#azure-search-linked-service-properties).
-2.  Связанная служба типа [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
-3.  Входной [набор данных](data-factory-create-datasets.md) типа [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
-4.  Выходной [набор данных](data-factory-create-datasets.md) типа [AzureSearchIndex](#azure-search-index-dataset-properties).
-4.  [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) и [AzureSearchIndexSink](#azure-search-index-sink-properties).
+1.    Связанная служба типа [AzureSqlDW](#azure-search-linked-service-properties).
+2.    Связанная служба типа [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+3.    Входной [набор данных](data-factory-create-datasets.md) типа [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.    Выходной [набор данных](data-factory-create-datasets.md) типа [AzureSearchIndex](#azure-search-index-dataset-properties).
+4.    [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) и [AzureSearchIndexSink](#azure-search-index-sink-properties).
 
 В этом примере каждый час копируются данные временных рядов из локальной базы данных SQL Server в индекс Поиска Azure. Используемые в этом примере свойства JSON описаны в разделах, следующих за примерами.
 
@@ -52,13 +53,13 @@ ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
 ```JSON
 {
     "name": "AzureSearchLinkedService",
-    "properties": {
+       "properties": {
         "type": "AzureSearch",
-        "typeProperties": {
+           "typeProperties": {
             "url": "https://<service>.search.windows.net",
             "key": "<AdminKey>"
         }
-    }
+       }
 }
 ```
 
@@ -118,7 +119,7 @@ ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
     "properties": {
         "type": "AzureSearchIndex",
         "linkedServiceName": "AzureSearchLinkedService",
-        "typeProperties" : {
+         "typeProperties" : {
             "indexName": "products",
         },
         "availability": {
@@ -327,9 +328,4 @@ AzureSearchSink проявляет два типа поведения upsert (с
 Ознакомьтесь со следующими статьями:
 
 * [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

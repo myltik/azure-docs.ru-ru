@@ -12,15 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 4953b9cb4db2fe0f5bf75589145fde39a6f35a68
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 89bec0e3af42b03ef21e3e8c4059f6aad86db4c0
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Шаг 6 пошагового руководства: доступ к веб-службе Машинного обучения Azure
+
 Это последний этап пошагового руководства [Разработка решения для прогнозной аналитики в службе машинного обучения Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -38,17 +40,14 @@ ms.openlocfilehash: 4953b9cb4db2fe0f5bf75589145fde39a6f35a68
 * **Запрос и ответ** — пользователь отправляет одну или несколько строк данных о кредитах в службу с помощью протокола HTTP, а служба в качестве ответа возвращает один или несколько наборов результатов.
 * **Пакетное выполнение** — пользователь сохраняет одну или несколько строк данных о кредитах в BLOB-объекте Azure, а затем отправляет адрес BLOB-объекта в Azure. Служба оценивает все строки данных во входном BLOB-объекте, сохраняет результаты в другом BLOB-объекте и возвращает URL-адрес данного контейнера.  
 
-Быстрее и проще всего получить доступ к веб-службе через [веб-приложение службы "запрос-ответ" машинного обучения Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) или [шаблон веб-приложения службы пакетного выполнения машинного обучения Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+Быстрее и проще всего получить доступ к классической веб-службе через [веб-приложение службы "запрос-ответ" машинного обучения Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) или [шаблон веб-приложения службы пакетного выполнения машинного обучения Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+
 С помощью шаблонов веб-служб можно создать пользовательское веб-приложение, которое "знает" входные данные вашей веб-службы и ожидаемые результаты. Вам нужно всего лишь предоставить доступ к веб-службе и данным, а шаблон выполнит все остальные действия.
 
 Дополнительные сведения об использовании шаблонов веб-приложений см.в статье [Использование веб-службы машинного обучения Azure с шаблоном веб-приложения](machine-learning-consume-web-service-with-web-app-template.md).
 
 Можно также разработать настраиваемое приложение для доступа к веб-службе с помощью стартового кода в языках программирования R, C# и Python.
+
 Полные сведения см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

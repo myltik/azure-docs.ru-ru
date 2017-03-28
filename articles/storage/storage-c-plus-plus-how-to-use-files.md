@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
-ms.openlocfilehash: 7faa219c7c21c768419f6c5e98712a0f0f471924
+ms.sourcegitcommit: af3ba5a4d1bd457f19038b9917ce55920e5e882b
+ms.openlocfilehash: 7d97e0f8be183c8858520d795ac28b7ad63a6dae
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7faa219c7c21c768419f6c5e98712a0f0f471924
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## <a name="about-this-tutorial"></a>О данном учебнике
-В этом руководстве вы узнаете, как выполнять основные операции в службе хранилища файлов Microsoft Azure. С помощью примеров на языке C++ вы узнаете, как создавать общие папки и каталоги, отправлять и удалять файлы, а также получать список файлов. Если вы не знакомы с хранилищем файлов Microsoft Azure, рекомендуем изучить информацию, изложенную в последующих разделах. Это будет очень полезно для понимания примеров программ.
+В этом руководстве вы узнаете, как выполнять основные операции в службе хранилища файлов Microsoft Azure. С помощью примеров на языке C++ вы узнаете, как создавать общие папки и каталоги, отправлять и удалять файлы, а также получать список файлов. Если вы не знакомы со службой хранилища файлов Microsoft Azure, рекомендуем изучить информацию, изложенную в последующих разделах. Это будет полезно для понимания примеров.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -50,12 +51,12 @@ Install-Package wastorage
 Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы Azure для доступа к файлам:
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/file.h"
+#include <was/storage_account.h>
+#include <was/file.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Настройка строки подключения к хранилищу Azure
-Чтобы начать работу с хранилищем файлов, необходимо подключиться к вашей учетной записи хранилища Azure. Для начала потребуется настроить строку подключения, которое будет использоваться для подключения к учетной записи хранилища. Для этого определим статическую переменную.
+Чтобы начать работу с хранилищем файлов, необходимо подключиться к вашей учетной записи хранилища Azure. Для начала потребуется настроить строку подключения, которая будет использоваться для подключения к учетной записи хранения. Для этого определим статическую переменную.
 
 ```cpp
 // Define the connection-string with your values.
@@ -354,12 +355,8 @@ if (share.exists())
 Для получения дополнительных сведений о службе хранилища Azure изучите следующие ресурсы:
 
 * [Клиентская библиотека хранилища для C++](https://github.com/Azure/azure-storage-cpp)
+* [Примеры для службы хранилища файлов Azure на языке C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer;](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

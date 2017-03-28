@@ -1,6 +1,6 @@
 ---
 title: "Развертывание архивации виртуальных машин Azure и управление ею с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell"
+description: "Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ad7fb6f05a40cced28555521049f85ad59fb9878
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: aa1934447b53b725a08cebb47da9171a136b76ff
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
+# <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Архивация виртуальных машин с помощью командлетов AzureRM.Backup
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](backup-azure-vms-automation.md)
 > * [Классический](backup-azure-vms-classic-automation.md)
@@ -350,9 +352,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, ознакомьтесь со статьей о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](backup-client-automation-classic.md). Доступна и другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](backup-dpm-automation-classic.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

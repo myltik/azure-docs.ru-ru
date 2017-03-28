@@ -16,9 +16,9 @@ ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 50e96211c0655fb0c47929626d7f5cca9985aaee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ca8c182651e3c9f2f1f3a85b94361755d8e638d4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Как создать группу безопасности сети для подсети переднего плана
 Чтобы создать сетевую группу безопасности под названием *NSG-FrontEnd* по описанному выше сценарию, выполните указанные ниже действия.
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../cli-install-nodejs.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure config mode** , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
    
         azure config mode arm

@@ -1,9 +1,9 @@
 ---
 title: "Миграция в Resource Manager с помощью PowerShell | Документация Майкрософт"
-description: "В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager с помощью команд Azure PowerShell."
+description: "В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов IaaS (виртуальных машин, виртуальных сетей и учетных записей хранения) из классической модели в модель Azure Resource Manager (ARM) с помощью команд Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: cynthn
+ms.date: 03/14/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
-ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -49,7 +49,10 @@ ms.lasthandoff: 02/10/2017
 
 <br>
 
-## <a name="step-3-set-your-subscription-and-sign-up-for-migration"></a>Шаг 3. Настройка подписки и регистрация для миграции
+## <a name="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-portal"></a>Шаг 3. Проверка наличия у вас прав соадминистратора подписки на классическом портале Azure
+Чтобы выполнить миграцию, вас нужно добавить как соадминистратора подписки на [классическом портале Azure](https://manage.windowsazure.com/). Это необходимо, даже если вы уже добавлены в качестве ее владельца на [портале Azure](https://portal.azure.com). Попробуйте [добавить соадминистратора подписки на классическом портале Azure](../billing/billing-add-change-azure-subscription-administrator.md), чтобы узнать, являетесь ли вы ее соадминистратором. Если вам не удалась добавить соадминистратора, обратитесь к администратору или соадминистратору служб для подписки, чтобы вас добавили.   
+
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Шаг 4. Настройка подписки и регистрация для миграции
 Сначала запустите командную строку PowerShell. Для переноса необходимо настроить среду как для классической модели, так и для модели Resource Manager.
 
 Войдите в учетную запись для модели Resource Manager.
@@ -111,7 +114,7 @@ ms.lasthandoff: 02/10/2017
 
 <br>
 
-## <a name="step-4-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Шаг 4. Проверка наличия достаточного числа ядер виртуальной машины Azure Resource Manager в регионе Azure текущего развертывания или виртуальной сети
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Шаг 5. Проверка наличия достаточного числа ядер виртуальной машины Azure Resource Manager в регионе Azure текущего развертывания или виртуальной сети
 Чтобы проверить текущее количество ядер в Azure Resource Manager, можно использовать приведенную ниже команду PowerShell. Чтобы узнать больше о квотах ядер, ознакомьтесь с разделом [Ограничения и диспетчер ресурсов Azure](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager). 
 
 В этом примере проверяется доступность в регионе **Западная часть США**. Замените регион в примере своим собственным значением. 
@@ -120,7 +123,7 @@ ms.lasthandoff: 02/10/2017
 Get-AzureRmVMUsage -Location "West US"
 ```
 
-## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>Шаг 5. Выполнение команд для переноса ресурсов IaaS
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Шаг 6. Выполнение команд для переноса ресурсов IaaS
 > [!NOTE]
 > Все операции, описанные здесь, являются идемпотентными. Если вы столкнетесь с какой-либо проблемой, не связанной с неподдерживаемой функцией или ошибкой конфигурации, мы рекомендуем повторить подготовку, прервать или зафиксировать текущую операцию. Платформа попытается повторить это действие.
 > 
@@ -209,6 +212,8 @@ Get-AzureRmVMUsage -Location "West US"
 
 ### <a name="migrate-virtual-machines-in-a-virtual-network"></a>Перенос виртуальных машин в виртуальную сеть
 Для миграции виртуальных машин в виртуальной сети переносится сама виртуальная сеть. Виртуальные машины автоматически переносятся вместе с ней. Выберите виртуальную сеть, в которую будете переносить ресурсы. 
+> [!NOTE]
+> [Перенесите отдельную классическую виртуальную машину](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md), создав виртуальную машину Resource Manager с управляемыми дисками на основе VHD-файлов (диска ОС и дисков данных) исходной виртуальной машины. 
 
 В этом примере виртуальной сети присваивается имя **myVnet**. Замените имя виртуальной сети в примере своим собственным значением. 
 
@@ -248,6 +253,50 @@ Get-AzureRmVMUsage -Location "West US"
 ### <a name="migrate-a-storage-account"></a>Перенос учетной записи хранения
 После миграции виртуальных машин рекомендуется перенести учетную запись хранения.
 
+Прежде чем перенести учетную запись хранения, выполните проверку выполнения предварительных требований.
+
+* **Перенесите классические виртуальные машины, диски которых хранятся в учетной записи хранения.**
+
+    Приведенная выше команда возвращает свойства RoleName и DiskName всех дисков классических виртуальных машин в учетной записи хранения. RoleName — это имя виртуальной машины, к которой подключен диск. Если приведенная выше команда вернула диски, убедитесь, что виртуальные машины, к которым подключены эти диски, будут перенесены до переноса учетной записи хранения.
+    ```powershell
+     $storageAccountName = 'yourStorageAccountName'
+      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+      DiskName | Format-List -Property RoleName, DiskName 
+
+    ```
+* **Удалите неподключенные диски классических виртуальных машин, хранящиеся в учетной записи хранения.**
+ 
+    Чтобы найти неподключенные диски классических виртуальных машин в учетной записи хранения, выполните следующую команду. 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    Если приведенная выше команда вернула диски, удалите их, выполнив следующую команду.
+
+    ```powershell
+       Remove-AzureDisk -DiskName 'yourDiskName'
+    ```
+* **Удалите образы виртуальных машин, хранящиеся в учетной записи хранения.**
+
+    Приведенная выше команда возвращает все образы виртуальных машин, диск ОС которых хранится в учетной записи хранения.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     Приведенная выше команда возвращает все образы виртуальных машин, диски данных которых хранятся в учетной записи хранения.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    Удалите все образы виртуальных машин, возвращенные приведенными выше командами, с помощью следующей команды.
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 Подготовьте каждую учетную запись хранения к переносу, используя следующую команду. В этом примере имя учетной записи хранения — **myStorageAccount**. Замените имя в примере именем своей учетной записи хранения. 
 
 ```powershell

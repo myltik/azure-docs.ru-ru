@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: bf3aa51b4b1224840ae6897ff7df86cf3d2b3477
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 Этот документ помогает использовать возможности центра безопасности Azure для управления оповещениями безопасности и реагирования на них.
 
 > [!NOTE]
-> Чтобы включить расширенное обнаружение, выполните обновление до стандартного центра безопасности Azure. Бесплатный пробный период составляет 90 дней. Чтобы выполнить обновление, выберите ценовую категорию в [политике безопасности](security-center-policies.md). Дополнительные сведения см. на странице с [ценами центра безопасности Azure](security-center-pricing.md).
+> Чтобы включить расширенное обнаружение, выполните обновление до стандартного центра безопасности Azure. Бесплатный пробный период составляет 60 дней. Чтобы выполнить обновление, выберите ценовую категорию в [политике безопасности](security-center-policies.md). Дополнительные сведения см. на странице с [ценами центра безопасности Azure](security-center-pricing.md).
 >
 >
 
@@ -91,9 +92,4 @@ ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 * [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md)
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

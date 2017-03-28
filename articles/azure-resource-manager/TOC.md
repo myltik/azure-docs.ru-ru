@@ -7,14 +7,13 @@
 
 # Начало работы
 ## [Экспорт шаблона](resource-manager-export-template.md)
-## [Пошаговое руководство по шаблонам](resource-manager-template-walkthrough.md)
+## [Создание первого шаблона](resource-manager-create-first-template.md)
 ## [Использование Visual Studio с Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Использование VS Code с Resource Manager](resource-manager-vs-code.md)
 
 # Практическое руководство
 ## Создание шаблонов
 ### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
-### [Создание шаблонов](resource-group-authoring-templates.md)
+### [Разделы шаблона](resource-group-authoring-templates.md)
 ### [Функции шаблонов](resource-group-template-functions.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
 ### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
@@ -38,7 +37,8 @@
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ## Контроль доступа
 ### [Создание субъекта-службы с помощью PowerShell](resource-group-authenticate-service-principal.md)
-### [Создание субъекта-службы с помощью интерфейса командной строки Azure](resource-group-authenticate-service-principal-cli.md)
+### [Создание субъекта-службы с помощью Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Создание субъекта-службы с помощью Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Создание субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
@@ -61,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Схемы шаблонов](https://github.com/Azure/azure-resource-manager-schemas)
+## [Формат шаблона](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Ресурсы

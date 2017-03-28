@@ -1,6 +1,6 @@
 ---
-title: "Как планировать задания | Документация Майкрософт"
-description: "В этом учебнике описано, как планировать задания"
+title: "Планирование заданий с помощью Центра Интернета вещей Azure (Node) | Документация Майкрософт"
+description: "Планирование заданий с помощью Центра Интернета вещей Azure для вызова прямого метода на нескольких устройствах. Используйте пакеты SDK для Центра Интернета вещей Azure для Node.js, чтобы реализовать приложения имитации устройства и приложение службы, на которых будет выполнено задание."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,21 +15,22 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
+ms.sourcegitcommit: 48c444bfebf46131503dfeefbcd7365b6979215d
+ms.openlocfilehash: 2f59157f47eb211bc7f7d6542f1a7f77ffb90b41
+ms.lasthandoff: 12/16/2016
 
 
 ---
-# <a name="tutorial-schedule-and-broadcast-jobs"></a>Учебник. Планирование и трансляция заданий
+# <a name="schedule-and-broadcast-jobs-node"></a>Планирование и трансляция заданий (Node)
 
 ## <a name="introduction"></a>Введение
-Центр Интернета вещей Azure — это полностью управляемая служба, которая позволяет серверной части приложения создавать и отслеживать задания, которые осуществляют планирование и обновление миллионов устройств.  Задания можно использовать для следующих действий:
+Центр Интернета вещей Azure — это полностью управляемая служба, которая позволяет внутреннему приложению создавать и отслеживать задания, осуществляющие планирование и обновление миллионов устройств.  Задания можно использовать для следующих действий:
 
 * Обновление требуемых свойств
 * Обновление тегов
 * Вызов прямых методов
 
-По сути, задание включает одно из этих действий, отслеживая ход его выполнения на наборе устройств (определяется запросом двойника устройства).  Например, с помощью задания серверная часть приложения может вызывать метод reboot на 10 000 устройств, определенных запросом двойника устройства и запланированных в будущем.  Затем это приложение может отследить ход выполнения задания по мере получения и выполнения метода Reboot на каждом из этих устройств.
+По сути, задание включает одно из этих действий, отслеживая ход его выполнения на наборе устройств (определяется запросом двойника устройства).  Например, с помощью задания внутреннее приложение может вызывать метод перезагрузки на 10 000 устройств, определенных запросом двойника устройства и запланированных в будущем.  Затем это приложение может отследить ход выполнения задания по мере получения и выполнения метода Reboot на каждом из этих устройств.
 
 Дополнительные сведения о каждой из этих возможностей см. в следующих статьях:
 
@@ -38,8 +39,8 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
 
 В этом учебнике описаны следующие процедуры.
 
-* Создание приложения для имитации устройства с прямым методом, который позволяет выполнить действие **lockDoor** посредством вызова из серверной части приложения.
-* Создание консольного приложения, которое с помощью задания вызывает в приложении для имитации устройства прямой метод **lockDoor** и обновляет требуемые свойства с помощью задания устройства.
+* Создание приложения имитации устройства с прямым методом, который позволяет выполнить действие **lockDoor** путем вызова из серверной части решения.
+* Создание консольного приложения Node.js, которое с помощью задания вызывает в приложении имитации устройства прямой метод **lockDoor** и обновляет требуемые свойства с помощью задания устройства.
 
 По завершении работы с этим руководством у вас будет два консольных приложения Node.js:
 
@@ -64,7 +65,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
     ```
     npm init
     ```
-2. В командной строке в папке **simDevice** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iot-device** и пакет **azure-iot-device-mqtt**:
+2. В командной строке в папке **simDevice** выполните следующую команду, чтобы установить пакет SDK для устройств **azure-iot-device** и пакет **azure-iot-device-mqtt**.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -78,7 +79,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Добавьте переменную **connectionString** , чтобы создать с ее помощью клиент устройства.  
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью экземпляр **клиента**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -108,7 +109,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub. Register handler for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -128,7 +129,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
     ```
     npm init
     ```
-2. В командной строке в папке **scheduleJobService** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iothub** и пакет **azure-iot-device-mqtt**:
+2. В командной строке в папке **scheduleJobService** выполните следующую команду, чтобы установить пакет SDK для устройств **azure-iothub** и пакет **azure-iot-device-mqtt**.
    
     ```
     npm install azure-iothub uuid --save
@@ -146,7 +147,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
    
     ```
     var connectionString = '{iothubconnectionstring}';
-    var deviceArray = ['myDeviceId'];
+    var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
@@ -176,13 +177,13 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
    
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
-                                deviceArray,
+                                queryCondition,
                                 methodParams,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -215,7 +216,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
    
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
-                                deviceArray,
+                                queryCondition,
                                 twinPatch,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -238,12 +239,12 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
 ## <a name="run-the-applications"></a>Запуск приложений
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке **simDevice** выполните следующую команду, чтобы начать прослушивание прямого метода перезагрузки.
+1. В командной строке в папке **simDevice** выполните следующую команду, чтобы начать прослушивание прямого метода перезагрузки:
    
     ```
     node simDevice.js
     ```
-2. В командной строке в папке **scheduleJobService** выполните следующую команду, чтобы активировать удаленную перезагрузку и выполнить запрос к двойнику устройства для поиска значения времени последней перезагрузки.
+2. В командной строке в папке **scheduleJobService** выполните следующую команду, чтобы активировать задачи для блокировки дверей и обновления двойника.
    
     ```
     node scheduleJobService.js
@@ -265,12 +266,7 @@ ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

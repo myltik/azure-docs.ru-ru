@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="deploy-a-3-node-deis-cluster"></a>Развертывание 3-узлового кластера Deis
+# <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>Развертывание и настройка 3-узлового кластера Deis в Azure
 В этой статье пошагово описана подготовка кластера [Deis](http://deis.io/) в Azure. Она охватывает все действия, от создания необходимых сертификатов до развертывания и масштабирования примера приложения **Go** на новом подготовленном кластере.
 
 На следующей схеме показана архитектура развернутой системы. Системный администратор управляет кластером с помощью инструментов Deis, таких как **deis** и **deisctl**. Подключения устанавливаются через посредством подсистемы балансировки нагрузки Azure, переадресовывающей подключения одному из узлов, участвующих в кластере. Кроме того, доступ клиентов к развернутым приложениям также осуществляется через подсистему балансировки нагрузки. В этом случае подсистема балансировки нагрузки переадресовывает трафик в сеть маршрутизатора Deis, который, в свою очередь, перенаправляет трафик в соответствующие контейнеры Docker, размещенные в кластере.
@@ -32,7 +34,7 @@ ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
 
 * Активная подписка Azure. Если у вас ее нет, можно получить бесплатную ознакомительную версию на сайте [azure.com](https://azure.microsoft.com/).
 * Рабочий или учебный идентификатор для использования групп ресурсов Azure. Если у вас имеется личная учетная запись и для входа вы используете идентификатор Майкрософт, необходимо [создать рабочий идентификатор на основе вашего личного идентификатора](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Либо, в зависимости от клиентской операционной системы, [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [Azure CLI для Mac, Linux и Windows](../xplat-cli-install.md).
+* Либо, в зависимости от клиентской операционной системы, [Azure PowerShell](/powershell/azureps-cmdlets-docs) или [Azure CLI для Mac, Linux и Windows](../cli-install-nodejs.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL используется для создания необходимых сертификатов.
 * Клиент Git, например [Git Bash](https://git-scm.com/).
 * Чтобы протестировать пример приложения, также необходим DNS-сервер. Можно использовать любые DNS-серверы или службы, которые поддерживают записи A с подстановочным знаком.
@@ -118,11 +120,11 @@ ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
     deisctl start platform
 
 > [!NOTE]
-> Запуск платформы занимает некоторое время (до 10 минут). Особенно долго запускается служба builder. Иногда требуется несколько попыток: если операция перестает отвечать на запросы, попробуйте ввести `ctrl+c` , чтобы прервать выполнение команды и повторить попытку.
+> Запуск платформы занимает некоторое время (до 10 минут). Особенно долго запускается служба builder. Иногда требуется несколько попыток: если операция перестает отвечать на запросы, попробуйте ввести `ctrl+c`, чтобы прервать выполнение команды и повторить попытку.
 > 
 > 
 
-Можно использовать `deisctl list` , чтобы проверить, все ли службы запущены:
+Можно использовать `deisctl list`, чтобы проверить, все ли службы запущены:
 
     deisctl list
     UNIT                            MACHINE                 LOAD    ACTIVE          SUB
@@ -248,12 +250,7 @@ ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
 [Установка Azure CLI][azure-command-line-tools]  
 [Использование Azure PowerShell с Azure Resource Manager][powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

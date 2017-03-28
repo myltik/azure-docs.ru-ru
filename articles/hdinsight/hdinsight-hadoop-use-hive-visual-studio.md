@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8b35b5c49141ba90e65b4e07b1e67ae5315a087a
-ms.openlocfilehash: 18447962966eca67e914d0bd8cd6c25c5f2ccc3b
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,9 +40,11 @@ ms.lasthandoff: 02/23/2017
 
 * Одна из следующих версий Visual Studio:
   
-    Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
   
-    Visual Studio 2015 (Community/Enterprise)
+    * Visual Studio 2015 (любой выпуск)
+
+    * Visual Studio 2017 (любой выпуск)
 
 * Средства HDInsight для Visual Studio или инструменты Azure Data Lake Tools для Visual Studio. Пошаговые указания по установке и настройке инструментов Visual Studio Hadoop см. в статье [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 

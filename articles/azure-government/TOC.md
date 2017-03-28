@@ -1,3 +1,4 @@
+
 # Обзор
 ## [Что такое Azure для государственных организаций?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,10 +32,12 @@
 ### [Среда выполнения приложений](documentation-government-compute.md)
 ### [Хранилище](documentation-government-services-storage.md)
 ### [База данных](documentation-government-services-database.md)
+### [Аналитика](documentation-government-services-intelligenceandanalytics.md)
 ### [Сеть](documentation-government-networking.md)
 ### [Безопасность и идентификация](documentation-government-services-securityandidentity.md)
 ### [Мониторинг и управление](documentation-government-services-monitoringandmanagement.md)
 ### [Интернет и мобильные устройства](documentation-government-services-webandmobile.md)
+### [Службы мультимедиа](documentation-government-services-media.md)
 
 
 # Ресурсы

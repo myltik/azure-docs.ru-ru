@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ Azure предоставляет множество [образов из Marketp
 | [Учетная запись хранения](../storage/storage-create-storage-account.md) |Да |Виртуальной машине требуется учетная запись хранения для хранения виртуальных жестких дисков. |
 | [Виртуальная сеть](../virtual-network/virtual-networks-overview.md) |Да |Виртуальная машина должна быть подключена к виртуальной сети. |
 | [Общедоступный IP-адрес](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Нет |Для удаленного доступа к виртуальной машине ей можно назначить общедоступный IP-адрес. |
-| [Сетевой интерфейс](../virtual-network/virtual-network-network-interface-overview.md) |Да |Для обмена данными в сети виртуальной машине нужен сетевой интерфейс. |
+| [Сетевой интерфейс](../virtual-network/virtual-network-network-interface.md) |Да |Для обмена данными в сети виртуальной машине нужен сетевой интерфейс. |
 | [Диски данных](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Нет |Виртуальная машина может содержать диски данных для расширения объема ресурсов хранения. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Как создать первую виртуальную машину?

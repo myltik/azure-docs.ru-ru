@@ -9,16 +9,17 @@ tags: azure-portal
 author: mumian
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fcc47e3e054d88fe40c13a0fd9949c315dbfce9b
-ms.openlocfilehash: 1617aebffeec5b385b47a7425f6c849267da68a6
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03f3898182d405bced8ad41b281e2ce2037b8343
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.lasthandoff: 02/04/2017
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 * **Кластер Hadoop в HDInsight**. См. статью [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
-* **Visual Studio 2012, Visual Studio 2013 или Visual Studio 2015**.
+* **Visual Studio 2013, Visual Studio 2015, Visual Studio 2017**.
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET
 Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. 

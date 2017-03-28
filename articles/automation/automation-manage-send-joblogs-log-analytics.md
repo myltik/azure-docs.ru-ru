@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2017
+ms.date: 03/03/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d7cba9126c11418f8ccafb1ace0816a9a9cc3b6d
-ms.openlocfilehash: babfda8735699b9f9991bffd22a8d2d9847ae759
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e166b82e547975a5d44465231da057a9465f81c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -52,22 +53,24 @@ Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 ## <a name="set-up-integration-with-log-analytics"></a>Настройка интеграции с Log Analytics
 1. На своем компьютере запустите **Windows PowerShell** на **начальном** экране.  
-2. Скопируйте и вставьте приведенную ниже команду PowerShell и измените значение `$workspaceId` и `$automationAccountId`.  Если вы работаете в облаке Azure для государственных организаций, во время выполнения для параметра `$GovCloud` необходимо задать логическое значение *$True* или *1*.     
+2. Скопируйте и вставьте приведенную ниже команду PowerShell и измените значение `$workspaceId` и `$automationAccountId`.  Допустимыми значениями параметра `-Environment` являются *AzureCloud* и *AzureUSGovernment*. Его значение зависит от того, в какой облачной среде вы работаете.     
 
 ```powershell
 [cmdletBinding()]
     Param
     (
-        [Parameter(Mandatory=$true)]
-        [bool]$GovCloud = $False
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
+
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
@@ -88,16 +91,17 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $work
 [cmdletBinding()]
     Param
     (
-        [Parameter(Mandatory=$true)]
-        [bool]$GovCloud = $False
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
@@ -122,7 +126,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 | Caller_s |Сторона, инициировавшая операцию.  Допустимые значения: электронный адрес или system для запланированных заданий. |
 | Tenant_g | GUID, идентифицирующий клиента для вызывающего объекта. |
 | JobId_g |GUID, представляющий собой идентификатор задания Runbook. |
-| ResultType |Состояние задания Runbook.  Возможные значения:<br>Started<br>- Остановлена<br>Приостановлено<br>Сбой<br>- Succeeded. |
+| ResultType |Состояние задания Runbook.  Возможные значения:<br>Started<br>- Остановлена<br>Приостановлено<br>Сбой<br>Завершено |
 | Категория | Классификация типа данных.  Для службы автоматизации значением является JobLogs. |
 | OperationName | Указывает тип операции, выполняемой в Azure.  Для службы автоматизации значением является Job. |
 | Ресурс | Имя учетной записи службы автоматизации |
@@ -172,7 +176,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 2. Создайте запрос на поиска оповещения в журнале. Для этого в поле запроса введите следующее условие поиска: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`. Можно также применить группирование по RunbookName с помощью: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    Если вы настроили для рабочей области журналы из более чем одной учетной записи службы автоматизации или подписки, то можете группировать оповещения по подписке или учетной записи службы автоматизации.  Имя учетной записи службы автоматизации можно получить из поля "Ресурс" для поиска JobLogs.  
-3. Чтобы открыть экран **Добавить правило оповещения**, щелкните **Оповещение** в верхней части страницы. Дополнительные сведения о параметрах для настройки оповещения см. в разделе [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+3. Чтобы открыть экран **Добавить правило оповещения**, щелкните **Оповещение** в верхней части страницы. Дополнительные сведения о параметрах для настройки оповещения см. в разделе [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Поиск всех заданий, завершенных с ошибками
 Помимо оповещений о сбоях можно узнать, когда задание Runbook вызывает устранимую ошибку. В этих случаях PowerShell создает поток сообщений об ошибках, но устранимые ошибки не приводят к приостановке или сбою задания.    
@@ -203,9 +207,4 @@ Log Analytics предоставляет больший оперативный �
 * Чтобы понять, как создавать и извлекать выходные данные и сообщения об ошибках из модулей Runbook, ознакомьтесь с разделом [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 * Чтобы узнать больше о выполнении модулей Runbook, отслеживании заданий Runbook и других технических деталях, ознакомьтесь с [отслеживанием задания Runbook](automation-runbook-execution.md)
 * Чтобы узнать больше о Log Analytics (OMS) и источниках сбора данных, ознакомьтесь с разделом [Подключение службы Azure к Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

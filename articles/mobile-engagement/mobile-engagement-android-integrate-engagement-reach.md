@@ -28,7 +28,7 @@ ms.lasthandoff: 11/17/2016
 > 
 
 ## <a name="standard-integration"></a>Стандартная интеграция
-Для SDK Reach требуется **библиотека поддержки Android (версии 4)**.
+Для SDK Reach требуется **библиотека поддержки Android (версии&4;)**.
 
 Самый быстрый способ добавить библиотеку в проект **Eclipse** — `Right click on your project -> Android Tools -> Add Support Library...`.
 
@@ -243,7 +243,7 @@ ms.lasthandoff: 11/17/2016
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="a-namecategoriesa-categories"></a>Категории <a name="categories"></a>
+#### Категории <a name="categories"></a>
 При изменении предоставленных разметок изменяется внешний вид всех уведомлений. С помощью категорий можно определять различные типы внешнего вида (возможно, виды поведения) для уведомлений. Категорию можно указать при создании рекламной кампании. Учтите, что категории также позволяют настраивать объявления и опросы. Это описано далее в этом документе.
 
 Чтобы зарегистрировать обработчик категорий для уведомлений, нужно добавить вызов при инициализации приложения.
@@ -321,7 +321,7 @@ ms.lasthandoff: 11/17/2016
               }
             }
 
-**Пример `my_notification_overlay.xml`: **
+**Пример `my_notification_overlay.xml` :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <RelativeLayout
@@ -336,7 +336,7 @@ ms.lasthandoff: 11/17/2016
 
 Как видите, идентификатор представления наложения отличается от стандартного. Важно, чтобы у каждой разметки использовался уникальный идентификатор для наложений.
 
-**Пример `my_notification_area.xml`: **
+**Пример `my_notification_area.xml` :**
 
             <?xml version="1.0" encoding="utf-8"?>
             <merge

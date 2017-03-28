@@ -17,9 +17,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e8ee93cacba552bc7a6ec559dd8aa1fb773fadc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,20 +36,20 @@ ms.lasthandoff: 02/27/2017
 
 ![Обзор базовой среды](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-Чтобы создать эту настраиваемую среду, потребуется последняя версия [Azure CLI 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в режиме Resource Manager (`azure config mode arm`). Кроме того, потребуется инструмент анализа JSON. В этом примере используются [jq](https://stedolan.github.io/jq/).
+Чтобы создать эту настраиваемую среду, потребуется последняя версия [Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в режиме Resource Manager (`azure config mode arm`). Кроме того, потребуется инструмент анализа JSON. В этом примере используются [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#quick-commands) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для отправки виртуальной машины в Azure. Дополнительные сведения и контекст для каждого этапа можно найти в остальной части документа, [начиная отсюда](#detailed-walkthrough).
 
-Войдите в [Azure CLI 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и перейдите в режим Resource Manager.
+Войдите в [Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и перейдите в режим Resource Manager.
 
 ```azurecli
 azure config mode arm
@@ -273,7 +273,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Подробное пошаговое руководство
 Подробные инструкции, приведенные ниже, поясняют действия каждой команды при создании вашей среды. Эти понятия помогут вам при создании пользовательских сред для разработки или эксплуатации.
 
-Войдите в [Azure CLI 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и перейдите в режим Resource Manager.
+Войдите в [Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и перейдите в режим Resource Manager.
 
 ```azurecli
 azure config mode arm

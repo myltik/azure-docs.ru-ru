@@ -1,5 +1,5 @@
 ---
-title: "Неполадки при перезапуске или изменении размера виртуальной машины | Документация Майкрософт"
+title: "Неполадки при перезапуске или изменении размера виртуальной машины в Azure | Документация Майкрософт"
 description: "Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure"
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 ms.author: delhan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: f237c5ffe9e95d538959e2d622bb643c9986f0d2
+ms.sourcegitcommit: 38930edfc470a5c40ef1ccd73f4fa2353f84b2bf
+ms.openlocfilehash: 663783fbdf1d59cc72babe87ba2a769706e7fd80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure
+# <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-linux-vm-in-azure"></a>Устранение неполадок в развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -64,10 +66,5 @@ ms.openlocfilehash: f237c5ffe9e95d538959e2d622bb643c9986f0d2
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время создания виртуальной машины Linux в Azure см. статью, посвященную [устранению неполадок в развертывании](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

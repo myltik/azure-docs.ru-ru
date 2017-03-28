@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -159,14 +160,14 @@ Livy обеспечивает высокую доступность задани
 
 Кластер HDInsight 3.5 по умолчанию запрещает использование локальных путей для доступа к примерам файлов данных или JAR-файлам. Мы рекомендуем использовать путь `wasb://` для доступа к JAR-файлам или примерам файлов данных из кластера. Если вы хотите использовать локальный путь, необходимо соответствующим образом обновить конфигурацию Ambari. Для этого выполните следующие действия:
 
-1. Перейдите на портал Ambari для кластера. Веб-интерфейс Ambari доступен по адресу https://CLUSTERNAME.azurehdidnsight.net, где **CLUSTERNAME** — это имя вашего кластера HDInsight.
+1. Перейдите на портал Ambari для кластера. Веб-интерфейс Ambari доступен по адресу https://**CLUSTERNAME**.azurehdidnsight.net, где CLUSTERNAME — это имя вашего кластера HDInsight.
 
 2. В левой области навигации щелкните **Livy**, а затем щелкните **Configs** (Конфигурации).
 
 3. В разделе **livy-default** добавьте имя свойства `livy.file.local-dir-whitelist` и присвойте ему значение **"/"**, если вы хотите разрешить полный доступ к файловой системе. Если вы хотите разрешить доступ только к конкретному каталогу, то в качестве значения свойства укажите путь к этому каталогу.
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
+## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Сценарии
@@ -190,10 +191,5 @@ Livy обеспечивает высокую доступность задани
 ### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

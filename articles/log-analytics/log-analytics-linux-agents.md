@@ -1,5 +1,5 @@
 ---
-title: "Подключение компьютеров Linux к Log Analytics | Документация Майкрософт"
+title: "Подключение компьютеров Linux к Azure Log Analytics | Документация Майкрософт"
 description: "Log Analytics позволяет собирать и обрабатывать данные, созданные компьютерами Linux."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: fba4e68e78b8267ff2413f94d5ca5066325f9c76
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-linux-computers-to-log-analytics"></a>Подключение компьютеров Linux к Log Analytics
-Log Analytics позволяет собирать и обрабатывать данные, созданные компьютерами Linux. Добавив данные, собранные с компьютера Linux, в OMS, вы можете управлять системами Linux и решениями контейнера, например Docker, практически из любого места. Таким образом, источники данных могут находиться в локальном центре обработки данных в качестве физических серверов, на виртуальных компьютерах в облачной службе, такой как Amazon Web Services (AWS) или Microsoft Azure, или даже на настольном ноутбуке. Кроме того, OMS аналогичным образом собирает данные с компьютеров Windows. Так что это решение поддерживает гибридную ИТ-среду.
+# <a name="connect-your-linux-computers-to-log-analytics"></a>Подключение компьютеров Linux к Log Analytics
+Log Analytics позволяет собирать и обрабатывать данные, созданные компьютерами Linux. Добавив данные, собранные с компьютера Linux, в OMS, вы можете управлять системами Linux и решениями контейнера, например Docker, практически из любого места. Источники данных могут находиться в локальном центре обработки данных в качестве физических серверов, на виртуальных компьютерах в облачной службе, такой как Amazon Web Services (AWS) или Microsoft Azure, или даже на настольном ноутбуке. Кроме того, OMS аналогичным образом собирает данные с компьютеров Windows. Так что это решение поддерживает гибридную ИТ-среду.
 
 С помощью Log Analytics в OMS можно просматривать данные из всех этих источников и управлять ими на едином портале управления. Поэтому вам не нужно отслеживать решение с помощью разных систем, его использование упрощается, а все необходимые данные можно экспортировать в любое существующее решение или систему бизнес-аналитики.
 
@@ -96,9 +98,7 @@ x86 и x64 являются официально поддерживаемыми 
 ![сведения о рабочей области](./media/log-analytics-linux-agents/oms-direct-agent-primary-key.png)
 
 ```
-wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.1.0-28/omsagent-1.1.0-28.universal.x64.sh
-sha256sum ./omsagent-1.1.0-28.universal.x64.sh
-sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
 ```
 
 Существует множество других методов установки и обновления агента. Дополнительные сведения об этих методах см. в разделе об [установке агента OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux).
@@ -108,7 +108,7 @@ sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID
 ## <a name="choose-your-linux-data-collection-method"></a>Выбор метода сбора данных Linux
 Выбор типов данных для сбора зависит от того, хотите ли вы использовать портал OMS или изменять различные файлы конфигурации непосредственно в клиентах Linux. Если вы решили использовать портал, конфигурация автоматически отправляется на все клиентские компьютеры Linux. Если требуются различные конфигурации для различных клиентов Linux, клиентские файлы потребуется изменять по отдельности или воспользоваться альтернативным вариантом, например средствами PowerShell DSC, Chef или Puppet.
 
-События системного журнала и счетчиков производительности, данные которых нужно собирать, можно указать с помощью файлов конфигурации на компьютерах Linux. *Выбрав настройку сбора данных путем изменения файлов конфигурации агента, следует отключить централизованную конфигурацию.*   Ниже представлены инструкции по настройке сбора данных в файлах конфигурации агента, а также по отключению центральной конфигурации для всех агентов OMS для Linux или отдельных компьютеров.
+События системного журнала и счетчиков производительности, данные которых нужно собирать, можно указать с помощью файлов конфигурации на компьютерах Linux. *Выбрав настройку сбора данных путем изменения файлов конфигурации агента, следует отключить централизованную конфигурацию.*  Ниже представлены инструкции по настройке сбора данных в файлах конфигурации агента, а также по отключению центральной конфигурации для всех агентов OMS для Linux или отдельных компьютеров.
 
 ### <a name="disable-oms-management-for-an-individual-linux-computer"></a>Отключение управления OMS для отдельного компьютера Linux
 Централизованный сбор данных конфигурации для отдельного компьютера Linux отключается с помощью скрипта OMS_MetaConfigHelper.py. Это может быть полезно, если подмножеству компьютеров требуется специальная конфигурация.
@@ -782,9 +782,4 @@ azure vm extension set <resource-group> <vm-name> LinuxDiagnostic Microsoft.OSTC
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
 * Подробные сведения, которые собирают решения, описаны в статье [про поиск по журналам](log-analytics-log-searches.md) .
 * Используйте [панели мониторинга](log-analytics-dashboards.md) для сохранения и отображения настраиваемых систем поиска.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -42,7 +43,7 @@ ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
 
 Для работы с этим учебником требуется:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 или Visual Studio 2017.
 * Активная учетная запись Azure. <br/>Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/free/) всего за несколько минут.
 
 Кроме того, у вас должны быть базовые знания о [службе хранилища Azure] и [служебной шине Azure].
@@ -129,7 +130,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 ## <a name="read-from-the-queue-endpoint"></a>Чтение сообщений из конечной точки очереди
 В этом разделе вы организуете чтение сообщений из конечной точки очереди.
 
-1. В текущем решении Visual Studio создайте проект Windows на языке Visual C#, используя шаблон проекта **Консольное приложение** . Присвойте проекту имя **ReadCriticalQueue**.
+1. В Visual Studio добавьте в текущее решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения (.NET Framework)**. Присвойте проекту имя **ReadCriticalQueue**.
 
 2. В обозревателе решений щелкните правой кнопкой мыши проект **ReadCriticalQueue** и выберите **Управление пакетами NuGet**. Откроется окно **Диспетчер пакетов NuGet**.
 
@@ -225,9 +226,4 @@ private static async void SendDeviceToCloudMessagesAsync()
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

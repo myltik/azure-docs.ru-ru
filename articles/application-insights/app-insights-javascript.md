@@ -1,21 +1,22 @@
 ---
-title: "Application Insights для веб-приложений JavaScript | Документация Майкрософт"
+title: "Azure Application Insights и веб-приложения JavaScript | Документация Майкрософт"
 description: "Получайте данные о количестве просмотров страницы и количестве сеансов, данные веб-клиента и отслеживайте закономерности использования. Выявляйте исключения и проблемы с производительностью на веб-страницах JavaScript."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Application Insights можно использовать с любыми веб-
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Запуск приложения
+## <a name="run"></a>Запуск приложения
 Запустите веб-приложение, используйте его в течение непродолжительного времени для формирования телеметрии и подождите несколько секунд. Вы также можете запустить приложение на компьютере, на котором ведется разработка, нажав клавишу **F5** , или опубликовать и позволить пользователям его использовать.
 
 Если вам надо проверить телеметрию, отправляемую веб-приложением в Application Insights, используйте инструменты отладки браузера (во многих браузерах это можно сделать нажатием клавиши**F12** ). Данные отправляются по адресу dc.services.visualstudio.com.
@@ -107,7 +108,7 @@ Application Insights можно использовать с любыми веб-
 
 ![На сайте portal.azure.com откройте ресурс приложения и щелкните "Параметры", а затем "Браузер".](./media/app-insights-javascript/03.png)
 
-*Еще нет данных? Нажмите кнопку **Обновить** в верхней части страницы. По-прежнему нет данных? См. раздел [Устранение неполадок](app-insights-troubleshoot-faq.md).*
+*Еще нет данных? Нажмите кнопку**Обновить**в верхней части страницы. По-прежнему нет данных? См. раздел [Устранение неполадок](app-insights-troubleshoot-faq.md).*
 
 Колонка "Браузер" — это [колонка обозревателя метрик](app-insights-metrics-explorer.md) с предустановленными фильтрами и предварительно выбранными параметрами диаграмм. При необходимости можно изменить диапазон времени, фильтры и конфигурацию диаграмм и сохранить результат в избранном. Щелкните **Восстановить значения по умолчанию** , чтобы вернуться к исходной конфигурации колонки.
 
@@ -167,6 +168,7 @@ Application Insights можно использовать с любыми веб-
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Щелкните `...` , чтобы получить полные данные телеметрии для вызова AJAX.
 
 ### <a name="no-ajax-calls-reported"></a>Вызовы AJAX не регистрируются?
@@ -180,6 +182,7 @@ Application Insights можно использовать с любыми веб-
 Если исключения браузера не регистрируются, проверьте, не задан ли во фрагменте кода [параметр](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
 ## <a name="inspect-individual-page-view-events"></a>Изучение отдельных событий просмотра страницы
+
 Обычно телеметрия просмотра страниц анализируется службой Application Insights, и вы видите только сводные отчеты со средними значениями для всех пользователей. Однако в целях отладки можно также изучать отдельные события просмотра страниц.
 
 В колонке Diagnostic Search (Поиск данных диагностики) в разделе Filter (Фильтр) установите флажок Page View (Просмотр страниц).
@@ -217,19 +220,16 @@ Application Insights можно использовать с любыми веб-
 * [Дополнительные сведения об отслеживании использования](app-insights-web-track-usage.md)
 * [Дополнительные сведения об API пользовательских событий и метрик](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Видео «Отслеживание использования»
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Видео
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> Дальнейшие действия
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> Дальнейшие действия
 * [Отслеживание использования](app-insights-web-track-usage.md)
 * [Пользовательские события и метрики](app-insights-api-custom-events-metrics.md)
 * [Сборка, измерение и обучение](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

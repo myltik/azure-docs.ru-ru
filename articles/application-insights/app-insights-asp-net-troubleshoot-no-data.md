@@ -4,18 +4,19 @@ description: "Не отображаются данные в Azure Application In
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,16 +36,16 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 
 * См. раздел [Устранение неполадок](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
 
-## <a name="a-nameq01ano-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Параметр "Добавление Application Insights" в Visual Studio не отображается
-*Когда я создаю новый проект в Visual Studio или щелкаю существующий проект в обозревателе решений правой кнопкой мыши, параметры Application Insights не отображаются.*
+## <a name="q01"></a>Параметр "Добавление Application Insights" в Visual Studio не отображается
+*Когда я щелкаю существующий проект в обозревателе решений правой кнопкой мыши, параметры Application Insights не отображаются.*
 
 * Средства Application Insights поддерживают не все типы проектов .NET. Проекты WCF и веб-проекты поддерживаются. В проекты других типов, например в приложения-службы и классические приложения, можно [вручную добавить пакет SDK службы Application Insights](app-insights-windows-desktop.md).
-* Убедитесь в том, что установлена версия [Visual Studio 2013 с обновлением 3 или более поздним](http://go.microsoft.com/fwlink/?LinkId=397827). В состав этой версии входят предварительно установленные Средства Application Insights.
-* Выберите элементы **Сервис**, **Расширения и обновления** и убедитесь, что пакет **Инструменты Application Insights** установлен и включен. Если это так, щелкните пункт **Обновления** , чтобы проверить, доступно ли обновление.
+* Убедитесь в том, что установлена версия [Visual Studio 2013 с обновлением 3 или более поздним](http://go.microsoft.com/fwlink/?LinkId=397827). Решение поставляется предварительно установленным с аналитическими средствами для разработчиков в рамках пакета Application Insights SDK.
+* Выберите элементы **Сервис**, **Расширения и обновления** и убедитесь, что пакет **Аналитические средства для разработчиков** установлен и включен. Если это так, щелкните пункт **Обновления** , чтобы проверить, доступно ли обновление.
 * Откройте диалоговое окно "Новый проект" и выберите "Веб-приложение ASP.NET". Если параметр Application Insights отображается, соответствующие средства установлены. Если нет, попробуйте удалить и заново установить средства Application Insights.
 
-## <a name="a-nameq02aadding-application-insights-failed"></a><a name="q02"></a>Сбой при добавлении Application Insights
-*При создании нового веб-проекта или при попытке добавить Application Insights в существующий проект я вижу сообщение об ошибке.*
+## <a name="q02"></a>Сбой при добавлении Application Insights
+*При попытке добавить Application Insights в существующий проект я вижу сообщение об ошибке.*
 
 Вероятные причины:
 
@@ -59,12 +60,12 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 * [Добавьте Application Insights в существующий проект](app-insights-asp-net.md). В обозревателе решений щелкните проект правой кнопкой мыши и выберите пункт "Добавить Application Insights".
 * Если устранить проблему не удалось, добавьте ресурс на портал [вручную](app-insights-windows-services.md) , а затем добавьте в проект пакет SDK. 
 
-## <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Появляется сообщение об ошибке «ключ инструментирования не может быть пустым»
+## <a name="emptykey"></a>Появляется сообщение об ошибке «ключ инструментирования не может быть пустым»
 Вероятно, произошла ошибка при установке Application Insights или же адаптера ведения журнала.
 
-В обозревателе решений щелкните `ApplicationInsights.config` правой кнопкой мыши и выберите **Настроить Application Insights**. Появится диалоговое окно с предложением войти в Azure и создать новый ресурс Application Insights или повторно использовать уже существующий.
+В обозревателе решений щелкните проект правой кнопкой мыши и выберите **Application Insights > Настроить Application Insights**. Появится диалоговое окно с предложением войти в Azure и создать новый ресурс Application Insights или повторно использовать уже существующий.
 
-## <a name="a-namenugetbuilda-nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> На сервере сборки возникает ошибка NuGet package(s) are missing (Пакеты NuGet отсутствуют).
+## <a name="NuGetBuild"></a> На сервере сборки возникает ошибка NuGet package(s) are missing (Пакеты NuGet отсутствуют).
 *Когда я выполняю отладку на компьютере для разработки, сборка выполняется без ошибок, но на сервере сборки отображается ошибка NuGet.*
 
 См. сведения о [восстановлении пакетов NuGet](http://docs.nuget.org/Consume/Package-Restore) и [автоматическом восстановлении пакетов](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -75,14 +76,14 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 Вероятные причины:
 
 * Ресурс Application Insights создан вручную, либо тип проекта не поддерживается средствами Application Insights.
-* Средства Application Insights отключены в Visual Studio.
+* Аналитические средства для разработчиков отключены в Visual Studio. 
 * У вас установлена более старая версия Visual Studio, чем версия 2013 с обновлением 3.
 
 Исправление:
 
 * Обновите Visual Studio до версии 2013 с обновлением 3 или более поздней.
-* Выберите элементы **Сервис**, **Расширения и обновления** и убедитесь, что пакет **Инструменты Application Insights** установлен и включен. Если это так, щелкните пункт **Обновления** , чтобы проверить, доступно ли обновление.
-* В обозревателе решений щелкните проект правой кнопкой мыши. Если вы видите команду **Настроить Application Insights**, используйте ее, чтобы подключить проект к ресурсу в службе Application Insights.
+* Выберите элементы **Сервис**, **Расширения и обновления** и убедитесь, что пакет **Аналитические средства для разработчиков** установлен и включен. Если это так, щелкните пункт **Обновления** , чтобы проверить, доступно ли обновление.
+* В обозревателе решений щелкните проект правой кнопкой мыши. Если вы видите команду **Application Insights > Настроить Application Insights**, используйте ее, чтобы подключить проект к ресурсу в службе Application Insights.
 
 В противном случае тип проекта не будет поддерживаться напрямую средствами Application Insights. Для просмотра данных телеметрии войдите на [портал Azure](https://portal.azure.com), выберите пункт Application Insights на панели навигации слева и выберите приложение.
 
@@ -123,7 +124,7 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
     Вы увидите несколько сводных диаграмм. Щелкните любую из них, чтобы увидеть более подробные данные.
 * В Visual Studio во время отладки приложения нажмите кнопку Application Insights.
 
-## <a name="a-nameq03a-no-server-data-or-no-data-at-all"></a><a name="q03"></a> Не отображаются данные сервера (или вообще какие-либо данные)
+## <a name="q03"></a> Не отображаются данные сервера (или вообще какие-либо данные)
 *После запуска приложения и открытия службы Application Insights в Microsoft Azure на всех диаграммах отображаются сообщения "Сведения о сборе…" или "Не настроено".* Или отображаются *только представление страницы и пользовательские данные, но нет данных сервера.*
 
 * Запустите приложение в режиме отладки в Visual Studio (F5). Используйте приложение таким образом, чтобы создать данные телеметрии. Проверьте, можете ли вы просматривать события, зарегистрированные в окне вывода Visual Studio. 
@@ -143,7 +144,7 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 * Возможно, вы написали код для [серверного пакета SDK](app-insights-api-custom-events-metrics.md), который мог изменить ключ инструментирования в экземплярах `TelemetryClient` или в `TelemetryContext`. Или вы создали [конфигурацию фильтра или выборки](app-insights-api-filtering-sampling.md) , которая отфильтровывает слишком много данных.
 * Если вы вносили изменения в файл ApplicationInsights.config, внимательно проверьте конфигурацию [TelemetryInitializer и TelemetryProcessor](app-insights-api-filtering-sampling.md). Тип или параметр с неправильным именем может стать причиной неотправки данных пакетом SDK.
 
-## <a name="a-nameq04ano-data-on-page-views-browsers-usage"></a><a name="q04"></a>Нет данных об использовании, браузере и просмотрах страниц
+## <a name="q04"></a>Нет данных об использовании, браузере и просмотрах страниц
 *Данные отображаются на диаграммах "Время ответа сервера" и "Запросы сервера", но отсутствуют в колонках "Время загрузки страницы", "Браузер" или "Использование".*
 
 Данные поступают из сценариев на веб-страницах. 
@@ -183,10 +184,5 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 
 ## <a name="still-not-working"></a>По-прежнему не работает...
 * [Форум Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

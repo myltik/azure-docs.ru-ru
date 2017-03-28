@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
+ms.sourcegitcommit: 32364c5a681c1d614abbc32cc8b73dba4e5a2d18
+ms.openlocfilehash: 00a576357c6e89d7943e6c6c6a83c2c1535d549e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,6 +50,7 @@ ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
   * *Отправка сообщений из облака на устройство и получение уведомлений о доставке.* Эти конечные точки позволяют серверной части решения отправлять надежные [сообщения из облака на устройство][lnk-c2d] и получать уведомления о доставке или истечении срока действия.
   * *Получение уведомлений о файлах*. Эта конечная точка обмена сообщениями позволяет получать уведомления при успешной отправке файла устройствами. 
   * *Вызов прямого метода.* Эта конечная точка позволяет внутренней службе вызывать [прямой метод][lnk-methods] на устройстве.
+  * *Получение событий мониторинга операций*. Эта конечная точка позволяет получать события мониторинга операций, если ваш Центр Интернета вещей настроен выдавать их. Дополнительные сведения см. в статье [Мониторинг операций Центра Интернета вещей][lnk-operations-mon].
 
 В статье [Azure IoT SDKs][lnk-sdks] (Пакеты SDK для Azure IoT) описываются способы получения доступа к этим конечным точкам.
 
@@ -109,9 +111,5 @@ ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[lnk-operations-mon]: iot-hub-operations-monitoring.md
 

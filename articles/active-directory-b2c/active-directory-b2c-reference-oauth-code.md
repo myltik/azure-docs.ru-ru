@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 51061199e4929406c3ac77a26e2f972686236bd4
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -242,10 +243,5 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 * [Создайте каталог B2C](active-directory-b2c-get-started.md) и используйте имя своего каталога в запросах.
 * [Создайте приложение](active-directory-b2c-app-registration.md) для получения идентификатора приложения и URI перенаправления. Включите **собственный клиент** в свое приложение.
 * [Создайте собственные политики](active-directory-b2c-reference-policies.md) для получения имен политик.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

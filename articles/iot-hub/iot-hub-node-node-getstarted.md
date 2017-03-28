@@ -12,15 +12,17 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-node"></a>Приступая к работе с Центром Интернета вещей Azure (Node)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Подключение виртуального устройства к Центру Интернета вещей с помощью Node
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 С помощью этого руководства вы создадите три консольных приложения Node.js:
@@ -293,9 +295,4 @@ ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

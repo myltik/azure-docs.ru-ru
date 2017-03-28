@@ -1,9 +1,9 @@
 ---
-title: "Настройка создаваемой виртуальной машины Linux с помощью cloud-init | Документация Майкрософт"
-description: "Настройка виртуальной машины Linux во время создания с помощь cloud-init."
+title: "Настройка виртуальной машины Linux с помощью cloud-init | Документация Майкрософт"
+description: "Как с помощью cloud-init настроить виртуальную машину Linux во время создания посредством Azure CLI 2.0 (предварительная версия)."
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: iainfoulds
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,20 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
-ms.author: v-livech
+ms.date: 02/10/2017
+ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 6d57841cfb62015a8eac0afb8408e9df961bb0b0
+ms.sourcegitcommit: d4278f10582646b841611bdc466343a35cfe39e0
+ms.openlocfilehash: 60276c30e7e017e728c2497cd9e69509f251e7a8
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="using-cloud-init-to-customize-a-linux-vm-during-creation"></a>Настройка виртуальной машины Linux во время создания с помощь cloud-init
-В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей.  Сценарии cloud-init вызываются во время создания виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI).  Для работы с этой статьей потребуется:
-
-* Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
-* [Интерфейс командной строки Azure](../xplat-cli-install.md) с выполненным входом (с помощью команды `azure login`).
-* Интерфейс командной строки Azure *нужно* переключить в режим Azure Resource Manager `azure config mode arm`.
+# <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>Настройка виртуальной машины Linux во время создания с помощью cloud-init
+В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей с помощью Azure CLI 2.0.  Сценарии cloud-init вызываются во время создания виртуальной машины с помощью Azure CLI.  Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-using-cloud-init-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Быстрые команды
 Создайте сценарий cloud-init.txt, который задает имя узла, обновляет все пакеты и добавляет в Linux пользователя sudo.
@@ -43,29 +40,23 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
-Создайте группу ресурсов для запуска виртуальных машин.
+
+Создайте группу ресурсов для запуска виртуальных машин с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов `myResourceGroup`.
 
 ```azurecli
-azure group create myResourceGroup westus
+az group create --name myResourceGroup --location westus
 ```
 
-Создайте виртуальную машину Linux, используя cloud-init для ее настройки в процессе загрузки.
+Выполните команду [az vm create](/cli/azure/vm#create) для создания виртуальной машины Linux, используя cloud-init для ее настройки в процессе загрузки.
 
 ```azurecli
-azure vm create \
-  -g myResourceGroup \
-  -n myVM \
-  -l westus \
-  -y Linux \
-  -f myVMnic \
-  -F myVNet \
-  -P 10.0.0.0/22 \
-  -j mySubnet \
-  -k 10.0.0.0/24 \
-  -Q canonical:ubuntuserver:14.04.2-LTS:latest \
-  -M ~/.ssh/id_rsa.pub \
-  -u myAdminUser \
-  -C cloud-init.txt
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --custom-data cloud-init.txt
 ```
 
 ## <a name="detailed-walkthrough"></a>Подробное пошаговое руководство
@@ -91,7 +82,7 @@ azure vm create \
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Доступность cloud-init для псевдонимов быстрого создания образов виртуальных машин Azure:
-| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) | Cloud-init |
+| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) | cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7,2 |последних |Нет |
 | CoreOS |CoreOS |CoreOS |Stable |последних |Да |
@@ -102,35 +93,30 @@ azure vm create \
 
 Корпорация Майкрософт работает со своими партнерами над тем, чтобы сценарии cloud-init были добавлены в образы, предоставляемые ими для Azure.
 
-## <a name="adding-a-cloud-init-script-to-the-vm-creation-with-the-azure-cli"></a>Добавление сценария cloud-init в создаваемую виртуальную машину с помощью интерфейса командной строки Azure
+## <a name="add-a-cloud-init-script-to-the-vm-creation-with-the-azure-cli"></a>Добавление сценария cloud-init в создаваемую виртуальную машину с помощью Azure CLI
 Чтобы запустить сценарий cloud-init при создании виртуальной машины в Azure, укажите файл cloud-init с помощью параметра `--custom-data` интерфейса командной строки Azure.
 
 Создайте группу ресурсов для запуска виртуальных машин.
 
-```azurecli
-azure group create myResourceGroup westus
-```
-
-Создайте виртуальную машину Linux, используя cloud-init для ее настройки в процессе загрузки.
+Создайте группу ресурсов для запуска виртуальных машин с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов `myResourceGroup`.
 
 ```azurecli
-azure vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --location westus \
-  --os-type Linux \
-  --nic-name myVMnic \
-  --vnet-name myVNet \
-  --vnet-address-prefix 10.0.0.0/22 \
-  --vnet-subnet-name mySubnet \
-  --vnet-subnet-address-prefix 10.0.0.0/24 \
-  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
-  --ssh-publickey-file ~/.ssh/id_rsa.pub \
-  --admin-username myAdminUser \
-  --custom-data cloud-init.txt
+az group create --name myResourceGroup --location westus
 ```
 
-## <a name="creating-a-cloud-init-script-to-set-the-hostname-of-a-linux-vm"></a>Создание сценария cloud-init для задания имени узла виртуальной машины Linux
+Выполните команду [az vm create](/cli/azure/vm#create) для создания виртуальной машины Linux, используя cloud-init для ее настройки в процессе загрузки.
+
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --custom-data cloud-init.txt
+```
+
+## <a name="create-a-cloud-init-script-to-set-the-hostname-of-a-linux-vm"></a>Создание сценария cloud-init для задания имени узла виртуальной машины Linux
 Один из самых простых, но наиболее важных параметров для любой виртуальной машины Linux — это имя узла. Его можно легко задать с помощью приведенного ниже сценария cloud-init.  
 
 ### <a name="example-cloud-init-script-named-cloudconfighostnametxt"></a>Пример сценария cloud-init с именем `cloud_config_hostname.txt`
@@ -139,23 +125,16 @@ azure vm create \
 hostname: myservername
 ```
 
-Во время первоначального запуска виртуальной машины этот сценарий cloud-init задает имя узла `myservername`.
+Во время первоначального запуска виртуальной машины этот сценарий cloud-init задает имя узла `myservername`. Выполните команду [az vm create](/cli/azure/vm#create) для создания виртуальной машины Linux, используя cloud-init для ее настройки в процессе загрузки.
 
 ```azurecli
-azure vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --location westus \
-  --os-type Linux \
-  --nic-name myVMnic \
-  --vnet-name myVNet \
-  --vnet-address-prefix 10.0.0.0/22 \
-  --vnet-subnet-name mySubNet \
-  --vnet-subnet-address-prefix 10.0.0.0/24 \
-  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
-  --ssh-publickey-file ~/.ssh/id_rsa.pub \
-  --admin-username myAdminUser \
-  --custom-data cloud_config_hostname.txt
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --custom-data cloud-init.txt
 ```
 
 Выполните вход и проверьте имя узла новой виртуальной машины.
@@ -166,7 +145,7 @@ hostname
 myservername
 ```
 
-## <a name="creating-a-cloud-init-script-to-update-linux"></a>Создание сценария cloud-init для обновления виртуальной машины Linux
+## <a name="create-a-cloud-init-script-to-update-linux"></a>Создание сценария cloud-init для обновления Linux
 В целях безопасности виртуальную машину Ubuntu следует обновить при первой загрузке.  Это можно сделать с помощью приведенного ниже сценария (сценарий зависит от используемого дистрибутива Linux).
 
 ### <a name="example-cloud-init-script-cloudconfigaptupgradetxt-for-the-debian-family"></a>Пример сценария cloud-init `cloud_config_apt_upgrade.txt` для семейства Debian
@@ -175,23 +154,16 @@ myservername
 apt_upgrade: true
 ```
 
-После загрузки Linux все установленные пакеты обновляются через `apt-get`.
+После загрузки Linux все установленные пакеты обновляются через `apt-get`. Выполните команду [az vm create](/cli/azure/vm#create) для создания виртуальной машины Linux, используя cloud-init для ее настройки в процессе загрузки.
 
 ```azurecli
-azure vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --location westus \
-  --os-type Linux \
-  --nic-name myVMnic \
-  --vnet-name myVNet \
-  --vnet-address-prefix 10.0.0.0/22 \
-  --vnet-subnet-name mySubNet \
-  --vnet-subnet-address-prefix 10.0.0.0/24 \
-  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
-  --ssh-publickey-file ~/.ssh/id_rsa.pub \
-  --admin-username myAdminUser \
-  --custom-data cloud_config_apt_upgrade.txt
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --custom-data cloud_config_apt_upgrade.txt
 ```
 
 Выполните вход и проверьте, обновились ли все пакеты.
@@ -208,7 +180,7 @@ The following packages have been kept back:
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-## <a name="creating-a-cloud-init-script-to-add-a-user-to-linux"></a>Создание сценария cloud-init для добавления пользователя в Linux
+## <a name="create-a-cloud-init-script-to-add-a-user-to-linux"></a>Создание сценария cloud-init для добавления пользователя в Linux
 Одна из первых задач, которую необходимо выполнить на любой из новых виртуальных машин Linux, — это добавление пользователя для себя или для того, чтобы не использовалась учетная запись `root`. Ключи SSH наиболее эффективны для обеспечения безопасности и удобства использования. Они добавляются в файл `~/.ssh/authorized_keys` с помощью данного сценария cloud-init.
 
 ### <a name="example-cloud-init-script-cloudconfigadduserstxt-for-debian-family"></a>Пример сценария cloud-init `cloud_config_add_users.txt` для семейства Debian
@@ -223,23 +195,16 @@ users:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myUbuntuVM
 ```
 
-После загрузки Linux все внесенные в список пользователи создаются и добавляются в группу sudo.
+После загрузки Linux все внесенные в список пользователи создаются и добавляются в группу sudo. Выполните команду [az vm create](/cli/azure/vm#create) для создания виртуальной машины Linux, используя cloud-init для ее настройки в процессе загрузки.
 
 ```azurecli
-azure vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --location westus \
-  --os-type Linux \
-  --nic-name myVMnic \
-  --vnet-name myVNet \
-  --vnet-address-prefix 10.0.0.0/22 \
-  --vnet-subnet-name mySubNet \
-  --vnet-subnet-address-prefix 10.0.0.0/24 \
-  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
-  --ssh-publickey-file ~/.ssh/id_rsa.pub \
-  --admin-username myAdminUser \
-  --custom-data cloud_config_add_users.txt
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --custom-data cloud_config_add_users.txt
 ```
 
 Выполните вход и проверьте созданного пользователя.
@@ -265,10 +230,5 @@ myCloudInitAddedAdminUser:x:1000:
 [Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

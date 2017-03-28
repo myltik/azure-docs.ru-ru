@@ -4,7 +4,7 @@ description: "Это третье руководство по развертыв
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 16af5829053567b5c67c755e6a4ca50f966fbfdd
+ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
+ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>Развертывание виртуального массива StorSimple — установка в качестве файлового сервера
+# <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Развертывание виртуального массива StorSimple. Установка в качестве файлового сервера на портале Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>Введение
@@ -207,10 +209,5 @@ ms.openlocfilehash: 16af5829053567b5c67c755e6a4ca50f966fbfdd
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте, как с помощью локального веб-интерфейса [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

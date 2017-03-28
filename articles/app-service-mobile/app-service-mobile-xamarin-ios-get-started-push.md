@@ -4,7 +4,7 @@ description: "Использование службы приложений Azure
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/17/2016
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>Тестирование push-уведомлений в приложении
+## <a name="test"></a>Тестирование push-уведомлений в приложении
 1. Нажмите кнопку **Выполнить**, чтобы выполнить сборку проекта и запустить приложение на устройстве iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
    
    > [!NOTE]

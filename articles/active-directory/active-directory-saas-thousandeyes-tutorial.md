@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
+ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
+ms.openlocfilehash: 567917ee7c602a9971cf74367a1f6fcb96002e56
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-thousandeyes-tutorial/IC790059.png "Scenario")
+![Сценарий](./media/active-directory-saas-thousandeyes-tutorial/IC790059.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-thousandeyes"></a>Включение интеграции приложений для ThousandEyes
 В этом разделе показано, как включить интеграцию приложений для ThousandEyes.
@@ -48,19 +49,19 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-thousandeyes-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-thousandeyes-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **ThousandEyes**.
    
-    ![Коллекция приложений](./media/active-directory-saas-thousandeyes-tutorial/IC790060.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-thousandeyes-tutorial/IC790060.png "Коллекция приложений")
 7. В области результатов выберите **ThousandEyes** и щелкните **Завершить**, чтобы добавить приложение.
    
     ![ThousandEyes](./media/active-directory-saas-thousandeyes-tutorial/IC790061.png "ThousandEyes")
@@ -71,37 +72,37 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **ThousandEyes** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Configure Single SignOn")
+    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Настройка единого входа")
 
 1. На странице **Как пользователи будут входить в ThousandEyes** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configure Single SignOn")
+    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Настройка единого входа")
 
 3. На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в ThousandEyes** введите URL-адрес, используемый пользователями для входа в приложение ThousandEyes (например, *https://app.thousandeyes.com/login/sso*), и нажмите кнопку **Далее**. 
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в ThousandEyes** щелкните **Скачать сертификат**, а затем сохраните файл сертификата локально на компьютере.
    
-    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Configure Single SignOn")
+    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Настройка единого входа")
 
 5. В другом окне веб-браузера войдите на веб-сайт **ThousandEyes** своей компании в качестве администратора.
 
 6. В верхнем меню нажмите пункт **Параметры**.
    
-    ![Параметры](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
+    ![Параметры](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Параметры")
 
 7. В нижней части страницы нажмите кнопку **Учетная запись**
    
-    ![Учетная запись.](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
+    ![Учетная запись](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Учетная запись")
 
 8. Откройте вкладку **Security & Authentication** (Безопасность и проверка подлинности).
    
-    ![Безопасность и проверка подлинности](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "Security & Authentication")
+    ![Безопасность и проверка подлинности](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "Безопасность и проверка подлинности")
 
 9. В разделе **Настройка единого входа** сделайте следующее:
    
-    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Setup Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Настройка единого входа")
    
     а. Выберите пункт **Включить единый вход**.
    
@@ -117,7 +118,7 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 
 10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configure Single SignOn")
+    ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнять вход в систему ThousandEyes, они должны быть подготовлены для нее.  
@@ -128,19 +129,19 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 
 2. Щелкните **Параметры**.
    
-    ![Параметры](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
+    ![Параметры](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Параметры")
 
 3. Выберите раздел **Учетная запись**.
    
-    ![Учетная запись.](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
+    ![Учетная запись](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Учетная запись")
 
 4. Щелкните вкладку **Accounts & Users** (Учетные записи и пользователи).
    
-    ![Учетные записи и пользователи](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Accounts & Users")
+    ![Учетные записи и пользователи](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Учетные записи и пользователи")
 
 5. В разделе **Add Users & Accounts** (Добавление пользователей и учетных записей) сделайте следующее.
    
-    ![Добавление учетных записей пользователей](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Add User Accounts")
+    ![Добавление учетных записей пользователей](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Добавление учетных записей пользователей")
    
     а. В соответствующих текстовых полях введите значения **Name** (Имя), **Email** (Адрес электронной почты) и другие данные действующей учетной записи Azure Active Directory, которую нужно подготовить.
    
@@ -164,17 +165,12 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 
 2. На странице интеграции с приложением **ThousandEyes** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

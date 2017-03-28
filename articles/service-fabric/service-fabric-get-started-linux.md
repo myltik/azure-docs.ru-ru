@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Добавьте новый ключ GPG в набор ключей APT.
+3. Добавьте репозиторий dotnet в список источников.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Добавьте новый ключ GPG в набор ключей APT.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Обновите списки пакетов, добавив в них новые репозитории.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Обновите списки пакетов, добавив в них новые репозитории.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>Установка и настройка пакета SDK
 После обновления источников пакетов можно установить пакет SDK.
 
@@ -136,16 +145,19 @@ ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-Подключаемый модуль Eclipse для Service Fabric можно установить из интегрированной среды разработки Eclipse Neon.
+Подключаемый модуль Eclipse для Service Fabric можно установить из **интегрированной среды разработки Eclipse для разработчиков Java**.
 
-1. Откройте Eclipse и убедитесь, что у вас установлена версия Buildship 1.0.17 или более поздняя. Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями [здесь][buildship-update].
+1. Откройте Eclipse и убедитесь, что у вас установлена последняя версия Eclipse **Neon** и Buildship (версия 1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями [здесь][buildship-update].
 2. Чтобы установить подключаемый модуль Service Fabric, щелкните **Help > Install New Software** (Справка > Установка нового программного обеспечения).
 3. В текстовом поле Work with (Работают с) введите: http://dl.windowsazure.com/eclipse/servicefabric
 4. Нажмите Добавить.
-
     ![Подключаемый модуль Eclipse][sf-eclipse-plugin]
 5. Выберите подключаемый модуль Service Fabric и нажмите кнопку Next (Далее).
 6. Выполните необходимые шаги установки и примите условия лицензионного соглашения.
+
+Если подключаемый модуль Eclipse Service Fabric уже установлен, убедитесь, что вы используете последнюю версию. Вы можете проверить, можно ли его обновить, перейдя к ``Help => Installation Details``. Найдите Service Fabric в списке установленных подключаемых модулей и выберите обновление. При наличии ожидающего обновления оно будет извлечено и установлено.
+
+Подробное руководство по использованию подключаемого модуля Eclipse Service Fabric для создания, сборки, развертывания и обновления приложения Service Fabric на Java см. в статье [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java).
 
 ## <a name="install-the-net-core-sdk-optional"></a>Установка пакета SDK для .NET Core (необязательно)
 Пакет SDK для .NET Core предоставляет библиотеки и шаблоны для создания служб Service Fabric на базе кроссплатформенной среды .NET Core.
@@ -174,7 +186,8 @@ ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
 Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Create your first Azure Service Fabric application](service-fabric-create-your-first-linux-application-with-java.md)
+* [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
+* [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java)
 * [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
 * [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
@@ -189,9 +202,4 @@ ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

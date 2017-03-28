@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b24490585019c049af4e1808bf980e36c5143e71
+ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
+ms.openlocfilehash: 6f217ee0398933cfad713398952a79d39b6020c3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: b24490585019c049af4e1808bf980e36c5143e71
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-empcenter-tutorial/IC802916.png "Scenario")
+![Сценарий](./media/active-directory-saas-empcenter-tutorial/IC802916.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-empcenter"></a>Включение интеграции приложений для EmpCenter
 В этом разделе показано, как включить интеграцию приложений для EmpCenter.
@@ -47,16 +48,16 @@ ms.openlocfilehash: b24490585019c049af4e1808bf980e36c5143e71
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **EmpCenter**.
    
-   ![Коллекция приложений](./media/active-directory-saas-empcenter-tutorial/IC802917.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-empcenter-tutorial/IC802917.png "Коллекция приложений")
 7. В области результатов выберите **EmpCenter** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![EmpCentral](./media/active-directory-saas-empcenter-tutorial/IC802918.png "EmpCentral")
@@ -69,19 +70,19 @@ ms.openlocfilehash: b24490585019c049af4e1808bf980e36c5143e71
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **EmpCenter** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в EmpCenter?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Настройка единого входа")
 3. На странице **Настройка параметров приложения** выполните следующие действия.
    
-   ![Настройка параметров приложения](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configure App Settings")
+   ![Настройка параметров приложения](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Настройка параметров приложения")
    
    1. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение EmpCenter (например, *https://partner-authenticati.empcenter.com/workforce/SSO.do*).
    2. Щелкните **Далее**
 4. На странице **Настройка единого входа в EmpCenter** нажмите кнопку **Скачать метаданные**, чтобы скачать их, а затем сохраните файл метаданных на своем компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802922.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802922.png "Настройка единого входа")
 5. Отправьте скачанный файл метаданных в службу поддержки EmpCenter.
    
    > [!NOTE]
@@ -91,7 +92,7 @@ ms.openlocfilehash: b24490585019c049af4e1808bf980e36c5143e71
    > 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Настройка единого входа")
    
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -110,16 +111,11 @@ ms.openlocfilehash: b24490585019c049af4e1808bf980e36c5143e71
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **EmpCenter** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-empcenter-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-empcenter-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

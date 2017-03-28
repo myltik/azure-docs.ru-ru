@@ -1,5 +1,5 @@
 ---
-title: "Оптимизация среды с помощью решения оценки Active Directory в Log Analytics | Документация Майкрософт"
+title: "Оптимизация среды Active Directory с помощью Azure Log Analytics | Документация Майкрософт"
 description: "Решение оценки Active Directory можно использовать для оценки риска и работоспособности серверной среды с постоянной периодичностью."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
-ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
+ms.lasthandoff: 03/11/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Оптимизация среды с помощью решения оценки Active Directory в Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения оценки Active Directory в Log Analytics
+
 Решение оценки Active Directory можно использовать для оценки риска и работоспособности серверной среды с постоянной периодичностью. Эта статья поможет вам установить и использовать решение таким образом, чтобы в случае проблем вы могли предпринять коррективные меры.
 
 Это решение предоставляет приоритетный список рекомендаций, относящихся к развернутой серверной инфраструктуре. Рекомендации сгруппированы в четыре приоритетные области, помогающие быстро оценить риски и принять меры.
@@ -41,7 +43,7 @@ ms.lasthandoff: 02/22/2017
 
 * Агенты должны устанавливаться на контроллерах домена, являющихся членами домена, который будет оцениваться.
 * Для решения оценки Active Directory на каждом компьютере с агентом OMS должна быть установлена поддерживаемая версия платформы .NET Framework 4 (4.5.2 или выше).
-* Решение оценки Active Directory необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
+* Решение для оценки Active Directory необходимо добавить в рабочую область OMS из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
   > [!NOTE]
   > После добавления решения на серверы с агентами добавляется файл AdvisorAssessment.exe. Данные конфигурации считываются и отправляются на обработку в службу OMS в облаке. К полученным данным применяется логика и облачная служба записывает данные.

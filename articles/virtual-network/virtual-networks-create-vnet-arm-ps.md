@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной сети с помощью PowerShell | Документация Майкрософт"
-description: "Как создать виртуальную сеть с помощью PowerShell | Resource Manager"
+title: "Создание виртуальной сети с помощью Azure PowerShell | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную сеть с помощью PowerShell."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 33f3a1f490b51123054440b6098de1ae4aca941f
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -30,13 +32,13 @@ Azure предоставляет две модели развертывания:
 В этой статье описывается создание виртуальной сети с помощью модели развертывания Resource Manager с использованием PowerShell. Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
 
 > [!div class="op_single_selector"]
-- [Портал](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
-- [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
-- [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
+> * [Портал](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
+> * [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
+> * [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -180,9 +182,4 @@ Azure предоставляет две модели развертывания:
 - Сведения о подключении виртуальной машины к виртуальной сети см. в статье о [создании виртуальной машины Windows](../virtual-machines/virtual-machines-windows-ps-create.md). Вместо создания виртуальной сети и подсети с помощью действий, описанных в этой статье, виртуальную машину можно подключить к имеющейся виртуальной сети и подсети.
 - Сведения об установке подключения между виртуальными сетями см. в статье [Настройка подключения между виртуальными сетями на портале Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Сведения о подключении виртуальной сети к локальной сети с использованием виртуальной частной сети типа "сеть — сеть" или канала ExpressRoute см. в [этой статье](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) и в статье [Связывание виртуальной сети с каналом ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

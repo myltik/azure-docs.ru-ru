@@ -12,21 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: f3f9bc205cd038ae636face742292cb28654fd39
-ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 7e82ac74a8aef4e3cc8aff4dea3c572dcb9d9c40
+ms.lasthandoff: 03/03/2017
 
 ---
 
 # <a name="installing-mobility-service-vmwarephysical-to-azure"></a>Установка службы Mobility Service (из виртуальных машин VMware или физических серверов в Azure)
-Службу Mobility Service необходимо развернуть на каждом компьютере (виртуальной машине VMware или физическом сервере), для которого требуется выполнить репликацию в Azure. Она фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки.  Службу Mobility Service можно развернуть на серверах, защиту которых необходимо обеспечить, одним из следующих методов.
+Службу Mobility Service необходимо развернуть на каждом компьютере (виртуальной машине VMware или физическом сервере), для которого требуется выполнить репликацию в Azure. Она фиксирует операции записи данных, выполняемые на компьютере, и передает их на сервер обработки. Службу Mobility Service можно развернуть на серверах, защиту которых необходимо обеспечить, одним из следующих методов.
+
+
 1. [Установка с помощью инструментов развертывания программного обеспечения, таких как System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md).
 2. [Установка с помощью службы автоматизации Azure и настройки требуемого состояния (DSC)](site-recovery-automate-mobility-service-install.md).
 3. [Ручная установка с помощью графического пользовательского интерфейса (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-the-graphical-user-interface).
 4. [Ручная установка Mobility Service с помощью командной строки](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-command-line).
 5. [Принудительная установка Mobility Service с помощью Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-using-push-install-from-azure-site-recovery).
+
+
+>[!IMPORTANT]
+> Начиная с версии 9.7.0.0, на виртуальных машинах Windows установщик Mobility Service также устанавливает последнюю доступную версию [агента виртуальной машины](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). Это гарантирует, что при отработке отказа виртуальной машины в Azure она будет соответствовать приведенным ниже предварительным требованиям для использования любого расширения виртуальной машины.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом установки службы Mobility Service на своих серверах вручную выполните следующие предварительные требования.
@@ -75,11 +82,30 @@ ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+> [!NOTE]
 После установки службы Mobility Service на портале Azure нажмите кнопку **+Replicate** (+ Реплицировать), чтобы включить защиту этих виртуальных машин.
 
+## <a name="uninstall-mobility-service-on-windows-servers"></a>Удаление службы Mobility Service на серверах Windows
+Существует два способа удаления службы Mobility Service на сервере Windows Server.
 
+### <a name="uninstall-using-graphical-user-interface"></a>Удаление с помощью графического интерфейса пользователя
+1. Откройте "Панель управления", выберите "Программы".
+2. Выберите **Microsoft Azure Site Recovery Mobility Service/главный целевой сервер** и нажмите кнопку "Удалить".
 
-<!--HONumber=Feb17_HO2-->
+### <a name="uninstall-using-command-line"></a>Удаление с помощью командной строки
+1. Откройте командную строку с правами администратора.
+2. Выполните следующую команду для удаления службы Mobility Service.
 
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## <a name="uninstall-mobility-service-on-linux-computers"></a>Удаление службы Mobility на компьютерах Linux
+1. Войдите на сервер Linux с правами **ROOT**.
+2. В разделе **Терминал** перейдите к /user/local/ASR.
+3. Выполните следующую команду, чтобы удалить службу Mobility Service.
+
+```
+uninstall.sh -Y
+```
 

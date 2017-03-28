@@ -12,7 +12,7 @@
 * [Подключение диска с данными](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Подготовка
-Чтобы использовать интерфейс командной строки Azure с группами ресурсов Azure, вам понадобится подходящая версия интерфейса командной строки Azure, а также учетная запись Azure. Если у вас нет интерфейса командной строки Azure, [установите его](../articles/xplat-cli-install.md).
+Чтобы использовать интерфейс командной строки Azure с группами ресурсов Azure, вам понадобится подходящая версия интерфейса командной строки Azure, а также учетная запись Azure. Если у вас нет интерфейса командной строки Azure, [установите его](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Обновление интерфейса командной строки Azure до версии 0.9.0 или более поздней
 Введите команду `azure --version` , чтобы узнать, установлена ли у вас версия 0.9.0 или более поздняя.
@@ -80,7 +80,7 @@ azure config mode arm
 
 Дополнительные сведения о группах ресурсов Azure и их возможностях см. в статье [Обзор Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Если вас интересует разработка шаблонов, ознакомьтесь со статьей [Создание шаблонов Azure Resource Manager](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Задача: быстрое создание виртуальной машины в Azure
+## <a id="quick-create-a-vm-in-azure"></a>Задача: быстрое создание виртуальной машины в Azure
 Иногда вы точно знаете, какой образ вам необходим, и вам немедленно нужна виртуальная машина из этого образа, и вас не интересует инфраструктура. Возможно, вам нужно проверить что-то на чистой виртуальной машине. Именно в таких случаях вы можете выполнить команду `azure vm quick-create` и передать аргументы, необходимые для создания виртуальной машины и ее инфраструктуры.
 
 Сначала создайте группу ресурсов.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 Теперь вы можете работать в своей новой виртуальной машине.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Задача: развертывание виртуальной машины в Azure из шаблона
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Задача: развертывание виртуальной машины в Azure из шаблона
 Используйте указания, приведенные в этих разделах, чтобы развернуть новую виртуальную машину Azure с помощью шаблона в интерфейсе командной строки Azure. Этот шаблон создает одну виртуальную машину в новой виртуальной сети с одной подсетью и, в отличие от `azure vm quick-create`, позволяет вам описать, что точно вам требуется, и повторить все без ошибок. Вот что создает этот шаблон:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Задача: создание настраиваемого образа виртуальной машины
+## <a id="create-a-custom-vm-image"></a>Задача: создание настраиваемого образа виртуальной машины
 Выше описаны основные способы применения шаблонов. Теперь мы можем воспользоваться сходными указаниями, чтобы создать настраиваемую виртуальную машину в Azure из заданного VHD-файла с помощью шаблона в интерфейсе командной строки Azure. Отличие заключается в том, что этот шаблон создает одну виртуальную машину на основе указанного виртуального жесткого диска.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Шаг 1. Поиск шаблона в JSON-файле
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Задача: развертывание приложения для нескольких виртуальных машин, которое использует виртуальную сеть и внешний балансировщик нагрузки
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Задача: развертывание приложения для нескольких виртуальных машин, которое использует виртуальную сеть и внешний балансировщик нагрузки
 Этот шаблон позволяет создать две виртуальные машины в группе балансировщика нагрузки, а также настроить правило балансировки нагрузки для порта 80. Кроме того, этот шаблон позволяет развернуть учетную запись хранения, виртуальную сеть, общедоступный IP-адрес, группу доступности и сетевые интерфейсы.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Обратите внимание, что этот шаблон развертывает образ Windows Server. При этом он также с легкостью может развернуть любой образ Linux. Хотите создать кластер Docker с несколькими диспетчерами Swarm? [Вы можете это сделать.](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Задача: удаление группы ресурсов
+## <a id="remove-a-resource-group"></a>Задача: удаление группы ресурсов
 Помните, что группу ресурсов можно развернуть повторно, а также при необходимости удалить ее с помощью команды `azure group delete <group name>`.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Задача: отображение журнала для развертывания группы ресурсов
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Задача: отображение журнала для развертывания группы ресурсов
 Это одно из действий, которое довольно часто используется при создании или использовании шаблонов. Чтобы отобразить журналы развертывания для группы, следует вызвать команду `azure group log show <groupname>`. После ее выполнения будет выведен большой объем информации, необходимой для анализа выполненных или не выполненных операций. (Дополнительные сведения об устранении неполадок развертывания и о возможных проблемах см. в статье об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md)).
 
 Чтобы исправить конкретные сбои, вы можете использовать такие инструменты, как **jq**, для более точных запросов, например о том, какие отдельные сбои вам нужно исправить. В следующем примере используется **jq**. Это позволяет проанализировать журнал развертывания для **lbgroup** и выполнить поиск сбоев.
@@ -1191,7 +1191,7 @@ azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Fail
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Задача: отображение информации о виртуальной машине
+## <a id="display-information-about-a-virtual-machine"></a>Задача: отображение информации о виртуальной машине
 Вы можете просмотреть сведения о какой-либо виртуальной машине, входящей в группу ресурсов, выполнив команду `azure vm show <groupname> <vmname>` . Если в вашей группе несколько виртуальных машин, вам может потребоваться сначала перечислить их с помощью команды `azure vm list <groupname>`.
 
 ```azurecli
@@ -1263,10 +1263,10 @@ info:    vm show command OK
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Задача: вход в виртуальную машину под управлением ОС Linux
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Задача: вход в виртуальную машину под управлением ОС Linux
 Как правило, к компьютерам Linux можно подключиться через SSH-порт. Дополнительные сведения см. в статье [Как использовать SSH с Linux в Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Задача: остановка виртуальной машины
+## <a id="stop-a-virtual-machine"></a>Задача: остановка виртуальной машины
 Выполните следующую команду:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Задача: запуск виртуальной машины
+## <a id="start-a-virtual-machine"></a>Задача: запуск виртуальной машины
 Выполните следующую команду:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Задача: подключение диска данных
+## <a id="attach-a-data-disk"></a>Задача: подключение диска данных
 Вам необходимо решить, какой диск подключать — новый диск или диск с данными. При подключении нового диска команда создает VHD-файл и присоединяет его.
 
 Чтобы подключить новый диск, выполните следующую команду:
@@ -1306,8 +1306,3 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 Дополнительные примеры использования интерфейса командной строки Azure в режиме **ARM** см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../articles/xplat-cli-azure-resource-manager.md). Дополнительные сведения о ресурсах Azure и их основных понятиях см. в статье [Обзор Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
 Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Развертывание популярных платформ приложений с помощью шаблонов Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

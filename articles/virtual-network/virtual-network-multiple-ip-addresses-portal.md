@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 6e7eac6ae505c627ffa1d63aace76b9006d92c74
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6101c58e41202091ac89320177b0ca5bc36483a8
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -28,47 +28,25 @@ ms.lasthandoff: 02/14/2017
 >
 В этой статье описывается создание виртуальной машины с помощью модели развертывания Azure Resource Manager на портале Azure. Для ресурсов, созданных с помощью классической модели развертывания, нельзя назначить несколько IP-адресов. Дополнительные сведения о моделях развертывания Azure см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
+## <a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
 
 Если вы хотите создать виртуальную машину с несколькими IP-адресами, для этого необходимо использовать PowerShell или Azure CLI. В верхней части статьи этой статьи выберите один из вариантов (PowerShell или CLI), чтобы узнать, как это сделать. Вы можете создать виртуальную машину с одним статическим частным IP-адресом и (при необходимости) с одним общедоступным IP-адресом с помощью портала, выполнив инструкции из статей [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) или [Создание виртуальной машины Linux в Azure с помощью портала](../virtual-machines/virtual-machines-linux-quick-create-portal.md). После создания виртуальной машины вы можете изменить типы IP-адресов и добавить дополнительные IP-адреса с помощью портала, выполнив инструкции из раздела [Добавление IP-адресов в виртуальную машину](#add) этой статьи.
 
-## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Добавление IP-адресов в виртуальную машину
+## <a name="add"></a>Добавление IP-адресов в виртуальную машину
 
 Выполнив следующие шаги, вы сможете добавить к сетевой карте частные и общедоступные IP-адреса. В примерах, которые приводятся в следующих разделах, предполагается, что у вас уже есть виртуальная машина с тремя IP-конфигурациями, описанными в [сценарии](#Scenario) в этой статье, но это не является обязательным требованием.
 
-### <a name="a-namecoreaddacore-steps"></a><a name="coreadd"></a>Основные шаги
+### <a name="coreadd"></a>Основные шаги
 
-1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Это может занять несколько минут.
-    
-2. Перейдите на портал Azure по адресу https://portal.azure.com и выполните вход при необходимости.
-3. На портале выберите **Больше служб**, введите *виртуальные машины* в поле фильтра, а затем щелкните **Виртуальные машины**.
-4. В колонке **Виртуальные машины** выберите виртуальную машину, которой вы хотите назначить IP-адреса. Щелкните **Сетевые интерфейсы** в появившейся колонке "Виртуальные машины" и выберите сетевой интерфейс, к которому вы хотите добавить IP-адреса. В примере на следующем рисунке выбрана сетевая карта *myNIC* виртуальной машины с именем *myVM*.
+1. Перейдите на портал Azure по адресу https://portal.azure.com и выполните вход при необходимости.
+2. На портале выберите **Больше служб**, введите *виртуальные машины* в поле фильтра, а затем щелкните **Виртуальные машины**.
+3. В колонке **Виртуальные машины** выберите виртуальную машину, которой вы хотите назначить IP-адреса. Щелкните **Сетевые интерфейсы** в появившейся колонке "Виртуальные машины" и выберите сетевой интерфейс, к которому вы хотите добавить IP-адреса. В примере на следующем рисунке выбрана сетевая карта *myNIC* виртуальной машины с именем *myVM*.
 
     ![Сетевой интерфейс](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-5. В появившейся колонке выбранной сетевой карты щелкните **IP configurations** (IP-конфигурации), как показано на следующем рисунке.
+4. В появившейся колонке выбранной сетевой карты щелкните **IP configurations** (IP-конфигурации), как показано на следующем рисунке.
 
     ![Конфигурации IP](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
 
@@ -103,7 +81,7 @@ ms.lasthandoff: 02/14/2017
 > За общедоступные IP-адреса взимается номинальная плата. Дополнительные сведения о ценах на IP-адреса см. на странице [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses). Число общедоступных IP-адресов, которые можно использовать в одной подписке, ограничено. Сведения об ограничениях см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md#networking-limits).
 > 
 
-### <a name="a-namecreate-public-ipacreate-a-public-ip-address-resource"></a><a name="create-public-ip"></a>Создание ресурса общедоступного IP-адреса
+### <a name="create-public-ip"></a>Создание ресурса общедоступного IP-адреса
 
 Общедоступный IP-адрес является параметром ресурса частного IP-адреса. Если у вас есть ресурс общедоступного IP-адреса, не связанный с IP-конфигурацией, который требуется связать с IP-конфигурацией, пропустите следующие шаги и выполните инструкции, описанные в одном из дальнейших разделов. Если у вас нет доступного ресурса общедоступного IP-адреса, создайте его, выполнив следующие шаги:
 

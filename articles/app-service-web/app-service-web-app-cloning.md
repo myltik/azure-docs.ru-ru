@@ -17,6 +17,7 @@ ms.author: aelnably
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -46,7 +47,7 @@ ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
 
 Для создания точной копии существующего веб-приложения, включая все соответствующие слоты развертывания, пользователю необходимо будет задать параметр IncludeSourceWebAppSlots. Следующая команда PowerShell показывает, как использовать этот параметр с командой New-AzureRmWebApp:
 
-    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots $true
+    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 
 Для создания точной копии существующего веб-приложения в том же регионе пользователю нужно будет создать новую группу ресурсов и новый план службы приложений в том же регионе, а затем клонировать веб-приложение с помощью следующей команды PowerShell:
 
@@ -112,10 +113,5 @@ ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
 * [Предварительная поддержка диспетчера трафика Azure в диспетчере ресурсов Azure](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Введение в среду службы приложения](app-service-app-service-environment-intro.md)
 * [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

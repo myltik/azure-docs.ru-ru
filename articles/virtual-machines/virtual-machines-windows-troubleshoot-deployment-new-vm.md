@@ -1,5 +1,5 @@
 ---
-title: "Устранение неполадок развертывания виртуальных машин Windows (Resource Manager) | Документация Майкрософт"
+title: "Устранение неполадок развертывания виртуальной машины Windows в Azure | Документация Майкрософт"
 description: "Устранение неполадок развертывания Resource Manager при создании виртуальной машины Windows в Azure"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
-ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
+ms.sourcegitcommit: ec36172909398fbcae9ad39827307de758b855f0
+ms.openlocfilehash: 18767fe6bc08fd8ccb3670de686df39f58269e80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure
+# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Устранение неполадок развертывания при создании виртуальной машины Windows в Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -84,10 +86,5 @@ ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

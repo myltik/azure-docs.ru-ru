@@ -7,15 +7,11 @@
 ## Назначение IP-адресов
 ### [Диспетчер ресурсов](virtual-network-ip-addresses-overview-arm.md)
 ### [Классический](virtual-network-ip-addresses-overview-classic.md)
-## Виртуальные машины
-### [Сетевые интерфейсы](virtual-network-network-interface-overview.md)
-### [Разрешение имен](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Начало работы
-## [Создание виртуальной сети](virtual-networks-create-vnet-arm-pportal.md)
-## [Развертывание виртуальной машины в виртуальной сети](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Создание первой собственной виртуальной сети](virtual-network-get-started-vnet-subnet.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Планирование и проектирование
 ### [Виртуальные сети](virtual-network-vnet-plan-design-arm.md)
 ### [Группы безопасности сети](virtual-networks-nsg.md)
@@ -49,6 +45,10 @@
 #### [Портал](virtual-networks-create-vnetpeering-arm-portal.md)
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Шаблон](virtual-networks-create-vnetpeering-arm-template-click.md)
+
+### [Сетевые интерфейсы](virtual-network-network-interface.md)
+
+### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md) (раздел "Общедоступные IP-адреса")
 
 ### Виртуальные машины
 
@@ -104,6 +104,7 @@
 ### Доступ к спискам управления
 #### [Классический портал](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Разрешение имен для виртуальных машин и облачных служб](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Управление
 ### Группы безопасности сети
@@ -124,9 +125,9 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Справочные материалы
-## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (классическая модель)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Интерфейс командной строки Azure](/cli/azure/)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Интерфейс командной строки Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj157182.aspx)
@@ -146,8 +147,3 @@
 ## [Форум по сетям](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

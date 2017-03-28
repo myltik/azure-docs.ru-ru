@@ -1,10 +1,10 @@
 ---
-title: "Создание групп безопасности сети в режиме ARM с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью портала Azure."
+title: "Управление группами безопасности сети с помощью портала Azure | Документация Майкрософт"
+description: "Узнайте, как управлять группами безопасности сети с помощью портала Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: faee5ac8-f4c4-4f97-ade5-197a37aad496
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44233c124ec56d01f2fb8261fba0a7612ac23678
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: ecb4fb4608628f5a1bd54fac6af19fecfa4508f2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>Как управлять сетевыми группами безопасности с помощью портала предварительной версии
+# <a name="manage-network-security-groups-using-the-azure-portal"></a>Управление группами безопасности сети с помощью портала Azure
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -92,10 +95,5 @@ ms.openlocfilehash: 44233c124ec56d01f2fb8261fba0a7612ac23678
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [управлять существующими группами безопасности сети](virtual-network-manage-nsg-arm-portal.md)
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

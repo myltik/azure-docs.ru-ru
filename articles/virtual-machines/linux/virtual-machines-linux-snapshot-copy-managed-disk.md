@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 673b979520b0e6fd4d0b0c00d2be26c41d112677
-ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 8bc6ac01f1592d371abbb2df3ff6ecf4ee2a993c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -24,12 +25,12 @@ ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
 
 Дополнительные сведения о ценах см. на странице [с ценами на службу хранилища Azure](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Чтобы создать моментальный снимок управляемого диска, используйте портал Azure или Azure CLI 2.0 (предварительная версия).
+Чтобы создать моментальный снимок управляемого диска, используйте портал Azure или Azure CLI 2.0.
 
-## <a name="use-azure-cli-20-preview-to-take-a-snapshot"></a>Создание моментального снимка с помощью Azure CLI 2.0 (предварительная версия)
+## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Создание моментального снимка с помощью Azure CLI 2.0
 
 > [!NOTE] 
-> В следующем примере требуется, чтобы вы установили Azure CLI 2.0 (предварительная версия) и выполнили вход в систему с учетной записью Azure.
+> В следующем примере требуется, чтобы вы установили Azure CLI 2.0 и выполнили вход в систему с учетной записью Azure.
 
 Ниже показано, как получить и создать моментальный снимок управляемого диска ОС с помощью команды `az snapshot create` с параметром `--source-disk`. В приведенном примере предполагается, что существует виртуальная машина `myVM` с управляемым диском ОС, созданная в группе ресурсов `myResourceGroup`.
 
@@ -80,10 +81,5 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 
 Если вы планируете использовать моментальный снимок, чтобы создать управляемый диск и подключить его к виртуальной машине, которая должна быть высокопроизводительной, используйте параметр `--sku Premium_LRS` в команде `az snapshot create`. Это позволит создать моментальный снимок таким образом, чтобы он хранился в качестве управляемого диска уровня "Премиум". Управляемые диски уровня "Премиум" работают быстрее, так как это твердотельные накопители (SSD), однако их использование обойдется дороже, чем диски уровня "Стандартный" (жесткие диски).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

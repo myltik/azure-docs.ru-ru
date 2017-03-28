@@ -1,10 +1,10 @@
 ---
-title: "Как настроить статический частный IP-адрес в режиме ARM на портале Azure | Документация Майкрософт"
-description: "Основные сведения о частных IP-адресах (DIP) и управлении ими в режиме ARM с помощью портала Azure"
+title: "Настройка частных IP-адресов для виртуальных машин с помощью портала Azure | Документация Майкрософт"
+description: "Узнайте, как настроить частные IP-адреса для виртуальных машин с помощью портала Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
-ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Как задать статический частный IP-адрес на портале Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Настройка частных IP-адресов для виртуальной машины с помощью портала Azure
 
 > [!div class="op_single_selector"]
 - [Портал Azure](virtual-networks-static-private-ip-arm-pportal.md)
@@ -104,10 +106,5 @@ ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
 * Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md) .
 * Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

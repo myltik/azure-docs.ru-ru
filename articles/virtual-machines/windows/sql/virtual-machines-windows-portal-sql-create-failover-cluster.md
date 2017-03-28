@@ -19,6 +19,7 @@ ms.author: mikeray
 translationtype: Human Translation
 ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
 ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -44,7 +45,7 @@ ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
    >[!NOTE]
    >Все ресурсы Azure, представленные на схеме, находятся в одной и той же группе ресурсов.
 
-Дополнительные сведения о S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) см. в статье [Локальные дисковые пространства в Windows Server 2016\(. 
+[Дополнительные сведения о \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) см. в статье Локальные дисковые пространства в Windows Server 2016. 
 
 S2D поддерживает два типа архитектуры — конвергентную и гиперконвергентную. В этом документе используется гиперконвергентная архитектура. Гиперконвергентная инфраструктура размещает хранилище на тех же серверах, на которых размещено кластеризованное приложение. В этой архитектуре хранилище находится на каждом узле экземпляра отказоустойчивого кластера SQL Server.
 
@@ -267,7 +268,7 @@ New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.
 
 1. Сохраните ключи доступа и URL-адрес контейнера.
 
-1. Настройте свидетель кворума кластера WSFC. См. подраздел [To configure Cloud Witness as a Quorum Witness] (Настройка облака-свидетеля в качестве свидетеля кворума) (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) в пользовательском интерфейсе.
+1. Настройте свидетель кворума кластера WSFC. См. подраздел [Настройка облака-свидетеля в качестве свидетеля кворума].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) в пользовательском интерфейсе.
 
 ### <a name="add-storage"></a>Добавление хранилища
 
@@ -473,10 +474,5 @@ New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.
 [Локальные дисковые пространства в Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 [SQL Server&2016; now supports Windows Server&2016; Storage Spaces Direct](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/) (SQL Server 2016 теперь поддерживает локальные дисковые пространства Windows Server 2016).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

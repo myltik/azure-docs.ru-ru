@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
-ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 764ef15f631166bf720c846aa3b4f4b6936054d9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-architecture-with-azure-resource-manager-templates"></a>Архитектура приложений с использованием шаблонов Azure Resource Manager
+# <a name="application-architecture-with-azure-resource-manager-templates-for-linux-vms"></a>Архитектура приложений с использованием шаблонов Azure Resource Manager для виртуальных машин Linux
+
 При разработке развертывания Azure Resource Manager необходимую вычислительную мощность нужно сопоставлять с ресурсами и службами Azure. Если приложение содержит несколько конечных точек http, базы данных и службы кэша, следует рационально распределить ресурсы Azure между всеми этими компонентами. Например, приложение "Магазин музыки" содержит веб-приложение, размещенное на виртуальной машине, и базу данных SQL на основе базы данных Azure SQL. 
 
 В этом документе описана конфигурация вычислительных ресурсов для такого приложения, представленная в шаблоне Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
@@ -270,10 +273,5 @@ ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
 <hr>
 
 [Шаг 2. Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

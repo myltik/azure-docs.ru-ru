@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
-ms.openlocfilehash: 40a3fa51b1fcf87bd03f767606c888cc501fd6de
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4505bb5f572add13c21df06fc7997358eaae6352
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Запись виртуальной машины Linux, работающей в Azure
-Выполните инструкции в этой статье, чтобы подготовить и записать образ виртуальной машины под управлением Linux для Azure в рамках модели развертывания с помощью Resource Manager. При подготовке к использованию виртуальной машины удаляются личные сведения учетных записей и виртуальная машина подготавливается к использованию в качестве образа. После этого можно записать универсальный образ виртуального жесткого диска (VHD) для операционной системы, виртуальные жесткие диски для подключенных дисков данных и [шаблон Resource Manager](../azure-resource-manager/resource-group-overview.md) для развертывания новой виртуальной машины. В этой статье подробно описано, как записать образ виртуальной машины, использующей неуправляемые диски, с помощью Azure CLI 1.0. Вы также можете [записать образ виртуальной машины, использующей Управляемые диски Azure, с помощью Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Дополнительные сведения об Управляемых дисках Azure см. в [этой статье](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Выполните инструкции в этой статье, чтобы подготовить и записать образ виртуальной машины под управлением Linux для Azure в рамках модели развертывания с помощью Resource Manager. При подготовке к использованию виртуальной машины удаляются личные сведения учетных записей и виртуальная машина подготавливается к использованию в качестве образа. После этого можно записать универсальный образ виртуального жесткого диска (VHD) для операционной системы, виртуальные жесткие диски для подключенных дисков данных и [шаблон Resource Manager](../azure-resource-manager/resource-group-overview.md) для развертывания новой виртуальной машины. В этой статье подробно описано, как записать образ виртуальной машины, использующей неуправляемые диски, с помощью Azure CLI 1.0. Вы можете также [записать образ виртуальной машины, использующей Управляемые диски Azure, с помощью Azure CLI 2.0](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Управляемые диски полностью контролируются платформой Azure и не требуют никакой подготовки или выделения места. Дополнительные сведения об Управляемых дисках Azure см. в [этой статье](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Для создания виртуальных машин с помощью образа следует настроить сетевые ресурсы для каждой новой виртуальной машины и развернуть ее посредством записанных образов VHD, воспользовавшись шаблоном (файлом нотаций объектов JavaScript, т. е. JSON-файлом). Таким образом можно реплицировать виртуальную машину и ее текущую конфигурацию программного обеспечения точно так же, как вы используете образы из Azure Marketplace.
 
@@ -33,7 +34,7 @@ ms.openlocfilehash: 40a3fa51b1fcf87bd03f767606c888cc501fd6de
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#before-you-begin) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 Необходимо выполнить следующие условия.
@@ -41,7 +42,7 @@ ms.openlocfilehash: 40a3fa51b1fcf87bd03f767606c888cc501fd6de
 * **Виртуальная машина Azure, созданная в рамках модели развертывания с помощью Resource Manager**. Если вы еще не создали виртуальную машину Linux, для этого можно использовать [портал](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [интерфейс командной строки Azure (Azure CLI)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [шаблоны Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
   
     Настройте виртуальную машину согласно своим требованиям. Например, [добавьте диски данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), примените обновления и установите приложения. 
-* **Azure CLI**. Установите [Azure CLI](../xplat-cli-install.md) на локальном компьютере.
+* **Azure CLI**. Установите [Azure CLI](../cli-install-nodejs.md) на локальном компьютере.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Шаг 1. Удалите агент Linux для Azure
 Сначала на виртуальной машине Linux выполните команду **waagent** с параметром **deprovision**. Эта команда удаляет файлы и данные перед подготовкой виртуальной машины к использованию. Дополнительные сведения см. в [руководстве пользователя агента Linux для Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -205,10 +206,5 @@ azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Для управления виртуальными машинами с помощью интерфейса командной строки ознакомьтесь с задачами, описанными в статье [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

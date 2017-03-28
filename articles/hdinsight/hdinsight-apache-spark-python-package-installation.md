@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
 ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -84,7 +86,7 @@ ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
 
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Дополнительные материалы
+## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Сценарии
@@ -109,9 +111,4 @@ ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
 ### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

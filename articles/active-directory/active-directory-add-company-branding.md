@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 Хотя технически вы можете настроить другой набор для каждого языка, поддерживаемого Azure AD, мы рекомендуем использовать небольшое количество вариантов в целях обслуживания и производительности.
 
+> [!IMPORTANT]
+> Yammer отображает страницу входа Azure AD с фирменной символикой только после входа пользователя. Пользователь сперва увидит общую страницу входа в службу Office 365, а затем страницу с фирменной символикой.   
+ 
+ 
 **Чтобы добавить фирменную символику в каталог, сделайте следующее:**
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетными данными администратора того каталога, который нужно настроить.
@@ -148,7 +153,7 @@ ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетными данными администратора того каталога, который нужно настроить.
 2. Выберите нужный каталог.
-3. На панели инструментов в верхней части экрана щелкните **Настройка**.
+fs3. На панели инструментов в верхней части экрана щелкните **Настройка**.
 4. Щелкните **Настройка фирменной символики**.
 5. Щелкните **Добавить фирменную символику для определенного языка**.
 6. Выберите язык, для которого хотите настроить логотип, и нажмите кнопку **Далее**.
@@ -221,9 +226,4 @@ ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

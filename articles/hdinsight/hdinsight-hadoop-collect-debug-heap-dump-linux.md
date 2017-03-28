@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,7 +33,7 @@ ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 > [!IMPORTANT]
 > Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Службы
+## <a name="whichServices"></a>Службы
 Вы можете включить дампы кучи для следующих служб:
 
 * **Hcatalog** — tempelton;
@@ -42,7 +44,7 @@ ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 Вы можете также включить дампы кучи для процессов сопоставления и уменьшения, запущенных HDInsight.
 
-## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Основные сведения о настройке дампа кучи
+## <a name="configuration"></a>Основные сведения о настройке дампа кучи
 Дампы кучи включаются путем передачи параметров в виртуальную машину Java при запуске службы. Для большинства служб Hadoop это можно сделать, изменив сценарий оболочки, используемый для запуска службы.
 
 В каждом сценарии есть экспорт для **\*\_OPTS**, который содержит параметры, передаваемые в виртуальную машину Java. Например, в сценарии **hadoop-env.sh** строка, начинающаяся с `export HADOOP_NAMENODE_OPTS=`, содержит параметры для службы NameNode.
@@ -130,10 +132,5 @@ ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
    > 
    > 
 8. После перезапуска служб используйте кнопку **Действия службы** для **отключения режима обслуживания**. Эта Ambari для возобновления наблюдения за оповещениями для службы.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

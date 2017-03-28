@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -82,10 +83,5 @@ ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Advanced-Request-Throttling-with-Azure-API-Management/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

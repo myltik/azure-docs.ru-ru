@@ -25,8 +25,8 @@
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+Вы также можете установить пакет StackExchange.Redis NuGet, щелкнув в меню **Средства** **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**, а затем выполнив в окне `Package Manager Console` следующую команду.
+    
+```
+Install-Package StackExchange.Redis
+```

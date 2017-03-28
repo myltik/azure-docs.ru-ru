@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о средствах управления для базы данных SQL | Документация Майкрософт"
-description: "Сравнение средств и параметров для управления Базой данных SQL Azure"
+title: "Инструменты управления и разработки для Базы данных SQL Azure | Документация Майкрософт"
+description: "Введение в инструменты управления и разработки и их параметры для базы данных SQL Azure."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,34 +12,41 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/01/2017
+ms.topic: article
+ms.date: 03/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 9b0a3a314e576db2133e5c63fada43bb11a4e520
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="overview-management-tools-for-sql-database"></a>Обзор: средства управления для Базы данных SQL
-В этом разделе рассматриваются и сравниваются средства и параметры для управления базами данных SQL Azure, чтобы вы могли выбрать для себя подходящий инструмент для работы и бизнеса. Выбор правильного средства зависит от количества баз данных, которыми вы управляете, выполняемых задач, а также то того, как часто вы их выполняете.
+# <a name="overview-tools-to-manage--develop-with-azure-sql-database"></a>Обзор: инструменты управления и разработки для Базы данных SQL Azure
+В этом разделе рассказывается об инструментах управления и разработки для баз данных SQL Azure.
+
+> [!IMPORTANT]
+> Этот набор документации содержит краткие руководства, примеры и практические руководства, обучающие использованию инструментов, описываемых в следующих параграфах, для управления базой данных SQL Azure и разработки для нее. Используйте левую область навигации и фильтр для поиска конкретного содержимого для портала Azure, PowerShell и T-SQL.
+>
 
 ## <a name="azure-portal"></a>Портал Azure
 [Портал Azure](https://portal.azure.com) — это веб-приложение, в котором можно создавать, обновлять и удалять базы данных и логические серверы, а также отслеживать работу базы данных. Он превосходно подойдет для тех, кто только знакомится с Azure, или управляет небольшим количеством баз данных, а также в случае, если требуется оперативно выполнить какую-либо задачу.
 
-Дополнительные сведения об использовании портала см. в разделе [Управление базами данных SQL Azure с помощью портала Azure](sql-database-manage-portal.md).
-
-## <a name="sql-server-management-studio-and-sql-server-data-tools-in-visual-studio"></a>SQL Server Management Studio и SQL Server Data Tools в Visual Studio
-SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) представляют собой клиентские инструменты, которые выполняются на компьютере и позволяют управлять базой данных в облаке и разрабатывать ее. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Скачайте последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базой данных SQL Azure с помощью SQL Server Management Studio](sql-database-manage-azure-ssms.md).
+## <a name="sql-server-management-studio-and-transact-sql"></a>SQL Server Management Studio и Transact-SQL
+SQL Server Management Studio (SSMS) — это клиентский инструмент, который выполняется на вашем компьютере и позволяет управлять базой данных в облаке с помощью Transact-SQL. Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Скачайте последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. 
 
 > [!IMPORTANT]
-> Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и базы данных SQL, всегда используйте последнюю версию [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290) и [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx).
+> Всегда используйте последнюю версию [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290).
 >  
 
+## <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools в Visual Studio
+SQL Server Data Tools (SSDT) — это клиентский инструмент, который выполняется на вашем компьютере и обеспечивает разработку для базы данных в облаке. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx).  
+
+> [!IMPORTANT]
+> Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базы данных SQL, всегда используйте последнюю версию [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx).
+>  
 ## <a name="powershell"></a>PowerShell
 Для управления базами данных и пулами эластичных баз данных, а также для автоматизации развертывания ресурсов Azure можно использовать PowerShell. Мы рекомендуем использовать это средство для управления большим количеством баз данных и автоматизации развертывания и изменения ресурсов в рабочей среде.
-
-Дополнительные сведения см. в разделе [Управление базой данных SQL Azure с помощью PowerShell](sql-database-manage-powershell.md).
 
 ## <a name="elastic-database-tools"></a>Инструменты эластичных баз данных
 Используйте инструменты эластичных баз данных для выполнения следующих действий. 
@@ -52,10 +59,5 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) предст
 * [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
 * [Служба автоматизации Azure](https://azure.microsoft.com/documentation/services/automation/)
 * [Планировщик Azure](https://azure.microsoft.com/documentation/services/scheduler/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

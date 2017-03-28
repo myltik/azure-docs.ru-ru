@@ -1,6 +1,6 @@
 ---
-title: "Оценка моделей машинного обучения, созданных с помощью Spark | Документация Майкрософт"
-description: "Сведения об оценке моделей обучения, сохраненных в хранилище BLOB-объектов Azure."
+title: "Ввод моделей машинного обучения, созданных с помощью Spark, в эксплуатацию | Документация Майкрософт"
+description: "Сведения об отправке и оценке моделей обучения, сохраненных в хранилище BLOB-объектов Azure, с помощью Python."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,28 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
-ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="score-spark-built-machine-learning-models"></a>Оценка моделей машинного обучения, созданных с помощью Spark
+# <a name="operationalize-spark-built-machine-learning-models"></a>Ввод моделей машинного обучения, созданных с помощью Spark, в эксплуатацию
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-В этой статье описывается, как загрузить модели машинного обучения, созданные с помощью Spark MLlib и сохраненные в хранилище BLOB-объектов Azure, а также как оценить их с помощью наборов данных, которые сохранены в этом же хранилище. Здесь также описано, как выполнить предварительную подготовку входных данных, преобразовать признаки с помощью функций индексирования и кодирования в наборе средств MLlib и как создать объекты данных с помеченной вершиной, которые можно использовать в качестве входных данных для оценки при помощи моделей машинного обучения. Для оценки будут использоваться такие модели, как линейная регрессия, логистическая регрессия, случайные леса и градиентный бустинг деревьев.
+В этой статье показано, как ввести сохраненные модели машинного обучения в эксплуатацию с помощью Python в кластерах HDInsight Spark. Кроме того, здесь описывается, как загрузить модели машинного обучения, созданные с помощью Spark MLlib и сохраненные в хранилище BLOB-объектов Azure, а также как оценить их с помощью наборов данных, которые сохранены в этом же хранилище. Здесь также описано, как выполнить предварительную подготовку входных данных, преобразовать признаки с помощью функций индексирования и кодирования в наборе средств MLlib и как создать объекты данных с помеченной вершиной, которые можно использовать в качестве входных данных для оценки при помощи моделей машинного обучения. Для оценки будут использоваться такие модели, как линейная регрессия, логистическая регрессия, случайные леса и градиентный бустинг деревьев.
+
+## <a name="spark-clusters-and-jupyter-notebooks"></a>Кластеры Spark и записные книжки Jupyter
+Действия по настройке и код, используемые для ввода модели машинного обучения в эксплуатацию в рамках этого руководства, можно выполнять как в кластере HDInsight Spark 1.6, так и в кластере Spark 2.0. В записных книжках Jupyter также содержится код для выполнения этих процедур.
+
+### <a name="notebook-for-spark-16"></a>Записная книжка для Spark 1.6
+Записная книжка Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) показывает, как применять сохраненную модель в кластерах HDInsight с помощью Python. 
+
+### <a name="notebook-for-spark-20"></a>Записная книжка для Spark 2.0
+Чтобы изменить записную книжку Jupyter для Spark 1.6 для использования в кластере HDInsight Spark 2.0, замените файл кода Python [этим файлом](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Этот код показывает, как использовать модели, созданные в Spark 2.0.
+
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 1. Для работы с этим пошаговым руководством требуется учетная запись Azure и кластер Spark 1.6 или Spark 2.0 HDInsight. См. статью [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md) для получения инструкций по выполнению этих требований. В этой статье также содержится описание используемых здесь данных о поездках в такси по Нью-Йорку за 2013 г., и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark. 
-2. Вам также необходимо создать модели машинного обучения, которые будут оцениваться. Для этого выполните действия, описанные в статье [Исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (для кластера Spark 1.6 или записных книжек Spark 2.0). Обратите внимание, что записные книжки Spark 2.0 используют для задачи классификации дополнительный набор данных — известный набор данных о расписании вылетов авиакомпании за 2011 и 2012 гг. Описание записных книжек и ссылки на них вы можете найти в файле [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) для репозитория GitHub с записными книжками. Более того, код здесь и в связанных записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark. 
-
-
-## <a name="setup-spark-clusters-and-notebooks"></a>Настройка: кластеры и записные книжки Spark
-Действия по настройке и код, указанные в этом пошаговом руководстве, применимы к использованию для HDInsight Spark 1.6. Записная книжка [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) показывает, как применять сохраненную модель в кластерах HDInsight с помощью Python. Чтобы изменить эту записную книжку Jupyter для использования с кластером HDInsight Spark 2.0, замените файл кода Python [этим файлом](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
+2. Вам также необходимо создать модели машинного обучения, которые будут оцениваться. Для этого выполните действия, описанные в статье [Исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (для кластера Spark 1.6 или записных книжек Spark 2.0). 
+3. Записные книжки Spark 2.0 используют для задачи классификации дополнительный набор данных — известное расписание вылетов авиакомпании за 2011 и 2012 гг. Описание записных книжек и ссылки на них вы можете найти в файле [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) для репозитория GitHub с записными книжками. Более того, код здесь и в связанных записных книжках является универсальным и должен работать в любом кластере Spark. Действия по настройке кластера и управлению им могут немного отличаться от приведенных здесь, если вы не используете HDInsight Spark. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -521,7 +528,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Использование моделей Spark через веб-интерфейс
-В кластере Spark реализован механизм, который позволяет отправлять пакетные задания или интерактивные запросы удаленно через интерфейс REST с помощью компонента Livy. Livy включен по умолчанию в кластере Spark в HDInsight. Дополнительные сведения о Livy см. в статье [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+В кластере Spark реализован механизм, который позволяет отправлять пакетные задания или интерактивные запросы удаленно через интерфейс REST с помощью компонента Livy. Livy включен по умолчанию в кластере Spark в HDInsight. Дополнительные сведения о Livy см. в статье [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight с помощью Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
 
 Вы можете использовать Livy, чтобы удаленно отправить запрос на выполнение пакетного задания оценки файла, сохраненного в большом двоичном объекте Azure, а затем записать результаты в другой большой двоичный объект. Чтобы сделать это, необходимо загрузить сценарий Python из   
 [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) в большой двоичный объект кластера Spark. Используйте **Microsoft Azure Storage Explorer** или **AzCopy**, чтобы скопировать сценарий в большой двоичный объект кластера. В нашем случае мы загрузили скрипт в ***wasb:///example/python/ConsumeGBNYCReg.py***.   

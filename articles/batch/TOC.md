@@ -1,6 +1,7 @@
 # Обзор
 ## [Что такое пакетная служба Azure?](batch-technical-overview.md)
 ## [Обзор возможностей](batch-api-basics.md)
+## [API-интерфейсы и средства](batch-apis-tools.md)
 ## [Квоты и ограничения](batch-quota-limit.md)
 # Начало работы
 ## [Создание учетной записи пакетной службы](batch-account-create-portal.md)
@@ -10,6 +11,7 @@
 ## Разработка
 ### [Пакеты приложений](batch-application-packages.md)
 ### [Автомасштабирование вычислительных узлов](batch-automatic-scaling.md)
+### [Проверка подлинности Azure AD](batch-aad-auth.md)
 ### [Параллельные задачи узла](batch-parallel-node-tasks.md)
 ### [Эффективные запросы на вывод списка](batch-efficient-list-queries.md)
 ### [Задачи для подготовки и выполнения заданий](batch-job-prep-release.md)
@@ -25,7 +27,8 @@
 ### [Журналы диагностики пакетной службы](batch-diagnostics.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Интерфейс командной строки Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -45,4 +48,5 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Примеры кода Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Блог](https://blogs.technet.microsoft.com/windowshpc/)
 

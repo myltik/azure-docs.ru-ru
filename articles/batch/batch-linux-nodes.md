@@ -1,5 +1,5 @@
 ---
-title: "Подготовка вычислительных узлов Linux в пулах с помощью пакетной службы Azure | Документация Майкрософт"
+title: "Выполнение вычислительных узлов виртуальных машин под управлением Linux в пакетной службе Azure | Документация Майкрософт"
 description: "Узнайте, как обрабатывать параллельные вычислительные рабочие нагрузки в пулах виртуальных машин Linux в пакетной службе Azure."
 services: batch
 documentationcenter: python
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 85aa18c7eab56c390dc9a9f7865a3468a43739f2
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4e0194f98ebcaffba2c5a89833a969112294e83a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="provision-linux-compute-nodes-in-azure-batch-pools"></a>Подготовка вычислительных узлов Linux в пулах пакетной службы Azure
+# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Подготовка вычислительных узлов Linux в пулах пакетной службы
+
 Пакетная служба Azure позволяет выполнять параллельные вычислительные рабочие нагрузки на виртуальных машинах Linux и Windows. В этой статье описывается создание пулов вычислительных узлов Linux в пакетной службе с помощью клиентских библиотек [Python][py_batch_package] и [.NET][api_net].
 
 > [!NOTE]
@@ -348,9 +351,4 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

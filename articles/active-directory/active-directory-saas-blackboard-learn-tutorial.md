@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9d32b156878ff963e6dac00663fc5f1f272d269b
-ms.openlocfilehash: f86b20d5cf20ff977901d481438292c7b38658da
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0247e7c8f3803e27b4304dae6af11f18432e76b0
+ms.openlocfilehash: 92ee9f08ff85a85a08a2d1e021cdb7afec0c6de7
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/17/2017
 Чтобы настроить интеграцию Azure AD с Blackboard Learn, вам потребуется:
 
 * подписка Azure AD;
-* подписка на облачную платформу Blackboard Learn с поддержкой единого входа.
+* подписка на облачную платформу Blackboard Learn с поддержкой единого входа (SSO).
 
 >[!NOTE]
 >Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/17/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.

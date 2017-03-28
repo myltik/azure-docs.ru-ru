@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/14/2017
+ms.date: 03/17/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: a3fc1a6bf552ed8c6511c432c0d74b76247ce877
-ms.openlocfilehash: c08d863ef8913b9bad766c6232faaaa0a6cfa950
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -140,6 +140,8 @@ ms.lasthandoff: 02/17/2017
     // Simple get of data types from the cache
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
+
+Кэши Redis для Azure могут использовать до 16 баз данных (их количество можно указать), чтобы обеспечить логическое разделение данных в кэше Redis. Дополнительные сведения см. в разделах [What are Redis databases?](cache-configure.md#default-redis-server-configuration) (Что такое базы данных Redis) и [Конфигурация сервера Redis по умолчанию](cache-faq.md#what-are-redis-databases).
 
 Теперь нам известно, как соединяться с экземпляром кэша Redis для Azure и возвращать ссылку на базу данных кэша, поэтому давайте посмотрим, как работать с кэшем.
 

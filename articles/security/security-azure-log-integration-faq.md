@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
+ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
+ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,6 @@ ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
 При добавлении источника добавьте **subscriptionid** к понятному имени.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 XML-файл события содержит метаданные, как показано ниже, включая идентификатор подписки.
 
 ![XML-файл события][1]
@@ -65,7 +65,7 @@ XML-файл события содержит метаданные, как пок
 ### <a name="when-running-command-azlog-authorize-why-do-i-get-the-following-error"></a>Почему при выполнении команды **azlog authorize**возникает следующая ошибка?
 Ошибка:
 
-  *Warning creating Role Assignment - AuthorizationFailed: Клиент "janedo@microsoft.com'" с идентификатором объекта "fe9e03e4-4dad-4328-910f-fd24a9660bd2" не авторизован для выполнения действия "Microsoft.Authorization/roleAssignments/write" с областью "/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000".*
+  *"Warning creating Role Assignment - AuthorizationFailed" (Предупреждение при создании назначения роли — AuthorizationFailed): Клиент "janedo@microsoft.com" с идентификатором объекта "fe9e03e4-4dad-4328-910f-fd24a9660bd2" не авторизован для выполнения действия "Microsoft.Authorization/roleAssignments/write" с областью "/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000".*
 
 Команда **azlog authorize** назначает роль читателя субъекту-службе Azure AD (созданному с помощью команды **azlog createazureid**) для предоставленных подписок. Если учетные данные Azure не принадлежат соадминистратору или владельцу подписки, то команда завершается ошибкой и отображается сообщение о сбое авторизации. Для выполнения этого действия используйте управление доступом на основе ролей (RBAC) в Azure, настроив роль соадминистратора или владельца.
 
@@ -104,13 +104,9 @@ XML-файл события содержит метаданные, как пок
 
 После внесения изменений проверьте учетную запись хранения, чтобы убедиться, что собираются именно те события, которые необходимы.
 
-Если у вас есть вопросы о службе интеграции журналов Azure, отправьте электронное сообщение на адрес [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+В случае проблем при установке и настройке создайте [запрос в службу поддержки](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), указав "Интеграция журнала" в качестве службы, для которой запрашивается поддержка.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

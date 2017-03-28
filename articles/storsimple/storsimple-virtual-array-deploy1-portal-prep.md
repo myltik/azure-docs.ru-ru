@@ -12,19 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
-ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
+ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
+ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Развертывание виртуального массива StorSimple — подготовка портала
+# <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Развертывание виртуального массива StorSimple. Подготовка портала Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 ## <a name="overview"></a>Обзор
 
-Это первая статья в серии руководств по развертыванию, необходимых для полного развертывания виртуального массива в качестве файлового сервера или сервера iSCSI с помощью модели Resource Manager. В этой статье описаны подготовительные работы для создания и настройки службы диспетчера StorSimple, которая является необходимым условием для подготовки виртуального массива к работе. Кроме того, здесь представлены ссылки на контрольный список и предварительные требования для настройки развертывания.
+Это первая статья в серии руководств по развертыванию, необходимых для полного развертывания виртуального массива в качестве файлового сервера или сервера iSCSI с помощью модели Resource Manager. В этой статье описаны подготовительные работы для создания и настройки службы диспетчера устройств StorSimple, которая является необходимым компонентом для подготовки виртуального массива к работе. Кроме того, здесь представлены ссылки на контрольный список и предварительные требования для настройки развертывания.
 
 Чтобы завершить процесс установки и настройки, вам потребуются права администратора. Перед началом настройки рекомендуется изучить контрольный список для настройки развертывания. Подготовка портала займет менее 10 минут.
 
@@ -168,10 +170,5 @@ ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
 
 * [Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

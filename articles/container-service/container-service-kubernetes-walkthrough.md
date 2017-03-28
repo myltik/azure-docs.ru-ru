@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: anhowe
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 94a3481d4598701de583969554ed501d2da6dc45
-ms.openlocfilehash: 8282a9d34b8f4aa8db193bb13ba4008137d18e5a
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
+ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="azure-container-service---kubernetes-walkthrough"></a>Служба контейнеров Azure. Пошаговое руководство по использованию Kubernetes
+# <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Приступая к работе с кластером Kubernetes в службе контейнеров Azure
 
 
 В этой статье показано, как использовать команды Azure CLI 2.0 для создания кластера Kubernetes. После этого можно использовать программу командной строки `kubectl`, чтобы приступить к работе с контейнерами в кластере.
@@ -142,7 +142,7 @@ watch 'kubectl get svc'
 ```console
 kubectl proxy
 ```
-Эта команда запускает простой проверенный прокси-сервер на локальном узле, который можно использовать для просмотра [пользовательского веб-интерфейса Kubernetes](http://localhost:8001/ui). Дополнительные сведения см. в разделе [Использование веб-интерфейса Kubernetes со Службой контейнеров Azure](container-service-kubernetes-ui.md).
+Эта команда запускает простой проверенный прокси-сервер на локальном узле. Его можно использовать для просмотра пользовательского веб-интерфейса Kubernetes здесь: [http://localhost:8001/ui](http://localhost:8001/ui). Дополнительные сведения см. в разделе [Использование веб-интерфейса Kubernetes со Службой контейнеров Azure](container-service-kubernetes-ui.md).
 
 ![Изображение панели мониторинга Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -157,13 +157,13 @@ kubectl get pods
 Используя имя модуля, можно запустить удаленную команду в модуле.  Например:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 Кроме того, можно получить полностью интерактивный сеанс с помощью флагов `-it`:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Удаленный сеанс внутри контейнера](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

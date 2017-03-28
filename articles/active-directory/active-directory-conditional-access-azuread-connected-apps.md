@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -85,10 +86,5 @@ ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
 ## <a name="related-articles"></a>Связанные статьи
 * [Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory](active-directory-conditional-access.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

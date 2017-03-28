@@ -96,7 +96,10 @@
 #### [Устранение неполадок](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Использование Arduino
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Урок 1. Настройка устройства
 ##### [Настройка устройства](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [Запуск примера приложения для получения сообщений](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Устранение неполадок](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## Использование пакета SDK для шлюза
 ### [Моделирование в Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Создание учетной записи хранения Azure и приложения-функции Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Чтение сообщений, сохраненных в Хранилище таблиц Azure](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Урок 5. Создание первого модуля шлюза Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Устранение неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [Устройство SensorTag](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Урок 4. Сохранение сообщений в Хранилище таблиц Azure
 ##### [Создание учетной записи хранения Azure и приложения-функции Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Чтение сообщений, сохраненных в Хранилище таблиц Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Урок 5. Создание первого модуля шлюза Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Устранение неполадок](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,10 +227,11 @@
 ## Управление
 ### Создание центра IoT 
 #### [Использование портала](iot-hub-create-through-portal.md)
-#### [Использование предварительной версии Azure CLI 2.0](iot-hub-create-using-cli.md)
-#### [Использование интерфейса командной строки](iot-hub-create-using-cli-nodejs.md)
+#### [Использование PowerShell](iot-hub-create-using-powershell.md)
+#### [Использование CLI 2.0](iot-hub-create-using-cli.md)
+#### [Использование CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Использование REST API](iot-hub-rm-rest.md)
-#### [Использование PowerShell](iot-hub-rm-template-powershell.md)
+#### [Использование шаблона с помощью PowerShell](iot-hub-rm-template-powershell.md)
 #### [Использование шаблона из .NET](iot-hub-rm-template.md)
 ### [Настройка передачи файлов](iot-hub-configure-file-upload.md)
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)

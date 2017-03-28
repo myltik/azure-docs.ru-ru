@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
-ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -35,7 +36,7 @@ ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Вызов модуля Runbook с помощью объекта Webhook
 
-Объект Webhook позволяет запустить определенный модуль Runbook в службе автоматизации Azure с помощью одного HTTP-запроса.  Перед настройкой [оповещения Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule) для вызова модуля Runbook с помощью объекта Webhook в качестве реакции на предупреждение необходимо сначала создать объект Webhook для модуля Runbook, который будет вызываться с помощью этого метода.  Просмотрите и выполните действия, описанные в разделе [Создание объекта Webhook](automation-webhooks.md#creating-a-webhook). Кроме того, не забудьте записать URL-адрес объекта Webhook, так как он потребуется при настройке правила оповещения.   
+Объект Webhook позволяет запустить определенный модуль Runbook в службе автоматизации Azure с помощью одного HTTP-запроса.  Перед настройкой [оповещения Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules) для вызова модуля Runbook с помощью объекта Webhook в качестве реакции на предупреждение необходимо сначала создать объект Webhook для модуля Runbook, который будет вызываться с помощью этого метода.  Просмотрите и выполните действия, описанные в разделе [Создание объекта Webhook](automation-webhooks.md#creating-a-webhook). Кроме того, не забудьте записать URL-адрес объекта Webhook, так как он потребуется при настройке правила оповещения.   
 
 ## <a name="calling-a-runbook-directly"></a>Непосредственный вызов модуля Runbook
 
@@ -52,14 +53,14 @@ ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
           [Parameter (Mandatory=$true)]  
           [object] $WebhookData  
          )
-  
+
 *  Также необходим код для преобразования данных WebhookData в объект PowerShell.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
     Результаты поиска (*$SearchResults*) будут представлять собой массив объектов, каждый объект в котором содержит поля со значениями из одного результата поиска.
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Различия в данных WebhookData при использовании объекта Webhook и модуля Runbook 
+### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Различия в данных WebhookData при использовании объекта Webhook и модуля Runbook
 
 * Если вы настраиваете вызов объекта Webhook из оповещения, введите URL-адрес объекта Webhook, созданный для модуля Runbook, и нажмите кнопку **Test Webhook** (Тестировать Webhook).  Полученные в результате данные WebhookData, отправляемые модулю Runbook, не содержат *.SearchResult* или *.SearchResults*.
 
@@ -68,7 +69,7 @@ ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 
 Поэтому в приведенном выше примере кода необходимо получить *.SearchResult*, если оповещение вызывает объект Webhook, и *.SearchResults*, если оповещение непосредственно вызывает модуль Runbook.
 
-## <a name="example-walkthrough"></a>Пошаговое руководство по примеру 
+## <a name="example-walkthrough"></a>Пошаговое руководство по примеру
 
 Мы продемонстрируем, как это работает, на следующем примере графического модуля Runbook, который запускает службу Windows.<br><br> ![Графический модуль Runbook запуска службы Windows](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
@@ -90,9 +91,4 @@ ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 * Дополнительные сведения об оповещениях в Log Analytics и их создании см. в статье [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md).
 
 * Сведения о том, как запускать модули Runbook с помощью объекта Webhook, см. в статье [Объекты Webhook в службе автоматизации Azure](automation-webhooks.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

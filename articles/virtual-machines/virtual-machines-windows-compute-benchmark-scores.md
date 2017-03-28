@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 37b20ab17cc2b241e0d8a7d73dcd4433317cc0d8
 ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -69,10 +70,5 @@ ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о емкости хранилища, подробности о дисках и дополнительные рекомендации по выбору размера виртуальной машины см. в статье [Размеры виртуальных машин в Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

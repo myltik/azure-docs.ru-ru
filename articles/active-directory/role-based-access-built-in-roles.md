@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/21/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: becd7fbcfa094257408ed96eda0c62deefceb44d
-ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="rbac-built-in-roles"></a>RBAC: встроенные роли
+# <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли для управления доступом на основе ролей в Azure
 Управление доступом на основе ролей Azure (RBAC) поставляется со следующими встроенными ролями, которые могут быть назначены пользователям, группам и службам. Изменить определения встроенных ролей нельзя. Однако можно создать [настраиваемые роли в Azure RBAC](role-based-access-control-custom-roles.md) в соответствии с потребностями вашей организации.
 
 ## <a name="roles-in-azure"></a>Роли в Azure
@@ -226,7 +227,7 @@ ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### <a name="cleardb-mysql-db-contributor"></a>Участник базы данных ClearDB MySQL
+### <a name="cleardb-mysql-db-contributor"></a>Участник ClearDB MySQL DB
 Может создавать базы данных ClearDB MySQL
 
 | **Действия** |  |
@@ -369,7 +370,7 @@ ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 | --- | --- |
 | * |Создание ресурсов всех типов и управление ими |
 
-### <a name="reader"></a>Читатель
+### <a name="reader"></a>читатель.
 Может все просматривать, но не может вносить изменения
 
 | **Действия** |  |
@@ -431,7 +432,7 @@ ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 | Microsoft.Security/* |Создание компонентов и политик безопасности и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### <a name="sql-db-contributor"></a>Участник базы данных SQL
+### <a name="sql-db-contributor"></a>Участник БД SQL
 Может управлять базами данных SQL, но не их политиками безопасности
 
 | **Действия** |  |
@@ -647,9 +648,4 @@ ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 * [Пользовательские роли в Azure RBAC](role-based-access-control-custom-roles.md). Сведения о создании пользовательских ролей в соответствии с потребностями доступа.
 * [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md). Отслеживание изменения назначений ролей в RBAC.
 * [Устранение неполадок при управлении доступом на основе ролей](role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

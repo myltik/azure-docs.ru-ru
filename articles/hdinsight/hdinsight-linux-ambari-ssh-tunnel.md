@@ -8,16 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -52,9 +53,17 @@ ms.lasthandoff: 02/09/2017
   > [!NOTE]
   > Если вы планируете использовать клиент SSH, отличный от `ssh` или PuTTY, обратитесь к документации своего клиента за информацией о настройке туннеля SSH.
 
-* Веб-браузер, который можно настроить на использование прокси-сервера SOCKS
+* Веб-браузер, который можно настроить на использование прокси-сервера SOCKS5.
 
-## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Создание туннеля с помощью команды SSH
+    > [!WARNING]
+    > Встроенная в Windows поддержка прокси-сервера SOCKS не применяется к SOCKS5 и не будет работать при выполнении действий в этом документе. Следующие браузеры используют параметры прокси-сервера Windows и в настоящее время не будут работать при выполнении действий в этом документе.
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Google Chrome также использует параметры прокси-сервера Windows. Но можно установить расширения, которые поддерживают SOCKS5. Рекомендуется использовать [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+
+## <a name="usessh"></a>Создание туннеля с помощью команды SSH
 
 Используйте следующую команду для создания туннеля SSH с помощью команды `ssh` . Замените **USERNAME** именем пользователя SSH для кластера HDInsight, а **CLUSTERNAME** — именем кластера HDInsight.
 
@@ -77,7 +86,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
 После завершения команды трафик, отправленный на порт 9876 на локальном компьютере, будет направляться с использованием SSL на головной узел кластера и выглядеть так, будто его источником является головной узел.
 
-## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>Создание туннеля с помощью PuTTY
+## <a name="useputty"></a>Создание туннеля с помощью PuTTY
 
 Для создания туннеля SSH с помощью PuTTY выполните следующие действия.
 
@@ -101,8 +110,8 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Использование туннеля из браузера
 
-> [!NOTE]
-> Для действий, описанных в этом разделе, используется браузер FireFox, так как он свободно доступен для систем Linux, Unix, Macintosh OS X и Windows. Другие современные браузеры, которые поддерживают использование прокси-сервера SOCKS, также будут работать.
+> [!IMPORTANT]
+> Для действий, описанных в этом разделе, используется браузер FireFox, так как предоставляет те же параметры прокси-сервера на всех платформах. Для других современных браузеров, например Google Chrome, может потребоваться расширение, например FoxyProxy, для работы с туннелем.
 
 1. Настроить браузер для использования **localhost** и порта, использованного при создании туннеля, в качестве прокси-сервера **SOCKS&5;**. Вот как выглядят параметры Firefox. Если используется порт, отличный от 9876, измените номер порта соответствующим образом.
    
@@ -145,6 +154,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Теперь когда вы узнали, как создать и использовать туннель SSH, обратитесь к следующим статьям, чтобы узнать об управлении и мониторинге кластера с помощью Ambari:
 
 * [Управление кластерами HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md)

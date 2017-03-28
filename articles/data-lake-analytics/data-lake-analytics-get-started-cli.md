@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
-ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4db7d45678c592749831c6b12d38363134da9e93
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,12 +32,12 @@ ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Интерфейс командной строки Azure**. См. статью [Установка Azure CLI](../xplat-cli-install.md).
+* **Интерфейс командной строки Azure**. См. статью [Установка и настройка интерфейса командной строки Azure](../cli-install-nodejs.md).
   * Для выполнения этой демонстрации загрузите и установите **предварительный выпуск** [программ CLI Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) .
 * **Пройдите проверку подлинности**с помощью следующей команды:
   
         azure login
-    Дополнительную информацию о проверке подлинности с помощью рабочей или учебной учетной записи см. в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+    Дополнительные сведения об аутентификации с помощью рабочей или учебной учетной записи см. в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
 * **Переключитесь в режим диспетчера ресурсов Azure**с помощью следующей команды.
   
         azure config mode arm
@@ -161,10 +162,5 @@ azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>
 * Для знакомства с U-SQL см. статью о [начале работы с языком U-SQL для Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 * Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

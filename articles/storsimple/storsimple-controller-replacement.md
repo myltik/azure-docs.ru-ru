@@ -4,7 +4,7 @@ description: "В этом учебнике объясняется, как сня
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -106,7 +107,8 @@ ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 > [!NOTE]
 > При отслеживании устройства через последовательную консоль можно заметить несколько перезапусков при восстановлении контроллера после процедуры замены. При появлении меню последовательной консоли процедура замены считается завершенной. Если меню не отображается в течение двух часов после начала замены контроллера, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
-> 
+>
+> Начиная с обновления 4, в интерфейсе Windows PowerShell устройства можно также использовать командлет `Get-HCSControllerReplacementStatus`, чтобы наблюдать за состоянием процесса замены контроллера.
 > 
 
 ## <a name="replace-both-controllers"></a>Замена двух контроллеров
@@ -246,10 +248,5 @@ ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

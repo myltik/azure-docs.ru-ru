@@ -13,13 +13,13 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
-ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,11 +37,15 @@ ms.lasthandoff: 02/18/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](https://azure.microsoft.com/free/) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
+* **Учетная запись Azure.** Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](https://azure.microsoft.com/free/) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* У вас должна быть возможность подключиться к порталу Azure с помощью учетной записи, которой назначена роль владельца или участника подписки. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
+* **Разрешения на создание в Azure.** У вас должна быть возможность подключиться к порталу Azure с помощью учетной записи, которой назначена роль владельца или участника подписки. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
 
-* Вы изучили руководство [по началу работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure, SQL Server Management Studio](sql-database-get-started.md) или [PowerShell](sql-database-get-started-powershell.md). Если это не так, прежде чем продолжить, изучите руководство по предварительным требованиям или выполните скрипт PowerShell, приведенный в конце версии этого руководства для [PowerShell](sql-database-get-started-powershell.md).
+* **SQL Server Management Studio.** Скачать и установить последнюю версию среды SQL Server Management Studio (SSMS) можно в статье [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). При подключении к базе данных SQL Azure всегда используйте последнюю версию SSMS, так как постоянно выпускаются новые возможности.
+
+* **Базовый сервер и базы данных.** Для установки и настройки сервера и двух баз данных, используемых в данном руководстве, нажмите кнопку **Развертывание в Azure**. При нажатии кнопки открывается колонка **Deploy from a template** (Развертывание из шаблона). Создайте группу ресурсов и предоставьте **пароль для входа администратора** для создаваемого сервера.
+
+   [![Скачивание](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
    > Ознакомление со связанным руководством по аутентификации SQL Server ([Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md)) не является обязательным. Однако в упомянутом руководстве описаны понятия, которые здесь не повторяются. Процедуры из этого руководства, связанные с брандмауэрами уровня сервера и базы данных, не обязательно выполнять, если вы их выполнили во время работы со связанным руководством на тех же компьютерах (и с того же IP-адреса). Также при создании снимков экрана в этом руководстве предполагается, что вы ознакомились со связанным руководством. 

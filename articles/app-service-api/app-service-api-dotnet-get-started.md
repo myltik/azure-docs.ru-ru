@@ -3,7 +3,7 @@ title: "Приступая к работе с приложениями API и AS
 description: "Узнайте, как создать, развернуть и использовать приложение API ASP.NET в службе приложений Azure с помощью Visual Studio 2015."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
@@ -199,7 +199,7 @@ Swashbuckle можно использовать с любыми проектам
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Создание приложения API в Azure и развертывание кода в нем
+## <a id="createapiapp"></a> Создание приложения API в Azure и развертывание кода в нем
 В этом разделе вы создадите приложение API в Azure с помощью инструментов Azure, интегрированных в мастер **Публикация веб-сайта** в Visual Studio. Затем вы развернете проект ToDoListDataAPI в новом приложении API и вызовете API, запустив пользовательский интерфейс Swagger.
 
 1. В **обозревателе решений** щелкните правой кнопкой мыши проект ToDoListDataAPI и выберите пункт **Опубликовать**.
@@ -303,7 +303,7 @@ Swashbuckle можно использовать с любыми проектам
     
     При выборе приложения API, для которого нужно создать код клиента, Visual Studio извлекает метаданные из этого URL-адреса.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Создание кода клиента для уровня данных
+## <a id="codegen"></a> Создание кода клиента для уровня данных
 Одним из преимуществ интеграции платформы Swagger в приложения API Azure является автоматическое создание кода. Созданные классы клиента упрощают написание кода, который вызывает приложение API.
 
 В проекте ToDoListAPI уже есть клиентский код, но на следующих шагах мы удалим его и создадим повторно, чтобы понять, как создается код.

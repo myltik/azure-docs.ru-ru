@@ -12,67 +12,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/31/2017
+ms.date: 03/01/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 57175ddc53d5856cd3492d4c631a92d4bf9247c4
-ms.openlocfilehash: a6c5ff034450c9c6a01feb4ae6d84cebd75a5682
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 6a6fe5e2e706fd8ab4ee6c51cde5b54fa703688b
+ms.lasthandoff: 03/06/2017
 
 ---
 
 # <a name="get-started-sending-messages-to-event-hubs-in-net-standard"></a>Начало работы с отправкой событий в концентраторы событий на платформе .NET Standard
 
 > [!NOTE]
-> Этот пример можно найти на сайте [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender).
+> Этот пример можно найти на сайте [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender).
 
-## <a name="what-will-be-accomplished"></a>Наши задачи:
-
-В этом руководстве показано, как создать существующее решение **SampleSender** (в этой папке). Запустите это решение "как есть", заменив строки `EhConnectionString`, `EhEntityPath` и `StorageAccount` значениями, которые соответствуют вашему концентратору событий. Или следуйте инструкциям этого руководства, чтобы создать собственное решение.
-
-В этом руководстве мы напишем консольное приложение .NET Core для отправки сообщений в концентратор событий.
+В этом руководстве показано, как написать консольное приложение для .NET Core, которое отправляет набор событий в концентратор событий. Запустите решение [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) "как есть", заменив строки `EhConnectionString` и `EhEntityPath` значениями, которые соответствуют вашему концентратору событий и вашей учетной записи хранения. Или следуйте инструкциям этого руководства, чтобы создать собственное решение.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-1. [Visual Studio 2015](http://www.visualstudio.com).
-
-2. [Инструментарий Visual Studio 2015 для .NET Core](http://www.microsoft.com/net/core).
-
+1. [Microsoft Visual Studio 2015 или Microsoft Visual Studio 2017](http://www.visualstudio.com). В примерах в этом руководстве используется Visual Studio 2015, но также поддерживается Visual Studio 2017.
+2. [Инструментарий Visual Studio 2015 или Visual Studio 2017 для .NET Core](http://www.microsoft.com/net/core).
 3. Подписка Azure.
-
 4. Пространство имен концентраторов событий.
-
-## <a name="send-messages-to-an-event-hub"></a>Отправка сообщений в концентратор событий
 
 Для отправки сообщений в концентратор событий мы напишем консольное приложение C# с помощью Visual Studio.
 
-### <a name="create-a-console-application"></a>Создание консольного приложение
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Создание пространства имен концентраторов событий и концентратора событий
 
-* Запустите Visual Studio и создайте консольное приложение .NET Core.
+Первым шагом является использование [портала Azure](https://portal.azure.com) для создания пространства имен типа концентраторов событий и получение учетных данных управления, необходимых приложению для взаимодействия с концентратором событий. Чтобы создать пространство имен и концентратор событий, выполните процедуру, описанную в [этой статье](event-hubs-create.md), а затем перейдите к следующим действиям.
 
-### <a name="add-the-event-hubs-nuget-package"></a>Добавление пакета NuGet для концентраторов событий
+## <a name="create-a-console-application"></a>Создание консольного приложение
 
-* Добавьте в проект пакет NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/).
+Запустите Visual Studio. В меню "Файл" выберите команду **Создать**, а затем — **Проект**. Создайте консольное приложение .NET Core.
 
-### <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Написание кода для отправки сообщений в концентратор событий
+![][1]
 
-1. Добавьте следующую инструкцию `using` в начало файла Program.cs.
+## <a name="add-the-event-hubs-nuget-package"></a>Добавление пакета NuGet для концентраторов событий
 
-    ```cs
+Добавьте в проект пакет NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/).
+
+## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Написание кода для отправки сообщений в концентратор событий
+
+1. Добавьте следующие операторы `using` в начало файла program.cs.
+
+    ```csharp
     using Microsoft.Azure.EventHubs;
+    using System.Text;
     ```
 
 2. Добавьте в класс `Program` константы для строки подключения концентраторов событий и пути сущности (имя отдельного концентратора событий). Замените заполнители в скобках соответствующими значениями, которые были получены при создании концентратора событий.
 
-    ```cs
+    ```csharp
     private static EventHubClient eventHubClient;
     private const string EhConnectionString = "{Event Hubs connection string}";
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Добавьте новый метод с именем `MainAsync` в класс `Program`:
+3. Добавьте новый метод с именем `MainAsync` в класс `Program`, как показано далее:
 
-    ```cs
+    ```csharp
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
@@ -89,14 +87,14 @@ ms.lasthandoff: 02/21/2017
 
         await eventHubClient.CloseAsync();
 
-        Console.WriteLine("Press any key to exit.");
+        Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
     }
     ```
     
 4. Добавьте новый метод с именем `SendMessagesToEventHub` в класс `Program`:
 
-    ```cs
+    ```csharp
     // Creates an Event Hub client and sends 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
@@ -122,31 +120,31 @@ ms.lasthandoff: 02/21/2017
 
 5. В метод `Main` в классе `Program` добавьте следующий код.
 
-    ```cs
+    ```csharp
     MainAsync(args).GetAwaiter().GetResult();
     ```
 
-    Вот как будет выглядеть файл Program.cs.
+   Вот как будет выглядеть файл Program.cs.
 
-    ```cs
+    ```csharp
     namespace SampleSender
     {
         using System;
         using System.Text;
         using System.Threading.Tasks;
         using Microsoft.Azure.EventHubs;
-    
+       
         public class Program
         {
             private static EventHubClient eventHubClient;
             private const string EhConnectionString = "{Event Hubs connection string}";
             private const string EhEntityPath = "{Event Hub path/name}";
-    
+        
             public static void Main(string[] args)
             {
                 MainAsync(args).GetAwaiter().GetResult();
             }
-    
+        
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
@@ -156,17 +154,17 @@ ms.lasthandoff: 02/21/2017
                 {
                     EntityPath = EhEntityPath
                 };
-    
+        
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-    
+        
                 await SendMessagesToEventHub(100);
-    
+        
                 await eventHubClient.CloseAsync();
-    
-                Console.WriteLine("Press any key to exit.");
+        
+                Console.WriteLine("Press ENTER to exit.");
                 Console.ReadLine();
             }
-    
+        
             // Creates an Event Hub client and sends 100 messages to the event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
@@ -182,10 +180,10 @@ ms.lasthandoff: 02/21/2017
                     {
                         Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
                     }
-    
+        
                     await Task.Delay(10);
                 }
-    
+        
                 Console.WriteLine($"{numMessagesToSend} messages sent.");
             }
         }
@@ -203,3 +201,5 @@ ms.lasthandoff: 02/21/2017
 * [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
+
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png

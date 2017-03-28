@@ -1,6 +1,6 @@
 ---
 title: "Открытие портов для виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 | Документация Майкрософт"
-description: "Узнайте, как открыть порт или создать конечную точку для виртуальной машины Linux, используя модель развертывания с помощью Azure Resource Manager и интерфейса командной строки Azure версии 2.0 (предварительная версия)."
+description: "Узнайте, как открыть порт или создать конечную точку для виртуальной машины Linux, используя модель развертывания с помощью Azure Resource Manager и Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,27 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/8/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: aae141307a0ea68f0d9e481cf22a9055216c98c0
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2e086311a509432454a7b5e188591605d27c6999
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-20"></a>Открытие портов и конечных точек для виртуальной машины Linux в Azure с помощью интерфейса командной строки Azure 2.0
-Чтобы открыть порт или создать конечную точку для виртуальной машины в Azure, создайте сетевой фильтр для подсети или сетевого интерфейса виртуальной машины. Эти фильтры, контролирующие входящий и исходящий трафик, добавляются в группу безопасности сети и присоединяются к ресурсу, который будет получать трафик. Давайте используем распространенный пример веб-трафика через порт 80. В этой статье показано, как открыть порт для виртуальной машины с помощью интерфейса командной строки Azure версии 2.0 (предварительная версия).
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-- [Azure CLI 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](#quick-commands) — интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
+# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Открытие портов и конечных точек для виртуальной машины Linux с помощью интерфейса командной строки Azure
+Чтобы открыть порт или создать конечную точку для виртуальной машины в Azure, создайте сетевой фильтр для подсети или сетевого интерфейса виртуальной машины. Эти фильтры, контролирующие входящий и исходящий трафик, добавляются в группу безопасности сети и присоединяются к ресурсу, который будет получать трафик. Давайте используем распространенный пример веб-трафика через порт 80. В этой статье показано, как открыть порт для виртуальной машины с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="quick-commands"></a>Быстрые команды
-Для создания группы безопасности сети и правил необходимо установить [интерфейс командной строки Azure 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+Для создания группы безопасности сети и правил необходимо установить [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров: `myResourceGroup`, `myNetworkSecurityGroup` и `myVnet`.
 
@@ -80,10 +74,5 @@ az network vnet subnet update --resource-group myResourceGroup \
 * [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 * [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

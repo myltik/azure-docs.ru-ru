@@ -1,5 +1,5 @@
 ---
-title: "Уровни согласованности в DocumentDB | Документация Майкрософт"
+title: "Уровни согласованности в Azure DocumentDB | Документы Майкрософт"
 description: "В DocumentDB есть четыре уровня согласованности, что позволяет сбалансировать компромиссы между согласованностью в конечном итоге, доступностью и задержками."
 keywords: "окончательная согласованность, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>Уровни согласованности в DocumentDB
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>Настраиваемые уровни согласованности данных в DocumentDB
 Служба Azure DocumentDB была разработана "с нуля", при этом в ее основу заложены возможности глобального распространения данных. Она предлагает гарантии прогнозируемой низкой задержки, соглашение об уровне обслуживания, обеспечивающее 99,99 % доступности, и нескольких четко определенных моделей нестрогой согласованности. Сейчас DocumentDB поддерживает четыре уровня согласованности: строгий, с ограниченным устареванием, уровня сеанса и согласованность в конечном счете. Помимо **строгой** модели и модели **согласованности в конечном счете**, обычно предусмотренных в других базах данных NoSQL, DocumentDB также предлагает две тщательно кодифицированные и реализованные практически модели согласованности — **ограниченное устаревание** и **уровня сеанса**, эффективность которых была подтверждена реальными случаями использования. Все вместе эти четыре уровня согласованности позволяют принимать обоснованные компромиссы между показателями согласованности, доступности и задержки. 
 
 ## <a name="scope-of-consistency"></a>Область действия согласованности
@@ -116,9 +118,4 @@ ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

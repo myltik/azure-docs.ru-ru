@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: pajosh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c5b2969ddc943b2b15826003f5a9e686e84e1c4
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: ddb9e7909eb4ab97204059d21690795ceb6ff9e8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Восстановление ключа и секрета в хранилище ключей для зашифрованных виртуальных машин с помощью службы архивации Azure
+# <a name="restore-an-encrypted-virtual-machine-from-an-azure-backup-recovery-point"></a>Восстановление зашифрованной виртуальной машины из точки восстановления службы архивации Azure
 В этой статье рассказывается об использовании службы архивации виртуальных машин Azure для восстановления зашифрованных виртуальных машин Azure, когда ключ и секрет отсутствуют в хранилище ключей. Эта процедура будет также полезной, если нужно хранить отдельную копию ключа (ключ шифрования ключа) и секрета (ключ шифрования BitLocker) для восстанавливаемой виртуальной машины.
 
 ## <a name="pre-requisites"></a>Предварительные требования
@@ -89,10 +91,10 @@ PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $
 
 > [!NOTE]
 > После успешного выполнения этого командлета в указанной папке на локальном компьютере создается файл большого двоичного объекта. Этот файл большого двоичного объекта содержит ключ шифрования ключа в зашифрованном виде.
-> 
-> 
+>
+>
 
-Восстановите ключ в хранилище ключей с помощью следующего командлета. 
+Восстановите ключ в хранилище ключей с помощью следующего командлета.
 
 ```
 PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
@@ -108,11 +110,11 @@ https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848
 ```
 
 > [!NOTE]
-> Текст перед строкой vault.azure.net содержит исходное имя хранилища ключей. Текст после строки secrets/ содержит имя секрета. 
-> 
-> 
+> Текст перед строкой vault.azure.net содержит исходное имя хранилища ключей. Текст после строки secrets/ содержит имя секрета.
+>
+>
 
-Если вы хотите и далее использовать это же имя секрета, получите имя и значение секрета из выходных данных выполненного выше командлета. В других случаях обновите переменную $secretname, как показано ниже, чтобы установить новое имя секрета. 
+Если вы хотите и далее использовать это же имя секрета, получите имя и значение секрета из выходных данных выполненного выше командлета. В других случаях обновите переменную $secretname, как показано ниже, чтобы установить новое имя секрета.
 
 ```
 PS C:\> $secretname = "B3284AAA-DAAA-4AAA-B393-60CAA848AAAA"
@@ -120,7 +122,7 @@ PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 ```
 
-Определите для секрета теги, если нужно одновременно восстановить виртуальную машину. Значение тега DiskEncryptionKeyFileName должно содержать имя секрета, который вы хотите использовать. 
+Определите для секрета теги, если нужно одновременно восстановить виртуальную машину. Значение тега DiskEncryptionKeyFileName должно содержать имя секрета, который вы хотите использовать.
 
 ```
 PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
@@ -128,8 +130,8 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 
 > [!NOTE]
 > Значение для DiskEncryptionKeyFileName совпадает с именем секрета, полученным ранее. Значение для DiskEncryptionKeyEncryptionKeyURL можно получить из хранилища ключей после восстановления ключей с помощью командлета [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx).    
-> 
-> 
+>
+>
 
 Поместите секрет обратно в хранилище ключей.
 
@@ -139,10 +141,4 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -
 
 ### <a name="restore-virtual-machine"></a>Восстановление виртуальной машины
 Указанные выше командлеты PowerShell позволяют восстановить ключ и секрет в хранилище ключей, если ранее была создана резервная копия зашифрованной виртуальной машины с помощью службы архивации виртуальных машин Azure. После их восстановления переходите к статье [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) (Управление резервным копированием и восстановлением виртуальных машин Azure с помощью PowerShell), в которой описано, как восстанавливать зашифрованные виртуальные машины.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

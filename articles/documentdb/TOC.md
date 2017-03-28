@@ -1,8 +1,10 @@
 
 # Обзор
 ## [Что такое DocumentDB?](documentdb-introduction.md)
+## [Что такое DocumentDB: API для MongoDB?](documentdb-protocol-mongodb.md)
 ## [Ключевые понятия](documentdb-resources.md)
 ## [Глобальное распределение](documentdb-distribute-data-globally.md)
+## [Безопасность](documentdb-nosql-database-security.md)
 ## [Анализ совокупной стоимости владения базой данных NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Сценарии
 ### [Распространенные варианты использования](documentdb-use-cases.md)
@@ -14,9 +16,11 @@
 ### [Консольное приложение .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Консольное приложение Java](documentdb-java-get-started.md)
 ### [Консольное приложение Node.js](documentdb-nodejs-get-started.md)
+### [Консольное приложение Node.js для API MongoDB](documentdb-mongodb-samples.md)
 ### [Консольное приложение C++](documentdb-cpp-get-started.md)
 ## Создание веб-приложения
 ### [Веб-приложение .NET](documentdb-dotnet-application.md)
+### [Веб-приложение .NET для API MongoDB](documentdb-mongodb-application.md)
 ### [Веб-приложение Node.js](documentdb-nodejs-application.md)
 ### [Веб-приложение Java](documentdb-java-application.md)
 ### [Веб-приложения Python Flask](documentdb-python-application.md)
@@ -33,42 +37,38 @@
 ### [Экономичные операции чтения и записи](documentdb-key-value-store-cost.md)
 
 ## Управление
-### [Импорт данных](documentdb-import-data.md)
-### [Моделирование данных](documentdb-modeling-data.md)
-### [Использование геопространственных данных](documentdb-geospatial.md)
-### [Разработка для нескольких регионов](documentdb-developing-with-multiple-regions.md)
-### [Отработка отказа между регионами](documentdb-regional-failovers.md)
-### [Автоматическое истечение срока хранения данных](documentdb-time-to-live.md)
-### [Настройка индексов](documentdb-indexing-policies.md)
-### [Безопасный доступ к данным](documentdb-secure-access-to-data.md)
-### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
-### [Снятие с учета S1, S2, S3](documentdb-performance-levels.md)
 ### [Единиц запросов](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Создание учетной записи](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Добавление и удаление регионов](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Поддерживаемые брандмауэры](documentdb-firewall-support.md)
+### [Импорт данных](documentdb-import-data.md)
+### [Импорт в API для MongoDB](documentdb-mongodb-migrate.md)
+### [Подключение к учетной записи MongoDB](documentdb-connect-mongodb-account.md)
+### [Использование MongoChef](documentdb-mongodb-mongochef.md)
+### [Использование Robomongo](documentdb-mongodb-robomongo.md)
+### [Моделирование данных](documentdb-modeling-data.md)
+### [Автоматическое истечение срока хранения данных](documentdb-time-to-live.md)
+### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
+### [Отработка отказа между регионами](documentdb-regional-failovers.md)
+### Служба автоматизации
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: создание учетной записи](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: добавление и удаление регионов](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Безопасность
+#### [Безопасный доступ к данным](documentdb-secure-access-to-data.md)
+#### [Поддерживаемые брандмауэры](documentdb-firewall-support.md)
+### [Снятие с учета S1, S2, S3](documentdb-performance-levels.md)
 
 ## Разработка
 ### [SQL query](documentdb-sql-query.md)
 ### [Хранимые процедуры, триггеры и определяемые пользователем функции](documentdb-programming.md)
+### [Настройка индексов](documentdb-indexing-policies.md)
+### [Развертывание в нескольких регионах](documentdb-developing-with-multiple-regions.md)
 ### [Отслеживание изменений с помощью веб-канала изменений](documentdb-change-feed.md)
+### [Использование геопространственных данных](documentdb-geospatial.md)
 ### [Тестирование производительности](documentdb-performance-testing.md)
 ### [Советы по улучшению производительности](documentdb-performance-tips.md)
 ### Рекомендации
 #### [Архитектура с несколькими источниками](documentdb-multi-region-writers.md)
 #### [Дата и время](documentdb-working-with-dates.md)
-
-## Поддержка DocumentDB для MongoDB
-### [Протокол поддержки для MongoDB](documentdb-protocol-mongodb.md)
-### [Создание учетной записи](documentdb-create-mongodb-account.md)
-### [Подключение к учетной записи](documentdb-connect-mongodb-account.md)
-### [Перенос данных](documentdb-mongodb-migrate.md)
-### [Использование Robomongo](documentdb-mongodb-robomongo.md)
-### [Использование MongoChef](documentdb-mongodb-mongochef.md)
-### [Примеры поддержки протокола](documentdb-mongodb-samples.md)
 
 ## Использование портала
 ### [Создание учетной записи базы данных](documentdb-create-account.md)

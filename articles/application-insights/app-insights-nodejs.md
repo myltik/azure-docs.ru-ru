@@ -1,5 +1,5 @@
 ---
-title: "Мониторинг приложения Node.js с помощью пакета SDK для Azure Application Insights | Документация Майкрософт"
+title: "Мониторинг приложения Node.js с помощью Azure Application Insights | Документация Майкрософт"
 description: "Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 services: application-insights
 documentationcenter: 
@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/23/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
-ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b4e2ca39cf13b25ee02afec3867a57ab4b665cbd
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/23/2017
 
 * подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Создание ресурса Application Insights
+## <a name="add"></a>Создание ресурса Application Insights
 Войдите на [портал Azure][portal] и создайте ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
 
 ![Нажмите "Создать" и "Application Insights"](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/23/2017
 
 ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Установка пакета SDK в приложении
+## <a name="sdk"></a> Установка пакета SDK в приложении
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ appInsights.setup("<instrumentation_key>").start();
 
 Вы можете попробовать пакет SDK, не отправляя данные телеметрии. Для этого сделайте ключ инструментирования непустой строкой.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a>Запуск проекта
+## <a name="run"></a>Запуск проекта
 Запустите приложение и попробуйте им воспользоваться. Открывайте разные страницы, чтобы создать некоторый объем данных телеметрии.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Просмотр своих данных телеметрии
+## <a name="monitor"></a> Просмотр своих данных телеметрии
 Вернитесь на [портал Azure](https://portal.azure.com) и перейдите к своему ресурсу Application Insights.
 
 Поищите данные на странице "Обзор". Сначала вы увидите только одну или две точки. Например:
@@ -86,10 +86,7 @@ appInsights.setup("<instrumentation_key>").start();
 Теперь разверните свое приложение в IIS или Azure и наблюдайте за тем, как накапливаются данные.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Отсутствуют данные после публикации на сервере?
-Откройте следующие порты для исходящего трафика в брандмауэре сервера:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Убедитесь, что [необходимые порты брандмауэра открыты](app-insights-ip-addresses.md).
 
 #### <a name="trouble-on-your-build-server"></a>Проблемы на сервере сборки?
 Изучите [этот элемент устранения неполадок](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
@@ -184,6 +181,10 @@ server.on("listening", () => {
     appInsights.client.trackMetric("StartupTime", duration);
 });
 ```
+
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Навигация и панели мониторинга на портале Application Insights](app-insights-dashboards.md)

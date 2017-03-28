@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: fc681f21925464d37c43a7fae4f6deaf75e357b2
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе Azure
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе
+
 Многоэкземплярные задачи позволяют выполнять задачи пакетной службы Azure на нескольких вычислительных узлах одновременно. Эти задачи реализуют в пакетной службе такие сценарии высокопроизводительных вычислений, как приложения интерфейса передачи сообщений (MPI). Из этой статьи вы узнаете, как выполнять задачи с несколькими экземплярами с помощью библиотеки [.NET пакетной службы][api_net].
 
 > [!NOTE]
@@ -272,7 +275,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ### <a name="execution"></a>Выполнение
 1. Скачайте файл [azure-batch-samples][github_samples_zip] из GitHub.
-2. Откройте **решение** MultiInstanceTasks в Visual Studio 2015. Файл решения `MultiInstanceTasks.sln` находится в следующем расположении:
+2. Откройте **решение** MultiInstanceTasks в Visual Studio 2015 или более поздней версии. Файл решения `MultiInstanceTasks.sln` находится в следующем расположении:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Введите данные своей учетной записи пакетной службы и учетной записи хранения в `AccountSettings.settings` в проекте **Microsoft.Azure.Batch.Samples.Common**.
@@ -366,9 +369,4 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Общие сведения о нескольких экземплярах"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

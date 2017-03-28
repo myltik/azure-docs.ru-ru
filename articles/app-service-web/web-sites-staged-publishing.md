@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: c002c4588869536810b969aed80da09e60b62525
-ms.openlocfilehash: 9b06b4a7f4b58c586b81d0ad4a40dfdc586dfe6e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 51aabf4938714c597ae0cfb2ec524f326b6e355a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -232,11 +233,11 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Команды интерфейса командной строки Azure (Azure CLI) для слотов развертывания
 Интерфейс командной строки Azure предоставляет набор кроссплатформенных команд для работы с Azure, а также поддерживает управление слотами развертывания для службы приложений.
 
-* Инструкции по установке и настройке интерфейса командной строки Azure, включая сведения о том, как его подключить к подписке Azure, см. в разделе [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md).
+* Инструкции по установке и настройке интерфейса командной строки Azure, включая сведения о том, как его подключить к подписке Azure, см. в разделе [Установка и настройка интерфейса командной строки Azure](../cli-install-nodejs.md).
 * Чтобы получить список команд, доступных для службы приложений Azure в интерфейсе командной строки Azure, вызовите `azure site -h`.
 
 > [!NOTE] 
-> Чтобы ознакомиться с командами [Azure CLI 2.0 (предварительная версия)](https://github.com/Azure/azure-cli) для слотов развертывания, вызовите команду [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
+> Чтобы ознакомиться с командами [Azure CLI 2.0](https://github.com/Azure/azure-cli) для слотов развертывания, выполните команду [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>azure site list
@@ -291,10 +292,5 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

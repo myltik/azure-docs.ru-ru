@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7ad5eb2e53e846e7f19e9f136249e4ae280bf996
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -73,6 +74,9 @@ ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
 | Дополнительные конечные точки | Платные центры SKU могут иметь 10 дополнительных конечных точек. Бесплатные центры SKU могут иметь одну дополнительную конечную точку. |
 | Правила маршрутизации сообщений | Платные центры SKU могут иметь 100 правил маршрутизации. Бесплатные центры SKU могут иметь пять правил маршрутизации. |
 
+> [!NOTE]
+> Сейчас максимальное число устройств, которые можно подключить к одному Центру Интернета вещей, составляет 500 000. Чтобы увеличить это число, обратитесь в [службу поддержки Майкрософт](https://azure.microsoft.com/en-us/support/options/).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Другие справочные статьи в руководстве для разработчиков Центра Интернета вещей:
 
@@ -87,9 +91,4 @@ ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

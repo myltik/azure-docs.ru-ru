@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
 ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -55,7 +56,7 @@ Azure AD пытается отслеживать метаданные федер
 >
 >
 
-## <a name="check-if-the-certificates-need-to-be-updated-a-namemanagecertsa"></a>Проверка необходимости в обновлении сертификатов <a name="managecerts"></a>
+## Проверка необходимости в обновлении сертификатов <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Шаг 1. Проверка состояния свойства AutoCertificateRollover
 На сервере AD FS откройте PowerShell. Удостоверьтесь, что для AutoCertificateRollover задано значение True.
 
@@ -95,7 +96,7 @@ Azure AD пытается отслеживать метаданные федер
 
 \[-] — не имеет значения
 
-## <a name="renew-the-token-signing-certificate-automatically-recommended-a-nameautorenewa"></a>Автоматическое возобновление действия сертификата для подписи маркера (рекомендуется) <a name="autorenew"></a>
+## Автоматическое возобновление действия сертификата для подписи маркера (рекомендуется) <a name="autorenew"></a>
 Если приведенные ниже условия выполняются, ничего не нужно делать вручную.
 
 * Вы развернули прокси веб-приложения, предоставляющий доступ к метаданным федерации из экстрасети.
@@ -113,7 +114,7 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 Пример: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## <a name="renew-the-token-signing-certificate-manually-a-namemanualrenewa"></a>Возобновление действия сертификата для подписи маркера вручную <a name="manualrenew"></a>
+## Возобновление действия сертификата для подписи маркера вручную <a name="manualrenew"></a>
 Сертификаты для подписи маркеров можно обновить вручную. Например, в следующих сценариях лучше выполнять ручное обновление.
 
 * Сертификаты для подписи маркеров не являются самозаверяющими. Вероятнее всего, это происходит потому, что ваша организация использует сертификаты AD FS, зарегистрированные в центре сертификации организации.
@@ -160,13 +161,8 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 >
 >
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-a-nameconnectrenewa"></a>Восстановление доверия Azure AD с помощью Azure AD Connect <a name="connectrenew"></a>
+## Восстановление доверия Azure AD с помощью Azure AD Connect <a name="connectrenew"></a>
 Если вы настроили ферму AD FS и доверие Azure AD, используя Azure AD Connect, то с помощью Azure AD Connect можно определить, нужно ли выполнять какие-либо действия с сертификатами для подписи маркеров. Если требуется обновить сертификаты, используйте Azure AD Connect.
 
 Дополнительные сведения см. в разделе [Восстановление доверия](active-directory-aadconnect-federation-management.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

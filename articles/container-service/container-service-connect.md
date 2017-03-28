@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
-ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="connect-to-an-azure-container-service-cluster"></a>Подключение к кластеру службы контейнеров Azure
+# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Создание удаленного подключения к кластеру Kuburnetes, DC/OS или Docker Swarm
 После создания кластера службы контейнеров Azure необходимо подключиться к кластеру, чтобы развертывать рабочие нагрузки и управлять ими. В этой статье описывается подключение к главной виртуальной машине кластера с удаленного компьютера. 
 
 Кластеры Kubernetes, DC/OS и Docker Swarm предоставляют конечные точки HTTP локально. При использовании Kubernetes к этой конечной точке предоставляется безопасный доступ через Интернет, и к ней можно обратиться, выполнив команду `kubectl` в программе командной строки на любом компьютере, подключенном к Интернету. 

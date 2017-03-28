@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
+ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
+ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -139,6 +140,9 @@ namespaceManager.CreateTopic(td);
 
 Если в экспресс-сущность отправляется сообщение с критически важной информацией, которая не должна быть потеряна, то отправитель может дать команду служебной шине принудительно записать сообщение в постоянное хранилище. Для этого свойству [ForcePersistence][ForcePersistence] задается значение **true**.
 
+> [!NOTE]
+> Обратите внимание, что транзакции не поддерживаются экспресс-сущностями.
+
 ## <a name="use-of-partitioned-queues-or-topics"></a>Использование секционированных очередей или разделов
 Для обработки и хранения всех сообщений для сущности сообщений (очереди или раздела) внутри служебной шины используется один узел и хранилище обмена сообщениями. С другой стороны, секционирование очередей или разделов позволяет распределять их между несколькими узлами и хранилищами обмена сообщениями. Секционированные очереди и разделы не только повышают пропускную способность в сравнении с обычными очередями и разделами, но также обеспечивают высочайший уровень доступности. Чтобы создать секционированную сущность, задайте для свойства [EnablePartitioning][EnablePartitioning] значение **true**, как показано в следующем примере. Дополнительные сведения о секционированных сущностях см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
 
@@ -256,9 +260,4 @@ namespaceManager.CreateQueue(qd);
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
 [TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

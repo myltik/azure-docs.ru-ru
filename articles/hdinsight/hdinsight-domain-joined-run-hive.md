@@ -10,14 +10,15 @@ tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 9ddeaea93af8d5a4356d49da76cb64f5e43657db
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -90,7 +91,7 @@ ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
     Тип сервера Hive|Выберите <strong>Hive Server 2</strong>.
     Механизм|Выберите <strong>Служба Azure HDInsight</strong>.
     Путь HTTP|Оставьте пустым.
-    Имя пользователя|Введите hiveuser1@contoso158.onmicrosoft.com.. Обновите имя домена, если оно отличается.
+    Имя пользователя|Укажите hiveuser1@contoso158.onmicrosoft.com. Обновите имя домена, если оно отличается.
     Пароль|Введите пароль для hiveuser1.
     </table>
 
@@ -143,9 +144,4 @@ ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
 * Сведения о подключении к Hive с помощью Hive JDBC см. в статье [Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 * Сведения о подключении Excel к Hadoop с помощью Hive ODBC см. в статье [Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md).
 * Сведения о подключении Excel к Hadoop с помощью Power Query см. в [этой статье](hdinsight-connect-excel-power-query.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

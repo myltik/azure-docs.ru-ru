@@ -16,13 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: f7562c2bb6ad354ece3aa3c51fdaabad8e878fa9
-
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 2f4ea765df71ed9aac7e8657e6be3706b635407e
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-an-availability-set"></a>"Создать группу доступности"
+# <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Повышение уровня доступности виртуальной машины с помощью группы доступности Azure 
 Группы доступности обеспечивают избыточность приложения. Мы рекомендуем включить две или больше виртуальных машин в группу доступности. Эта конфигурация обеспечит доступность не менее одной виртуальной машины и достижение показателя 99,95 % уровня обслуживания (SLA) Azure как при событиях запланированного обслуживания, так и при незапланированного. Дополнительные сведения см. в статье о [соглашении об уровне обслуживания для виртуальных машин](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
@@ -94,10 +95,5 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Увеличьте емкость хранилища для виртуальной машины, добавив дополнительный [диск данных](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

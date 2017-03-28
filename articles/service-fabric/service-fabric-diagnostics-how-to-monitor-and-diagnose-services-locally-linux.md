@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 86ed3f25f0bdd6bb5d8a93f124a0d2bcd7e2b07a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,15 +36,15 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="debugging-service-fabric-java-applications"></a>Отладка приложений Java в Service Fabric
 
-Для приложений Java доступно [несколько платформ ведения журналов](http://en.wikipedia.org/wiki/Java_logging_framework) . Так как `java.util.logging` является параметром по умолчанию в среде JRE, он также используется для [примеров кода в GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Далее в этой статье описывается настройка платформы `java.util.logging` . 
- 
-С помощью java.util.logging журналы приложения можно перенаправлять в память, потоки вывода, файлы консоли или сокеты. Для каждого из этих вариантов существуют обработчики по умолчанию, входящие в состав платформы. Чтобы настроить обработчик файлов для приложения, который будет перенаправлять все журналы в локальный файл, можно создать файл `app.properties`. 
+Для приложений Java доступно [несколько платформ ведения журналов](http://en.wikipedia.org/wiki/Java_logging_framework) . Так как `java.util.logging` является параметром по умолчанию в среде JRE, он также используется для [примеров кода в GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Далее в этой статье описывается настройка платформы `java.util.logging` .
 
-Пример конфигурации приведен в следующем фрагменте кода: 
+С помощью java.util.logging журналы приложения можно перенаправлять в память, потоки вывода, файлы консоли или сокеты. Для каждого из этих вариантов существуют обработчики по умолчанию, входящие в состав платформы. Чтобы настроить обработчик файлов для приложения, который будет перенаправлять все журналы в локальный файл, можно создать файл `app.properties`.
 
-```java 
+Пример конфигурации приведен в следующем фрагменте кода:
+
+```java
 handlers = java.util.logging.FileHandler
- 
+
 java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
@@ -54,13 +54,17 @@ java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 
 Файл `app.properties` должен указывать на существующую папку. Затем, после создания файла `app.properties`, необходимо также изменить сценарий точки входа `entrypoint.sh` в папке `<applicationfolder>/<servicePkg>/Code/`, указав в качестве значения свойства `java.util.logging.config.file` файл `app.propertes`. Запись должна выглядеть примерно так:
 
-```sh 
+```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
- 
- 
-В результате применения этой конфигурации журналы будут циклически собираться в папку `/tmp/servicefabric/logs/`. Параметры **%u** и **%g** позволяют создавать файлы с именами mysfapp0.log, mysfapp1.log и так далее. Если обработчик не настроен явно, по умолчанию регистрируется обработчик консоли. Просмотреть журналы в системном журнале можно в папке /var/log/syslog.
- 
+
+
+В результате применения этой конфигурации журналы будут циклически собираться в папку `/tmp/servicefabric/logs/`. В этом случае файл журнала называется mysfapp%u.%g.log, где:
+* **%u** — это уникальный номер для разрешения конфликтов между параллельными процессами Java.
+* **%g** — это номер версии для отличия чередующихся журналов.
+
+Если обработчик не настроен явно, по умолчанию регистрируется обработчик консоли. Просмотреть журналы в системном журнале можно в папке /var/log/syslog.
+
 Дополнительные сведения см. на странице с [примерами кода на GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 
@@ -78,7 +82,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 Можно использовать пользовательский EventListener, чтобы прослушивать события службы и соответствующим образом перенаправлять их в файлы трассировки. В следующем фрагменте кода показан пример реализации ведения журналов с помощью EventSource и пользовательского EventListener.
 
 
-```c#
+```csharp
 
  public class ServiceEventSource : EventSource
  {
@@ -93,7 +97,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
                 this.Message(finalMessage);
             }
         }
-        
+
         // TBD: Need to add method for sample event.
 
 }
@@ -101,7 +105,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 
-```
+```csharp
    internal class ServiceEventListener : EventListener
    {
 
@@ -112,7 +116,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        {  
+        { 
                  // report all event information               
           Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
@@ -130,11 +134,11 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 Предыдущий фрагмент кода выводит журналы в файл в `/tmp/MyServiceLog.txt`. Это имя файла должно быть обновлено соответствующим образом. Если вы хотите перенаправить журналы в консоль, используйте следующий фрагмент кода в классе настраиваемого EventListener:
 
-```
+```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-Образцы на языке C# [в репозитории GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) регистрируют события в файл с помощью EventSource и пользовательского EventListener. 
+Образцы на языке C# [в репозитории GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) регистрируют события в файл с помощью EventSource и пользовательского EventListener.
 
 
 

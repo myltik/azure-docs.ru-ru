@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
-ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
-ms.lasthandoff: 02/18/2017
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="create-an-access-change-history-report"></a>Создание отчета по журналу изменений доступа
+# <a name="create-an-access-report-for-role-based-access-control"></a>Создание отчета о доступе для управления доступом на основе ролей
 Когда кто-то предоставляет или отменяет доступ в рамках ваших подписок, изменения регистрируются в журнале событий Azure. Чтобы просмотреть все изменения за последние 90 дней, создайте отчет по журналу изменений доступа.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Создание отчета с помощью Azure PowerShell

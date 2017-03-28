@@ -12,11 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/07/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 624f5947e31f08f689ceb6c48bc572447acd64ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -57,22 +58,21 @@ ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
 2. Добавьте следующий класс **MessageCallback** как вложенный класс внутри класса **App**. Метод **execute** вызывается, когда устройство получает сообщение из центра IoT. В этом примере устройство всегда уведомляет Центр Интернета вещей о завершении отправки сообщения:
    
     ```
-    private static class MessageCallback implements
-    com.microsoft.azure.iothub.MessageCallback {
+    private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-   
+    
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
-3. Измените метод **main**, чтобы создать экземпляр **MessageCallback** и вызвать метод **setMessageCallback** перед открытием клиента.
+3. Измените метод **main**, чтобы создать экземпляр **AppMessageCallback** и вызвать метод **setMessageCallback** перед открытием клиента.
    
     ```
     client = new DeviceClient(connString, protocol);
    
-    MessageCallback callback = new MessageCallback();
+    MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
@@ -95,17 +95,21 @@ ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.2.16</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > Наличие последней версии пакета **iot-service-client** можно проверить с помощью [поиска Maven][lnk-maven-service-search].
+
 4. Сохраните и закройте файл pom.xml.
 5. Откройте в текстовом редакторе файл send-c2d-messages\src\main\java\com\mycompany\app\App.java.
 6. Добавьте в файл следующие инструкции **import** .
    
     ```
-    import com.microsoft.azure.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -114,9 +118,9 @@ ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
-    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQP;
+    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
-8. Замените метод **main** следующим кодом, который подключается к центру IoT, отправляет сообщение на устройство, а затем ждет подтверждения о том, что устройство получило и обработало это сообщение.
+8. Замените метод **main** следующим кодом, который подключается к Центру Интернета вещей, отправляет сообщение на устройство, а затем ждет подтверждения о том, что устройство получило и обработало это сообщение.
    
     ```
     public static void main(String[] args) throws IOException,
@@ -192,9 +196,4 @@ ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
 [Обработка временного сбоя]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [портале Azure]: https://portal.azure.com
 [документации по Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

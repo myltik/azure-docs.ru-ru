@@ -53,7 +53,7 @@
 При выполнении команды **New-AzureRMResourceGroupDeployment** появится запрос на ввод значений для параметров шаблона. В зависимости от шаблона для развертывания в Azure может потребоваться некоторое время.
 
 ## <a name="azure-cli"></a>Интерфейс командной строки Azure
-[Установите интерфейс командной строки Azure](../articles/xplat-cli-install.md), выполните вход и убедитесь в том, что команды Resource Manager включены. Инструкции см. в статье [Использование интерфейса командной строки Azure для Mac, Linux и Windows с помощью Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+[Установите интерфейс командной строки Azure](../articles/cli-install-nodejs.md), выполните вход и убедитесь в том, что команды Resource Manager включены. Инструкции см. в статье [Использование интерфейса командной строки Azure для Mac, Linux и Windows с помощью Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Выполните следующие команды, чтобы создать группу ресурсов и развертывание, заменив заключенный в скобки текст на имя группы ресурсов, расположение, имя развертывания и имя шаблона:
 
@@ -66,9 +66,4 @@
 Ознакомьтесь со всеми шаблонами в вашем распоряжении на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Узнайте больше о [диспетчере ресурсов Azure](../articles/resource-group-template-deploy.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

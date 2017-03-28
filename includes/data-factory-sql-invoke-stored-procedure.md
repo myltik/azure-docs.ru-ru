@@ -65,8 +65,3 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 Функциональность хранимой процедуры использует преимущества [параметров с табличным значением](https://msdn.microsoft.com/library/bb675163.aspx).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

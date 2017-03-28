@@ -1,6 +1,6 @@
 ---
 title: "Развертывание кластера контейнера Docker с помощью Azure CLI | Документация Майкрософт"
-description: "Развертывание кластера Службы контейнеров Azure с использованием Azure CLI 2.0."
+description: "Развертывание решений Kubernetes, DC/OS или Docker Swarm в службе контейнеров Azure с помощью Azure CLI 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: a0cbf24c2e2f1e6f3a1d2097e6146c09b4eee4fe
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Использование Azure CLI 2.0 для создания кластера Службы контейнеров Azure
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Развертывание решения для размещения контейнера Docker с помощью Azure CLI 2.0
 
 Чтобы создать кластер и управлять им в Службе контейнеров Azure, используйте команды `az acs` в Azure CLI 2.0. Вы также можете развернуть кластер Службы контейнеров Azure с помощью [портала Azure](container-service-deployment.md) или с помощью интерфейсов API Службы контейнеров Azure.
 

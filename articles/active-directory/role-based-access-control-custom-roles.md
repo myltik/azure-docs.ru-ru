@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/21/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
-ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="custom-roles-in-azure-rbac"></a>Пользовательские роли в Azure RBAC
+# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Создание пользовательских ролей для управления доступом на основе ролей в Azure
 Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](role-based-access-control-manage-access-rest.md). Пользовательские роли, так же как и встроенные, могут назначаться пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут совместно использоваться всеми подписками, которые используют этот клиент как каталог Azure AD для подписки.
 
 Ниже приведен пример пользовательской роли, которая позволяет выполнять мониторинг и перезапуск виртуальных машин.
@@ -59,7 +60,7 @@ ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
 * `*/read` предоставляет доступ к операциям чтения для всех типов ресурсов для всех поставщиков ресурсов Azure;
 * `Microsoft.Compute/*` предоставляет доступ ко всем операциям для всех типов ресурсов в поставщике ресурсов Microsoft.Compute.
 * `Microsoft.Network/*/read` предоставляет доступ к операциям чтения для всех типов ресурсов для поставщика ресурсов Microsoft.Network;
-* `Microsoft.Compute/virtualMachines/*` предоставляет доступ ко всем операциям виртуальных машин и их вложенных типов ресурсов;
+* строка `Microsoft.Compute/virtualMachines/*` предоставляет доступ ко всем операциям виртуальных машин и их вложенных типов ресурсов;
 * строка `Microsoft.Web/sites/restart/Action` предоставляет доступ к перезапуску веб-сайтов.
 
 Чтобы получить список операций поставщиков ресурсов Azure, используйте командлет `Get-AzureRmProviderOperation` (в PowerShell) или команду `azure provider operations show` (в Azure CLI). Кроме того, с помощью этих команд можно проверить, является ли строка операции допустимой, а также развернуть строки операций с подстановочными знаками.
@@ -120,9 +121,4 @@ azure provider operations show "Microsoft.Network/*"
   * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
   * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 * [Встроенные роли.](role-based-access-built-in-roles.md) Сведения о стандартных ролях в RBAC.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

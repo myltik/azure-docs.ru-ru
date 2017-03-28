@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,9 +41,6 @@ ms.lasthandoff: 02/17/2017
 
 ### <a name="can-the-invited-external-user-leave-the-organization-to-which-he-was-invited"></a>Может ли приглашенный внешний пользователь покинуть организацию, в которую он был приглашен?
 В текущем обновлении общедоступной предварительной версии такая возможность пока не поддерживается.
-
-### <a name="can-i-use-my-microsoft-account-johncontosomicrosoftacctcom-to-sign-in-to-resources"></a>Можно ли использовать учетную запись Майкрософт (John@contosomicrosoftacct.com) для входа в ресурсы?
-В этом обновлении общедоступной предварительной версии учетная запись Майкрософт не используется. При наличии нестандартного суффикса учетной записи Майкрософт (это может быть суффикс для корпоративной почты, например @contoso.com),) будет создан клиент Azure Active Directory.
 
 ### <a name="now-that-multi-factor-authentication-mfa-is-available-for-guest-users-can-they-also-reset-their-mfa-method"></a>Теперь, когда Многофакторная идентификация (MFA) доступна для гостевых пользователей, могут ли они также изменить метод MFA?
 Да, таким же образом, как и обычные пользователи.
@@ -75,8 +72,6 @@ ms.lasthandoff: 02/17/2017
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
-  Если этот видеоролик не отображается, то вы можете его найти [здесь](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
-
 ### <a name="what-is-the-timeline-by-which-azure-ad-b2b-collaboration-will-start-support-for-mfa-and-consumer-email-accounts"></a>Когда начнется поддержка MFA и учетных записей электронной почты потребителей в службе совместной работы Azure AD B2B?
 В этом обновлении общедоступной предварительной версии уже реализована поддержка MFA и учетных записей электронной почты потребителей.
 
@@ -92,8 +87,16 @@ ms.lasthandoff: 02/17/2017
 ### <a name="does-microsoft-crm-provide-online-support-to-azure-ad-b2b-collaboration"></a>Предоставляет ли Microsoft CRM поддержку через Интернет для пользователей службы совместной работы B2B?
 Такая поддержка будет предоставляться после выхода общедоступной версии службы совместной работы Azure AD B2B.
 
+### <a name="are-b2b-collaboration-guest-users-visible-in-sharepoint-onlineonedrive-people-picker"></a>Отображаются ли гостевые пользователи службы совместной работы B2B в средстве выбора людей SharePoint Online или OneDrive?
+ 
+Да! Но возможность поиска существующих гостевых пользователей в средстве выбора людей в SharePoint Online отключена по умолчанию для согласования с поведением предыдущих версий. Вы можете включить эту функцию, используя параметр ShowPeoplePickerSuggestionsForGuestUsers на уровне коллекции клиента и сайта. Этот параметр можно задать с помощью командлетов SPOTenant и SPOSite, которые позволяют участникам искать всех существующих гостевых пользователей в каталоге. Изменения в области клиента не влияют на уже подготовленные сайты SharePoint Online.
+
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Какой срок действия у начального пароля для нового пользователя службы совместной работы B2B?
 Azure AD имеет единые требования в отношении фиксированного набора знаков, надежности пароля и правил блокировки учетной записи, которые одинаково применяются ко всем облачным учетным записям Azure AD. Облачные учетные записи — это учетные записи, которые не входят в федерацию с другим поставщиком удостоверений, таким как учетная запись Майкрософт, Facebook, ADFS или даже другой облачный клиент (в случае службы совместной работы B2B). Для федеративных учетных записей политика паролей зависит от политики в локальном клиенте и от параметров учетной записи Майкрософт пользователя.
+
+### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Приложениям требуется различать взаимодействие с пользователем клиента и гостевым пользователем. Есть ли стандартные рекомендации для этого? Можно ли использовать утверждение поставщика удостоверений в качестве оптимальной модели для этого?
+ 
+Гостевой пользователь может использовать любой поставщик удостоверений для проверки подлинности, как описано в статье [Свойства пользователя службы совместной работы Azure Active Directory B2B](active-directory-b2b-user-properties.md). Поэтому с помощью свойства UserType можно определить тип пользователя. Утверждение UserType сейчас не включено в маркер. Приложения должны использовать API Graph, чтобы запросить пользователя в каталоге и получить для него свойство UserType.
 
 ### <a name="next-steps"></a>Дальнейшие действия
 

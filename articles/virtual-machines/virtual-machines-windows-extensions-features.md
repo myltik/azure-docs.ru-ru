@@ -1,5 +1,5 @@
 ---
-title: "Расширения и компоненты виртуальной машины под управлением Windows | Документация Майкрософт"
+title: "Расширения и компоненты виртуальной машины Windows в Azure | Документация Майкрософт"
 description: "Узнайте о расширениях, доступных для виртуальных машин Azure и сгруппированных по предоставляемым функциям или улучшениям."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
-ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: d7cb13d751bc9153669ce0d96b42fcda3024f6f0
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -119,7 +121,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 На следующем рисунке показана установки расширения Microsoft Antimalware с помощью портала Azure.
 
-![Расширение защиты от вредоносных программ](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Установка расширения защиты от вредоносных программ](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
 
@@ -285,9 +287,4 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 | Расширение DSC в ОС Windows |Расширение PowerShell DSC (настройка требуемого состояния) |[Общие сведения об обработчике расширения Desired State Configuration в Azure](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Расширение системы диагностики Azure |Управляет системой диагностики Azure |[Расширение системы диагностики Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Расширение Azure VM Access |Управляет пользователями и учетными данными. |[Расширение VM Access для Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

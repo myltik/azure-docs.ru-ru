@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
-ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
+ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
+ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -56,6 +57,9 @@ ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 1. В нижней части холста эксперимента щелкните **Set Up Web Service** (Настроить веб-службу) и выберите **Predictive Web Service** (Прогнозная веб-служба). При этом модель сохраняется в качестве обученной и добавляются модули входных и выходных данных веб-службы. 
 2. Щелкните **Выполнить**. 
 3. Когда эксперимент будет выполнен, щелкните **Deploy Web Service [Classic]** (Развернуть веб-службу [классическую]) или **Deploy Web Service [New]** (Развернуть веб-службу [новую]).
+
+> [!NOTE] 
+> Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Развертывание обучающего эксперимента в качестве обучающей веб-службы
 Чтобы переобучить обученную модель, необходимо развернуть обучающий эксперимент, созданный в качестве веб-службы переобучения. Для создания обученных моделей этой веб-службе потребуется модуль *Web Service Output* (Выходные данные веб-службы), подключенный к модулю *[Обучение модели][train-model]*.
@@ -183,9 +187,4 @@ ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

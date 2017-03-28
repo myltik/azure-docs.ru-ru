@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: b74fbba254f73c1df388b2b0ff9134cc7b8a31e8
-ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14bdbe593d8c6ec5297ce37ce57b759deb533cec
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -150,7 +150,10 @@ ms.lasthandoff: 02/14/2017
 
 ### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>Копирование больших двоичных объектов из произвольной учетной записи хранения в новый ресурс в учетной записи AMS
 
-Следующий код копирует большие двоичные объекты из учетной записи хранения в ресурс служб мультимедиа. 
+Следующий код копирует большие двоичные объекты из учетной записи хранения в файл служб мультимедиа. 
+
+>[!NOTE]
+>Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 
     using System;
     using System.Configuration;

@@ -13,9 +13,9 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
 ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
 ms.openlocfilehash: 4950dbe528290c7d839c97cc8770db4ae0ec08c6
@@ -107,7 +107,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 2. Запустите пример топологии, используя следующую команду:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > В предыдущих версиях HDInsight использовалось имя класса топологии `storm.starter.WordCountTopology` вместо `org.apache.storm.starter.WordCountTopology`.
@@ -199,7 +199,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
+## <a id="next"></a>Дальнейшие действия
 
 В этом руководстве по Apache Storm описаны основные принципы работы со Storm в HDInsight. Затем вы можете научиться [разрабатывать топологии на платформе Java с помощью Maven](hdinsight-storm-develop-java-topology.md).
 

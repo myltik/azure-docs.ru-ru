@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 4521a236bfc13e6aca7e13e7400c11d353bc3a66
 ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -51,6 +52,7 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 
 **Связанная служба OData**. В этом примере используется анонимный доступ. Сведения о различных типах проверки подлинности, которые можно использовать, см. в разделе [Свойства связанной службы OData](#odata-linked-service-properties).
 
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -63,10 +65,11 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
                }
            }
     }
-
+```
 
 **Связанная служба хранения Azure**
 
+```json
     {
           "name": "AzureStorageLinkedService",
         "properties": {
@@ -76,11 +79,13 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
             }
           }
     }
+```
 
 **Входной набор данных OData**
 
 Если параметру external присвоить значение true, фабрика данных воспримет этот набор данных как внешний и созданный не в результате какого-либо действия в этой службе.
 
+```json
     {
         "name": "ODataDataset",
         "properties":
@@ -104,6 +109,7 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
             }
         }
     }
+```
 
 Указывать **path** в определении набора данных необязательно.
 
@@ -111,6 +117,7 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке BLOB-объекта вычисляется динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
+```json
     {
         "name": "AzureBlobODataDataSet",
         "properties": {
@@ -164,13 +171,14 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
             }
         }
     }
-
+```
 
 
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query** , выбирает самые последние (новейшие) данные из источника OData.
 
+```json
     {
         "name": "CopyODataToBlob",
         "properties": {
@@ -214,7 +222,7 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
             "end": "2016-02-03T19:00:00Z"
         }
     }
-
+```
 
 Указывать **query** в определении конвейера необязательно. **URL-адрес** , который служба фабрики данных использует для извлечения данных, имеет следующий вид: URL-адрес, указанный в связанной службе (обязательно) + путь, указанный в наборе данных (необязательно) + запрос в конвейере (необязательно).
 
@@ -232,6 +240,7 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 | gatewayName |Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной службе OData. Его необходимо указывать только в том случае, если вы копируете данные из источника в локальной службе OData. |Нет |
 
 ### <a name="using-basic-authentication"></a>Использовать обычную проверку подлинности
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -246,8 +255,10 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
            }
        }
     }
+```
 
 ### <a name="using-anonymous-authentication"></a>Использовать анонимную проверку подлинности
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -260,8 +271,10 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
            }
        }
     }
+```
 
 ### <a name="using-windows-authentication-accessing-on-premises-odata-source"></a>Использование проверки подлинности Windows при получении доступа к локальному источнику OData
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -277,8 +290,10 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
            }
        }
     }
+```
 
 ### <a name="using-oauth-authentication-accessing-cloud-odata-source"></a>Использование аутентификации OAuth при получении доступа к облачному источнику OData
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -286,12 +301,13 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
             "type": "OData",
                "typeProperties":
             {
-               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc">",
+               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
                "authenticationType": "OAuth",
                "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
            }
        }
     }
+```
 
 ## <a name="odata-dataset-type-properties"></a>Свойства типа "Набор данных OData"
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
@@ -329,9 +345,4 @@ ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

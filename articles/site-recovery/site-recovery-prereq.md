@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2016
+ms.date: 03/27/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: a8e374c247be49d4b1390fb4061b4c9b1311f58a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b20d1a20119e8bffa3ece7105c38b3ee51c942d5
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -104,6 +104,20 @@ ms.lasthandoff: 02/22/2017
 | --- | --- |
 | **Virtual Machine Manager** |  Рекомендуется развернуть по серверу VMM на основном и дополнительном сайтах.<br/><br/> Вы можете [выполнять репликацию между облаками на одном сервере VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Для этого требуется, чтобы на сервере VMM было настроено по крайней мере два облака.<br/><br/> На серверах VMM должен выполняться как минимум System Center 2012 SP1 с последними обновлениями.<br/><br/> Для каждого сервера VMM следует настроить одно или несколько облаков. Для всех облаков необходимо настроить профиль емкости Hyper-V. <br/><br/>Облака должны содержать одну или несколько групп узлов VMM. Дополнительные сведения о настройке облаков VMM см. в статье [Подготовка к развертыванию Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Серверы Hyper-V должны работать под управлением Windows Server 2012 (или более поздних версий), на них должна быть настроена роль Hyper-V и установлены все последние обновления.<br/><br/> Сервер Hyper-V должен содержать одну или несколько виртуальных машин.<br/><br/>  Серверы узлов Hyper-V должны быть размещены в первичном и вторичном облаках VMM.<br/><br/> Если вы выполняете Hyper-V в кластере на платформе Windows Server 2012 R2, то необходимо установить [обновление 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Брокер кластера не создается автоматически, если вы выполняете Hyper-V в кластере на платформе Windows Server 2012 на основе статических IP-адресов. Необходимо вручную настроить брокер кластера. Дополнительные сведения о брокере кластера см. в статье [Configure Replica Broker Role (Cluster to Cluster Replication)](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx) (Настройка роли брокера реплики. Репликация "кластер — кластер"). |
-
 | **Поставщик** | Во время развертывания службы Site Recovery установите на серверы VMM поставщик Azure Site Recovery. Поставщик обменивается данными со службой Site Recovery через порт HTTPS 443 для управления репликацией. Репликация данных осуществляется между сервером-источником и сервером-приемником Hyper-V через локальную сеть или VPN-подключение.<br/><br/> Поставщик, запущенный на сервере VMM, должен иметь доступ к следующим URL-адресам:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Поставщик должен разрешить в брандмауэре обмен данными между серверами VMM и [диапазонами IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), а также разрешить использовать протокол HTTPS (443). |
+
+
+## <a name="url-access"></a>Доступ к URL-адресам
+Эти URL-адреса должны быть доступны из серверов узлов VMware, VMM и Hyper-V.
+
+|**URL-адрес** | **VMM в VMM** | **VMM в Azure** | **Hyper-V в Azure** | **VMware в VMware** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | Разрешение | Разрешение | Разрешение | Разрешение |
+|``*.backup.windowsazure.com`` | Не требуется | Разрешение | Разрешение | Разрешение |
+|``*.hypervrecoverymanager.windowsazure.com`` | Разрешение | Разрешение | Разрешение | Разрешение |
+|``*.store.core.windows.net`` | Разрешение | Разрешение | Разрешение | Разрешение |
+|``*.blob.core.windows.net`` | Не требуется | Разрешение | Разрешение | Разрешение |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Не требуется | Не требуется | Не требуется | Разрешение для скачивания SQL |
+|``time.windows.com`` | Разрешение | Разрешение | Разрешение | Разрешение|
+|``time.nist.gov`` | Разрешение | Разрешение | Разрешение | РАЗРЕШИТЬ |
 

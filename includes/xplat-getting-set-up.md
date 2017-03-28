@@ -13,13 +13,14 @@ ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: f18a4705c9fd57790bff9cfdd23c19fd30fe0d32
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 737e4be21eefcbd6fbd31d15a6f77770cd59ca67
+ms.lasthandoff: 03/21/2017
 
 
 ---
 ## <a name="using-azure-cli"></a>Использование Azure CLI
-Описанные здесь шаги помогут вам использовать интерфейс командной строки Azure (Azure CLI) самой последней версии и выбрать подходящую подписку. Если сначала вам необходимо установить интерфейс Azure CLI и подключить его к своей учетной записи, см. статью об [установке интерфейса командной строки Azure](../articles/xplat-cli-install.md).
+Описанные здесь шаги помогут вам использовать интерфейс командной строки Azure (Azure CLI) самой последней версии и выбрать подходящую подписку. Если сначала вам необходимо установить интерфейс Azure CLI и подключить его к своей учетной записи, см. статью об [установке интерфейса командной строки Azure](../articles/cli-install-nodejs.md).
 
 ### <a name="step-1-update-azure-cli-version"></a>Шаг 1. Обновление версии Azure CLI
 Чтобы использовать Azure CLI для выполнения безусловных команд в режиме управления службами, установите последнюю версию, если это возможно. Чтобы проверить версию, введите `azure --version`. Вы увидите нечто вроде этого:
@@ -42,10 +43,5 @@ ms.openlocfilehash: f18a4705c9fd57790bff9cfdd23c19fd30fe0d32
 > Если у вас еще нет учетной записи Azure, но есть подписка MSDN, вы можете бесплатно получить деньги на счете в Azure, активировав [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Также можно использовать бесплатную учетную запись. Для доступа к Azure подойдут оба способа.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

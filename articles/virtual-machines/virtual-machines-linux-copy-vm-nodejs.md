@@ -1,6 +1,6 @@
 ---
-title: "Создание копии виртуальной машины Linux в Azure | Документация Майкрософт"
-description: "Узнайте, как создать копию виртуальной машины Linux в Azure, используя модель развертывания с помощью Resource Manager."
+title: "Создание копии виртуальной машины Linux с помощью Azure CLI 1.0 | Документация Майкрософт"
+description: "Узнайте, как создать копию виртуальной машины Linux в Azure, развернутой посредством модели Resource Manager, с помощью Azure CLI 1.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -12,15 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: fc5d84768213f1c9358bfcffd77868c25b6c24a4
-ms.openlocfilehash: 9920e86a00793928bdfae5bc4e9dac161ed56ad0
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e1fa4ab140c553cab4dc535f750398d633bbb8d2
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Создание копии виртуальной машины Linux, работающей в Azure
+# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Создание копии виртуальной машины Linux, работающей в Azure, с помощью Azure CLI 1.0
 В этой статье показано, как создать копию виртуальной машины Azure под управлением Linux, используя модель развертывания с помощью Resource Manager. Сначала следует скопировать операционную систему и диски данных в новый контейнер, а затем настроить сетевые ресурсы и создать новую виртуальную машину.
 
 Кроме того, можно [передать пользовательский образ диска и создать виртуальную машину на его основе](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -29,12 +30,12 @@ ms.openlocfilehash: 9920e86a00793928bdfae5bc4e9dac161ed56ad0
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - Azure CLI 1.0 — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 ## <a name="before-you-begin"></a>Перед началом работы
 Перед началом описанной ниже процедуры необходимо выполнить следующие условия.
 
-* Необходимо скачать [интерфейс командной строки Azure (Azure CLI)](../xplat-cli-install.md) и установить его на компьютере. 
+* Необходимо скачать [интерфейс командной строки Azure (Azure CLI)](../cli-install-nodejs.md) и установить его на компьютере. 
 * Необходимы также некоторые сведения о существующей виртуальной машине Linux в Azure.
 
 | Сведения об исходной виртуальной машине | Как получить |
@@ -112,10 +113,5 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы узнать, как использовать интерфейс командной строки Azure для управления новой виртуальной машиной, ознакомьтесь со статьей [Команды Azure CLI в режиме Resource Manager](azure-cli-arm-commands.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

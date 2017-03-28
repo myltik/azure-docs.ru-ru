@@ -9,15 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
 ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -674,9 +677,4 @@ RunHiveScript имеет несколько переменных. Вы пере�
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

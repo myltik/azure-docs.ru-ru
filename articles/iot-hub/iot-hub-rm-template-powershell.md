@@ -2,7 +2,7 @@
 title: "Создание Центра Интернета вещей Azure с помощью шаблона (PowerShell) | Документация Майкрософт"
 description: "Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager и PowerShell."
 services: iot-hub
-documentationcenter: .net
+documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 

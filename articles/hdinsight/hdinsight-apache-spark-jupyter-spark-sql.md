@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
-ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f43a08a7096476fea79884163f89441e7e0c34cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,23 +29,11 @@ ms.lasthandoff: 02/06/2017
 
    ![Приступая к работе с Apache Spark в HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Руководство по началу работы с Apache Spark в HDInsight. Описание шагов: создание учетной записи хранения; создание кластера; выполнение инструкций Spark SQL")
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Предварительные требования
 * **Подписка Azure**. Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. Ознакомьтесь со страницей [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/free).
 
-* **Клиент SSH**: в системах Linux, Unix и OS X клиент SSH предоставляется с помощью команды `ssh`. См. дополнительные сведения для клиентов соответствующих ОС в материалах об [использовании SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а также об [использовании SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!NOTE]
-> В этой статье описано, как с помощью шаблона Azure Resource Manager создать кластер Spark, который использует [BLOB-объекты службы хранилища Azure в качестве хранилища кластера](hdinsight-hadoop-use-blob-storage.md). Кроме того, вы можете создать кластер Spark, использующий [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) в качестве дополнительного хранилища (в придачу к BLOB-объектам Azure, которые служат основными хранилищами). Инструкции см. в инструкциях по [созданию кластера HDInsight с Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
->
->
-
-### <a name="access-control-requirements"></a>Требования к контролю доступа
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
-## <a name="create-spark-cluster"></a>Создание кластера Spark
-В этом разделе вы создадите в HDInsight кластер Spark, используя [шаблон Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Дополнительную информацию о версиях HDInsight и их соглашениях об уровне обслуживания см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight](hdinsight-component-versioning.md). Другие способы создания кластера см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="create-a-spark-cluster"></a>Создание кластера Spark
+В этом разделе вы создадите в HDInsight кластер Spark, используя [шаблон Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Другие способы создания кластера см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure.         
 
@@ -54,24 +43,32 @@ ms.lasthandoff: 02/06/2017
 
     ![Создание кластера Spark в HDInsight с использованием шаблона Azure Resource Manager](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Создание кластера Spark в HDInsight с использованием шаблона Azure Resource Manager")
 
-   * **Подписка.** Выберите свою подписку Azure для этого кластера.
-   * **Группа ресурсов.** Создайте группу ресурсов или выберите существующую. Она используется для управления ресурсами Azure для ваших проектов.
-   * **Расположение**. Выберите расположение группы ресурсов.  Это расположение также используется для хранилища кластера по умолчанию и кластера HDInsight.
-   * **Имя кластера**: введите имя создаваемого кластера Hadoop.
-   * **Имя для входа в кластер и пароль**: имя для входа по умолчанию — admin.
-   * **Имя пользователя SSH и пароль**.
+    * **Подписка.** Выберите свою подписку Azure для этого кластера.
+    * **Группа ресурсов.** Создайте группу ресурсов или выберите существующую. Она используется для управления ресурсами Azure для ваших проектов.
+    * **Расположение**. Выберите расположение группы ресурсов.  Это расположение также используется для хранилища кластера по умолчанию и кластера HDInsight.
+    * **Имя кластера.** Введите имя создаваемого кластера Hadoop.
+    * **Версия Spark.** Выберите версию Spark, которую необходимо установить в кластере.
+    * **Имя для входа в кластер и пароль**: имя для входа по умолчанию — admin.
+    * **Имя пользователя SSH и пароль**.
 
    Запишите эти значения.  Они потребуются позже в данном руководстве.
 
-3. Установите флажок **Я принимаю указанные выше условия** и **Закрепить на панели мониторинга**, а затем нажмите кнопку **Приобрести**. Появится новый элемент под названием "Идет отправка развертывания для развертывания шаблона". Процесс создания кластера занимает около 20 минут.
+3. Установите флажок **Я принимаю указанные выше условия** и **Закрепить на панели мониторинга**, а затем нажмите кнопку **Приобрести**. Появится новый элемент под названием "Идет отправка развертывания для развертывания шаблона". Процесс создания кластеров занимает около 20 минут.
 
-## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Выполнение запросов Spark SQL с помощью документа Jupyter Notebook
-В этом разделе мы будем выполнять запросы Spark SQL к кластеру Spark, используя документ Jupyter Notebook. Кластеры HDInsight Spark предоставляют два ядра, которые можно использовать с записными книжками Jupyter. а именно:
+> [!NOTE]
+> В этой статье описано, как создать кластер Spark, использующий [большие двоичные объекты службы хранилища Azure в качестве хранилища кластера](hdinsight-hadoop-use-blob-storage.md). Кроме того, вы можете создать кластер Spark, использующий [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) в качестве дополнительного хранилища (в придачу к большим двоичным объектам службы хранилища Azure, которые служат основными хранилищами). Инструкции см. в инструкциях по [созданию кластера HDInsight с Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+>
+>
+
+## <a name="run-a-spark-sql-query"></a>Выполнение запроса Spark SQL
+
+В этом разделе мы будем выполнять запросы Spark SQL к кластеру Spark, используя документ Jupyter Notebook. Кластеры HDInsight Spark предоставляют три ядра, которые можно использовать с записными книжками Jupyter. а именно:
 
 * **PySpark** (для приложений, написанных на языке Python).
+* **PySpark3** (для приложений, написанных на языке Python3).
 * **Spark** (для приложений, написанных на языке Scala);
 
-В этой статье вы будете использовать ядро PySpark. Дополнительные сведения о двух ядрах см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-jupyter-notebook-kernels.md). Основные преимущества использования ядра PySpark:
+В этой статье вы будете использовать ядро **PySpark**. Дополнительные сведения о ядрах см. в статье [Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Основные преимущества использования ядра PySpark:
 
 * контексты Spark и Hive устанавливаются автоматически;
 * для запуска запросов SQL или Hive напрямую без предшествующих фрагментов кода можно использовать волшебный текст ячеек, например `%%sql`.
@@ -80,11 +77,12 @@ ms.lasthandoff: 02/06/2017
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Создание документа Jupyter Notebook с помощью ядра PySpark
 
 1. Откройте [портал Azure](https://portal.azure.com/).
-2. В меню слева щелкните **Группы ресурсов**.
-3. Выберите группу ресурсов, созданную в предыдущем разделе. Если имеется слишком много групп ресурсов, можно использовать функцию поиска. В группе отобразится два ресурса, кластер HDInsight и учетная запись хранения по умолчанию.
-4. Щелкните кластер, чтобы открыть его.
 
-2. В разделе **Быстрые ссылки** щелкните **Панели мониторинга кластера**, а затем — **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
+2. Если закрепили кластер на панели мониторинга, щелкните элемент кластера на панели мониторинга, чтобы открыть колонку кластера.
+
+    Если вы не закрепили кластер на панели мониторинга, в области слева щелкните **Кластеры HDInsight**, а затем выберите созданный кластер.
+
+3. В разделе **Быстрые ссылки** щелкните **Панели мониторинга кластера**, а затем — **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
 
    ![Панели мониторинга кластера HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "Панели мониторинга кластера HDInsight")
 
@@ -94,7 +92,7 @@ ms.lasthandoff: 02/06/2017
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
+3. Создайте записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
 
@@ -103,6 +101,7 @@ ms.lasthandoff: 02/06/2017
 4. Щелкните имя записной книжки вверху и по желанию введите понятное имя.
 
     ![Указание имени для записной книжки](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Указание имени для записной книжки")
+
 5. Вставьте указанный ниже код в пустую ячейку и нажмите клавиши **SHIFT + ВВОД**, чтобы выполнить его. Код импортирует типы, необходимые для этого сценария:
 
         from pyspark.sql.types import *
@@ -111,33 +110,33 @@ ms.lasthandoff: 02/06/2017
 
     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Состояние задания записной книжки Jupyter")
 
-    При каждом запуске задания в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)** , а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания этот значок изменится на кружок без заливки.
+    При каждом запуске задания в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)**, а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания он изменится на кружок без заливки.
 
-6. Выполните следующий код, чтобы зарегистрировать демонстрационные данные во временной таблице **hvac**.
+6. Зарегистрируйте пример набора данных в виде временной таблицы (**hvac**), выполнив следующий код:
 
         # Load the data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-        
+
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-        
+
         # Parse the data in hvacText
         hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-        
+
         # Create a data frame
         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-        
+
         # Register the data fram as a table to run queries against
         hvacdf.registerTempTable("hvac")
 
     Кластеры Spark в HDInsight поставляются с файлом демонстрационных данных **hvac.csv** в разделе **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-7. Выполните следующий код для запроса данных:
+7. Для запроса данных выполните следующий код:
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+   Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы создали выполнив магическую команду `%%sql`. Дополнительные сведения о магической команде `%%sql`, а также других магических командах, доступных в ядре PySpark, приведены в статье [Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    По умолчанию выводятся следующие табличные данные.
 
@@ -147,7 +146,14 @@ ms.lasthandoff: 02/06/2017
 
     ![Диаграмма с областями, показывающая результат запроса](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Диаграмма с областями, показывающая результат запроса")
 
-9. Завершив работу с приложением, можно закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
+9. Завершив работу с приложением, можно закрыть записную книжку, чтобы освободить ресурсы кластера. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить).
+
+## <a name="troubleshoot"></a>Устранение неполадок
+
+Ниже приведены некоторые распространенные проблемы, с которыми вы можете столкнуться при работе с кластерами HDInsight.
+
+### <a name="access-control-requirements"></a>Требования к контролю доступа
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="delete-the-cluster"></a>Удаление кластера
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

@@ -13,15 +13,17 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
-ms.openlocfilehash: 90b7486d8a5997db16419a85e79f1c181de98b95
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 248bc4c309ed61ae00ef144ebdb4c820f285783d
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-c"></a>Начало работы с Intel Edison (C)
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-c"></a>Подключение устройства Intel Edison к Центру Интернета вещей с помощью C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ ms.openlocfilehash: 90b7486d8a5997db16419a85e79f1c181de98b95
 [receive-cloud-to-device-messages]:iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -4,7 +4,7 @@ description: "Узнайте, как использовать мобильные
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
@@ -28,17 +28,17 @@ ms.lasthandoff: 11/17/2016
 
 Этот учебник создан на основе краткого руководства по мобильным приложениям. Необходимо также сначала пройти руководство [Создание приложения Xamarin.Android]. Если вы не используете скачанный проект быстрого запуска сервера, в проект необходимо добавить пакет расширений для аутентификации. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Регистрация приложения для проверки подлинности и настройка служб приложений
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка служб приложений
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 В Visual Studio или Xamarin Studio запустите клиентский проект на устройстве или в эмуляторе. Убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный). Это вызвано тем, что приложение пытается получить доступ к серверной части мобильного приложения от имени неаутентифицированного пользователя. Теперь для таблицы *TodoItem* требуется аутентификация.
 
 Далее вы обновите клиентское приложение для запроса ресурсов из серверной части мобильного приложения прошедшим аутентификацию пользователем.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 Для отображения данных в обновленном приложении пользователи должны будут коснуться кнопки **Вход** и пройти проверку подлинности.
 
 1. Добавьте в класс **TodoActivity** следующий код:

@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc3f1fbe9ab03257d613e31f5890a63d1aeba1f
-ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-on-an-azure-virtual-machine"></a>Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Приступая к работе с Docker и Compose для определения и запуска многоконтейнерного приложения в Azure
 Решение [Compose](http://github.com/docker/compose) позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение будет развернуто с помощью одной команды, которая выполняет все действия, необходимые для развертывания определенной среды. В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB на виртуальной машине Ubuntu. Решение Compose можно использовать для настройки и более сложных приложений.
 
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Шаг 1. Настройка виртуальной машины Linux как узла Docker
@@ -29,28 +30,11 @@ ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
 
 При использовании этого расширения Docker виртуальная машина настраивается как узел Docker и компонент Compose устанавливается автоматически. Можно создать виртуальную машину и использовать расширение виртуальной машины Docker с помощью одной из следующих версий интерфейса командной строки:
 
+- [Azure CLI 2.0](#azure-cli-20) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 - [Azure CLI 1.0](#azure-cli-10) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](#azure-cli-20-preview) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
-
-### <a name="azure-cli-10"></a>Azure CLI 1.0
-Установите последнюю версию [Azure CLI 1.0](../xplat-cli-install.md) и войдите в систему с учетной записью Azure. Убедитесь, что для создания виртуальной машины используется режим Resource Manager (`azure config mode arm`).
-
-Приведенный ниже пример создает группу ресурсов `myResourceGroup` в расположении `West US` и развертывает виртуальную машину с расширением виртуальной машины Docker для Azure. [Шаблон Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) используется для развертывания среды.
-
-```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
-```
-
-Azure CLI отобразит командную строку всего через несколько секунд, но создание и настройка узла Docker еще не завершены. Подождите несколько минут до завершения развертывания. Сведения о состоянии узла Docker можно просмотреть с помощью команды `azure vm show`. В следующем примере проверяется состояние виртуальной машины с именем `myDockerVM` (имя по умолчанию, указанное в шаблоне; не изменяйте его) в группе ресурсов `myResourceGroup`. Введите имя группы ресурсов, созданной на предыдущем шаге.
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myDockerVM
-```
-
-### <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (предварительная версия)
-Установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в систему с учетной записью Azure, выполнив команду [az login](/cli/azure/#login).
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в систему с учетной записью Azure, выполнив команду [az login](/cli/azure/#login).
 
 Сначала создайте группу ресурсов для среды Docker командой [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `West US`:
 
@@ -80,8 +64,24 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 
 Если эта команда возвращает `Succeeded`, значит, развертывание завершено, и вы сможете установить подключение SSH к виртуальной машине на следующем шаге.
 
+### <a name="azure-cli-10"></a>Azure CLI 1.0
+Установите последнюю версию [Azure CLI 1.0](../cli-install-nodejs.md) и войдите в систему с учетной записью Azure. Убедитесь, что для создания виртуальной машины используется режим Resource Manager (`azure config mode arm`).
+
+Приведенный ниже пример создает группу ресурсов `myResourceGroup` в расположении `West US` и развертывает виртуальную машину с расширением виртуальной машины Docker для Azure. [Шаблон Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) используется для развертывания среды.
+
+```azurecli
+azure group create --name myResourceGroup --location "West US" \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+Azure CLI отобразит командную строку всего через несколько секунд, но создание и настройка узла Docker еще не завершены. Подождите несколько минут до завершения развертывания. Сведения о состоянии узла Docker можно просмотреть с помощью команды `azure vm show`. В следующем примере проверяется состояние виртуальной машины с именем `myDockerVM` (имя по умолчанию, указанное в шаблоне; не изменяйте его) в группе ресурсов `myResourceGroup`. Введите имя группы ресурсов, созданной на предыдущем шаге.
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
 ## <a name="step-2-verify-that-compose-is-installed"></a>Шаг 2. Проверка установки Compose
-После завершения развертывания подключитесь к новому узлу Docker с помощью SSH, используя DNS-имя, которое вы указали во время развертывания. Для просмотра сведений о виртуальной машине, включая DNS-имя, можно использовать команду `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) или `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Azure CLI 2.0 (предварительная версия)).
+После завершения развертывания подключитесь к новому узлу Docker с помощью SSH, используя DNS-имя, которое вы указали во время развертывания. Для просмотра сведений о виртуальной машине, включая DNS-имя, можно использовать команду `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) или `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Azure CLI 2.0).
 
 Чтобы проверить установку Compose на виртуальной машине, выполните следующую команду:
 
@@ -170,9 +170,4 @@ ess_1              apache2-for ...                       /tcp
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,14 +16,16 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
-ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 284bf43ceae0c42b88d6ea3fe8a2e68e7530e5fe
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="a-nametoc395783175abuild-a-nodejs-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
+# <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET для MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -36,7 +38,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Хорошо, получите полный пример решения на сайте [GitHub][GitHub]. Инструкции по запуску приложения см. в [файле сведений](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md).
 
-## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Предварительные требования
+## <a name="_Toc395783176"></a>Предварительные требования
 > [!TIP]
 > Этот учебник по Node.js разработан для читателей, обладающих определенным опытом использования Node.js и веб-сайтов Azure.
 > 
@@ -53,14 +55,14 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 * [Генератор Express](http://www.expressjs.com/starter/generator.html) (его можно установить через `npm install express-generator -g`).
 * [Git][Git].
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
+## <a name="_Toc395637761"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
 Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись или вы используете эмулятор DocumentDB в этом руководстве, можно перейти к разделу [Шаг 2. Создание приложения Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Шаг 2. Создание нового приложения Node.js
+## <a name="_Toc395783178"></a>Шаг 2. Создание нового приложения Node.js
 Теперь создадим базовый проект Node.js «Привет, мир!» с помощью платформы [Express](http://expressjs.com/) .
 
 1. Откройте предпочитаемый терминал, например командную строку Node.js.
@@ -75,13 +77,13 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 5. Запустите новое приложение.
    
         npm start
-6. Новое приложение можно просмотреть, перейдя в браузере по адресу [http://localhost: 3000](http://localhost:3000).
+6. Новое приложение можно просмотреть, перейдя в браузере по адресу [http://localhost:&3000;](http://localhost:3000).
    
     ![Изучение Node.js — снимок экрана приложения "Привет, мир" в окне браузера](./media/documentdb-nodejs-application/image12.png)
 
     Затем, чтобы остановить приложение, нажмите клавиши CTRL + C в окне терминала и щелкните **Y** для завершения пакетного задания.
 
-## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Шаг 3. Установка дополнительных модулей
+## <a name="_Toc395783179"></a>Шаг 3. Установка дополнительных модулей
 Файл **package.json** является одним из файлов, создаваемых в корневой папке проекта. Этот файл содержит список дополнительных модулей, необходимых для приложения Node.js. Позднее, при развертывании этого приложения на веб-сайтах Azure, этот файл будет использоваться для определения модулей, которые должны быть установлены в Azure для поддержки вашего приложения. Для этого учебного примера нам нужно установить еще два пакета.
 
 1. Вернувшись в терминал, установите модуль **async** с помощью npm.
@@ -114,7 +116,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
    
     Это сообщает Node (и позже Azure), что ваше приложение зависит от указанных дополнительных модулей.
 
-## <a name="a-nametoc395783180astep-4-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Шаг 4. Использование службы DocumentDB в приложении Node
+## <a name="_Toc395783180"></a>Шаг 4. Использование службы DocumentDB в приложении Node
 После завершения начальной установки и настройки, давайте перейдем к, собственно, написанию кода приложения, использующего Azure DocumentDB.
 
 ### <a name="create-the-model"></a>Создание модели
@@ -428,7 +430,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 5. Эти строки определяют новый экземпляр нашего объекта **TaskDao** с новым подключением к DocumentDB (с использованием значений, считанных из файла **config.js**), инициализируют объект задачи, а затем привязывают действия формы к методам в нашем контроллере **TaskList**. 
 6. Наконец, сохраните и закройте файл **app.js**. Мы почти закончили.
 
-## <a name="a-nametoc395783181astep-5-build-a-user-interface"></a><a name="_Toc395783181"></a>Шаг 5. Построение пользовательского интерфейса
+## <a name="_Toc395783181"></a>Шаг 5. Построение пользовательского интерфейса
 Теперь давайте обратим наше внимание на создание пользовательского интерфейса, чтобы пользователь смог взаимодействовать с нашим приложением. Созданное нами приложение Express использует в качестве обработчика представлений **Jade**. Дополнительные сведения о Jade см. на сайте [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Файл **layout.jade** в каталоге **views** используется как глобальный шаблон для других файлов **.jade**. На этом шаге он будет изменен для использования [Twitter Bootstrap](https://github.com/twbs/bootstrap)— набора средств, упрощающих разработку привлекательного веб-сайта. 
@@ -519,7 +521,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
    
     Сохраните и закройте файл **style.css** .
 
-## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Шаг 6. Локальный запуск приложения
+## <a name="_Toc395783181"></a>Шаг 6. Локальный запуск приложения
 1. Чтобы протестировать приложение на локальном компьютере, выполните `npm start` в терминале для запуска приложения, а затем обновите в браузере страницу [http://localhost:3000](http://localhost:3000). Страница должна выглядеть так, как на рисунке ниже:
    
     ![Снимок экрана приложения «Мой список дел» в окне браузера](./media/documentdb-nodejs-application/image18.png)
@@ -535,7 +537,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 5. Чтобы остановить приложение, нажмите клавиши CTRL + C в окне терминала и нажмите клавишу **Y** для завершения пакетного задания.
 
-## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Шаг 7. Развертывание проекта приложения на веб-сайтах Azure
+## <a name="_Toc395783182"></a>Шаг 7. Развертывание проекта приложения на веб-сайтах Azure
 1. Если это еще не сделано, включите репозиторий git для веб-сайта Azure. Соответствующие инструкции см. в статье [Развертывание локального репозитория Git в службе приложений Azure](../app-service-web/app-service-deploy-local-git.md).
 2. Добавьте веб-сайт Azure в качестве удаленного репозитория git.
    
@@ -549,7 +551,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
     Если вы хотите скачать полный пример приложения или сослаться на него во время работы с этим руководством, файл примера приложения находится в репозитории [GitHub][GitHub].
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Дальнейшие действия
+## <a name="_Toc395637775"></a>Дальнейшие действия
 
 * Хотите выполнить проверку масштабирования и производительности с помощью DocumentDB? См. статью [Проверка производительности и масштабирования с помощью Azure DocumentDB](documentdb-performance-testing.md).
 * Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
@@ -559,10 +561,5 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

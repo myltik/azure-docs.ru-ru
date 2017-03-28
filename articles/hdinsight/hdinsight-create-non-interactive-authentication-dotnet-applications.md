@@ -9,6 +9,7 @@ tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a423975e8a091183154217678706817694f3e346
 ms.openlocfilehash: d5256250d6d3a6d7df3a90ae4a0801af131b830e
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -126,9 +128,4 @@ ms.openlocfilehash: d5256250d6d3a6d7df3a90ae4a0801af131b830e
 * [Создание приложения Active Directory и субъекта-службы с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Проверка подлинности субъекта-службы в Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

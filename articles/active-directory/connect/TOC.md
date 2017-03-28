@@ -60,7 +60,8 @@
 ## Устранение неполадок
 ### [Соединение](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Ошибки при синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Объект не синхронизирован](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Синхронизация паролей](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Справочные материалы
 ## [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

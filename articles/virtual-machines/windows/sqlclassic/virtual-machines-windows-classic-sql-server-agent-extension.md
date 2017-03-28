@@ -1,5 +1,5 @@
 ---
-title: "Расширение агента SQL Server для виртуальных машин SQL Server (классическая модель) | Документация Майкрософт"
+title: "Автоматизация задач управления на виртуальных машинах SQL (классическая модель) | Документы Майкрософт"
 description: "В этой статье описывается управление расширением агента SQL Server, которое позволяет автоматизировать выполнение определенных задач администрирования SQL Server. Эти задачи включают в себя автоматическую архивацию, автоматическую установку исправлений и интеграцию с хранилищем ключей Azure. В этом разделе используется классическая модель развертывания."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/18/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6494f8bd610c26ceda718a38faf32d0346a063d7
-ms.openlocfilehash: 73187757207eef345f262dfc16780e7a6dbfb739
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: ca346405590d7caa63a888aa139ab1a6f21e365b
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Расширение агента SQL Server для виртуальных машин SQL Server (классическая модель)
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Автоматизация задач управления на виртуальных машинах Azure с помощью расширения агента SQL Server (классическая модель)
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](../sql/virtual-machines-windows-sql-server-agent-extension.md)
 > * [Классический](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
-> 
-
+>
+ 
 Расширение агента IaaS для SQL Server (SQLIaaSAgent) запускается на виртуальных машинах Azure для автоматизации задач администрирования. В этом разделе представлен обзор служб, поддерживаемых расширением, а также указания по установке, проверке состояния и удалению расширения.
 
 > [!IMPORTANT] 
@@ -103,10 +104,5 @@ ms.openlocfilehash: 73187757207eef345f262dfc16780e7a6dbfb739
 Начните работать с одной из служб, поддерживаемых расширением. Дополнительные сведения см. в разделе [Поддерживаемые службы](#supported-services) этой статьи.
 
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

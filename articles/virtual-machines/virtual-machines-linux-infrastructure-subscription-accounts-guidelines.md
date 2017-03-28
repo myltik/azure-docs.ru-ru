@@ -13,16 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0a4ddfa550913df1c987d1782bcd4bc3c41eb048
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 44a82f3eaafa231c22429968fcac63872b74c75b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-subscription-and-accounts-guidelines"></a>Рекомендации по подпискам и учетным записям Azure
+# <a name="azure-subscription-and-accounts-guidelines-for-linux-vms"></a>Рекомендации по подпискам и учетным записям Azure для виртуальных машин Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Эта статья посвящена различным подходам к управлению подписками и учетными записями по мере расширения среды и базы пользователей.

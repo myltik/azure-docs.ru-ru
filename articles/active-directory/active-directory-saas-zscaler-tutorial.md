@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 7a0a300f505d9012471679ac27373944f07fdba3
-ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
+ms.sourcegitcommit: f9e6f640b97a35aab84063f17a155a32f809d374
+ms.openlocfilehash: 835f2e0b636af17d2c2c032cda572b00a4fdbef7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 4. Настройка подготовки учетных записей пользователей
 5. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-zscaler-tutorial/IC769226.png "Scenario")
+![Сценарий](./media/active-directory-saas-zscaler-tutorial/IC769226.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-zscaler"></a>Включение интеграции приложений для Zscaler 
 В этом разделе показано, как включить интеграцию приложений для Zscaler.
@@ -47,19 +48,19 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-zscaler-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-zscaler-tutorial/IC700994.png "Приложения")
 
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-zscaler-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-zscaler-tutorial/IC749321.png "Добавление приложения")
 
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-zscaler-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-zscaler-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6. В **поле поиска** введите **Zscaler**.
    
-    ![Коллекция приложений](./media/active-directory-saas-zscaler-tutorial/IC769227.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-zscaler-tutorial/IC769227.png "Коллекция приложений")
 
 7. В области результатов выберите **Zscaler** и нажмите кнопку **Завершить**, чтобы добавить это приложение.
    
@@ -72,11 +73,11 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **Zscaler** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Включить единый вход](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Enable single sign-on")
+    ![Разрешить единый вход](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Разрешить единый вход")
 
 2. На странице **Как пользователи должны входить в Zscaler** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Configure single sign on")
+    ![Настройка единого входа](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Настройка единого входа")
 
 3. На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в Zscaler** введите свой URL-адрес, полученный от Zscaler, и нажмите кнопку **Далее**. 
    
@@ -85,11 +86,11 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
     > 
     > 
    
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-zscaler-tutorial/IC769231.png "Configure app URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-zscaler-tutorial/IC769231.png "Настройка URL-адреса приложения")
 
 4. На странице **Настройка единого входа в Zscaler** сделайте следующее:
    
-    ![Настройка единого входа](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Настройка единого входа")
    
     1. Щелкните **Скачать сертификат** и сохраните файл сертификата как **c:\\Zscaler.cer**.
     2. Скопируйте **URL-адрес для проверки подлинности запроса** в буфер обмена.
@@ -98,22 +99,22 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 
 6. В верхнем меню щелкните **Администрирование**.
    
-    ![Администрирование](./media/active-directory-saas-zscaler-tutorial/IC769486.png "Administration")
+    ![Администрирование](./media/active-directory-saas-zscaler-tutorial/IC769486.png "Администрирование")
 
 7. В разделе **Manage Administrators & Roles** (Управление администраторами и ролями) щелкните **Mange Users & Authentication** (Управление пользователями и аутентификацией).
    
-    ![Управление администраторами и ролями](./media/active-directory-saas-zscaler-tutorial/IC769487.png "Manage Administrators & Roles")
+    ![Управление администраторами и ролями](./media/active-directory-saas-zscaler-tutorial/IC769487.png "Управление администраторами и ролями")
 
 8. В разделе **Выбор параметров проверки подлинности для организации** сделайте следующее:
    
-    ![Выбор параметров проверки подлинности](./media/active-directory-saas-zscaler-tutorial/IC769488.png "Choose Authentication Options")
+    ![Выбор параметров проверки подлинности](./media/active-directory-saas-zscaler-tutorial/IC769488.png "Выбор параметров проверки подлинности")
    
     1. Выберите параметр **Проверка подлинности с помощью единого входа SAML**.
     2. Щелкните **Настроить параметры единого входа SAML**.
 
 9. На странице диалогового окна **Configure SAML Single Sign-On Parameters** (Настройка параметров единого входа в SAML) выполните следующие действия и нажмите кнопку **Готово**.
    
-    ![Upload certificate](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Upload certificate")
+    ![Отправка сертификата](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Отправка сертификата")
    
     1. В поле **URL of the SAML Portal to which users are sent for authentication** (URL-адрес портала SAML, куда пользователи направляются для аутентификации) вставьте значение поля **URL-адрес запроса проверки подлинности** на классическом портале Azure.
    
@@ -125,14 +126,14 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 
 10. На странице **Настройка проверки подлинности пользователей** выполните следующие действия.
     
-    ![Настройка проверки подлинности пользователей](./media/active-directory-saas-zscaler-tutorial/IC769490.png "Configure User Authentication")
+    ![Настройка проверки подлинности пользователей](./media/active-directory-saas-zscaler-tutorial/IC769490.png "Настройка проверки подлинности пользователей")
     
     1. Щелкните **Сохранить**.
     2. Щелкните **Активировать сейчас**.
 
 11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Настройка единого входа")
 
 
 ## <a name="configuring-proxy-settings"></a>Настройка параметров прокси-сервера
@@ -142,17 +143,17 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 
 2. В меню **Сервис** выберите **Свойства браузера**, чтобы открыть диалоговое окно **Свойства браузера**.
    
-    ![Свойства браузера](./media/active-directory-saas-zscaler-tutorial/IC769492.png "Internet Options")
+    ![Свойства браузера](./media/active-directory-saas-zscaler-tutorial/IC769492.png "Свойства браузера")
 
 3. Щелкните вкладку **Подключения** .
    
-    ![Подключения](./media/active-directory-saas-zscaler-tutorial/IC769493.png "Connections")
+    ![Подключения](./media/active-directory-saas-zscaler-tutorial/IC769493.png "Подключения")
 
 4. Нажмите кнопку **Настройка сети**, чтобы открыть диалоговое окно **Настройка сети**.
 
 5. В разделе "Прокси-сервер" выполните следующие действия.
    
-    ![Прокси-сервер](./media/active-directory-saas-zscaler-tutorial/IC769494.png "Proxy server")
+    ![Прокси-сервер](./media/active-directory-saas-zscaler-tutorial/IC769494.png "Прокси-сервер")
    
     1. Установите флажок "Использовать прокси-сервер для локальных подключений".
 
@@ -176,19 +177,19 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 
 2. Щелкните **Администрирование**.
 
-    ![Администрирование](./media/active-directory-saas-zscaler-tutorial/IC781035.png "Administration")
+    ![Администрирование](./media/active-directory-saas-zscaler-tutorial/IC781035.png "Администрирование")
 
 3. Щелкните **Управление пользователями**.
    
-    ![Управление пользователями](./media/active-directory-saas-zscaler-tutorial/IC781036.png "User Management")
+    ![Управление пользователями](./media/active-directory-saas-zscaler-tutorial/IC781036.png "Управление пользователями")
 
 4. На вкладке **Users** (Пользователи) нажмите кнопку **Add** (Добавить).
    
-    ![Добавить](./media/active-directory-saas-zscaler-tutorial/IC781037.png "Add")
+    ![Добавление](./media/active-directory-saas-zscaler-tutorial/IC781037.png "Добавление")
 
 5. В разделе "Добавить пользователя" выполните следующие действия.
    
-    ![Добавить пользователя](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Add User")
+    ![Добавление пользователя](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Добавление пользователя")
    
     1. Заполните текстовые поля **UserID** (Идентификатор пользователя), **User Display Name** (Отображаемое имя пользователя), **Password** (Пароль), **Confirm Password** (Подтверждение пароля) и выберите **Groups** (Группы) и **Department** (Отдел) действующей учетной записи AAD, которую необходимо подготовить.
    
@@ -203,17 +204,12 @@ ms.openlocfilehash: 22f83af7fc19410df01350d40619e6520878bec7
 
 2. На странице интеграции с приложением **Zscaler** щелкните **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-zscaler-tutorial/IC769495.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-zscaler-tutorial/IC769495.png "Назначение пользователей")
 
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

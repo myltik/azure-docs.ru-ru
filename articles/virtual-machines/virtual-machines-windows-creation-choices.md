@@ -1,5 +1,5 @@
 ---
-title: "Разные способы создания виртуальной машины Linux | Документация Майкрософт"
+title: "Разные способы создания виртуальной машины Windows в Azure | Документация Майкрософт"
 description: "Содержит перечисление различных способов создания виртуальной машины Windows с помощью диспетчера ресурсов."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/27/2016
+ms.date: 03/02/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a5e0ba0128b7f20d6307f5dea784de007e71321c
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: d01b71257a4a95294aebcde8c1d056e3fc3ed1be
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="different-ways-to-create-a-windows-virtual-machine-with-resource-manager"></a>Различные способы создания виртуальной машины Windows с помощью диспетчера ресурсов
+# <a name="different-ways-to-create-a-windows-virtual-machine"></a>Различные способы создания виртуальной машины Windows
+
 Поскольку виртуальные машины подходят для различных пользователей и целей, в Azure их можно создавать несколькими способами. Это означает, что вам потребуется выбрать виртуальную машину и способ ее создания. В настоящей статье рассматриваются эти варианты и приводятся ссылки на инструкции.
 
 ## <a name="azure-portal"></a>Портал Azure
@@ -43,10 +46,5 @@ ms.openlocfilehash: a5e0ba0128b7f20d6307f5dea784de007e71321c
 Используйте Visual Studio для создания и развертывания виртуальных машин, а также для управления ими, с помощью инструментов Azure для Visual Studio и пакета SDK Azure.
 
 [Инструменты Azure для Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

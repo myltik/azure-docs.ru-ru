@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: 882157d2cb544e5bb59caf7d64de579e23b12480
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 3fd731d83ca32359193534f043b3eb3e0333e0aa
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,6 +59,9 @@ ms.openlocfilehash: 882157d2cb544e5bb59caf7d64de579e23b12480
 
 Пошаговое руководство на основе указанных выше шагов см. в разделе [Программное переобучение моделей машинного обучения](machine-learning-retrain-models-programmatically.md).
 
+> [!NOTE] 
+> Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
+
 Если развернута классическая веб-служба, выполните следующие действия.
 
 * Создайте новую конечную точку в прогнозной веб-службе.
@@ -95,10 +99,5 @@ ms.openlocfilehash: 882157d2cb544e5bb59caf7d64de579e23b12480
 <!--image links-->
 [1]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
 [7]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

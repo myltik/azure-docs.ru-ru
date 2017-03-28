@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью шаблона | Документация Майкрософт"
-description: "Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью шаблона посредством Azure Resource Manager."
+title: "Создание виртуальной машины с несколькими сетевыми картами с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Создание виртуальной машины с несколькими сетевыми картами с помощью шаблона Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 05a3d3e1c6c608b1dcfd0a4d4ed795cb1d22456b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -281,7 +283,7 @@ TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Развертывание шаблона с помощью интерфейса командной строки Azure
 Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../cli-install-nodejs.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **`azure config mode`** , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
     ```azurecli
@@ -315,10 +317,5 @@ TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

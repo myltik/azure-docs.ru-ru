@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
-ms.openlocfilehash: 1c8cd0a998d7224caf5dcc70061d288a8e3043ed
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9686a4c7b6a71df20e15653837363e6b69418cc9
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Создание прогнозирующих конвейеров с помощью машинного обучения Azure и фабрики данных Azure
 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md)
-> * [Хранимая процедура](data-factory-stored-proc-activity.md)
-> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
-> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Действие Hive](data-factory-hive-activity.md) 
+> * [Действие Pig](data-factory-pig-activity.md)
+> * [Действие MapReduce](data-factory-map-reduce.md)
+> * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Действие Spark](data-factory-spark.md)
+> * [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+> * [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
+> * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
+> * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Введение
 

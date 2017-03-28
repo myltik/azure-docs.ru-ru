@@ -1,6 +1,6 @@
 ---
-title: "Создание ферм серверов SharePoint | Документация Майкрософт"
-description: "Быстрое создание новой фермы SharePoint 2013 или SharePoint 2016 в Azure."
+title: "Создание ферм серверов SharePoint в Azure | Документация Майкрософт"
+description: "Быстрое создание фермы SharePoint 2013 или SharePoint 2016 в Azure с помощью Azure Marketplace."
 services: virtual-machines-windows
 documentationcenter: 
 author: JoeDavies-MSFT
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: josephd
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 7c0746840dd45229dac491b03925349e6d9a44de
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9e8eb54913b1e7e3f40ac2c9b80b0818eee3a35f
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="create-sharepoint-server-farms"></a>Создание ферм серверов SharePoint
+# <a name="create-sharepoint-server-farms-using-the-azure-portal-marketplace"></a>Создание ферм серверов SharePoint с помощью Azure Marketplace
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -77,15 +79,10 @@ ms.openlocfilehash: 7c0746840dd45229dac491b03925349e6d9a44de
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## <a name="managing-the-sharepoint-farms"></a>Управление фермами SharePoint
-Для администрирования серверов этих ферм можно использовать подключения к удаленному рабочему столу. Дополнительные сведения см. в разделе [Подключение к виртуальной машине и вход](virtual-machines-windows-hero-tutorial.md#connect-to-the-virtual-machine-and-sign-on).
+Для администрирования серверов этих ферм можно использовать подключения к удаленному рабочему столу. Дополнительные сведения см. в разделе [Подключение к виртуальной машине и вход](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
-На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Дополнительные сведения см. в статье [Настройка SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
+На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Дополнительные сведения см. в статье [Настройка SharePoint&2013;](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь с дополнительными [конфигурациями SharePoint](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

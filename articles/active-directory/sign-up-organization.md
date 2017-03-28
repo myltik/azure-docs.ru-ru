@@ -1,9 +1,9 @@
 ---
-title: "Регистрация организации в Azure"
+title: "Подпишитесь на Azure как организация"
 description: "Узнайте, как с помощью учетной записи на работе или в школе можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов для улучшения эффективного взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: curtand
 manager: femila
 ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
-ms.author: markvi
+ms.date: 03/09/2017
+ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 52316e90cd2207ee20033cd96f981692b20b5ece
-ms.openlocfilehash: a711f3aa3a50f54974eeecdbb16658b8176e4f6a
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -34,10 +35,5 @@ ms.openlocfilehash: a711f3aa3a50f54974eeecdbb16658b8176e4f6a
 * [Блог Microsoft Azure](https://azure.microsoft.com/blog/)
 * [Что такое Azure AD?](active-directory-whatis.md)
 * [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

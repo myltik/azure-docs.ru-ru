@@ -1,5 +1,5 @@
 ---
-title: "Настройка группы доступности AlwaysOn на виртуальной машине Azure в классической модели"
+title: "Настройка группы доступности AlwaysOn на виртуальной машине Azure (классическая модель) | Документы Майкрософт"
 description: "Создание группы доступности AlwaysOn на виртуальных машинах Azure. В этом учебнике в основном используется пользовательский интерфейс и инструменты, а не сценарии."
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 87f16f54958b20b8b321d09c734923269bd0503e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c1a1c7d2fd56e20d30cf0468de2d7d6c2935ef3e
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm---classic"></a>Настройка группы доступности AlwaysOn на виртуальной машине Azure в классической модели
+# <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Настройка группы доступности AlwaysOn на виртуальной машине Azure (классическая модель)
 > [!div class="op_single_selector"]
 > * [Шаблон Resource Manager](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 > * [Resource Manager: вручную](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
@@ -415,10 +416,5 @@ ms.openlocfilehash: 87f16f54958b20b8b321d09c734923269bd0503e
 Решение SQL Server Always On на основе группы доступности в Azure успешно создано. Инструкции по настройке прослушивателя для этой группы доступности см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

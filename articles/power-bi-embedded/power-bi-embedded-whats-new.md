@@ -13,16 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 07c53a5d6b1881a4c207a2aefed9fcede0fa069e
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Новые возможности Power BI Embedded
+
 Обновления для **Power BI Embedded** выпускаются регулярно. Однако не все версии содержат новые компоненты, доступные пользователям. Некоторые версии ориентированы на возможности серверной службы. На этой странице мы будем рассказывать о новых возможностях, которые доступны пользователям. Заглядывайте сюда почаще.
+
+## <a name="march-2017"></a>Март 2017 г.
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ibuN4DzCl5c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+**Возможности самообслуживания**
+
+* [Создание отчета](power-bi-embedded-create-report-from-dataset.md)
+* [Сохранение отчета с помощью команды "Сохранить как"](power-bi-embedded-save-reports.md)
+* Внедрение отчета в режиме чтения, правки или создания 
+* [Переключение между режимами просмотра и правки отчетов](power-bi-embedded-toggle-mode.md)
+
+**Подключение к данным с помощью интерфейсов REST API**
+
+* [Создание набора данных](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* Передача данных 
+
+**Интерфейсы API управления**
+
+* Клонирование отчета и набора данных
+* Привязка отчета к другому набору данных
+
+**Примеры**
+
+* Обновленный [пример внедрения отчета JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>Декабрь 2016 г.
 
@@ -50,10 +76,5 @@ ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
 * Поддержка в Power BI Embedded пакета SDK для Azure, PowerShell и интерфейса командной строки.
 * Пользователи могут экспортировать данные визуализации в **CSV**-файл.
 * Служба Power BI Embedded теперь поддерживает все языки и языковые стандарты, которые поддерживает платформа Microsoft Azure. Дополнительные сведения см. на странице [Microsoft Azure — Extent of Localization](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx) (Microsoft Azure — масштаб локализации).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

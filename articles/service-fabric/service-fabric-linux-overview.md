@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: SubramaR
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c4c83345596900162826feab9fe549bc261e7d00
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -27,16 +27,16 @@ ms.lasthandoff: 01/30/2017
 Служба Service Fabric в Linux в принципе эквивалентна Service Fabric в Windows (за исключением особенностей ОС и поддержки языков программирования). Поэтому большая часть нашей [имеющейся документации](http://aka.ms/servicefabricdocs) пригодна для того, чтобы ознакомиться с этой технологией.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
-> 
-> 
+>
+>
 
 ## <a name="supported-operating-systems-and-programming-languages"></a>Поддерживаемые операционные системы и языки программирования
 Ограниченная предварительная версия поддерживает создание универсальных кластеров для разработки, а также многомашинных кластеров в Azure под управлением Ubuntu Server 16.04. Помимо гостевых исполняемых файлов и оркестрации контейнеров Docker предварительная версия поддерживает платформы Reliable Actors и Reliable Stateless Services на языках Java и C#.  
 
 > [!NOTE]
 > Платформа Reliable Collections пока не поддерживается в Linux. Автономные кластеры тоже не поддерживаются. В предварительной версии поддерживаются только универсальные кластеры, а также кластеры Azure из нескольких компьютеров под управлением Linux.
-> 
-> 
+>
+>
 
 
 ## <a name="supported-tooling"></a>Поддерживаемые средства
@@ -47,5 +47,5 @@ ms.lasthandoff: 01/30/2017
 2. [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md)
 3. [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
 4. [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
-
+5. [Настройка непрерывных интеграции и развертывания с помощью Jenkins и GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 

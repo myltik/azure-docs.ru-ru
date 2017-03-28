@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 Чтобы развернуть шаблон ARM, скачанный с помощью Azure CLI, выполните описанные ниже действия.
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../articles/xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../articles/cli-install-nodejs.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **`azure config mode`** , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
    
         azure config mode arm
@@ -84,9 +84,4 @@
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

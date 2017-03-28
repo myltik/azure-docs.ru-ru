@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1a133d7710b1790241c0ff774c2fd40e86b64268
-ms.openlocfilehash: f0248ce46991d23c2f5bb0f1c8bf212207b7ad5f
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 661733edbabd61b42bfb44b4ed107b1e757c2e28
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Обеспечение высокого уровня доступности и аварийное восстановление решения "SAP HANA в Azure (крупные экземпляры)"
+# <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Высокий уровень доступности и аварийное восстановление SAP HANA в Azure (крупные экземпляры) 
 
 Для работы критически важных серверов SAP HANA в Azure (крупные экземпляры) важно обеспечить высокий уровень доступности и реализовать стратегию аварийного восстановления. Кроме того, важно сотрудничать с SAP, вашим системным интегратором и (или) корпорацией Майкрософт, чтобы правильно создать архитектуру и реализовать подходящую стратегию обеспечения высокой доступности и аварийного восстановления. Также важно учитывать целевую точку восстановления и целевое время восстановления, характерные для вашей среды.
 
@@ -38,7 +40,7 @@ ms.openlocfilehash: f0248ce46991d23c2f5bb0f1c8bf212207b7ad5f
 - [Видеокурс SAP по репликации системы SAP HANA](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
 - [SAP Support Note #1999880 – FAQ on SAP HANA System Replication](https://bcs.wdf.sap.corp/sap/support/notes/1999880) (Примечание по SAP № 1999880. Часто задаваемые вопросы о репликации системы SAP HANA)
 - [SAP Support Note #2165547 – SAP HANA Backup and Restore within SAP HANA System Replication Environment](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726) (Примечание по SAP № 2165547. Резервное копирование и восстановление SAP HANA в среде репликации системы SAP HANA)
-- [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226) (Примечание по SAP № 1984882. Использование репликации системы SAP HANA для замены оборудования без простоя (или с минимальным))
+- [Примечание по SAP № 1984882. Использование репликации системы SAP HANA для замены оборудования без простоя](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 
 ## <a name="disaster-recovery"></a>Аварийное восстановление
 
@@ -593,9 +595,4 @@ Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN
 HANA snapshot deletion successfully.
 ```
 В этом примере видно, как скрипт записывает создание моментального снимка HANA. В случае горизонтального масштабирования этот процесс инициируется на главном узле. Главный узел инициирует синхронное создание моментальных снимков всех рабочих узлов. Затем создается моментальный снимок хранилища. После создания этого снимка моментальный снимок HANA удаляется.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

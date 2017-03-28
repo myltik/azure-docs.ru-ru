@@ -1,5 +1,5 @@
 ---
-title: "Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory | Документация Майкрософт"
+title: "Настройка единого входа Azure AD для приложений | Документация Майкрософт"
 description: "Узнайте, как самостоятельно подключить приложения к Azure Active Directory с использованием SAML и единого входа на основе пароля"
 services: active-directory
 author: asmalser-msft
@@ -11,11 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
+ms.date: 02/27/2017
 ms.author: asmalser
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8274e47e99998b735e7252ce72bb3ac7c2ecc672
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -139,9 +141,4 @@ ms.openlocfilehash: 8274e47e99998b735e7252ce72bb3ac7c2ecc672
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

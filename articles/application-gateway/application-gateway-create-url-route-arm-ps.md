@@ -17,6 +17,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
 ms.openlocfilehash: 54ec0b039b14246e3c64d1721b4562035e39efa5
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -292,10 +293,5 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Информацию о разгрузке SSL см. в статье о [настройке шлюза приложений для разгрузки SSL](application-gateway-ssl-arm.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

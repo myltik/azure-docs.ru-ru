@@ -4,7 +4,7 @@ description: "Настройка проверки подлинности Faceboo
 services: app-service
 documentationcenter: 
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4f23ba29401892092550cf73e56ec7ec6373c05
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: e23725539a354b0c813e5206e8ca4de37be0b49b
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.openlocfilehash: e4f23ba29401892092550cf73e56ec7ec6373c05
 8. Учетная запись Facebook, которая использовалась для регистрации приложения, является администратором приложения. На этом этапе только администраторы могут входить в приложение. Чтобы проверить подлинность других учетных записей Facebook, щелкните **App Review** (Обзор приложения) и включите параметр **Make <your-app-name> public** (Сделать <имя_приложения> общедоступным). Так вы активируете общий доступ с использованием проверки подлинности Facebook.
 
 ## <a name="secrets"> </a>Добавление данных Facebook в приложение
-1. Снова вернитесь на [портал Azure]и перейдите к своему приложению. Щелкните **Параметры** > **Аутентификация или авторизация** и установите для параметра **Проверка подлинности службы приложений** значение **Вкл.**.
+1. Снова вернитесь на [портал Azure]и перейдите к своему приложению. Щелкните **Параметры** > **Аутентификация или авторизация** и установите для параметра **Проверка подлинности службы приложений** значение **Вкл**.
 2. Щелкните **Facebook**, вставьте значения идентификатора и секрета приложения, полученные ранее, и при необходимости включите любые области, которые требуются приложению. Нажмите кнопку **ОК**.
    
     ![][0]
@@ -68,11 +69,6 @@ ms.openlocfilehash: e4f23ba29401892092550cf73e56ec7ec6373c05
 <!-- URLs. -->
 [разработчиков для Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Приступая к работе с проверкой подлинности]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [портал Azure]: https://portal.azure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

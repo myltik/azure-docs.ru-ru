@@ -12,119 +12,128 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
-ms.openlocfilehash: 4d84c11a4b91727f60c4c266a23cc5f3946898f5
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="securing-access-to-documentdb-data"></a>Защита доступа к данным DocumentDB
 В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-Прочитав этот обзор, вы сможете ответить на следующие вопросы.  
+Для аутентификации пользователей и предоставления доступа к своим данным и ресурсам DocumentDB использует два типа ключей. 
 
-* Что собой представляют главные ключи DocumentDB?
-* Что собой представляют ключи только для чтения DocumentDB?
-* Что такое маркеры ресурсов DocumentDB?
-* Как использовать пользователей и разрешения DocumentDB для защиты доступа к данным DocumentDB?
+|Тип ключа|Ресурсы|
+|---|---|
+|[Главные ключи](#master-keys) |Используются для административных ресурсов: учетных записей базы данных, баз данных, пользователей и разрешений.|
+|[Маркеры ресурсов](#resource-tokens)|Используются для ресурсов приложения: коллекций, документов, вложений, хранимых процедур, триггеров и определяемых пользователем функций (UDF).|
 
-## <a name="documentdb-access-control-concepts"></a>Понятия управления доступом DocumentDB
-DocumentDB содержит понятия первого класса, позволяющие контролировать доступ к ресурсам DocumentDB.  В этой статье ресурсы DocumentDB сгруппированы в две категории:
+<a id="master-keys"></a>
 
-* Административные ресурсы
-  * Учетная запись
-  * База данных
-  * Пользователь
-  * Разрешение
-* Ресурсы приложения
-  * Коллекция
-  * ПРЕДЛОЖЕНИЕ
-  * Документ
-  * Вложение
-  * Хранимая процедура
-  * Триггер
-  * Определяемая пользователем функция
+## <a name="master-keys"></a>Главные ключи 
 
-Применительно к этим двум категориям DocumentDB поддерживает три типа лиц управления доступом: администратор учетной записи, администратора с доступом только для чтения и пользователь базы данных.  Для каждого типа пользователя управления доступом существуют следующие права.
+Главные ключи предоставляют доступ ко всем административным ресурсам для учетной записи базы данных. Главные ключи.  
+- предоставляют доступ к учетным записям, базам данных, пользователям и разрешениям; 
+- не могут использоваться для предоставления детального доступа к коллекциям и документам;
+- создаются в процессе создания учетной записи;
+- можно создать повторно в любое время.
 
-* Администратор учетной записи. Полный доступ ко всем ресурсам (административным ресурсам и ресурсам приложения) в рамках данной учетной записи DocumentDB.
-* Администратор с доступом только для чтения. Доступ ко всем ресурсам (административным ресурсам и ресурсам приложения) в рамках данной учетной записи DocumentDB с правами только на чтение. 
-* Пользователь базы данных. Ресурс пользователя DocumentDB, связанный с определенным набором ресурсов базы данных DocumentDB (например, коллекциями, документами, скриптами).  С указанной базой данных может быть связан один или несколько ресурсов пользователя, а у каждого ресурса пользователя может быть одно или несколько связанных разрешений.
+Каждая учетная запись состоит из двух главных ключей: первичного и вторичного. Двойные ключи позволяют повторно создавать или сменять ключи, обеспечивая постоянный доступ к учетной записи и данным. 
 
-С учетом упомянутых выше категорий и ресурсов в модели управления доступом использования DocumentDB определено три типа конструкций доступа.
+Помимо двух главных ключей в учетной записи DocumentDB существует еще два ключа только для чтения. Эти ключи разрешают только операции чтения в учетной записи. Ключи только для чтения не предоставляют доступ к ресурсам разрешений на чтение.
 
-* Главные ключи. При создании учетной записи DocumentDB формируются два главных ключа (первичный и вторичный).  Эти ключи предоставляют полный административный доступ ко всем ресурсам в учетной записи DocumentDB.
+Главные ключи (первичные, вторичные, с доступом только для чтения и с доступом для чтения и записи) можно получить и повторно создать с помощью портала Azure. Дополнительные сведения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 
-![Иллюстрация главных ключей DocumentDB](./media/documentdb-secure-access-to-data/masterkeys.png)
+![Управление доступом (IAM) на портале Azure: демонстрация безопасности базы данных NoSQL](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-* Ключи только для чтения. При создании учетной записи DocumentDB формируются два ключа только для чтения (первичный и вторичный).  Эти ключи предоставляют доступ ко всем ресурсам в учетной записи DocumentDB с правами только на чтение.
+Процесс ротации главного ключа прост. Перейдите на портал Azure, чтобы получить вторичный ключ, затем замените первичный ключ вторичным ключом в приложении, а затем смените первичный ключ на портале Azure.
 
-![Иллюстрация ключей DocumentDB только для чтения](./media/documentdb-secure-access-to-data/readonlykeys.png)
+![Ротация главного ключа на портале Azure: демонстрация безопасности базы данных NoSQL](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-* Маркеры ресурса. Маркер ресурса связан с разрешением DocumentDB и отражает отношение между пользователем базы данных и разрешением этого пользователя к конкретному ресурсу приложения DocumentDB (например, коллекции, документу).
+### <a name="code-sample-to-use-a-master-key"></a>Пример кода для использования главного ключа
 
-![Иллюстрация маркеров ресурсов DocumentDB](./media/documentdb-secure-access-to-data/resourcekeys.png)
+В следующем примере кода показано, как использовать конечную точку учетной записи DocumentDB и главный ключ для создания экземпляра DocumentClient и построения новой базы данных. 
 
-## <a name="working-with-documentdb-master-and-read-only-keys"></a>Работа с главными ключами и ключами только для чтения DocumentDB
-Как упоминалось ранее, главные ключи DocumentDB предоставляют полный административный доступ ко всем ресурсам в учетной записи DocumentDB, тогда как ключи только для чтения предоставляют доступ для чтения ко всем ресурсам в учетной записи.  В следующем фрагменте кода показано, как использовать конечную точку учетной записи DocumentDB и главный ключ для создания DocumentClient и построения новой базы данных. 
+```csharp
+//Read the DocumentDB endpointUrl and authorization keys from config.
+//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
-    //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
-    //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
+private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
 
-    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-    private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
-    client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
+// Create Database
+Database database = await client.CreateDatabaseAsync(
+    new Database
+    {
+        Id = databaseName
+    });
+```
 
-    // Create Database
-    Database database = await client.CreateDatabaseAsync(
-        new Database
-        {
-            Id = databaseName
-        });
+<a id="resource-tokens"></a>
 
+## <a name="resource-tokens"></a>Маркеры ресурсов
 
-## <a name="overview-of-documentdb-resource-tokens"></a>Общие сведения о маркерах ресурсов DocumentDB
-Маркер ресурсов можно использовать(создавая пользователей и разрешения DocumentDB), если доступ к ресурсам в учетной записи DocumentDB требуется предоставить клиенту, которому нельзя доверять. Главные ключи DocumentDB включают в себя как первичный, так и вторичный ключ, и оба этих ключа предоставляют административный доступ к вашей учетной записи и всем ее ресурсам. Предоставление любого из главных ключей делает учетную запись уязвимой для вредоносного или небрежного использования. 
+Маркеры ресурсов предоставляют доступ к ресурсам приложения в базе данных. Маркеры ресурсов.
+- предоставляют доступ к определенным коллекциям, документам, вложениям, хранимым процедурам, триггерам и определяемым пользователем функциям (UDF);
+- создаются, когда [пользователю](#users) предоставляются [разрешения](#permissions) на доступ к определенному ресурсу;
+- создаются повторно, когда в отношении ресурса разрешения выполняется вызов POST, GET или PUT;
+- используют хэш, который маркер ресурса специально создал для пользователя, ресурса и разрешения;
+- имеют ограничение по времени (настраиваемый срок действия). Допустимый интервал времени по умолчанию составляет один час. Однако продолжительность действия маркера можно задать явным образом. Ее значение не должно превышать пять часов;
+- обеспечивают безопасную альтернативу выдаче главного ключа; 
+- позволяют клиентам читать, записывать и удалять ресурсы в учетной записи DocumentDB в соответствии с предоставленными им разрешениями.
 
-Аналогичным образом, ключи только для чтения DocumentDB предоставляют доступ для чтения ко всем ресурсам (за исключением ресурсов разрешений) в учетной записи DocumentDB и не могут использоваться для предоставления более детального доступа к определенным ресурсам DocumentDB.
+Маркер ресурсов можно использовать(создавая пользователей и разрешения DocumentDB), если доступ к ресурсам в учетной записи DocumentDB требуется предоставить клиенту, которому нельзя доверять.  
 
 Маркеры ресурсов DocumentDB — это безопасное альтернативное решение, которое позволяет клиентам читать, записывать и удалять ресурсы в учетной записи DocumentDB согласно предоставленным разрешениям и без необходимости использовать главный ключ или ключ только для чтения.
 
 Ниже приведена стандартная схема запроса, создания и отправки маркеров ресурсов клиентам.
 
-1. Служба среднего уровня настроена для обслуживания мобильного приложения по обмену фотографиями.
+1. Служба среднего уровня настроена для обслуживания мобильного приложения по обмену фотографиями. 
 2. Служба среднего уровня обрабатывает главный ключ учетной записи DocumentDB.
 3. Приложение по обмену фотографиями устанавливается на мобильных устройствах конечных пользователей. 
 4. При входе в систему приложение для обмена фотографиями идентифицирует пользователя службы. Механизм установления личности пользователя реализуется исключительно в приложении.
 5. После установления личности служба среднего уровня запрашивает разрешения на основе удостоверения.
 6. Служба среднего уровня отправляет маркер ресурса обратно в приложение для телефона.
 7. Приложение может по-прежнему использовать маркер ресурса для прямого доступа к ресурсам DocumentDB с разрешениями, определенными маркером, и в течение интервала времени, разрешенного этим маркером. 
-8. По истечении срок действия маркера ресурса последующие запросы будут получать исключение 401 — Не санкционировано.  На этом этапе приложение для телефона повторно установит личность и запросит новый маркер ресурса.
+8. По истечении срока действия маркера ресурса последующие запросы получают исключение: 401 — не авторизовано.  На этом этапе приложение для телефона повторно установит личность и запросит новый маркер ресурса.
 
-![Рабочий процесс маркеров ресурсов DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
+    ![Рабочий процесс маркеров ресурсов DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-## <a name="working-with-documentdb-users-and-permissions"></a>Работа с пользователями и разрешениями DocumentDB
-Ресурс пользователя DocumentDB связан с базой данных DocumentDB.  Каждая база данных может содержать несколько пользователей DocumentDB или не содержать ни одного.  В следующем фрагменте кода показано, как создать ресурс пользователя DocumentDB.
+ Создание маркеров ресурсов и управление ими осуществляется собственными клиентскими библиотеками DocumentDB. Однако, если используется REST, то необходимо создать заголовки запросов и аутентификации. Дополнительные сведения о создании заголовков аутентификации для REST см. в статье [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом к ресурсам DocumentDB) или в [репозитории исходного кода для наших пакетов SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+ 
+ Пример службы среднего уровня, используемой для создания маркеров ресурсов или в качестве брокера, см. в [репозитории приложения ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-    //Create a user.
-    User docUser = new User
-    {
-        Id = "mobileuser"
-    };
+<a id="users"></a>
 
-    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+## <a name="users"></a>Пользователи
+Пользователи DocumentDB связаны с базой данных DocumentDB.  Каждая база данных может содержать несколько пользователей DocumentDB или не содержать ни одного.  В следующем примере кода показано, как создать ресурс пользователя DocumentDB.
+
+```csharp
+//Create a user.
+User docUser = new User
+{
+    Id = "mobileuser"
+};
+
+docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+```
 
 > [!NOTE]
-> Каждый пользователь DocumentDB обладает свойством PermissionsLink, используемым для получения списка разрешений, связанных с этим пользователем.
+> Каждый пользователь DocumentDB обладает свойством PermissionsLink, которое можно использовать для получения списка [разрешений](#permissions), связанных с этим пользователем.
 > 
 > 
 
+<a id="permissions"></a>
+
+## <a name="permissions"></a>Разрешения
 Ресурс разрешения DocumentDB связан с пользователем DocumentDB.  Каждый пользователь может иметь несколько разрешений DocumentDB или не иметь ни одного.  Ресурс разрешения предоставляет доступ к маркеру безопасности, необходимому пользователю при попытке доступа к конкретному ресурсу приложения.
-Существует два уровня доступа, предоставляемых ресурсом разрешения.
+Существует два уровня доступа, предоставляемых ресурсом разрешения:
 
 * Все. Пользователь имеет полный набор разрешений для ресурса.
 * Чтение. Пользователь может только считывать содержимое ресурса, но не может выполнять на ресурсе операции записи, обновления или удаления.
@@ -134,49 +143,46 @@ DocumentDB содержит понятия первого класса, позв
 > 
 > 
 
-В следующем фрагменте кода показано, как создать ресурс разрешения, прочесть его маркер и связать разрешения с созданным выше пользователем.
+### <a name="code-sample-to-create-permission"></a>Пример кода для создания разрешения
 
-    // Create a permission.
-    Permission docPermission = new Permission
-    {
-        PermissionMode = PermissionMode.Read,
-        ResourceLink = documentCollection.SelfLink,
-        Id = "readperm"
-    };
-    
-    docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
-    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+В следующем примере кода показано, как создать ресурс разрешения, прочесть его маркер и связать разрешения с созданным выше [пользователем](#users).
+
+```csharp
+// Create a permission.
+Permission docPermission = new Permission
+{
+    PermissionMode = PermissionMode.Read,
+    ResourceLink = documentCollection.SelfLink,
+    Id = "readperm"
+};
+  
+docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
+Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```
 
 Если вы указали ключ секции для коллекции, то разрешение для ресурсов коллекции, документа и вложения также должно включать ResourcePartitionKey наряду с ResourceLink.
 
+### <a name="code-sample-to-read-permissions-for-user"></a>Пример кода для чтения разрешений пользователя
+
 Чтобы получить все ресурсы разрешений, связанные с конкретным пользователем, DocumentDB предоставляет каждому объекту пользователя доступ к каналу разрешений.  В следующем фрагменте кода показано, как получить разрешение, связанное с созданным выше пользователем, сформировать список разрешений и создать новый DocumentClient от имени пользователя.
 
-    //Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
-      UriFactory.CreateUserUri("db", "myUser"));
+```csharp
+//Read a permission feed.
+FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+  UriFactory.CreateUserUri("db", "myUser"));
+ List<Permission> permList = new List<Permission>();
 
-    List<Permission> permList = new List<Permission>();
+foreach (Permission perm in permFeed)
+{
+    permList.Add(perm);
+}
 
-    foreach (Permission perm in permFeed)
-    {
-        permList.Add(perm);
-    }
-
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
-
-> [!TIP]
-> Допустимый интервал времени по умолчанию для маркеров ресурсов составляет 1 час.  Однако продолжительность действия маркера можно задать явным образом. Ее значение не должно превышать 5 часов.
-> 
-> 
+DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
-* Дополнительные сведения об управлении главными ключами и ключами только для чтения можно узнать [здесь](documentdb-manage-account.md).
-* Сведения о создании маркеров авторизации DocumentDB можно узнать [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Дополнительные сведения о безопасности базы данных DocumentDB см. в статье [DocumentDB: безопасность базы данных NoSQL](documentdb-nosql-database-security.md).
+* Сведения об управлении главными ключами и ключами только для чтения см. в статье [Управление учетной записью DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* Сведения о создании маркеров авторизации DocumentDB см. в статье [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом к ресурсам DocumentDB).
 
 

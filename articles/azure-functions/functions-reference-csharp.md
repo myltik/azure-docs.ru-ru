@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: da9da90e7ccd5d324b8f87a3585555ea5d5ed475
-ms.openlocfilehash: d587ff744fea5393a34d5a576e6af32cac5d2b44
+ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
+ms.openlocfilehash: 6b2473ef6336aea5c9a79aad78e02bcfc38b9018
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -52,6 +53,11 @@ public class MyClass
     public string Id { get; set; }
 }
 ```
+
+> [!TIP]
+>
+> Если вы планируете использовать привязки HTTP или WebHook, рекомендуем ознакомиться с рекомендациями для [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
+>
 
 ## <a name="logging"></a>Ведение журналов
 Для записи выходных данных в потоковые журналы в C# можно включить аргумент с типом `TraceWriter` . Рекомендуем присвоить ему имя `log`. В Функциях Azure рекомендуется избегать использования метода `Console.Write` .
@@ -314,10 +320,5 @@ public class Order
 * [Справочник разработчика F# по функциям Azure](functions-reference-fsharp.md)
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

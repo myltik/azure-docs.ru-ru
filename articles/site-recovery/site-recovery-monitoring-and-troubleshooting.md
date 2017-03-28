@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -35,12 +36,12 @@ ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
 ![Развертывание сайта Virtual Machine Manager для репликации между локальными сайтами](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### <a name="virtual-machine-manager-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Развертывание сайта Virtual Machine Manager для репликации между локальными расположениями и Azure
-Во время настройки восстановления базы данных между локальными расположениями и Azure необходимо скачать поставщик Azure Site Recovery и установить его на сервере Virtual Machine Manager. Необходимо также на каждом узле Hyper-V установить агент служб восстановления Azure. Дополнительные сведения см. в статье [Репликация Hyper-V с использованием Azure Site Recovery](site-recovery-understanding-site-to-azure-protection.md).
+Во время настройки восстановления базы данных между локальными расположениями и Azure необходимо скачать поставщик Azure Site Recovery и установить его на сервере Virtual Machine Manager. Необходимо также на каждом узле Hyper-V установить агент служб восстановления Azure. Дополнительные сведения см. [здесь](site-recovery-hyper-v-azure-architecture.md).
 
 ![Развертывание сайта Virtual Machine Manager для репликации между локальными расположениями и Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### <a name="hyper-v-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Развертывание сайта Hyper-V для репликации между локальными расположениями и Azure
-Этот процесс схож с развертыванием Virtual Machine Manager. Единственное отличие заключается в том, что поставщик Azure Site Recovery и агент служб восстановления Azure устанавливаются на самом узле Hyper-V. Дополнительные сведения см. в статье [Репликация Hyper-V с использованием Azure Site Recovery](site-recovery-understanding-site-to-azure-protection.md).
+Этот процесс схож с развертыванием Virtual Machine Manager. Единственное отличие заключается в том, что поставщик Azure Site Recovery и агент служб восстановления Azure устанавливаются на самом узле Hyper-V. [Подробнее](site-recovery-hyper-v-azure-architecture.md). .
 
 ## <a name="monitor-configuration-protection-and-recovery-operations"></a>Мониторинг операций настройки, защиты и восстановления
 Каждая операция в Azure Site Recovery контролируется и отслеживается на вкладке **Задания**. Чтобы обнаружить ошибки настройки, защиты или восстановления, просмотрите сбои на вкладке **Задания**.
@@ -80,8 +81,8 @@ ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
 
 > [!NOTE]
 > Если имеются какие-либо выполняющиеся или неудачно завершенные активные операции, перейдите на вкладку **Задания**, как упоминалось выше, чтобы просмотреть ошибку конкретного задания.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-on-premises-hyper-v-issues"></a>Устранение неполадок локальной среды Hyper-V
 Подключитесь к локальной консоли диспетчера Hyper-V, выберите виртуальную машину и проверьте работоспособность репликации.
@@ -194,10 +195,4 @@ ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
 Если кнопка **Подключить** на портале неактивна и вы не используете канал Express Route или VPN-подключение типа "сеть — сеть" для обмена данными с Azure, вам сначала нужно создать общедоступный IP-адрес и назначить его виртуальной машине. Только после этого вы сможете использовать удаленный рабочий стол или Shared Shell. Затем можно добавить общедоступный IP-адрес в сетевой интерфейс виртуальной машины.  
 
 ![Не удалось добавить общедоступный IP-адрес в сетевой интерфейс на виртуальной машине](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

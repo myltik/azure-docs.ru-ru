@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f76277ab93c58098648ee65ea5aba0757495da68
-ms.openlocfilehash: 1222a670a1bf530871a19c79b7da441c03f8df51
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 353677bc7eb7fe791d23bcfdb79f3a0df6366c6f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -44,6 +44,13 @@ ms.lasthandoff: 02/22/2017
 
 ## <a id="rest_version_history"></a>Журнал версий интерфейса API REST
 Сведения о журнале версий интерфейса REST API служб мультимедиа см. в [этом справочнике].
+
+## <a name="march-2017-release"></a>Выпуск от марта 2017 г.
+
+Теперь можно [автоматически создать лесенку битрейта](media-services-autogen-bitrate-ladder-with-mes.md) в службе мультимедиа Azure, указав предустановку "Адаптивная потоковая передача" при создании задачи кодирования. Предустановка "Адаптивная потоковая передача" рекомендуется при кодировании видео для потоковой передачи с помощью служб мультимедиа. Если вам необходимо изменить предустановку кодирования для конкретного сценария, можете начать с [этих](media-services-mes-presets-overview.md) предустановок.
+
+Теперь вы можете [создать задачу кодирования, которая создает фрагменты fMP4](media-services-generate-fmp4-chunks.md), с помощью службы мультимедиа Azure или рабочего процесса Media Encoder Premium. 
+
 
 ## <a name="febuary-2017-release"></a>Выпуск: февраль 2017 г.
 

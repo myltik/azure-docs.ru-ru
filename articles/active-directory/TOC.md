@@ -34,15 +34,13 @@
 ##### [Стратегия внедрения](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Дальнейшие действия](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Сравнение инструментов](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Управление пользователями
 ### Добавление пользователей
 #### [Портал Azure](active-directory-users-create-azure-portal.md)
 #### [Классический портал.](active-directory-create-users.md)
 
-### Добавление пользователей из других каталогов
-#### [Портал Azure](active-directory-users-create-external-azure-portal.md)
-#### [Классический портал.](active-directory-create-users-external.md)
-
+### [Добавление пользователей из других каталогов (классический портал)](active-directory-create-users-external.md)
 ### [Удаление пользователей](active-directory-users-delete-user-azure-portal.md)
 ### [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 ### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
@@ -69,32 +67,36 @@
 ### [Групповое лицензирование](active-directory-licensing-whatis-azure-portal.md)
 #### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Поиск и устранение проблем лицензирования группы](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Как перевести отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
+#### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 
-## [Просмотр отчетов об активности](active-directory-view-access-usage-reports.md)
-### [Вход в систему](active-directory-reporting-activity-sign-ins.md)
-### [Журналы аудита](active-directory-reporting-activity-audit-logs.md)
+## [Управление отчетами](active-directory-reporting-azure-portal.md)
+### [Действие входа](active-directory-reporting-activity-sign-ins.md)
+### [Действие аудита](active-directory-reporting-activity-audit-logs.md)
 ### [Пользователи под угрозой](active-directory-reporting-security-user-at-risk.md)
 ### [Вход, представляющий риск](active-directory-reporting-security-risky-sign-ins.md)
-### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
+### [События риска](active-directory-reporting-risk-events.md)
+### [Именованные сети](active-directory-known-networks-azure-portal.md)
 ### [Перенос отчетов](active-directory-reporting-migration.md)
-### [Известные сети](active-directory-known-networks.md)
-
-### Классический портал.
+### [Сохранение](active-directory-reporting-retention.md)
+### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
+### Устранение неполадок
+#### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Отсутствующие данные в файлах для скачивания](active-directory-reporting-troubleshoot-missing-data-download.md)
+###    Программный доступ
+#### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
+#### [Примеры аудита](active-directory-reporting-api-audit-samples.md)
+#### [Предварительные требования](active-directory-reporting-api-prerequisites.md)
+#### [Справочник по входу](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Примеры входа](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Классический портал.](active-directory-view-access-usage-reports.md)
 #### [Отчеты Azure AD](active-directory-reporting-getting-started.md)
 #### [Руководство по отчетам](active-directory-reporting-guide.md)
-#### [Предварительная версия](active-directory-reporting-azure-portal.md)
+#### [Известные сети](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
-##### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
-##### [Примеры аудита](active-directory-reporting-api-audit-samples.md)
-##### [Предварительные требования](active-directory-reporting-api-prerequisites.md)
-##### [Справочник по входу](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Примеры входа](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [События аудита](active-directory-reporting-audit-events.md)
-#### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### Чтение отчетов
@@ -108,6 +110,7 @@
 
 ## [Управление паролями](active-directory-manage-passwords.md)
 ### [Изменение своего пароля](active-directory-passwords-update-your-own-password.md)
+### [Настройка самостоятельного сброса пароля](active-directory-passwords.md)
 ### [Общие сведения об управлении паролями](active-directory-passwords-how-it-works.md)
 ### [Общие сведения о политиках и ограничениях](active-directory-passwords-policy.md)
 ### Сброс паролей
@@ -117,7 +120,6 @@
 ### Включение управления паролями
 #### [Начало работы](active-directory-passwords-getting-started.md)
 #### [Развертывание](active-directory-passwords-best-practices.md)
-#### [Настройка самостоятельного сброса пароля](active-directory-passwords.md)
 #### [Настройка](active-directory-passwords-customize.md)
 #### [Просмотр отчетов](active-directory-passwords-get-insights.md)
 #### [Дополнительные сведения](active-directory-passwords-learn-more.md)
@@ -125,25 +127,23 @@
 #### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
 
 ## Управление устройствами
-### [Регистрация устройств](active-directory-conditional-access-device-registration-overview.md)
-#### [Управление автоматической регистрацией](active-directory-conditional-access-automatic-device-registration.md)
+### [Регистрация устройств](active-directory-device-registration-overview.md)
+#### [Управление автоматической регистрацией](active-directory-device-registration.md)
 #### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Регистрация персональных устройств](active-directory-azureadjoin-personal-device.md)
-### [Регистрация устройств Windows 10](active-directory-azureadjoin-user-upgrade.md)
+#### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
+#### [Часто задаваемые вопросы](active-directory-device-registration-faq.md)
+#### Устранение неполадок
+##### [Устранение неполадок в Windows 10 и Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Устранение неполадок для клиентов Windows нижнего уровня](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Присоединение к Azure AD](active-directory-azureadjoin-overview.md)
 #### [План](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
 #### [Регистрация новых устройств](active-directory-azureadjoin-user-frx.md)
 #### [Развертывание](active-directory-azureadjoin-devices-group-policy.md)
-#### [Проверка подлинности без использования паролей](active-directory-azureadjoin-passport.md)
-#### [Включение Windows Hello для бизнеса](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Общие сведения об интеграции Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Использование устройств Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Часто задаваемые вопросы](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Устранение неполадок
-##### [Устранение неполадок в Windows 10 и Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Устранение неполадок для клиентов Windows нижнего уровня](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Присоединение устройства](active-directory-azureadjoin-personal-device.md)
+#### [Присоединение устройства Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Управление приложениями
 ### [Обзор](active-directory-enable-sso-scenario.md)
@@ -237,6 +237,7 @@
 #### [Активация приглашения](active-directory-b2b-redemption-experience.md)
 #### [Свойства пользователя B2B](active-directory-b2b-user-properties.md)
 #### [Добавление роли гостевого пользователя](active-directory-b2b-add-guest-to-role.md)
+#### [Аудит и отчеты](active-directory-b2b-auditing-and-reporting.md)
 #### [API и настройка](active-directory-b2b-api.md)
 #### [Делегирование приглашений](active-directory-b2b-delegate-invitations.md)
 #### [Динамические группы и B2B](active-directory-b2b-dynamic-groups.md)
@@ -280,10 +281,12 @@
 #### [Поддерживаемые приложения](active-directory-conditional-access-supported-apps.md)
 #### [Общие сведения о политиках устройств](active-directory-conditional-access-device-policies.md)
 #### [Настройка доступа к подключенным приложениям](active-directory-conditional-access-policy-connected-applications.md)
-#### [Локальное развертывание](active-directory-conditional-access-on-premises-setup.md)
 #### [Часто задаваемые вопросы](active-directory-conditional-faqs.md)
 #### [Устранение неполадок](active-directory-conditional-access-device-remediation.md)
 #### [Справочные материалы](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Проверка подлинности без использования паролей](active-directory-azureadjoin-passport.md)
+#### [Включение Windows Hello для бизнеса](active-directory-azureadjoin-passport-deployment.md)
 ### Аутентификация на основе сертификата
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

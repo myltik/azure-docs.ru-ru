@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
-ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -63,7 +64,7 @@ ms.lasthandoff: 02/15/2017
     * **Тип ОС**: Linux.
     * **Количество рабочих узлов**: 2.
 
-     У каждого кластера есть зависимость учетной записи хранения для хранилища BLOB-объектов Azure. Обычно она называется учетной записью хранения по умолчанию. Кластер HDInsight должен находиться в том же регионе Azure, что и его учетная запись хранения, используемая по умолчанию. Удаление кластеров не приведет к удалению учетной записи хранения. 
+     У каждого кластера есть зависимость учетной записи хранения для службы хранилища Azure. Обычно она называется учетной записью хранения по умолчанию. Кластер HDInsight должен находиться в том же регионе Azure, что и его учетная запись хранения, используемая по умолчанию. Удаление кластеров не приведет к удалению учетной записи хранения. 
      
      Дополнительные сведения об этих свойствах см. в инструкциях по [созданию кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -135,7 +136,7 @@ ms.lasthandoff: 02/15/2017
 
 Если вы готовы приступить к работе с собственными данными и хотите узнать больше о том, как HDInsight сохраняет данные или как получать данные в HDInsight, см. следующие статьи:
 
-* Информацию о том, как HDInsight использует хранилище BLOB-объектов Azure, см. в [этой статье](hdinsight-hadoop-use-blob-storage.md).
+* Сведения о том, как HDInsight использует службу хранилища Azure, см. в статье [Использование HDFS-совместимой службы хранилища с Hadoop в HDInsight](hdinsight-hadoop-use-blob-storage.md).
 * Сведения об отправке данных в HDInsight см. в статье [Отправка данных в HDInsight][hdinsight-upload-data].
 
 Дополнительные сведения о создании кластера HDInsight и управлении этим кластером см. в следующих статьях:

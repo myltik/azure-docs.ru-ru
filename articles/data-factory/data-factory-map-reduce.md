@@ -12,24 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc30c4283a96f3202e7010828e178895d3613b6
-ms.openlocfilehash: 08245a850e3c78ce893ef18030ee09e701241d1b
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: afa8c08fc89103a14cc393c62e7f2c9d985426c2
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Вызов программы MapReduce из фабрики данных
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Хранимая процедура](data-factory-stored-proc-activity.md)
-> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
-> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Действие Hive](data-factory-hive-activity.md) 
+> * [Действие Pig](data-factory-pig-activity.md)
+> * [Действие MapReduce](data-factory-map-reduce.md)
+> * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Действие Spark](data-factory-spark.md)
+> * [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
+> * [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
+> * [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
+> * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
 Действие MapReduce HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет программы MapReduce для [вашего собственного](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластера HDInsight или кластера HDInsight [по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) под управлением Windows или Linux. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
 
@@ -243,10 +246,5 @@ ms.openlocfilehash: 08245a850e3c78ce893ef18030ee09e701241d1b
 * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Вызов программ Spark](data-factory-spark.md)
 * [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

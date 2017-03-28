@@ -10,16 +10,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfb59158facd2a4f861fa3221f032fc65419bdc0
-ms.openlocfilehash: 909103172d0950df6f86be6fe932581e7e7fd663
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Управление записями DNS в службе DNS Azure с помощью Azure PowerShell
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Управление записями и наборами записей DNS в службе DNS Azure с помощью Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](dns-operations-recordsets-portal.md)
@@ -55,7 +57,7 @@ ms.openlocfilehash: 909103172d0950df6f86be6fe932581e7e7fd663
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Чтобы создать набор записей на вершине зоны (в нашем примере — contoso.com), используйте имя записи '@' (без кавычек):
+Чтобы создать набор записей на вершине зоны (в нашем примере — contoso.com), используйте имя записи @ (без кавычек):
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -110,7 +112,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Создание набора записей типа MX с одной записью
 
-Чтобы создать запись MX на вершине зоны (в данном случае contoso.com), в этом примере мы используем имя набора записей '@'.
+Чтобы создать запись MX на вершине зоны (в данном случае — contoso.com), в этом примере мы используем имя набора записей @.
 
 
 ```powershell
@@ -133,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Создание набора записей типа SRV с одной записью
 
-Создавая [набор записей SRV](dns-zones-records.md#srv-records), укажите в его имени *\_службу* и *\_протокол*. Если набор записей SRV создается на вершине зоны, включать '@' в имя набора записей не нужно.
+Создавая [набор записей SRV](dns-zones-records.md#srv-records), укажите в его имени *\_службу* и *\_протокол*. Если набор записей SRV создается на вершине зоны, включать @ в имя набора записей не нужно.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -384,9 +386,4 @@ Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -Resourc
 Узнайте, как [защитить зоны и записи](dns-protect-zones-recordsets.md) при использовании Azure DNS.
 <br>
 Просмотрите [справочную документацию по Azure DNS PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

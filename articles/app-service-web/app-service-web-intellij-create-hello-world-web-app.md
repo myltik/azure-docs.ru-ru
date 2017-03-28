@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
-ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 756c9fa079782f8f0cb194ca07c637d083f9ebd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -69,7 +70,7 @@ ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
 2. В отобразившемся диалоговом окне "Project Structure" (Структура проекта) выполните следующее.
 
    а. В списке **Project Settings** (Параметры проекта) щелкните **Artifacts** (Артефакты).
-   b. Измените имя артефакта в поле **Name** (Имя таким образом), чтобы оно содержало пробелы или специальные знаки. Это необходимо, так как имя будет использоваться в универсальном коде ресурса (URI).
+   b. Измените имя артефакта в поле **Name** (Имя) таким образом, чтобы оно не содержало пробелы или специальные знаки. Это необходимо, так как имя будет использоваться в универсальном коде ресурса (URI).
    В. Измените значение параметра **Type** (Тип) на **Web Application: Archive** (Веб-приложение: архив).
    d. Нажмите кнопку **OK**, чтобы закрыть диалоговое окно "Project Structure" (Структура проекта).
 
@@ -254,9 +255,4 @@ ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
 [16]: ./media/app-service-web-intellij-create-hello-world-web-app/16-Progress-Indicator.png
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

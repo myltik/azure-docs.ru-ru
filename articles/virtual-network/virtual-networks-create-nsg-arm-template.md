@@ -1,10 +1,10 @@
 ---
-title: "Как создавать сетевые группы безопасности в режиме ARM с помощью шаблона | Документация Майкрософт"
-description: "Узнайте, как создавать и развертывать сетевые группы безопасности в режиме ARM с помощью шаблона"
+title: "Создание групп безопасности сети с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Узнайте, как создавать и развертывать группы безопасности сети с помощью шаблона Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: f3e7385d-717c-44ff-be20-f9aa450aa99b
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="how-to-create-nsgs-using-a-template"></a>Как создать сетевые группы безопасности с помощью шаблона
+# <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Создание групп безопасности сети с помощью шаблона Azure Resource Manager
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -149,7 +152,7 @@ ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../cli-install-nodejs.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **`azure config mode`** , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
     ```azurecli
@@ -187,10 +190,5 @@ ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
    * **-l (или --location)**. Регион Azure, в котором будет создана группа ресурсов.
    * **-f (или --template-file)**. Путь к файлу шаблона ARM.
    * **-e (или --parameters-file)**. Путь к файлу параметров ARM.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

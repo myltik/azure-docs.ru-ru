@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/17/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 7a0a300f505d9012471679ac27373944f07fdba3
-ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
+ms.sourcegitcommit: ac53d0a2c1c0a257e86fe74e10c8781aa6305975
+ms.openlocfilehash: 80a7280787086a91ceeea308c79f894bdfabb725
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769508.png "Scenario")
+![Сценарий](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769508.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-dropbox-for-business"></a>Включение интеграции приложений для Dropbox for Business
 В этом разделе показано, как включить интеграцию приложений для Dropbox for Business.
@@ -47,19 +48,19 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Приложения](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Добавить приложение](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Добавить приложение из коллекции](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавление приложения из коллекции](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Dropbox for Business**.
    
-    ![Коллекция приложений](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Коллекция приложений")
 7. В области результатов выберите **Dropbox for Business** и щелкните **Завершить**, чтобы добавить приложение.
    
-    ![Dropbox for Business](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701011.png "Dropbox for Business")
+    ![Dropbox для бизнеса](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701011.png "Dropbox для бизнеса")
 
 ## <a name="configuring-single-sign-on"></a>Настройка единого входа
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Dropbox for Business со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
@@ -69,41 +70,41 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Dropbox for Business** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Настройка единого входа")
 2. На странице ** Как пользователи должны входить в Dropbox for Business?** выберите **Единый вход Microsoft Azure AD** и щелкните **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749327.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749327.png "Настройка единого входа")
 3. На странице **Настройка URL-адреса приложения** выполните следующие действия.
    
     а. Войдите в клиент Dropbox for Business. 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Настройка единого входа")
    
     b. На панели навигации слева щелкните **Консоль администрирования**. 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Настройка единого входа")
    
     c. В **консоли администрирования** выберите пункт **Проверка подлинности** в левой области навигации. 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Настройка единого входа")
    
-    d. В разделе **Единый вход** установите флажок **Включить единый вход** и нажмите кнопку **Дополнительно**, чтобы развернуть этот раздел.  
+    г) В разделе **Единый вход** установите флажок **Включить единый вход** и нажмите кнопку **Дополнительно**, чтобы развернуть этот раздел.  
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Настройка единого входа")
    
     д. Скопируйте URL-адрес рядом с пунктом **Users can sign in by entering their email address or they can go directly to**(Пользователи могут входить, указывая адрес электронной почты, или напрямую переходить по адресу). 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Настройка единого входа")
    
     Е. На классическом портале Azure вставьте URL-адрес в текстовое поле **Dropbox for business sign in** (URL-адрес для входа в Dropbox for Business). 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configure single sign-on")  
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Настройка единого входа")  
 4. На странице **Настройка единого входа в Dropbox for Business** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на компьютере.  
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Настройка единого входа")
 5. В клиенте Dropbox for Business в разделе **Единый вход** на странице **Проверка подлинности** выполните следующие действия: 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Настройка единого входа")
    
     а. Установите флажок **Обязательно**.
    
@@ -120,7 +121,7 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 
 1. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**. 
    
-    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Настройка единого входа")
 
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 В этом разделе показано, как включить подготовку учетных записей пользователей Active Directory для Dropbox for Business.
@@ -129,16 +130,16 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 1. На странице интеграции с приложением **Dropbox for Business** на классическом портале Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Configure User Provisioning**(Настройка подготовки учетных записей пользователей).
 2. На странице "Включить подготовку учетных записей пользователей для: Dropbox for Business" нажмите кнопку "Включить подготовку пользователей", чтобы открыть диалоговое окно Sign in to Dropbox to link with Windows Azure AD (Вход в Dropbox для установки связи с Microsoft Azure AD).  
    
-    ![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "User provisioning")
+    ![Подготовка учетных записей пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Подготовка учетных записей пользователей")
 3. В диалоговом окне **Sign in to Dropbox to link with Windows Azure AD** (Вход в Dropbox для установки связи с Microsoft Azure AD) войдите в клиент Dropbox for Business. 
    
-    ![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "User provisioning")
+    ![Подготовка учетных записей пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Подготовка учетных записей пользователей")
 4. Нажмите кнопку **Разрешить** , чтобы предоставить Azure AD доступ к Dropbox. 
    
-    ![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "User provisioning")
+    ![Подготовка учетных записей пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "Подготовка учетных записей пользователей")
 5. Для завершения настройки нажмите кнопку **Завершить** .  
    
-    ![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769520.png "User provisioning")
+    ![Подготовка учетных записей пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769520.png "Подготовка учетных записей пользователей")
 
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
@@ -147,20 +148,20 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Dropbox for Business** нажмите кнопку **Назначить пользователей**.
    
-    ![Назначить пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-    ![Да](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "Да")
 
 Подождите 10 минут и убедитесь, что учетная запись синхронизирована с Dropbox for Business.
 
 Сначала проверьте состояние подготовки, щелкнув **Панель мониторинга** на странице интеграции с приложением **Dropbox for Business** на классическом портале Azure.
 
-![Назначить пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Assign users")
+![Назначение пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Назначение пользователей")
 
 Об успешном завершении цикла подготовки пользователя говорит соответствующий статус.
 
-![Назначить пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Assign users")
+![Назначение пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Назначение пользователей")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа.
 Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
@@ -168,10 +169,5 @@ ms.openlocfilehash: e328f8ecfad5f481462a7b9c0c4a16e966e33217
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

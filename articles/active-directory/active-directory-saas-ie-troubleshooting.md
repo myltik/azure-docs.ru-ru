@@ -1,5 +1,5 @@
 ---
-title: "Устранение неполадок, связанных с расширением панели доступа для Internet Explorer | Документация Майкрософт"
+title: "Устранение неполадок, связанных с расширением панели доступа Azure для Internet Explorer | Документация Майкрософт"
 description: "Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
+ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
+ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -50,7 +52,7 @@ ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
 ## <a name="check-that-the-access-panel-extension-is-enabled"></a>Убедитесь, что расширение панели доступа включено.
 Чтобы убедиться, что расширение панели доступа в Internet Explorer включено, выполните описанные ниже действия.
 
-1. В правом верхнем углу Internet Explorer щелкните **значок шестеренки** . Выберите **Свойства браузера**.<br />(В более ранних версиях Internet Explorer они находятся в разделе **Сервис > Параметры Интернета**).
+1. В правом верхнем углу Internet Explorer щелкните **значок шестеренки**. Выберите **Свойства браузера**.<br />(В более ранних версиях Internet Explorer они находятся в разделе **Сервис > Параметры Интернета**).
    
     ![Выберите пункты Сервис > Параметры Интернета.](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 2. Откройте вкладку **Программы** и нажмите кнопку **Настроить надстройки**.
@@ -64,7 +66,7 @@ ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Включение расширений для просмотра InPrivate
 Если используется режим просмотра InPrivate, выполните следующие действия.
 
-1. В правом верхнем углу Internet Explorer щелкните **значок шестеренки** . Выберите **Свойства браузера**.<br />(В более ранних версиях Internet Explorer они находятся в разделе **Сервис > Параметры Интернета**).
+1. В правом верхнем углу Internet Explorer щелкните **значок шестеренки**. Выберите **Свойства браузера**.<br />(В более ранних версиях Internet Explorer они находятся в разделе **Сервис > Параметры Интернета**).
    
     ![Образец окна диагностики](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 2. Откройте вкладку **Конфиденциальность**, **снимите** флажок **Отключать панели инструментов и расширения в режиме InPrivate**.</p>
@@ -78,7 +80,7 @@ ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
 1. Нажмите на клавиатуре **клавишу Windows** , чтобы открыть меню «Пуск». Открыв меню, введите параметры поиска. Введите «Панель управления», а затем откройте **Панель управления** , когда она появится в результатах поиска.
    
     ![Поиск панели управления](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. В правом верхнем углу панели управления выберите для параметра **Просмотр** значение **Крупные значки**. Затем найдите и нажмите кнопку **Программы и компоненты** .
+2. В правом верхнем углу панели управления выберите для параметра **Просмотр** значение **Крупные значки**. Затем найдите и нажмите кнопку **Программы и компоненты**.
    
     ![Измените представление для отображения крупных значков.](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 3. В списке выберите **Access Panel Extension** (Расширение панели доступа) и нажмите кнопку **Удалить**.
@@ -92,10 +94,5 @@ ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

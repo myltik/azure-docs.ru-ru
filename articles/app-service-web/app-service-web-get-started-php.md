@@ -1,10 +1,10 @@
 ---
-title: "Развертывание первого веб-приложения PHP в Azure за пять минут (предварительная версия CLI 2.0) | Документация Майкрософт"
-description: "Убедитесь, как просто запускать веб-приложения в службе приложений, развернув пример приложения PHP. Начните с разработки настоящего приложения — и сразу же получите результаты."
+title: "Создание первого веб-приложения PHP в Azure за пять минут | Документация Майкрософт"
+description: "Убедитесь, как просто запускать веб-приложения в службе приложений, развернув пример приложения PHP."
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: erikre
+manager: wpickett
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,136 +12,78 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/27/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 68298208d2e2cc1fe7ab4050afecb25ca7d619cd
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: afecc8997631bf507c797e56a9e3fc0d1df27614
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения PHP в Azure за пять минут (предварительная версия CLI 2.0)
+# <a name="create-your-first-php-web-app-in-azure-in-five-minutes"></a>Создание первого веб-приложения PHP в Azure за пять минут
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
-Это руководство поможет вам развернуть ваше первое веб-приложение PHP в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
-В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Это краткое руководство поможет вам развернуть первое веб-приложение PHP в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) за считаные минуты.
 
-Вы сможете выполнять следующие задачи: 
+Перед началом работы убедитесь, что вы установили Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* создавать веб-приложения в службе приложений Azure;
-* развертывать примеры кода PHP;
-* просматривать код, выполняющийся в рабочей среде в реальном времени;
-* обновлять веб-приложение так же, как вы [отправляете фиксации Git](https://git-scm.com/docs/git-push).
-
-[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-- [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0](app-service-web-get-started-php.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
-
-## <a name="prerequisites"></a>Предварительные требования
-* [Git](http://www.git-scm.com/downloads).
-* [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2).
-* Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-
-> [!NOTE]
-> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
-> 
-> 
-
-## <a name="deploy-a-php-web-app"></a>Развертывание веб-приложения PHP
-1. Откройте новое окно командной строки Windows, окно PowerShell, оболочку Linux или терминал OS X. Выполните команды `git --version` и `az --version`, чтобы убедиться, что система GIT и интерфейс командной строки Azure установлены на компьютере.
+## <a name="log-in-to-azure"></a>Вход в Azure
+Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
    
-    ![Тестирование установки средств интерфейса командной строки для первого веб-приложения в Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
+```azurecli
+az login
+```
    
-    Если вы еще не установили необходимые инструменты, то ссылки для их скачивания доступны в разделе [Предварительные требования](#Prerequisites).
-2. Войдите в Azure:
-   
-        az login
-   
-    Следуйте инструкциям из справочного сообщения, чтобы продолжить процесс входа в систему.
-   
-    ![Вход в Azure для создания первого веб-приложения](./media/app-service-web-get-started-languages/3-azure-login-2.0.png)
+## <a name="create-a-resource-group"></a>Создание группы ресурсов   
+Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
 
-3. Укажите пользователя развертывания для службы приложений. Вы развернете код позже с помощью этих учетных данных.
-   
-        az appservice web deployment user set --user-name <unique-username> --password <8-char-or-longer-password-letters-and-numbers>
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). В рамках этого руководства по использованию службы приложений вам не обязательно знать, что это такое.
+Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
 
-        az group create --location "<location>" --name my-first-app-group
+## <a name="create-an-app-service-plan"></a>Создание плана службы приложений
+Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Стандартный" для запуска контейнера Linux. 
 
-    Чтобы увидеть доступные значения для `<location>`, используйте команду `az appservice list-locations` интерфейса командной строки.
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
+```
 
-3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". В рамках этого руководства по использованию службы приложений вам достаточно знать, что это план не предусматривает выставление счетов за веб-приложения.
+## <a name="create-a-web-app"></a>Создание веб-приложения
+Создайте веб-приложение, указав уникальное имя вместо заполнителя `<app_name>`.
 
-        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku FREE
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Создайте веб-приложение с уникальным именем в `<app_name>`.
+## <a name="configure-the-linux-container"></a>Настройка контейнера Linux
+Настройте для контейнера Linux использование образа PHP 7.0.6 по умолчанию.
 
-        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
+```azurecli
+az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
+```
+## <a name="deploy-sample-application"></a>Разверните пример приложения
+Разверните пример приложения PHP из GitHub.
 
-4. Затем получите пример кода PHP, который необходимо развернуть. Перейдите в рабочий каталог (`CD`) и клонируйте пример приложения следующим образом:
-   
-        cd <working_directory>
-        git clone https://github.com/Azure-Samples/app-service-web-php-get-started.git
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-php-get-started.git" --branch master --manual-integration 
+```
 
-5. Перейдите в репозиторий примера приложения. Например:
-   
-        cd app-service-web-php-get-started
-5. Настройте локальное развертывание Git для веб-приложения службы приложений с помощью следующей команды:
+## <a name="browse-to-web-app"></a>Перейдите к веб-приложению
+Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
 
-        az appservice web source-control config-local-git --name <app_name> --resource-group my-first-app-group
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
-    Если вы получите приблизительно следующие выходные данные JSON, это значит, что удаленный репозиторий Git настроен:
+Поздравляем, ваше первое веб-приложение PHP работает в службе приложений Azure в режиме реального времени.
 
-        {
-        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-        }
-
-6. Добавьте URL-адрес в JSON в качестве удаленного репозитория Git для локального репозитория (для простоты называется `azure`).
-
-        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
-   
-7. Разверните пример кода в приложении Azure так же, как вы отправляете любой код с помощью Git. При появлении запроса введите пароль, который вы настроили ранее.
-   
-        git push azure master
-   
-    ![Отправка кода в первое веб-приложение в Azure](./media/app-service-web-get-started-languages/php-git-push.png)
-   
-    `git push` не только помещает код в Azure, но и активирует задачи развертывания в подсистеме развертывания. Вы также можете  [включить расширение Composer](web-sites-php-mysql-deploy-use-git.md#composer) для автоматической обработки файлов composer.json в приложении PHP.
-
-Поздравляем, вы развернули свое приложение в службе приложений Azure.
-
-## <a name="see-your-app-running-live"></a>Наблюдение за работой приложения в реальном времени
-Чтобы увидеть работу приложения в Azure в реальном времени, выполните в любом каталоге репозитория следующую команду:
-
-    az appservice web browse --name <app_name> --resource-group my-first-app-group
-
-## <a name="make-updates-to-your-app"></a>Обновление приложения
-Теперь с помощью Git можно в любой момент передать на рабочий сайт изменения из корневого каталога проекта (репозитория). Для этого нужно выполнить те же действия, что и при первом развертывании кода. Например, каждый раз, когда вам нужно отправить новое изменение, протестированное локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
-
-    git add .
-    git commit -m "<your_message>"
-    git push azure master
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создание, настройка и развертывание веб-приложения PHP в Azure](app-service-web-php-get-started.md). С помощью этого руководства вы научитесь выполнять основные действия для запуска веб-приложения PHP в Azure, такие как:
 
-* создание и настройка приложений в Azure с помощью PowerShell и Bash;
-* выбор версии PHP;
-* использование файла запуска, который находится не в корневом каталоге приложения;
-* Включение автоматизации Composer.
-* доступ к переменным конкретной среды;
-* устранение распространенных ошибок.
-
-Вы также можете продолжить работу над своим первым веб-приложением. Например:
-
-* Попробуйте [другие способы развертывания кода в Azure](web-sites-deploy.md). Например, чтобы развернуть приложение из какого-либо репозитория на GitHub, в разделе **Параметры развертывания** нужно просто указать **GitHub**, а не **Локальный репозиторий Git**.
-* Выведите приложение Azure на следующий уровень. Проверяйте подлинность пользователей. Масштабируйте приложение в зависимости от потребностей. Настраивайте оповещения производительности. И все это — с помощью нескольких действий. См. статью [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md).
-
+См. сведения о предварительно созданных [скриптах интерфейса командной строки для веб-приложений](app-service-cli-samples.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Отправка пользовательского диска Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия) | Документация Майкрософт"
-description: "Создание и передача в Azure виртуального жесткого диска (VHD) на основе модели развертывания Resource Manager с помощью Azure CLI 2.0 (предварительная версия)"
+title: "Передача пользовательского диска Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
+description: "Создание и передача в Azure виртуального жесткого диска (VHD) на основе модели развертывания с помощью Resource Manager посредством Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,26 +16,19 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 25ca54a6514b281417ac71a89dac167c94137b18
-ms.openlocfilehash: bbb9a2cd2123a29507f21c11b536ae81368cf8a7
+ms.sourcegitcommit: 374b2601857b3983bcd7b2f2e11d22b187fe7105
+ms.openlocfilehash: 732ebaaf5bf16c02cfc2185d9e7138daf74c71dd
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-by-using-the-azure-cli-20-preview"></a>Отправка пользовательского диска и создание на его основе виртуальной машины Linux с помощью Azure CLI 2.0 (предварительная версия)
-В этой статье показано, как передать виртуальный жесткий диск (VHD) в Azure с использованием модели развертывания с помощью Resource Manager и создать на основе этого диска виртуальные машины Linux. Эта функциональная возможность позволяет установить и настроить дистрибутив Linux в соответствии с требованиями, а затем использовать этот VHD для быстрого создания виртуальных машин Azure.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-- [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](#quick-commands) — интерфейс командной строки нового поколения для модели развертывания Resource Manager (описывается в этой статье).
-
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Передача пользовательского диска и создание на его основе виртуальной машины Linux с помощью Azure CLI 2.0
+В этой статье показано, как передать виртуальный жесткий диск (VHD) в Azure с помощью Azure CLI 2.0 и создавать на основе этого пользовательского диска виртуальные машины Linux. Эти действия можно также выполнить с помощью [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Эта функциональная возможность позволяет установить и настроить дистрибутив Linux в соответствии с требованиями, а затем использовать этот VHD для быстрого создания виртуальных машин Azure.
 
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для отправки виртуального жесткого диска в Azure. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](#requirements).
 
-Обязательно установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `mydisks`.
 
@@ -100,9 +93,9 @@ myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
+    --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk myUMDiskFromVHD
 ```
 
 ### <a name="unmanaged-disks"></a>Неуправляемые диски
@@ -112,7 +105,8 @@ az vm create --resource-group myResourceGroup --location westus \
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd
+    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd \
+    --use-unmanaged-disk
 ```
 
 Целевой должна быть учетная запись хранения, в которую был передан виртуальный диск. Кроме того, нужно задать или указать в запросах все дополнительные параметры, необходимые для команды **az vm create**, включая виртуальную сеть, общедоступный IP-адрес, имя пользователя и ключи SSH. Дополнительные сведения о доступных параметрах Resource Manager для интерфейса командной строки см. [здесь](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
@@ -133,7 +127,7 @@ az vm create --resource-group myResourceGroup --location westus \
   * Создайте учетную запись хранения и контейнер для хранения пользовательского диска и созданных виртуальных машин.
   * Когда вы закончите создание всех виртуальных машин, диск можно спокойно удалить.
 
-Обязательно установите последнюю версию [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+Обязательно установите последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войдите в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `mydisks`.
 
@@ -197,7 +191,7 @@ data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINAp
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
 ```
-Запишите значение `key1` , так как оно будет использоваться для работы с учетной записью хранения на следующих шагах.
+Запишите значение `key1`, так как оно будет использоваться для работы с учетной записью хранения на следующих шагах.
 
 ## <a name="create-a-storage-container"></a>Создание контейнера хранилища
 Точно так же, как вы создаете различные каталоги для логической организации локальной файловой системы, вы создаете контейнеры в учетной записи хранения, чтобы упорядочить диски. Учетная запись хранения может содержать любое количество контейнеров. Создайте контейнер с помощью команды [az storage container create](/cli/azure/storage/container#create).
@@ -221,9 +215,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-vm-from-custom-disk"></a>Создание виртуальной машины на основе пользовательского диска
-Этот процесс также позволяет создать виртуальную машину, которая использует управляемые диски Azure или неуправляемые диски. При создании виртуальной машины любого из этих типов укажите URI управляемого диска или неуправляемого диска. Если используются неуправляемые диски, целевая учетная запись хранения должна соответствовать расположению, в котором хранится пользовательский диск. Виртуальную машину можно создать с помощью Azure CLI 2.0 (предварительная версия) или шаблона Resource Manager в формате JSON.
+Этот процесс также позволяет создать виртуальную машину, которая использует управляемые диски Azure или неуправляемые диски. При создании виртуальной машины любого из этих типов укажите URI управляемого диска или неуправляемого диска. Если используются неуправляемые диски, целевая учетная запись хранения должна соответствовать расположению, в котором хранится пользовательский диск. Можно создать виртуальную машину с помощью Azure CLI 2.0 или шаблона Resource Manager в формате JSON.
 
-### <a name="azure-cli-20-preview---azure-managed-disks"></a>Azure CLI 2.0 (предварительная версия) для управляемых дисков Azure
+### <a name="azure-cli-20---azure-managed-disks"></a>Использование Azure CLI 2.0 для Управляемых дисков Azure
 Чтобы создать виртуальную машину из виртуального жесткого диска, сначала преобразуйте его в управляемый диск с помощью команды [az disk create](/cli/azure/disk/create). В следующем примере создается управляемый диск с именем `myManagedDisk` из виртуального жесткого диска, переданного в учетную запись хранения и сохраненного в контейнере:
 
 ```azurecli
@@ -250,12 +244,12 @@ myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
+    --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
-### <a name="azure-20-preview---unmanaged-disks"></a>Azure CLI 2.0 (предварительная версия) для неуправляемых дисков
+### <a name="azure-20---unmanaged-disks"></a>Использование Azure CLI 2.0 для неуправляемых дисков
 Чтобы создать виртуальную машину с неуправляемыми дисками, укажите URI нужного диска (`--image`) с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина с именем `myVM` с помощью отправленного ранее виртуального диска:
 
 Используйте параметр `--image` в команде [az vm create](/cli/azure/vm#create), чтобы указать пользовательский диск. Убедитесь, что `--storage-account` соответствует учетной записи хранения, в которой находится пользовательский диск. Для хранения виртуальных машин необязательно использовать тот же контейнер, в котором расположен пользовательский диск. Вы можете создать любые дополнительные контейнеры так же, как перед передачей пользовательских дисков.
@@ -266,7 +260,8 @@ az vm create --resource-group myResourceGroup --location westus \
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd \
+    --use-unmanaged-disk
 ```
 
 Кроме того, нужно задать или указать в запросах все дополнительные параметры, необходимые для команды **az vm create**, включая имя пользователя и ключи SSH.
@@ -312,10 +307,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После подготовки и передачи пользовательского виртуального диска ознакомьтесь с дополнительными сведениями об [использовании Resource Manager и шаблонов](../azure-resource-manager/resource-group-overview.md). Возможно, вам также потребуется [добавить диск данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для новых виртуальных машин. Если на виртуальных машинах запущены приложения, к которым необходим доступ, [откройте порты и конечные точки](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

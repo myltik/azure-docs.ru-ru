@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: e32d21ca410d4107f68f8b72353ca400a26c4523
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.lasthandoff: 02/09/2017
   > [!IMPORTANT]
   > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* Visual Studio 2012, Visual Studio 2013 или Visual Studio 2015.
+* Visual Studio 2012, 2013, 2015 или 2017.
 
 ## <a name="create-the-application"></a>Создание приложения
 
@@ -48,30 +49,17 @@ ms.lasthandoff: 02/09/2017
 
 2. Для нового проекта введите или выберите следующие значения.
    
-    <table>
-    <tr>
-    <th>Свойство</th>
-    <th>Значение</th>
-    </tr>
-    <tr>
-    <th>Категория</th>
-    <th>Templates/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Шаблон</th>
-    <th>Консольное приложение</th>
-    </tr>
-    <tr>
-    <th>Имя</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
+   | Свойство | Значение |
+   | ------ | ------ |
+   | Категория | Templates/Visual C#/Windows |
+   | Шаблон | Консольное приложение |
+   | Имя | SubmitPigJob |
 
 3. Нажмите кнопку **ОК** , чтобы создать проект.
 
 4. В меню **Сервис** выберите пункт **Диспетчер пакетов библиотеки** или **Диспетчер пакетов Nuget**, а затем — **Консоль диспетчера пакетов**.
 
-5. Выполните следующую команду в консоли, чтобы установить пакеты SDK для .NET.
+5. Чтобы установить пакеты SDK для .NET, выполните следующую команду:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
@@ -130,9 +118,9 @@ ms.lasthandoff: 02/09/2017
     }
     ```
     
-7. Нажмите **F5** для запуска приложения.
+7. Чтобы запустить приложение, нажмите клавишу **F5**.
 
-8. Нажмите клавишу **ВВОД** для завершения работы приложения.
+8. Чтобы завершить работу приложения, нажмите клавишу **ВВОД**.
 
 ## <a name="summary"></a>Сводка
 
@@ -140,11 +128,9 @@ ms.lasthandoff: 02/09/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Общая информация о Pig в HDInsight.
+Сведения о Pig в HDInsight см. в разделе [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md).
 
-* [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
-
-Дополнительная информация о других способах работы с Hadoop в HDInsight.
+Дополнительные сведения об использовании Hadoop в HDInsight см. в следующих статьях.
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)

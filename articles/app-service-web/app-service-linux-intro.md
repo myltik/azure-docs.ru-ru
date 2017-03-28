@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 78fbef5aa26c52f5dd264581fd1525ada763d4c6
-ms.openlocfilehash: fa5d210c5e73074803d5cfb874ad7891563aefd0
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9ed502efadbc27ca507fa5be455f32c3bd1b9eee
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,15 +32,25 @@ ms.lasthandoff: 02/22/2017
 Сейчас служба приложений, предоставляемая на платформе Linux, поддерживает следующие стеки приложений:
 
 * Node.js
+    * 4.5.0
+    * 4.4.7
+    * 6.2.2
+    * 6.6.0
+    * 6.9.3
 * PHP
+    * 5.6.23
+    * 7.0.6
 * .NET Core.
+    * 1.0
 * Ruby
+    * 2.3
 
 Чтобы развертывать собственные приложения, клиенты могут использовать следующее:
 
 * FTP
 * локальный репозиторий Git;
 * GitHub
+* Bitbucket;
 
 Масштабирование приложения осуществляется следующими способами:
 

@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f058194302949d1f5ba7d86e9a693ba229bdc9a2
-ms.openlocfilehash: b913fd0d944568e422ffcf86791910a746367add
-
+ms.sourcegitcommit: 459d0526961d03b564a35178f9ff4ff2e343e08c
+ms.openlocfilehash: 70a9d96e36f5e386e8b1c0036ef8e2f770924930
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="i-cant-sign-up-for-azure"></a>Не удается зарегистрироваться для работы с Azure
+# <a name="troubleshoot-sign-up-issues-for-azure"></a>Устранение неполадок при регистрации в Azure
 Если не удается зарегистрироваться в Azure, можно проверить несколько моментов, чтобы устранить проблему.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>Индикатор выполнения зависает в разделе "Проверка личности с помощью карты"
@@ -82,9 +83,4 @@ ms.openlocfilehash: b913fd0d944568e422ffcf86791910a746367add
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

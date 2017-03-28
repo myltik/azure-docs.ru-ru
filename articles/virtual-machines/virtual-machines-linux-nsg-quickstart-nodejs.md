@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 96d34c176e028b89617c1f09d7baba7b31eb1601
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -27,11 +28,11 @@ ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#quick-commands) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0 (предварительная версия)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
+- [Azure CLI 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 
 ## <a name="quick-commands"></a>Быстрые команды
-Для создания группы безопасности сети и правил нужно установить [интерфейс командной строки Azure версии 1.0](../xplat-cli-install.md) и перевести его в режим Resource Manager.
+Для создания группы безопасности сети и правил нужно установить [интерфейс командной строки Azure версии 1.0](../cli-install-nodejs.md) и перевести его в режим Resource Manager.
 
 ```azurecli
 azure config mode arm
@@ -83,10 +84,5 @@ azure network vnet subnet set --resource-group myResourceGroup \
 * [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 * [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной машины со статическим общедоступным IP-адресом c помощью шаблона | Документация Майкрософт"
-description: "Сведения о создании виртуальной машины со статическим общедоступным IP-адресом через Azure Resource Manager с помощью шаблона."
+title: "Создание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную машину со статическим общедоступным IP-адресом с помощью шаблона Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: d551085a-c7ed-4ec6-b4c3-e9e1cebb774c
@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-a-template"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона
+# <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона Azure Resource Manager
 
 > [!div class="op_single_selector"]
-- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
+> * [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -169,7 +171,7 @@ ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Развертывание шаблона с помощью интерфейса командной строки Azure
 Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, выполните следующие действия:
 
-1. Если вы ранее не использовали интерфейс командной строки Azure, следуйте инструкциям по установке и настройке в [этой статье](../xplat-cli-install.md).
+1. Если вы ранее не использовали интерфейс командной строки Azure, следуйте инструкциям по установке и настройке в [этой статье](../cli-install-nodejs.md).
 2. Выполните команду `azure config mode` , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
     ```azurecli
@@ -203,10 +205,5 @@ ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

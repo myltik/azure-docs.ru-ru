@@ -14,12 +14,12 @@
 ## Настройка подключения "сеть — сеть"
 ### [Портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Классический портал (классическая модель)](vpn-gateway-site-to-site-create.md)
 ## Настройка подключения "точка — сеть"
 ### [Портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Классический портал (классическая модель)](vpn-gateway-point-to-site-create.md)
 ## Настройка подключения между виртуальными сетями
 ### [Портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -39,9 +39,12 @@
 ## [Настройка BGP для VPN-шлюзов Azure с помощью PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Настройка высокодоступных подключений в режиме "активный — активный"](vpn-gateway-activeactive-rm-powershell.md)
 ## [Изменение параметров шлюза локальной сети с помощью PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Проверка подключения шлюза](vpn-gateway-verify-connection-resource-manager.md)
-## [Сброс настроек VPN-шлюза Azure](vpn-gateway-resetgw-classic.md)
-## [Как работать с самозаверяющими сертификатами для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)
+## [Проверка подключения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md)
+## [Сброс VPN-шлюза](vpn-gateway-resetgw-classic.md)
+## Удаление VPN-шлюза
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+## [Создание самозаверяющих корневых сертификатов для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Справочные материалы
@@ -64,8 +67,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

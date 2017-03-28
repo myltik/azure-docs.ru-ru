@@ -5,18 +5,18 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-editor: na
 ms.assetid: f9c9d290-0e13-490b-b559-0be772d6a690
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: aec25285cd0fa2f09e21a629648e015dffbeb11d
-ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
+ms.sourcegitcommit: 6bbfc7e22e5cb70ed1466bda14831412aead76a6
+ms.openlocfilehash: bacabf7fe51e3c417a93a54f043c14aa5d65b31d
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 
 - С помощью Azure AD вы можете контролировать доступ к Convercent.
 - Вы можете включить автоматический вход пользователей в Convercent (единый вход) с учетной записью Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- Вы можете управлять учетными записями централизованно — на новом портале Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -40,20 +40,18 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 - подписка Convercent с поддержкой единого входа.
 
 
->[!NOTE] 
->Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
-
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление Convercent из коллекции
 2. Настройка и проверка единого входа в Azure AD
@@ -64,30 +62,26 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 
 **Чтобы добавить Convercent из коллекции, выполните следующее.**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
+1. На **портале управления Azure** в области навигации слева щелкните значок **Azure Active Directory**. 
 
     ![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
     ![Приложения][2]
-
-4. В нижней части страницы нажмите кнопку **Добавить** .
+    
+3. Нажмите кнопку **Добавить** в верхней части диалогового окна.
 
     ![Приложения][3]
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+4. В поле поиска введите **Convercent**.
 
-    ![Приложения][4]
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_001.png)
 
-6. В поле поиска введите **Convercent**.
+5. На панели результатов выберите **Convercent** и нажмите кнопку **Добавить**, чтобы добавить приложение.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_01.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_0001.png)
 
-7. В области результатов выберите **Convercent** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_02.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Convercent с использованием тестового пользователя Britta Simon.
@@ -100,159 +94,90 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Convercent](#creating-a-convercent-test-user)** требуется для создания в Convercent пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
+3. **[Создание тестового пользователя Convercent](#creating-a-works-mobile-test-user)** требуется для создания в Convercent пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Convercent.
-
+В этом разделе описано, как включить единый вход Azure AD на новом портале Azure и настроить его в приложении Convercent.
 
 **Чтобы настроить единый вход Azure AD в Convercent, выполните следующее.**
 
-1. На классическом портале на странице интеграции с приложением **Convercent** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-     
-    ![Настройка единого входа][6] 
+1. На новом портале Azure на странице интеграции с приложением **Convercent** щелкните **Единый вход**.
 
-2. На странице **Как пользователи должны входить в Convercent?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+    ![Настройка единого входа][4]
 
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_03.png) 
+2. На странице диалогового окна **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_01.png)
 
-3. На странице диалогового окна **Настроить параметры приложения** нажмите кнопку "Далее". Это позволит настроить приложение в режиме, инициируемом поставщиком удостоверений.
+3. Если вы хотите настроить приложение в **режиме, инициированном поставщиком удостоверений**, то в разделе **Домены и URL-адреса приложения Convercent** выполните следующие действия:
+
+    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_02.png)
+
+    а. В текстовом поле **Идентификатор** введите `https://sts.convercent.com/`.
+
+    b. Щелкните **Показать дополнительные параметры URL-адресов**.
+
+    c. В текстовом поле **Состояние ретрансляции** введите:`https://app.convercent.com/`
+    
+4. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, то в разделе **Домены и URL-адреса приложения Convercent** выполните следующие действия:
+    
+    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_03.png)
+
+    а. В текстовом поле **URL-адрес входа** введите `https://app.convercent.com/`.
+
+    > [!NOTE] 
+    > Здесь мы рекомендуем использовать указанный уникальный идентификатор. Чтобы получить это значение, обратитесь в [службу поддержки Convercent](mailTo:support@convercent.com).
+
+5. В разделе **Конфигурация Convercent** щелкните **Настроить Convercent**, чтобы открыть окно **Настройка единого входа**. Щелкните **Метаданные XML-элемента SAML**, а затем сохраните файл метаданных на вашем компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_04.png) 
 
-    >[!NOTE] 
-    >При настройке этого приложения в режиме, инициируемом поставщиком удостоверений, необходимо настроить RelayState для приложения. В противном случае интеграция единого входа не будет работать. Выполните шаг 5, чтобы настроить RelayState.
+    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_05.png)
 
-4. Если вы хотите настроить приложение в режиме, инициируемом поставщиком услуг, установите флажок **Показать дополнительные настройки** и выполните указанные ниже действия.
+6. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Convercent](mailTo:support@convercent.com) и предоставьте скачанный **файл метаданных**.
 
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_05.png) 
-
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Convercent, используя следующий формат: `https://app.convercent.com/`.
-    
-    b. click **Далее**
- 
-5. Если вы настроили приложение в режиме, инициируемом поставщиком удостоверений, то задайте значение RelayState для этого приложения. Чтобы настроить значение RelayState в Azure AD, выполните следующие действия. 
-    
-    а. Войдите на [портал управления Azure](https://portal.azure.com) с учетной записью администратора.
-
-    b. В области навигации слева щелкните **Больше служб**. 
-    
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_07.png)
-
-    c. В текстовое поле **Поиск** введите **Azure Active Directory**, а затем щелкните связанную ссылку.
-    
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_08.png)
-
-    d. Щелкните **Корпоративные приложения**.
-
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_09.png)
-
-    д. В разделе **Управление** щелкните **Все приложения**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_10.png)
-
-    Е. В текстовое поле **Поиск** введите **ADP eTime**, а затем щелкните связанную ссылку. 
-    
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_11.png)
-
-    ж. В разделе **Управление** щелкните **Единый вход**.
-
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_12.png)
-
-    h. Выберите **Показать дополнительные параметры URL-адресов**.
-    
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_13.png)
-    
-    i. В текстовом поле **Состояние ретранслятора** введите значение в следующем формате: `https://app.convercent.com/`.
-
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_14.png)
-
-    j. Сохраните параметры.
-
-6. На странице **Настройка единого входа в Convercent** выполните следующие действия.
-
-    ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_06.png)
-
-    а. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
-
-    b. Нажмите кнопку **Далее**.
-
-
-6. Чтобы настроить единый вход для своего приложения, обратитесь к [группе поддержки](mailTo:support@convercent.com) Convercent и предоставьте следующее.
-
-    а. Скачанный файл **метаданных**.
-
-7. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-    
-    ![единого входа Azure AD][10]
-
-8. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
- 
-    ![единого входа Azure AD][11]
-
+7. На новом портале Azure щелкните кнопку **Сохранить**.  
+  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-
-![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. На **портале управления Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_09.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_01.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_02.png) 
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-
+3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_05.png) 
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-    c. Нажмите кнопку **Далее**.
-
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_06.png) 
-
-    а. В текстовом поле **Имя** введите **Britta**.  
-
-    b. В текстовом поле **Фамилия** введите **Simon**.
-
-    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-
-    d. В списке **Роль** выберите **Пользователь**.
-
-    д. Нажмите кнопку **Далее**.
-
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_07.png) 
-
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_08.png) 
-
-    а. Запишите значение поля **Новый пароль**.
-
-    b. Нажмите **Завершено**.   
+    d. Щелкните **Создать**. 
 
 
 
-### <a name="creating-an-convercent-test-user"></a>Создание тестового пользователя Convercent
+### <a name="creating-a-convercent-test-user"></a>Создание тестового пользователя Convercent
 
-В этом разделе описано, как создать пользователя Britta Simon в Convercent. Обратитесь к [группе поддержки](mailTo:support@convercent.com) Convercent, чтобы добавить пользователей на платформу Convercent.
+В этом разделе описано, как создать пользователя Britta Simon в Convercent. Обратитесь к [группе поддержки](emailto:support@convercent.com) Convercent, чтобы добавить пользователей на платформу Convercent.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
@@ -263,7 +188,7 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 
 **Чтобы назначить пользователя Britta Simon в Convercent, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
+1. На портале управления Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
     ![Назначение пользователя][201] 
 
@@ -271,15 +196,20 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 
     ![Настройка единого входа](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_50.png) 
 
-3. В меню в верхней части страницы щелкните **Пользователи**.
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 
     ![Назначение пользователя][203]
 
-4. В списке пользователей выберите **Britta Simon**.
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
 
-5. На панели инструментов внизу щелкните **Назначить**.
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
 
-    ![Назначение пользователя][205]
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
 
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
@@ -295,6 +225,7 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
+
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_01.png
@@ -302,19 +233,9 @@ ms.openlocfilehash: 9ea835787db25adabe9b8cb71551de49b330a6dd
 [3]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
