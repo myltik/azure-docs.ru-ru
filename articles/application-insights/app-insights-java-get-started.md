@@ -4,18 +4,18 @@ description: "Сведения о мониторинге производите�
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
 
 
 ---
@@ -76,7 +76,7 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 ```
 
 * *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Требуется обновить пакет SDK до новой версии?*  Обновите зависимости проекта.
+* *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
 #### <a name="if-youre-using-gradle"></a>Если вы используете Gradle...
 Если проект уже настроен для сборки с использованием Gradle, добавьте следующий фрагмент кода в файл build.gradle.
@@ -95,9 +95,9 @@ ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
     }
 ```
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'1.0.n'`. *Сведения о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
-  *  Обновите зависимости проекта.
+  * Обновите зависимости проекта.
 
 #### <a name="otherwise-"></a>В противном случае...
 Вручную добавьте пакет SDK.
@@ -375,6 +375,10 @@ Application Insights может тестировать ваш веб-сайт ч
 ## <a name="questions-problems"></a>Вопросы? Проблемы?
 [Устранение неполадок Java](app-insights-java-troubleshoot.md)
 
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отслеживайте вызовы зависимостей.](app-insights-java-agent.md)
 * [Отслеживайте счетчики производительности Unix.](app-insights-java-collectd.md)
@@ -394,9 +398,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
