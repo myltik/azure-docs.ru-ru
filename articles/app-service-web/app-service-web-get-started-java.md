@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: e48e03e86a325b8f39809a49cdd19820dfa78bdc
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ab9b49cd86f37499ebf8fd8162779be305019f36
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -26,48 +26,52 @@ ms.lasthandoff: 03/10/2017
 
 Это краткое руководство поможет вам развернуть первое веб-приложение Java в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) за считаные минуты.
 
-Прежде чем начать работу с этим руководством, убедитесь, что на вашем компьютере [установлен Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Перед началом работы убедитесь, что вы установили Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-a-java-web-app-in-azure"></a>Создание веб-приложения Java в Azure
-2. Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
+## <a name="log-in-to-azure"></a>Вход в Azure
+Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
    
-3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
+## <a name="create-a-resource-group"></a>Создание группы ресурсов   
+Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
+Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
 
-3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". 
+## <a name="create-an-app-service-plan"></a>Создание плана службы приложений
+Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+```
 
-4. Создайте веб-приложение с уникальным именем в `<app_name>`.
+## <a name="create-a-web-app"></a>Создание веб-приложения
+Создайте веб-приложение, указав уникальное имя вместо заполнителя `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Разверните пример приложения Java из GitHub.
+## <a name="deploy-sample-application"></a>Разверните пример приложения
+Разверните пример приложения Java из GitHub.
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/azure-appservice-samples/JavaCoffeeShopTemplate.git" --branch master --manual-integration 
-    ```
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/azure-appservice-samples/JavaCoffeeShopTemplate.git" --branch master --manual-integration 
+```
 
+## <a name="browse-to-web-app"></a>Перейдите к веб-приложению
+Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
 
-5. Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
-
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Поздравляем, ваше первое веб-приложение Java работает в службе приложений Azure в режиме реального времени.
 

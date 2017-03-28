@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c55f844b89729b1ef5a6316b0b2731472074219e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a428e183e7535c7745e214332f8e449b4a8bf22c
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,47 +27,52 @@ ms.lasthandoff: 03/15/2017
 
 Это краткое руководство поможет вам развернуть первое веб-приложение ASP.NET в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) за считаные минуты.
 
-Прежде чем начать работу с этим руководством, убедитесь, что на вашем компьютере [установлен Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Перед началом работы убедитесь, что вы установили Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-an-aspnet-web-app-in-azure"></a>Создание веб-приложения ASP.NET в Azure
-2. Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
+## <a name="log-in-to-azure"></a>Вход в Azure
+Войдите в Azure, выполнив команду `az login`, и следуйте инструкциям на экране.
    
-    ```azurecli
-    az login
-    ```
-   
-3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
+```azurecli
+az login
+```
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+## <a name="create-a-resource-group"></a>Создание группы ресурсов   
+Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). Здесь будут размещаться все ресурсы Azure, которыми вы хотите управлять совместно, например веб-приложение и его серверная часть базы данных SQL.
 
-    Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". 
+Чтобы увидеть доступные значения для `---location`, используйте команду `az appservice list-locations` Azure CLI.
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+## <a name="create-an-app-service-plan"></a>Создание плана службы приложений
+Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". 
 
-4. Создайте веб-приложение с уникальным именем в `<app_name>`.
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+```
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+## <a name="create-a-web-app"></a>Создание веб-приложения
+Создайте веб-приложение, указав уникальное имя вместо заполнителя `<app_name>`.
 
-4. Разверните пример приложения ASP.NET из GitHub.
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git" --branch master --manual-integration 
-    ```
+## <a name="deploy-sample-application"></a>Разверните пример приложения
+Разверните пример приложения ASP.NET из GitHub.
 
-5. Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git" --branch master --manual-integration 
+```
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+## <a name="browse-to-web-app"></a>Перейдите к веб-приложению
+Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
+
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Поздравляем, ваше первое веб-приложение ASP.NET работает в службе приложений Azure в режиме реального времени.
 

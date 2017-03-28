@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,14 +29,16 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 ![MFA в облаке](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Предварительные требования
-Чтобы включить Azure Multi-Factor Authentication для пользователей, необходимо выполнить следующие предварительные требования.
+## <a name="prerequisite"></a>Предварительные требования
+[Зарегистрируйтесь, чтобы оформить подписку Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас еще нет подписки Azure, вам необходимо зарегистрироваться для ее оформления. Если вы только начинаете работать с Azure Multi-Factor Authentication (MFA), используйте пробную подписку.
 
-1. [Зарегистрируйтесь, чтобы оформить подписку Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас еще нет подписки Azure, вам необходимо зарегистрироваться для ее оформления. Если вы только начинаете работать с Azure Multi-Factor Authentication (MFA), используйте пробную подписку.
-2. [Создайте поставщик многофакторной идентификации Azure](multi-factor-authentication-get-started-auth-provider.md) и назначьте его для своего каталога либо [назначьте лицензии пользователям](multi-factor-authentication-get-started-assign-licenses.md).
+## <a name="enable-azure-multi-factor-authentication"></a>Включение многофакторной идентификации Azure
+При наличии у пользователей лицензий, которые предусматривают использование Многофакторной идентификации Azure, вам не нужно включать Azure MFA. Для отдельных пользователей можно включить двухфакторную проверку подлинности. Лицензии, которые предусматривают использование Azure MFA:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Лицензии доступны пользователям, у которых есть Azure MFA, Azure AD Premium или Enterprise Mobility Suite (EMS).  MFA входит в состав Azure AD Premium и EMS. Если у вас есть необходимые лицензии, вам не нужно создавать поставщик проверки подлинности.
+У вас могут отсутствовать эти лицензии или может не хватать их числа, чтобы охватить всех пользователей. Ничего страшного. Вам просто нужно выполнить дополнительное действие, чтобы [создать поставщика Многофакторной идентификации](multi-factor-authentication-get-started-auth-provider.md) в своем каталоге.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Включение двухфакторной проверки подлинности для пользователей
 Чтобы включить двухфакторную проверку подлинности для пользователей, измените состояние пользователя с "Отключено" на "Включено".  Дополнительные сведения о состояниях пользователей см. в статье [Состояния пользователей в многофакторной идентификации Azure](multi-factor-authentication-get-started-user-states.md).
@@ -97,10 +100,5 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда многофакторная идентификация в облаке настроена, можно настроить и выполнить развертывание. Дополнительные сведения см. в статье [Настройка многофакторной идентификации Azure](multi-factor-authentication-whats-next.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

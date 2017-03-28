@@ -1,5 +1,5 @@
 ---
-title: "Application Insights для рабочих ролей и служб Windows | Документация Майкрософт"
+title: "Azure Application Insights для рабочих ролей и служб Windows | Документация Майкрософт"
 description: "Добавьте вручную пакет SDK Application Insights в приложение ASP.NET для анализа использования, доступности и производительности."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 * подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com).
 * Visual Studio 2013 или более поздняя версия.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Создание ресурса Application Insights
+## <a name="add"></a>1. Создание ресурса Application Insights
 Войдите на [портал Azure](https://portal.azure.com/)и создайте новый ресурс Application Insights. Выберите приложение ASP.NET в качестве типа приложения.
 
 ![Нажмите "Создать" и "Application Insights"](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 Действия по созданию нового ресурса, которые вы только что выполнили, являются хорошей отправной точкой для реализации мониторинга в любых приложениях. Теперь вы можете отправить на этот ресурс данные.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Установка пакета SDK в приложении
+## <a name="sdk"></a>2. Установка пакета SDK в приложении
 Установка и настройка пакета SDK Application Insights зависит от платформы, на которой вы работаете. С приложениями ASP.NET все просто.
 
 1. В Visual Studio измените пакеты NuGet вашего проекта веб-приложения.
@@ -84,14 +85,14 @@ ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 Если вы хотите [изменить ключ для разных конфигураций сборки](app-insights-separate-resources.md), можно задать ключ инструментирования в коде. Если ключ задан в коде, его не нужно задавать в файле `.config`.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a>Запуск проекта
+## <a name="run"></a>Запуск проекта
 Запустите приложение, нажав клавишу **F5** , и попробуйте открывать разные страницы, чтобы создать некоторый объем данных телеметрии.
 
 В Visual Studio вы увидите число отправленных событий.
 
 ![Количество событий в Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Просмотр своих данных телеметрии
+## <a name="monitor"></a> Просмотр своих данных телеметрии
 Вернитесь на [портал Azure](https://portal.azure.com/) и перейдите к своему ресурсу Application Insights.
 
 Выполните поиск данных в диаграммах "Обзор". Сначала вы увидите только одну или две точки. Например:
@@ -124,16 +125,15 @@ ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 > [!NOTE]
 > Если приложение генерирует много телеметрических данных (а вы используете пакет SDK ASP.NET версии 2.0.0-beta3 или выше), модуль адаптивной выборки автоматически сокращает объем отправляемых на портал данных, пересылая только репрезентативную часть событий. При этом связанные с тем же запросом события отбираются как группа, что позволяет перемещаться между связанными событиями. 
-> [Дополнительная информация о выборке.](app-insights-sampling.md)
+> [Дополнительная информация о выборке](app-insights-sampling.md).
 > 
 > 
+
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [добавить дополнительную телеметрию](app-insights-asp-net-more.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

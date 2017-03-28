@@ -59,7 +59,7 @@
     ![key][key]
 2. Используется пароль, который вы выбрали при установке. Можно выбрать **Смена пароля** или **Сброс пароля**, чтобы внести изменения.
 
-Чтобы настроить параметры доставки электронной почты, нажмите кнопку **Управление**. Откроется [панель мониторинга SendGrid][SendGrid dashboard].
+Чтобы настроить параметры доставки электронной почты, нажмите кнопку **Управление**. Откроется панель мониторинга SendGrid.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

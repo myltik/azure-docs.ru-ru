@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 671eed117f5577f3fdec2e03b1ba814e0e1a439b
-ms.openlocfilehash: 094d7a9ca2d14e506371488ee880fe8a2ab36707
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e9eae9ea648fc0e657d32f3f91e6641046bfae79
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -28,19 +28,19 @@ ms.lasthandoff: 02/17/2017
 ## <a name="standard-connectors"></a>Стандартные соединители
 | Соединители |  |  |  |
 | --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/>**API или веб-приложение**][API/Web-Appdoc]|![Значок API][appFiguresicon]<br/>**appFigures**|![Значок API][Asanaicon]<br/>**Asana**|![Значок API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![Значок API][Azure-MLicon]<br/>**Машинное обучение Azure**|[![API Icon][Azure-Functionsicon]<br/>**Функции<br/>Azure**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Хранилище BLOB-объектов<br/>Azure **][AzureBlobStoragedoc]|![Значок API][Basecamp-3icon]<br/>**Basecamp 3**|
+|[![API Icon][API/Web-Appicon]<br/> **API или веб-приложение**][API/Web-Appdoc]|![Значок API][appFiguresicon]<br/>**Appfigures**|![Значок API][Asanaicon]<br/>**Asana**|![Значок API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
+|![Значок API][Azure-MLicon]<br/>**Машинное обучение Azure**|[![API Icon][Azure-Functionsicon]<br/>**Функции<br/>Azure**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Хранилище BLOB-объектов<br/>Azure**][AzureBlobStoragedoc]|![Значок API][Basecamp-3icon]<br/>**Basecamp 3**|
 |![Значок API][Bitlyicon]<br/>**Bitly**|![Значок API][BizTalk-Servericon]<br/>**BizTalk Server**|![Значок API][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
 |![Значок API][Campfireicon]<br/>**Campfire**|![Значок API][Cognitive-Services-Text-Analyticsicon]<br/>**Текстовая аналитика<br/>Cognitive Services**|![Значок API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
 |[![API Icon][Delayicon]<br/>**Задержка**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Значок API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
 |![Значок API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Значок API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**Файловая система**][FileSystemdoc]|
 |[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![Значок API][GitHubicon]<br/>**GitHub**|![Значок API][Google-Calendaricon]<br/>**Google Календарь**|[![API Icon][Google-Driveicon]<br/>**Google Диск**][Google-Drivedoc]|
-|![Значок API][Google-Sheetsicon]<br/>**Таблицы Google**|![Значок API][Google-Tasksicon]<br/>**Задачи Google**|![Значок API][HideKeyicon]<br/>**HideKey**|![Значок API][HipChaticon]<br/>**HipChat**|
-|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>запрос**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>ответ**][HTTP-Responsedoc]|
-|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![Значок API][Insightlyicon]<br/>**Insightly**|![Значок API][Instagramicon]<br/>**Instagram**|![Значок API][Instapapericon]<br/>**Instapaper**|
-|![Значок API][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|
-|[![API Icon][Nested-Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Видео**][office365-videodoc]|
-|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for-Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|
+|![Значок API][Google-Sheetsicon]<br/>**Таблицы Google**|![Значок API][Google-Tasksicon]<br/>**Задачи Google**|![Значок API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
+|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>запрос**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>ответ**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
+|![Значок API][Insightlyicon]<br/>**Insightly**|![Значок API][Instagramicon]<br/>**Instagram**|![Значок API][Instapapericon]<br/>**Instapaper**|![Значок API][JIRAicon]<br/>**JIRA**|
+|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested-Logic-Appdoc]|
+|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Видео**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
+|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**База данных Oracle**][oracle-db-doc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|
 |![Значок API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Запрос**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|
 |![Значок API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
 |[![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**Протокол SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
@@ -51,11 +51,11 @@ ms.lasthandoff: 02/17/2017
 
 ### <a name="integration-account-connectors"></a>Соединители для учетной записи интеграции 
 
-| учетная запись интеграции<br/>соединители |  |  |  |
+| Учетная запись интеграции<br/>соединители |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][xmlvalidateicon]<br/>**Проверка <br/>XML**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**Преобразование<br/> XML**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Кодирование</br>неструктурированных файлов**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированных файлов**][flatfiledecodedoc] |
-| [![API Icon][as2icon]<br/>**Декодирование</br>AS2**][as2decode] |[![API Icon][as2icon]<br/>**Кодирование</br>AS2**][as2encode] |[![API Icon][x12icon]<br/>**Декодирование</br>X12**][x12decode] |[![API Icon][x12icon]<br/>**Кодирование</br>X12**][x12encode] |
-| [![API Icon][x12icon]<br/>**Декодирование</br>EDIFACT**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**Кодирование</br>EDIFACT**][EDIFACTencode] | | |
+| [![API Icon][xmlvalidateicon]<br/>**Проверка <br/>XML**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**Преобразование<br/> XML**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Кодирование</br> неструктурированных файлов**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Декодирование</br> неструктурированных файлов**][flatfiledecodedoc] |
+| [![API Icon][as2icon]<br/>**Декодирование</br> AS2**][as2decode] |[![API Icon][as2icon]<br/>**Кодирование</br> AS2**][as2encode] |[![API Icon][x12icon]<br/>**Декодирование</br> X12**][x12decode] |[![API Icon][x12icon]<br/>**Кодирование</br> X12**][x12encode] |
+| [![API Icon][x12icon]<br/>**Декодирование</br> EDIFACT**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**Кодирование</br> EDIFACT**][EDIFACTencode] | | |
 
 > [!NOTE]
 > Если вы хотите приступить к работе с Azure Logic Apps, не регистрируя учетную запись Azure, перейдите на страницу [Пробная версия службы приложений Azure](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое кратковременное приложение логики. Никаких кредитных карт и обязательств.
@@ -63,9 +63,9 @@ ms.lasthandoff: 02/17/2017
 ## <a name="enterprise-connectors"></a>Корпоративные соединители
 Используйте корпоративные соединители, чтобы создавать приложения логики для реализации сценариев B2B, включающих в себя EAI и EDI.  
 
-| корпоративные<br/>соединители |  |
+| Enterprise<br/>соединители |  |
 | --- | --- |
-|![Значок API][MQicon]<br/>**MQ**|![Значок API][SAPicon]<br/>**SAP**<br/>[Соединитель SAP]|
+|![Значок API][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 
@@ -87,76 +87,80 @@ ms.lasthandoff: 02/17/2017
 * [См. статью Мониторинг приложений логики.](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
-[azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Подключается к большому двоичному объекту Azure для управления файлами в контейнере больших двоичных объектов."
-[boxDoc]: ./connectors-create-api-box.md "Подключается к Box для отправки, получения, удаления, составления списков и выполнения других задач с файлами."
-[Dynamics-365doc]: ./connectors-create-api-crmonline.md "Подключается к Dynamics CRM Online и расширяет возможности работы с данными CRM Online."
-[db2doc]: ./connectors-create-api-db2.md "Подключается к IBM DB2 в облаке или локально для обновления строки, получения таблицы и выполнения других действий."
-[dropboxdoc]: ./connectors-create-api-dropbox.md "Подключается к Dropbox для получения, удаления, составления списков и выполнения других задач с файлами."
-[facebookdoc]: ./connectors-create-api-facebook.md "Подключается к Facebook и позволяет оставлять сообщения на стене, получать канал страниц и выполнять другие действия."
-[ftpdoc]: ./connectors-create-api-ftp.md "Подключается к FTP и FTPS-серверу для выполнения разных FTP-задач, включая отправку, получение и удаление файлов и многое другое."
-[google-drivedoc]: ./connectors-create-api-googledrive.md "Подключается к Google Диску и взаимодействует с данными."
-[informixdoc]: ./connectors-create-api-informix.md "Подключается к Informix в облаке или локально для считывания строки, перечисления таблиц и выполнения других операций."
-[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md
-[office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Соединитель Office 365 может отправлять и получать сообщения, управлять календарем, а также управлять контактами с помощью учетной записи Office 365."
-[office365-usersdoc]: ./connectors-create-api-office365-users.md
-[office365-videodoc]: ./connectors-create-api-office365-video.md
-[onedrivedoc]: ./connectors-create-api-onedrive.md "Подключается к личной учетной записи Microsoft OneDrive для отправки, удаления и составления списка файлов, а также выполнения других задач."
-[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Подключается к корпоративной учетной записи Microsoft OneDrive для отправки, удаления и составления списка файлов, а также выполнения других задач."
-[outlook.comdoc]: ./connectors-create-api-outlook.md "Подключается к почтовому ящику Outlook для доступа к почте и выполнения других задач."
-[project-onlinedoc]: ./connectors-create-api-projectonline.md "Подключается к Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "Соединитель RSS позволяет публиковать и извлекать элементы веб-канала. Кроме того, он дает возможность активировать операции при публикации нового элемента в веб-канале."
-[salesforcedoc]: ./connectors-create-api-salesforce.md "Подключается к учетной записи Salesforce для управления учетными записями, интересами, возможностями и выполнения других задач."
-[sendgriddoc]: ./connectors-create-api-sendgrid.md "Подключается к Microsoft Project Online."
-[service-busdoc]: ./connectors-create-api-servicebus.md "Может отправлять сообщения из очередей и разделов служебной шины, а также получать сообщения из очередей и подписок служебной шины."
-[sharepointdoc]: ./connectors-create-api-sharepointonline.md "Подключается к SharePoint Online, чтобы управлять документами и элементами списка."
-[slackdoc]: ./connectors-create-api-slack.md "Подключается к Slack и публикует сообщения в каналах Slack."
-[sftpdoc]: ./connectors-create-api-sftp.md "Подключается к SFTP и может отправлять, получать и удалять файлы, а также выполнять другие задачи."
-[githubdoc]: ./connectors-create-api-github.md "Подключается к GitHub для отслеживания проблем."
-[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Оптимизация отправляемой почты."
-[smtpdoc]: ./connectors-create-api-smtp.md "Подключается к SMTP-серверу и отправляет электронные сообщения с вложениями."
-[sql-serverdoc]: ./connectors-create-api-sqlazure.md "Подключается к базе данных SQL Azure. Вы можете создавать, обновлять, получать и удалять записи в таблице базы данных SQL."
-[trellodoc]: ./connectors-create-api-trello.md "Trello — это бесплатное универсальное и визуальное средство организации данных."
-[twiliodoc]: ./connectors-create-api-twilio.md "Подключается к Twilio для отправки и получения сообщений, получения доступных номеров, управления входящими телефонными номерами и выполнения других задач."
-[twitterdoc]: ./connectors-create-api-twitter.md "Подключается к Twitter для получения временных шкал, публикации твитов и выполнения других задач."
-[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Синхронизация повседневной активности."
-[yammerdoc]: ./connectors-create-api-yammer.md "Подключается к Yammer для публикации и получения новых сообщений."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Интеграция приложений логики с приложениями API службы приложений."
+[azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Управление файлами в контейнере больших двоичных объектов с помощью соединителя хранилища BLOB-объектов Azure"
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Интеграция приложений логики с Функциями Azure."
+[boxDoc]: ./connectors-create-api-box.md "Подключение к Box. Отправка, получение, удаление файлов, отображение их списка и другие действия"
+[db2doc]: ./connectors-create-api-db2.md "Подключение к IBM DB2 в облаке или локальной среде. Обновление строки, таблицы и другие действия"
+[delaydoc]: ./connectors-native-delay.md "Выполнение отложенных действий"
+[dropboxdoc]: ./connectors-create-api-dropbox.md "Подключение к Dropbox. Отправка, получение, удаление файлов, отображение их списка и другие действия"
+[Dynamics-365doc]: ./connectors-create-api-crmonline.md "Подключение к Dynamics CRM Online для работы с данными CRM Online"
+[facebookdoc]: ./connectors-create-api-facebook.md "Подключение к Facebook. Публикация на стене, получение канала страниц и другие действия"
+[filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Подключение к локальной файловой системе"
+[ftpdoc]: ./connectors-create-api-ftp.md "Подключение к FTP и FTPS-серверу для выполнения разных FTP-задач, включая отправку, получение, удаление файлов и другие действия."
+[githubdoc]: ./connectors-create-api-github.md "Подключение к GitHub и отслеживание проблем"
+[google-drivedoc]: ./connectors-create-api-googledrive.md "Подключение к Google Диску для работы с данными"
+[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Подключение к Таблицам Google для редактирования таблиц"
+[google-tasksdoc]: ./connectors-create-api-googletasks.md "Подключение к Задачам Google для управления задачами"
+[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Подключается к Google Календарь и может управлять календарем."
+[httpdoc]: ./connectors-native-http.md "Вызовы HTTP с помощью соединителя HTTP"
+[http-requestdoc]: ./connectors-native-reqres.md "Добавление действий для HTTP-запросов и ответов в приложения логики"
+[http-responsedoc]: ./connectors-native-reqres.md "Добавление действий для HTTP-запросов и ответов в приложения логики"
+[http-swaggerdoc]: ./connectors-native-http-swagger.md "Вызовы HTTP с помощью соединителя HTTP + Swagger"
+[informixdoc]: ./connectors-create-api-informix.md "Подключение к Informix в облаке или локальной среде. Чтение строк, отображение таблиц и другие действия"
+[instagramdoc]: ./connectors-create-api-instagram.md "Подключение к Instagram. Активация событий и реакция на них"
+[mailchimpdoc]: ./connectors-create-api-mailchimp.md "Подключения к учетной записи MailChimp. Управление сообщениями электронной почты и их автоматизация"
+[mandrilldoc]: ./connectors-create-api-mandrill.md "Подключение к Mandrill для обмена данными"
+[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md "Подключение к Microsoft Translator. Перевод текста, обнаружение языков и другие действия" 
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Интеграция приложений логики с вложенным рабочим процессом."
+[office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Подключение к учетной записи Office 365. Отправка и получение сообщений, управление календарем и контактами, а также другие действия"
+[office365-usersdoc]: ./connectors-create-api-office365-users.md 
+[office365-videodoc]: ./connectors-create-api-office365-video.md "Получение сведений о видео, списков и каналов видео, а также URL-адресов воспроизведения для видео Office 365"
+[onedrivedoc]: ./connectors-create-api-onedrive.md "Подключение к личному Microsoft OneDrive. Отправка, удаление, отображение файлов и другие действия"
+[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Подключение к рабочему Microsoft OneDrive. Отправка, удаление, отображение файлов и другие действия"
+[oracle-db-doc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Подключение к базе данных Oracle"
+[outlook.comdoc]: ./connectors-create-api-outlook.md "Подключение к почтовому ящику Outlook. Управление электронной почтой, календарями, контактами и другие действия"
+[project-onlinedoc]: ./connectors-create-api-projectonline.md "Подключение к Microsoft Project Online. Управление проектами, задачами, ресурсами и другие действия"
+[querydoc]: ./connectors-native-query.md "Выбор и фильтрации массивов с помощью действия "Запрос""
+[recurrencedoc]:  ./connectors-native-recurrence.md "Активация повторяющихся действий для приложений логики"
+[rssdoc]: ./connectors-create-api-rss.md "Публикация и получение элементов канала, активация операций при публикации нового элемента в RSS-канале."
+[salesforcedoc]: ./connectors-create-api-salesforce.md "Подключение к учетной записи Salesforce. Управление учетными записями, потенциальными клиентами, возможностями и другие действия"
+[sendgriddoc]: ./connectors-create-api-sendgrid.md "Подключение к SendGrid. Отправка электронных сообщений и управление списками получателей"
+[service-busdoc]: ./connectors-create-api-servicebus.md "Отправка сообщений из очередей и разделов служебной шины, а также получение сообщений из очередей и подписок служебной шины."
+[sftpdoc]: ./connectors-create-api-sftp.md "Подключение к учетной записи SFTP. Отправка, получение, удаление файлов и другие действия"
+[sharepointdoc]: ./connectors-create-api-sharepointonline.md "Подключение к SharePoint Online. Управление документами, элементами списка и другие действия"
+[slackdoc]: ./connectors-create-api-slack.md "Подключение к Slack и публикация сообщений в каналах Slack"
+[smtpdoc]: ./connectors-create-api-smtp.md "Подключение к SMTP-серверу и отправка электронных сообщений с вложениями"
+[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Подключение к SparkPost для обмена данными"
+[sql-serverdoc]: ./connectors-create-api-sqlazure.md "Подключение к базе данных SQL Azure или серверу SQL. Создание, обновление, получение и удаление записей в таблице базы данных SQL."
+[trellodoc]: ./connectors-create-api-trello.md "Подключение к Trello. Управление проектами и организация всего и всех"
+[twiliodoc]: ./connectors-create-api-twilio.md "Подключение к Twilio. Отправка и получение сообщений, получение доступных номеров, управление входящими телефонными номерами и выполнение других задач"
+[twitterdoc]: ./connectors-create-api-twitter.md "Подключение к Twitter. Получение обновлений, публикация твитов и выполнение других задач"
+[webhookdoc]: ./connectors-native-webhook.md "Добавление действий и триггеров веб-перехватчика в приложения логики"
+[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Подключение к Wunderlist. Управление задачами и списками дел и их синхронизация, а также другие действия"
+[yammerdoc]: ./connectors-create-api-yammer.md "Подключение к Yammer. Публикация сообщений, получение новых сообщений и другие действия"
+[youtubedoc]: ./connectors-create-api-youtube.md "Подключение к YouTube. Управление видео и каналами"
+
 [as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Дополнительные сведения об AS2 в рамках корпоративной интеграции."
 [x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Дополнительные сведения об X12 в рамках корпоративной интеграции."
 [flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Дополнительные сведения о неструктурированном файле в рамках корпоративной интеграции."
 [flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Дополнительные сведения о неструктурированном файле в рамках корпоративной интеграции."
 [xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Дополнительные сведения о проверке XML в рамках корпоративной интеграции."
 [xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Дополнительные сведения о преобразованиях в рамках корпоративной интеграции."
-[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Дополнительные сведения о декодировании AS2 в рамках корпоративной интеграции."
+[as2decode]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Дополнительные сведения о декодировании AS2 в рамках корпоративной интеграции."
 [as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Дополнительные сведения о кодировке AS2 в рамках корпоративной интеграции."
-[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Дополнительные сведения о декодировании X12 в рамках корпоративной интеграции."
-[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Дополнительные сведения о кодировке X12 в рамках корпоративной интеграции."
-[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Дополнительные сведения о декодировании EDIFACT в рамках корпоративной интеграции."
-[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Дополнительные сведения о кодировке EDIFACT в рамках корпоративной интеграции."
-[httpdoc]: ./connectors-native-http.md "Соединитель HTTP для выполнения вызовов HTTP."
-[http-requestdoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
-[http-responsedoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
-[delaydoc]: ./connectors-native-delay.md "Дополнительные сведения о действии "Задержка"."
-[http-swaggerdoc]: ./connectors-native-http-swagger.md "Соединитель HTTP + Swagger для выполнения вызовов HTTP."
-[querydoc]: ./connectors-native-query.md "Действие "Запрос" для выбора и фильтрации массивов."
-[webhookdoc]: ./connectors-native-webhook.md "Действие webhook и триггер для приложений логики."
-[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Интеграция приложений логики с Функциями Azure."
-[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Интеграция приложений логики с приложениями API службы приложений."
-[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Интеграция приложений логики с вложенным рабочим процессом."
-[recurrencedoc]:  ./connectors-native-recurrence.md "Триггер повторения для приложений логики."
-[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Подключается к Google Таблицы и может изменять таблицы."
-[google-tasksdoc]: ./connectors-create-api-googletasks.md "Подключается к Google Задачи и может управлять задачами."
-[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Подключается к Google Календарь и может управлять календарем."
-[instagramdoc]: ./connectors-create-api-instagram.md "Подключается к Instagram и может активировать события или выполнять действия в ответ на события."
-[mandrilldoc]: ./connectors-create-api-mandrill.md "Подключается к Mandrill и может использоваться для обмена данными."
-[youtubedoc]: ./connectors-create-api-youtube.md "Подключается к YouTube и может взаимодействовать с видео и каналами."
-[sparkpostdoc]: ./connectors-create-api-sparkpost.md "Подключается к SparkPost и может использоваться для обмена данными."
-[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Использование соединителя файловой системы для подключения к локальной файловой системе."
-[Соединитель SAP]: ..//logic-apps/logic-apps-using-sap-connector.md "Сведения о соединителе SAP"
+[X12decode]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Дополнительные сведения о декодировании X12 в рамках корпоративной интеграции."
+[X12encode]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Дополнительные сведения о кодировке X12 в рамках корпоративной интеграции."
+[EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Дополнительные сведения о декодировании EDIFACT в рамках корпоративной интеграции."
+[EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Дополнительные сведения о кодировке EDIFACT в рамках корпоративной интеграции."
+
+[sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Подключение к локальному серверу SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
 [Asanaicon]: ./media/apis-list/asana.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
+[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
 [Basecamp-3icon]: ./media/apis-list/basecamp.png
 [Bitlyicon]: ./media/apis-list/bitly.png
@@ -166,10 +170,10 @@ ms.lasthandoff: 02/17/2017
 [Campfireicon]: ./media/apis-list/campfire.png
 [Cognitive-Services-Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
 [DB2icon]: ./media/apis-list/db2.png
-[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
-[Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Dynamics-365icon]: ./media/apis-list/dynamicscrmonline.png
+[Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
+[Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Facebookicon]: ./media/apis-list/facebook.png
 [FTPicon]: ./media/apis-list/ftp.png
@@ -185,7 +189,6 @@ ms.lasthandoff: 02/17/2017
 [Instagramicon]: ./media/apis-list/instagram.png
 [Instapapericon]: ./media/apis-list/instapaper.png
 [JIRAicon]: ./media/apis-list/jira.png
-[Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
 [Mandrillicon]: ./media/apis-list/mandrill.png
 [Microsoft-Translatoricon]: ./media/apis-list/microsofttranslator.png
@@ -195,6 +198,7 @@ ms.lasthandoff: 02/17/2017
 [Office-365-Videoicon]: ./media/apis-list/office365video.png
 [OneDriveicon]: ./media/apis-list/onedrive.png
 [OneDrive-for-Businessicon]: ./media/apis-list/onedriveforbusiness.png
+[Oracle-DB-icon]: ./media/apis-list/oracle-db.png
 [Outlook.comicon]: ./media/apis-list/outlook.png
 [PagerDutyicon]: ./media/apis-list/pagerduty.png
 [Pinteresticon]: ./media/apis-list/pinterest.png
@@ -224,20 +228,19 @@ ms.lasthandoff: 02/17/2017
 [Yammericon]: ./media/apis-list/yammer.png
 [YouTubeicon]: ./media/apis-list/youtube.png
 
-
 <!-- Primitive Icons -->
+[API/Web-Appicon]: ./media/apis-list/api.png
+[Azure-Functionsicon]: ./media/apis-list/function.png
+[Delayicon]: ./media/apis-list/delay.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 [HTTPicon]: ./media/apis-list/http.png
 [HTTP-Requesticon]: ./media/apis-list/request.png
 [HTTP-Responseicon]: ./media/apis-list/response.png
-[Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
-[Queryicon]: ./media/apis-list/query.png
-[Webhookicon]: ./media/apis-list/webhook.png
-[Azure-Functionsicon]: ./media/apis-list/function.png
-[API/Web-Appicon]: ./media/apis-list/api.png
 [Nested-Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
-[FileSystemIcon]: ./media/apis-list/filesystem.png
+[Queryicon]: ./media/apis-list/query.png
+[Webhookicon]: ./media/apis-list/webhook.png
 
 <!-- EIP Icons -->
 [as2icon]: ./media/apis-list/as2new.png
