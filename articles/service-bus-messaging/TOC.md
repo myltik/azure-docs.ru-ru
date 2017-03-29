@@ -1,6 +1,7 @@
 # Обзор
 ## [Что такое обмен сообщениями с помощью служебной шины?](service-bus-messaging-overview.md)
-## [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+## [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
+## [Архитектура служебной шины](service-bus-architecture.md)
 ## [Часто задаваемые вопросы](service-bus-faq.md)
 
 # Начало работы

@@ -26,11 +26,11 @@
 ## Подключение
 
 ### [Обзор](sql-data-warehouse-connect-overview.md)
-### [Строки подключения](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Установка Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Строки подключения](sql-data-warehouse-connection-strings.md)
 
 ## Создание
 ### [Портал Azure](sql-data-warehouse-get-started-provision.md)
