@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 3df12cd8700a75c1288967e86cd92e6ed4886d59
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -52,12 +53,9 @@ ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
 Теперь, когда вы прочитали общие сведения об архитектуре служебной шины, воспользуйтесь следующими ссылками, чтобы получить дополнительные сведения:
 
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
-* [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Что такое ретранслятор Azure?](../service-bus-relay/relay-what-is-it.md)
+* [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
 * [Решение для обмена сообщениями в очередях с помощью очередей служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -10,16 +10,11 @@
 
 ### <a name="prerequisites"></a>Предварительные требования
 1. Скачайте программы командной строки Azure для своей операционной системы [отсюда](https://azure.microsoft.com/downloads/).
-2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям для [Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) или [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям для [Linux](../articles/virtual-machines/linux/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) или [Windows](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
 4. Кроме того, сценарии можно передать в учетную запись GitHub.
 5. Сценарий должен быть создан таким образом, чтобы запущенный с помощью расширения первый сценарий запускал в свою очередь другие сценарии.
 
 ## <a name="using-the-custom-script-extension"></a>Использование расширения для пользовательских сценариев
 Для развертывания с помощью шаблонов используется та же версия расширения Custom Script, которая доступна для API управления службами Azure. Это расширение поддерживает такие же параметры и сценарии, например добавление файлов в учетную запись хранения Azure или в расположение Github. Основное отличие при использовании с шаблонами — это необходимость указывать версию расширения в ее непосредственном виде, а не в формате основной_номер_версии.*.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
