@@ -41,4 +41,4 @@
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>Поиск, добавление, обновление и удаление расширений виртуальной машины
-Дополнительные сведения об этих задачах можно найти в статье [Управление расширениями виртуальной машины](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Дополнительные сведения об этих задачах можно найти в статье [Управление расширениями виртуальной машины](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

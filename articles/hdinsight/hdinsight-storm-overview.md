@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ Apache Storm в HDInsight представляет собой управляем
 * Простая настройка с помощью скриптов во время или после создания кластера. Дополнительные сведения см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Выбор языка программирования: компоненты Storm можно написать на различных языках, таких как **Java**, **C#** и **Python**.
-  
+
   * Интеграция Visual Studio с HDInsight для разработки, администрирования и отслеживания топологий C#. Дополнительные сведения см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
   * Поддержка Java-интерфейса **Trident**. Этот интерфейс позволяет создавать топологии Storm, поддерживающие обработку сообщений в рамках подхода "только один раз", сохраняемость "транзакционных" хранилищ данных, а также набор распространенных операций Stream Analytics.
@@ -50,13 +51,13 @@ Apache Storm в HDInsight представляет собой управляем
 * Простое масштабирование кластера (добавление или удаление рабочих узлов), не влияющее на выполняющиеся топологии Storm.
 
 * Интеграция со следующими службами Azure:
-  
+
     * Концентраторы событий
     * Виртуальная сеть
     * База данных SQL
     * Хранилище Azure
     * DocumentDB.
-  
+
   * Безопасное объединений возможностей нескольких кластеров HDInsight с помощью виртуальной сети Azure для создания конвейеров аналитики на основе кластеров HDInsight, HBase или Hadoop.
 
 Список компаний, использующих Apache Storm в качестве решения для анализа данных в реальном времени, см. в статье [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Компании, использующие Apache Storm).
@@ -80,7 +81,7 @@ Apache Storm в HDInsight представляет собой управляем
 
 * __Веб-подключение.__ Кластеры HDInsight предоставляют веб-интерфейс Ambari. Он позволяет легко отслеживать, настраивать и администрировать службы в кластере. Storm в HDInsight также предоставляет пользовательский интерфейс Storm, который позволяет отслеживать и контролировать выполнение топологий Storm из браузера.
 
-  См. дополнительные сведения об [управлении HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md), а также о [мониторинге и управлении с помощью пользовательского интерфейса Storm](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
+  См. дополнительные сведения об [управлении HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md), а также о [мониторинге и управлении с помощью пользовательского интерфейса Storm](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
 * __Azure PowerShell и CLI.__ Обе эти служебные программы командной строки можно использовать для работы с HDInsight и другими службами Azure из клиентской системы.
 
@@ -152,7 +153,7 @@ Apache Storm работает с **топологиями** , а не задан
 * **Поток.** Несвязанный набор **кортежей**. Потоки создаются со стороны **воронок** и **сит** и направляются в **сита**.
 * **Кортеж.** Именованный список динамически вводимых значений.
 * **Воронка.** Потребляет данные из источника данных и отправляет один или несколько **потоков**.
-  
+
   > [!NOTE]
   > Зачастую данные считываются из очереди (например, из Kafka или концентраторов событий Azure). Очередь отвечает за сохраняемость данных в случае сбоя.
 

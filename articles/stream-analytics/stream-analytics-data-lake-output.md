@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
 ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -87,10 +88,5 @@ ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
 Чтобы устранить эту проблему, остановите выполнение задания и перейдите к выходным данным хранилища озера данных. Щелкните ссылку "Обновить авторизацию", после чего на непродолжительное время откроется страница с сообщением "Перенаправление для авторизации...". Страница автоматически закроется, и в случае успешного выполнения появится сообщение "Авторизация успешно возобновлена". В нижней части страницы нажмите кнопку "Сохранить", а затем перезапустите задание с момента последней остановки, чтобы избежать потери данных.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

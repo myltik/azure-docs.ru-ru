@@ -1,5 +1,5 @@
 ---
-title: "Управление маршрутизацией и виртуальными модулями с помощью шаблона | Документация Майкрософт"
+title: "Управление маршрутизацией и виртуальными модулями в Azure с помощью шаблона | Документация Майкрософт"
 description: "Сведения о том, как управлять маршрутизацией и виртуальными модулями с помощью шаблона Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Создание определяемых пользователем маршрутов с помощью шаблона
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
-- [Шаблон](virtual-network-create-udr-arm-template.md)
-- [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
-- [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+> * [Шаблон](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
+> * [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Прежде чем приступить к работе с ресурсами Azure, обратите внимание на то, что в настоящее время в Azure существует две модели развертывания: классическая модель развертывания и модель развертывания с помощью Azure Resource Manager. Обязательно изучите [модели и инструменты развертывания](../azure-resource-manager/resource-manager-deployment-model.md) , прежде чем приступить к работе с какими бы то ни было ресурсами Azure. Для просмотра документации о средствах развертывания выбирайте соответствующие вкладки в верхней части данной статьи. В этой статье описывается модель развертывания с использованием менеджера ресурсов. 
@@ -175,7 +176,7 @@ ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
 
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия:
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../cli-install-nodejs.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Чтобы переключиться в режим Resource Manager, выполните следующую команду:
 
     ```azurecli
@@ -406,9 +407,4 @@ ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
 > [!TIP]
 > Если отображаются не все ресурсы, выполните команду `azure group deployment show`, чтобы состояние подготовки развертывания имело значение *Succeded*.
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

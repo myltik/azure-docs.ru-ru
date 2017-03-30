@@ -1,5 +1,5 @@
 ---
-title: "Создание решений для управления в Operations Management Suite (OMS) | Документация Майкрософт"
+title: "Создание решения по управлению в OMS | Документация Майкрософт"
 description: "Решения для управления расширяют функции консоли Operations Management Suite (OMS), предоставляя упакованные сценарии управления, которые клиенты могут добавить в свое рабочее пространство OMS.  В этой статье описано, как создавать решения для управления, которые можно использовать в своей среде или предоставлять другим пользователям."
 services: operations-management-suite
 documentationcenter: 
@@ -12,263 +12,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
-ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="creating-management-solutions-in-operations-management-suite-oms-preview"></a>Создание решений для управления в Operations Management Suite (OMS) (предварительная версия)
+# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Проектирование и создание решения по управлению в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]
-> Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.  
->
->
+> Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.   j
 
-Решения для управления расширяют функции консоли Operations Management Suite (OMS), предоставляя упакованные сценарии управления, которые клиенты могут добавить в свое рабочее пространство OMS.  Эта статья содержит сведения о том, как создать собственные решения для управления, которые можно использовать в своей среде или предоставлять клиентам в сообществе.
+[Решения по управлению](operations-management-suite-solutions.md) расширяют функции консоли Operations Management Suite (OMS), предоставляя упакованные сценарии управления, которые клиенты могут добавлять в свое рабочее пространство OMS.  В этой статье описывается базовый процесс проектирования и создания решений по управлению, который подходит для большинства сценариев.  Если вы не знаете, как создавать решения по управлению, вы можете использовать эти сведения в качестве отправной точки, применяя основные понятия для работы с более сложными решениями по мере изменения своих потребностей.
 
-## <a name="planning-your-management-solution"></a>Планирование решения для управления
-Решения для управления в OMS включают несколько ресурсов, которые поддерживают определенный сценарий управления.  При планировании решения следует сосредоточиться на внедряемом сценарии и всех ресурсах, которые необходимы для его реализации.  Каждое решение должно быть автономным. Оно определяет все необходимые ему ресурсы, даже если один или несколько ресурсов также определены другими решениями.  Для установленного решения для управления все ресурсы создаются, только если они не существуют. При этом можно определить, что произойдет с ресурсом при удалении решения.  
+## <a name="what-is-a-management-solution"></a>Что такое решение по управлению?
 
-Например, решение для управления может включать [модуль Runbook службы автоматизации Azure](../automation/automation-intro.md), который собирает данные в репозиторий Log Analytics с помощью [расписания](../automation/automation-schedules.md) и [представления](../log-analytics/log-analytics-view-designer.md) для отображения собранных данных разными способами.  Это же расписание может использоваться другим решением.  Разработчик решения для управления определяет все три ресурса, настраивая автоматическое удаление модуля Runbook и представления при удалении решения.    Также будет определено и расписание. Но здесь вам нужно указать, что это расписание не будет удалено вместе с решением, если оно используется другим ресурсом.
+Решения по управлению содержат ресурсы OMS и Azure, которые используются для выполнения задач в рамках определенных сценариев мониторинга.  Они реализуются как [шаблоны управления ресурсами](../azure-resource-manager/resource-manager-template-walkthrough.md), которые содержат сведения об установке и настройке содержащихся в них ресурсов после установки решения.
 
-## <a name="management-solution-files"></a>Файлы решения для управления
-Решения для управления в OMS реализуются как [шаблоны управления ресурсами](../azure-resource-manager/resource-manager-template-walkthrough.md).  Поэтому создание решения для управления — это, по сути, [создание шаблона](../azure-resource-manager/resource-group-authoring-templates.md).  В этой статье подробно описываются шаблоны, используемые для решений, а также способы определения ресурсов для типичного решения.
-
-Базовая структура файла решения для управления аналогична структуре [шаблона Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) и выглядит следующим образом.  В следующих разделах описаны элементы верхнего уровня и их содержимое в решении.  
-
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
-       "parameters": {  },
-       "variables": {  },
-       "resources": [  ],
-       "outputs": {  }
-    }
-
-## <a name="parameters"></a>Параметры
-[Параметры](../azure-resource-manager/resource-group-authoring-templates.md#parameters) — это значения, которые пользователь указывает при установке решения для управления.  Существуют стандартные параметры для всех решений. При необходимости можно добавить дополнительные параметры для конкретного решения.  Каким образом пользователи будут указывать значения параметров при установке решения, будет зависеть от конкретного параметра и способа установки решения.
-
-Если пользователь устанавливает решение для управления с помощью [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) или [шаблонов быстрого запуска Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), ему будет предложено выбрать [рабочую область OMS и учетную запись службы автоматизации](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  Их используют для заполнения значений для каждого из стандартных параметров.  Здесь пользователю совсем не обязательно указывать значения для всех стандартных параметров, а только для дополнительных.
-
-При установке решения [другим способом](operations-management-suite-solutions.md#finding-and-installing-management-solutions) пользователю нужно указать значения для всех стандартных и дополнительных параметров.
-
-Ниже приведен пример параметра.
-
-    "Daily Start Time": {
-        "type": "string",
-        "metadata": {
-            "description": "Enter time for starting VMs by resource group.",
-            "control": "datetime",
-            "category": "Schedule"
-        }
-
-В следующей таблице описываются атрибуты параметра.
-
-| Атрибут | Description (Описание) |
-|:--- |:--- |
-| type |Тип данных для параметра. Элемент управления вводом, отображаемый для пользователя, зависит от типа данных.<br><br>bool — раскрывающийся список<br>string — текстовое поле<br>int — текстовое поле<br>securestring — поле для ввода пароля<br> |
-| category |Необязательная категория для параметра.  Параметры одной категории группируются. |
-| control |Дополнительная функция для строковых параметров.<br><br>datetime — отображается элемент управления для даты и времени.<br>guid — значение GUID создается автоматически и параметр не отображается. |
-| Описание |Необязательное описание параметра.  Отображается в информационном всплывающем предупреждении возле параметра. |
-
-### <a name="standard-parameters"></a>Стандартные параметры
-В следующей таблице перечислены стандартные параметры для всех решений для управления.  Эти значения заполняются автоматически, а не предлагаются для заполнения пользователем при установке решения из Azure Marketplace или с помощью шаблонов быстрого запуска.  Пользователь должен указать значения для стандартных параметров, если решение устанавливается другим способом.
-
-> [!NOTE]
-> Пользовательский интерфейс в Azure Marketplace и шаблонах быстрого запуска ожидает ввода имен параметров, указанных в таблице.  При использовании других имен параметров пользователю будет предложено указать их, они не будут указаны автоматически.
->
->
-
-| Параметр | Тип | Description (Описание) |
-|:--- |:--- |:--- |
-| accountName |строка |Учетная запись службы автоматизации Azure. |
-| pricingTier |string |Ценовая категория рабочей области Log Analytics и учетной записи службы автоматизации Azure. |
-| regionId |строка |Регион службы автоматизации Azure. |
-| solutionName |строка |Имя решения. |
-| workspaceName |строка |Имя рабочей области Log Analytics. |
-| workspaceRegionId |строка |Регион рабочего пространства Log Analytics. |
-
-### <a name="sample"></a>Образец
-Далее указан пример сущности параметра для решения.  Он включает все стандартные параметры и два дополнительных параметра в одной категории.
-
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "A valid Log Analytics workspace name"
-            }
-        },
-        "accountName": {
-               "type": "string",
-               "metadata": {
-                   "description": "A valid Azure Automation account name"
-               }
-        },
-        "workspaceRegionId": {
-               "type": "string",
-               "metadata": {
-                   "description": "Region of the Log Analytics workspace"
-            }
-        },
-        "regionId": {
-            "type": "string",
-            "metadata": {
-                "description": "Region of the Azure Automation account"
-            }
-        },
-        "pricingTier": {
-            "type": "string",
-            "metadata": {
-                "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
-        }
+Основная стратегия заключается в том, что решение по управлению запускается при создании отдельных компонентов в среде Azure.  Если все компоненты работают правильно, вы можете упаковать их в [файл решения по управлению](operations-management-suite-solutions-solution-file.md). 
 
 
-Ссылки на значения параметров в других элементах решения создаются с помощью синтаксиса **parameters('имя_параметра')**.  Например, для доступа к имени рабочей области можно использовать **parameters('имя_рабочей_области')**.
+## <a name="design-your-solution"></a>Разработка решения
+Самый распространенный шаблон для решения по управлению показан на следующей схеме.  Разные компоненты этого шаблона описываются ниже.
 
-## <a name="variables"></a>Переменные
-Элемент **variables** включает значения, которые будут использоваться в остальной части решения для управления.  Эти значения невидимы для пользователя, который устанавливает решение.  Их задача — обеспечить пользователя единым расположением для управления значениями, которые в решении могут использоваться многократно. Все значения для решения следует поместить в переменные, а не прямо указывать их в элементе **resources** в коде.  Таким образом код становится более удобным для чтения. Кроме того, в этом случае значения можно легко изменить в более поздних версиях.
-
-Ниже приведен пример элемента **variables** с типичные параметрами, используемыми в решениях.
-
-    "variables": {
-        "SolutionVersion": "1.1",
-        "SolutionPublisher": "Contoso",
-        "SolutionName": "My Solution",
-        "LogAnalyticsApiVersion": "2015-11-01-preview",
-        "AutomationApiVersion": "2015-10-31"
-    },
-
-Обращаться к значениям переменных в рамках решения можно с помощью синтаксиса **variables('имя_переменной')**.  Например, для доступа к переменной SolutionName можно использовать синтаксис **variables('имя_решения')**.
-
-## <a name="resources"></a>Ресурсы
-Элемент **resources** определяет различные ресурсы, включенные в решение для управления.  Это самая крупная и сложная часть шаблона.  Ресурсы определяются с помощью следующей структуры:  
-
-    "resources": [
-        {
-            "name": "<name-of-the-resource>",            
-            "apiVersion": "<api-version-of-resource>",
-            "type": "<resource-provider-namespace/resource-type-name>",        
-            "location": "<location-of-resource>",
-            "tags": "<name-value-pairs-for-resource-tagging>",
-            "comments": "<your-reference-notes>",
-            "dependsOn": [
-                "<array-of-related-resource-names>"
-            ],
-            "properties": "<unique-settings-for-the-resource>",
-            "resources": [
-                "<array-of-child-resources>"
-            ]
-        }
-    ]
-
-### <a name="dependencies"></a>Зависимости
-Элемент **dependsOn** указывает [зависимость](../azure-resource-manager/resource-group-define-dependencies.md) от другого ресурса.  При установке решения ресурс не создается, пока не будут созданы все его зависимости.  Например, при установке решение может [запустить модуль Runbook](operations-management-suite-solutions-resources-automation.md#runbooks) с помощью [ресурса задания](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Ресурс задания будет зависеть от ресурса модуля Runbook. Таким образом обеспечивается создание модуля Runbook до задания.
-
-### <a name="oms-workspace-and-automation-account"></a>Рабочая область OMS и учетная запись службы автоматизации
-Решения для управления требуют [рабочую область OMS](../log-analytics/log-analytics-manage-access.md) для хранения представлений и [учетную запись службы автоматизации](../automation/automation-security-overview.md#automation-account-overview) для хранения модулей Runbook и связанных ресурсов.  К ним нужно предоставить доступ перед созданием ресурсов решения. Их не нужно определять в самом решении.  Пользователь указывает [рабочую область и учетную запись](operations-management-suite-solutions.md#oms-workspace-and-automation-account) при развертывании решения. Однако разработчик решения должен учитывать следующие моменты.
-
-## <a name="solution-resource"></a>Ресурс решения
-Для каждого решения требуется запись ресурса в элементе **resources**, который определяет само решение.  Ресурс представлен типом **Microsoft.OperationsManagement/solutions**.  Ниже приведен пример ресурса решения.  В следующих разделах описываются его различающиеся элементы.
-
-    "name": "[concat(variables('SolutionName'), '[ ' ,parameters('workspacename'), ' ]')]",
-    "location": "[parameters('workspaceRegionId')]",
-    "tags": { },
-    "type": "Microsoft.OperationsManagement/solutions",
-    "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-    "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]",
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-    ]
-    "properties": {
-        "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-        "referencedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]"
-        ],
-        "containedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-        ]
-    },
-    "plan": {
-        "name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
-        "Version": "[variables('SolutionVersion')]",
-        "product": "AzureSQLAnalyticSolution",
-        "publisher": "[variables('SolutionPublisher')]",
-        "promotionCode": ""
-    }
-
-### <a name="solution-name"></a>Имя решения
-Имя решения должно быть уникальным в подписке Azure. Ниже представлены рекомендуемые значения, которые следует использовать.  Далее используется переменная с именем **SolutionName** в качестве базового имени и параметр **workspaceName**, чтобы обеспечить уникальность имени.
-
-    [concat(variables('SolutionName'), ' [' ,parameters('workspaceName'), ']')]
-
-В результате выполнения этого примера будет получено следующее имя.
-
-    My Solution Name [MyWorkspace]
+![Обзор решения OMS](media/operations-management-suite-solutions/solution-overview.png)
 
 
-### <a name="dependencies"></a>Зависимости
-Ресурс решения должен содержать [зависимость](../azure-resource-manager/resource-group-define-dependencies.md) от всех ресурсов решения, так как их нужно создать до решения.  Это можно сделать, добавив запись для каждого ресурса в элемент **dependsOn**.
+### <a name="data-sources"></a>Источники данных
+Первый шаг в разработке решения — это определение нужных данных из репозитория Log Analytics.  Эти данные собираться в [источнике данных](../log-analytics/log-analytics-data-sources.md) или [другом решении](operations-management-suite-solutions.md). Возможно, вам понадобится настроить процесс их сбора.
 
-### <a name="properties"></a>Свойства
-У ресурса решения есть свойства, приведенные в таблице ниже.  Сюда входят ресурсы, на которые решение ссылается и которые оно содержит. Это и определяет, как будет осуществляться управление ресурсом после установки решения.  Каждый ресурс в решении должен быть указан в одном из свойств: **referencedResources** или **containedResources**.
+В репозитории Log Analytics данные могут собираться из разных источников, как описано в статье [Источники данных в Log Analytics](../log-analytics/log-analytics-data-sources.md).  Сюда входят события в журнале событий Windows или события, созданные Syslog, а также счетчики производительности для клиентов Windows и Linux.  Вы также можете собирать данные из ресурсов Azure, полученных службой Azure Monitor.  
 
-| Свойство | Описание |
-|:--- |:--- |
-| workspaceResourceId |Идентификатор рабочей области OMS в формате *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<имя_рабочей_области\>*. |
-| referencedResources |Список ресурсов решения, которые не будут удалены при удалении решения. |
-| containedResources |Список ресурсов решения, которые будут удалены при удалении решения. |
+Если вам нужны данные, которых нет ни в одном из доступных источников данных, используйте [API сборщика данных HTTP](../log-analytics/log-analytics-data-collector-api.md). Так вы сможете записывать данные в репозиторий Log Analytics из любого клиента, который может вызывать REST API.  Самый простой способ собирать пользовательские данные в решении по управлению — создать [модуль runbook в службе автоматизации Azure](../automation/automation-runbook-types.md). Этот модуль собирает необходимые данные из Azure или внешних ресурсов и записывает их в репозиторий с помощью API сборщика данных.  
 
-Приведенный выше пример предназначен для решения с модулем Runbook, расписанием и представлением.  На расписание и модуль Runbook *ссылается* элемент **properties**, поэтому они не будут удалены вместе с решением.  Представление *содержится* в решении, поэтому будет удалено при удалении решения.
+### <a name="log-searches"></a>Поиск по журналам
+[Поиск по журналам](../log-analytics/log-analytics-log-searches.md) используется для извлечения и анализа данных в репозитории Log Analytics.  Поиск по журналам используется представлениями и оповещениями. Кроме того, это средство позволяет пользователям выполнять специальный анализ данных в репозитории.  
 
-### <a name="plan"></a>План
-Свойства сущности **plan** ресурса решения приведены в таблице ниже.
+Определите любые запросы, которые, по вашему мнению, пригодятся пользователю, даже если эти запросы не используются представлениями или оповещениями.  Запросы будут доступны пользователю как сохраненные условия поиска на портале. Их также можно включить в [часть визуализации списка запросов](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) в представлении.
 
-| Свойство | Description (Описание) |
-|:--- |:--- |
-| name |Имя решения. |
-| версия |Версия решения, указанная разработчиком. |
-| product |Уникальная строка для определения решения. |
-| publisher |Издатель решения. |
+### <a name="alerts"></a>Оповещения
+Для [оповещений в Log Analytics](../log-analytics/log-analytics-alerts.md) ошибки определяются с помощью [поиска по журналам](#log-searches) в данных репозитория.  В итоге либо пользователь получает уведомление об ошибке, либо эти ошибки обрабатываются автоматически. Вы должны определить разные условия оповещений для приложения и включить соответствующие правила оповещений в файл решения.
 
-## <a name="other-resources"></a>Другие ресурсы:
-Дополнительные сведения и примеры ресурсов, которые обычно используются в решениях для управления, см. в следующих статьях.
+Если проблема устранима с помощью автоматизированного процесса, создайте модуль runbook в службе автоматизации Azure. Ошибка будет исправлена автоматически.  Большинством служб Azure можно управлять с помощью [командлетов](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), используемых модулем runbook.
 
-* [Views and dashboards](operations-management-suite-solutions-resources-views.md) (Представления и панели мониторинга)
-* [Automation resources](operations-management-suite-solutions-resources-automation.md) (Ресурсы службы автоматизации)
+Если решению требуются внешние функции для обработки оповещения, вы можете использовать [ответ webhook](../log-analytics/log-analytics-alerts-actions.md).  Этот ответ позволяет вызывать внешнюю веб-службу, отправляя информацию из оповещения.
 
-## <a name="testing-a-management-solution"></a>Тестирование решения для управления
-Перед развертыванием решение для управления рекомендуется протестировать с помощью командлета [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Так вы сможете проверить файл решения, чтобы обнаружить проблемы до попытки развертывания.
+### <a name="views"></a>Views
+Представления в Log Analytics используются для визуализации данных из репозитория Log Analytics.  Каждое решение обычно содержит одно представление с [плиткой](../log-analytics/log-analytics-view-designer-tiles.md), которая отображается на основной панели мониторинга пользователя.  Представление может содержать сколько угодно [частей визуализации](../log-analytics/log-analytics-view-designer-parts.md), чтобы пользователь мог просматривать разные визуализации собранных данных.
+
+[Создавайте пользовательские представления с помощью конструктора представлений](../log-analytics/log-analytics-view-designer.md), которые вы сможете потом экспортировать в файл решения.  
+
+
+## <a name="create-solution-file"></a>Создание файла решения
+После настройки и тестирования компонентов, которые будут входить в решение, можно [создавать файл решения](operations-management-suite-solutions-solution-file.md).  Реализуйте компоненты решения в [шаблоне Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md), который включает [ресурс решения](operations-management-suite-solutions-solution-file.md#solution-resource) и связи с другими ресурсами в файле.  
+
+
+## <a name="test-your-solution"></a>Тестирование решения
+В ходе разработки решения вам нужно установить его и протестировать в рабочей области.  Это можно сделать с помощью любого из методов [тестирования и установки шаблонов Resource Managerв](../azure-resource-manager/resource-group-template-deploy.md).
+
+## <a name="publish-your-solution"></a>Опубликуйте свое решения
+После того как решение будет создано и протестировано, вы можете предоставить клиентам доступ к нему, используя следующие источники.
+
+- **Шаблоны быстрого запуска Azure**.  [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/resources/templates/) представляют набор шаблонов Resource Manager, предоставленные сообществом разработчиков через GitHub.  Чтобы предоставить доступ к решению, следуйте инструкциям в [руководстве по участию](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+- **Azure Marketplace**.  На [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) можно распространять решения среди других разработчиков, независимых поставщиков ПО и ИТ-специалистов, а также продавать решения.  Дополнительные сведения см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Добавьте сохраненные поиски и оповещения](operations-management-suite-solutions-resources-searches-alerts.md) в решение для управления.
-* [Добавьте представления](operations-management-suite-solutions-resources-views.md) в решение для управления.
-* [Добавьте модули Runbook и другие ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md) в решение для управления.
+* Узнайте, как [создать файл решения](operations-management-suite-solutions-solution-file.md) для решения по управлению.
 * Узнайте больше о [создании шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Найдите в коллекции [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates) примеры разных шаблонов Resource Manager.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

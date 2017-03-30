@@ -1,21 +1,22 @@
 ---
-title: "Отслеживание зависимостей в Application Insights"
+title: "Отслеживание зависимостей в Azure Application Insights | Документация Майкрософт"
 description: "Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -33,6 +34,8 @@ ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
   * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
 * Веб-страницы
   * Вызовы AJAX
+
+Мониторинг работает с помощью [инструментирования байт-кода](https://msdn.microsoft.com/library/z9z62c29.aspx) вокруг выбранных методов. Снижение производительности при этом сводится к минимуму.
 
 Можно также написать собственные вызовы пакета SDK для мониторинга других зависимостей (в клиентском и серверном коде) с помощью [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
@@ -81,7 +84,7 @@ ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
 ## <a name="ajax-calls"></a>Вызовы AJAX
 Колонка "Браузеры" отображает длительность и частоту сбоев вызовов AJAX из [JavaScript на веб-страницах](app-insights-javascript.md). Они отображаются как зависимости.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Диагностика медленных запросов
+## <a name="diagnosis"></a> Диагностика медленных запросов
 Каждое событие запроса связано с вызовами зависимостей, исключениями и другими событиями, которые отслеживаются во время обработки запроса вашим приложением. Поэтому, если какие-либо запросы завершаются неудачно, можно узнать, не является ли причиной этого медленный отклик зависимости.
 
 Давайте подробно рассмотрим подобный пример.
@@ -202,13 +205,12 @@ ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
   * Узел IIS: установите [агент Application Insights](app-insights-monitor-performance-live-website-now.md) на серверах узлов.
   * Веб-приложение Azure: откройте вкладку "Application Insights" на панели управления веб-приложения и установите Application Insights.
 
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Исключения](app-insights-asp-net-exceptions.md)
 * [Данные пользователей и страниц](app-insights-javascript.md)
 * [Доступность](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
