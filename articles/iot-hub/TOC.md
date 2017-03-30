@@ -98,6 +98,11 @@
 ## Использование Arduino
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
+#### [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
+#### [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Урок 1. Настройка устройства
@@ -233,7 +238,9 @@
 #### [Использование REST API](iot-hub-rm-rest.md)
 #### [Использование шаблона с помощью PowerShell](iot-hub-rm-template-powershell.md)
 #### [Использование шаблона из .NET](iot-hub-rm-template.md)
-### [Настройка передачи файлов](iot-hub-configure-file-upload.md)
+### Настройка передачи файлов
+#### [Использование портала](iot-hub-configure-file-upload.md)
+#### [Использование PowerShell](iot-hub-configure-file-upload-powershell.md)
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
 ### [Метрики использования](iot-hub-metrics.md)
 ### [Мониторинг операций](iot-hub-operations-monitoring.md)

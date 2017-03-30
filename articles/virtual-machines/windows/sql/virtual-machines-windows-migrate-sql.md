@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: carlasab
 translationtype: Human Translation
-ms.sourcegitcommit: b828859cb059e626878b5cb2a2839a76f10de9c9
-ms.openlocfilehash: c40b9cbccba1789e5ee9045d83c39169bb5d2663
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 789e1eabcd284c17c5728156cf185d2ca168f0eb
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/23/2017
 * Отключение и копирование файлов данных и журналов в хранилище больших двоичных объектов Azure с последующим подключением их к SQL Server на виртуальной машине Azure с использованием URL-адреса.
 * Преобразование локального физического компьютера в VHD Hyper-V, передача VHD в хранилище больших двоичных объектов Azure и последующее развертывание в виде новой виртуальной машины на базе отправленного VHD.
 * Доставка жесткого диска в службу импорта и экспорта Windows.
-* Кроме того, при наличии локального развертывания AlwaysOn с помощью [мастера добавления реплики Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) можно создать реплику в Azure, а затем выполнить отработку отказа, перенаправляя пользователей к экземпляру базы данных Azure.
+* Кроме того, при наличии локального развертывания AlwaysOn с помощью [мастера добавления реплики Azure](../classic/sql-onprem-availability.md) можно создать реплику в Azure, а затем выполнить отработку отказа, перенаправляя пользователей к экземпляру базы данных Azure.
 * Используйте [репликацию транзакций](https://msdn.microsoft.com/library/ms151176.aspx) SQL Server для настройки экземпляра SQL Server Azure в качестве подписчика, а затем отключите репликацию, перенаправляя пользователей к экземпляру базы данных Azure.
 
 > [!TIP]
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/23/2017
 | [Отключение и копирование файлов данных и журналов в хранилище больших двоичных объектов Azure с последующим подключением к SQL Server на виртуальной машине Azure с использованием URL-адреса.](#detach-and-copy-to-url-and-attach-from-url) |SQL Server 2005 или более поздней версии |SQL Server 2014 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Используйте этот метод, если необходимо [сохранить файлы с помощью службы хранилища больших двоичных объектов Azure](https://msdn.microsoft.com/library/dn385720.aspx) и подключить их к SQL Server на виртуальной машине Azure, особенно при работе с очень большими базами данных. |
 | [Преобразование локального компьютера в VHD Hyper-V, отправка VHD в хранилище больших двоичных объектов Azure и последующее развертывание новой виртуальной машины на базе отправленного VHD.](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Используется в случае [использования вашей собственной лицензии SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) при миграции базы данных, которую планируется запустить на более ранней версии SQL Server, или при совместной миграции системных и пользовательских баз данных в рамках миграции базы данных, которая зависит от других пользовательских и (или) системных баз данных. |
 | [Доставка жестких дисков в службу импорта и экспорта Windows.](#ship-hard-drive) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Следует использовать [службу импорта и экспорта Windows](../../../storage/storage-import-export-service.md) , когда на ручное копирование требуется слишком много времени, особенно при работе с базами данных очень большого размера. |
-| [Работа с мастером добавления реплики Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 или более поздней версии |SQL Server 2012 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Сокращает время простоя, используется при наличии локального развертывания AlwaysOn. |
+| [Работа с мастером добавления реплики Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 или более поздней версии |SQL Server 2012 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Сокращает время простоя, используется при наличии локального развертывания AlwaysOn. |
 | [Использование репликации транзакций SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Используется при необходимости сократить время простоя, если локальное развертывание AlwaysOn отсутствует. |
 
 ## <a name="backup-and-restore"></a>Архивация и восстановление

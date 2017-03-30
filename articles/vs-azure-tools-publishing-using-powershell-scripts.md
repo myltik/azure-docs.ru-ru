@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f79068d5d1bb28762640545ebf13784b7070440e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
 Если вы занимаетесь разработкой решений для Azure, для работы с PowerShell в Visual Studio доступны дополнительные средства и ресурсы. Ознакомьтесь с разделом [Средства PowerShell для Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Создание сценариев публикации
-Чтобы создать сценарии публикации для виртуальной машины, на которой будет размещен веб-сайт, при создании проекта воспользуйтесь [этими инструкциями](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Можно также [создать сценарии публикации для веб-приложений в службе приложений Azure](app-service-web/web-sites-dotnet-get-started.md).
+Чтобы создать сценарии публикации для виртуальной машины, на которой будет размещен веб-сайт, при создании проекта воспользуйтесь [этими инструкциями](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Можно также [создать сценарии публикации для веб-приложений в службе приложений Azure](app-service-web/web-sites-dotnet-get-started.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Сценарии, создаваемые в Visual Studio
 Visual Studio создает в решении папку **PublishScripts** , в которой хранятся два файла Windows PowerShell: сценарий публикации для виртуальной машины или веб-сайта и модуль с функциями, которые можно использовать в сценариях. Visual Studio также создает файл в формате JSON, в котором хранятся сведения о развертываемом проекте.
@@ -316,7 +317,7 @@ return $WebDeployPackage
 | Find-AzureVM |Возвращает указанную виртуальную машину Azure. |
 | Format-DevTestMessageWithTime |Добавляет в сообщение дату и время. Эта функция предназначена для сообщений, которые записываются в потоки Error и Verbose. |
 | Get-AzureSQLDatabaseConnectionString |Собирает строку подключения к базе данных SQL Azure. |
-| Get-AzureVMStorage |Возвращает из указанного расположения или территориальной группы первую учетную запись хранения, в имени которой есть строка devtest* (без учета регистра). Если учетная запись хранения devtest* не соответствует расположению или территориальной группе, функция пропускает ее. Необходимо указать расположение или территориальную группу. |
+| Get-AzureVMStorage |Возвращает из указанного расположения или территориальной группы первую учетную запись хранения, в имени которой есть строка devtest*(без учета регистра). Если учетная запись хранения devtest* не соответствует расположению или территориальной группе, функция пропускает ее. Необходимо указать расположение или территориальную группу. |
 | Get-MSDeployCmd |Возвращает команду для запуска средства MsDeploy.exe. |
 | New-AzureVMEnvironment |Находит или создает в подписке виртуальную машину, которая соответствует значениям в файле конфигурации JSON. |
 | Publish-WebPackage |Развертывает ресурсы на веб-сайт с помощью средства MsDeploy.exe и пакета веб-публикации (ZIP-файл). Эта функция не создает никаких выходных данных. Если вызов MSDeploy.exe завершился ошибкой, функция создает исключение. Чтобы получить более подробные выходные данные, используйте параметр **-Verbose** . |
@@ -343,9 +344,4 @@ return $WebDeployPackage
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о сценариях PowerShell см. в статье [Работа со сценариями в Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx). Рекомендуем также посетить [центр сценариев](https://azure.microsoft.com/documentation/scripts/) и ознакомиться с другими сценариями Azure PowerShell.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

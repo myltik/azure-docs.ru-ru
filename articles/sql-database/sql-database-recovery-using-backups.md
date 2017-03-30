@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 02/20/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab3a9b28e5bcf5e1a481cc204b46617c20287a8
-ms.openlocfilehash: 2f75c492313b1ab7f4abe82a98640d535c3d7909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 751e1eaf65da889ab5c7dc26145c017682a12a4d
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/22/2017
 
 ## <a name="point-in-time-restore"></a>Восстановление до точки во времени
 
-Можно восстановить существующую базу данных до предшествующей точки во времени как новую базу данных на том же логическом сервере с помощью [портала Azure](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) или [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Можно восстановить существующую базу данных до предшествующей точки во времени как новую базу данных на том же логическом сервере с помощью [портала Azure](sql-database-point-in-time-restore-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md) или [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > При восстановлении существующую базу данных невозможно перезаписать.
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/22/2017
 * ***Восстановление данных.*** Если вы планируете извлечь данные из восстановленной базы данных для восстановления после ошибки пользователя или приложения, то потребуется создать и выполнить сценарии восстановления данных, необходимые для извлечения данных из восстановленной базы данных в исходную. Несмотря на то, что операция восстановления может занять много времени, восстанавливаемая база данных будет отображаться в списке баз данных на протяжении всего процесса. Если удалить эту базу данных во время восстановления, то операция будет отменена и плата за базу данных, восстановление которой не было завершено, взиматься не будет. 
 
 ## <a name="deleted-database-restore"></a>Восстановление удаленной базы данных
-Можно восстановить удаленную базу данных до момента удаления на том же логическом сервере с помощью [портала Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Можно восстановить удаленную базу данных до момента удаления на том же логическом сервере с помощью [портала Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > При удалении экземпляра сервера базы данных SQL Azure все базы данных, находившиеся на нем, также будут удалены без возможности восстановления. В настоящее время восстановление удаленного сервера не поддерживается.
@@ -94,8 +94,8 @@ ms.lasthandoff: 02/22/2017
 ### <a name="powershell"></a>PowerShell
 | Командлет | Описание |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Получает одну или несколько баз данных. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx) |Получает удаленную базу данных, которую можно восстановить. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Получает одну или несколько баз данных. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Получает удаленную базу данных, которую можно восстановить. |
 | [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Получает геоизбыточную резервную копию базы данных. |
 | [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Восстанавливает базу данных SQL. |
 |  | |
@@ -113,7 +113,7 @@ ms.lasthandoff: 02/22/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
 * Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [создаваемых автоматически резервных копий базы данных SQL](sql-database-automated-backups.md)
-* Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
+* Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
 * Сведения о настройке и администрировании долгосрочного хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure, а также о восстановлении с помощью таких резервных копий на портале Azure см. в разделе [Настройка и администрирование долгосрочного хранения резервных копий баз данных в хранилище служб восстановления Azure и восстановление посредством этих резервных копий с помощью портала Azure](sql-database-manage-long-term-backup-retention-portal.md). 
 * Сведения о настройке и администрировании долгосрочного хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure, а также о восстановлении посредством таких резервных копий с помощью PowerShell см. в разделе [Настройка долгосрочного хранения создаваемых автоматически резервных копий баз данных в хранилище служб восстановления Azure с помощью PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md)  

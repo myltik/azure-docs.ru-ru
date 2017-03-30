@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 0356f3bdbb691b9bde4e906ed30b3b235180f8ba
-ms.openlocfilehash: 9851ec0771c4fec4719aec8c8f43f2e3dd2604f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e64abfd5581c02b609707f7fa712962c024b293b
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 
 При копировании базы данных на другой логический сервер субъект безопасности на новом сервере становится владельцем новой базы данных. Если вы используете [пользователей автономной базы данных](sql-database-manage-logins.md) для доступа к данным, это гарантирует, что база данных-источник и база данных-получатель всегда имеют одинаковые учетные данные пользователей, поэтому после завершения копирования к копии можно будет немедленно обратиться, используя прежние учетные данные. Если вы используете [Azure Active Directory](../active-directory/active-directory-whatis.md), то можно полностью исключить потребность в управлении учетными данными в копии. Тем не менее при копировании базы данных на новый сервер доступ по имени для входа может перестать работать, так на новом сервере отсутствуют имена для входа. В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер. 
 
-Базу данных SQL можно копировать с помощью [портала Azure](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) или [T-SQL](sql-database-copy-transact-sql.md). 
+Базу данных SQL можно копировать с помощью [портала Azure](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) или [T-SQL](sql-database-copy-transact-sql.md). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 121be952ea49a8ff47f7e2528adbc87e05359a15
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a77aa4a44bbb7dafffa4269c3713153df9bbced9
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -335,7 +336,7 @@ dataFactoryName — это имя фабрики данных, указанно
 > По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Имена контейнеров указаны в формате adf**имя_фабрики_данных**-**имя_связанной_службы**-метка_даты_и_времени. Для удаления контейнеров в хранилище BLOB-объектов Azure используйте такие инструменты, как [Microsoft Storage Explorer](http://storageexplorer.com/) .
 
 #### <a name="azure-blob-input-dataset"></a>Входной набор данных большого двоичного объекта Azure
-В определении входного набора данных укажите имена контейнера больших двоичных объектов, папки и файла, содержащего входные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](../data-factory/data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+В определении входного набора данных укажите имена контейнера больших двоичных объектов, папки и файла, содержащего входные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](../data-factory/data-factory-azure-blob-connector.md#dataset-properties). 
 
 ```json
 
@@ -377,7 +378,7 @@ dataFactoryName — это имя фабрики данных, указанно
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Выходной набор данных BLOB-объекта Azure
-В определении выходного набора данных укажите имена контейнера больших двоичных объектов и папки, содержащей выходные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](../data-factory/data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).  
+В определении выходного набора данных укажите имена контейнера больших двоичных объектов и папки, содержащей выходные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](../data-factory/data-factory-azure-blob-connector.md#dataset-properties).  
 
 ```json
 

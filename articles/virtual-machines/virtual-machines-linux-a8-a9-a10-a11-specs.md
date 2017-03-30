@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e6818ea7db680f34bb4ee900396c74fc6e42c4b6
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e2e39b0fa9c45027c51bc5e063df990faf934ff5
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Сведения об экземплярах серии H и серии A для ресурсоемких вычислений для Linux
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/16/2017
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="access-to-the-rdma-network"></a>Доступ к сети RDMA
-Вы можете создавать кластеры виртуальных машин Linux с поддержкой RDMA, на которых выполняется один из перечисленных ниже поддерживаемых дистрибутивов Linux HPC с поддерживаемой реализацией MPI. Это позволит вам воспользоваться преимуществами сети RDMA в Azure. Сведения о развертывании и настройке см. в статье [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Вы можете создавать кластеры виртуальных машин Linux с поддержкой RDMA, на которых выполняется один из перечисленных ниже поддерживаемых дистрибутивов Linux HPC с поддерживаемой реализацией MPI. Это позволит вам воспользоваться преимуществами сети RDMA в Azure. Сведения о развертывании и настройке см. в статье [Настройка кластера Linux RDMA для выполнения приложений MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 * **Дистрибутивы** — разверните виртуальные машины из образов SUSE Linux Enterprise Server (SLES) или OpenLogic CentOS HPC с поддержкой RDMA, доступных в Azure Marketplace. Соединение RDMA поддерживается в следующих образах Marketplace:
   
@@ -56,10 +56,10 @@ ms.lasthandoff: 03/16/2017
 
   * **Образы HPC на основе CentOS** — здесь уже установлена библиотека Intel MPI 5.1.  
     
-    Потребуется дополнительная настройка системы для выполнения заданий MPI на кластеризованных виртуальных машинах. Например, следует установить доверительные отношения между вычислительными узлами в кластере виртуальных машин. Типичные примеры настройки можно найти в статье [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+    Потребуется дополнительная настройка системы для выполнения заданий MPI на кластеризованных виртуальных машинах. Например, следует установить доверительные отношения между вычислительными узлами в кластере виртуальных машин. Типичные примеры настройки можно найти в статье [Настройка кластера Linux RDMA для выполнения приложений MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="considerations-for-hpc-pack-and-linux"></a>Рекомендации по использованию пакета HPC и Linux
-Для использования экземпляров для ресурсоемких вычислений в Linux можно применить [пакет Microsoft HPC](https://technet.microsoft.com/library/jj899572.aspx) (бесплатное решение по управлению кластерами и заданиями HPC). Последние выпуски пакета HPC поддерживают несколько дистрибутивов Linux, выполняемых на вычислительных узлах, развернутых в виртуальных машинах Azure, под управлением головного узла Windows Server. Используя вычислительные узлы Linux с поддержкой RDMA и Intel MPI, пакет HPC может планировать и выполнять приложения Linux MPI, которые обращаются к сети RDMA. Чтобы приступить к работе, см. статью [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Для использования экземпляров для ресурсоемких вычислений в Linux можно применить [пакет Microsoft HPC](https://technet.microsoft.com/library/jj899572.aspx) (бесплатное решение по управлению кластерами и заданиями HPC). Последние выпуски пакета HPC поддерживают несколько дистрибутивов Linux, выполняемых на вычислительных узлах, развернутых в виртуальных машинах Azure, под управлением головного узла Windows Server. Используя вычислительные узлы Linux с поддержкой RDMA и Intel MPI, пакет HPC может планировать и выполнять приложения Linux MPI, которые обращаются к сети RDMA. Чтобы приступить к работе, см. статью [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](linux/classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="network-topology-considerations"></a>Аспекты топологии сети
 * На виртуальных машинах Linux с поддержкой RDMA интерфейс Eth1 зарезервирован для сетевого трафика RDMA. Не изменяйте параметры Eth1 и любые данные в файле конфигурации при обращении к этой сети. Eth0 зарезервирован для обычного сетевого трафика Azure.
@@ -70,6 +70,6 @@ ms.lasthandoff: 03/16/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о доступности и стоимости размеров ВМ, предназначенных для ресурсоемких вычислений, вы найдете на странице с [ценами на виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Чтобы приступить к развертыванию и использованию виртуальных машин Linux для ресурсоемких вычислений с поддержкой RDMA, изучите статью [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Чтобы приступить к развертыванию и использованию виртуальных машин Linux для ресурсоемких вычислений с поддержкой RDMA, изучите статью [Настройка кластера Linux RDMA для выполнения приложений MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 

@@ -159,7 +159,9 @@
 
 #### Публикация приложений
 ##### [Портал Azure](application-proxy-publish-azure-portal.md)
-##### [Классический портал.](active-directory-application-proxy-publish.md)
+##### [Классический портал](active-directory-application-proxy-publish.md)
+
+#### [PingAccess для Azure AD](application-proxy-ping-access.md)
 #### [Безопасность](application-proxy-security-considerations.md)
 #### [Сети](application-proxy-network-topology-considerations.md)
 #### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
@@ -221,7 +223,7 @@
 #### [Классический портал.](active-directory-add-company-branding.md)
 ### [Администрирование каталога](active-directory-administer.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
-### [Каталоги Office&365;](active-directory-manage-o365-subscription.md)
+### [Каталоги Office 365](active-directory-manage-o365-subscription.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)
 ### [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Включение](active-directory-windows-enterprise-state-roaming-enable.md)

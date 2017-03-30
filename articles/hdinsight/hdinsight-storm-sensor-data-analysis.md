@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 34445eff89ff7ff513893d5b36b937075b09f599
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 138c90a1a9cbf3b85856f372beeb4472edb9e2e8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -49,10 +49,7 @@ ms.lasthandoff: 03/22/2017
 * [Java и пакет JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): используется для разработки топологии Storm.
 * [Maven](http://maven.apache.org/what-is-maven.html): используется для создания и компиляции проекта.
 * [Git](http://git-scm.com/): используется для скачивания проекта с сайта GitHub.
-* Клиент **SSH**: используется для подключения к кластерам HDInsight под управлением Linux. Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-  
-  * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-  * [Использование SSH с HDInsight (Hadoop) из Bash на платформе Windows 10, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* Клиент **SSH**: используется для подключения к кластерам HDInsight под управлением Linux. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     > [!NOTE]
     > Кроме того, необходим доступ к команде `scp`, которая используется для копирования файлов между локальной средой разработки и кластером HDInsight с помощью протокола SSH.

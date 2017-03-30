@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 32045a9b6be130dca4680b1990808d2b22be4432
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1ab628ff6e7e8ed23c2c3b733907500dc6d4dde7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -53,18 +53,18 @@ ms.lasthandoff: 03/16/2017
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Дополнительные сведения см. в статье [Обзор расширений и компонентов виртуальной машины под управлением Windows](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Вы также можете работать с расширениями для виртуальных машин, развернутых в рамках [классической модели развертывания](virtual-machines-windows-classic-manage-extensions.md).
+  Дополнительные сведения см. в статье [Обзор расширений и компонентов виртуальной машины под управлением Windows](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Вы также можете работать с расширениями для виртуальных машин, развернутых в рамках [классической модели развертывания](windows/classic/manage-extensions.md).
 
 
 ## <a name="considerations-for-hpc-pack-and-windows"></a>Рекомендации по использованию пакета HPC и Windows
 Для использования экземпляров для ресурсоемких вычислений в Windows Server наличие [пакета Microsoft HPC](https://technet.microsoft.com/library/jj899572.aspx) (бесплатное решение по управлению кластерами и заданиями HPC) не обязательно. Однако это один из вариантов создания вычислительного кластера в Azure для выполнения приложений MPI под управлением Windows и других рабочих нагрузок HPC. Пакет HPC 2012 R2 и более поздних версий включает среду выполнения для MS-MPI, которая может использовать сеть Azure RDMA при развертывании на виртуальных машинах с поддержкой RDMA.
 
-Дополнительные сведения и контрольные списки для использования экземпляров с большим объемом вычислений с пакетом HPC на Windows Server см. в статье [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Дополнительные сведения и контрольные списки для использования экземпляров с большим объемом вычислений с пакетом HPC на Windows Server см. в статье [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о доступности и стоимости размеров ВМ, предназначенных для ресурсоемких вычислений, см. на страницах с [ценами на виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows) и [облачные службы](https://azure.microsoft.com/pricing/details/cloud-services/).
 * Сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Чтобы приступить к развертыванию и использованию экземпляров для ресурсоемких вычислений с помощью пакета HPC в Windows, см. статью [Настройка кластера Windows RDMA с пакетом HPC Pack и экземплярами A8 и A9 для запуска приложений MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Чтобы приступить к развертыванию и использованию экземпляров для ресурсоемких вычислений с помощью пакета HPC в Windows, см. статью [Настройка кластера Windows RDMA с пакетом HPC Pack и экземплярами A8 и A9 для запуска приложений MPI](windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Дополнительные сведения об использовании экземпляров для ресурсоемких вычислений для выполнения приложений MPI с использованием пакетной службы Azure см. в статье [Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе Azure](../batch/batch-mpi.md).
 
 
