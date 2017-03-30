@@ -1,5 +1,5 @@
 ---
-title: "Управление зарезервированными IP-адресами (классическая модель) с помощью PowerShell | Документация Майкрософт"
+title: "Управление зарезервированными IP-адресами Azure (классическая модель) с помощью PowerShell | Документация Майкрософт"
 description: "Сведения о зарезервированных IP-адресах (классическая модель) и управлении ими с помощью PowerShell."
 services: virtual-network
 documentationcenter: na
@@ -15,19 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 55071ffe1bcc17b2181b4c52f51d28571a2f0eff
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 276b1bcebbe3c32d6fead8ee240dd1ddfb01c872
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="reserved-ip-addresses-classic"></a>Зарезервированные IP-адреса (классическая модель)
 
 > [!div class="op_single_selector"]
-- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
+> * [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 IP-адреса в Azure делятся на две категории: динамические и зарезервированные. Общедоступные IP-адреса, управляемые Azure, являются динамическими по умолчанию. Это означает, что IP-адрес, используемый для заданной облачной службы (VIP) или для прямого доступа к виртуальной машине или экземпляру роли (ILPIP), время от времени может изменяться, при отключении или высвобождении ресурсов.
 
@@ -164,10 +165,5 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * Общие сведения об IP-адресах в классической модели развертывания см. в [этой статье](virtual-network-ip-addresses-overview-classic.md).
 * Ознакомьтесь с информацией о [зарезервированных частных IP-адресах](virtual-networks-reserved-private-ip.md).
 * Ознакомьтесь с информацией об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

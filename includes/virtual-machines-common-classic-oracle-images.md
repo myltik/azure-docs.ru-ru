@@ -12,7 +12,7 @@
 * JDK 6 в Windows Server 2012
 
 ## <a name="oracle-linux-virtual-machine-images"></a>Образы виртуальных машин Oracle Linux
-Ниже приведен список доступных предварительно настроенных образов виртуальных машин Oracle, работающих под управлением Oracle Linux в Azure. Пользователи должны предоставить собственную лицензию для этих образов, так как лицензионные платежи Oracle не включаются в использование этих предварительно настроенных образов виртуальных машин. Вы можете также внедрить собственную лицензию для установки и запуска программного обеспечения Oracle на пользовательских виртуальных машинах в Windows или Linux. Ниже указаны подробные сведения о [лицензировании Oracle в Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). А здесь приведены подробные сведения о создании виртуальных машин с помощью [собственных образов](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Сведения об этом и других методах миграции Oracle и других рабочих нагрузок в Azure см. в статье [Различные способы создания виртуальной машины под управлением Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ниже приведен список доступных предварительно настроенных образов виртуальных машин Oracle, работающих под управлением Oracle Linux в Azure. Пользователи должны предоставить собственную лицензию для этих образов, так как лицензионные платежи Oracle не включаются в использование этих предварительно настроенных образов виртуальных машин. Вы можете также внедрить собственную лицензию для установки и запуска программного обеспечения Oracle на пользовательских виртуальных машинах в Windows или Linux. Ниже указаны подробные сведения о [лицензировании Oracle в Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). А здесь приведены подробные сведения о создании виртуальных машин с помощью [собственных образов](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Сведения об этом и других методах миграции Oracle и других рабочих нагрузок в Azure см. в статье [Различные способы создания виртуальной машины под управлением Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Oracle Database 12c Enterprise Edition на Oracle Linux
 * Oracle Database 12c Standard Edition на Oracle Linux
@@ -24,9 +24,4 @@
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

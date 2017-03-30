@@ -1,6 +1,6 @@
 ---
 title: "Создание виртуальной машины с помощью универсального виртуального жесткого диска | Документация Майкрософт"
-description: "Сведения о создании виртуальной машины Windows с помощью универсального образа VHD с использованием Azure PowerShell и модели развертывания Resource Manager."
+description: "Узнайте, как создать виртуальную машину Windows с помощью универсального образа VHD из учетной записи хранения, используя Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 12832620d94226b6cfe391471c22fad2d1e3cf7e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-vhd-image"></a>Создание виртуальной машины с помощью универсального образа VHD
-С универсального образа VHD удалены все сведения вашей личной учетной записи с помощью [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Чтобы создать универсальный диск VHD, запустите программу Sysprep на локальной виртуальной машине, а затем [загрузите VHD в Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Также можно запустить программу Sysprep на существующей виртуальной машине Azure, а затем [скопировать VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="create-a-vm-from-a-generalized-vhd-image-in-a-storage-account"></a>Создание виртуальной машины с помощью универсального образа VHD из учетной записи хранения 
 
-Если необходимо создать виртуальную машину из специализированного VHD, см. статью [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Создание виртуальной машины с помощью специализированного диска VHD).
+В этом разделе описывается создание виртуальной машины на основе универсального неуправляемого диска, расположенного в учетной записи хранения. С универсального образа VHD удалены все сведения вашей личной учетной записи с помощью [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Чтобы создать универсальный диск VHD, запустите программу Sysprep на локальной виртуальной машине, а затем [загрузите VHD в Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Также можно запустить программу Sysprep на существующей виртуальной машине Azure, а затем [скопировать VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Самый быстрый способ создания виртуальной машины из универсального VHD заключается в использовании [шаблона быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
+Если необходимо создать виртуальную машину из специализированного VHD, расположенного в учетной записи хранения, ознакомьтесь с разделом [Создание виртуальной машины на основе специализированного VHD](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+Сведения об использовании Управляемых дисков вместо дисков, расположенных в учетной записи хранения, приведены в разделах [Запись управляемого образа универсальной виртуальной машины в Azure](virtual-machines-windows-capture-image-resource.md) и [Создание виртуальной машины из универсального управляемого образа виртуальной машины](virtual-machines-windows-create-vm-generalized-managed.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Если вы собираетесь использовать диск VHD, переданный с локальной виртуальной машины, как созданный с помощью Hyper-V, обязательно выполните инструкции из статьи [Подготовка виртуального жесткого диска Windows к передаче в Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -34,6 +36,7 @@ ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
 Перед созданием виртуальной машины с помощью этого метода как переданные диски VHD, так и существующие диски VHD виртуальной машины Azure необходимо обобщить. Дополнительные сведения см. в разделе [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Обобщение виртуальной машины Windows с помощью Sysprep). 
 
 ## <a name="set-the-uri-of-the-vhd"></a>Указание универсального кода ресурса (URI) диска VHD
+
 Код URI, который должен использовать диск VHD, имеет такой формат: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. В этом примере диск VHD с именем **myVHD** находится в учетной записи хранения **mystorageaccount** в контейнере **mycontainer**.
 
 ```powershell
@@ -171,10 +174,5 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения об управлении созданной виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

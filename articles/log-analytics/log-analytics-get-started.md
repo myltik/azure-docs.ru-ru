@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/10/2017
 В этой статье приведено краткое руководство по минимальному развертыванию решения Log Analytics в Azure, которое поможет вам приступить к работе с этой службой. Логический контейнер, где хранятся данные управления Azure, называется рабочей областью. После того как вы просмотрите эти сведения и выполните анализ, эту область можно удалить. Так как это руководство, здесь не описываются аспекты, касающиеся бизнес-требований, планирования и архитектуры.
 
 >[!NOTE]
->При использовании облака Microsoft Azure для государственных организаций обратитесь к [документации по управлению и мониторингу Azure для государственных организаций](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
+>При использовании облака Microsoft Azure для государственных организаций обратитесь к [документации по управлению и мониторингу Azure для государственных организаций](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
 
 Ниже приведен краткий обзор этапов начала работы с Log Analytics.
 

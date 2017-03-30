@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: e9ea21be1fabb5846c4f3b7b05f3a93298830e57
 ms.openlocfilehash: 5119d1d6c02b8e080a9e0905ae21a2bddefab03a
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -63,10 +64,5 @@ ms.openlocfilehash: 5119d1d6c02b8e080a9e0905ae21a2bddefab03a
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

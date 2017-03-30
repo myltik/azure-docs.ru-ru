@@ -1,7 +1,7 @@
 ---
 
 title: "Как администраторы Azure Active Directory могут добавить пользователей службы совместной работы B2B? | Документация Майкрософт"
-description: "Служба совместной работы Azure Active Directory B2B позволяет администраторам добавлять в Azure AD пользователей из партнерских организаций для доступа к корпоративным приложениям."
+description: "Администратор может добавлять в Azure AD гостевых пользователей из партнерской организации с помощью службы совместной работы Azure Active Directory B2B."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
-ms.openlocfilehash: 830cc28cdd5ca523c43cf1fa9cdff5131727d71f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -48,11 +48,11 @@ ms.lasthandoff: 02/23/2017
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
 ## <a name="admins-resending-invitations-to-guest-users"></a>Повторная отправка администраторами приглашений для гостевых пользователей
-Вы можете перейти на страницу профиля пользователя службы совместной работы B2B и повторно отправить приглашения тем гостевым пользователям, которые еще не активировали свои приглашения:
+Вы можете перейти на страницу профиля пользователя службы совместной работы B2B и повторно отправить приглашения тем гостевым пользователям, которые еще не активировали свои приглашения.
 
 ![повторная отправка приглашения](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
 
-> ![NOTE] При этом будет повторно отправлено приглашение от имени пользователя, выполнившего вход; пользователь будет приглашен в каталог, даже если исходное приглашение было в определенное приложение или в группу.
+> ! [ПРИМЕЧАНИЕ] При повторной отправке приглашение отправляется отдельным пользователям от пользователя, выполнившего вход, даже если исходное приглашение было отправлено определенному приложению или группе.
 
 
 ## <a name="related-articles"></a>Связанные статьи
