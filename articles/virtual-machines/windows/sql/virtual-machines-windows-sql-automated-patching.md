@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: b092b8a746f4f94add9727dc17c6b8fc198b6404
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c48e23c1904d824ce2360f83c9df9c8e17d6200a
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](virtual-machines-windows-sql-automated-patching.md)
-> * [Классический](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
+> * [Классический](../classic/sql-automated-patching.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ ms.openlocfilehash: b092b8a746f4f94add9727dc17c6b8fc198b6404
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Версию этой статьи для классической модели развертывания см. здесь: [Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (классическая модель)](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
+Версию этой статьи для классической модели развертывания см. здесь: [Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (классическая модель)](../classic/sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для использования автоматической установки исправлений необходимо выполнить следующие предварительные требования.
@@ -126,10 +127,5 @@ ms.openlocfilehash: b092b8a746f4f94add9727dc17c6b8fc198b6404
 Сведения о других доступных задачах автоматизации см. в разделе [Расширение агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Дополнительные сведения о запуске SQL Server на виртуальных машинах Azure см. в [обзоре использования SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

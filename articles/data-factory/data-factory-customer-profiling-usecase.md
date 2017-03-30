@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: abc3fa751b3926dbbb9dc040abc40632e316e2a0
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,7 +32,7 @@ Contoso — это компания, которая создает игры дл
 В этом решении компания Contoso хочет оценить эффективность маркетинговой кампании, которую она недавно запустила. Начнем с необработанных журналов игр, обработаем и дополним их данными о географическом положении. Затем присоединим к ним рекламные ссылочные данные. И, наконец, скопируем их в Базу данных SQL Azure для анализа эффективности кампании.
 
 ## <a name="deploy-solution"></a>Развертывание решения
-Для реализации этого сценария требуется только [подписка Azure](https://azure.microsoft.com/pricing/free-trial/), [учетная запись хранения BLOB-объектов](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account) и [База данных SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started). На домашней странице фабрики данных разверните конвейер профилирования клиентов из элемента **Примеры конвейеров**.
+Для реализации этого сценария требуется только [подписка Azure](https://azure.microsoft.com/pricing/free-trial/), [учетная запись хранения BLOB-объектов](../storage/storage-create-storage-account.md#create-a-storage-account) и [База данных SQL](../sql-database/sql-database-get-started.md). На домашней странице фабрики данных разверните конвейер профилирования клиентов из элемента **Примеры конвейеров**.
 
 1. Создайте или откройте существующую фабрику данных. Инструкции по созданию фабрики данных см. в статье [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. В колонке **ФАБРИКА ДАННЫХ** для этой фабрики данных щелкните элемент **Примеры конвейеров**.
@@ -67,10 +68,5 @@ Contoso — это компания, которая создает игры дл
 
 ## <a name="benefits"></a>Преимущества
 Оптимизируя анализ профилей пользователей в соответствии с бизнес-целями, компании-разработчики игр могут быстро собирать статистические показатели использования и анализировать эффективность маркетинговых кампаний.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

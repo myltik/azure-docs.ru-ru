@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8df7eff135b6cb316562a503bb938b051d87562f
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5d99c53ab5a6c71446b971fb19c6ca4ac4164e2b
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -232,7 +232,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * Повторно разверните виртуальную машину на новом узле Azure. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.
-* Следуйте указаниям в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), чтобы сделать следующее:
+* Следуйте указаниям в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json), чтобы сделать следующее:
   
   * сбросить пароль или ключ SSH;
   * Создайте учетную запись пользователя *sudo*.
@@ -243,6 +243,6 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * Если вам по-прежнему не удается выполнить SSH-подключение к виртуальной машине, см. [дополнительные действия по устранению неполадок](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), которые позволят просмотреть дополнительные шаги по устранению проблемы.
 * Дополнительные сведения об устранении неполадок с доступом к приложению см. в статье [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Дополнительные сведения об устранении неполадок на виртуальных машинах, созданных с помощью классической модели развертывания, см. в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Дополнительные сведения об устранении неполадок на виртуальных машинах, созданных с помощью классической модели развертывания, см. в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 

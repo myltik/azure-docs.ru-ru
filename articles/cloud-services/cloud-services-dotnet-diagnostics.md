@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 81f814ebb977f0f192d450b9c75aab84d2e1c069
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -197,7 +197,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 Если возникли проблемы, см. сведения в статье [Устранение неполадок с помощью системы диагностики Azure](../azure-diagnostics-troubleshooting.md). Это поможет вам устранить распространенные проблемы.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[См. перечень статей о системе диагностики Azure, связанных с виртуальными машинами](../azure-diagnostics.md#cloud-services-using-azure-diagnostics) , чтобы изменить данные, которые собираются, устранить неполадки или больше узнать о диагностике в целом.
+[См. перечень статей о системе диагностики Azure, связанных с виртуальными машинами](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) , чтобы изменить данные, которые собираются, устранить неполадки или больше узнать о диагностике в целом.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

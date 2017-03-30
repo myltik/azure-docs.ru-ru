@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 450bf3c23eecc356ad21c7f8ed07ca99619c17b7
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 722fc88763fb5c9b79008706c9352a9bc8c8eaa7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,11 +48,7 @@ ms.lasthandoff: 02/21/2017
 
     Сведения об установке Azure PowerShell см. в статье о [начале работы с Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-    Дополнительные сведения об использовании SSH и SCP с HDInsight см. в следующих ресурсах:
-  
-    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-the-project"></a>Создание проекта
 
@@ -170,7 +166,7 @@ ms.lasthandoff: 02/21/2017
         scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
    
    > [!NOTE]
-   > Если для учетной записи SSH используется пароль, вам будет предложено его ввести. Если для учетной записи SSH используется ключ, возможно, вам потребуется использовать параметр `-i` , чтобы указать путь к файлу ключа. В следующем примере выполняется загрузка закрытого ключа из файла `~/.ssh/id_rsa`:
+   > Если для учетной записи SSH используется пароль, вам потребуется его ввести. Если для учетной записи SSH используется ключ, возможно, вам потребуется использовать параметр `-i` , чтобы указать путь к файлу ключа. В следующем примере выполняется загрузка закрытого ключа из файла `~/.ssh/id_rsa`:
    > 
    > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -396,7 +392,7 @@ ms.lasthandoff: 02/21/2017
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
    > [!NOTE]
-   > Если для учетной записи SSH используется пароль, вам будет предложено его ввести. Если для учетной записи SSH используется ключ, возможно, вам потребуется использовать параметр `-i` , чтобы указать путь к файлу ключа. В следующем примере выполняется загрузка закрытого ключа из файла `~/.ssh/id_rsa`:
+   > Если для учетной записи SSH используется пароль, вам потребуется его ввести. Если для учетной записи SSH используется ключ, возможно, вам потребуется использовать параметр `-i` , чтобы указать путь к файлу ключа. В следующем примере выполняется загрузка закрытого ключа из файла `~/.ssh/id_rsa`:
    > 
    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -674,7 +670,7 @@ ms.lasthandoff: 02/21/2017
 
 Завершив работу с примером, удалите таблицу **people**, используя следующую команду в сеансе Azure PowerShell.
 
-__Из сеанса `ssh` __:
+__Из сеанса `ssh`__:
 
 `hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
