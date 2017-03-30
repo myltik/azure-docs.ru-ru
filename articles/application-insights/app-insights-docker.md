@@ -1,21 +1,22 @@
 ---
-title: "Мониторинг приложений Docker в Application Insights"
+title: "Мониторинг приложений Docker в Azure Application Insights | Документация Майкрософт"
 description: "Счетчики производительности, события и исключения Docker могут отображаться в Application Insights вместе с данными телеметрии из контейнерных приложений."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b888f3e7fd56aaf8104c1b76264a3753ca37f7c9
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
 
 С помощью Docker ваши приложения распространяются в упрощенных контейнерах со всеми зависимостями. Их можно запустить на любом хост-компьютере с модулем Docker.
 
-При запуске [образа Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) в узле Docker вы получите следующие преимущества:
+При запуске [образа Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) в узле Docker вы получите следующие преимущества.
 
 * Сведения о телеметрии жизненного цикла для всех контейнеров, запущенных на узле, — запуск, остановка и т. д.
 * Счетчики производительности для всех контейнеров. ЦП, память, использование сети и многое другое.
@@ -118,12 +119,15 @@ ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
 
 *Как получить данные телеметрии из самого приложения?*
 
-* Установите пакет SDK Application Insights в приложении. 
-  Узнайте, как это сделать в [веб-приложениях Java](app-insights-java-get-started.md) и [Windows](app-insights-asp-net.md).
+* Установите пакет SDK Application Insights в приложении. Узнайте, как это сделать в [веб-приложениях Java](app-insights-java-get-started.md) и [Windows](app-insights-asp-net.md).
 
+## <a name="video"></a>Видео
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="next-steps"></a>Дальнейшие действия
 
-<!--HONumber=Nov16_HO3-->
-
+* [Application Insights для Java](app-insights-java-get-started.md)
+* [Application Insights для Node.js](app-insights-nodejs.md)
+* [Application Insights для ASP.NET](app-insights-asp-net.md)
 

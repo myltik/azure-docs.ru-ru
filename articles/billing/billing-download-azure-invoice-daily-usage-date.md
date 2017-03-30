@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c181935e7ba897087d286bea22ebf500ef36e52
-ms.openlocfilehash: 307bfae0e7161782a9ddb97f4ca0d510fc772ab7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c920627e11e801bde88b47fc7c7e128e06f59ea8
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/02/2017
 
 5. Данные о ежедневном использовании можно просмотреть, щелкнув расчетный период. 
 
-Дополнительные сведения о счете см. в статье [Расшифровка счета за использование Microsoft Azure](billing-understand-your-bill.md).
+Дополнительные сведения о счете см. в статье [Расшифровка счета за использование Microsoft Azure](billing-understand-your-bill.md). Справочные материалы по управлению затратами см. в статье [Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure](billing-getting-started.md).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Скачивание данных об использовании в Центре управления учетной записью (в формате CSV)
 1. Войдите в [Центр управления учетной записью Azure](https://account.windowsazure.com/subscriptions) в качестве администратора учетной записи.
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/02/2017
 
     ![Снимок экрана, на котором показан параметр "Скачать сведения об использовании"](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-Дополнительные сведения о данных о ежедневном использовании см. в статье [Расшифровка счета за использование Microsoft Azure](billing-understand-your-bill.md).
+Дополнительные сведения о данных о ежедневном использовании см. в статье [Расшифровка счета за использование Microsoft Azure](billing-understand-your-bill.md). Справочные материалы по управлению затратами см. в статье [Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure](billing-getting-started.md).
 
 ## <a name="noinvoice"></a>Почему не отображается счет за последний расчетный период?
 Это может происходить по нескольким причинам:

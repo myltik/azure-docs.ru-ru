@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/17/2017
 > 
 > 
 
-## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>Шаг 1. Создание локального репозитория
+## <a name="Step1"></a>Шаг 1. Создание локального репозитория
 Чтобы создать новый репозиторий Git, выполните следующие задачи.
 
 1. Запустите программу командной строки, например **GitBash** (Windows) или **Bash** (оболочка Unix). На компьютерах с OS X доступ к командной строке можно получить через приложение **Terminal** .
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/17/2017
    
         git init
 
-## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>Шаг 2. Фиксация содержимого
+## <a name="Step2"></a>Шаг 2. Фиксация содержимого
 Служба приложений поддерживает приложения, созданные с использованием различных языков программирования. 
 
 1. Если в репозитории уже имеется содержимое, пропустите этот пункт и перейдите к пункту 2 ниже. Если репозиторий пуст, заполните его статическим HTML-файлом, как показано ниже. 
@@ -60,7 +60,7 @@ ms.lasthandoff: 02/17/2017
    
         git commit -m "Hello Azure App Service"
 
-## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>Шаг 3. Включение репозитория приложения службы приложений
+## <a name="Step3"></a>Шаг 3. Включение репозитория приложения службы приложений
 Чтобы включить репозиторий Git для приложения службы приложений, выполните приведенные далее действия.
 
 1. Войдите на [Локальный репозиторий Git].
@@ -71,7 +71,7 @@ ms.lasthandoff: 02/17/2017
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>Шаг 4. Развертывание проекта
+## <a name="Step4"></a>Шаг 4. Развертывание проекта
 Чтобы опубликовать приложение в службу приложений с помощью локального репозитория Git, выполните указанные далее действия.
 
 1. В колонке приложения на портале Azure выберите **Параметры > Свойства** для **URL-адреса Git**.
@@ -97,7 +97,7 @@ ms.lasthandoff: 02/17/2017
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. В верхней части колонки приложения нажмите кнопку **Обзор** , чтобы проверить развертывание содержимого. 
 
-## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>Устранение неполадок
+## <a name="Step5"></a>Устранение неполадок
 Ниже перечислены ошибки или проблемы, обычно возникающие при использовании Git для публикации в приложение службы приложений в Azure.
 
 - - -
@@ -133,6 +133,15 @@ ms.lasthandoff: 02/17/2017
     git push azure master
 
 - - -
+**Симптом**. Сбой RPC, результат — 22, код HTTP — 502.
+
+**Причина**. Эта ошибка может возникнуть при попытке отправить большой репозиторий Git по протоколу HTTPS.
+
+**Решение**. Измените конфигурацию Git на локальном компьютере, чтобы увеличить значение postBuffer.
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Симптом**: ошибка — изменения в удаленный репозиторий внесены, но веб-приложение не обновилось.
 
 **Причина**: эта ошибка может возникнуть при развертывании приложения Node.js, содержащего файл package.json, в котором указаны дополнительные необходимые модули.
@@ -152,7 +161,7 @@ ms.lasthandoff: 02/17/2017
 * [Документация по проекту Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Непрерывное развертывание в службе приложений Azure](app-service-continuous-deployment.md)
 * [Использование PowerShell для Azure](/powershell/azureps-cmdlets-docs)
-* [Использование интерфейса командной строки Azure](../xplat-cli-install.md)
+* [Использование интерфейса командной строки Azure](../cli-install-nodejs.md)
 
 [службе приложений Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

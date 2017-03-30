@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ffa31e7eee7642c29a846658b999828434347316
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,13 +81,35 @@ ms.lasthandoff: 03/03/2017
 
     ![Отправка заданий для локального выполнения средств Data Lake для Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Локальная отладка скриптов и сборок C#
+
+Можно выполнять отладку сборок C# без их отправки и регистрации в службе Azure Data Lake Analytics. Точки останова можно установить в файле кода и в ссылочном проекте C#.
+
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Отладка локального кода в файле кода
+
+1. Установите точки останова в файле кода.
+2. Нажмите клавишу F5 для запуска локальной отладки сценария.
+
+> [!NOTE]
+   > Следующая процедура работает только в Visual Studio 2015. В более ранних версиях Visual Studio необходимо вручную добавить PDB-файлы.  
+   >
+   >
+
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Отладка локального кода в указанном проекте C#
+
+1. Создайте проект сборки C# и постройте его для создания выходной библиотеки DLL.
+2. Зарегистрируйте библиотеку DLL с помощью инструкции U-SQL:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Установите точки останова в коде C#.
+4. Нажмите клавишу F5 для локальной отладки сценария со ссылками на библиотеку DLL C#.
+
 ## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Использование локального выполнения из пакета SDK U-SQL для Data Lake
 
 Для локального выполнения скриптов U-SQL можно использовать не только Visual Studio, но и пакет SDK U-SQL для Azure Data Lake. В последнем случае используется интерфейс командной строки или программные интерфейсы. Это позволяет масштабировать сценарии локального тестирования U-SQL.
 
 Узнайте больше о [пакете SDK Azure Data Lake для U-SQL](data-lake-analytics-u-sql-sdk.md).
-
-
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

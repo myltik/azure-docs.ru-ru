@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f0ccf2706b5ce514613712fb866dc2d0120b0ad3
-ms.openlocfilehash: fe420fc0d4e5e2b7c625bf3a3d87005fdbcff200
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Развертывание виртуального массива StorSimple — подготовка в VMware
@@ -166,7 +166,7 @@ ms.lasthandoff: 03/01/2017
 30. На странице **Select a Disk** (Выбор диска) выберите параметр **Create a new virtual disk** (Создать новый виртуальный диск). Нажмите кнопку **Далее**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. На странице **Create a Disk** (Создание диска) измените значение параметра **Disk Size** (Размер диска) на 500 ГБ (или более). В разделе **Disk Provisioning** (Подготовка диска) выберите пункт **Thin Provision** (Тонкая подготовка). Нажмите кнопку **Далее**.
+31. На странице **Create a Disk** (Создание диска) измените значение параметра **Disk Size** (Размер диска) на 500 ГБ (или более). Минимальный размер диска — 500 ГБ, но можно подготовить диск большего размера. Обратите внимание, что после подготовки размер диска изменить нельзя. Дополнительные сведения о размере подготавливаемого диска см. в соответствующем разделе [документа с рекомендациями](storsimple-ova-best-practices.md). В разделе **Disk Provisioning** (Подготовка диска) выберите пункт **Thin Provision** (Тонкая подготовка). Нажмите кнопку **Далее**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. На странице **Advanced Options** (Дополнительные параметры) примите параметры по умолчанию.

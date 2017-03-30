@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 0a711ee4118973b21d47f1c3e63301f0dfac879d
-ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dd817c9b3160c47463a3a88380d550d127d898e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,11 +35,8 @@ ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
 ## <a name="dont-see-the-live-chat-icon"></a>Не видите значок чата в реальном времени?
 В чате в реальном времени участвуют члены группы машинного обучения. Если значок чата в реальном времени не отображается, то участники группы на данный момент недоступны. Например, вы зашли в чат в нерабочее время. 
 
+Вы всегда можете задать вопросы на [форуме по машинному обучению](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), где их увидят члены группы машинного обучения, а также другие опытные специалисты по обработке и анализу данных и разработчики.
+
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/21/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 3b9dfffe17272296ef10a78b3cf25570109679c7
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 183425e296f91bba47094c9b35be67fb6299c569
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="use-maven-to-develop-a-java-based-word-count-topology-for-storm-on-hdinsight"></a>Разработка топологии подсчета слов на основе Java для Storm в HDInsight с помощью Maven
@@ -557,7 +557,7 @@ Storm использует Apache Log4j для записи информации
 
 Согласно данным журнала, отправленным ситом WordCount, слово and было отправлено 113 раз. Количество продолжает увеличиваться, пока выполняется топология, так как элемент spout постоянно отправляет одни и те же предложения.
 
-Между отправлениями данных о словах и их количестве проходит 5 секунд. Компонент **WordCount** настроен для отправки данных, только когда прибывает временной кортеж, и он запрашивает доставку таких кортежей каждые&5; секунд по умолчанию.
+Между отправлениями данных о словах и их количестве проходит 5 секунд. Компонент **WordCount** настроен для отправки данных, только когда прибывает временной кортеж, и он запрашивает доставку таких кортежей каждые 5 секунд по умолчанию.
 
 ## <a name="convert-the-topology-to-flux"></a>Преобразование топологии для Flux
 
@@ -565,63 +565,47 @@ Flux — это новая платформа, доступная в Storm 0.10.
 
 Файл YAML определяет компоненты, которые следует использовать для топологии, поток данных между ними и значения, которые следует использовать при инициализации компонентов. Файл YAML можно добавить как часть JAR-файла или можно использовать внешний файл YAML.
 
+> [!WARNING]
+> Из-за [ошибки (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) в Storm 1.0.1 может потребоваться установить [среду разработки Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) для локального запуска топологий Flux.
+
 1. Удалите файл `WordCountTopology.java` из проекта. Ранее он определял топологию, но с платформой Flux он больше не нужен.
 
 2. В каталоге `resources` создайте файл с именем `topology.yaml`. В качестве содержимого файла добавьте следующий текст:
-    
-    ```yaml
-    # topology definition
 
-    # name to be used when submitting. This is what shows up...
-    # in the Storm UI/storm command line tool as the topology name
-    # when submitted to Storm
-    name: "wordcount"
-
-    # Topology configuration
-    config:
-    # Hint for the number of workers to create
-    topology.workers: 1
-
-    # Spout definitions
-    spouts:
-    - id: "sentence-spout"
-        className: "com.microsoft.example.RandomSentenceSpout"
-        # parallelism hint
-        parallelism: 1
-
-    # Bolt definitions
-    bolts:
-    - id: "splitter-bolt"
-        className: "com.microsoft.example.SplitSentence"
-        parallelism: 1
-
-    - id: "counter-bolt"
-        className: "com.microsoft.example.WordCount"
-        constructorArgs:
-        - 10
-        parallelism: 1
-
-    # Stream definitions
-    streams:
-    - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-        # The stream emitter
-        from: "sentence-spout"
-        # The stream consumer
-        to: "splitter-bolt"
-        # Grouping type
-        grouping:
-        type: SHUFFLE
-
-    - name: "Splitter -> Counter"
-        from: "splitter-bolt"
-        to: "counter-bolt"
-        grouping:
-        type: FIELDS
-        # field(s) to group on
-        args: ["word"]
-    ```
-
-    Уделите минуту, чтобы прочитать и узнать о назначении каждого раздела и его связи с определением на основе Java в файле **WordCountTopology.java**.
+        name: "wordcount"       # friendly name for the topology
+        
+        config:                 # Topology configuration
+        topology.workers: 1     # Hint for the number of workers to create
+        
+        spouts:                 # Spout definitions
+        - id: "sentence-spout"
+            className: "com.microsoft.example.RandomSentenceSpout"
+            parallelism: 1      # parallelism hint
+        
+        bolts:                  # Bolt definitions
+        - id: "splitter-bolt"
+            className: "com.microsoft.example.SplitSentence"
+            parallelism: 1
+         
+        - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+                - 10
+            parallelism: 1
+        
+        streams:                # Stream definitions
+            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            from: "sentence-spout"       # The stream emitter
+            to: "splitter-bolt"          # The stream consumer
+            grouping:                    # Grouping type
+                type: SHUFFLE
+          
+            - name: "Splitter -> Counter"
+            from: "splitter-bolt"
+            to: "counter-bolt"
+            grouping:
+            type: FIELDS
+                args: ["word"]           # field(s) to group on
 
 3. Внесите следующие изменения в файл `pom.xml`.
    
@@ -693,8 +677,11 @@ Flux — это новая платформа, доступная в Storm 0.10.
     При использовании PowerShell воспользуйтесь следующей командой:
    
         mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
+
+    > [!WARNING]
+    > Эта команда не выполняется, если топология использует ресурсы Storm 1.0.1. Причиной этого является ошибка [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Вместо этого [установите Storm в среде разработки](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) и используйте следующие сведения.
    
-    Если используется система Linux, Unix или OS X, а в [среде разработки установлен Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), вместо этого можно использовать следующие команды:
+    Если вы [установили Storm в среде разработки](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), вместо этого можно использовать приведенные ниже команды.
    
         mvn compile package
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
@@ -724,7 +711,7 @@ Flux — это новая платформа, доступная в Storm 0.10.
    
         mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
    
-    При наличии Storm в среде разработки Linux, Unix или OS X введите следующую команду:
+    Или, если в среде разработки имеется Storm, вы можете выполнить следующую команду.
    
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
    

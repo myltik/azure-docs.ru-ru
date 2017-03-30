@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 3f7a33f947913bf4b5ce9db20cacf746e4f7f169
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,6 +30,11 @@ ms.lasthandoff: 03/10/2017
 * Общие сведения о поддерживаемых сценариях переноса см. в разделе [Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
 * Подробное руководство и инструкции по переносу см. в разделе [Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 * [Распространенные ошибки миграции](virtual-machines-migration-errors.md)
+
+<br>
+Ниже приведена блок-схема с последовательностью действий во время переноса.
+
+![Снимок экрана с последовательностью операций переноса](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-plan-for-migration"></a>Шаг 1. Планирование миграции
 Ниже приведено несколько рекомендаций для оценки переноса ресурсов IaaS из классической модели в модель Resource Manager.
@@ -129,7 +134,7 @@ Get-AzureRmVMUsage -Location "West US"
 > 
 > 
 
-### <a name="migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Перенос виртуальных машин в облачную службу (не в виртуальную сеть)
+## <a name="step-61-migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Шаг. 6.1. Миграция виртуальных машин в облачную службу (не в виртуальную сеть)
 Получите список облачных служб, выполнив следующую команду, а затем выберите облачную службу для переноса. Если виртуальные машины в облачной службе размещены в виртуальной сети или им назначены веб-роли или рабочие роли, то команда возвращает сообщение об ошибке.
 
 ```powershell
@@ -210,7 +215,7 @@ Get-AzureRmVMUsage -Location "West US"
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="migrate-virtual-machines-in-a-virtual-network"></a>Перенос виртуальных машин в виртуальную сеть
+## <a name="step-62-migrate-virtual-machines-in-a-virtual-network"></a>Шаг 6.2. Миграция виртуальных машин в виртуальную сеть
 Для миграции виртуальных машин в виртуальной сети переносится сама виртуальная сеть. Виртуальные машины автоматически переносятся вместе с ней. Выберите виртуальную сеть, в которую будете переносить ресурсы. 
 > [!NOTE]
 > [Перенесите отдельную классическую виртуальную машину](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md), создав виртуальную машину Resource Manager с управляемыми дисками на основе VHD-файлов (диска ОС и дисков данных) исходной виртуальной машины. 
@@ -250,7 +255,7 @@ Get-AzureRmVMUsage -Location "West US"
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="migrate-a-storage-account"></a>Перенос учетной записи хранения
+## <a name="step-63-migrate-a-storage-account"></a>Шаг 6.3. Перенос учетной записи хранения
 После миграции виртуальных машин рекомендуется перенести учетную запись хранения.
 
 Прежде чем перенести учетную запись хранения, выполните проверку выполнения предварительных требований.

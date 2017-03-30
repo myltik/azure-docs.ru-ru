@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/16/2017
 * **API Azure Resource Manager и безопасность на основе ролей**. Активная георепликация включает в себя набор [интерфейсов API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) для управления, в том числе [командлеты PowerShell для Azure Resource Manager](sql-database-geo-replication-powershell.md). Эти интерфейсы API требуют использования групп ресурсов и поддерживают безопасность на основе ролей (RBAC). Дополнительные сведения о том, как реализовать контроль доступа на основе ролей, см. в статье [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Многие новые функции активной георепликации поддерживаются только в [REST API SQL Azure](../azure-resource-manager/resource-group-overview.md) и [командлетах PowerShell базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) на основе [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). Классический REST API (https://msdn.microsoft.com/library/azure/dn505719.aspx) и [командлеты базы данных SQL Azure (классическая модель)](https://msdn.microsoft.com/library/azure/dn546723.aspx) поддерживаются для обратной совместимости, поэтому рекомендуется использовать интерфейсы API на основе Azure Resource Manager. 
+> Многие новые функции активной георепликации поддерживаются только в [REST API SQL Azure](../azure-resource-manager/resource-group-overview.md) и [командлетах PowerShell базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) на основе [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). [Классический REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) и [командлеты базы данных SQL Azure (классическая модель)](https://msdn.microsoft.com/library/azure/dn546723.aspx) поддерживаются для обратной совместимости, поэтому рекомендуется использовать интерфейсы API на основе Azure Resource Manager. 
 > 
 > 
 

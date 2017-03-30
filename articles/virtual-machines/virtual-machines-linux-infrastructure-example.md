@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
-ms.openlocfilehash: e8ef1e52dec358fae00096df26b16fb9e3f46c2b
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c84b1838a5503344411deda167714560aeca8da2
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="example-azure-infrastructure-walkthrough"></a>Пошаговое руководство по примеру инфраструктуры Azure
+# <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Пошаговое руководство по примеру инфраструктуры Azure для виртуальных машин Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 В этой статье рассматривается создание примера инфраструктуры приложений. Мы подробно рассмотрим проектирование инфраструктуры для простого интернет-магазина, учтя все рекомендации и решения по соглашениям об именовании, группам доступности, виртуальным сетям и балансировщикам нагрузки, и фактически развернем виртуальные машины.
@@ -45,7 +48,7 @@ Adventure Works Cycles хочет создать приложение интер
 
 * подписку и учетную запись Azure;
 * одну группу ресурсов.
-* учетные записи хранения;
+* Управляемые диски Azure
 * виртуальную сеть с двумя подсетями;
 * группы доступности для виртуальных машин с аналогичной ролью;
 * Виртуальные машины
@@ -54,8 +57,6 @@ Adventure Works Cycles хочет создать приложение интер
 
 * В Adventure Works Cycles используется префикс **[рабочая нагрузка ИТ-среды]-[расположение]-[ресурс Azure]** .
   * Например, **azos** (интернет-магазин Azure) — это имя рабочей нагрузки ИТ-среды, а **use** (восточная часть США 2) — это расположение.
-* Для учетных записей хранения используется формат adventureazosusesa**[описание]**.
-  * Для уникальности к префиксу добавлено слово adventure, и имена учетных записей хранения не могут содержать дефисы.
 * Для виртуальных сетей используется формат AZOS-USE-VN**[номер]**.
 * Для групп доступности используется формат azos-use-as-**[роль]**.
 * Для имен виртуальных машин используется формат use azos-use-vm-**[имя_виртуальной_машины]**.
@@ -63,11 +64,11 @@ Adventure Works Cycles хочет создать приложение интер
 ## <a name="azure-subscriptions-and-accounts"></a>Подписки и учетные записи Azure
 Компания Adventure Works Cycles использует подписку Enterprise Subscription под названием "Adventure Works Enterprise Subscription" для выставления счетов за эту рабочую нагрузку ИТ-среды.
 
-## <a name="storage-accounts"></a>учетные записи хранения;
-Компании Adventure Works Cycles нужны две учетных записи хранения:
+## <a name="storage"></a>Хранилище
+В компании Adventure Works Cycles решили использовать Управляемые диски Azure. При создании виртуальных машин используются хранилища обоих уровней:
 
-* **adventureazosusesawebapp** для хранилища уровня "Стандартный", предназначенного для веб-серверов, серверов приложений, контроллеров домена и их дисков данных;
-* **adventureazosusesadbclust** для хранилища уровня "Премиум", предназначенного для серверов сегментированных кластеров MongoDB и их дисков данных.
+* **хранилище уровня "Стандартный"** для веб-серверов, серверов приложений, контроллеров домена и их дисков данных;
+* **хранилище уровня "Премиум"** для серверов сегментированных кластеров MongoDB и их дисков данных.
 
 ## <a name="virtual-network-and-subnets"></a>Виртуальные сети и подсети
 Так как виртуальная сеть не требует постоянного подключения к локальной сети Adventure Work Cycles, компания выбрала облачную виртуальную сеть.
@@ -111,7 +112,7 @@ Adventure Works Cycles хочет создать приложение интер
 Эта конфигурация включает:
 
 * облачную виртуальную сеть с двумя подсетями (FrontEnd и BackEnd);
-* две учетные записи хранения;
+* Управляемые диски Azure с дисками уровней "Стандартный" и "Премиум";
 * четыре группы доступности, по одной для каждого уровня интернет-магазина;
 * виртуальные машины для четырех уровней;
 * внешний набор с балансировкой нагрузки для веб-трафика HTTPS из Интернета на веб-серверы;
@@ -120,10 +121,5 @@ Adventure Works Cycles хочет создать приложение интер
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f5f611ce6944d37e0afcc9a14fa79d0356d55347
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,10 +48,10 @@ ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
 
 * [Создание полного доменного имени на портале Azure](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="virtual-nics"></a>Виртуальные сетевые карты
+## <a name="network-interfaces"></a>Сетевые интерфейсы
 Сетевой интерфейс обеспечивает взаимодействие между виртуальной машиной и сетью с базовым программным обеспечением. В этой статье описывается сетевой интерфейс и его применение в рамках модели развертывания Azure Resource Manager.
 
-* [Обзор виртуальных сетевых интерфейсов](../virtual-network/virtual-network-network-interface-overview.md)
+* [Virtual Network Interfaces](../virtual-network/virtual-network-network-interface.md) (Виртуальные сетевые интерфейсы)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>Виртуальные сетевые карты и DNS-метки
 Если у вас есть сервер, который должен быть доступным постоянно, но он активно эксплуатируется, часто выключается и развертывается, то вам потребуется применить к сетевой карте DNS-метки, чтобы имя сохранялось в виртуальной сети.  Приведенные ниже пошаговые инструкции помогут вам настроить сетевую карту с постоянным именем и статическим IP-адресом.
@@ -66,10 +67,5 @@ ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Балансировщик нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки. Azure Load Balancer может также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 
 * [Создание внутреннего балансировщика нагрузки с помощью интерфейса командной строки Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 03/22/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 70341f4a14ee807a085931c3480a19727683e958
-ms.openlocfilehash: 34e54378a8626e36fd56ef3fe52f0748a3fec2a2
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 56a55bc10c9cf16751c713da302dcd59362ab80f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -27,18 +27,18 @@ ms.lasthandoff: 02/17/2017
 Не хранить определенные виды состояний сеансов пользователя в реальном облачном приложении бывает нецелесообразно, но разные подходы по-разному влияют на производительность и масштабируемость. Если вам нужно хранить состояния, лучшим решением будет хранить небольшой объем состояний в файлах cookie. Если это невозможно, лучшей альтернативой будет использование состояний сеансов ASP.NET с помощью поставщика распределенного кэша в памяти. Худшее решение с точки зрения масштабируемости и производительности — использовать базу данных резервного поставщика состояний сеансов. Эта статья содержит указания по использованию поставщика состояний сеансов ASP.NET для кэша Redis для Azure. Сведения о других параметрах состояний сеансов см. в разделе [Параметры состояний сеансов ASP.NET](#aspnet-session-state-options).
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Сохранение состояния сеанса ASP.NET в кэше
-Чтобы настроить клиентское приложение в Visual Studio с использованием пакета StackExchange.Redis NuGet, щелкните его правой кнопкой мыши в **обозревателе решений** и выберите **Manage NuGet Packages** (Управление пакетами NuGet).
+Чтобы настроить клиентское приложение в Visual Studio, используя пакет NuGet RedisCacheSessionState, в меню **Сервис** выберите **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
 
-![Управление пакетами NuGet с помощью кэша Redis для Azure](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
-
-В поле поиска введите текст **RedisSessionStateProvider**, выберите в списке соответствующий результат и щелкните **Установить**.
+Выполните следующую команду в окне `Package Manager Console`:
+    
+```
+Install-Package Microsoft.Web.RedisSessionStateProvider
+```
 
 > [!IMPORTANT]
-> Если вы используете функцию кластеризации на уровне "Премиум", вы увидите [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 (или более новую версию), либо будет создано исключение. Переход на 2.0.1 или более новую версию — это критическое изменение. Дополнительные сведения см. на странице [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Подробные сведения о критических изменениях в версии 2.0.0).
+> Если вы используете функцию кластеризации на уровне "Премиум", вы увидите [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 (или более новую версию), либо будет создано исключение. Переход на 2.0.1 или более новую версию — это критическое изменение. Дополнительные сведения см. на странице [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Подробные сведения о критических изменениях в версии 2.0.0). На момент обновления этой статьи текущей версией пакета является версия 2.2.3.
 > 
 > 
-
-![Поставщик состояний сеансов для кэша Redis для Azure](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
 Пакет NuGet поставщика состояний сеансов Redis зависит от пакета StackExchange.Redis.StrongName. Если в проекте отсутствует пакет StackExchange.Redis.StrongName, то он будет установлен.
 

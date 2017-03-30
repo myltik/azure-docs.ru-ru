@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a73e26d50fc314fcfff31cef591abcdd62ca5f44
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ef84d2893bc58b919d7724ce261bc90b44129ed4
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Создание полностью настроенной виртуальной машины с помощью PowerShell
 
-Этот скрипт создает виртуальную машину Azure с операционной системой Ubuntu, а также связанные сетевые ресурсы. После успешного выполнения скрипта можно получить доступ к виртуальной машине по протоколу SSH. 
+Этот сценарий создает виртуальную машину Azure с операционной системой Ubuntu. После выполнения сценария можно получить доступ к виртуальной машине по протоколу SSH.
 
-Перед выполнением этого скрипта убедитесь, что установлено подключение к Azure, выполнив команду `Login-AzureRmAccount`. Кроме того, открытый ключ SSH `id_rsa.pub` должен храниться в каталоге .ssh вашего профиля пользователя.
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, вам потребуется открытый ключ SSH `id_rsa.pub` в каталоге формата SSH вашего профиля пользователя.
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 
-После выполнения примера скрипта можно удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду.
+Выполните следующую команду, чтобы удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

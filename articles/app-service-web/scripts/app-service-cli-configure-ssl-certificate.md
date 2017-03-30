@@ -12,23 +12,23 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: a28bb7b8d30ebe6589dfb792e9294a180544569f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 115749f29d73efdb81f491d9f31687b097f6d270
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Привязка SSL-сертификата к веб-приложению
 
-Этот скрипт создает в службе приложений веб-приложение со связанными ресурсами, а затем привязывает к этому экземпляру SSL-сертификат доменного имени. 
+Этот сценарий создает в службе приложений веб-приложение со связанными ресурсами, а затем привязывает к нему SSL-сертификат имени личного домена. 
 
-Перед выполнением этого скрипта проверьте следующее.
+При необходимости установите Azure CLI с помощью инструкции, приведенной в [руководстве по установке Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Кроме того, убедитесь в следующем.
 
 - Подключение к Azure установлено с помощью команды `az login`.
-- У вас есть доступ к странице конфигурации DNS вашего регистратора домена.
+- У вас есть доступ к странице конфигурации DNS вашего регистратора доменных имен.
 - У вас есть допустимый PFX-файл и пароль для SSL-сертификата, который будет отправлен и привязан.
 
 Этот пример работает в оболочке Bash. Сведения о параметрах выполнения скриптов Azure CLI в клиенте Windows см. в статье [Использование Azure CLI в Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).

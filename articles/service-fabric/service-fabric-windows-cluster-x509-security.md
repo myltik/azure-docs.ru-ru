@@ -1,5 +1,5 @@
 ---
-title: "Защита кластера под управлением Windows с помощью сертификатов | Документация Майкрософт"
+title: "Защита кластера Azure Service Fabric в Windows с использованием сертификатов | Документация Майкрософт"
 description: "В этой статье описывается, как защитить связь в автономном или частном кластере, а также между клиентами и кластером."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 03/15/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2bca90f45e994752ddc3569635ea053f9ef1adaf
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,45 +29,47 @@ ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 ## <a name="which-certificates-will-you-need"></a>Необходимые сертификаты
 Сначала нужно [скачать пакет автономного кластера](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) на один из узлов в кластере. В скачанном пакете вы найдете файл **ClusterConfig.X509.MultiMachine.json** . Откройте его и ознакомьтесь с разделом **security** в разделе **properties**.
 
-    "security": {
-        "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
-        "ClusterCredentialType": "X509",
-        "ServerCredentialType": "X509",
-        "CertificateInformation": {
-            "ClusterCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ServerCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ClientCertificateThumbprints": [
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": false
-                }, 
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ],
-            "ClientCertificateCommonNames": [
-                {
-                    "CertificateCommonName": "[CertificateCommonName]",
-                    "CertificateIssuerThumbprint" : "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ]
-            "ReverseProxyCertificate":{
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
+```JSON
+"security": {
+    "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
+    "ClusterCredentialType": "X509",
+    "ServerCredentialType": "X509",
+    "CertificateInformation": {
+        "ClusterCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ClientCertificateThumbprints": [
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": false
+            }, 
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": true
             }
+        ],
+        "ClientCertificateCommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "IsAdmin": true
+            }
+        ]
+        "ReverseProxyCertificate":{
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
         }
     }
+}
+```
 
 В этом разделе описываются сертификаты, необходимые для обеспечения безопасности автономного кластера Windows. При указании сертификата кластера задайте для параметра **ClusterCredentialType** значение _**X509**_. При указании сертификата сервера для внешних соединений задайте для параметра **ServerCredentialType** значение _**X509**_. Хотя это не обязательно, рекомендуется иметь оба этих сертификата, чтобы должным образом защитить кластер. Если для этих параметров задано значение *X509*, то вам также нужно указать соответствующие сертификаты, иначе Service Fabric породит исключение. В некоторых сценариях может потребоваться указать только один из параметров, _ClientCertificateThumbprints_ или _ReverseProxyCertificate_. В этих случаях не нужно задавать для _ClusterCredentialType_ или _ServerCredentialType_ значение _X509_.
 
@@ -88,7 +91,7 @@ ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 
 Ниже приведен пример конфигурации кластера, в котором указаны сертификаты клиента, сервера и кластера.
 
- ```
+ ```JSON
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
@@ -190,14 +193,14 @@ ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 
 Теперь экспортируйте сертификат в PFX-файл, защищенный паролем. Сначала получите отпечаток сертификата. В меню *Запуск* выберите *Управление сертификатами компьютеров*. Перейдите в папку **Local Computer\Personal** и найдите созданный сертификат. Дважды щелкните файл сертификата, чтобы открыть его, выберите вкладку *Сведения* и прокрутите вниз до поля *Отпечаток*. Вставьте значение отпечатка в команду PowerShell ниже, предварительно удалив в нем пробелы.  Укажите для параметра `String` безопасный пароль и выполните приведенную ниже команду PowerShell.
 
-```   
+```powershell   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
 Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
 ```
 
 Чтобы просмотреть подробные сведения об установленном на компьютере сертификате, выполните следующую команду PowerShell:
 
-```
+```powershell
 $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
@@ -210,14 +213,14 @@ Write-Host $cert.ToString($true)
 1. Скопируйте PFX-файлы на узел.
 2. Откройте окно PowerShell с правами администратора и выполните следующие команды: Замените значение *$password* паролем, который использовался при создании этого сертификата, и укажите в качестве значения *$PfxFilePath* полный путь к PFX-файлу, скопированному на этот узел.
    
-    ```
+    ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. Затем настройте контроль доступа для этого сертификата, чтобы служба Service Fabric, которая выполняется под учетной записью сетевой службы, могла использовать его, выполняя следующий сценарий. Укажите отпечаток сертификата и имя сетевой службы для учетной записи службы. Можно проверить правильность списков контроля доступа (ACL) для сертификата, открыв сертификат. Для этого щелкните *Запуск* > *Управление сертификатами компьютеров* и просмотрите *Все задачи* > *Управление закрытыми ключами*.
    
-    ```
+    ```powershell
     param
     (
     [Parameter(Position=1, Mandatory=$true)]
@@ -257,23 +260,23 @@ Write-Host $cert.ToString($true)
 ## <a name="create-the-secure-cluster"></a>Создание защищенного кластера
 После настройки в файле **ClusterConfig.X509.MultiMachine.json** раздела **security** можно приступать к [созданию кластера](service-fabric-cluster-creation-for-windows-server.md#createcluster), чтобы настроить узлы и создать автономный кластер. Используйте файл **ClusterConfig.X509.MultiMachine.json** при создании кластера. Например, команда может выглядеть следующим образом:
 
-```
+```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 После защиты автономного кластера под управлением Windows и настройки прошедших проверку подлинности клиентов, которые могут к нему подключаться, [подключитесь к защищенному кластеру с помощью PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster). Например:
 
-```
+```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Затем можно выполнить другие команды PowerShell для работы с этим кластером. Например, `Get-ServiceFabricNode` для отображения списка узлов в этом защищенном кластере.
+Затем можно выполнить другие команды PowerShell для работы с этим кластером. Например, [Get-ServiceFabricNode](/powershell/servicefabric/vlatest/get-servicefabricnode.md) для отображения списка узлов в этом защищенном кластере.
 
 
 Чтобы удалить кластер, подключитесь к узлу в кластере, на который вы скачали пакет Service Fabric, откройте командную строку и перейдите в папку с пакетом. Теперь выполните следующую команду.
 
-```
+```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
@@ -281,10 +284,5 @@ Connect-ServiceFabricCluster $ConnectArgs
 > Из-за неправильной конфигурации сертификата кластер может не восстановиться во время развертывания. Чтобы самостоятельно определить проблемы безопасности, откройте средство просмотра событий и выберите группу *Журналы приложений и служб* > *Microsoft-Service Fabric*.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

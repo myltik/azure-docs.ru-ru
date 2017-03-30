@@ -1,6 +1,6 @@
 ---
 title: "Аудит и отчеты для пользователей службы совместной работы Azure Active Directory B2B | Документация Майкрософт"
-description: "Свойства пользователя службы совместной работы Azure Active Directory B2B можно настраивать."
+description: "Свойства гостевого пользователя службы совместной работы Azure Active Directory B2B можно настраивать."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
-ms.openlocfilehash: fd2fe0046d0709bc4527cb680795610daae01a87
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 867a1c8dda37815663fa3fb095351fa3854a52cc
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Аудит и отчеты для пользователей службы совместной работы B2B
-Для гостевых пользователей в предварительной версии доступны такие же возможности аудита, как и для пользователей-участников. Ниже приведен пример журнала приглашений и активаций только что приглашенного пользователя Сэма Угла (Sam Oogle):
+Для гостевых пользователей в этой предварительной версии доступны такие же возможности аудита, как и для пользователей-участников. Ниже приведен пример журнала приглашений и активаций приглашенного пользователя Сэма Угла (Sam Oogle).
 
 ![журнал аудита](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/23/2017
 
 ![сведения о действии](./media/active-directory-b2b-auditing-and-reporting/activity-details.png)
 
-Вы также можете экспортировать эти журналы из Azure AD и с помощью любого инструмента для создания отчетов создать собственный настраиваемый отчет.
+Вы можете также экспортировать эти журналы из Azure AD и с помощью любого инструмента для создания отчетов создавать собственные настраиваемые отчеты.
 
 ### <a name="next-steps"></a>Дальнейшие действия
 

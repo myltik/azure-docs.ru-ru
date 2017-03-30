@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 4453a11a30914fa45c13e8b7e62950dad95757e3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2b402bc08b1e682e1c8380ef92fff65414138cad
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 
 Этот пример скрипта создает веб-приложение в службе приложений со связанными ресурсами, а затем сопоставляет с ним `www.<yourdomain>`. 
 
-Перед выполнением этого скрипта убедитесь, что установлено подключение к Azure (выполните командлет `Login-AzureRmAccount`), а также что у вас есть доступ к странице конфигурации DNS регистратора домена.
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, нужен доступ к странице конфигурации DNS вашего регистратора доменных имен.
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 
-Выполнив пример скрипта, вы можете удалить группу ресурсов, веб-приложение и все связанные ресурсы, используя следующую команду.
+Выполнив пример сценария, вы можете удалить группу ресурсов, веб-приложение и все связанные ресурсы, используя следующую команду.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -55,5 +55,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 Дополнительные сведения о модуле Azure PowerShell см. в [документации по Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Дополнительные примеры скриптов Azure Powershell для веб-приложений службы приложений Azure см. [здесь](../app-service-powershell-samples.md).
+Дополнительные примеры сценариев Azure PowerShell для веб-приложений службы приложений Azure доступны [здесь](../app-service-powershell-samples.md).
 

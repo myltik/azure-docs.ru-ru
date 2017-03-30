@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c187467e8af7503ea22c5953417d8282be97856c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -91,6 +91,7 @@ ms.lasthandoff: 03/11/2017
 | [Контейнеры](log-analytics-containers.md)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
 | HDInsight HBase Monitoring <br>(предварительная версия)                                                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
 | [Анализ хранилища ключей](log-analytics-azure-key-vault.md)                      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
+| Logic Apps B2B                      | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
 | [Оценка вредоносных программ](log-analytics-malware.md)                                             | <ul><li>Служба "Безопасность и соответствие требованиям"</li></ul>                                    | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                               | |
 | [Монитор производительности сети](log-analytics-network-performance-monitor.md) <br>(предварительная версия)    | <ul><li>Анализ и аналитика</li></ul>                                     | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | |
 | Office 365 Analytics <br>(предварительная версия)                                                        | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
@@ -103,7 +104,8 @@ ms.lasthandoff: 03/11/2017
 | [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
 | [System Center Operations Manager Assessment](log-analytics-scom-assessment.md) <br>(предварительная версия) | <ul><li>Анализ и аналитика</li><li>Служба Log Analytics</li></ul>         | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
 | управление обновлениями;                                                                               | <ul><li>Automation and Control</li></ul>                                    | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                            | Требуется рабочая область Log Analytics, которую нужно привязать к учетной записи службы автоматизации. |
-| [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(предварительная версия)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | Плата за данные или узлы не взимается. |
+| [Соответствие обновлений](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(предварительная версия)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | Плата за данные или узлы не взимается. |
+| [Готовность к обновлению](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | Плата за данные или узлы не взимается. |
 | [VMware Monitoring](log-analytics-vmware.md) <br>(предварительная версия)                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Служба Log Analytics</li></ul>     | Free<br> Стандартная<br> Премиум&nbsp;(OMS)<br> На&nbsp;ГБ&nbsp;(изолированное решение)<br> На&nbsp;узел&nbsp;(OMS)     | |
 | Wire Data 2.0<br>(предварительная версия)                                                                   | <ul><li>Анализ и аналитика</li></ul>                                      | Free<br> На&nbsp;узел&nbsp;(OMS)                                                                         | Доступно в восточной части США и Западной Европе. |
 

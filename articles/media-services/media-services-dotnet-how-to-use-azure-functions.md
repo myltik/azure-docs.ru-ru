@@ -12,86 +12,108 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b077504e7a289fd4976aa22bab0ad5784ffb491b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0469880325b907065b95f94f62ab76d252c0eda5
+ms.lasthandoff: 03/22/2017
 
 
 ---
 #<a name="develop-azure-functions-with-media-services"></a>Разработка Функций Azure с помощью служб мультимедиа
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 В этой статье рассматривается разработка функций Azure с помощью служб мультимедиа на портале Azure. 
 
-Также вы можете развернуть существующие Функции Azure служб мультимедиа [отсюда](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Для этого нажмите кнопку **Развертывание в Azure**. Этот репозиторий содержит примеры Функций Azure, которые используют службы мультимедиа Azure, чтобы показать рабочие процессы, связанные с приемом содержимого напрямую от хранилища BLOB-объектов, шифрованием и записью содержимого обратно в хранилище BLOB-объектов. В нем также содержатся примеры отслеживания уведомлений заданий через объекты webhook и очереди Azure.
+Можно также развернуть существующие [Функции Azure для служб мультимедиа](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Для этого нажмите кнопку **Развертывание в Azure**. Этот репозиторий содержит примеры Функций Azure, которые используют службы мультимедиа Azure, чтобы показать рабочие процессы, связанные с приемом содержимого напрямую от хранилища BLOB-объектов, шифрованием и записью содержимого обратно в хранилище BLOB-объектов. В нем также содержатся примеры отслеживания уведомлений заданий через объекты webhook и очереди Azure. Можно также разработать свои функции на основе примеров из репозитория [Функций Azure для служб мультимедиа](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). 
 
-Вы также можете разрабатывать собственные функции на основе примеров в [этом репозитории](https://github.com/Azure-Samples/media-services-dotnet-Functions-integration). В этой статье описывается создание Функций Azure, использующих службы мультимедиа. 
+В этой статье описывается создание Функций Azure, использующих службы мультимедиа. Функция Azure, определенная в этом разделе, отслеживает контейнер учетной записи хранения **input** на наличие новых MP4-файлов. После попадания файла в контейнер хранилища триггер большого двоичного объекта выполнит функцию.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы создавать функции, вам нужна активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
-
-Если вы хотите создать Функции Azure, которые выполняют определенные действия в учетной записи служб мультимедиа Azure (AMS) или прослушивают события, отправляемые службами мультимедиа, вам необходимо создать учетную запись AMS, следуя приведенным [здесь](media-services-portal-create-account.md) инструкциям.
+- Чтобы создавать функции, вам нужна активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
+- Если вы хотите создать Функции Azure, которые выполняют определенные действия в учетной записи служб мультимедиа Azure (AMS) или прослушивают события, отправляемые службами мультимедиа, вам необходимо создать учетную запись AMS, следуя приведенным [здесь](media-services-portal-create-account.md) инструкциям.
+- Общие сведения об [использовании Функций Azure](../azure-functions/functions-overview.md). Кроме того, ознакомьтесь со следующими разделами:
+    - [Привязки HTTP и webhook в функциях Azure](../azure-functions/functions-triggers-bindings.md)
+    - [Настройка параметров приложения-функции Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 
 ## <a name="create-a-function-app"></a>Создание приложения-функции
 
-Создайте приложение-функцию, как описано [здесь](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+1. Перейдите на [портал Azure](http://portal.azure.com) и войдите, используя свою учетную запись Azure.
+2. Создайте приложение-функцию, как описано [здесь](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+
+>[!NOTE]
+> Учетная запись хранения, указанная в переменной среды **StorageConnection** (см. следующий шаг), должна находиться в том же регионе, что и ваше приложение.
+
+## <a name="configure-function-app-settings"></a>Настройка параметров приложения-функции
+
+При разработке функций служб мультимедиа удобно добавить переменные среды, которые будут использоваться в функциях. Чтобы настроить параметры приложения, щелкните ссылку "Настроить параметры приложения". Дополнительную информацию см. в разделе [Настройка параметров приложения-функции Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+
+Например:
+
+![Параметры](./media/media-services-azure-functions/media-services-azure-functions001.png)
+
+В функции, определенной в этой статье, предполагается, что в параметрах приложения настроены следующие переменные среды.
+
+**AMSAccount**: *имя учетной записи AMS* (например, testams).
+
+**AMSKey**: *ключ учетной записи AMS* (например, IHOySnH+XX3LGPfraE5fKPl0EnzvEPKkOPKCr59aiMM=).
+
+**MediaServicesStorageAccountName**: *имя учетной записи хранения* (например, testamsstorage).
+
+**MediaServicesStorageAccountKey**: *ключ учетной записи хранения* (например, xx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ или awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXXX==).
+
+**StorageConnection**: *подключения к хранилищу* (например, DefaultEndpointsProtocol=https;AccountName=testamsstorage;AccountKey=xx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXX==).
 
 ## <a name="create-a-function"></a>Создание функции
 
-После развертывания приложения-функции его можно найти в Функциях Azure **службы приложений**. 
+После развертывания приложения-функции его можно найти в Функциях Azure **службы приложений**.
 
 1. Выберите свое приложение-функцию и щелкните **Новая функция**.
-3. Выберите язык **C#** и сценарий **Webhook + API**.
-3. Выберите **GenericWebHook-CSharp** (будет запускаться при каждом получении webhook-запроса) или **HttpTrigger-CSharp** (будет запускаться при каждом получении HTTP-запроса) и присвойте имя функции.
+2. Выберите язык **C#** и сценарий **Обработка данных**.
+3. Выберите шаблон **BlobTrigger**. Эта функция активируется каждый раз, когда в контейнер **input** передается большой двоичный объект. На следующем шаге в **Path** указывается имя **input**.
+
+    ![файлов](./media/media-services-azure-functions/media-services-azure-functions004.png)
+
+4. После выбора **BlobTrigger** на странице появится несколько дополнительных элементов управления.
+
+    ![файлов](./media/media-services-azure-functions/media-services-azure-functions005.png)
+
 4. Щелкните **Создать**. 
 
-## <a name="get-function-url"></a>Получение URL-адреса функции
-
-Чтобы запустить выполнение функций в средстве тестирования HTTP или в другом окне браузера, вам потребуется значение URL-адреса функции. 
-
-![Параметры](./media/media-services-azure-functions/media-services-azure-functions002.png)
 
 ## <a name="files"></a>Файлы
 
-Функция Azure связана с файлами кода и другими файлами, описание которых представлено в данной статье. По умолчанию она связана с файлами **function.json** и **run.csx**. Вам потребуется добавить файл **project.json**. Ниже приведены определения этих файлов.
+Функция Azure связана с файлами кода и другими файлами, описание которых представлено в данной статье. По умолчанию она связана с файлами **function.json** и **run.csx** (C#). Вам потребуется добавить файл **project.json**. Ниже приведены определения этих файлов.
 
 ![файлов](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
-Файл function.json определяет привязки функций и другие параметры конфигурации. В среде выполнения этот файл используется для определения событий, которые необходимо отслеживать, и способа передачи данных в выполнение функции и возвращения данных из него. 
+Файл function.json определяет привязки функций и другие параметры конфигурации. В среде выполнения этот файл используется для определения событий, которые необходимо отслеживать, и способа передачи данных в выполнение функции и возвращения данных из него. Дополнительные сведения см. в статье [Привязки HTTP и webhook в функциях Azure](../azure-functions/functions-reference.md#function-code).
+
+>[!NOTE]
+>Чтобы функция не выполнялась, задайте для свойства **disabled** значение **true**. 
+
 
 Ниже приведен пример файла **function.json**.
 
     {
-      "bindings": [
-        {
-          "type": "httpTrigger",
-          "name": "req",
-          "direction": "in",
-          "methods": [
-        "post",
-        "get",
-        "put",
-        "update",
-        "patch"
-          ]
-        },
-        {
-          "type": "http",
-          "name": "res",
-          "direction": "out"
-        }
-      ]
+    "bindings": [
+      {
+        "name": "myBlob",
+        "type": "blobTrigger",
+        "direction": "in",
+        "path": "input/{fileName}.mp4",
+        "connection": "StorageConnection"
+      }
+    ],
+    "disabled": false
     }
-    
+
 ### <a name="projectjson"></a>project.json
 
-Файл project.json содержит зависимости. Ниже приведен пример файла **function.json**, который включает в себя библиотеки AMS.
+Файл project.json содержит зависимости. Ниже приведен пример файла **project.json**, содержащего необходимые пакеты служб мультимедиа Azure для .NET из NuGet. Обратите внимание, что номера версий изменятся после выпуска последних обновлений для пакетов, поэтому следует убедиться в наличии самых последних версий. 
 
     {
       "frameworks": {
@@ -106,68 +128,220 @@ ms.lasthandoff: 03/15/2017
     
 ### <a name="runcsx"></a>run.csx
 
-Это код C# для функции. Пример функции webhook приведен в [этой статье](media-services-dotnet-check-job-progress-with-webhooks.md). 
+Это код C# для функции.  Функция, определенная ниже, отслеживает контейнер учетной записи хранения **input** (который был указан в пути) на наличие новых MP4-файлов. После попадания файла в контейнер хранилища триггер большого двоичного объекта выполнит функцию.
+    
+В примере, определенном в этом разделе, демонстрируется, 
 
-После определения функции щелкните **Выполнить**.
-    
-    ///////////////////////////////////////////////////
+1. как принять ресурс в учетной записи служб мультимедиа (скопировать большой двоичный объект в ресурс AMS) и 
+2. как отправить задание кодирования, использующее предустановку Adaptive Streaming из Media Encoder Standard.
+
+В реальном сценарии скорее всего потребуется отслеживать ход выполнения задания, а затем опубликовать закодированный ресурс. Дополнительные сведения см. в статье [Использование объектов Webhook Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET](media-services-dotnet-check-job-progress-with-webhooks.md). Дополнительные примеры приведены в разделе [функций Azure для служб мультимедиа](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
+
+После определения функции щелкните **Сохранить и запустить**.
+
+    #r "Microsoft.WindowsAzure.Storage"
     #r "Newtonsoft.Json"
-    
+    #r "System.Web"
+
     using System;
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Net;
     using System.Threading;
     using System.Threading.Tasks;
     using System.IO;
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Microsoft.Azure;
-    using System.Net;
-    using System.Security.Cryptography;
-    
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage.Auth;
 
-    static string _mediaServicesAccountName = Environment.GetEnvironmentVariable("AMSAccount");
-    static string _mediaServicesAccountKey = Environment.GetEnvironmentVariable("AMSKey");
-    
-    static CloudMediaContext _context = null;
-    
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    private static readonly string _mediaServicesAccountName = Environment.GetEnvironmentVariable("AMSAccount");
+    private static readonly string _mediaServicesAccountKey = Environment.GetEnvironmentVariable("AMSKey");
+
+    static string _storageAccountName = Environment.GetEnvironmentVariable("MediaServicesStorageAccountName");
+    static string _storageAccountKey = Environment.GetEnvironmentVariable("MediaServicesStorageAccountKey");
+
+    private static CloudStorageAccount _destinationStorageAccount = null;
+
+    // Field for service context.
+    private static CloudMediaContext _context = null;
+    private static MediaServicesCredentials _cachedCredentials = null;
+
+    public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
     {
-        log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
-    
-        Task<byte[]> taskForRequestBody = req.Content.ReadAsByteArrayAsync();
-        byte[] requestBody = await taskForRequestBody;
-    
-        string jsonContent = await req.Content.ReadAsStringAsync();
-        log.Info($"Request Body = {jsonContent}");
-    
-        // some valication code ...
+        // NOTE that the variables {fileName} here come from the path setting in function.json
+        // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
+        // was dropped into the input container for the function. 
 
-        _context = new CloudMediaContext(new MediaServicesCredentials(
-        _mediaServicesAccountName,
-        _mediaServicesAccountKey));
+        // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a 
+        // given blob. If the fifth try fails, the SDK adds a message to a queue named webjobs-blobtrigger-poison.
 
-        // some AMS operations ...
-      
-        return req.CreateResponse(HttpStatusCode.BadRequest, "Generic Error.");
+        log.Info($"C# Blob trigger function processed: {fileName}.mp4");
+        log.Info($"Using Azure Media Services account : {_mediaServicesAccountName}");
+
+
+        try
+        {
+        // Create and cache the Media Services credentials in a static class variable.
+        _cachedCredentials = new MediaServicesCredentials(
+                _mediaServicesAccountName,
+                _mediaServicesAccountKey);
+
+        // Used the chached credentials to create CloudMediaContext.
+        _context = new CloudMediaContext(_cachedCredentials);
+
+        // Step 1:  Copy the Blob into a new Input Asset for the Job
+        // ***NOTE: Ideally we would have a method to ingest a Blob directly here somehow. 
+        // using code from this sample - https://azure.microsoft.com/en-us/documentation/articles/media-services-copying-existing-blob/
+
+        StorageCredentials mediaServicesStorageCredentials =
+            new StorageCredentials(_storageAccountName, _storageAccountKey);
+
+        IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
+
+        // Step 2: Create an Encoding Job
+
+        // Declare a new encoding job with the Standard encoder
+        IJob job = _context.Jobs.Create("Azure Function - MES Job");
+
+        // Get a media processor reference, and pass to it the name of the 
+        // processor to use for the specific task.
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+        // Create a task with the encoding details, using a custom preset
+        ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
+            processor,
+            "Adaptive Streaming",
+            TaskOptions.None); 
+
+        // Specify the input asset to be encoded.
+        task.InputAssets.Add(newAsset);
+
+        // Add an output asset to contain the results of the job. 
+        // This output is specified as AssetCreationOptions.None, which 
+        // means the output asset is not encrypted. 
+        task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
+
+        job.Submit();
+        log.Info("Job Submitted");
+
+        }
+        catch (Exception ex)
+        {
+        log.Error("ERROR: failed.");
+        log.Info($"StackTrace : {ex.StackTrace}");
+        throw ex;
+        }
+    }
+
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+        return processor;
     }
 
 
+    public static async Task<IAsset> CreateAssetFromBlob(CloudBlockBlob blob, string assetName, TraceWriter log){
+        IAsset newAsset = null;
 
-## <a name="configure-function-app-settings"></a>Настройка параметров приложения-функции
+        try{
+            Task<IAsset> copyAssetTask = CreateAssetFromBlobAsync(blob, assetName, log);
+            newAsset = await copyAssetTask;
+            log.Info($"Asset Copied : {newAsset.Id}");
+        }
+        catch(Exception ex){
+            log.Info("Copy Failed");
+            log.Info($"ERROR : {ex.Message}");
+            throw ex;
+        }
 
-При разработке функций служб мультимедиа в раздел **Параметры приложения** можно добавить параметры, которые будут использоваться для всех функций. 
+        return newAsset;
+    }
 
-Например:
+    /// <summary>
+    /// Creates a new asset and copies blobs from the specifed storage account.
+    /// </summary>
+    /// <param name="blob">The specified blob.</param>
+    /// <returns>The new asset.</returns>
+    public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, string assetName, TraceWriter log)
+    {
+         //Get a reference to the storage account that is associated with the Media Services account. 
+        StorageCredentials mediaServicesStorageCredentials =
+        new StorageCredentials(_storageAccountName, _storageAccountKey);
+        _destinationStorageAccount = new CloudStorageAccount(mediaServicesStorageCredentials, false);
 
-![Параметры](./media/media-services-azure-functions/media-services-azure-functions001.png)
+        // Create a new asset. 
+        var asset = _context.Assets.Create(blob.Name, AssetCreationOptions.None);
+        log.Info($"Created new asset {asset.Name}");
 
+        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
+        TimeSpan.FromHours(4), AccessPermissions.Write);
+        ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
+        CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
+
+        // Get the destination asset container reference
+        string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
+        CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
+
+        try{
+        assetContainer.CreateIfNotExists();
+        }
+        catch (Exception ex)
+        {
+        log.Error ("ERROR:" + ex.Message);
+        }
+
+        log.Info("Created asset.");
+
+        // Get hold of the destination blob
+        CloudBlockBlob destinationBlob = assetContainer.GetBlockBlobReference(blob.Name);
+
+        // Copy Blob
+        try
+        {
+        using (var stream = await blob.OpenReadAsync()) 
+        {            
+            await destinationBlob.UploadFromStreamAsync(stream);          
+        }
+
+        log.Info("Copy Complete.");
+
+        var assetFile = asset.AssetFiles.Create(blob.Name);
+        assetFile.ContentFileSize = blob.Properties.Length;
+        assetFile.IsPrimary = true;
+        assetFile.Update();
+        asset.Update();
+        }
+        catch (Exception ex)
+        {
+        log.Error(ex.Message);
+        log.Info (ex.StackTrace);
+        log.Info ("Copy Failed.");
+        throw;
+        }
+
+        destinationLocator.Delete();
+        writePolicy.Delete();
+
+        return asset;
+    }
+##<a name="test-your-function"></a>Тестирование функции
+
+Чтобы протестировать функцию, необходимо передать MP4-файл в контейнер учетной записи хранения **input**, указанный в строке подключения.  
 
 ## <a name="next-step"></a>Дальнейшие действия
 
-На этом этапе вы готовы начать разработку приложения служб мультимедиа. Дополнительные сведения см. в статье [Использование объектов Webhook Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET](media-services-dotnet-check-job-progress-with-webhooks.md).   
+На этом этапе вы готовы начать разработку приложения служб мультимедиа. 
+ 
+Дополнительные сведения и полные примеры и решения на основе Функций Azure и Logic Apps с использованием служб мультимедиа Azure, предназначенные для создания рабочих процессов, создающих пользовательское содержимое, можно изучить на [примере интеграции Функций Azure и служб мультимедиа с помощью .NET, приведенном на сайте GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+
+Кроме того, ознакомьтесь с разделом [Использование объектов Webhook Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
-ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 32045a9b6be130dca4680b1990808d2b22be4432
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Сведения об экземплярах серии H и серии A для ресурсоемких вычислений для Windows
-Здесь приводятся общие сведения и некоторые рекомендации по использованию экземпляров виртуальных машин Azure новой серии H и более ранних экземпляров A8, A9, A10 и A11 (экземпляров для *ресурсоемких вычислений* ). Эта статья посвящена использованию таких экземпляров для виртуальных машин Windows. Также доступна версия этой статьи для [виртуальных машин Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Здесь приводятся общие сведения и некоторые рекомендации по использованию экземпляров виртуальных машин Azure новой серии H и более ранних экземпляров A8, A9, A10 и A11 (экземпляров для *ресурсоемких вычислений* ). Эта статья посвящена использованию таких экземпляров для виртуальных машин Windows. Сведения в этой статье можно также использовать для [виртуальных машин Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Основные характеристики, сведения о дисках и объеме памяти см. в статье [Размеры виртуальных машин в Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -37,22 +37,23 @@ ms.lasthandoff: 03/01/2017
   
   * **Виртуальные машины** — Windows Server 2012 R2, Windows Server 2012.
   * **Облачные службы** — Windows Server 2012 R2, Windows Server 2012 или семейство гостевых ОС Windows Server 2008 R2.
+
+    > [!NOTE]
+    > Сейчас соединение RDMA в Azure не поддерживается в Windows Server 2016.
+    >
+    
 * **MPI** — Microsoft MPI (MS-MPI) 2012 R2 и более поздних версий, библиотека Intel MPI 5.x.
 
   Для взаимодействия между экземплярами поддерживаемые реализации MPI используют интерфейс Microsoft Network Direct. 
-* **Расширение виртуальных машин HpcVmDrivers**. На виртуальных машинах с поддержкой RDMA необходимо добавить расширение HpcVmDrivers для установки драйверов устройств сети Windows, обеспечивающих подключения RDMA. (В некоторых развертываниях экземпляров A8 и A9 расширение HpcVmDrivers добавляется автоматически.) Если в виртуальную машину требуется добавить расширение виртуальной машины, можно использовать командлеты [Azure PowerShell](/powershell/azureps-cmdlets-docs) для Azure Resource Manager.
+* **Расширение виртуальных машин HpcVmDrivers**. На виртуальных машинах с поддержкой RDMA необходимо добавить расширение HpcVmDrivers для установки драйверов устройств сети Windows, обеспечивающих подключения RDMA. (В некоторых развертываниях экземпляров A8 и A9 расширение HpcVmDrivers добавляется автоматически.) Если в виртуальную машину требуется добавить расширение виртуальной машины, можно использовать командлеты [Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
-  Дополнительные сведения о последних версиях расширения HpcVmDrivers см. здесь:
+  
+  Например, чтобы установить последнюю версию расширения HpcVMDrivers 1.1 на существующую виртуальную машину myVM с поддержкой RDMA, развернутой в модели развертывания с помощью Resource Manager, выполните следующую команду:
 
-  ```PowerShell
-  Get-AzureVMAvailableExtension -ExtensionName  "HpcVmDrivers"
-  ```
-
-  Чтобы установить последнюю версию расширения HpcVMDrivers 1.1 в существующей виртуальной машине myVM с поддержкой RDMA, следуйте перечисленным далее инструкциям.
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Дополнительные сведения см. в статье [Управление расширениями виртуальной машины](virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). С расширениями для виртуальных машин можно также работать в рамках [классической модели развертывания](virtual-machines-windows-classic-manage-extensions.md).
+  Дополнительные сведения см. в статье [Обзор расширений и компонентов виртуальной машины под управлением Windows](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Вы также можете работать с расширениями для виртуальных машин, развернутых в рамках [классической модели развертывания](virtual-machines-windows-classic-manage-extensions.md).
 
 
 ## <a name="considerations-for-hpc-pack-and-windows"></a>Рекомендации по использованию пакета HPC и Windows
