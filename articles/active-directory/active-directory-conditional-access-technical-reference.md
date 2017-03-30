@@ -1,7 +1,7 @@
 ---
 title: "Техническая информация об условном доступе в Azure Active Directory | Документация Майкрософт"
 description: "С условным контролем доступа при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."
-services: active-directory
+services: active-directory.
 documentationcenter: 
 author: MarkusVi
 manager: femila
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
@@ -21,7 +21,9 @@ ms.lasthandoff: 03/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Техническая информация об условном доступе в Azure Active Directory.
+
 ## <a name="services-enabled-with-conditional-access"></a>Службы, включаемые с условным доступом
+
 Правила условного доступа поддерживаются в самых разных типах приложений Azure AD. В этот список входят:
 
 
@@ -36,6 +38,13 @@ ms.lasthandoff: 03/02/2017
 * Microsoft Power BI 
 * Приложения с единым входом и паролем из коллекции приложений Azure AD
 * Visual Studio Online
+
+
+
+
+
+
+
 
 
 ## <a name="enable-access-rules"></a>Включить правила доступа

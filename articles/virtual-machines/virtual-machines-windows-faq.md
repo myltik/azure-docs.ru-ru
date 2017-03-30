@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5f6d8a5bb0209f1dbc0de682b185089e87a1574b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6e84a567e8875a8db3f66bc19340557cff75cf1d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/11/2017
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Что можно запускать на виртуальной машине Azure?
 Все подписчики могут запускать на виртуальной машине Azure серверное программное обеспечение. Сведения о политике поддержки серверного ПО Майкрософт в Azure см. в статье [Поддержка серверного программного обеспечения Майкрософт для виртуальных машин Azure](https://support.microsoft.com/kb/2721672).
 
-Подписчикам MSDN Azure, а также подписчикам MSDN для разработки и тестирования с оплатой по мере использования доступны определенные версии Windows 7 и Windows 8.1 для использования в целях разработки или тестирования. Дополнительные сведения, включая указания и ограничения, см. в статье [Образы клиента Windows для подписчиков MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
+Подписчикам MSDN Azure, а также подписчикам MSDN для разработки и тестирования с оплатой по мере использования доступны определенные версии Windows 7, Windows 8.1 и Windows 10, которые можно использовать для разработки или тестирования. Дополнительные сведения, включая указания и ограничения, см. в статье [Образы клиента Windows для подписчиков MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Какой объем памяти можно использовать с виртуальной машиной?
 Каждый диск данных может иметь объем до 1 ТБ. Количество дисков данных, которое можно использовать, зависит от размера виртуальной машины. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -69,8 +69,9 @@ ms.lasthandoff: 03/11/2017
 
 ## <a name="does-azure-support-linux-vms"></a>Поддерживает ли Azure виртуальные машины Linux?
 Да. Чтобы быстро создать пробную виртуальную машину Linux, см. статью [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Создав виртуальную машину, могу я добавить к ней сетевой адаптер?
-Нет. Добавить сетевую карту можно только во время создания.
+Да, теперь это возможно. Сначала виртуальную машину нужно остановить и отменить ее распределение. Затем можно добавить или удалить сетевую карту (за исключением последней сетевой карты на виртуальной машине). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Есть ли какие-либо требования к имени компьютера?
 Да. Длина имени компьютера не должна превышать 15 знаков. Дополнительные сведения об именовании ресурсов см. в статье [Рекомендации по именованию для инфраструктуры](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

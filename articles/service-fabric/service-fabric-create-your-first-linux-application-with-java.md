@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: eedddf7a40acfba7513efd810d115f1afe2f224d
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -114,7 +114,7 @@ Service Fabric можно использовать для создания, сб
 2. Запустите `yo azuresfjava:AddService`
 
 ### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Использование подключаемого модуля Service Fabric Eclipse для Java на платформе Linux
-Сведения о добавлении службы в имеющееся приложение, созданное с помощью подключаемого модуля Eclipse для Service Fabric, см. в [этой документации](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
+Сведения о добавлении службы в имеющееся приложение, созданное с помощью подключаемого модуля Eclipse для Service Fabric, см. в [этой документации](service-fabric-get-started-eclipse.md#add-a-service-fabric-service-to-your-service-fabric-application).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java)

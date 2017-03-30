@@ -1,21 +1,22 @@
 ---
-title: "Использование Аналитики — эффективного инструмента поиска Application Insights | Документация Майкрософт"
+title: "Использование аналитики — мощного инструмента поиска Azure Application Insights | Документация Майкрософт"
 description: "Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. "
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -154,10 +155,10 @@ IntelliSense подскажет вам операторы и элементы в
 ![Диаграмма с ограниченным количеством ячеек](./media/app-insights-analytics-using/pin-08.png)
 
 ## <a name="export-to-excel"></a>Экспорт в Excel
-После выполнения запроса можно скачать CSV-файл. Щелкните **Экспорт в Excel**.
+После выполнения запроса можно скачать CSV-файл. Щелкните **"Экспорт", Excel**.
 
 ## <a name="export-to-power-bi"></a>Экспорт в Power BI
-Поместите курсор в запрос и выберите **Экспорт в Power BI**.
+Поместите курсор в запрос и выберите **"Экспорт", Power BI**.
 
 ![Экспорт из Log Analytics в Power BI](./media/app-insights-analytics-using/240.png)
 
@@ -167,10 +168,22 @@ IntelliSense подскажет вам операторы и элементы в
 
 [Использование данных Application Insights в Power BI](app-insights-export-power-bi.md)
 
+## <a name="deep-link"></a>Прямая ссылка
+
+Получите ссылку в разделе **"Экспорт", "Поделиться ссылкой"**, которую можно отправить другому пользователю. Если у пользователя есть [доступ к группе ресурсов](app-insights-resources-roles-access-control.md), запрос откроется в пользовательском интерфейсе раздела аналитики.
+
+(В ссылке текст запроса в формате GZIP и в кодировке Base-64 отображается после "?q=". Вы можете написать код, чтобы создать прямые ссылки, которые можно предоставить пользователям. Тем не менее, мы рекомендуем запускать аналитику из кода с помощью [REST API](https://dev.applicationinsights.io/).)
+
 
 ## <a name="automation"></a>Служба автоматизации
 
-Вы можете выполнять запросы аналитики с помощью [REST API доступа к данным](https://dev.applicationinsights.io/), например, в PowerShell.
+Используйте [REST API доступа к данным](https://dev.applicationinsights.io/) для выполнения запросов аналитики. [Пример](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (использование PowerShell):
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+В отличие от пользовательского интерфейса аналитики REST API не добавляет ограничения по меткам времени для запросов автоматически. Чтобы не получать объемные ответы, обязательно добавляйте собственные предложения where.
 
 
 
@@ -210,13 +223,10 @@ IntelliSense подскажет вам операторы и элементы в
 
 Если вы используете [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), то можете использовать Аналитику для запроса журналов. Используйте [подключаемый модуль, который передает данные в Аналитику](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## <a name="video"></a>Видео
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

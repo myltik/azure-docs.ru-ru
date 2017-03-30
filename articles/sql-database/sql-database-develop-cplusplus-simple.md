@@ -41,7 +41,7 @@ ms.lasthandoff: 03/07/2017
 Подключение к базе данных SQL Azure ничем не отличается от обычной процедуры. В настоящее время существует два способа подключения к базам данных: ODBC и OLE DB. В последние годы корпорация Майкрософт поддерживает [ODBC для доступа к собственным реляционным данным](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). Технология ODBC относительно проста и работает гораздо быстрее, чем OLE DB. Единственное предостережение — ODBC использует старый API в стиле C. 
 
 ## <a id="Create"></a>Шаг 1. Создание базы данных SQL Azure
-Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md) .  Или просмотрите [этот короткий&2;-минутный видеоролик](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/), чтобы создать базу данных SQL Azure с помощью портала Azure.
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md) .  Или просмотрите [этот короткий 2 -минутный видеоролик](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/), чтобы создать базу данных SQL Azure с помощью портала Azure.
 
 ## <a id="ConnectionString"></a>Шаг 2. Получение строки подключения
 После подготовки базы данных SQL Azure необходимо выполнить следующие действия, чтобы найти информацию о подключении и добавить IP-адрес клиента для доступа через брандмауэр. 

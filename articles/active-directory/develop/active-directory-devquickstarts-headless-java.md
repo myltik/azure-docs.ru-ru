@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 51913b5e0d43514f50f2d51500f2149438d87045
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Azure AD позволяет простым и удобным образом вы
 5. Следуйте инструкциям на экране, а затем создайте новое **веб-приложение и/или WebAPI**.
   * **Имя** приложения отображает его описание конечным пользователям.
   * **URL-адрес входа** — это базовый URL-адрес вашего приложения.  Схема по умолчанию — `http://localhost:8080/adal4jsample/`.
-  * **URI идентификатора приложения** — это уникальный идентификатор вашего приложения.  Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `http://localhost:8080/adal4jsample/`
 6. После завершения регистрации служба Azure AD присваивает приложению уникальный идентификатор приложения.  Это значение вам понадобится в следующих разделах, поэтому скопируйте его с вкладки приложения.
+7. На странице **Параметры** -> **Свойства** приложения обновите его универсальный код ресурса (URI) идентификатора. **URI идентификатора приложения** — это уникальный идентификатор вашего приложения.  В соответствии с соглашением, следует использовать `https://<tenant-domain>/<app-name>`, например `http://localhost:8080/adal4jsample/`.
 
 Войдите на портал приложения, создайте **ключ** на странице **Настройки** своего приложения и скопируйте его.  Скоро он вам понадобится.
 
@@ -267,10 +268,5 @@ public class PublicClient {
 Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)или клонировать с портала GitHub.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

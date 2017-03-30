@@ -1,6 +1,6 @@
 ---
-title: "Подключение к базе данных SQL с помощью SQL Server Management Studio | Документация Майкрософт"
-description: "Узнайте, как подключиться к базе данных SQL в Azure с помощью SQL Server Management Studio (SSMS). Затем выполните пробный запрос с помощью Transact-SQL (T-SQL)."
+title: "SSMS: подключение и запрос данных в базе данных SQL Azure | Документация Майкрософт"
+description: "Узнайте, как подключиться к базе данных SQL в Azure с помощью SQL Server Management Studio (SSMS). Затем выполните инструкции Transact-SQL (T-SQL) для запроса и изменения данных."
 metacanonical: 
 keywords: "подключение к базе данных sql, sql server management studio"
 services: sql-database
@@ -14,57 +14,142 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/01/2017
-ms.author: sstein;carlrab
+ms.topic: hero-article
+ms.date: 03/15/2017
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="connect-to-sql-database-with-sql-server-management-studio-and-execute-a-sample-t-sql-query"></a>Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL
+# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio
 
-Из этой статьи вы узнаете, как подключиться к базе данных SQL Azure с помощью SQL Server Management Studio (SSMS). После успешного подключения нужно запустить простой запрос Transact-SQL (T-SQL), чтобы проверить соединение с базой данных.
+Используйте [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) для создания ресурсов SQL Server и управления ими с помощью пользовательского интерфейса или скриптов. В этом руководстве объясняется, как с помощью SSMS подключаться к базе данных Azure SQL, а также выполнять запросы и использовать инструкции вставки, обновления и удаления.
 
-[!INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
+Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
-1. Сведения о том, как скачать и установить последнюю версию SSMS, см. в статье [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Когда новая версия становится доступной для скачивания, последняя версия SSMS выдает соответствующий запрос. Это позволяет всегда пользоваться обновленным ПО.
+- [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
+- [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
-2. После установки введите в поле поиска Windows текст **Microsoft SQL Server Management Studio** и нажмите клавишу **ВВОД**, чтобы запустить приложение.
+Перед началом работы установите последнюю версию [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. В диалоговом окне подключения к серверу введите данные, необходимые для подключения к серверу SQL Server с использованием проверки подлинности SQL Server.
+## <a name="get-connection-information"></a>Получение сведений о подключении
 
-    ![Подключение к серверу](./media/sql-database-get-started/connect-to-server.png)
-4. Щелкните **Подключить**.
+Получите полное имя сервера для сервера базы данных SQL Azure на портале Azure. Используйте полное имя сервера, чтобы подключиться к серверу с помощью SQL Server Management Studio.
 
-    ![Подключение к серверу установлено](./media/sql-database-get-started/connected-to-server.png)
-5. В обозревателе объектов разверните **Базы данных**, затем разверните любую базу данных, чтобы просмотреть находящиеся в ней объекты.
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
+3. На странице портала Azure вашей базы данных в области **Основные компоненты** найдите и скопируйте **имя сервера**.
 
-    ![Объекты новой базы данных в SSMS](./media/sql-database-get-started/new-sample-db-objects-ssms.png)
-6. Щелкните правой кнопкой мыши эту базу данных и выберите пункт **Создать запрос**.
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-    ![Запрос к новому примеру базы данных в SSMS](./media/sql-database-get-started/new-sample-db-query-ssms.png)
-7. В окне запроса введите следующее:
+## <a name="connect-to-the-server"></a>Подключение к серверу
 
-   ```select * from sys.objects```
-   
-8.  На панели инструментов нажмите кнопку **Выполнить**, чтобы получить список всех системных объектов в примере базы данных.
+Используйте SQL Server Management Studio для подключения к серверу базы данных SQL Azure.
 
-    ![Запрос на получение системных объектов из нового примера базы данных в SSMS](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
+1. Введите **SSMS** в поле поиска Windows и нажмите клавишу **ВВОД**, чтобы открыть SSMS.
 
-> [!Tip]
-> Инструкции представлены в разделе [Руководство по подготовке базы данных SQL Azure и доступу к ней с помощью портала Azure и SQL Server Management Studio](sql-database-get-started.md).    
->
+2. В диалоговом окне **Подключение к серверу** введите следующие значения.
+   - **Тип сервера** — укажите ядро СУБД.
+   - **Имя сервера** — введите полное имя сервера, например **mynewserver20170313.database.windows.net**.
+   - **Проверка подлинности** — укажите проверку подлинности SQL Server.
+   - **Имя входа** — введите учетную запись администратора сервера.
+   - **Пароль** — введите пароль учетной записи администратора сервера.
+ 
+    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+
+3. Щелкните **Подключить**. Откроется окно обозревателя объектов в SSMS. 
+
+    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+
+4. В обозревателе объектов разверните **базы данных**, затем выберите **mySampleDatabase**, чтобы просмотреть объекты в образце базы данных.
+
+## <a name="query-data"></a>Запрос данных
+
+С помощью инструкции Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) отправьте запрос на получение данных из базы данных SQL Azure.
+
+1. В обозревателе объектов щелкните правой кнопкой мыши **mySampleDatabase** и выберите пункт **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
+2. В этом окне введите следующий запрос:
+
+   ```sql
+   SELECT pc.Name as CategoryName, p.name as ProductName
+   FROM [SalesLT].[ProductCategory] pc
+   JOIN [SalesLT].[Product] p
+   ON pc.productcategoryid = p.productcategoryid;
+   ```
+
+3. На панели инструментов щелкните **Выполнить**, чтобы получить данные из таблиц Product и ProductCategory.
+
+    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+
+## <a name="insert-data"></a>Добавление данных
+
+С помощью инструкции Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) вставьте данные в базу данных SQL Azure.
+
+1. На панели инструментов щелкните **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
+2. В этом окне введите следующий запрос:
+
+   ```sql
+   INSERT INTO [SalesLT].[Product]
+           ( [Name]
+           , [ProductNumber]
+           , [Color]
+           , [ProductCategoryID]
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate]
+           )
+     VALUES
+           ('myNewProduct'
+           ,123456789
+           ,'NewColor'
+           ,1
+           ,100
+           ,100
+           ,GETDATE() );
+   ```
+
+3. На панели инструментов щелкните **Выполнить**, чтобы вставить новую строку в таблице Product.
+
+    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+
+## <a name="update-data"></a>Обновление данных
+
+С помощью инструкции Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) обновите данные в базе данных SQL Azure.
+
+1. На панели инструментов щелкните **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
+2. В этом окне введите следующий запрос:
+
+   ```sql
+   UPDATE [SalesLT].[Product]
+   SET [ListPrice] = 125
+   WHERE Name = 'myNewProduct';
+   ```
+
+3. На панели инструментов щелкните **Выполнить**, чтобы обновить указанную строку в таблице Product.
+
+    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+
+## <a name="delete-data"></a>Удаление данных
+
+С помощью инструкции Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) удалите данные из базы данных SQL Azure.
+
+1. На панели инструментов щелкните **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
+2. В этом окне введите следующий запрос:
+
+   ```sql
+   DELETE FROM [SalesLT].[Product]
+   WHERE Name = 'myNewProduct';
+   ```
+
+3. На панели инструментов щелкните **Выполнить**, чтобы удалить указанную строку из таблицы Product.
+
+    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Инструкции T-SQL можно использовать для создания баз данных в Azure и управления ими таким же образом, как и в SQL Server. Если вы знаете, как использовать T-SQL в SQL Server, ознакомьтесь с отличиями, приведенными в статье [Сведения об инструкциях Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md) .
-- Если вы не знакомы с T-SQL, см. [руководство по написанию инструкций Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) и [справочник по Transact-SQL (ядро СУБД)](https://msdn.microsoft.com/library/bb510741.aspx).
-- Основные сведения об аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Основные сведения об аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
-- Дополнительные сведения о решении SSMS см. в статье [Использование среды SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-
+- Дополнительные сведения о решении SSMS см. в статье об [использовании SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- Сведения о запросе и изменении данных с помощью Visual Studio Code см. в [документации по Visual Studio Code](https://code.visualstudio.com/docs).
 

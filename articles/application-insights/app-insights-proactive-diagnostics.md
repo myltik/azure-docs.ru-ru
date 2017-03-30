@@ -1,5 +1,5 @@
 ---
-title: "Интеллектуальное обнаружение в Application Insights | Документация Майкрософт"
+title: "Интеллектуальное обнаружение в Azure Application Insights | Документация Майкрософт"
 description: "Служба Application Insights автоматически выполняет углубленный анализ телеметрии вашего приложения и предупреждает о потенциальных проблемах."
 services: application-insights
 documentationcenter: windows
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: fe2596a7fed52118425c612ebf50c01134928bf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -47,6 +48,10 @@ ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
 
 (Каждое уведомление содержит ссылки на материалы соответствующих статей.)
 
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Эти диагностические средства позволяют проверять данные телеметрии из приложения:
 
@@ -58,10 +63,5 @@ ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
 
 * [Настройка оповещений в Application Insights](app-insights-alerts.md)
 * [Доступность веб-тестов](app-insights-monitor-web-app-availability.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
