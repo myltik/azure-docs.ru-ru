@@ -12,21 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/27/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 46156a3331585b47761432c13462dffeb0b7eeb5
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 95b2820d2f68be34cca7b8d414c581ba44a29804
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="creating-a-windows-vm-with-multiple-nics"></a>Создание виртуальной машины Windows с несколькими сетевыми картами
+# <a name="create-a-windows-vm-with-multiple-nics"></a>Создание виртуальной машины Windows с несколькими сетевыми картами
 Можно создать виртуальную машину (ВМ) в Azure, к которой подключено несколько виртуальных сетевых интерфейсов (сетевых карт). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений, или когда для решения мониторинга или архивации используется выделенная сеть. Этой статье описываются быстрые команды для создания виртуальной машины с несколькими сетевыми картами. Чтобы получить дополнительные сведения, в том числе узнать, как создать нескольких сетевых карт в собственных сценариях PowerShell, узнайте больше о [развертывании виртуальных машин с несколькими сетевыми картами](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Различные [размеры виртуальных машин](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
-
-> [!WARNING]
-> Подключать несколько сетевых карт следует при создании виртуальной машины. Их нельзя добавить в существующую виртуальную машину. Вы можете [создать виртуальную машину на основе исходных виртуальных дисков](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и создать несколько сетевых карт при развертывании этой виртуальной машины.
-> 
-> 
 
 ## <a name="create-core-resources"></a>Создание основных ресурсов
 Убедитесь, что у вас установлена и настроена [последняя версия Azure PowerShell](/powershell/azureps-cmdlets-docs). Войдите в свою учетную запись Azure.
@@ -132,6 +128,66 @@ $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri
 New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
 ```
 
+## <a name="add-a-nic-to-an-existing-vm"></a>Добавление сетевой карты в существующую виртуальную машину
+
+В существующую виртуальную машину можно добавить сетевую карту. Чтобы использовать эту функцию, сначала необходимо отменить распределение виртуальной машины, выполнив приведенный ниже командлет Stop-AzureRmVM.
+
+```powershell
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Затем нужно получить конфигурацию виртуальной машины с помощью командлета Get-AzureRmVM.
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Можно создать сетевую карту в **виртуальной сети, в которой находится виртуальная машина**, как показано в начале этой статьи, или подключить существующую сетевую карту. Предположим, что вы подключаете существующую сетевую карту `MyNic3` в виртуальной сети. 
+
+```powershell
+$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+```
+
+> [!NOTE]
+> Если у виртуальной машины несколько сетевых карт, то одна из них должна быть основной. Поэтому мы настроим новую сетевую карту как основную. Если основной является предыдущая сетевая карта в виртуальной машине, то параметр Primary указывать не нужно. Если требуется переключить основную сетевую карту на виртуальной машине, выполните следующие действия.
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+
+# Find out all the NICs on the VM and find which one is Primary
+$vm.NetworkProfile.NetworkInterfaces
+
+# Set the NIC 0 to be primary
+$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+
+# Update the VM state in Azure
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+```
+
+## <a name="remove-a-nic-from-an-existing-vm"></a>Удаление сетевой карты из существующей виртуальной машины
+
+Сетевую карту можно также удалить из виртуальной машины. Чтобы использовать эту функцию, сначала необходимо отменить распределение виртуальной машины, выполнив приведенный ниже командлет Stop-AzureRmVM.
+
+```powershell
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Затем нужно получить конфигурацию виртуальной машины с помощью командлета Get-AzureRmVM.
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Теперь просмотрите все сетевые карты виртуальной машины и скопируйте имя той из них, которую нужно удалить.
+
+```powershell
+$vm.NetworkProfile.NetworkInterfaces
+
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+```
+
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Создание нескольких сетевых карт с помощью шаблонов Resource Manager
 В шаблонах Azure Resource Manager используются декларативные JSON-файлы для определения среды. Дополнительные сведения см. в [обзоре Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Шаблоны Resource Manager дают возможность создать несколько экземпляров ресурса во время развертывания, в том числе создать несколько сетевых карт. Чтобы указать число создаваемых экземпляров, используется объект *copy* .
 
@@ -155,11 +211,5 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "West
 ## <a name="next-steps"></a>Дальнейшие действия
 Обязательно ознакомьтесь с [размерами виртуальных машин Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , когда будете создавать виртуальную машину с несколькими сетевыми картами. Обратите внимание на максимальное число сетевых карт, поддерживаемых каждым из размеров виртуальной машины. 
 
-Помните, что невозможно добавить дополнительные сетевые карты в существующую виртуальную машины. Все сетевые карты должны быть созданы при развертывании виртуальной машины. Будьте внимательны при планировании развертываний. С самого начала убедитесь в наличии всех необходимых сетевых подключений.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Отключение диска данных от виртуальной машины Windows | Документация Майкрософт"
+title: "Отключение диска данных от виртуальной машины Windows в Azure | Документация Майкрософт"
 description: "Узнайте, как отключить диск данных от виртуальной машины в Azure с использованием модели развертывания с помощью Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 7274a86ada8115e86156592cf034d0350f59ebab
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,12 +34,14 @@ ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Отключение диска данных с помощью портала
 1. В главном меню портала выберите **Виртуальные машины**.
-2. Выберите виртуальную машину, к которой подключен диск данных, предназначенный для отключения, и щелкните **Все параметры**.
-3. В колонке **Параметры** выберите **Диски**.
-4. В колонке **Диски** выберите диск данных, который необходимо отключить.
-5. В колонке этого диска данных щелкните **Отключить**.
+2. Выберите виртуальную машину, от которой нужно отключить диск данных, и щелкните **Остановить**, чтобы отменить ее распределение.
+3. В колонке "Виртуальная машина" выберите **Диски**.
+4. В верхней части колонки **Диски** выберите **Изменить**.
+5. В колонке **Диски** справа от диска данных, который требуется отключить, нажмите кнопку ![Отключить](./media/virtual-machines-common-detach-disk/detach.png).
+5. После удаления диска в верхней части колонки нажмите кнопку "Сохранить".
+6. В колонке виртуальной машины щелкните **Обзор** и нажмите кнопку **Запустить** вверху, чтобы перезапустить виртуальную машину.
 
-    ![Снимок экрана, показывающий кнопку "Отключить".](./media/virtual-machines-windows-detach-disk/detach-disk.png)
+
 
 Диск остается в хранилище, но более не подключен к виртуальной машине.
 
@@ -55,15 +58,9 @@ Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-
-Дополнительные сведения см. в разделе [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx).
+Дополнительные сведения см. в разделе [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы хотите повторно использовать диск данных, то можете просто [подключить его к другой виртуальной машине](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
