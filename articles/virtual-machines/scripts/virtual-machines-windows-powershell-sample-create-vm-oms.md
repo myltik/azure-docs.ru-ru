@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 623eda189cf3fd08a17417df65485a3717f88ace
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a05059a51113ccaf71b735b1b32a0f3fb7411282
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 Этот скрипт создает виртуальную машину Azure, устанавливает агент Operations Management Suite и регистрирует систему в рабочей области OMS. После выполнения скрипта виртуальная машина отобразится в консоли OMS.
 
-Перед выполнением этого скрипта убедитесь, что установлено подключение к Azure, выполнив команду `Login-AzureRmAccount`. Кроме того, в скрипте необходимо обновить идентификатор и ключ рабочей области OMS.
+При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. Кроме того, необходимо обновить идентификатор и ключ рабочей области OMS.
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 
-После выполнения примера скрипта можно удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду.
+Выполните следующую команду, чтобы удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

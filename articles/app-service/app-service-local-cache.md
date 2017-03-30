@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e00d453e9ae34cafb5ce753f63c253e954d6b09a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -64,6 +65,7 @@ ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -73,7 +75,8 @@ ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -110,8 +113,6 @@ ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
 ### <a name="i-have-local-cache-enabled-but-my-web-app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Локальный кэш включен, но мое веб-приложение все равно перезапускается. Почему? Я подумал, что локальный кэш поможет снизить частоту перезапуска приложения.
 Локальный кэш помогает предотвратить перезапуск веб-приложений, которые используют хранилище. Но ваше веб-приложение все равно может быть перезапущено во время планируемых обновлений инфраструктуры виртуальной машины. В целом при использовании локального кэша приложение перезапускается реже.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Исключается ли при использовании локального кэша копирование каких-либо каталогов на более быстрый локальный диск?
+В рамках операции копирования содержимого хранилища будут исключены любые папки с именем repository. Это помогает в ситуациях, когда содержимое узла может содержать репозиторий системы управления версиями, который может быть не нужен для ежедневных операций веб-приложения. 
 

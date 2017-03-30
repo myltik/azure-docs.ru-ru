@@ -1,10 +1,10 @@
 ---
-title: "Управление общедоступными IP-адресами уровня экземпляра (классическая модель развертывания) с помощью PowerShell | Документация Майкрософт"
-description: "Общие сведения об общедоступных IP-адресах уровня экземпляра и о том, как управлять ими с помощью PowerShell."
+title: "Общедоступные IP-адреса уровня экземпляра Azure (классическая модель) | Документация Майкрософт"
+description: "Описание общедоступных IP-адресов уровня экземпляра (ILPIP-адресов) и инструкции по управлению ими с помощью PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -15,43 +15,47 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: f1919d84cf912e184d87a5eeb462355e8ee3da07
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c233439b78fb01beaa3183b79ab633aeb9357ef0
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Общие сведения об общедоступных IP-адресах уровня экземпляра (классическая модель развертывания)
-Общедоступный IP-адрес уровня экземпляра (ILPIP) — это общедоступный IP-адрес, который можно назначить непосредственно виртуальной машине или экземпляру роли, а не облачной службе, в которой они находятся. Он не заменяет виртуальный IP-адрес, назначенный облачной службе. а представляет собой дополнительный IP-адрес, с помощью которого можно подключаться непосредственно к виртуальной машине или экземпляру роли.
+Общедоступный IP-адрес уровня экземпляра (ILPIP) — это общедоступный IP-адрес, который можно назначить непосредственно виртуальной машине или экземпляру роли облачных служб, а не облачной службе, в которой они находятся. Он не заменяет виртуальный IP-адрес (VIP), назначенный облачной службе. а представляет собой дополнительный IP-адрес, с помощью которого можно подключаться непосредственно к виртуальной машине или экземпляру роли.
 
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний мы рекомендуем использовать модель развертывания с помощью Azure Resource Manager. Убедитесь, что вы понимаете как работают в Azure [IP-адреса](virtual-network-ip-addresses-overview-classic.md) .
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). В этой статье рассматривается использование классической модели развертывания. Корпорация Майкрософт рекомендует создавать виртуальные машины с помощью Resource Manager. Убедитесь, что вы понимаете как работают в Azure [IP-адреса](virtual-network-ip-addresses-overview-classic.md) .
 
 ![Разница между ILPIP-адресом и виртуальным IP-адресом](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
 Как показано на рис. 1, для доступа к облачной службе используется виртуальный IP-адрес, а для обращения к отдельным виртуальным машинам, как правило, применяется формат "виртуальный IP-адрес:&lt;номер_порта&gt;". Назначив определенной виртуальной машине ILPIP-адрес, вы сможете обращаться к ней напрямую.
 
-При создании облачной службы в среде Azure автоматически создаются соответствующие A-записи DNS, благодаря которым к службе можно обращаться по полному доменному имени вместо ее фактического виртуального IP-адреса. То же самое выполняется и для ILPIP-адресов, благодаря чему к виртуальным машинам и экземплярам ролей можно обращаться по полному доменному имени, не указывая ILPIP-адрес. Например, при создании облачной службы с именем *contosoadservice* вы настраиваете веб-роль *contosoweb* с двумя экземплярами, а служба Azure регистрирует следующие записи A для экземпляров:
+При создании облачной службы в среде Azure автоматически создаются соответствующие записи A DNS, благодаря которым к службе можно обращаться по полному доменному имени вместо ее фактического виртуального IP-адреса. То же самое выполняется и для ILPIP-адресов, благодаря чему к виртуальным машинам и экземплярам ролей можно обращаться по полному доменному имени, не указывая ILPIP-адрес. Например, если при создании облачной службы *contosoadservice* вы настраиваете веб-роль *contosoweb* с двумя экземплярами, то платформа Azure регистрирует следующие записи A для этих экземпляров:
 
 * contosoweb\_IN_0.contosoadservice.cloudapp.net;
 * contosoweb\_IN_1.contosoadservice.cloudapp.net. 
 
 > [!NOTE]
-> Каждой виртуальной машине или экземпляру роли можно назначить только один ILPIP-адрес. В одной подписке разрешается использовать до пяти ILPIP-адресов. В настоящее время ILPIP-адреса не поддерживаются для виртуальных машин с несколькими сетевыми адаптерами.
+> Каждой виртуальной машине или экземпляру роли можно назначить только один ILPIP-адрес. В одной подписке разрешается использовать до 5 ILPIP-адресов. ILPIP-адреса не поддерживаются для виртуальных машин с несколькими сетевыми картами.
 > 
 > 
 
-## <a name="why-should-i-request-an-ilpip"></a>Зачем запрашивать ILPIP-адрес?
+## <a name="why-would-i-request-an-ilpip"></a>Зачем запрашивать ILPIP-адрес?
 Чтобы подключиться к виртуальной машине или экземпляру роли непосредственно по определенному IP-адресу, не используйте формат "виртуальный IP-адрес облачной службы:&lt;номер_порта&gt;", а вместо этого отправьте запрос на создание ILPIP-адреса для виртуальной машины или экземпляра роли.
 
-* **Пассивный FTP.** Создав ILPIP-адрес для виртуальной машины, вы сможете принимать трафик практически на любой порт, не открывая для этого конечную точку. Благодаря этому можно, например, создать пассивный FTP-сервер, порты на котором выбираются динамически.
-* **Внешний IP-адрес.** Исходящий трафик с виртуальной машины отправляется с ILPIP-адресом в качестве источника, который уникальным образом идентифицирует эту машину для внешних объектов.
+* **Пассивный FTP-сервер**. Если назначить ILPIP-адрес виртуальной машине, она сможет получать трафик практически через любой порт. Ей не понадобятся конечные точки, чтобы получать трафик. Благодаря ILPIP-адресам можно, например, создать пассивный FTP-сервер, порты на котором выбираются динамически.
+* **Исходящий IP-траффик.** Исходящий трафик с виртуальной машины отправляется с ILPIP-адресом в качестве источника, который уникальным образом идентифицирует эту машину для внешних сущностей.
 
 > [!NOTE]
 > Ранее ILPIP-адрес назывался общедоступным IP-адресом.
 > 
 
-## <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Как отправлять запрос на получение ILPIP-адреса на этапе создания виртуальной машины с помощью PowerShell
-Приведенный ниже сценарий PowerShell создает облачную службу *FTPService*, загружает образ из среды Azure, создает на его основе виртуальную машину *FTPInstance*, задает для нее ILPIP-адрес и добавляет эту машину в новую службу.
+## <a name="manage-an-ilpip-for-a-vm"></a>Управление ILPIP-адресом виртуальной машины
+Ниже описано, как создавать, назначать и удалять ILPIP-адреса виртуальных машин.
+
+### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Как отправлять запрос на получение ILPIP-адреса на этапе создания виртуальной машины с помощью PowerShell
+Приведенный ниже сценарий PowerShell создает облачную службу *FTPService*, получает образ из Azure, создает на его основе виртуальную машину *FTPInstance*, задает для нее ILPIP-адрес и добавляет эту виртуальную машину в новую службу.
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
@@ -62,8 +66,8 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
-## <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Получение сведений об ILPIP-адресе виртуальной машины
-Чтобы узнать ILPIP-адрес виртуальной машины, созданной с помощью приведенного выше сценария, выполните следующую команду PowerShell и обратите внимание на значения *PublicIPAddress* и *PublicIPName*:
+### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Получение сведений об ILPIP-адресе виртуальной машины
+Чтобы узнать ILPIP-адрес виртуальной машины, созданной с помощью приведенного выше сценария, выполните следующую команду PowerShell и обратите внимание на значения *PublicIPAddress* и *PublicIPName*.
 
 ```powershell
 Get-AzureVM -Name FTPInstance -ServiceName FTPService
@@ -88,7 +92,7 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
     AvailabilitySetName         : 
     DNSName                     : http://ftpservice888.cloudapp.net/
     Status                      : ReadyRole
-    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    GuestAgentStatus            :     Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
     ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
     PublicIPAddress             : 104.43.142.188
     PublicIPName                : ftpip
@@ -98,54 +102,50 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
     OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
     OperationStatus             : OK
 
-## <a name="how-to-remove-an-ilpip-from-a-vm"></a>Удаление ILPIP-адреса виртуальной машины
-Чтобы удалить ILPIP-адрес, назначенный виртуальной машине в приведенном выше скрипте, выполните следующую команду PowerShell:
+### <a name="how-to-remove-an-ilpip-from-a-vm"></a>Удаление ILPIP-адреса виртуальной машины
+Чтобы удалить ILPIP-адрес, назначенный виртуальной машине в приведенном выше сценарии, выполните следующую команду PowerShell.
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
 ```
 
-## <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Назначение ILPIP-адреса существующей виртуальной машине
-Чтобы назначить ILPIP-адрес виртуальной машине, созданной с помощью приведенного выше сценария, выполните следующую команду:
+### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Назначение ILPIP-адреса существующей виртуальной машине
+Чтобы добавить ILPIP-адрес для виртуальной машины, созданной с помощью приведенного выше сценария, выполните следующую команду.
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## <a name="how-to-associate-an-ilpip-to-a-vm-by-using-a-service-configuration-file"></a>Связывание ILPIP-адреса с виртуальной машиной с помощью файла конфигурации службы
-Чтобы связать ILPIP-адрес с виртуальной машиной, также можно воспользоваться файлом конфигурации службы (CSCFG-файлом). В приведенном ниже XML-коде показано, как настроить облачную службу для использования ILPIP-адреса с именем *MyPublicIP* для экземпляра роли. 
+## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Управление ILPIP-адресом экземпляра роли облачных служб
 
+Чтобы добавить ILPIP-адрес для экземпляра роли облачных служб, выполните следующие действия.
+
+1. Скачайте CSCFG-файл облачной службы, выполнив действия, описанные в статье [Настройка облачных служб](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg).
+2. Измените этот CSCFG-файл, добавив в него элемент `InstanceAddress`. Приведенный ниже пример добавляет ILPIP-адрес *MyPublicIP* для экземпляра роли *WebRole1*. 
+
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
+    <ServiceConfiguration serviceName="ILPIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
       <Role name="WebRole1">
         <Instances count="1" />
-        <ConfigurationSettings>
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-        </ConfigurationSettings>
+          <ConfigurationSettings>
+        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+          </ConfigurationSettings>
       </Role>
       <NetworkConfiguration>
-        <VirtualNetworkSite name="VNet"/>
         <AddressAssignments>
-          <InstanceAddress roleName="VMRolePersisted">
-            <Subnets>
-              <Subnet name="Subnet1"/>
-              <Subnet name="Subnet2"/>
-            </Subnets>
-            <PublicIPs>
-              <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <InstanceAddress roleName="WebRole1">
+        <PublicIPs>
+          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
       </NetworkConfiguration>
     </ServiceConfiguration>
+    ```
+3. Передайте CSCFG-файл облачной службы, выполнив действия, описанные в статье [Настройка облачных служб](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Общие сведения об IP-адресах в классической модели развертывания см. в статье [IP-адреса в Azure (классическая модель развертывания)](virtual-network-ip-addresses-overview-classic.md).
 * Общие сведения о зарезервированных IP-адресах см. в [этой статье](virtual-networks-reserved-public-ip.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

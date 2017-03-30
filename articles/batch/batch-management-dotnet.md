@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: c47e9263e1eefe8d1c3c0e164a186f095ca88a80
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -147,43 +147,20 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 > 
 > 
 
-## <a name="batch-management-net-azure-ad-and-resource-manager"></a>Библиотека .NET для управления пакетной службой, Azure AD и диспетчер ресурсов
-При работе с библиотекой .NET для управления пакетной службой обычно используются [Azure Active Directory][aad_about] (Azure AD) и [Azure Resource Manager][resman_overview]. В рассматриваемом далее примере проекта показано, как можно использовать Azure Active Directory и Resource Manager в сочетании с библиотекой .NET для управления пакетной службой.
+## <a name="use-azure-ad-with-batch-management-net"></a>Использование Azure AD с библиотекой .NET для управления пакетной службой
 
-### <a name="azure-active-directory"></a>Azure Active Directory
-Инфраструктура Azure уже использует Azure AD для проверки подлинности клиентов, администраторов служб и пользователей организации. В контексте библиотеки .NET для управления пакетной службой Azure AD будет использоваться для проверки подлинности администратора или соадминистратора подписки. Это позволит вам использовать библиотеку управления пакетной службой для обращения к пакетной службе и выполнения операций, описанных в этой статье.
-
-В описываемом далее примере проекта для авторизации пользователей с помощью учетных данных Майкрософт будет использоваться [библиотека аутентификации Azure Active Directory][aad_adal] (ADAL). Приложение, получив учетные данные от администратора или соадминистратора службы, сможет отправлять запросы в Azure для получения списка подписок, а также создавать и удалять группы ресурсов и учетных записей пакетной службы.
-
-### <a name="resource-manager"></a>Диспетчер ресурсов
-При создании учетных записей пакетной службы с помощью библиотеки .NET для управления пакетной службой они обычно создаются в составе [группы ресурсов][resman_overview]. Группы ресурсов можно создавать программно с помощью класса [ResourceManagementClient][resman_client] в библиотеке [.NET для Resource Manager][resman_api]. Также с помощью [портала Azure][azure_portal] можно добавить учетную запись в существующую группу ресурсов, созданную ранее.
+Данная библиотека является клиентом поставщика ресурсов Azure и используется совместно с [Azure Resource Manager][resman_overview] для программного управления ресурсами учетных записей. Служба Azure AD необходима для аутентификации запросов, выполненных с помощью любого клиента поставщика ресурсов Azure, а также библиотеки .NET для управления пакетной службой и [Azure Resource Manager][resman_overview]. Сведения об использовании Azure AD с библиотекой .NET для управления пакетной службой см. в разделе [Authenticate from Batch solutions with Active Directory](batch-aad-auth.md) (Аутентификация решений пакетной службы в Active Directory). 
 
 ## <a name="sample-project-on-github"></a>Пример проекта на сайте GitHub
-Работу библиотеки .NET для управления пакетной службой можно посмотреть на примере проекта [AccountManagment][acct_mgmt_sample] на сайте GitHub. Это консольное приложение демонстрирует создание и использование [BatchManagementClient][net_mgmt_client] и [ResourceManagementClient][resman_client]. Оно также демонстрирует использование [библиотеки аутентификации Azure Active Directory][aad_adal] (ADAL), которая необходима для обоих клиентов.
 
-Для успешного запуска примера приложения вам потребуется зарегистрировать его в Azure AD с помощью портала Azure. Обратитесь к разделу [Добавление приложения](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) статьи [Интеграция приложений с Azure Active Directory][aad_integrate] и следуйте указаниям, чтобы зарегистрировать пример приложения в каталоге по умолчанию для собственной учетной записи. Выберите в качестве типа приложения **Собственное клиентское приложение**. Вы также можете указать любой допустимый URI (например, `http://myaccountmanagementsample`) в параметре **URI перенаправления**. Реальную конечную точку указывать необязательно.
-
-После добавления приложения предоставьте разрешение **Доступ к управлению службами Azure в качестве организации** для приложения *API управления службами Microsoft Azure* в настройках приложения на портале.
-
-![Разрешения приложения на портале Azure][2]
-
-> [!TIP]
-> Если **API управления службами Windows Azure** не отображается в разделе *Разрешения для других приложений*, нажмите кнопку **Добавить приложение**, выберите **API управления службами Windows Azure** и установите флажок. Затем делегируйте разрешения, как описано выше.
-> 
-> 
-
-После добавления приложения обновите файл `Program.cs` в примере проекта [AccountManagment][acct_mgmt_sample] с использованием идентификатора клиента и универсального кода ресурса (URI) перенаправления вашего приложения. Эти параметры можно найти в приложении на вкладке **Настройка** .
-
-![Настройка приложения на портале Azure][3]
-
-В примере приложения [AccountManagment][acct_mgmt_sample] демонстрируются следующие операции.
+Работу библиотеки .NET для управления пакетной службой можно посмотреть на примере проекта [AccountManagment][acct_mgmt_sample] на сайте GitHub. В примере приложения AccountManagment демонстрируются следующие операции.
 
 1. Получение маркера безопасности из Active Directory Azure с помощью библиотеки [ADAL][aad_adal]. Если пользователь не выполнил вход, ему будет предложено ввести учетные данные Azure.
-2. Создание [SubscriptionClient][resman_subclient] для отправки запроса к Azure на получение списка подписок, связанных с учетной записью, с помощью маркера безопасности, полученного из Azure AD. Если найдено несколько подписок, пользователь сможет выбрать одну.
-3. Создание объекта учетных данных, связанного с выбранной подпиской.
-4. Создание [ResourceManagementClient][resman_client] с использованием новых учетных данных.
-5. Создание группы ресурсов с помощью [ResourceManagementClient][resman_client].
-6. Выполнение нескольких операций с учетной записью пакетной службы с помощью [BatchManagementClient][net_mgmt_client].
+2. Создание [SubscriptionClient][resman_subclient] для отправки запроса к Azure на получение списка подписок, связанных с учетной записью, с помощью маркера безопасности, полученного из Azure AD. Пользователь может выбрать подписку из списка, если он содержит более одной подписки.
+3. Получение учетных данных, связанных с выбранной подпиской.
+4. Создание объекта [ResourceManagementClient][resman_client] с использованием учетных данных.
+5. Создание группы ресурсов с помощью объекта [ResourceManagementClient][resman_client].
+6. Выполнение нескольких операций с учетной записью пакетной службы с помощью объекта [BatchManagementClient][net_mgmt_client].
    * Создание учетной записи пакетной службы в новой группе ресурсов.
    * Получение созданной учетной записи из пакетной службы.
    * Вывод ключей учетной записи для новой учетной записи.
@@ -194,11 +171,10 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
    * Удаление созданной учетной записи.
 7. Удалите ее.
 
-Перед удалением новой учетной записи пакетной службы или группы ресурсов вы можете просмотреть оба этих объекта на [портале Azure][azure_portal].
+Перед удалением новой учетной записи пакетной службы или группы ресурсов вы можете просмотреть их на [портале Azure][azure_portal].
 
-![Группа ресурсов и учетная запись пакетной службы на портале Azure][1]
-<br />
-*Новая группа ресурсов и учетная запись пакетной службы на портале Azure*
+Для успешного выполнения примера приложения необходимо зарегистрировать его в клиенте Azure AD на портале Azure и предоставить разрешения для API Azure Resource Manager. Выполните инструкции, описанные в разделе [Authenticate from Batch solutions with Active Directory](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions) (Аутентификация решений пакетной службы в Active Directory).
+
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Что такое Microsoft Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -221,7 +197,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 [net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
 [net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
-[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspxs
+[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 

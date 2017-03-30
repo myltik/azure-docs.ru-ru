@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
-ms.openlocfilehash: 080404a7b4fde0e2fd8b8be407090190d07c6f2a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 5267ed6a2d9278b79e9fb98c1067eceae819cb6f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -27,20 +27,18 @@ ms.lasthandoff: 02/22/2017
 
 В этой статье описывается создание виртуальной машины с помощью модели развертывания Azure Resource Manager и шаблона Azure Resource Manager. Несколько общедоступных и частных IP-адресов нельзя назначить одной и той же сетевой карте при развертывании виртуальной машины с помощью классической модели развертывания. Дополнительные сведения о моделях развертывания Azure см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="template-description"></a>Описание шаблона
 
-Развертывание шаблона позволяет быстро и согласованно создавать ресурсы Azure с использованием разных значений конфигурации. Если вы не работали с шаблонами Azure Resource Manager, ознакомьтесь со статьей [Пошаговое руководство по созданию шаблона Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md). В этой статье используется шаблон [развертывания виртуальной машины с использованием нескольких IP-адресов](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig).
+Развертывание шаблона позволяет быстро и согласованно создавать ресурсы Azure с использованием разных значений конфигурации. Если вы не работали с шаблонами Azure Resource Manager, ознакомьтесь со статьей [Пошаговое руководство по созданию шаблона Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-network%2ftoc.json). В этой статье используется шаблон [развертывания виртуальной машины с использованием нескольких IP-адресов](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig).
 
 <a name="resources"></a>При развертывании шаблона создаются следующие ресурсы:
 
 |Ресурс|Имя|Описание|
 |---|---|---|
 |Сетевой интерфейс|*myNic1*|Три IP-конфигурации (см. раздел этой статьи с описанием сценария) создаются и назначаются этой сетевой карте.|
-|Ресурс общедоступного IP-адреса|Создаются два имени: *myPublicIP* и *myPublicIP2*|Эти ресурсы представлены общедоступными статическими IP-адресами. Они назначаются IP-конфигурациям *IPConfig&1;* и *IPConfig&2;*, описанным в сценарии.|
+|Ресурс общедоступного IP-адреса|Создаются два имени: *myPublicIP* и *myPublicIP2*|Эти ресурсы представлены общедоступными статическими IP-адресами. Они назначаются IP-конфигурациям *IPConfig 1* и *IPConfig 2*, описанным в сценарии.|
 |ВМ|*myVM1*|Виртуальная машина Standard DS3.|
 |Виртуальная сеть|*myVNet1*|Виртуальная сеть с одной подсетью с именем *mySubnet*.|
 |Учетная запись хранения|Уникальная для развертывания|Учетная запись хранения.|
@@ -49,8 +47,8 @@ ms.lasthandoff: 02/22/2017
 
 |Имя|Описание|
 |---|---|
-|adminUsername|Имя пользователя администратора. Оно должно удовлетворять [соответствующим требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md).|
-|adminPassword|Пароль администратора. Он должен удовлетворять соответствующим [требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Имя пользователя администратора. Оно должно удовлетворять [соответствующим требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|adminPassword|Пароль администратора. Он должен удовлетворять соответствующим [требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS-имя для PublicIPAddressName1. DNS-имя будет разрешено на один из общедоступных IP-адресов, назначенных виртуальной машине. Имя должно быть уникальным в пределах региона Azure (расположения), в котором создается виртуальная машина.|
 |dnsLabelPrefix1|DNS-имя для PublicIPAddressName2. DNS-имя будет разрешено на один из общедоступных IP-адресов, назначенных виртуальной машине. Имя должно быть уникальным в пределах региона Azure (расположения), в котором создается виртуальная машина.|
 |OSVersion|Версия ОС Windows или Linux для виртуальной машины. Операционная система — это исправленный образ выбранной версии ОС Windows или Linux.|
@@ -68,29 +66,9 @@ ms.lasthandoff: 02/22/2017
 
 Чтобы развернуть шаблон с помощью портала Azure, выполните следующие действия.
 
-1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
-    ```
-    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Это может занять несколько минут.
-
-2. При желании шаблон можно изменить. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
-3. Разверните шаблон одним из следующих способов.
-    - **Выбрав шаблон на портале.** Выполните действия описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template). Выберите существующий шаблон с именем *101-vm-multiple-ipconfig*.
+1. При желании шаблон можно изменить. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Разверните шаблон одним из следующих способов.
+    - **Выбрав шаблон на портале.** Выполните действия описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template). Выберите существующий шаблон с именем *101-vm-multiple-ipconfig*.
     - **Непосредственно.** Нажмите эту кнопку, чтобы открыть шаблон прямо на портале: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Независимо от выбранного варианта вам нужно указать значения для [параметров](#parameters), перечисленных выше в этой статье. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
@@ -99,27 +77,7 @@ ms.lasthandoff: 02/22/2017
 
 Чтобы развернуть шаблон с помощью PowerShell, выполните следующие действия.
 
-1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
-    ```
-    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Это может занять несколько минут.
-
-2. Разверните шаблон, выполнив действия, описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). В статье описывается несколько вариантов развертывания шаблона. Если требуется выполнить развертывание с помощью параметра `-TemplateUri parameter`, URI для этого шаблона будет выглядеть так: *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Если требуется выполнить развертывание с помощью параметра `-TemplateFile`, скопируйте содержимое [файла шаблона](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) из GitHub в новый файл на компьютере. При желании можно изменить содержимое шаблона. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Разверните шаблон, выполнив действия, описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy). В статье описывается несколько вариантов развертывания шаблона. Если требуется выполнить развертывание с помощью параметра `-TemplateUri parameter`, URI для этого шаблона будет выглядеть так: *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Если требуется выполнить развертывание с помощью параметра `-TemplateFile`, скопируйте содержимое [файла шаблона](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) из GitHub в новый файл на компьютере. При желании можно изменить содержимое шаблона. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Независимо от выбранного варианта развертывания шаблона вам нужно указать значения для параметров, перечисленных в разделе с описанием [параметров](#parameters). Если вы хотите указать параметры с помощью [файла параметров](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json), скопируйте его содержимое из GitHub в новый файл на компьютере. Измените значения в файле. Используйте созданный файл в качестве значения для параметра `-TemplateParameterFile`.
     
@@ -128,39 +86,19 @@ ms.lasthandoff: 02/22/2017
     >[!TIP]
     >Если вы не знаете, доступен ли параметр dnslabelprefix, введите `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` команду. Если параметр доступен, команда вернет значение `True`.
 
-3. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
+2. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
 
 ## <a name="deploy-using-the-azure-cli"></a>Развертывание с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон с помощью Azure CLI 1.0, выполните следующие действия.
 
-1. Зарегистрируйтесь для получения предварительной версии, выполнив следующие команды в PowerShell после входа, и выберите соответствующую подписку:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
-    ```
-    Не пытайтесь выполнить остальные шаги, пока не увидите следующий результат при выполнении команды ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Это может занять несколько минут.
-
-2. Разверните шаблон, выполнив действия, описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). В статье описывается несколько вариантов развертывания шаблона. Если требуется выполнить развертывание с помощью параметра `--template-uri` (-f), URI для этого шаблона будет выглядеть так: *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Если требуется выполнить развертывание с помощью параметра `--template-file` (-f) , скопируйте содержимое [файла шаблона](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) из GitHub в новый файл на компьютере. При желании можно изменить содержимое шаблона. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Разверните шаблон, выполнив действия, описанные в [этом разделе](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy). В статье описывается несколько вариантов развертывания шаблона. Если требуется выполнить развертывание с помощью параметра `--template-uri` (-f), URI для этого шаблона будет выглядеть так: *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Если требуется выполнить развертывание с помощью параметра `--template-file` (-f) , скопируйте содержимое [файла шаблона](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) из GitHub в новый файл на компьютере. При желании можно изменить содержимое шаблона. Шаблон развертывает ресурсы и параметры, перечисленные в разделе с описанием [ресурсов](#resources). Дополнительные сведения о шаблонах и способах их создания см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Независимо от выбранного варианта развертывания шаблона вам нужно указать значения для параметров, перечисленных в разделе с описанием [параметров](#parameters). Если вы хотите указать параметры с помощью [файла параметров](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json), скопируйте его содержимое из GitHub в новый файл на компьютере. Измените значения в файле. Используйте созданный файл в качестве значения для параметра `--parameters-file` (-e).
     
     Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
-3. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
+2. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 

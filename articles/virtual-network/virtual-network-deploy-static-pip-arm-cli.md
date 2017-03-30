@@ -17,30 +17,29 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: e7874e7d86f75846c452d9863d5604982e9ce50b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 2c2442e6e0e1617dada3ba277e2478c8daa32c67
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Создание виртуальной машины со статическим общедоступным IP-адресом с помощью Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
-- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
+> * [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-> [!NOTE]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо классической.
+В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо классической.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## <a name="a-name--createacreate-the-vm"></a><a name = "create"></a>Создание виртуальной машины
+## <a name = "create"></a>Создание виртуальной машины
 
 Эту задачу можно выполнить с помощью Azure CLI 2.0 (в этой статье) или [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Значения в прямых кавычках для переменных в последующих шагах позволяют создать ресурсы с параметрами из сценария. Подставьте соответствующие значения для своей среды.
 
@@ -49,106 +48,105 @@ ms.lasthandoff: 02/28/2017
 3. Выполните вход из командной оболочки с помощью команды `az login`.
 4. Создайте виртуальную машину, выполнив следующий скрипт на компьютере Mac или Linux. Общедоступный IP-адрес Azure, виртуальная сеть, сетевой интерфейс и виртуальная машина должны находиться в одном расположении. Хотя эти ресурсы и не должны находиться в одной группе ресурсов, в следующем скрипте они находятся в одной группе ресурсов.
 
-    ```azurecli
-    #!/bin/sh
+```bash
+RgName="IaaSStory"
+Location="westus"
 
-    RgName="IaaSStory"
-    Location="westus"
-    az group create --name $RgName --location $Location
+# Create a resource group.
 
-    # Create a public IP address resource with a static IP address
-    PipName="PIPWEB1"
-    # Note: The value below must be unique within the azure location it's created in.
-    DnsName="iaasstoryws1"
+az group create \
+--name $RgName \
+--location $Location
 
-    az network public-ip create \
-    --name $PipName \
-    --resource-group $RgName \
-    --location $Location \
+# Create a public IP address resource with a static IP address using the --allocation-method Static option.
+# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
+# resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
+# Azure location it's created in. Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653#
+# that lists the ranges for each region.
 
-    # The following option allocates a static public IP address to the resource. If you do not specify it, the address is
-    # allocated dynamically. The address is assigigned to the resource from a pool of IP adresses unique to each Azure regions.
-    # Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653 to see the ranges for each region.
-    --allocation-method Static \
+PipName="PIPWEB1"
+DnsName="iaasstoryws1"
+az network public-ip create \
+--name $PipName \
+--resource-group $RgName \
+--location $Location \
+--allocation-method Static \
+--dns-name $DnsName
 
-    --dns-name $DnsName \
+# Create a virtual network with one subnet
 
-    # Create a virtual network with one subnet
+VnetName="TestVNet"
+VnetPrefix="192.168.0.0/16"
+SubnetName="FrontEnd"
+SubnetPrefix="192.168.1.0/24"
+az network vnet create \
+--name $VnetName \
+--resource-group $RgName \
+--location $Location \
+--address-prefix $VnetPrefix \
+--subnet-name $SubnetName \
+--subnet-prefix $SubnetPrefix
 
-    VnetName="TestVNet"
-    VnetPrefix="192.168.0.0/16"
-    SubnetName="FrontEnd"
-    SubnetPrefix="192.168.1.0/24"
+# Create a network interface connected to the VNet with a static private IP address and associate the public IP address
+# resource to the NIC.
 
-    az network vnet create \
-    --name $VnetName \
-    --resource-group $RgName \
-    --location $Location \
-    --address-prefix $VnetPrefix \
-    --subnet-name $SubnetName \
-    --subnet-prefix $SubnetPrefix
+NicName="NICWEB1"
+PrivateIpAddress="192.168.1.101"
+az network nic create \
+--name $NicName \
+--resource-group $RgName \
+--location $Location \
+--subnet $SubnetName \
+--vnet-name $VnetName \
+--private-ip-address $PrivateIpAddress \
+--public-ip-address $PipName
 
-    # Create a network interface connected to the VNet with a static private IP address and associate the public IP address
-    # resource to the NIC.
-    NicName="NICWEB1"
-    PrivateIpAddress="192.168.1.101"
+# Create a new VM with the NIC
 
-    az network nic create \
-    --name $NicName \
-    --resource-group $RgName \
-    --location $Location \
-    --subnet $SubnetName \
-    --vnet-name $VnetName \
-    --private-ip-address $PrivateIpAddress \
-    --public-ip-address $PipName
+VmName="WEB1"
 
-    # Create a new VM with the NIC
-    VmName="WEB1"
-    
-    # Replace the value for the VmSize variable with a value from the
-    # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
-    VmSize="Standard_DS1"
+# Replace the value for the VmSize variable with a value from the
+# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
+VmSize="Standard_DS1"
 
-    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-    # `az vm image list` command. 
-    OsImage="credativ:Debian:8:latest"
-    
-    Username='adminuser'
-    
-    # Replace the following value with the path to your public key file.
-    SshKeyValue="~/.ssh/id_rsa.pub"
+# Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
+# the `az vm image list` command. 
 
-    az vm create \
-    --name $VmName \
-    --resource-group $RgName \
-    --image $OsImage \
-    --location $Location \
-    --size $VmSize \
-    --nics $NicName \
-    --admin-username $Username \
+OsImage="credativ:Debian:8:latest"
+Username='adminuser'
 
-    # If creating a Windows VM, remove the next line and you'll be prompted for the password you want to configure for the VM.
-    --ssh-key-value $SshKeyValue
-    ```
+# Replace the following value with the path to your public key file.
+SshKeyValue="~/.ssh/id_rsa.pub"
 
-    Помимо виртуальной машины скрипт также создает следующие ресурсы:
-    - Один управляемый диск уровня "Премиум" по умолчанию. Вы можете создать диск другого типа. Дополнительные сведения см. в статье [Создание виртуальной машины Linux с помощью предварительной версии Azure CLI 2.0 (az.py)](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - Виртуальная сеть, подсеть, сетевая карта и общедоступный IP-адрес. Кроме того, можно использовать *имеющиеся* виртуальные сети, подсети, сетевые карты или общедоступные IP-адреса. Чтобы узнать, как использовать имеющиеся сетевые ресурсы, а не создавать дополнительные, введите `az vm create -h`.
+az vm create \
+--name $VmName \
+--resource-group $RgName \
+--image $OsImage \
+--location $Location \
+--size $VmSize \
+--nics $NicName \
+--admin-username $Username \
+--ssh-key-value $SshKeyValue
+# If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+```
 
-## <a name="a-name--validateavalidate-vm-creation-and-public-ip-address"></a><a name = "validate"></a>Проверка создания виртуальной машины и общедоступного IP-адреса
+Помимо виртуальной машины скрипт также создает следующие ресурсы:
+- Один управляемый диск уровня "Премиум" по умолчанию. Вы можете создать диск другого типа. Дополнительные сведения см. в статье [Создание виртуальной машины Linux с помощью предварительной версии Azure CLI 2.0 (az.py)](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Виртуальная сеть, подсеть, сетевая карта и общедоступный IP-адрес. Кроме того, можно использовать *имеющиеся* виртуальные сети, подсети, сетевые карты или общедоступные IP-адреса. Чтобы узнать, как использовать имеющиеся сетевые ресурсы, а не создавать дополнительные, введите `az vm create -h`.
+
+## <a name = "validate"></a>Проверка создания виртуальной машины и общедоступного IP-адреса
 
 1. Введите команду `az resource list --resouce-group IaaSStory --output table`, чтобы просмотреть список ресурсов, созданных с помощью скрипта. В результате должно отобразиться пять ресурсов: сетевой интерфейс, диск, общедоступный IP-адрес, виртуальная сеть и виртуальная машина.
 2. Введите команду `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. В возвращенных выходных данных обратите внимание на значение параметра **IpAddress**, а также на то, что параметр **PublicIpAllocationMethod** имеет значение *Static*.
 3. Перед выполнением следующей команды удалите <> и замените *Username* именем, использованным для переменной **Username** в скрипте, а *ipAddress* — **IP-адресом** из предыдущего шага. Выполните следующую команду для подключения к виртуальной машине: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
 
-## <a name="a-name-clean-uparemove-the-vm-and-associated-resources"></a><a name= "clean-up"></a>Удаление виртуальной машины и связанных с ней ресурсов
+## <a name= "clean-up"></a>Удаление виртуальной машины и связанных с ней ресурсов
 
-Если вы создали группу ресурсов, только чтобы выполнить процедуры из этой статьи, можно удалить все ресурсы, удалив группу ресурсов, используя команду `az group delete -n IaaSStory`.
+Если вы не планируете использовать в рабочей среде ресурсы, созданные во время этого упражнения, рекомендуется удалить их. За виртуальную машину, общедоступный IP-адрес и диск взимается плата, пока они подготовлены. Чтобы удалить ресурсы, созданные во время этого упражнения, выполните следующие действия.
 
->[!WARNING]
->Прежде чем удалять группу ресурсов, убедитесь, что в ней содержатся только ресурсы, созданные с помощью скрипта в этой статье. Выполните команду `az resource list --resouce-group IaaSStory` для просмотра ресурсов в группе ресурсов.
-
-Если вы не планируете использовать виртуальную машину в рабочей среде, мы рекомендуем удалить ресурсы. За виртуальную машину, общедоступный IP-адрес и диск взимается плата, пока они подготовлены. 
+1. Выполните команду `az resource list --resource-group IaaSStory`, чтобы просмотреть ресурсы в группе ресурсов.
+2. Убедитесь, что в ней содержатся только ресурсы, созданные с помощью сценария в этой статье. 
+3. Чтобы удалить все ресурсы, созданные во время этого упражнения, выполните команду `az group delete -n IaaSStory`. Эта команда удаляет группу ресурсов и все содержащиеся в ней ресурсы.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
