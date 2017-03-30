@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: edc6b5f7a90babaa1f50b14f40eaed1e8582cd2e
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
+ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Предварительные требования. Установка Azure CLI
 
-Для выполнения действий, описанных в этой статье, требуется [установить интерфейс командной строки Azure для Mac, Linux и Windows (Azure CLI)](../cli-install-nodejs.md), а также [выполнить вход в Azure](../xplat-cli-connect.md). 
+Для выполнения действий, описанных в этой статье, требуется [установить интерфейс командной строки Azure для Mac, Linux и Windows (Azure CLI)](../xplat-cli-install.md), а также [выполнить вход в Azure](../xplat-cli-connect.md). 
 
 > [!NOTE]
 > Если у вас нет учетной записи Azure, то вам потребуется получить ее. Зарегистрируйтесь, чтобы получить [бесплатную пробную версию](../active-directory/sign-up-organization.md).
