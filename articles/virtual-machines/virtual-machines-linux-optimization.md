@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: adf5655f24ebb43e7a2cdc801f43fb0220290068
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 02b1a5bc33252a8ed16356824c33233835ab1fb7
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -134,7 +134,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 * [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальной машины Azure](../storage/storage-premium-storage.md)
 * [Руководство пользователя агента Linux для Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Оптимизация производительности MySQL в виртуальных машинах Azure Linux](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Оптимизация производительности MySQL в виртуальных машинах Azure Linux](linux/classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Настройка программного RAID-массива в Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

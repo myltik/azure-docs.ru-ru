@@ -1,21 +1,22 @@
 ---
-title: "Панели мониторинга и навигация на портале Application Insights | Документация Майкрософт"
+title: "Панели мониторинга и навигация в Azure Application Insights | Документация Майкрософт"
 description: "Создание представлений ключевых диаграмм и запросов APM."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -148,15 +149,15 @@ ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 * Для **запроса на поддержку** требуется платная подписка. Сведения о технической поддержке см. [здесь](app-insights-get-dev-support.md).
 
-## <a name="whats-next"></a>Что дальше?
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="next-steps"></a>Дальнейшие действия
+
 |  |  |
 | --- | --- |
 | [Обозреватель метрик](app-insights-metrics-explorer.md)<br/>Фильтрация и сегментирование метрик |![Пример поиска](./media/app-insights-dashboards/64.png) |
 | [Поиск по журналу диагностики](app-insights-diagnostic-search.md)<br/>Поиск и проверка событий, связанные события и создание ошибок |![Пример поиска](./media/app-insights-dashboards/61.png) |
 | [Аналитика в Application Insights](app-insights-analytics.md)<br/>Эффективный язык запросов |![Пример поиска](./media/app-insights-dashboards/63.png) |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

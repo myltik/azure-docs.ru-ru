@@ -16,14 +16,15 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 38c53d6f1a2635afbba199e6f0a2adb23abb6a3a
-ms.openlocfilehash: fcf8326edc2ff84d274f7c4dadeae1fbe2595349
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 951c88124219a6962f655b91275aec64c716b1cd
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="create-and-manage-single-azure-sql-databases-with-transact-sql"></a>Создание и администрирование отдельных баз данных Azure SQL с помощью Transact-SQL
 
-Вы можете создавать и администрировать отдельные базы данных SQL Azure с помощью [портала Azure](https://portal.azure.com/), PowerShell, Transact-SQL, REST API или языка C#. Этот раздел посвящен использованию портала Azure. PowerShell: см. дополнительные сведения о [создании и управлении отдельных баз данных с помощью PowerShell](sql-database-manage-single-databases-powershell.md). Transact-SQL: см. дополнительные сведения о [создании и администрировании отдельных баз данных с помощью Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+Вы можете создавать и администрировать отдельные базы данных SQL Azure с помощью [портала Azure](https://portal.azure.com/), PowerShell, Transact-SQL, REST API или языка C#. Этот раздел посвящен использованию портала Azure. PowerShell: см. дополнительные сведения о [создании и управлении отдельных баз данных с помощью PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). Transact-SQL: см. дополнительные сведения о [создании и администрировании отдельных баз данных с помощью Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 ## <a name="create-an-azure-sql-database-using-transact-sql-in-sql-server-management-studio"></a>Создание базы данных SQL Azure с помощью Transact-SQL в SQL Server Management Studio
 
@@ -53,9 +54,4 @@ ms.openlocfilehash: fcf8326edc2ff84d274f7c4dadeae1fbe2595349
 * Чтобы узнать, как выполнять задачи управления с использованием SQL Server Management Studio, ознакомьтесь со статьей [Управление базой данных SQL Azure с помощью SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Сведения о службе Базы данных SQL см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md). 
 * Сведения о серверах и функциях базы данных Azure см. в статье [Возможности базы данных SQL Azure](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

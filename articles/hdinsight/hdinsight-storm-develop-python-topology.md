@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -157,10 +157,8 @@ Apache Storm поддерживает несколько языков и даж�
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          Замените USERNAME именем пользователя SSH для вашего кластера, а CLUSTERNAME — именем кластера HDInsight.
-     2. После копирования файла в кластер подключитесь к кластеру с помощью SSH и отправьте задание. Сведения об использовании SSH с HDInsight см. в одной из следующих статей.
-        
-        * [Использование SSH с HDInsight под управлением Linux в Linux, Unix или OS X.](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Использование SSH с HDInsight под управлением Linux в Windows.](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. После копирования файла в кластер подключитесь к кластеру с помощью SSH и отправьте задание. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+     
      3. После подключения запустите топологию следующей командой:
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount

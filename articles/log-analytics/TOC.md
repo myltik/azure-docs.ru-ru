@@ -70,6 +70,9 @@
 ### [Surface Hub](log-analytics-surface-hubs.md)
 ### [Управление обновлениями](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Аналитика Windows
+#### [Соответствие обновлений](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Готовность к обновлению](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Данные передачи](log-analytics-wire-data.md)
 ## Разработка
 ### [API сборщика данных](log-analytics-data-collector-api.md)
@@ -83,6 +86,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Ресурсы
-## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Аналитика Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Цены](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)

@@ -27,7 +27,7 @@
 ### [Специальные рекомендации для экземпляров](active-directory-aadconnect-instances.md)
 ### [Если у вас уже есть клиент Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Управление Azure AD Connect](active-directory-aadconnect-whats-next.md)
-### [Обновление сертификатов для Office&365; и Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Обновление сертификатов для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Включение обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md)
 ### [Параметры единого входа пользователей](active-directory-aadconnect-user-signin.md)
 ### [Поддержка нескольких доменов для федерации](active-directory-aadconnect-multiple-domains.md)
@@ -62,6 +62,7 @@
 ### [Ошибки при синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Объект не синхронизирован](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Синхронизация паролей](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Восстановление из LocalDB с ограничением в 10 ГБ](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Справочные материалы
 ## [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Расширенные политики в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameadvancedpoliciesa-advanced-policies"></a><a name="AdvancedPolicies"></a> Расширенные политики  
+##  <a name="AdvancedPolicies"></a> Расширенные политики  
   
 -   [Управление потоками](api-management-advanced-policies.md#choose) — условно применяет правила политики на основе результатов вычисления логических [выражений](api-management-policy-expressions.md).  
   
 -   [Перенаправляющий запрос](#ForwardRequest) — перенаправляет запрос в серверную службу.  
   
--   [Регистрация в концентраторе событий](#log-to-eventhub) — отправляет сообщения в концентратор событий, который указан сущностью Logger.  
+-   [Регистрация в концентраторе событий](#log-to-eventhub) — отправляет сообщения в концентратор событий, который указан сущностью Logger. 
+
+-   [Макетирование ответа](#mock-response) — прекращает выполнение конвейера и возвращает макетированный ответ непосредственно вызывающему объекту.
   
 -   [Повторить](#Retry) — повторяет выполнение инструкций встраиваемой политики, если не выполнено условие и до тех пор пока оно не будет выполнено. Выполнение будет повторяться через определенные промежутки времени и до указанного количества повторных попыток.  
   
@@ -42,16 +45,16 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   [Установка метода запроса](#SetRequestMethod) — позволяет изменить метод HTTP для запроса.  
   
--   [Установка кода состояния](#SetStatus) — меняет код состояния HTTP на указанное значение.  
+-   [Установка кода состояния](#SetStatus) — меняет код состояния HTTP на указанное значение.  
   
 -   [Трассировка](#Trace) — добавляет строку в выходные данные [инспектора API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
   
 -   [Ожидание](#Wait) — ожидает завершения вложенных политик [отправки запроса](api-management-advanced-policies.md#SendRequest), [получения значения из кэша](api-management-caching-policies.md#GetFromCacheByKey) или [управления потоком](api-management-advanced-policies.md#choose) перед продолжением.  
   
-##  <a name="a-namechoosea-control-flow"></a><a name="choose"></a> Управление потоками  
+##  <a name="choose"></a> Управление потоками  
  Политика `choose` применяет правила встраиваемой политики на основании результата вычисления логических выражений, подобных if-then-else или конструкции switch в языке программирования.  
   
-###  <a name="a-namechoosepolicystatementa-policy-statement"></a><a name="ChoosePolicyStatement"></a> Правило политики  
+###  <a name="ChoosePolicyStatement"></a> Правило политики  
   
 ```xml  
 <choose>   
@@ -71,7 +74,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 ### <a name="examples"></a>Примеры  
   
-####  <a name="a-namechooseexamplea-example"></a><a name="ChooseExample"></a> Пример  
+####  <a name="ChooseExample"></a> Пример  
  В следующем примере демонстрируется политика [set-variable](api-management-advanced-policies.md#set-variable) и две политики управления потоками.  
   
  Политика задания переменной находится в разделе inbound и создает логическую переменную [контекста](api-management-policy-expressions.md#ContextVariables) `isMobile`, которой присваивается значение true, если заголовок запроса `User-Agent` содержит текст `iPad` или `iPhone`.  
@@ -142,14 +145,14 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 |---------------|-----------------|--------------|  
 |condition="Логическое выражение &#124; Логическая константа"|Логическое выражение или константа, которую необходимо вычислить, когда вычисляется правило политики, содержащей `when`.|Да|  
   
-###  <a name="a-namechooseusagea-usage"></a><a name="ChooseUsage"></a> Использование  
+###  <a name="ChooseUsage"></a> Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Разделы политики:** inbound, outbound, backend, on-error.  
   
 -   **Области политики:** все области.  
   
-##  <a name="a-nameforwardrequesta-forward-request"></a><a name="ForwardRequest"></a> Перенаправляющий запрос  
+##  <a name="ForwardRequest"></a> Перенаправляющий запрос  
  Политика `forward-request` перенаправляет входящий запрос во внутреннюю службу, указанную в [контексте](api-management-policy-expressions.md#ContextVariables) запроса. URL-адрес внутренней службы, заданный в [параметрах](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) API, может быть изменен с помощью политики [задания внутренней службы](api-management-transformation-policies.md).  
   
 > [!NOTE]
@@ -260,7 +263,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-namelog-to-eventhuba-log-to-event-hub"></a><a name="log-to-eventhub"></a> Регистрация в концентраторе событий  
+##  <a name="log-to-eventhub"></a> Регистрация в концентраторе событий  
  Политика `log-to-eventhub` отправляет сообщения в определенном формате концентратору событий, который указан сущностью Logger. Как и предполагает ее имя, эта политика используется для сохранения контекстных сведений выбранного запроса или ответа для сетевого или автономного анализа.  
   
 > [!NOTE]
@@ -310,8 +313,50 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 -   **Разделы политики:** inbound, outbound, backend, on-error.  
   
 -   **Области политики:** все области.  
+
+##  <a name="mock-response"></a> Макетирование ответа  
+Политика `mock-response`, как следует из имени, используется для макетирования интерфейсов API и операций. Она прекращает выполнение конвейера и возвращает макетированный ответ вызывающему объекту. Эта политика всегда пытается вернуть ответы наивысшего качества. При возможности, она предпочитает примеры содержимого ответа. Она создает примеры ответов из схем, если схемы указаны, а примеры — нет. Если не найдены ни примеры, ни схемы, возвращаются ответы без содержимого.
   
-##  <a name="a-nameretrya-retry"></a><a name="Retry"></a> Повтор  
+### <a name="policy-statement"></a>Правило политики  
+  
+```xml  
+<mock-response status-code="code" content-type="media type"/>  
+  
+```  
+  
+### <a name="examples"></a>Примеры  
+  
+```xml  
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<mock-response/>
+
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code and media type. If no example or schema found, the content is empty. -->
+<mock-response status-code='200' content-type='application/json'/>  
+```  
+  
+### <a name="elements"></a>Элементы  
+  
+|Элемент|Описание|Обязательно|  
+|-------------|-----------------|--------------|  
+|mock-response|Корневой элемент.|Да|  
+  
+### <a name="attributes"></a>Атрибуты  
+  
+|Атрибут|Описание|Обязательно|значение по умолчанию|  
+|---------------|-----------------|--------------|--------------|  
+|status-code|Указывает код состояния ответа и позволяет выбрать соответствующий пример или схему.|Нет|200|  
+|content-type|Указывает значение заголовка ответа `Content-Type` и позволяет выбрать соответствующий пример или схему.|Нет|None|  
+  
+### <a name="usage"></a>Использование  
+ Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Разделы политики:** inbound, outbound, on-error.  
+  
+-   **Области политики:** все области.
+
+##  <a name="Retry"></a> Повтор  
  Политика `retry` выполняет свои дочерние политики один раз и затем повторяет их выполнение до тех пор, пока параметр `condition` попыток не примет значение `false` или параметр `count` попыток не будет исчерпан.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -331,7 +376,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 ```  
   
 ### <a name="example"></a>Пример  
- В следующем примере перенаправление запроса повторяется до&10; раз, следуя экспоненциальному алгоритму повторения. Так как `first-fast-retry` имеет значение false, все попытки повтора выполняются в соответствии с экспоненциальным алгоритмом повторения.  
+ В следующем примере перенаправление запроса повторяется до 10 раз, следуя экспоненциальному алгоритму повторения. Так как `first-fast-retry` имеет значение false, все попытки повтора выполняются в соответствии с экспоненциальным алгоритмом повторения.  
   
 ```xml  
   
@@ -376,7 +421,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-namereturnresponsea-return-response"></a><a name="ReturnResponse"></a> Возврат ответа  
+##  <a name="ReturnResponse"></a> Возврат ответа  
  Политика `return-response` прерывает выполнение конвейера и возвращает вызывающему объекту ответ по умолчанию или настраиваемый ответ. По умолчанию возвращается код `200 OK` без текста. Можно указать настраиваемый ответ с помощью переменной контекста или правил политики. Если указаны оба, ответ, содержащийся в переменной контекста, изменяется правилами политики перед возвращением вызывающему объекту.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -424,7 +469,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-namesendonewayrequesta-send-one-way-request"></a><a name="SendOneWayRequest"></a> Отправка одностороннего запроса  
+##  <a name="SendOneWayRequest"></a> Отправка одностороннего запроса  
  Политика `send-one-way-request` отправляет запрос на указанный URL-адрес и не ожидает ответа.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -493,7 +538,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-namesendrequesta-send-request"></a><a name="SendRequest"></a> Отправка запроса  
+##  <a name="SendRequest"></a> Отправка запроса  
  Политика `send-request` отправляет запрос по указанному URL-адресу с задержкой, не превышающей заданное значение времени ожидания.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -575,16 +620,16 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-nameset-variablea-set-variable"></a><a name="set-variable"></a> Задание переменной  
+##  <a name="set-variable"></a> Задание переменной  
  Политика `set-variable` объявляет [переменную](api-management-policy-expressions.md#ContextVariables) контекста и присваивает ей значение, заданное с помощью [выражение](api-management-policy-expressions.md) или строкового литерала. Если выражение содержит литерал, он будет преобразован в строку и будет иметь тип значения `System.String`.  
   
-###  <a name="a-nameset-variablepolicystatementa-policy-statement"></a><a name="set-variablePolicyStatement"></a> Правило политики  
+###  <a name="set-variablePolicyStatement"></a> Правило политики  
   
 ```xml  
 <set-variable name="variable name" value="Expression | String literal" />  
 ```  
   
-###  <a name="a-nameset-variableexamplea-example"></a><a name="set-variableExample"></a> Пример  
+###  <a name="set-variableExample"></a> Пример  
  В следующем примере демонстрируется политика задания переменной в разделе inbound. Политика задания переменной создает логическую переменную [контекста](api-management-policy-expressions.md#ContextVariables) `isMobile`, которой присваивается значение true, если заголовок запроса `User-Agent` содержит текст `iPad` или `iPhone`.  
   
 ```xml  
@@ -611,7 +656,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-###  <a name="a-nameset-variableallowedtypesa-allowed-types"></a><a name="set-variableAllowedTypes"></a> Допустимые типы  
+###  <a name="set-variableAllowedTypes"></a> Допустимые типы  
  Выражения, используемые в политике `set-variable`, должны возвращать один из следующих основных типов.  
   
 -   System.Boolean  
@@ -676,7 +721,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   System.DateTime?  
   
-##  <a name="a-namesetrequestmethoda-set-request-method"></a><a name="SetRequestMethod"></a> Задание метода запроса  
+##  <a name="SetRequestMethod"></a> Задание метода запроса  
  Политика `set-method` позволяет изменить метод HTTP-запроса для запроса.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -728,7 +773,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-namesetstatusa-set-status-code"></a><a name="SetStatus"></a> Задание кода состояния  
+##  <a name="SetStatus"></a> Задание кода состояния  
  Политика `set-status` меняет код состояния HTTP на указанное значение.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -775,7 +820,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-nametracea-trace"></a><a name="Trace"></a> Трассировка  
+##  <a name="Trace"></a> Трассировка  
  Политика `trace` добавляет строку в выходные данные [инспектора API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). Политика будет выполняться, только если инициирована трассировка, т. е. заголовок запроса `Ocp-Apim-Trace` присутствует и имеет значение `true`, а заголовок запроса `Ocp-Apim-Subscription-Key` присутствует и содержит допустимый ключ, связанный с учетной записью администратора.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -807,7 +852,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **Области политики:** все области.  
   
-##  <a name="a-namewaita-wait"></a><a name="Wait"></a> Ожидание  
+##  <a name="Wait"></a> Ожидание  
  Политика `wait` параллельно выполняет свои непосредственные дочерние политики и ожидает выполнения всех или одной из них, прежде чем будет завершена. Политика ожидания может иметь в качестве непосредственных дочерних следующие политики: [Отправка запроса](api-management-advanced-policies.md#SendRequest), [Получение значения из кэша](api-management-caching-policies.md#GetFromCacheByKey) и [Управление потоками](api-management-advanced-policies.md#choose).  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -878,9 +923,4 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 Дополнительные сведения о работе с политиками см. в следующих статьях:
 -    [Политики в управлении API](api-management-howto-policies.md) 
 -    [Выражения политики](api-management-policy-expressions.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

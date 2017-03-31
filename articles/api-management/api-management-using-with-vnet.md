@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
-ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,8 +28,8 @@ ms.lasthandoff: 02/03/2017
 
 > [!NOTE]
 > Служба управления API Azure поддерживает классические виртуальные сети и виртуальные сети Azure Resource Manager.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Включение подключения к виртуальной сети
 > [!NOTE]
@@ -59,20 +59,20 @@ ms.lasthandoff: 02/03/2017
 
 > [!IMPORTANT]
 > При развертывании экземпляра службы управления API Azure в виртуальной сети Resource Manager служба должна находиться в выделенной подсети, в которой нет других ресурсов, кроме экземпляров управления API Azure. Если попытаться развернуть экземпляр управления API Azure в подсети виртуальной сети Resource Manager, содержащей другие ресурсы, это приведет к сбою.
-> 
-> 
+>
+>
 
 ![Выбор VPN][api-management-setup-vpn-select]
 
-Щелкните **Сохранить** в верхней части экрана. 
+Щелкните **Сохранить** в верхней части экрана.
 
 > [!NOTE]
 > Виртуальный IP-адрес экземпляра управления API будет изменяться при каждом включении или отключении виртуальной сети.  
 > Кроме того, виртуальный IP-адрес будет изменяться при изменении типа доступа для управления API с **внешнего** на **внутренний** или наоборот.
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Если удалить службу управления API из виртуальной сети или изменить виртуальную сеть, в которой она развернута, ранее использовавшаяся виртуальная сеть может быть заблокирована на 4 часа. В этот период вы не сможете удалить виртуальную сеть или развернуть в ней новый ресурс.
 
 ## <a name="enable-vnet-powershell"> </a>Активация подключения к виртуальной сети с помощью командлетов PowerShell
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/03/2017
 
 > [!IMPORTANT]
 > При использовании настраиваемого DNS-сервера для виртуальной сети мы рекомендуем настроить его **перед** развертыванием службы управления API в этой сети. В противном случае необходимо перезапустить облачную службу, в которой размещается служба, чтобы новые параметры DNS-сервера начали действовать.
-> 
+>
 
 * **Порты, необходимые для управления API**. Входящим и исходящим трафиком в подсети, в которой развернута служба управления API, можно управлять с помощью [группы безопасности сети][Network Security Group]. Если какой-либо из этих портов недоступен, служба управления API может не работать должным образом и даже стать недоступной. Блокировка одного или нескольких из этих портов является одной из распространенных проблем неправильной конфигурации при использовании управления API в виртуальной сети.
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 02/03/2017
 
 
 ## <a name="related-content"> </a>Связанная информация
-* [Подключение типа "сеть — сеть" и многосайтовое подключение][Different topologies to connect to Vpn Gateway]
+* [Подключение типа "сеть — сеть" и многосайтовое подключение (через VPN-туннель IPsec/IKE)](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Подключение виртуальных сетей из различных моделей развертывания с использованием PowerShell](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Как использовать инспектор API для трассировки вызовов в службе управления API Azure](api-management-howto-api-inspector.md)
 
@@ -149,7 +149,6 @@ ms.lasthandoff: 02/03/2017
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 

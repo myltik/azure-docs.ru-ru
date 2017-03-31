@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6efdd600386a603b38a5733977067f1a987cdac3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: ca9937d4c0d87827f8b78ecc495fdad791d139e8
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -2025,7 +2025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
     }
 ```
 
-Чтобы определить пользовательское средство применения, нам необходимо создать интерфейс `IApplier` с атрибутом [`SqlUserDefinedCombiner`], который не является обязательным для определения пользовательских средств применения.
+Чтобы определить пользовательское средство применения, нам необходимо создать интерфейс `IApplier` с атрибутом [`SqlUserDefinedApplier`], который не является обязательным для определения пользовательских средств применения.
 
 ```c#
     [SqlUserDefinedApplier]

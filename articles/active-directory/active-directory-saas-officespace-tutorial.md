@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
-ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: fb61a2d622b0d829a134b6ce5dfef6e9fb44fa1e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -148,43 +148,31 @@ ms.lasthandoff: 02/15/2017
     
     d. Нажмите кнопку **ОК**.
 
-6. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
-
-    ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
-
-7. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
-
-    ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. В разделе **Сертификат подписи SAML** выберите **Make new certificate active** (Сделать новый сертификат активным) и нажмите кнопку **Сохранить**.
-
-    ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. Во всплывающем окне **Rollover certificate** (Сертификат восстановления) нажмите кнопку **ОК**.
-
-    ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+6. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. В разделе **OfficeSpace Software Configuration** (Конфигурация OfficeSpace Software) щелкните **Configure OfficeSpace Software** (Настройка OfficeSpace Software), чтобы открыть окно **Настройка единого входа**.
+7. Щелкните **Сохранить**.
+
+    ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. В разделе **OfficeSpace Software Configuration** (Конфигурация OfficeSpace Software) щелкните **Configure OfficeSpace Software** (Настройка OfficeSpace Software), чтобы открыть окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
     ![Настройка единого входа](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. В другом окне веб-браузера войдите в свой клиент OfficeSpace Software в качестве администратора.
+9. В другом окне веб-браузера войдите в свой клиент OfficeSpace Software в качестве администратора.
 
-13. Выберите **Settings** (Параметры) и щелкните **Connectors** (Соединители).
+10. Выберите **Settings** (Параметры) и щелкните **Connectors** (Соединители).
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Щелкните **Авторизация SAML**.
+11. Щелкните **SAML Authentication** (Аутентификация SAML).
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. В разделе **Авторизация SAML** сделайте следующее:
+12. В разделе **Проверка подлинности SAML** сделайте следующее:
 
     ![Настройка единого входа на стороне приложения](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 

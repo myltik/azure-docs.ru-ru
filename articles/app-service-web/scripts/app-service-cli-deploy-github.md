@@ -12,33 +12,23 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ab4be9d9a03001789bed90e58d62fe1891608823
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8d9e90cc43df74968c7b9dc30d268f3e6228adcc
+ms.lasthandoff: 03/21/2017
 
 ---
 
 
 # <a name="create-a-web-app-with-deployment-from-github"></a>Создание веб-приложения с развертыванием из GitHub
 
-С помощью Azure CLI 2.0 этот пример скрипта выполняет следующие действия:
+Этот пример скрипта создает веб-приложение в службе приложений со связанными ресурсами, а затем развертывает код веб-приложения из открытого репозитория GitHub (без непрерывного развертывания). Дополнительные сведения о непрерывном развертывании на GitHub см. в статье [Создание веб-приложения с непрерывным развертыванием из GitHub](app-service-cli-continuous-deployment-github.md).
 
-* создает веб-приложение в службе приложений Azure в регионе Azure "Западная Европа";
-* развертывает код веб-приложения из GitHub;
-* отображает развернутое веб-приложение Azure в браузере.
+При необходимости установите Azure CLI с помощью инструкции, приведенной в [руководстве по установке Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), а затем выполните команду `az login`, чтобы создать подключение к Azure. Кроме того, необходима ссылка на репозиторий GitHub, который содержит код веб-приложения.
 
-## <a name="prerequisites"></a>Предварительные требования
-
-* Чтобы войти в Azure, выполните команду `az login`.
-* Поместите код веб-приложения в репозиторий GitHub.
-
-> [!NOTE]
-> Если вы используете чужой общедоступный репозиторий GitHub, служба приложений развернет код из него, но не сможет настроить ключ SSH и объекты webhook, необходимые для непрерывного развертывания.
->
->
+Этот пример работает в оболочке Bash. Сведения о параметрах выполнения скриптов Azure CLI в клиенте Windows см. в статье [Использование Azure CLI в Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## <a name="create-app-sample"></a>Создание примера приложения
 

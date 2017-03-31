@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: afd43fb536278d6aa76acaf7c9d18714bc5acd2b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -154,6 +155,12 @@ __Другие регионы__:
 > При наличии пользовательских правил, блокирующих входящий трафик (например, **Запретить все**), может потребоваться изменить значения приоритета в этих примерах. Правила в этих примерах должны применяться раньше правил, блокирующих доступ. В противном случае сначала будут проверены правила **Запретить все**, и правила, заданные в этом примере, никогда не будут применены. Кроме того, не следует блокировать правила по умолчанию для виртуальной сети Azure. Например, не нужно создавать правило **Запретить все**, применяемое перед правилом по умолчанию **Allow VNET inbound** (Разрешить входящий трафик виртуальной сети) с приоритетом 65000.
 > 
 > Дополнительные сведения о правилах групп безопасности сети см. в статье [Что такое группа безопасности сети?](../virtual-network/virtual-networks-nsg.md).
+
+**Использование шаблона Azure Resource Manager**
+
+Используйте приведенный ниже шаблон Resource Manager из [коллекции шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/), чтобы создать кластер HDInsight в виртуальной сети с конфигурациями защищенных сетей.
+
+[Развертывание защищенной виртуальной сети Azure и кластера HDInsight Hadoop в виртуальной сети](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 **Использование Azure PowerShell**
 

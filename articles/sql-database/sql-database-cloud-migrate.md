@@ -17,16 +17,16 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Миграция базы данных SQL Server в базу данных SQL в облаке
 В этой статье вы узнаете о двух основных методах миграции базы данных SQL Server 2005 или более поздней версии в базу данных SQL Azure. Первый метод проще, но миграция происходит с простоем, который может длиться достаточно долго. Второй метод более сложен, но значительно сокращает время простоя при выполнении миграции.
 
-В обоих случаях необходимо обеспечить совместимость базы данных-источника с базой данных SQL Azure. Начиная с базы данных SQL версии 12 у всех последующих версий базы данных SQL Server функции, не связанные с операциями уровня сервера и операциями между базами данных, [практически не отличаются](sql-database-features.md). Базы данных и приложения, использующие [частично поддерживаемые или неподдерживаемые функции](sql-database-transact-sql-information.md), требуют небольшой [доработки для устранения этих несовместимостей](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) перед миграцией базы данных SQL Server.
+В обоих случаях необходимо обеспечить совместимость базы данных-источника с базой данных SQL Azure с помощью [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). Начиная с базы данных SQL версии 12, у всех последующих версий базы данных SQL Server функции, не связанные с операциями уровня сервера и операциями между базами данных, [практически не отличаются](sql-database-features.md). Базы данных и приложения, использующие [частично поддерживаемые или неподдерживаемые функции](sql-database-transact-sql-information.md), требуют небольшой [доработки для устранения этих несовместимостей](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) перед миграцией базы данных SQL Server.
 
 > [!NOTE]
 > Сведения о переносе в базу данных SQL Azure баз данных, отличных от SQL Server, в том числе Microsoft Access, Sybase, MySQL Oracle и DB2, см. в блоге, посвященном [помощнику по миграции SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).

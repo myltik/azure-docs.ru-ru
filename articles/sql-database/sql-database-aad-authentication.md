@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
+ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 9f29b451ef76a318a7778a8d20e292e311191298
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/16/2017
 Для настройки и использования проверки подлинности Azure Active Directory выполните следующие действия.
 
 1. Создайте и заполните каталог Azure AD.
-2. Разместите свою базу данных в Базе данных SQL Azure версии&12;. (Необязательно для хранилища данных SQL.)
+2. Разместите свою базу данных в Базе данных SQL Azure версии 12. (Необязательно для хранилища данных SQL.)
 3. Свяжите или измените каталог Active Directory, который сейчас связан с вашей подпиской Azure (этот шаг можно пропустить).
 4. Создайте учетную запись администратора Azure Active Directory для сервера Azure SQL Server или [хранилища данных SQL Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
 5. Настройте клиентские компьютеры.
@@ -99,7 +99,6 @@ ms.lasthandoff: 02/16/2017
 * Для SQL Server Data Tools для Visual Studio 2015 требуется версия Data Tools, выпущенная в апреле 2016 г. (14.0.60311.1), или более поздняя. Сейчас пользователи Azure AD не отображаются в обозревателе объектов SSDT. Сведения о пользователях можно просмотреть в файле [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * [Драйвер Microsoft JDBC 6.0 для SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) поддерживает проверку подлинности Azure AD. Вы можете также ознакомиться с [настройкой свойств подключения](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase не поддерживает проверку подлинности Azure AD.   
-* Некоторые средства, такие как бизнес-аналитика и Excel, не поддерживаются.   
 * База данных SQL поддерживает проверку подлинности Azure AD на портале Azure. Для этого используются колонки **Импорт базы данных** и **Экспорт базы данных**. Импорт и экспорт с использованием проверки подлинности Azure AD также можно выполнить с помощью команды PowerShell.   
 
 ## <a name="next-steps"></a>Дальнейшие действия

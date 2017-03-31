@@ -1,3 +1,8 @@
+## <a name="microsoft-open-source-code-of-conduct"></a>Правила поведения Майкрософт при работе с проектами с открытым кодом
+
+Этот проект соответствует [правилам поведения Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
+Дополнительные сведения см. на странице [Вопросы и ответы о правилах поведения](https://opensource.microsoft.com/codeofconduct/faq/) или отправьте вопросы и комментарии по адресу [opencode@microsoft.com](mailto:opencode@microsoft.com).
+
 # <a name="azure-technical-documentation-contributor-guide"></a>Руководство для пользователей, участвующих в редактировании технической документации Azure
 Вы находитесь в репозитории GitHub. Здесь хранится техническая документация Azure, публикуемая по адресу [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
@@ -20,9 +25,6 @@
 
 * Редактируйте технические статьи через пользовательский интерфейс GitHub. Найдите нужную статью в этом репозитории или откройте ее на странице [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) и щелкните ссылку на источник в репозитории GitHub.
 * Если вы вносите значительные изменения в существующую статью, добавляете или изменяете изображения либо создаете статью, вам необходимо создать полную локальную копию репозитория (форк), установить Git Bash и Markdown Pad, а также изучить некоторые команды git.
-
-## <a name="code-of-conduct"></a>Правила поведения
-Этот проект соответствует [правилам поведения Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/). Дополнительные сведения см. на странице [Вопросы и ответы о правилах поведения](https://opensource.microsoft.com/codeofconduct/faq/) или отправьте вопросы и комментарии по адресу [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
 ## <a name="about-your-contributions-to-azure-content"></a>Внесение изменений в содержимое Azure
 ### <a name="minor-corrections"></a>Незначительные исправления
@@ -83,9 +85,4 @@
 
 ## <a name="more-resources"></a>Дополнительные ресурсы
 Список всех статей этого руководства приведен в [указателе](contributor-guide/contributor-guide-index.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 51c0f98e3d3ad09e3e6675b2692bc2a8888db9a7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Примеры кода и команд PowerShell для службы совместной работы Azure Active Directory B2B
 
 ## <a name="code-sample"></a>Пример кода
-В этом примере показано, как вызвать API приглашения в режиме "только для приложений" и получить URL-адрес активации для ресурса, в который вы приглашаете пользователя службы B2B. Цель этого действия — отправить настраиваемое сообщение с приглашением. Вы узнаете, как составить сообщение, используя HTTP-клиент, настроить его внешний вид и отправить его с помощью API Graph.
+Ниже показано, как вызвать API приглашения в режиме "только приложение" и получить URL-адрес активации для ресурса, в который вы приглашаете пользователя службы B2B. Цель этого действия — отправить настраиваемое сообщение с приглашением. Электронное сообщение можно составить, используя HTTP-клиент, чтобы настроить его внешний вид, и отправить его с помощью API Graph.
 
 ```
 namespace SampleInviteApp
@@ -162,9 +163,9 @@ namespace SampleInviteApp
 ```
 
 ## <a name="powershell-example"></a>Пример PowerShell
-В следующем примере показано, как выполнить массовое приглашение внешних пользователей в организацию, используя адреса электронной почты, сохраненные в CSV-файле.
+Можно выполнить массовое приглашение внешних пользователей в организацию, используя электронные адреса, сохраненные в CSV-файле.
 
-1. Подготовьте CSV-файл. Создайте CSV-файл и назовите его invitations.csv. В этом примере файл сохранен в папке C:\data. CSV-файл может выглядеть следующим образом:
+1. Подготовьте CSV-файл. Создайте CSV-файл и назовите его invitations.csv. В этом примере файл сохранен в папке C:\data. CSV-файл может выглядеть следующим образом.
 
   ```
     InvitedUserEmailAddress
@@ -182,14 +183,17 @@ namespace SampleInviteApp
     Connect-AzureAd and login
     ```
 
-4. Выполните командлет PowerShell:
+4. Выполнение командлета PowerShell
 
     ```
     $Invitations = import-csv C:\data\invitations.csv
     foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
-Это приведет к отправке приглашения на адреса, указанные в файле invitations.csv. Кроме того, этот командлет позволяет настроить текст сообщения, добавить отображаемое имя для приглашенного пользователя, отправить копии сообщения другим адресатам или полностью скрыть сообщение.
+Этот командлет отправляет приглашение на электронные адреса, указанные в файле invitations.csv. Дополнительные возможности этого командлета:
+- настраиваемый текст электронного сообщения;
+- добавление отображаемого имени для приглашенного пользователя;
+- отправка копий сообщений или полное подавление электронных сообщений.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -205,9 +209,4 @@ namespace SampleInviteApp
 * [Сопоставление утверждений пользователя службы совместной работы B2B в Azure Active Directory](active-directory-b2b-claims-mapping.md)
 * [Доступ внешних пользователей к Office 365](active-directory-b2b-o365-external-user.md)
 * [Текущие ограничения службы совместной работы Azure Active Directory B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
