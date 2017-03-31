@@ -36,8 +36,9 @@
 
 # Безопасность и соответствие требованиям
 ## Практическое руководство
-### [Управление разрешениями пользователей](azure-stack-manage-permissions.md)
+### [Управление RBAC](azure-stack-manage-permissions.md)
 ### [Добавление пользователей для AD FS](azure-stack-add-users-adfs.md)
+### [Создание субъектов-служб](Azure-stack-create-service-principals.md)
 
 # Предложение служб
 ## Начало работы
@@ -113,6 +114,9 @@
 # Устранение неполадок
 ## [Известные проблемы](azure-stack-troubleshooting.md)
 ## [Диагностика в Azure Stack](azure-stack-diagnostics.md)
+
+# Справочные материалы
+## [Управление профилями версий API](azure-stack-version-profiles.md)
 
 # Ресурсы
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

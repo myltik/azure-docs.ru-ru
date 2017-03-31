@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/16/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: dd6e6184dd755ea356cae1c4d50a2b7ba39da9fb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -51,10 +51,18 @@ ms.lasthandoff: 03/07/2017
 
 <tr><td>**Учебник по веб-приложениям**</td><td>[Создание веб-приложения Node.js с использованием DocumentDB](documentdb-nodejs-application.md)</td></tr>
 
-<tr><td>**Текущая поддерживаемая платформа**</td><td>[Node.js версии&0;.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js версии&0;.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js версии&4;.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+<tr><td>**Текущая поддерживаемая платформа**</td><td>[Node.js версии 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js версии 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js версии 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="1.11.0"/>1.11.0</a>
+* Добавлена поддержка статистических запросов (COUNT, MIN, MAX, SUM и AVG).
+* Добавлена возможность контролировать степень параллелизма для запросов между секциями.
+* Добавлена возможность отключения проверки SSL при работе с эмулятором DocumentDB.
+* Минимальная пропускная способность секционированных коллекций снижена с 10 100 ЕЗ/с до 2500 ЕЗ/с.
+* Исправлена ошибка маркера продолжения для односекционной коллекции (github #107).
+* Исправлена ошибка выполнения хранимой процедуры (executeStoredProcedure) при обработки 0 как одного параметра (github #155).
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Теперь заголовок User-Agent включает версию пакета SDK.
@@ -89,16 +97,16 @@ ms.lasthandoff: 03/07/2017
 * Исправлена ошибка метода resolveForRead() hashParitionResolver. Ранее вместо возврата списка всех зарегистрированных ссылок при отсутствии ключа раздела вызвалось исключение.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Устранена проблема [№&100;](https://github.com/Azure/azure-documentdb-node/issues/100). Выделенный агент HTTPS: избегайте изменения глобального агента для DocumentDB. Используйте выделенный агент для всех запросов lib.
+* Устранена проблема [№ 100](https://github.com/Azure/azure-documentdb-node/issues/100). Выделенный агент HTTPS: избегайте изменения глобального агента для DocumentDB. Используйте выделенный агент для всех запросов lib.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* Устранена проблема [№&81;](https://github.com/Azure/azure-documentdb-node/issues/81). Правильная обработка тире в идентификаторах носителей.
+* Устранена проблема [№ 81](https://github.com/Azure/azure-documentdb-node/issues/81). Правильная обработка тире в идентификаторах носителей.
 
 ### <a name="1.5.2"/>1.5.2</a>
-* Устранена проблема [№&95;](https://github.com/Azure/azure-documentdb-node/issues/95). Предупреждение об утечке данных прослушивателя EventEmitter.
+* Устранена проблема [№ 95](https://github.com/Azure/azure-documentdb-node/issues/95). Предупреждение об утечке данных прослушивателя EventEmitter.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Устранена проблема [№&92;](https://github.com/Azure/azure-documentdb-node/issues/90). Переименование папки Hash в hash для систем с учетом регистра.
+* Устранена проблема [№ 92](https://github.com/Azure/azure-documentdb-node/issues/90). Переименование папки Hash в hash для систем с учетом регистра.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Реализация поддержки сегментирования за счет добавления сопоставителей секций хэша и диапазона.
@@ -115,7 +123,7 @@ ms.lasthandoff: 03/07/2017
 
 ### <a name="1.2.1"/>1.2.1</a>
 * Реализована маршрутизация на основе идентификатора.
-* Устранена проблема [№&49;](https://github.com/Azure/azure-documentdb-node/issues/49) : конфликт текущего свойства с методом current().
+* Устранена проблема [№ 49](https://github.com/Azure/azure-documentdb-node/issues/49) : конфликт текущего свойства с методом current().
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Добавлена поддержка геопространственного индекса.
@@ -123,13 +131,13 @@ ms.lasthandoff: 03/07/2017
 * Добавлен новый заголовок "ход выполнения преобразования индекса" в ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
-* Реализована политика индексации версии&2;.
+* Реализована политика индексации версии 2.
 
 ### <a name="1.0.3"/>1.0.3</a>
-* Устранена проблема [№&40;](https://github.com/Azure/azure-documentdb-node/issues/40). Реализованы конфигурации eslint и grunt в пакете SDK для ядра и обещаний.
+* Устранена проблема [№ 40](https://github.com/Azure/azure-documentdb-node/issues/40). Реализованы конфигурации eslint и grunt в пакете SDK для ядра и обещаний.
 
 ### <a name="1.0.2"/>1.0.2</a>
-* Устранена проблема [№&45;](https://github.com/Azure/azure-documentdb-node/issues/45) — оболочка обещаний больше не включает заголовок с ошибкой.
+* Устранена проблема [№ 45](https://github.com/Azure/azure-documentdb-node/issues/45) — оболочка обещаний больше не включает заголовок с ошибкой.
 
 ### <a name="1.0.1"/>1.0.1</a>
 * Реализована возможность запрашивать конфликты, добавляя методы readConflicts, readConflictAsync и queryConflicts.
@@ -150,6 +158,7 @@ ms.lasthandoff: 03/07/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |16 марта 2017 г. |--- |
 | [1.10.2](#1.10.2) |27 января 2017 г. |--- |
 | [1.10.1](#1.10.1) |22 декабря 2016 г. |--- |
 | [1.10.0](#1.10.0) |3 октября 2016 г. |--- |

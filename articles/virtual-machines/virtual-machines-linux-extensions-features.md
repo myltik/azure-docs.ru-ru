@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ef28ca0a43d7e07fa87d5afdd3f0428f28a310f0
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/08/2017
 
 Агент виртуальной машины Azure управляет взаимодействием виртуальной машины с контроллером структуры Azure. Агент отвечает за многие функциональные аспекты развертывания виртуальных машин Azure и управления ими, включая запуск расширений ВМ. Агент виртуальной машины Azure предварительно установлен во всех образах Azure Marketplace. Также его можно установить вручную в поддерживаемых операционных системах.
 
-Сведения о поддерживаемых операционных системах и инструкции по установке см. в статье [Обзор агента и расширений виртуальной машины](virtual-machines-linux-classic-agents-and-extensions.md).
+Сведения о поддерживаемых операционных системах и инструкции по установке см. в статье [Обзор агента и расширений виртуальной машины](linux/classic/agents-and-extensions.md).
 
 ## <a name="discover-vm-extensions"></a>Поиск расширений ВМ
 

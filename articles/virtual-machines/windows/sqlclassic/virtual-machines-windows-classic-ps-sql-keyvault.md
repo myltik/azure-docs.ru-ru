@@ -17,15 +17,15 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: e0950a5c2c7d40751664c0c5a60facef68a79b2a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель)
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [Классический](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [Классический](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/15/2017
 Используйте PowerShell для настройки интеграции хранилища ключей Azure. В следующих разделах приведены общие сведения о требуемых параметрах, а также пример сценария PowerShell.
 
 ### <a name="install-the-sql-server-iaas-extension"></a>Установка расширения IaaS для SQL Server
-Сначала [установите расширение IaaS для SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Сначала [установите расширение IaaS для SQL Server](../classic/sql-server-agent-extension.md).
 
 ### <a name="understand-the-input-parameters"></a>Описание входных параметров
 В следующей таблице перечислены параметры, необходимые для выполнения сценария PowerShell в следующем разделе.

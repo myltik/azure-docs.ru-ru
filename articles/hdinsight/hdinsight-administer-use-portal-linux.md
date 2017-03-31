@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
-ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 82c12f4a2a24e190babfd88ff667e24d6c45ebac
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -79,7 +80,7 @@ HDInsight работает со множеством компонентов Hado
    * **Имя для входа в кластер.** Отображайте сведения о входе в кластер.
    * **Использование ядер в подписке.** Отображайте используемые и доступные ядра для подписки. 
    * **Масштабирование кластера**: увеличение или уменьшение количества рабочих узлов в кластере. Ознакомьтесь с разделом [Масштабирование кластеров](hdinsight-administer-use-management-portal.md#scale-clusters).
-   * **Secure Shell**: отображение сведений, необходимых для подключения к кластеру по протоколу SSH. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md) или [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * **Secure Shell**: отображение сведений, необходимых для подключения к кластеру по протоколу SSH. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
    * **Партнер HDInsight**: добавление и удаление текущего партнера HDInsight.
    * **Внешние метахранилища**: просмотр метахранилищ Hive и Oozie. Метахранилища можно настроить только во время создания кластера. Ознакомьтесь с разделом [Использование метахранилища Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
    * **Действия скрипта**: выполнение bash-скриптов в кластере. См. статью [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).

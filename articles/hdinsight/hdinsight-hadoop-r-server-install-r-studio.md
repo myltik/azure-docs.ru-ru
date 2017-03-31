@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 970419650e1d3e22637733fdb4fba72ff27f5339
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,10 +44,8 @@ ms.lasthandoff: 01/10/2017
 
    * Головной узел — `CLUSTERNAME-ssh.azurehdinsight.net`
    * Граничный узел — `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. Подключитесь к граничному узлу кластера по протоколу SSH, используя шаблон именования выше. 
+2. Подключитесь к граничному узлу кластера по протоколу SSH, используя шаблон именования выше. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * При подключении из клиента Linux см. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-   * При подключении из клиента Windows см. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. После подключения используйте учетные данные привилегированного пользователя в кластере. В сеансе SSH используйте следующую команду:
 
         sudo su -
@@ -81,7 +79,7 @@ ms.lasthandoff: 01/10/2017
        Замените параметр **USERNAME** именем пользователя SSH для кластера HDInsight, а **CLUSTERNAME** — именем кластера HDInsight. Вы также можете использовать ключ SSH вместо пароля, добавив `-i id_rsa_key`.        
    * Если вы используете клиент Windows и PuTTY, выполните следующие действия:
 
-     1. Откройте PuTTY и введите информацию о подключении. Если вы не знакомы с PuTTY, обратитесь к разделу [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md) , чтобы узнать, как пользоваться PuTTY с HDInsight.
+     1. Откройте PuTTY и введите информацию о подключении.
      2. В разделе **Категории** в левой части диалогового окна последовательно разверните **Подключение**, **SSH** и выберите **Туннели**.
      3. Введите следующую информацию в форме **Параметры, управляющие перенаправлением портов SSH** :
 

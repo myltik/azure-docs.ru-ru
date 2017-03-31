@@ -1,3 +1,4 @@
+
 # Обзор
 ## [Что такое Service Fabric?](service-fabric-overview.md)
 ## [Основные сведения о микрослужбах](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Примеры и сценарии](service-fabric-patterns-and-scenarios.md)
 ### Основы
 #### [Модель приложения](service-fabric-application-model.md)
+#### [Создание пакета приложения](service-fabric-package-apps.md)
 #### [Поддерживаемая модель программирования](service-fabric-choose-framework.md)
 #### [Состояние службы](service-fabric-concepts-state.md)
 #### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
 #### [Добавление веб-интерфейса](service-fabric-add-a-web-frontend.md)
 #### [Ресурсы манифеста службы](service-fabric-service-manifest-resources.md)
+#### [Начало работы с подключаемым модулем Eclipse для разработки приложений Java](service-fabric-get-started-eclipse.md)
 #### [Управление приложениями в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Настройка безопасных соединений в Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Отладка
@@ -62,7 +65,7 @@
 #### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
 #### [Обмен данными с помощью Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Безопасное взаимодействие с Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Удаленное взаимодействие со службой](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Миграция из облачных служб
 ### [Сравнение облачных служб и Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Переход к использованию Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Рекомендации](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Создание кластеров и управление ими
 

@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a58f328795f85e5392d1bd4c305aabb48b65798c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
 > 
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Требование проверки подлинности для доступа к контроллерам
-Ко всем контроллерам в проекте добавлен атрибут **Authorize** . Этот атрибут обеспечивает проверку подлинности пользователей перед их доступом к контроллерам. Для анонимного доступа к контроллеру удалить с него этот атрибут. Если необходимо задать разрешения на более детальном уровне, примените атрибут к каждому методу, требующему проверки подлинности, а не к классу контроллера.
+Ко всем контроллерам в проекте добавлен атрибут **Authorize** . Этот атрибут обеспечивает аутентификацию пользователей перед их доступом к контроллерам. Для анонимного доступа к контроллеру удалить с него этот атрибут. Если необходимо задать разрешения на более детальном уровне, примените атрибут к каждому методу, требующему проверки подлинности, а не к классу контроллера.
 
 ## <a name="adding-signin--signout-controls"></a>Добавление элементов управления SignIn и SignOut
 Чтобы добавить элементы управления SignIn и SignOut, используйте частичное представление **_LoginPartial.cshtml** для добавления функций к одному из представлений. Вот пример добавления такой функциональности в стандартное представление **_Layout.cshtml**. (обратите внимание на последний элемент в теге div с классом navbar-collapse):
@@ -71,11 +72,7 @@ ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
     &lt;/html&gt;
 </pre>
 
-[Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+## <a name="next-steps"></a>Дальнейшие действия
+- [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 
 

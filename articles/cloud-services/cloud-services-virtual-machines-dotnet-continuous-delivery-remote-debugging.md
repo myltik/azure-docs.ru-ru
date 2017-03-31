@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: bd0768b9d46c12c38ecd530ccef8397d1b595d8d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d011223dbb1ad7b5752875e94a4822be1b6cbe6e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/07/2017
 
 ## <a name="enabling-remote-debugging-for-cloud-services"></a>Включение удаленной отладки для облачных служб
 1. В агенте сборки настройте начальную среду для Azure, как описано в разделе [Сборка с помощью командной строки для Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Так как для пакета требуется среда выполнения удаленной отладки (msvsmon.exe), установите **инструменты удаленной отладки для Visual Studio&2013;**.
+2. Так как для пакета требуется среда выполнения удаленной отладки (msvsmon.exe), установите **инструменты удаленной отладки для Visual Studio 2013**.
 
     * [Инструменты удаленной отладки для Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [Инструменты удаленной отладки для Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/07/2017
 6. Импортируйте сертификат (файл .pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET. Импортировать в хранилище сертификатов `CurrentUser\My` обязательно, иначе вы не сможете присоединить отладчик в Visual Studio.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Включение удаленной отладки для виртуальных машин
-1. Создайте виртуальную машину Azure. См. статью [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [Создание виртуальных машин Windows и управление ими в Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+1. Создайте виртуальную машину Azure. См. статью [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [Создание виртуальных машин Windows и управление ими в Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 2. На [странице классического портала Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851)откройте панель мониторинга виртуальной машины и найдите **ОТПЕЧАТОК СЕРТИФИКАТА RDP**виртуальной машины. Он используется для `ServerThumbprint` значения в конфигурации расширения.
 3. Создайте сертификат клиента, как описано в разделе [Общие сведения о сертификатах для облачных служб Azure](cloud-services-certs-create.md) (оставьте PFX-файл и отпечаток сертификата RDP).
 4. Установите Azure Powershell (0.7.4 или более поздней версии), как описано в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).

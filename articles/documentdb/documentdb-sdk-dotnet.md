@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2de833df26de9a9e160dd0cfcc1589eb0ebb7d34
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5bded9c15ef6ec5464952d533c6681801f137749
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -51,6 +51,10 @@ ms.lasthandoff: 03/15/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11221122httpswwwnugetorgpackagesmicrosoftazuredocumentdb1122"></a><a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+* Исправление ошибки, приводившей к исключению WebException: "Удаленное имя не удалось разрешить".
+* Добавлена поддержка непосредственного считывания типизированного документа путем добавления новых перегрузок в API ReadDocumentAsync.
 
 ### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
 * Добавлена поддержка LINQ для статистических запросов (COUNT, MIN, MAX, SUM и AVG).
@@ -144,7 +148,7 @@ ms.lasthandoff: 03/15/2017
   * Оператор Take, позволяющий выполнить операцию SELECT TOP в LINQ.
   * Оператор CompareTo, позволяющий сравнивать диапазоны строк.
   * Условный оператор (?) и оператор объединения (??).
-* **[Исправлено]**. Порождение исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ.  [№&81;](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Исправлено]**. Порождение исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ.  [№ 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151httpswwwnugetorgpackagesmicrosoftazuredocumentdb151"></a><a name="1.5.1"/>[1.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
 * **[Исправлено]** Если операция Select не является последней, поставщик LINQ не использовал проекции и неверно определял операцию SELECT *.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -212,6 +216,7 @@ ms.lasthandoff: 03/15/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |20 марта 2017 г. |--- |
 | [1.12.1](#1.12.1) |14 марта 2017 г. |--- |
 | [1.12.0](#1.12.0) |15 февраля 2017 г. |--- |
 | [1.11.4](#1.11.4) |6 февраля 2017 г. |--- |

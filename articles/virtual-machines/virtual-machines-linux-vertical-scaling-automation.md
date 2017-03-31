@@ -69,7 +69,7 @@ ms.lasthandoff: 03/03/2017
 
 На приведенном ниже рисунке показаны модули Runbook, которые необходимо импортировать.
 
-![Импорт модулей Runbook](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Импорт модулей Runbook](./windows/media/vertical-scaling-automation/scale-runbooks.png)
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Добавление веб-перехватчика в модуль Runbook.
 После импорта модулей Runbook в них необходимо добавить веб-перехватчик. Этого может потребовать система оповещений виртуальной машины. Дополнительные сведения о создании веб-перехватчика для вашего модуля Runbook см. в статье:
@@ -88,8 +88,8 @@ ms.lasthandoff: 03/03/2017
 7. Выберите период для проверки условий и порогового значения, упомянутых выше.
 8. Вставьте скопированный веб-перехватчик, описанный в предыдущем разделе.
 
-![Добавить правило оповещения для виртуальной машины 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Добавить правило оповещения для виртуальной машины 1](./windows/media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Добавить правило оповещения для виртуальной машины 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![Добавить правило оповещения для виртуальной машины 2](./windows/media/vertical-scaling-automation/add-alert-webhook-2.png)
 
 

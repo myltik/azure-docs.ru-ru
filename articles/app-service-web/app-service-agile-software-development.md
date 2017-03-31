@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5ef5cfeb82eed86fd0a9b6328c803d6a88cd2822
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Гибкая разработка программного обеспечения с помощью службы приложений Azure.
-Из этого учебника вы узнаете, как создавать крупномасштабные сложные приложения с помощью [службы приложений Azure](/services/app-service/) и [гибкой разработки программного обеспечения](https://en.wikipedia.org/wiki/Agile_software_development). Предполагается, что вы уже знаете, как [предсказуемо развертывать сложные приложения в Azure](app-service-deploy-complex-application-predictably.md).
+Из этого учебника вы узнаете, как создавать крупномасштабные сложные приложения с помощью [службы приложений Azure](/azure/app-service/) и [гибкой разработки программного обеспечения](https://en.wikipedia.org/wiki/Agile_software_development). Предполагается, что вы уже знаете, как [предсказуемо развертывать сложные приложения в Azure](app-service-deploy-complex-application-predictably.md).
 
 Ограничения в технических процессах часто могут препятствовать успешной реализации гибких методологий. Служба приложений Azure с такими компонентами, как [непрерывная публикация](app-service-continuous-deployment.md), [промежуточные среды](web-sites-staged-publishing.md) (слоты) и [мониторинг](web-sites-monitor.md) в сочетании с оркестрацией развертывания и управлением им в [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), может входить в состав идеального решения для разработчиков, которые используют гибкую разработку программного обеспечения.
 

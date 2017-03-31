@@ -17,9 +17,9 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 4307797b3961d8efef4045590e340268f0ad226d
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ab637f9910523cc8d8967dd1507dbcfad9f7ae88
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/10/2017
 Выбрав минимальный уровень службы, переходите к определению уровня производительности для базы данных (в единицах DTU). В качестве отправной точки можно использовать стандартные уровни производительности S2 и S3. Для баз данных с высокими требованиями к ЦП или операциям ввода-вывода рекомендуется начинать с уровней производительности "Премиум". На уровне "Премиум" предоставляется больше ресурсов ЦП и минимум в 10 раз больше операций ввода-вывода по сравнению с самой высокой производительностью на уровне "Стандартный".
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Уровни служб для отдельной базы данных и уровни производительности
-Для отдельных баз данных существует несколько уровней производительности в пределах каждого уровня обслуживания. У вас есть возможность выбирать уровень, который лучше всего соответствует требованиям рабочей нагрузки, с помощью [портала Azure](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# и REST API. 
+Для отдельных баз данных существует несколько уровней производительности в пределах каждого уровня обслуживания. У вас есть возможность выбирать уровень, который лучше всего соответствует требованиям рабочей нагрузки, с помощью [портала Azure](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# и REST API. 
 
 Вне зависимости от количества размещаемых баз данных, вашей базе данных будет выделен гарантированный набор ресурсов. Кроме того, ожидаемые показатели производительности этой базы данных останутся без изменений.
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Увеличение или уменьшение масштаба отдельной базы данных
 
-Изначально выбрав уровень служб и уровень производительности, вы сможете динамически увеличивать или уменьшать масштаб отдельной базы данных в процессе фактической работы. Если вам нужно увеличить или уменьшить масштаб, вы легко можете изменить уровни базы данных с помощью [портала Azure](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# и REST API. 
+Изначально выбрав уровень служб и уровень производительности, вы сможете динамически увеличивать или уменьшать масштаб отдельной базы данных в процессе фактической работы. Если вам нужно увеличить или уменьшить масштаб, вы легко можете изменить уровни базы данных с помощью [портала Azure](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# и REST API. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/10/2017
 * Новые свойства базы данных не применяются до тех пор, пока изменение не завершится.
 
 > [!IMPORTANT]
-> Подробные инструкции см. в статьях [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-manage-single-databases-portal.md), [Manage a single database with PowerShell](sql-database-manage-single-databases-powershell.md) (Управление отдельной базой данных с помощью Powershell) и [Создание и администрирование отдельных баз данных Azure SQL с помощью Transact-SQL](sql-database-manage-single-databases-tsql.md).
+> Подробные инструкции см. в статьях [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-manage-single-databases-portal.md), [Manage a single database with PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) (Управление отдельной базой данных с помощью Powershell) и [Создание и администрирование отдельных баз данных Azure SQL с помощью Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Уровни службы пула эластичных баз данных и производительность в единицах eDTU
@@ -106,10 +106,10 @@ ms.lasthandoff: 03/10/2017
 
 Изначально выбрав уровень служб и уровень производительности, вы сможете динамически увеличивать или уменьшать масштаб пула эластичных баз данных в процессе фактической работы. 
 
-* Изменение минимального или максимального числа eDTU для базы данных обычно завершается за&5; минут или быстрее.
+* Изменение минимального или максимального числа eDTU для базы данных обычно завершается за 5 минут или быстрее.
 * Время изменения размера пула (eDTU) зависит от общего размера всех баз данных в пуле. Изменение занимает порядка 90 минут или меньше на каждые 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении числа eDTU для пула составит до 3 часов.
 
-Подробные инструкции см. в разделе [Создание эластичного пула и управление им на портале Azure](sql-database-elastic-pool-manage-portal.md), [Создание эластичного пула и управление им с помощью PowerShell](sql-database-elastic-pool-manage-powershell.md), [Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL](sql-database-elastic-pool-manage-tsql.md) или [Создание и администрирование эластичного пула с помощью C](sql-database-elastic-pool-manage-csharp.md).
+Подробные инструкции см. в разделе [Создание эластичного пула и управление им на портале Azure](sql-database-elastic-pool-manage-portal.md), [Создание эластичного пула и управление им с помощью PowerShell](scripts/sql-database-monitor-and-scale-pool-powershell.md), [Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL](sql-database-elastic-pool-manage-tsql.md) или [Создание и администрирование эластичного пула с помощью C](sql-database-elastic-pool-manage-csharp.md).
 
 ## <a name="creating-or-upgrading-to-4tb"></a>Создание базы данных, которой предоставляется 4 ТБ, или обновление до нее
 

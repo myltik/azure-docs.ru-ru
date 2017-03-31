@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 03/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0d284e122704ba01676c4b0028e196fe47bca8
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight
@@ -127,7 +127,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 ## <a name="create-a-kafka-topic"></a>Создание раздела Kafka
 
-1. Подключитесь к кластеру Kafka с помощью SSH. Замените **USERNAME** именем пользователя SSH, которое использовалось при создании кластера. Замените **BASENAME** базовым именем, которое использовалось при создании кластера.
+1. Подключитесь к кластеру Kafka с помощью SSH. Замените `USERNAME` именем пользователя SSH, которое использовалось при создании кластера. Замените `BASENAME` базовым именем, которое использовалось при создании кластера.
    
         ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
    
@@ -139,36 +139,62 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
     * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Во время подключения SSH к кластеру Kafka используйте следующие команды для получения узлов Zookeeper из Ambari:
+2. Во время установления SSH-подключения к кластеру Kafka используйте следующие команды, чтобы задать переменные для имени для входа по протоколу HTTP и имени кластера. Эти значения используются в других шагах в этом разделе.
 
-        # Install JQ to make working with JSON easier
-        sudo apt -y install jq
-        # Query Ambari for 
-        KAFKAZKHOSTS=`curl -u admin:PASSWORD -G "http://headnodehost:8080/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
-    
-    Замените __PASSWORD__ паролем администратора, который использовался при создании кластера. Замените __BASENAME__ базовым именем, которое использовалось при создании кластера.
+  ```bash
+  ADMIN='admin' #replace with the name of the admin account for the cluster
+  PASSWORD='password' #replace with the password for the admin account
+  ```
 
-    Эта команда считывает значения для узлов Zookeeper из Ambari и сохраняет их в переменной KAFKAZKHOSTS. Для просмотра этих значений используйте следующую команду:
+3. Используйте приведенные ниже команды, чтобы установить служебную программу `jq`, получить имя кластера и задать переменную `KAFKAZKHOSTS`.
 
-        echo $KAFKAZKHOSTS
-    
+  ```bash
+  sudo apt -y install jq
+  CLUSTERNAME=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name'`
+  KAFKAZKHOSTS=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+  ```
+
+    Используйте следующую команду, чтобы получить имя кластера.
+
+  ```bash
+  echo $CLUSTERNAME
+  ```
+
     После выполнения этой команды вы должны увидеть результат, аналогичный приведенному ниже.
 
-        zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
+  ```bash
+  kafka-myhdi
+  ```
 
-    Сохраните значения, возвращаемые при выполнении этой команды. Они потребуются при запуске топологии в кластере Storm.
+    Выполните следующую команду, чтобы проверить правильность настройки `KAFKAZKHOSTS`.
+
+  ```bash
+  echo $KAFKAZKHOSTS
+  ```
+
+    После выполнения этой команды вы должны увидеть результат, аналогичный приведенному ниже.
+
+  ```bash
+  zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
+  ```
+
+    Сохраните имя кластера Kafka и данные узла Zookeeper, так как эти значения используются при запуске топологии в кластере Storm.
 
     > [!NOTE]
-    > Предыдущая команда использует адрес __http://headnodehost:8080/__ с прямым подключением к Ambari. Если вам необходимо получить эту информацию из-за пределов кластера через Интернет, используйте адрес __https://kafka-BASENAME/__.
+    > Предыдущая команда использует адрес __http://headnodehost:8080/__ с прямым подключением к Ambari. Если вам необходимо получить эту информацию извне кластера через Интернет, используйте адрес __https://kafka-<базовое_имя>.azurehdinsight.net__.
 
-3. Создайте раздел в Kafka с помощью следующей команды.
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
-   
+4. Создайте раздел в Kafka с помощью следующей команды.
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
+  ```
+
     Эта команда подключается к Zookeeper с помощью сведений об узле, хранящихся в `$KAFKAZKHOSTS`, а затем создает раздел Kafka с именем **stormtest**. Чтобы убедиться, что раздел создан, используйте следующую команду, которая выводит список разделов.
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
-   
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
+  ```
+
     В выходных данных этой команды перечислены разделы Kafka, среди которых должен быть и новый раздел **stormtest**.
 
 Оставьте SSH-подключение к кластеру Kafka активным. С его помощью вы сможете убедиться, что топология Storm записывает сообщения в раздел.
@@ -176,45 +202,55 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 ## <a name="download-and-compile-the-project"></a>Скачивание и компиляция проекта
 
 1. В среде разработки скачайте проект по адресу [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), откройте окно командной строки и перейдите в папку со скачанным проектом.
-   
+
     Потратьте несколько минут, чтобы просмотреть код и понять, как работает проект.
 
 2. Из каталога **hdinsight-storm-java-kafka** выполните следующую команду, чтобы скомпилировать проект и создать пакет для развертывания.
-   
-        mvn clean package
-   
+
+  ```bash
+  mvn clean package
+  ```
+
     Процесс упаковки создаст файл с именем `KafkaTopology-1.0-SNAPSHOT.jar` в каталоге `target`.
 
 3. Воспользуйтесь приведенными ниже командами, чтобы скопировать пакет в кластер Storm в HDInsight. Замените **USERNAME** именем пользователя SSH для кластера. Замените **BASENAME** базовым именем, которое использовалось при создании кластера.
-   
-        scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-   
+
+  ```bash
+  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+  ```
+
     При появлении запроса введите пароль, который использовался при создании кластеров.
 
 4. С помощью следующей команды скопируйте файл `set-env-variables.sh` в каталог `scripts` проекта в кластере Storm.
 
-        scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
-    
+  ```bash
+  scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
+  ```
+
     Этот сценарий используется, чтобы задать переменные среды, используемые топологиями Storm для взаимодействия с кластером Kafka.
 
 ## <a name="start-the-writer"></a>Запуск модуля записи
 
 1. Используйте указанную ниже команду для подключения к кластеру Storm с помощью SSH. Замените **USERNAME** именем пользователя SSH, которое использовалось при создании кластера. Замените **BASENAME** базовым именем, которое использовалось при создании кластера.
-   
-        ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
-   
+
+  ```bash
+  ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
+  ```
+
     При появлении запроса введите пароль, который использовался при создании кластеров.
-   
+
     Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-   
+
     * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Чтобы запустить сценарий `set-env-variables.sh`, выполните следующие команды из SSH-подключения к кластеру Storm:
 
-        chmod +x set-env-variables.sh
-        . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
+  ```bash
+  chmod +x set-env-variables.sh
+  . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
+  ```
 
     Замените __KAFKACLUSTERNAME__ именем кластера Kafka. Замените __PASSWORD__ паролем для входа администратора кластера Kafka.
 
@@ -229,25 +265,27 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
         $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181
 
 3. Чтобы запустить топологию модуля записи, выполните следующие команды из SSH-подключения к кластеру Storm.
-   
+
         storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml -e
-   
+
     Параметры, используемые в этой команде:
-   
-    * **org.apache.storm.flux.Flux.** Для настройки и запуска этой топологии следует использовать Flux.
-   
-    * **--remote.** Отправьте топологию в Nimbus. Топология распределяется между рабочими узлами в кластере.
-   
-    * **-R /writer.yaml.** Используйте **writer.yaml** для настройки топологии. `-R` указывает, что ресурс включен в JAR-файл. Он включается в корень JAR-файла, поэтому путь к нему выглядит так: `/writer.yaml`.
-   
-    * **-e.** Используйте подстановку переменных среды. Flux выбирает значения $KAFKABROKERS и $KAFKATOPIC, заданные ранее, и использует их в файле reader.yaml вместо записей `${ENV-KAFKABROKER}` и `${ENV-KAFKATOPIC}`.
+
+    * `org.apache.storm.flux.Flux`. Для настройки и запуска этой топологии следует использовать Flux.
+
+    * `--remote`. Отправьте топологию в Nimbus. Топология распределяется между рабочими узлами в кластере.
+
+    * `-R /writer.yaml`. Используйте файл `writer.yaml` для настройки топологии. `-R` указывает, что ресурс включен в JAR-файл. Он включается в корень JAR-файла, поэтому путь к нему выглядит так: `/writer.yaml`.
+
+    * `-e`. Используйте подстановку переменных среды. Flux выбирает значения $KAFKABROKERS и $KAFKATOPIC, заданные ранее, и использует их в файле reader.yaml вместо записей `${ENV-KAFKABROKER}` и `${ENV-KAFKATOPIC}`.
 
 5. После запуска топологии перейдите к SSH-подключению к кластеру Kafka и используйте следующую команду для просмотра сообщений в разделе **stormtest**.
-   
-         /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
-   
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
+  ```
+
     Эта команда использует сценарий, входящий в состав Kafka, для мониторинга раздела. Через некоторое время она начнет возвращать случайные предложения, которые были записаны в раздел. Вы должны увидеть результат, аналогичный приведенному ниже.
-   
+
         i am at two with nature             
         an apple a day keeps the doctor away
         snow white and the seven dwarfs     
@@ -262,14 +300,16 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
         snow white and the seven dwarfs     
         i am at two with nature             
         an apple a day keeps the doctor away
-   
+
     Для остановки сценария нажмите сочетание клавиш CTRL+C.
 
 ## <a name="start-the-reader"></a>Запуск модуля чтения
 
 1. Чтобы запустить топологию модуля чтения, выполните следующие команды из SSH-подключения к кластеру Storm.
-   
-        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+
+  ```bash
+  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+  ```
 
 2. После запуска топологии откройте пользовательский интерфейс Storm. Этот веб-интерфейс расположен по адресу https://storm-BASENAME.azurehdinsight.net/stormui. Замените __BASENAME__ базовым именем, которое использовалось при создании кластера. 
 
@@ -305,8 +345,10 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 Чтобы остановить топологии Storm, выполните следующие команды из SSH-подключения к кластеру Storm.
 
-    storm kill kafka-writer
-    storm kill kafka-reader
+  ```bash
+  storm kill kafka-writer
+  storm kill kafka-reader
+  ```
 
 ## <a name="delete-the-cluster"></a>Удаление кластера
 

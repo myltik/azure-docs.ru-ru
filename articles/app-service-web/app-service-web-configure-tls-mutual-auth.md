@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db2f48b248e2232f913a99b4ffbc0d18b77407e8
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -40,13 +40,16 @@ ms.lasthandoff: 11/17/2016
 
 Замените все содержимое в скобках {} сведениями для своего веб-приложения и создайте файл с именем enableclientcert.json со следующим JSON-содержимым:
 
-> { "location": "расположение моего веб-приложения",   
-> "properties": {  
-> "clientCertEnabled": true } }  
-> 
-> 
+    {
+        "location": "My Web App Location",
+        "properties": {
+            "clientCertEnabled": true
+        }
+    }
 
 Обязательно измените значение location на расположение своего веб-приложения, например Северо-Центральный регион США или Запад США и т. п.
+
+Можно использовать https://resources.azure.com, чтобы переключить свойство `clientCertEnabled` в значение `true`.
 
 > **Примечание.** При запуске ARMClient из PowerShell необходимо экранировать знак @ для JSON-файла с помощью грависа (`).
 > 

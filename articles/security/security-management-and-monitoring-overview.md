@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 2e76b380ae928bc6935f15546d73a302ed32bcd3
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,8 +66,8 @@ Azure также поддерживает продукт Symantec End Point Prot
 
 * [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](azure-security-antimalware.md)
-* [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../virtual-machines/windows/classic/install-trend.md)
+* [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [Новые возможности защиты виртуальных машин Azure от вредоносных программ — McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -129,9 +130,4 @@ VPN-шлюзы, или шлюзы виртуальных сетей Azure, ис�
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

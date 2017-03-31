@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/20/2017
 
 В этой статье показано, как в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) включить протокол HTTPS для веб-приложения, серверной части мобильного приложения или приложения API, использующего личный домен. В ней рассматривается только аутентификация на сервере. Если требуется взаимная аутентификация (включая проверку подлинности клиента), ознакомьтесь с разделом [Настройка взаимной проверки подлинности TLS для веб-приложения](app-service-web-configure-tls-mutual-auth.md).
 
-Чтобы с помощью протокола HTTPS защитить приложение, использующее имя личного домена, следует добавить сертификат для этого доменного имени. По умолчанию Azure защищает домен **\*.azurewebsites.net** одним SSL-сертификатом, чтобы ваши клиенты могли обращаться к вашему приложению, размещенному по адресу **https://*&lt;имя_приложения>*.azurewebsites.net**. Но если вы хотите использовать личный домен, например **contoso.com**, **www.contoso.com** или **\*.contoso.com**, то сертификат по умолчанию не сможет обеспечить его защиту. Более того, как и все [групповые сертификаты](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), сертификат по умолчанию не обеспечивает такую безопасность, как личный домен с сертификатом для этого домена.   
+Чтобы с помощью протокола HTTPS защитить приложение, использующее имя личного домена, следует добавить сертификат для этого доменного имени. По умолчанию Azure защищает домен **\*.azurewebsites.net** одним SSL-сертификатом, чтобы ваши клиенты могли обращаться к вашему приложению, размещенному по адресу **https://*&lt;имя_приложения>*.azurewebsites.net**. Но если вы хотите использовать личный домен, например**contoso.com**, **www.contoso.com**или**\*.contoso.com**, то сертификат по умолчанию не сможет обеспечить его защиту. Более того, как и все [групповые сертификаты](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), сертификат по умолчанию не обеспечивает такую безопасность, как личный домен с сертификатом для этого домена.   
 
 > [!NOTE]
 > В любой момент вы можете обратиться за помощью к экспертам по Azure на [форумах Azure](https://azure.microsoft.com/support/forums/). Чтобы получить более индивидуальную помощь, перейдите на сайт [службы поддержки Azure](https://azure.microsoft.com/support/options/) и щелкните **Получить поддержку**.
@@ -439,8 +439,12 @@ ms.lasthandoff: 01/20/2017
    
     ![вставить изображение для привязок SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
    
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+    > [!NOTE] 
+    > **SSL на основе IP** связывает сертификат с доменным именем, сопоставляя выделенный общедоступный IP-адрес сервера с доменным именем. Для этого необходимо, чтобы для каждого имени домена (contoso.com, fabricam.com и т. д.), связанного с вашей службой, был доступен выделенный IP-адрес. Это традиционный метод сопоставления сертификатов SSL с веб-сервером.  
+    >
+    > **SSL на основе SNI** является расширением SSL и **[протокола TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)**, которое позволяет нескольким доменам совместно использовать IP-адрес с отдельными сертификатами безопасности для каждого домена. Большинство современных браузеров (включая Internet Explorer, Chrome, Firefox и Opera) поддерживает SNI, однако более старые браузеры могут не поддерживать SNI. Дополнительные сведения об SNI см. в статье Википедии **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** (Указание имени сервера).
+    > 
+
 9. Чтобы сохранить изменения и активировать SSL, щелкните **Добавить привязку** .
 
 ## <a name="step-3-change-your-domain-name-mapping-ip-based-ssl-only"></a>Шаг 3. Изменение сопоставления доменного имени (только для SSL на основе IP-адреса)

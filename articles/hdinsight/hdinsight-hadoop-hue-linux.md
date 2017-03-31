@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
-ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a5fbd7cd4b57b1bd54c5483fc39733cfd3a8dcca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -88,10 +89,8 @@ Hue — это набор веб-приложений, используемых 
 
 2. После создания SSH-туннеля и настройки браузера для отправки трафика прокси-сервера через этот туннель, найдите имя основного головного узла. Для этого нужно подключиться к кластеру по SSH через порт 22. Например, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`, где **USERNAME** — это имя пользователя SSH, а **CLUSTERNAME** — имя кластера.
 
-    Дополнительные сведения об использовании SSH см. в следующих документах:
+    Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. После подключения используйте следующую команду, чтобы получить полное доменное имя основного головного узла.
 
         hostname -f

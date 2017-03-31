@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -97,7 +98,7 @@ ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
   * Политика кэширования диска для диска по умолчанию **C:**не является оптимальным выбором для работы с данными.
   * **D:**— это временный диск, который используется в основном для файла подкачки. Диск **D:**не является сохраняемым и не сохраняется в хранилище BLOB-объектов. Задачи управления, такие как изменение размера виртуальной машины, приводят к сбросу диска **D:**. **НЕ** рекомендуется использовать диск **D:** для файлов базы данных, включая tempdb.
     
-    Дополнительные сведения о создании и подключении дисков см. в разделе [Подключение диска данных к виртуальной машине](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Дополнительные сведения о создании и подключении дисков см. в разделе [Подключение диска данных к виртуальной машине](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Остановите или удалите службы, которые не планируете использовать. Например, если виртуальная машина используется только для служб Reporting Services, остановите или удалите службы Analysis Services и службы SQL Server Integration Services. На рисунке приведен пример служб, которые запускаются по умолчанию.
   
     ![Службы SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -138,7 +139,7 @@ ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 Коллекция образов виртуальных машин для SQL Server включает в себя установленный собственный режим Reporting Services, однако сервер отчетов при этом не настроен. Действия, описанные в этом разделе, позволяют настроить сервер отчетов служб Reporting Services. Дополнительные сведения о настройке собственного режима служб Reporting Services см. в разделе [Установка сервера отчетов служб Reporting Services в основном режиме](https://msdn.microsoft.com/library/ms143711.aspx).
 
 > [!NOTE]
-> Аналогичные материалы, где для настройки сервера отчетов используются сценарии Windows PowerShell, см. в статье [Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](virtual-machines-windows-classic-ps-sql-report.md).
+> Аналогичные материалы, где для настройки сервера отчетов используются сценарии Windows PowerShell, см. в статье [Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](../classic/ps-sql-report.md).
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>Подключение к виртуальной машине и запуск диспетчера конфигурации служб Reporting Services
 Существуют две общие процедуры для подключения к виртуальной машине Azure:
@@ -242,7 +243,7 @@ ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
   
   1. Создайте на локальном компьютере жесткий диск VHD, содержащий ваши отчеты.
   2. Создайте и установите сертификат управления.
-  3. Отправьте VHD-файл в Azure с помощью командлета Add-AzureVHD, руководствуясь указаниями из статьи [Создание и передача виртуального жесткого диска Windows Server в Azure](../../virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  3. Отправьте VHD-файл в Azure с помощью командлета Add-AzureVHD, руководствуясь указаниями из статьи [Создание и передача виртуального жесткого диска Windows Server в Azure](../classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   4. Подключите диск к виртуальной машине.
 
 ## <a name="install-other-sql-server-services-and-features"></a>Установка других служб и компонентов SQL Server
@@ -322,7 +323,7 @@ ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 
 Дополнительную информацию о создании конечных точек см. в следующих разделах.
 
-* Создание конечных точек:[Настройка конечных точек виртуальной машины](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Создание конечных точек:[Настройка конечных точек виртуальной машины](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * SQL Server: см. раздел "Выполнение шагов по подключению к виртуальной машине с помощью SQL Server Management Studio" статьи [Подготовка виртуальной машины SQL Server на портале Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 На следующей схеме показаны порты, которые необходимо открыть в брандмауэре виртуальной машины, чтобы разрешить удаленный доступ к функциям и компонентам на виртуальной машине.
@@ -334,7 +335,7 @@ ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 * [Обзор. SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Виртуальные машины](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Подготовка виртуальной машины SQL Server в Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Подключение диска с данными к виртуальной машине](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Подключение диска с данными к виртуальной машине](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Миграция базы данных в SQL Server на виртуальной машине Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Определение режима работы сервера экземпляра служб Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Многомерное моделирование (руководство по Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
@@ -346,10 +347,5 @@ ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 
 ### <a name="community-content"></a>Материалы сообщества
 * [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

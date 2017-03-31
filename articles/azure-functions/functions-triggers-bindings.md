@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
-ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 | --- | --- | --- | --- |  
 | [HTTP или webhook](functions-bindings-http-webhook.md) | [Таймер](functions-bindings-timer.md) | [Мобильные приложения](functions-bindings-mobile-apps.md) | [Служебная шина](functions-bindings-service-bus.md)  |  
 | [DocumentDB](functions-bindings-documentdb.md) |  [Большой двоичный объект хранилища](functions-bindings-storage-blob.md) | [Очередь хранилища](functions-bindings-storage-queue.md) |  [Таблица хранилища](functions-bindings-storage-table.md) |  
-| [Концентраторы событий](functions-bindings-event-hubs.md) | [Центры уведомлений](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| [Концентраторы событий](functions-bindings-event-hubs.md) | [Центры уведомлений](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
 | | | | |  
 
 В этих статьях предполагается, что вы уже прочли [справочник разработчика по функциям Azure](functions-reference.md), а также справочники разработчика по [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) и [Node.js](functions-reference-node.md).
@@ -385,10 +386,5 @@ public static async Task Run(string input, Binder binder)
 
 * [Тестирование функции](functions-test-a-function.md)
 * [Масштабирование функции](functions-scale.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

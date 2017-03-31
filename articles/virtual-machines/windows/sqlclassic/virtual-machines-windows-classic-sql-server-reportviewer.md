@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
 * **Опубликовать** веб-приложение ASP.NET в Azure
 
 ## <a name="prerequisites"></a>Предварительные требования
-Просмотрите раздел "Общие советы и рекомендации" статьи [Бизнес-аналитика SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+Просмотрите раздел "Общие советы и рекомендации" статьи [Бизнес-аналитика SQL Server на виртуальных машинах Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]
 > Элементы управления ReportViewer входят в состав Visual Studio Standard Edition или выше. Если используется Web Developer Express Edition, необходимо установить [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) , чтобы воспользоваться функциями среды выполнения ReportViewer.
@@ -89,13 +90,8 @@ ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
 ## <a name="resources"></a>Ресурсы
 [Отчеты Майкрософт](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[SQL Server Business Intelligence на виртуальных машинах Azure](virtual-machines-windows-classic-ps-sql-bi.md)
+[SQL Server Business Intelligence на виртуальных машинах Azure](../classic/ps-sql-bi.md)
 
-[Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](virtual-machines-windows-classic-ps-sql-report.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+[Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](../classic/ps-sql-report.md)
 
 

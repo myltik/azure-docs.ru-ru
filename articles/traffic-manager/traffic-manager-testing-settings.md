@@ -1,6 +1,6 @@
 ---
-title: "Проверка параметров диспетчера трафика | Документация Майкрософт"
-description: "В этой статье вы узнаете, как проверять параметры диспетчера трафика"
+title: "Проверка параметров диспетчера трафика Azure | Документация Майкрософт"
+description: "В этой статье вы узнаете, как проверить параметры диспетчера трафика."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="test-your-traffic-manager-settings"></a>Проверка параметров диспетчера трафика
+# <a name="verify-traffic-manager-settings"></a>Проверка параметров диспетчера трафика
 
 Чтобы проверить параметры диспетчера трафика, необходимо иметь несколько клиентов в разных расположениях, из которых можно запускать проверки. Остановите работу конечных точек в профиле диспетчера трафика по одной за раз.
 
@@ -74,9 +75,4 @@ ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
 * [О методах маршрутизации трафика в диспетчере трафика](traffic-manager-routing-methods.md)
 * [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
 * [Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 310cb63756806c8fab208c47bce6c7292ea5e5d7
-ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: efd70d9843f3d8db0c2396c79eacb230fcdfa467
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,9 +38,9 @@ ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
     Дополнительные сведения см. в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Подключитесь к виртуальной машине и установите и настройте приложения, которые хотите отправить в RemoteApp. Выполните все дополнительные настройки Windows, необходимые для приложений.
    
-    Дополнительные сведения см. в статье [Вход в виртуальную машину под управлением Windows с помощью классического портала Azure](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Дополнительные сведения см. в статье [Вход в виртуальную машину под управлением Windows с помощью классического портала Azure](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Если вы используете один из образов "Узел сеансов удаленных рабочих столов Windows Server", в него включен скрипт проверки, который обеспечит выполнение предварительных требований RemoteApp в виртуальной машине. Чтобы запустить скрипт, дважды щелкните **ValidateRemoteAppImage** на рабочем столе. Убедитесь, что все ошибки, о которых сообщил скрипт, исправлены, прежде чем переходить к следующему шагу.
-4. Подготовьте образ к использованию и захватите его с помощью SYSPREP. Инструкции см. в статье [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+4. Подготовьте образ к использованию и захватите его с помощью SYSPREP. Инструкции см. в статье [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="import-the-image-into-the-azure-remoteapp-image-library"></a>Импорт образа в библиотеку образов Azure RemoteApp
 Выполните приведенные ниже действия, чтобы импортировать новый образ в Azure RemoteApp.
@@ -58,10 +59,5 @@ ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
 > 
 
 Теперь вы готовы создать новую коллекцию: [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) — в зависимости от того, что вам нужно.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
+ms.date: 03/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 78ed4e170c4c296ae78b79c553228d8ea11c0f49
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Отличия Transact-SQL базы данных SQL Azure   
-При [миграции базы данных](sql-database-cloud-migrate.md) из SQL Server на Azure SQL Server может оказаться, что базу данных необходимо переработать до переноса. В этом разделе содержатся рекомендации, которые помогут выполнить переработку и понять основные причины ее необходимости. 
+При [миграции базы данных](sql-database-cloud-migrate.md) из SQL Server на Azure SQL Server может оказаться, что базу данных необходимо переработать до переноса. В этом разделе содержатся рекомендации, которые помогут выполнить переработку и понять основные причины ее необходимости. Чтобы обнаружить проблемы с совместимостью, используйте [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Обзор
 Большинство функций Transact-SQL, используемых приложениями, полностью поддерживаются как в Microsoft SQL Server, так и в базе данных SQL Azure. Например, основные компоненты SQL, такие как типы данных, операторы, строковые, арифметические, логические функции, функции работы с курсорами, работают одинаково и на сервере SQL Server, и в базе данных SQL. Но существует несколько различий T-SQL между элементами DDL (языка определения данных) и элементами DML (языка манипулирования данными), использование которых приводит к формированию частично поддерживаемых инструкций и запросов T-SQL (будет рассматриваться далее в этом разделе).

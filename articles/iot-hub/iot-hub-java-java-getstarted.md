@@ -65,7 +65,7 @@ ms.lasthandoff: 03/15/2017
     </dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.16</version>
+      <version>1.2.17</version>
     </dependency>
     ```
     
@@ -264,7 +264,7 @@ ms.lasthandoff: 03/15/2017
     ```
     
     > [!NOTE]
-    > Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами&0; и&1;.
+    > Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами «0» и «1» .
     > 
     > 
 11. Сохраните и закройте файл App.java.
@@ -289,7 +289,7 @@ ms.lasthandoff: 03/15/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.22</version>
+      <version>1.1.23</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

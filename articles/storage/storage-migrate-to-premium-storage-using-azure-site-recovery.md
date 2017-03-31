@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/1/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 106e03a5a99134eb6e5744cbf29ba32efc31f0ba
-ms.openlocfilehash: d76aa3e62c691c4537684bc70d3a91a3dbb8b446
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -140,7 +140,7 @@ Site Recovery можно использовать для переноса вир
 ## <a name="post-migration-steps"></a>Действия после переноса данных
 
 1. **Настройка и добавление реплицированных виртуальных машин в группу доступности (если применимо)**. Site Recovery не поддерживает перенос виртуальных машин вместе с группой доступности. В зависимости от типа развертывания реплицированной виртуальной машины выполните одно из следующих действий.
-  * Для виртуальных машин, созданных с помощью классической модели развертывания, — добавьте виртуальную машину в группу доступности на портале Azure. Подробные инструкции см. в разделе [Вариант&2;. Добавление существующей виртуальной машины к группе доступности](../virtual-machines/virtual-machines-windows-classic-configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * Для виртуальных машин, созданных с помощью классической модели развертывания, — добавьте виртуальную машину в группу доступности на портале Azure. Подробные инструкции см. в разделе [Добавление существующей виртуальной машины к группе доступности](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
   * При использовании модели развертывания Resource Manager сохраните конфигурацию виртуальной машины, а затем удалите и заново создайте виртуальные машины в группе доступности. Чтобы сделать это, используйте скрипт, приведенный [здесь](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Перед выполнением скрипта проверьте его ограничения и спланируйте время простоя.
 
 2. **Удаление старых виртуальных машин и дисков**. Прежде чем удалять их, убедитесь, что диски класса Premium согласованы с исходными дисками и новые виртуальные машины выполняют функцию исходных виртуальных машин. При использовании модели развертывания Resource Manager удалите виртуальную машину и диски из исходных учетных записей хранения на портале Azure. При использовании классической модели развертывания можно удалить виртуальную машину и диски на классическом портале или на портале Azure. Если диск не удаляется даже после удаления виртуальной машины, см. сведения в статье [Устранение ошибок при удалении учетных записей хранения Azure, контейнеров или виртуальных жестких дисков в модели развертывания с помощью Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) или [Устранение неполадок при удалении учетных записей хранения Azure, контейнеров или виртуальных жестких дисков в классической модели развертывания](storage-cannot-delete-storage-account-container-vhd.md).
@@ -157,8 +157,8 @@ Site Recovery можно использовать для переноса вир
 Ознакомьтесь со следующими ресурсами для конкретных сценариев переноса виртуальных машин.
 
 * [Перенос виртуальных машин Azure между учетными записями хранения.](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Создание и загрузка виртуального жесткого диска Windows Server в Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux.](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Создание и загрузка виртуального жесткого диска Windows Server в Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux.](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Перенос виртуальных машин из Amazon AWS в Microsoft Azure.](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Дополнительные сведения о службе хранилища Azure и виртуальных машинах Azure см. также в следующих источниках:

@@ -434,7 +434,7 @@ ms.lasthandoff: 03/08/2017
 Теперь давайте обратим наше внимание на создание пользовательского интерфейса, чтобы пользователь смог взаимодействовать с нашим приложением. Созданное нами приложение Express использует в качестве обработчика представлений **Jade**. Дополнительные сведения о Jade см. на сайте [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Файл **layout.jade** в каталоге **views** используется как глобальный шаблон для других файлов **.jade**. На этом шаге он будет изменен для использования [Twitter Bootstrap](https://github.com/twbs/bootstrap)— набора средств, упрощающих разработку привлекательного веб-сайта. 
-2. Откройте файл **layout.jade **, расположенный в папке **views**, и замените его содержимое следующим.
+2. Откройте файл **layout.jade**, расположенный в папке **views**, и замените его содержимое следующим.
    
         doctype html
         html
@@ -560,6 +560,6 @@ ms.lasthandoff: 03/08/2017
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

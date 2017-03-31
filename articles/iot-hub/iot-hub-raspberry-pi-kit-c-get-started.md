@@ -13,13 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: c74e8c40ba259df8d22c11f930073ab83e900c62
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d78a77ab28989bbac031e7dd967c050b1322ad7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -29,6 +29,9 @@ ms.lasthandoff: 03/02/2017
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 В этом учебнике описано, как начать работу с устройством Raspberry Pi 3 под управлением Raspbian. Также вы узнаете, как можно легко подключать устройства к облаку с помощью [Центра Интернета вещей Azure](iot-hub-what-is-iot-hub.md). Примеры для Windows 10 IoT Базовая представлены в [Центре разработки для Windows](http://www.windowsondevices.com/).
+
+> [!NOTE]
+> Вам нравится Docker или вы предпочитаете создавать исходный код на своем хост-компьютере? Если нравится, то опробуйте решение на основе Docker, доступное на [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker).
 
 ## <a name="lesson-1-configure-your-device"></a>Урок 1. Настройка устройства
 ![Урок 1. Сквозная схема](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
@@ -68,7 +71,7 @@ ms.lasthandoff: 03/02/2017
 
 *Предполагаемое время выполнения: 10 минут*
 
-Перейдите к статье [Получение инструментов Azure (Windows&7; и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md).
+Перейдите к статье [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md).
 
 ### <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Создание Центра Интернета вещей и регистрация Raspberry Pi 3
 Создайте группу ресурсов, подготовьте Центр Интернета вещей Azure и добавьте в него первое устройство, используя Azure CLI.

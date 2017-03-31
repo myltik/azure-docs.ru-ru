@@ -2,27 +2,25 @@
 ## [Что такое ExpressRoute?](expressroute-introduction.md)
 ## [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md)
 ## [Модели подключения](expressroute-connectivity-models.md)
+## [Сведения о каналах и доменах маршрутизации](expressroute-circuit-peerings.md)
 ## [Расположения и партнеры](expressroute-locations.md)
 ### [Поставщики по расположению](expressroute-locations-providers.md)
 ### [Расположения по поставщикам](expressroute-locations.md)
+## [Шлюзы виртуальных сетей для ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Начало работы
-## [Рабочие процессы](expressroute-workflows.md)
 ## [Предварительные требования](expressroute-prerequisites.md)
-## [Сведения о каналах и доменах маршрутизации](expressroute-circuit-peerings.md)
+## [Рабочие процессы](expressroute-workflows.md)
 ## [Требования к маршрутизации](expressroute-routing.md)
-## [Оптимизация маршрутизации](expressroute-optimize-routing.md)
 ## [Требования к NAT](expressroute-nat.md)
 ## [Требования к QoS](expressroute-qos.md)
 ## [Перенос каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-move.md)
-## [Шлюзы виртуальных сетей для ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Практическое руководство
 ## Создание и изменение канала
 ### [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (классическая модель)](expressroute-howto-circuit-classic.md)
-## Создание и изменение конфигурации маршрутизации
+## Создание и изменение конфигурации пиринга
 ### [Портал Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (классическая модель)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (классическая модель)](expressroute-howto-coexist-classic.md)
 ## [Перенос канала из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## Настройка маршрутизатора для ExpressRoute
-### [Примеры настройки конфигурации маршрутизатора](expressroute-config-samples-routing.md)
+### [Настройка маршрутизатора](expressroute-config-samples-routing.md)
 ### [Примеры конфигурации маршрутизатора для NAT](expressroute-config-samples-nat.md)
 
 ## Рекомендации
 ### [Рекомендации по безопасности сети и облачным службам](../best-practices-network-security.md)
+## [Оптимизация маршрутизации](expressroute-optimize-routing.md)
 ### [Асимметричная маршрутизация](expressroute-asymmetric-routing.md)
 
 ## Устранение неполадок

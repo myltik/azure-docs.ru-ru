@@ -8,16 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 03/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d9efecfaf0b9e461182328b052252b114d78ce39
-ms.openlocfilehash: 840db75456e8383cf4343e2170a55dc50cbb68dd
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c801dc221d4aaa2c3ed0a7d10c5d58065b26e427
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,16 +35,15 @@ ms.lasthandoff: 02/24/2017
 
 * Кластер Azure HDInsight Spark с Data Lake Store в качестве хранилища. Следуйте инструкциям в статье [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-    > [!IMPORTANT]
-       > Если в качестве основного хранилища для кластера используется Data Lake Store, обязательно создавайте кластер Spark 1.6.
-      >
-       >
-
+    
 ## <a name="prepare-the-data"></a>Подготовка данных
 
-Если вы создали кластер HDInsight с Data Lake Store в качестве хранилища по умолчанию, то этот шаг выполнять не требуется, так как в процессе создания кластера в указанную учетную запись Data Lake Store добавляются некоторые примеры данных.
+> [!NOTE]
+> Этот шаг не нужно выполнять, если вы создали кластер HDInsight, использующий Data Lake Store в качестве хранилища по умолчанию. Процессы создания кластера добавляют демонстрационные данные в учетную запись Data Lake Store, указанную при создании кластера. Перейдите к разделу [Использование кластера HDInsight Spark с Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+>
+>
 
-Если вы создали кластер HDInsight с Data Lake Store в качестве дополнительного хранилища и хранилище BLOB-объектов Azure как хранилище по умолчанию, в учетную запись Data Lake Store сначала следует скопировать несколько примеров данных. Вы можете использовать пример данных из хранилища BLOB-объектов Azure, связанного с кластером HDInsight. Для этого можно использовать [инструмент ADLCopy](http://aka.ms/downloadadlcopy) . Скачайте и установите этот инструмент с помощью следующей ссылки.
+Если вы создали кластер HDInsight, использующий Data Lake Store в качестве дополнительного хранилища и хранилище BLOB-объектов Azure как хранилище по умолчанию, то в учетную запись Data Lake Store сначала следует скопировать демонстрационные данные. Вы можете использовать пример данных из хранилища BLOB-объектов Azure, связанного с кластером HDInsight. Для этого можно использовать [инструмент ADLCopy](http://aka.ms/downloadadlcopy) . Скачайте и установите этот инструмент с помощью следующей ссылки.
 
 1. Откройте командную строку и перейдите в каталог, в который установлено средство AdlCopy, обычно `%HOMEPATH%\Documents\adlcopy`.
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 02/24/2017
     * Если Data Lake Store используется в качестве хранилища по умолчанию, путь к файлу HVAC.csv будет похож на следующий URL-адрес:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
-    
+
         Можно также использовать сокращенный формат, как показано ниже.
 
             adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
@@ -111,20 +111,20 @@ ms.lasthandoff: 02/24/2017
 
             # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
             hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-            
+
             # Create the schema
             hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-            
+
             # Parse the data in hvacText
             hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-            
+
             # Create a data frame
             hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-            
+
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+6. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о волшебном слове `%%sql` , а также других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

@@ -1,22 +1,22 @@
 ---
-title: "Управление ценами и объемом данных для Application Insights | Документация Майкрософт"
+title: "Управление ценами и объемом данных для Azure Application Insights | Документация Майкрософт"
 description: "Управление объемом данных телеметрии и контроль расходов в Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
-ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/18/2017
 
 Если у вас возникли вопросы о принципах формирования цен на Application Insights, задайте их на нашем [форуме](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="the-pricing-plans"></a>Тарифные планы
+## <a name="the-price-plans"></a>Тарифные планы
 
 Текущие цены в валюте вашей страны вы можете узнать на [странице цен на Application Insights][pricing].
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/18/2017
 |:---------------------------------------|:----------------:|
 | 1 приложение использует 3 экземпляра службы приложений Azure и 1 виртуальный сервер. | 4. |
 | 3 приложения работают на 2 виртуальных машинах, ресурсы Application Insights для этих приложений находятся в одной подписке, и для них выбран план "Корпоративный". | 2 | 
-| Есть&4; приложения, ресурсы Application Insights для которых находятся в одной подписке. Для каждого приложения выполняется по 2 экземпляра в течение 16 часов с низкой нагрузкой и по 4 экземпляра в течение 8 часов максимальной нагрузки. | 13,33 | 
+| Есть 4 приложения, ресурсы Application Insights для которых находятся в одной подписке. Для каждого приложения выполняется по 2 экземпляра в течение 16 часов с низкой нагрузкой и по 4 экземпляра в течение 8 часов максимальной нагрузки. | 13,33 | 
 | Облачные службы, у которых есть по 1 рабочей роли и 1 веб-роли, каждая их которых выполняется в 2 экземплярах. | 4. | 
 | В кластере Service Fabric с 5 узлами работают 50 микрослужб, для каждой из которых запущено по 3 экземпляра. | 5|
 
@@ -157,10 +157,9 @@ ms.lasthandoff: 02/18/2017
 Для каждой сохранившейся записи `itemCount` обозначает число исходных записей, которые эта запись представляет (1 + число предыдущих удаленных записей). 
 
 
-## <a name="transition-from-the-old-pricing-tiers"></a>Переход со старых ценовых категорий
+## <a name="automation"></a>Автоматизация
 
-Существующие приложения могут продолжить использование старых ценовых категорий до февраля 2017 года. После этого большинство приложений будет автоматически переведено на план "Базовый". Приложения, которые используют непрерывный экспорт или соединитель для OMS Log Analytics, будут переведены на план "Корпоративный".
-
+Можно написать сценарий для настройки тарифного плана с помощью управления ресурсами Azure. [Подробнее](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Сводная таблица ограничений
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

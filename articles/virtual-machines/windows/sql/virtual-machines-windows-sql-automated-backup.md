@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1b9401d7c2f756081d585b9432ceef412ab1f807
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Автоматическая архивация для виртуальных машин SQL Server 2014 (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](virtual-machines-windows-sql-automated-backup.md)
-> * [Классический](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Классический](../classic/sql-automated-backup.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Версию этой статьи для классической модели развертывания см. здесь: [Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md).
+Версию этой статьи для классической модели развертывания см. здесь: [Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)](../classic/sql-automated-backup.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для использования автоматической архивации необходимо выполнить следующие предварительные требования.
@@ -149,10 +150,5 @@ ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
 Сведения о других доступных задачах автоматизации см. в разделе [Расширение агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Дополнительные сведения о запуске SQL Server на виртуальных машинах Azure см. в [обзоре использования SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

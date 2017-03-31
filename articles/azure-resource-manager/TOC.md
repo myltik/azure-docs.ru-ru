@@ -14,11 +14,11 @@
 ## Создание шаблонов
 ### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
 ### [Разделы шаблона](resource-group-authoring-templates.md)
-### [Функции шаблонов](resource-group-template-functions.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
+### [Определение расположения](resource-manager-template-location.md)
+### [Присвоение тегов](resource-manager-template-tags.md)
 ### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
 ### [Создание нескольких экземпляров типа ресурса](resource-group-create-multiple.md)
-### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 ### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
 ### [Обмен данными о состоянии между связанными шаблонами](best-practices-resource-manager-state.md)
 ### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Портал](resource-group-template-deploy-portal.md)
 ### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 ## Управление
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Просмотр операций развертывания](resource-manager-deployment-operations.md)
 
 # Справочные материалы
+## [Функции шаблонов](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

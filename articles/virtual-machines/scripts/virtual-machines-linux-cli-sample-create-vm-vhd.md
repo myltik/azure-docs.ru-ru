@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: db34a785cfe32f5b871af115aa621e34bf7ac60b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 383929ee41e7d174b4534f988554ba28bb41b9bb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/08/2017
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 
-После выполнения примера скрипта можно удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду.
+Выполните следующую команду, чтобы удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы.
 
 ```azurecli
 az group delete -n az-cli-vhd

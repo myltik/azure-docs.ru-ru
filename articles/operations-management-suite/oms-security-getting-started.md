@@ -13,11 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -183,10 +184,5 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

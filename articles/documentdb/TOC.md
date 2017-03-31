@@ -21,6 +21,7 @@
 ## Создание веб-приложения
 ### [Веб-приложение .NET](documentdb-dotnet-application.md)
 ### [Веб-приложение .NET для API MongoDB](documentdb-mongodb-application.md)
+### [Приложение Xamarin](documentdb-mobile-apps-with-xamarin.md)
 ### [Веб-приложение Node.js](documentdb-nodejs-application.md)
 ### [Веб-приложение Java](documentdb-java-application.md)
 ### [Веб-приложения Python Flask](documentdb-python-application.md)

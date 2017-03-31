@@ -17,6 +17,7 @@ ms.author: mfussell
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -172,7 +173,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ## <a name="use-console-redirection-for-local-debugging"></a>Использование перенаправления консоли для локальной отладки
 Иногда при отладке нужно просмотреть вывод консоли, в которой выполняется скрипт. Для этого можно определить политику перенаправления консоли, которая записывает выходные данные в файл. Выходной файл сохраняется в папку приложения с именем **log** на том узле, где развертывается и выполняется приложение. (Сведения о том, как найти этот узел, см. в примере выше.)
 
-> [!NOTE]
+> [!WARNING]
 > Никогда не используйте политику перенаправления консоли для приложений в рабочей среде, так как она может повлиять на отработку отказа приложения. Используйте ее *только* для локальной разработки и отладки.  
 > 
 > 
@@ -379,9 +380,4 @@ Echo "Test console redirection which writes to the application log folder on the
 * [Развертывание приложения](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
 ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
 1. На компьютере, где устанавливается служба Azure AD Connect, запустите PowerShell с повышенными правами.
 2. Если модуль Active Directory PowerShell НЕ установлен, установите его с помощью следующей команды:
    
-   `Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
+   `Add-WindowsFeature RSAT-AD-PowerShell`
 3. Если модуль Azure Active Directory PowerShell НЕ установлен, скачайте и установите его из [модуля Azure Active Directory для Windows PowerShell (64-разрядная версия)](http://go.microsoft.com/fwlink/p/?linkid=236297). Этот компонент имеет зависимость от помощника по входу, который устанавливается вместе с Azure AD Connect.
 4. Используя учетные данные администратора предприятия, выполните следующие команды и выйдите из PowerShell.
    
@@ -138,10 +139,5 @@ ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

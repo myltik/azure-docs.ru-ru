@@ -8,20 +8,22 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: a9a1ac8e-5708-4833-b965-e453815e671f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 1289376a5a979b26537e5616c6e89a618f11040e
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 138c90a1a9cbf3b85856f372beeb4472edb9e2e8
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
+
 Узнайте, как с помощью Apache Storm в HDInsight можно обрабатывать данные датчиков из концентратора событий Azure. Эти данные можно сохранить в Apache HBase в HDInsight и визуализировать с помощью D3.js.
 
 С помощью шаблона Azure Resource Manager, используемого в этом документе, показывается, как создать несколько ресурсов Azure в группе ресурсов. Этот шаблон создает виртуальную сеть Azure, два кластера HDInsight (Storm и HBase) и веб-приложение Azure. Реализация node.js панели мониторинга в реальном времени автоматически развертывается в веб-приложении.
@@ -32,6 +34,7 @@ ms.lasthandoff: 03/03/2017
 > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
   
   > [!IMPORTANT]
@@ -46,16 +49,14 @@ ms.lasthandoff: 03/03/2017
 * [Java и пакет JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): используется для разработки топологии Storm.
 * [Maven](http://maven.apache.org/what-is-maven.html): используется для создания и компиляции проекта.
 * [Git](http://git-scm.com/): используется для скачивания проекта с сайта GitHub.
-* Клиент **SSH**: используется для подключения к кластерам HDInsight под управлением Linux. Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-  
-  * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-  * [Использование SSH с HDInsight (Hadoop) из Bash на платформе Windows 10, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* Клиент **SSH**: используется для подключения к кластерам HDInsight под управлением Linux. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     > [!NOTE]
     > Кроме того, необходим доступ к команде `scp`, которая используется для копирования файлов между локальной средой разработки и кластером HDInsight с помощью протокола SSH.
 
 
 ## <a name="architecture"></a>Архитектура
+
 ![схема архитектуры](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
 
 В этом примере используются следующие компоненты:
@@ -71,7 +72,7 @@ ms.lasthandoff: 03/03/2017
 * **Веб-сайт панели мониторинга**: пример панели мониторинга, на которой в режиме реального времени строятся диаграммы на основе полученных данных.
   
   * Веб-сайт построен на Node.js. Его можно проверить на любой клиентской операционной системе или развернуть в службе веб-сайтов Azure.
-  * Для обмена данными в режиме реального времени между топологией Storm и веб-сайтом используется библиотека [Socket.io](http://socket.io/).
+  * [Socket.io](http://socket.io/) .
     
     > [!NOTE]
     > Использование Socket.io для связи относится к тонкостям реализации. На практике можно использовать любую платформу, например сокеты прямого доступа WebSocket или SignalR.
@@ -80,12 +81,10 @@ ms.lasthandoff: 03/03/2017
 
 > [!IMPORTANT]
 > Требуются два кластера, так как метода для создания одного кластера HDInsight для Storm и для HBase не существует.
-> 
-> 
 
 Топология считывает данные из концентратора событий с помощью класса [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) и записывает их в HBase с помощью класса [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html). Связь с веб-сайтом реализована с использованием библиотеки [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
-Схема топологии выглядит так.
+На следующей схеме поясняется структура топологии.
 
 ![схема топологии](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
@@ -94,28 +93,24 @@ ms.lasthandoff: 03/03/2017
 > 
 > * Данные из «воронки» равномерно передаются в средство синтаксического анализа.
 > * Данные из средства синтаксического анализа передаются в панель мониторинга и базу данных HBase. Данные группируются по идентификатору устройства, чтобы сообщения с одного устройства всегда перенаправлялись в один и тот же компонент.
-> 
-> 
 
 ### <a name="topology-components"></a>Компоненты топологии
+
 * **Воронка концентратора событий**: входит в состав Apache Storm версии 0.10.0 и выше.
   
   > [!NOTE]
   > Для работы воронки концентратора событий, используемой в данном примере, требуется кластер Storm в HDInsight версии 3.3 или 3.4. Сведения о том, как использовать концентраторы событий с более ранней версией кластера Storm в HDInsight, можно найти в разделе [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
-  > 
-  > 
+
 * **ParserBolt.java**: из воронки отправляются необработанные данные JSON. Иногда за один раз может отправляться сразу несколько событий. «Сито» определяет, как считывать данные, отправляемые из воронки, и отправляет их в новый поток в виде кортежа с несколькими полями.
 * **DashboardBolt.java**: этот компонент показывает, как использовать клиентскую библиотеку Socket.io для Java для отправки данных в реальном времени в веб-панель мониторинга.
-
-В этом примере используется платформа [Flux](https://storm.apache.org/releases/0.10.0/flux.html) , поэтому определение топологии содержится в файлах YAML. Их всего два:
-
-* **hbase.yaml нет** — используйте этот файл при тестировании топологии в среде разработки. В нем не используются компоненты HBase, так как невозможно получить доступ к API Java для HBase извне виртуальной сети, в которой находится кластер.
-* **with-hbase.yaml** — используйте этот файл при развертывании топологии в кластере Storm. В нем используются компоненты HBase, так как он выполняется в той же виртуальной сети, что и кластер.
+* **Temperature.java**: этот компонент определяет топологию и загружает данные конфигурации из файла **Config.properties**.
 
 ## <a name="prepare-your-environment"></a>Подготовка среды
+
 Прежде чем использовать этот пример, необходимо создать концентратор событий Azure, из которого топология Storm будет считывать данные.
 
 ### <a name="configure-event-hub"></a>Настройка концентраторов Event Hub
+
 В этом примере концентратор событий выступает в роли источника данных. Чтобы создать концентратор событий, выполните следующие действия.
 
 1. На [портале Azure](https://portal.azure.com) выберите **+ Создать** -> **Интернет вещей** -> **Концентраторы событий**.
@@ -127,6 +122,7 @@ ms.lasthandoff: 03/03/2017
    4. Создайте группу ресурсов или выберите имеющуюся.
    5. В поле **Расположение** выберите расположение для концентратора событий.
    6. Выберите **Закрепить на панели мониторинга** и щелкните **Создать**.
+
 3. После завершения процесса создания отобразится колонка "Концентраторы событий" для пространства имен. В этой колонке выберите **+ Add Event Hub**(+ Добавить концентратор событий). В колонке **Создание концентратора событий** введите имя **sensordata**, а затем щелкните **Создать**. Оставьте в остальных полях значения по умолчанию.
 4. В колонке "Концентраторы событий" для пространства имен выберите **Концентраторы событий**. Выберите запись **sensordata** .
 5. В колонке для концентратора событий sensordata выберите **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить** , чтобы добавить следующие политики.
@@ -139,6 +135,7 @@ ms.lasthandoff: 03/03/2017
 1. Выберите обе политики и запишите значение параметра **Первичный ключ** . При выполнении следующих шагов понадобятся значения обеих политик.
 
 ## <a name="download-and-configure-the-project"></a>Скачивание и настройка проекта
+
 Для скачивания проекта с GitHub выполните следующую команду.
 
     git clone https://github.com/Blackmist/hdinsight-eventhub-example
@@ -148,60 +145,62 @@ ms.lasthandoff: 03/03/2017
     hdinsight-eventhub-example/
         TemperatureMonitor/ - this contains the topology
             resources/
-                log4j2.xml - set logging to minimal
-                no-hbase.yaml - topology definition for local testing
-                with-hbase.yaml - topology definition that uses HBase in a virutal network
-            src/ - the Java bolts
-            dev.properties - contains configuration values for your environment
-        dashboard/nodejs/ - this is the node.js web dashboard
-        SendEvents/ - utilities to send fake sensor data
+                log4j2.xml - set logging to minimal.
+                hbase-site.xml - connection information for the HBase cluster.
+                Config.properties - configuration information for the topology. How to read from Event Hub and the URI to the dashboard.
+            src/ - the Java bolts and topology definition.
+        dashboard/nodejs/ - this is the node.js web dashboard.
+        SendEvents/ - utilities to send fake sensor data.
 
 > [!NOTE]
 > В этом документе не приводятся подробные сведения о коде примера. Тем не менее, код содержит полные комментарии.
 
-Откройте файл **hdinsight-eventhub-example/TemperatureMonitor/dev.properties** и добавьте сведения о концентраторе событий в следующих строках.
+Откройте файл **hdinsight-eventhub-example/TemperatureMonitor/resources/Config.properties** и добавьте сведения о концентраторе событий в следующие строки.
 
-    eventhub.read.policy.name: storm
-    eventhub.read.policy.key: KeyForTheStormPolicy
-    eventhub.namespace: YourNamespace
-    eventhub.name: sensordata
-
-> [!NOTE]
-> В этом примере предполагается, что вы использовали **storm** в качестве имени политики с утверждением **Listen** (Прослушивание), а концентратор событий называется **sensordata**.
+    eventhubspout.username = <shared access policy name that can read from Event Hub>
+    eventhubspout.password = <shared access policy key>
+    eventhubspout.namespace = <namespace of your Event Hub
+    eventhubspout.entitypath = <name of your event hub>
+    eventhubspout.partitions.count = 2
 
 После добавления этих сведений сохраните файл.
 
 ## <a name="compile-and-test-locally"></a>Локальная компиляция и тестирование
+
 Перед началом тестирования вам необходимо запустить панель мониторинга, чтобы просмотреть выходные данные топологии и создать данные для хранения в концентраторе событий.
 
 > [!IMPORTANT]
-> При локальном тестировании компонент HBase этой топологии неактивен, так как доступ к API Java для кластера HBase нельзя получить извне виртуальной сети Azure, содержащей кластеры.
-
+> При локальном тестировании компонент HBase этой топологии неактивен. Причина этого в том, что доступ к API Java для кластера HBase нельзя получить извне виртуальной сети Azure, содержащей кластеры.
 
 ### <a name="start-the-web-application"></a>Запуск веб-приложения
+
 1. Откройте новое окно командной строки или терминала и перейдите в каталог **hdinsight-eventhub-example/dashboard**. Чтобы установить зависимости, необходимые для веб-приложения, выполните следующую команду.
    
         npm install
+
 2. Запустите веб-приложение с помощью следующей команды.
    
         node server.js
    
-    Должно появиться примерно такое сообщение:
+    Должно появиться сообщение следующего вида.
    
         Server listening at port 3000
-3. Откройте веб-браузер и введите в адресной строке **http://localhost:3000/**. Вы должны увидеть страницу, аналогичную показанной ниже:
+
+3. Откройте веб-браузер и введите в адресной строке **http://localhost:3000/**. Вы должны увидеть страницу, аналогичную показанной ниже.
    
     ![веб-панель мониторинга](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
    
     Не закрывайте окно командной строки или терминала. После завершения тестирования остановите веб-сервер с помощью клавиш CTRL+C.
 
 ### <a name="start-generating-data"></a>Начало создания данных
+
 > [!NOTE]
 > Для описанных в этом разделе действий используется Node.js, поэтому эти действия могут выполняться на любой платформе. Примеры для других языков см. в каталоге **SendEvents**.
 
-1. Откройте новое окно командной строки, оболочки или терминала и перейдите в каталог **hdinsight-eventhub-example/SendEvents/nodejs**. Затем установите необходимые для приложения зависимости, используя следующую команду:
+1. Откройте новое окно командной строки или терминала и перейдите в каталог **hdinsight-eventhub-example/SendEvents/nodejs**. Чтобы установить зависимости, необходимые для веб-приложения, выполните следующую команду.
    
         npm install
+
 2. Откройте файл **app.js** в текстовом редакторе и добавьте полученные ранее сведения о концентраторе событий.
    
         // ServiceBus Namespace
@@ -233,21 +232,12 @@ ms.lasthandoff: 03/03/2017
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"9","Temperature":84}
 
 ### <a name="start-the-topology"></a>Запуск топологии
+
 1. Откройте новое окно командной строки, оболочки или терминала и перейдите в каталог **hdinsight-eventhub-example/TemperatureMonitor**. Затем используйте следующую команду, чтобы запустить топологию:
    
-        mvn compile exec:java -Dexec.args="--local -R /no-hbase.yaml --filter dev.properties"
+        mvn compile exec:java
    
-    При использовании PowerShell воспользуйтесь приведенной ниже командой.
-   
-        mvn compile exec:java "-Dexec.args=--local -R /no-hbase.yaml --filter dev.properties"
-   
-   > [!NOTE]
-   > Если используется система Linux, Unix или OS X, а в [среде разработки установлен Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), вместо этого можно использовать следующие команды:
-   > 
-   > `mvn compile package`
-   > `storm jar target/TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml --filter dev.properties`
-   
-    Эта команда запускает топологию, определенную в файле **no-hbase.yaml**, в локальном режиме. Значения, содержащиеся в файле **dev.properties** , предоставляют сведения о подключении для концентраторов событий. После запуска топология считывает записи из концентратора событий и отправляет их на панель мониторинга, работающую на локальном компьютере. На веб-панели мониторинга должны появиться линии, как показано на рисунке ниже.
+    Эта команда запускает топологию в локальном режиме. Значения, содержащиеся в файле **Config.properties**, предоставляют сведения о подключении для концентраторов событий и локального веб-сайта панели мониторинга. После запуска топология считывает записи из концентратора событий и отправляет их на панель мониторинга, работающую на локальном компьютере. На веб-панели мониторинга должны появиться линии, как показано на рисунке ниже.
    
     ![панель мониторинга с данными](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
@@ -294,11 +284,11 @@ ms.lasthandoff: 03/03/2017
 ![Колонка группы ресурсов для виртуальной сети и кластеров](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
 
 > [!IMPORTANT]
-> Обратите внимание, что кластерам HDInsight присвоены имена **storm-BASENAME** и **hbase-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам. Кроме того, обратите внимание, что имя сайта панели мониторинга — **basename-dashboard**. Оно будет использоваться при просмотре панели мониторинга.
+> Обратите внимание, что кластерам HDInsight присвоены имена **storm-BASENAME** и **hbase-BASENAME**, где BASENAME — имя, указанное в шаблоне. Эти имена будут использоваться позже при подключении к кластерам. Кроме того, обратите внимание, что имя сайта панели мониторинга — **basename-dashboard**. Это значение используется ниже в этом документе.
 
 ## <a name="configure-the-dashboard-bolt"></a>Настройка сита панели мониторинга
 
-Для отправки данных в панель мониторинга, развернутую в виде веб-приложения, необходимо изменить в файле **dev.properties** приведенную ниже строку.
+Для отправки данных в панель мониторинга, развернутую в виде веб-приложения, необходимо изменить в файле **Config.properties** приведенную ниже строку.
 
     dashboard.uri: http://localhost:3000
 
@@ -313,14 +303,17 @@ ms.lasthandoff: 03/03/2017
         ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
    
     В этой команде замените **USERNAME** именем пользователя SSH, указанным при создании кластера, а **BASENAME** — указанным базовым именем. При появлении запроса введите пароль пользователя SSH.
+
 2. Из сеанса SSH запустите оболочку HBase.
    
         hbase shell
    
     После загрузки оболочки вы увидите запрос `hbase(main):001:0>`.
+
 3. В оболочке HBase введите следующую команду, чтобы создать таблицу, в которой будут храниться данные с датчиков.
    
         create 'SensorData', 'cf'
+
 4. Используйте следующую команду, чтобы проверить, создана ли таблица.
    
         scan 'SensorData'
@@ -328,6 +321,7 @@ ms.lasthandoff: 03/03/2017
     Она вернет информацию, которая указывает на то, что в таблице 0 строк и выглядит примерно следующим образом.
    
         ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
+
 5. Введите `exit` для выхода из оболочки HBase.
 
 ## <a name="configure-the-hbase-bolt"></a>Настройка сита HBase
@@ -341,6 +335,15 @@ ms.lasthandoff: 03/03/2017
     scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/resources/hbase-site.xml
 
 Эта команда скачивает файл **hbase-site.xml** в указанную папку.
+
+### <a name="enable-the-hbase-bolt"></a>Активация «сита» HBase
+
+Чтобы включить компонент bolt HBase, откройте файл **TemperatureMonitor/src/main/java/com/microsoft/examples/Temperature.java** и раскомментируйте следующие строки.
+
+    // topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
+    //  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+
+После этого сохраните файл.
 
 ## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>Выполнение сборки, упаковка и развертывание решения в HDInsight
 
@@ -359,35 +362,32 @@ ms.lasthandoff: 03/03/2017
    > [!NOTE]
    > Передача файла может занять несколько минут.
 
-    Используйте SCP, чтобы передать файл **dev.properties**, так как он содержит сведения, необходимые для подключения к концентраторам событий и панели мониторинга.
-   
-        scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
-
 3. После завершения передачи файла подключитесь к кластеру с помощью SSH.
    
         ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
 
-4. В сеансе SSH используйте следующую команду, чтобы запустить топологию.
+4. Чтобы запустить топологию, в сеансе SSH выполните следующую команду.
    
-        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /with-hbase.yaml --filter dev.properties
-   
-    В результате этого запускается топология, использующая определение топологии в файле **with-hbase.yaml** и значения конфигурации в файле **dev.properties**.
+        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature temperature
 
 5. После запуска топологии откройте в браузере опубликованный в Azure веб-сайт и с помощью команды `node app.js` отправьте данные в концентратор событий. Веб-панель мониторинга должна начать обновлять данные.
    
     !["Веб-транзакции"](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
 ## <a name="view-hbase-data"></a>Просмотр данных HBase
+
 Выполните приведенные ниже инструкции, чтобы подключиться к HBase и проверить, записаны ли данные в таблицу.
 
 1. Используйте SSH, чтобы подключиться к кластеру HBase.
    
         ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
+
 2. Из сеанса SSH запустите оболочку HBase.
    
         hbase shell
    
     После загрузки оболочки вы увидите запрос `hbase(main):001:0>`.
+
 3. Просмотрите строки из таблицы с помощью следующей команды.
    
         scan 'SensorData'

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6f487e2e8f368240339ef5e0015c85591522e49a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -62,7 +63,7 @@ ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
     "sendInvitationMessage": false
     ```
 
-  В этом случае вы получите URL-адрес активации из API, который можно вставить в шаблон сообщения электронной почты, отправить мгновенным сообщением или распространить другим способом на свое усмотрение.
+  В этом случае вы получите URL-адрес активации из API, который можно вставить в шаблон электронного сообщения, отправить в мгновенном сообщении или распространить другим способом на свое усмотрение.
 
 6. Наконец, если вы являетесь администратором, то вы можете пригласить пользователя в качестве участника.
 
@@ -75,28 +76,29 @@ ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
 API можно запустить в следующих режимах авторизации:
 
 ### <a name="app--user-mode"></a>Приложение + пользователь
-В этом режиме пользователь, использующий API, должен иметь разрешения на создание приглашений в службу B2B.
+В этом режиме приложение или пользователь, использующий API, должен иметь разрешения на создание приглашений в службу B2B.
 
 ### <a name="app-only-mode"></a>Только приложение
 В контексте "только приложение" для успешного выполнения приглашения приложению требуется область User.ReadWrite.All или Directory.ReadWrite.All.
-Дополнительные сведения см. в этой статье: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+
+Дополнительные сведения: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
-Чтобы с легкостью добавлять и приглашать в организацию внешних пользователей, теперь можно использовать PowerShell. Просто создайте новое приглашение, используя командлет
+Чтобы с легкостью добавлять и приглашать в организацию внешних пользователей, теперь можно использовать PowerShell. Создайте новое приглашение, используя приведенный ниже командлет.
 
 ```
 New-AzureADMSInvitation
 ```
 
-со следующими параметрами:
+Можно использовать приведенные ниже параметры.
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Их описание следует после сведений об API приглашения в этой статье: [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
+Можно также ознакомиться со справочником по API приглашения: [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -113,9 +115,4 @@ New-AzureADMSInvitation
 * [Многофакторная идентификация для пользователей службы совместной работы B2B](active-directory-b2b-mfa-instructions.md)
 * [Добавление пользователей службы совместной работы B2B без приглашения](active-directory-b2b-add-user-without-invite.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

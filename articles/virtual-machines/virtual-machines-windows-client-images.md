@@ -1,6 +1,6 @@
 ---
 title: "Использование образов клиента Windows в Azure | Документация Майкрософт"
-description: "Узнайте, как использовать преимущества подписки Visual Studio для развертывания Windows 7, 8 или 10 в Azure в сценариях разработки и тестирования."
+description: "Узнайте, как использовать преимущества подписки Visual Studio для развертывания Windows 7, Windows 8 или Windows 10 в Azure в сценариях разработки и тестирования."
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 568bd06d1dfd0e253b960dcf2fb5409a390da91b
-ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f0ca7996e52a9b295fff571a270c60520f58101e
+ms.lasthandoff: 03/16/2017
 
 
 ---
-# <a name="using-windows-client-in-azure-for-devtest-scenarios"></a>Использование клиента Windows в Azure для сценариев разработки и тестирования
+# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Использование клиента Windows в Azure для сценариев разработки и тестирования
 В сценариях разработки и тестирования Azure можно использовать Windows 7, Windows 8 или Windows 10 при условии, что у вас есть соответствующая подписка Visual Studio (прежнее название — MSDN). В этой статье описываются требования к доступности при запуске клиента Windows в Azure и использовании образов из коллекции Azure.
 
 ## <a name="subscription-eligibility"></a>Доступность в зависимости от подписки
@@ -55,10 +56,5 @@ ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете развернуть виртуальные машины с помощью [PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [шаблонов Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

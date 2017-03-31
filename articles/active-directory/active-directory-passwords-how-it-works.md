@@ -16,15 +16,15 @@ ms.date: 02/28/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fe83b1df8cc539e94e9541304584640a00551504
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 24c94f80afdb3d3330a835fae2f77ecb213a9ae5
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="how-password-management-works-in-azure-active-directory"></a>Как работает управление паролями в Azure Active Directory
 > [!IMPORTANT]
-> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 Управление паролями в Azure Active Directory (Azure AD) состоит из следующих логических компонентов:
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 03/15/2017
 
 Дополнительные сведения см. на следующих страницах сброса пароля Azure AD:
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, узнайте, как [можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, узнайте, как [можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Приступая к работе.**](active-directory-passwords-getting-started.md) Узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка.**](active-directory-passwords-customize.md) Узнайте, как настроить оформление, функциональность и поведение службы в соответствии с потребностями организации.
 * [**Рекомендации.**](active-directory-passwords-best-practices.md) Узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.

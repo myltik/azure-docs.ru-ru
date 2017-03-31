@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4f5ae7c1750d697e7dae3f03ea5d3936c9fee52b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
 ![Отправка задания в кластер в Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Предварительные требования
-* **Головной узел пакета HPC развернут на виртуальной машине Azure**. Рекомендуется развернуть головной узел и кластер с помощью автоматизированных инструментов, таких как [шаблон быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) или [сценарий Azure PowerShell](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Для выполнения инструкций в этой статье требуется DNS-имя головного узла, а также учетные данные администратора кластера.
+* **Головной узел пакета HPC развернут на виртуальной машине Azure**. Рекомендуется развернуть головной узел и кластер с помощью автоматизированных инструментов, таких как [шаблон быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) или [сценарий Azure PowerShell](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Для выполнения инструкций в этой статье требуется DNS-имя головного узла, а также учетные данные администратора кластера.
 * **Клиентский компьютер**. Требуется клиентский компьютер под управлением Windows или Windows Server, который поддерживает запуск клиентских служебных программ для пакета HPC (ознакомьтесь с [требованиями к системе](https://technet.microsoft.com/library/dn535781.aspx)). Если вы не планируете выполнять задачи помимо отправки задач через веб-портал или REST API для пакета HPC, то можете использовать любой клиентский компьютер.
 * **Установочный носитель пакета HPC**. Чтобы установить клиентские служебные программы пакета HPC, скачайте бесплатный установочный пакет для последней версии пакета HPC (HPC 2012 R2) из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=328024). Скачайте ту же версию пакета HPC, что установлена на виртуальной машине головного узла.
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
 Подробные инструкции см. в разделе [Установка веб-компонентов пакета Microsoft HPC](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Некоторые шаблоны быстрого запуска Azure для пакета HPC устанавливают и настраивают веб-компоненты автоматически. При создании кластера с помощью [сценария развертывания пакета HPC по модели IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) можно установить и настроить веб-компоненты в рамках развертывания.
+> Некоторые шаблоны быстрого запуска Azure для пакета HPC устанавливают и настраивают веб-компоненты автоматически. При создании кластера с помощью [сценария развертывания пакета HPC по модели IaaS](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) можно установить и настроить веб-компоненты в рамках развертывания.
 > 
 > 
 
@@ -173,9 +174,4 @@ ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,9 +1,9 @@
 ---
 title: "Защита мобильных приложений и веб-приложений PaaS с помощью Базы данных SQL и хранилища данных SQL | Документация Майкрософт"
-description: " Ознакомьтесь с рекомендациями по безопасности Базы данных SQL Azure и хранилища данных SQL, чтобы защитить свои веб-приложения и мобильные приложения PaaS.. "
+description: " Ознакомьтесь с рекомендациями по безопасности Базы данных SQL Azure и хранилища данных SQL, чтобы защитить свои веб-приложения и мобильные приложения PaaS. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 39f841c0f3c8bed1bd640dfd644a58a764422aff
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -91,9 +92,4 @@ ms.openlocfilehash: 39f841c0f3c8bed1bd640dfd644a58a764422aff
 
 - [Защита развернутых приложений PaaS](security-paas-deployments.md)
 - [Защита мобильных приложений и веб-приложений PaaS с помощью служб приложений Azure](security-paas-applications-using-app-services.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

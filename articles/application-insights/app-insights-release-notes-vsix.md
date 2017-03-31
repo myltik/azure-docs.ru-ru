@@ -4,24 +4,121 @@ description: "Последние обновления аналитических
 services: application-insights
 documentationcenter: 
 author: acearun
-manager: douge
+manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2016
+ms.date: 03/20/2017
 ms.author: aruna
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 73e9c2bdc8e7851f8de8bcddb0babeb732d8ce15
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Заметки о выпуске — средства анализа для разработчиков
-Новые возможности: средства анализа Application Insights и HockeyApp в Visual Studio
+
+## <a name="version-718-visual-studio-2015"></a>Версия 7.18 (Visual Studio 2015)
+
+* Модернизированы всплывающие уведомления.
+* Фильтры "Не" в представлении "Сведения" для событий, отображенных в результатах поиска по Application Insights.
+* Исправления ошибок
+
+## <a name="version-86-visual-studio-2017-rtw-and-rc4-and-version-717-visual-studio-2015"></a>Версия 8.6 (Visual Studio 2017 RTW и RC4) и версия 7.17 (Visual Studio 2015)
+
+* Теперь при публикации приложения из Visual Studio к данным в обозревателе метрик на портале Azure добавляются заметки.
+* В полосы прокрутки в файлах кода добавлены маркеры, соответствующие "красным" и "желтым" предупреждениям CodeLens из Application Insights.
+* Обновлены сведения о ценах в окне "Конфигурация".
+* Исправления ошибок
+
+[Ознакомьтесь с этими подробными заметками](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics).
+
+## <a name="version-716-visual-studio-2015"></a>Версия 7.16 (Visual Studio 2015)
+
+* Исправления ошибок
+
+## <a name="version-85-visual-studio-2017-rc3-and-version-715-visual-studio-2015"></a>Версия 8.5 (Visual Studio 2017 RC3) и версия 7.15 (Visual Studio 2015)
+
+* Теперь CodeLens показывает динамические данные отладки и телеметрии в проектах, отправляющих данные в ресурс Application Insights.
+* Сведения о ценах Application Insights теперь отображаются в окне "Конфигурация".
+* Теперь CodeLens поддерживает запросы и исключения для проектов ASP.NET, написанных на Visual Basic.
+* В разделе "Поиск по Application Insights" теперь отображаются счетчики событий без выборки для событий, попавших в выборку.
+* Исправления ошибок
+
+## <a name="version-714-visual-studio-2015"></a>Версия 7.14 (Visual Studio 2015)
+
+* Поддержка поиска событий доступности (веб-тест) и просмотра страниц.
+* Поддержка трендов событий доступности (веб-тест) и просмотра страниц.
+* Инструменты диагностики и метка сведений о событии для пакета SDK адаптивной выборки.
+* Исправления ошибок
+
+## <a name="version-712-visual-studio-2015"></a>Версия 7.12 (Visual Studio 2015)
+
+* Новый формат уведомлений о публикации.
+* Исправления ошибок
+
+## <a name="version-84-visual-studio-2017-rc2-and-version-711-visual-studio-2015"></a>Версия 8.4 (Visual Studio 2017 RC2) и версия 7.11 (Visual Studio 2015)
+
+* CodeLens показывает запросы для сеансов локальной отладки для проектов с использованием пакета SDK для Application Insights.
+* CodeLens позволяет перейти непосредственно к аналитике приложений для просмотра влияния на пользователей.
+* Вставка кода JavaScript для сбора числа просмотров страниц.
+* Исправления ошибок
+
+## <a name="version-710-visual-studio-2015"></a>Версия 7.10 (Visual Studio 2015)
+
+* Новое оформление окна "Конфигурация" Application Insights.
+* Исправления ошибок
+
+## <a name="version-79-visual-studio-2015"></a>Версия 7.9 (Visual Studio 2015)
+
+* CodeLens показывает исключения, порожденные во время сеансов локальной отладки, для проектов с использованием пакета SDK для Application Insights.
+* Исправления ошибок
+
+## <a name="version-83-visual-studio-2017-rc-and-version-78-visual-studio-2015"></a>Версия 8.3 (Visual Studio 2017 RC) и версия 7.8 (Visual Studio 2015)
+
+* Новые возможности для добавления Application Insights в окне "Конфигурация".
+* Исправления ошибок
+
+## <a name="version-77-visual-studio-2015"></a>Версия 7.7 (Visual Studio 2015)
+
+* Более точное сопоставление событий телеметрии и методов, использующих пользовательскую маршрутизацию ASP.NET.
+* Исправления ошибок
+
+## <a name="version-76-visual-studio-2015"></a>Версия 7.6 (Visual Studio 2015)
+
+* Анализ событий, задействованных в операции, на новой вкладке "Отслеживать операцию" для событий в инструменте поиска.
+* Исправления ошибок
+
+## <a name="version-75-visual-studio-2015"></a>Версия 7.5 (Visual Studio 2015)
+
+* Для запросов в инструментах диагностики отображаются рабочие данные телеметрии.
+* Создание рабочего элемента из связанных элементов в инструменте поиска.
+* Исправления ошибок
+
+## <a name="version-74-visual-studio-2015"></a>Версия 7.4 (Visual Studio 2015)
+
+* Теперь можно изменять размер области "Фильтр" в окне "Тренды".
+* Исправления ошибок
+
+## <a name="version-73-visual-studio-2015"></a>Версия 7.3 (Visual Studio 2015)
+
+* Запросы в CodeLens
+* Окно "Конфигурация".
+* Пакет SDK для HockeyApp обновлен до версии 4.2.2.
+* Исправления ошибок
+
+## <a name="version-72-visual-studio-2015"></a>Версия 7.2 (Visual Studio 2015)
+
+* Исправления ошибок
+
+## <a name="version-71-visual-studio-2015"></a>Версия 7.1 (Visual Studio 2015)
+
+* Показатель готовности телеметрии в трендах Application Insights
+* Исправления ошибок
 
 ## <a name="version-70"></a>Версия 7.0
 ### <a name="azure-application-insights-trends"></a>Тренды Azure Application Insights
@@ -117,7 +214,7 @@ Application Insights теперь поддерживает проекты ASP.NE
 ![Передача завершена](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
 ## <a name="version-42"></a>Версия 4.2
-В этом выпуске добавлены функции, упрощающие поиск данных в контексте событий, возможность переходить к коду из большего числа событий, инициируемых изменением данных, и упрощенный интерфейс для отправки журналов в Application Insights. Это расширение обновляется ежемесячно. Отзывы и запросы на ту или иную функцию отправляйте по адресу aidevtools@microsoft.com.
+В этом выпуске добавлены функции, упрощающие поиск данных в контексте событий, возможность переходить к коду из большего числа событий, инициируемых изменением данных, и упрощенный интерфейс для отправки журналов в Application Insights. Это расширение обновляется ежемесячно. Отзывы и запросы на функции отправляйте по адресу aidevtools@microsoft.com.
 
 ### <a name="no-click-logging-experience"></a>Автоматическое ведение журналов
 Если вы уже пользуетесь такими средствами, как NLog, Log4Net или System.Diagnostics.Tracing, переносить трассировки в Application Insights не придется. В этом выпуске мы интегрировали в обычную настройку конфигурации адаптеры для ведения журналов Application Insights.
@@ -198,5 +295,4 @@ Application Insights теперь поддерживает проекты ASP.NE
 HockeyApp поддерживает любую платформу, на которой может быть собрано приложение, будь то iOS, Android, Windows или межплатформенное решение, такое как Xamarin, Cordova или Unity.
 
 В следующие выпуски расширения Application Insights будут добавлены новые возможности, обеспечивающие более интегрированное взаимодействие между HockeyApp и Visual Studio. Сейчас работу с HockeyApp можно начать, просто добавив ссылку на NuGet. Дополнительные сведения см. в [документации](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone).
-
 

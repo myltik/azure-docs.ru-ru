@@ -21,7 +21,7 @@ ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Создание балансировщика нагрузки для Интернета в Resource Manager с помощью PowerShell
+# <a name="get-started"></a>Создание балансировщика нагрузки для Интернета в Resource Manager с помощью PowerShell
 
 > [!div class="op_single_selector"]
 > * [Портал](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -255,7 +255,7 @@ ms.lasthandoff: 01/24/2017
 2. Загрузите в переменную конфигурацию серверной части.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Загрузите в переменную созданный ранее сетевой интерфейс. Имя переменной — **$nic**. Имя сетевого интерфейса совпадает с именем в приведенном выше примере.
@@ -283,7 +283,7 @@ ms.lasthandoff: 01/24/2017
 1. Используя балансировщик нагрузки из предыдущего примера, присвойте переменной **$slb** объект балансировщика нагрузки, используя `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. В следующем примере вы, используя порт 81 во внешнем пуле и порт 8181 во внутреннем пуле, добавите правило NAT для входящего трафика, которое будет применяться к существующему балансировщику нагрузки.
@@ -303,7 +303,7 @@ ms.lasthandoff: 01/24/2017
 Воспользуйтесь командой `Remove-AzureLoadBalancer`, чтобы удалить ранее созданный балансировщик нагрузки с именем **NRP-LB** в группе ресурсов **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]

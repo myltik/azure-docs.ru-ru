@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f6df10ce5edefbff24011fc20cad8ae927ba5125
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/21/2017
 * **Командлеты PowerShell с шаблоном Azure Resource Manager**. Вы можете использовать PowerShell для создания ресурсов Azure с помощью шаблона Azure Resource Manager. Можно сохранять такие шаблоны и управлять их версиями. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md). Для решения типовых задач предусмотрены [шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/), которые также можно скачать и изменить.
 
 ## <a name="cli"></a>Интерфейс командной строки
-Вы можете создавать и настраивать ресурсы Azure на компьютерах под управлением Windows, OS X или Linux с помощью интерфейса командной строки (CLI).  Сведения об установке интерфейса командной строки в операционной системе см. в статье [Установка Azure CLI](cli-install-nodejs.md). Как и в PowerShell, в нем предусмотрены различные команды, используемые при создании ресурсов посредством модели развертывания с помощью [Resource Manager](xplat-cli-azure-resource-manager.md) или [классической модели развертывания (управления службами)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Вы можете создавать и настраивать ресурсы Azure на компьютерах под управлением Windows, OS X или Linux с помощью интерфейса командной строки (CLI).  Сведения об установке интерфейса командной строки в операционной системе см. в статье [Установка Azure CLI](cli-install-nodejs.md). Как и в PowerShell, в нем предусмотрены различные команды, используемые при создании ресурсов посредством модели развертывания с помощью [Resource Manager](xplat-cli-azure-resource-manager.md) или [классической модели развертывания (управления службами)](virtual-machines/linux/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [Resource Manager](azure-resource-manager/resource-group-overview.md).
