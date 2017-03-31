@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
-ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 997a5e5db9abdd92c3717d9eb10ff01b2bb40a9f
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="azure-infrastructure-naming-guidelines"></a>Рекомендации по именованию для инфраструктуры Azure
+# <a name="azure-infrastructure-naming-guidelines-for-linux-vms"></a>Рекомендации по именованию для инфраструктуры Azure для виртуальных машин Linux 
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Это статья посвящена тому, как выбрать соглашения об именовании различных ресурсов Azure, чтобы создать логичный и легко идентифицируемый набор ресурсов в своей среде.
@@ -95,7 +98,7 @@ ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
 Мы рекомендуем использовать имя виртуальной машины Azure, совпадающее с именем компьютера базовой операционной системы.
 
 ## <a name="storage-account-names"></a>Имена учетных записей хранения
-Имена учетных записей хранения создаются по особым правилам. Вы можете использовать только строчные буквы и цифры. Дополнительные сведения см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). Кроме того, имя учетной записи хранения с core.windows.net должно являться глобально допустимым уникальным именем DNS. Например, если учетная запись хранения называется mystorageaccount, уникальными должны быть следующие имена DNS:
+Этот раздел не относится к [Управляемым дискам Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), так как вы не создаете отдельную учетную запись хранения. Для неуправляемых дисков имена учетных записей хранения создаются по особым правилам. Вы можете использовать только строчные буквы и цифры. Дополнительные сведения см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). Кроме того, имя учетной записи хранения с core.windows.net должно являться глобально допустимым уникальным именем DNS. Например, если учетная запись хранения называется mystorageaccount, уникальными должны быть следующие имена DNS:
 
 * mystorageaccount.blob.core.windows.net;
 * mystorageaccount.table.core.windows.net;
@@ -103,10 +106,5 @@ ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Application Insights для облачных служб Azure"
+title: "Application Insights для облачных служб Azure | Документация Майкрософт"
 description: "Эффективное отслеживание веб-ролей и рабочих ролей с помощью Application Insights"
 services: application-insights
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: tbd
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 42e4fe54eec414549f09b93a3e12ea130eeee68f
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5ea258a8c790dd94e019243e77f2ff694c2515d7
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/15/2017
 
 ![Пример](./media/app-insights-cloudservices/azure-cloud-application-insights.png)
 
-Этот вариант позволяет инструментировать приложение во время выполнения, что обеспечивает все данные телеметрии, необходимые для мониторинга запросов, исключений и зависимостей в веб-роли, а также счетчиков производительности рабочих ролей. Все диагностические трассировки, генерируемые вашим приложением, также будут отправляться в Application Insights.
+Этот вариант позволяет инструментировать приложение во время выполнения, что обеспечивает все данные телеметрии, необходимые для мониторинга запросов, исключений и зависимостей в веб-роли, а также счетчиков производительности рабочих ролей. Все диагностические трассировки, генерируемые вашим приложением, также отправляются в Application Insights.
 
 Если это все, что вам нужно, то все готово. Следующие шаги — [просмотр метрик приложения](app-insights-metrics-explorer.md), [запрос данных с помощью Аналитики](app-insights-analytics.md), и, возможно, настройка [мониторинга](app-insights-dashboards.md). Вам может потребоваться настроить [тесты доступности](app-insights-monitor-web-app-availability.md) и [добавить в веб-страницы код ](app-insights-javascript.md) для мониторинга производительности в браузере.
 
@@ -55,14 +55,14 @@ ms.lasthandoff: 03/15/2017
 Ниже описано, как адаптировать собственный проект облачной службы таким же образом.
 
 ## <a name="plan-resources-and-resource-groups"></a>Планирование ресурсов и групп ресурсов
-Данные телеметрии из приложения будут сохранены, проанализированы и отображены в ресурсе Azure типа Application Insights. 
+Данные телеметрии из приложения сохраняются, анализируются и отображаются в ресурсе Azure типа Application Insights. 
 
 Каждый ресурс относится к группе ресурсов. Группы ресурсов используются для управления затратами, предоставления доступа участникам команды и развертывания обновлений при помощи отдельной согласованной транзакции. Например, вы можете [написать сценарий для развертывания](../azure-resource-manager/resource-group-template-deploy.md) облачной службы Azure и ее ресурсов мониторинга Application Insights одной операцией.
 
 ### <a name="resources-for-components"></a>Ресурсы для компонентов
 Рекомендуемая схема — создавать отдельный ресурс для каждого компонента приложения, то есть каждой веб-роли и рабочей роли. Вы можете анализировать каждый компонент отдельно, но можно создать [панель мониторинга](app-insights-dashboards.md), содержащую ключевые диаграммы для всех компонентов. Это позволит сравнивать и отслеживать их вместе. 
 
-Альтернативной схемой является отправка данных телеметрии из нескольких ролей в один ресурс, но с [добавлением свойства измерения в каждый элемент телеметрии](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer), определяющего его исходную роль. В этой схеме диаграммы метрик (например, исключений) обычно будут отображаться вместе с показателями других ролей. Но при необходимости вы можете сегментировать диаграммы по идентификатору роли. Результаты поиска также можно фильтровать по одному измерению. Этот вариант делает более удобным одновременный просмотр информации, но может привести к некоторой путанице с ролями.
+Альтернативной схемой является отправка данных телеметрии из нескольких ролей в один ресурс, но с [добавлением свойства измерения в каждый элемент телеметрии](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer), определяющего его исходную роль. В этой схеме диаграммы метрик (например, исключений) обычно отображаются вместе с показателями других ролей. Но при необходимости вы можете сегментировать диаграммы по идентификатору роли. Результаты поиска также можно фильтровать по одному измерению. Этот вариант делает более удобным одновременный просмотр информации, но может привести к некоторой путанице с ролями.
 
 Данные телеметрии браузера обычно добавляются в тот же ресурс, что и данные соответствующей серверной веб-роли.
 
@@ -79,25 +79,25 @@ ms.lasthandoff: 03/15/2017
 Если вы решили создать отдельный ресурс для каждой роли и, возможно, отдельный набор для каждой конфигурации сборки, то создать их проще всего будет на портале Application Insights. Если создается много ресурсов, можно [автоматизировать этот процесс](app-insights-powershell.md).
 
 1. На [портале Azure][portal] создайте ресурс Application Insights. Для параметра типа приложения выберите приложение ASP.NET. 
-   
-   ![Нажмите "Создать" и "Application Insights"](./media/app-insights-cloudservices/01-new.png)
+
+    ![Нажмите "Создать" и "Application Insights"](./media/app-insights-cloudservices/01-new.png)
 2. Обратите внимание, что каждый ресурс идентифицируется с помощью ключа инструментирования. Это может понадобиться позже, если вы захотите вручную настроить или проверить конфигурацию пакета SDK.
-   
-   ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png) 
+
+    ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Настройка системы диагностики Azure для каждой роли
-Настройте мониторинг приложения с помощью Application Insights. Для веб-ролей это обеспечивает мониторинг производительности, оповещения и диагностику, а также анализ сведений об использовании. Для других ролей можно искать и отслеживать диагностические данные Azure, например о событиях перезапуска, показаниях счетчиков производительности и вызовах System.Diagnostics.Trace. 
+Настройте мониторинг приложения с помощью Application Insights. Для веб-ролей это обеспечивает мониторинг производительности, создание оповещений и диагностику, а также анализ сведений об использовании. Для других ролей можно искать и отслеживать диагностические данные Azure, например о событиях перезапуска, показаниях счетчиков производительности и вызовах System.Diagnostics.Trace. 
 
 1. В обозревателе решений Visual Studio в разделе &lt;Ваша_облачная_служба&gt; > "Роли" откройте свойства каждой роли.
 2. В разделе **Конфигурация** выберите **Отправка диагностических данных в Application Insights** и выберите соответствующий ресурс Application Insights, созданный ранее.
-   
-   * Если вы решили использовать отдельный ресурс Application Insights для каждой конфигурации сборки, сначала выберите эту конфигурацию.
+
+Если вы решили использовать отдельный ресурс Application Insights для каждой конфигурации сборки, сначала выберите эту конфигурацию.
 
 ![В свойствах каждой роли Azure настройте Application Insights.](./media/app-insights-cloudservices/configure-azure-diagnostics.png)
 
 Это приведет к добавлению ключей инструментирования Application Insights в файлы `ServiceConfiguration.*.cscfg`. ([Пример кода](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Если требуется изменить уровень диагностических сведений, отправляемых в Application Insights, это можно сделать, [напрямую изменив CSCFG-файлы](app-insights-azure-diagnostics.md).
+Если требуется изменить уровень диагностических сведений, отправляемых в Application Insights, это можно сделать, [напрямую изменив файлы с расширением `.cscfg`](app-insights-azure-diagnostics.md).
 
 ## <a name="sdk"></a>Установка пакета SDK в каждый проект
 Этот параметр позволяет добавить пользовательские данные бизнес-телеметрии в любую роль для более тщательного анализа того, как приложение используется и работает.
@@ -105,17 +105,17 @@ ms.lasthandoff: 03/15/2017
 В Visual Studio настройте пакет SDK для Application Insights для каждого проекта облачного приложения.
 
 1. **Веб-роли**: щелкните проект правой кнопкой мыши и выберите **Настроить Application Insights** или **Добавить > Телеметрия Application Insights**.
-   
+
 2. **Рабочие роли**: 
  * щелкните проект правой кнопкой мыши и выберите **Управление пакетами Nuget**.
  * Добавьте [Application Insights для Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
-   
+
     ![Поиск Application Insights](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Настройте пакет SDK для отправки данных в ресурсы Application Insights.
-   
+
     В соответствующей функции запуска задайте ключ инструментирования из параметра конфигурации, заданного в CSCFG-файле.
-   
+ 
     ```C#
    
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
@@ -125,7 +125,7 @@ ms.lasthandoff: 03/15/2017
    
    * [Веб-роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
    * [Рабочая роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-   * [При работе с веб-страницами](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
+   * [При работе с веб-страницами](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Задайте для файла ApplicationInsights.config незамедлительное копирование в выходной каталог. 
    
     (в CONFIG-файле имеются сообщения, указывающие, куда именно поместить ключ инструментирования. Тем не менее для облачных приложений лучше задать его в CSCFG-файле. Это обеспечит правильную идентификацию роли на портале.)
@@ -146,13 +146,13 @@ ms.lasthandoff: 03/15/2017
 
 * Счетчики производительности отображаются в виде настраиваемых метрик. 
 * Журналы событий Windows отображаются в виде трассировок и настраиваемых событий.
-* Журналы приложений, журналы ETW и все журналы инфраструктуры диагностики отображаются в виде трассировок.
+* Журналы приложений, журналы трассировки событий Windows и все журналы инфраструктуры диагностики отображаются в виде трассировок.
 
 Чтобы просмотреть счетчики производительности и счетчики событий, откройте [обозреватель метрик](app-insights-metrics-explorer.md) и добавьте новую диаграмму:
 
 ![Диагностические данные Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Используйте функцию [Поиск](app-insights-diagnostic-search.md) для поиска в различных журналах трассировки, отправляемых системой диагностики Azure. Например, если в роли есть необработанное исключение, которое вызвало сбой и переработку этой роли, соответствующие данные появятся в канале "Приложение" журнала событий Windows. Функцию поиска можно использовать для поиска ошибки в журнале событий Windows и получения полной трассировки стека для исключения, позволяющей установить причину возникшей проблемы.
+Используйте [Поиск](app-insights-diagnostic-search.md) или [запрос аналитики](app-insights-analytics-tour.md) для поиска в различных журналах трассировки, отправляемых системой диагностики Azure. Например предположим, что возникло необработанное исключение, которое вызвало сбой и перезапуск роли. Эта информация будет отображена в канале приложения журнала событий Windows. Можно использовать Поиск, чтобы просмотреть ошибку в журнале событий Windows и получить полную трассировку стека для исключения. Это поможет вам найти первопричину проблемы.
 
 ![Поиск диагностических данных Azure](./media/app-insights-cloudservices/25-wad.png)
 
@@ -162,14 +162,14 @@ ms.lasthandoff: 03/15/2017
 ## <a name="track-requests-from-worker-roles"></a>Отслеживание запросов из рабочих ролей
 В веб-ролях модуль запросов собирает данные об HTTP-запросах автоматически. Примеры переопределения поведения коллекции по умолчанию см. на странице с [примером роли MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole). 
 
-Производительность вызовов для рабочих ролей можно регистрировать, отслеживая их таким же образом, как запросы HTTP. В Application Insights тип телеметрии запроса определяет единицу работы для указанного сервера, которую можно учесть и которая может быть выполнена или не выполнена. Во время автоматической регистрации HTTP-запросов пакетом SDK можно добавить собственный код для отслеживания запросов к рабочим ролям.
+Производительность вызовов для рабочих ролей можно регистрировать, отслеживая их таким же образом, как запросы HTTP. В Application Insights тип телеметрии запроса определяет единицу работы для указанного сервера, которую можно учесть и которая может быть независимо выполнена или не выполнена. Во время автоматической регистрации HTTP-запросов пакетом SDK можно добавить собственный код для отслеживания запросов к рабочим ролям.
 
 Ознакомьтесь с двумя примерами рабочих ролей, которые инструментированы для отправки отчетов по запросам: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) и [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB).
 
 ## <a name="exceptions"></a>Исключения
 Способы сбора необработанных исключений, выдаваемых веб-приложениями разных типов, см. в статье [Настройка Application Insights: диагностика исключений](app-insights-asp-net-exceptions.md).
 
-Образец веб-роли имеет контроллеры MVC5 и веб-API 2. Необработанные исключения из 2 регистрируются такими объектами:
+Образец веб-роли имеет контроллеры MVC5 и веб-API 2. Необработанные исключения, поступающие из них, регистрируются следующими обработчиками:
 
 * объектом [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) для контроллеров MVC5;
 * объектом [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) для контроллеров веб-API 2.
@@ -177,7 +177,7 @@ ms.lasthandoff: 03/15/2017
 Для рабочих ролей есть два способа отслеживания исключений.
 
 * TrackException(ex);
-* Если вы добавили пакет NuGet прослушивателя трассировки Application Insights, вы можете вносить исключения в журнал с помощью System.Diagnostics.Trace. [Пример кода](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+* Если вы добавили пакет NuGet прослушивателя трассировки Application Insights, то вы можете вносить исключения в журнал с помощью **System.Diagnostics.Trace**. [Пример кода](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
 
 ## <a name="performance-counters"></a>Счетчики производительности
 По умолчанию собираются приведенные ниже счетчики.
@@ -189,23 +189,23 @@ ms.lasthandoff: 03/15/2017
     * \Process(??APP_WIN32_PROC??)\I/O — обмен данными, байт в секунду
     * \Processor(_Total)\% Загруженность процессора
 
-А здесь приведены счетчики, которые собираются для веб-ролей.
+Эти счетчики также собираются для веб-ролей.
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Запросов в секунду    
+    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Запросов в секунду
     * \ASP.NET Applications(??APP_W3SVC_PROC??)\Время выполнения запросов
     * \ASP.NET Applications(??APP_W3SVC_PROC??)\Запросы в очереди приложений
 
-Вы можете указать дополнительные пользовательские счетчики производительности или счетчики производительности Windows, как показано [ниже](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)
+Можно указать дополнительные пользовательские или другие счетчики производительности Windows, изменив файл ApplicationInsights.config, [как показано в этом примере](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Счетчики производительности](./media/app-insights-cloudservices/OLfMo2f.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Коррелированная телеметрия для рабочих ролей
-Если вы видите причины неудавшихся запросов или запросов с высокой задержкой, это значит, что вы обладаете широким спектром возможностей диагностики. При работе с веб-ролями пакет SDK автоматически настраивает корреляцию между связанными данными телеметрии. Для рабочих ролей вы можете использовать пользовательский инициализатор телеметрии, чтобы задать атрибут общего контекста Operation.Id, и тогда эта возможность будет доступна для всех сведений телеметрии. Вы сможете узнать причину сбоя или задержки — зависимость или ваш код — с одного взгляда. 
+Если вы видите причины неудавшихся запросов или запросов с высокой задержкой, это значит, что вы обладаете широким спектром возможностей диагностики. При работе с веб-ролями пакет SDK автоматически настраивает корреляцию между связанными данными телеметрии. Для рабочих ролей вы можете использовать пользовательский инициализатор телеметрии, чтобы задать атрибут общего контекста Operation.Id, и тогда эта возможность будет доступна для всех сведений телеметрии. Вы сможете узнать причину сбоя или задержки — зависимость или ваш код — с первого взгляда. 
 
 Этот процесс описывается далее.
 
 * Задайте идентификатор корреляции в объекте CallContext, как показано [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). В этом случае мы используем идентификатор запроса как идентификатор корреляции.
-* Добавьте пользовательскую реализацию TelemetryInitializer, которая задает Operation.Id в наборе correlationId. См. здесь: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Добавьте пользовательскую реализацию TelemetryInitializer, которая задает для Operation.Id значение correlationId, заданное ранее. Пример: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
 * Добавьте пользовательский инициализатор телеметрии. Это можно сделать в файле ApplicationInsights.config или в коде, как показано [ниже](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
 
 Вот и все! Взаимодействие с порталом уже настроено, и вы можете просматривать все связанные сведения телеметрии одновременно.
@@ -229,7 +229,11 @@ ms.lasthandoff: 03/15/2017
 [примере](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) отслеживается служба, которая имеет веб-роль и две рабочие роли.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Исключение "метод не найден" при выполнении в облачных службах Azure
-Выполняется сборка для .NET 4.6? Версия&4;.6 не поддерживается автоматически в ролях облачных служб Azure. [установите версию 4.6 в каждой роли](../cloud-services/cloud-services-dotnet-install-dotnet.md) .
+Выполняется сборка для .NET 4.6? Версия 4.6 не поддерживается автоматически в ролях облачных служб Azure. [установите версию 4.6 в каждой роли](../cloud-services/cloud-services-dotnet-install-dotnet.md) .
+
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Настройка системы диагностики Azure для отправки данных в Application Insights](app-insights-azure-diagnostics.md)

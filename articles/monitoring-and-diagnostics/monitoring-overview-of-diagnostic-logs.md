@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/14/2017
 * Куда будут отправляться журналы диагностики (учетная запись хранения, концентраторы событий и (или) OMS Log Analytics).
 * Какие категории журналов будут отправляться.
 * Как долго должны храниться журналы каждой категории в учетной записи хранения.
-    - Срок хранения&0; дней означает, что журналы хранятся неограниченно долго. В противном случае укажите количество дней в диапазоне от 1 до 2 147 483 647.
+    - Срок хранения 0 дней означает, что журналы хранятся неограниченно долго. В противном случае укажите количество дней в диапазоне от 1 до 2 147 483 647.
     - Если политики хранения заданы, но хранение журналов в учетной записи хранения отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены.
     - Политики хранения применяются по дням, поэтому в конце дня (по времени в формате UTC) журналы, срок которых теперь превышает период хранения, будут удалены. Например, если настроена политика хранения в течение одного дня, то в начале текущего дня журналы за вчерашний день будет удалены.
 
@@ -199,8 +199,10 @@ ServiceBusRuleID — это строка в таком формате: `{service
 ## <a name="supported-log-categories-per-resource-type"></a>Поддерживаемые категории журнала для каждого типа ресурса
 |Тип ресурса|Категория|Отображаемое имя категории|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|Журналы, относящихся к шлюзу ApiManagement.|
 |Microsoft.Automation/automationAccounts|JobLogs|Журналы заданий|
 |Microsoft.Automation/automationAccounts|JobStreams|Потоки заданий|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|Состояние узла DSC.|
 |Microsoft.Batch/batchAccounts|ServiceLog|Журналы служб|
 |Microsoft.DataLakeAnalytics/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
@@ -208,16 +210,19 @@ ServiceBusRuleID — это строка в таком формате: `{service
 |Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Журналы архивации|
 |Microsoft.EventHub/namespaces|OperationalLogs|Журналы операций|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Журналы автомасштабирования.|
 |Microsoft.KeyVault/vaults|AuditEvent|Журналы аудита|
 |Microsoft.Logic/workflows|WorkflowRuntime|События диагностики среды выполнения рабочего процесса|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Событие группы безопасности сети|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Счетчик правил группы безопасности сети|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Событие потока правил группы безопасности сети|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|События оповещения балансировщика нагрузки|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Состояние работоспособности балансировщика нагрузки|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Журнал доступа к шлюзу приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Журнал производительности шлюза приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Журнал брандмауэра шлюза приложений|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Таблица счетчиков GWM.|
 |Microsoft.Search/searchServices|OperationLogs|Журналы операций|
 |Microsoft.ServerManagement/nodes|RequestLogs|Журналы запросов|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Журналы операций|

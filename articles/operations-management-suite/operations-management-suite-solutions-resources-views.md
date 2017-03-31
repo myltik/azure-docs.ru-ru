@@ -15,29 +15,30 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: deed3fbd7cd27f54767ae9b26c27c1e1a0106208
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Представления в Operations Management Suite (OMS) (предварительная версия)
 > [!NOTE]
 > Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.    
-> 
-> 
+>
+>
 
 Как правило, [решения для управления в Operations Management Suite (OMS)](operations-management-suite-solutions.md) включают одно или несколько представлений для визуализации данных.  В этой статье описывается, как экспортировать представление, созданное в [конструкторе представлений](../log-analytics/log-analytics-view-designer.md), и добавить его в решение для управления.  
 
 > [!NOTE]
-> В примерах здесь используются обязательные или общие параметры и переменные для решений по управлению, описанные в статье [Создание решений для управления в Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md). 
-> 
-> 
+> В примерах здесь используются обязательные или общие параметры и переменные для решений по управлению, описанные в статье [Создание решений для управления в Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md).
+>
+>
 
 ## <a name="prerequisites"></a>Предварительные требования
 В этой статье предполагается, что вы уже знаете, как [создать решение для управления](operations-management-suite-solutions-creating.md) и структуру файла решения.
 
 ## <a name="overview"></a>Обзор
-Чтобы добавить представление в решение для управления, создайте для него **ресурс** в [файле решения](operations-management-suite-solutions-creating.md).  JSON, описывающий подробную конфигурацию представления, как правило, сложный. Обычный разработчик решений не сможет создать его вручную.  Самый распространенный способ — создать представление с помощью [конструктора представлений](../log-analytics/log-analytics-view-designer.md), экспортировать его и добавить его подробную конфигурацию в решение. 
+Чтобы добавить представление в решение для управления, создайте для него **ресурс** в [файле решения](operations-management-suite-solutions-creating.md).  JSON, описывающий подробную конфигурацию представления, как правило, сложный. Обычный разработчик решений не сможет создать его вручную.  Самый распространенный способ — создать представление с помощью [конструктора представлений](../log-analytics/log-analytics-view-designer.md), экспортировать его и добавить его подробную конфигурацию в решение.
 
 Ниже приведены основные действия по добавлению представления в решение.  Каждое из этих действий подробно описано в следующих разделах.
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
 3. Добавьте сведения о представлении.
 
 ## <a name="export-the-view-to-a-file"></a>Экспорт представления в файл
-Чтобы экспортировать представление в файл, следуйте инструкциям [конструктора представлений Log Analytics](../log-analytics/log-analytics-view-designer.md).  Экспортированный файл будет в формате JSON с теми же [элементами, что и в файле решения](operations-management-suite-solutions-creating.md#management-solution-files).  
+Чтобы экспортировать представление в файл, следуйте инструкциям [конструктора представлений Log Analytics](../log-analytics/log-analytics-view-designer.md).  Экспортированный файл будет в формате JSON с теми же [элементами, что и в файле решения](operations-management-suite-solutions-solution-file.md).  
 
 Элемент **resources** в файле представления будет содержать ресурс типа **Microsoft.OperationalInsights/workspaces**, представляющий рабочую область OMS.  Этот элемент будет содержать подэлемент типа **views**, представляющий представление и содержащий его подробную конфигурацию.  Скопируйте сведения этого элемента и сам элемент в решение.
 
@@ -69,11 +70,11 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
             "Author": "[variables('ViewAuthor')]",
             "Source": "Local",
             "Dashboard": ,
-            "OverviewTile": 
+            "OverviewTile":
         }
     }
 
-Добавьте следующие переменные в элемент [variables](operations-management-suite-solutions-creating.md#variables) файла решения и замените значения соответствующими значениями для своего решения.
+Добавьте следующие переменные в элемент variables файла решения и замените значения соответствующими значениями для своего решения.
 
     "LogAnalyticsApiVersion": "2015-11-01-preview",
     "ViewAuthor": "Your name."
@@ -91,7 +92,7 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
 * Переменные нужно определить в решении и использовать в соответствующих свойствах.
 
 ## <a name="add-the-view-details"></a>Добавление сведений о представлении
-Ресурс представления в экспортированном файле представления будет содержать два элемента в элементе **properties** с именем **Dashboard** и **OverviewTile**, включающие подробную конфигурацию представления.  Скопируйте эти два элемента и их содержимое в элемент **properties** ресурса представления в файле решения. 
+Ресурс представления в экспортированном файле представления будет содержать два элемента в элементе **properties** с именем **Dashboard** и **OverviewTile**, включающие подробную конфигурацию представления.  Скопируйте эти два элемента и их содержимое в элемент **properties** ресурса представления в файле решения.
 
 ## <a name="example"></a>Пример
 Ниже приведен пример файла простого решения с представлением.  В содержимом свойств **Dashboard** и **OverviewTile** многоточие (...) отображается для экономии пространства.
@@ -179,10 +180,4 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте подробнее о создании [решений для управления](operations-management-suite-solutions-creating.md).
 * Добавьте [модули Runbook службы автоматизации в решение для управления](operations-management-suite-solutions-resources-automation.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

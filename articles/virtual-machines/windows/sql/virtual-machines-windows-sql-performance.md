@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 16b659bf07cc44d56234bb5532f931d5ca6fb0a6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/17/2017
 
 | Область | Оптимизация |
 | --- | --- |
-| [Размер виртуальной машины](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes.md#ds-series) или выше для выпуска SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes.md#ds-series) или выше для выпусков SQL Standard и Web Edition. |
+| [Размер виртуальной машины](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) или выше для выпуска SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) или выше для выпусков SQL Standard и Web Edition. |
 | [Хранилище](#storage-guidance) |Используйте [хранилище класса Premium](../../../storage/storage-premium-storage.md). Стандартное хранилище рекомендуется использовать только для разработки и тестирования.<br/><br/>Храните [учетную запись хранения](../../../storage/storage-create-storage-account.md) и виртуальную машину SQL Server в одном и том же регионе.<br/><br/>Отключите [геоизбыточное хранилище](../../../storage/storage-redundancy.md) (георепликацию) Azure в учетной записи хранения. |
 | [диски;](#disks-guidance) |Используйте как минимум 2 [диска P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (1 для файлов журнала, 1 для файлов данных и TempDB).<br/><br/>Избегайте использования дисков операционной системы или временных дисков для хранения базы данных или журналов.<br/><br/>Включите кэширование операций чтения на дисках, где размещаются файлы данных и базы данных TempDB.<br/><br/>Не включайте кэширование на дисках, где находится файл журнала.<br/><br/>Важно! Остановите службу SQL Server при изменении параметров кэша для диска виртуальной машины Azure.<br/><br/>Обеспечьте чередование нескольких дисков данных Azure для увеличения пропускной способности ввода-вывода.<br/><br/>Выполняйте форматирование с использованием задокументированных размеров кластеров. |
 | [ВВОД-ВЫВОД](#io-guidance) |Включите сжатие страниц базы данных.<br/><br/>Включите быструю инициализацию для файлов данных.<br/><br/>Ограничьте или отключите авторасширение базы данных.<br/><br/>Отключите автосжатие базы данных.<br/><br/>Переместите все базы данных на диски с данными, включая системные базы данных.<br/><br/>Переместите журнал ошибок SQL Server и каталоги файлов трассировки на диски с данными.<br/><br/>Настройка расположений по умолчанию для файлов резервных копий и базы данных.<br/><br/>Включите заблокированные страницы.<br/><br/>Примените исправления производительности SQL Server. |
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/17/2017
 * **Файлы данных SQL Server в Azure**: эта новая функция [Файлы данных SQL Server в Azure](https://msdn.microsoft.com/library/dn385720.aspx)доступна, начиная с SQL Server 2014. Выполнение SQL Server с файлами данных в Azure демонстрирует уровень производительности, сравнимый с использованием дисков данных Azure.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если вы заинтересованы в более подробном изучении возможностей SQL Server и хранилища уровня "Премиум", то см. статью [Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах](../sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage.md).
+Если вы заинтересованы в более подробном изучении возможностей SQL Server и хранилища уровня "Премиум", то см. статью [Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах](../classic/sql-server-premium-storage.md).
 
 Рекомендации по безопасности см. в статье [Вопросы безопасности SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-security.md).
 

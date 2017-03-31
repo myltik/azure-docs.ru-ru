@@ -1,9 +1,9 @@
 ---
 title: "Защита мобильных приложений и веб-приложений PaaS с помощью служб приложений Azure | Документация Майкрософт"
-description: " Ознакомьтесь с рекомендациями по безопасности служб приложений Azure, чтобы защитить свои веб-приложения и мобильные приложения PaaS.. "
+description: " Ознакомьтесь с рекомендациями по безопасности служб приложений Azure, чтобы защитить свои веб-приложения и мобильные приложения PaaS. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 50421a70ede62250a0ab17a38200995c90fdcd55
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 41528ad70598907759cdf149777195007296fe98
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -43,9 +44,4 @@ ms.openlocfilehash: 50421a70ede62250a0ab17a38200995c90fdcd55
 
 - [Защита развернутых приложений PaaS](security-paas-deployments.md)
 - [Защита мобильных приложений и веб-приложений PaaS с помощью Базы данных SQL и хранилища данных SQL](security-paas-applications-using-sql.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
-ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 10a2c7771d9d2ec57f3e57e1d6bb4f82c55aa7f1
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Модель ценообразования приложений логики
@@ -50,14 +50,18 @@ ms.lasthandoff: 02/15/2017
 Планы службы приложений и ежедневное допустимое количество выполняемых действий
 |  | "Бесплатный", "Общий", "Базовый" | Стандарт | Premium |
 | --- | --- | --- | --- |
-| Выполняемых действий в день |200 |10 000 |50&000; |
+| Выполняемых действий в день |200 |10 000 |50 000 |
 ### <a name="convert-from-app-service-plan-pricing-to-consumption"></a>Смена плана службы приложений на план с оплатой по мере использования
 Чтобы перейти на модель ценообразования с тарификацией по мере использования для приложения логики, связанного с планом службы приложений, необходимо удалить ссылку на план службы приложений в определении приложения логики.  Для этого вызовите командлет PowerShell: `Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
 ## <a name="pricing"></a>Цены
 Дополнительные сведения о ценах на приложения логики см. [здесь](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Обзор приложений логики][whatis]
-* [Создание приложения логики][create] [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/ [whatis]: logic-apps-what-are-logic-apps.md [create]: logic-apps-create-a-logic-app.md
+* [Обзор Logic Apps][whatis]
+* [Создание первого приложения логики][create]
+
+[pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
+[whatis]: logic-apps-what-are-logic-apps.md
+[create]: logic-apps-create-a-logic-app.md
 
 

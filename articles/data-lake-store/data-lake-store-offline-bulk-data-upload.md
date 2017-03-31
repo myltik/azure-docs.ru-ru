@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
-ms.openlocfilehash: b2dcf4e0e5cc8e2c594357495635889a2e3645bd
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: dae5491962b22453c517da35539ce09463d8802d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.openlocfilehash: b2dcf4e0e5cc8e2c594357495635889a2e3645bd
 1. Приобретите жесткий диск, который отвечает требованиям к использованию в службе импорта и экспорта Azure.
 2. Определите учетную запись хранения Azure, в которую будут скопированы данные после доставки диска в центр обработки данных Azure.
 3. Используйте [инструмент импорта и экспорта Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) — служебную программу командной строки. Ниже приведен пример фрагмента кода, демонстрирующий использование инструмента.
-   
+
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
@@ -187,7 +188,7 @@ ms.openlocfilehash: b2dcf4e0e5cc8e2c594357495635889a2e3645bd
     }
 }
 ````
-Дополнительные сведения см. в статье [Перемещение данных в Azure Data Lake Store и обратно с помощью фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store).
+Дополнительные сведения см. в статье [Перемещение данных в Azure Data Lake Store и обратно с помощью фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md#example-copy-data-from-azure-blob-to-azure-data-lake-store).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Воссоздание файлов данных в Azure Data Lake Store
 Мы начали работу с файлом размером 319 ГБ и разделили его на файлы меньшего размера для передачи с помощью службы импорта и экспорта Azure. Теперь после передачи данных в Azure Data Lake Store мы можем воссоздать исходный файл. Для этого вы также можете воспользоваться следующими командлетами Azure PowerShell.
@@ -211,10 +212,4 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

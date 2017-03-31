@@ -17,9 +17,9 @@ ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: af8e53d7cc074bf669b967014223ee88476d1686
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -77,7 +77,7 @@ ms.lasthandoff: 03/07/2017
 | **Гарантируется согласованность префиксов** |Да |Да |Да |Да |
 | **Монотонное чтение** |Да |Да, в регионах вне "окна устаревания" и постоянно в регионе. |Да, для заданного сеанса. |Нет |
 | **Монотонная запись** |Да |Да |Да |Да |
-| **Чтение своих записей** |Да |Да |Да (в регионе записи). |Нет |
+| **Чтение своих записей** |Да |Да (в регионе записи). | Да |Нет |
 
 ## <a name="configuring-the-default-consistency-level"></a>Настройка уровня согласованности по умолчанию
 1. На навигационной панели [портала Azure](https://portal.azure.com/)щелкните **DocumentDB (NoSQL)**.

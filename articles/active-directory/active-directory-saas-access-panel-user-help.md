@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 6195b80037762a7f71eee9138c765e4d342acd5f
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="do-you-need-help-with-myapps"></a>Нужна помощь с MyApps?
 
-Скорее всего, вы попали на эту страницу из-за проблем с использованием портала MyApps. Зачастую для устранения проблемы необходимо обратиться в службу технической поддержки или к администратору. Здесь же приведены ответы на часто задаваемые вопросы, которые могут помочь справиться с проблемой самостоятельно. 
+Скорее всего, вы попали на эту страницу из-за проблем с использованием портала MyApps. Зачастую для устранения проблемы необходимо обратиться в службу технической поддержки или к администратору. Здесь же приведены ответы на часто задаваемые вопросы, которые могут помочь справиться с проблемой самостоятельно.
 
-Дополнительные сведения об управлении паролями см. [здесь](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
-  
+Дополнительные сведения об управлении паролями см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
+
 
 ## <a name="what-is-the-myapps-portal"></a>Что такое портал MyApps?
 
@@ -35,9 +35,9 @@ MyApps — это веб-портал, который позволяет:
 
 - запускать облачные приложения и управлять ими;
 - управлять членством в группах;
-- управлять параметрами профиля. 
+- управлять параметрами профиля.
 
-![Панель доступа][1] 
+![Панель доступа][1]
 
 
 
@@ -49,7 +49,7 @@ MyApps — это веб-портал, который позволяет:
 3.    Введите старый пароль, затем введите новый пароль и подтвердите его.
 4.    Нажмите кнопку **Submit**(Отправить).
 
-Дополнительные сведения см. в статье [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Дополнительные сведения см. в статье [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Как настроить сброс пароля?
@@ -58,7 +58,7 @@ MyApps — это веб-портал, который позволяет:
 2.    В разделе **Управление учетной записью** щелкните **Настроить самостоятельный сброс пароля**.
 3.    Следуйте указаниям в диалоговом окне и нажмите кнопку "Отправить".
 
-Дополнительные сведения см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Дополнительные сведения см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Как добавить новое приложение?

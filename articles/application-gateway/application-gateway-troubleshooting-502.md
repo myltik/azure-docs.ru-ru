@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -105,7 +106,7 @@ BackendAddressPoolsText:
 * Если в параметре BackendHttpSetting задан порт, отличный от 80, на стандартном сайте нужно настроить ожидание передачи данных через этот порт.
 * Вызов к http://127.0.0.1:port должен вернуть HTTP-код результата 200 (в течении 30-секундного периода ожидания).
 * Откройте настроенный порт и удалите правила брандмауэра и группы безопасности сети Azure. Иначе они будут блокировать входящий и исходящий трафик через настроенный порт.
-* Если классические виртуальные машины Azure или облачная служба используются с полным доменным именем или общедоступным IP-адресом, откройте соответствующую [конечную точку](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) .
+* Если классические виртуальные машины Azure или облачная служба используются с полным доменным именем или общедоступным IP-адресом, откройте соответствующую [конечную точку](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) .
 * Если виртуальная машина настроена с помощью Azure Resource Manager и находится за пределами виртуальной сети, в которой развернут шлюз приложений, настройте в [группе безопасности сети](../virtual-network/virtual-networks-nsg.md) доступ через нужный порт.
 
 ## <a name="problems-with-custom-health-probe"></a>Проблемы с пользовательскими пробами работоспособности
@@ -150,10 +151,5 @@ BackendAddressPoolsText:
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Если описанные выше шаги не устранят проблему, отправьте [запрос в службу поддержки](https://azure.microsoft.com/support/options/).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

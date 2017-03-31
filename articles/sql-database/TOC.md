@@ -5,20 +5,17 @@
 ## [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 ## [Создание базы данных с помощью Azure CLI](sql-database-get-started-cli.md)
 ## [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
-## Подключение
+## Управление
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [Код VS](sql-database-connect-query-vscode.md)
+## Подключение
 ### [C#](sql-database-connect-query-dotnet.md)
 # Примеры
 ## [Интерфейс командной строки Azure](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Учебники
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Восстановление
-### [Портал](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Проектирование базы данных](sql-database-design-first-database.md)
+
 # Основные понятия
 ## Базы данных и серверы
 ### [Базы данных](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Доступ к базе данных 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Защита данных
 ### [Аутентификация Azure AD](sql-database-aad-authentication-configure.md)
 ### [Аудит](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Шифрование: хранилище сертификатов](sql-database-always-encrypted.md)
 ### [Шифрование: ключ хранилища](sql-database-always-encrypted-azure-key-vault.md)
 ### [Настойка маскировки](sql-database-dynamic-data-masking-get-started-portal.md)
-## Архивация и восстановление
-### [Восстановление: портал](sql-database-restore-database-portal.md)
+## Восстановление
+### [Портал](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Отдельная таблица](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Сохранение
 ### [Хранение: портал](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Хранение: PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Восстановление отдельной таблицы](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Георепликация данных
 ### [Портал](sql-database-geo-replication-portal.md)
 ### [T-SQL: настройка](sql-database-geo-replication-transact-sql.md)

@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
-ms.openlocfilehash: 1e436978da0f2fc8c122a1a99bd891fe82929f50
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: be73e3d009cfcbdd585d81512afaed752ae07364
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.openlocfilehash: 1e436978da0f2fc8c122a1a99bd891fe82929f50
 После настройки зашифрованного соединения, которое требуется для службы поиска Azure, необходимо выполнить дополнительные шаги, обязательные для настройки SQL Server на виртуальных машинах Azure. Если это еще не было сделано, то следующий шаг позволит вам завершить настройку. Воспользуйтесь одной из следующих статей:
 
 * Если вы используете виртуальную машину **Resource Manager** , то ознакомьтесь с разделом [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* Если вы используете **классическую** виртуальную машину, см. статью [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+* Если вы используете **классическую** виртуальную машину, см. статью [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](../virtual-machines/windows/classic/sql-connect.md).
 
 В частности, в каждой из этих статей ознакомьтесь с разделом "Подключение к SQL Server через Интернет".
 
@@ -87,10 +88,5 @@ ms.openlocfilehash: 1e436978da0f2fc8c122a1a99bd891fe82929f50
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Когда настройка выполнена, SQL Server на виртуальной машине Azure можно указать в качестве источника данных для индексатора службы поиска Azure. Дополнительные сведения см. в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

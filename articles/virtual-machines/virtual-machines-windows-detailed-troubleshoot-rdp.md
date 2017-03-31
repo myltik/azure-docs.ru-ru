@@ -7,8 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: >
-  cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
+keywords: "не удается подключиться к удаленному рабочему столу, устранение неполадок удаленного рабочего стола, удаленному рабочему столу не удается подключиться, ошибки удаленного рабочего стола, устранение неполадок удаленного рабочего стола, проблемы удаленного рабочего стола"
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -18,8 +17,9 @@ ms.topic: support-article
 ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
-ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 35dbfaa1cdc274fb2c1fcb3afc68547ffefe80ab
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -108,7 +108,7 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 * Конфигурация конечной точки для трафика удаленного рабочего стола на целевой виртуальной машине: частный TCP-порт конечной точки должен совпадать с TCP-портом, который используется для прослушивания службы удаленных рабочих столов для виртуальных машин (по умолчанию — 3389).
 * Список управления доступом на конечной точке для обмена данными с удаленным рабочим столом на целевой виртуальной машине: позволяет разрешать и запрещать входящий трафик из Интернета в зависимости от IP-адреса источника. Если он неправильно настроен, входящие данные с удаленного рабочего стола на эту конечную точку могут блокироваться. Проверьте свои списки управления доступом и убедитесь в том, что входящий трафик с общедоступных IP-адресов вашего прокси-сервера или другого пограничного сервера разрешен. Дополнительные сведения см. в статье [Список управления доступом (ACL) конечной точки](../virtual-network/virtual-networks-acl.md).
 
-Чтобы устранить конечную точку из числа потенциальных источников проблемы, удалите ее и создайте новую, выбрав в качестве номера внешнего порта любой порт в диапазоне от 49152 до 65535. Дополнительные сведения см. в статье [Настройка конечных точек виртуальной машины](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Чтобы устранить конечную точку из числа потенциальных источников проблемы, удалите ее и создайте новую, выбрав в качестве номера внешнего порта любой порт в диапазоне от 49152 до 65535. Дополнительные сведения см. в статье [Настройка конечных точек виртуальной машины](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Источник 4: группы безопасности сети
 Группы безопасности сети позволяют точнее настраивать параметры разрешенного входящего и исходящего трафика. Можно создавать правила, которые распространяются на подсети и облачные службы в виртуальной сети Azure. Проверьте свои правила групп безопасности сети и убедитесь в том, что обмен данными с удаленными рабочими столами в Интернете разрешен.
@@ -125,7 +125,7 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 ## <a name="source-5-windows-based-azure-vm"></a>Источник 5: виртуальная машина Azure под управлением Windows
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Чтобы проверить, не связан ли сбой с самой виртуальной машиной Azure, используйте [пакет диагностики Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) . Если этому пакету диагностики не удалось устранить ошибку **RDP connectivity to an Azure VM (Reboot Required)** (Подключение к удаленному рабочему столу на виртуальной машине Azure (требуется перезагрузка)), следуйте указаниям в [этой статье](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В ней объясняется, как вернуть службу удаленного рабочего стола на виртуальной машине в исходное состояние.
+Следуйте инструкциям в [этой статье](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В ней объясняется, как вернуть службу удаленного рабочего стола на виртуальной машине в исходное состояние.
 
 * будет включено правило по умолчанию «Удаленный рабочий стол» в брандмауэре Windows (TCP-порт 3389);
 * будут разрешены подключения к удаленным рабочим столам в реестре (для параметра HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections будет установлено значение 0).
@@ -167,7 +167,7 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 Первая часть строки — это имя облачной службы, в которой находится целевая виртуальная машина (может отличаться от "cloudservice4testing.cloudapp.net"). Теперь можно выполнить команды Azure PowerShell для этой облачной службы, чтобы проанализировать перечисленные выше проблемы и исправить конфигурацию.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Изменение вручную TCP-порта прослушивания служб удаленных рабочих столов
-Если вам не удалось запустить [пакет диагностики IaaS Azure (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) для решения проблемы **RDP connectivity to an Azure VM (Reboot Required)** (Подключение к удаленному рабочему столу на виртуальной машине Azure (требуется перезагрузка)), в командной строке удаленного сеанса Azure PowerShell выполните следующую команду.
+Выполните приведенную команду в командной строке удаленного сеанса Azure PowerShell.
 
     Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
@@ -186,8 +186,6 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 Также убедитесь в том, что на конечной точке удаленного рабочего стола для виртуальной машины Azure в качестве внутреннего порта задан TCP-порт 3398. Перезапустите виртуальную машину Azure и попробуйте установить подключение к удаленному рабочему столу еще раз.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-[Пакет диагностики Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
-
 [Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
@@ -195,10 +193,5 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

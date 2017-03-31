@@ -11,15 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: aaf5c442ef85edbc498aa2fd7815171f4701f960
-ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
+ms.lasthandoff: 03/22/2017
+
 
 ---
 
-# <a name="log-analytics-saved-searches-and-alerts-in-oms-solutions-preview"></a>Сохраненные поиски и оповещения Log Analytics в решениях OMS (предварительная версия)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Добавление сохраненных поисковых запросов и оповещений Log Analytics в решении по управлению OMS (предварительная версия)
 
 > [!NOTE]
 > Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.   
@@ -35,7 +38,7 @@ ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
 
 
 ## <a name="log-analytics-workspace"></a>Рабочая область Log Analytics
-Все ресурсы в Log Analytics размещаются в [рабочей области](../log-analytics/log-analytics-manage-access.md).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account), рабочая область не включена в решение для управления и должна быть создана до его установки.  Если она недоступна, произойдет сбой установки решения.
+Все ресурсы в Log Analytics размещаются в [рабочей области](../log-analytics/log-analytics-manage-access.md).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions.md#oms-workspace-and-automation-account), рабочая область не включена в решение для управления и должна быть создана до его установки.  Если она недоступна, произойдет сбой установки решения.
 
 Имя рабочей области указывается в имени каждого ресурса Log Analytics.  Для этого в решении используется параметр **workspace**, как показано в следующем примере ресурса savedsearch.
 
@@ -90,7 +93,7 @@ ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
 У сохраненного поиска может быть одно или несколько расписаний, представляющих отдельное правило генерации оповещений. Расписание определяет, как часто выполняется поиск, а также интервал времени для извлечения данных.  Ресурсы расписания имеют тип `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/`. Их структура приведена ниже. 
 
     {
-      "name": "<name-of-schedule>",
+      "name": "<name-of-schedule-resource>",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
       "apiVersion": "<api-version-of-resource>",
       "dependsOn": [
@@ -100,7 +103,7 @@ ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
         "etag": "*",               
         "interval": <schedule-interval-in-minutes>,
         "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-interval-in-minutes>       
+        "enabled": <schedule-enabled>       
       }
     }
 
@@ -257,7 +260,7 @@ ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
 
 
 
-### <a name="sample"></a>Образец
+## <a name="sample"></a>Образец
 
 Ниже приведен пример решения со приведенными ниже ресурсами.
 
@@ -266,7 +269,7 @@ ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
 - Действие оповещения
 - Действия webhook
 
-В примере используются переменные [стандартных параметров решения](operations-management-suite-solutions-creating.md#parameters), что является общепринятой практикой для решений, в отличие от жестко программируемых значений в определениях ресурсов.
+В примере используются переменные [стандартных параметров решения](operations-management-suite-solutions-solution-file.md#parameters), что является общепринятой практикой для решений, в отличие от жестко программируемых значений в определениях ресурсов.
 
     {
         "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
@@ -504,10 +507,5 @@ ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавьте представления](operations-management-suite-solutions-resources-views.md) в решение для управления.
 * [Добавьте модули Runbook и другие ресурсы службы автоматизации](operations-management-suite-solutions-resources-automation.md) в решение для управления.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

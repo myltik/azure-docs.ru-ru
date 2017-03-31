@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: bd70596bcc34684a6f751076e71cb3d0aa3877dd
-ms.openlocfilehash: 4c40fd95f42f4e89e86d829c8a32583a0398c74e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 24a01d243cda0d04b6b179ab3f87f1d5fcdce61b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -402,7 +402,7 @@ zypper будет искать только обновления, необход
 
 ## <a name="about-sap-azure-certifications-and-running-sap-hana-on-azure"></a>Сведения о сертификациях SAP Azure и запуске SAP HANA в Azure
 Дополнительные сведения см. в следующей документации:
-* Общие сведения о SAP для Azure по запуску SAP на виртуальных машинах Azure с ОС Windows (классическая модель развертывания): [Использование SAP на виртуальных машинах Windows в Azure](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Общие сведения о SAP для Azure по запуску SAP на виртуальных машинах Azure с ОС Windows (классическая модель развертывания): [Использование SAP на виртуальных машинах Windows в Azure](windows/classic/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Сведения о доступных для пользователей шаблонах SAP [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) (Шаблоны быстрого запуска Azure для SAP).
 * Общие сведения о SAP для Azure по запуску SAP на виртуальных машинах Azure с ОС Linux (модель развертывания Azure Resource Manager): [Использование решений SAP на виртуальных машинах Microsoft Azure](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Список поддерживаемых типов виртуальных машин Azure: [Certified SAP Hana® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) (Сертифицированный каталог оборудования SAP Hana®).

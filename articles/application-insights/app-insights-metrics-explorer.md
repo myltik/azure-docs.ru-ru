@@ -1,5 +1,5 @@
 ---
-title: "Исследование метрик в Application Insights | Документация Майкрософт"
+title: "Изучение метрик в Azure Application Insights | Документация Майкрософт"
 description: "Способ интерпретации диаграмм в обозревателе метрик и настройки колонок обозревателя метрик."
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -195,6 +195,10 @@ ms.lasthandoff: 03/10/2017
     Если вы хотите задать разные фильтры для различных диаграмм, создайте их на разных колонках и по отдельности сохраните в избранное. Если необходимо, вы можете закрепить их на панели мониторинга, чтобы их можно было видеть вместе.
 * Если сгруппировать диаграмму по свойству, которое не определено в метрике, то на диаграмме ничего не отобразится. Попробуйте убрать группировку или выберите другое свойство для группировки.
 * Данные о производительности (ЦП, скорость ввода-вывода и т. д.) доступны для веб-служб Java, классических приложений Windows, [веб-приложений и служб IIS, если установлен монитор состояния](app-insights-monitor-performance-live-website-now.md), а также [облачных служб Azure](app-insights-azure.md). Такие данные для веб-сайтов Azure недоступны.
+
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Отслеживание использования Application Insights.](app-insights-overview-usage.md)

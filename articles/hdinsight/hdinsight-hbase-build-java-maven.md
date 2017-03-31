@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e7a2fef8860984c2e4e3749202868940b836ca9f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
 ## <a name="requirements"></a>Требования
 * [Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней.
 * [Maven](http://maven.apache.org/)
-* [Кластер HDInsight под управлением Windows с HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* Кластер HDInsight под управлением Windows с HBase
 
     > [!NOTE] 
     > Действия, описанные в этом документе, были проверены для версий кластера HDInsight 3.2 и 3.3. Значения по умолчанию в примерах предназначены для кластера HDInsight 3.3.
@@ -616,10 +618,5 @@ ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
 ## <a name="troubleshooting"></a>Устранение неполадок
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>При использовании Start-HBaseExample результаты отсутствуют или не получено каких-либо неожиданных результатов.
 Используйте параметр `-showErr` для просмотра стандартной ошибки (STDERR), выдаваемой при выполнении задания.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

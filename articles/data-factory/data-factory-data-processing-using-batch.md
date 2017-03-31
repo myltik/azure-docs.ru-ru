@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb4188bed4839aea6d19c49a8f0e6d154a343ec1
-ms.openlocfilehash: e0f77f88ee91b263c49a148197e418fdf64cca0b
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 9702f179a65754be88646987f868385b02a9f2d7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -154,12 +155,12 @@ public IDictionary<string, string> Execute(
 #### <a name="procedure-create-the-custom-activity"></a>Процедура. Создание настраиваемого действия
 1. Создайте проект библиотеки классов .NET в Visual Studio:
 
-   1. Запустите **Visual Studio 2012, **/**Visual Studio 2013 или Visual Studio 2015**.
+   1. Запустите **Visual Studio 2012,**/**Visual Studio 2013 или Visual Studio 2015**.
    2. Щелкните **Файл**, наведите указатель мыши на пункт **Создать** и щелкните **Проект**.
    3. Разверните раздел **Шаблоны** и выберите **Visual C#\#**. В этом руководстве используется язык C\#, но для создания настраиваемого действия вы можете использовать любой язык .NET.
    4. выберите тип **Библиотека классов** в списке типов проектов справа;
    5. В поле **Имя** введите **MyDotNetActivity**.
-   6. В поле **Расположение\\ выберите **C:**ADF**. Создайте папку **ADF** , если она не существует.
+   6. В поле **Расположение\\ выберите**C:**ADF**. Создайте папку **ADF** , если она не существует.
    7. Нажмите кнопку **ОК** , чтобы создать проект.
 2. Щелкните **Инструменты**, наведите указатель мыши на **Диспетчер пакетов NuGet** и щелкните **Консоль диспетчера пакетов**.
 3. В **консоли диспетчера пакетов** выполните следующую команду, чтобы импортировать пакет **Microsoft.Azure.Management.DataFactories**.
@@ -483,7 +484,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 Теперь во входном файле появилось три строки, по одной на каждый входной файл (большой двоичный объект) в папке, связанный со срезом (2015-11-16-00).
 
-Такая задача создается для каждого запуска действия. В этом примере в конвейере есть только одно действие. При обработке среза конвейером в пакетной службе Azure выполняется настраиваемое действие для обработки среза. Так как имеется&5; срезов (каждому срезу может соответствовать несколько больших двоичных объектов или файлов), в пакетной службе Azure создано&5; задач. При запуске задачи в пакетной службе фактически выполняется настраиваемое действие.
+Такая задача создается для каждого запуска действия. В этом примере в конвейере есть только одно действие. При обработке среза конвейером в пакетной службе Azure выполняется настраиваемое действие для обработки среза. Так как имеется 5 срезов (каждому срезу может соответствовать несколько больших двоичных объектов или файлов), в пакетной службе Azure создано 5 задач. При запуске задачи в пакетной службе фактически выполняется настраиваемое действие.
 
 В следующем пошаговом руководстве содержатся дополнительные сведения.
 
@@ -891,10 +892,10 @@ test custom activity Microsoft test custom activity Microsoft
 ### <a name="next-steps-consume-the-data"></a>Дальнейшие действия. Использование данных
 После обработки данных их можно использовать в интерактивных инструментах, например в **Microsoft Power BI**. Ниже приведены ссылки на статьи, в которых представлены общие сведения о Power BI и информация о том, как использовать это средство в Azure.
 
-* [Изучение набора данных в Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
-* [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
-* [Обновление данных в Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
-* [Общая информация об Azure и Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
+* [Изучение набора данных в Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+* [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Обновление данных в Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
+* [Общая информация об Azure и Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Ссылки
 * [Фабрика данных Azure](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -911,9 +912,4 @@ test custom activity Microsoft test custom activity Microsoft
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

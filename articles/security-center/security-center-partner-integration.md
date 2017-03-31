@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -56,7 +57,7 @@ ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 Развернув партнерское решение, можно просмотреть сведения о его работоспособности и выполнить основные задачи управления на плитке "Решения партнеров" на основной панели мониторинга центра безопасности. Дополнительные сведения об управлении партнерскими решениями с помощью центра безопасности Azure см. [в этой статье](security-center-partner-solutions.md).
 
-![Интеграция партнеров](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
+![Интеграция партнеров](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
 
 
 ## <a name="see-also"></a>Дополнительные материалы
@@ -69,9 +70,4 @@ ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 * [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

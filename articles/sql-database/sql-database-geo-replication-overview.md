@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/16/2017
 
 Если по какой-либо причине произойдет сбой вашей базы данных-источника (или вам просто потребуется перевести ее в автономный режим), вы можете выполнить *отработку отказа* на любую из доступных баз данных-получателей. При активации отработки отказа в одной из баз данных-получателей все прочие получатели автоматически связываются с новой базой данных-источником.
 
-Отработку отказа на базу данных-получатель можно выполнить с помощью [портала Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API (плановой отработки отказа)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) или [REST API (внеплановой отработки отказа)](https://msdn.microsoft.com/library/azure/mt582027.aspx).
+Отработку отказа на базу данных-получатель можно выполнить с помощью [портала Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API (плановой отработки отказа)](https://msdn.microsoft.com/library/mt575007.aspx) или [REST API (внеплановой отработки отказа)](https://msdn.microsoft.com/library/mt582027.aspx).
 
 После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/16/2017
 * **API Azure Resource Manager и безопасность на основе ролей**. Активная георепликация включает в себя набор [интерфейсов API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) для управления, в том числе [командлеты PowerShell для Azure Resource Manager](sql-database-geo-replication-powershell.md). Эти интерфейсы API требуют использования групп ресурсов и поддерживают безопасность на основе ролей (RBAC). Дополнительные сведения о том, как реализовать контроль доступа на основе ролей, см. в статье [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Многие новые функции активной георепликации поддерживаются только в [REST API SQL Azure](../azure-resource-manager/resource-group-overview.md) и [командлетах PowerShell базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) на основе [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). Классический REST API (https://msdn.microsoft.com/library/azure/dn505719.aspx) и [командлеты базы данных SQL Azure (классическая модель)](https://msdn.microsoft.com/library/azure/dn546723.aspx) поддерживаются для обратной совместимости, поэтому рекомендуется использовать интерфейсы API на основе Azure Resource Manager. 
+> Многие новые функции активной георепликации поддерживаются только в [REST API SQL Azure](../azure-resource-manager/resource-group-overview.md) и [командлетах PowerShell базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) на основе [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). [Классический REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) и [командлеты базы данных SQL Azure (классическая модель)](https://msdn.microsoft.com/library/azure/dn546723.aspx) поддерживаются для обратной совместимости, поэтому рекомендуется использовать интерфейсы API на основе Azure Resource Manager. 
 > 
 > 
 
@@ -107,10 +107,10 @@ ms.lasthandoff: 02/16/2017
 ### <a name="powershell"></a>PowerShell
 | Командлет | Описание |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Получает одну или несколько баз данных. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Получает одну или несколько баз данных. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |Создает базу данных-получатель для существующей базы данных и начинает репликацию данных. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |Преобразует базу данных-получатель в базу данных-источник для запуска отработки отказа. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |Завершает репликацию данных между базой данных SQL и указанной базой данных-получателем. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |Преобразует базу данных-получатель в базу данных-источник для запуска отработки отказа. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |Завершает репликацию данных между базой данных SQL и указанной базой данных-получателем. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Получает связи георепликации между базой данных SQL Azure и группой ресурсов или SQL Server. |
 |  | |
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/16/2017
 | --- | --- |
 | [Создание или обновление базы данных (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Создает, обновляет или восстанавливает базу данных-источник или базу данных-получатель. |
 | [Получение, создание или обновление состояния базы данных](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Возвращает состояние во время операции создания. |
-| [Задание базы данных-получателя в качестве базы данных-источника (плановая отработка отказа)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |Повышение уровня базы данных-получателя в партнерстве георепликации до новой базы данных-источника. |
+| [Задание базы данных-получателя в качестве базы данных-источника (плановая отработка отказа)](https://msdn.microsoft.com/library/azure/mt575007.aspx) |Повышение уровня базы данных-получателя в партнерстве георепликации до новой базы данных-источника. |
 | [Задание базы данных-получателя в качестве базы данных-источника (внеплановая отработка отказа)](https://msdn.microsoft.com/library/azure/mt582027.aspx) |Принудительная отработка отказа на базу данных-получатель и задание ее в качестве базы данных-источника. |
 | [Получение связей репликации](https://msdn.microsoft.com/library/azure/mt600929.aspx) |Получает все связи репликации для заданной базы данных SQL, участвующей в партнерстве георепликации. Извлекает сведения, отображаемые в представлении каталога sys.geo_replication_links. |
 | [Получение связи репликации](https://msdn.microsoft.com/library/azure/mt600778.aspx) |Получает определенную связь репликации для заданной базы данных SQL, участвующей в партнерстве георепликации. Извлекает сведения, отображаемые в представлении каталога sys.geo_replication_links. |

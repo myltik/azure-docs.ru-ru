@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 44bb69c53eb5fea6d3e27f17eb6c690df7684bda
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5bff7fa34fd8ce14a35018dfd3c13b9ca2019f2e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 44bb69c53eb5fea6d3e27f17eb6c690df7684bda
 * [Общая база данных ClearDB MySQL](/marketplace/partners/cleardb/databases/)
 * [Кластеры ClearDB MySQL Premium](/marketplace/partners/cleardb-clusters/cluster/)
 * [Кластер MySQL на виртуальной машине Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Отдельный экземпляр MySQL на виртуальной машине Azure](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Отдельный экземпляр MySQL на виртуальной машине Azure](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ClearDB является службой размещения MySQL и управляет инфраструктурой MySQL. После запуска кластера или базы данных MySQL на виртуальной машине Azure вам нужно настроить сервер MySQL, а затем установить все выходящие исправления.
 
@@ -47,7 +48,7 @@ ClearDB является службой размещения MySQL и управ
 По умолчанию используется база данных Titan, которая стоит 3,50 доллара. Эта сумма не отображается при создании базы данных, поэтому вы могли приобрести ее по ошибке. Мы пытаемся найти способ решения этой проблемы, а до тех пор рекомендуем проверять выбранные ценовые категории веб-приложения и базы данных, прежде чем щелкнуть **Готово** и развернуть ресурсы.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Я использую MySQL на собственной виртуальной машине Azure. Могу ли я подключить к этой базе данных веб-приложение Azure?
-Да. Веб-приложение можно подключить к базе данных, если у виртуальной машины Azure есть удаленный доступ к этому веб-приложению. Дополнительные сведения см. в статье об [установке MySQL на виртуальной машине](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Да. Веб-приложение можно подключить к базе данных, если у виртуальной машины Azure есть удаленный доступ к этому веб-приложению. Дополнительные сведения см. в статье об [установке MySQL на виртуальной машине](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>В каких странах поддерживаются кластеры ClearDB MySQL Premium?
 [Кластеры ClearDB MySQL Premium](/marketplace/partners/cleardb-clusters/cluster/) доступны во всех регионах Azure, кроме Индии, Австралии, южной Бразилии и Китая.
@@ -104,10 +105,5 @@ Azure Marketplace недоступен для клиентов из Азерба
 
 ## <a name="more-information"></a>Дополнительные сведения
 [Часто задаваемые вопросы об Azure Marketplace](/marketplace/faq/)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

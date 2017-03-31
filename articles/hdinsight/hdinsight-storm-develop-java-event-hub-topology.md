@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 85f56e223210f14615f7e4e1c87e35111b238aac
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fcca957dc365d8c38b5a08991939860c5af96813
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -46,11 +46,7 @@ ms.lasthandoff: 02/21/2017
   > [!NOTE]
   > В редакторе или интегрированной среде разработки могут быть предусмотрены специальные функциональные возможности для работы с Maven, не описанные в настоящем документе. Информацию о возможностях среды редактирования см. в документации продукта, который вы используете.
   
-  * Клиент SSH. Дополнительные сведения см. в одном из следующих документов:
-    
-    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+  * Клиент SSH. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * SCP-клиент. Команда `scp` доступна во всех системах Linux, Unix и OS X. Linux, Unix и OS X (включая Bash в Windows 10). Для систем Windows, которые не содержат команду `scp`, мы рекомендуем использовать PSCP. Средство PSCP доступно на [странице для скачивания PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -136,7 +132,7 @@ ms.lasthandoff: 02/21/2017
 ```
 
 > [!NOTE]
-> При работе с более ранней версией HDInsight, например версией 3.2, эти компоненты необходимо регистрировать вручную. Примеры работы доступны в ветви [Storm&0;.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) репозитория примеров.
+> При работе с более ранней версией HDInsight, например версией 3.2, эти компоненты необходимо регистрировать вручную. Примеры работы доступны в ветви [Storm 0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) репозитория примеров.
 
 #### <a name="the-maven-compiler-plugin"></a>maven-compiler-plugin
 

@@ -1,5 +1,5 @@
 ---
-title: "Ресурсы службы автоматизации в решениях OMS | Документация Майкрософт"
+title: "Ресурсы службы автоматизации Azure в решениях OMS | Документация Майкрософт"
 description: "Как правило, решения в OMS содержат модули Runbook службы автоматизации Azure для автоматизации процессов, таких как сбор и обработка данных мониторинга.  В этой статье описывается, как добавлять модули Runbook и связанные с ними ресурсы в решение."
 services: operations-management-suite
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 03/17/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a86a20e1e83f412a06f54bb195180b9d2af98ca6
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="automation-resources-in-oms-solutions-preview"></a>Ресурсы службы автоматизации в решениях OMS (предварительная версия)
+# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Добавление ресурсов службы автоматизации Azure в решение по управлению OMS (предварительная версия)
 > [!NOTE]
 > Это предварительная документация для создания решений для управления в консоли OMS, которая доступна в данный момент в режиме предварительной версии. Любые схемы, приведенные ниже, могут измениться.   
 > 
@@ -30,17 +32,17 @@ ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
 
 > [!NOTE]
 > В примерах здесь используются обязательные или общие параметры и переменные для решений по управлению, описанные в статье [Создание решений для управления в Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md). 
-> 
-> 
+
 
 ## <a name="prerequisites"></a>Предварительные требования
-В этой статье предполагается, что вы уже знаете, как [создать решение для управления](operations-management-suite-solutions-creating.md) и структуру файла решения.
+В этой статье предполагается, что вы уже знакомы со следующими сведениями.
 
-## <a name="samples"></a>Примеры
-Примеры шаблонов Resource Manager для ресурсов службы автоматизации можно получить из [шаблонов быстрого запуска на GitHub](https://github.com/azureautomation/automation-packs/tree/master/101-sample-automation-resource-templates).
+- Как [создать решение по управлению](operations-management-suite-solutions-creating.md).
+- Структура [файла решения](operations-management-suite-solutions-solution-file.md).
+- Как [создавать шаблоны Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="automation-account"></a>Учетная запись службы автоматизации
-Все ресурсы в службе автоматизации Azure содержатся в [учетной записи службы автоматизации](../automation/automation-security-overview.md#automation-account-overview).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account), учетная запись службы автоматизации не включена в решение для управления и должна быть создана до установки решения.  Если она недоступна, произойдет сбой установки решения.
+Все ресурсы в службе автоматизации Azure содержатся в [учетной записи службы автоматизации](../automation/automation-security-overview.md#automation-account-overview).  Как описано в разделе [Рабочая область OMS и учетная запись службы автоматизации](operations-management-suite-solutions.md#oms-workspace-and-automation-account), учетная запись службы автоматизации не включена в решение для управления и должна быть создана до установки решения.  Если она недоступна, произойдет сбой установки решения.
 
 Имя учетной записи службы автоматизации указывается в имени каждого ресурса службы автоматизации.  Оно указывается в решении с помощью параметра **accountName**, как в следующем примере ресурса модуля Runbook.
 
@@ -48,7 +50,32 @@ ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
 
 
 ## <a name="runbooks"></a>Модули Runbook
-Тип ресурсов [модуля Runbook службы автоматизации Azure](../automation/automation-runbook-types.md) — **Microsoft.Automation/automationAccounts/runbooks**. Их свойства приведены в таблице ниже.
+В файл решения следует включить все модули Runbook, используемые решением, чтобы они создавались при установке решения.  Однако в шаблон нельзя добавить текст модуля Runbook, поэтому следует опубликовать модуль Runbook в общедоступном месте, где к нему может обратиться любой пользователь, устанавливающий решение.
+
+Тип ресурсов [модуля Runbook службы автоматизации Azure](../automation/automation-runbook-types.md) — **Microsoft.Automation/automationAccounts/runbooks**. Их структура приведена ниже. Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров. 
+
+    {
+        "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
+        "type": "Microsoft.Automation/automationAccounts/runbooks",
+        "apiVersion": "[variables('AutomationApiVersion')]",
+        "dependsOn": [
+        ],
+        "location": "[parameters('regionId')]",
+        "tags": { },
+        "properties": {
+            "runbookType": "[variables('Runbook').Type]",
+            "logProgress": "true",
+            "logVerbose": "true",
+            "description": "[variables('Runbook').Description]",
+            "publishContentLink": {
+                "uri": "[variables('Runbook').Uri]",
+                "version": [variables('Runbook').Version]"
+            }
+        }
+    }
+
+
+В следующей таблице описаны свойства модулей Runbook.
 
 | Свойство | Описание |
 |:--- |:--- |
@@ -58,116 +85,119 @@ ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
 | Описание |Необязательное описание модуля Runbook. |
 | publishContentLink |Указывает содержимое модуля Runbook. <br><br>uri — URI содержимого модуля Runbook.  Это будет PS1-файл для модулей Runbook PowerShell и сценариев, а также файл экспортированного графического модуля Runbook для графического модуля Runbook.  <br> version — версия модуля Runbook для собственного отслеживания. |
 
-Ниже приведен пример ресурса модуля Runbook.  В этом случае он извлекает модуль Runbook из [коллекции PowerShell](https://www.powershellgallery.com).
-
-    "name": "[concat(parameters('accountName'), '/Start-AzureV2VMs'))]",
-    "type": "Microsoft.Automation/automationAccounts/runbooks",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "location": "[parameters('regionId')]",
-    "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('startVmsRunbookName'))]"
-    ],
-    "tags": { },
-    "properties": {
-        "runbookType": "PowerShell",
-        "logProgress": "true",
-        "logVerbose": "true",
-        "description": "",
-        "publishContentLink": {
-            "uri": "https://www.powershellgallery.com/api/v2/items/psscript/package/Update-ModulesInAutomationToLatestVersion/1.0/Start-AzureV2VMs.ps1",
-            "version": "1.0"
-        }
-    }
-
-### <a name="starting-a-runbook"></a>Запуск модуля Runbook
-В решении для управления модуль Runbook можно запустить двумя способами.
-
-* Для запуска модуля Runbook при установке решения создайте [ресурс задания](#automation-jobs), как описано ниже.
-* Для запуска модуля Runbook по расписанию создайте [ресурс расписания](#schedules), как описано ниже. 
 
 ## <a name="automation-jobs"></a>Задания службы автоматизации
-Для запуска модуля Runbook при установке решения для управления следует создать ресурс **задания**.  Тип ресурсов задания — **Microsoft.Automation/automationAccounts/jobs**. Их свойства приведены в таблице ниже.
+При запуске модуля Runbook в службе автоматизации Azure создается задание службы автоматизации.  Ресурс задания службы автоматизации можно добавить в решение для автоматического запуска модуля Runbook при установке решения по управлению.  Этот метод обычно используется для запуска модулей Runbook, которые используются для начальной настройки решения.  Для запуска модуля Runbook через регулярные интервалы создайте [расписание](#schedules) и [расписание заданий](#job-schedules)
+
+Тип ресурсов задания — **Microsoft.Automation/automationAccounts/jobs**. Их структура приведена ниже.  Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров. 
+
+    {
+      "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
+      "type": "Microsoft.Automation/automationAccounts/jobs",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "dependsOn": [
+        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('Runbook').Name)]"
+      ],
+      "tags": { },
+      "properties": {
+        "runbook": {
+          "name": "[variables('Runbook').Name]"
+        },
+        "parameters": {
+          "Parameter1": "[[variables('Runbook').Parameter1]",
+          "Parameter2": "[[variables('Runbook').Parameter2]"
+        }
+      }
+    }
+
+В следующей таблице описаны свойства заданий службы автоматизации.
 
 | Свойство | Description (Описание) |
 |:--- |:--- |
-| runbook |Одна сущность **name** с именем модуля Runbook. |
-| parameters |Сущность для каждого параметра, необходимого для модуля Runbook. |
+| runbook |Одна сущность name с именем модуля Runbook для запуска. |
+| parameters |Сущность для каждого значения параметра, необходимого для модуля Runbook. |
 
-Задание включает в себя имя модуля Runbook и все значения параметров, которые нужно отправить в модуль Runbook.  Задание должно [зависеть от](operations-management-suite-solutions-creating.md#resources) модуля Runbook, который оно запускает, так как модуль Runbook нужно создать до задания.  Кроме того, для модулей Runbook нужно создать зависимости от других заданий, которые должны завершиться до текущего задания.
+Задание включает в себя имя модуля Runbook и все значения параметров, которые нужно отправить в модуль Runbook.  Задание должно [зависеть от](operations-management-suite-solutions-solution-file.md#resources) модуля Runbook, который оно запускает, так как модуль Runbook нужно создать до задания.  При наличии нескольких модулей Runbook, которые нужно запустить, порядок их запуска можно определить, создав зависимость между заданием и другими заданиями, которые должны выполняться в первую очередь.
 
-Имя ресурса задания должно содержать GUID, который обычно назначается с помощью параметра.  Дополнительные сведения о параметрах GUID см. в статье [Создание решений для управления в Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md#parameters).  
-
-Ниже представлен пример задания, которое запускает модуль Runbook при установке решения для управления.  Другие модули Runbook должны завершиться до начала выполнения текущего, чтобы в нем были зависимости от заданий для этих модулей Runbook.  Сведения о задании указываются в параметрах и переменных, а не напрямую.
-
-    {
-        "name": "[concat(parameters('accountName'), '/', parameters('startVmsRunbookGuid'))]",
-        "type": "Microsoft.Automation/automationAccounts/jobs",
-        "apiVersion": "[variables('AutomationApiVersion')]",
-        "location": "[parameters('regionId')]",
-        "dependsOn": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('startVmsRunbookName'))]",
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('initialPrepRunbookGuid'))]"
-        ],
-        "tags": { },
-        "properties": {
-            "runbook": {
-                "name": "[variables('startVmsRunbookName')]"
-            },
-            "parameters": {
-                "AzureConnectionAssetName": "[variables('AzureConnectionAssetName')]",
-                "ResourceGroupName": "[variables('ResourceGroupName')]"
-            }
-        }
-    }
+Имя ресурса задания должно содержать GUID, который обычно назначается с помощью параметра.  Дополнительные сведения о параметрах GUID см. в статье [Создание решений для управления в Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Сертификаты
-Тип [сертификатов службы автоматизации Azure](../automation/automation-certificates.md) — **Microsoft.Automation/automationAccounts/certificates**. Их свойства приведены в таблице ниже.
+Тип [сертификатов службы автоматизации Azure](../automation/automation-certificates.md) — **Microsoft.Automation/automationAccounts/certificates**. Их структура приведена ниже. Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров. 
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/certificates",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "base64Value": "[variables('Certificate').Base64Value]",
+        "thumbprint": "[variables('Certificate').Thumbprint]"
+      }
+    }
+
+
+
+В следующей таблице описаны свойства ресурсов сертификатов.
 
 | Свойство | Описание |
 |:--- |:--- |
 | base64Value |Значение Base 64 для сертификата. |
 | thumbprint |Отпечаток сертификата. |
 
-Ниже указан пример ресурса сертификата.
 
-    "name": "[concat(parameters('accountName'), '/MyCertificate')]",
-    "type": "certificates",
-    "apiVersion": "2015-01-01-preview",
-    "location": "[parameters('regionId')]",
-    "tags": {},
-    "dependsOn": [
-    ],
-    "properties": {
-        "base64Value": "MIIC1jCCAA8gAwIAVgIYJY4wXCXH/YAHMtALh7qEFzANAgkqhkiG5w0AAQUFGDAUMRIwEBYDVQQDEwlsA3NhAGevc3QqHhcNMTZwNjI5MHQxMjAsWhcNOjEwNjI5NKWwMDAwWjAURIwEAYDVQQBEwlsA2NhAGhvc3QwggEiMA0GCSqGSIA3DQEAAQUAA4IADwAwggEKAoIAAQDIyzv2A0RUg1/AAryI9W1DGAHAqqGdlFfTkUSDfv+hEZTAwKv0p8daqY6GroT8Du7ctQmrxJsy8JxIpDWxUaWwXtvv1kR9eG9Vs5dw8gqhjtOwgXvkOcFdKdQwA82PkcXoHlo+NlAiiPPgmHSELGvcL1uOgl3v+UFiiD1ro4qYqR0ITNhSlq5v2QJIPnka8FshFyPHhVtjtKfQkc9G/xDePW8dHwAhfi8VYRmVMmJAEOLCAJzRjnsgAfznP8CZ/QUczPF8LuTZ/WA/RaK1/Arj6VAo1VwHFY4AZXAolz7xs2sTuHplVO7FL8X58UvF7nlxq48W1Vu0l8oDi2HjvAgMAAAGjJDAiMAsGA1UdDwREAwIEsDATAgNVHSUEDDAKAggrAgEFNQcDATANAgkqhkiG9w0AAQUFAAOCAQEAk8ak2A5Ug4Iay2v0uXAk95qdAthJQN5qIVA13Qay8p4MG/S5+aXOVz4uMXGt18QjGds1A7Q8KDV4Slnwn95sVgA5EP7akvoGXhgAp8Dm90sac3+aSG4fo1V7Y/FYgAgpEy4C/5mKFD1ATeyyhy3PmF0+ZQRJ7aLDPAXioh98LrzMZr1ijzlAAKfJxzwZhpJamAwjZCYqiNZ54r4C4wA4QgX9sVfQKd5e/gQnUM8gTQIjQ8G2973jqxaVNw9lZnVKW3C8/QyLit20pNoqX2qQedwsqg3WCUcPRUUqZ4NpQeHL/AvKIrt158zAfU903yElAEm2Zr3oOUR4WfYQ==",
-        "thumbprint": "F485CBE5569F7A5019CB68D7G6D987AC85124B4C"
-    }
 
 ## <a name="credentials"></a>Учетные данные
-Тип [учетных данных службы автоматизации Azure](../automation/automation-credentials.md) — **Microsoft.Automation/automationAccounts/credentials**. Их свойства приведены в таблице ниже.
+Тип [учетных данных службы автоматизации Azure](../automation/automation-credentials.md) — **Microsoft.Automation/automationAccounts/credentials**. Их структура приведена ниже.  Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров. 
+
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Credential').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/credentials",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "userName": "[parameters('credentialUsername')]",
+        "password": "[parameters('credentialPassword')]"
+      }
+    }
+
+В следующей таблице описаны свойства ресурсов учетных записей.
 
 | Свойство | Description (Описание) |
 |:--- |:--- |
 | userName |Имя пользователя для учетных данных. |
 | password |Пароль для учетных данных. |
 
-Ниже указан пример ресурса учетных данных.
-
-    "name": "[concat(parameters('accountName'), '/', variables('credentialName'))]",
-    "type": "Microsoft.Automation/automationAccounts/runbooks/credentials",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "location": "[parameters('regionId')]",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "userName": "User01",
-        "password": "password"
-    }
-
 
 ## <a name="schedules"></a>Расписания
-Тип [расписаний службы автоматизации Azure](../automation/automation-schedules.md) — **Microsoft.Automation/automationAccounts/schedules**. Их свойства приведены в таблице ниже.
+Тип [расписаний службы автоматизации Azure](../automation/automation-schedules.md) — **Microsoft.Automation/automationAccounts/schedules**. Их структура приведена ниже. Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров. 
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
+      "type": "microsoft.automation/automationAccounts/schedules",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "description": "[variables('Schedule').Description]",
+        "startTime": "[parameters('scheduleStartTime')]",
+        "timeZone": "[parameters('scheduleTimeZone')]",
+        "isEnabled": "[variables('Schedule').IsEnabled]",
+        "interval": "[variables('Schedule').Interval]",
+        "frequency": "[variables('Schedule').Frequency]"
+      }
+    }
+
+В следующей таблице описаны свойства ресурсов расписания.
 
 | Свойство | Description (Описание) |
 |:--- |:--- |
@@ -177,72 +207,101 @@ ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
 | interval |Тип интервала для расписания.<br><br>day<br>hour |
 | frequency |Частота, с которой срабатывает расписание (количество дней или часов). |
 
-Ниже указан пример ресурса расписания.
+Значение времени начала для расписаний должно быть больше, чем значение текущего времени.  Это значение невозможно указать в переменной, так как вы не сможете узнать время установки.
 
-    "name": "[concat(parameters('accountName'), '/', variables('variableName'))]",
-    "type": "microsoft.automation/automationAccounts/schedules",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "description": "Schedule for StartByResourceGroup runbook",
-        "startTime": "10/30/2016 12:00:00",
-        "isEnabled": "true",
-        "interval": "day",
-        "frequency": "1"
+При использовании ресурсов расписания в решении следуйте одной из следующих двух стратегий.
+
+- Используйте параметр для времени запуска в расписании.  Таким образом, пользователю будет предложено ввести значение при установке решения.  Если у вас есть несколько расписаний, для них можно использовать одно значение параметра.
+- Создайте расписание с помощью модуля Runbook, который запускается после установки решения.  Таким образом, пользователю не нужно будет указывать время. Однако нельзя добавлять расписание в решение, так как при его удалении расписание тоже будет удалено.
+
+
+### <a name="job-schedules"></a>Расписания заданий
+Ресурсы расписания заданий связывают модуль Runbook с расписанием.  Их тип — **Microsoft.Automation/automationAccounts/jobSchedules**. Их структура приведена ниже.  Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров. 
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
+      "type": "microsoft.automation/automationAccounts/jobSchedules",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Automation/automationAccounts/runbooks/', parameters('accountName'), variables('Runbook').Name)]",
+        "[resourceId('Microsoft.Automation/automationAccounts/schedules/', parameters('accountName'), variables('Schedule').Name)]"
+      ],
+      "tags": {
+      },
+      "properties": {
+        "schedule": {
+          "name": "[variables('Schedule').Name]"
+        },
+        "runbook": {
+          "name": "[variables('Runbook').Name]"
+        }
+      }
     }
+
+
+В следующей таблице описаны свойства расписаний заданий.
+
+| Свойство | Описание |
+|:--- |:--- |
+| schedule name |Одна сущность **name** с именем расписания. |
+| runbook name  |Одна сущность **name** с именем модуля Runbook.  |
+
 
 
 ## <a name="variables"></a>Переменные
-Тип [переменных службы автоматизации Azure](../automation/automation-variables.md) — **Microsoft.Automation/automationAccounts/variables**. Их свойства приведены в таблице ниже.
+Тип [переменных службы автоматизации Azure](../automation/automation-variables.md) — **Microsoft.Automation/automationAccounts/variables**. Их структура приведена ниже.  Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров.
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
+      "type": "microsoft.automation/automationAccounts/variables",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "description": "[variables('Variable').Description]",
+        "isEncrypted": "[variables('Variable').Encrypted]",
+        "type": "[variables('Variable').Type]",
+        "value": "[variables('Variable').Value]"
+      }
+    }
+
+В следующей таблице описаны свойства ресурсов переменной.
 
 | Свойство | Description (Описание) |
 |:--- |:--- |
-| Описание |Необязательное описание переменной. |
-| isEncrypted |Указывает, следует ли шифровать переменную. |
-| type |Тип данных для переменной. |
-| value |Значение переменной. |
-
-Ниже указан пример ресурса переменной.
-
-    "name": "[concat(parameters('accountName'), '/', variables('StartTargetResourceGroupsAssetName')) ]",
-    "type": "microsoft.automation/automationAccounts/variables",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "description": "Description for the variable.",
-        "isEncrypted": "true",
-        "type": "string",
-        "value": "'This is a string value.'"
-    }
-
+| Описание | Необязательное описание переменной. |
+| isEncrypted | Указывает, следует ли шифровать переменную. |
+| type | Тип данных для переменной. |
+| value | Значение переменной. |
 
 ## <a name="modules"></a>модули
-Решению для управления не нужно определять [глобальные модули](../automation/automation-integration-modules.md), используемые в модулях Runbook, так как они будут доступны постоянно.  Однако необходимо включить ресурс для всех остальных модулей, используемых в модулях Runbook. Модуль Runbook должен зависеть от ресурса модуля, чтобы обеспечить создание ресурса до модуля Runbook.
+Решению для управления не нужно определять [глобальные модули](../automation/automation-integration-modules.md), используемые в модулях Runbook, так как они будут доступны постоянно в учетной записи службы автоматизации.  Необходимо включить ресурс для любого модуля, используемого в модулях Runbook.
 
-[Тип модулей интеграции](../automation/automation-integration-modules.md) — **Microsoft.Automation/automationAccounts/modules**. Их свойства приведены в таблице ниже.
+[Тип модулей интеграции](../automation/automation-integration-modules.md) — **Microsoft.Automation/automationAccounts/modules**. Их структура приведена ниже.  Далее представлены общие переменные и параметры, чтобы этот фрагмент кода можно было скопировать и вставить в файл решения и изменить имена параметров.
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/modules",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "dependsOn": [
+      ],
+      "properties": {
+        "contentLink": {
+          "uri": "[variables('Module').Uri]"
+        }
+      }
+    }
+
+
+В следующей таблице описаны свойства ресурсов модуля.
 
 | Свойство | Description (Описание) |
 |:--- |:--- |
-| contentLink |Указывает содержимое модуля. <br><br>uri — URI содержимого модуля Runbook.  Это будет PS1-файл для модулей Runbook PowerShell и сценариев, а также файл экспортированного графического модуля Runbook для графического модуля Runbook.  <br> version — версия модуля Runbook для собственного отслеживания. |
+| contentLink |Указывает содержимое модуля. <br><br>uri — URI содержимого модуля.  Это будет PS1-файл для модулей Runbook PowerShell и сценариев, а также файл экспортированного графического модуля Runbook для графического модуля Runbook.  <br> version — версия модуля для собственного отслеживания. |
 
-Ниже указан пример ресурса модуля.
-
-    {        
-        "name": "[concat(parameters('accountName'), '/', variables('OMSIngestionModuleName'))]",
-        "type": "Microsoft.Automation/automationAccounts/modules",
-        "apiVersion": "[variables('AutomationApiVersion')]",
-        "dependsOn": [
-        ],
-        "properties": {
-            "contentLink": {
-                "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/omsingestionapi.1.3.0.nupkg"
-            }
-        }
-    }
+Модуль Runbook должен зависеть от ресурса модуля, чтобы этот ресурс создавался до модуля Runbook.
 
 ### <a name="updating-modules"></a>Обновление модулей
 Если при обновлении решения для управления, включающего в себя модуль Runbook, который использует расписание, обновляется и модуль, используемый модулем Runbook, то Runbook может вернуться к старой версии модуля.  В решение следует добавить указанные ниже модули Runbook и создать задание для их выполнения перед выполнением остальных модулей Runbook.  Таким образом все модули будут обновляться, как указано, перед загрузкой модулей Runbook.
@@ -250,74 +309,203 @@ ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
 * [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) обеспечивает то, что модули Runbook в решении используют модули последней версии.  
 * [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) повторно зарегистрирует все ресурсы расписания, чтобы обеспечить, что модули Runbook, связанные с ними, используют модули последней версии.
 
-Ниже приведен пример обязательных элементов решения для поддержки обновления модуля.
 
-    "parameters": {
-        "ModuleImportGuid": {
-            "type": "string",
-            "metadata": {
-                "control": "guid"
-            }
+
+
+## <a name="sample"></a>Образец
+Ниже приведен пример решения со приведенными ниже ресурсами.
+
+- Модуль Runbook.  Это пример модуля Runbook, хранящийся в общедоступном репозитории GitHub.
+- Задание службы автоматизации, которое запускает модуль Runbook при установке решения.
+- Расписание и расписание заданий для запуска модуля Runbook через регулярные интервалы.
+- Сертификат.
+- Учетные данные.
+- Переменная.
+- Модуль.  Это [модуль OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) для записи данных в Log Analytics. 
+
+В примере используются переменные [стандартных параметров решения](operations-management-suite-solutions-solution-file.md#parameters), что является общепринятой практикой для решений, в отличие от жестко программируемых значений в определениях ресурсов.
+
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "workspaceName": {
+          "type": "string",
+          "metadata": {
+            "Description": "Name of Log Analytics workspace."
+          }
         },
-        "ReRegisterRunbookGuid": {
-            "type": "string",
-            "metadata": {
-                "control": "guid"
-            }
+        "accountName": {
+          "type": "string",
+          "metadata": {
+            "Description": "Name of Automation account."
+          }
+        },
+        "workspaceregionId": {
+          "type": "string",
+          "metadata": {
+            "Description": "Region of Log Analytics workspace."
+          }
+        },
+        "regionId": {
+          "type": "string",
+          "metadata": {
+            "Description": "Region of Automation account."
+          }
+        },
+        "pricingTier": {
+          "type": "string",
+          "metadata": {
+            "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account."
+          }
+        },
+        "certificateBase64Value": {
+          "type": "string",
+          "metadata": {
+            "Description": "Base 64 value for certificate."
+          }
+        },
+        "certificateThumbprint": {
+          "type": "securestring",
+          "metadata": {
+            "Description": "Thumbprint for certificate."
+          }
+        },
+        "credentialUsername": {
+          "type": "string",
+          "metadata": {
+            "Description": "Username for credential."
+          }
+        },
+        "credentialPassword": {
+          "type": "securestring",
+          "metadata": {
+            "Description": "Password for credential."
+          }
+        },
+        "scheduleStartTime": {
+          "type": "string",
+          "metadata": {
+            "Description": "Start time for shedule."
+          }
+        },
+        "scheduleTimeZone": {
+          "type": "string",
+          "metadata": {
+            "Description": "Time zone for schedule."
+          }
+        },
+        "scheduleLinkGuid": {
+          "type": "string",
+          "metadata": {
+            "description": "GUID for the schedule link to runbook.",
+            "control": "guid"
+          }
+        },
+        "runbookJobGuid": {
+          "type": "string",
+          "metadata": {
+            "description": "GUID for the runbook job.",
+            "control": "guid"
+          }
         }
-    },
-
-    "variables": {
-        "ModuleImportRunbookName": "Update-ModulesInAutomationToLatestVersion",
-        "ModuleImportRunbookUri": "https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/Content/Update-ModulesInAutomationToLatestVersion.ps1",
-        "ModuleImportRunbookDescription": "Imports modules and also updates all Azure dependent modules that are in the same Automation Account.",
-        "ReRegisterSchedulesRunbookName": "Update-ModulesInAutomationToLatestVersion",
-        "ReRegisterSchedulesRunbookUri": "https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/Content/ReRegisterAutomationSchedule-MS-Mgmt.ps1",
-        "ReRegisterSchedulesRunbookDescription": "Reregisters schedules to ensure that they use latest modules."
-    },
-
-    "resources": [
+      },
+      "variables": {
+        "SolutionName": "MySolution",
+        "SolutionVersion": "1.0",
+        "SolutionPublisher": "Contoso",
+        "ProductName": "SampleSolution",
+    
+        "LogAnalyticsApiVersion": "2015-11-01-preview",
+        "AutomationApiVersion": "2015-10-31",
+    
+        "Runbook": {
+          "Name": "MyRunbook",
+          "Description": "Sample runbook",
+          "Type": "PowerShell",
+          "Uri": "https://raw.githubusercontent.com/user/myrepo/master/samples/MyRunbook.ps1",
+          "JobGuid": "[parameters('runbookJobGuid')]"
+        },
+    
+        "Certificate": {
+          "Name": "MyCertificate",
+          "Base64Value": "[parameters('certificateBase64Value')]",
+          "Thumbprint": "[parameters('certificateThumbprint')]"
+        },
+    
+        "Credential": {
+          "Name": "MyCredential",
+          "UserName": "[parameters('credentialUsername')]",
+          "Password": "[parameters('credentialPassword')]"
+        },
+    
+        "Schedule": {
+          "Name": "MySchedule",
+          "Description": "Sample schedule",
+          "IsEnabled": "true",
+          "Interval": "1",
+          "Frequency": "hour",
+          "StartTime": "[parameters('scheduleStartTime')]",
+          "TimeZone": "[parameters('scheduleTimeZone')]",
+          "LinkGuid": "[parameters('scheduleLinkGuid')]"
+        },
+    
+        "Variable": {
+          "Name": "MyVariable",
+          "Description": "Sample variable",
+          "Encrypted": 0,
+          "Type": "string",
+          "Value": "'This is my string value.'"
+        },
+    
+        "Module": {
+          "Name": "OMSIngestionAPI",
+          "Uri": "https://devopsgallerystorage.blob.core.windows.net/packages/omsingestionapi.1.3.0.nupkg"
+        }
+      },
+      "resources": [
         {
-            "name": "[concat(parameters('accountName'), '/', variables('ModuleImportRunbookName'))]",
-            "type": "Microsoft.Automation/automationAccounts/runbooks",
-            "apiVersion": "[variables('AutomationApiVersion')]",
-            "dependsOn": [
+          "name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
+          "location": "[parameters('workspaceRegionId')]",
+          "tags": { },
+          "type": "Microsoft.OperationsManagement/solutions",
+          "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Automation/automationAccounts/runbooks/', parameters('accountName'), variables('Runbook').Name)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/jobs/', parameters('accountName'), variables('Runbook').JobGuid)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/certificates/', parameters('accountName'), variables('Certificate').Name)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/credentials/', parameters('accountName'), variables('Credential').Name)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/schedules/', parameters('accountName'), variables('Schedule').Name)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/jobSchedules/', parameters('accountName'), variables('Schedule').LinkGuid)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/variables/', parameters('accountName'), variables('Variable').Name)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/modules/', parameters('accountName'), variables('Module').Name)]"
+          ],
+          "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+            "referencedResources": [
+              "[resourceId('Microsoft.Automation/automationAccounts/modules/', parameters('accountName'), variables('Module').Name)]"
             ],
-            "location": "[parameters('regionId')]",
-            "tags": { },
-            "properties": {
-                "runbookType": "PowerShell",
-                "logProgress": "true",
-                "logVerbose": "true",
-                "description": "[variables('ModuleImportRunbookDescription')]",
-                "publishContentLink": {
-                    "uri": "[variables('ModuleImportRunbookUri')]",
-                    "version": "1.0.0.0"
-                }
-            }
+            "containedResources": [
+              "[resourceId('Microsoft.Automation/automationAccounts/runbooks/', parameters('accountName'), variables('Runbook').Name)]",
+              "[resourceId('Microsoft.Automation/automationAccounts/jobs/', parameters('accountName'), variables('Runbook').JobGuid)]",
+              "[resourceId('Microsoft.Automation/automationAccounts/certificates/', parameters('accountName'), variables('Certificate').Name)]",
+              "[resourceId('Microsoft.Automation/automationAccounts/credentials/', parameters('accountName'), variables('Credential').Name)]",
+              "[resourceId('Microsoft.Automation/automationAccounts/schedules/', parameters('accountName'), variables('Schedule').Name)]",
+              "[resourceId('Microsoft.Automation/automationAccounts/jobSchedules/', parameters('accountName'), variables('Schedule').LinkGuid)]",
+              "[resourceId('Microsoft.Automation/automationAccounts/variables/', parameters('accountName'), variables('Variable').Name)]"
+            ]
+          },
+          "plan": {
+            "name": "[concat(variables('SolutionName'), '[' ,parameters('workspaceName'), ']')]",
+            "Version": "[variables('SolutionVersion')]",
+            "product": "[variables('ProductName')]",
+            "publisher": "[variables('SolutionPublisher')]",
+            "promotionCode": ""
+          }
         },
         {
-            "name": "[concat(parameters('accountName'), '/', parameters('ModuleImportGuid'))]",
-            "type": "Microsoft.Automation/automationAccounts/jobs",
-            "apiVersion": "[variables('AutomationApiVersion')]",
-            "location": "[parameters('regionId')]",
-            "dependsOn": [
-                "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ModuleImportRunbookName'))]"
-            ],
-            "tags": { },
-            "properties": {
-                "runbook": {
-                    "name": "[variables('ModuleImportRunbookName')]"
-                },
-                "parameters": {
-                    "ResourceGroupName": "[resourceGroup().name]",
-                    "AutomationAccountName": "[parameters('accountName')]",
-                    "NewModuleName": "AzureRM.Insights"
-                }
-            }
-        },
-        {
-          "name": "[concat(parameters('accountName'), '/', variables('ReRegisterSchedulesRunbookName'))]",
+          "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
           "type": "Microsoft.Automation/automationAccounts/runbooks",
           "apiVersion": "[variables('AutomationApiVersion')]",
           "dependsOn": [
@@ -325,44 +513,132 @@ ms.openlocfilehash: e115fd3b5f29dbcbfd9f85ebb215d950539cc1e3
           "location": "[parameters('regionId')]",
           "tags": { },
           "properties": {
-            "runbookType": "PowerShell",
+            "runbookType": "[variables('Runbook').Type]",
             "logProgress": "true",
             "logVerbose": "true",
-            "description": "[variables('ReRegisterSchedulesRunbookDescription')]",
+            "description": "[variables('Runbook').Description]",
             "publishContentLink": {
-              "uri": "[variables('ReRegisterSchedulesRunbookUri')]",
+              "uri": "[variables('Runbook').Uri]",
               "version": "1.0.0.0"
             }
           }
         },
         {
-          "name": "[concat(parameters('accountName'), '/', parameters('reRegisterSchedulesGuid'))]",
+          "name": "[concat(parameters('accountName'), '/', variables('Runbook').JobGuid)]",
           "type": "Microsoft.Automation/automationAccounts/jobs",
           "apiVersion": "[variables('AutomationApiVersion')]",
           "location": "[parameters('regionId')]",
           "dependsOn": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ReRegisterSchedulesRunbookName'))]"
+            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('Runbook').Name)]"
           ],
           "tags": { },
           "properties": {
             "runbook": {
-              "name": "[variables('ReRegisterSchedulesRunbookName')]"
+              "name": "[variables('Runbook').Name]"
             },
             "parameters": {
               "targetSubscriptionId": "[subscription().subscriptionId]",
               "resourcegroup": "[resourceGroup().name]",
               "automationaccount": "[parameters('accountName')]"
             }
+          }
+        },
+        {
+          "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
+          "type": "Microsoft.Automation/automationAccounts/certificates",
+          "apiVersion": "[variables('AutomationApiVersion')]",
+          "location": "[parameters('regionId')]",
+          "tags": { },
+          "dependsOn": [
+          ],
+          "properties": {
+            "Base64Value": "[variables('Certificate').Base64Value]",
+            "Thumbprint": "[variables('Certificate').Thumbprint]"
+          }
+        },
+        {
+          "name": "[concat(parameters('accountName'), '/', variables('Credential').Name)]",
+          "type": "Microsoft.Automation/automationAccounts/credentials",
+          "apiVersion": "[variables('AutomationApiVersion')]",
+          "location": "[parameters('regionId')]",
+          "tags": { },
+          "dependsOn": [
+          ],
+          "properties": {
+            "userName": "[variables('Credential').UserName]",
+            "password": "[variables('Credential').Password]"
+          }
+        },
+        {
+          "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
+          "type": "microsoft.automation/automationAccounts/schedules",
+          "apiVersion": "[variables('AutomationApiVersion')]",
+          "tags": { },
+          "dependsOn": [
+          ],
+          "properties": {
+            "description": "[variables('Schedule').Description]",
+            "startTime": "[variables('Schedule').StartTime]",
+            "timeZone": "[variables('Schedule').TimeZone]",
+            "isEnabled": "[variables('Schedule').IsEnabled]",
+            "interval": "[variables('Schedule').Interval]",
+            "frequency": "[variables('Schedule').Frequency]"
+          }
+        },
+        {
+          "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
+          "type": "microsoft.automation/automationAccounts/jobSchedules",
+          "apiVersion": "[variables('AutomationApiVersion')]",
+          "location": "[parameters('regionId')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Automation/automationAccounts/runbooks/', parameters('accountName'), variables('Runbook').Name)]",
+            "[resourceId('Microsoft.Automation/automationAccounts/schedules/', parameters('accountName'), variables('Schedule').Name)]"
+          ],
+          "tags": {
+          },
+          "properties": {
+            "schedule": {
+              "name": "[variables('Schedule').Name]"
+            },
+            "runbook": {
+              "name": "[variables('Runbook').Name]"
+            }
+          }
+        },
+        {
+          "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
+          "type": "microsoft.automation/automationAccounts/variables",
+          "apiVersion": "[variables('AutomationApiVersion')]",
+          "tags": { },
+          "dependsOn": [
+          ],
+          "properties": {
+            "description": "[variables('Variable').Description]",
+            "isEncrypted": "[variables('Variable').Encrypted]",
+            "type": "[variables('Variable').Type]",
+            "value": "[variables('Variable').Value]"
+          }
+        },
+        {
+          "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
+          "type": "Microsoft.Automation/automationAccounts/modules",
+          "apiVersion": "[variables('AutomationApiVersion')]",
+          "dependsOn": [
+          ],
+          "properties": {
+            "contentLink": {
+              "uri": "[variables('Module').Uri]"
+            }
+          }
         }
-    ]
+    
+      ],
+      "outputs": { }
+    }
+
+
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавьте представление в решение](operations-management-suite-solutions-resources-views.md) для визуализации собранных данных.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

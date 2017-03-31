@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 995f185f99c80809a5c4c2925b8d594b1d5568ff
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -97,6 +97,13 @@ Azure AD имеет единые требования в отношении фи
 ### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Приложениям требуется различать взаимодействие с пользователем клиента и гостевым пользователем. Есть ли стандартные рекомендации для этого? Можно ли использовать утверждение поставщика удостоверений в качестве оптимальной модели для этого?
  
 Гостевой пользователь может использовать любой поставщик удостоверений для проверки подлинности, как описано в статье [Свойства пользователя службы совместной работы Azure Active Directory B2B](active-directory-b2b-user-properties.md). Поэтому с помощью свойства UserType можно определить тип пользователя. Утверждение UserType сейчас не включено в маркер. Приложения должны использовать API Graph, чтобы запросить пользователя в каталоге и получить для него свойство UserType.
+
+### <a name="where-can-find-a-b2b-collaboration-community-to-share-solutions-and-submit-ideas"></a>Где можно найти сообщество службы совместной работы B2B для обмена решениями и публикации идей?
+
+Мы всегда открыты для ваших отзывах о том, как улучшить службу совместной работы B2B. Мы приглашаем вас принять участие в обсуждении и делиться своими сценариями пользователей, рекомендациями и понравившимися возможностями службы совместной работы Azure AD B2B в [сообществе Microsoft Tech](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+ 
+Мы также предлагаем вам отправлять свои идеи и голосовать за будущие функции на сайте [Azure Active Directory B2B Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) (Идеи для службы совместной работы Azure Active Directory B2B).
+
 
 ### <a name="next-steps"></a>Дальнейшие действия
 
