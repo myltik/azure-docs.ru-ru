@@ -17,6 +17,7 @@ ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
 
 На следующей схеме показана **аналитика мультимедиа** и другие важные компоненты платформы служб мультимедиа. 
 
-![Рабочий процесс для видео по запросу](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![Рабочий процесс для видео по запросу](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 Обработчики мультимедийных данных служб медиа-аналитики создают файлы в формате MP4 или JSON. Если обработчик мультимедиа создает файл в формате MP4, такой файл можно скачать постепенно. Если обработчик мультимедиа создает файл в формате JSON, такой файл можно скачать из хранилища BLOB-объектов. 
 
@@ -129,9 +130,4 @@ ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
