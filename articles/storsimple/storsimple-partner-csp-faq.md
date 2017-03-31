@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 30f56224a00957127497b6a05a809453294ea94e
-ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -79,7 +80,7 @@ ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>Мною предоставлена клиенту отдельная подписка на StorSimple. Нужно ли мне для управления устройством обязательно использовать портал Azure? 
 Да. 
 
-### <a name="is-the-microsoft-field-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Получают ли продавцы решений Майкрософт возмещение за продажи StorSimple по программе CSP?
+### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Получают ли менеджеры по работе с клиентами Майкрософт возмещение за продажи StorSimple по программе CSP?
 Да. За продажи по программе CSP возмещение получают руководитель отдела продаж партнера и команда по работе с клиентами. Ожидается, что партнеры будут в первую очередь продавать свои уникальные возможности и предложения.
 
 ## <a name="support-for-storsimple-and-csp"></a>Поддержка для StorSimple и CSP
@@ -98,9 +99,4 @@ ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы уже готовы развернуть StorSimple, перейдите к статье [Deploy your StorSimple in CSP](storsimple-partner-csp-deploy.md) (Развертывание StorSimple в рамках программы CSP).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -6,6 +6,7 @@
 ## [Создание реестра на портале](container-registry-get-started-portal.md)
 ## [Создание реестра с помощью Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Передача и получение образа](container-registry-get-started-docker-cli.md)
+## [Просмотр списка репозиториев](container-registry-repositories.md)
 
 # Практическое руководство
 

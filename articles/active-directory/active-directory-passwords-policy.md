@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 52c58c5c8ea35bf29f8b847e5b7d119d6ab85da4
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 9f6c36011941510d2da7f6a043128e493c13d47b
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 В этой статье описываются политики паролей и требования к сложности, связанные с учетными записями пользователей, которые хранятся в каталоге Azure AD.
 
 > [!IMPORTANT]
-> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/10/2017
 | Блокировка учетной записи |После 10 неудачных попыток входа (с неверным паролем) пользователь будет заблокирован на одну минуту. Последующие неудачные попытки входа приведут к блокировке пользователя на более длительное время. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [Управление паролями из любой точки мира](active-directory-passwords.md)
 * [Как работает управление паролями](active-directory-passwords-how-it-works.md)
 * [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md)

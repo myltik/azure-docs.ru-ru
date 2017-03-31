@@ -3,22 +3,21 @@
 
 # Начало работы
 ## [Развертывание масштабируемого набора с помощью портала](virtual-machine-scale-sets-portal-create.md)
-## [Развертывание масштабируемого набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Развертывание масштабируемого набора с помощью шаблона Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Развертывание масштабируемого набора с помощью PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
 
 # Практическое руководство
 ## Планирование и проектирование
 ### [Рекомендации по проектированию](virtual-machine-scale-sets-design-overview.md)
-## Запись шаблонов масштабируемых наборов
-### [Развертывание простого масштабируемого набора](virtual-machine-scale-sets-mvss-start.md)
-### [Развертывание масштабируемого набора в существующей виртуальной сети](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Создание шаблона
+### [Сведения о шаблонах масштабируемых наборов](virtual-machine-scale-sets-mvss-start.md)
+### [Добавление виртуальной сети](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Развернуть
-### [Масштабируемый набор с помощью портала](virtual-machine-scale-sets-portal-create.md)
+### [Создание с помощью портала](virtual-machine-scale-sets-portal-create.md)
+### [Создание с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Создание с помощью PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Масштабируемый набор с управляемыми дисками](virtual-machine-scale-sets-managed-disks.md)
-### [Масштабируемый набор с помощью Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Масштабирование набора с помощью PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Масштабирование набора с помощью Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Масштабируемый набор Linux с автомасштабированием](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Масштабируемый набор Windows с автомасштабированием](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Приложения в масштабируемых наборах](virtual-machine-scale-sets-deploy-app.md)

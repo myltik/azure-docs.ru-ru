@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7a0402a913c836f3248fa6f2f9b27cbf2b0d04
-ms.openlocfilehash: a23d569451d2cc776b2e8fc84ec4d01259f74c63
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5f31b24a0d46b9d557a55b3c9d0cd7748ecb9c33
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,11 +40,11 @@ ms.lasthandoff: 02/23/2017
 
 Чтобы автоматизировать этот процесс, мы создадим и подключим на виртуальной машине оповещение, которое будет срабатывать при возникновении проблемы. Также мы создадим функцию Azure для вызова Наблюдателя за сетями.
 
-Вы узнаете:
+Данный сценарий:
 
-* как создать функцию Azure, которая запускает запись пакетов;
-* как создать правило оповещения на виртуальной машине;
-* как настроить правила оповещения для вызова функции Azure.
+* создает функцию Azure, которая запускает запись пакетов;
+* создает правило генерации оповещений на виртуальной машине;
+* настраивает правило генерации оповещений для вызова функции Azure.
 
 ## <a name="creating-an-azure-function-and-overview"></a>Создание и обзор функции Azure
 
@@ -58,10 +58,160 @@ ms.lasthandoff: 02/23/2017
 1. На виртуальной машине выполняется запись пакетов, которая собирает данные о трафике. 
 1. Файл записи пакетов передается в учетную запись хранения для проверки и диагностики. 
 
-Функцию Azure можно создать на портале, выполнив инструкции из статьи [Создание первой функции Azure](../azure-functions/functions-create-first-azure-function.md). В этом примере мы выбрали функцию типа HttpTrigger-CSharp. 
+Функцию Azure можно создать на портале, выполнив инструкции из статьи [Создание первой функции Azure](../azure-functions/functions-create-first-azure-function.md). В этом примере мы выбрали функцию типа HttpTrigger-PowerShell. Для этого примера требуются настройки, описанные ниже.
+
+![Пример функции][functions1]
 
 > [!NOTE]
-> В функциях Azure реализована поддержка и других языков, но некоторые из них имеют статус экспериментальных и не поддерживаются полностью, как PowerShell и Python.
+> Шаблон PowerShell является экспериментальным и не обеспечивает полную поддержку.
+
+## <a name="adding-modules"></a>Добавление модулей
+
+Чтобы использовать командлеты PowerShell для Наблюдателя за сетями, необходимо передать в приложение-функцию последнюю версию модуля PowerShell.
+
+1. На локальном компьютере, на котором установлена последняя версия модулей Azure PowerShell, выполните следующую команду PowerShell.
+
+    ```powershell
+    (Get-Module AzureRM.Network).Path
+    ```
+
+    Она отобразит локальный путь к модулям Azure PowerShell. Мы используем эти папки позже. Ниже перечислены модули, используемые в этом сценарии.
+
+    * AzureRM.Network
+
+    * AzureRM.Profile
+
+    * AzureRM.Resources
+
+    ![Папки PowerShell][functions5]
+
+1. Выберите **Параметры приложения-функции** > **Перейти в редактор службы приложений**.
+
+    ![Функции Kudu][functions2]
+
+1. Щелкните правой кнопкой мыши папку AlertPacketCapturePowershell и создайте папку **azuremodules**. Создайте вложенные папки для каждого необходимого модуля.
+
+    ![Функции Kudu][functions3]
+
+    * AzureRM.Network
+
+    * AzureRM.Profile
+
+    * AzureRM.Resources
+
+1. Щелкните правой кнопкой мыши вложенную папку **AzureRM.Network** и щелкните **Отправить файлы**. Перейдите к папке с установленными модулями Azure. В локальной папке AzureRM.Network выберите все файлы и нажмите кнопку **OK**.  Повторите эти шаги для папок AzureRM.Profile и AzureRM.Resources.
+
+    ![Передача файлов][functions6]
+
+1. По завершении в каждой папке должны находиться файлы модулей PowerShell с локального компьютера.
+
+    ![Файлы PowerShell][functions7]
+
+## <a name="authentication"></a>Аутентификация
+
+Чтобы использовать командлеты PowerShell, нужно пройти аутентификацию. Аутентификация должна быть настроена в приложении-функции. Для этого нужно настроить переменные среды и передать зашифрованный файл ключа в приложение-функцию.
+
+> [!note]
+> В этом сценарии приводится всего один пример того, как реализовать аутентификацию с использованием Функций Azure. Существуют и другие способы сделать это.
+
+### <a name="encrypted-credentials"></a>Зашифрованные учетные данные
+
+Следующий сценарий PowerShell создает файл ключа **PassEncryptKey.key** и предоставляет зашифрованную версию введенного пароля.  Это тот же пароль, который определен для приложения Azure AD и используется для аутентификации.
+
+```powershell
+#variables
+$keypath = "C:\temp\PassEncryptKey.key"
+$AESKey = New-Object Byte[] 32
+$Password = "<insert a password here>"
+
+#keys
+[Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
+Set-Content $keypath $AESKey
+
+#get encrypted password
+$secPw = ConvertTo-SecureString -AsPlainText $Password -Force
+$AESKey = Get-content $KeyPath
+$Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
+$Encryptedpassword
+```
+
+В редакторе службы приложений для приложения-функции создайте папку **keys** в папке **AlertPacketCapturePowerShell** и передайте в нее файл **PassEncryptKey.key**, созданный предыдущим примером PowerShell.
+
+![Ключ для функции][functions8]
+
+### <a name="retrieving-values-for-environment-variables"></a>Получение значений переменных среды
+
+Чтобы завершить настройку, необходимо задать переменные среды, требуемые для доступа к значениям для аутентификации. Ниже приведен список создаваемых переменных среды.
+
+* AzureClientID
+
+* AzureTenant
+
+* AzureCredPassword
+
+
+#### <a name="azureclientid"></a>AzureClientID
+
+Идентификатор клиента — это идентификатор приложения в Azure Active Directory.
+
+1. Если используемого приложения еще нет, выполните приведенный ниже пример, чтобы создать приложение.
+
+    ```powershell
+    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    Start-Sleep 15
+    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    ```
+
+   > [!NOTE]
+   > Пароль, используемый при создании приложения, должен совпадать с паролем, который был создан ранее при сохранении файла ключа.
+
+1. На портале Azure щелкните **Подписки**, выберите подписку и щелкните **Управление доступом (IAM)**.
+
+    ![Функции (IAM)][functions9]
+
+1. Выберите учетную запись и щелкните "Свойства". Скопируйте идентификатор приложения.
+
+    ![Идентификатор приложения-функции][functions10]
+
+#### <a name="azuretenant"></a>AzureTenant
+
+Код клиента можно получить, выполнив следующий пример PowerShell.
+
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
+```
+
+#### <a name="azurecredpassword"></a>AzureCredPassword
+
+Значением переменной среды AzureCredPassword является значение, получаемое с помощью следующего примера PowerShell. Это пример, который был показан в предыдущем разделе **Зашифрованные учетные данные**. Необходимым значением являются выходные данные переменной `$Encryptedpassword`.  Это пароль субъекта-службы, который мы зашифрованы с помощью сценария PowerShell.
+
+```powershell
+#variables
+$keypath = "C:\temp\PassEncryptKey.key"
+$AESKey = New-Object Byte[] 32
+$Password = "<insert a password here>"
+
+#keys
+[Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
+Set-Content $keypath $AESKey
+
+#get encrypted password
+$secPw = ConvertTo-SecureString -AsPlainText $Password -Force
+$AESKey = Get-content $KeyPath
+$Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
+$Encryptedpassword
+```
+
+### <a name="storing-the-environment-variables"></a>Хранение переменных среды
+
+1. Перейдите к приложению-функции и щелкните **Параметры приложения-функции** > **Настроить параметры приложения**.
+
+    ![Настройка параметров приложения][functions11]
+
+1. Добавьте переменные среды и их значения к параметрам приложения и нажмите кнопку **Сохранить**.
+
+    ![параметры приложения][functions12]
 
 ## <a name="processing-the-alert-and-starting-a-packet-capture-session"></a>Обработка оповещения и запуск сеанса записи пакетов
 
@@ -73,242 +223,74 @@ ms.lasthandoff: 02/23/2017
 4. Периодический опрос процесса записи пакетов вплоть до его завершения.
 5. Уведомление пользователя о завершении сеанса записи пакета.
 
-Следующий пример на языке C# можно напрямую использовать в функции Azure. Достаточно заменить несколько значений, которые определяют подписку, идентификаторы и секрет клиента.
+Следующий пример PowerShell можно использовать в функции Azure. Необходимо заменить значения subscriptionId, resourceGroupName и storageAccountName.
 
-```CSharp
-using System.Net;
-using Newtonsoft;
-using Newtonsoft.Json;
-using Microsoft.Rest.Azure.Authentication;
-using Microsoft.Azure.Management.ResourceManager;
-using Microsoft.Azure.Management.ResourceManager.Models;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```powershell
+#Import Azure PowerShell modules required to make calls to Network Watcher
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
 
-public static TraceWriter log;
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter twlog)
+#Process Alert Request Body
+$requestBody = Get-Content $req -Raw | ConvertFrom-Json
+
+#Storage Account Id to save captures in
+$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+
+#Packet Capture Vars
+$packetcapturename = "PSAzureFunction"
+$packetCaptureLimit = 10
+$packetCaptureDuration = 10
+
+#Credentials
+$tenant = $env:AzureTenant
+$pw = $env:AzureCredPassword
+$clientid = $env:AzureClientId
+$keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
+
+#Authentication
+$secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
+$credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
+Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+
+
+#Get the VM that fired the Alert
+if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 {
-    log = twlog;
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
+    Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
+    Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
+    Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-    HttpContent requestContent = req.Content;
-    string jsonContent = requestContent.ReadAsStringAsync().Result;
-    
-    //Deserialize json input
-    WebhookInputParameters inParams = JsonConvert.DeserializeObject<WebhookInputParameters>(jsonContent);
+    #Get the Network Watcher in the VM's Region
+    $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+    $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-    log.Info($@"subscriptionId: {inParams.subscriptionId}  
-                networkWatcherResourceGroup: {inParams.networkWatcherResourceGroup} 
-                networkWatcherName: {inParams.networkWatcherName} 
-                packetCaptureName: {inParams.packetCaptureName} 
-                storageID: {inParams.storageID} 
-                timeLimit: {inParams.timeLimit} 
-                targetVM: {inParams.targetVM}");
+    #Get existing packetCaptures
+    $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-    //Get JWT Token
-    string token = GetAuthorizationToken();
-    
-    //Create URI and Delete existing Packet Capture if it exists
-    string endpoint = @"https://management.azure.com";
-    string PacketCaptureRequestURI = $@"{endpoint}/subscriptions/{inParams.subscriptionId}/resourceGroups/{inParams.networkWatcherResourceGroup}/providers/Microsoft.Network/networkWatchers/{inParams.networkWatcherName}/packetCaptures/{inParams.packetCaptureName}?api-version=2016-03-30";
+    #Remove existing packet capture created by the function if it exists
+    $packetCaptures | %{if($_.Name -eq $packetCaptureName)
+    { 
+        Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+    }}
 
-    //Delete Packet Capture
-    HttpWebRequest packetCaptureDelete = Request(PacketCaptureRequestURI, token, "Delete");
-    //Errors from delete (404 not found) indicate that the packet capture does not exist already
-    HttpWebResponse pcDeleteResponse = getHttpResponse(packetCaptureDelete);
-
-    //Create Packet Capture Request Body
-    PacketCaptureRequestBody pcrb = new PacketCaptureRequestBody();
-    pcrb.properties.timeLimitInSeconds = inParams.timeLimit;
-    pcrb.properties.target = inParams.targetVM;
-    pcrb.properties.storageLocation.storageId = inParams.storageID;
-
-    //serialize PacketCaptureRequestBody
-    var jSetting = new JsonSerializerSettings();
-    jSetting.NullValueHandling = NullValueHandling.Ignore;
-    jSetting.Formatting = Formatting.Indented;
-    string pcRequestBody = JsonConvert.SerializeObject(pcrb, jSetting);
-    
-    //Create Packet Capture via PUT 
-    HttpWebRequest packetCaptureCreate = Request(PacketCaptureRequestURI, token, "Put", pcRequestBody);
-    HttpWebResponse pcPostResponse = getHttpResponse(packetCaptureCreate);
-    
-    //if packet capture creation successful return to user created storagePath
-    if (!(pcPostResponse == null) && pcPostResponse.StatusCode == HttpStatusCode.Created)
-    {
-        string pcPostResponseLocation = getHeaderContent(pcPostResponse, "Location") ?? "Header null";
-        string pcPostResponseContent = httpWebResponseContent(pcPostResponse) ?? "Response Content null";
-
-        //Deserialize response body into object
-        PacketCaptureResponseBody pcrbObj = JsonConvert.DeserializeObject<PacketCaptureResponseBody>(pcPostResponseContent);
-        return req.CreateResponse(HttpStatusCode.OK, $"Packet Capture successfully created and will upload to StoragePath: {pcrbObj.properties.storageLocation.storagePath}");
+    #Initiate Packet Capture on the VM that fired the alert
+    if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+        echo "Initiating Packet Capture"
+        New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+        Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
     }
-    return req.CreateResponse(HttpStatusCode.OK, "Error creating packet capture");
-}
-
-// Creates and returns the HTTPWebRequest
-public static HttpWebRequest Request(string requestURI, string token, string requestType, string requestContent = null)
-{
-    
-    var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestURI);
-    httpWebRequest.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
-    httpWebRequest.ContentType = "application/json";
-    httpWebRequest.Method = requestType;
-    if (requestContent != null)
-    {
-        httpWebRequest.ContentLength = (requestContent != null) ? requestContent.Length : 0;
-    }
-    log.Info("Sending Request: " + requestURI + (requestContent ?? ""));
-
-    //ensure requestType is in uppercase
-    requestType = requestType.ToUpper();
-    if (requestType.Equals("PUT") || requestType.Equals("POST"))
-    {
-        using (var requestStream = new StreamWriter(httpWebRequest.GetRequestStream()))
-        {
-            requestStream.Write(requestContent);
-        }
-    }
-    log.Info("Request Sent");
-    return httpWebRequest;
-}
-
-public static HttpWebResponse getHttpResponse(HttpWebRequest httpWebRequest)
-{
-    HttpWebResponse httpWebResponse = null;
-    try
-    {
-        httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-    }
-    catch (Exception ex)
-    {
-        log.Info("Error from " + ex.Message, "HttpWebResponsexeption");
-    }
-    return httpWebResponse;
-}
-
-public static string httpWebResponseContent(HttpWebResponse httpWebResponse)
-{
-    string content = null;
-    using (StreamReader reader = new StreamReader(httpWebResponse.GetResponseStream()))
-    {
-        content = reader.ReadToEnd();
-    }
-    return content;
-}
-
-public static string getHeaderContent(HttpWebResponse httpWebResponse, string param)
-{
-    log.Info((int)httpWebResponse.StatusCode + "\tStatus Description: " + httpWebResponse.StatusDescription + "\r\n Headers: " + httpWebResponse.Headers);
-    return httpWebResponse.Headers.Get(param);
-}
-
-//Gets the JWT Token to be able to make REST calls
-public static string GetAuthorizationToken()
-{
-    var tenantId = "<insert tenant id>"; 
-    var clientId = "<insert client id>"; 
-    var secret = "<insert client secret>";
-    var subscriptionId = "<insert subscription id>"; 
-
-    string authContextURL = "https://login.windows.net/" + tenantId;
-    var authenticationContext = new AuthenticationContext(authContextURL);
-    var credential = new ClientCredential(clientId, secret);
-    var result = authenticationContext.AcquireToken(resource: "https://management.azure.com/", clientCredential: credential);
-    if (result == null)
-    {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
-    }
-    return result.AccessToken;
-}
-
-public class WebhookInputParameters
-{
-    public string subscriptionId { get; set; }
-    public string networkWatcherResourceGroup { get; set; }
-    public string networkWatcherName { get; set; }
-    public string packetCaptureName { get; set; }
-    public string storageID { get; set; }
-    public int timeLimit { get; set; }
-    public string targetVM { get; set; }
-}
-
-public class PacketCaptureRequestBody
-{
-    public PacketCaptureRequestBody()
-    {
-        properties = new Properties();
-    }
-    public Properties properties { get; set; }
-}
-
-public class StorageLocation
-{
-    public string storageId { get; set; }
-    public string storagePath { get; set; }
-    public string filePath { get; set; }
-}
-
-public class Filter
-{
-    public string protocol { get; set; }
-    public string localIP { get; set; }
-    public string localPort { get; set; }
-    public string remoteIP { get; set; }
-    public string remotePort { get; set; }
-}
-
-public class Properties
-{
-    public Properties()
-    {
-        filters = new List<Filter>();
-        storageLocation = new StorageLocation();
-    }
-
-    public string target { get; set; }
-    public int bytestToCapturePerPacket { get; set; }
-    public int totalBytesPerSession { get; set; }
-    public int timeLimitInSeconds { get; set; }
-
-    public StorageLocation storageLocation { get; set; }
-    public List<Filter> filters { get; set; }
-}
-
-public class PacketCaptureResponseBody
-{
-    public PacketCaptureResponseBody()
-    {
-        properties = new PacketCaptureResponseProperties();
-    }
-    public string name { get; set; }
-    public string id { get; set; }
-    public string etag { get; set; }
-    public PacketCaptureResponseProperties properties { get; set; }
-}
-
-public class PacketCaptureResponseProperties
-{
-    public PacketCaptureResponseProperties()
-    {
-        filters = new List<Filter>();
-        storageLocation = new StorageLocation();
-    }
-    public string provisioningState { get; set; }
-    public string target { get; set; }
-    public int bytesToCapturePerPacket { get; set; }
-    public int totalBytesPerSession { get; set; }
-    public int timeLimitInSeconds { get; set; }
-    public StorageLocation storageLocation { get; set; }
-    public List<Filter> filters { get; set; }
-    public string captureStartTime { get; set; }
-    public string packetCaptureStatus { get; set; }
-    public List<object> packetCaptureError { get; set; }
-}
+} 
 ``` 
 
-Когда функция будет готова, настройте в оповещении вызова URL-адреса, связанного с этой функцией. Чтобы получить нужное значение, скопируйте URL-адрес функции из приложения функции.
+Когда функция будет готова, настройте в оповещении вызова URL-адреса, связанного с этой функцией. Чтобы получить это значение, щелкните **Get function URL** (Получить URL-адрес функции). 
 
-![Определение URL-адреса функции][2]
+![Поиск URL-адреса функции 1][functions13]
+
+Скопируйте URL-адрес функции для приложения-функции.
+
+![Поиск URL-адреса функции 2][2]
 
 Если вы хотите передавать пользовательские свойства в полезных данных запроса POST, передаваемого в webhook, изучите статью [Настройка объектов webhook для оповещений на основе метрик Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
@@ -333,7 +315,7 @@ public class PacketCaptureResponseProperties
 
 Если вы сохраните запись в учетную запись хранения, файл записи можно будет скачать на портале или программным образом. Если же файл записи хранится локально, для доступа к нему войдите в виртуальную машину. 
 
-Инструкции по скачиванию файлов из учетных записей хранения Azure см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../storage/storage-dotnet-how-to-use-blobs.md). Кроме того, можно использовать такое средство, как обозреватель хранилищ. Дополнительные сведения об обозревателе хранилищ см. [здесь](http://storageexplorer.com/).
+Инструкции по скачиванию файлов из учетных записей хранения Azure см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../storage/storage-dotnet-how-to-use-blobs.md). Кроме того, можно использовать такое средство, как Storage Explorer. Дополнительные сведения об обозревателе хранилищ см. [здесь](http://storageexplorer.com/).
 
 Когда вы скачаете нужный файл записи, его можно просмотреть с помощью любого средства с поддержкой чтения файлов **.cap**. Ниже приведены ссылки на два таких средства.
 
@@ -347,4 +329,16 @@ public class PacketCaptureResponseProperties
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
 [2]: ./media/network-watcher-alert-triggered-packet-capture/figure2.png
 [3]: ./media/network-watcher-alert-triggered-packet-capture/figure3.png
-
+[functions1]:./media/network-watcher-alert-triggered-packet-capture/functions1.png
+[functions2]:./media/network-watcher-alert-triggered-packet-capture/functions2.png
+[functions3]:./media/network-watcher-alert-triggered-packet-capture/functions3.png
+[functions4]:./media/network-watcher-alert-triggered-packet-capture/functions4.png
+[functions5]:./media/network-watcher-alert-triggered-packet-capture/functions5.png
+[functions6]:./media/network-watcher-alert-triggered-packet-capture/functions6.png
+[functions7]:./media/network-watcher-alert-triggered-packet-capture/functions7.png
+[functions8]:./media/network-watcher-alert-triggered-packet-capture/functions8.png
+[functions9]:./media/network-watcher-alert-triggered-packet-capture/functions9.png
+[functions10]:./media/network-watcher-alert-triggered-packet-capture/functions10.png
+[functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
+[functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
+[functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png

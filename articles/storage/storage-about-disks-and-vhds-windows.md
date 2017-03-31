@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: e34a2bfbf5f1ae544a729c994d91c485d48bb440
-ms.openlocfilehash: 1027f9c73a45b7d148643f5ec217683f71c4e899
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: fced31b28b4b8e5835033243719e6eb87aa3f0d4
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/01/2017
 ### <a name="temporary-disk"></a>Временный диск
 У каждой виртуальной машины есть временный диск. Он выступает в качестве временного хранилища для приложений и процессов и предназначен только для хранения данных, таких как страничные файлы или файлы подкачки. Данные на временном диске могут быть потеряны во время [обслуживания](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) или при [повторном развертывании виртуальной машины](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Во время обычной перезагрузки виртуальной машины данные на временном диске должны сохраниться.
 
-Временный диск обозначается буквой D: по умолчанию и используется для хранения файла подкачки pagefile.sys. Сведения о переназначении буквы этого диска см. в статье [Изменение буквы диска для временного диска Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md). Размер временного диска зависит от размера виртуальной машины. Чтобы узнать больше, ознакомьтесь с [размерами виртуальных машин Windows](../virtual-machines/virtual-machines-windows-sizes.md).
+Временный диск обозначается буквой D: по умолчанию и используется для хранения файла подкачки pagefile.sys. Сведения о переназначении буквы этого диска см. в статье [Изменение буквы диска для временного диска Windows](../virtual-machines/virtual-machines-windows-change-drive-letter.md). Размер временного диска зависит от размера виртуальной машины. Чтобы узнать больше, ознакомьтесь с [размерами виртуальных машин Windows](../virtual-machines/virtual-machines-windows-sizes.md).
 
 Дополнительные сведения об использовании временного диска в Azure см. в статье [Общие сведения о временном диске на виртуальных машинах Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
@@ -77,6 +77,6 @@ fsutil behavior set DisableDeleteNotify 0
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Подключите диск](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
 * [Передайте образ виртуальной машины Windows в Azure](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы использовать его при создании новой виртуальной машины.
-* [Измените букву временного диска Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
+* [Измените букву временного диска Windows](../virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
 
 

@@ -1,22 +1,22 @@
 ---
-title: "Ресурсы, роли и контроль доступа в Application Insights"
+title: "Ресурсы, роли и контроль доступа в Azure Application Insights | Документация Майкрософт"
 description: "Владельцы, участники и читатели Insights вашей организации."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2016
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 89e3cb3a7e9185d4a2944c1aa9aaf5aee4bd2b24
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 50a3cb726646c46d1f46767b51428eb751e6d3fe
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,9 +33,9 @@ ms.lasthandoff: 03/15/2017
 
 * **Ресурс** — это экземпляр службы Microsoft Azure. Ресурс Application Insights собирает, анализирует и отображает данные телеметрии, отправленные приложением.  Другие типы ресурсов Azure включают в себя веб-приложения, базы данных и виртуальные машины.
   
-    Чтобы просмотреть все свои ресурсы, войдите на [портал Azure][portal] и щелкните "Обзор".
+    Чтобы просмотреть свои ресурсы, откройте [портал Azure][portal], выполните вход и щелкните "Все ресурсы". Чтобы найти ресурс, введите часть его имени в поле фильтра.
   
-    ![Щелкните «Обзор», а затем — «Все» или «Отфильтровать по Application Insights»](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![Список ресурсов Azure](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
@@ -86,12 +86,12 @@ ms.lasthandoff: 03/15/2017
 * непрерывный экспорт.
 
 #### <a name="select-the-user"></a>Выбор пользователя
-![Введите адрес электронной почты нового пользователя. Выбор пользователя](./media/app-insights-resources-roles-access-control/04-user.png)
 
 Если в каталоге нет необходимого пользователя, вы можете пригласить любого пользователя с учетной записью Майкрософт
 (если он использует такие службы, как Outlook.com, OneDrive, Windows Phone или XBox Live, значит, у него есть учетная запись Майкрософт).
 
-## <a name="users-and-roles"></a>Пользователи и роли
+## <a name="related-content"></a>Связанная информация
+
 * [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
 
 <!--Link references-->

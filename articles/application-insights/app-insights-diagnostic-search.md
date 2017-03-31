@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/15/2017
 ### <a name="narrow-your-search"></a>Сужение области поиска
 Обратите внимание, что счетчики справа от значений фильтра показывают число вхождений в текущем отфильтрованном наборе. 
 
-В этом примере ясно, что запрос Rpt/Employees вернул в большинстве случаев ошибку с кодом&500;:
+В этом примере ясно, что запрос Rpt/Employees вернул в большинстве случаев ошибку с кодом 500:
 
 ![Разверните свойство и выберите значение](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -167,15 +167,19 @@ ms.lasthandoff: 02/15/2017
 
 [Подробнее об отправке журналов и пользовательских данных телеметрии в Application Insights](app-insights-search-diagnostic-logs.md).
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Вопросы и ответы
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Какой объем данных сохраняется?
+## <a name="questions"></a>Вопросы и ответы
+### <a name="limits"></a>Какой объем данных сохраняется?
 
 Ознакомьтесь со [сводной таблицей ограничений](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Как просмотреть данные POST в запросах к серверу?
 Мы не заносим в журнал данные POST автоматически, но вы можете использовать [вызовы TrackTrace или вызовы журнала](app-insights-search-diagnostic-logs.md). Поместите данные POST в параметр сообщения. Сообщения нельзя отфильтровать тем же способом, как это делается для свойств, но предельный размер больше.
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Дальнейшие действия
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="add"></a>Дальнейшие действия
 * [Создание сложных запросов в Analytics](app-insights-analytics-tour.md)
 * [Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights](app-insights-search-diagnostic-logs.md)
 * [Наблюдение за доступностью и скоростью реагирования веб-сайта](app-insights-monitor-web-app-availability.md)

@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
-ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 19247b7d8333e8bd73d33a7838e99180369b8681
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -216,7 +216,7 @@ ms.lasthandoff: 02/27/2017
    
    ![Проверка конечных точек облачных служб на портале Azure](./media/virtual-machines-windows-troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   Если у вас нет конечной точки, разрешающей трафик RDP, [создайте конечную точку облачных служб](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Разрешите TCP использовать частный порт 3389.
+   Если у вас нет конечной точки, разрешающей трафик RDP, [создайте конечную точку облачных служб](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Разрешите TCP использовать частный порт 3389.
 3. **Просмотрите данные диагностики загрузки виртуальной машины**. Это действие позволяет проверить журналы консоли виртуальной машины и определить, не сообщает ли виртуальная машина о неполадках. Не на всех виртуальных машинах включена диагностика загрузки, поэтому это действие может быть необязательным.
    
     Определенные действия по устранению неполадок выходят за рамки данной статьи, но они могут указать на более широкую проблему, влияющую на подключение к удаленному рабочему столу. Дополнительные сведения о проверке журналов консоли и снимок экрана виртуальной машины см. в статье [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) (Диагностика загрузки для виртуальных машин).

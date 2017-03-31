@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: d96140483edffb1f94add16598bf0dc0a85dd6da
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,16 +85,11 @@ ms.openlocfilehash: d96140483edffb1f94add16598bf0dc0a85dd6da
 > 
 
 ## <a name="create-an-availability-group-listener"></a>Создание прослушивателя группы доступности
-После создания группы доступности необходимо создать прослушиватель для подключения клиентов к репликам. Прослушиватели направляют входящие подключения на первичную или доступную только для чтения вторичную реплику. Дополнительные сведения о прослушивателях см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности Always On в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+После создания группы доступности необходимо создать прослушиватель для подключения клиентов к репликам. Прослушиватели направляют входящие подключения на первичную или доступную только для чтения вторичную реплику. Дополнительные сведения о прослушивателях см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности Always On в Azure](../classic/ps-sql-int-listener.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы можете не только использовать **мастер добавления реплики Azure** для расширения группы доступности Always On в Azure, но также полностью переместить некоторые рабочие нагрузки SQL Server в Azure. Чтобы приступить к работе, см. статью [Подготовка виртуальной машины SQL Server в Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

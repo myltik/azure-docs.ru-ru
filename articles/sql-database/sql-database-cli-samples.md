@@ -10,16 +10,16 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b358c7c83898a96f09bda78787868510d1176bcc
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: f4fab4159ed4ff14adad9b1ad63315fe1acfe9e9
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -30,10 +30,10 @@ ms.lasthandoff: 03/10/2017
 | |  |
 |---|---|
 |**Создание отдельной базы данных и эластичного пула**||
-| [Создание отдельной базы данных и настройка правила брандмауэра](scripts/sql-database-create-and-configure-database-cli.md) | Создает отдельную базу данных SQL Azure и настраивает правило брандмауэра уровня сервера. |
-| [Создание эластичных пулов и перемещение баз данных в составе пулов](scripts/sql-database-move-database-between-pools-cli.md) | Создает эластичные пулы и перемещает базы данных SQL Azure в составе пулов, а также изменяет уровни производительности.|
+| [Создание отдельной базы данных и настройка правила брандмауэра](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Создает отдельную базу данных SQL Azure и настраивает правило брандмауэра уровня сервера. |
+| [Создание эластичных пулов и перемещение баз данных в составе пулов](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Создает эластичные пулы и перемещает базы данных SQL Azure в составе пулов, а также изменяет уровни производительности.|
 |**Масштабирование отдельной базы данных и эластичного пула**||
-| [Масштабирование отдельной базы данных](scripts/sql-database-monitor-and-scale-database-cli.md) | Масштабирует отдельную базу данных SQL Azure до другого уровня производительности после запроса на получение сведений о размере базы данных. |
-| [Масштабирование эластичного пула](scripts/sql-database-scale-pool-cli.md) | Масштабирует эластичный пул до другого уровня производительности.  |
+| [Масштабирование отдельной базы данных](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Масштабирует отдельную базу данных SQL Azure до другого уровня производительности после запроса на получение сведений о размере базы данных. |
+| [Масштабирование эластичного пула](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Масштабирует эластичный пул до другого уровня производительности.  |
 |||
 

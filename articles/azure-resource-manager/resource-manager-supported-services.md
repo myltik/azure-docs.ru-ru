@@ -12,140 +12,146 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c645a8aa317b12d52f0246d0f9205294d56b6a0d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="resource-manager-providers-regions-api-versions-and-schemas"></a>Поставщики диспетчера ресурсов, регионы, версии API и схемы
-Диспетчер ресурсов Azure предлагает новый способ развертывания служб, составляющих ваши приложения, и управления ими. Большинство служб (хотя и не все) поддерживает диспетчер ресурсов, а некоторые службы поддерживают диспетчер ресурсов лишь частично. В этом разделе представлен список поддерживаемых поставщиков ресурсов для диспетчера ресурсов Azure.
+В этом разделе представлен список поддерживаемых поставщиков ресурсов для Azure Resource Manager.
 
 При развертывании ресурсов вам также необходимо знать, в каких регионах поддерживаются эти ресурсы и какие версии API доступны для ресурсов. В разделе [Поддерживаемые регионы](#supported-regions) показано, как определить, какие именно регионы работают для вашей подписки и ваших ресурсов. В разделе [Поддерживаемые версии API](#supported-api-versions) показано, как определить, какие версии API вы сможете использовать.
 
 Чтобы узнать, какие службы поддерживаются на портале Azure и классическом портале, см. в [таблице доступности портала Azure](https://azure.microsoft.com/features/azure-portal/availability/). Перечень служб, поддерживающих перемещение ресурсов, см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](resource-group-move-resources.md).
 
-В следующих таблицах указано, какие службы Майкрософт поддерживают развертывание и управление с помощью Resource Manager, а какие не поддерживают. Ссылка в столбце **Шаблоны быстрого запуска** отправляет запрос к репозиторию шаблонов быстрого запуска Azure для указанного поставщика ресурсов. Шаблоны быстрого запуска добавляются и обновляются на регулярной основе. Наличие ссылки для определенной службы не обязательно означает, что запрос возвращает шаблоны из репозитория. Также существует множество сторонних поставщиков ресурсов, поддерживающих Resource Manager. В разделе [Поставщики и типы ресурсов](#resource-providers-and-types) описано, как просмотреть все поставщики ресурсов.
+В следующих таблицах указано, какие службы Майкрософт поддерживают развертывание и управление с помощью Resource Manager, а какие не поддерживают. Также существует множество сторонних поставщиков ресурсов, поддерживающих Resource Manager. В разделе [Поставщики и типы ресурсов](#resource-providers-and-types) описано, как просмотреть все поставщики ресурсов.
 
 ## <a name="compute"></a>Среда выполнения приложений
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Пакетная служба |Да |[Пакетная служба (REST)](/rest/api/batchservice) |[Схема пакета](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-12-01/Microsoft.Batch.json) | |
-| Реестр контейнеров |Да |[REST реестра контейнеров ](/rest/api/containerregistry) |[Схема реестра контейнеров](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json) |[Microsoft.ContainerRegistry](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerRegistry%22&type=Code) |
-| Служба контейнеров |Да |[REST службы контейнеров](/rest/api/compute/containerservices) |[Схема контейнера](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
-| Службы жизненного цикла Dynamics |Да | | | |
-| Наборы масштабирования |Да |[REST набора масштабирования](/rest/api/compute/virtualmachinescalesets) |[Схема масштабируемого набора](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |[virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) |
-| Service Fabric |Да |[Service Fabric Rest](/rest/api/servicefabric) | [Схема Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |[Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Виртуальные машины |Да |[Интерфейс REST виртуальной машины](/rest/api/compute/virtualmachines) |[Схема виртуальной машины](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |[virtualMachines](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
-| виртуальные машины (классические); |Ограничено |- |- |- |
-| Remote App |Нет |- |- |- |
-| Облачные службы (классические) |Ограничено (см. ниже) |- |- |- |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| пакетная служба; |Да |[Пакетная служба (REST)](/rest/api/batchservice) |[Ресурсы пакетной службы](/azure/templates/microsoft.batch/batchaccounts) |
+| Реестр контейнеров |Да |[REST реестра контейнеров ](/rest/api/containerregistry) |[Ресурсы реестра контейнеров](/azure/templates/microsoft.containerregistry/registries) |
+| Служба контейнеров |Да |[REST службы контейнеров](/rest/api/compute/containerservices) |[Ресурсы службы контейнеров](/azure/templates/microsoft.containerservice/containerservices) |
+| Службы жизненного цикла Dynamics |Да | | |
+| Наборы масштабирования |Да |[REST набора масштабирования](/rest/api/compute/virtualmachinescalesets) |[Ресурсы масштабируемого набора](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Service Fabric |Да |[Service Fabric Rest](/rest/api/servicefabric) | [Схема Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Виртуальные машины |Да |[Интерфейс REST виртуальной машины](/rest/api/compute/virtualmachines) |[Ресурсы виртуальной машины](/azure/templates/microsoft.compute/virtualmachines) |
+| виртуальные машины (классические); |Ограничено |- |- |
+| Remote App |Нет |- |- |
+| Облачные службы (классические) |Ограничено (см. ниже) |- |- |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md). 
 
 Облачные службы (классические) можно использовать с другими классическими ресурсами. Однако классические ресурсы не используют все функции Resource Manager, и для будущих решений это не оптимальный вариант. Вместо этого рассмотрите возможность изменения инфраструктуры приложений для использования ресурсов из пространств имен Microsoft.Compute, Microsoft.Storage и Microsoft.Network.
 
 ## <a name="networking"></a>Сеть
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Шлюз приложений |Да |[REST шлюза приложений](https://msdn.microsoft.com/library/azure/mt684939.aspx) | |[applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
-| DNS |Да |[Интерфейс REST службы DNS](/rest/api/dns) |[Схема DNS](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Network.json) |[dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
-| ExpressRoute |Да |[REST для ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |[expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
-| Подсистема балансировки нагрузки |Да |[Интерфейс REST балансировщика нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx) |[Схема подсистемы балансировки нагрузки](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |[loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
-| Диспетчер трафика |Да |[Интерфейс REST диспетчера трафика](https://msdn.microsoft.com/library/azure/mt163667.aspx) |[Схема диспетчера трафика](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) |[trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
-| Виртуальные сети |Да |[Интерфейс REST виртуальной сети](https://msdn.microsoft.com/en-us/library/azure/mt163650.aspx) |[Схема виртуальной сети](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |[virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
-| VPN-шлюз |Да |[Сетевой шлюз REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) | |[virtualNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworkGateways%22&type=Code) <br /> [localNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FlocalNetworkGateways%22&type=Code) <br />[подключения](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Fconnections%22&type=Code) |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| Шлюз приложений |Да |[REST шлюза приложений](https://msdn.microsoft.com/library/azure/mt684939.aspx) | [Ресурсы шлюза приложений](/azure/templates/microsoft.network/applicationgateways) |
+| DNS |Да |[Интерфейс REST службы DNS](/rest/api/dns) |[Ресурсы DNS](/azure/templates/microsoft.network/dnszones) |
+| ExpressRoute |Да |[REST для ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | [Ресурсы ExpressRoute](/azure/templates/microsoft.network/expressroutecircuits) |
+| Подсистема балансировки нагрузки |Да |[Интерфейс REST балансировщика нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx) |[Ресурсы подсистемы балансировки нагрузки](/azure/templates/microsoft.network/loadbalancers) |
+| Диспетчер трафика |Да |[Интерфейс REST диспетчера трафика](https://msdn.microsoft.com/library/azure/mt163667.aspx) |[Ресурсы диспетчера трафика](/azure/templates/microsoft.network/trafficmanagerprofiles) |
+| Виртуальные сети |Да |[Интерфейс REST виртуальной сети](https://msdn.microsoft.com/library/azure/mt163650.aspx) |[Ресурсы виртуальной сети](/azure/templates/microsoft.network/virtualnetworks) |
+| Сетевой шлюз |Да |[Сетевой шлюз REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) | [Ресурсы подключения](/azure/templates/microsoft.network/connections) <br /> [Ресурсы локального сетевого шлюза](/azure/templates/microsoft.network/localnetworkgateways) <br /> [Ресурсы виртуального сетевого шлюза](/azure/templates/microsoft.network/virtualnetworkgateways) |
 
 ## <a name="storage"></a>Хранилище
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- | --- |
-| Хранилище |Да |[Интерфейс REST службы хранилища](/rest/api/storagerp) |[Учетная запись хранения](resource-manager-template-storage.md) |[Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
-| StorSimple |Да | | | |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- | --- |
+| Импорт и экспорт | Да | [REST импорта и экспорта](/rest/api/storageimportexport/) | [Ресурсы импорта и экспорта](/azure/templates/microsoft.importexport/jobs) |
+| Хранилище |Да |[REST для службы хранилища](/rest/api/storagerp) |[Ресурсы службы хранилища](/azure/templates/microsoft.storage/storageaccounts) |
+| StorSimple |Да | | |
 
 ## <a name="databases"></a>Базы данных
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- | --- |
-| DocumentDB |Да |[DocumentDB REST](/rest/api/documentdbresourceprovider) |[Схема DocumentDB](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-08/Microsoft.DocumentDB.json) |[Microsoft.DocumentDB](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
-| Кэш Redis |Да | [REST для кэша Redis](/rest/api/redis) |[Схема Redis](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Cache.json) |[Microsoft.Cache](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
-| База данных SQL |Да |[Интерфейс REST базы данных SQL](/rest/api/sql) |[Схема базы данных SQL](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |[Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
-| Хранилище данных SQL |Да | | | |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- | --- |
+| DocumentDB |Да |[DocumentDB REST](/rest/api/documentdbresourceprovider) |[Ресурсы DocumentDB](/azure/templates/microsoft.documentdb/databaseaccounts) |
+| кэш Redis; |Да | [REST для кэша Redis](/rest/api/redis) |[Ресурсы Redis](/azure/templates/microsoft.cache/redis) |
+| База данных SQL |Да |[Интерфейс REST базы данных SQL](/rest/api/sql) |[Ресурсы базы данных SQL](/azure/templates/microsoft.sql/servers) |
+| Хранилище данных SQL |Да | | |
 
 ## <a name="web--mobile"></a>Интернет и мобильные устройства
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Приложения API |Да | [REST для службы приложений](/rest/api/appservice) |[Схема приложений API](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |[Приложения API](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
-| Управление API |Да |[Интерфейс REST управления API](/rest/api/apimanagement) |[Схема управления API](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-07-07/Microsoft.ApiManagement.json) |[Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| Приложения API |Да | [REST для службы приложений](/rest/api/appservice) |[Веб-ресурсы](/azure/templates/microsoft.web/sites) |
+| Управление API |Да |[Интерфейс REST управления API](/rest/api/apimanagement) |[Ресурсы API управления](/azure/templates/microsoft.apimanagement/service) |
+| Регистрация сертификата | Да | [REST регистрации сертификата](/rest/api/appservice/appservicecertificateorders) | [Ресурсы регистрации сертификата](/azure/templates/microsoft.certificateregistration/certificateorders)  |
 | Content Moderator |Да | | | |
-| Приложение-функция |Да | [REST приложения-функции](/rest/api/appservice) | |[functionApp](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22functionApp%22&type=Code) |
-| Приложения логики |Да |[REST Logic Apps](/rest/api/logic) |[Схема Logic Apps](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-01/Microsoft.Logic.json) |[Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
-| Мобильные приложения |Да | [REST для службы приложений](/rest/api/appservice) |[Схема мобильных приложений](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |[mobileApp](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code) |
-| Взаимодействие через мобильные устройства |Да |[REST служб мобильного взаимодействия](https://msdn.microsoft.com/library/azure/mt683754.aspx) | |[Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
-| Поиск |Да |[Поиск REST](/rest/api/searchservice) | [Схема поиска](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-19/Microsoft.Search.json) |[Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
-| Веб-приложения |Да | [REST веб-приложений](/rest/api/appservice/webapps) |[Схема веб-приложений](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |[Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| Регистрация домена | Да | [Регистрация домена](/rest/api/appservice/domains) | [Ресурсы регистрации домена](/azure/templates/microsoft.domainregistration/domains)  |
+| Приложение-функция |Да | [REST приложения-функции](/rest/api/appservice) | [Веб-ресурсы](/azure/templates/microsoft.web/sites) |
+| Приложения логики |Да |[REST Logic Apps](/rest/api/logic) |[Ресурсы приложения логики](/azure/templates/microsoft.logic/workflows) |
+| Мобильные приложения |Да | [REST для службы приложений](/rest/api/appservice) | [Веб-ресурсы](/azure/templates/microsoft.web/sites) |
+| Взаимодействие через мобильные устройства |Да |[REST служб мобильного взаимодействия](https://msdn.microsoft.com/library/azure/mt683754.aspx) | |
+| Поиск |Да |[Поиск REST](/rest/api/searchservice) | [Ресурсы Поиска](/azure/templates/microsoft.search/searchservices) |
+| Веб-приложения |Да | [REST веб-приложений](/rest/api/appservice/webapps) | [Веб-ресурсы](/azure/templates/microsoft.web/sites) |
 
 ## <a name="intelligence--analytics"></a>Аналитика
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| службы Analysis Services | Да | [REST службы Analysis Service](/rest/api/analysisservices) | [Схема служб Analysis Services](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-16/Microsoft.AnalysisServices.json) | |
-| Cognitive Services |Да | [REST для Cognitive Services](/rest/api/cognitiveservices) |[Схема Cognitive Services](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) | |
-| Каталог данных |Да |[REST каталога данных](/rest/api/datacatalog) |[Схема каталога данных](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) | |
-| Фабрика данных |Да |[Интерфейс REST фабрики данных](/rest/api/datafactory) | |[Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Аналитика озера данных |Да | [REST для Data Lake](/rest/api/datalakeanalytics) |[Схема Data Lake Analytics](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
-| Хранилище озера данных |Да |[REST Data Lake Store](/rest/api/datalakestore) |[Схема Data Lake Store](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeStore.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
-| HDInsights |Да |[Интерфейс REST HDInsights](/rest/api/hdinsight) | |[Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
-| Машинное обучение |Да |[REST машинного обучения](/rest/api/machinelearning) |[Схема машинного обучения](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) | |
-| Stream Analytics |Да |[Steam Analytics REST](/rest/api/streamanalytics) | | |
-| Power BI |Да |[REST Power BI Embedded](/rest/api/powerbiembedded) |[Схема Power BI](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-01-29/Microsoft.PowerBI.json) | |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона | 
+| --- | --- | --- | --- |
+| службы Analysis Services | Да | [REST службы Analysis Service](/rest/api/analysisservices) | [Ресурсы служб Analysis Services](/azure/templates/microsoft.analysisservices/servers) |
+| Cognitive Services |Да | [REST для Cognitive Services](/rest/api/cognitiveservices) |[Ресурсы служб Cognitive Services](/azure/templates/microsoft.cognitiveservices/accounts) |
+| Каталог данных |Да |[REST каталога данных](/rest/api/datacatalog) |[Схема каталога данных](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) |
+| Фабрика данных |Да |[Интерфейс REST фабрики данных](/rest/api/datafactory) | |
+| Аналитика озера данных |Да | [REST для Data Lake](/rest/api/datalakeanalytics) |[Ресурсы Data Lake Analytics](/azure/templates/microsoft.datalakeanalytics/accounts) |
+| Хранилище озера данных |Да |[REST Data Lake Store](/rest/api/datalakestore) |[Ресурсы Data Lake Store](/azure/templates/microsoft.datalakestore/accounts) |
+| HDInsights |Да |[Интерфейс REST HDInsights](/rest/api/hdinsight) | |
+| Машинное обучение |Да |[REST машинного обучения](/rest/api/machinelearning) |[Ресурсы машинного обучения](/azure/templates/microsoft.machinelearning/commitmentplans) |
+| Анализ потока |Да |[Steam Analytics REST](/rest/api/streamanalytics) | |
+| Power BI |Да |[REST Power BI Embedded](/rest/api/powerbiembedded) |[Ресурсы Power BI](/azure/templates/microsoft.powerbi/workspacecollections) |
 
 
 ## <a name="internet-of-things"></a>Интернет вещей
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Концентратор событий |Да |[Интерфейс REST концентратора событий](/rest/api/eventhub) |[Схема концентратора событий](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.EventHub.json) |[Microsoft.EventHub](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.EventHub%22&type=Code) |
-| Центры IoT |Да |[REST для центра IoT](/rest/api/iothub) |[Схема Центра Интернета вещей](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-03/Microsoft.Devices.json) |[Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
-| Центры уведомлений |Да |[Интерфейс REST концентратора уведомлений](/rest/api/notificationhubs) |[Схема центра уведомлений](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |[Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| Концентратор событий |Да |[Интерфейс REST концентратора событий](/rest/api/eventhub) |[Ресурсы концентратора событий](/azure/templates/microsoft.eventhub/namespaces) |
+| Центры IoT |Да |[REST для центра IoT](/rest/api/iothub) |[Ресурсы Центра Интернета вещей](/azure/templates/microsoft.devices/iothubs) |
+| Центры уведомлений |Да |[Интерфейс REST концентратора уведомлений](/rest/api/notificationhubs) |[Ресурсы центра уведомлений](/azure/templates/microsoft.notificationhubs/namespaces) |
 
 ## <a name="media--cdn"></a>Мультимедиа и CDN
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| CDN |Да |[CDN REST](/rest/api/cdn) |[Схема CDN](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) |[Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| Служба мультимедиа |Да |[REST служб мультимедиа](/rest/api/media) |[Схема службы мультимедиа](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |[Microsoft.Media](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| CDN |Да |[CDN REST](/rest/api/cdn) |[Ресурсы CDN](/azure/templates/microsoft.cdn/profiles) |
+| Служба мультимедиа |Да |[REST служб мультимедиа](/rest/api/media) |[Ресурсы мультимедиа](/azure/templates/microsoft.media/mediaservices) |
 
 ## <a name="hybrid-integration"></a>Гибридная интеграция
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Службы BizTalk |Да | |[Схема BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | |
-| Служба восстановления |Да |[REST служб восстановления](/rest/api/recoveryservices) |[Схема служб восстановления](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-01/Microsoft.RecoveryServices.json) |[Microsoft.RecoveryServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.RecoveryServices%22&type=Code) |
-| Service Bus |Да |[REST служебной шины](/rest/api/servicebus) |[Схема служебной шины](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.ServiceBus.json) |[Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| Службы BizTalk |Да | |[Схема BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
+| Служба восстановления |Да |[REST служб восстановления](/rest/api/recoveryservices) |[Ресурсы служб восстановления](/azure/templates/microsoft.recoveryservices/vaults) |
+| Служебная шина |Да |[REST служебной шины](/rest/api/servicebus) |[Ресурсы служебной шины](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Управление удостоверениями и доступом
 Azure Active Directory работает с Resource Manager, чтобы активировать для вашей подписки управление доступом на основе ролей. Дополнительные сведения об управлении доступом на основе ролей и Active Directory см. в [этой статье](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="developer-services"></a>Службы разработки
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Монитор |Да |[REST монитора](/rest/api/monitor) |[Схема Insights](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |[Microsoft.insights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.insights%22&type=Code) |
-| Карты Bing |Да | | | |
-| DevTest Labs |Да | [REST для DevTest Labs](/rest/api/dtl) |[Схема DevTest Lab](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-15/Microsoft.DevTestLab.json) |[Microsoft.DevTestLab](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DevTestLab%22&type=Code) |
-| Учетная запись Visual Studio |Да | |[Схема Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) | |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| Монитор |Да |[REST монитора](/rest/api/monitor) |[Ресурсы аналитики](/azure/templates/microsoft.insights/alertrules) |
+| Карты Bing |Да | | |
+| DevTest Labs |Да | [REST для DevTest Labs](/rest/api/dtl) |[Ресурсы DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
+| Учетная запись Visual Studio |Да | |[Схема Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>Управление и безопасность
-| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- |
-| Автоматизация |Да |[REST автоматизации](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Схема службы автоматизации](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |[Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
-| хранилище ключей; |Да |[REST хранилища ключей](/rest/api/keyvault) |[Key vault](resource-manager-template-keyvault.md)<br />[Секретный код хранилища ключей](resource-manager-template-keyvault-secret.md) |[Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
-| Operational Insights; |Да | | | |
-| Планировщик |Да |[Интерфейс REST планировщика](/rest/api/scheduler) |[Схема планировщика](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-01/Microsoft.Scheduler.json) |[Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
-| Безопасность (предварительная версия) |Да |[REST безопасности](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |[Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
+| служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- |
+| Помощник | Да | [Помощник по REST](/rest/api/advisor/) | - |
+| Автоматизация |Да |[REST автоматизации](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Схема службы автоматизации](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Выставление счетов | Да | [Выставление счетов для REST](/rest/api/billing/) | - |
+| хранилище ключей; |Да |[REST хранилища ключей](/rest/api/keyvault) |[Ресурсы Key Vault](/azure/templates/microsoft.keyvault/vaults) |
+| Operational Insights; |Да | | |
+| Планировщик |Да |[Интерфейс REST планировщика](/rest/api/scheduler) |[Ресурсы планировщика](/azure/templates/microsoft.scheduler/jobcollections) |
+| Безопасность |Да |[REST безопасности](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
+| Управление сервером | Да | [REST управления сервером](/rest/api/servermanagement/) | [Ресурсы управления сервером](/azure/templates/microsoft.servermanagement/gateways) |
 
 ## <a name="resource-manager"></a>Диспетчер ресурсов
-| Функция | Доступность диспетчера ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
-| --- | --- | --- | --- | --- | --- |
-| Авторизация |Да |[REST авторизации](/rest/api/authorization) |[Блокировки ресурсов](resource-manager-template-lock.md)<br />[Назначения ролей](resource-manager-template-role.md) |[Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
-| Ресурсы |Да |[REST ресурсов](/rest/api/resources) |[Ссылки на ресурсы](resource-manager-template-links.md) |[Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
+| Функция | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
+| --- | --- | --- | --- | --- |
+| Авторизация |Да |[REST авторизации](/rest/api/authorization) |[Ресурсы авторизации](/azure/templates/microsoft.authorization/locks) |
+| Ресурсы |Да |[REST ресурсов](/rest/api/resources) |[Ресурсы развертывания](/azure/templates/microsoft.resources/deployments) |
 
 ## <a name="resource-providers-and-types"></a>Поставщики и типы ресурсов
 При развертывании ресурсов часто бывает необходимо получить сведения о типах и поставщиках ресурсов. Эту информацию можно получить с помощью REST API, Azure PowerShell или интерфейса командной строки Azure.

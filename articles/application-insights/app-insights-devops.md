@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -164,6 +164,10 @@ Visual Studio и Eclipse оснащены инструментами для на
 * Производительность — влияние очень незначительно. Данные телеметрии передаются в пакетном режиме.
 * [Поддержка](app-insights-get-dev-support.md) — вы можете воспользоваться программой поддержки Azure. Ответы от наших разработчиков вы можете получить на интерактивных форумах. В крайнем случае мы предоставим вам индивидуальную помощь.
 * [Цены](app-insights-pricing.md) — начать работу можно бесплатно, и при небольших объемах такой режим сохраняется.
+
+## <a name="video"></a>Видео
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Начать работу с Application Insights легко. Ниже перечислены основные возможности.

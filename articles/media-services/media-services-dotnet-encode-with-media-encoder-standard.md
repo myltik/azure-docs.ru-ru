@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/21/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 452b6a541309736ee4bd7e1dbbf5288289e70922
-ms.openlocfilehash: 6a48bae7cd5c394f7b400f6870dba4da7f0d19f2
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9acb23c679e4a8279c944a384d142b1cccf0f4d2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/02/2017
 Если вы хотите изучить один из двух файлов метаданных, создайте указатель SAS и загрузите файл на локальный компьютер. Пример создания указателя SAS и загрузки файла см. в статье "Использование расширения пакета SDK служб мультимедиа для .NET".
 
 ## <a name="download-sample"></a>Скачивание образца
-Скачать и запустить образец можно [здесь](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+[Отсюда](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/) можно скачать и выполнить пример, показывающий, как кодировать с помощью MES.
 
 ## <a name="example"></a>Пример
 В следующем примере кода пакет SDK служб мультимедиа используется для выполнения следующих задач.

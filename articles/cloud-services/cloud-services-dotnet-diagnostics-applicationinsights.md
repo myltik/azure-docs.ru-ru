@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d6e668f5ceffc6e78ac19f83b6022118d5abbb55
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 78d8908a144dadb5fe9d4c48491abf153defe118
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -42,9 +43,9 @@ ms.openlocfilehash: d6e668f5ceffc6e78ac19f83b6022118d5abbb55
 
 ![выберите конфигурацию службы][4]
 
-Visual Studio использует параметр конфигурации **APPINSIGHTS_INSTRUMENTATIONKEY** для настройки расширения диагностики с использованием соответствующих данных ресурса Application Insights во время публикации. Параметр конфигурации — это удобный способ определения различных ключей инструментирования для разных конфигураций службы. Visual Studio преобразует этот параметр и вставляет его в открытую конфигурацию расширения диагностики при публикации. Выходные данные пакета Visual Studio содержат, среди прочего, общедоступный XML-файл конфигурации с соответствующим ключом инструментирования Application Insights. Это позволяет упростить процесс настройки расширения с помощью PowerShell. Общедоступные файлы конфигураций создаются в папке «Расширения» с именами в формате bvt.bnPaaSDiagnostics.<RoleName>.PubConfig.xml. Все развертывания с использованием PowerShell могут использовать этот шаблон имени для сопоставления каждой конфигурации с ролью.
+Visual Studio использует параметр конфигурации **APPINSIGHTS_INSTRUMENTATIONKEY** для настройки расширения диагностики с использованием соответствующих данных ресурса Application Insights во время публикации. Параметр конфигурации — это удобный способ определения различных ключей инструментирования для разных конфигураций службы. Visual Studio преобразует этот параметр и вставляет его в открытую конфигурацию расширения диагностики при публикации. Выходные данные пакета Visual Studio содержат, среди прочего, общедоступный XML-файл конфигурации с соответствующим ключом инструментирования Application Insights. Это позволяет упростить процесс настройки расширения с помощью PowerShell. Общедоступные файлы конфигураций создаются в папке «Расширения» с именами в формате bvt.bnPaaSDiagnostics<RoleName>.PubConfig.xml. Все развертывания с использованием PowerShell могут использовать этот шаблон имени для сопоставления каждой конфигурации с ролью.
 
-5) Установка флажка **Отправка диагностических данных в Application Insights** обеспечивает автоматическую настройку диагностики Azure на отправку всех счетчиков производительности и журналов ошибок, собранных агентом диагностики Azure, в Application Insights. Чтобы указать, какие данные должны отправляться в службу Application Insights, вручную отредактируйте файл *diagnostics.wadcfgx* для каждой роли. Дополнительные сведения об обновлении конфигурации вручную см. в статье [Настройка диагностики Azure для отправки данных в Application Insights](../azure-diagnostics-configure-applicationinsights.md).
+5) Установка флажка **Отправка диагностических данных в Application Insights** обеспечивает автоматическую настройку диагностики Azure на отправку всех счетчиков производительности и журналов ошибок, собранных агентом диагностики Azure, в Application Insights. Чтобы указать, какие данные должны отправляться в службу Application Insights, вручную отредактируйте файл *diagnostics.wadcfgx* для каждой роли. Дополнительные сведения об обновлении конфигурации вручную см. в статье [Настройка диагностики Azure для отправки данных в Application Insights](#configure-azure-diagnostics-to-send-data-to-application-insights).
 
 Настроив облачную службу на отправку данных диагностики Azure в Application Insights, вы сможете развернуть ее в Azure, как обычно, включив расширение диагностики Azure. Для получения сведений см. статью [Публикация облачной службы с помощью инструментов Azure](../vs-azure-tools-publishing-a-cloud-service.md).  
 
@@ -77,9 +78,4 @@ Visual Studio использует параметр конфигурации **A
 [4]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/role-designer-appinsights-serviceconfig.png
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

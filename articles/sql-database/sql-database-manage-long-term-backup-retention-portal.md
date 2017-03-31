@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 12/22/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: d055e40305b277338ae85e8d6c53d3d76a78d235
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fa4cf56c10f885a2fd4b62e08a369a51d1280ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/16/2017
 
 В этом разделе вы узнаете о настройке и администрировании долгосрочного хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure и восстановлении посредством этих резервных копий с помощью портала Azure. Эту задачу можно также выполнить с помощью [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
-Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
+Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
 
 > [!TIP]
 > Руководство приведено в статье [Начало работы с резервным копированием и восстановлением для защиты и восстановления данных](sql-database-get-started-backup-recovery-portal.md).
@@ -92,10 +92,6 @@ ms.lasthandoff: 02/16/2017
 
    ![Определение политики хранения](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
 
-14. После включения долгосрочного хранения резервных копий откройте колонку **Хранилище служб восстановления** (щелкните **Все ресурсы** и выберите хранилище служб восстановления из списка ресурсов для своей подписки).
-
-   ![Просмотр хранилища служб восстановления](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
-
 
 ## <a name="restore-from-long-term-backup-retention-using-the-azure-portal"></a>Восстановление после долгосрочного хранения резервных копий с помощью портала Azure
 
@@ -144,5 +140,5 @@ ms.lasthandoff: 02/16/2017
 
 - Сведения об управлении резервными копиями при долгосрочном хранении с помощью PowerShell см. в разделе [Настройка долгосрочного хранения создаваемых автоматически резервных копий баз данных в хранилище служб восстановления Azure с помощью PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 - Дополнительные сведения о резервных копиях базы данных, создаваемых автоматически службой, см. в [этой статье](sql-database-automated-backups.md).
-- Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
+- Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
 - Дополнительные сведения о восстановлении из резервных копий см. в статье [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md).

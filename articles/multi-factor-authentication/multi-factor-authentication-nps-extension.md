@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Интеграция имеющейся инфраструктуры NPS со службой Многофакторной идентификации Azure (общедоступная предварительная версия)
@@ -88,7 +88,7 @@ Windows Server 2008 R2 SP1 или более поздней версии, в 
 
 ### <a name="configurations-limitations"></a>Ограничения конфигурации
 
-- Расширение NPS предназначено для работы с существующим развертыванием, а не для новых развертываний. По этой причине расширение NPS для MFA Azure не включает средства для переноса пользователей и настроек с сервера MFA в облако.
+- Расширение NPS предназначено для новых развертываний, а не для существующих развертываний. По этой причине расширение NPS для MFA Azure не включает средства для переноса пользователей и настроек с сервера MFA в облако.
 
 - Расширение NPS использует имя участника-пользователя из локального каталога Active Directory и по нему определяет пользователя MFA Azure, для которого будет выполняться дополнительная проверка подлинности. Расширение не может использовать другие идентификаторы, например альтернативное имя для входа или настраиваемые поля AD.  
 

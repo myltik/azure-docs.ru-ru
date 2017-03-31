@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 4904a3e21a54a2c60ee8b35a46370a9759a029f3
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="azure-active-directory-password-reset-for-it-administrators"></a>Сброс паролей Azure Active Directory для ИТ-администраторов
 > [!IMPORTANT]
-> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 03/10/2017
 * Наряду с принудительной регистрацией при входе на сайт myapps.microsoft.com теперь мы поддерживаем принудительную регистрацию при входе на портал управления Azure и в любое из федеративных приложений единого входа.
 
 #### <a name="security-question-localization-support---may-2015"></a>Поддержка локализации секретных вопросов — май 2015 г.
-* Теперь при настройке вопросов безопасности для сброса пароля вы можете выбрать предварительно определенные секретные вопросы, которые локализованы для полного набора языков Office&365;.
+* Теперь при настройке вопросов безопасности для сброса пароля вы можете выбрать предварительно определенные секретные вопросы, которые локализованы для полного набора языков Office 365.
 
 #### <a name="account-unlock-support-during-password-reset---june-2015"></a>Поддержка разблокирования учетной записи при сбросе пароля — июнь 2015 г.
 * Если вы используете компонент обратной записи паролей и сбрасываете пароль при блокировке учетной записи, мы автоматически разблокируем вашу учетную запись Active Directory!
@@ -213,7 +213,7 @@ ms.lasthandoff: 03/10/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Как работает управление паролями**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.

@@ -31,9 +31,9 @@ ms.lasthandoff: 03/22/2017
 
 2. Установите расширение [Средства Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Для этого воспользуйтесь Quick Open (CTRL+P) и выполните следующую команду: 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. Перезапустите VSCode, когда будет предложено включить расширение.
 
@@ -45,15 +45,15 @@ ms.lasthandoff: 03/22/2017
 
 2. Скопируйте и вставьте в него следующий синтаксис JSON:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. Сохраните файл как **azuredeploy.json**. 
@@ -63,43 +63,43 @@ ms.lasthandoff: 03/22/2017
 
 3. Вставьте код JSON в раздел шаблона **resources**, как показано в примере ниже. 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   Предыдущий пример включает множество значений-заполнителей и некоторые свойства, которые, возможно, не потребуются в вашей учетной записи хранения.
 
@@ -111,37 +111,37 @@ ms.lasthandoff: 03/22/2017
 
 2. Обратите внимание, что элементы **properties**, **customDomain**, **encryption** и **accessTier** отмечены как необязательные. В некоторых ситуациях эти значения могут потребоваться, но для упрощения нашего примера мы их удалим.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. Сейчас для элемента **kind** указано значение-заполнитель (string). В редакторе VS Code есть много функций, которые помогают понять используемые в шаблоне значения. Обратите внимание, VS Code указывает, что это значение — недопустимое. Если навести указатель мыши на значение string, VS Code предложит для элемента **kind** значения `Storage` или `BlobStorage`. 
 
-  ![VS Code показывает предлагаемые значения](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![VS Code показывает предлагаемые значения](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Чтобы просмотреть доступные значения, удалите символы между двойными кавычками и нажмите клавиши **CTRL+ПРОБЕЛ**. Из предложенных вариантов выберите значение **Storage**.
+   Чтобы просмотреть доступные значения, удалите символы между двойными кавычками и нажмите клавиши **CTRL+ПРОБЕЛ**. Из предложенных вариантов выберите значение **Storage**.
   
-  ![Показать Intellisense](./media/resource-manager-create-first-template/intellisense.png)
+   ![Показать Intellisense](./media/resource-manager-create-first-template/intellisense.png)
 
-  Если вы не используете редактор VS Code, откройте страницу справочника по шаблонам учетных записей хранения. Обратите внимание, что описание содержит те же допустимые значения. Установите для элемента значение **Storage**.
+   Если вы не используете редактор VS Code, откройте страницу справочника по шаблонам учетных записей хранения. Обратите внимание, что описание содержит те же допустимые значения. Установите для элемента значение **Storage**.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 Ваш шаблон теперь выглядит так:
 
@@ -186,8 +186,6 @@ VS Code опять предложит доступные функции.
 
 Обратите внимание, что функция заключена в квадратные скобки. Функция [resourceGroup](resource-group-template-functions.md#resourcegroup) возвращает объект со свойством `location`. Группа ресурсов содержит все связанные ресурсы для вашего решения. Свойство location можно жестко задать прямо в коде (например, указать значение "Central US"), но если вы потом захотите развернуть этот шаблон в другом расположении, вам нужно будет изменить шаблон вручную. Используя функцию `resourceGroup`, вы сможете легко развернуть этот шаблон еще раз в другую группу ресурсов в другом расположении.
 
-
-
 Ваш шаблон теперь выглядит так:
 
 ```json
@@ -222,71 +220,71 @@ VS Code опять предложит доступные функции.
 
 1. Чтобы передать префикс имени, который соответствует соглашению об именовании, перейдите в раздел шаблона **parameters**. Добавьте параметр в шаблон, который принимает префикс для имени учетной записи хранения:
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   Длина префикса не может превышать 11 символов, поскольку функция `uniqueString` возвращает 13 символов, а имя учетной записи не должно превышать 24 символов. Если значение параметра не передается во время развертывания, используется значение по умолчанию.
 
 2. Перейдите к разделу шаблона **variables**. Чтобы создать имя из префикса и уникальной строки, добавьте следующую переменную:
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. В разделе **resources** укажите эту переменную в качестве имени учетной записи хранения.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. Чтобы настроить передачу в код разных значений SKU для учетной записи хранения, перейдите к разделу **parameters**. После параметра префикса имени учетной записи хранения добавьте параметр, который определяет допустимые значения SKU и значение по умолчанию. Допустимые значения можно найти на странице справочника по шаблонам. Они также указываются в редакторе VS Code. В следующем примере мы укажем все допустимые значения SKU. Но вы можете ограничить допустимые значения только теми типами SKU, которые хотите развернуть с помощью этого шаблона.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. Измените свойство SKU так, чтобы в нем использовалось значение из параметра:
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. Сохраните файл.
 

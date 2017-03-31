@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 218d7dcf14ebbb28ac043e50e6f9248ecb942aaa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
 ## <a name="overview"></a>Обзор
 В этом руководстве показано, как создать одну виртуальную машину Azure, используя модель развертывания с помощью **Azure Resource Manager** и командлеты Azure PowerShell. Мы создадим одну виртуальную машину, используя один диск из образа в коллекции SQL. Мы также создадим новых поставщиков ресурсов хранения, сетевых и вычислительных ресурсов, которые будут использоваться виртуальной машиной. Вы можете использовать существующие поставщики для любых из этих ресурсов.
 
-Версию этого раздела для классической модели см. в статье [Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (классическая модель)](../sqlclassic/virtual-machines-windows-classic-ps-sql-create.md).
+Версию этого раздела для классической модели см. в статье [Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (классическая модель)](../classic/ps-sql-create.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим руководством вам потребуется:
@@ -190,7 +191,7 @@ ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Определение свойств операционной системы для виртуальной машины
-Теперь мы можем задать свойства операционной системы виртуальной машины. Мы используем командлет [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx), чтобы задать тип операционной системы Windows. Для этого нужно установить [агент виртуальной машины](../../virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Укажите, что командлет включает автоматическое обновление, и задайте имя виртуальной машины, имя компьютера и учетные данные в переменных, инициализированных ранее.
+Теперь мы можем задать свойства операционной системы виртуальной машины. Мы используем командлет [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx), чтобы задать тип операционной системы Windows. Для этого нужно установить [агент виртуальной машины](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Укажите, что командлет включает автоматическое обновление, и задайте имя виртуальной машины, имя компьютера и учетные данные в переменных, инициализированных ранее.
 
 Выполните следующий командлет, чтобы задать свойства операционной системы для виртуальной машины.
 
@@ -295,10 +296,5 @@ ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После создания виртуальной машины вы можете подключиться к ней, используя протокол удаленного рабочего и настроив подключение. Дополнительные сведения см. в статье [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](virtual-machines-windows-sql-connect.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
