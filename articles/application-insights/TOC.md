@@ -111,7 +111,7 @@
 ### [Управление ценами и квотами](app-insights-pricing.md)
 ### [Мониторинг производительности приложений с помощью Application Insights для SCOM](app-insights-scom.md)
 
-##экспорт.
+## экспорт.
 ### [непрерывный экспорт.](app-insights-export-telemetry.md)
 ### [Экспорт модели данных](app-insights-export-data-model.md)
 ### [Экспорт в Power BI](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [Поддержка](app-insights-get-dev-support.md)
 
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

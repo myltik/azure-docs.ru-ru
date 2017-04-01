@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;ankarlof
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c7564326426a4b40e4c6ab471b9c315f1633ebb6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -370,10 +371,5 @@ ms.openlocfilehash: c7564326426a4b40e4c6ab471b9c315f1633ebb6
 
 * Несохраняемая файловая система. Файлы, записанные при выполнении пользовательского модуля, не сохраняются между несколькими запусками одного и того же модуля.
 * Нет доступа к сети
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
