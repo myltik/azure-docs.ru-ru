@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
 ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
 
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-## <a name="a-namecustomizeacustomize-azure-hdinsight-hadoop-cluster"></a><a name="customize"></a>Настройка кластера Hadoop под управлением службы Azure HDInsight
+## <a name="customize"></a>Настройка кластера Hadoop под управлением службы Azure HDInsight
 Чтобы создать настраиваемый кластер Hadoop под управлением службы HDInsight, необходимо войти на [**классический портал Azure**](https://manage.windowsazure.com/), щелкнуть **Создать** в левом нижнем углу, а затем выбрать "Службы данных > HDInsight" > **Настраиваемое создание**, чтобы открыть окно **Сведения о кластере**. 
 
 ![Создание рабочей области](./media/machine-learning-data-science-customize-hadoop-cluster/customize-cluster-img1.png)
@@ -66,7 +67,7 @@ ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
 
 ![Создание рабочей области](./media/machine-learning-data-science-customize-hadoop-cluster/script-actions.png)
 
-## <a name="a-nameheadnodea-access-the-head-node-of-hadoop-cluster"></a><a name="headnode"></a> Получение доступа к головному узлу кластера Hadoop
+## <a name="headnode"></a> Получение доступа к головному узлу кластера Hadoop
 Чтобы получить доступ к головному узлу кластера Hadoop по протоколу RDP, необходимо включить удаленный доступ к кластеру Hadoop в Azure. 
 
 1. Перейдите на [**классический портал Azure**](https://manage.windowsazure.com/), щелкните **HDInsight** в левой части страницы, выберите кластер Hadoop в списке кластеров, перейдите на вкладку **Конфигурация**, а затем щелкните значок **Включить удаленный доступ** в нижней части страницы.
@@ -88,10 +89,5 @@ ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
 Дальнейшие действия по подготовке и обработке аналитических данных можно найти в статье [Процесс обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Они могут включать в себя операции с перемещением данных в HDInsight, их обработкой и выборкой для подготовки к обучению по данным с помощью Машинного обучения Azure.
 
 Инструкции по получению доступа к модулям Python, которые входят в состав программы Anaconda, с головного узла кластера в пользовательских функциях, предназначенных для обработки записей Hive, которые хранятся в кластере, см. в разделе [Отправка запросов Hive](machine-learning-data-science-move-hive-tables.md#submit).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

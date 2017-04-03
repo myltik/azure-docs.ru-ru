@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
 ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -196,10 +197,5 @@ Anaconda Python 2.7 устанавливается в папку C:\Anaconda, а
 * Ознакомьтесь со статьей [10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных](http://aka.ms/dsvmtenthings).
 * Изучите систематический подход к созданию комплексных аналитических решений с помощью [процесса обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
 * Примеры машинного обучения и анализа данных с использованием Cortana Intelligence Suite см. на странице [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com). Мы также добавили значок на рабочий стол и элемент в меню **Пуск** для этой коллекции на виртуальной машине.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

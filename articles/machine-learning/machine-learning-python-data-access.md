@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: huvalo;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
 ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Клиентская библиотека Python была протестирована в следующих средах:
 
 * Windows, Mac и Linux.
@@ -46,7 +47,7 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 Мы рекомендуем использовать дистрибутив Python, например [Anaconda](http://continuum.io/downloads#all) или [Canopy](https://store.enthought.com/downloads/), который поставляется с Python, IPython и тремя устанавливаемыми пакетами, перечисленными выше. Хотя использование IPython не является обязательным, это отличная среда для интерактивного управления данными и их визуализации.
 
-### <a name="a-nameinstallationahow-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Как установить клиентскую библиотеку Python для Машинного обучения Azure
+### <a name="installation"></a>Как установить клиентскую библиотеку Python для Машинного обучения Azure
 Клиентскую библиотеку Python для Машинного обучения Azure также необходимо установить для выполнения задач, описанных в этой статье. Она доступна в [каталоге пакетов Python](https://pypi.python.org/pypi/azureml). Чтобы установить ее в своей среде Python, выполните следующую команду в локальной среде Python:
 
     pip install azureml
@@ -60,12 +61,12 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="a-namedatasetaccessause-studio-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Использование фрагментов кода Студии для доступа к наборам данных
+## <a name="datasetAccess"></a>Использование фрагментов кода Студии для доступа к наборам данных
 Клиентская библиотека Python обеспечивает программный доступ к существующим наборам данных от экспериментов, которые были выполнены.
 
 С помощью веб-интерфейса Студии можно создавать фрагменты кода, содержащие все необходимые данные для скачивания и десериализации наборов данных в качестве объектов Pandas DataFrame в папку на компьютере.
 
-### <a name="a-namesecurityasecurity-for-data-access"></a><a name="security"></a>Безопасность доступа к данным
+### <a name="security"></a>Безопасность доступа к данным
 Фрагменты кода, предоставляемые Студией для использования с клиентской библиотекой Python, включают в себя идентификатор рабочей области и маркер авторизации. Они предоставляют полный доступ к рабочей области, и их необходимо защитить, например, паролем.
 
 По соображениям безопасности функциональность фрагмента кода доступна только пользователям с ролью **Владелец** для рабочей области. Роль пользователя отображается в Студии машинного обучения Azure на странице **Пользователи** в разделе **Параметры**.
@@ -86,7 +87,7 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 Для управления маркерами авторизации используется раздел **Параметры** страницы **Authorization tokens** (Маркеры авторизации). Их можно создать повторно, но эта процедура отменяет доступ для предыдущего маркера.
 
-### <a name="a-nameaccessingdatasetsaaccess-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Доступ к наборам данных из локального приложения Python
+### <a name="accessingDatasets"></a>Доступ к наборам данных из локального приложения Python
 1. В Студии машинного обучения на панели навигации слева щелкните **НАБОРЫ ДАННЫХ** .
 2. Выберите набор данных, к которому хотите получить доступ. Вы можете выбрать любой из наборов данных в списке **My datasets** (Мои наборы данных) или **Примеры**.
 3. На нижней панели инструментов щелкните **Generate Data Access Code**(Создать код доступа к данным). Эта кнопка отключена, если данные хранятся в формате, несовместимом с клиентской библиотекой Python.
@@ -99,7 +100,7 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
    
     ![Заметки][ipython-dataset]
 
-## <a name="a-nameaccessingintermediatedatasetsaaccess-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Доступ к промежуточным наборам данных из экспериментов машинного обучения
+## <a name="accessingIntermediateDatasets"></a>Доступ к промежуточным наборам данных из экспериментов машинного обучения
 После выполнения эксперимента в Студии машинного обучения можно получить доступ к промежуточным наборам данных из выходных узлов модулей. Промежуточные наборы данных — это данные, создаваемые и используемые на промежуточных шагах после запуска инструмента моделирования.
 
 Доступ к промежуточным наборам данных можно получить при условии, что формат данных совместим с клиентской библиотекой Python.
@@ -143,7 +144,7 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
     
     ![Гистограмма][ipython-histogram]
 
-## <a name="a-nameclientapisause-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Использование клиентской библиотеки Python для машинного обучения для осуществления доступа, чтения, создания и управления наборами данных
+## <a name="clientApis"></a>Использование клиентской библиотеки Python для машинного обучения для осуществления доступа, чтения, создания и управления наборами данных
 ### <a name="workspace"></a>Рабочая область
 Рабочая область — это точка входа для клиентской библиотеки Python. Предоставьте класс `Workspace` с идентификатором рабочей области и маркером авторизации для создания экземпляра:
 
@@ -334,10 +335,5 @@ ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

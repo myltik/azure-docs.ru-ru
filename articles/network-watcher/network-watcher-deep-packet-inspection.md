@@ -31,8 +31,6 @@ ms.lasthandoff: 03/21/2017
 
 Предполагается, что вы уже выполнили запись пакетов на виртуальной машине. Дополнительные сведения о выполнении записи пакетов см. в статьях [Manage packet captures with the portal](network-watcher-packet-capture-manage-portal.md) (Управление записью пакетов на портале Azure) и [Managing Packet Captures with REST API](network-watcher-packet-capture-manage-rest.md) (Управление записью пакетов с помощью интерфейса REST API).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Сценарий
 
 В рамках этого сценария вы выполните:

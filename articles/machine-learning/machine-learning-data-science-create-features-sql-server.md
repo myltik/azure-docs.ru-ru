@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
 * Создали учетную запись хранения Azure. Инструкции см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account).
 * Сохранили данные в SQL Server. Если вы еще не сделали это, см. статью [Перемещение данных в базу данных SQL Azure для машинного обучения Azure](machine-learning-data-science-move-sql-azure.md). Она содержит инструкции по перемещению данных.
 
-## <a name="a-namesql-featuregenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Создание характеристик с помощью SQL
+## <a name="sql-featuregen"></a>Создание характеристик с помощью SQL
 В этом разделе мы опишем способы создания характеристик с помощью SQL:  
 
 1. [Создание характеристик на основе количества](#sql-countfeature)
@@ -50,7 +51,7 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Создание характеристик на основе количества
+### <a name="sql-countfeature"></a>Создание характеристик на основе количества
 В этом документе показаны два способа создания количественных характеристик. В первом способе используется условная сумма, а во втором — предложение "where". Затем их можно объединить с исходной таблицей (с помощью столбцов первичных ключей), чтобы включить количественные характеристики вместе с исходными данными.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -58,13 +59,13 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
+### <a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
 В следующем примере показано, как создать группированные характеристики путем группирования (с использованием 5 ячеек) числового столбца, который взамен можно использовать как характеристику:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
+### <a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
 В этом разделе мы покажем, как развернуть одиночный столбец в таблице для создания дополнительных характеристик. В примере предполагается, что в таблице, из которой вы намерены создать характеристики, содержится столбец широты или долготы.
 
 Вот краткое руководство по данным широты/долготы расположения (на основе ресурса stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Перед присвоением характеристики полю расположения полезно понять следующее:
@@ -101,12 +102,12 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Подключение к службе машинного обучения Azure
+### <a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать признаки и открыть доступ к ним, если они уже созданы, с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) в Машинном обучении Azure, как показано ниже.
 
 ![считыватели azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Использование языка программирования, например Python
+## <a name="python"></a>Использование языка программирования, например Python
 Использование языка Python для создания характеристик, когда данные находятся в SQL Server, подобно обработке данных в большом двоичном объекте Azure с использованием Python, как описано в разделе [Обработка данных большого двоичного объекта Azure в среде обработки данных](machine-learning-data-science-process-data-blob.md). Данные необходимо загрузить из базы данных во фрейм данных pandas для последующей обработки. В этом разделе документирован процесс подключения к базе данных и загрузки данных во фрейм данных.
 
 Для подключения к базе данных SQL Server из языка Python с использованием pyodbc можно применить следующий формат строки подключения (замените servername, dbname, username и password соответствующими значениями имени сервера, имени БД, имени пользователя и пароля):
@@ -121,10 +122,5 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 Теперь можно работать с кадром данных Pandas, как описано в статье [Создание характеристик для данных хранилища больших двоичных объектов Azure с помощью Panda](machine-learning-data-science-create-features-blob.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
