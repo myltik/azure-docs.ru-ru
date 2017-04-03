@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-sql-server-on-azure"></a><a name="heading"></a>Выборка данных на сервере SQL Server в Azure
+# <a name="heading"></a>Выборка данных на сервере SQL Server в Azure
 В этом документе описывается процесс выборки данных, хранящихся на сервере SQL Server в Azure, с помощью SQL или языка программирования Python. В нем также показано, как переместить данные выборки в службу машинного обучения Azure, сохранив их в файл, передав его в BLOB-объект Azure, а затем считав в студии машинного обучения Azure.
 
 Процедура выборки Python использует библиотеку [pyodbc](https://code.google.com/p/pyodbc/) ODBC для подключения к SQL Server в Azure и библиотеку [Pandas](http://pandas.pydata.org/) для выполнения выборки.
@@ -39,7 +40,7 @@ ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
 
 Эта задача выборки является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Использование SQL
+## <a name="SQL"></a>Использование SQL
 В этом разделе описываются несколько методов использования SQL для выполнения простой случайной выборки из данных, содержащихся в базе данных. Выберите нужный метод в зависимости от размера ваших данных и их распределения.
 
 Два элемента ниже показывают, как использовать newid в SQL Server для выполнения выборки. Выбор метода зависит от того, насколько случайной требуется сделать выборку (pk_id в образце кода ниже предполагается автоматически генерируемым первичным ключом).
@@ -64,12 +65,12 @@ ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Подключение к службе машинного обучения Azure
+### <a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 Приведенные выше примеры запросов можно использовать непосредственно в модуле [Импорт данных][import-data] Машинного обучения Azure для оперативного сокращения выборки данных и их передачи в эксперимент машинного обучения Azure. Ниже показан снимок экрана при использовании модуля Reader для считывания данных выборки:
 
 ![считыватель sql][1]
 
-## <a name="a-namepythonausing-the-python-programming-language"></a><a name="python"></a>Использование языка программирования Python
+## <a name="python"></a>Использование языка программирования Python
 В этом разделе демонстрируется использование [библиотеки pyodbc](https://code.google.com/p/pyodbc/) для установки подключения ODBC к Базе данных SQL Server на языке Python. Строка подключения к базе данных выглядит следующим образом (замените servername, dbname, username и password соответственно именем сервера, именем базы данных, именем пользователя и паролем из вашей конфигурации):
 
     #Set up the SQL Azure connection
@@ -85,7 +86,7 @@ ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
 
 Теперь можно работать с данными выборки во фрейме данных Pandas. 
 
-### <a name="a-namepython-amlaconnecting-to-azure-machine-learning"></a><a name="python-aml"></a>Подключение к службе машинного обучения Azure
+### <a name="python-aml"></a>Подключение к службе машинного обучения Azure
 С помощью следующего образца кода можно сохранить данные уменьшенной выборки в файл и передать его в BLOB-объект Azure. Данные из большого двоичного объекта можно считать непосредственно в эксперимент машинного обучения Azure с помощью модуля [Импорт данных][import-data]. Для этого необходимо выполнить следующие шаги: 
 
 1. Запись фрейма данных pandas в локальный файл
@@ -123,9 +124,4 @@ ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

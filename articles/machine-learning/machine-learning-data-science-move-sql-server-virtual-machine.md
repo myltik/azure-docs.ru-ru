@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/16/2017
 >
 >
 
-## <a name="a-nameprereqsaprerequisites"></a><a name="prereqs"></a>Предварительные требования
+## <a name="prereqs"></a>Предварительные требования
 Для выполнения действий, описанных в этом учебнике, вам необходимо следующее.
 
 * **Подписка Azure.**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
@@ -52,14 +52,14 @@ ms.lasthandoff: 02/16/2017
 * Подготовленный **SQL Server на виртуальной машине Azure**. Инструкции см. в статье [Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики](machine-learning-data-science-setup-sql-server-virtual-machine.md).
 * Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-namefilesourcetosqlonazurevma-moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Перемещение данных из неструктурированного файла на сервер SQL Server на виртуальной машине Azure
+## <a name="filesource_to_sqlonazurevm"></a> Перемещение данных из неструктурированного файла на сервер SQL Server на виртуальной машине Azure
 Если данные (упорядоченные по строкам и столбцам) хранятся в неструктурированном файле, этот файл можно переместить в виртуальную машину SQL Server в Azure с помощью следующих средств:
 
 1. [Служебная программа командной строки для массового копирования (BCP)](#insert-tables-bcp)
 2. [SQL-запрос на массовую вставку ](#insert-tables-bulkquery)
 3. [Графические служебные программы, встроенные в SQL Server (импорт или экспорт, службы SSIS)](#sql-builtin-utilities)
 
-### <a name="a-nameinsert-tables-bcpacommand-line-bulk-copy-utility-bcp"></a><a name="insert-tables-bcp"></a>Служебная программа командной строки для массового копирования (BCP)
+### <a name="insert-tables-bcp"></a>Служебная программа командной строки для массового копирования (BCP)
 BCP — это служебная программа командной строки, устанавливаемая вместе с SQL Server, которая предоставляет один из самых быстрых способов перемещения данных. Она работает во всех трех вариантах SQL Server (в локальном SQL Server, SQL Azure и виртуальной машине SQL Server в Azure).
 
 > [!NOTE]
@@ -89,7 +89,7 @@ BCP — это служебная программа командной стро
 >
 >
 
-### <a name="a-nameinsert-tables-bulkquery-parallelaparallelizing-inserts-for-faster-data-movement"></a><a name="insert-tables-bulkquery-parallel"></a>Распараллеливание операций вставки для ускорения перемещения данных
+### <a name="insert-tables-bulkquery-parallel"></a>Распараллеливание операций вставки для ускорения перемещения данных
 Вы можете ускорить процесс перемещения данных большого размера, выполняя несколько команд BCP одновременно в сценарии PowerShell.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ BCP — это служебная программа командной стро
     Set-ExecutionPolicy Restricted #reset the execution policy
 
 
-### <a name="a-nameinsert-tables-bulkqueryabulk-insert-sql-query"></a><a name="insert-tables-bulkquery"></a>SQL-запрос на массовую вставку
+### <a name="insert-tables-bulkquery"></a>SQL-запрос на массовую вставку
 [SQL-запрос на массовую вставку](https://msdn.microsoft.com/library/ms188365) можно использовать для импорта в базу данных информации из файлов на основе строк или столбцов (поддерживаемые типы описаны в статье [Подготовка данных к массовому экспорту или импорту (SQL Server)](https://msdn.microsoft.com/library/ms188609)).
 
 Ниже приведены некоторые примеры команд для массовой вставки:  
@@ -154,14 +154,14 @@ BCP — это служебная программа командной стро
         ROWTERMINATOR ='\n'   --this should be the row separator in your data
         )
 
-### <a name="a-namesql-builtin-utilitiesabuilt-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>Служебные программы, встроенные в SQL Server
+### <a name="sql-builtin-utilities"></a>Служебные программы, встроенные в SQL Server
 Службы SQL Server Integrations Services (SSIS) можно использовать для импорта данных из неструктурированного файла в виртуальную машину SQL Server в Azure.
 Службы SSIS доступны в двух средах Studio. Дополнительные сведения см. в статье [Разработка Integration Services (SSIS) и средства управления](https://technet.microsoft.com/library/ms140028.aspx):
 
 * сведения о SQL Server Data Tools см. в статье [Скачать SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/data/tools.aspx);  
 * сведения о мастере импорта и экспорта см. в статье [Импорт и экспорт источников данных, поддерживаемых SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
-## <a name="a-namesqlonpremtosqlonazurevmamoving-data-from-on-premises-sql-server-to-sql-server-on-an-azure-vm"></a><a name="sqlonprem_to_sqlonazurevm"></a>Перемещение данных с локального сервера SQL Server на сервер SQL Server на виртуальной машине Azure
+## <a name="sqlonprem_to_sqlonazurevm"></a>Перемещение данных с локального сервера SQL Server на сервер SQL Server на виртуальной машине Azure
 Вы также можете использовать следующие стратегии миграции:
 
 1. [Мастер развертывания Базы данных SQL Server на виртуальной машине Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
@@ -174,7 +174,7 @@ BCP — это служебная программа командной стро
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Мастер развертывания Базы данных SQL Server на виртуальной машине Microsoft Azure
 **Мастер развертывания базы данных SQL Server на виртуальной машине Microsoft Azure** представляет собой простой и рекомендуемый способ перемещения данных из локального экземпляра SQL Server на сервер SQL Server на виртуальной машине Azure. Подробные инструкции, а также описание других вариантов см. в статье [Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure](../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
 
-### <a name="a-nameexport-flat-fileaexport-to-flat-file"></a><a name="export-flat-file"></a>Экспорт в неструктурированный файл
+### <a name="export-flat-file"></a>Экспорт в неструктурированный файл
 Для массового экспорта данных с локального сервера SQL Server можно использовать различные способы, которые описаны в разделе [Массовый импорт и экспорт данных (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) . В этом документе в качестве примера описано использование программы массового копирования (BCP). После экспорта данных в неструктурированный файл этот файл можно импортировать в другой SQL Server с помощью операции массового импорта.
 
 1. Экспортируйте данные из локального SQL Server в файл с помощью служебной программы BCP, используя следующую команду:
@@ -192,12 +192,12 @@ BCP — это служебная программа командной стро
         bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
 4. С помощью любого из методов, описанных в разделе [Перемещение данных из файла источника](#filesource_to_sqlonazurevm) , переместите данные неструктурированных файлов в SQL Server.
 
-### <a name="a-namesql-migrationasql-database-migration-wizard"></a><a name="sql-migration"></a>Мастер миграции баз данных SQL
+### <a name="sql-migration"></a>Мастер миграции баз данных SQL
 [Мастер миграции баз данных SQL Server](http://sqlazuremw.codeplex.com/) представляет собой удобный способ перемещения данных между двумя экземплярами SQL Server. Пользователь может сопоставлять схемы данных между источниками и таблицами назначения, выбирать типы столбцов и выполнять другие функции. Этот мастер использует программу массового копирования (BCP). Ниже приведен снимок экрана приветствия мастера миграции баз данных SQL.  
 
 ![Мастер миграции SQL Server][2]
 
-### <a name="a-namesql-backupadatabase-back-up-and-restore"></a><a name="sql-backup"></a>Архивация и восстановление базы данных
+### <a name="sql-backup"></a>Архивация и восстановление базы данных
 SQL Server поддерживает:
 
 1. [Архивацию и восстановление базы данных](https://msdn.microsoft.com/library/ms187048.aspx) (экспорт в локальный файл и экспорт BACPAC-файла в большой двоичный объект) и [приложения уровня данных](https://msdn.microsoft.com/library/ee210546.aspx) (с использованием BACPAC-файла).

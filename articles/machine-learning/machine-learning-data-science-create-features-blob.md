@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,10 +58,10 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
 
 Теперь вы готовы просматривать эти данные и создавать функции на основе этого набора данных.
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Создание функций
+## <a name="blob-featuregen"></a>Создание функций
 В двух следующих разделах показано, как создать категориальные характеристики со значениями индикатора и характеристики группирования с помощью сценариев Python.
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Создание функций на основе значений индикатора
+### <a name="blob-countfeature"></a>Создание функций на основе значений индикатора
 Вот как можно создавать категориальные функции:
 
 1. Проверьте распределение категориального столбца.
@@ -79,7 +80,7 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
+### <a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
 Вот как можно создавать функции группирования:
 
 1. Добавьте последовательность столбцов, чтобы создать числовой столбец.
@@ -93,7 +94,7 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
+## <a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
 После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать описанным ниже способом. Обратите внимание на то, что дополнительные характеристики можно создавать и в Студии машинного обучения Microsoft Azure.
 
 1. Запишите блок данных в локальный файл.
@@ -123,10 +124,5 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
 3. Теперь данные можно считывать из большого двоичного объекта с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) машинного обучения Azure (см. рисунок ниже).
 
 ![большой двоичный объект считывателя](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
