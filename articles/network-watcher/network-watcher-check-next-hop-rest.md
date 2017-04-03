@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
+ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
 ms.openlocfilehash: 04801ce75a767da2756165f51f49192f89887380
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -36,8 +36,6 @@ ms.lasthandoff: 02/23/2017
 Чтобы вызвать REST API при помощи командлетов PowerShell, вам потребуется ARMClient. Пакет ARMClient можно скачать на сайте [Chocolatey](https://chocolatey.org/packages/ARMClient).
 
 В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create an Azure Network Watcher instance](network-watcher-create.md) (Наблюдатель за сетями: создание экземпляра службы).
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Сценарий
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -43,10 +44,5 @@ ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
 > За виртуальные машины Azure вы **платите только по факту использования**. Чтобы вам не выставляли счета за неиспользуемую виртуальную машину, она должна находиться в состоянии **Остановлено (освобождено)** на [классическом портале Azure](http://manage.windowsazure.com/). Пошаговые указания по отмене распределения памяти для виртуальной машины см. в разделе [Завершение работы и отмена выделения памяти для виртуальной машины, когда она не используется](machine-learning-data-science-setup-virtual-machine.md#shutdown).
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

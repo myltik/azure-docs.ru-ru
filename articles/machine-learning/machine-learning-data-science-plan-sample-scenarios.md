@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
 ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 > 
 > 
 
-## <a name="a-namesmalllocalascenario-1-small-to-medium-tabular-dataset-in-a-local-files"></a><a name="smalllocal"></a>Сценарий \#№1. Набор табличных данных небольшого и среднего размера в локальных файлах
+## <a name="smalllocal"></a>Сценарий \#№1. Набор табличных данных небольшого и среднего размера в локальных файлах
 ![Локальные файлы небольшого и среднего размера][1]
 
 #### <a name="additional-azure-resources-none"></a>Дополнительные ресурсы Azure: отсутствуют
@@ -49,7 +50,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 2. Отправьте набор данных.
 3. Создайте последовательность операций эксперимента Машинного обучения Azure, начиная с отправленных наборов данных.
 
-## <a name="a-namesmalllocalprocessascenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Сценарий \#№2. Набор данных небольшого и среднего размера в локальных файлах, требующий обработки
+## <a name="smalllocalprocess"></a>Сценарий \#№2. Набор данных небольшого и среднего размера в локальных файлах, требующий обработки
 ![Локальные файлы небольшого и среднего размера, требующие обработки][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Дополнительные ресурсы Azure: виртуальная машина Azure (сервер IPython Notebook)
@@ -62,7 +63,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 7. Считайте данные из больших двоичных объектов Azure с помощью модуля [Импорт данных][import-data].
 8. Создайте последовательность операций эксперимента Машинного обучения Azure, начиная с принятых наборов данных.
 
-## <a name="a-namelargelocalascenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Сценарий\# №3. Большой набор данных в локальных файлах, загружаемый в большие двоичные объекты Azure
+## <a name="largelocal"></a>Сценарий\# №3. Большой набор данных в локальных файлах, загружаемый в большие двоичные объекты Azure
 ![Локальные файлы большого размера][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Дополнительные ресурсы Azure: виртуальная машина Azure (сервер IPython Notebook)
@@ -77,7 +78,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 9. Считайте данные из больших двоичных объектов Azure с помощью модуля [Импорт данных][import-data].
 10. Создайте последовательность операций эксперимента Машинного обучения Azure, начиная с принятых наборов данных.
 
-## <a name="a-namesmalllocaltodbascenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Сценарий \#№4. Набор данных небольшого и среднего размера в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure
+## <a name="smalllocaltodb"></a>Сценарий \#№4. Набор данных небольшого и среднего размера в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure
 ![Локальные файлы небольшого и среднего размера для базы данных SQL в Azure][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Дополнительные ресурсы Azure: виртуальная машина Azure (сервер SQL Server и IPython Notebook)
@@ -107,7 +108,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 10. Считайте данные непосредственно из SQL Server с помощью модуля [Импорт данных][import-data]. При необходимости вставьте требуемый запрос, который извлекает поля, создает признаки и примеры данных, непосредственно в запрос модуля [Импорт данных][import-data].
 11. Создайте последовательность операций эксперимента Машинного обучения Azure, начиная с принятых наборов данных.
 
-## <a name="a-namelargelocaltodbascenario-5-large-dataset-in-a-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Сценарий \#№5. Большой набор данных в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure
+## <a name="largelocaltodb"></a>Сценарий \#№5. Большой набор данных в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure
 ![Локальные файлы большого размера для базы данных SQL в Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Дополнительные ресурсы Azure: виртуальная машина Azure (сервер SQL Server и IPython Notebook)
@@ -148,7 +149,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 8. Считайте данные непосредственно из SQL Server с помощью модуля [Импорт данных][import-data]. При необходимости вставьте требуемый запрос, который извлекает поля, создает признаки и примеры данных, непосредственно в запрос модуля [Импорт данных][import-data].
 9. Создайте простую последовательность операций эксперимента Машинного обучения Azure, начиная с отправленного набора данных.
 
-## <a name="a-namelargedbtodbascenario-6-large-dataset-in-a-sql-server-database-on-prem-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Сценарий\# №6. Большой набор данных в локальной базе данных SQL Server, загружаемый на сервер SQL Server в виртуальной машине Azure
+## <a name="largedbtodb"></a>Сценарий\# №6. Большой набор данных в локальной базе данных SQL Server, загружаемый на сервер SQL Server в виртуальной машине Azure
 ![Большая локальная база данных SQL для базы данных SQL в Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Дополнительные ресурсы Azure: виртуальная машина Azure (сервер SQL Server и IPython Notebook)
@@ -196,7 +197,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 
 [Перенос базы данных путем отсоединения и присоединения (язык Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="a-namelargedbtohiveascenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Сценарий \# №7. Данные большого размера в локальных файлах, загружаемые в базу данных Hive в кластерах Azure HDInsight Hadoop
+## <a name="largedbtohive"></a>Сценарий \# №7. Данные большого размера в локальных файлах, загружаемые в базу данных Hive в кластерах Azure HDInsight Hadoop
 ![Данные большого размера в локальных файлах для базы данных Hive][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Дополнительные ресурсы Azure: кластер Azure HDInsight Hadoop и виртуальная машина Azure (сервер IPython Notebook)
@@ -240,7 +241,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 9. Считайте данные непосредственно из `Hive Queries` с помощью модуля [Импорт данных][import-data]. При необходимости вставьте требуемый запрос, который извлекает поля, создает признаки и примеры данных, непосредственно в запрос модуля [Импорт данных][import-data].
 10. Создайте простую последовательность операций эксперимента Машинного обучения Azure, начиная с отправленного набора данных.
 
-## <a name="a-namedecisiontreeadecision-tree-for-scenario-selection"></a><a name="decisiontree"></a>Дерево принятия решений для выбора сценариев
+## <a name="decisiontree"></a>Дерево принятия решений для выбора сценариев
 - - -
 На следующей схеме показаны сценарии, описанные выше, и варианты, выбранные в каждом сценарии ADAPT. Обратите внимание на то, что обработка и просмотр данных, а также разработка компонентов и создание примеров могут применяться в одном или нескольких методах или средах (в исходной, промежуточной или целевой среде) и при необходимости выполняться по несколько раз. Схема иллюстрирует только некоторые из возможных последовательностей операций и не является исчерпывающей.
 
@@ -265,9 +266,4 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

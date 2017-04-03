@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Выборка данных в хранилище больших двоичных объектов Azure
+# <a name="heading"></a>Выборка данных в хранилище больших двоичных объектов Azure
 Этот документ описывает выборку данных, содержащихся в хранилище BLOB-объектов Azure, путем их программной загрузки и последующей выборки с использованием процедур на языке Python.
 
 **Меню** ниже содержит ссылки на разделы, в которых описана выборка данных из различных сред хранения. 
@@ -68,7 +69,7 @@ ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
 
 Теперь можно работать с указанным выше фреймом данных, содержащим 1-процентную выборку, для дальнейшего просмотра и создания характеристик.
 
-## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Передача данных и их считывание в службу машинного обучения Azure
+## <a name="heading"></a>Передача данных и их считывание в службу машинного обучения Azure
 С помощью следующего образца кода можно уменьшить выборку данных и использовать их непосредственно в Машинном обучении Azure.
 
 1. Запись фрейма данных в локальный файл
@@ -100,10 +101,5 @@ ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
 3. Считывание данных из большого двоичного объекта Azure с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Машинного обучения Azure, как показано на рисунке ниже.
 
 ![большой двоичный объект считывателя](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

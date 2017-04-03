@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -60,7 +61,7 @@ ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
 
 Теперь вы готовы просматривать эти данные и создавать функции на основе этого набора данных.
 
-## <a name="a-nameblob-dataexplorationaexamples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Примеры просмотра данных с помощью Pandas
+## <a name="blob-dataexploration"></a>Примеры просмотра данных с помощью Pandas
 Вот несколько примеров того, как можно просматривать данные с помощью Pandas:
 
 1. Проверьте **количество строк и столбцов** 
@@ -104,10 +105,5 @@ ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
    
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
