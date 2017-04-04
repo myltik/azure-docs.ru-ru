@@ -6,17 +6,19 @@
 
 Чтобы зарегистрировать поставщик ресурсов, сделайте следующее на портале Azure:
 
-1.  Слева в области навигации щелкните *Подписки*.
-2.  Выберите подписку, указанную в сообщении об ошибке.
-3.  Щелкните *Поставщики ресурсов*.
-4.  Найдите поставщика *Microsoft.insights*.
-5.  Щелкните ссылку *Зарегистрировать*.
+1.    Слева в области навигации щелкните *Подписки*.
+2.    Выберите подписку, указанную в сообщении об ошибке.
+3.    Щелкните *Поставщики ресурсов*.
+4.    Найдите поставщика *Microsoft.insights*.
+5.    Щелкните ссылку *Зарегистрировать*.
 
 ![Регистрация поставщика ресурсов microsoft.insights](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 
 Зарегистрировав поставщик ресурсов *Microsoft.insights*, повторите настройку диагностики.
 
 
-<!--HONumber=Feb17_HO2-->
+Если появляется следующее сообщение об ошибке, необходимо обновить версию PowerShell:
 
+`Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
+Обновите PowerShell до версии за ноябрь 2016 г. (версия 2.3.0) и выше с помощью инструкций из статьи [Приступая к работе с командлетами Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).

@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 > 
 > 
 
-В этом руководстве описано, как создать и развернуть веб-приложение ASP.NET в веб-приложение службы приложений Azure с помощью Visual Studio 2015. В примере приложения отображается список статистических данных команды из базы данных и различные способы использования кэша Redis для Azure для хранения и извлечения данных из кэша. Завершив работу с руководством, вы получите рабочее веб-приложение, которое выполняет чтение и запись в базе данных, оптимизировано для работы с кэшем Redis для Azure и размещено в Azure.
+В этом руководстве описано, как создать и развернуть веб-приложение ASP.NET в веб-приложение службы приложений Azure с помощью Visual Studio 2017. В примере приложения отображается список статистических данных команды из базы данных и различные способы использования кэша Redis для Azure для хранения и извлечения данных из кэша. Завершив работу с руководством, вы получите рабочее веб-приложение, которое выполняет чтение и запись в базе данных, оптимизировано для работы с кэшем Redis для Azure и размещено в Azure.
 
 Вы узнаете следующее:
 
@@ -45,30 +46,31 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 Для работы с этим руководством необходимо следующее:
 
 * [Учетная запись Azure](#azure-account)
-* [Visual Studio 2015 с пакетом Azure SDK для .NET.](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Visual Studio 2017 с пакетом Azure SDK для .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Учетная запись Azure
 Для работы с этим руководством требуется учетная запись Azure. Вы можете:
 
 * [Открыть бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. После израсходования кредитов ваша учетная запись не исчезнет. Вы сможете использовать ее для работы с бесплатными службами и функциями Azure.
-* [Активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
+* [Активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты использования служб Azure.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 с пакетом Azure SDK для .NET.
-Это руководство написано для Visual Studio 2015 с пакетом [Azure SDK для .NET](../dotnet-sdk.md) 2.8.2 или более поздней версии. [Скачайте последний пакет Azure SDK для Visual Studio 2015 отсюда](http://go.microsoft.com/fwlink/?linkid=518003). Будет автоматически установлена программа Visual Studio с пакетом SDK (если она еще не установлена).
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Visual Studio 2017 с пакетом Azure SDK для .NET
+Это руководство написано для использования с Visual Studio 2017 с пакетом [Azure SDK для .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). Пакет Azure SDK 2.9.5 входит в состав установщика Visual Studio.
+
+Если у вас есть Visual Studio 2015, вы можете следовать инструкциям по использованию [пакета Azure SDK для .NET](../dotnet-sdk.md) 2.8.2 или более поздней версии. [Скачайте последний пакет Azure SDK для Visual Studio 2015 отсюда](http://go.microsoft.com/fwlink/?linkid=518003). Будет автоматически установлена программа Visual Studio с пакетом SDK (если она еще не установлена). Некоторые снимки экранов, приведенные в этом руководстве, могут отличаться от реальных.
 
 Если на вашем компьютере установлена версия Visual Studio 2013, можно [скачать последнюю версию пакета Azure SDK для Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Некоторые снимки экранов, приведенные в этом руководстве, могут отличаться от реальных.
-
-> [!NOTE]
-> В зависимости от того, сколько зависимостей пакета SDK уже имеется на компьютере, установка пакета SDK может занять определенное время, от нескольких минут до получаса или более.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Создание проекта Visual Studio
 1. Откройте Visual Studio и щелкните **Файл**, **Создать**, **Проект**.
 2. Разверните узел **Visual C#** в списке **Шаблоны**, выберите **Облако** и щелкните **Веб-приложение ASP.NET**. Убедитесь, что выбрана платформа **.NET Framework 4.5.2** или ее более новая версия.  В текстовом поле **Имя** введите **ContosoTeamStats** и нажмите кнопку **ОК**.
    
     ![Создание проекта][cache-create-project]
-3. Выберите тип проекта **MVC**. Снимите флажок **Разместить в облаке**. На следующих шагах руководства вы [подготовите ресурсы Azure к работе](#provision-the-azure-resources) и [опубликуете приложение в Azure](#publish-the-application-to-azure). Пример подготовки веб-приложения службы приложений в Visual Studio с установленным флажком **Разместить в облаке** см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Выберите тип проекта **MVC**. 
+
+    Для параметра **Проверка подлинности** обязательно укажите значение **Без проверки подлинности**. В зависимости от установленной версии Visual Studio значение по умолчанию может быть другим. Чтобы изменить его, щелкните **Изменить проверку подлинности** и выберите **Без проверки подлинности**.
+
+    Если вы работаете в Visual Studio 2015, снимите флажок **Разместить в облаке**. На следующих шагах руководства вы [подготовите ресурсы Azure к работе](#provision-the-azure-resources) и [опубликуете приложение в Azure](#publish-the-application-to-azure). Пример подготовки веб-приложения службы приложений в Visual Studio с установленным флажком **Разместить в облаке** см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![Выбор шаблона проекта][cache-select-template]
 4. Нажмите кнопку **ОК** , чтобы создать проект.
@@ -76,9 +78,21 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 ## <a name="create-the-aspnet-mvc-application"></a>Создание приложения ASP.NET MVC
 В этом разделе руководства описывается создание базового приложения, которое выполняет чтение статистики команды из базы данных и отображает ее.
 
+* [Добавление пакета Entity Framework NuGet](#add-the-entity-framework-nuget-package)
 * [Добавление модели](#add-the-model)
 * [Добавление контроллера](#add-the-controller)
 * [Настройка представлений](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Добавление пакета Entity Framework NuGet
+
+1. В меню **Сервис** выберите **Диспетчер пакетов NuGet**, а затем — **Консоль диспетчера пакетов**.
+2. Выполните следующую команду в окне `Package Manager Console`:
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+Дополнительные сведения об этом пакете см. в документации [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
 ### <a name="add-the-model"></a>Добавление модели
 1. В **обозревателе решений** щелкните правой кнопкой мыши папку **Модели**, а затем выберите **Добавить** и **Класс**. 
@@ -172,21 +186,27 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 1. В **обозревателе решений** дважды щелкните файл **web.config**, чтобы открыть его.
    
     ![Web.config][cache-web-config]
-2. Добавьте строку подключения, указанную ниже, в раздел `connectionStrings` . Имя строки подключения должно соответствовать имени класса контекста базы данных Entity Framework ( `TeamContext`).
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    После добавления строки подключения раздел `connectionStrings` должен выглядеть следующим образом:
+2. Добавьте следующий раздел `connectionStrings`. Имя строки подключения должно соответствовать имени класса контекста базы данных Entity Framework ( `TeamContext`).
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    Вы можете добавить новый раздел `connectionStrings`, чтобы он следовал за разделом `configSections`, как показано в следующем примере.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>Добавление контроллера
 1. Нажмите клавишу **F6** , чтобы скомпилировать проект. 
@@ -228,7 +248,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
         url: "{controller}/{action}/{id}",
         defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
     );
-```
+    ```
 
 
 ### <a name="configure-the-views"></a>Настройка представлений
@@ -261,14 +281,14 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 * [Обновление представления индекса команд для работы с кэшем](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>Настройка приложения для использования StackExchange.Redis
-1. Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**. 
+1. Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, выберите в меню **Сервис** последовательно элементы **Диспетчер пакетов NuGet** и **Консоль диспетчера пакетов**.
+2. Выполните следующую команду в окне `Package Manager Console`:
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Управление пакетами NuGet][redis-cache-manage-nuget-menu]
-2. Введите **StackExchange.Redis** в текстовое поле поиска, выберите нужную версию в результатах и нажмите кнопку **Установить**.
-   
-    ![Пакет NuGet StackExchange.Redis][redis-cache-stack-exchange-nuget]
-   
-    Пакет NuGet загружает и добавляет необходимые ссылки на сборки в клиентском приложении для доступа к кэшу Azure Redis из клиента кэша StackExchange.Redis. Если вы хотите использовать версию клиентской библиотеки **StackExchange.Redis** со строгими именами, выберите **StackExchange.Redis.StrongName**, в противном случае выберите **StackExchange.Redis**.
+    Пакет NuGet загружает и добавляет необходимые ссылки на сборки в клиентском приложении для доступа к кэшу Azure Redis из клиента кэша StackExchange.Redis. Если вы предпочитаете использовать версию клиентской библиотеки `StackExchange.Redis` со строгими именами, установите пакет `StackExchange.Redis.StrongName`.
 3. В **обозревателе решений** разверните папку **Контроллеры** и дважды щелкните файл **TeamsController.cs**, чтобы открыть его.
    
     ![Контроллер команд][cache-teamscontroller]
@@ -521,7 +541,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
     }
     ```
 
-    Метод `GetFromSortedSetTop5` считывает 5 лучших команд из кэшированного отсортированного набора. Сначала проверяется наличие ключа `teamsSortedSet` в кэше. Если этот ключ не указан, вызывается метод `GetFromSortedSet` для считывания статистики команды и ее сохранения в кэше. Затем в кэшированном отсортированном наборе запрашиваются 5 лучших команд, которые возвращаются.
+    Метод `GetFromSortedSetTop5` считывает 5 лучших команд из кэшированного отсортированного набора. Сначала проверяется наличие ключа `teamsSortedSet` в кэше. Если этот ключ не указан, вызывается метод `GetFromSortedSet` для считывания статистики команды и ее сохранения в кэше. Затем в кэшированном отсортированном наборе запрашивается 5 первых команд, которые возвращаются.
 
     ```c#
     List<Team> GetFromSortedSetTop5()
@@ -670,7 +690,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    В этой строке отображается значение файла `ViewBag.Msg` , содержащего отчет о состоянии текущей операции, которое устанавливается при выборе ссылки на действие из предыдущего шага.   
+    В этой строке отображаются значение `ViewBag.Msg`, которое содержит отчет о состоянии о текущей операции. Значение `ViewBag.Msg` устанавливается при выборе ссылки на любое действия предыдущего шага.   
    
     ![Сообщение о состоянии][cache-status-message]
 2. Нажмите клавишу **F6** , чтобы скомпилировать проект.
@@ -698,7 +718,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 ![Развернуть в Azure][cache-deploy-to-azure-step-1]
 
 1. В разделе **основных сведений** выберите подписку Azure, которую следует использовать, и имеющуюся группу ресурсов или создайте группу ресурсов и укажите ее расположение.
-2. В разделе **Параметры** укажите имя учетной записи администратора (**ADMINISTRATORLOGIN**. Не используйте **admin**), пароль для входа администратора (**ADMINISTRATORLOGINPASSWORD**) и имя базы данных (**DATABASENAME**). Другие параметры настраиваются для плана размещения службы приложений (цен. категория "Бесплатный") и более экономичных компонентов для базы данных SQL и кэша Redis для Azure, которые не предусмотрены на уровне "Бесплатный".
+2. В разделе **Параметры** укажите **имя учетной записи администратора** (не используйте **admin**), **пароль для входа администратора** и **имя базы данных**. Другие параметры настраиваются для плана размещения службы приложений (ценовая категория "Бесплатный") и более экономичных компонентов для базы данных SQL и кэша Redis для Azure, которые не предусмотрены на уровне "Бесплатный".
 
     ![Развернуть в Azure][cache-deploy-to-azure-step-2]
 
@@ -726,17 +746,13 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 1. В Visual Studio щелкните правой кнопкой мыши проект **ContosoTeamStats** и выберите пункт **Опубликовать**.
    
     ![Опубликовать][cache-publish-app]
-2. Щелкните **Служба приложений Microsoft Azure**.
+2. Щелкните элемент **Служба приложений Microsoft Azure**, выберите параметр **Выбрать существующую** и нажмите кнопку **Опубликовать**.
    
     ![Опубликовать][cache-publish-to-app-service]
-3. Выберите подписку, использованную при создании ресурсов Azure, разверните группу ресурсов, содержащую ресурсы, выберите нужное веб-приложение и нажмите кнопку **ОК**. Если использовалась кнопка **Deploy to Azure** (Развернуть в Azure), имя веб-приложения будет начинаться с **webSite** и содержать некоторые дополнительные символы.
+3. Выберите подписку, использованную при создании ресурсов Azure, разверните группу ресурсов, содержащую ресурсы и выберите нужное веб-приложение. Если использовалась кнопка **Deploy to Azure** (Развернуть в Azure), имя веб-приложения будет начинаться с **webSite** и содержать некоторые дополнительные символы.
    
     ![Выбор веб-приложения][cache-select-web-app]
-4. Нажмите кнопку **Проверить подключение**, чтобы проверить параметры, а затем — кнопку **Опубликовать**.
-   
-    ![Опубликовать][cache-publish]
-   
-    Через некоторое время публикация завершится, после чего будет запущен браузер с выполняющимся примером приложения. Если при проверке или публикации возникает ошибка DNS, а подготовка ресурсов Azure к работе для приложения недавно завершилась, подождите немного и повторите попытку.
+4. Нажмите кнопку **ОК**, чтобы начать процесс публикации. Через некоторое время публикация завершится, после чего будет запущен браузер с выполняющимся примером приложения. Если при проверке или публикации возникает ошибка DNS, а подготовка ресурсов Azure к работе для приложения недавно завершилась, подождите немного и повторите попытку.
    
     ![Кэш добавлен][cache-added-to-application]
 
@@ -798,7 +814,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 1. Для запуска приложения нажмите сочетание клавиш **Ctrl+F5** .
 
 > [!NOTE]
-> Обратите внимание, что так как приложение, включая базу данных, выполняется локально, а кэш Redis размещен в Azure, производительность кэша может быть ниже производительности базы данных. Чтобы повысить производительность, следует разместить клиентское приложение и экземпляр кэша Redis для Azure в одном расположении. 
+> Обратите внимание: так как приложение вместе с базой данных выполняется локально, а кэш Redis размещен в Azure, производительность кэша может быть ниже производительности базы данных. Чтобы повысить производительность, следует разместить клиентское приложение и экземпляр кэша Redis для Azure в одном расположении. 
 > 
 > 
 
@@ -848,10 +864,5 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

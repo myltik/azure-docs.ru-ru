@@ -677,9 +677,9 @@ info:    group deployment create command OK
 ### <a name="step-2-obtain-the-vhd"></a>Шаг 2. Получение виртуального жесткого диска
 Очевидно, что для этого вам понадобится VHD-файл. Можно использовать один из уже имеющихся в Azure файлов или передать новый.
 
-Дополнительные сведения о виртуальных машинах под управлением ОС Windows см. в статье [Создание и передача виртуального жесткого диска Windows Server в Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Дополнительные сведения о виртуальных машинах под управлением ОС Windows см. в статье [Создание и передача виртуального жесткого диска Windows Server в Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Сведения о виртуальных машинах под управлением ОС Linux см. в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Сведения о виртуальных машинах под управлением ОС Linux см. в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Шаг 3. Создание виртуальной машины с помощью шаблона
 Теперь вы можете приступить к созданию новой виртуальной машины на основе VHD-файла. Создайте группу для развертывания, выполнив команду `azure group create <location>`:
@@ -759,7 +759,7 @@ info:    group deployment create command OK
 Выполните следующие шаги, чтобы развернуть приложение для нескольких виртуальных машин, которое использует виртуальную сеть и балансировщик нагрузки, с помощью шаблона диспетчера ресурсов в репозитории шаблонов GitHub, выполнив команды Azure PowerShell.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Шаг 1. Поиск шаблона в JSON-файле
-Далее приведено содержимое JSON-файла для шаблона. Если требуется последняя версия, она находится [в репозитории Github для шаблонов](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). В этом разделе для вызова шаблона используется параметр `--template-uri`, но вы также можете использовать параметр `--template-file` для передачи локальной версии.
+Далее приведено содержимое JSON-файла для шаблона. Последняя версия доступна [в репозитории Github с шаблонами](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). В этом разделе для вызова шаблона используется параметр `--template-uri`, но вы также можете использовать параметр `--template-file` для передачи локальной версии.
 
 ```json
 {

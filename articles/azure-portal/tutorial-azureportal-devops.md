@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -62,7 +63,7 @@ ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
 9. Закончив, нажмите кнопку "OК". После запуска будут отображаться уведомления о развертывании.
    
    ![image9][image9]
-10. Вернитесь на страницу Github, чтобы просмотреть объект webhook, созданный для интеграции репозитория системы управления версиями в Azure. Интеграция с Github на портале Azure включает в себя всего несколько простых шагов.
+10. Вернитесь на портал GitHub, чтобы просмотреть объект webhook, созданный для интеграции репозитория системы управления версиями в Azure. Интеграция с GitHub на портале Azure выполняется очень просто.
     
     ![image10][image10]
 11. Чтобы продемонстрировать возможности непрерывного развертывания, добавьте в репозиторий Github содержимое. Например, текстовый файл. Со службой приложений также можете использовать приложения .NET, Ruby, Python и другие. В репозиторий можно добавлять текстовые файлы, а также приложения ASP.NET MVC, Java или Ruby.
@@ -334,9 +335,4 @@ ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

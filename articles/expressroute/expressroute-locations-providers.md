@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 03/22/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 278caf2afa889466736f3d98ff4ad292f72e5098
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: ccb33119c7fb87cf3d56c02d2a9ac727c347fed6
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -69,15 +69,15 @@ ExpressRoute поддерживается во всех регионах и ра
 ### <a name="production-azure"></a>Рабочая среда Azure
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
-| **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telefonica+, Telenor, Verizon |
 | **Атланта** |Equinix |
-| **Пусан** |LG CNS+, Sejong Telecom |
+| **Пусан** |LG CNS+ |
 | **Ченнай** |Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
-| **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
+| **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Дублин** |Colt, Telecity Group |
 | **Гонконг** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
+| **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Лас-Вегас** |Level 3 Communications+, Megaport |
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
@@ -109,6 +109,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Даллас** |Equinix, Megaport, Verizon |
 | **Нью-Йорк** |Equinix, Level 3 Communications+, Verizon |
 | **Кремниевая долина** | Equinix |
+| **Сиэтл;** | Equinix+ |
 | **Вашингтон, округ Колумбия** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Китай
@@ -125,7 +126,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Берлин** |Colt+, e-shelter, Megaport+ |
 | **Франкфурт** |Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Подключение через других поставщиков услуг
+## <a name="c1partners"></a>Подключение через других поставщиков услуг
 Вы можете создать подключение, даже если ваш поставщик услуг подключения не указан в предыдущих разделах.
 
 * Узнайте у своего поставщика услуг подключения, подключен ли он к какому-либо Exchange, указанному в таблице выше. Дополнительные сведения об услугах, предлагаемых поставщиками Exchange, см. по ссылкам ниже. Несколько поставщиков услуг подключения уже подключены к серверам Ethernet Exchange.
@@ -144,11 +145,12 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Расположение** | **Exchange** | **Поставщики услуг подключения** |
 | --- | --- | --- |
 | **Амстердам** | Equinix | Eurofiber |
-| **Лондон** | Equinix | Exponential E, HSO |
+| **Даллас** | Equinix, Megaport | C3ntro, Data Foundry |
+| **Лондон** | Equinix | Exponential E, HSO, NexGen Networks |
 | **Нью-Йорк** |Equinix |Lightower |
 | **Сиэтл;** |Equinix |Alaska Communications |
 | **Кремниевая долина** |Equinix |XO Communications |
-| **Сингапур** |Equinix |1CLOUDSTAR |
+| **Сингапур** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **Сидней** | Megaport | Macquarie Telecom Group|
 | **Токио** | Equinix | ARTERIA Networks Corporation |
 | **Вашингтон, округ Колумбия** |Equinix | Lightower, Masergy |
@@ -160,7 +162,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | --- | --- |
 | **Азия** |Avanade Inc., OneAs1a |
 | **Австралия** | IT Consultancy |
-| **Европа** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **Европа** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite, sol-tec |
 | **Северная Америка** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **Северная Америка** |Avanade Inc. |
 ## <a name="next-steps"></a>Дальнейшие действия

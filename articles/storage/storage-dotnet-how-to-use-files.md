@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/23/2017
 ## <a name="about-this-tutorial"></a>О данном учебнике
 В этом учебнике по началу работы продемонстрированы основы использования хранилища файлов Microsoft Azure. В этом учебнике мы выполним следующее:
 
-* Воспользуйтесь порталом Azure или оболочкой PowerShell, чтобы создать новую общую папку Azure, добавить каталог, передать локальный файл в эту общую папку и вывести список файлов в каталоге.
+* Воспользуйтесь порталом Azure или оболочкой PowerShell, чтобы создать новый файловый ресурс Azure, добавить каталог, передать локальный файл в эту общую папку и вывести список файлов в каталоге.
 * Общие папки подключаются так же, как и любые другие общие папки SMB.
 * Получите доступ к общей папке из локального приложения с помощью клиентской библиотеки службы хранилища Azure для .NET. Создайте консольное приложение и выполните эти действия с общей папкой.
   * Впишите содержимое файла из общей папки в консольное окно
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/23/2017
 Хранение файлов теперь поддерживается для всех учетных записей хранения. Вы можете использовать существующую учетную запись хранения или создать новую. Сведения о создании учетной записи хранения см. в этой [статье](storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Управление файловым ресурсом с помощью портала Azure
-На [портале Azure](https://portal.azure.com) общими папками можно управлять с помощью пользовательского интерфейса. На портале вы можете выполнять следующие действия:
+На [портале Azure](https://portal.azure.com) файловыми ресурсами можно управлять с помощью пользовательского интерфейса. На портале вы можете выполнять следующие действия:
 
 * создавать общие папки;
 * передавать файлы в общую папку и скачивать файлы из нее;
@@ -211,7 +211,7 @@ Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -Des
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Подключение общей папки из виртуальной машины Azure под управлением Windows
 Для демонстрации подключения общей папки с файлами Azure создадим виртуальную машину Azure под управлением Windows и удаленно подключимся к ней для подключения общей папки.
 
-1. Сначала создайте виртуальную машину Azure, выполнив действия, описанные в статье [Создание виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+1. Сначала создайте виртуальную машину Azure, выполнив действия, описанные в статье о [создании виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Затем установите удаленное подключение к виртуальной машине, следуя инструкциям из статьи, посвященной [входу на виртуальную машину Windows с помощью портала Azure](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Откройте окно PowerShell на виртуальной машине.
 
@@ -264,17 +264,29 @@ net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-accoun
 Для написания кода, вызывающего хранилище файлов, можно использовать клиентские библиотеки хранилища для .NET и Java или REST API службы хранилища Azure. В этом разделе приведен пример работы с общей папкой с использованием [клиентской библиотеки службы хранилища Azure для .NET](https://msdn.microsoft.com/library/mt347887.aspx) из простого консольного приложения на настольном компьютере.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>Создание консольного приложения и получение сборки
-Создать консольное приложение в Visual Studio и установить пакет NuGet, содержащий клиентскую библиотеку службы хранилища Azure, можно так.
+В Visual Studio создайте новое консольное приложение Windows. Ниже показано, как создать консольное приложение в Visual Studio 2017. Эти инструкции применимы и в других версиях Visual Studio.
 
-1. В Visual Studio выберите **Файл -> Создать проект**, а затем в списке шаблонов Visual C# выберите **Windows -> Консольное приложение**.
-2. Укажите имя консольного приложения и нажмите кнопку **ОК**.
-3. После создания проекта щелкните правой кнопкой мыши на проекте в обозревателе решений и выберите **Управление пакетами NuGet**. Выполните в Интернете поиск по запросу "WindowsAzure.Storage" и нажмите кнопку **Установить** , чтобы установить клиентскую библиотеку службы хранилища Azure для пакета .NET и зависимые компоненты.
+1. Выберите **Файл** > **Создать** > **Проект**.
+2. Выберите **Установлено** > **Шаблоны** > **Visual C#** > **Классический рабочий стол Windows**.
+3. Выберите **Консольное приложение (.NET Framework)**.
+4. Введите имя приложения в поле **Имя**.
+5. Нажмите кнопку **ОК**.
 
-В примере кода для этой статьи также используется [библиотека диспетчера конфигураций Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx) для получения строки подключения из файла app.config в консольном приложении. С помощью диспетчера конфигураций Azure можно получить строку подключения во время выполнения независимо от того, выполняется ли приложение в Microsoft Azure или как классическое, мобильное или веб-приложение.
+Все примеры кода из этого руководства можно добавить в метод `Main()` в файле `Program.cs` консольного приложения.
 
-Чтобы установить пакет менеджера конфигураций Azure, щелкните правой кнопкой мыши проект в обозревателе решений и выберите пункт **Управление пакетами NuGet**. Выполните поиск в Интернете по запросу "ConfigurationManager" и нажмите кнопку **Установить** , чтобы установить пакет.
+Вы можете использовать клиентскую библиотеку службы хранилища Azure в любом приложении .NET, в том числе в облачной службе Azure, веб-приложении Azure, классическом или мобильном приложении. Для упрощения в этом руководстве мы будем использовать консольное приложение.
 
-Использование диспетчера конфигураций Azure не является обязательным. Вы также можете использовать API, например [класс ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)для .NET Framework.
+### <a name="use-nuget-to-install-the-required-packages"></a>Установка необходимых пакетов с помощью NuGet
+Для работы с этим руководством вам нужно указать в проекте два пакета:
+
+* [Клиентская библиотека службы хранилища Microsoft Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)— этот пакет предоставляет программный доступ к ресурсам данных в вашей учетной записи хранения.
+* [Библиотека Microsoft Azure Configuration Manager для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) — этот пакет предоставляет класс для анализа строки подключения в файле конфигурации независимо от среды выполнения приложения.
+
+Вы можете использовать NuGet для установки обоих пакетов. Выполните следующие действия.
+
+1. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Управление пакетами NuGet**.
+2. Выполните в Интернете поиск по запросу "WindowsAzure.Storage" и нажмите кнопку **Установить** , чтобы установить клиентскую библиотеку службы хранилища и зависимые компоненты.
+3. Выполните поиск в Интернете по запросу WindowsAzure.ConfigurationManager и нажмите кнопку **Установить**, чтобы установить Azure Configuration Manager.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Сохранение данных учетной записи хранения в файле app.config.
 Затем сохраните данные учетной записи хранения в файле app.config вашего проекта. Замените содержимое файла app.config текстом из следующего примера: введите вместо `myaccount` имя учетной записи хранения, а вместо `mykey` — ключ учетной записи хранения.
@@ -296,8 +308,8 @@ net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-accoun
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Добавление объявлений пространств имен
-В обозревателе решений откройте файл `program.cs` и добавьте следующие объявления пространств имен в начало файла.
+### <a name="add-using-directives"></a>Добавление директив using
+В обозревателе решений откройте файл `Program.cs` и добавьте следующие директивы using в начало файла.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -546,7 +558,7 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 В следующем примере кода показано, как использовать клиентскую библиотеку хранилища для .NET, чтобы включить метрики для хранилища файлов.
 
-Сначала добавьте в файл program.cs приведенные ниже инструкции `using` в дополнение к указанным выше.
+Сначала добавьте в файл `Program.cs` следующие директивы `using` в дополнение к указанным выше.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     Для передачи большого числа файлов в хранилище файлов мы рекомендуем использовать AzCopy, Azure Powershell (для Windows) или интерфейс командной строки Azure (для Linux и Unix). Эти средства хорошо оптимизированы для передачи файлов по сети.
 15. **Выпущено исправление, устраняющее проблему низкой производительности службы файлов Azure.**
     
-    Группа разработчиков Windows недавно выпустила исправление, устраняющее проблему с низкой производительностью, которая возникает, когда клиент обращается к хранилищу файлов Azure с компьютера под управлением Windows 8.1 или Windows Server 2012 R2. Дополнительные сведения см. в соответствующей статье базы знаний [Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Снижение производительности при доступе к хранилищу файлов Azure из Windows 8.1 или Server 2012 R2).
+    Группа разработчиков Windows недавно выпустила исправление, устраняющее проблему с низкой производительностью, которая возникает, когда клиент обращается к хранилищу файлов Azure с компьютера под управлением Windows 8.1 или Windows Server 2012 R2. Дополнительные сведения см. в соответствующей статье базы знаний [Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025) (Снижение производительности при доступе к хранилищу файлов Azure из Windows 8.1 или Server 2012 R2).
 16. **Использование хранилища файлов Azure с IBM MQ.**
     
     Компания IBM выпустила руководство по настройке хранилища файлов Azure в службе, которую используют пользователи IBM MQ. Дополнительные сведения см. в статье [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Настройка службы файлов Microsoft Azure в многоэкземплярном диспетчере очередей IBM MQ).
@@ -655,9 +667,10 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 18. **Как включить шифрование на стороне сервера для файлов Azure?**
 
-    [Шифрование на стороне сервера](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) доступно в предварительной версии. На период действия предварительной версии эту функцию можно включить только для новых учетных записей хранения Azure Resource Manager (ARM).
-    Включить эту функцию для учетной записи хранения Azure Resource Manager можно с помощью портала Azure. К концу февраля мы планируем добавить возможность включения шифрования хранилища файлов с помощью [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) или [поставщика ресурсов API службы хранилища Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts). Включение этой функции не требует дополнительной оплаты. Если включить шифрование службы хранилища для хранилища файлов Azure, данные будут шифроваться автоматически. 
-    Вы можете узнать больше о шифровании службы хранилища. Чтобы получить дополнительные сведения о предварительной версии, отправьте письмо по адресу ssediscussions@microsoft.com.
+    [Шифрование на стороне сервера](storage-service-encryption.md) для файлов Azure доступно в предварительной версии. В предварительной версии эту функцию можно включить только для новых учетных записей хранения Azure Resource Manager, созданных на [портале Azure](https://portal.azure.com). Включение этой функции не требует дополнительной оплаты. Если включить шифрование службы хранилища для хранилища файлов Azure, данные будут шифроваться автоматически. 
+    
+    В будущем мы планируем добавить возможность включения шифрования хранилища файлов с помощью [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) или [REST API поставщика ресурсов службы хранилища Azure](/rest/api/storagerp/storageaccounts). 
+    Дополнительные сведения о шифровании при хранении см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](storage-service-encryption.md) или обратитесь по адресу ssediscussions@microsoft.com, если у вас есть вопросы, касающиеся предварительной версии.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
@@ -670,7 +683,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [Использование Azure PowerShell со службой хранилища Azure](storage-powershell-guide-full.md)
 * [Использование AzCopy со службой хранилища Microsoft Azure](storage-use-azcopy.md)
 * [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](storage-azure-cli.md#create-and-manage-file-shares)
-* [Устранение неполадок хранилища файлов Azure](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Устранение неполадок хранилища файлов Azure](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Справочные материалы
 * [Справочник по клиентской библиотеке хранилища для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

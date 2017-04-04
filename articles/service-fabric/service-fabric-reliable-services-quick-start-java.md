@@ -2,7 +2,7 @@
 title: "Создание первой надежной микрослужбы Azure на языке Java | Документация Майкрософт"
 description: "Вводные сведения о создании приложения Service Fabric Microsoft Azure со службами с отслеживанием состояния и без него."
 services: service-fabric
-documentationcenter: .net
+documentationcenter: java
 author: vturecek
 manager: timlt
 editor: 
@@ -17,6 +17,7 @@ ms.author: vturecek
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -168,9 +169,4 @@ $ gradle
 ```bash
 $ ./install.sh
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

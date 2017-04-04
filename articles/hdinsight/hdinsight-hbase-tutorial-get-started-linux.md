@@ -9,16 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ ms.lasthandoff: 03/11/2017
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Создание таблиц и вставка данных
-Для подключения к кластерам HBase можно использовать SSH, а для создания таблиц HBase, вставки данных и создания запросов к данным — оболочку HBase. Дополнительные сведения об использовании SSH см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md) и [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+Для подключения к кластерам HBase можно использовать SSH, а для создания таблиц HBase, вставки данных и создания запросов к данным — оболочку HBase. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Для большинства пользователей данные отображаются в табличном формате:
 
@@ -223,6 +224,11 @@ HBase включает несколько методов загрузки дан
         -v
 
 Дополнительные сведения см. в [справочнике по Apache HBase](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift не поддерживается HBase в HDInsight.
+>
 
 ## <a name="check-cluster-status"></a>Проверка состояния кластера
 HBase на HDInsight поставляется с веб-интерфейсом для наблюдения за кластерами. С помощью веб-интерфейса вы можете запросить статистику или сведения о регионах.
