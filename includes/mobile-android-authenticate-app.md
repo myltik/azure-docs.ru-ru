@@ -12,24 +12,32 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 2. Добавьте в класс **ToDoActivity** следующий метод:
 
+        // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
+        public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
+ 
         private void authenticate() {
             // Login using the Google provider.
-
-            ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-
-            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-                @Override
-                public void onFailure(Throwable exc) {
-                    createAndShowDialog((Exception) exc, "Error");
-                }           
-                @Override
-                public void onSuccess(MobileServiceUser user) {
-                    createAndShowDialog(String.format(
-                            "You are now logged in - %1$2s",
-                            user.getUserId()), "Success");
-                    createTable();    
+            mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
+        }
+         
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            // When request completes
+            if (resultCode == RESULT_OK) {
+                // Check the request code matches the one we send in the login request
+                if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
+                    MobileServiceActivityResult result = mClient.onActivityResult(data);
+                    if (result.isLoggedIn()) {
+                        // login succeeded
+                        createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
+                        createTable();
+                    } else {
+                        // login failed, check the error message
+                        String errorMessage = result.getErrorMessage();
+                        createAndShowDialog(errorMessage, "Error");
+                    }
                 }
-            });       
+            }
         }
 
     При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. В диалоговом окне отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
@@ -59,11 +67,38 @@
             // Load the items from Azure.
             refreshItemsFromTable();
         }
-5. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
+
+5. Добавьте в файл _AndroidManifest.xml_ следующий фрагмент _RedirectUrlActivity_, чтобы обеспечить перенаправление.
+ 
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="{url_scheme_of_your_app}"
+                    android:host="easyauth.callback"/>
+            </intent-filter>
+        </activity>
+
+6.  Добавьте redirectUriScheme к _build.gradle_ приложения Android.
+ 
+        android {
+            buildTypes {
+                release {
+                    // … …
+                    manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
+                }
+                debug {
+                    // … …
+                    manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
+                }
+            }
+        }
+
+7. Добавьте com.android.support:customtabs:23.0.1 к зависимостям в build.gradle:
+
+      dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
+
+8. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
 
 После входа мобильное приложение должно работать без ошибок, а у вас должна быть возможность отправлять запросы в серверную службу и обновлять данные.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

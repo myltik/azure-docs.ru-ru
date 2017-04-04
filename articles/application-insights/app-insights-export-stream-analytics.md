@@ -231,7 +231,7 @@ ms.lasthandoff: 01/30/2017
 ## <a name="video"></a>Видео
 Ноам Бен Зив (Noam Ben Zeev) показывает, как обрабатывать экспортированные данные с помощью Stream Analytics.
 
-> [!ВИДЕО https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
 > 
 

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -62,7 +64,7 @@ ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
 ### <a name="can-i-view-the-compute-nodes"></a>Можно ли просматривать вычислительные узлы?
 У каждого вычислительного узла есть идентификатор, отображаемый в системных представлениях, которые относятся к хранилищу данных SQL и Parallel Data Warehouse.  Вычислительные узлы можно увидеть в столбце node_id в системных представлениях, имена которых начинаются с sys.pdw_nodes. Список системных представлений см. в [системном представление MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Реплицированные таблицы для хранилища Parallel Data Warehouse
+## <a name="Replicated"></a>Реплицированные таблицы для хранилища Parallel Data Warehouse
 Область применения: хранилище Parallel Data Warehouse
 
 Помимо использования распределенных таблиц, хранилище Parallel Data Warehouse предлагает вариант репликации таблиц. *Реплицированная таблица* — это таблица, которая полностью хранится на каждом вычислительном узле. Репликация таблицы устраняет необходимость переноса ее строк между вычислительными узлами перед использованием таблицы для соединения или агрегирования. Реплицированные таблицы подходят только для работы с небольшими таблицами из-за дополнительного пространства для хранения всей таблицы на каждом вычислительном узле.  
@@ -73,10 +75,5 @@ ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы эффективно использовать распределенные таблицы, см. инструкции в статье [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) (Распределение таблиц в хранилище данных SQL).  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

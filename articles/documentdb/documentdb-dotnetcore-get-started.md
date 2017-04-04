@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e7c88dcc071712c80e372c1bfc0a088923295b92
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c8a915055318697ade229837653df4c105279299
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -48,6 +48,8 @@ ms.lasthandoff: 03/08/2017
 
 У вас нет времени? Не беспокойтесь! Полное решение доступно на [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Краткие инструкции см. в разделе [Получение полного решения NoSQL для этого руководства](#GetSolution).
 
+Хотите создать приложение Xamarin iOS, Android или Forms с помощью пакета SDK для DocumentDB .NET Core? См. дополнительные сведения о [разработке мобильных приложений Xamarin с помощью DocumentDB](documentdb-mobile-apps-with-xamarin.md).
+
 После этого используйте кнопки голосования в верхней или нижней части этой страницы, чтобы отправить нам отзыв. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
 
 > [!NOTE]
@@ -61,7 +63,7 @@ ms.lasthandoff: 03/08/2017
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
     * Кроме того, в этом руководстве можно использовать [эмулятор Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) 
-    * Если вы работаете в MacOS или Linux, приложения .NET Core можно разрабатывать с помощью командной строки, установив для этого пакет [SDK для .NET Core ](https://www.microsoft.com/net/core#macos) в соответствии с платформой. 
+    * Если вы работаете в MacOS или Linux, вы можете разрабатывать приложения .NET Core с помощью командной строки, установив для этого пакет [SDK для .NET Core ](https://www.microsoft.com/net/core#macos) с учетом платформы. 
     * Если вы работаете в Windows, приложения .NET Core можно разрабатывать с помощью командной строки, установив для этого пакет [SDK для .NET Core](https://www.microsoft.com/net/core#windows). 
     * Можно использовать свой редактор или скачать бесплатный [Visual Studio Code](https://code.visualstudio.com/), который работает в Windows, Linux и MacOS. 
 
@@ -80,39 +82,41 @@ ms.lasthandoff: 03/08/2017
 5. Не выходя из меню, щелкните элемент **Управление пакетами NuGet…**.
 
    ![Снимок экрана: меню «Проект», вызванное щелчком правой кнопки мыши](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. На вкладке **Nuget** в верхней части окна щелкните **Обзор** и в поле поиска введите **azure documentdb**.
+6. На вкладке **NuGet** в верхней части окна щелкните **Обзор** и в поле поиска введите **azure documentdb**.
 7. В результатах найдите **Microsoft.Azure.DocumentDB.Core** и нажмите кнопку **Установить**.
-   Идентификатором пакета для клиентской библиотеки DocumentDB для .NET Core является [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Если используется версия .NET Framework (например, net461), которая не поддерживается для этого пакета .NET Core Nuget, используйте [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB), поддерживающую все версии .NET Framework, начиная с .NET Framework 4.5.
-8. При появлении запросов подтвердите установку пакета Nuget и примите условия лицензионного соглашения.
+   Идентификатором пакета для клиентской библиотеки DocumentDB для .NET Core является [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Если используется версия .NET Framework (например, net461), которая не поддерживается для этого пакета .NET Core NuGet, используйте [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB), поддерживающую все версии .NET Framework, начиная с .NET Framework 4.5.
+8. При появлении запросов подтвердите установку пакета NuGet и примите условия лицензионного соглашения.
 
 Отлично! Теперь, когда мы завершили настройку, начнем писать код. Вы можете найти проект готового кода для этого руководства в [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
 ## <a id="Connect"></a> Шаг 3. Подключение к учетной записи DocumentDB
 Во-первых, добавьте эти ссылки в начало приложения C# в файле Program.cs:
 
-    using System;
+```csharp
+using System;
 
-    // ADD THIS PART TO YOUR CODE
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Net;
-    using Microsoft.Azure.Documents;
-    using Microsoft.Azure.Documents.Client;
-    using Newtonsoft.Json;
+// ADD THIS PART TO YOUR CODE
+using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using Newtonsoft.Json;
+```
 
 > [!IMPORTANT]
 > Для работы с этим руководством по NoSQL добавьте описанные выше зависимости.
-> 
-> 
 
 Теперь добавьте эти две константы и переменную *client* в открытый класс *Program*.
 
-    class Program
-    {
-        // ADD THIS PART TO YOUR CODE
-        private const string EndpointUri = "<your endpoint URI>";
-        private const string PrimaryKey = "<your key>";
-        private DocumentClient client;
+```csharp
+class Program
+{
+    // ADD THIS PART TO YOUR CODE
+    private const string EndpointUri = "<your endpoint URI>";
+    private const string PrimaryKey = "<your key>";
+    private DocumentClient client;
+```
 
 Затем войдите на [портал Azure](https://portal.azure.com) , чтобы получить URI и первичный ключ. Универсальный код ресурса (URI) DocumentDB и первичный ключ необходимы, чтобы предоставить приложению данные о расположении, в котором будет устанавливаться подключение, и сделать подключение вашего приложения доверенным для DocumentDB.
 
@@ -126,41 +130,45 @@ ms.lasthandoff: 03/08/2017
 
 В методе **Main** добавьте эту новую асинхронную задачу с именем **GetStartedDemo**, которая создает экземпляр **DocumentClient**.
 
-    static void Main(string[] args)
-    {
-    }
+```csharp
+static void Main(string[] args)
+{
+}
 
-    // ADD THIS PART TO YOUR CODE
-    private async Task GetStartedDemo()
-    {
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
-    }
+// ADD THIS PART TO YOUR CODE
+private async Task GetStartedDemo()
+{
+    this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+}
+```
 
 Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main** . Метод **Main** будет перехватывать исключения и записывать их в консоли.
 
-    static void Main(string[] args)
-    {
-            // ADD THIS PART TO YOUR CODE
-            try
-            {
-                    Program p = new Program();
-                    p.GetStartedDemo().Wait();
-            }
-            catch (DocumentClientException de)
-            {
-                    Exception baseException = de.GetBaseException();
-                    Console.WriteLine("{0} error occurred: {1}, Message: {2}", de.StatusCode, de.Message, baseException.Message);
-            }
-            catch (Exception e)
-            {
-                    Exception baseException = e.GetBaseException();
-                    Console.WriteLine("Error: {0}, Message: {1}", e.Message, baseException.Message);
-            }
-            finally
-            {
-                    Console.WriteLine("End of demo, press any key to exit.");
-                    Console.ReadKey();
-            }
+```csharp
+static void Main(string[] args)
+{
+        // ADD THIS PART TO YOUR CODE
+        try
+        {
+                Program p = new Program();
+                p.GetStartedDemo().Wait();
+        }
+        catch (DocumentClientException de)
+        {
+                Exception baseException = de.GetBaseException();
+                Console.WriteLine("{0} error occurred: {1}, Message: {2}", de.StatusCode, de.Message, baseException.Message);
+        }
+        catch (Exception e)
+        {
+                Exception baseException = e.GetBaseException();
+                Console.WriteLine("Error: {0}, Message: {1}", e.Message, baseException.Message);
+        }
+        finally
+        {
+                Console.WriteLine("End of demo, press any key to exit.");
+                Console.ReadKey();
+        }
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы создать и запустить приложение.
 
@@ -171,24 +179,28 @@ ms.lasthandoff: 03/08/2017
 
 Скопируйте и вставьте метод **WriteToConsoleAndPromptToContinue** под кодом метода **GetStartedDemo**.
 
-    // ADD THIS PART TO YOUR CODE
-    private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
-    {
-            Console.WriteLine(format, args);
-            Console.WriteLine("Press any key to continue ...");
-            Console.ReadKey();
-    }
+```csharp
+// ADD THIS PART TO YOUR CODE
+private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
+{
+        Console.WriteLine(format, args);
+        Console.WriteLine("Press any key to continue ...");
+        Console.ReadKey();
+}
+```
 
 [Базу данных](documentdb-resources.md#databases) DocumentDB можно создать с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов JSON, разделенных между коллекциями.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания клиента. Будет создана база данных с именем *FamilyDB*.
 
-    private async Task GetStartedDemo()
-    {
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+```csharp
+private async Task GetStartedDemo()
+{
+    this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-        // ADD THIS PART TO YOUR CODE
-        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
+    // ADD THIS PART TO YOUR CODE
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -197,19 +209,19 @@ ms.lasthandoff: 03/08/2017
 ## <a id="CreateColl"></a>Этап 5: создание коллекции
 > [!WARNING]
 > С использованием элемента **CreateDocumentCollectionAsync** можно создать новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
-> 
-> 
 
 Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания базы данных. Будет создана коллекция документов с именем *FamilyCollection_oa*.
 
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+```csharp
+    this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-        // ADD THIS PART TO YOUR CODE
-         await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
+    // ADD THIS PART TO YOUR CODE
+    await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -222,153 +234,159 @@ ms.lasthandoff: 03/08/2017
 
 Скопируйте и вставьте классы **Family**, **Parent**, **Child**, **Pet** и **Address** под кодом метода **WriteToConsoleAndPromptToContinue**.
 
-    private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
-    {
-        Console.WriteLine(format, args);
-        Console.WriteLine("Press any key to continue ...");
-        Console.ReadKey();
-    }
+```csharp
+private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
+{
+    Console.WriteLine(format, args);
+    Console.WriteLine("Press any key to continue ...");
+    Console.ReadKey();
+}
 
-    // ADD THIS PART TO YOUR CODE
-    public class Family
+// ADD THIS PART TO YOUR CODE
+public class Family
+{
+    [JsonProperty(PropertyName = "id")]
+    public string Id { get; set; }
+    public string LastName { get; set; }
+    public Parent[] Parents { get; set; }
+    public Child[] Children { get; set; }
+    public Address Address { get; set; }
+    public bool IsRegistered { get; set; }
+    public override string ToString()
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-        public string LastName { get; set; }
-        public Parent[] Parents { get; set; }
-        public Child[] Children { get; set; }
-        public Address Address { get; set; }
-        public bool IsRegistered { get; set; }
-        public override string ToString()
-        {
-                return JsonConvert.SerializeObject(this);
-        }
+            return JsonConvert.SerializeObject(this);
     }
+}
 
-    public class Parent
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-    }
+public class Parent
+{
+    public string FamilyName { get; set; }
+    public string FirstName { get; set; }
+}
 
-    public class Child
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-        public string Gender { get; set; }
-        public int Grade { get; set; }
-        public Pet[] Pets { get; set; }
-    }
+public class Child
+{
+    public string FamilyName { get; set; }
+    public string FirstName { get; set; }
+    public string Gender { get; set; }
+    public int Grade { get; set; }
+    public Pet[] Pets { get; set; }
+}
 
-    public class Pet
-    {
-        public string GivenName { get; set; }
-    }
+public class Pet
+{
+    public string GivenName { get; set; }
+}
 
-    public class Address
-    {
-        public string State { get; set; }
-        public string County { get; set; }
-        public string City { get; set; }
-    }
+public class Address
+{
+    public string State { get; set; }
+    public string County { get; set; }
+    public string City { get; set; }
+}
+```
 
 Скопируйте и вставьте метод **CreateFamilyDocumentIfNotExists** под кодом метода **CreateDocumentCollectionIfNotExists**.
 
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
+```csharp
+// ADD THIS PART TO YOUR CODE
+private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
+{
+    try
     {
-        try
+        await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
+        this.WriteToConsoleAndPromptToContinue("Found {0}", family.Id);
+    }
+    catch (DocumentClientException de)
+    {
+        if (de.StatusCode == HttpStatusCode.NotFound)
         {
-            await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
-            this.WriteToConsoleAndPromptToContinue("Found {0}", family.Id);
+            await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
+            this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
         }
-        catch (DocumentClientException de)
+        else
         {
-            if (de.StatusCode == HttpStatusCode.NotFound)
-            {
-                await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
-                this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
-            }
-            else
-            {
-                throw;
-            }
+            throw;
         }
     }
+}
+```
 
 Затем вставьте два документа, один для семьи Андерсен и один для семьи Вейкфилд.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания коллекции документов.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+```csharp
+await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
-    // ADD THIS PART TO YOUR CODE
-    Family andersenFamily = new Family
-    {
-            Id = "Andersen.1",
-            LastName = "Andersen",
-            Parents = new Parent[]
-            {
-                    new Parent { FirstName = "Thomas" },
-                    new Parent { FirstName = "Mary Kay" }
-            },
-            Children = new Child[]
-            {
-                    new Child
-                    {
-                            FirstName = "Henriette Thaulow",
-                            Gender = "female",
-                            Grade = 5,
-                            Pets = new Pet[]
-                            {
-                                    new Pet { GivenName = "Fluffy" }
-                            }
-                    }
-            },
-            Address = new Address { State = "WA", County = "King", City = "Seattle" },
-            IsRegistered = true
-    };
+// ADD THIS PART TO YOUR CODE
+Family andersenFamily = new Family
+{
+        Id = "Andersen.1",
+        LastName = "Andersen",
+        Parents = new Parent[]
+        {
+                new Parent { FirstName = "Thomas" },
+                new Parent { FirstName = "Mary Kay" }
+        },
+        Children = new Child[]
+        {
+                new Child
+                {
+                        FirstName = "Henriette Thaulow",
+                        Gender = "female",
+                        Grade = 5,
+                        Pets = new Pet[]
+                        {
+                                new Pet { GivenName = "Fluffy" }
+                        }
+                }
+        },
+        Address = new Address { State = "WA", County = "King", City = "Seattle" },
+        IsRegistered = true
+};
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
+await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
 
-    Family wakefieldFamily = new Family
-    {
-            Id = "Wakefield.7",
-            LastName = "Wakefield",
-            Parents = new Parent[]
-            {
-                    new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
-                    new Parent { FamilyName = "Miller", FirstName = "Ben" }
-            },
-            Children = new Child[]
-            {
-                    new Child
-                    {
-                            FamilyName = "Merriam",
-                            FirstName = "Jesse",
-                            Gender = "female",
-                            Grade = 8,
-                            Pets = new Pet[]
-                            {
-                                    new Pet { GivenName = "Goofy" },
-                                    new Pet { GivenName = "Shadow" }
-                            }
-                    },
-                    new Child
-                    {
-                            FamilyName = "Miller",
-                            FirstName = "Lisa",
-                            Gender = "female",
-                            Grade = 1
-                    }
-            },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
-    };
+Family wakefieldFamily = new Family
+{
+        Id = "Wakefield.7",
+        LastName = "Wakefield",
+        Parents = new Parent[]
+        {
+                new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+                new Parent { FamilyName = "Miller", FirstName = "Ben" }
+        },
+        Children = new Child[]
+        {
+                new Child
+                {
+                        FamilyName = "Merriam",
+                        FirstName = "Jesse",
+                        Gender = "female",
+                        Grade = 8,
+                        Pets = new Pet[]
+                        {
+                                new Pet { GivenName = "Goofy" },
+                                new Pet { GivenName = "Shadow" }
+                        }
+                },
+                new Child
+                {
+                        FamilyName = "Miller",
+                        FirstName = "Lisa",
+                        Gender = "female",
+                        Grade = 1
+                }
+        },
+        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+        IsRegistered = false
+};
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -381,46 +399,50 @@ ms.lasthandoff: 03/08/2017
 
 Скопируйте и вставьте метод **ExecuteSimpleQuery** под кодом метода **CreateFamilyDocumentIfNotExists**.
 
-    // ADD THIS PART TO YOUR CODE
-    private void ExecuteSimpleQuery(string databaseName, string collectionName)
-    {
-        // Set some common query options
-        FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
+```csharp
+// ADD THIS PART TO YOUR CODE
+private void ExecuteSimpleQuery(string databaseName, string collectionName)
+{
+    // Set some common query options
+    FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
-            // Here we find the Andersen family via its LastName
-            IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
-                    UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
-                    .Where(f => f.LastName == "Andersen");
+        // Here we find the Andersen family via its LastName
+        IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
+                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
+                .Where(f => f.LastName == "Andersen");
 
-            // The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
-            Console.WriteLine("Running LINQ query...");
-            foreach (Family family in familyQuery)
-            {
-                    Console.WriteLine("\tRead {0}", family);
-            }
+        // The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
+        Console.WriteLine("Running LINQ query...");
+        foreach (Family family in familyQuery)
+        {
+            Console.WriteLine("\tRead {0}", family);
+        }
 
-            // Now execute the same query via direct SQL
-            IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
-                    UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                    "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
-                    queryOptions);
+        // Now execute the same query via direct SQL
+        IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
+                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+                "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
+                queryOptions);
 
-            Console.WriteLine("Running direct SQL query...");
-            foreach (Family family in familyQueryInSql)
-            {
-                    Console.WriteLine("\tRead {0}", family);
-            }
+        Console.WriteLine("Running direct SQL query...");
+        foreach (Family family in familyQueryInSql)
+        {
+                Console.WriteLine("\tRead {0}", family);
+        }
 
-            Console.WriteLine("Press any key to continue ...");
-            Console.ReadKey();
-    }
+        Console.WriteLine("Press any key to continue ...");
+        Console.ReadKey();
+}
+```
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания второго документа.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+```csharp
+await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-    // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+// ADD THIS PART TO YOUR CODE
+this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -437,33 +459,37 @@ DocumentDB поддерживает замену документов JSON.
 
 Скопируйте и вставьте метод **ReplaceFamilyDocument** под кодом метода **ExecuteSimpleQuery**.
 
-    // ADD THIS PART TO YOUR CODE
-    private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
+```csharp
+// ADD THIS PART TO YOUR CODE
+private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
+{
+    try
     {
-        try
-        {
-            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-            this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-        }
-        catch (DocumentClientException de)
-        {
-            throw;
-        }
+        await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+        this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
     }
+    catch (DocumentClientException de)
+    {
+        throw;
+    }
+}
+```
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения запроса. После замены документа тот же запрос будет запущен повторно, чтобы вы могли просмотреть измененный документ.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+```csharp
+await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-    // ADD THIS PART TO YOUR CODE
-    // Update the Grade of the Andersen Family child
-    andersenFamily.Children[0].Grade = 6;
+// ADD THIS PART TO YOUR CODE
+// Update the Grade of the Andersen Family child
+andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -474,28 +500,32 @@ DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте и вставьте метод **DeleteFamilyDocument** под кодом метода **ReplaceFamilyDocument**.
 
-    // ADD THIS PART TO YOUR CODE
-    private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
+```csharp
+// ADD THIS PART TO YOUR CODE
+private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
+{
+    try
     {
-        try
-        {
-            await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-            Console.WriteLine("Deleted Family {0}", documentName);
-        }
-        catch (DocumentClientException de)
-        {
-            throw;
-        }
+        await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+        Console.WriteLine("Deleted Family {0}", documentName);
     }
+    catch (DocumentClientException de)
+    {
+        throw;
+    }
+}
+```
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения второго запроса.
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+```cshrp
+await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-    // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+// ADD THIS PART TO CODE
+await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -506,13 +536,15 @@ DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом удаления документа, чтобы удалить всю базу данных и все дочерние ресурсы.
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+```csharp
+this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
-    // ADD THIS PART TO CODE
-    // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+// ADD THIS PART TO CODE
+// Clean up/delete the database
+await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+```
 
 Нажмите кнопку **DocumentDBGettingStarted**, чтобы запустить приложение.
 
@@ -523,26 +555,28 @@ DocumentDB поддерживает удаление документов JSON.
 
 Должны отобразиться выходные данные вашего приложения. Они должны содержать результаты обработки добавленных запросов. При этом выглядеть они должны примерно так, как показано в примере ниже.
 
-    Created FamilyDB_oa
-    Press any key to continue ...
-    Created FamilyCollection_oa
-    Press any key to continue ...
-    Created Family Andersen.1
-    Press any key to continue ...
-    Created Family Wakefield.7
-    Press any key to continue ...
-    Running LINQ query...
-        Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-    Running direct SQL query...
-        Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-    Replaced Family Andersen.1
-    Press any key to continue ...
-    Running LINQ query...
-        Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-    Running direct SQL query...
-        Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-    Deleted Family Andersen.1
-    End of demo, press any key to exit.
+```
+Created FamilyDB_oa
+Press any key to continue ...
+Created FamilyCollection_oa
+Press any key to continue ...
+Created Family Andersen.1
+Press any key to continue ...
+Created Family Wakefield.7
+Press any key to continue ...
+Running LINQ query...
+    Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+Running direct SQL query...
+    Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+Replaced Family Andersen.1
+Press any key to continue ...
+Running LINQ query...
+    Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+Running direct SQL query...
+    Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+Deleted Family Andersen.1
+End of demo, press any key to exit.
+```
 
 Поздравляем! Вы завершили работу с руководством по NoSQL и создали работающее консольное приложение C#.
 
@@ -557,6 +591,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Требуется более подробное руководство по NoSQL для ASP.NET MVC? См. статью [Руководство по ASP.NET MVC. Разработка веб-приложения с использованием DocumentDB](documentdb-dotnet-application.md).
+* Хотите разработать приложение Xamarin iOS, Android или Forms с помощью пакета SDK для DocumentDB .NET Core? См. дополнительные сведения о [разработке мобильных приложений Xamarin с помощью DocumentDB](documentdb-mobile-apps-with-xamarin.md).
 * Хотите выполнить проверку масштабирования и производительности с помощью DocumentDB? См. статью [Проверка производительности и масштабирования с помощью Azure DocumentDB](documentdb-performance-testing.md).
 * Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
 * Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).

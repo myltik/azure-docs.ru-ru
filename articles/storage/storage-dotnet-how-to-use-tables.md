@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
-ms.lasthandoff: 12/09/2016
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7a9a28ce8be7587c84a1188d643c990cc4fb7355
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -36,10 +36,10 @@ ms.lasthandoff: 12/09/2016
 
 **Предварительные требования:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Диспетчер конфигураций Azure для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-*  [учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account)
+* [учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -52,8 +52,8 @@ ms.lasthandoff: 12/09/2016
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Добавление объявлений пространств имен
-Добавьте в начало файла `program.cs` следующие инструкции **using**.
+### <a name="add-using-directives"></a>Добавление директив using
+Добавьте в верхнюю часть файла `Program.cs` следующие директивы **using**:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager

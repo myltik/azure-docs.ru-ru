@@ -10,16 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 8b1d057ab533e5665513b5b5969b48e18a3ae40c
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 45fb85f83570ed7d79e70dc6fb8f0fdabb7ea191
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -35,6 +36,11 @@ HDInsight HBase предлагается в форме управляемого 
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Как происходит управление данными в HDInsight HBase?
 Управление данными в HBase может осуществляться с помощью команд `create`, `get`, `put` и `scan` из оболочки HBase. Данные записываются в базу данных с использованием команды `put` и считываются с помощью команды `get`. Команда `scan` используется для получения данных из нескольких строк таблицы. Данными также можно управлять с использованием интерфейса HBase API для C#, для которого имеется клиентская библиотека, работающая поверх HBase REST API. Запросы к базе данных HBase также могут осуществляться с помощью Hive. Начальные сведения об этих моделях программирования приведены в статье [Приступая к работе с Hadoop в HDInsight][hbase-get-started]. Также доступны сопроцессоры, что позволяет обрабатывать данные в узлах, на которых размещена база данных.
+
+>
+> [!NOTE]
+> Thrift не поддерживается HBase в HDInsight.
+>
 
 ## <a name="scenarios-use-cases-for-hbase"></a>Сценарии: варианты использования HBase
 Классическим примером использования (для которого, собственно и была создана технология BigTable и HBase как ее расширение) является веб-поиск. Поисковые системы строят индексы, которые сопоставлены терминам, содержащимся на веб-страницах. Но есть много других вариантов использования, для которых подходит HBase; некоторые из них перечислены в этом разделе.

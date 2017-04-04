@@ -1,5 +1,5 @@
 ---
-title: "Использование разделов служебной шины с .NET | Документация Майкрософт"
+title: "Использование разделов служебной шины Azure с .NET | Документация Майкрософт"
 description: "Узнайте, как использовать разделы и подписки служебной шины с .NET в Azure. Примеры кода написаны для приложений .NET."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/21/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: add228c8a24fbd36ab05f55570abf1374f519822
-ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,10 +34,10 @@ ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
 При создании приложения, использующего служебную шину, необходимо добавить ссылку на сборку шины обслуживания и указать соответствующие пространства имен. Самый простой способ это сделать — скачать соответствующий пакет [NuGet](https://www.nuget.org).
 
 ## <a name="get-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
-[Пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить API служебной шины и настроить свое приложение с учетом всех необходимых зависимостей служебной шины. Для установки пакета NuGet служебной шины в проекте выполните следующие действия:
+[Пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ настроить свое приложение с учетом всех необходимых зависимостей служебной шины. Для установки пакета NuGet служебной шины в проекте выполните следующие действия:
 
-1. В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, а затем выберите **Управление пакетами NuGet**.
-2. Выполните поиск по фразе «служебная шина» и выберите элемент **Служебная шина Microsoft Azure** . Нажмите кнопку **Установить**, чтобы выполнить установку, а затем закройте следующее диалоговое окно.
+1. В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, затем выберите команду **Управление пакетами NuGet**.
+2. Щелкните **Обзор**, выполните поиск по фразе "служебная шина Azure" и выберите элемент **Служебная шина Microsoft Azure**. Щелкните **Установить**, чтобы выполнить установку, а затем закройте это диалоговое окно:
    
    ![][7]
 
@@ -97,7 +98,7 @@ ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
 Используйте имя и значения ключа SAS, полученные на [портале Azure][Azure portal], как описано ранее.
 
 ## <a name="create-a-topic"></a>Создание раздела
-Операции управления для разделов и подписок служебной шины можно выполнять, используя класс [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager). Этот класс предоставляет методы для создания, перечисления и удаления разделов.
+Операции управления для разделов и подписок служебной шины можно выполнять, используя класс [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Этот класс предоставляет методы для создания, перечисления и удаления разделов.
 
 В этом примере объект `NamespaceManager` создается с помощью класса Azure `CloudConfigurationManager` со строкой подключения, состоящей из базового адреса пространства имен служебной шины и учетных данных SAS с соответствующими правами на управление. Эта строка подключения имеет следующий вид:
 
@@ -121,7 +122,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-С помощью перегрузок метода [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) можно задавать свойства этого раздела, например стандартное значение срока жизни (TTL) сообщений, отправляемых в раздел. Эти параметры применяются с помощью класса [TopicDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription). В примере ниже показывается создание раздела **TestTopic** с максимальным размером 5 ГБ и стандартным сроком жизни сообщения, равным 1 минуте.
+С помощью перегрузок метода [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager) можно задавать свойства этого раздела, например стандартное значение срока жизни (TTL) сообщений, отправляемых в раздел. Эти параметры применяются с помощью класса [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription). В примере ниже показывается создание раздела **TestTopic** с максимальным размером 5 ГБ и стандартным сроком жизни сообщения, равным 1 минуте.
 
 ```csharp
 // Configure Topic Settings.
@@ -143,12 +144,12 @@ if (!namespaceManager.TopicExists("TestTopic"))
 ```
 
 > [!NOTE]
-> Примечание. Метод [TopicExists](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) можно использовать для объектов [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager), чтобы проверить, существует ли раздел с указанным именем в пространстве имен.
+> Примечание. Метод [TopicExists](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) можно использовать для объектов [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager), чтобы проверить, существует ли раздел с указанным именем в пространстве имен.
 > 
 > 
 
 ## <a name="create-a-subscription"></a>Создание подписки
-Подписки раздела можно также создавать с помощью класса [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager). Подписки имеют имена и могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
+Подписки раздела можно также создавать с помощью класса [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Подписки имеют имена и могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
 > [!IMPORTANT]
 > Чтобы в подписку поступали сообщения, создайте ее, прежде чем отправлять какие-либо сообщения в раздел. В противном случае раздел будет отклонять сообщения.
@@ -203,9 +204,9 @@ namespaceManager.CreateSubscription("TestTopic",
 Теперь, когда в раздел `TestTopic` отправляется сообщение, оно будет всегда доставляться получателям, подписанным на раздел **AllMessages**, и выборочно доставляться получателям, подписанным на разделы **HighMessages** и **LowMessages** в зависимости от содержания сообщения.
 
 ## <a name="send-messages-to-a-topic"></a>Отправка сообщений в раздел
-Чтобы отправить сообщение в раздел служебной шины, приложение создает объект [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) с помощью строки подключения.
+Чтобы отправить сообщение в раздел служебной шины, приложение создает объект [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) с помощью строки подключения.
 
-В примере кода ниже показано, как создать объект [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) для раздела **TestTopic**, созданного ранее с помощью API [CreateFromConnectionString](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
+В примере кода ниже показано, как создать объект [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) для раздела **TestTopic**, созданного ранее с помощью API [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
 
 ```csharp
 string connectionString =
@@ -217,9 +218,9 @@ TopicClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Объекты **BrokeredMessage** обладают набором стандартных свойств (таких как [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) и [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), словарем, в котором хранятся зависящие от приложения пользовательские свойства, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору объекта **BrokeredMessage** любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий класс **DataContractSerializer**. Или можно указать объект **System.IO.Stream**.
+Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Объекты **BrokeredMessage** обладают набором стандартных свойств (таких как [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) и [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), словарем, в котором хранятся зависящие от приложения пользовательские свойства, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору объекта **BrokeredMessage** любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий класс **DataContractSerializer**. Или можно указать объект **System.IO.Stream**.
 
-В примере ниже показано, как отправить пять тестовых сообщений в объект **TopicClient** раздела [TestTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient), полученный в предыдущем примере кода. Обратите внимание, что значение свойства [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) каждого из сообщений зависит от итерации цикла (это определяет, какие подписки их получают).
+В примере ниже показано, как отправить пять тестовых сообщений в объект **TopicClient** раздела [TestTopic](/dotnet/api/microsoft.servicebus.messaging.topicclient), полученный в предыдущем примере кода. Обратите внимание, что значение свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) каждого из сообщений зависит от итерации цикла (это определяет, какие подписки их получают).
 
 ```csharp
 for (int i=0; i<5; i++)
@@ -238,13 +239,13 @@ for (int i=0; i<5; i++)
 Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные очереди и разделы](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Как получать сообщения из подписки
-Чтобы получить сообщения из подписки, можно использовать объект [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Объекты **SubscriptionClient** могут работать в двух режимах —[*ReceiveAndDelete* и *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Значение по умолчанию — **PeekLock**.
+Чтобы получить сообщения из подписки, можно использовать объект [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Объекты **SubscriptionClient** могут работать в двух режимах —[*ReceiveAndDelete* и *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). Значение по умолчанию — **PeekLock**.
 
 В режиме **ReceiveAndDelete** получение — это одиночная операция. Когда служебная шина получает запрос на чтение для сообщения в подписке, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель, которая лучше всего работает в ситуациях, когда приложение может не обрабатывать сообщение при сбое. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Так как служебная шина отметит сообщение как использованное, перезапущенное приложение, начав снова использовать сообщения, пропустит сообщение, использованное до аварийного завершения работы.
 
-В режиме **PeekLock** (режим по умолчанию) процесс получения происходит в два этапа, обеспечивая поддержку приложений, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина обнаруживает вызов метода **Complete**, сообщение помечается как использованное и удаляется из подписки.
+В режиме **PeekLock** (режим по умолчанию) процесс получения происходит в два этапа, обеспечивая поддержку приложений, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина обнаруживает вызов метода **Complete**, сообщение помечается как использованное и удаляется из подписки.
 
-В следующем примере показано, как получать и обрабатывать сообщения с помощью режима по умолчанию **PeekLock** . Чтобы задать другое значение [ReceiveMode](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), можно использовать другую перегрузку метода [CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). В этом примере используется обратный вызов [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) для обработки сообщений по мере их поступления в подписку **HighMessages**.
+В следующем примере показано, как получать и обрабатывать сообщения с помощью режима по умолчанию **PeekLock** . Чтобы задать другое значение [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode), можно использовать другую перегрузку метода [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). В этом примере используется обратный вызов [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) для обработки сообщений по мере их поступления в подписку **HighMessages**.
 
 ```csharp
 string connectionString =
@@ -281,14 +282,14 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-В этом примере обратный вызов [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) настраивается с помощью объекта [OnMessageOptions](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). Для [AutoComplete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) устанавливается значение **False**. Это позволяет включить ручное управление вызовом метода [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Для параметра [AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) устанавливается значение 1 минута. Клиент ожидает сообщение в течение одной минуты, после чего действие функции автоматического продления завершается и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
+В этом примере обратный вызов [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) настраивается с помощью объекта [OnMessageOptions](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). Для [AutoComplete](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) устанавливается значение **False**. Это позволяет включить ручное управление вызовом метода [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Для параметра [AutoRenewTimeout](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) устанавливается значение 1 минута. Клиент ожидает сообщение в течение одной минуты, после чего действие функции автоматического продления завершается и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Как обрабатывать сбои приложения и нечитаемые сообщения
-служебная шина предоставляет функции, помогающие корректно выполнить восстановление после ошибок в приложении или трудностей, возникших при обработке сообщения. Если принимающее приложение по каким-то причинам не может обработать полученное сообщение, оно вызывает метод [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) (а не метод [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). После этого служебная шина разблокирует сообщение в подписке и снова сделает его доступным для получения тем же или другим приложением.
+служебная шина предоставляет функции, помогающие корректно выполнить восстановление после ошибок в приложении или трудностей, возникших при обработке сообщения. Если принимающее приложение по каким-то причинам не может обработать полученное сообщение, оно вызывает метод [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) (а не метод [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). После этого служебная шина разблокирует сообщение в подписке и снова сделает его доступным для получения тем же или другим приложением.
 
 Кроме того, с сообщением, заблокированным в подписке, связано время ожидания. Если приложение не может обработать сообщение в течение времени ожидания с блокировкой (например, при сбое приложения), служебная шина разблокирует сообщение автоматически и сделает его доступным для приема.
 
-Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), это сообщение повторно доставляется в приложение после его перезапуска. Часто такой подход называют *Обработать хотя бы один раз*, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может доставляться повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) сообщения, которое остается постоянным в ходе разных попыток доставки.
+Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), это сообщение повторно доставляется в приложение после его перезапуска. Часто такой подход называют *Обработать хотя бы один раз*, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может доставляться повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) сообщения, которое остается постоянным в ходе разных попыток доставки.
 
 ## <a name="delete-topics-and-subscriptions"></a>Удаление разделов и подписок
 В примере ниже показано, как удалить раздел с именем **TestTopic** из пространства имен службы **HowToSample**.
@@ -319,13 +320,8 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
 [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
