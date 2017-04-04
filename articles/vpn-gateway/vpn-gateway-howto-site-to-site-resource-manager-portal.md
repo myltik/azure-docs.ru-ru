@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 37311ea17004d8c5cfe9bfc9360c3972e39fb7f5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 80939bb48c29ba39e2d347cb80d6169d79329cfc
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal"></a>Создание виртуальной сети с подключением типа "сеть — сеть" с помощью портала Azure
+# <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Создание подключения типа "сеть — сеть" на портале Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,10 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
-В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через подключение VPN-шлюза типа "сеть — сеть", используя модель развертывания с помощью Azure Resource Manager и портал Azure. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.
+
+Подключение типа "сеть — сеть" (S2S) через VPN-шлюз — это подключение через туннель VPN по протоколу IPsec/IKE (IKEv1 или IKEv2). Для этого типа подключения требуется локальное VPN-устройство, которому назначен общедоступный IP-адрес и которое не расположено за NAT. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.
+
+В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через подключение VPN-шлюза типа "сеть — сеть", используя модель развертывания с помощью Azure Resource Manager и портал Azure. 
 
 ![Схема подключения типа "сеть — сеть" через VPN-шлюз](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
@@ -48,23 +51,26 @@ ms.lasthandoff: 03/17/2017
 ## <a name="before-you-begin"></a>Перед началом работы
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
-* Совместимое VPN-устройство и пользователь, который может настроить его. См. статью о [VPN-устройствах](vpn-gateway-about-vpn-devices.md). Если вы не умеете настраивать VPN-устройство или не знаете диапазоны IP-адресов в своей локальной сети, вам следует найти того, кто сможет предоставить вам нужную информацию.
+* Совместимое VPN-устройство и пользователь, который может настроить его. См. статью о [VPN-устройствах](vpn-gateway-about-vpn-devices.md).
+* Если вы не знаете пространства IP-адресов в своей локальной сети, найдите того, кто сможет предоставить вам нужную информацию. Подключения типа "сеть —сеть" не могут содержать перекрывающиеся пространства адресов.
 * Внешний общедоступный IP-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или [зарегистрировать бесплатную учетную запись](http://azure.microsoft.com/pricing/free-trial).
 
-### <a name="values"></a>Примеры значений конфигурации для этого упражнения
-Выполняя эти шаги в качестве упражнения, используйте следующие значения.
+### <a name="values"></a>Примеры значений
+При выполнении этих шагов в качестве упражнения можно использовать следующие примеры значений.
 
 * **Имя виртуальной сети:** TestVNet1
-* **Адресное пространство:** 10.11.0.0/16 и 10.12.0.0/16
+* **Адресное пространство:** 
+    * 10.11.0.0/16;
+    * 10.12.0.0/16 (необязательно для этого упражнения).
 * **Подсети:**
   * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24
-  * GatewaySubnet: 10.12.255.0/27
+  * BackEnd: 10.12.0.0/24 (необязательно для этого упражнения).
+  * Подсеть шлюза: 10.11.255.0/27.
 * **Группа ресурсов:** TestRG1
 * **Расположение:** восточная часть США.
-* **DNS-сервер:** 8.8.8.8
-* **Имя шлюза:** VNet1GW
+* **DNS-сервер**: IP-адрес вашего DNS-сервера.
+* **Имя шлюза виртуальной сети:** VNet1GW.
 * **Общедоступный IP-адрес:** VNet1GWIP
 * **Тип VPN:** на основе маршрутов.
 * **Тип подключения:** "сеть — сеть" (IPsec)
@@ -73,57 +79,40 @@ ms.lasthandoff: 03/17/2017
 * **Имя подключения:** VNet1toSite2
 
 ## <a name="CreatVNet"></a>1. Создать виртуальную сеть
-Если у вас уже есть виртуальная сеть, проверьте совместимость параметров со структурой VPN-шлюза. Обратите особое внимание на подсети, которые могут пересекаться с другими сетями. В таком случае подключение не будет работать правильно. Если виртуальная сеть настроена правильно, переходите к действиям из раздела [Выбор DNS-сервера](#dns) .
 
-### <a name="to-create-a-virtual-network"></a>Создание виртуальной сети
-[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-s2s-rm-portal-include.md)]
 
-## <a name="subnets"></a>2. Добавление дополнительного адресного пространства и подсетей
-После создания виртуальной сети в нее можно добавить дополнительное адресное пространство и подсети.
+## <a name="dns"></a>2. Выбор DNS-сервера
+Сервер DNS обязательно указывать при подключениях типа "сеть —сеть". Но если для ресурсов, развернутых в вашей виртуальной сети, требуется разрешение имен, необходимо указать DNS-сервер. Этот параметр позволяет указать DNS-сервер, который вы хотите использовать для разрешения имен в этой виртуальной сети. Он не приводит к созданию DNS-сервера.
 
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
-
-## <a name="dns"></a>3. Выбор DNS-сервера
-### <a name="to-specify-a-dns-server"></a>Выбор DNS-сервера
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="gatewaysubnet"></a>4. Создание подсети шлюза
-Прежде чем подключать шлюз к виртуальной сети, нужно создать подсеть шлюза для виртуальной сети, к которой необходимо подключиться. По возможности рекомендуется создать подсеть шлюза с использованием блока CIDR с маской /28 или /27, чтобы обеспечить достаточно IP-адресов для удовлетворения дополнительных будущих требований к конфигурации.
+## <a name="gatewaysubnet"></a>3. Создание подсети шлюза
+Необходимо создать подсеть шлюза для VPN-шлюза. Подсеть шлюза содержит IP-адреса, которые будут использовать службы VPN-шлюза. Если возможно, создайте подсеть шлюза, используя блок CIDR /28 или /27. Таким образом вы получите достаточно IP-адресов для выполнения будущих дополнительных требований к конфигурации шлюза.
 
-Если вы создаете эту конфигурацию в качестве упражнения, при создании подсети шлюза можно использовать [такие значения](#values) .
+[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
-### <a name="to-create-a-gateway-subnet"></a>Создание подсети шлюза
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+## <a name="VNetGateway"></a>4. Создание шлюза виртуальной сети
 
-## <a name="VNetGateway"></a>5. Создание шлюза виртуальной сети
-Если вы создаете эту конфигурацию в качестве упражнения, можно использовать [примеры значений конфигурации](#values).
+[!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
 
-### <a name="to-create-a-virtual-network-gateway"></a>Создание шлюза виртуальной сети
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+## <a name="LocalNetworkGateway"></a>5. Создание локального сетевого шлюза
+Термин "шлюз локальной сети" означает локальное расположение. Параметры, указанные для шлюза локальной сети, определяют адресные пространства, которые маршрутизируются на локальное VPN-устройство.
 
-## <a name="LocalNetworkGateway"></a>6. Создание локального сетевого шлюза
-Термин "шлюз локальной сети" означает локальное расположение. Шлюзу локальной сети необходимо присвоить имя, по которому на него сможет ссылаться служба Azure. 
+[!INCLUDE [vpn-gateway-add-lng-s2s-rm-portal](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
 
-Если вы создаете эту конфигурацию в качестве упражнения, можно использовать [примеры значений конфигурации](#values).
-
-### <a name="to-create-a-local-network-gateway"></a>Создание локального сетевого шлюза
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
-
-## <a name="VPNDevice"></a>7. Настройка устройства VPN
+## <a name="VPNDevice"></a>6. Настройка устройства VPN
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Создание VPN-подключения типа "сеть — сеть"
-Теперь вам нужно создать VPN-подключение типа "сеть — сеть" между шлюзом виртуальной сети и VPN-устройством. Обязательно подставьте собственные значения. Общий ключ должен соответствовать значению, использованному в конфигурации VPN-устройства. 
+## <a name="CreateConnection"></a>7. Создание VPN-подключения типа "сеть — сеть"
 
-Прежде чем начинать работу с этим разделом, убедитесь, что создание шлюза виртуальной сети и шлюзов локальных сетей завершено. Если вы создаете эту конфигурацию в качестве упражнения, при создании подключения можно использовать [такие значения](#values) .
+На этом шаге вам нужно создать VPN-подключение типа "сеть — сеть" между шлюзом виртуальной сети и локальным VPN-устройством. Прежде чем начинать работу с этим разделом, убедитесь, что создание шлюза виртуальной сети и шлюзов локальных сетей завершено.
 
-### <a name="to-create-the-vpn-connection"></a>Создание VPN-подключения
-[!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
+[!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 
-## <a name="VerifyConnection"></a>9. Проверка VPN-подключения
-VPN-подключение можно проверить на портале или с помощью PowerShell.
+## <a name="VerifyConnection"></a>8. Проверка VPN-подключения
 
-[!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 *  Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).

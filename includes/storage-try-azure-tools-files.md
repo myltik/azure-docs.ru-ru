@@ -2,12 +2,7 @@
 > 
 > **Пробное использование обозревателя хранилищ Microsoft Azure**
 > 
-> [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение Майкрософт, обеспечивающее визуализацию данных из службы хранилища Azure на платформах Windows, OS X и Linux.
+> [Обозреватель хранилищ Microsoft Azure](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
 > 
 > 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
