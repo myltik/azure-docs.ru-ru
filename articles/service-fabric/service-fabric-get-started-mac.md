@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -38,17 +38,20 @@ ms.lasthandoff: 03/11/2017
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
->  Необходимо использовать взаимно поддерживаемые версии Vagrant и VirtualBox. Vagrant может работать с ошибками в неподдерживаемой версии VirtualBox.
+> Необходимо использовать взаимно поддерживаемые версии Vagrant и VirtualBox. Vagrant может работать с ошибками в неподдерживаемой версии VirtualBox.
 >
 
 ## <a name="create-the-local-vm"></a>Создание локальной виртуальной машины Linux
 Чтобы создать локальную виртуальную машину, содержащую кластер Service Fabric с пятью узлами, сделайте следующее:
 
-1. Клонируйте репозиторий **Vagrantfile**.
+1. Клонируйте репозиторий `Vagrantfile`.
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    На этом шаге отключается файл `Vagrantfile`, содержащий конфигурацию виртуальной машины и расположение, из которого загружается виртуальная машина.
+
+   
 2. Перейдите к локальному клону репозитория.
 
     ```bash
@@ -61,7 +64,7 @@ ms.lasthandoff: 03/11/2017
    * 3 ГБ выделенной памяти;
    * частная сеть хоста с IP 192.168.50.50, обеспечивающая транзит трафика с узла Mac.
 
-     Вы можете изменить любой из этих параметров или добавить другую конфигурацию виртуальной машины в Vagrantfile. Полный список параметров см. в [документации по Vagrant](http://www.vagrantup.com/docs).
+     Вы можете изменить любой из этих параметров или добавить к виртуальной машине другую конфигурацию в файле `Vagrantfile`. Полный список параметров см. в [документации по Vagrant](http://www.vagrantup.com/docs).
 4. Создание виртуальной машины
 
     ```bash
@@ -72,19 +75,24 @@ ms.lasthandoff: 03/11/2017
 
     ![Начало установки кластера после подготовки виртуальной машины][cluster-setup-script]
 
+>[!TIP]
+> Если загрузка виртуальной машины занимает много времени, ее можно загрузить с помощью wget или curl или через браузер, перейдя по ссылке, указанной в файле `Vagrantfile` **config.vm.box_url**. После локальной загрузки измените файл `Vagrantfile`, чтобы он указывал локальный путь, по которому вы загрузили образ. Например, если вы загрузили образ в папку /home/users/test/azureservicefabric.tp8.box, задайте этот путь в **config.vm.box_url**.
+>
+
 5. Проверьте правильность установки кластера. Для этого перейдите в Service Fabric Explorer по адресу http://192.168.50.50:19080/Explorer (при условии, что вы сохранили IP-адрес частной сети по умолчанию).
 
     ![Вид Service Fabric Explorer с узла Mac][sfx-mac]
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Установка подключаемого модуля Service Fabric для Eclipse Neon
 
-Платформа Service Fabric предоставляет подключаемый модуль для **Java IDE Eclipse Neon**, который упрощает процесс создания, сборки и развертывания служб Java. Вы можете использовать инструкции по установке или обновлению подключаемого модуля Eclipse Service Fabric, указанные в этой общей [документации](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon).
+Платформа Service Fabric предоставляет подключаемый модуль для **среды разработки Java Eclipse Neon**, который упрощает процесс создания, сборки и развертывания служб Java. Вы можете использовать инструкции по установке или обновлению подключаемого модуля Eclipse Service Fabric, указанные в этой общей [документации](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon).
 
 ## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Использование подключаемого модуля Eclipse Service Fabric в Mac
 
-Убедитесь, что вы выполнили инструкции, описанные в [документации по подключаемому модулю Eclipse Service Fabric](service-fabric-get-started-eclipse.md). Инструкции по созданию, сборке и развертыванию приложения Service Fabric на Java, использующего гостевой контейнер Vagrant на узле Mac, практически такие же, как в общей документации, за исключением некоторых приведенных ниже моментов, которые нужно учитывать.
-* Так как для приложения Service Fabric на Java потребуется успешная сборка библиотек Service Fabric, проект Eclipse необходимо создать в общем пути. По умолчанию содержимое пути на узле, где содержится ``Vagrantfile``, используется совместно с путем ``/vagrant`` на гостевом компьютере.
-* Проще говоря, при наличии ``Vagrantfile`` в пути, например ``~/home/john/allprojects/``, необходимо создать проект ``MyActor`` Service Fabric в расположении ``~/home/john/allprojects/MyActor``. В таком случае путь к рабочей области Eclipse будет иметь следующий вид: ``~/home/john/allprojects``.
+Убедитесь, что вы выполнили инструкции, описанные в [документации по подключаемому модулю Eclipse Service Fabric](service-fabric-get-started-eclipse.md). Инструкции по созданию, сборке и развертыванию приложения Service Fabric на Java, использующего гостевой контейнер Vagrant на узле Mac, практически такие же, как в общей документации, за исключением некоторых моментов.
+
+* Так как для приложения Service Fabric на Java потребуются библиотеки Service Fabric, проект Eclipse необходимо создать в общем пути. По умолчанию содержимое пути на узле, где содержится ``Vagrantfile``, используется совместно с путем ``/vagrant`` на гостевом компьютере.
+* При наличии ``Vagrantfile`` в пути, например ``~/home/john/allprojects/``, необходимо создать проект ``MyActor`` Service Fabric в расположении ``~/home/john/allprojects/MyActor``. В таком случае путь к рабочей области Eclipse будет иметь следующий вид: ``~/home/john/allprojects``.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 <!-- Links -->

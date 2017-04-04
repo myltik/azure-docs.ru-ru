@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 102eab0e2e915521f8702b526dda886a2502f40b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,7 +67,7 @@ ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 См. дополнительные сведения в разделе с [часто задаваемыми вопросами о подключениях типа "виртуальная сеть — виртуальная сеть"](#faq) в конце этой статьи.
 
-### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Примеры настроек
+### <a name="values"></a>Примеры настроек
 Выполняя эти шаги в качестве упражнения, используйте следующие значения. В качестве примера для каждой виртуальной сети используется несколько адресных пространств. Однако для конфигураций типа "сеть — сеть" несколько адресных пространств не требуется.
 
 **Значения для TestVNet1:**
@@ -115,18 +116,18 @@ ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
   * Имя: TestVNet4toTestVNet1.
   * Общий ключ: его можно создать самостоятельно. В этом примере мы используем abc123. Важно отметить, что при создании подключения между виртуальными сетями значение должно совпадать.
 
-## <a name="a-namecreatvneta1-create-and-configure-testvnet1"></a><a name="CreatVNet"></a>1. Создание и настройка TestVNet1
+## <a name="CreatVNet"></a>1. Создание и настройка TestVNet1
 Если у вас уже есть виртуальная сеть, проверьте совместимость параметров со структурой VPN-шлюза. Обратите особое внимание на подсети, которые могут пересекаться с другими сетями. В таком случае подключение не будет работать правильно. Если виртуальная сеть настроена правильно, переходите к действиям из раздела [Выбор DNS-сервера](#dns) .
 
 ### <a name="to-create-a-virtual-network"></a>Создание виртуальной сети
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Добавление дополнительного адресного пространства и создание подсетей
+## <a name="subnets"></a>2. Добавление дополнительного адресного пространства и создание подсетей
 После создания виртуальной сети в нее можно добавить дополнительное адресное пространство и подсети.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Создание подсети шлюза
+## <a name="gatewaysubnet"></a>3. Создание подсети шлюза
 Прежде чем подключать шлюз к виртуальной сети, нужно создать подсеть шлюза для виртуальной сети, к которой необходимо подключиться. По возможности рекомендуется создать подсеть шлюза с использованием блока CIDR с маской /28 или /27, чтобы обеспечить достаточно IP-адресов для удовлетворения дополнительных будущих требований к конфигурации.
 
 Если вы создаете эту конфигурацию в качестве упражнения, при создании подсети шлюза можно использовать эти [примеры параметров](#values).
@@ -136,21 +137,21 @@ ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 ### <a name="to-create-a-gateway-subnet"></a>Создание подсети шлюза
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namednsservera4-specify-a-dns-server-optional"></a><a name="DNSServer"></a>4. Выбор DNS-сервера (необязательно)
-Если для виртуальных машин, развернутых в ваших виртуальных сетях, требуется разрешение имен, необходимо указать DNS-сервер.
+## <a name="DNSServer"></a>4. Выбор DNS-сервера (необязательно)
+DNS не требуется при создании подключений между виртуальными сетями. Но если для ресурсов, развернутых в вашей виртуальной сети, требуется разрешение имен, необходимо указать DNS-сервер. Этот параметр позволяет указать DNS-сервер, который вы хотите использовать для разрешения имен в этой виртуальной сети. Он не приводит к созданию DNS-сервера.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Создание шлюза виртуальной сети
+## <a name="VNetGateway"></a>5. Создание шлюза виртуальной сети
 На этом шаге вы создадите шлюз для своей виртуальной сети. Этот шаг может занять до 45 минут. Если вы создаете эту конфигурацию в качестве упражнения, можно использовать [примеры параметров](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Создание шлюза виртуальной сети
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namecreatetestvnet4a6-create-and-configure-testvnet4"></a><a name="CreateTestVNet4"></a>6. Создание и настройка TestVNet4
+## <a name="CreateTestVNet4"></a>6. Создание и настройка TestVNet4
 После настройки TestVNet1 создайте TestVNet4. Для этого выполните предыдущие действия, используя значения для TestVNet4. Настройку TestVNet4 можно начинать до завершения создания шлюза виртуальной сети для TestVNet1. При использовании собственных значений убедитесь, что адресные пространства не перекрываются с другими виртуальными сетями, к которым нужно подключиться.
 
-## <a name="a-nametestvnet1connectiona7-configure-the-testvnet1-connection"></a><a name="TestVNet1Connection"></a>7. Настройка подключения TestVNet1
+## <a name="TestVNet1Connection"></a>7. Настройка подключения TestVNet1
 После создания шлюзов виртуальной сети для TestVNet1 и TestVNet4 между ними можно создать подключение. В этом разделе мы создадим подключение между VNet1 и VNet4.
 
 1. Выберите **Все ресурсы**, а затем перейдите к шлюзу для своей виртуальной сети. Например, **TestVNet1GW**. Щелкните **TestVNet1GW**, чтобы открыть колонку шлюза виртуальной сети.
@@ -172,10 +173,10 @@ ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
     ![Общий ключ](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Общий ключ")
 10. В нижней части колонки нажмите кнопку **ОК**, чтобы сохранить изменения.
 
-## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Настройка подключения TestVNet4
+## <a name="TestVNet4Connection"></a>8. Настройка подключения TestVNet4
 Далее создайте подключение между TestVNet4 и TestVNet1. Используйте тот же метод, что и для создания подключения междуTestVNet1 и TestVNet4. Используйте тот же общий ключ.
 
-## <a name="a-nameverifyconnectiona9-verify-your-connection"></a><a name="VerifyConnection"></a>9. Проверка подключения
+## <a name="VerifyConnection"></a>9. Проверка подключения
 Проверьте подключение. Для каждого шлюза виртуальной сети выполните следующие действия:
 
 1. Найдите колонку для шлюза виртуальной сети. Например, **TestVNet4GW**. 
@@ -189,16 +190,11 @@ ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 ![Основные компоненты](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Основные компоненты")
 
-## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Рекомендации по работе с подключением типа "виртуальная сеть — виртуальная сеть"
+## <a name="faq"></a>Рекомендации по работе с подключением типа "виртуальная сеть — виртуальная сеть"
 Дополнительные сведения см. в ответах на часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть".
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию см. в [документации по виртуальным машинам](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

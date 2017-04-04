@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,7 +61,7 @@ ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Поиск имени службы и ключа API службы поиска Azure
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Поиск имени службы и ключа API службы поиска Azure
 Во всех вызовах REST API в службе поиска Azure необходимо указывать URL-адрес службы и ключ API. 
 
 1. Войдите на [портал Azure](https://portal.azure.com).
@@ -72,7 +73,7 @@ ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
 5. Скопируйте URL-адрес службы и ключ администратора. Все эти элементы потребуются вам позже, при добавлении их в файл **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Загрузка примеров файлов
-1. Перейдите в раздел [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) на Github.
+1. Перейдите в раздел [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) на портале GitHub.
 2. Нажмите кнопку **Загрузить ZIP-файл**, сохраните ZIP-файл на диск, после чего извлеките все содержащиеся в нем файлы. Вы можете извлечь файлы в рабочую область Java, чтобы облегчить поиск проекта в дальнейшем.
 3. Примеры файлов доступны только для чтения. Щелкните правой кнопкой мыши папку, откройте ее свойства и снимите атрибут только для чтения.
 
@@ -88,7 +89,7 @@ ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
 3. Нажмите кнопку **Готово**
 4. Используйте **Обозреватель проектов** для просмотра и редактирования файлов. Если обозреватель еще не открыт, щелкните **Окно** > **Показать представление** > **Обозреватель проектов** или откройте его с помощью ярлыка.
 
-## <a name="configure-the-service-url-and-apikey"></a>Настройка URL-адреса и ключа API службы
+## <a name="configure-the-service-url-and-api-key"></a>Настройка URL-адреса и ключа API службы
 1. В **обозревателе проектов** дважды щелкните файл **config.properties**, чтобы изменить параметры конфигурации, содержащие имя сервера и ключ API.
 2. См. предыдущие шаги в этой статье, в которых вы нашли URL-адрес службы и ключ API на [портале Azure](https://portal.azure.com), чтобы получить значения, которые вы теперь введете в файл **config.properties**.
 3. В файле **config.properties**замените "Api Key" на ключ API для вашей службы. Затем имя службы (первый компонент URL-адреса http://servicename.search.windows.net) заменяет "service name" в том же файле.
@@ -179,9 +180,4 @@ ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

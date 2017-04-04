@@ -33,7 +33,7 @@
 3. Сохраните объект виртуальной сети как переменную.
    
         $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-4. Создайте подсеть шлюза своей виртуальной сети. Подсеть шлюза должна иметь имя GatewaySubnet. Потребуется создать шлюз со значением /27 или больше (26, 25 и т. д.).
+4. Создайте подсеть шлюза своей виртуальной сети. Подсеть шлюза должна иметь имя GatewaySubnet. Потребуется создать шлюз с префиксом /27 или больше (26, 25 и т. д.).
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 5. Теперь нужно настроить конфигурацию.

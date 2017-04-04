@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 24bb7e2ffd212594f50bab735e86d74ab95d8c62
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/11/2017
 
 Большинство заданий Hadoop — пакетные. Вы создаете кластер, выполняете несколько заданий, а затем удаляете его. В этом разделе вы создадите в HDInsight кластер Hadoop, используя [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Полностью настраиваемый шаблон Resource Manager упрощает создание таких ресурсов Azure, как HDInsight. Знакомство с шаблонами Resource Manager не является обязательным для работы с этим руководством. Сведения о других способах создания кластеров, а также о свойствах, используемых в этом руководстве, см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Воспользуйтесь селектором в верхней части страницы, чтобы выбрать параметры создания кластера.
 
-Используемый в этом руководстве шаблон Resource Manager расположен на портале [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+Используемый в этом руководстве шаблон Resource Manager расположен на портале [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
 1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. 
    

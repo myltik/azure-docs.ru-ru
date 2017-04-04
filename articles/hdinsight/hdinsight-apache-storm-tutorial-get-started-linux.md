@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 4950dbe528290c7d839c97cc8770db4ae0ec08c6
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5d74f2c130eeddb1022acf9673c6a2006af2db58
+ms.lasthandoff: 03/25/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Начало работы с примерами Storm Starter для аналитики больших данных в HDInsight под управлением Linux
@@ -35,11 +35,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Знакомство с SSH и SCP**. Дополнительные сведения об использовании SSH и SCP с HDInsight см. в следующих ресурсах:
-  
-    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Знакомство с SSH и SCP**. См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="access-control-requirements"></a>Требования к контролю доступа
 
@@ -47,7 +43,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 ## <a name="create-a-storm-cluster"></a>Создание кластера Storm
 
-Чтобы создать Storm в кластере HDInsight, выполните следующие действия:
+Чтобы создать Storm в кластере HDInsight, выполните следующие действия.
 
 1. На [портале Azure](https://portal.azure.com) последовательно выберите элементы **+Создать**, **Аналитика** и **HDInsight**.
    
@@ -99,11 +95,7 @@ Apache Storm — это масштабируемая отказоустойчи�
    
     Если для защиты учетной записи SSH используется пароль, то предлагается ввести его. Если используется открытый ключ, то может потребоваться использовать параметр `-i`, чтобы указать соответствующий закрытый ключ. Например, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
    
-    Дополнительная информация об использовании SSH с HDInsight на основе Linux приведена в следующих статьях:
-   
-    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Запустите пример топологии, используя следующую команду:
    
