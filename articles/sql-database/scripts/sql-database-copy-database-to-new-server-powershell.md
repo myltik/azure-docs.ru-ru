@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Этот сценарий PowerShell создает копию существующей базы данных на новом сервере. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="copy-a-database-to-a-new-server"></a>Копирование базы данных на новый сервер
 

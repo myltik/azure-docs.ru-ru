@@ -23,6 +23,7 @@
 ## Настройка подключения между виртуальными сетями
 ### [Портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Портал Azure (классический)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Классический портал (классическая модель)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Настройка подключения между виртуальными сетями для разных моделей развертывания
 ### [Портал Azure](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Проверка подключения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md)
 ## [Сброс VPN-шлюза](vpn-gateway-resetgw-classic.md)
 ## Удаление VPN-шлюза
+### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Создание самозаверяющих корневых сертификатов для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)

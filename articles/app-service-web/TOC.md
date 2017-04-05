@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Учебники
-## [Добавление функций в веб-приложение](app-service-web-get-started-2.md)
-## [Использование приложения ASP.NET с базой данных SQL](web-sites-dotnet-get-started.md)
-## [Приложение Laravel с MySQL](app-service-web-php-get-started.md)
-## [Использование приложения Sails.js с базой данных NOSQL](app-service-web-nodejs-sails.md)
-## [Использование приложения Java с Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Использование приложения Java с IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Использование приложения Django с MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Основные понятия
 ## [Принцип работы службы приложений](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Практические руководства
 ## Разработка приложения    
 ### ASP.NET:
-
+#### [Использование приложения ASP.NET с базой данных SQL](web-sites-dotnet-get-started.md)
 #### [Разработка приложения ASP.NET Core с помощью кода VS](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Приложение Laravel с MySQL](app-service-web-php-get-started.md)
 #### [Настройка проекта PHP](web-sites-php-configure.md)
 #### [Настройка мультисайта WordPress](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Использование приложения Sails.js с базой данных NOSQL](app-service-web-nodejs-sails.md)
 #### [Использование io.js](web-sites-nodejs-iojs.md)
 #### [Отладка приложения Node.js](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Использование приложения Java с Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Использование приложения Java с IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Использование пакета Azure SDK для Java](java-create-azure-website-using-java-sdk.md)
 #### [Отправка существующего приложения](web-sites-java-add-app.md)
 #### [Удаленная отладка Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Удаленная отладка IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Использование приложения Django с MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Отправка сообщений электронной почты с помощью SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Перенос из IIS](web-sites-migration-from-iis-server.md)
 ### [Тестирование в рабочей среде](app-service-web-test-in-production-get-start.md)
+### [Добавление функций в веб-приложение](app-service-web-get-started-2.md)
 
 ## Подключение к БД и ресурсам        
 
