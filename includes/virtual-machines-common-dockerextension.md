@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/) — одна из самых популярных технологий виртуализации. В рамках этой технологии для изоляции данных приложения и вычислений с использованием общих ресурсов вместо виртуальных машин используются [контейнеры Linux](http://en.wikipedia.org/wiki/LXC). Чтобы создать виртуальную машины Docker для размещения любого числа контейнеров с приложениями Azure, можно использовать [расширение Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) в [агенте Linux для Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+[Docker](https://www.docker.com/) — одна из самых популярных технологий виртуализации. В рамках этой технологии для изоляции данных приложения и вычислений с использованием общих ресурсов вместо виртуальных машин используются [контейнеры Linux](http://en.wikipedia.org/wiki/LXC). Чтобы создать виртуальную машины Docker для размещения любого числа контейнеров с приложениями Azure, можно использовать [расширение Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) в [агенте Linux для Azure](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Содержание этого раздела:
 
@@ -50,9 +50,9 @@ Docker и контейнеры Linux не являются [гипервизор
 * [Использование расширения виртуальных машин Docker на классическом портале Azure]
 
 ## <a name="virtual-machine-extensions-for-linux-and-windows"></a>Расширения виртуальных машин для Linux и Windows
-[Расширение виртуальных машин Docker для Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) — это одно из множества расширений виртуальных машин, обеспечивающее определенное поведение; целый ряд таких расширений находится на этапе разработки. Например, некоторые возможности [расширения агента ВМ Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) позволяют изменять и администрировать виртуальную машину, включая компоненты обеспечения безопасности, ядро, сетевые компоненты и т. д. Например, расширение VMAccess позволяет сбросить пароль администратора или ключ SSH.
+[Расширение виртуальных машин Docker для Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) — это одно из множества расширений виртуальных машин, обеспечивающее определенное поведение; целый ряд таких расширений находится на этапе разработки. Например, некоторые возможности [расширения агента ВМ Linux](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) позволяют изменять и администрировать виртуальную машину, включая компоненты обеспечения безопасности, ядро, сетевые компоненты и т. д. Например, расширение VMAccess позволяет сбросить пароль администратора или ключ SSH.
 
-См. [полный список расширений виртуальных машин Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+См. [полный список расширений виртуальных машин Azure](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 <!--Anchors-->
 [Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
@@ -61,8 +61,3 @@ Docker и контейнеры Linux не являются [гипервизор
 [Контейнеры Docker и Linux]: #Docker-and-Linux-Containers
 [Использование расширения виртуальных машин Docker в Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Расширения виртуальных машин для Linux и Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-
-
-<!--HONumber=Jan17_HO3-->
-
-

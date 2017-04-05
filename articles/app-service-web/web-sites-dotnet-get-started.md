@@ -3,7 +3,7 @@ title: "Развертывание приложения ASP.NET в Azure с по
 description: "Узнайте, как с помощью Visual Studio развернуть веб-проект ASP.NET в новом веб-приложении в службе приложений Azure."
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
-ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 93107d19e1814b30d69fc12c92b544d9760bda6a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/24/2017
   
     Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](https://azure.microsoft.com/try/app-service/). Там можно создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
-## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Настройка среды разработки
+## <a name="setupdevenv"></a>Настройка среды разработки
 Это руководство написано для Visual Studio 2015 с [пакетом Azure SDK для .NET](../dotnet-sdk.md) версии 2.9 или более поздней. 
 
 * [Скачайте пакет Azure SDK для Visual Studio 2015 последней версии](http://go.microsoft.com/fwlink/?linkid=518003). Вместе с пакетом SDK также установится Visual Studio 2015, если вы еще этого не сделали.
@@ -190,8 +190,6 @@ ms.lasthandoff: 01/24/2017
 ## <a name="troubleshooting"></a>Устранение неполадок
 Если при работе с этим руководством возникли проблемы, убедитесь, что вы используете последнюю версию пакета Azure SDK для .NET. Самый простой способ сделать это — [скачать пакет Azure SDK для Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Если текущая версия установлена, установщик веб-платформы сообщит вам, что установка не требуется.
 
-Если вы работаете в корпоративной сети и пытаетесь развернуть службу приложений Azure через брандмауэр, убедитесь, что порты 443 и 8172 открыты для веб-развертывания. Если не удается открыть эти порты, в разделе "Дальнейшие действия" ниже приведены другие варианты развертывания.
-
 Запустив веб-приложение ASP.NET в службе приложений Azure, можно узнать больше о функциях Visual Studio, которые упрощают устранение неполадок. Сведения о ведении журналов, удаленной отладке и другую информацию см. в статье [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -206,7 +204,7 @@ ms.lasthandoff: 01/24/2017
 * Развертывание веб-проекта из системы управления версиями.
   
     Сведения об [автоматизации развертывания](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) из [системы управления версиями](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) см. в статьях [Развертывание первого веб-приложения в Azure за пять минут](app-service-web-get-started.md) и [Развертывание приложения в службе приложений Azure](web-sites-deploy.md).
-* Развертывание веб-API ASP.NET&2; в приложении API в службе приложений Azure.
+* Развертывание веб-API ASP.NET 2 в приложении API в службе приложений Azure.
   
     Вы узнали, как создать экземпляр службы приложений Azure, который предназначен главным образом для размещения веб-сайта. Служба приложений также предусматривает возможности для размещения веб-API, в частности поддержку CORS и метаданных API для создания клиентского кода. В веб-приложении можно использовать функции API, но если основная цель — это размещение API в экземпляре службы приложений, лучше использовать **приложение API**. Дополнительные сведения см. в статье [Приступая к работе с приложениями API, ASP.NET и Swagger в службе приложений Azure](../app-service-api/app-service-api-dotnet-get-started.md). 
 * Добавление имени личного домена и SSL.

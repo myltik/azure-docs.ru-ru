@@ -2,8 +2,8 @@
 
 Если у вас возникают проблемы при подключении к виртуальной машине по протоколу RDP или SSH, сначала ознакомьтесь с одной из следующих статей:
 
-* [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../articles/resource-manager-deployment-model.md). В этой статье описывается использование обеих моделей, но для большинства новых развертываний корпорация Майкрософт рекомендует использовать модель диспетчера ресурсов.
@@ -21,8 +21,8 @@
   * [Используйте управление группами безопасности сети (модель Resource Manager).](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Подключитесь из другого расположения, например из другой виртуальной сети Azure.
 * Повторно разверните виртуальную машину.
-  * [Повторное развертывание виртуальной машины Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  * [Повторное развертывание виртуальной машины Linux](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Повторное развертывание виртуальной машины Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  * [Повторное развертывание виртуальной машины Linux](../articles/virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Повторно создайте виртуальную машину.
 
 Дополнительные сведения см. в статье [Устранение неполадок подключения к конечной точке (сбои RDP, SSH, HTTP и другие сбои)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
@@ -115,7 +115,7 @@
 * трафик входящих ответов приложения из виртуальной машины Azure.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-[Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
