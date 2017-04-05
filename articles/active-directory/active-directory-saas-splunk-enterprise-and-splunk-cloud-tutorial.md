@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 3/09/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 44bf5ae5df09b564b4b3ade495ed3aa4e52676e7
-ms.openlocfilehash: 7dcb70766c132ec00ee9199ea0152cd07aa50c8f
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -43,12 +43,12 @@ ms.lasthandoff: 12/07/2016
 
 >[!NOTE]
 >Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-
+>
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Описание сценария
@@ -56,11 +56,11 @@ ms.lasthandoff: 12/07/2016
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление Splunk Enterprise и Splunk Cloud из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+1. Добавление Splunk Enterprise и Splunk Cloud из коллекции
+2. Настройка и проверка единого входа Azure AD.
 
 
-## <a name="adding-splunk-enterprise-and-splunk-cloud-from-the-gallery"></a>Добавление Splunk Enterprise и Splunk Cloud из коллекции
+## <a name="add-splunk-enterprise-and-splunk-cloud-from-the-gallery"></a>Добавление Splunk Enterprise и Splunk Cloud из коллекции
 Чтобы настроить интеграцию Splunk Enterprise и Splunk Cloud с Azure AD, необходимо добавить Splunk Enterprise и Splunk Cloud из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Splunk Enterprise и Splunk Cloud из коллекции, выполните следующие действия.**
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/07/2016
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_02.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описывается настройка и проверка единого входа Azure AD в Splunk Enterprise и Splunk Cloud с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо указать, какой пользователь в Splunk Enterprise и Splunk Cloud соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Splunk Enterprise и Splunk Cloud.
@@ -100,15 +100,15 @@ ms.lasthandoff: 12/07/2016
 
 Чтобы настроить и проверить единый вход Azure AD в Splunk Enterprise и Splunk Cloud, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Splunk Enterprise и Splunk Cloud](#creating-a-splunk-enterprise-and-splunk-cloud-test-user)** требуется для создания пользователя Britta Simon в Splunk Enterprise и Splunk Cloud, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Splunk Enterprise и Splunk Cloud.
+В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить единый вход в приложении Splunk Enterprise и Splunk Cloud.
 
 
 **Чтобы настроить единый вход Azure AD в Splunk Enterprise и Splunk Cloud, выполните следующие действия.**
@@ -124,28 +124,20 @@ ms.lasthandoff: 12/07/2016
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
     ![Настройка единого входа](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_04.png) 
-
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, с помощью которого пользователи входят в приложение Splunk Enterprise и Splunk Cloud, в следующем формате: `https://<splunkserverUrl>/en-US/app/launcher/home`
-    
-    b. В текстовом поле **Идентификатор** введите URL-адрес сервера Splunk Server.
-
-    c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<splunkserver>/saml/acs`
-
-    d. Щелкните **Далее**
+  1. В текстовом поле **URL-адрес входа** введите URL-адрес, с помощью которого пользователи входят в приложение Splunk Enterprise и Splunk Cloud, в следующем формате: `https://<splunkserverUrl>/en-US/app/launcher/home`
+  2. В текстовом поле **Идентификатор** введите URL-адрес сервера Splunk Server.
+  3. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<splunkserver>/saml/acs`
+  4. Нажмите кнопку **Далее**.
  
 4. На странице **Настройка единого входа в Splunk Enterprise и Splunk Cloud** сделайте следующее.
 
     ![Настройка единого входа](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_05.png)
-
-    а. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
-
-    b. Нажмите кнопку **Далее**.
-
+  1. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
+  2. Нажмите кнопку **Далее**.
 
 5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Splunk Enterprise и Splunk Cloud и укажите следующие сведения:
 
-    а. Скачанный файл с **метаданными федерации**.
-
+    * Скачанный файл с **метаданными федерации**.
 6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
     
     ![единого входа Azure AD][10]
@@ -154,10 +146,8 @@ ms.lasthandoff: 12/07/2016
  
     ![единого входа Azure AD][11]
 
-
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
-
 
 ![Создание пользователя Azure AD][20]
 
@@ -177,25 +167,21 @@ ms.lasthandoff: 12/07/2016
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
 
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-
-    c. Нажмите кнопку **Далее**.
-
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_06.png) 
-
-    а. В текстовом поле **Имя** введите **Britta**.  
-
-    b. В текстовом поле **Фамилия** введите **Simon**.
-
-    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-
-    d. В списке **Роль** выберите **Пользователь**.
-
-    д. Нажмите кнопку **Далее**.
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+  
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_06.png) 
+  1. В текстовом поле **Имя** введите **Britta**.  
+  2. В текстовом поле **Фамилия** введите **Simon**.
+  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+  4. В списке **Роль** выберите **Пользователь**.
+  5. Нажмите кнопку **Далее**.
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
@@ -204,21 +190,17 @@ ms.lasthandoff: 12/07/2016
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_08.png) 
+  1. Запишите значение поля **Новый пароль**.
+  2. Нажмите **Завершено**.   
 
-    а. Запишите значение поля **Новый пароль**.
-
-    b. Нажмите **Завершено**.   
-
-
-
-### <a name="creating-an-splunk-enterprise-and-splunk-cloud-test-user"></a>Создание тестового пользователя Splunk Enterprise и Splunk Cloud
+### <a name="create-a-splunk-enterprise-and-splunk-cloud-test-user"></a>Создание тестового пользователя Splunk Enterprise и Splunk Cloud
 
 В этом разделе описано, как создать пользователя Britta Simon в Splunk Enterprise и Splunk Cloud. Чтобы добавить пользователей в Splunk Enterprise и Splunk Cloud, обратитесь в службу поддержки платформы Splunk Enterprise и Splunk Cloud.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к Splunk Enterprise и Splunk Cloud.
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Splunk Enterprise и Splunk Cloud.
 
 ![Назначение пользователя][200] 
 
@@ -242,8 +224,7 @@ ms.lasthandoff: 12/07/2016
 
     ![Назначение пользователя][205]
 
-
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 

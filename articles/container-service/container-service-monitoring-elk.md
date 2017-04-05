@@ -4,7 +4,7 @@ description: "Мониторинг кластера DC/OS в кластере с
 services: container-service
 documentationcenter: 
 author: sauryadas
-manager: dan.lepow
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: "Контейнеры, DC/OS, Azure, мониторинг, elk"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 9433eb9f734dbe1b815074f86b9a691b4d16b5c8
-ms.openlocfilehash: c372c4a04de61f1eace81418ec6dea054007ec1f
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fa17900f8a752d692a62e47d301651cc4f435f06
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -63,12 +64,10 @@ ms.openlocfilehash: c372c4a04de61f1eace81418ec6dea054007ec1f
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения об Elasticsearch, Logstash и Kibana см. в [документации по стеку Elastic Stack](https://www.elastic.co/guide/index.html).
+* Чтобы узнать о пересылке и настройке системного журнала и журнала приложений, изучите раздел [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Управление журналами в DC/OS с помощью ELK).
+
+* Чтобы узнать о фильтрации журналов, ознакомьтесь с разделом [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Фильтрация журналов с помощью ELK). 
+
  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

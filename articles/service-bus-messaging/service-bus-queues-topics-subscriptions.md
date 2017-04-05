@@ -1,5 +1,5 @@
 ---
-title: "Обзор очередей сообщений, разделов и подписок служебной шины | Документация Майкрософт"
+title: "Обзор очередей сообщений, разделов и подписок служебной шины Azure | Документация Майкрософт"
 description: "Общие сведения о сущностях обмена сообщениями в служебной шине."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: b4c551e1d0511c868c8a54d1307529436c107945
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 0c727a47d6b947484f9a5cd678fef14d6fe2b4ab
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/28/2017
 
 Использование очередей в качестве посредника между производителями и потребителями сообщений уменьшает зависимость между компонентами. Так как производители и потребители не зависят друг от друга, обновление потребителя не оказывает влияния на производителя.
 
-Создание очереди является многоэтапным процессом. Выполнять операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов) можно с использованием класса [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс создается путем предоставления базового адреса пространства имен служебной шины и учетных данных пользователя. Класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Создав объект [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) на основе имени и ключа SAS, а также объект управления пространством имен службы, можно создать очередь, используя метод [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx). Например:
+Создание очереди является многоэтапным процессом. Выполнять операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов) можно с использованием класса [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager). Этот класс создается путем предоставления базового адреса пространства имен служебной шины и учетных данных пользователя. Класс [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Создав объект [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) на основе имени и ключа SAS, а также объект управления пространством имен службы, можно создать очередь, используя метод [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_). Например:
 
 ```csharp
 // Create management credentials
@@ -75,22 +75,20 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
     }
 ```
 
-В режиме [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) получение является одиночной операцией. Это значит, что, когда служебная шина получает запрос, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель. Наиболее эффективен он в сценариях, когда приложение допускает отсутствие обработки сообщения в случае сбоя. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Служебная шина помечает сообщение как использованное. Следовательно, когда после перезапуска приложение снова начнет обрабатывать сообщения, оно пропустит сообщение, использованное до сбоя.
+В режиме [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) получение является одиночной операцией. Это значит, что, когда служебная шина получает запрос, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель. Наиболее эффективен он в сценариях, когда приложение допускает отсутствие обработки сообщения в случае сбоя. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Служебная шина помечает сообщение как использованное. Следовательно, когда после перезапуска приложение снова начнет обрабатывать сообщения, оно пропустит сообщение, использованное до сбоя.
 
-В режиме [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) процесс получения становится двухэтапной операцией. Это позволяет поддерживать приложения, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы другие потребители не могли его принять, а затем возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина фиксирует вызов **Complete**, сообщение помечается как использованное.
+В режиме [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) процесс получения становится двухэтапной операцией. Это позволяет поддерживать приложения, которые не допускают пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы другие потребители не могли его принять, а затем возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) для полученного сообщения. Когда служебная шина фиксирует вызов **Complete**, сообщение помечается как использованное.
 
-Если приложение по каким-либо причинам не может обработать сообщение, оно может вызвать для полученного сообщения метод [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) (вместо метода [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). После этого служебная шина разблокирует сообщение в очереди, сделав его доступным для приема тем же или другим конкурирующим потребителем. Кроме того, блокирование связано с определенным временем ожидания. Если приложение не сможет обработать сообщение до истечения времени ожидания (например, при сбое приложения), служебная шина автоматически разблокирует сообщение, сделав его снова доступным для получения (фактически выполняя операцию [прерывания](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) по умолчанию).
+Если приложение по каким-либо причинам не может обработать сообщение, оно может вызвать для полученного сообщения метод [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) (вместо метода [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). После этого служебная шина разблокирует сообщение в очереди, сделав его доступным для приема тем же или другим конкурирующим потребителем. Кроме того, блокирование связано с определенным временем ожидания. Если приложение не сможет обработать сообщение до истечения времени ожидания (например, при сбое приложения), служебная шина автоматически разблокирует сообщение, сделав его снова доступным для получения (фактически выполняя операцию [прерывания](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) по умолчанию).
 
 Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса **Complete**, такое сообщение будет повторно доставлено в приложение после перезапуска. Такой подход предполагает принцип обработки сообщения *хотя бы один раз*. Тем не менее в некоторых случаях это же сообщение может быть доставлено повторно. Если сценарий не допускает повторную обработку, для обнаружения дубликатов требуется дополнительная логика в приложении. Это реализуется с помощью свойства сообщения **MessageId**, которое остается постоянным в ходе разных попыток доставки. Такой подход предполагает концепцию обработки *только один раз*.
-
-Дополнительные сведения и рабочий пример создания и отправки сообщений в очередь и из нее см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине](service-bus-brokered-tutorial-dotnet.md).
 
 ## <a name="topics-and-subscriptions"></a>Разделы и подписки
 В отличие от очередей, в которых каждое сообщение обрабатывается одним потребителем, *разделы* и *подписки* предоставляют возможность взаимодействия типа "один ко многим" в рамках шаблона *публикации или подписки*. Каждое опубликованное сообщение становится доступным в рамках каждой подписки, зарегистрированной в разделе. Это особенно удобно при масштабировании с учетом большого количества получателей. Сообщения отправляются в раздел и доставляются в одну или несколько связанных подписок в зависимости от правил фильтрации, которые могут быть заданы для каждой подписки. Подписки могут использовать дополнительные фильтры для ограничения получаемых сообщений. Сообщения отправляются в раздел так же, как и в очередь; при этом непосредственно из раздела получить их нельзя. Зато их можно получить из подписок. Подписка раздела напоминает виртуальную очередь, которая получает копии сообщений, отправленных в раздел. Сообщения передаются из подписки так же, как и из очереди.
 
 Продолжая сравнение, следует отметить, что при отправке из очереди сообщения распределяются непосредственно в раздел, а при извлечении — в подписку. Помимо прочего, это означает, что подписки также поддерживают схемы для очередей, описанные ранее в этом разделе, в том числе конкуренцию потребителей, временное разделение, а также выравнивание и балансировку нагрузки.
 
-Создание раздела аналогично созданию очереди, как показано в примере, приведенном в предыдущем разделе. Создайте URI службы, а затем с помощью класса [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) создайте клиент пространства имен. Затем с помощью метода [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) можно создать раздел. Например:
+Создание раздела аналогично созданию очереди, как показано в примере, приведенном в предыдущем разделе. Создайте URI службы, а затем с помощью класса [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) создайте клиент пространства имен. Затем с помощью метода [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) можно создать раздел. Например:
 
 ```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
@@ -121,7 +119,7 @@ foreach (BrokeredMessage message in messageList)
 }
 ```
 
-Как и в случае с очередью, сообщения извлекаются из подписки с помощью объекта [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient), используемого вместо объекта [QueueClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient). Создайте клиент подписки, передав в качестве параметров имя раздела, имя подписки и (необязательно) режим получения. Пример с подпиской **Inventory**:
+Как и в случае с очередью, сообщения извлекаются из подписки с помощью объекта [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient), используемого вместо объекта [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient). Создайте клиент подписки, передав в качестве параметров имя раздела, имя подписки и (необязательно) режим получения. Пример с подпиской **Inventory**:
 
 ```csharp
 // Create the subscription client
@@ -156,7 +154,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Благодаря этому фильтру подписки в виртуальную очередь для подписки `Dashboard` копируются только сообщения со свойством `StoreName`, которому задано значение `Store1`.
 
-Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) и [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Ознакомьтесь также с примерами [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Фильтры разделов).
+Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) и [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Ознакомьтесь также с примерами [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Фильтры разделов).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения и примеры использования обмена сообщениями в служебной шине см. в следующих дополнительных статьях.

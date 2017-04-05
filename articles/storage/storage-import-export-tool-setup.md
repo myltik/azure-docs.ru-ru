@@ -1,6 +1,6 @@
 ---
-title: "Настройка средства импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как настроить средство подготовки и исправления дисков для службы импорта и экспорта Azure."
+title: "Настройка инструмента импорта и экспорта Azure | Документация Майкрософт"
+description: "Узнайте, как настроить инструмент подготовки и исправления дисков для службы импорта и экспорта Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: cc7107ce89c063ae69184039893d9c28c912db08
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2aebded82fcf67bf9ad4a00a703e62eb12e2370c
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
-# <a name="setting-up-the-azure-importexport-tool"></a>Настройка средства импорта и экспорта Azure
+# <a name="setting-up-the-azure-importexport-tool"></a>Настройка инструмента импорта и экспорта Azure
 
-Средство импорта и экспорта Microsoft Azure используется в службе импорта и экспорта Microsoft Azure для подготовки и исправления дисков. Это средство может выполнять перечисленные ниже функции.
+Инструмент импорта и экспорта Microsoft Azure используется в службе импорта и экспорта Microsoft Azure для подготовки и исправления дисков. Это средство может выполнять перечисленные ниже функции.
 
 * С его помощью перед созданием задания импорта можно скопировать данные на жесткие диски, которые будут отправлены в центр обработки данных Azure.
 * После завершения задания импорта это средство можно использовать для восстановления поврежденных, отсутствующих или конфликтных больших двоичных объектов.
@@ -55,9 +56,9 @@ ms.openlocfilehash: cc7107ce89c063ae69184039893d9c28c912db08
 
 ## <a name="installing-the-azure-importexport-tool"></a>Установка средства импорта и экспорта Azure
 
-Сначала [скачайте средство импорта и экспорта Azure](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) и извлеките его в каталог на компьютере, например `c:\WAImportExport`.
+Сначала [скачайте инструмент импорта и экспорта Azure](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) и извлеките его в каталог на компьютере, например `c:\WAImportExport`.
 
-Средство импорта и экспорта Azure состоит из следующих файлов:
+Инструмент импорта и экспорта Azure состоит из следующих файлов:
 
 * dataset.csv
 * driveset.csv
@@ -74,7 +75,7 @@ ms.openlocfilehash: cc7107ce89c063ae69184039893d9c28c912db08
 Чтобы вывести справку по командам, запустите средство без параметров.
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
@@ -177,7 +178,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export Service
+          blob list blob format in the Put Job operation of the Import/Export service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.
@@ -222,10 +223,5 @@ Examples:
 * [Просмотр состояния задания с помощью файлов журнала копирования](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Подготовка задания импорта](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Подготовка задания экспорта](storage-import-export-tool-repairing-an-export-job-v1.md)
-* [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md) (Устранение неполадок со средством импорта и экспорта Azure)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Устранение неполадок со средством импорта и экспорта Azure](storage-import-export-tool-troubleshooting-v1.md)
 

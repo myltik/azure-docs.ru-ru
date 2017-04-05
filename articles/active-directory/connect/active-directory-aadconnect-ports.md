@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 935246ad590af0dcdb6d52257a94169f94dd66e5
-ms.openlocfilehash: 3ff7256578cffd30ae9b75ead2dd7f08babca171
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -33,10 +33,10 @@ ms.lasthandoff: 02/17/2017
 | --- | --- | --- |
 | DNS |53 (TCP или UDP) |Поиски DNS в лесу назначения. |
 | Kerberos |88 (TCP или UDP) |Проверка подлинности Kerberos для леса AD. |
-| MS-RPC |135 (TCP или UDP) |Используется во время начальной настройки мастера Azure AD Connect, когда он выполняет привязку к лесу AD. |
+| MS-RPC |135 (TCP или UDP) |Используется во время начальной настройки мастера Azure AD Connect, когда он выполняет привязку к лесу AD, а также при синхронизации паролей. |
 | LDAP |389 (TCP или UDP) |Используется для импорта данных из AD. Данные шифруются с помощью функции подписи и запечатывания Kerberos. |
 | LDAP или SSL |636 (TCP или UDP) |Используется для импорта данных из AD. Передача данных подписывается и шифруется. Используется только при применении SSL. |
-| RPC |49152- 65535 (произвольные верхние порты RPC) (TCP или UDP) |Используется во время начальной настройки мастера Azure AD Connect, когда он выполняет привязку к лесам AD. Дополнительную информацию см. в статьях базы знаний [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) и [KB224196](https://support.microsoft.com/kb/224196). |
+| RPC |49152- 65535 (произвольные верхние порты RPC) (TCP или UDP) |Используется во время начальной настройки мастера Azure AD Connect, когда он выполняет привязку к лесам AD, а также во время синхронизации паролей. Дополнительную информацию см. в статьях базы знаний [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) и [KB224196](https://support.microsoft.com/kb/224196). |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Таблица 2. Azure AD Connect и Azure AD
 В этой таблице описываются порты и протоколы, которые необходимы для взаимодействия между сервером Azure AD Connect и Azure AD.
@@ -104,7 +104,7 @@ ms.lasthandoff: 02/17/2017
 | HTTPS |443 (TCP или UDP) |Исходящие |
 | Azure Service Bus |5671 (TCP или UDP) |Исходящие |
 
-### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица&7;б. Конечные точки для агента Azure AD Connect Health для AD FS и синхронизации и Azure AD
+### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица 7б. Конечные точки для агента Azure AD Connect Health для AD FS и синхронизации и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
 
 

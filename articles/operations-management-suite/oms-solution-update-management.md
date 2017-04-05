@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -106,7 +106,7 @@ ms.lasthandoff: 03/06/2017
 
 Обновления устанавливаются с помощью Runbook в службе автоматизации Azure.  Эти модули Runbook нельзя просмотреть, и они не требуют настройки.  При создании развертывания обновлений в нем создается расписание, по которому в указанное время для компьютеров, включенных в развертывание, запускается главный Runbook обновлений.  Этот Runbook запускает для каждого агента Windows дочерний Runbook, который выполняет установку необходимых обновлений.  
 
-Виртуальным машинам, которые созданы на основе доступных в Azure Marketplace предоставляемых по запросу образов Red Hat Enterprise Linux (RHEL), обеспечивается доступ к развернутой в Azure инфраструктуре [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md).  Любой другой дистрибутив Linux должен быть обновлен с помощью интернет-репозитория дистрибутивов посредством поддерживаемых методов.  
+Виртуальным машинам, которые созданы на основе доступных в Azure Marketplace предоставляемых по запросу образов Red Hat Enterprise Linux (RHEL), обеспечивается доступ к развернутой в Azure инфраструктуре [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md).  Любой другой дистрибутив Linux должен быть обновлен с помощью интернет-репозитория дистрибутивов посредством поддерживаемых методов.  
 
 ### <a name="viewing-update-deployments"></a>Просмотр развертываний обновлений
 Щелкните плитку **Update Deployment** (Развертывание обновлений), чтобы просмотреть список существующих развертываний.  Они группируются по состоянию — **Запланировано**, **Выполняется** и **Завершено**.<br><br> ![Страница расписания развертываний обновлений](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

@@ -1,16 +1,16 @@
-# [Обзор](../../virtual-machines-linux-azure-overview.md)
+# [Обзор](../overview.md)
 ## [Образы](about-images.md)
 ## [Расширения виртуальной машины](agents-and-extensions.md)
 ## [Доступность](configure-availability.md)
 ## [Часто задаваемые вопросы](faq.md)
 
-# [Начало работы](../../virtual-machines-linux-opensource-links.md)
+# [Начало работы](../opensource-links.md)
 ## [Создание виртуальной машины Linux с помощью портала](createportal.md)
 ## [Установка Azure CLI](../../../cli-install-nodejs.md)
-## [Создание ключей SSH](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [Создание ключей SSH](../mac-create-ssh-keys.md)
 
 # Практическое руководство
-## [Среда выполнения приложений](../../virtual-machines-linux-intro-on-azure.md)
+## [Среда выполнения приложений](../intro-on-azure.md)
 ### [Создание настраиваемой виртуальной машины](create-custom.md)
 ### [Запись виртуальной машины](capture-image.md)
 ### [Использование удаленного рабочего стола с виртуальной машиной Linux](remote-desktop.md)

@@ -46,6 +46,9 @@
 ### [Планировщик](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Изменение пароля учетной записи службы Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Включение корзины AD](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md)

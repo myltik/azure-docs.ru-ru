@@ -1,6 +1,6 @@
 ---
 title: "Функции безопасности Azure, используемые для виртуальных машин Azure | Документация Майкрософт"
-description: " Общие сведения о базовых функциях безопасности Azure, которые можно использовать при работе с виртуальными машинами Azure. Виртуальные машины Azure предоставляют гибкие возможности виртуализации без необходимости приобретать и обслуживать физическое оборудование, на котором работает виртуальная машина.. "
+description: " Общие сведения о базовых функциях безопасности Azure, которые можно использовать при работе с виртуальными машинами Azure. Виртуальные машины Azure предоставляют гибкие возможности виртуализации без необходимости приобретать и обслуживать физическое оборудование, на котором работает виртуальная машина. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,8 +71,8 @@ Azure предлагает антивредоносное ПО таких пос
 
 * [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](azure-security-antimalware.md)
 * [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../virtual-machines/windows/classic/install-trend.md)
+* [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [Новые возможности защиты виртуальных машин Azure от вредоносных программ — McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Решения для защиты, представленные в Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -151,9 +152,4 @@ Site Recovery выполняет следующие задачи.
 
 * [Microsoft Trust Center: Compliance (Центр управления безопасностью корпорации Майкрософт: соответствие нормативным требованиям)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 * [Доверенное облако: безопасность, конфиденциальность и соответствие требованиям в Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

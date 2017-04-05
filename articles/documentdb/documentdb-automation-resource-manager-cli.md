@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/20/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 67d06372d186a0b51eac7a94ad67b9cd7f516319
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/27/2017
 * Чтобы получить полный список доступных команд, выполните команду az documentdb -h или просмотрите [страницу справки][az-documentdb-ref].
 * Выполните команду az documentdb <command> - h, чтобы получить подробный список обязательных и необязательных параметров каждой команды.
 
-## <a name="a-idcreate-documentdb-account-clia-create-a-documentdb-database-account"></a><a id="create-documentdb-account-cli"></a> Создание учетной записи базы данных DocumentDB
+## <a id="create-documentdb-account-cli"></a> Создание учетной записи базы данных DocumentDB
 
 Эта команда позволяет создать учетную запись базы данных DocumentDB. Настройте новую учетную запись для использования в одном или [нескольких регионах][scaling-globally] и добавьте определенную [политику согласованности](documentdb-consistency-levels.md). 
 
@@ -65,6 +65,7 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
+                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,7 +94,7 @@ Arguments
 ### <a name="notes"></a>Примечания
 * В качестве расположений используйте регионы, в которых база данных DocumentDB общедоступна. Текущий список регионов см. на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="a-idupdate-documentdb-account-clia-update-a-documentdb-database-account"></a><a id="update-documentdb-account-cli"></a> Обновление учетной записи базы данных DocumentDB
+## <a id="update-documentdb-account-cli"></a> Обновление учетной записи базы данных DocumentDB
 
 Эта команда позволяет обновить свойства учетной записи базы данных DocumentDB. К ним относятся политика согласованности и расположения учетной записи базы данных.
 
@@ -128,7 +129,7 @@ Arguments
     az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
     az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
-## <a name="a-idadd-remove-region-documentdb-account-clia-addremove-region-from-a-documentdb-database-account"></a><a id="add-remove-region-documentdb-account-cli"></a> Удаление или добавление региона из учетной записи базы данных DocumentDB
+## <a id="add-remove-region-documentdb-account-cli"></a> Удаление или добавление региона из учетной записи базы данных DocumentDB
 
 Чтобы добавить или удалить регионы в имеющейся учетной записи базы данных DocumentDB, используйте команду [update](#update-documentdb-account-cli) с флагом `--locations`. В приведенном ниже примере показано, как создать учетную запись, а затем добавлять и удалять в ней регионы.
 
@@ -138,7 +139,7 @@ Arguments
     az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
 
 
-## <a name="a-iddelete-documentdb-account-clia-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-cli"></a> Удаление учетной записи базы данных DocumentDB
+## <a id="delete-documentdb-account-cli"></a> Удаление учетной записи базы данных DocumentDB
 
 Эта команда позволяет удалить имеющуюся учетную запись базы данных DocumentDB.
 
@@ -152,7 +153,7 @@ Arguments
 
     az documentdb delete -g rg-test -n docdb-test
 
-## <a name="a-idget-documentdb-properties-clia-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-cli"></a> Получение свойств учетной записи базы данных DocumentDB
+## <a id="get-documentdb-properties-cli"></a> Получение свойств учетной записи базы данных DocumentDB
 
 Эта команда позволяет получить свойства имеющейся учетной записи базы данных DocumentDB.
 
@@ -166,7 +167,7 @@ Arguments
 
     az documentdb show -g rg-test -n docdb-test
 
-## <a name="a-idlist-account-keys-clia-list-account-keys"></a><a id="list-account-keys-cli"></a> Вывод списка ключей учетной записи
+## <a id="list-account-keys-cli"></a> Вывод списка ключей учетной записи
 
 При создании учетной записи DocumentDB служба создает два главных ключа доступа, которые можно использовать для проверки подлинности при доступе к учетной записи DocumentDB. Предоставляя два ключа, DocumentDB позволяет вам повторно создавать ключи без перерывов в работе учетной записи DocumentDB. Ключи только для чтения, используемые для выполнения проверки подлинности операций чтения, также доступны. Доступны два ключа для чтения и записи (первичный и вторичный), а также два ключа только для чтения (первичный и вторичный).
 
@@ -180,7 +181,7 @@ Arguments
 
     az documentdb list-keys -g rg-test -n docdb-test
 
-## <a name="a-idregenerate-account-key-clia-regenerate-account-key"></a><a id="regenerate-account-key-cli"></a> Повторное создание ключей учетных записей
+## <a id="regenerate-account-key-cli"></a> Повторное создание ключей учетных записей
 
 Вам следует периодически менять ключи доступа для своей учетной записи DocumentDB, чтобы повысить уровень безопасности соединений. Назначается два ключа доступа, что позволяет поддерживать подключения к учетной записи DocumentDB с помощью одного ключа, одновременно повторно создавая второй ключ.
 
@@ -196,9 +197,9 @@ Arguments
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a name="a-idmodify-failover-priority-clia-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-cli"></a> Изменение приоритета при отработке отказа в учетной записи базы данных DocumentDB
+## <a id="modify-failover-priority-cli"></a> Изменение приоритета при отработке отказа в учетной записи базы данных DocumentDB
 
-Для межрегиональных учетных записей баз данных можно изменить приоритет при отработке отказа в разных регионах, в которых они используются. Дополнительные сведения об отработке отказа в учетной записи базы данных DocumentDB см. в статье [DocumentDB — глобально распределенная служба базы данных в Azure][distribute-data-globally].
+Для межрегиональных учетных записей баз данных можно изменить приоритет при отработке отказа в разных регионах, в которых они используются. Дополнительные сведения об отработке отказа в учетной записи базы данных DocumentDB см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments

@@ -65,10 +65,11 @@
 #### [Создание и публикация элемента Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 #### [Добавление пользовательского образа виртуальной машины](azure-stack-add-vm-image.md)
 #### [Развертывание виртуальных машин Linux](azure-stack-linux.md)
-### Выставление счетов и взимание средств за использование
-#### [Основные сведения о выставлении счетов и взимании средств за использование](azure-stack-billing-and-chargeback.md)
-#### [API использования ресурсов для поставщиков](azure-stack-provider-resource-api.md)
-#### [API использования ресурсов для клиентов](azure-stack-tenant-resource-usage-api.md)
+### Потребление и выставление счетов
+#### [Обзор](azure-stack-billing-and-chargeback.md)
+#### [Отчеты по данным об использовании](azure-stack-usage-reporting.md)
+#### [API использования поставщика](azure-stack-provider-resource-api.md)
+#### [API использования клиента](azure-stack-tenant-resource-usage-api.md)
 #### [Часто задаваемые вопросы об использовании](azure-stack-usage-related-faq.md)
 
 # Использование служб

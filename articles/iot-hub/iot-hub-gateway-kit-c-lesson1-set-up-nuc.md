@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с устройством SensorTag и шлюзом Azure IoT. Урок 1. Настройка NUC | Документация Майкрософт"
+title: "Приступая к работе с устройством SensorTag и шлюзом Интернета вещей Azure. Урок 1. Настройка Intel NUC | Документация Майкрософт"
 description: "Настройка Intel NUC в качестве шлюза Интернета вещей, который собирает данные из датчиков и передает их в Центр Интернета вещей Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 53e709c5134eec29d71be1d75353d606aa651273
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -27,9 +27,10 @@ ms.lasthandoff: 01/25/2017
 ## <a name="what-you-will-do"></a>Выполняемая задача
 
 - Настройте Intel NUC в качестве шлюза Интернета вещей.
-- Установите пакет SDK для шлюза Azure IoT на Intel NUC.
+- Установите пакет SDK для шлюза Интернета вещей Azure на Intel NUC.
 - Запустите пример приложения hello_world на Intel NUC для проверки работоспособности шлюза.
-Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
+    
+  > Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Новые знания
 
@@ -41,11 +42,12 @@ ms.lasthandoff: 01/25/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Предварительно установленный пакет DE3815TYKE для Intel NUC с набором программного обеспечения Intel для шлюза Интернета вещей (Wind River Linux *7.0.0.13).
+- Предварительно установленный пакет DE3815TYKE для Intel NUC с набором программного обеспечения Intel для шлюза Интернета вещей (Wind River Linux *7.0.0.13). [Щелкните здесь, чтобы приобрести набор для создания коммерческого шлюза Интернета вещей Grove](https://www.seeedstudio.com/Grove-IoT-Commercial-Gateway-Kit-p-2724.html).
 - Кабель Ethernet.
 - Клавиатура.
 - Кабель HDMI или VGA.
 - Монитор с портом HDMI или VGA.
+- Необязательно: [Texas Instruments Sensor Tag (CC2650STK)](http://www.ti.com/tool/cc2650stk)
 
 ![Комплект для шлюза](media/iot-hub-gateway-kit-lessons/lesson1/kit.png)
 
@@ -62,31 +64,35 @@ ms.lasthandoff: 01/25/2017
 
 ## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Подключение к системе Intel NUC с главного компьютера через Secure Shell (SSH)
 
-На этом этапе вам потребуются клавиатура и монитор, чтобы узнать IP-адрес устройства NUC. Если вы уже знаете IP-адрес, можете сразу перейти к шагу 3 в этом разделе.
+Вам потребуются клавиатура и монитор, чтобы узнать IP-адрес устройства Intel NUC. Если вы уже знаете IP-адрес, можете сразу перейти к шагу 3 в этом разделе.
 
 1. Включите Intel NUC, нажав кнопку питания, и войдите в систему.
 
    По умолчанию имя пользователя и пароль имеют одинаковые значения: `root`.
 
-2. Получите IP-адрес устройства NUC, выполнив команду `ifconfig`. Этот шаг выполняется на устройстве NUC.
+       > Hit the enter key on your keyboard if you see either of the following errors when you boot: 'A TPM error (7) occurred attempting to read a pcr value.' or 'Timeout, No TPM chip found, activating TPM-bypass!'
+
+2. Получите IP-адрес Intel NUC, выполнив команду `ifconfig` на устройстве Intel NUC.
 
    Вот пример результата выполнения такой команды:
 
-   ![Выходные данные ifconfig с IP-адресом NUC](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![Выходные данные ifconfig с IP-адресом Intel NUC](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
    В этом примере значение IP-адреса указано после символов `inet addr:`. Этот адрес понадобится вам для удаленного подключения к Intel NUC с главного компьютера.
 
 3. Используйте один из следующих SSH-клиентов для подключения к Intel NUC с главного компьютера.
 
-   - [PuTTY](http://www.putty.org/) для Windows.
-   - Встроенный SSH-клиент ОС Ubuntu или macOS.
+    - [PuTTY](http://www.putty.org/) для Windows.
+    - Встроенный SSH-клиент ОС Ubuntu или macOS.
 
-   Работа с Intel NUC выполняется более эффективно, если подключиться к нему через SSH-клиент с главного компьютера. Для этого вам нужны IP-адрес, имя пользователя и пароль. Вот пример использования SSH-клиента на macOS.
+   Работа с Intel NUC будет более эффективной, если подключиться к нему через SSH-клиент с главного компьютера. Для этого вам нужны IP-адрес Intel NUC, имя пользователя и пароль. Ниже приведен пример использования SSH-клиента в macOS.
    ![SSH-клиент, запущенный на macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
 ## <a name="install-the-azure-iot-gateway-sdk-package"></a>Установка пакета SDK для шлюза Azure IoT
 
-Пакет SDK для шлюза Azure IoT содержит предварительно скомпилированные двоичные файлы самого пакета SDK и его зависимостей. В список этих файлов входят пакет SDK для шлюза Azure IoT, пакет SDK для Azure IoT и соответствующие средства. Пакет также содержит пример приложения hello_world, который используется для проверки работоспособности шлюза. Этот пакет SDK является основой шлюза. Для установки пакета выполните следующие действия.
+Пакет SDK для шлюза Azure IoT содержит предварительно скомпилированные двоичные файлы самого пакета SDK и его зависимостей. В список этих файлов входят пакет SDK для шлюза Azure IoT, пакет SDK для Azure IoT и соответствующие средства. Пакет также содержит пример приложения hello_world, который используется для проверки работоспособности шлюза. Этот пакет SDK является основой шлюза. 
+
+Для установки пакета выполните следующие действия.
 
 1. Добавьте репозиторий облака Интернета вещей, выполнив в окне терминала следующие команды:
 
@@ -99,11 +105,13 @@ ms.lasthandoff: 01/25/2017
 
    ![результаты выполнения команд rpm и smart channel](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
 
+2. Выполните команду smart update:
+
    ```bash
    smart update
    ```
 
-2. Установите пакет, выполнив следующую команду:
+3. Установите пакет для шлюза Интернета вещей Azure, выполнив следующую команду:
 
    ```bash
    smart install packagegroup-cloud-azure -y
@@ -111,22 +119,42 @@ ms.lasthandoff: 01/25/2017
 
    Здесь `packagegroup-cloud-azure` — это имя пакета. Команда `smart install` используется для установки пакета.
 
-   Когда установка пакета завершится, Intel NUC должен выполнять функции шлюза.
+
+    > Если вы увидите ошибку "Открытый ключ недоступен", выполните следующую команду:
+
+    ```bash
+    smart config --set rpm-check-signatures=false
+    smart install packagegroup-cloud-azure -y
+    ```
+   
+   Когда установка пакета завершится, Intel NUC будет готово выполнять функции шлюза.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Запуск примера приложения hello_world из пакета SDK для шлюза Azure IoT
 
-Перейдите в каталог `azureiotgatewaysdk/samples` и запустите пример приложения hello_world. Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры SDK для шлюза Azure IoT, чтобы каждые 5 секунд записывать в журнал сообщение "hello world".
+Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры SDK для шлюза Azure IoT, чтобы каждые 5 секунд записывать в журнал (log.txt) сообщение "hello world".
 
-Чтобы запустить пример приложения hello_world, выполните следующую команду:
+Чтобы запустить наш пример "Hello World", выполните следующие команды:
 
 ```bash
 cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 ./hello_world hello_world.json
 ```
 
-При правильной работе шлюза этот пример приложения должен возвращать следующие данные:
-
+Оставьте приложение "Hello World" работать в течение нескольких минут, а затем остановите его, нажав клавишу ВВОД.
 ![выходные данные приложения](media/iot-hub-gateway-kit-lessons/lesson1/hello_world.png)
+
+> Вы можете игнорировать любые ошибки "Недопустимый дескриптор аргумента (NULL)", которые появляются после нажатия клавиши ВВОД.
+
+Убедитесь, что шлюз успешно работал, открыв файл log.txt, который был создан в папке приложения hello_world: ![представление каталога с файлом log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png)
+
+Откройте файл log.txt с помощью следующей команды:
+
+```bash
+vim log.txt
+```
+
+Вы увидите содержимое log.txt, который содержит сообщения в формате JSON, создаваемые каждые 5 секунд нашим модулем шлюза "Hello World".
+![Представление каталога log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtview.png)
 
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
 

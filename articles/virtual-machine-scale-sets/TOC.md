@@ -4,6 +4,7 @@
 # Начало работы
 ## [Развертывание масштабируемого набора с помощью портала](virtual-machine-scale-sets-portal-create.md)
 ## [Развертывание масштабируемого набора с помощью PowerShell или Azure CLI](virtual-machine-scale-sets-create.md)
+## [Развертывание приложения автомасштабирования с помощью шаблона](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Практическое руководство
 ## Планирование и проектирование

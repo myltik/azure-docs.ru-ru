@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 8fd6f5ffc076ea861ed29d992a7a94b6cd2c700b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,11 +36,7 @@ ms.lasthandoff: 03/22/2017
 
 * **Storm под управлением Linux в кластере HDInsight.** Инструкции по созданию кластера см. в статье [Руководство по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
-* (Необязательно.) **Знание SSH и SCP.** Дополнительные сведения об использовании SSH и SCP с HDInsight см. в следующих документах:
-  
-  * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* (Необязательно.) **Знакомство с SSH и SCP**. Дополнительные сведения см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * (Необязательно.) **Visual Studio**. Пакет SDK для Azure 2.5.1 или более поздней версии и средства Azure Data Lake для Visual Studio. Дополнительные сведения см. в статье [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -85,11 +81,7 @@ ms.lasthandoff: 03/22/2017
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Дополнительные сведения об использовании SSH для подключения к кластеру HDInsight см. в следующих документах:
-   
-   * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Дополнительные сведения об использовании SSH для подключения к кластеру HDInsight см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Запустите пример топологии, используя следующую команду:
    

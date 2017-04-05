@@ -1,5 +1,5 @@
 ---
-title: "Приложения, использующие правила условного доступа в Azure Active Directory | Документация Майкрософт"
+title: "Приложения и браузеры, использующие правила условного доступа в Azure Active Directory | Документация Майкрософт"
 description: "Возможности управления условным доступом позволяют Azure Active Directory проверять определенные условия при проверке подлинности пользователя и предоставлять доступ к приложениям."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6dea1af021599eb530a4feb3257238e088191d5f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7dc79fad1a87f015475cd2643c8bec55192b2a15
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="applications-that-use-conditional-access-rules-in-azure-active-directory"></a>Приложения, использующие правила условного доступа в Azure Active Directory
+# <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Приложения и браузеры, использующие правила условного доступа в Azure Active Directory
+
 Правила условного доступа поддерживаются в приложениях, подключенных к Azure Active Directory (Azure AD), предварительно интегрированных федеративных приложениях, предоставляемых по модели "Программное обеспечение как услуга" (SaaS), приложениях, использующих единый вход (SSO) с паролем, в бизнес-приложениях, а также в приложениях, использующих прокси-сервер приложений Azure AD. Подробный список приложений с поддержкой условного доступа см. в разделе [Службы, включаемые с условным доступом](active-directory-conditional-access-technical-reference.md). Условный доступ поддерживается в мобильных и классических приложениях, в которых используется современная проверка подлинности. В этой статье описан принцип работы условного доступа в мобильных и классических приложениях.
 
 Современная проверка подлинности выполняется на странице входа Azure AD в приложение. Войдя на эту страницу, пользователь получает запрос на выполнение многофакторной идентификации. Это сообщение отображается, если доступ пользователя заблокирован. Современная проверка подлинности нужна для проверки подлинности устройства с помощью Azure AD и впоследствии для оценки политики условного доступа на основе устройств.
@@ -48,7 +49,7 @@ ms.lasthandoff: 03/22/2017
 | Office 365 SharePoint Online |Mac OS X |Приложения Office 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств ожидается в будущем. |
 | Office 365 Yammer |Windows 10, iOS. Поддержка Android запланирована на будущее. |Приложение Office Yammer |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS и Android |Приложение Dynamics CRM |
-| Служба PowerBI |Windows 10, Windows 8.1, Windows 7 и iOS.|Приложение PowerBI (Andoird не поддерживается). |
+| Служба PowerBI |Windows 10, Windows 8.1, Windows 7, iOS и Android |Приложение PowerBI |
 | Удаленная служба приложений Azure |Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X |Azure RemoteApp |
 | Все службы приложения "Мои приложения" |Android и iOS |Все службы приложения "Мои приложения" |
 
@@ -109,4 +110,35 @@ ms.lasthandoff: 03/22/2017
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
+
+
+## <a name="supported-browsers"></a>Поддерживаемые браузеры
+
+
+| ОС                     | Браузеры                 | Поддержка |
+| :--                    | :--                      | :-:     |
+| Windows 10                 | IE, Edge                 | ![Проверка][1] |
+| Windows 10                 | Chrome                   | Скоро |
+| Windows 8, Windows 8.1            | IE                       | ![Проверка][1] |
+| Windows 7                  | IE                       | ![Проверка][1] |
+| iOS                     | Safari                   | ![Проверка][1] |
+| Android                | Chrome                   | ![Проверка][1] |
+| Windows Phone               | IE, Edge                 | ![Проверка][1] |
+| Windows Server 2016    | IE, Edge                 | ![Проверка][1] |
+| Windows Server 2012 R2 | IE                       | ![Проверка][1] |
+| Windows Server 2008 R2     | IE                       | ![Проверка][1] |
+| MacOS                 | Safari                   | ![Проверка][1] |
+| MacOS                 | Chrome                   | Скоро |
+
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Дополнительные сведения см. в разделе [Условный доступ в Azure Active Directory](active-directory-conditional-access.md).
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-supported-apps/ic195031.png
+
+
 

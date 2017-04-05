@@ -17,9 +17,9 @@ ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07ee32a293d53dd9c0e0afa5da2bac7ec146a536
-ms.openlocfilehash: c7f39a5396f0f9b6f9a577a3225ccadff1fd0dc9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b95d2f268548b48a1e31f2a35de8feaab251a485
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Что такое агент Linux для Azure и как его использовать
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/01/2017
   * Обеспечивает стабильность имени сетевого интерфейса
 * **Ядро**
   
-  * Настраивает виртуальную архитектуру NUMA (отключить для ядра версий ранее&2;.6.37).
+  * Настраивает виртуальную архитектуру NUMA (отключить для ядра версий ранее 2.6.37).
   * Использование энтропии Hyper-V для /dev/random
   * Настройка времени ожидания SCSI для корневого устройства (может быть удаленным)
 * **Диагностика**
@@ -105,7 +105,7 @@ ms.lasthandoff: 03/01/2017
 ## <a name="installation"></a>Установка
 Установка с помощью пакета RPM или DEB из репозитория пакета дистрибутива является предпочтительным способом установки и обновления агента Linux для Azure. Все [поставщики поддерживаемых дистрибутивов](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) встраивают пакет агента Linux для Azure в свои образы и репозитории.
 
-Дополнительные варианты установки, например установка из источника или установка в пользовательские расположения или префиксы, описаны в документации в [репозитории агента Linux для Azure на Github](https://github.com/Azure/WALinuxAgent).
+Дополнительные варианты установки, например установка из источника, установка в пользовательские расположения или префиксы, описаны в документации в [репозитории агента Linux для Azure на сайте GitHub](https://github.com/Azure/WALinuxAgent).
 
 ## <a name="command-line-options"></a>Параметры командной строки
 ### <a name="flags"></a>Флаги
@@ -211,7 +211,7 @@ ms.lasthandoff: 03/01/2017
 
 **Provisioning.PasswordCryptId**  
 Тип: строка  
-По умолчанию:&6;
+По умолчанию: 6
 
 Алгоритм, используемый crypt при создании хеша пароля.  
  1 — MD5  
@@ -221,7 +221,7 @@ ms.lasthandoff: 03/01/2017
 
 **Provisioning.PasswordCryptSaltLength**  
 Тип: строка  
-По умолчанию:&10;
+По умолчанию: 10
 
 Длина случайной соли, используемой при создании хеша пароля.
 
@@ -305,6 +305,6 @@ ms.lasthandoff: 03/01/2017
 * См. следующие ресурсы, если вам нужно настроить точку подключения диска ресурсов и пространство подкачки в образах облаков Ubuntu во время подготовки.
   
   * [Вики-сайт по Ubuntu: настройка разделов подкачки](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [Включение пользовательских данных в виртуальную машину Azure](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 

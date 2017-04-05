@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: f67e96618ea25e4463a4fdf83ea20f238498fac0
-ms.openlocfilehash: 838a19ef05adad59e0317fb62e2acec8a40d7a64
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 97c6724261e35063c461ee95ccad36372dd907db
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -294,10 +295,5 @@ Azure Active Directory (Azure AD) упрощает процесс проверк
 [Важные сведения о смене ключей подписи в Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

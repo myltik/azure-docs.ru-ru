@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 3c18b1929a78137ff3b53b8e084dc35e0c8dcaac
-ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b7334f68e4526b716210b28388afcd0ee6e48940
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/15/2017
 Чтобы приступить к управлению параметрами приложений-функций Azure, щелкните ссылку **Параметры приложения-функции** в нижнем левом углу портала. Параметры приложения-функции Azure применяются ко всем функциям в приложении.
 
 1. Перейдите на [портал Azure](http://portal.azure.com) и войдите, используя свою учетную запись Azure.
-2. Щелкните **Приложения-функции ** в нижнем левом углу портала. После этого появится несколько вариантов конфигурации на выбор. 
+2. Щелкните **Приложения-функции** в нижнем левом углу портала. После этого появится несколько вариантов конфигурации на выбор. 
 
 ![Параметры приложения-функции Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 

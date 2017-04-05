@@ -1,6 +1,6 @@
 ---
 title: "Формат файла манифеста импорта и экспорта Azure | Документация Майкрософт"
-description: "Сведения о формате файла манифеста диска с описанием сопоставления между большими двоичными объектами в хранилище BLOB-объектов Azure и файле на диске для задания импорта или экспорта в службе импорта и экспорта"
+description: "Изучите формат файла манифеста диска, описывающего сопоставление между большими двоичными объектами в хранилище BLOB-объектов Azure и файлами на диске для задания импорта или экспорта в службе импорта и экспорта."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -90,7 +90,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## <a name="manifest-xml-elements-and-attributes"></a>XML-элементы и атрибуты манифеста
 
 В следующей таблице указаны элементы данных и атрибуты формата XML манифеста диска.  
   
@@ -131,6 +134,7 @@ block-list ::=
 |`Blob/PropertiesPath`|Строка|необязательный параметр. Указывает относительный путь к файлу свойств. Во время импорта задаются свойства целевого большого двоичного объекта. Во время операции экспорта свойства большого двоичного объекта сохраняются в файле свойств на диске.|  
 |`Blob/PropertiesPath/@Hash`|Атрибут, строка|Указывает значение MD5-хэша файла свойств большого двоичного объекта в кодировке Base16.|  
   
-## <a name="see-also"></a>См. также  
-[Storage Import/Export REST](/rest/api/storageimportexport/) (Справочник по API REST служб хранилища импорта и экспорта)
+## <a name="next-steps"></a>Дальнейшие действия
+ 
+* [Справочник по REST API импорта и экспорта службы хранилища](/rest/api/storageimportexport/)
 

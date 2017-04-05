@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -43,21 +43,13 @@ ms.lasthandoff: 02/16/2017
 * Режим совместимости с IIS5 не поддерживается в веб-приложениях. 
 * Пулы приложений. Каждый сайт и его дочерние приложения в веб-приложениях Azure работают в одном пуле приложений. Если сайт имеет несколько дочерних приложений, которые используют различные пулы приложений, их необходимо объединить в единый пул приложений с общими настройками или перенести каждое приложение в отдельное веб-приложение.
 * Компоненты COM. Веб-приложения Azure не разрешают регистрацию COM-компонентов на платформе. Если веб-сайты или приложения используют COM-компоненты, то их необходимо переписать в управляемый код и развернуть вместе с веб-сайтом или приложением.
-* Фильтры ISAPI. Веб-приложения поддерживают использование фильтров ISAPI. Сделайте следующее.
+* Расширения ISAPI. Веб-приложения поддерживают использование расширений ISAPI. Сделайте следующее.
   
   * Разверните библиотеки DLL вместе с веб-приложением. 
   * Зарегистрируйте библиотеки DLL с помощью [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
-  * разместите файл applicationHost.xdt в корневой каталог сайта с содержимым, указанным ниже:
+  * Поместите файл applicationHost.xdt в корневой каталог сайта с содержимым, указанным в разделе "Allowing arbitrary ISAPI extensions to be loaded" (Как разрешить загрузку произвольных расширений ISAPI) [этой статьи](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples). 
     
-      <?xml version="1.0"?>
-    
-      <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-      <configSections>
-          <sectionGroup name="system.webServer">
-            <section name="isapiFilters" xdt:Transform="SetAttributes(overrideModeDefault)" overrideModeDefault="Allow" />
-          </sectionGroup>
-        </configSections>
-      </configuration>
+  
     
     Другие примеры использования преобразований документа XML с помощью веб-сайта см. в разделе [Преобразование веб-сайта Microsoft Azure](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
 * Другие компоненты, например SharePoint, серверные расширения главных страниц (FPSE), FTP-служба и SSL-сертификаты, перенесены не будут.

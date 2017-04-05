@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,13 +29,13 @@ ms.lasthandoff: 03/07/2017
 * Как запрашивать геопространственные данные в Azure DocumentDB с помощью SQL и LINQ?
 * Как включить или отключить пространственное индексирование в DocumentDB?
 
-Примеры кода можно найти в [следующем проекте Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) .
+Примеры кода можно найти в [следующем проекте GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs).
 
 ## <a name="introduction-to-spatial-data"></a>Общие сведения о пространственных данных
 Пространственные данные описывают положение и форму объектов в пространстве. В большинстве приложений они соответствуют объектам на поверхности Земли, т. е. геопространственным данным. Пространственные данные могут использоваться для представления местонахождения человека, мест, представляющих интерес, или границ города или озера. Наиболее распространенные случаи часто включают запросы близости, например "найти все кафе рядом с моим текущим местоположением". 
 
 ### <a name="geojson"></a>GeoJSON
-DocumentDB поддерживает индексацию и запросы к геопространственным данным точки, представляемым [спецификацией GeoJSON](http://geojson.org/geojson-spec.html). Структуры данных GeoJSON всегда являются действительными объектами JSON, поэтому их можно сохранять и опрашивать с помощью DocumentDB без специальных средств или библиотек. Пакеты SDK DocumentDB предоставляют вспомогательные классы и методы, которые позволяют легко работать с пространственными данными. 
+DocumentDB поддерживает индексацию и запросы к геопространственным данным точки, представляемым [спецификацией GeoJSON](https://tools.ietf.org/html/rfc7946). Структуры данных GeoJSON всегда являются действительными объектами JSON, поэтому их можно сохранять и опрашивать с помощью DocumentDB без специальных средств или библиотек. Пакеты SDK DocumentDB предоставляют вспомогательные классы и методы, которые позволяют легко работать с пространственными данными. 
 
 ### <a name="points-linestrings-and-polygons"></a>Точки, объекты LineString и многоугольники
 **Точка** обозначает одно положение в пространстве. В геопространственных данных точка представляет точное расположение, которое может быть адресом продуктового магазина, киоска, точкой расположения автомобиля или города.  В GeoJSON (и DocumentDB) точка представляется в виде пары координат или широты и долготы. Ниже приведен пример JSON для точки.
@@ -385,7 +385,7 @@ DocumentDB поддерживает также выполнение обратн
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы ознакомились с предварительными сведениями о поддержке геопространственных данных в DocumentDB, вы можете сделать следующее.
 
-* Начните программировать с помощью [примеров кода для работы с геопространственными данными посредством .NET, доступных на сайте GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs).
+* Начните программировать с помощью [примеров кода для работы с геопространственными данными посредством .NET, доступных на GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs).
 * Освойте геопространственные запросы на [Игровой площадке запросов DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 * Узнайте подробнее о [Запросах в DocumentDB](documentdb-sql-query.md)
 * Узнайте подробнее о [Политиках индексирования DocumentDB](documentdb-indexing-policies.md)

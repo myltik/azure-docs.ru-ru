@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/22/2017
 | Служба контейнеров |Да |[REST службы контейнеров](/rest/api/compute/containerservices) |[Ресурсы службы контейнеров](/azure/templates/microsoft.containerservice/containerservices) |
 | Службы жизненного цикла Dynamics |Да | | |
 | Наборы масштабирования |Да |[REST набора масштабирования](/rest/api/compute/virtualmachinescalesets) |[Ресурсы масштабируемого набора](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |Да |[Service Fabric Rest](/rest/api/servicefabric) | [Схема Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |Да |[Service Fabric Rest](/rest/api/servicefabric) | [Ресурсы Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Виртуальные машины |Да |[Интерфейс REST виртуальной машины](/rest/api/compute/virtualmachines) |[Ресурсы виртуальной машины](/azure/templates/microsoft.compute/virtualmachines) |
 | виртуальные машины (классические); |Ограничено |- |- |
 | Remote App |Нет |- |- |
@@ -117,11 +117,11 @@ ms.lasthandoff: 03/22/2017
 | CDN |Да |[CDN REST](/rest/api/cdn) |[Ресурсы CDN](/azure/templates/microsoft.cdn/profiles) |
 | Служба мультимедиа |Да |[REST служб мультимедиа](/rest/api/media) |[Ресурсы мультимедиа](/azure/templates/microsoft.media/mediaservices) |
 
-## <a name="hybrid-integration"></a>Гибридная интеграция
+## <a name="enterprise-integration"></a>Интеграция Enterprise
 | служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
 | --- | --- | --- | --- |
 | Службы BizTalk |Да | |[Схема BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Служба восстановления |Да |[REST служб восстановления](/rest/api/recoveryservices) |[Ресурсы служб восстановления](/azure/templates/microsoft.recoveryservices/vaults) |
+| Передача | Да |  | [Ресурсы ретранслятора](/azure/templates/microsoft.relay/namespaces) |
 | Служебная шина |Да |[REST служебной шины](/rest/api/servicebus) |[Ресурсы служебной шины](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Управление удостоверениями и доступом
@@ -139,10 +139,11 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 | служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
 | --- | --- | --- | --- |
 | Помощник | Да | [Помощник по REST](/rest/api/advisor/) | - |
-| Автоматизация |Да |[REST автоматизации](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Схема службы автоматизации](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Автоматизация |Да |[REST автоматизации](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Automation resources](/azure/templates/microsoft.automation/automationaccounts) (Ресурсы службы автоматизации) |
 | Выставление счетов | Да | [Выставление счетов для REST](/rest/api/billing/) | - |
 | хранилище ключей; |Да |[REST хранилища ключей](/rest/api/keyvault) |[Ресурсы Key Vault](/azure/templates/microsoft.keyvault/vaults) |
 | Operational Insights; |Да | | |
+| Служба восстановления |Да |[REST служб восстановления](/rest/api/recoveryservices) |[Ресурсы служб восстановления](/azure/templates/microsoft.recoveryservices/vaults) |
 | Планировщик |Да |[Интерфейс REST планировщика](/rest/api/scheduler) |[Ресурсы планировщика](/azure/templates/microsoft.scheduler/jobcollections) |
 | Безопасность |Да |[REST безопасности](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | Управление сервером | Да | [REST управления сервером](/rest/api/servermanagement/) | [Ресурсы управления сервером](/azure/templates/microsoft.servermanagement/gateways) |

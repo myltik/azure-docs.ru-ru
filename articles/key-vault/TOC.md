@@ -16,7 +16,7 @@
 ### [Переход на .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
 ## Управление
-### [Ведение журнала хранилища ключей Azure](key-vault-logging.md)
+### [Ведение журнала Azure Key Vault](key-vault-logging.md)
 ### [Доступ за брандмауэрами](key-vault-access-behind-firewall.md)
 ### [Изменение идентификатора клиента](key-vault-subscription-move-fix.md)
 ### [Доступность и избыточность](key-vault-disaster-recovery-guidance.md)
@@ -25,6 +25,7 @@
 ## Автоматизация
 ### [Служба автоматизации Azure](automation-manage-key-vault.md)
 ### [Создание и управление с помощью интерфейса командной строки](key-vault-manage-with-cli.md)
+### [Создание и управление с помощью интерфейса командной строки версии 2.0](key-vault-manage-with-cli2.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

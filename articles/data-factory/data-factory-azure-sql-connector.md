@@ -15,48 +15,160 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 90f8a2c0a30c9cce411215e1b98954de0ed9b787
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: beec132956ed4d382517379a47da57db983e7b54
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Перемещение данных в базу данных SQL Azure и из нее с помощью фабрики данных Azure
-В этой статье описано, как с помощью действия копирования в фабрике данных Azure перемещать данные из базы данных SQL Azure в другое хранилище данных и наоборот. В этой статье мы продолжим тему о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
+В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные в базу данных SQL и обратно. Этот документ является продолжением статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.  
 
-## <a name="supported-sources-and-sinks"></a>Поддерживаемые источники и приемники
-В таблице [Поддерживаемые хранилища данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приведен список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования. Данные можно переместить из любого поддерживаемого в качестве источника хранилища данных в Базу данных SQL Azure или из Базы данных SQL Azure в любое поддерживаемое в качестве приемника хранилище данных.
+Данные можно скопировать из любого поддерживаемого в качестве источника хранилища данных в базу данных SQL Azure или из базы данных SQL Azure в любое поддерживаемое в качестве приемника хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, см. в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 
-## <a name="create-pipeline"></a>Создание конвейера
-Можно создать конвейер с действием копирования, которое перемещает данные из Базы данных SQL Azure или в нее с помощью различных инструментов и интерфейсов API.  
+## <a name="getting-started"></a>Приступая к работе
+Можно создать конвейер с действием копирования, которое перемещает данные из базы данных SQL Azure или в нее с помощью различных инструментов и API-интерфейсов.
 
-* Мастер копирования
-* Портал Azure
-* Visual Studio
-* Azure PowerShell
-* .NET API
-* Интерфейс REST API
+Проще всего создать конвейер с помощью **мастера копирования**. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
 
-Пошаговые инструкции по различным способам создания конвейера с действием копирования см. в [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+Также для создания конвейера можно использовать следующие инструменты: **портал Azure**, **Visual Studio**, **Azure PowerShell**, **шаблон Azure Resource Manager**, **API .NET** и **REST API**. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-## <a name="copy-data-wizard"></a>Мастер копирования данных
-Самый простой способ создать конвейер, копирующий данные в базу данных SQL Azure или из нее, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
+Независимо от используемого средства или API-интерфейса, для создания конвейера, который перемещает данные из источника данных в приемник, выполняются следующие шаги: 
 
+1. Создайте **связанные службы**, чтобы связать входные и выходные данные с фабрикой данных.
+2. Создайте **наборы данных**, которые представляют входные и выходные данные для операции копирования. 
+3. Создайте **конвейер** с действием копирования, который принимает входной набор данных и возвращает выходной набор данных. 
 
+Если используется мастер, определения JSON для этих сущностей фабрики данных (связанных служб, наборов данных и конвейера) создаются автоматически. При использовании средств и API-интерфейсов (за исключением .NET API) эти сущности фабрики данных определяются в формате JSON.  Примеры с определениями JSON для сущностей фабрики данных, которые используются для копирования данных из базы данных SQL Azure, см. в разделе [Примеры определений JSON](#json-examples) этой статьи. 
+
+Следующие разделы содержат сведения о свойствах JSON, которые используются для определения сущностей фабрики данных, характерных для базы данных SQL. 
+
+## <a name="linked-service-properties"></a>Свойства связанной службы
+Связанная служба Azure SQL связывает базу данных SQL Azure с фабрикой данных. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе SQL Azure.
+
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| type |Для свойства type необходимо задать значение **AzureSqlDatabase** |Да |
+| connectionString |В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных SQL Azure. |Да |
+
+> [!IMPORTANT]
+> [Брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) необходимо настроить, чтобы [разрешить службам Azure получать доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, при копировании данных в базу данных SQL Azure из внешнего по отношению к Azure источника, включая локальные источники данных, с помощью шлюза фабрики данных необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в базу данных SQL Azure.
+
+## <a name="dataset-properties"></a>Свойства набора данных
+Чтобы указать набор данных, представляющий входные или выходные данные в базе данных SQL Azure, присвойте свойству типа набора данных значение **AzureSqlTable**. Для свойства **linkedServiceName** набора данных задайте имя связанной службы Azure SQL.  
+
+Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
+
+Раздел typeProperties во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел **typeProperties** набора данных с типом **AzureSqlTable** содержит следующие свойства.
+
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| tableName |Имя таблицы или представления в экземпляре базы данных SQL Azure, на которое ссылается связанная служба. |Да |
+
+## <a name="copy-activity-properties"></a>Свойства действия копирования
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (включая имя, описание, входные и выходные таблицы, политику и т. д.) доступны для всех типов действий.
+
+> [!NOTE]
+> Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
+
+В свою очередь свойства, доступные в разделе **typeProperties** действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
+
+При перемещении данных из Базы данных SQL Azure в действии копирования задается тип источника **SqlSource**. Аналогично, при перемещении данных в Базу данных SQL Azure в действии копирования задается тип источника **SqlSink**. Этот раздел содержит список свойств, поддерживаемых типами SqlSource и SqlSink.
+
+### <a name="sqlsource"></a>SqlSource
+Для действия копирования, если источник относится к типу **SqlSource**, в разделе **typeProperties** доступны указанные ниже свойства:
+
+| Свойство | Описание | Допустимые значения | Обязательно |
+| --- | --- | --- | --- |
+| SqlReaderQuery |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Пример: `select * from MyTable`. |Нет |
+| sqlReaderStoredProcedureName |Имя хранимой процедуры, которая считывает данные из исходной таблицы. |Имя хранимой процедуры. |Нет |
+| storedProcedureParameters |Параметры для хранимой процедуры. |Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. |Нет |
+
+Если для SqlSource указано **sqlReaderQuery** , то действие копирования выполняет этот запрос для источника базы данных SQL Azure для получения данных. Кроме того, можно создать хранимую процедуру, указав **sqlReaderStoredProcedureName** и **storedProcedureParameters** (если хранимая процедура принимает параметры).
+
+Если не указать sqlReaderQuery или sqlReaderStoredProcedureName, то для построения запроса (`select column1, column2 from mytable`) к базе данных SQL Azure будут использованы столбцы, определенные в разделе структуры набора данных JSON. Если у определения набора данных нет структуры, выбираются все столбцы из таблицы.
+
+> [!NOTE]
+> При использовании **sqlReaderStoredProcedureName** по-прежнему необходимо указать значение свойства **tableName** в наборе данных JSON. Хотя какие-либо проверки этой таблицы отсутствуют.
+>
+>
+
+### <a name="sqlsource-example"></a>Пример SqlSource
+
+```JSON
+"source": {
+    "type": "SqlSource",
+    "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+    "storedProcedureParameters": {
+        "stringData": { "value": "str3" },
+        "identifier": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+    }
+}
+```
+**Определение хранимой процедуры:**
+
+```SQL
+CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+(
+    @stringData varchar(20),
+    @identifier int
+)
+AS
+SET NOCOUNT ON;
+BEGIN
+     select *
+     from dbo.UnitTestSrcTable
+     where dbo.UnitTestSrcTable.stringData != stringData
+    and dbo.UnitTestSrcTable.identifier != identifier
+END
+GO
+```
+
+### <a name="sqlsink"></a>SqlSink
+**SqlSink** поддерживает указанные ниже свойства.
+
+| Свойство | Описание | Допустимые значения | Обязательно |
+| --- | --- | --- | --- |
+| writeBatchTimeout |Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. |Интервал времени<br/><br/> Пример: 00:30:00 (30 минут). |Нет |
+| writeBatchSize |Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. |Целое число (количество строк) |Нет (значение по умолчанию — 10 000). |
+| sqlWriterCleanupScript |Укажите запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза очищены. Дополнительные сведения см. в [разделе о повторяемости](#repeatability-during-copy). |Инструкция запроса. |Нет |
+| sliceIdentifierColumnName |Укажите имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. Дополнительные сведения см. в [разделе о повторяемости](#repeatability-during-copy). |Имя столбца с типом данных binary(32). |Нет |
+| sqlWriterStoredProcedureName |Имя хранимой процедуры, обновляющей данные или вставляющей их в целевую таблицу. |Имя хранимой процедуры. |Нет |
+| storedProcedureParameters |Параметры для хранимой процедуры. |Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. |Нет |
+| sqlWriterTableType |Укажите имя типа таблицы для использования в хранимой процедуре. Действие копирования делает перемещаемые данные доступными во временной таблице этого типа. Код хранимой процедуры затем можно использовать для объединения копируемых и существующих данных. |Имя типа таблицы. |Нет |
+
+#### <a name="sqlsink-example"></a>Пример SqlSink
+
+```JSON
+"sink": {
+    "type": "SqlSink",
+    "writeBatchSize": 1000000,
+    "writeBatchTimeout": "00:05:00",
+    "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
+    "sqlWriterTableType": "CopyTestTableType",
+    "storedProcedureParameters": {
+        "identifier": { "value": "1", "type": "Int" },
+        "stringData": { "value": "str1" },
+        "decimalData": { "value": "1", "type": "Decimal" }
+    }
+}
+```
+
+## <a name="json-examples"></a>Примеры определений JSON
 Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). В них показано, как копировать данные в базу данных SQL Azure и хранилище BLOB-объектов Azure и обратно. Тем не менее данные можно копировать **непосредственно** из любых источников в любой указанный [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемник. Это делается с помощью действия копирования в фабрике данных Azure.
 
-
-## <a name="sample-copy-data-from-azure-sql-database-to-azure-blob"></a>Пример. Копирование данных из базы данных SQL Azure в BLOB-объект Azure
+## <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Пример. Копирование данных из базы данных SQL Azure в BLOB-объект Azure
 Образец определяет следующие сущности фабрики данных.
 
-1. Связанная служба типа [AzureSqlDatabase](#azure-sql-linked-service-properties).
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureSqlTable](#azure-sql-dataset-type-properties).
-
+1. Связанная служба типа [AzureSqlDatabase](#linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureSqlTable](#dataset-properties).
+4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [SqlSource](#copy-activity-properties) и [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 В этом примере данные, относящиеся к одному временному ряду (за каждый час, каждый день и т. д.), каждый час копируются из таблицы в базе данных SQL Azure в большой двоичный объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.  
 
-**Связанная служба SQL Azure**
+**Связанная служба базы данных SQL Azure:**
 
 ```JSON
 {
@@ -69,7 +181,7 @@ ms.lasthandoff: 03/22/2017
   }
 }
 ```
-Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Связанная служба SQL Azure](#azure-sql-linked-service-properties) .
+Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Связанная служба SQL Azure](#linked-service) .
 
 **Связанная служба хранилища BLOB-объектов Azure**
 
@@ -118,7 +230,7 @@ ms.lasthandoff: 03/22/2017
 }
 ```
 
-Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных Azure SQL»](#azure-sql-dataset-type-properties) .  
+Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных Azure SQL»](#dataset) .  
 
 **Выходной набор данных BLOB-объекта Azure**
 
@@ -179,9 +291,9 @@ ms.lasthandoff: 03/22/2017
   }
 }
 ```
-Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных большого двоичного объекта Azure»](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) .  
+Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных большого двоичного объекта Azure»](data-factory-azure-blob-connector.md#dataset-properties) .  
 
-**Конвейер с действием копирования**
+**Действие копирования в конвейере с базой данных SQL в качестве источника и BLOB-объектом в качестве приемника:**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **SqlSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **SqlReaderQuery** , выбирает для копирования данные за последний час.
 
@@ -235,16 +347,16 @@ ms.lasthandoff: 03/22/2017
 
 Если не указать sqlReaderQuery или sqlReaderStoredProcedureName, то для построения запроса к базе данных SQL Azure будут использованы столбцы, определенные в разделе структуры набора данных JSON. Например, `select column1, column2 from mytable`. Если у определения набора данных нет структуры, выбираются все столбцы из таблицы.
 
-Список свойств, поддерживаемых SqlSource и BlobSink, см. в разделах [SqlSource](#sqlsource) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+Список свойств, поддерживаемых SqlSource и BlobSink, см. в разделах [SqlSource](#sqlsource) и [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-## <a name="sample-copy-data-from-azure-blob-to-azure-sql-database"></a>Пример. Копирование данных из BLOB-объекта Azure в базу данных SQL Azure
+## <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Пример. Копирование данных из BLOB-объекта Azure в базу данных SQL Azure
 Образец определяет следующие сущности фабрики данных.  
 
-1. Связанная служба типа [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
-5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) и [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
+1. Связанная служба типа [AzureSqlDatabase](#linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureSqlTable](#dataset-properties).
+5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) и [SqlSink](#copy-activity-properties).
 
 В этом примере данные, относящиеся к одному временному ряду (за каждый час, каждый день и т. д.), каждый час копируются из большого двоичного объекта Azure в таблицу в базе данных SQL Azure. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -261,7 +373,7 @@ ms.lasthandoff: 03/22/2017
   }
 }
 ```
-Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Связанная служба SQL Azure](#azure-sql-linked-service-properties) .
+Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Связанная служба SQL Azure](#linked-service) .
 
 **Связанная служба хранилища BLOB-объектов Azure**
 
@@ -347,11 +459,11 @@ ms.lasthandoff: 03/22/2017
   }
 }
 ```
-Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных большого двоичного объекта Azure»](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) .
+Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных большого двоичного объекта Azure»](data-factory-azure-blob-connector.md#dataset-properties) .
 
-**Выходной набор данных SQL Azure**
+**Выходной набор данных базы данных SQL Azure:**
 
-В этом примере данные копируются в таблицу MyOutputTable, которая создана в SQL Azure. Создайте таблицу в базе данных SQL Azure с тем количеством столбцов, которое должно быть в CSV-файле большого двоичного объекта. Новые строки добавляются в таблицу каждый час.
+В этом примере данные копируются в таблицу MyTable, которая создана в SQL Azure. Создайте таблицу в базе данных SQL Azure с тем количеством столбцов, которое должно быть в CSV-файле большого двоичного объекта. Новые строки добавляются в таблицу каждый час.
 
 ```JSON
 {
@@ -369,9 +481,9 @@ ms.lasthandoff: 03/22/2017
   }
 }
 ```
-Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных Azure SQL»](#azure-sql-dataset-type-properties) .
+Список свойств, поддерживаемых этим типом набора данных, приведен в разделе [Свойства типа «Набор данных Azure SQL»](#dataset) .
 
-**Конвейер с действием копирования**
+**Действие копирования в конвейере с BLOB-объектом в качестве источника и базой данных SQL в качестве приемника:**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **BlobSource**, а для типа **sink** — значение **SqlSink**.
 
@@ -421,122 +533,8 @@ ms.lasthandoff: 03/22/2017
    }
 }
 ```
-Список свойств, поддерживаемых SqlSink и BlobSource, см. в разделах [SqlSink](#sqlsink) и [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+Список свойств, поддерживаемых SqlSink и BlobSource, см. в разделах [SqlSink](#sqlsink) и [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-linked-service-properties"></a>Свойства связанной службы SQL Azure
-В примерах использовалась связанная служба типа **AzureSqlDatabase** , чтобы связать Базу данных SQL Azure с фабрикой данных. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе SQL Azure.
-
-| Свойство | Описание | Обязательно |
-| --- | --- | --- |
-| type |Для свойства type необходимо задать значение **AzureSqlDatabase** |Да |
-| connectionString |В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных SQL Azure. |Да |
-
-> [!NOTE]
-> [Брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) необходимо настроить, чтобы [разрешить службам Azure получать доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, при копировании данных в базу данных SQL Azure из внешнего по отношению к Azure источника, включая локальные источники данных, с помощью шлюза фабрики данных необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в базу данных SQL Azure.
->
->
-
-## <a name="azure-sql-dataset-type-properties"></a>Свойства типа «Набор данных Azure SQL»
-В примерах использовался набор данных типа **AzureSqlTable** для представления таблицы в Базе данных SQL Azure.
-
-Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
-
-Раздел typeProperties во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел **typeProperties** набора данных с типом **AzureSqlTable** содержит следующие свойства.
-
-| Свойство | Описание | Обязательно |
-| --- | --- | --- |
-| tableName |Имя таблицы или представления в экземпляре базы данных SQL Azure, на которое ссылается связанная служба. |Да |
-
-## <a name="azure-sql-copy-activity-type-properties"></a>Свойства типа "Действие копирования SQL Azure"
-Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (включая имя, описание, входные и выходные таблицы, политику и т. д.) доступны для всех типов действий.
-
-> [!NOTE]
-> Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
->
->
-
-С другой стороны, свойства, доступные в разделе **typeProperties** действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
-
-При перемещении данных из Базы данных SQL Azure в действии копирования задается тип источника **SqlSource**. Аналогично, при перемещении данных в Базу данных SQL Azure в действии копирования задается тип источника **SqlSink**. Этот раздел содержит список свойств, поддерживаемых типами SqlSource и SqlSink.
-
-### <a name="sqlsource"></a>SqlSource
-Для действия копирования, если источник относится к типу **SqlSource**, в разделе **typeProperties** доступны указанные ниже свойства:
-
-| Свойство | Описание | Допустимые значения | Обязательно |
-| --- | --- | --- | --- |
-| SqlReaderQuery |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Пример: `select * from MyTable`. |Нет |
-| sqlReaderStoredProcedureName |Имя хранимой процедуры, которая считывает данные из исходной таблицы. |Имя хранимой процедуры. |Нет |
-| storedProcedureParameters |Параметры для хранимой процедуры. |Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. |Нет |
-
-Если для SqlSource указано **sqlReaderQuery** , то действие копирования выполняет этот запрос для источника базы данных SQL Azure для получения данных. Кроме того, можно создать хранимую процедуру, указав **sqlReaderStoredProcedureName** и **storedProcedureParameters** (если хранимая процедура принимает параметры).
-
-Если не указать sqlReaderQuery или sqlReaderStoredProcedureName, то для построения запроса (`select column1, column2 from mytable`) к базе данных SQL Azure будут использованы столбцы, определенные в разделе структуры набора данных JSON. Если у определения набора данных нет структуры, выбираются все столбцы из таблицы.
-
-> [!NOTE]
-> При использовании **sqlReaderStoredProcedureName** по-прежнему необходимо указать значение свойства **tableName** в наборе данных JSON. Хотя какие-либо проверки этой таблицы отсутствуют.
->
->
-
-### <a name="sqlsource-example"></a>Пример SqlSource
-
-```JSON
-"source": {
-    "type": "SqlSource",
-    "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
-    "storedProcedureParameters": {
-        "stringData": { "value": "str3" },
-        "identifier": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
-    }
-}
-```
-**Определение хранимой процедуры:**
-
-```SQL
-CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
-(
-    @stringData varchar(20),
-    @identifier int
-)
-AS
-SET NOCOUNT ON;
-BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
-    and dbo.UnitTestSrcTable.identifier != identifier
-END
-GO
-```
-
-### <a name="sqlsink"></a>SqlSink
-**SqlSink** поддерживает указанные ниже свойства.
-
-| Свойство | Описание | Допустимые значения | Обязательно |
-| --- | --- | --- | --- |
-| writeBatchTimeout |Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. |Интервал времени<br/><br/> Пример: 00:30:00 (30 минут). |Нет |
-| writeBatchSize |Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. |Целое число (количество строк) |Нет (значение по умолчанию — 10 000). |
-| sqlWriterCleanupScript |Укажите запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза очищены. Дополнительные сведения см. в [разделе о повторяемости](#repeatability-during-copy). |Инструкция запроса. |Нет |
-| sliceIdentifierColumnName |Укажите имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. Дополнительные сведения см. в [разделе о повторяемости](#repeatability-during-copy). |Имя столбца с типом данных binary(32). |Нет |
-| sqlWriterStoredProcedureName |Имя хранимой процедуры, обновляющей данные или вставляющей их в целевую таблицу. |Имя хранимой процедуры. |Нет |
-| storedProcedureParameters |Параметры для хранимой процедуры. |Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. |Нет |
-| sqlWriterTableType |Укажите имя типа таблицы для использования в хранимой процедуре. Действие копирования делает перемещаемые данные доступными во временной таблице этого типа. Код хранимой процедуры затем можно использовать для объединения копируемых и существующих данных. |Имя типа таблицы. |Нет |
-
-#### <a name="sqlsink-example"></a>Пример SqlSink
-
-```JSON
-"sink": {
-    "type": "SqlSink",
-    "writeBatchSize": 1000000,
-    "writeBatchTimeout": "00:05:00",
-    "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-    "sqlWriterTableType": "CopyTestTableType",
-    "storedProcedureParameters": {
-        "identifier": { "value": "1", "type": "Int" },
-        "stringData": { "value": "str1" },
-        "decimalData": { "value": "1", "type": "Decimal" }
-    }
-}
-```
 ## <a name="identity-columns-in-the-target-database"></a>Столбцы идентификаторов в целевой базе данных
 В этом разделе приведен пример копирования данных из исходной таблицы без столбца идентификаторов в целевую таблицу со столбцом идентификаторов.
 
@@ -608,23 +606,24 @@ create table dbo.TargetTbl
 
 Обратите внимание, что у исходной и целевой таблиц разные схемы (в целевой есть дополнительный столбец с идентификаторами). В этом случае необходимо указать свойство **structure** в определении целевого набора данных, которое не включает в себя столбец идентификаторов.
 
-Затем следует сопоставить столбцы из исходного набора данных со столбцами в целевом наборе данных. Ознакомьтесь с примером в разделе [Примеры сопоставления столбцов](#column-mapping-samples) .
+## <a name="map-source-to-sink-columns"></a>Сопоставление столбцов источника и приемника
+Дополнительные сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в [этой статье](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+## <a name="repeatable-copy"></a>Повторяющаяся операция копирования
+При копировании данных в базу данных SQL Server действие копирования по умолчанию добавляет данные в таблицу приемника. Чтобы вместо этого выполнить операцию UPSERT, см. раздел [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) (Повторяющаяся операция записи в SqlSink). 
 
-[!INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)]
+При копировании данных из реляционных хранилищ важно помнить о повторяемости, чтобы избежать непредвиденных результатов. В фабрике данных Azure можно вручную повторно выполнить срез. Вы можете также настроить для набора данных политику повтора, чтобы при сбое срез выполнялся повторно. При повторном выполнении среза в любом случае необходимо убедиться в том, что считываются те же данные, независимо от того, сколько раз выполняется срез. См. раздел о [повторяющихся операциях чтения из реляционных источников](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+## <a name="invoke-stored-procedure-from-sql-sink"></a>Вызов хранимой процедуры из приемника SQL
+Пример вызова хранимой процедуры из приемника SQL в действии копирования в конвейере приведен в статье [Invoke stored procedure from copy activity in Azure Data Factory](data-factory-invoke-stored-procedure-from-copy-activity.md) (Вызов хранимой процедуры из действия копирования в фабрике данных Azure). 
 
-### <a name="type-mapping-for-sql-server--azure-sql-database"></a>Сопоставление типов для компонента SQL Server и базы данных SQL Azure
+## <a name="sql-database-to-net-type-mapping"></a>Сопоставление типов базы данных SQL и .NET
 Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
 
-Когда данные перемещаются в базы данных SQL Azure, SQL Server, Sybase и обратно, для преобразования типа SQL в тип .NET и наоборот используются следующие сопоставления.
-
-Сопоставление аналогично сопоставлению типов данных SQL Server для ADO.NET.
+Когда данные перемещаются в базу данных SQL Azure и обратно, для преобразования типа SQL в тип .NET и наоборот используются следующие сопоставления. Сопоставление аналогично сопоставлению типов данных SQL Server для ADO.NET.
 
 | Тип ядра СУБД SQL Server | Тип .NET Framework |
 | --- | --- |
@@ -660,10 +659,6 @@ create table dbo.TargetTbl
 | varbinary; |Byte[] |
 | varchar. |String, Char[] |
 | xml |xml |
-
-[!INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
-
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.

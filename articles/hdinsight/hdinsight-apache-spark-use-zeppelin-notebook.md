@@ -13,12 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: eadf0611ca46a975c364a1b073828c6c3faf5f77
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9e6e0a696ba27c7758c21fa46754a8539ae2255b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,27 +27,15 @@ ms.lasthandoff: 01/24/2017
 Узнайте, как устанавливать записные книжки Zeppelin в кластеры Apache Spark и использовать эти записные книжки для выполнения заданий Spark.
 
 > [!IMPORTANT]
-> Если вы выполнили подготовку кластеров Spark 1.6 в HDInsight 3.5, то получить доступ к записным книжкам Zeppelin можно по умолчанию, следуя инструкциям из статьи [Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md) (Использование записных книжек Zeppelin с кластером Apache Spark в HDInsight на платформе Linux). Если вы хотите использовать Zeppelin в кластере HDInsight версий 3.3 и 3.4 или Spark 2.0 в HDInsight версии 3.5, то необходимо выполнить инструкции по установке Zeppelin, приведенные в этой статье.
+> Если вы подготовили кластер Spark 1.6 в HDInsight 3.5, то получить доступ к Zeppelin можно по умолчанию, следуя инструкциям из статьи [Использование записных книжек Zeppelin с кластером Apache Spark в Azure HDInsight](hdinsight-apache-spark-zeppelin-notebook.md). Если вы хотите использовать Zeppelin в кластере HDInsight версий 3.3 или 3.4, то необходимо выполнить инструкции по установке Zeppelin, приведенные в этой статье.
 >
->
+> Использовать сценарии в этой статье для установки Zeppelin в кластерах Spark 2.0 невозможно.
 
-**Предварительные требования:**
+## <a name="prerequisites"></a>Предварительные требования
 
-* Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* У вас должна быть подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-  > [!NOTE]
-  > Если вы планируете использовать клиент SSH, отличный от `ssh` или PuTTY, обратитесь к документации своего клиента за информацией о настройке туннеля SSH.
-  >
-  >
-* Веб-браузер, который можно настроить на использование прокси-сервера SOCKS
-* **(Необязательно)**: подключаемый модуль, такой как [FoxyProxy](http://getfoxyproxy.org/,) , который может применить правила маршрутизации для пропускания через туннель только определенных запросов.
-
-  > [!WARNING]
-  > Без такого подключаемого модуля, как FoxyProxy, все запросы, сделанные через браузер, могут направляться через туннель. Это может привести к замедлению загрузки веб-страниц в браузере.
-  >
-  >
 
 ## <a name="install-zeppelin-on-a-spark-cluster"></a>Установка Zeppelin в кластер Spark
 Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Можно использовать пользовательский сценарий для установки Zeppelin с портала Azure, воспользовавшись пакетом SDK для HDInsight .NET или Azure PowerShell. Этот сценарий можно использовать для установки Zeppelin при создании кластера или после его подготовки и запуска. Сведения о том, как это сделать, можно получить, воспользовавшись ссылками в следующих разделах.

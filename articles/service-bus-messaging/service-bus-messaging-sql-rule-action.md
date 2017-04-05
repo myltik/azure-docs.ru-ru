@@ -1,5 +1,5 @@
 ---
-title: "Справочник по синтаксису SQLRuleAction | Документация Майкрософт"
+title: "Справочник по синтаксису SQLRuleAction в Azure | Документация Майкрософт"
 description: "Сведения о грамматике SQLRuleAction."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5fb6b670ffa496d6626347bc50d537d35d51e08c
-ms.openlocfilehash: b2a5e72860535d92b94063ff9f58aadd6002cfb2
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b4cc2ce4d05b035829584a610d52e6079a13a9c1
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -224,9 +225,4 @@ ms.openlocfilehash: b2a5e72860535d92b94063ff9f58aadd6002cfb2
 
 - [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) (Класс SQLRuleAction)
 - [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) (Класс SQLFilter)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

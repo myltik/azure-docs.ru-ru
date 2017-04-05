@@ -1,5 +1,5 @@
 ---
-title: "Использование разделов служебной шины с Java | Документация Майкрософт"
+title: "Как использовать разделы служебной шины Azure с помощью Java | Документация Майкрософт"
 description: "Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Java."
 services: service-bus-messaging
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
 Разделы и подписки Service Bus обеспечивают возможность масштабирования для обработки очень большого количества сообщений для очень большого количества пользователей и приложений.
 
 ## <a name="create-a-service-namespace"></a>Создание пространства имен службы
-Чтобы начать использование разделов и подписок служебной шины в Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
+Чтобы начать использование разделов и подписок служебной шины в Azure, необходимо сначала создать пространство имен, которое предоставляет контейнер, предназначенный для ресурсов служебной шины в вашем приложении.
 
 Создание пространства имен службы:
 
@@ -48,7 +49,7 @@ ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Добавьте в начало Java-файла следующие инструкции import:
+Добавьте в начало Java-файла следующие инструкции `import`:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -150,7 +151,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Сообщения, отправляемые в разделы служебной шины, — это экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage]* имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][BrokeredMessage] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream* *.
+Сообщения, отправляемые в разделы служебной шины, — это экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage]*имеют набор стандартных методов (например,**setLabel**и**TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][BrokeredMessage] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream* *.
 
 В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestTopic` объекта **MessageSender**, полученного в предыдущем фрагменте кода.
 Обратите внимание, что значение свойства **MessageNumber** всех сообщений зависит от итерации цикла (определяет, какие подписки получают их).
@@ -263,9 +264,4 @@ service.deleteTopic("TestTopic");
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
 [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
 [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

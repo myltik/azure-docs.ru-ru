@@ -45,6 +45,8 @@
 ## [Протоколы аутентификации](active-directory-b2c-reference-protocols.md)
 ## [Маркеры](active-directory-b2c-reference-tokens.md)
 
+## [Предотвращение угроз](active-directory-b2c-reference-threat-management.md)
+
 # Сопутствующие материалы
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Многофакторная идентификация](../multi-factor-authentication/multi-factor-authentication.md)
@@ -55,7 +57,3 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Поддержка](active-directory-b2c-support.md)
-
-<!--HONumber=Nov16_HO4-->
-
-

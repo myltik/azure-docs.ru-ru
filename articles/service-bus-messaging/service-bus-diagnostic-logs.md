@@ -2,10 +2,10 @@
 title: "Журналы диагностики служебной шины Azure | Документация Майкрософт"
 description: "Узнайте, как настроить журналы диагностики для служебной шины в Azure."
 keywords: 
-documentationcenter: 
+documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
-manager: 
+manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/17/2017
-ms.author: babanisa
+ms.date: 03/23/2017
+ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b8ed786fe0c049d9be7ba1ca1cb6adef1950b8e9
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="service-bus-diagnostic-logs"></a>Журналы диагностики служебной шины
 
 Для служебной шины Azure можно просмотреть журналы двух типов.
-* **[Журналы действий](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Эти журналы содержат сведения об операциях, выполняемых с заданием. Эти журналы всегда включены.
+* **[Журналы действий](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Эти журналы содержат сведения об операциях, выполненных с заданием. Данные журналы всегда включены.
 * **[Журналы диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Вы можете настроить журналы диагностики, чтобы получать более подробные сведения обо всем, что происходит с заданием. Журналы диагностики охватывают действия с момента создания задания до его удаления, включая обновления и действия, которые происходят во время выполнения задания.
 
 ## <a name="turn-on-diagnostic-logs"></a>Включение журналов диагностики
-По умолчанию журналы диагностики **отключены**. Вот как их можно включить.
+По умолчанию журналы диагностики отключены. Чтобы включить журналы диагностики, выполните следующее.
 
-1.    На портале Azure перейдите в колонку задания потоковой передачи.
+1.    На [портале Azure](https://portal.azure.com) перейдите в колонку задания потоковой передачи.
 
 2.    В разделе **Мониторинг** перейдите в колонку **Журналы диагностики**.
 
     ![Перемещение к колонке журналов диагностики](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.    Выберите **Включить диагностику**.
+3.    Щелкните **Включить диагностику**.
 
     ![Включение журналов диагностики](./media/service-bus-diagnostic-logs/image2.png)
 
-4.    Для параметра **Состояние** выберите значение **Вкл**.
+4.    Для параметра **Состояние** щелкните **Вкл**.
 
     ![Изменение состояния журналов диагностики](./media/service-bus-diagnostic-logs/image3.png)
 
@@ -96,5 +96,5 @@ Example:
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Основные сведения о служебной шине](service-bus-messaging-overview.md)
-* [Приступая к работе со служебной шиной](service-bus-create-namespace-portal.md)
+* [Приступая к работе со служебной шиной](service-bus-dotnet-get-started-with-queues.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Добавление шлюза виртуальной сети в виртуальную сеть для ExpressRoute с помощью Resource Manager и PowerShell | Документация Майкрософт"
-description: "В этой статье рассматривается добавление шлюза виртуальной сети в уже созданную виртуальную сеть диспетчера ресурсов для ExpressRoute."
+title: "Добавление шлюза виртуальной сети в виртуальную сеть для канала ExpressRoute с помощью PowerShell в Azure | Документация Майкрософт"
+description: "В этой статье рассматривается добавление шлюза виртуальной сети в уже созданную виртуальную сеть Resource Manager для ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 03/24/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
-ms.openlocfilehash: 80ffdd66a02f84b844b660e6c88586d4e99ff9e7
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8abcb506243d0cc86d3d65431cd40b3a6d08063c
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью диспетчера ресурсов и PowerShell
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Классическая модель: PowerShell](expressroute-howto-add-gateway-classic.md)

@@ -52,7 +52,7 @@
 ### [Состояние репликации AD](log-analytics-ad-replication-status.md)
 ### [Управление оповещениями](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [Управление емкостью](log-analytics-capacity.md)
+### [Емкость и производительность](log-analytics-capacity.md)
 ### [Отслеживание изменений](log-analytics-change-tracking.md)
 ### [Контейнеры](log-analytics-containers.md)
 ### [хранилище ключей;](log-analytics-azure-key-vault.md)

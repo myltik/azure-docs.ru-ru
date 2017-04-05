@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3c07980e09362eabdfc80483213b62912e64ecf6
-ms.openlocfilehash: b57dc0b699d7f7e6d539d6622b3d2769adf4257d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c18d17d40dff658a8fc47ef2126dd2c21b68606a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -88,12 +89,7 @@ DocumentDB обеспечивает гибкость схемы данных и 
 В этой статье мы рассмотрели способы хранения, индексирования и получения значений дат и времени в DocumentDB.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Загрузите и запустите [примеры, хранящиеся на Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Скачайте и запустите [примеры кода, хранящиеся на GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples).
 * Узнайте подробнее о [Запросах в DocumentDB](documentdb-sql-query.md)
 * Узнайте подробнее о [Политиках индексирования DocumentDB](documentdb-indexing-policies.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

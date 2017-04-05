@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Создание и изменение канала ExpressRoute
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Создание и изменение канала ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager — PowerShell](expressroute-howto-circuit-arm.md)
-> * [Классическая модель: PowerShell](expressroute-howto-circuit-classic.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
@@ -38,13 +37,13 @@ ms.lasthandoff: 03/14/2017
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Перед началом работы
-* Установите последнюю версию модулей Azure PowerShell (не ниже 1.0). Пошаговые инструкции по настройке компьютера для использования модулей PowerShell см. на странице [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Потребуется установить последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения см. в разделе [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 * Изучите [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Войдите в учетную запись Azure и выберите подписку.
-Чтобы начать настройку, войдите в свою учетную запись Azure. Дополнительные сведения о PowerShell см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md). Для подключения используйте следующие примеры:
+Чтобы начать настройку, войдите в свою учетную запись Azure. Для подключения используйте следующие примеры:
 
     Login-AzureRmAccount
 

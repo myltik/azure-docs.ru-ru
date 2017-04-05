@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: af104d47d316b3e46108e7e2ed0771bd06f360af
-ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -81,7 +82,7 @@ ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
 
 ### <a name="multi-factor-authentication-and-location-policies"></a>Многофакторная идентификация и политики расположения
 * [Приступая к работе с условным доступом Azure Active Directory](active-directory-conditional-access-azuread-connected-apps.md)
-* [Поддержка условного доступа для приложений](active-directory-conditional-access-supported-apps.md)
+* [Поддерживаемые приложения и браузеры](active-directory-conditional-access-supported-apps.md)
 
 ### <a name="device-based-conditional-access"></a>Условный доступ на основе устройств
 * [Настройка политики условного доступа на основе устройств Azure Active Directory для контроля доступа к подключаемым приложениям Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
@@ -95,10 +96,5 @@ ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
 ### <a name="next-steps"></a>Дальнейшие действия
 * [Условный доступ к Azure Active Directory: часто задаваемые вопросы](active-directory-conditional-faqs.md)
 * [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

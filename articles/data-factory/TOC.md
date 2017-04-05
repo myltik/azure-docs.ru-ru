@@ -25,10 +25,11 @@
 
 # Практическое руководство
 ## Перемещение данных
+### [Общие сведения о действии копирования](data-factory-data-movement-activities.md)
 ### [Мастер копирования фабрики данных](data-factory-azure-copy-wizard.md)
 #### [Загрузка 1 ТБ в течение 15 минут](data-factory-load-sql-data-warehouse.md)
-### [Действие копирования](data-factory-data-movement-activities.md)
-#### [Руководство по настройке и производительности](data-factory-copy-activity-performance.md)
+### [Руководство по производительности и настройке](data-factory-copy-activity-performance.md)
+### Соединители
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Хранилище BLOB-объектов Azure](data-factory-azure-blob-connector.md)
@@ -52,16 +53,14 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Веб-таблица](data-factory-web-table-connector.md)
 ### [Шлюз управления данными](data-factory-data-management-gateway.md)
 ### [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md)
-### [Сопоставление входных и выходных столбцов набора данных](data-factory-map-columns.md)
-### [Поддерживаемые форматы файлов и сжатия](data-factory-supported-file-and-compression-formats.md)
 
 ## [Преобразование данных](data-factory-data-transformation-activities.md)
 ### [Действие Hive HDInsight](data-factory-hive-activity.md)
@@ -100,9 +99,9 @@
 ### [Рекомендации по продуктам](data-factory-product-reco-usecase.md)
 ### [Профилирование клиентов](data-factory-customer-profiling-usecase.md)
 ### [Обработка больших наборов данных с помощью фабрики данных и пакетной службы](data-factory-data-processing-using-batch.md)
-## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Цены](https://azure.microsoft.com/pricing/details/data-factory/)
-## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)

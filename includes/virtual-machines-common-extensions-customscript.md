@@ -6,7 +6,7 @@
 Шаблон Azure Resource Manager позволяет декларативно задать инфраструктуру IaaS Azure на языке JSON, установив зависимости между ресурсами. Более подробно шаблоны диспетчера ресурсов Azure рассматриваются в следующих статьях.
 
 * [Общие сведения о группе ресурсов](../articles/azure-resource-manager/resource-group-overview.md)
-* [Развертывание шаблонов с помощью Azure Powershell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Развертывание шаблонов с помощью Azure Powershell](../articles/virtual-machines/windows/ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="prerequisites"></a>Предварительные требования
 1. Скачайте программы командной строки Azure для своей операционной системы [отсюда](https://azure.microsoft.com/downloads/).

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/17/2016
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -266,6 +266,11 @@ Service Fabric создает расширенную копию содержим
 В журналах консоли можно отслеживать работоспособность гостевых исполняемых файлов. В частности, из этих журналов можно узнать, не возвращают ли сценарии приложения и конфигурации какие-либо ошибки.
 Перенаправление консоли можно настроить в файле `ServiceManifest.xml` в элементе `ConsoleRedirection`.
 
+> [!WARNING]
+> Никогда не используйте политику перенаправления консоли для приложений в рабочей среде, так как она может повлиять на отработку отказа приложения. Используйте ее *только* для локальной разработки и отладки.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -286,7 +291,7 @@ Service Fabric создает расширенную копию содержим
 Файлы журналов сохраняются в один из рабочих каталогов службы. Чтобы определить, где находятся файлы, откройте Service Fabric Explorer и посмотрите, на каком узле запущена служба и какой рабочий каталог используется. Эта процедура рассмотрена далее в этой статье.
 
 ## <a name="deployment"></a>Развертывание
-Последним шагом является развертывание приложения. В приведенном ниже скрипте PowerShell показано, как можно развернуть приложение в локальном кластере разработки и запустить новую службу Service Fabric.
+Последним шагом является [развертывание приложения](service-fabric-deploy-remove-applications.md). В приведенном ниже скрипте PowerShell показано, как можно развернуть приложение в локальном кластере разработки и запустить новую службу Service Fabric.
 
 ```PowerShell
 
@@ -303,6 +308,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> [Сожмите пакет](service-fabric-package-apps.md#compress-a-package) перед копированием в хранилище образов, если пакет имеет большой размер или содержит много файлов. Дополнительные сведения см. [здесь](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+>
+
 Службу Service Fabric можно развертывать в разных конфигурациях. Например, службу можно развернуть с одним или несколькими экземплярами. Также можно развернуть по одному экземпляру службы на каждом узле кластера Service Fabric.
 
 Параметр `InstanceCount` командлета `New-ServiceFabricService` позволяет указать, сколько экземпляров службы следует запускать в кластере Service Fabric. Значение `InstanceCount` следует задавать в зависимости от типа развертываемого приложения. Ниже приводятся два самых распространенных сценария.

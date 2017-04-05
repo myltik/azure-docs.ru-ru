@@ -36,7 +36,7 @@ docker run -it microsoft/azure-cli
 Теперь [войдите в систему с помощью учетной записи Azure](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login): введите `azure login` и следуйте подсказкам по интерактивному входу в учетную запись Azure. 
 
 > [!NOTE]
-> Если у вас есть рабочий или учебный идентификатор и известно, что двухфакторная проверка подлинности не включена, можно **также** использовать `azure login -u` совместно с рабочим или учебным идентификатором для входа *без* интерактивного сеанса. Если у вас нет рабочего или учебного идентификатора, его можно [создать из личной учетной записи Майкрософт](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и далее выполнять вход так, как описано выше.
+> Если у вас есть рабочий или учебный идентификатор и известно, что двухфакторная проверка подлинности не включена, можно **также** использовать `azure login -u` совместно с рабочим или учебным идентификатором для входа *без* интерактивного сеанса. Если у вас нет рабочего или учебного идентификатора, его можно [создать из личной учетной записи Майкрософт](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и далее выполнять вход так, как описано выше.
 >
 >
 
@@ -100,7 +100,7 @@ data:
 info:    group create command OK
 ```
 
-Затем вам понадобится образ. Чтобы найти образ с помощью интерфейса командной строки Azure, ознакомьтесь со статьей [Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и интерфейса командной строки Azure](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). В данной же статье ниже приведен краткий список часто используемых образов. В этой задаче по быстрому созданию мы используем образ с номером SKU Stable и издателем CoreOS.
+Затем вам понадобится образ. Чтобы найти образ с помощью интерфейса командной строки Azure, ознакомьтесь со статьей [Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и интерфейса командной строки Azure](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). В данной же статье ниже приведен краткий список часто используемых образов. В этой задаче по быстрому созданию мы используем образ с номером SKU Stable и издателем CoreOS.
 
 > [!NOTE]
 > Кроме того, для параметра ComputeImageVersion можно использовать значение latest как в языке шаблона, так и в интерфейсе командной строки Azure. Это позволит вам всегда использовать последнюю исправленную версию образа без необходимости изменять сценарии или шаблоны. Такой способ показан ниже.
@@ -232,7 +232,7 @@ info:    vm quick-create command OK
 * доменное имя для внешнего использования;
 * номер версии Ubuntu Server, который содержится в списке.
 
-См. дополнительные сведения о [требованиях к имени пользователя и паролю](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+См. дополнительные сведения о [требованиях к имени пользователя и паролю](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 Как только вы задали эти значения, вы можете приступить к созданию группы для шаблона и развернуть его в подписке Azure.
 
@@ -1264,7 +1264,7 @@ info:    vm show command OK
 >
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Задача: вход в виртуальную машину под управлением ОС Linux
-Как правило, к компьютерам Linux можно подключиться через SSH-порт. Дополнительные сведения см. в статье [Как использовать SSH с Linux в Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Как правило, к компьютерам Linux можно подключиться через SSH-порт. Дополнительные сведения см. в статье [Как использовать SSH с Linux в Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Задача: остановка виртуальной машины
 Выполните следующую команду:
@@ -1305,4 +1305,4 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные примеры использования интерфейса командной строки Azure в режиме **ARM** см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../articles/xplat-cli-azure-resource-manager.md). Дополнительные сведения о ресурсах Azure и их основных понятиях см. в статье [Обзор Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
-Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Развертывание популярных платформ приложений с помощью шаблонов Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Развертывание популярных платформ приложений с помощью шаблонов Azure Resource Manager](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

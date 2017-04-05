@@ -44,6 +44,6 @@
 ## <a name="next-steps"></a>Дальнейшие действия
 После создания виртуальной машины она запускается автоматически. Когда отображается состояние портала "Выполняется", можно войти в виртуальную машину. Указания см. в одной из следующих статей:
 
-* [Создание пары из открытого и закрытого ключей SSH для виртуальных машин Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Создание пары из открытого и закрытого ключей SSH для виртуальных машин Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Вход в виртуальную машину под управлением Windows с помощью классического портала Azure](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

@@ -23,18 +23,12 @@
 ## Создание и изменение конфигурации пиринга
 ### [Портал Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (классическая модель)](expressroute-howto-routing-classic.md)
 ## Связывание виртуальной сети с каналом ExpressRoute
 ### [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (классическая модель)](expressroute-howto-linkvnet-classic.md)
-## Настройка шлюза виртуальной сети для ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (классическая модель)](expressroute-howto-add-gateway-classic.md)
-## Создание сосуществующих подключений VPN-шлюза типа "сеть — сеть" и ExpressRoute
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (классическая модель)](expressroute-howto-coexist-classic.md)
-## [Перенос канала из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
+## [Настройка шлюза виртуальной сети для ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
+## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## Настройка маршрутизатора для ExpressRoute
 ### [Настройка маршрутизатора](expressroute-config-samples-routing.md)
 ### [Примеры конфигурации маршрутизатора для NAT](expressroute-config-samples-nat.md)

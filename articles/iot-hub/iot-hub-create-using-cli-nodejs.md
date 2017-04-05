@@ -12,19 +12,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 1be7dc038f1bc864e7c6461b616449d75ecda439
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Введение
+
 Вы можете использовать Azure CLI (azure.js), чтобы создать Центр Интернета вещей Azure программным способом и управлять им. В этой статье рассказывается, как создать Центр Интернета вещей с помощью Azure CLI.
 
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
@@ -36,84 +38,84 @@ ms.lasthandoff: 02/27/2017
 
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 * [Интерфейс командной строки Azure 0.10.4][lnk-CLI-install] или более поздней версии. Если установлен Azure CLI, можно проверить его текущую версию в командной строке, выполнив следующую команду:
-  ```
-    azure --version
-  ```
+
+```azurecli
+azure --version
+```
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). Интерфейс командной строки Azure нужно переключить в режим Azure Resource Manager:
-> 
-> ```
+>
+> ```azurecli
 > azure config mode arm
 > ```
-> 
-> 
 
 ## <a name="set-your-azure-account-and-subscription"></a>Настройка учетной записи и подписки Azure
+
 1. Выполните вход, введя в командной строке следующую команду:
-   
-   ```
+
+   ```azurecli
     azure login
    ```
+
    Пройдите аутентификацию, используя предлагаемый браузер и код.
-2. Если у вас есть несколько подписок Azure, то при подключении к Azure вы получаете доступ ко всем подпискам Azure, связанным с вашими учетными данными. Вы можете просмотреть подписки Azure, а также узнать, какая из них используется по умолчанию, выполнив команду:
-   
-   ```
-    azure account list 
+1. Если у вас есть несколько подписок Azure, то при подключении к Azure вы получаете доступ ко всем подпискам Azure, связанным с вашими учетными данными. Вы можете просмотреть подписки Azure, а также узнать, какая из них используется по умолчанию, выполнив команду:
+
+   ```azurecli
+    azure account list
    ```
 
    Чтобы задать контекст подписки, в котором будут выполняться остальные команды, используйте следующую команду:
 
-   ```
+   ```azurecli
     azure account set <subscription name>
    ```
 
-3. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана:
-   ```
+1. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана:
+
+   ```azurecli
     azure group create -n exampleResourceGroup -l westus
    ```
 
 > [!TIP]
-> Дополнительные сведения об управлении ресурсами и группами ресурсов Azure с помощью Azure CLI см. в [этой статье][lnk-CLI-arm]. 
-> 
-> 
+> Дополнительные сведения об управлении ресурсами и группами ресурсов Azure с помощью Azure CLI см. в [этой статье][lnk-CLI-arm].
 
 ## <a name="create-an-iot-hub"></a>Создание центра IoT
+
 Ниже перечислены необходимые параметры:
 
+```azurecli
+azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>
 ```
- azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>  
-    - <resourceGroup> The resource group name (case insensitive alphanumeric, underscore and hyphen, 1-64 length)
-    - <name> (The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore and hyphen, 3-50 length )
-    - <location> (The location (azure region/datacenter) where the IoT hub will be provisioned.
-    - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
-    - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
-```
+
+* **resource-group**. Имя группы ресурсов. Может содержать 1–64 знака (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
+* **name**. Имя создаваемого Центра Интернета вещей. Может содержать 3–50 знаков (буквы, цифры, подчеркивания и дефисы). Регистр знаков не учитывается.
+* **location**. Расположение (регион или центр обработки данных Azure) для подготовки Центра Интернета вещей.
+* **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Наиболее актуальный и полный список доступен на странице цен а Центр Интернета вещей.
+* **units**. Количество подготовленных единиц. Диапазон: F1 [1]; S1, S2 [1–200]; S3 [1–10]. Единицы Центра Интернета вещей зависят от общего количества сообщений и количества устройств, к которым требуется подключаться.
+
 Чтобы просмотреть все параметры для создания, можно воспользоваться командой справки в командной строке:
 
+```azurecli
+azure iothub create -h
 ```
-    azure iothub create -h 
-```
-Краткий пример:
 
- Чтобы создать Центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, выполните следующую команду:
+Быстрый пример. Чтобы создать Центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, выполните следующую команду.
 
-```
-    azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
+```azurecli
+azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
 > Эта команда интерфейса командной строки Azure создает стандартный центр Интернета вещей S1, за который взимается плата. Чтобы удалить Центр Интернета вещей **exampleIoTHubName**, выполните следующую команду:
-> 
-> ```
+>
+> ```azurecli
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
 > ```
-> 
-> 
-> 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
+
+Дополнительные сведения о разработке для Центра Интернета вещей см. в следующей статье:
 
 * [Пакеты SDK для Центра Интернета вещей][lnk-sdks]
 

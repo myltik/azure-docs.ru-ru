@@ -3,8 +3,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -112,7 +113,7 @@ foreach (UserProfile activeUser in query)
 Особый случай секционирования по диапазону — диапазон из всего одного значения, что иногда называют "уточняющим секционированием". Оно часто используется для секционирования по региону (например, секция для Скандинавии содержит Норвегию, Данию и Швецию) или клиентов секционирования в мультитенантном приложении.
 
 ## <a name="samples"></a>Примеры
-Рассмотрим [проект примеров секционирование DocumentDB на портале Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning), содержащий фрагменты кода, в которых показано, как использовать эти сопоставители и расширить их для реализации собственных сопоставителей в соответствии с вашими требованиям, например как в следующем случае: 
+Рассмотрим [проект примеров секционирования DocumentDB на портале GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning), содержащий фрагменты кода, в которых показано, как использовать эти сопоставители и расширить их для реализации собственных сопоставителей в соответствии с вашими требованиям, например как в следующем случае: 
 
 * Как указать произвольное лямбда-выражение для GetPartitionKey и использовать его для реализации составных ключей секционирования или для секционирования различных типов объектов по-разному.
 * Как создать простой сопоставитель [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) , который использует ручную таблицу уточняющих запросов для секционирования. Этот шаблон часто используется для секционирования на основе дискретных значений, таких как регион, идентификатор клиента или имя приложения.
@@ -151,14 +152,9 @@ foreach (UserProfile activeUser in query)
 ## <a name="references"></a>Ссылки
 * [Секционирование на стороне сервера в DocumentDB](documentdb-partition-data.md)
 * [Коллекции и уровни производительности DocumentDB](documentdb-performance-levels.md)
-* [Примеры кода секционирования на Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
+* [Примеры кода секционирования на GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Документацию для DocumentDB .NET SDK на портале MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Примеры DocumentDB .NET](https://github.com/Azure/azure-documentdb-net)
 * [Блог с советами по повышению производительности DocumentDB](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

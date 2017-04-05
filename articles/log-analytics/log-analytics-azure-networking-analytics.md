@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 1095267ce0c2a922d4bd9cb95a607ce8993df310
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9b0936299d506e951e45d54f630657c187ec6820
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Решения для мониторинга сетей Azure в Log Analytics
 
 Log Analytics предлагает следующие решения для мониторинга сетей.
-* Монитор производительности сети:
+* Монитор производительности сети (NPM):
  * отслеживание работоспособности сети.
 * Анализ шлюзов приложений Azure для проверки:
  * журналы шлюза приложений Azure;
@@ -37,8 +37,6 @@ Log Analytics предлагает следующие решения для мо
 * общедоступное облако и локальная среда; 
 * центры обработки данных и расположения пользователей (филиалы);
 * подсети, в которых размещены различные уровни многоуровневого приложения.
-
- ![Изображение монитора производительности сети](./media/log-analytics-network-performance-monitor/npm-topology.png)
 
 Дополнительную информацию см. в статье [Решение монитора производительности сети в Azure Log Analytics](log-analytics-network-performance-monitor.md).
 
@@ -76,7 +74,7 @@ Log Analytics предлагает следующие решения для мо
 
 Шлюзы приложений поддерживают следующие метрики:
 
-* пропускная способность за&5; минут.
+* пропускная способность за 5 минут.
 
 ### <a name="install-and-configure-the-solution"></a>Установка и настройка решения
 Установите и настройте решение для анализа шлюзов приложений Azure, выполнив следующие указания:

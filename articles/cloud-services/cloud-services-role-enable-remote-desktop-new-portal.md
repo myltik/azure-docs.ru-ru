@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: a2dec2daa4be60a4a53a98164265171bf898cafb
-ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,12 +66,11 @@ ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
 
 4. Щелкните **Открыть**, а затем — **Подключить**, чтобы установить подключение к удаленному рабочему столу.
 
-## <a name="next-steps"></a>Дальнейшие действия
+>[!NOTE]
+> Если облачная служба защищена NSG, может потребоваться создать правило, чтобы открыть порт **20000**.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
 
 [Настройка облачных служб](cloud-services-how-to-configure.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
+[Часто задаваемые вопросы об облачных службах](cloud-services-faq.md#remote-desktop)
 

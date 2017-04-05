@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4debaeaf879b0c79c05420fdbbd8735da1d015
-ms.openlocfilehash: d1b6b5b46b3329471388e178c3ea06f881003c48
-ms.lasthandoff: 02/01/2017
-
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 446f4257979e6725186b32ad65cef31cdd3e7ede
+ms.lasthandoff: 03/24/2017
 
 ---
+
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Размеры виртуальных машин Linux в Azure
 В этой статье описаны доступные размеры и разновидности виртуальных машин Azure, которые можно использовать для запуска приложений и рабочих нагрузок Linux. Здесь также предоставлены рекомендации по развертыванию, которые нужно учитывать при планировании использования этих ресурсов. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -29,12 +29,34 @@ ms.lasthandoff: 02/01/2017
 > * Подробнее о ценах на различные размеры см. в разделе [Цены на виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 > * Доступность размеров виртуальных машин см. в статье [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/).
 > * Сведения об общих ограничениях виртуальных машин Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
+> * Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](virtual-machines-linux-acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
 > 
 > 
 
 <br>   
 
 
-[!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
+| Тип                     | Размеры           |    Описание       |
+|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [Универсальные](virtual-machines-linux-sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0–A7,  | Сбалансированное соотношение ресурсов ЦП и памяти. Идеальное решение для тестирования и разработки, небольших и средних баз данных, а также веб-серверов с небольшим или средним объемом трафика. |
+| [Оптимизированные для вычислений](virtual-machines-linux-sizes-compute.md)        | Fs, F             | Высокое соотношение ресурсов ЦП и памяти. Подходят для веб-серверов со средним объемом трафика, сетевых устройств, пакетных процессов и серверов приложений.        |
+| [Оптимизированные для памяти](virtual-machines-linux-sizes-memory.md)         | GS, G, DSv2, DS   | Высокое соотношение ресурсов памяти и ядер. Отлично подходят для серверов реляционной базы данных, кэша среднего и большого объема, а также выполняющейся в памяти аналитики.                 |
+| [Оптимизированные для хранилища](virtual-machines-linux-sizes-storage.md)        | Ls                | Высокая пропускная способность дисков и количество операций ввода-вывода. Идеальный вариант для работы с большими данными, а также с базами данных SQL и NoSQL.                                                         |
+| [GPU](virtual-machines-linux-sizes-gpu.md)            | NV, NC            | Специализированные виртуальные машины, предназначенные для ресурсоемкой отрисовки изображений и редактирования видео. Доступны виртуальные машины одним или несколькими GPU.       |
+| [Для высокопроизводительных вычислений](virtual-machines-linux-sizes-hpc.md) | H, A8–A11          | Виртуальные машины с самыми быстрыми и мощными ЦП, для которых можно настроить сетевые интерфейсы с высокой пропускной способностью (RDMA). 
+
+<br>
+
+Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](virtual-machines-linux-acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
+
+Узнайте больше о различных доступных размерах виртуальных машин.
+- [Универсальные](virtual-machines-linux-sizes-general.md)
+- [Оптимизированные для вычислений](virtual-machines-linux-sizes-compute.md)
+- [Оптимизированные для памяти](virtual-machines-linux-sizes-memory.md)
+- [Оптимизированные для хранилища](virtual-machines-linux-sizes-storage.md)
+- [GPU](virtual-machines-linux-sizes-gpu.md)
+- [Для высокопроизводительных вычислений](virtual-machines-linux-sizes-hpc.md)
+
+
 
 

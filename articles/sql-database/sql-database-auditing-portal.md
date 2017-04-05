@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 2/25/2017
 ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e20a30a565198c01f213895a87fe8807a37272cb
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Настройка аудита базы данных SQL и управление им на портале Azure
 
-Здесь описывается настройка аудита и управление им на портале Azure. Сведения о настройке аудита и управлении им с помощью PowerShell см. в разделе [Настройка аудита базы данных SQL и управление им с помощью PowerShell](sql-database-auditing-powershell.md). 
+Здесь описывается настройка аудита и управление им на портале Azure. Сведения о настройке аудита и управлении им с помощью PowerShell см. в разделе [Настройка аудита базы данных SQL и управление им с помощью PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
 
 Общие сведения об аудите базы данных SQL см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing.md).
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Сведения о настройке аудита базы данных и управлении им с помощью PowerShell см. в разделе [Настройка аудита базы данных SQL и управление им с помощью PowerShell](sql-database-auditing-powershell.md).
+* Сведения о настройке аудита базы данных и управлении им с помощью PowerShell см. в разделе [Настройка аудита базы данных SQL и управление им с помощью PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 * Общие сведения об аудите базы данных см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing.md).
 
 

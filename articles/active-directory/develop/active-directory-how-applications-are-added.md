@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: ceb16b1431d689fb7d56c4dd588b50914357680a
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -131,7 +132,7 @@ ms.openlocfilehash: ceb16b1431d689fb7d56c4dd588b50914357680a
 Дополнительные сведения о добавлении приложений в Azure AD и настройке служб для приложений.
 
 * Разработчики: [Как интегрировать приложение с AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* Разработчики: [Просмотр примеров кода для приложений, интегрированных с Active Directory Azure на Github](https://github.com/AzureADSamples)
+* Разработчики: [Просмотр примеров кода для приложений, интегрированных с Azure Active Directory, на сайте GitHub](https://github.com/AzureADSamples).
 * Разработчики и ИТ-специалисты: [Просмотр документации по REST API для Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 * ИТ-специалисты: [Использование приложений, предварительно интегрированных с Azure Active Directory, из коллекции приложений](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 * ИТ-специалисты: [Учебники для настройки предварительно интегрированных приложений](https://msdn.microsoft.com/library/azure/dn893637.aspx)
@@ -143,9 +144,4 @@ ms.openlocfilehash: ceb16b1431d689fb7d56c4dd588b50914357680a
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
